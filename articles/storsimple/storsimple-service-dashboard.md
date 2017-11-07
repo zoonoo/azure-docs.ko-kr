@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>StorSimple 관리자 서비스 대시보드 사용
 ## <a name="overview"></a>개요
@@ -68,10 +68,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 장치 문제 해결](storsimple-troubleshoot-operational-device.md)방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,7 +3,7 @@ title: "Azure Blob Storage 끝점에 대한 사용자 지정 도메인 이름 �
 description: "Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure Storage 계정의 Blob Storage 끝점에 매핑합니다."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: e05f9428b0e0ef94bb499a3caa2e1f9f02d475d3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
 
@@ -164,4 +163,3 @@ Azure Portal에서 다음을 수행하여 사용자 지정 도메인 설정을 �
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 도메인을 Azure CDN(Content Delivery Network) 끝점에 매핑](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)
-

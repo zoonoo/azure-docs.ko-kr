@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8ca04ac79665d5ecc639addd48939f71825f2024
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -79,7 +78,7 @@ ms.lasthandoff: 09/02/2017
             ],
     ```
 
-2. 클러스터의 각 노드에서 구성되어야 하는 여러 IP 주소를 허용하도록 네트워크 프로필 섹션을 설정합니다. 다음 예제에서는 Windows Service Fabric 클러스터에 노드당 5개의 IP 주소를 설정합니다(따라서 각 노드에서 포트에 수신 대기하는 5개의 서비스 인스턴스가 있을 수 있음).
+2. 클러스터의 각 노드에서 구성되어야 하는 여러 IP 주소를 허용하도록 네트워크 프로필 섹션을 설정합니다. 다음 예제에서는 Windows/Linux Service Fabric 클러스터에 노드당 5개의 IP 주소를 설정합니다(따라서 각 노드에서 포트에 수신 대기하는 5개의 서비스 인스턴스가 있을 수 있음).
 
     ```json
     "variables": {
@@ -174,124 +173,8 @@ ms.lasthandoff: 09/02/2017
                   }
                 ]
               }
-    ```
-
-    Linux 클러스터의 경우 아웃바운드 연결을 허용하는 추가 공용 IP 구성이 추가됩니다. 다음 코드 조각은 Linux 클러스터에 노드당 5개의 IP 주소를 설정합니다.
-
-    ```json
-    "networkProfile": {
-                "networkInterfaceConfigurations": [
-                  {
-                    "name": "[concat(parameters('nicName'), '-0')]",
-                    "properties": {
-                      "ipConfigurations": [
-                        {
-                          "name": "[concat(parameters('nicName'),'-',0)]",
-                          "properties": {
-                            "primary": "true",
-                            "publicipaddressconfiguration": {
-                              "name": "devpub",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "loadBalancerBackendAddressPools": [
-                              {
-                                "id": "[variables('lbPoolID0')]"
-                              }
-                            ],
-                            "loadBalancerInboundNatPools": [
-                              {
-                                "id": "[variables('lbNatPoolID0')]"
-                              }
-                            ],
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 1)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 1)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 2)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 2)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 3)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 3)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 4)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 4)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        },
-                        {
-                          "name": "[concat(parameters('nicName'),'-', 5)]",
-                          "properties": {
-                            "primary": "false",
-                            "publicipaddressconfiguration": {
-                              "name": "[concat('devpub', 5)]",
-                              "properties": {
-                                "idleTimeoutInMinutes": 15
-                              }
-                            },
-                            "subnet": {
-                              "id": "[variables('subnet0Ref')]"
-                            }
-                          }
-                        }
-                      ],
-                      "primary": true
-                    }
-                  }
-                ]
-              }
-    ```
+   ```
+ 
 
 3. Windows 클러스터의 경우에만 다음 값을 갖는 vNET에 UDP/53 포트를 여는 NSG 규칙을 설정합니다.
 
@@ -340,4 +223,3 @@ Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트
 * [Service Fabric 서비스 매니페스트 리소스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers.md)
 * [Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers-linux.md)
-

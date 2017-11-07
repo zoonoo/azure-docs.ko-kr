@@ -16,15 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다. 전체 자습서는 두 개의 SQL Server의 데이터베이스 복제본으로 가용성 그룹을 만듭니다.
@@ -110,7 +107,7 @@ ms.lasthandoff: 05/10/2017
     >[!WARNING]
    >만약 저장소 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 저장소를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 그 결과, 저장소 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 저장소 공간은 여러 디스크를 저장소 풀로 그룹화합니다. 자세한 내용은 [저장소 공간](https://technet.microsoft.com/library/hh831739)을 참조하세요.
 
-1. **다음**을 누릅니다.
+1. **다음**을 클릭합니다.
 
 1. **마침**을 클릭합니다.
 
@@ -134,9 +131,9 @@ ms.lasthandoff: 05/10/2017
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기**를 클릭한 후 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 누릅니다.
+1. **폴더 경로**에서 **찾아보기**를 클릭한 후 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 클릭합니다.
 
-1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 누릅니다.
+1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 클릭합니다.
 
 1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정...**을 클릭합니다.
 
@@ -171,9 +168,9 @@ ms.lasthandoff: 05/10/2017
    >[!TIP]
    >Windows Server 2016은 클라우드 감시를 지원합니다. 이 유형의 감시를 선택한 경우 파일 공유 감시가 필요하지 않습니다. 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)를 참조하세요. 이 자습서에서는 이전 운영 체제에서 지원되는 파일 공유 감시를 사용합니다.
 
-1. **파일 공유 감시 구성**에서 사용자가 만든 공유에 대한 경로를 입력합니다. **다음**을 누릅니다.
+1. **파일 공유 감시 구성**에서 사용자가 만든 공유에 대한 경로를 입력합니다. **다음**을 클릭합니다.
 
-1. **확인**에서 설정을 확인합니다. **다음**을 누릅니다.
+1. **확인**에서 설정을 확인합니다. **다음**을 클릭합니다.
 
 1. **마침**을 클릭합니다.
 
@@ -236,9 +233,9 @@ Repeat these steps on the second SQL Server.
 
    **공유 폴더 만들기 마법사**를 사용하여 공유를 만듭니다.
 
-1. **폴더 경로**에서 **찾아보기**를 클릭한 후 데이터베이스 백업 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 누릅니다.
+1. **폴더 경로**에서 **찾아보기**를 클릭한 후 데이터베이스 백업 공유 폴더에 대한 경로를 찾거나 만듭니다. **다음**을 클릭합니다.
 
-1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 누릅니다.
+1. **이름, 설명 및 설정**에서 공유 이름 및 경로를 확인합니다. **다음**을 클릭합니다.
 
 1. **공유 폴더 사용 권한**에서 **사용 권한 사용자 지정**을 설정합니다. **사용자 지정...**을 클릭합니다.
 
@@ -274,7 +271,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 가용성 그룹 마법사 시작](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. **소개** 페이지에서 **다음**을 클릭합니다. **가용성 그룹 이름 지정** 페이지의 **가용성 그룹 이름**에 가용성 그룹에 사용할 이름(예: **AG1**)을 입력합니다. **다음**을 누릅니다.
+2. **소개** 페이지에서 **다음**을 클릭합니다. **가용성 그룹 이름 지정** 페이지의 **가용성 그룹 이름**에 가용성 그룹에 사용할 이름(예: **AG1**)을 입력합니다. **다음**을 클릭합니다.
 
     ![새 AG 마법사, AG 이름 지정](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -503,4 +500,3 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 ## <a name="next-steps"></a>다음 단계
 
 - [두 번째 가용성 그룹에 대한 부하 분산 장치에 IP 주소를 추가](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP)합니다.
-

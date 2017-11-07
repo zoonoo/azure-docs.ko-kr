@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
 
 > [!div class="op_single_selector"]
@@ -137,4 +135,3 @@ Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [�
 ## <a name="additional-resources"></a>추가 리소스
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure.md)
 [Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md)
-

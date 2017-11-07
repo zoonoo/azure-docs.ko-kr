@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 토큰 참조
 Azure AD(Azure Active Directory) v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)에서 여러 유형의 보안 토큰을 내보냅니다. 이 참조에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -70,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nonce |`nonce` |`12345` |nonce는 토큰 재생 공격을 완화하기 위한 전략입니다. 앱은 `nonce` 쿼리 매개 변수를 사용하여 권한 부여 요청에 nonce를 지정할 수 있습니다. 요청에 제공한 값은 수정되지 않고 ID 토큰의 `nonce` 클레임에 내보내집니다. 앱은 특정 ID 토큰과 앱 세션을 연결하는 요청에 지정된 값과 비교하여 값을 확인할 수 있습니다. 앱은 ID 토큰 유효성 검사 프로세스 중에 이 유효성 검사를 수행해야 합니다. |
 | name |`name` |`Babe Ruth` |이름 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |만약 있다면 사용자 계정과 연결된 기본 전자 메일 주소입니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. `email` 범위는 이 클레임을 받기 위해 필요합니다. |
-| 기본 설정된 사용자 이름 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |v2.0 끝점에서 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
+| 기본 설정된 사용자 이름 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |v2.0 끝점에서 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. 해당 값은 변경 가능하므로 권한 부여 결정을 내리는 데 사용되지 않아야 합니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 응용 프로그램 ID에 고유합니다.  따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다.  아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. |
 | 개체 ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 이 경우에 Microsoft ID 시스템에 있는 개체의 변경할 수 없는 식별자는 사용자 계정입니다.  데이터베이스 테이블의 키로써 안전하게 권한 부여 검사를 수행하는 데 사용할 수도 있습니다. 이 ID는 응용 프로그램에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 응용 프로그램은 `oid` 클레임에서 동일한 값을 받습니다.  즉, Microsoft Graph와 같은 Microsoft Online Services에 대한 쿼리를 수행할 때 사용할 수 있습니다.  Microsoft Graph는 이 ID를 지정된 사용자 계정에 대한 `id` 속성으로 반환합니다.  `oid`를 사용하면 여러 앱에서 사용자의 상관 관계를 지정하기 때문에 이 클레임을 수신하기 위해 `profile` 범위가 필요합니다. 단일 사용자가 여러 테넌트에 존재하는 경우 사용자는 각 테넌트에서 다른 개체 ID를 포함합니다. 사용자가 동일한 자격 증명으로 각 계정에 로그인하더라도 서로 다른 계정으로 간주됩니다. |
 
@@ -155,4 +153,3 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 새로 고침 토큰(개인 계정) |최대 1년 |단일 새로 고침 토큰이 최대 1년 동안 유효합니다. 그러나 새로 고침 토큰은 다양한 이유로 언제든지 무효화될 수 있으므로 실패할 때까지 앱에서 계속 새로 고침 토큰을 시도하고 사용해야 합니다. |
 | 권한 부여 코드(회사 또는 학교 계정) |10분 |권한 부여 코드는 의도적으로 수명이 짧으므로 받는 즉시 액세스 토큰 및 새로 고침 토큰으로 교환해야 합니다. |
 | 권한 부여 코드(개인 계정) |5분 |권한 부여 코드는 의도적으로 수명이 짧으므로 받는 즉시 액세스 토큰 및 새로 고침 토큰으로 교환해야 합니다. 개인 계정 대신 발급된 권한 부여 코드는 일회용으로 사용됩니다. |
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
+ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 8d7b9dc3df9c68a18c95fe71b100b516becd4b5c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 
@@ -205,4 +204,3 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 또한 Azure Portal을 사용하여 SQL Virtual Virtual Machines를 만드는 방법을 알아보려면 [Azure에서 SQL Server Virtual Machine 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 자습서는 포털을 통해 이 PowerShell 항목에서 사용되는 클래식 모델이 아닌 권장되는 리소스 관리자 모델을 사용하여 VM을 만드는 과정을 안내합니다.
 
 이러한 리소스 외에도 [Azure Virtual Machines에서 SQL Server 실행과 관련된 기타 항목](../sql/virtual-machines-windows-sql-server-iaas-overview.md)을 확인하는 것이 좋습니다.
-

@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Visual Studio 클라우드 탐색기를 사용하여 Logic Apps 관리
 
 [Azure Portal](https://portal.azure.com/)에서는 Azure Logic Apps를 디자인하고 관리하는 유용한 방법을 제공하지만 Visual Studio 클라우드 탐색기를 사용하면 논리 앱을 포함한 여러 Azure 자산을 관리할 수 있습니다. Visual Studio 클라우드 탐색기를 사용하면 게시된 논리 앱을 찾아보기, 관리, 편집 및 다운로드할 수 있습니다. 관리 작업에는 실행 기록의 보기, 활성화 및 비활성화가 포함됩니다. 
@@ -92,4 +90,3 @@ ms.lasthandoff: 08/04/2017
 * [일반적인 예제 및 시나리오 보기](logic-apps-examples-and-scenarios.md)
 * [동영상: Azure Logic Apps를 사용하여 비즈니스 프로세스 자동화](http://channel9.msdn.com/Events/Build/2016/T694)
 * [동영상: Azure Logic Apps와 시스템 통합](http://channel9.msdn.com/Events/Build/2016/P462)
-

@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 보내기 | Microsoft Docs"
-description: "Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당한 후 사용자가 서비스를 통해 이동하는 방식을 추적합니다."
+title: "Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 ID 보내기 | Microsoft Docs"
+description: "Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다."
 services: application-insights
 documentationcenter: 
 author: abgreg
@@ -11,15 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 9d9360d77c6a0db82d3708baf4af15a0fcdc188e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 7d0da5fb0b2c59764b36becd826d8c4cc6efc4ad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-#  <a name="sending-user-context-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 현황 환경을 활성화하도록 사용자 컨텍스트 보내기
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
 ## <a name="tracking-users"></a>사용자 추적
 
@@ -30,7 +29,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 * 코호트
 * [통합 문서](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 이러한 ID를 포함합니다.
+시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 다음 ID를 포함합니다.
 - 사용자, 깔때기, 재방문 주기 및 코호트: 사용자 ID를 포함합니다.
 - 세션: 세션 ID를 포함합니다.
 
@@ -47,13 +46,11 @@ ID는 각 사용자를 고유하게 식별하는 데 충분히 복잡한 Guid �
 
 ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 ID로 Application Insights에 보낼 적절한 값이 아닙니다. [인증된 사용자 ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users)로 이러한 ID로 보낼 수 있지만 사용 현황 시나리오에 대한 사용자 ID 요구 사항을 만족하지 않습니다.
 
-## <a name="aspnet-apps-set-user-context-in-an-itelemetryinitializer"></a>ASP.NET 앱: ITelemetryInitializer에 사용자 컨텍스트 설정
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 앱: ITelemetryInitializer에 사용자 컨텍스트 설정
 
 [여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)에서 자세히 설명된 대로 원격 분석 이니셜라이저를 만들고 Context.User.Id 및 Context.Session.Id를 설정합니다.
 
 이 예제에서는 세션 후에 만료되는 식별자에 대한 사용자 ID를 설정합니다. 가능하면 세션 간에 유지되는 사용자 ID를 사용합니다.
-
-*C#*
 
 ```C#
 
@@ -98,4 +95,3 @@ ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 
     * [깔때기](usage-funnels.md)
     * [보존](app-insights-usage-retention.md)
     * [통합 문서](app-insights-usage-workbooks.md)
-

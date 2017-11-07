@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>이전 Java Service Fabric 응용 프로그램을 업데이트하여 Maven에서 Java 라이브러리 페치
 최근에 Service Fabric Java 이진 파일을 Service Fabric Java SDK에서 Maven 호스트로 이동했습니다. 이제 **mavencentral**을 사용하여 최신 Service Fabric Java 종속성을 페치할 수 있습니다. 이 빠른 시작을 통해 Yeoman 템플릿이나 Eclipse 중 하나를 사용하여 Maven 기반 빌드와 호환하도록 Service Fabric Java SDK에서 사용하기 위해 이전에 만들어진 기존 Java 응용 프로그램을 업데이트할 수 있습니다.
@@ -478,4 +477,3 @@ task copyDeps<< {
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
 * [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Service Fabric CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-cli.md)
-

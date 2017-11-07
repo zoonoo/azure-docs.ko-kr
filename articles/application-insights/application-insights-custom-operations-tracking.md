@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
+ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
 Azure Application Insights SDK는 들어오는 HTTP 요청과 종속 서비스에 대한 호출(예:HTTP 요청 및 SQL 쿼리)을 자동으로 추적합니다. 요청 및 종속성의 추적과 상관 관계를 사용하면 응용 프로그램을 결합하는 모든 마이크로 서비스에서 전체 응용 프로그램의 응답성 및 안정성을 파악할 수 있습니다. 
@@ -477,4 +475,3 @@ public async Task RunMyTaskAsync()
 - 사용자 지정 [이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)을 Application Insights에 보고합니다.
 - 컨텍스트 속성 컬렉션에 대한 표준 [구성](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)을 확인합니다.
 - [System.Diagnostics.Activity 사용자 가이드](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)에서 원격 분석 상관 관계를 지정하는 방법을 확인합니다.
-

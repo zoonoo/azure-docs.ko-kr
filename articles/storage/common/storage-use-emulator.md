@@ -3,7 +3,7 @@ title: "개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft
 description: "Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: eef0ff164b2857172fc24d8a0af7beddb29b262c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -266,4 +265,3 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * 커뮤니티에서 유지 관리하는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)를 평가합니다. 
 * [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 응용 프로그램을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
 * [Microsoft Azure Storage 탐색기](http://storageexplorer.com)를 사용하여 클라우드 저장소 계정 및 저장소 에뮬레이터의 리소스를 사용할 수 있습니다.
-

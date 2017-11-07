@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 82b7e6662986573d139691bb9e2cc216c1c5a535
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: caad9212649dd3dc47ddb21555b5b8496c3d2da1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB: PowerShell을 사용하여 방화벽 만들기
 
 이 샘플 PowerShell 스크립트는 종류에 관계없이 Azure Cosmos DB API 계정에 대해 방화벽을 만듭니다. 
@@ -32,7 +30,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Azure Cosmos DB에 대한 방화벽 만들기")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Create a firewall for Azure Cosmos DB")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

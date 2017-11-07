@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
+ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Log Analytics는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -209,23 +208,6 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
 | 쿼리 | 설명 |
 |:--- |:--- |
-| Type=Perf |모든 성능 데이터 |
-| Type=Perf Computer="MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
-| Type=Perf CounterName="Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU by Computer |모든 컴퓨터의 평균 CPU 사용률 |
-| Type=Perf (CounterName="% Processor Time") &#124;  measure max(Max) by Computer |모든 컴퓨터의 최대 CPU 사용률 |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |모든 컴퓨터에서 시간별 평균 CPU 사용량 |
-| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |특정 컴퓨터에 대한 % 백분율 카운터당 시간별 70백분위수 |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |
-| Type=Perf ObjectName=“MSSQL$INST2:Databases” InstanceName=master | 명명된 SQL Server 인스턴스 INST2에서 마스터 데이터베이스에 대한 데이터베이스 성능 개체의 모든 성능 데이터.  
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
-
-> | 쿼리 | 설명 |
-|:--- |:--- |
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
@@ -250,4 +232,3 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 응용 프로그램에서 성능 카운터를 수집](log-analytics-data-sources-linux-applications.md)합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](log-analytics-powerbi.md) 로 내보냅니다.
-

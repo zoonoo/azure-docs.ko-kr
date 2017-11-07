@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Logic Apps의 HTTP 끝점을 통해 워크플로 호출, 트리거 또는 중첩
 
 URL을 통해 Logic Apps를 트리거 또는 호출할 수 있도록 동기식 HTTP 끝점을 기본적으로 논리 앱에 트리거로 표시할 수 있습니다. 또한 호출 가능 끝점의 패턴을 사용하여 Logic Apps에서 워크플로를 중첩할 수도 있습니다.
@@ -86,7 +84,7 @@ HTTP 끝점을 만들려면 들어오는 요청을 받을 수 있는 트리거�
     다음 스키마를 생성합니다.
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ HTTP 끝점 URL이 매개 변수를 허용하도록 하려면 트리거의 상�
 5. 응답의 **본문**에 트리거의 상대 경로에 지정한 매개 변수의 토큰을 포함합니다.
 
     예를 들어 `Hello {customerID}`로 돌아가려면 응답의 **본문**을 `Hello {customerID token}`로 업데이트합니다. 
-    동적 콘텐츠 목록이 나타나고 선택할 `customerID` 
-    토큰이 표시됩니다.
+    동적 콘텐츠 목록이 나타나고 선택할 `customerID` 토큰이 표시됩니다.
 
     ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps �
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

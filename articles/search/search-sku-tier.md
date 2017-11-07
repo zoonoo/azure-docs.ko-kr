@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Azure 검색에 대한 SKU 또는 가격 책정 계층 선택
 Azure Search에서는 특정 가격 책정 계층 또는 SKU에서 [서비스가 프로비전](search-create-service-portal.md)됩니다. 선택 사항에는 **무료**, **기본**, **표준**이 있으며 **표준**은 여러 구성 및 용량으로 사용 가능합니다.
 
@@ -115,4 +113,3 @@ Azure Search에서 계층은 기능 가용성이 아닌 용량을 결정합니�
 
 * [포털에서 검색 서비스 만들기](search-create-service-portal.md)
 * [서비스 규모에 맞게 파티션 및 복제본 할당 변경](search-capacity-planning.md)
-

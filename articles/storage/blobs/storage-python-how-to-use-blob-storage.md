@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1cab8407be6fc8932b68e50d0c301e8ea37ea3ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>Python에서 Azure Blob Storage를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -34,6 +33,26 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Azure Storage SDK for Python 다운로드 및 설치
+
+Azure Storage SDK for Python은 Python 2.7, 3.3, 3.4, 3.5 또는 3.6을 요구하며 `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` 및 `azure-storage-queue` 4가지 패키지로 제공됩니다. 이 자습서에서는 `azure-storage-blob` 패키지를 사용하겠습니다.
+ 
+### <a name="install-via-pypi"></a>PyPi를 통해 설치
+
+PyPi(Python Package Index)를 통해 설치하려면 다음을 입력합니다.
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> 앞으로는 더 이상 Storage SDK for Python을 단일 패키지로 릴리스하지 않으므로, Azure Storage SDK for Python 버전 0.36 이상에서 업그레이드하는 경우 먼저 `pip uninstall azure-storage`를 사용하여 제거해야 합니다.
+> 
+> 
+
+대체 설치 방법을 확인하려면 [Github의 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)을 방문하세요.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 사용하려는 Blob의 형식을 기반으로 **BlockBlobService**, **AppendBlobService** 또는 **PageBlobService** 개체를 만듭니다. 다음 코드에서는 **BlockBlobService** 개체를 사용합니다. 프로그래밍 방식으로 Azure Block Blob Storage에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
@@ -76,7 +95,7 @@ block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.C
 
 **create\_blob\_from\_path**는 지정된 경로에서 파일의 내용을 업로드하고, **create\_blob\_from\_stream**은 이미 열려 있는 파일/스트림에서 내용을 업로드합니다. **create\_blob\_from\_bytes**는 바이트 배열을 업로드하고, **create\_blob\_from\_text**는 지정된 인코딩(기본값: UTF-8)을 사용하여 지정된 텍스트 값을 업로드합니다.
 
-다음 예제에서는 **sunset.png** 파일의 내용을 **myblob** Blob에 업로드합니다.
+다음 예제에서는 **sunset.png** 파일의 내용을 **myblockblob** Blob에 업로드합니다.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -100,7 +119,7 @@ for blob in generator:
 ## <a name="download-blobs"></a>Blob 다운로드
 Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes** 또는 **get\_blob\_to\_text**를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-다음 예제에서는 **get\_blob\_to\_path**를 사용하여 **myblob** Blob의 내용을 다운로드 후 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
+다음 예제에서는 **get\_blob\_to\_path**를 사용하여 **myblockblob** Blob의 내용을 다운로드 후 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
@@ -144,4 +163,3 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-

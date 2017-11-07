@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합 만들기 및 배포
 가상 컴퓨터 확장 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 확장 집합에 대한 자세한 내용은 [가상 컴퓨터 확장 집합](virtual-machine-scale-sets-overview.md)을 참조하세요.
 
@@ -209,4 +207,3 @@ Azure Portal은 확장 집합을 신속하게 만드는 편리한 방법을 제�
 [데이터 디스크](virtual-machine-scale-sets-attached-disks.md)에 대해 자세히 알아봅니다.
 
 [앱을 관리](virtual-machine-scale-sets-deploy-app.md)하는 방법에 대해 알아봅니다.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 77eb83b80312eca401e6f60d57ed6a5668ea442e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 64bd0a3ec0598fd7f78e93e510f0a6443f3edbd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>PowerShell을 사용하여 Data Lake Store를 기본 저장소로 사용한 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -255,4 +254,3 @@ Data Lake Store를 사용하도록 HDInsight 클러스터를 구성한 후에 HD
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-

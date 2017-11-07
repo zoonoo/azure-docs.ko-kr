@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 응용 프로그램과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
@@ -169,7 +167,7 @@ Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합�
 
 예를 들어 리소스 그룹에 액세스할 수 있는 사용자는 웹 사이트, 가상 컴퓨터 및 서브넷을 포함하여 그 안에 포함된 모든 리소스를 관리할 수 있습니다.
 
-Azure RBAC는 Azure Portal 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 저장소 계정 관리 권한을 부여할 수 있지만 저장소 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
+Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스의 관리 작업만을 지원합니다. Azure 리소스의 모든 데이터 수준 작업에 대한 권한을 부여할 수 있는 것은 아닙니다. 예를 들어 저장소 계정 관리 권한을 부여할 수 있지만 저장소 계정 내의 blob 또는 테이블에 대한 관리 권한은 부여할 수 없습니다. 마찬가지로 SQL 데이터베이스를 관리할 수 있지만 그 안의 테이블은 관리할 수 없습니다.
 
 RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 액세스 제어란](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)을 참조하세요.
 
@@ -327,13 +325,13 @@ Azure 리소스 RateCard API를 사용하여 각 예상 가격 정보 및 사용
 
 ### <a name="network-connectivity"></a>네트워크 연결
 
-[Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 서브넷에 대한 컨테이너 개체입니다. 반드시 필요한 것은 아니지만 응용 프로그램을 내부 기업 리소스에 연결할 때 주로 사용됩니다. Azure Virtual Network 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다.
+[가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 서브넷에 대한 컨테이너 개체입니다. 반드시 필요한 것은 아니지만 응용 프로그램을 내부 기업 리소스에 연결할 때 주로 사용됩니다. Azure Virtual Network 서비스를 사용하면 Azure 리소스와 가상 네트워크(VNet)를 서로 안전하게 연결할 수 있습니다.
 
-VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수도 있습니다.
+VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드를 논리적으로 격리한 것입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수도 있습니다.
 
 다음은 Azure Virtual Networks의 기능입니다.
 
-- **격리**: VNet은 서로 완전히 격리됩니다. 동일한 CIDR 주소 블록을 사용하는 개발, 테스트 및 프로덕션 환경에 대해 개별 VNet을 만들 수 있습니다. 반대로, 다른 CIDR 주소 블록을 사용하고 네트워크를 함께 연결하는 여러 VNet을 만들 수도 있습니다. VNet을 여러 서브넷으로 분할할 수 있습니다. Azure는 VNet에 연결되는 VM 및 Cloud Services 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 필요에 따라 Azure 내부 이름 확인을 사용하는 대신, 고유한 DNS 서버를 사용하도록 VNet을 구성할 수 있습니다.
+- **격리**: VNet은 서로 완전히 격리됩니다. 동일한 CIDR 주소 블록을 사용하는 개발, 테스트 및 프로덕션 환경에 대해 개별 VNet을 만들 수 있습니다. 반대로, 여러 CIDR 주소 블록을 사용하는 VNet을 만들어 네트워크를 서로 연결할 수도 있습니다. VNet은 여러 서브넷으로 분할할 수 있습니다. Azure는 VNet에 연결되는 VM 및 Cloud Services 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 필요에 따라 Azure 내부 이름 확인을 사용하는 대신, 고유한 DNS 서버를 사용하도록 VNet을 구성할 수 있습니다.
 
 - **인터넷 연결**: VNet에 연결되는 모든 Azure VM(Virtual Machines) 및 Cloud Services 역할 인스턴스는 기본적으로 인터넷에 액세스할 수 있습니다. 또한 필요에 따라 특정 리소스에 대한 인바운드 액세스를 사용하도록 설정할 수 있습니다.
 
@@ -385,7 +383,7 @@ AD DS GPO에서 Azure 보안 거버넌스를 사용하여 파일 공유와 같�
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 구독에서 리소스 보안 상태를 중앙에서 볼 수 있으며 리소스 손상을 방지하기 위한 권장 사항을 확인할 수 있습니다. 보다 세부적인 정책이 가능합니다. 예를 들어 기업이 직면한 위험에 따라 대비할 수 있도록 특정 리소스 그룹에 정책을 적용할 수 있습니다.
 
-![Azure Security Center](./media/governance-in-azure/security-governance-in-azure-fig7.png)
+![Azure 보안 센터](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다. 구독의 리소스에 대해 [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies)을 사용하도록 설정하면 Security Center에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만,
 
@@ -465,7 +463,7 @@ Azure 작업 관리자는 관리 솔루션을 제공하여 해당 기능을 확�
 - Azure Monitor: 메트릭 값과 활동 로그 이벤트 모두를 기반으로 한 경고가 가능합니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/dn931943.aspx)를 사용하여 경고를 관리할 수 있습니다.
 
 >[!Note]
-> 자세한 내용은 [Azure Portal, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)를 참조하세요.
+> 자세한 내용은 [Azure 포털, PowerShell 또는 명령줄 인터페이스를 사용하여 경고 만들기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)를 참조하세요.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -493,4 +491,3 @@ Azure 응용 프로그램과 서비스를 모니터링하기 위한 다양한 �
 - [Azure 구독 거버넌스 구현 예제](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples)
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/)
-

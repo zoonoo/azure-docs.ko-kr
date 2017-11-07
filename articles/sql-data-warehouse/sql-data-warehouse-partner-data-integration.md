@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 01/30/2017
 ms.author: kevin;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 892a7f2727ab899ef539ac4ae06a8669512e6fef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 데이터 웨어하우스 데이터 통합 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL 데이터 웨어하우스를 지원하는 데이터 통합 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.

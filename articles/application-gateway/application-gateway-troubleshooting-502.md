@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>응용 프로그램 게이트웨이의 잘못된 게이트웨이 오류 문제 해결
 
 응용 프로그램 게이트웨이를 사용할 때 받은 502 잘못된 게이트웨이 오류 문제를 해결하는 방법을 알아봅니다.
@@ -32,63 +29,48 @@ ms.lasthandoff: 06/08/2017
 
 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버가 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
 
-* Azure Application Gateway의 [백 엔드 풀은 구성되어 있지 않거나 비어 있습니다](#empty-backendaddresspool).
-* VM Scale Set의 VM 또는 인스턴스가 [모두 정상이 아닙니다](#unhealthy-instances-in-backendaddresspool).
-* VM Scale Set의 백 엔드 VM 또는 인스턴스가 [기본 상태 프로브에 응답하지 않습니다](#problems-with-default-health-probe.md).
+* NSG, UDR 또는 사용자 지정 DNS로 백 엔드 풀 멤버에 대한 액세스를 차단합니다.
+* 가상 컴퓨터 확장 집합의 백 엔드 VM 또는 인스턴스가 [기본 상태 프로브에 응답하지 않습니다](#problems-with-default-health-probe.md).
 * 사용자 지정 상태 프로브의 구성이 [잘못되었거나 부적절합니다](#problems-with-custom-health-probe.md).
+* Azure Application Gateway의 [백 엔드 풀은 구성되어 있지 않거나 비어 있습니다](#empty-backendaddresspool).
+* 가상 컴퓨터 확장 집합의 VM 또는 인스턴스가 [모두 정상이 아닙니다](#unhealthy-instances-in-backendaddresspool).
 * 사용자 요청과 관련된 [요청 시간 초과 또는 연결 문제입니다](#request-time-out).
 
-## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>네트워크 보안 그룹, 사용자 정의 경로 또는 사용자 지정 DNS 문제
 
 ### <a name="cause"></a>원인
 
-Application Gateway에 백 엔드 주소 풀에 구성된 VM 또는 VM 크기 조정 설정이 없는 경우 고객의 요청을 라우팅할 수 없고 잘못된 게이트웨이 오류를 throw할 수 없습니다.
+NSG, UDR 또는 사용자 지정 DNS가 있어 백 엔드에 대한 액세스가 차단된 경우 Application Gateway 인스턴스는 백 엔드 풀에 도달할 수 없으며 이로 인해 502 오류를 야기하는 프로브 오류가 발생합니다. NSG/UDR은 Application Gateway 서브넷이나 응용 프로그램 VM이 배포된 서브넷에 있을 수 있습니다. 마찬가지로 VNET에 사용자 지정 DNS가 있는 경우, FQDN이 백 엔드 풀 멤버에 사용되고 VNET에 대해 사용자가 구성한 DNS 서버에서 FQDN이 올바르게 확인되지 않으면 문제가 발생할 수 있습니다.
 
 ### <a name="solution"></a>해결 방법
 
-백 엔드 주소 풀이 비어 있지 않은지 확인합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
+다음 단계를 통해 NSG, UDR 및 DNS 구성을 확인합니다.
+* Application Gateway 서브넷과 연결된 NSG를 확인합니다. 백 엔드와의 통신이 차단되지 않는지 확인합니다.
+* Application Gateway 서브넷과 연결된 UDR을 확인합니다. UDR이 백 엔드 서브넷에서 트래픽을 보내지 않는지 확인합니다. 예를 들어, ExpressRoute/VPN을 통해 Application Gateway 서브넷에 보급되는 네트워크 가상 어플라이언스 또는 기본 경로에 대한 라우팅을 확인합니다.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-앞의 cmdlet에서 출력은 비어 있지 않은 백 엔드 주소 풀을 포함해야 합니다. 다음은 백 엔드 VM에 대한 FQDN 또는 IP 주소로 구성된 두 개의 풀을 반환하는 예제입니다. BackendAddressPool의 상태를 프로비전하는 작업은 '성공'해야 합니다.
+* 백 엔드 VM과의 유효한 NSG 및 경로를 확인합니다.
 
-BackendAddressPoolsText:
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* VNet에 사용자 지정 DNS의 존재 여부를 확인합니다. 출력에서 VNet 속성의 세부 정보를 확인하여 DNS를 확인할 수 있습니다.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>BackendAddressPool의 비정상 인스턴스
-
-### <a name="cause"></a>원인
-
-BackendAddressPool의 모든 인스턴스가 정상이 아닌 경우 Application Gateway에는 사용자 요청을 라우팅할 백 엔드가 없습니다. 백 엔드 인스턴스가 정상이지만 필요한 응용 프로그램이 배포되지 않은 경우일 수도 있습니다.
-
-### <a name="solution"></a>해결 방법
-
-인스턴스가 정상이고 응용 프로그램이 올바르게 구성되어 있는지 확인합니다. 백 엔드 인스턴스가 동일한 VNet의 다른 VM에서 ping에 응답할 수 있는지를 확인합니다. 공용 끝점으로 구성된 경우 웹 응용 프로그램에 대한 브라우저 요청을 서비스할 수 있는지를 확인합니다.
+있는 경우 DNS 서버가 백 엔드 풀 멤버의 FQDN을 올바르게 확인할 수 있는지 확인합니다.
 
 ## <a name="problems-with-default-health-probe"></a>기본 상태 검색의 문제
 
@@ -153,8 +135,59 @@ Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
+
+### <a name="cause"></a>원인
+
+Application Gateway에 백 엔드 주소 풀에 구성된 VM 또는 가상 컴퓨터 확장 집합이 없는 경우 고객의 요청을 라우팅할 수 없고 잘못된 게이트웨이 오류를 throw할 수 없습니다.
+
+### <a name="solution"></a>해결 방법
+
+백 엔드 주소 풀이 비어 있지 않은지 확인합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+앞의 cmdlet에서 출력은 비어 있지 않은 백 엔드 주소 풀을 포함해야 합니다. 다음은 백 엔드 VM에 대한 FQDN 또는 IP 주소로 구성된 두 개의 풀을 반환하는 예제입니다. BackendAddressPool의 상태를 프로비전하는 작업은 '성공'해야 합니다.
+
+BackendAddressPoolsText:
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>BackendAddressPool의 비정상 인스턴스
+
+### <a name="cause"></a>원인
+
+BackendAddressPool의 모든 인스턴스가 정상이 아닌 경우 Application Gateway에는 사용자 요청을 라우팅할 백 엔드가 없습니다. 백 엔드 인스턴스가 정상이지만 필요한 응용 프로그램이 배포되지 않은 경우일 수도 있습니다.
+
+### <a name="solution"></a>해결 방법
+
+인스턴스가 정상이고 응용 프로그램이 올바르게 구성되어 있는지 확인합니다. 백 엔드 인스턴스가 동일한 VNet의 다른 VM에서 ping에 응답할 수 있는지를 확인합니다. 공용 끝점으로 구성된 경우 웹 응용 프로그램에 대한 브라우저 요청을 서비스할 수 있는지를 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 앞의 단계에서 문제가 해결되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.
-
 

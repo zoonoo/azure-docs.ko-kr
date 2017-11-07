@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5db1a6f8b3ff0369817e69abaa4d95af843cd7f2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fd687bb74a22b0483225c509171edaa67f1c49d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
@@ -70,4 +69,3 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.
-

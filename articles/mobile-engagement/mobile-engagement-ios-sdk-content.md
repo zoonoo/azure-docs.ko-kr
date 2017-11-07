@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8980a560f3459adf328afb9cc08ff27bde0c284b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sdk-content"></a>SDK 콘텐츠
 이 문서에서는 SDK 보관 파일의 콘텐츠를 소개 및 설명합니다.
@@ -50,5 +49,4 @@ ms.lasthandoff: 11/17/2016
 > Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
 > 
 > 
-
 

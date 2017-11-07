@@ -3,7 +3,7 @@ title: "Azure Automation에서 Azure 모듈 업데이트 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation에 기본적으로 제공되는 일반 Azure PowerShell 모듈을 즉시 업데이트하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
 기본적으로 각 Automation 계정에 가장 일반적인 Azure PowerShell 모듈이 제공됩니다.  Azure 팀이 Azure 모듈을 정기적으로 업데이트하므로 포털에서 새 버전이 사용 가능하면 사용자가 계정에서 모듈을 업데이트할 수 있는 방법을 Automation 계정에 제공하고 있습니다.  

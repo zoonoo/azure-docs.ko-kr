@@ -7,18 +7,16 @@ ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 macOS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법도 보여 줍니다. 이 문서의 단계에서는 개발자가 Python을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
@@ -63,8 +61,8 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 
 - 원하는 텍스트 편집기를 사용하여 새 파일을 만듭니다.
 - 다음 섹션의 샘플 코드 중 하나를 텍스트 파일에 복사하여 붙여넣습니다. **host**, **dbname**, **user** 및 **password** 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
-- 프로젝트 폴더에 .py 확장명으로 파일을 저장합니다(예: postgres.py). Windows OS를 실행하는 경우 파일을 저장할 때 UTF-8 인코딩을 선택해야 합니다. 
-- 명령 프롬프트 또는 Bash 셸을 시작한 후 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd postgres`).
+- 프로젝트 폴더에 .py 확장명으로 파일을 저장합니다(예: postgres.py). Windows에서 실행하는 경우 파일을 저장할 때 UTF-8 인코딩을 선택해야 합니다. 
+- 명령 프롬프트, 터미널 또는 Bash 셸을 시작한 후 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd postgres`).
 -  코드를 실행하려면 Python 명령 다음에 파일 이름을 입력합니다(예: `Python postgres.py`).
 
 > [!NOTE]
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
-

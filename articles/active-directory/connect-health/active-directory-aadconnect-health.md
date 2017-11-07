@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
 Azure AD(Azure Active Directory) Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다. AD FS(Active Directory Federation Services) 서버, Azure AD Connect 서버(즉, 동기화 엔진), Active Directory 도메인 컨트롤러 등과 같은 핵심 ID 구성 요소를 위한 모니터링 기능을 제공하여 Office 365 및 Microsoft Online Services에 대해 신뢰할 수 있는 연결을 유지 관리할 수 있습니다. 또한 사용자가 사용 현황 및 기타 중요한 정보를 보고 올바른 의사 결정을 내릴 수 있도록 이러한 구성 요소의 핵심 데이터 요소에 쉽게 액세스할 수 있게 만들어 줍니다.
@@ -28,8 +27,8 @@ Azure AD(Azure Active Directory) Connect Health를 사용하면 온-프레미스
 
 ![Azure AD Connect Health 정의](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-Azure AD Connect Health의 기능이 점점 많아지면서, 포털에서는 ID 렌즈를 통해 단일 대시보드를 제공합니다. 사용자의 업무 수행 능력이 향상되는 훨씬 강력하고 정상적이고 통합된 환경을 제공합니다.
 
+Azure AD Connect Health의 기능이 점점 많아지면서, 포털에서는 ID 렌즈를 통해 단일 대시보드를 제공합니다. 사용자의 업무 수행 능력이 향상되는 훨씬 강력하고 정상적이고 통합된 환경을 제공합니다.
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하는 이유
 온-프레미스 디렉터리와 Azure AD를 통합하면 클라우드 및 온-프레미스 리소스 모두에 액세스할 수 있는 공통 ID가 제공되므로 사용자의 생산성이 향상됩니다. 그러나 이 통합에는 사용자가 아무 장치에서 온-프레미스와 클라우드의 리소스에 안정적으로 액세스할 수 있도록 환경을 정상적으로 유지해야 하는 과제가 발생합니다. Azure AD Connect Health를 사용하면 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 데 사용되는 온-프레미스 ID 인프라를 모니터링하고 통찰력을 얻을 수 있습니다. 각 온-프레미스 ID 서버에 에이전트를 설치하는 것만큼 간단합니다.
 
@@ -41,11 +40,14 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012 
 * AD FS의 용량 계획에 유용한 성능 데이터의 동향
 * AD FS가 어떻게 활용하는지 이해하는 데 유용한 피벗(앱, 사용자, 네트워크 위치 등)을 통해 분석한 AD FS 로그인의 사용량 분석
 * 잘못된 사용자 이름/암호를 시도한 상위 50명의 사용자와 그들의 최신 IP 주소와 같은 AD FS에 대한 보고서
+  
+[AD FS와 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)에 대해 자세히 알아보세요.
 
 다음 비디오는 AD FS에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[동기화에 대한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
@@ -56,6 +58,8 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012 
 * 다른 작업에 대한 대기 시간 차트, 동기화 작업(추가, 업데이트, 삭제 등)의 동향을 비롯한 동기화 작업 통찰력
 * 동기화 속성, 최근에 성공한 Azure AD로 내보내기에 대한 정보 빠른 보기
 * 개체 수준 동기화 오류에 대한 보고서는 \(Azure AD Premium이 필요 없음\)
+
+[동기화할 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)에 대해 자세히 알아보세요.
 
 다음 비디오는 동기화에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
@@ -70,6 +74,8 @@ AD DS(Active Directory Domain Services)용 Azure AD Connect Health는 Windows Se
 * 도메인 컨트롤러의 상태 및 작동 상태에 대한 빠른 보기를 제공하는 도메인 컨트롤러 대시보드
 * 오류가 감지되면 문제 해결 가이드에 대한 링크와 함께 최신 복제 정보를 제공하는 복제 상태 대시보드
 * 문제 해결 및 모니터링을 위해 필요한 인기 있는 성능 카운터의 성능 데이터 그래프에 대한 빠른 액세스
+
+[AD DS와 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)에 대해 자세히 알아보세요.
 
 다음 비디오는 AD DS에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
@@ -125,4 +131,3 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 * [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
-

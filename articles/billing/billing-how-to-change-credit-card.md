@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거
 
@@ -80,7 +79,7 @@ ms.lasthandoff: 08/31/2017
 
 90일의 보존 기간이 종료하지 전에 신용 카드 또는 직불 카드를 제거해야 할 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
-### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>"로그인 세션이 만료되었습니다. 다시 로그인하려면 여기를 클릭하세요." 메시지를 계속해서 받는 이유는 무엇입니까? Please click here to log back in"?
+### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>“로그인 세션이 만료되었습니다. 다시 로그인하려면 여기를 클릭하세요.” 메시지를 계속해서 받는 이유는 무엇입니까?
 
 로그아웃하고 다시 로그인한 경우에도 이 오류 메시지가 유지되는 경우 개인 검색 세션으로 다시 시도하세요.
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 Android SDK 통합
 > [!div class="op_single_selector"]
@@ -68,5 +67,4 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="upgrade-procedures"></a>업그레이드 절차
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 [업그레이드 절차](mobile-engagement-android-upgrade-procedure.md)를 참조하세요.
-
 

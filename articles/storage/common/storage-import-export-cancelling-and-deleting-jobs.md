@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Azure Import/Export 서비스 작업 취소 및 삭제
 
  작업이 `Packaging` 상태가 되기 전에 취소되도록 요청하려면 [작업 속성 업데이트](/rest/api/storageimportexport/jobs#Jobs_Update) 작업을 호출하고 `CancelRequested` 요소를 `true`로 설정합니다. 작업은 최선의 결과가 얻어지는 방향으로 취소됩니다. 드라이브가 데이터 전송 중인 상태이면 취소가 요청된 후에도 데이터가 계속 전송될 수 있습니다.
@@ -33,4 +31,3 @@ ms.lasthandoff: 08/23/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-

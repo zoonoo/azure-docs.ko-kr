@@ -4,7 +4,7 @@ description: "Power BI를 사용하여 Azure Analysis Services 서버에 연결�
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b17251f8e88dc02ddf792da41121fe2730bc50e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 5f3ad1c4df2c21a8d52a8a3c4d7d311af32720a9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -59,5 +58,4 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 ## <a name="see-also"></a>참고 항목
 [Azure Analysis Services에 연결](analysis-services-connect.md)   
 [클라이언트 라이브러리](analysis-services-data-providers.md)
-
 

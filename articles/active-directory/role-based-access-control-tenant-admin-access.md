@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 테넌트 관리자로 액세스 권한 상승
 
@@ -27,7 +26,18 @@ ms.lasthandoff: 05/17/2017
 
 이 기능은 테넌트 관리자가 조직에 있는 모든 구독을 확인할 수 있도록 하기 때문에 중요합니다. 또한 자동화 앱(예: 송장 발행 및 감사)에서 모든 구독에 액세스하여 조직의 대금 청구 또는 자산 관리 상태를 정확하게 볼 수 있게 합니다.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>elevateAccess를 사용하여 테넌트 액세스 권한을 부여하는 방법
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Azure AD 관리 센터를 사용하여 테넌트 액세스에 elevateAccess를 사용하는 방법
+
+[Azure Active Directory 관리 센터](https://aad.portal.azure.com)의 **속성**에서 이 기능을 호출할 수 있습니다.
+해당 기능을 **전역 관리자가 Azure 구독을 관리할 수 있습니다**라고도 합니다. 이 기능이 Azure Active Directory의 전역 속성인 것처럼 보이지만 현재 로그온한 사용자에 대해 사용자 기준으로 작동합니다. Azure Active Directory에서 전역 관리자 권한이 있는 경우 Azure Active Directory 관리 센터를 현재 로그인한 사용자에게 elevateAccess 기능을 호출할 수 있습니다.
+
+**예** 및 **저장** 선택: 그러면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자에게 **사용자 액세스 관리자** 역할을 **할당**합니다.
+
+**아니오** 및 **저장** 선택: 그러면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자로부터 **사용자 액세스 관리자** 역할을 **제거**합니다.
+
+![Azure AD 관리 센터 - 속성 - Globaladmin은 Azure 구독을 관리할 수 있습니다. - 스크린샷](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>elevateAccess를 사용하여 REST API로 테넌트 액세스 권한을 부여하는 방법
 
 기본 프로세스는 다음 단계로 작동합니다.
 
@@ -56,7 +66,7 @@ ms.lasthandoff: 05/17/2017
 4. 다시 필요할 때까지 사용자 액세스 관리자 권한을 취소합니다.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>elevateAccess 작업을 취소하는 방법
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>REST API로 elevateAccess 작업을 취소하는 방법
 
 *elevateAccess*를 호출하는 경우 해당 권한을 취소하려면 할당을 삭제해야 하므로 스스로 역할 할당을 만듭니다.
 
@@ -107,4 +117,3 @@ ms.lasthandoff: 05/17/2017
 - [REST를 사용하여 역할 기반 액세스 제어를 관리](role-based-access-control-manage-access-rest.md)하는 방법에 대해 알아보기
 
 - Azure Portal에서 [액세스 할당 관리](role-based-access-control-manage-assignments.md)
-

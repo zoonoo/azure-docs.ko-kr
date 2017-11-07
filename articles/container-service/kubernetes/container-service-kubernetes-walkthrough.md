@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 59f37565d7e1912a149497223707e96a5ce8b24e
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux 컨테이너용 Kubernetes 클러스터 배포
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Kubernetes 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다. 
 
@@ -71,8 +71,10 @@ az group create --name myResourceGroup --location westeurope
 [az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *myK8sCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
+
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다. 
 
@@ -228,4 +230,3 @@ Azure Container Service에 대해 자세히 알아보고 배포 예제에 대한
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes 클러스터 관리](./container-service-tutorial-kubernetes-prepare-app.md)
-

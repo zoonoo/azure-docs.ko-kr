@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Azure Virtual Machines 백업(클래식 포털)
 > [!div class="op_single_selector"]
@@ -200,4 +199,3 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 ## <a name="next-steps"></a>다음 단계
 * [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 * [가상 컴퓨터 복원](backup-azure-restore-vms.md)
-

@@ -4,23 +4,40 @@
 
 # 빠른 시작
 ## [.NET 응용 프로그램 만들기](service-fabric-quickstart-dotnet.md)
-## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
 ## [Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)
+## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
+## [Java 응용 프로그램 배포](service-fabric-quickstart-java.md)
 
 # 자습서
 ## .NET 앱 배포
 ### [1- .NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)
 
-## 앱 리프트 앤 시프트
+## 기존 .NET 앱 컨테이너화
 ### [1- Azure에서 보안 클러스터 만들기](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Docker Compose를 사용하여 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
+### [3 - 컨테이너 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Linux 컨테이너 앱 만들기
+### [1 - 컨테이너 이미지 만들기](service-fabric-tutorial-create-container-images.md)
+### [2 - 컨테이너 패키지 및 배포](service-fabric-tutorial-package-containers.md)
+### [3 - 장애 조치(failover) 및 비율 크기 조정](service-fabric-tutorial-containers-failover.md)
+
+## 클러스터 만들기 및 관리
+### 1 - Azure에서 클러스터 만들기
+#### [1a- Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2-클러스터 크기 조정](service-fabric-tutorial-scale-cluster.md)
+### [3- Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+
 
 # 샘플
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
+
 # 개념
 ## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
 ## [큰 그림](service-fabric-content-roadmap.md)
@@ -66,6 +83,8 @@
 #### [서비스 상태](service-fabric-concepts-state.md)
 #### [서비스 분할](service-fabric-concepts-partitioning.md)
 #### [서비스 가용성](service-fabric-availability-services.md)
+#### [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)
+#### [재구성](service-fabric-concepts-reconfiguration.md)
 #### 서비스 통신
 ##### [개요](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS 서비스](service-fabric-dnsservice.md)
@@ -90,7 +109,6 @@
 
 ## 클러스터 만들기 및 관리
 ### [개요](service-fabric-deploy-anywhere.md)
-### [Linux의 Service Fabric](service-fabric-linux-overview.md)
 ### 계획 및 준비
 #### [용량 계획](service-fabric-cluster-capacity.md)
 #### [재해 복구](service-fabric-disaster-recovery.md)
@@ -129,6 +147,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Service Fabric CLI 설정](service-fabric-cli.md)
 
 ## 응용 프로그램 빌드
 ### [Visual Studio에서 첫 번째 C# 앱 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -176,12 +196,11 @@
 
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [알림 보내기](service-fabric-reliable-services-notifications.md)
-#### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+#### [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
 
 ### Reliable Actors 서비스 빌드
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
-##### [Linux에서 Java](service-fabric-reliable-actors-get-started-java.md)
 ##### [Linux에서 Java 행위자](service-fabric-create-your-first-linux-application-with-java.md)
 #### [알림 보내기](service-fabric-reliable-actors-events.md)
 #### [타이머 및 미리 알림 설정](service-fabric-reliable-actors-timers-reminders.md)
@@ -224,13 +243,14 @@
 
 ### 응용 프로그램 배포 또는 제거
 #### [로컬 클러스터에 응용 프로그램 배포](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure 리소스 관리자](service-fabric-application-arm-resource.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### 응용 프로그램 업그레이드
-#### [Powershell을 사용하여 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Azure Powershell을 사용하여 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Visual Studio를 사용하여 업그레이드](service-fabric-application-upgrade-tutorial.md)
 #### [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -279,8 +299,6 @@
 
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
-
-### [Service Fabric CLI 시작](service-fabric-cli.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션
@@ -325,12 +343,25 @@
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 참조
-## [PowerShell(Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](/cli/azure/sf)
+## [Azure CLI(az sf)](/cli/azure/sf)
+## [Service Fabric CLI(sfctl)](service-fabric-sfctl.md)
+### [sfctl application](service-fabric-sfctl-application.md)
+### [sfctl chaos](service-fabric-sfctl-chaos.md)
+### [sfctl cluster](service-fabric-sfctl-cluster.md)
+### [sfctl compose](service-fabric-sfctl-compose.md)
+### [sfctl is](service-fabric-sfctl-is.md)
+### [sfctl node](service-fabric-sfctl-node.md)
+### [sfctl partition](service-fabric-sfctl-partition.md)
+### [sfctl replica](service-fabric-sfctl-replica.md)
+### [sfctl rpm](service-fabric-sfctl-rpm.md)
+### [sfctl service](service-fabric-sfctl-service.md)
+### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST (영문)](/rest/api/servicefabric)
+## [서비스 모델 XML 스키마](service-fabric-service-model-schema.md)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

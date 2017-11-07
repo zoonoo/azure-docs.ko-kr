@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 61adb7ae8fddc3cf423ee4558308eb9ded11fea3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>데이터 웨어하우스 마이그레이션 유틸리티(미리 보기)
 > [!div class="op_single_selector"]
@@ -69,4 +67,3 @@ ms.lasthandoff: 12/08/2016
 
 <!--Other Web references--> 
 [Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
-

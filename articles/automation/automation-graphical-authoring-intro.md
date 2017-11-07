@@ -3,7 +3,7 @@ title: "Azure 자동화에서 그래픽 작성 | Microsoft Docs"
 description: "그래픽 작성을 통해 코드 작업 없이 Azure 자동화에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 자동화에서 그래픽 작성
 ## <a name="introduction"></a>소개
@@ -383,5 +381,4 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
 * 자동화 실행 계정을 사용하여 인증하는 방법을 알아보려면 [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
-
 

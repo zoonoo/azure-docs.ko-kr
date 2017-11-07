@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: dd4feff057269ed7106990bb63eed7fcffa2dbec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: 2090d4c951e2261529bf1b7b361510d5822060a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Azure 컨테이너 레지스트리 리포지토리
 
@@ -59,4 +58,3 @@ ACR 파트너에서 "X-Meta-Source-Client" 필드를 채우는 데 사용하려�
 
 ## <a name="next-steps"></a>다음 단계
 [레지스트리 및 지원되는 서비스와 오케스트레이터에 대한 자세한 정보](container-registry-intro.md)
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 장치 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -563,9 +563,3 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

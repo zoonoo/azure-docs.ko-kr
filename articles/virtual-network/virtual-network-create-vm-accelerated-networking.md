@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 가상 컴퓨터 만들기
 
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/21/2017
 * **VM 크기:** 8개 이상의 코어가 있는 범용 및 계산 용도로 최적화된 인스턴스 크기입니다. 자세한 내용은 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 지원되는 VM 인스턴스 확장 집합은 앞으로 확장될 예정입니다.
 * **ARM(Azure Resource Manager)을 통한 배포:** 가속화된 네트워킹은 ASM/RDFE를 통해 배포할 수 없습니다.
 
-이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지를 통해 발표됩니다.
+이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) 페이지를 통해 발표됩니다.
 
 ## <a name="create-a-windows-vm"></a>Windows VM 만들기
 Azure Portal 또는 Azure [PowerShell](#windows-powershell)을 사용하여 VM을 만들 수 있습니다.
@@ -450,4 +449,3 @@ Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요�
     ```
 
 VM은 bond0이 구성되고 가속화된 네트워킹 경로가 사용하도록 설정된 상태로 시작되어야 합니다.  `ifconfig`를 실행하여 확인합니다.
-

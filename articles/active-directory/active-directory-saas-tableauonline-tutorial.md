@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 443fab1198a91a4d5749e6421f7b8603fc75a81e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tableau Online와 Azure Active Directory 통합
 
@@ -112,7 +110,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Single Sign-on 구성](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. **로그인 URL** 텍스트 상자에서 URL `https://sso.online.tableau.com`을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 URL `https://sso.online.tableau.com`를 입력합니다.
 
     b. **식별자** 텍스트 상자에 URL `https://sso.online.tableau.com/public/sp/<instancename>`을 입력합니다.
 
@@ -264,5 +262,4 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-
 

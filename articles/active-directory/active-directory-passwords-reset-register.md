@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: b884f8bc3a20052fa0cb40772deef591b69d7b10
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: b701172c2345313e236a037f5aa16939cfaac440
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>셀프 서비스 암호 재설정 등록
 
@@ -67,4 +66,3 @@ ms.lasthandoff: 08/08/2017
 * [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "등록된 방법을 보여 주는 암호 재설정 등록 페이지 및 마침 단추"
-

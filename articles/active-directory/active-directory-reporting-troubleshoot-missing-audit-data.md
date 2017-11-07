@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 4e63c9b48125e3c7283be5fe88cab211509f88f4
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Azure Active Directory 활동 로그에서 수행한 일부 작업을 찾을 수 없습니다.
 
 
@@ -44,5 +42,4 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 보고 FAQ](active-directory-reporting-faq.md)를 참조하세요.
-
 

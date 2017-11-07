@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 > [!div class="op_single_selector"]
 > * [VMware에서 Azure로](./site-recovery-prepare-target-vmware-to-azure.md)
@@ -52,4 +50,3 @@ ms.lasthandoff: 06/15/2017
 
 ## <a name="next-steps"></a>다음 단계
 [복제 설정 구성](./site-recovery-setup-replication-settings-vmware.md)
-

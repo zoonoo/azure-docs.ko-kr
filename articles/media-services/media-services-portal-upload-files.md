@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure Portal에서 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -64,6 +63,5 @@ Azure Media Services에서 자산에 디지털 파일을 업로드합니다. 자
 * [업로드된 자산을 인코딩](media-services-portal-encode.md)하는 방법에 대해 알아보세요.
 
 * 또한 Azure Functions를 사용하여 파일이 구성된 컨테이너에 도착할 때 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [Media Services: Azure Media Services를 Azure Functions 및 Logic Apps와 통합](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/)에서 샘플을 참조하세요.
-
 
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b429f5fc1be24e63b0e9e065f879f0b0e389403c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: b3ae472d52208d3c76424d29192c1eb982639572
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램을 추가하는 문제
 
 이 문서는 Azure AD 갤러리 응용 프로그램을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업을 이해하는 데 도움이 됩니다.
@@ -70,7 +68,7 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="notification-details-explained"></a>알림 세부 정보 설명
 
-다음은 각 알림 항목이 의미하는 내용을 자세히 설명하고 각 항목의 예제를 제공합니다.
+다음은 각 알림 항목이 의미하는 내용을 자세히 설명하고 각 항목의 예를 제공합니다.
 
 ### <a name="essential-notification-items"></a>중요 알림 항목
 
@@ -80,7 +78,7 @@ ms.lasthandoff: 04/11/2017
 
 -   **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
-    -   예제 - **입력한 내부 url은 이미 다른 응용 프로그램에서 사용 중입니다**
+    -   예제 - **입력한 내부 url은 이미 다른 응용 프로그램에서 사용 중입니다.**
 
 -   **알림 ID** - 알림의 고유 ID
 
@@ -126,7 +124,7 @@ ms.lasthandoff: 04/11/2017
 
 -   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-    -   예제 – **내부 url 'http://bing.com/'은 이미 사용 중이므로 유효하지 않습니다**
+    -   예제 – **내부 url 'http://bing.com/'은 이미 사용 중이므로 유효하지 않습니다.**
 
 -   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보 복사
 
@@ -134,4 +132,3 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
-

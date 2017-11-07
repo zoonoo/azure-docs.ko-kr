@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure 검색서비스 만들기
 
@@ -112,5 +110,4 @@ Azure Search 서비스를 프로비전한 후에 [인덱스를 정의](search-wh
 코드 또는 스크립트에서 서비스에 액세스하려면 URL(*service-name*.search.windows.net)과 키를 제공합니다. 관리 키는 모든 액세스 권한을 부여하고, 쿼리 키는 읽기 전용 액세스 권한을 부여합니다. 시작하려면 [.NET에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 빠른 포털 기반 자습서는 [첫 번째 인덱스 빌드 및 쿼리](search-get-started-portal.md)를 참조하세요.
-
 

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 6e614f1120b3dc54871b393ac0a2703c21b30ae8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b77ba307938b6b1f5221de40cc135d17c15c1d9b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 컨테이너는 클라우드 응용 프로그램을 패키지, 배포 및 관리하기 위한 기본 방법으로 신속히 도입되고 있습니다. Azure Container Instances는 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.

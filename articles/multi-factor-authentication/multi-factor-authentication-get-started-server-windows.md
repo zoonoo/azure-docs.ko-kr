@@ -15,12 +15,11 @@ ms.date: 06/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 7e6384ea8fea686b5cad1a3bc3007252b9cfcd65
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하여 응용 프로그램에 대한 Windows 인증을 사용하도록 설정하고 구성할 수 있습니다. Windows 인증을 설정하기 전에 다음 목록을 유념하세요.
@@ -51,4 +50,3 @@ Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하�
 - [Azure MFA 서버에 대한 타사 VPN 어플라이언스 구성](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Azure MFA에 대한 NPS 확장으로 기존 인증 인프라 보강](multi-factor-authentication-nps-extension.md)
-

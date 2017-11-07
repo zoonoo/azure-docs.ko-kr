@@ -16,7 +16,7 @@
 
     |설정|설명|
     |--------|------------|
-    |**내보내기 모드**|**기본**을 선택하여 사용자 지정 API를 자동으로 생성합니다. **수동**을 선택하면 API 정의가 내보내지지만 PowerApps 및 Microsoft Flow에 수동으로 가져와야 합니다. 자세한 내용은 [PowerApps 및 Microsoft Flow로 내보내기](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json)를 참조하세요.|
+    |**내보내기 모드**|**기본**을 선택하여 사용자 지정 API를 자동으로 생성합니다. **수동**을 선택하면 API 정의가 내보내지지만 PowerApps 및 Microsoft Flow에 수동으로 가져와야 합니다. 자세한 내용은 [PowerApps 및 Microsoft Flow로 내보내기](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md)를 참조하세요.|
     |**환경**|사용자 지정 API를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요(PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) 또는 [환경 개요(Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/)를 참조하세요.|
     |**사용자 지정 API 이름**|이름(예: `Turbine Repair`)을 입력합니다.|
     |**API 키 이름**|앱 및 흐름 작성자가 사용자 지정 API UI에서 보게 되는 이름입니다. 이 예제에서 유용한 정보가 포함되어 있습니다.|

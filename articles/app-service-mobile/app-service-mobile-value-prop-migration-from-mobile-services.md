@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>모바일 서비스를 사용하고 있습니다. 앱 서비스가 어떤 도움을 주나요?
 ## <a name="overview"></a>개요
@@ -64,4 +63,3 @@ ms.lasthandoff: 07/21/2017
 *Azure 앱 서비스* 에서는 모바일 앱에 대한 비공개 테스트 및 스테이징 환경을 여러 개 만들 수 있습니다. 배포 전에 이러한 환경을 사용하여 테스트를 수행합니다. 가동 중지 시간 없이 프로덕션으로 교환합니다. 웹앱이 미리 로드되어 최상의 고객 경험을 보장합니다.
 
 이 *자습서* 에 따라 기존 모바일 서비스에 [앱 서비스](app-service-mobile-migrating-from-mobile-services.md)를 이용하기 시작할 수 있습니다.
-

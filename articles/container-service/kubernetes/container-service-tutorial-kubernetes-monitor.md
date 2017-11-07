@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: f72944fe819a79edbafb73fba635d73642f33e4f
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Operations Management Suite를 사용하여 Kubernetes 클러스터 모니터링
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 앱을 사용하여 대규모의 프로덕션 클러스터를 관리하는 경우 그렇습니다. 
 
@@ -140,7 +140,7 @@ OMS 포털의 OMS 대시보드에서 **컨테이너** 요약 타일을 찾습니
 
 마찬가지로 Azure Portal에서 **Log Analytics**로 이동하고 작업 영역 이름을 선택합니다. **컨테이너** 요약 타일을 보려면 **솔루션** > **컨테이너**를 클릭합니다. 세부 정보를 보려면 타일을 클릭합니다.
 
-모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../log-analytics/index.md)를 참조하세요.
+모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../log-analytics/index.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -156,4 +156,3 @@ Container Service에 대한 미리 빌드된 스크립트 샘플을 보려면 �
 
 > [!div class="nextstepaction"]
 > [Azure Container Service 스크립트 샘플](cli-samples.md)
-

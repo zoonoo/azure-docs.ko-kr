@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>StorSimple 장치에 대한 장애 조치 및 재해 복구
 ## <a name="overview"></a>개요
@@ -178,10 +178,4 @@ a.  삭제 작업이 실패하면 볼륨 컨테이너의 삭제를 수동으로 
 ## <a name="next-steps"></a>다음 단계
 * 장애 조치(failover)를 수행한 후에 [StorSimple 장치 비활성화 또는 삭제](storsimple-deactivate-and-delete-device.md)를 해야 할 수도 있습니다.
 * StorSimple Manager 서비스를 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

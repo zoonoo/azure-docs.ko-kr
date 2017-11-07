@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: 인증서 내보내기
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - 함수와 통합
+      items:
+        - name: HTTP 트리거
+          href: tutorial-functions-http-trigger.md
 - name: 샘플
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: 개념
   items:
+    - name: 서버를 사용하지 않는 데이터베이스
+      href: serverless-computing-database.md
     - name: 글로벌 분포
       href: distribute-data-globally.md
     - name: 분할
@@ -133,6 +139,7 @@
     - name: 개발
       items:
         - name: DocumentDB API
+          href: documentdb-index.md
           items:
             - name: 리소스
               href: documentdb-resources.md
@@ -207,6 +214,7 @@
                 - name: 'S1, S2, S3 사용 중지'
                   href: performance-levels.md
         - name: MongoDB API
+          href: mongodb-index.md
           items:
             - name: MongoDB 계정에 연결
               href: connect-mongodb-account.md
@@ -268,6 +276,8 @@
           href: geospatial.md
         - name: 인덱싱
           href: indexing-policies.md
+        - name: Visual Studio에서 연결된 서비스
+          href: connected-service.md
     - name: 관리
       items:
         - name: 비용 효율적인 읽기 및 쓰기
@@ -282,8 +292,14 @@
           href: set-throughput.md
         - name: 모니터 SLA
           href: monitor-accounts.md
+        - name: 메트릭 사용
+          href: use-metrics.md
+        - name: 진단 로깅
+          href: logging.md
         - name: 관리 키 및 일관성
           href: manage-account.md
+        - name: Azure Storage 탐색기
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: 보안
           items:
             - name: 휴지 상태의 암호화
@@ -309,7 +325,7 @@
         - name: Azure Search와의 통합
           href: ../search/search-howto-index-documentdb.md
         - name: Azure Data Factory를 사용하여 데이터 이동
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Azure Stream Analytics로 실시간 데이터 분석
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기
@@ -350,6 +366,8 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Python
+          href: table-sdk-python.md
     - name: Graph API
       items:
         - name: .NET

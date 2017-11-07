@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 65557938673c5442758396a47873be1016e0f71b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
 ## <a name="overview"></a>개요
@@ -89,5 +87,4 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure Resource Mana
 데이터를 마이그레이션하는 데 백업 및 복원을 사용할 수 있지만 Azure VM의 SQL Server로 데이터를 마이그레이션하는 훨씬 간편한 경로가 있습니다. 마이그레이션 옵션 및 권장 사항에 대한 자세한 내용은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
 그 밖에 [Azure Virtual Machines에서 SQL Server 실행과 관련된 리소스](virtual-machines-windows-sql-server-iaas-overview.md)를 검토하세요.
-
 

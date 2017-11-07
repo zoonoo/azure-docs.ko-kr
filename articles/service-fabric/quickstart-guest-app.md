@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 응용 프로그램 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 응용 프로그램(이 예제에서는 Node.js)을 배포할 수 있습니다.
@@ -45,7 +43,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 응용 프로그램의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
 
 >[!IMPORTANT]
->Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다.
+>Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다. 경우에 따라 [이러한 지침](https://stackoverflow.com/a/41687101/1664231)을 따라 Windows 10에서 긴 파일 경로를 활성화할 수 있습니다.
    
 ![Visual Studio의 새 프로젝트 대화 상자][new-project]
 

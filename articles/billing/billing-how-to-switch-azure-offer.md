@@ -12,15 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
+ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 354eec1b0850edc1b2039e0c736b129936a27381
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제품으로 종량제 구독 변경
 
@@ -98,7 +97,7 @@ Azure 제품은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 #### <a name="quota-increases-are-reset"></a>할당량 증가가 다시 설정됩니다.
 
-제품을 전환할 경우 [기본 제한을 초과하는 제한 또는 할당량 증가](../azure-supportability/resource-manager-core-quotas-request.md)는 다시 설정됩니다. 기본 제한을 초과하는 더 많은 리소스가 있더라도 서비스 작동이 중단되지 않습니다. 예를 들어 구독에서 200개 코어를 사용하고 제품을 전환하면 코어 할당량이 기본값인 20개 코어로 다시 설정됩니다. 200개 코어를 사용하는 VM은 영향을 받지 않으며 계속 실행됩니다. 그렇지만 다른 할당량 증가 요청을 지정하지 않는 경우 더 많은 코어를 프로비전할 수 없습니다.
+제품을 전환할 경우 [기본 제한을 초과하는 제한 또는 할당량 증가](../azure-supportability/resource-manager-core-quotas-request.md)는 다시 설정됩니다. 기본 제한을 초과하는 더 많은 리소스가 있더라도 서비스 작동이 중단되지 않습니다. 예를 들어 구독에서 200개 코어를 사용하고 제품을 전환하면 코어 할당량이 기본값인 20개 코어로 다시 설정됩니다. 200개 코어를 사용하는 VM은 영향을 받지 않으며 계속 실행됩니다. 그렇지만 다른 할당량 증가 요청을 지정하지 않는 경우 더 많은 코어를 프로비저전할 수 없습니다.
 
 #### <a name="billing"></a>결제
 
@@ -106,7 +105,7 @@ Azure 제품은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>종량제에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA)으로 마이그레이션할 수 있나요?
 
-* CSP에 마이그레이션하려면 [CSP에 Azure 구독 마이그레이션](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/)을 참조하세요.
+* CSP에 마이그레이션하려면 [CSP에 Azure 종량제 구독 마이그레이션](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)을 참조하세요.
 * EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 전자 메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 EA 포털에서 [기존 계정 연결](https://ea.azure.com/helpdocs/associateExistingAccount)을 참조하세요.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?

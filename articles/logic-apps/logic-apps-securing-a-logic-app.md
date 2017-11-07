@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-your-logic-apps"></a>논리 앱에 대한 액세스 보호
 
 논리 앱을 보호하는 데 사용할 수 있는 많은 도구가 있습니다.
@@ -275,4 +273,3 @@ HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경�
 [예외 처리](logic-apps-exception-handling.md)  
 [논리 앱 모니터링](logic-apps-monitor-your-logic-apps.md)  
 [논리 앱 오류 진단 및 문제](logic-apps-diagnosing-failures.md)  
-

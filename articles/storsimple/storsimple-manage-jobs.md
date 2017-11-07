@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b7e0e1a689ff6caa4142959818a70bc4a6b65af
-
-
+ms.openlocfilehash: 7d9377bb8f3cb8c587823c2d71d61dfb9b50f52f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
@@ -74,10 +74,4 @@ ms.openlocfilehash: 6b7e0e1a689ff6caa4142959818a70bc4a6b65af
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 백업 정책을 관리](storsimple-manage-backup-policies.md)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

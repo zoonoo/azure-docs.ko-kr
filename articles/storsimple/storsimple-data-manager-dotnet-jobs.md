@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>.NET SDK를 사용하여 데이터 변환 시작(비공개 미리 보기)
 
 ## <a name="overview"></a>개요
@@ -183,4 +181,3 @@ ms.lasthandoff: 08/08/2017
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 데이터 관리자 UI를 사용하여 데이터를 변환합니다](storsimple-data-manager-ui.md).
-

@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: a3bfa3a17f0d7300f9d1ceb529410bbbb7bb2fee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
 
 이 자습서는 Jenkins [Azure VM 에이전트 플러그 인](https://plugins.jenkins.io/azure-vm-agents)을 사용하여 Azure에서 실행 중인 Linux 가상 컴퓨터를 통해 주문형 용량을 추가하는 방법을 설명합니다.
@@ -110,7 +108,7 @@ Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다
 1. **Azure Virtual Machine 템플릿 추가** 옆에 있는 **추가**를 선택합니다.
 2. **이름**에 `defaulttemplate`을 입력합니다.
 3. **레이블**에 `ubuntu`를 입력합니다.
-4. 콤보 상자에서 원하는 [Azure 지역](https://azure.microsoft.com/regions/)을 선택합니다.
+4. 콤보 상자에서 원하는 [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 선택합니다.
 5. **가상 컴퓨터 크기**에 있는 드롭다운 목록에서 [VM 크기](/azure/virtual-machines/linux/sizes)를 선택합니다. 이 자습서에는 범용 `Standard_DS1_v2` 크기가 적합합니다.   
 6. **보존 시간**은 `60`으로 둡니다. 이 설정은 Jenkins가 유휴 에이전트를 할당 취소할 때까지 대기할 수 있는 시간(분)을 정의합니다. 유휴 에이전트를 자동으로 제거하지 않으려는 경우 0을 지정합니다.
 
@@ -147,5 +145,4 @@ Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 CI/CD](deploy-jenkins-app-service-plugin.md)
-
+> [Azure App Service에 CI/CD](java-deploy-webapp-tutorial.md)

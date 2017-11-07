@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 7698e03c0dc8d1c6d1e926f45e903a909bfd0c93
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
+ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플
 
-다음 표에는 Azure Cosmos DB의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다.
+다음 표에는 Azure Cosmos DB의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다. 현재는 PowerShell을 통해 Azure Cosmos DB 계정 계층만 관리할 수 있으며 데이터베이스와 컬렉션 같은 기타 리소스는 PowerShell로 관리할 수 없습니다.
 
 | |  |
 |---|---|

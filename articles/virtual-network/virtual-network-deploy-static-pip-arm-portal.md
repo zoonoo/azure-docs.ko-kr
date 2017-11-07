@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 7740861cccfe0ba4e8ae0694f6d5c5fec3df47ef
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
@@ -65,5 +64,4 @@ Azure Portal에 고정 공용 IP 주소가 있는 VM을 만들려면 다음 단�
 10. VM이 만들어지면 아래와 같이 **설정** 블레이드가 표시됩니다.
     
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
-
 

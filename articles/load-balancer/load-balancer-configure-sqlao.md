@@ -3,7 +3,7 @@ title: "SQL Always On에 대해 부하 분산 장치 구성 | Microsoft Docs"
 description: "SQL Always On에서 작동하도록 부하 분산 장치를 구성하며, PowerShell을 활용하여 SQL 구현에 대한 부하 분산 장치를 만드는 방법입니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd
 ms.service: load-balancer
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-load-balancer-for-sql-always-on"></a>SQL Always On에 대해 부하 분산 장치 구성
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 이제 ILB에서 SQL Server AlwaysOn 가용성 그룹을 실행할 수 있습니다. 가용성 그룹은 고가용성 및 재해 복구를 위한 SQL Server의 주력 솔루션입니다. 가용성 그룹 수신기를 통해 클라이언트 응용 프로그램은 구성의 복제본 수에 관계없이 주 복제본에 매끄럽게 연결할 수 있습니다.
 
@@ -66,4 +67,3 @@ SQL AlwaysOn에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그�
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

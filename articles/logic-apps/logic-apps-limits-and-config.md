@@ -1,6 +1,6 @@
 ---
-title: "논리 앱 한도 및 구성 | Microsoft Docs"
-description: "논리 앱에 사용 가능한 서비스 한도 및 구성 값에 대한 개요입니다."
+title: "제한 및 구성 - Azure Logic Apps | Microsoft Docs"
+description: "Azure Logic Apps에 대한 서비스 제한 및 구성 값"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,138 +12,173 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: LADocs; jehollan
+ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="logic-app-limits-and-configuration"></a>논리 앱 한도 및 구성
+# <a name="logic-apps-limits-and-configuration"></a>Logic Apps 제한 및 구성
 
-Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 같습니다.
+이 항목에서는 Azure Logic Apps에 대한 현재 제한 및 구성 정보를 설명합니다.
 
 ## <a name="limits"></a>제한
 
 ### <a name="http-request-limits"></a>HTTP 요청 한도
 
-단일 HTTP 요청 및/또는 커넥터 호출에 대한 한도는 다음과 같습니다.
+이러한 제한은 단일 HTTP 요청 또는 커넥터 호출에 적용됩니다.
 
 #### <a name="timeout"></a>시간 제한
 
-|Name|제한|참고 사항|
-|----|----|----|
-|요청 시간 초과|120초|필요에 따라 [비동기 패턴](../logic-apps/logic-apps-create-api-app.md) 또는 [until 루프](logic-apps-loops-and-scopes.md)를 보완할 수 있음|
+| Name | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 요청 시간 초과 | 120초 | 필요에 따라 [비동기 패턴](../logic-apps/logic-apps-create-api-app.md) 또는 [until 루프](logic-apps-loops-and-scopes.md)를 보완할 수 있음 |
+|||| 
 
 #### <a name="message-size"></a>메시지 크기
 
-|Name|제한|참고 사항|
-|----|----|----|
-|메시지 크기|100 MB|일부 커넥터 및 API에서는 100MB를 지원하지 않을 수 있음 |
-|식 평가 제한|131,072자|`@concat()`, `@base64()`, `string`은 이 제한보다 길 수 없음|
+| Name | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 메시지 크기 | 100 MB | 일부 커넥터 및 API에서는 100MB를 지원하지 않을 수 있습니다. | 
+| 식 평가 제한 | 131,072자 | `@concat()`, `@base64()`, `string`은 이 제한보다 길 수 없습니다. | 
+|||| 
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-|Name|제한|참고 사항|
-|----|----|----|
-|다시 시도 횟수|10| 기본값은 4입니다. [재시도 정책 매개 변수](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)로 구성할 수 있음|
-|재시도 최대 지연 시간|1시간|[재시도 정책 매개 변수](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)로 구성할 수 있음|
-|재시도 최소 지연 시간|5초|[재시도 정책 매개 변수](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)로 구성할 수 있음|
+| Name | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 다시 시도 횟수 | 90 | 기본값은 4입니다. [재시도 정책 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md)로 구성할 수 있습니다. | 
+| 재시도 최대 지연 시간 | 1일 | [재시도 정책 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md)로 구성할 수 있습니다. | 
+| 재시도 최소 지연 시간 | 5초 | [재시도 정책 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md)로 구성할 수 있습니다. |
+|||| 
 
 ### <a name="run-duration-and-retention"></a>실행 기간 및 보존
 
-단일 논리 앱 실행에 대한 한도는 다음과 같습니다.
+이러한 제한은 단일 논리 앱 실행에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|실행 기간|90일||
-|저장소 보존|90일|실행 시작 시간부터 시작|
-|최소 되풀이 간격|1초|| 앱 서비스 계획이 있는 논리 앱의 경우 15초
-|최대 되풀이 간격|500일||
+| 이름 | 제한 | 
+| ---- | ----- | 
+| 실행 기간 | 90일 | 
+| 저장소 보존 | 실행 시작 시간부터 90일 | 
+| 최소 되풀이 간격 | 1초 </br>App Service 계획이 있는 논리 앱: 15초 | 
+| 최대 되풀이 간격 | 500일 | 
+||| 
 
-정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과할 것으로 예상하는 경우 요구 사항에 도움이 될 수 있도록 [문의하세요](mailto://logicappsemail@microsoft.com).
-
+정상적인 처리 흐름에서 실행 기간 또는 저장소 보존 한도를 초과하게 되면 [저희에게 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
 ### <a name="looping-and-debatching-limits"></a>반복 및 분리 한도
 
-단일 논리 앱 실행에 대한 한도는 다음과 같습니다.
+이러한 제한은 단일 논리 앱 실행에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|ForEach 항목|100,000|[쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
-|Until 반복|5, 000||
-|SplitOn 항목|100,000||
-|ForEach 병렬 처리|50| 기본값은 20입니다. `foreach` 작업에 `"operationOptions": "Sequential"`를 추가하여 순차적인 foreach로 설정하거나 `runtimeConfiguration`을 사용하여 특정 병렬 수준으로 설정할 수 있습니다.|
-
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| ForEach 항목 | 100,000 | [쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다. | 
+| Until 반복 | 5, 000 | | 
+| SplitOn 항목 | 100,000 | | 
+| ForEach 병렬 처리 | 50 | 기본값은 20입니다. <p>ForEach 루프에서 특정 수준의 병렬 처리를 설정하려면 `foreach` 작업에서 `runtimeConfiguration` 속성을 설정합니다. <p>ForEach 루프를 순차적으로 실행하려면 `foreach` 작업에서 `operationOptions` 속성을 “Sequential”로 설정합니다. | 
+|||| 
 
 ### <a name="throughput-limits"></a>처리량 한도
 
-단일 논리 앱 인스턴스에 대한 한도는 다음과 같습니다. 
+이러한 제한은 단일 논리 앱 인스턴스에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|5분당 작업 실행 |100,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
-|작업 나가는 동시 호출 |~2,500|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
-|런타임 끝점 들어오는 동시 호출 |~1,000|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
-|런타임 끝점은 5분마다 호출을 읽음 |60,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
-|런타임 끝점은 5분마다 호출을 수행함 |45,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 5분당 작업 실행 | 100,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+| 작업 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
+| 런타임 끝점: 들어오는 동시 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
+| 런타임 끝점: 5분마다 호출을 읽습니다. | 60,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 5분마다 호출을 수행합니다. | 45,000 | 필요에 따라 여러 앱에 워크로드를 배포할 수 있습니다. | 
+|||| 
 
-정상적인 처리에서 이 한도를 초과하길 기대하거나 일정 기간 동안 이 한도를 초과할 수 있는 부하 테스트를 실행하려는 경우 요구 사항에 도움을 줄 수 있도록 [문의하세요](mailto://logicappsemail@microsoft.com).
+일반적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과할 수 있는 부하 테스트를 실행하려면 [저희에게 연락](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
-### <a name="definition-limits"></a>정의 한도
+### <a name="logic-app-definition-limits"></a>논리 앱 정의 제한
 
-단일 논리 앱 정의에 대한 한도는 다음과 같습니다.
+이러한 제한은 단일 논리 앱 정의에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|워크플로당 작업|500|중첩된 워크플로를 추가하여 필요에 따라 이 한도를 확장할 수 있음|
-|허용된 작업 중첩 깊이|8|중첩된 워크플로를 추가하여 필요에 따라 이 한도를 확장할 수 있음|
-|구독당 지역별 워크플로|1000||
-|워크플로당 트리거|10||
-|Switch 범위 사례 제한|25||
-|워크플로당 변수의 수|250||
-|식당 최대 문자 수|8,192||
-|최대 `trackedProperties` 크기(자)|16,000|
-|`action`/`trigger` 이름 제한|80||
-|`description` 길이 제한|256||
-|`parameters` 제한|50||
-|`outputs` 제한|10||
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
+| 허용된 작업 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. | 
+| 구독당 지역별 워크플로 | 1000 | | 
+| 워크플로당 트리거 | 10 | | 
+| Switch 범위 사례 제한 | 25 | | 
+| 워크플로당 변수의 수 | 250 | | 
+| 식당 최대 문자 수 | 8,192 | | 
+| 최대 `trackedProperties` 크기(자) | 16,000 | 
+| `action`/`trigger` 이름 제한 | 80 | | 
+| `description` 길이 제한 | 256 | | 
+| `parameters` 제한 | 50 | | 
+| `outputs` 제한 | 10 | | 
+|||| 
+
+<a name="custom-connector-limits"></a>
+
+### <a name="custom-connector-limits"></a>사용자 지정 커넥터 제한
+
+이러한 제한은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 적용됩니다.
+
+| 이름 | 제한 | 
+| ---- | ----- | 
+| 만들 수 있는 사용자 지정 커넥터의 수 | Azure 구독당 1,000개 | 
+| 사용자 지정 커넥터에서 만든 각 연결에 대한 분당 요청 수 | 커넥터에서 만든 각 연결에 대해 500개 요청 |
+||| 
 
 ### <a name="integration-account-limits"></a>통합 계정 제한
 
-통합 계정에 추가되는 아티팩트에 대한 한도는 다음과 같습니다.
+이러한 제한은 통합 계정에 추가할 수 있는 아티팩트에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|스키마|8MB|[blob URI](logic-apps-enterprise-integration-schemas.md)를 사용하여 2MB보다 큰 파일을 업로드할 수 있음 |
-|맵(XSLT 파일)|2MB| |
-|런타임 끝점은 5분마다 호출을 읽음 |60,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
-|런타임 끝점은 5분마다 호출을 수행함 |45,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
-|런타임 끝점 5분마다 호출 추적 |45,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
-|런타임 끝점이 동시 호출을 차단함 |~1,000|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 스키마 | 8MB | [Blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용하여 2MB보다 큰 파일을 업로드할 수 있습니다. | 
+| 맵(XSLT 파일) | 2MB | | 
+| 런타임 끝점: 5분마다 호출을 읽습니다. | 60,000 | 필요에 따라 여러 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 5분마다 호출을 수행합니다. | 45,000 | 필요에 따라 여러 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 5분마다 호출 추적 | 45,000 | 필요에 따라 여러 계정에 워크로드를 배포할 수 있습니다. | 
+| 런타임 끝점: 동시 호출 차단 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축합니다. | 
+|||| 
+
+이러한 제한은 통합 계정에 추가할 수 있는 아티팩트의 수에 적용됩니다.
+
+#### <a name="free-pricing-tier"></a>무료 가격 책정 계층
+
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 규약 | 10 | | 
+| 기타 아티팩트 형식 | 25 |아티팩트 형식에는 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
+|||| 
+
+#### <a name="standard-pricing-tier"></a>표준 가격 책정 계층
+
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| 모든 아티팩트 형식 | 500 | 아티팩트 형식에는 계약, 파트너, 스키마, 인증서 및 맵이 포함됩니다. 각 형식은 최대 수의 아티팩트를 포함할 수 있습니다. | 
+|||| 
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 프로토콜(AS2, X12, EDIFACT) 메시지 크기
 
-다음은 B2B 프로토콜에 대한 한도임
+이러한 제한은 B2B 프로토콜에 적용됩니다.
 
-|이름|제한|참고 사항|
-|----|----|----|
-|AS2|50MB|디코딩 및 인코딩에 적용|
-|X12|50MB|디코딩 및 인코딩에 적용|
-|EDIFACT|50MB|디코딩 및 인코딩에 적용|
+| 이름 | 제한 | 참고 사항 | 
+| ---- | ----- | ----- | 
+| AS2 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
+| X12 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
+| EDIFACT | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
+|||| 
 
-## <a name="configuration"></a>구성
+<a name="configuration"></a>
 
-### <a name="ip-address"></a>IP 주소
+## <a name="configuration-ip-addresses"></a>구성: IP 주소
 
-#### <a name="logic-app-service"></a>논리 앱 서비스
+### <a name="logic-apps-service"></a>Logic Apps 서비스
 
-논리 앱에서 직접(즉, [HTTP](../connectors/connectors-native-http.md) 또는 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)를 통해) 또는 다른 HTTP 요청을 통해 발생한 호출은 다음 목록에 지정된 IP 주소에서 가져옵니다.
+논리 앱이 [HTTP](../connectors/connectors-native-http.md) 또는 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 또는 다른 HTTP 요청을 통해 직접 수행하는 호출은 이 목록의 IP 주소에서 온 것입니다.
 
-|논리 앱 지역|아웃바운드 IP|
-|-----|----|
+|Logic Apps 지역|아웃바운드 IP|
+|-----------------|-----------|
 |오스트레일리아 동부|13.75.149.4, 104.210.91.55, 104.210.90.241|
 |오스트레일리아 남동부|13.73.114.207, 13.77.3.139, 13.70.159.205|
 |브라질 남부|191.235.82.221, 191.235.91.7, 191.234.182.26|
@@ -168,13 +203,14 @@ Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 �
 |미국 서부 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
 |영국 남부|51.140.74.14, 51.140.73.85, 51.140.78.44|
 |영국 서부|51.141.54.185, 51.141.45.238, 51.141.47.136|
+| | |
 
-#### <a name="connectors"></a>커넥터
+### <a name="connectors"></a>커넥터
 
-[커넥터](../connectors/apis-list.md)에서 발생한 호출은 다음 목록에 지정된 IP 주소에서 가져옵니다.
+[커넥터](../connectors/apis-list.md)가 수행하는 호출은 이 목록의 IP 주소에서 온 것입니다.
 
-|논리 앱 지역|아웃바운드 IP|
-|-----|----|
+|Logic Apps 지역|아웃바운드 IP|
+|-----------------|-----------|
 |오스트레일리아 동부|40.126.251.213|
 |오스트레일리아 남동부|40.127.80.34|
 |브라질 남부|191.232.38.129|
@@ -197,12 +233,11 @@ Azure Logic Apps에 대한 현재 제한 사항 및 구성 정보는 다음과 �
 |미국 서부|104.40.51.248|
 |영국 남부|51.140.80.51|
 |영국 서부|51.141.47.105|
-
+| | | 
 
 ## <a name="next-steps"></a>다음 단계  
 
-- Logic Apps를 시작하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) 자습서를 수행합니다.  
-- [일반적인 예제 및 시나리오 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
-- [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
-
+* [첫 번째 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [일반적인 예제 및 시나리오](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [비디오: Logic Apps으로 비즈니스 프로세스 자동화](http://channel9.msdn.com/Events/Build/2016/T694) 
+* [비디오: Logic Apps와 시스템 통합](http://channel9.msdn.com/Events/Build/2016/P462)

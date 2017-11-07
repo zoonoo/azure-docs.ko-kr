@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Azure Mobile Engagement iOS SDK 릴리스 정보
 
@@ -78,4 +77,3 @@ ms.lasthandoff: 07/21/2017
 * 장치 간에 메시지를 보내고 받기 위한 API가 제거되었습니다.
 * 보안이 개선되었습니다.
 * SmartAd 추적 기능이 제거되었습니다.
-

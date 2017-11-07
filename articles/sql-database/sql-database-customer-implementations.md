@@ -12,15 +12,14 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
+ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database 고객 구현 기술 사례
 
@@ -38,3 +37,4 @@ ms.lasthandoff: 07/21/2017
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): 이 간략한 사례 연구는 고객에게 완전히 관리되는 SaaS(Software as a Service) 제품을 제공하기 위해 Dynamics 365 for Operations 제품 팀의 Azure SQL Database로 마이그레이션의 경험에서 학습한 모범 사례 및 교훈을 강조 표시합니다. Azure SQL Database를 사용하여 Dynamics 365 for Operations 팀은 훨씬 적은 직원으로 서비스를 관리 및 작동하고 자동 데이터베이스 백업, 데이터베이스 백업 보존, 고가용성 및 재해 복구 기능과 같은 기본 관리 효율성 기능으로 쉽게 크기를 조정할 수 있었습니다. 간단한 자동화로 데이터베이스를 프로비전하는 기능과 함께 Azure SQL Database가 대규모 서비스 구성을 위한 유용한 플랫폼이 되도록 합니다.
 
+- [Microsoft OneDrive 및 SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): 이 사례 연구 요약에서는 Microsoft OneDrive 및 SharePoint Online의 Azure SQL Database로의 이동 뒤에 숨은 이야기와, 이러한 마이그레이션이 어떻게 거의 무제한인 탄력적 용량 관리를 구현하는 동시에 운영 비용과 인프라 오버헤드를 크게 줄일 수 있었는지 설명합니다.

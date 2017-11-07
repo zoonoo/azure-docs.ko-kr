@@ -4,7 +4,7 @@ description: "SSDT를 사용하여 Azure Analysis Services 서버에 테이블 �
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: fad1994791f9766282db2a9db569f64473e1c15a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-a-model-from-ssdt"></a>SSDT에서 모델 배포
 Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. SSDT(SQL Server 데이터 도구)를 사용하여 작업하는 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
@@ -63,5 +62,4 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 ## <a name="next-steps"></a>다음 단계
 테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. [SSMS과 연결](analysis-services-manage.md)하여 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.
-
 

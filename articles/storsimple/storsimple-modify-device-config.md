@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 ## <a name="overview"></a>개요
@@ -119,5 +118,4 @@ Azure 클래식 포털을 통해 컨트롤러 0과 컨트롤러 1을 다시 구�
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 장치에 대해 MPIO를 구성](storsimple-configure-mpio-windows-server.md)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
 

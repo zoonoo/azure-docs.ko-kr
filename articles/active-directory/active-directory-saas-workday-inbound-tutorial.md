@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f9cc94ca1fc44d10af19debab49435b265bf6e7c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>자습서: 온-프레미스 Active Directory 및 Azure Active Directory를 사용하여 사용자를 자동으로 프로비전하도록 Workday 구성
 이 자습서의 목표는 Workday에서 Active Directory 및 Azure Active Directory로 사람을 가져오기 위해 수행해야 하는 단계, 그리고 선택 사항으로 일부 특성을 Workday에 쓰는 방법을 보여주는 것입니다. 
@@ -63,9 +61,6 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * Active Directory에 사용자 프로비전의 경우 [온-프레미스 동기화 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 Windows Service 2012 이상을 실행하는 도메인에 가입된 서버가 필요합니다.
 * Active Directory와 Azure AD 간의 동기화를 위한 [Azure AD Connect](connect/active-directory-aadconnect.md)
 
-> [!NOTE]
-> Azure AD 테넌트가 유럽에 있는 경우 아래의 [알려진 문제](#known-issues) 섹션을 참조하세요.
-
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -85,7 +80,7 @@ Azure AD는 Workday에서 Active Directory, Azure AD, SaaS 앱 등으로 프로�
 
 Azure Active Directory는 Workday용으로 사전 통합된 프로비전 커넥터와 수많은 기타 SaaS 응용 프로그램을 지원합니다. 
 
-단일 프로비전 커넥터가 단일 원본 시스템의 API와 상호 작용하고, 단일 대상 시스템에 데이터를 프로비전하도록 도와줍니다. Azure AD에서 지원하는 대부분의 프로비전 커넥터는 단일 원본 및 대상 시스템용이며(예: Azure AD에서 ServiceNow로), 간단하게 Azure AD 앱 갤러리에서 문제의 앱(예: ServiceNow)을 추가하여 설치할 수 있습니다. 
+단일 프로비전 커넥터가 단일 원본 시스템의 API와 상호 작용하고, 단일 대상 시스템에 데이터를 프로비전하도록 도와줍니다. Azure AD에서 지원하는 대부분의 프로비전 커넥터는 단일 원본 및 대상 시스템용이며(예: Azure AD에서 ServiceNow로), Azure AD 앱 갤러리에서 문제의 앱(예: ServiceNow)을 추가하여 설치할 수 있습니다. 
 
 Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일 관계입니다.
 
@@ -340,7 +335,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 | **Fax**      | facsimileTelephoneNumber     |     |    만들기 + 업데이트 |
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 만들기 + 업데이트 |
-| **Mobile**  |    mobile       |     |       만들기 작업 시에만 기록 |
+| **Mobile**  |    mobile       |     |       만들기 + 업데이트 |
 | **EmailAddress**    | mail    |     |     만들기 + 업데이트 |
 | **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
@@ -350,7 +345,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | 만들기 작업 시에만 기록 |
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | 만들기 + 업데이트 |
 | **BusinessTitle**   |  title     |     |  만들기 + 업데이트 |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 만들기 + 업데이트                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  만들기 + 업데이트 |
@@ -382,6 +377,10 @@ Active Directory 온-프레미스로 프로비전하려면 원하는 Active Dire
 
 * 입력: Azure AD 테넌트의 전역 관리 사용자 이름 및 암호
 
+>[!IMPORTANT]
+>현재 사용자 지정 도메인을 사용하는 경우 작동하지 않는 전역 관리자 자격 증명으로 알려진 문제가 있습니다(예: admin@contoso.com). 해결 방법으로 onmicrosoft.com 도메인으로 전역 관리자 계정을 만들고 사용합니다(예: admin@contoso.onmicrosoft.com).
+
+
 **명령 #4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -410,8 +409,39 @@ Active Directory 온-프레미스로 프로비전하려면 원하는 Active Dire
 
 > net start aadsyncagent
 
+>[!TIP]
+>Powershell에서 "net" 명령 외에도 **Services.msc**를 사용하여 동기화 에이전트 서비스를 시작 및 중지할 수 있습니다. Powershell 명령을 실행할 때 오류가 발생하는 경우 **Microsoft Azure AD Connect Provisioning Agent**가 **Services.msc**에서 실행되고 있는지 확인합니다.
+
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**유럽 연합에서 고객에 대한 추가 구성**
+
+Azure Active Directory 테넌트가 EU 데이터 센터 중 하나에 있으면 아래 추가 단계를 수행합니다.
+
+1. **Services.msc**를 열고 **Microsoft Azure AD Connect Provisioning Agent** 서비스를 중지합니다.
+2. 에이전트 설치 폴더(예: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)로 이동합니다.
+3. 텍스트 편집기에서 **SyncAgnt.exe.config**를 엽니다.
+4. https://manage.hub.syncfabric.windowsazure.com/Management를 **https://eu.manage.hub.syncfabric.windowsazure.com/Management**로 바꿉니다.
+5. https://provision.hub.syncfabric.windowsazure.com/Provisioning을 **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**으로 바꿉니다.
+6. **SyncAgnt.exe.config** 파일을 저장합니다.
+7. **Services.msc**를 열고 **Microsoft Azure AD Connect Provisioning Agent** 서비스를 시작합니다.
+
+**에이전트 문제 해결**
+
+에이전트를 호스팅하는 Windows Server 컴퓨터의 [Windows 이벤트 로그](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)는 에이전트에서 수행하는 모든 작업에 대한 이벤트를 포함합니다. 이러한 이벤트를 보려면:
+    
+1. **Eventvwr.msc**를 엽니다.
+2. **Windows 로그 > 응용 프로그램**을 선택합니다.
+3. 원본 **AADSyncAgent** 아래에서 기록된 모든 이벤트를 봅니다. 
+4. 오류 및 경고를 확인합니다.
+
+Powershell 명령에서 제공하는 Active Directory 또는 Azure Active Directory 자격 증명 중 하나에 사용 권한 문제가 있는 경우 다음과 같은 오류가 표시됩니다. 
+    
+![이벤트 로그](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
 ### <a name="part-4-start-the-service"></a>4부: 서비스 시작
-1-3부를 완료했으면 Azure 관리 포털에서 프로비전 서비스를 다시 시작할 수 있습니다.
+1-3부를 완료했으면 Azure Portal에서 프로비전 서비스를 다시 시작할 수 있습니다.
 
 1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
@@ -419,13 +449,14 @@ Active Directory 온-프레미스로 프로비전하려면 원하는 Active Dire
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. Workday에서 어떤 사용자를 읽은 후 Active Directory에 추가 또는 업데이트되는지와 같은 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](active-directory-saas-provisioning-reporting.md)**
+4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 후 Active Directory에 추가 또는 업데이트되는지와 같은 프로비전 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](active-directory-saas-provisioning-reporting.md)**
 
-5.  에이전트 컴퓨터의 Windows 응용 프로그램 로그에는 에이전트를 통해 수행된 모든 작업이 표시됩니다.
+5.  새로운 오류나 경고에 대해 에이전트를 호스팅하는 Windows Server 컴퓨터에서 [Windows 이벤트 로그](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)를 확인합니다. 이러한 이벤트는 서버에서 **Eventvwr.msc**를 시작하고 **Windows 로그 > 응용 프로그램**을 선택하여 볼 수 있습니다. 모든 프로비전 관련 메시지는 원본 **AADSyncAgent** 아래에서 로깅됩니다. 
+    
 
-6. 작업이 완료되면 아래와 같이  **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+6. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-![Azure 포털](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>Azure Active Directory로 사용자 프로비전 구성
@@ -468,7 +499,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
    * **알림 이메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
 
@@ -543,7 +574,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](active-directory-saas-provisioning-reporting.md)**
 
-5. 작업이 완료되면 아래와 같이  **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
 
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Workday로 이메일 주소 쓰기 저장 구성
@@ -604,11 +635,13 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](active-directory-saas-provisioning-reporting.md)**
 
-5. 작업이 완료되면 아래와 같이  **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
-* **유럽 로캘의 감사 로그** - 이 기술 미리 보기가 릴리스된 날짜를 기준으로, Azure AD 테넌트가 유럽 데이터 센터에 상주하는 경우 Workday 커넥터 앱의 [감사 로그](active-directory-saas-provisioning-reporting.md)가 [Azure Portal](https://portal.azure.com)에 표시되지 않는 알려진 문제가 있습니다. 이 문제에 대한 픽스가 곧 출시될 예정입니다. 가까운 시일 안에 이 페이지를 다시 방문하여 업데이트를 확인하세요. 
+* **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 명령을 실행할 때 현재 사용자 지정 도메인을 사용하는 경우 작동하지 않는 전역 관리자 자격 증명으로 알려진 문제가 있습니다(예: admin@contoso.com). 해결 방법으로 Azure AD에서 onmicrosoft.com 도메인으로 전역 관리자 계정을 만들고 사용합니다(예: admin@contoso.onmicrosoft.com).
+
+* 유럽 연합에 있는 Azure AD 테넌트에 표시되지 않는 감사 로그와 관련된 이전 문제는 해결되었습니다. 그러나 EU의 Azure AD 테넌트에 추가 에이전트가 구성이 필요합니다. 자세한 내용은 [3부: 온-프레미스 동기화 에이전트 구성](#Part 3: Configure the on-premises synchronization agent)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [자습서: Workday와 Azure Active Directory 간 Single Sign-On 구성](active-directory-saas-workday-tutorial.md)
@@ -618,4 +651,3 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
-

@@ -3,7 +3,7 @@ title: "Azure 자동화에서 텍스트 Runbook 편집"
 description: "이 문서에서는 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 제공합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 6aa34a19b15ae0c5c031f20a9c6c8e5ed3290b10
-
-
+ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure 자동화에서 텍스트 Runbook 편집
 Azure 자동화에서 텍스트 편집기를 사용하여 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 편집할 수 있습니다. 텍스트 편집기에는 Intellisense와 색 구분 같은 타 코드 편집기의 일반적인 기능과, Runbook에 일반적인 리소스를 액세스하는 데 도움이 되는 추가적인 특수 기능이 있습니다.  이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다.
@@ -131,9 +131,3 @@ Windows PowerShell을 사용하여 Runbook을 편집하려면 원하는 편집�
 * [자격 증명](automation-credentials.md)
 * [일정](automation-schedules.md)
 * [변수](automation-variables.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,11 +1,11 @@
 ---
-title: "개인 Docker 컨테이너 레지스트리 만들기 - Azure CLI | Microsoft Docs"
-description: "Azure CLI 2.0을 사용하여 개인 Docker 컨테이너 레지스트리 만들기 및 관리 시작"
+title: "빠른 시작 - Azure CLI를 사용하여 Azure에서 개인 Docker 레지스트리 만들기"
+description: "Azure CLI를 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
@@ -14,137 +14,150 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 개인 Docker 컨테이너 레지스트리 만들기
-[Azure CLI 2.0](https://github.com/Azure/azure-cli)의 명령을 사용하여 Linux, Mac 또는 Windows 컴퓨터에서 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure Portal](container-registry-get-started-portal.md)을 사용하여 또는 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 사용하여 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 레지스트리 만들기
 
+Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다.
 
-* 배경 지식 및 개념은 [개요](container-registry-intro.md)를 참조하세요.
-* Container Registry CLI 명령(`az acr` 명령)에 대한 도움말을 보려면, 모든 명령에 `-h` 매개 변수를 전달하세요.
+이 빠른 시작에서는 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
+또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure CLI 2.0**: CLI 2.0을 설치하고 시작하려면 [설치 지침](/cli/azure/install-azure-cli)을 참조하세요. `az login`을 실행하여 Azure 구독에 로그인합니다. 자세한 내용은 [CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
-* **리소스 그룹**: 컨테이너 레지스트리를 만들기 전에 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹이 Container Registry 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 있도록 해야 합니다. CLI 2.0을 사용하여 리소스 그룹을 만들려면 [CLI 2.0 참조](/cli/azure/group)를 참조하세요.
-* **저장소 계정**(선택 사항): 동일한 위치의 컨테이너 레지스트리를 백업할 표준 Azure [저장소 계정](../storage/common/storage-introduction.md)을 만듭니다. `az acr create`를 사용하여 레지스트리를 만들 때 저장소 계정을 지정하지 않으면 명령에서 자동으로 생성됩니다. CLI 2.0을 사용하여 저장소 계정을 만들려면 [CLI 2.0 참조](/cli/azure/storage/account)를 참조하세요. Premium Storage는 현재 지원되지 않습니다.
-* **서비스 주체**(선택 사항): CLI를 사용하여 레지스트리를 만들 때 기본적으로 액세스가 가능하도록 설정되지 않습니다. 필요에 따라 레지스트리에 기존 Azure Active Directory 서비스 주체를 할당하거나(또는 새 주체를 만들어서 할당하거나) 레지스트리의 관리자 사용자 계정을 사용하도록 설정할 수 있습니다. 이 문서의 뒷부분에 나오는 섹션을 참조하세요. 레지스트리 액세스에 대한 자세한 내용은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-`az acr create` 명령을 실행하여 컨테이너 레지스트리를 만듭니다.
+[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-> [!TIP]
-> 레지스트리를 만들 때 전역적으로 고유한 최상위 도메인 이름(문자 및 숫자만 포함)을 지정합니다. 레지스트리 이름 예제가 `myRegistry1`이지만 자신만의 고유한 이름으로 대체합니다.
->
->
+다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-다음 명령은 최소 매개 변수를 사용하여 `myResourceGroup` 리소스 그룹에 `myRegistry1` 컨테이너 레지스트리를 만들고 *기본* SKU를 사용합니다.
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` 는 선택 사항입니다. 지정하지 않으면 지정된 리소스 그룹에서 레지스트리 이름 및 타임스탬프로 구성된 이름으로 저장소 계정이 만들어집니다.
+## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
+
+이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU](container-registry-skus.md)를 참조하세요.
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+[az acr create](/cli/azure/acr#create) 명령을 사용하여 ACR 인스턴스를 만듭니다.
+
+레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 레지스트리를 만들면 출력은 다음과 비슷합니다.
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+이 빠른 시작의 나머지 부분에서는 컨테이너 레지스트리 이름에 자리 표시자로 `<acrname>`을 사용합니다.
 
-특별 고려 사항:
+## <a name="log-in-to-acr"></a>ACR에 로그인
 
-* `id` - 구독 내 레지스트리에 대한 식별자이며, 서비스 주체를 할당하려는 경우 필요합니다.
-* `loginServer` - [레지스트리에 로그인](container-registry-authentication.md)하기 위해 지정하는 정규화된 이름입니다. 이 예제의 경우 해당 이름은 `myregistry1.exp.azurecr.io`(모두 소문자)입니다.
-
-## <a name="assign-a-service-principal"></a>서비스 주체 할당
-CLI 2.0 명령을 사용하여 Azure Active Directory 서비스 주체를 레지스트리에 할당합니다. 이 예제의 경우 서비스 주체에 소유자 역할이 할당되어 있지만 필요하면 [다른 역할](../active-directory/role-based-access-control-configure.md)을 할당할 수 있습니다.
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>서비스 주체를 만들고 레지스트리에 대한 액세스 할당
-다음 명령에서는 새 서비스 주체에 `--scopes` 매개 변수를 통해 전달된 레지스트리 식별자에 대한 소유자 역할 액세스가 할당됩니다. `--password` 매개 변수를 통해 강력한 암호를 지정합니다.
+컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 이렇게 하려면 [az acr login](/cli/azure/acr#login) 명령을 사용합니다.
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+이 명령은 완료되면 '로그인했습니다.'라는 메시지를 반환합니다.
 
+## <a name="push-image-to-acr"></a>ACR에 이미지 푸시
 
-### <a name="assign-an-existing-service-principal"></a>기존 서비스 주체 할당
-이미 존재하는 서비스 주체에 레지스트리에 대한 소유자 역할 액세스를 할당하려면 다음 예제와 유사한 명령을 실행합니다. 서비스 주체 앱 ID는 `--assignee` 매개 변수를 사용하여 전달합니다.
+Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있어야 합니다. 필요한 경우에 다음 명령을 실행하여 미리 만든 이미지를 Docker Hub에서 끌어옵니다.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+이미지는 ACR 로그인 서버 이름으로 태그가 지정되어야 합니다. 다음 명령을 실행하여 ACR 인스턴스의 로그인 서버 이름을 반환합니다.
 
-
-## <a name="manage-admin-credentials"></a>관리자 자격 증명 관리
-관리자 계정은 각 컨테이너 레지스트리에 대해 자동으로 생성되며 기본적으로 비활성화됩니다. 다음 예제는 컨테이너 레지스트리에 대한 관리자 자격 증명을 관리하는 `az acr` CLI 명령을 보여줍니다.
-
-### <a name="obtain-admin-user-credentials"></a>관리자 사용자 자격 증명 가져오기
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>기존 레지스트리에 대한 관리자 사용자 활성화
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+[docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 태그를 지정합니다. *<acrLoginServer>*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>기존 레지스트리에 대한 관리자 사용자 비활성화
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+마지막으로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *<acrLoginServer>*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>이미지 및 태그 나열
-리포지토리의 이미지 및 태그를 쿼리하려면 `az acr` CLI 명령을 사용합니다.
+## <a name="list-container-images"></a>컨테이너 이미지 나열
 
-> [!NOTE]
-> 현재 Container Registry는 `docker search` 명령으로 이미지 및 태그를 쿼리하도록 지원하지 않습니다.
-
-
-### <a name="list-repositories"></a>리포지토리 나열
-다음 예제는 레지스트리의 리포지토리를 JSON(JavaScript Object Notation) 형식으로 나열합니다.
+다음 예제는 레지스트리의 리포지토리를 나열합니다.
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>태그 나열
-다음 예제는 **samples/nginx** 리포지토리의 태그를 JSON 형식으로 나열합니다.
+출력:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+다음 예제는 **aci-helloworld** 리포지토리에서의 태그를 나열합니다.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+출력:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, ACR 인스턴스 및 모든 컨테이너 이미지를 제거할 수 있습니다.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
 
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances 자습서](../container-instances/container-instances-tutorial-prepare-app.md)

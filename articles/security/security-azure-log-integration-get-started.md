@@ -15,12 +15,11 @@ ums.workload: na
 ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
+ms.openlocfilehash: 9d39ecd513386b75b4b640721f80991caaf9ade8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 로그 통합과 Azure 진단 로깅 및 Windows 이벤트 전달
 AzLog(Azure 로그 통합)은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있도록 합니다. 이 통합을 통해 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 보안 대시보드를 사용할 수 있습니다.
@@ -185,4 +184,3 @@ Azure 로그 통합에 대한 자세한 내용은 다음 문서를 참조하세�
 * [Azure 로그 통합 FAQ(질문과 대답)](security-azure-log-integration-faq.md) - 이 FAQ는 Azure 로그 통합에 대한 질문에 답변합니다.
 * [Security Center 경고를 Azure 로그 통합과 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) - 이 문서에서는 Azure 진단 및 Azure 활동 로그에 수집된 가상 컴퓨터 보안 이벤트와 함께 Security Center 경고를 로그 분석 또는 SIEM 솔루션과 동기화하는 방법을 보여줍니다.
 * [Azure 진단 및 Azure 감사 로그를 위한 새 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 10/13/2017
 ms.author: bwren
+ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Log Analytics의 경고 이해
 
@@ -77,15 +76,18 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 
 예를 들어 프로세서가 90%를 초과하여 실행되는 경우 경고하려면 다음과 같은 쿼리를 사용하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+
+    
 
 특정 기간에 프로세서 평균 사용량이 90%를 초과하는 경우에 경고하려면 다음과 같은 [측정 명령](log-analytics-search-reference.md#commands)을 사용하여 쿼리하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
 
+    
 >[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다. `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 아직 업그레이드하지 않은 경우에는 위의 쿼리가 다음과 같이 변경됩니다. `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>미터법 경고 규칙
@@ -108,7 +110,7 @@ Log Analytics의 각 경고 규칙은 두 가지 형식 중 하나입니다.  �
 #### <a name="example"></a>예제
 컴퓨터에서 30분 동안 90% 프로세서 사용률을 3회 초과하는 경우 경고가 필요한 시나리오를 고려해 보세요.  다음 세부 정보로 경고 규칙을 만들 수 있습니다.  
 
-**쿼리:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
+**Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **기간:** 30분<br>
 **경고 빈도:** 5분<br>
 **집계 값:** 90 초과<br>
@@ -144,6 +146,5 @@ Log Analytics의 규칙에 의해 만든 경고 레코드에는 **경고**의 **
 ## <a name="next-steps"></a>다음 단계
 * [경고 관리 솔루션](log-analytics-solution-alert-management.md)을 설치하여 System Center Operations Manager에서 수집한 경고와 함께 Log Analytics에서 만든 경고를 분석합니다.
 * 경고를 생성할 수 있는 [로그 검색](log-analytics-log-searches.md) 에 대해 자세한 내용을 읽습니다.
-* 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md) 하는 연습을 완료합니다.  
+* 경고 규칙을 사용하여 [웹후크를 구성](log-analytics-alerts-webhooks.md)하는 연습을 완료합니다.  
 * 경고에 의해 식별된 문제를 수정하는 [Azure 자동화의 Runbook](https://azure.microsoft.com/documentation/services/automation) 을 작성하는 방법에 대해 알아봅니다.
-

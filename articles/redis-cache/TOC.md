@@ -12,7 +12,6 @@
 # 시작
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
@@ -25,7 +24,7 @@
 ###[가상 네트워크로 캐시 보호](cache-how-to-premium-vnet.md)
 ###[클러스터링을 통해 캐시 배포](cache-how-to-premium-clustering.md)
 ## 자동화
-###[Powershell을 사용하여 배포 및 관리](cache-howto-manage-redis-cache-powershell.md)
+###[Azure Powershell을 사용하여 배포 및 관리](cache-howto-manage-redis-cache-powershell.md)
 ###[Azure CLI를 사용하여 배포 및 관리](cli-samples.md)
 ###[Redis Cache 프로비전](cache-redis-cache-arm-provision.md)
 ###[Redis Cache가 포함된 웹앱 프로비전](cache-web-app-arm-with-redis-cache-provision.md)
@@ -33,13 +32,13 @@
 ###[세션 상태 제공자](cache-aspnet-session-state-provider.md)
 ###[출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
 ## 관리
-###[포털에서 구성](cache-configure.md)
+###[Azure Portal에서 구성](cache-configure.md)
 ###[지역에서 복제 구성](cache-how-to-geo-replication.md)
 ###[데이터 가져오기/내보내기](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[업데이트 예약](cache-administration.md#schedule-updates)
 ## 모니터링 및 문제 해결
-###[포털에서 모니터링](cache-how-to-monitor.md)
+###[Azure Portal에서 모니터링](cache-how-to-monitor.md)
 ###[캐시 문제 해결](cache-how-to-troubleshoot.md)
 ###[예외에 대한 경고 설정](cache-how-to-monitor.md#operations-and-alerts)
 ## 확장
@@ -50,8 +49,8 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 미리 보기](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Azure CLI 미리 보기](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 클라이언트](http://redis.io/clients)

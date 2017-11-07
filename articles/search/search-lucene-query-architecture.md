@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
+ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
 이 문서는 Azure Search에서 Lucene 전체 텍스트 검색이 작동하는 방식에 대해 자세히 이해할 필요가 있는 개발자를 위해 작성되었습니다. 텍스트 쿼리의 경우 Azure Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
@@ -185,11 +183,14 @@ Spacious,||air-condition*+"Ocean view"
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>어휘 분석의 예외 
 
 어휘 분석은 완전한 용어가 필요한 쿼리 유형, 즉 용어 쿼리 또는 구 쿼리에만 적용됩니다. 불완전한 용어가 사용된 쿼리, 다시 말해서 접두사 쿼리, 와일드 카드 쿼리, regex 쿼리 또는 유사 항목 쿼리에는 적용되지 않습니다. 우리 예제의 *air-condition\**이라는 용어가 사용된 접두사 쿼리를 포함하여 이러한 쿼리 유형은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 이러한 유형의 쿼리 용어에 수행되는 유일한 변환 작업은 소문자 변환입니다.
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>3단계: 문서 검색 
 
 문서 검색이란 인덱스에서 일치하는 용어가 포함된 문서를 찾는 것을 말합니다. 이 단계는 예를 통해 설명하는 것이 가장 빠릅니다. 다음과 같은 간단한 스키마를 가진 호텔 인덱스로 시작해 보겠습니다. 
@@ -238,7 +239,13 @@ Spacious,||air-condition*+"Ocean view"
 
 인덱싱에 대한 몇 가지 기본 사항을 파악하면 검색을 이해하는 데 도움이 됩니다. 저장소 단위는 반전된 인덱스이며, 검색 가능한 필드당 하나씩 있습니다. 반전된 인덱스 내에는 모든 문서의 모든 정렬된 용어 목록이 있습니다. 각 용어는 아래 예제처럼 각각 발생하는 문서 목록에 매핑됩니다.
 
-반전된 인덱스에 용어를 생성하기 위해 검색 엔진은 쿼리 처리 중 발생하는 동작과 비슷하게 문서 내용에 대한 어휘 분석을 수행합니다. 텍스트 입력은 분석기 구성에 따라 분석기로 전달되고, 소문자로 변환되고, 문장 부호가 제거됩니다. 쿼리 용어가 인덱스 내 용어와 좀 더 비슷하게 보이도록 검색 작업과 인덱싱 작업에 같은 분석기를 사용하는 것이 일반적이지만 필수는 아닙니다.
+반전된 인덱스에 용어를 생성하기 위해 검색 엔진은 쿼리 처리 중 발생하는 동작과 비슷하게 문서 내용에 대한 어휘 분석을 수행합니다.
+
+1. *텍스트 입력*은 분석기 구성에 따라 분석기로 전달되고, 소문자로 변환되고, 문장 부호가 제거됩니다. 
+2. *토큰*은 텍스트 분석의 출력입니다.
+3. *용어*는 인덱스에 추가됩니다.
+
+쿼리 용어가 인덱스 내 용어와 좀 더 비슷하게 보이도록 검색 작업과 인덱싱 작업에 같은 분석기를 사용하는 것이 일반적이지만 필수는 아닙니다.
 
 > [!Note]
 > Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 변수를 통해 인덱싱 및 검색에 서로 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 `analyzer` 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다.  
@@ -404,4 +411,3 @@ Azure Search의 모든 인덱스는 여러 분할 영역으로 자동 분할되�
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

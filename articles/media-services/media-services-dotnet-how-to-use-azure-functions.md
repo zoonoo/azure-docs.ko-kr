@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
@@ -32,10 +31,6 @@ Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배�
 - 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
     
-## <a name="considerations"></a>고려 사항
-
--  소비 계획에서 실행되는 Azure Functions의 시간 초과 제한은 5분입니다.
-
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
 1. [Azure Portal](http://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
@@ -47,10 +42,6 @@ Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배�
 ## <a name="configure-function-app-settings"></a>함수 앱 구성 설정
 
 Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환경 변수를 쉽게 추가할 수 있습니다. 앱 설정을 구성하려면 앱 설정 구성 링크를 클릭합니다. 자세한 내용은 [Azure 함수 앱 설정을 구성하는 방법](../azure-functions/functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
-
-예:
-
-![설정](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 이 문서에 정의된 함수는 앱 설정에 다음 환경 변수가 있다고 가정합니다.
 
@@ -345,6 +336,9 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 3. **+ 컨테이너**를 클릭합니다. 컨테이너 **입력**의 이름을 지정합니다.
 4. **업로드** 키를 눌러 업로드하려는 .mp4 파일을 찾습니다.
 
+>[!NOTE]
+> 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 자세한 내용은 [Blob Storage 트리거 및 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings)을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이제 미디어 서비스 응용 프로그램 개발을 시작할 준비가 되었습니다. 
@@ -355,5 +349,4 @@ Azure Media Services에서 Azure Functions 및 Logic Apps를 사용하여 사용
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
 ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 끝점**이라고 하고, 내부 연결을 **내부 끝점**이라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 끝점을 만듭니다.
@@ -371,10 +371,4 @@ namespace WorkerRole1
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

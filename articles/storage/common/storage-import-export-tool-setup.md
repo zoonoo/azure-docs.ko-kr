@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
 
 Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 기능을 위해 이 도구를 사용할 수 있습니다.
@@ -40,7 +38,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 * Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치된 컴퓨터("복사 컴퓨터")가 필요합니다.
 * .NET Framework 4가 복사 컴퓨터에 설치되어야 합니다.
 * 복사 컴퓨터에서 BitLocker를 사용할 수 있어야 합니다.
-* 복사 컴퓨터에 연결된 하나 이상의 빈 3.5" SATA 하드 드라이브가 필요합니다.
+* 복사 컴퓨터에 연결된 하나 이상의 빈 2.5"/3.5" SATA II/III 또는 SSD 하드 드라이브가 필요합니다.
 * 가져오려는 파일은 네트워크 공유 또는 로컬 하드 드라이브에 상관없이 복사 컴퓨터에서 액세스할 수 있어야 합니다.
 
 부분적으로 실패한 **가져오기를 복구**하려는 경우 다음이 필요합니다.
@@ -216,4 +214,3 @@ Examples:
 * [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>서비스 버스 가격 및 대금 청구
 Service Bus는 표준 및 [프리미엄](service-bus-premium-messaging.md) 계층으로 제공됩니다. 자신이 만든 Service Bus 서비스 네임스페이스 각각에 서비스 계층을 선택할 수 있으며, 이 계층 선택은 해당 네임스페이스 안에서 모든 엔터티에 적용됩니다.
@@ -99,4 +98,3 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 * Service Bus 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [Service Bus FAQ](service-bus-faq.md#pricing)를 참조하세요.
 
 [Azure portal]: https://portal.azure.com
-

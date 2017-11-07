@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Azure 트래픽 관리자의 성능 저하 상태 문제해결"
 description: "성능 저하 상태로 표시할 때 Traffic Manager 문제를 해결하는 방법입니다."
 services: traffic-manager
@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 트래픽 관리자의 성능 저하 상태 문제 해결
 
 이 문서에서는 성능 저하 상태를 보여 주는 Azure Traffic Manager 프로필 문제를 해결하는 방법을 설명합니다. 이 시나리오의 경우 사용자의 일부 .cloudapp.net 호스티드 서비스를 가리키는 Traffic Manager 프로필을 구성했다는 점을 고려합니다. Traffic Manager의 상태가 **성능 저하됨** 상태를 표시하는 경우 하나 이상의 끝점 상태가 **성능 저하됨**일 수 있습니다.
@@ -50,7 +48,7 @@ Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝
 
 또한 Internet Explorer에서 F12 디버깅 도구의 네트워크 탭을 사용하여 HTTP 응답을 확인할 수 있습니다.
 
-이 예에서는 검색 URL인 [http://watestsdp2008r2.cloudapp.net:80/Probe](http://watestsdp2008r2.cloudapp.net:80/Probe)에서 응답을 확인하려고 합니다. 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
+이 예에서는 검색 URL인 http://watestsdp2008r2.cloudapp.net:80/Probe에서 응답을 확인하려고 합니다. 다음 PowerShell 예는 이러한 문제를 보여 줍니다.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -96,4 +94,3 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [Azure Traffic Manager cmdlet][1]
 
 [1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
-

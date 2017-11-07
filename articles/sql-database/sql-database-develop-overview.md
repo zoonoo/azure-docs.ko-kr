@@ -1,6 +1,6 @@
 ---
 title: "SQL Database 응용 프로그램 개발 개요 | Microsoft 문서"
-description: "사용 가능한 연결 라이브러리 및 SQL 데이터베이스에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다."
+description: "사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -9,21 +9,20 @@ editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
+ms.openlocfilehash: 5948db9a52dc24d75f3fecc4ed166dd327061b37
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 47d119e4e4fd1420186e8600c8c085ab939fa6a5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
-이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
+이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
 
 > [!TIP]
 > 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started-portal.md)를 참조하세요.
@@ -38,23 +37,23 @@ ms.lasthandoff: 08/30/2017
 [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다.  Azure 관리 포털, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
 
 ## <a name="resource-limitations"></a>리소스 제한
-Azure SQL 데이터베이스는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다.
+Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다.
 
 * 추가 정보: [Azure SQL Database 리소스 한도](sql-database-service-tiers.md).
 
 ## <a name="security"></a>보안
-Azure SQL 데이터베이스는 액세스를 제한하고, 데이터를 보호하고, SQL 데이터베이스의 활동을 모니터링하는 리소스를 제공합니다.
+Azure SQL Database는 액세스를 제한하고, 데이터를 보호하고, SQL Database의 활동을 모니터링하는 리소스를 제공합니다.
 
 * 추가 정보: [SQL Database 보안 설정](sql-database-security-overview.md).
 
 ## <a name="authentication"></a>인증
-* Azure SQL 데이터베이스는 SQL Server 인증 사용자 및 로그인과 [Azure Active Directory 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다.
+* Azure SQL Database는 SQL Server 인증 사용자 및 로그인과 [Azure Active Directory 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다.
 * *master* 데이터베이스를 기본 데이터베이스로 지정하지 말고 특정 데이터베이스를 지정해야 합니다.
-* SQL 데이터베이스에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용하여 다른 데이터베이스로 전환할 수 없습니다.
+* SQL Database에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용하여 다른 데이터베이스로 전환할 수 없습니다.
 * 추가 정보: [SQL Database 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md).
 
 ## <a name="resiliency"></a>복원력
-SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하면, 코드는 호출을 다시 시도해야 합니다.  여러 클라이언트가 재시도를 동시에 수행하여 SQL 데이터베이스가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다.
+SQL Database에 연결하는 동안 일시적인 오류가 발생하면, 코드는 호출을 다시 시도해야 합니다.  여러 클라이언트가 재시도를 동시에 수행하여 SQL Database가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다.
 
 * 코드 샘플: 재시도 논리를 설명하는 코드 샘플을 보려면 [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md) 참조.
 * 추가 정보: [SQL Database 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md).
@@ -76,5 +75,4 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 * [Azure SQL Database 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md).
 
 ## <a name="next-steps"></a>다음 단계
-모든 [SQL 데이터베이스의 기능](sql-database-technical-overview.md)을 탐색합니다.
-
+모든 [SQL Database의 기능](sql-database-technical-overview.md)을 탐색합니다.

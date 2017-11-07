@@ -3,7 +3,7 @@ title: "Azure Storage 중단이 발생할 경우 수행할 작업 | Microsoft Do
 description: "Azure 저장소 중단이 발생할 경우 수행할 작업"
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure 저장소 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure 저장소 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
 
@@ -54,7 +52,7 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 저장소 지역 장애 조치(failover) 환경에 대한 참고 사항:
 
 * 저장소 지역 장애 조치(failover)는 Azure 저장소 팀에 의해서만 트리거되며 고객이 수행할 작업은 없습니다.
-* Blob, 테이블, 큐 및 파일에 대한 기존 저장소 서비스 끝점은 장애 조치(failover) 후에도 그대로 유지되며 주 지역에서 보조 지역으로 전환하려면 DNS 항목을 업데이트해야 합니다.
+* Blob, 테이블, 큐 및 파일에 대한 기존 저장소 서비스 끝점은 장애 조치(failover) 후에도 그대로 유지되며 주 지역에서 보조 지역으로 전환하려면 Microsoft 제공 DNS 항목을 업데이트해야 합니다.  Microsoft는 지리적 장애 조치 프로세스의 일환으로 이 업데이트를 자동으로 수행합니다.
 * 지역 장애 조치(failover) 전과 수행하는 동안에는 재해 영향으로 인해 저장소 계정에 대한 쓰기 권한이 없지만 저장소 계정이 RA-GRS로 구성된 경우에는 보조에서 여전히 읽을 수 있습니다.
 * 지역 장애 조치(failover)가 완료되고 DNS 변경 사항이 전파되면 저장소 계정에 대한 읽기 및 쓰기 권한을 다시 갖게 되고, 보조 끝점이었던 부분을 가리키게 됩니다. 
 * 저장소 계정에 대해 GRS 또는 RA-GRS가 구성되어 있으면 쓰기 권한을 갖게 됩니다. 
@@ -71,5 +69,4 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
 RA-GRS 기능을 충분히 활용하는 응용 프로그램 생성에 대한 자세한 내용은 [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
-
 

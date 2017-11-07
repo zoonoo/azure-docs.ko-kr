@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>자습서: SAP Business Object Cloud와 Azure Active Directory 통합
 
@@ -92,10 +91,10 @@ Single Sign-On이 작동하려면 Azure AD에서는 Azure AD 사용자에 해당
 SAP Business Object Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 작업을 완료합니다.
 
 1. [Azure AD Single Sign-On 설정](#set-up-azure-ad-single-sign-on) 사용자가 이 기능을 사용하도록 설정합니다.
-2. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) Britta Simon 사용자로 Azure AD Single Sign-On을 테스트합니다.
+2. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user). Britta Simon 사용자로 Azure AD Single Sign-On을 테스트합니다.
 3. [SAP Business Object Cloud 테스트 사용자 만들기](#create-an-sap-business-object-cloud-test-user) Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SAP Business Object Cloud에 만듭니다.
 4. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) Britta Simon이 Azure AD Single Sign-On을 사용하도록 설정합니다.
-5. [Single Sign-On 테스트](#test-single-sign-on) 구성이 작동하는지 확인합니다.
+5. [Single Sign-On 테스트](#test-single-sign-on). 구성이 작동하는지 확인합니다.
 
 ### <a name="set-up-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 설정
 
@@ -298,5 +297,4 @@ Britta Simon을 SAP Business Object Cloud에 할당하려면:
 [201]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_203.png
-
 

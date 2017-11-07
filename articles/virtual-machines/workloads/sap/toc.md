@@ -7,6 +7,9 @@
 ## [SAP HANA 설치](hana-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 ## [문제 해결 및 모니터링](troubleshooting-monitoring.md)
+## 방법
+### [STONITH로 HA 설치](ha-setup-with-stonith.md)
+### [Type II SKU용 OS 백업](os-backup-type-ii-skus.md)
 # Azure Virtual Machines의 SAP HANA
 ## [단일 인스턴스 SAP HANA](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)
@@ -18,9 +21,25 @@
 ## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
 ## [Azure에서 SAP NetWeaver 계획 및 구현](planning-guide.md)
-## [Windows에서 고가용성](high-availability-guide.md)
-## [SUSE Linux에서 고가용성](high-availability-guide-suse.md)
-## [Multi-SID 구성](high-availability-multi-sid.md)
+## Windows 및 Linux의 HA(고가용성)
+### [개요](sap-high-availability-guide-start.md)
+### 고가용성 아키텍처
+#### [HA 아키텍처 및 시나리오](sap-high-availability-architecture-scenarios.md)
+#### [고가용성 아키텍처 및 시나리오](sap-higher-availability-architecture-scenarios.md)
+#### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-file-share.md)
+#### [(A)SCS 인스턴스의 SUSE Linux에 대한 HA](high-availability-guide-suse.md)
+### Azure 인프라 준비
+#### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [(A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux](high-availability-guide-suse.md)
+### SAP 설치
+#### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-high-availability-installation-wsfc-file-share.md)
+#### [(A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux](high-availability-guide-suse.md)
+### SAP 다중 SID
+#### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [배포 가이드](deployment-guide.md)
 ## [DBMS 배포 가이드](dbms-guide.md)
 ## [SAP 재해 복구를 위한 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)

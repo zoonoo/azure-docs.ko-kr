@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 87b1b6b03f5aaab5da6491c86132d4193693055a
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
 이 문서에서는 2단계 인증 또는 다단계 인증에 대한 설정을 업데이트하는 방법에 대한 질문에 대답합니다. 계정에 로그인하는 데 문제가 있는 경우 문제 해결 도움말을 보려면 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)을 참조하세요.
@@ -29,7 +28,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="where-to-find-the-settings-page"></a>설정 페이지 위치
 회사에서 Azure Multi-Factor Authentication을 설정하는 방법에 따라 전화 번호와 같은 설정을 변경할 수 있는 몇 가지 위치가 있습니다.
 
-IT 관리자가 2단계 인증을 관리하기 위한 특정 URL 또는 단계를 전송한 경우 해당 지침을 따릅니다. 그렇지 않으면 다른 모든 사용자는 다음 지침을 따르면 됩니다. 이러한 지침을 따랐지만 동일한 옵션이 표시되지 않는다면 회사 또는 학교에서 고유한 포털을 사용자 지정했을 수 있습니다. 관리자에게 Azure Multi-Factor Authentication 포털에 대한 링크 요청
+회사에서 2단계 인증을 관리하기 위한 특정 URL 또는 단계 보내기를 지원하는 경우 해당 지침을 따릅니다. 그렇지 않으면 다른 모든 사용자는 다음 지침을 따르면 됩니다. 이러한 지침을 따랐지만 동일한 옵션이 표시되지 않는다면 회사 또는 학교에서 고유한 포털을 사용자 지정했을 수 있습니다. 관리자에게 Azure Multi-Factor Authentication 포털에 대한 링크 요청
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.  
 2. 오른쪽 맨 위에서 계정 이름을 선택한 후 **프로필**을 선택합니다.  
@@ -71,4 +70,3 @@ IT 관리자가 2단계 인증을 관리하기 위한 특정 URL 또는 단계�
 ## <a name="next-steps"></a>다음 단계
 * [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)에 대한 문제 해결 팁 및 도움말 얻기
 * 2단계 인증을 지원하지 않는 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md) 설정.
-

@@ -14,14 +14,12 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 31b797361fca0c92db228f4150a6bff7e38e2b22
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
-
+ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="approvals-preview"></a>승인(미리 보기)
 
 ## <a name="overview"></a>개요
@@ -195,4 +193,3 @@ PIM 및 새로운 승인 설명서에 대한 정보는 기본 방문 페이지�
 ## <a name="next-steps"></a>다음 단계
 
 Microsoft는 사용자의 의견을 소중하게 생각합니다. 언제든지 자유롭게 사용자의 의견이나 피드백을 Microsoft와 함께 공유해 주세요!
-

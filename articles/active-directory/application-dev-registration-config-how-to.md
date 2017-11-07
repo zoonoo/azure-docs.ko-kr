@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3578684ac8c92ff195b19740b28ef9adebdc7309
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 6966cf145375bf3d830d476564c428502ae40fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-select-permissions-for-a-given-api"></a>지정된 API에 대한 사용 권한을 선택하는 방법
 
 [Azure Portal](https://portal.azure.com)에서 응용 프로그램의 인증 끝점을 찾을 수 있습니다.
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
-

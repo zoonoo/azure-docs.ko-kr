@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: e61001161e632a5d2e513107e30f1eaf06103989
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9ee460b29deba598e648e72958b08e77015a5505
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Sysdig을 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다.
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Sysdig 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Sysdig 계정이 필요합니다. 
@@ -56,4 +55,3 @@ Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모�
 일단 패키지를 설치하면 Sysdig UI로 이동하고 클러스터 내에서 컨테이너에 대한 여러 가지 사용 메트릭에 대해 알아볼 수 있습니다. 
 
 [새 대시보드 마법사](https://app.sysdigcloud.com/#/dashboards/new)를 통해 Mesos 및 Marathon 지정 대시보드를 설치할 수도 있습니다.
-

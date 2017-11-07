@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 8a7481b71df5ca407dbed5da3d3cc26991504c82
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>자습서: MaxxPoint와 Azure Active Directory 통합
 
@@ -106,7 +105,7 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-On 구성](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
 3. **MaxxPoint 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 단계를 수행하지 않아도 됩니다.
 

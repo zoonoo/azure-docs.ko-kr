@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: edfd06a06c730597fee4569ca1ce29092b45244a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>자습서: SpringCM과 Azure Active Directory 통합
 
@@ -270,5 +269,4 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 [201]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_203.png
-
 

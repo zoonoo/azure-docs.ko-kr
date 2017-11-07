@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-scheduled-notifications"></a>방법: 예약된 알림 보내기
 ## <a name="overview"></a>개요
@@ -35,10 +35,4 @@ ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 보낼 수 있는 예약된 알림 수에는 제한이 없습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

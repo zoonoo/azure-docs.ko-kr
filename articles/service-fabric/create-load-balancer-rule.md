@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
+ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 8496bd61d0133a428ce8e522faef5b538f19d4fc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.
@@ -34,9 +32,9 @@ Service Fabric 응용 프로그램 **ServiceManifest.xml** 구성 파일은 응�
 
 ## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 인터넷 연결 포트를 열고 응용 프로그램에서 사용되는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](..\load-balancer\load-balancer-get-started-internet-portal.md)을 참조하세요.
+Load Balancer 규칙은 인터넷 연결 포트를 열고 응용 프로그램에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](..\load-balancer\load-balancer-get-started-internet-portal.md)을 참조하세요.
 
-부하 분산 장치 규칙을 만들려면 다음 정보를 수집해야 합니다.
+Load Balancer 규칙을 만들려면 다음 정보를 수집해야 합니다.
 
 - 부하 분산 장치 이름
 - 부하 분산 장치 및 Service Fabric 클러스터의 리소스 그룹
@@ -44,13 +42,14 @@ Service Fabric 응용 프로그램 **ServiceManifest.xml** 구성 파일은 응�
 - 내부 포트
 
 ## <a name="azure-cli"></a>Azure CLI
+**Azure CLI**에서 부하 분산 장치 규칙을 만들려면 명령 1개만 사용하면 됩니다. 새 규칙을 만들려는 경우 부하 분산 장치 이름 및 리소스 그룹을 알고 있으면 됩니다.
+
 >[!NOTE]
 >부하 분산 장치의 이름을 확인해야 할 경우 다음 명령을 사용하여 모든 부하 분산 장치 및 연결된 리소스 그룹의 목록을 빠르게 표시합니다.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-**Azure CLI**에서 부하 분산 장치 규칙을 만들려면 명령 1개만 사용하면 됩니다. 새 규칙을 만들려는 경우 부하 분산 장치 이름 및 리소스 그룹을 알고 있으면 됩니다.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -64,7 +63,7 @@ Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변�
 | `--frontend-port` | 부하 분산 장치가 외부 연결을 위해 노출하는 포트입니다. |
 | `-lb-name` | 변경할 부하 분산 장치의 이름입니다. |
 | `-g`       | 부하 분산 장치 및 Service Fabric 클러스터를 모두 포함하는 리소스 그룹입니다. |
-| `-n`       | 규칙에 대해 선택한 이름입니다. |
+| `-n`       | 규칙의 선택한 이름입니다. |
 
 
 >[!NOTE]
@@ -72,17 +71,17 @@ Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변�
 
 ## <a name="powershell"></a>PowerShell
 
->[!NOTE]
->부하 분산 장치의 이름을 확인해야 할 경우 다음 명령을 사용하여 모든 부하 분산 장치 및 연결된 리소스 그룹의 목록을 빠르게 표시합니다.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-PowerShell은 Azure CLI보다 약간 더 복잡합니다. 개념적으로 규칙을 만들려면 다음 단계를 수행합니다.
+PowerShell은 Azure CLI보다 약간 더 복잡합니다. 규칙을 만드는 개념적 단계를 수행합니다.
 
 1. Azure에서 부하 분산 장치를 가져옵니다.
 2. 규칙을 만듭니다.
 3. 부하 분산 장치에 규칙을 추가합니다.
 4. 부하 분산 장치를 업데이트합니다.
+
+>[!NOTE]
+>부하 분산 장치의 이름을 확인해야 할 경우 다음 명령을 사용하여 모든 부하 분산 장치 및 연결된 리소스 그룹의 목록을 빠르게 표시합니다.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -106,4 +105,6 @@ $lb | Set-AzureRmLoadBalancer
 >[!NOTE]
 >PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](..\load-balancer\load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
 
+## <a name="next-steps"></a>다음 단계
 
+[Service Fabric의 네트워킹](service-fabric-patterns-networking.md)에 대해 자세히 알아봅니다.

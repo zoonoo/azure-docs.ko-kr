@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>리소스에 대한 작업을 감사하기 위해 활동 로그 보기
 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
@@ -64,7 +64,7 @@ ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
     ![작업 보기](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
-1. 로그 항목을 검색하려면 **Get-AzureRmLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 및 종료 시간을 지정하지 않으면 지난 시간에 대한 항목이 반환됩니다. 예를 들어 지난&1;시간 동안 리소스 그룹에 대해 수행된 작업을 검색하려면 다음 명령을 실행합니다.
+1. 로그 항목을 검색하려면 **Get-AzureRmLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 및 종료 시간을 지정하지 않으면 지난 시간에 대한 항목이 반환됩니다. 예를 들어 지난 1시간 동안 리소스 그룹에 대해 수행된 작업을 검색하려면 다음 명령을 실행합니다.
 
   ```powershell
   Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -147,10 +147,4 @@ ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
 * 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

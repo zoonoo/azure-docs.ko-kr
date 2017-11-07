@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/13/2017
-
+ms.openlocfilehash: 815aae57af93b0e4870bd9f61da248e4be328db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 장치에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -27,7 +26,10 @@ ms.lasthandoff: 01/13/2017
 이 목표를 위해 다음을 수행할 수 있습니다.
 
 * 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 이렇게 하면 품질 및 네트워크 상태가 관리됩니다.
-* Microsoft Azure 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
+* Microsoft Azure 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. <br/>
+    * **HLS**(HTTP 라이브 스트리밍) - URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 **Apple iOS** 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 반환하도록 지정합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
+    * **MPEG-DASH** - URL의 "/Manifest" 부분에 "(format=mpd-time-csf)" 경로를 추가하여 스트리밍 원본 서버에 MPEG-DASH를 반환하도록 지시합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
+    * **부드러운 스트리밍**.
 
 >[!NOTE]
 >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
@@ -52,7 +54,7 @@ ms.lasthandoff: 01/13/2017
 
 자세한 내용은 [필터 및 동적 매니페스트](media-services-dynamic-manifest-overview.md)를 참조하세요.
 
-## <a name="locators"></a>로케이터
+## <a name="a-idlocatorslocators"></a><a id="locators"/>로케이터
 콘텐츠 스트림 또는 다운로드에 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다.
 
 * OnDemandOrigin 로케이터. 미디어를 스트리밍(예: MPEG-DASH, HLS 또는 부드러운 스트리밍)하거나 점진적으로 파일을 다운로드하는 데 사용합니다.
@@ -82,10 +84,10 @@ ms.lasthandoff: 01/13/2017
 > SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
 > 
 
-
 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기준으로 하는 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
 
-## <a name="streaming-url-formats"></a>스트리밍 URL 형식
+## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>스트리밍 URL 형식
+
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -185,5 +187,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="related-topics"></a>관련된 항목
 [저장소 키를 롤링 후 미디어 서비스 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
-
 

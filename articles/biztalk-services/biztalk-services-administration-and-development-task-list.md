@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7d4532daf5e4b8f45de94bbec230633978814a6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk 서비스의 관리 및 개발 작업 목록
 
@@ -58,5 +56,4 @@ Microsoft Azure BizTalk 서비스로 작업할 때 고려해야 할 몇 가지 �
 [메시지 맵 및 변환 학습 및 만들기](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [BizTalk 어댑터 서비스(BAS) 사용](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
 

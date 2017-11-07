@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>자습서: Learningpool Act와 Azure Active Directory 통합
 
@@ -261,5 +259,4 @@ Learningpool Act에 대한 사용자 프로비저닝을 구성할 작업 항목�
 [201]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_203.png
-
 

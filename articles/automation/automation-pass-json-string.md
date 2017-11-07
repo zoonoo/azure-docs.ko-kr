@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
+ms.openlocfilehash: e9352ac1a346537d6214590be6dbc9db7ca0f461
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
-
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Automation Runbook에 JSON 개체 전달
 
 JSON 파일에서 Runbook에 전달하려는 데이터를 저장하는 것이 유용할 수 있습니다.
@@ -97,7 +95,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. `Start-AzureRmAutomstionRunbook`의 매개 변수에 대한 해시 테이블을 만듭니다.
+1. `Start-AzureRmAutomationRunbook`의 매개 변수에 대한 해시 테이블을 만듭니다.
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'
@@ -118,6 +116,5 @@ Runbook에서 JSON 파일의 값을 사용하여 VM을 시작합니다.
 
 * 텍스트 편집기를 사용하여 PowerShell 및 PowerShell 워크플로 Runbook을 편집하는 방법을 알아보려면 [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md) 
 * Runbook을 만들고 가져오는 방법을 알아보려면 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
-
 
 

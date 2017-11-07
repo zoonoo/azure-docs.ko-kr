@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>앱 서비스 환경에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -97,4 +96,3 @@ Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 �
 <!-- LINKS -->
 
 <!-- IMAGES -->
-

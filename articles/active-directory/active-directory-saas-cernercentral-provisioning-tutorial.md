@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Cerner Central 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Cerner Central의 사용자 명단으로 자동으로 프로비전 및 프로비전 해제하도록 Cerner Central 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다. 
@@ -136,4 +134,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="next-steps"></a>다음 단계
 * [프로비저닝 활동에 대한 로그를 검토하고 보고서를 확인하는 방법을 알아봅니다](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
-

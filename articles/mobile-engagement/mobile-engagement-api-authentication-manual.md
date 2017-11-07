@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Mobile Engagement REST API를 사용한 인증 - 수동 설치
 이 부록 설명서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)을 설명합니다. 먼저 읽고 상황을 파악하도록 합니다. Azure 포털을 사용하여 Mobile Engagement REST API에 대한 인증을 설정하기 위해 일회성 설치 프로세스를 수행하는 대체 방법을 설명합니다. 
@@ -132,11 +132,5 @@ ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>응용 프로그램을 배포하여 Batch 응용 프로그램 패키지에서 노드 계산
 
@@ -30,7 +29,7 @@ Azure Batch의 응용 프로그램 패키지 기능은 풀의 계산 노드에 �
 
 > [!NOTE]
 > 
-> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. Cloud Service 구성을 사용하여 풀을 만든 경우에만 2016년 3월 10일에서 2017년 7월 5일 사이에 만든 Batch 풀에서 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
+> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
 >
 > 응용 프로그램 패키지를 만들고 관리하는 API는 [Batch Management .NET][[api_net_mgmt]] 라이브러리의 일부입니다. 계산 노드에서 응용 프로그램 패키지를 설치하는 API는 [Batch .NET][api_net] 라이브러리의 일부입니다.  
 >
@@ -44,7 +43,7 @@ Azure Batch의 응용 프로그램 패키지 기능은 풀의 계산 노드에 �
 이 기능은 [Batch REST API][api_rest] 버전 2015-12-01.2.2 및 해당 [Batch .NET][api_net] 라이브러리 버전 3.1.0에서 도입되었습니다. Batch를 사용할 때에는 항상 최신 API 버전을 사용하는 것이 좋습니다.
 
 > [!NOTE]
-> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. Cloud Service 구성을 사용하여 풀을 만든 경우에만 2016년 3월 10일에서 2017년 7월 5일 사이에 만든 Batch 풀에서 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
+> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만들어진 모든 Batch 풀에서 지원됩니다. 2016년 3월 10일에서 2017년 7월 5일 사이에 만들어진 Batch 풀에서는 Cloud Service 구성을 사용하여 풀을 만든 경우에만 이러한 패키지가 지원됩니다. 2016년 3월 10일 이전에 만들어진 Batch 풀은 응용 프로그램 패키지를 지원하지 않습니다.
 >
 >
 
@@ -263,11 +262,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 예:
+Linux 노드에서는 형식이 약간 다릅니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)가 환경 변수에서 밑줄로 표시됩니다. 또한 응용 프로그램 ID의 대/소문자는 유지됩니다. 예:
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
 `APPLICATIONID` 및 `version`은 배포를 위해 지정한 응용 프로그램 및 패키지 버전에 해당하는 값입니다. 예를 들어 Windows 노드에 *blender* 응용 프로그램의 2.7 버전을 설치하도록 지정하면 태스크 명령줄은 다음 환경 변수를 사용하여 해당 파일에 액세스합니다.
@@ -277,11 +276,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Linux 노드에서는 환경 변수를 다음 형식으로 지정합니다.
+Linux 노드에서는 환경 변수를 다음 형식으로 지정합니다. 마침표(.), 하이픈(-) 및 숫자 기호(#)를 밑줄로 평면화하고 응용 프로그램 ID의 대/소문자를 유지합니다.
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
 응용 프로그램 패키지를 업로드할 때 계산 노드에 배포할 기본 버전을 지정할 수 있습니다. 응용 프로그램의 기본 버전을 지정하면 응용 프로그램 참조 시 버전 접미사를 생략할 수 있습니다. [응용 프로그램 업로드 및 관리](#upload-and-manage-applications)에서 표시된 것처럼 Azure Portal의 응용 프로그램 블레이드에서 기본 응용 프로그램 버전을 지정할 수 있습니다.
@@ -381,4 +380,3 @@ foreach (ApplicationSummary app in applications)
 [10]: ./media/batch-application-packages/app_pkg_10.png "포털에서 저장소 계정 블레이드 선택"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure portal의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure portal의 패키지 삭제 확인 대화 상자"
-

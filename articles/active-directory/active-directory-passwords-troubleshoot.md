@@ -13,17 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결 방법
 
 셀프 서비스 암호 재설정에 문제가 발생하는 경우 아래에 있는 항목을 통해 신속하게 대응할 수 있습니다.
@@ -152,17 +150,21 @@ ms.lasthandoff: 08/29/2017
 | 33008| ADPasswordPolicyError| 이 이벤트는 비밀번호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생합니다. <br> <br> 최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br> <br> 암호 기록 요구 사항을 활성화하는 경우 마지막 N 번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 N은 암호 기록 설정입니다. 마지막 N 번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해 기록을 0으로 설정해야 합니다. <br> <br> 암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br> <br> 암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다.|
 | 33009| ADConfigurationError| 이 이벤트는 Active Directory 구성 문제로 인해 암호를 다시 온-프레미스 디렉터리로 작성하는 문제가 있음을 나타냅니다. 어떤 오류가 발생했는지에 대한 자세한 내용은 ADSync 서비스로부터 온 메시지용 Azure AD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 확인하십시오.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>암호 쓰기 저장 연결 문제 해결
 
 Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 발생하는 경우 이 문제를 해결하기 위해 수행할 수 있는 빠른 단계는 다음과 같습니다.
 
+* [네트워크 연결 확인](#confirm-network-connectivity)
 * [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-ad-connect-sync-service)
 * [암호 쓰기 저장 기능을 비활성화 및 재활성화](#disable-and-re-enable-the-password-writeback-feature)
 * [최신 Azure AD Connect 릴리스 설치](#install-the-latest-azure-ad-connect-release)
 * [비밀번호 쓰기 저장 문제 해결](#troubleshoot-password-writeback)
 
 일반적으로 가장 빠른 방법으로 서비스를 복구하기 위해 위의 순서로 이 단계를 실행하는 것이 좋습니다.
+
+### <a name="confirm-network-connectivity"></a>네트워크 연결 확인
+
+가장 일반적인 오류 지점은 방화벽 및 또는 프록시 포트 및 유휴 시간 제한이 올바르지 않게 구성된 것입니다. 자세한 내용은 [Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기](active-directory-passwords-how-it-works.md#network-requirements) 문서에서 네트워크 요구 사항을 참조하세요.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect 동기화 서비스 다시 시작
 
@@ -277,4 +279,3 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 * [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
-

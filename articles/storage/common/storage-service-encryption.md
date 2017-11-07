@@ -3,7 +3,7 @@ title: "미사용 데이터에 대한 Azure Storage Service Encryption | Microso
 description: "Azure 저장소 서비스 암호화 기능을 사용하여 데이터를 저장할 때 서비스 쪽에서 Azure Blob 저장소를 암호화하고 데이터를 검색할 때 암호 해독합니다."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bac7b3292f21aa97d02a18dd58f79a4f10485b7d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화
 미사용 데이터에 대한 Azure 저장소 서비스 암호화(SSE)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure 저장소는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
@@ -84,7 +83,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azur
 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
 #### <a name="using-smb"></a>SMB 사용
-Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 온-프레미스 또는 Azure의 클라이언트에서 파일 공유를 마운트할 수 있습니다. 마운트되면 Azure 파일 공유에 파일을 복사하는 데 Robocopy와 같은 도구를 사용할 수 있습니다. 자세한 내용은 [Windows에서 Azure 파일 공유를 마운트하는 방법](../files/storage-how-to-use-files-windows.md) 및 [Linux에서 Azure 파일 공유를 마운트하는 방법](../storage-how-to-use-files-linux.md)을 참조하세요.
+Azure Files는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 온-프레미스 또는 Azure의 클라이언트에서 파일 공유를 마운트할 수 있습니다. 마운트되면 Azure 파일 공유에 파일을 복사하는 데 Robocopy와 같은 도구를 사용할 수 있습니다. 자세한 내용은 [Windows에서 Azure 파일 공유를 마운트하는 방법](../files/storage-how-to-use-files-windows.md) 및 [Linux에서 Azure 파일 공유를 마운트하는 방법](../files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 
 #### <a name="using-the-storage-client-libraries"></a>저장소 클라이언트 라이브러리 사용
@@ -188,5 +187,4 @@ A: 저장소 서비스 암호화에 대한 문제는 [ssediscussions@microsoft.c
 
 ## <a name="next-steps"></a>다음 단계
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](../storage-security-guide.md)를 참조하세요.
-
 

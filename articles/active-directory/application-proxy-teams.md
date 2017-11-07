@@ -15,14 +15,12 @@ ms.date: 09/05/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: df2ffb8958a7d4b881f0a6904fb9ca13c3614040
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 응용 프로그램에 액세스
 
 Azure Active Directory 응용 프로그램 프록시는 장소에 관계없이 온-프레미스 응용 프로그램에 Single Sign-On을 제공합니다. Microsoft Teams를 사용하면 한 곳에서 효율적으로 공동 작업을 수행할 수 있습니다. 이 두 가지를 통합하면 사용자가 어떤 상황에서도 팀 동료와 협력하여 생산성을 높일 수 있습니다. 
@@ -58,4 +56,3 @@ Azure Active Directory 응용 프로그램 프록시는 장소에 관계없이 �
 
 - 응용 프로그램 프록시를 통해 [온-프레미스 SharePoint 사이트를 게시](application-proxy-enable-remote-access-sharepoint.md)하는 방법을 알아보세요.
 - 앱에서 외부 URL에 대해 [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)을 사용하도록 구성합니다. 
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 00a6749d00c6e66a957b0a89c6658511a1bafe4d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>v2.0 끝점을 사용해야 하나요?
 Azure Active Directory와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족하는지 결정해야 합니다. Azure Active Directory의 원래 끝점은 계속해서 완전히 지원되며 v2.0보다 더 많은 기능이 제공되는 측면이 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다.
@@ -82,6 +80,8 @@ v2.0 끝점을 사용하여 [OAuth 2.0으로 보안이 유지되는 Web API를 �
 `https://login-west.contoso.com`  
 
 뒤의 두 개는 첫 번째 리디렉션 URI의 하위 도메인이므로 추가할 수 있습니다. 이 제한은 향후 릴리스에서 제거될 예정입니다.
+
+또한 특정 응용 프로그램에 대해 20개의 회신 URL만 있습니다.
 
 응용 프로그램 등록 포털에 앱을 등록하는 방법을 알아보려면 [v2.0 끝점을 사용하여 앱을 등록하는 방법](active-directory-v2-app-registration.md)을 참조하세요.
 

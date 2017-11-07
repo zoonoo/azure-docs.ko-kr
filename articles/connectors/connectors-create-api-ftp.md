@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP 커넥터 시작
 FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리하고 파일을 만듭니다. 
@@ -94,5 +92,4 @@ FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
 

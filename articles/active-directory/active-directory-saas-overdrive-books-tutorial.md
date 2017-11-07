@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 515dd397c46df7c8c82afab9b50051e34db69d7a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>자습서: Overdrive와 Azure Active Directory 통합 
 
@@ -228,5 +226,4 @@ OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 [201]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_203.png
-
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: 6232459326599d244c6d3f055bf890e78ecf631e
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: 응용 프로그램 등록
 
-이 Quickstart를 통해 몇 분 이내에 Microsoft Azure Active Directory(Azure AD) B2C 테넌트에서 응용 프로그램을 등록할 수 있습니다. 완료되면 Azure B2C 테넌트에서 사용할 수 있도록 응용 프로그램이 등록됩니다.
+이 Quickstart를 통해 몇 분 이내에 Microsoft Azure Active Directory(Azure AD) B2C 테넌트에서 응용 프로그램을 등록할 수 있습니다. 완료되면 Azure AD B2C 테넌트에서 사용할 수 있도록 응용 프로그램이 등록됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,6 +49,8 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 ### <a name="register-a-web-app"></a>웹앱 등록
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>웹앱 클라이언트 암호 만들기
 
 웹 응용 프로그램이 Azure AD B2C에서 보호하는 웹 API를 호출하는 경우 다음 단계를 수행하세요.
    1. **키** 블레이드로 이동하여 **키 생성** 단추를 클릭하여 응용 프로그램 비밀을 만듭니다. **앱 키** 값을 기록해 둡니다. 이 값을 응용 프로그램의 코드에서 응용 프로그램 비밀로 사용합니다.

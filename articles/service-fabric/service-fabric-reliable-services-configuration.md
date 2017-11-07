@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/02/2017
 ms.author: sumukhs
+ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fa77eaf44f4d90d1a78f5de69e36432a53d80ecd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-stateful-reliable-services"></a>상태 저장 Reliable Services 구성
 Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집합은 클러스터의 모든 Reliable Services에 대해 전역인 반면 다른 집합은 특정 Reliable Services에 한정됩니다.
@@ -187,5 +186,4 @@ SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 
 ## <a name="next-steps"></a>다음 단계
 * [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 * [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
 

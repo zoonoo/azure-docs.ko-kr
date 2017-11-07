@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
 
@@ -413,5 +412,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 1. [DocumentDB API .NET 인덱스 관리 코드 샘플](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [DocumentDB API REST 컬렉션 작업](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [SQL을 사용한 쿼리](documentdb-sql-query.md)
-
 

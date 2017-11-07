@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-variables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 변수 할당
 SQL 데이터 웨어하우스의 변수는 `DECLARE` 문 또는 `SET` 문을 사용하여 설정됩니다.
@@ -79,4 +78,3 @@ SET을 사용하여 한 번에 하나의 변수만 설정할 수 있습니다. �
 <!--MSDN references-->
 
 <!--Other Web references-->
-

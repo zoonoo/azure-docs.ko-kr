@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: jdial;narayan;annahar
+ms.date: 09/25/2017
+ms.author: jdial;anavin
+ms.openlocfilehash: 1adf219dc4ca9ba91dc1ffc1ae98b764c9ef61b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 7d75d85863ce4b06ef1f552e0d583dec302f7ace
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독 
 
@@ -34,9 +33,40 @@ ms.lasthandoff: 07/26/2017
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
-클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 가상 네트워크 피어링은 같은 Azure 지역에 있는 두 가상 네트워크 간에만 만들 수 있습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크 또는 서로 다른 Azure 지역에 있는 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
+가상 네트워크 피어링은 같은 Azure 지역에 있는 두 가상 네트워크 간에만 만들 수 있습니다.
 
-[Azure Portal](#portal), Azure [CLI(Command Line Interface)](#cli) 또는 Azure [PowerShell](#powershell)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
+  > [!WARNING]
+  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링을 만드는 기능은 현재 미리 보기 상태입니다. 아래에서 미리 보기 구독을 등록할 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 일반 가용성 릴리스의 시나리오에서 가상 네트워크 피어링을 만드는 것과는 가용성과 신뢰성의 수준이 다를 수 있습니다. 이 시나리오에서 만든 가상 네트워크 피어링은 지원되지 않으며, 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
+
+클래식 배포 모델을 통해 배포된 두 개의 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 클래식 배포 모델을 통해 만든 두 가상 네트워크 또는 서로 다른 Azure 지역에 있는 두 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다. 
+
+[Azure Portal](#portal), Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#powershell) 또는 [Azure Resource Manager 템플릿](#template)을 사용하여 가상 네트워크 피어링을 만들 수 있습니다. 앞의 도구 링크 중 원하는 도구 링크를 클릭하여 원하는 도구를 사용하여 가상 네트워크 피어링을 만드는 단계로 바로 이동하세요.
+
+## <a name="register"></a>전역 VNet 피어링 미리 보기에 등록
+
+지역에서 가상 네트워크를 피어링하고 미리 보기에 등록하려면 피어링할 가상 네트워크를 포함하는 두 구독에 대해 다음 절차를 완료합니다. 미리 보기에 등록하는 데는 PowerShell만 사용할 수 있습니다.
+
+1. 최신 버전의 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 모듈을 설치합니다. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 개요](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+2. PowerShell 세션을 시작하고 `Login-AzureRmAccount` 명령을 사용하여 로그인합니다.
+3. 다음 명령을 입력하여 미리 보기에 해당하는 구독을 등록합니다.
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+    두 구독에 대해 모두 다음 명령을 입력하여 받은 **RegistrationState** 출력이 **Registered**가 되기 전까지는 이 문서의 포털, Azure CLI 또는 PowerShell 섹션에 있는 절차를 수행하지 않습니다.
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+  > [!WARNING]
+  > 서로 다른 지역의 가상 네트워크 간에 가상 네트워크 피어링을 만드는 기능은 현재 미리 보기 상태입니다. 이 시나리오에서 만든 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
 ## <a name="cli"></a>피어링 만들기 - 포털
 
@@ -270,4 +300,3 @@ ms.lasthandoff: 07/26/2017
 - 프로덕션 환경에 사용하기 위한 가상 네트워크 피어링을 만들기 전에 먼저 중요한 [가상 네트워크 피어링 제약 조건 및 동작](virtual-network-manage-peering.md#requirements-and-constraints)에 철저하게 익숙해집니다.
 - 모든 [가상 네트워크 피어링 설정](virtual-network-manage-peering.md#create-a-peering)에 대해 알아봅니다.
 - 가상 네트워크 피어링을 통해 [허브 및 스포크 네트워크 토폴로지를 만드는](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 방법을 알아봅니다.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3e4825d06486e6e8dfa874271ec82d203f7a7b
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>기존 응용 프로그램 및 프로젝트를 관리하는 방법
 이 문서에서는 **Mobile Engagement** 포털의 **홈** 페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 
@@ -165,4 +164,3 @@ ms.lasthandoff: 12/08/2016
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-

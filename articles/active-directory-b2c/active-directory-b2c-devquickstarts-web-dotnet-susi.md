@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C 등록, 로그인, 프로필 편집 및 암호 재설정을 사용하여 ASP.NET 웹앱 만들기
 
@@ -392,4 +391,3 @@ public ActionResult Claims()
 ```
 
 동일한 방식으로 응용 프로그램에서 수신하는 클레임을 액세스할 수 있습니다.  앱이 수신하는 모든 클레임 목록은 **클레임** 페이지에서 사용할 수 있습니다.
-

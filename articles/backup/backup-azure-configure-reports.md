@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/24/2017
+ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 보고서를 구성하고 Power BI를 사용하여 이러한 보고서에 액세스하는 단계를 설명합니다. 이러한 단계를 수행한 후 Power BI로 직접 이동하여 모든 보고서를 확인하고, 보고서를 사용자 지정 및 생성할 수 있습니다. 
@@ -140,11 +139,16 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 
    예, 다양한 자격 증명 모음에 동일한 저장소 계정을 구성하여 자격 증명 모음 간 보고서를 볼 수 있습니다. 여러 구독의 자격 증명 모음에 대해 동일한 저장소 계정을 구성할 수도 있습니다. 그런 다음 Power BI에서 Azure Backup 콘텐츠 팩에 연결하는 동안 이 저장소 계정을 사용하여 보고서를 볼 수 있습니다. 그러나 선택한 저장소 계정이 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
    
+## <a name="troubleshooting-errors"></a>문제 해결 오류
+| 오류 세부 정보 | 해결 방법 |
+| --- | --- |
+| 백업 보고서의 저장소 계정을 설정한 후에도 **저장소 계정**에 계속 **구성되지 않음**이 표시됩니다. | 저장소 계정을 성공적으로 구성한 경우 이 문제가 있더라고 보고 데이터는 전송됩니다. 이 문제를 해결하려면 Azure Portal > More Services > Diagnostic settings > RS vault > Edit Setting으로 이동합니다. 이전에 구성한 설정을 삭제하고 동일한 블레이드로부터 새 설정을 만듭니다. 이때 **이름** 필드를 **서비스**로 설정합니다. 이렇게 하면 구성된 저장소 계정이 표시됩니다. |
+|Power BI에서 Azure Backup 콘텐츠 팩을 가져오면 **404- container is not found** 오류가 나타납니다. | 이 문서에서 제시된 대로 복구 서비스 자격 증명 모음에서 보고서를 구성한 후 24시간 동안 기다려야 Power BI에서 올바르게 표시됩니다. 24시간 전에 보고서에 액세스하려는 경우 이 유효한 보고서를 표시하기에는 아직 완전한 데이터가 제공되지 않았기 때문에 이 오류가 나타납니다. |
+
 ## <a name="next-steps"></a>다음 단계
 이제 저장소 계정을 구성하고 Azure Backup 콘텐츠 팩을 가져왔으므로 다음 단계는 이러한 보고서를 사용자 지정하고 보고 데이터 모델을 사용하여 보고서를 만드는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
 * [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 0f8136cb066fa6e3e4a8dd06e34b9f866e3916f6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="unexpected-application-in-my-applications-list"></a>내 응용 프로그램 목록에 예기치 않은 응용 프로그램
 
 이 문서는 **엔터프라이즈 응용 프로그램**의 **모든 응용 프로그램** 목록에 응용 프로그램을 표시하는 방법을 이해할 수 있도록 돕습니다. 
@@ -125,4 +123,3 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
-

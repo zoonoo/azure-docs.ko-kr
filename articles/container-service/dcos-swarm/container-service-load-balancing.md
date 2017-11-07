@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b0ab5a47e335998a7f1135b5715e9c50b89b6a68
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 응용 프로그램을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 응용 프로그램 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.

@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
 Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서는 Azure 로그 통합을 사용하여 Azure Event Hubs를 통해 획득한 로그를 처리하는 방법의 예제를 보여 줍니다.
@@ -120,7 +118,7 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
     b. ```$locations = @('global') + $locationobjects.location```
     
     이때 `$locations`를 입력하고 Get-AzureRmLocation에서 반환되는 추가 정보 없이 위치 이름이 표시됩니다.
-12. Azure 리소스 관리자 로그 프로필을 만듭니다. 
+12. Azure Resource Manager 로그 프로필을 만듭니다. 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
@@ -129,7 +127,7 @@ Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보
 > [!NOTE]
 > 로그 프로필을 만들려고 할 때 오류 메시지가 표시될 수도 있습니다. 그러면 Get-AzureRmLogProfile 및 Remove-AzureRmLogProfile에 대한 설명서를 검토하면 됩니다. Get-AzureRmLogProfile을 실행하는 경우 로그 프로필에 대한 정보가 표시됩니다. ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` 명령을 입력하면 기존 로그 프로필을 삭제할 수 있습니다.
 >
->![리소스 관리자 프로필 오류](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
+>![Resource Manager 프로필 오류](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 
@@ -182,4 +180,3 @@ Key Vault에서 이벤트 허브에 기록하는 데 필요한 요소를 모두 
 - [Azure 로그 통합 FAQ](security-azure-log-integration-faq.md)
 - [Azure 로그 통합 시작](security-azure-log-integration-get-started.md)
 - [Azure 리소스의 로그를 SIEM 시스템에 통합](security-azure-log-integration-overview.md)
-

@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
+ms.openlocfilehash: 5c9225212e51d03ae40e3a55a6b9e6c0e74b5ced
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>여러 Azure Active Directory 테넌트 간의 상호 작용 방식 이해
 
 Azure AD(Azure Active Directory)의 각 테넌트는 완전히 독립된 리소스로, 관리하는 다른 테넌트와 논리적으로 독립된 피어입니다. 또한 테넌트 간에는 부모-자식 관계가 없습니다. 테넌트 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
@@ -49,9 +47,8 @@ Azure AD(Azure Active Directory)의 각 테넌트는 완전히 독립된 리소�
 Azure Portal에서 Azure AD 테넌트를 추가하려면 Azure AD 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽에서 **새로 만들기**를 선택합니다.
 
 > [!NOTE]
-> 다른 Azure 리소스와 달리 테넌트는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독이 취소되거나 만료되는 경우 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터를 사용하여 테넌트 데이터에 계속 액세스할 수 있습니다. 다른 구독을 테넌트와 연결할 수도 있습니다.
+> 다른 Azure 리소스와 달리 테넌트는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독이 취소되거나 만료되는 경우 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터를 사용하여 테넌트 데이터에 계속 액세스할 수 있습니다. [다른 구독을 테넌트와 연결](active-directory-how-subscriptions-associated-directory.md)할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active 테넌트 라이선스란?](active-directory-licensing-whatis-azure-portal.md)을 참조하세요.
-

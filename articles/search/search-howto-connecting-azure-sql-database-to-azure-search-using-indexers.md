@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
 
 [Azure Search 인덱스](search-what-is-an-index.md)를 쿼리하기 전에 데이터를 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있으므로 작성할 코드의 양과 신경 써야 할 인프라가 줄어듭니다.
@@ -358,4 +356,3 @@ SQL 인덱서는 여러 구성 설정을 노출합니다.
 + 인덱서가 실행될 때 인덱싱되는 테이블에 미해결 트랜잭션이 있는지 확인할 수 있습니다(예를 들어 모든 테이블 업데이트가 일정에 따라 일괄 처리되고 Azure Search 인덱서 일정이 테이블 업데이트 일정과 겹치지 않도록 설정됨).  
 
 + 모든 누락된 행을 선택하기 위해 전체 다시 인덱싱을 정기적으로 수행합니다. 
-

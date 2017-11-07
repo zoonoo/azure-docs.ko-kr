@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b93827ec35916759c26e5e58186acaff1f160a35
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 PostgreSQL용 Azure Database 서버에 액세스할 수 있습니다. 
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
   ![Azure Portal - 보안 연결 클릭](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. 도구 모음에서 **내 IP 추가**를 클릭합니다. 그러면 Azure 시스템에서 감지하여 사용자 컴퓨터의 IP 주소를 사용하는 규칙이 자동으로 만들어집니다.
+2. 도구 모음에서 **내 IP 추가**를 클릭합니다. 그러면 Azure 시스템에서 감지한 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
 
   ![Azure Portal - 내 IP 추가 클릭](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/10/2017
 
   ![내 IP 주소는 무엇입니까에 대한 Bing 검색](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. 추가 주소 범위를 추가합니다. PostgreSQL용 Azure Database 방화벽에 대한 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 하나의 단일 IP 주소에 규칙을 제한하려는 경우 시작 IP 및 끝 IP에 대한 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자와 사용자가 유효한 자격 증명이 있는 PostgreSQL 서버의 데이터베이스에 로그인할 수 있습니다.
+4. 추가 주소 범위를 추가합니다. PostgreSQL용 Azure Database에 대한 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 단일 IP 주소에 규칙을 제한하려는 경우 시작 IP 및 끝 IP에 대한 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자, 사용자 및 응용 프로그램이 유효한 자격 증명이 있는 PostgreSQL 서버의 데이터베이스에 로그인할 수 있습니다.
 
   ![Azure Portal - 방화벽 규칙 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -50,10 +49,9 @@ ms.lasthandoff: 05/10/2017
 방화벽 규칙을 관리하는 단계를 반복합니다.
 * 현재 컴퓨터를 추가하려면 **+ 내 IP 추가** 단추를 클릭합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
 * 추가 IP 주소를 추가 하려면 규칙 이름, 시작 IP 주소 및 끝 IP 주소를 입력 합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
-* 기존 규칙을 수정 하려면 규칙의 필드 중 하나를 클릭 후 변경 합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
-* 기존 규칙을 삭제하려면 줄임표 [...]를 클릭하고 삭제를 클릭하여 규칙을 삭제합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+* 기존 규칙을 수정 하려면 규칙의 필드 중 하나를 클릭 후 변경 합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+* 기존 규칙을 삭제하려면 줄임표 [...]를 클릭하고 **삭제**를 클릭하여 규칙을 제거합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-cli.md)를 읽을 수 있습니다.
 - PostgreSQL용 Azure Database 서버 연결에 대한 도움말은 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
-

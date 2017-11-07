@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>백업 세트에서 StorSimple 볼륨 복원(업데이트 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -53,7 +52,7 @@ ms.lasthandoff: 04/21/2017
 Heatmap 기반 추적은 계층화된 볼륨에 대해서만 사용하도록 설정되고 로컬로 고정된 볼륨에서는 지원되지 않습니다. Heatmap 기반 복원은 다른 장치에 볼륨을 복제하는 경우에도 지원되지 않습니다. 현재 위치 복원이 있고 복원할 볼륨에 대한 로컬 스냅숏은 장치에 있는 경우 (데이터를 이미 로컬에서 사용할 수 있으므로) 리하이드레이션하지 않습니다. 기본적으로 복원할 때 heatmap을 기반으로 데이터를 사전에 리하이드레이션하는 리하이드레이션 작업이 시작됩니다. 업데이트 4에서 Windows PowerShell cmdlet은 리하이드레이션 작업 실행을 쿼리하고, 리하이드레이션 작업을 취소하며, 리하이드레이션 작업 작업의 상태를 가져오는 데 사용할 수 있습니다.
 
 * `Get-HcsRehydrationJob` - 이 cmdlet은 리하이드레이션 작업의 상태를 가져옵니다. 하나의 볼륨에 대해 단일 리하이드레이션 작업이 트리거됩니다.
-* `Set-HcsRehydrationJob` - 이 cmdlet을 사용하면 리하이드레이션이 진행 중일 때 해당 작업을 일시 중지, 중지 또는 재개할 수 있습니다.    
+* `Set-HcsRehydrationJob` - 이 cmdlet을 사용하면 리하이드레이션이 진행 중일 때 해당 작업을 일시 중지, 중지 또는 재개할 수 있습니다. 
 
 리하이드레이션 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동하세요.
 
@@ -120,5 +119,4 @@ StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 �
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨을 관리](storsimple-manage-volumes-u2.md)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
 

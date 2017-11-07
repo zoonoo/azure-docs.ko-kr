@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>제네릭 웹후크를 통해 트리거되는 함수 만들기
 
@@ -167,5 +166,4 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 웹후크 트리거에 대한 자세한 내용은 [Azure Functions HTTP 및 웹후크 바인딩](functions-bindings-http-webhook.md)을 참조하세요. C#으로 함수를 개발하는 방법에 대한 자세한 내용은 [Azure Functions C# 스크립트 개발자 참조](functions-reference-csharp.md)를 참조하세요.
-
 

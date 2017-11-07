@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: jlembicz
-translationtype: Human Translation
-ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
 ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure 검색에서 다국어 문서에 대한 인덱스 만들기
 > [!div class="op_single_selector"]
 >
@@ -92,4 +91,3 @@ ms.lasthandoff: 02/09/2017
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
-

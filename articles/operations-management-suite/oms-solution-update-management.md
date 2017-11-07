@@ -3,7 +3,7 @@ title: "OMS의 업데이트 관리 솔루션 | Microsoft Docs"
 description: "이 문서는 이 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 이해할 수 있도록 제공됩니다."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
 
 ![업데이트 관리 기호](./media/oms-solution-update-management/update-management-symbol.png)
 
 OMS의 업데이트 관리 솔루션을 사용하면 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에 배포된 Windows 및 Linux 컴퓨터에 대한 운영 체제 보안 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
+
+## <a name="update-management-in-azure-automation"></a>Azure Automation의 업데이트 관리
+
+[Azure Automation](../automation/automation-offering-get-started.md) 계정에서 직접 가상 컴퓨터에 업데이트 관리를 사용하도록 설정할 수 있습니다.
+Automation 계정에서 가상 컴퓨터에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 컴퓨터에 대한 업데이트 관리](../automation/manage-update-multi.md)를 참조하세요.
 
 
 ## <a name="solution-overview"></a>솔루션 개요
@@ -307,11 +311,17 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |중요 또는 보안 취약점을 해결하는 업데이트를 사용할 수 있는 모든 패키지 목록 | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |컴퓨터를 수정한 업데이트 배포 나열 | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |이 업데이트 실행에서 업데이트된 컴퓨터(값을 사용자의 업데이트 배포 이름으로 대체) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |사용할 수 있는 업데이트가 있는 모든 "Ubuntu" 컴퓨터 목록 | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |사용할 수 있는 업데이트가 있는 모든 "Ubuntu" 컴퓨터 목록 |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager와 상호 작용
+
+PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 SUM(소프트웨어 업데이트 관리) 주기의 일환으로 이 강력하고 완성도 있는 소프트웨어 업데이트 관리를 신뢰합니다.
+
+Sytem Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통합하는 방법을 알아보려면 [OMS 업데이트 관리와 System Center Configuration Manager 통합](../automation/oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-이 섹션에서는 업데이트 관리 솔루션과 관련된 문제 해결에 도움이 되는 정보를 제공합니다.  
+이 섹션에서는 업데이트 관리 솔루션과 관련된 문제 해결에 도움이 되는 정보를 제공합니다.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>온보딩 문제를 해결하려면 어떻게 할까요?
 솔루션 또는 가상 컴퓨터를 온보딩하는 동안 문제가 발생할 경우 이벤트 ID가 4502인 **응용 프로그램 및 서비스 로그\운영 관리자** 이벤트 로그와 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하고 있는 이벤트 메시지를 확인합니다.  다음 표에는 특정 오류 메시지 및 각각의 해결 방법이 설명되어 있습니다.  
@@ -333,4 +343,3 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 * [Log Analytics](../log-analytics/log-analytics-log-searches.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * 관리되는 컴퓨터에 대한 업데이트 준수를 표시하는 [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)
 * 중요 업데이트가 컴퓨터에서 누락된 것으로 검색되거나 컴퓨터가 자동 업데이트를 사용하지 않도록 설정한 경우 [경고 만들기](../log-analytics/log-analytics-alerts.md)  
-

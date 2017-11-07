@@ -9,23 +9,21 @@ editor:
 ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
-ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: b4827fafdfd2f8b094c4f541a7511d6233dd4e6f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="multi-shard-querying"></a>다중 분할된 데이터베이스 쿼리
 ## <a name="overview"></a>개요
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)를 사용하면 분할된 데이터베이스 솔루션을 만들 수 있습니다. **다중 분할된 데이터베이스 쿼리** 는 여러 분할된 데이터베이스 간에 걸친 쿼리를 실행해야 하는 데이터 컬렉션/보고와 같은 작업에 사용됩니다. (이 쿼리는 단일 분할된 데이터베이스에서 모든 작업을 수행하는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)과 대조됩니다.) 
+[Elastic Database 도구](sql-database-elastic-scale-introduction.md)를 사용하면 분할된 데이터베이스 솔루션을 만들 수 있습니다. **다중 분할된 데이터베이스 쿼리** 는 여러 분할된 데이터베이스 간에 걸친 쿼리를 실행해야 하는 데이터 컬렉션/보고와 같은 작업에 사용됩니다. (이 쿼리는 단일 분할된 데이터베이스에서 모든 작업을 수행하는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)과 대조됩니다.) 
 
 1. [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) 또는 [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) 메서드를 사용하여 [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) 또는 [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx)을 가져옵니다. [**ShardMapManager 생성**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) 및 [**RangeShardMap 또는 ListShardMap 가져오기**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)를 참조하세요.
 2. **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)** 개체를 만듭니다.
@@ -76,6 +74,5 @@ ms.lasthandoff: 01/24/2017
 ## <a name="see-also"></a>참고 항목
 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)** 클래스 및 메서드.
 
-[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 분할된 데이터베이스를 관리합니다. [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx)라고 하는 네임스페이스가 포함되며, 이 네임스페이스는 단일 쿼리 및 결과를 사용하여 여러 분할된 데이터베이스를 쿼리하는 기능을 제공합니다. 분할된 데이터베이스의 컬렉션에 대해 쿼리 추상화를 제공합니다. 또한 대체 실행 정책, 특히 부분 결과를 제공하여 많은 분할된 데이터베이스를 쿼리할 때 오류를 처리합니다.  
-
+[Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 분할된 데이터베이스를 관리합니다. [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx)라고 하는 네임스페이스가 포함되며, 이 네임스페이스는 단일 쿼리 및 결과를 사용하여 여러 분할된 데이터베이스를 쿼리하는 기능을 제공합니다. 분할된 데이터베이스의 컬렉션에 대해 쿼리 추상화를 제공합니다. 또한 대체 실행 정책, 특히 부분 결과를 제공하여 많은 분할된 데이터베이스를 쿼리할 때 오류를 처리합니다.  
 

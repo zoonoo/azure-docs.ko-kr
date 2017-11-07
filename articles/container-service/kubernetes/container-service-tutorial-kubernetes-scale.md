@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: 25d7e56c7d7755e44fdb16e3b5585a112e495e77
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: bb528c424bc71f0309439e741c30e16d0d13c7d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes Pod 및 Kubernetes 인프라 크기 조정
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 자습서를 수행하고 있다면 Azure Container Service에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다. 
 
@@ -160,5 +160,4 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 업데이트](./container-service-tutorial-kubernetes-app-update.md)
-
 

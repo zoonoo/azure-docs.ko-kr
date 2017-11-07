@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
   > 이 기능은 공개 미리 보기 상태입니다.
@@ -38,7 +36,7 @@ Operations Management Suite 서비스 맵은 Windows 및 Linux 시스템에서 �
 * Operations Management Suite 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
 
 ## <a name="install-the-service-map-management-pack"></a>서비스 맵 관리 팩 설치
-Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. 이 번들에는 다음 관리 팩이 포함됩니다.
+Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55763)에서 관리 팩 번들을 다운로드할 수 있습니다. 이 번들에는 다음 관리 팩이 포함됩니다.
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
 * Microsoft System Center Service Map Overrides
@@ -134,4 +132,3 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 
 ### <a name="feedback"></a>사용자 의견
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
-

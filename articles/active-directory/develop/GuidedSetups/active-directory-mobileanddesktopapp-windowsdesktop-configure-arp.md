@@ -15,15 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 5e83171846517496e221f0a84565cdf7b77514df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 이 단계에서는 프로젝트에 응용 프로그램 ID를 추가해야 합니다.
 
@@ -36,4 +33,3 @@ private static string ClientId = "[Enter the application Id here]";
 ### <a name="what-is-next"></a>다음 내용
 
 [테스트 및 유효성 검사](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
-

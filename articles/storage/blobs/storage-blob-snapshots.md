@@ -3,7 +3,7 @@ title: "Azure Storage에서 Blob의 읽기 전용 스냅숏 만들기 | Microsof
 description: "지정된 시점에서 Blob 데이터를 백업하는 Blob의 스냅숏을 만드는 방법을 알아봅니다. 용량 요금을 최소화하기 위해 스냅숏의 청구 방법 및 사용 방법을 파악합니다."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
 

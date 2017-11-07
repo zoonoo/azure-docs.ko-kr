@@ -13,17 +13,15 @@ ms.custom: overview-samples
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
+ms.openlocfilehash: 1d1692cc43a7a5ec50c0689706d93a784a5fed88
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 5a5f77b9adafe32e8559d0b3396febca4b191de3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure PowerShell 샘플
 
 다음 표에는 Azure SQL Database의 Azure PowerShell 샘플 스크립트에 대한 링크가 나와 있습니다.
@@ -51,4 +49,3 @@ ms.lasthandoff: 08/05/2017
 | [SQL Database 및 SQL Server 온-프레미스 간의 데이터 동기화](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간에 동기화를 수행하도록 데이터 동기화를 구성합니다. |
 |||
 |||
-

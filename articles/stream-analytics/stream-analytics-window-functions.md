@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Stream Analytics 창 함수 소개
 많은 실시간 스트리밍 시나리오에서 임시 창에 포함된 데이터에 작업을 수행하는 데 필요합니다. 창 함수의 네이티브 지원은 개발자가 복잡한 스트림 처리 작업을 작성할 때 생산성을 향상시키는 Azure Stream Analytics의 주요 함수입니다. Stream Analytics을 사용하면 개발자가 [**연속**](https://msdn.microsoft.com/library/dn835055.aspx), [**도약**](https://msdn.microsoft.com/library/dn835041.aspx) 및 [**슬라이딩**](https://msdn.microsoft.com/library/dn835051.aspx) 창을 사용하여 스트리밍 데이터에 대한 임시 작업을 수행할 수 있습니다. 모든 [창](https://msdn.microsoft.com/library/dn835019.aspx) 작업 결과가 창의 **끝** 에 출력됩니다. 창의 출력은 사용된 집계 함수를 기반으로 하는 단일 이벤트입니다. 이벤트에는 창 끝의 타임스탬프가 있고 모든 창 함수는 고정된 길이로 정의됩니다. 마지막으로 모든 창 함수는 반드시 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 절에서 사용되어야 합니다.
@@ -51,5 +50,4 @@ ms.lasthandoff: 08/29/2017
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

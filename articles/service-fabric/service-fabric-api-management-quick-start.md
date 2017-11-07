@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2160e2e65de5c65df8a13248bad4f626def86e49
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 2969834713fc7c2f1a2e281a6c988158d803dc45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-quick-start"></a>Service Fabric 및 Azure API Management 빠른 시작
 
 이 가이드에서는 Azure API Management 및 Service Fabric을 설정하고 첫 번째 API 작업을 구성하여 Service Fabric의 백 엔드 서비스에 트래픽을 전송하는 방법을 보여 줍니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요. 
@@ -55,14 +53,14 @@ ms.lasthandoff: 06/28/2017
 Azure 계정 로그인:
 
 ```powershell
-PS > Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 구독을 선택합니다.
 
 ```powershell
-PS > Get-AzureRmSubscription
-PS > Set-AzureRmContext -SubscriptionId <guid>
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -70,7 +68,7 @@ PS > Set-AzureRmContext -SubscriptionId <guid>
 배포에 대해 새 리소스 그룹을 만듭니다. 이름 및 위치를 지정합니다.
 
 ```powershell
-PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
+New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
 ```
 
 ### <a name="deploy-the-network-topology"></a>네트워크 토폴로지를 배포합니다.
@@ -87,7 +85,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  2. 다음 PowerShell 명령을 사용하여 네트워크 설정에 대해 Resource Manager 템플릿 및 매개 변수 파일을 배포합니다.
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
     ```
 
 ### <a name="deploy-the-service-fabric-cluster"></a>Service Fabric 클러스터 배포
@@ -111,7 +109,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  3. 다음 PowerShell 명령을 통해 Resource Manager 템플릿 및 매개 변수 파일을 배포하여 Service Fabric 클러스터를 만듭니다.
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
     ```
 
 ### <a name="deploy-api-management"></a>API Management 배포
@@ -130,7 +128,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  3. 다음 PowerShell 명령을 사용하여 API Management에 대해 Resource Manager 템플릿 및 매개 변수 파일을 배포합니다.
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
     ```
 
 ## <a name="configure-api-management"></a>API Management 구성
@@ -202,7 +200,7 @@ Content-Type: application/json
 }
 ```
 
-여기서 **url** 매개 변수는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다.
+여기서 **url** 매개 변수는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다. 가까 대체 서비스인 경우에도 **url**은 "fabric:/app/service" 형식이어야 합니다.
 
 각 필드에 대한 자세한 내용은 API Management [백 엔드 API 참조 문서](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend)를 참조하세요.
 
@@ -369,4 +367,3 @@ API를 호출하려면 먼저 사용자에게 액세스 권한을 부여할 수 
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-api-management-quickstart/sf-apim-topology-overview.png
-

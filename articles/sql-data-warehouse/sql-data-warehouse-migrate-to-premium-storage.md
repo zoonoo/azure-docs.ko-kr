@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>데이터 웨어하우스를 Premium Storage로 마이그레이션
 Azure SQL Data Warehouse는 최근에 도입된 [큰 성능 예측 가능성을 위한 Premium Storage][premium storage for greater performance predictability]입니다. 이제 표준 저장소에 있는 기존 데이터 웨어하우스를 Premium Storage로 마이그레이션할 수 있습니다. 자동 마이그레이션을 활용하거나, 마이그레이션할 시기를 제어하려면(가동 중지 시간 포함) 직접 마이그레이션할 수도 있습니다.
@@ -118,7 +116,7 @@ Premium Storage로 변경하여 데이터 웨어하우스의 기반 아키텍처
 **필수 조건:**
 
 - 데이터 웨어하우스를 1,000개 이상의 데이터 웨어하우스 단위로 실행해야 합니다([계산 능력 크기 조정][scale compute power] 참조).
-- 스크립트를 실행하는 사용자가 [mediumrc 역할][mediumrc role] 이상이어야 합니다. 이 역할에 사용자를 추가하려면 다음을 실행합니다.     ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- 스크립트를 실행하는 사용자가 [mediumrc 역할][mediumrc role] 이상이어야 합니다. 이 역할에 사용자를 추가하려면 다음을 실행합니다. ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ go
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

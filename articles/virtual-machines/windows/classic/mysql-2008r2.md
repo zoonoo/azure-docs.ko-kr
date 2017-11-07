@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>클래식 배포 모델을 사용하여 만든, Windows Server 2016을 실행하는 가상 컴퓨터에 MySQL 설치
 [MySQL](https://www.mysql.com) 은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 **Windows Server 2016**을 실행하는 가상 컴퓨터에 MySQL Server로 **커뮤니티 버전의 MySQL 5.7.18**을 설치하고 실행하는 방법을 보여 줍니다. 다른 버전의 MySQL 또는 Windows Server에서는 작업 단계가 약간 다를 수 있습니다.
@@ -122,4 +121,3 @@ MySQL Server 서비스를 실행하는 Azure VM에 원격 연결을 테스트하
 
 ## <a name="next-steps"></a>다음 단계
 MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
-

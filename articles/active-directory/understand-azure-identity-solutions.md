@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
+ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7328eea378dde886419be8a4ab5b6f69c0b0d24
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure ID 솔루션 이해
 Microsoft Azure AD(Azure Active Directory)는 디렉터리 서비스, ID 관리 및 응용 프로그램 액세스 관리를 제공하는 ID 및 액세스 관리 클라우드 솔루션입니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에 있는 수천 개의 사전 통합된 상용 및 사용자 지정 앱에 대해 신속하게 [SSO(single sign-on)를 사용](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)합니다. 이러한 앱은 대부분 Office 365, Salesforce.com, Box, ServiceNow 및 Workday와 같이 이미 사용하고 있는 앱들입니다.
@@ -40,7 +39,7 @@ Microsoft Azure는 개별 조직의 요구 사항에 맞게 다양한 수준의 
 |Azure AD Directory | 각 Azure 테넌트에는 테넌트의 사용자, 그룹 및 응용 프로그램을 포함하는 신뢰할 수 있는 전용 Azure AD 디렉터리가 있습니다. 테넌트 리소스에 대한 ID 및 액세스 관리 기능을 수행하는 데 사용됩니다. 고유한 Azure AD 디렉터리가 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 조직을 나타내도록 자동으로 프로비전되기 때문에 때로는 *테넌트*, *Azure AD* 및 *Azure AD 디렉터리*와 같은 용어를 구분 없이 표시합니다. |
 |사용자 지정 도메인 | 먼저 Microsoft 클라우드 서비스 구독에 등록할 때 테넌트(조직)에서는 *.onmicrosoft.com* 도메인 이름을 사용합니다. 그러나 대부분의 조직에서는 비즈니스에 사용되는 하나 이상의 도메인 이름 및 회사 리소스에 액세스하는 데 사용하는 최종 사용자가 있습니다. 도메인 이름이 *alice@contoso.onmicrosoft.com* 대신 *alice@contoso.com*과 같이 친숙해질 수 있도록 Azure AD에 사용자 지정 도메인 이름을 추가할 수 있습니다. |
 |Azure AD 계정 | Azure AD 또는 Office 365와 같은 다른 Microsoft 클라우드 서비스를 사용하여 만들어진 ID입니다. 해당 ID는 Azure AD에 저장되고 조직의 클라우드 서비스 구독에 액세스할 수 있습니다. |
-|Azure 구독 관리자| 계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.windowsazure.com/Home/Index)를 사용하여, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있습니다. |
+|Azure 구독 관리자| 계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.azure.com/Subscriptions)를 사용하여, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있습니다. |
 |Azure AD 전역 관리자 | Azure AD 전역 관리자는 Azure AD 관리 기능에 대한 완전한 액세스 권한을 가집니다. 자동으로 Microsoft 클라우드 서비스 구독에 등록한 사용자는 기본적으로 전역 관리자가 됩니다. 둘 이상의 전역 관리자가 있을 수 있지만 전역 관리자만이 [다른 관리자 역할](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)을 사용자에게 할당할 수 있습니다. |
 |Microsoft 계정 | Microsoft 계정(개인 용도로 직접 생성함)은 소비자 지향 Microsoft 제품 및 클라우드 서비스(예: Outlook(Hotmail), OneDrive, Xbox LIVE 또는 Office 365)에 대한 액세스 권한을 제공합니다. 이러한 ID는 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다.|
 |회사 또는 학교 계정 | 회사 또는 학교 계정(관리자가 업무용/학습용으로 발급함)은 Azure, Intune, Office 365 등의 기업 비즈니스 수준의 Microsoft 클라우드 서비스에 대한 액세스 권한을 제공합니다.|
@@ -128,4 +127,3 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 [개념 환경의 Azure 증명에 대한 자세한 정보](https://aka.ms/aad-poc)
 
 [프로덕션에서 Azure AD 배포](https://aka.ms/aad-onboard)
-

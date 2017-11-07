@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.openlocfilehash: 75c6cf17ee269ae169d9f2f748d0985ca07e454e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기
 > [!div class="op_single_selector"]
@@ -261,5 +259,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 ## <a name="next-steps"></a>다음 단계
 127GB보다 큰 OS 디스크가 필요한 경우 [OS 드라이브를 확장](../../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수 있습니다.
-
 

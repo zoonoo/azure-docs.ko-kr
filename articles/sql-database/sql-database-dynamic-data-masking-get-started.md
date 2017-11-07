@@ -12,16 +12,14 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 동적 데이터 마스킹
 
@@ -56,9 +54,8 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가**를 클릭한 다음 **저장**을 클릭하기만 하면 됩니다.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
-[Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 참조하세요.
+[Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 참조하세요.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
-[Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
-
+[Azure SQL Database에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 

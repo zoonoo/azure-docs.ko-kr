@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: e09fa93038965e4880a23002bac6917ad2a077f7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>자습서: Halogen Software와 Azure Active Directory 통합
 
@@ -288,4 +286,3 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>서비스 패브릭에서 부하 및 메트릭의 조각 모음
 클러스터의 부하 메트릭을 관리하기 위한 Service Fabric Cluster Resource Manager의 기본 전략은 부하를 분산하는 것입니다. 노드가 균등하게 사용되도록 하면 핫스폿 및 콜드스폿이 방지되어 경합 및 리소스 낭비를 야기하지 않습니다. 클러스터에서 워크로드를 분산하는 것은 오류가 지정된 워크로드의 많은 부분을 사용하지 않도록 하기 때문에 오류를 극복하는 측면에서 가장 안전한 방법입니다. 
@@ -101,4 +100,3 @@ ClusterManifest.xml:
 - 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
-

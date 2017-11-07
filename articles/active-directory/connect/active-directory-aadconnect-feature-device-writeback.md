@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 장치 쓰기 저장 사용
 > [!NOTE]
@@ -44,19 +43,27 @@ ms.lasthandoff: 07/06/2017
 쓰기 저장 장치를 사용하기 위한 준비는 다음 단계를 따릅니다.
 
 1. Azure AD Connect를 설치한 컴퓨터에서 관리자 모드로 PowerShell을 시작합니다.
-2. Active Directory PowerShell 모듈이 설치되지 않은 경우 다음 명령을 사용하여 설치합니다.
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Azure Active Directory PowerShell 모듈이 설치되지 않은 경우 [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다. 이 구성 요소는 Azure AD Connect 설치된 로그인 도우미에서 종속성을 갖습니다.
+2. Active Directory PowerShell 모듈이 설치되어 있지 않으면 AD PowerShell 모듈이 들어있는 원격 서버 관리 도구를 설치하고 스크립트를 실행하는 데 필요한 dsacls.exe를 설치합니다.  다음 명령을 실행합니다.
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Azure Active Directory PowerShell 모듈이 설치되지 않은 경우 [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다. 이 구성 요소는 Azure AD Connect 설치된 로그인 도우미에서 종속성을 갖습니다.  
 4. 엔터프라이즈 관리자 자격 증명으로 다음 명령을 실행하고 PowerShell을 끝냅니다.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 구성 네임스페이스를 변경해야 하므로 엔터프라이즈 관리자 자격 증명이 필요합니다. 도메인 관리자의 사용 권한으로는 부족합니다.
 
 ![장치 쓰기 저장 사용을 위한 Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 설명:
 
@@ -139,5 +146,4 @@ Active Directory의 구성 확인:
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
 

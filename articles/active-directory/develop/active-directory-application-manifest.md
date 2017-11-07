@@ -16,12 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Azure Active Directory 응용 프로그램 매니페스트 이해
 Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌트로 등록되어 있어야 하며 이는 응용 프로그램에 영구 ID 구성을 제공합니다. 이 구성을 런타임 시 참조하며 Azure AD 통해 응용 프로그램에서 아웃소싱 및 브로커 인증/권한 부여를 허용하는 시나리오를 사용할 수 있습니다. Azure AD 응용 프로그램 모델에 대한 자세한 내용은 [응용 프로그램 추가, 업데이트 및 제거][ADD-UPD-RMV-APP] 문서를 참조하세요.
@@ -56,7 +55,7 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 3. 왼쪽 탐색 패널에서 **Azure Active Directory** 확장을 선택하고 **앱 등록**을 클릭합니다.
 4. 목록에서 업데이트하려는 응용 프로그램을 찾고 클릭합니다.
 5. 응용 프로그램 페이지에서 **매니페스트**를 클릭하여 인라인 매니페스트 편집기를 엽니다. 
-6. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 앞에서 언급한 대로 매니페스트는 [응용 프로그램 엔터티][APPLICATION-ENTITY]의 스키마를 따릅니다.예를 들어 리소스 응용 프로그램(API)에 "Employees.Read.All"이라는 새 사용 권한을 구현/노출하려는 경우 간단히 새로운/두 번째 요소를 oauth2Permissions 컬렉션인 IE에 추가합니다.
+6. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 앞서 언급한 대로 [응용 프로그램 엔터티][APPLICATION-ENTITY]의 스키마를 따릅니다. 예를 들어 리소스 응용 프로그램(API)에 "Employees.Read.All"이라는 새 사용 권한을 구현/노출하려는 경우 간단히 새로운/두 번째 요소를 oauth2Permissions 컬렉션에 추가합니다.
    
         "oauth2Permissions": [
         {
@@ -115,5 +114,4 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
 

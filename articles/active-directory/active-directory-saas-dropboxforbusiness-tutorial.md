@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>자습서: Dropbox for Business와 Azure Active Directory 통합
 
@@ -261,5 +259,4 @@ Dropbox for Business에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [201]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_203.png
-
 

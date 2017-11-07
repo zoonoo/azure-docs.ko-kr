@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: MongoDB API를 사용하여 쿼리하는 방법
 
 Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](https://docs.mongodb.com/manual/tutorial/query-documents/)를 지원합니다. 
@@ -155,8 +152,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 **쿼리**
     
     db.families.find( { "isRegistered" : true })
-**결과**
- 문서가 반환되지 않습니다. 
+**결과** 문서가 반환되지 않습니다. 
 
 ## <a id="examplequery4"></a>예제 쿼리 4
 
@@ -316,5 +312,4 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 
 > [!div class="nextstepaction"]
 > [전 세계로 데이터 배포](tutorial-global-distribution-documentdb.md)
-
 

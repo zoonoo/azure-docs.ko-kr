@@ -9,23 +9,22 @@ editor: CarlRabeler
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases, mvc
+ms.custom: develop databases, mvc, devcenter
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: genemi
+ms.openlocfilehash: 7d6c1ca0f48974f8a7d839b23f71d43bfeb400ba
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Azure SQL Database 설계 및 C#과 ADO.NET에 연결
 
-Azure SQL Database는 Microsoft 클라우드("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Visual Studio에서 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다. 
+Azure SQL Database는 Microsoft Cloud("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Visual Studio에서 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터베이스 만들기
@@ -70,5 +69,4 @@ And it starts with a ## H2.
 
 > [!div class="nextstepaction"]
 >[SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
-
 

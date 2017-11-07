@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
+ms.openlocfilehash: e70ac475f8ffce93e89fa09f18f8943eb2371d13
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
-ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/18/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -162,7 +161,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)
+* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 
 - - -
@@ -213,4 +212,3 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
 **A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
-

@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -57,10 +56,6 @@ ms.lasthandoff: 08/29/2017
 * **Q: 내 사용자가 다른 사용자가 이 데이터를 볼 수 없는 방식으로 데이터를 등록할 수 있습니까?**
 
   > **A:** 예, 사용자가 암호 재설정 등록 포털을 사용하여 데이터를 등록한 경우 전역 관리자 사용자에게만 표시되는 개인 인증 필드로 저장됩니다.
-    >
-    > [!NOTE]
-    > **Azure 관리자 계정**이 해당 인증 전화 번호를 등록하는 경우 휴대폰 필드로 채워지고 표시됩니다.
-    >
   >
   >
 * **Q: 내 사용자를 등록해야 암호 재설정을 사용할 수 있습니까?**
@@ -178,7 +173,7 @@ ms.lasthandoff: 08/29/2017
   >
 * **Q: 얼마 동안 전자 메일 및 SMS 일회용 암호가 유효합니까?**
 
-  > **A:** 암호 재설정을 위한 세션 수명은 105분입니다. 사용자에게는 암호 재설정 작업 시작부터 해당 암호를 재설정하는 데 105분이 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
+  > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 사용자에게는 암호 재설정 작업 시작부터 해당 암호를 재설정하는 데 15분이 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
   >
   >
 
@@ -280,4 +275,3 @@ ms.lasthandoff: 08/29/2017
 * [**비밀번호 쓰기 저장**](active-directory-passwords-writeback.md) - 비밀번호 쓰기 저장이 온-프레미스 디렉터리와 함께 작동 하는 원리
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-

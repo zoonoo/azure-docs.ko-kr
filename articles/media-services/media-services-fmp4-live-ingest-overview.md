@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
+ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d1a9328333bb8198d77e4b5d11fd8c6637a9e440
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양
 이 사양에서는 Azure Media Services용 조각화된 MP4 기반 라이브 스트리밍 수집에 대한 프로토콜 및 형식을 설명합니다. Media Services는 Azure를 클라우드 플랫폼으로 사용하여 고객이 실시간으로 라이브 이벤트를 스트림하고 콘텐츠를 브로드캐스트할 수 있는 라이브 스트리밍 서비스를 제공합니다. 이 문서에서는 매우 중복되고 강력한 라이브 수집 메커니즘을 구축하는 모범 사례도 다룹니다.
@@ -189,7 +188,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 2. 별도 스트림을 사용하여 2개의 가장 낮은 비디오 비트 전송률을 전송합니다. 이 스트림 각각은 각 고유한 오디오 트랙 각각의 복사본도 포함해야 합니다. 예를 들어, 여러 언어가 지원되는 경우 이 스트림은 각 언어에 대한 오디오 트랙을 포함해야 합니다.
 3. 별도 서버(인코더) 인스턴스를 사용하여 인코딩하고 (1) 및 (2)에 언급된 중복 스트림을 전송합니다. 
 
-## <a name="media-services-learning-paths"></a>Media Services 학습 경로
+## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
@@ -202,4 +201,3 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 [image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
-

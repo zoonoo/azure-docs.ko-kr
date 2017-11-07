@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 조인 장치 구성 방법 | Microsoft Docs"
-description: "Azure Active Directory 조인 장치를 구성하는 방법에 대해 알아봅니다."
+title: "Azure Active Directory 연결 장치 설정 | Microsoft Docs"
+description: "Azure Active Directory 연결 장치를 설정하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,14 +15,13 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 303660fa53919ec22a032931aab729fd36676b82
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-configure-azure-active-directory-joined-devices"></a>Azure Active Directory 조인 장치를 구성하는 방법
+# <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 연결 장치 설정
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
@@ -125,7 +124,6 @@ Azure AD 포털에서 장치 설정을 검토할 수도 있습니다.
 - [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)
 - [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)
 - 
-
 
 
 

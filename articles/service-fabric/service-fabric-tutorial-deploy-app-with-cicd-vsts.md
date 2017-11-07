@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 이 자습서는 시리즈의 3부로, Visual Studio Team Services를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
 
@@ -39,6 +37,7 @@ ms.lasthandoff: 09/02/2017
 > * [.NET Service Fabric 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Visual Studio Team Services를 사용하여 CI/CD 구성
+> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
@@ -159,10 +158,9 @@ Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 > * 릴리스 정의 만들기
 > * 응용 프로그램 자동 배포 및 업그레이드
 
-이제 응용 프로그램을 배포하고 연속 통합을 구성했으므로 다음을 시도해 보세요.
-- [앱 업그레이드](service-fabric-application-upgrade.md)
-- [앱 테스트](service-fabric-testability-overview.md) 
-- [모니터링 및 진단](service-fabric-diagnostics-overview.md)
+다음 자습서를 진행합니다.
+> [!div class="nextstepaction"]
+> [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

@@ -13,15 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/25/2017
+ms.date: 9/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.openlocfilehash: 35b40f80c5a9ccc67830429a5a75d2974d0d138c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Azure 가상 컴퓨터를 백업하기 위한 환경 준비
 > [!div class="op_single_selector"]
@@ -69,7 +67,7 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 > 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다. 기존 백업 자격 증명 모음은 계속 지원되고 [Azure PowerShell을 사용하여 백업 자격 증명 모음을 만들](./backup-client-automation-classic.md#create-a-backup-vault) 수 있습니다. 하지만 향후 향상되는 기능이 Recovery Services 자격 증명 모음에만 적용되므로 Microsoft에서는 모든 배포에 Recovery Services 자격 증명 모음을 만들도록 권장합니다.
 
 
-이 그림은 여러 Azure Backup 엔터티 간의 관계를 보여 줍니다.     ![Azure Backup 엔터티 및 관계](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+이 그림은 여러 Azure Backup 엔터티 간의 관계를 보여 줍니다. ![Azure Backup 엔터티 및 관계](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 
 
@@ -189,12 +187,12 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다. VM 에이전트는 가상 컴퓨터를 만들 때의 선택적 구성 요소이므로 가상 컴퓨터를 프로비전하기 전에 VM 에이전트에 대한 확인란이 선택되었는지 확인해야 합니다.
 
 ### <a name="manual-installation-and-update"></a>수동 설치 및 업데이트
-Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션한 가상 컴퓨터에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 VM의 경우 VM 에이전트를 명시적으로 설치해야 합니다. [기존 VM에 VM 에이전트 설치](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)에 대해 자세히 알아보세요.
+Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션한 가상 컴퓨터에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 VM의 경우 VM 에이전트를 명시적으로 설치해야 합니다. 
 
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
-| VM 에이전트 설치 |<li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 설치 |[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.<li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> 최신 [Linux 에이전트](../virtual-machines/linux/agent-user-guide.md)를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. 리포지토리에서 배포 에이전트를 설치하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 설치하는 것은 **좋지 않습니다**.  |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. 리포지토리에서 배포 에이전트를 업데이트하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 업데이트하는 것은 **좋지 않습니다**.<br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)에 대해 알아보세요.
@@ -213,4 +211,3 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-

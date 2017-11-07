@@ -16,14 +16,12 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 로그인 환경
 > [!NOTE]
 > 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인 관련 지원을 얻거나 문제를 해결하려면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.
@@ -92,4 +90,3 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 [2단계 확인 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 방법 알아보기
 
 문자 메시지 및 전화 대신 알림을 사용하여 로그인할 수 있도록 [Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md) 방법을 알아보세요.
-

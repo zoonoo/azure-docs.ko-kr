@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
@@ -95,10 +95,4 @@ Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*
 
 ### <a name="azure-cdn-standard"></a>Azure CDN 표준
 Azure CDN 표준 프로필에서 와일드카드 원본을 사용하지 않고 여러 원본에 대해 허용되는 유일한 메커니즘은 [쿼리 문자열 캐싱](cdn-query-string.md)을 사용하는 것입니다.  CDN 끝점에 대해 쿼리 문자열 설정을 사용하도록 지정하고 허용된 각 도메인의 요청에 대해 고유한 쿼리 문자열을 사용해야 합니다. 이렇게 하면 CDN은 고유한 각 쿼리 문자열에 대해 별도의 개체를 캐싱합니다. 그렇지만 이 방법은 동일한 파일의 여러 복사본이 CDN에 캐시되므로 이상적이지 않습니다.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

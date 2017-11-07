@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
+ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure 검색에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 등의 더 복잡한 쿼리 구조를 지원합니다.
 

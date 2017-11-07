@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine을 사용하여 Azure에서 호스트를 만드는 방법
-이 문서는 [Docker Machine](https://docs.docker.com/machine/)을 사용하여 Azure에서 호스트를 만드는 방법을 자세히 설명합니다. `docker-machine` 명령은 Azure에서 Linux VM(가상 컴퓨터)을 만든 다음 Docker를 설치합니다. 동일한 로컬 도구 및 워크플로를 사용하여 Azure에서 Docker 호스트를 관리할 수 있습니다.
+이 문서는 [Docker Machine](https://docs.docker.com/machine/)을 사용하여 Azure에서 호스트를 만드는 방법을 자세히 설명합니다. `docker-machine` 명령은 Azure에서 Linux VM(가상 컴퓨터)을 만든 다음 Docker를 설치합니다. 동일한 로컬 도구 및 워크플로를 사용하여 Azure에서 Docker 호스트를 관리할 수 있습니다. Windows 10에서 Docker-컴퓨터를 사용하려면 Linux bash를 사용해야 합니다.
 
 ## <a name="create-vms-with-docker-machine"></a>Docker Machine으로 VM 만들기
 먼저, 다음과 같이 [az 계정 표시](/cli/azure/account#show)로 Azure 구독 ID를 가져옵니다.
@@ -34,13 +32,14 @@ sub=$(az account show --query "id" -o tsv)
 
 드라이버로 *azure*를 지정하여 `docker-machine create`로 Azure에서 Docker 호스트 VM을 만듭니다. 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/)를 참조하세요.
 
-다음 예제에서는 *myVM*이라는 VM을 만들고 *azureuser*라는 사용자 계정을 만들고 호스트 VM에서 포트 *80*을 엽니다. 프롬프트를 따라 Azure 계정에 로그인하고 리소스를 만들고 관리하도록 Docker Machine에 사용 권한을 부여합니다.
+다음 예제에서는 *myVM*이라는 VM을 만들고 "표준 D2 v2" 계획에 따라 *azureuser*라는 사용자 계정을 만들고 호스트 VM에서 포트 *80*을 엽니다. 프롬프트를 따라 Azure 계정에 로그인하고 리소스를 만들고 관리하도록 Docker Machine에 사용 권한을 부여합니다.
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
+    --azure-size "Standard_D2_v2 \
     myvm
 ```
 
@@ -138,4 +137,3 @@ docker-machine ip myvmdocker
 
 ## <a name="next-steps"></a>다음 단계
 [Docker VM 확장](dockerextension.md)을 사용하여 호스트를 만들 수도 있습니다. Docker Compose 사용에 대한 예제는 [Azure에서 Docker 및 Compose 시작](docker-compose-quickstart.md)을 참조하세요.
-

@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET 및 Azure Portal에서 MongoDB API 웹앱 빌드
 
@@ -139,5 +138,4 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 > [!div class="nextstepaction"]
 > [MongoDB API용 Azure Cosmos DB로 데이터 가져오기](mongodb-migrate.md)
-
 

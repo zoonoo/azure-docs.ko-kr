@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: c81a6adb3abad58af149bbef6f5dff736c142f51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>자습서: Azure Active Directory와 10,000ft Plans 통합
 
@@ -226,5 +225,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [201]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
-
 

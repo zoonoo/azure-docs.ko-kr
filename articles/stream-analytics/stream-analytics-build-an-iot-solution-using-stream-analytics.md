@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 ## <a name="introduction"></a>소개
 이 자습서에서는 Azure Stream Analytics를 사용하여 데이터에서 실시간으로 통찰력을 얻는 방법을 배웁니다. 개발자는 클릭 스트림, 로그 및 장치에서 생성된 이벤트와 같은 데이터 스트림을 기록 레코드 또는 참조 데이터와 조합하여 비즈니스 통찰력을 얻을 수 있습니다. Azure Stream Analytics는 Microsoft Azure에 호스트된 완전히 관리되는 실시간 스트림 계산 서비스로, 기본 제공 복원력, 낮은 대기 시간 및 확장성을 제공하여 몇 분 안에 실행할 수 있습니다.
@@ -442,6 +440,5 @@ Azure Stream Analytics에 대한 자세한 내용을 알아보려면 [온라인 
    > 리소스는 이름으로 식별됩니다. 제거를 확인하기 전에 각 항목을 신중하게 검토해야 합니다.
    > 
    > 
-
 
 

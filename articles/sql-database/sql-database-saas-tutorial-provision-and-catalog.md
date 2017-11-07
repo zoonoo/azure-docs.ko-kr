@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database를 사용하는 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs"
-description: "Wingtip SaaS 앱에 새 테넌트를 프로비전 및 카탈로그 작성하는 방법에 대해 알아봅니다."
+description: "Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 카탈로그로 만드는 방법 알아보기"
 keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
@@ -10,20 +10,19 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
+ms.openlocfilehash: eda330a7202de8a325d645b37a0d05ef8df8985b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그로 만들어 카탈로그에 등록하는 방법
 
 이 자습서에서는 프로비전 및 카탈로그 SaaS 패턴 및 Wingtip SaaS 응용 프로그램에서 구현되는 방법에 대해 알아봅니다. 새 테넌트 데이터베이스를 만들고 초기화하고 응용 프로그램의 테넌트 카탈로그에 등록합니다. 카탈로그는 SaaS 응용 프로그램 간에 많은 테넌트와 해당 데이터를 유지 관리하는 데이터베이스입니다. 카탈로그는 응용 프로그램 요청을 올바른 데이터베이스에 디렉션하는 중요한 역할을 합니다.  
 
@@ -176,4 +175,3 @@ Resource Manager 템플릿은 \Learning Modules\Common\ 폴더: *tenantdatabasec
 * [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [Elastic Database 클라이언트 라이브러리](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
-

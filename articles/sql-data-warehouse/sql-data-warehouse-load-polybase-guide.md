@@ -12,17 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
-
-
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 PolyBase 사용을 위한 가이드
 이 가이드는 SQL 데이터 웨어하우스의 PolyBase를 사용하는 방법에 대한 실용적인 정보를 제공합니다.
@@ -46,21 +43,9 @@ Azure 저장소 계정 키를 회전하는 것은 간단한 3단계 프로세스
 2. 기본 저장소 액세스 키를 기반으로 첫 번째 데이터베이스 범위 자격 증명을 끌어 놓습니다.
 3. Azure에 로그인하고 다음 번에 사용할 준비가 된 기본 액세스 키를 다시 생성합니다.
 
-## <a name="query-azure-blob-storage-data"></a>Azure Blob 저장소 데이터 쿼리
-외부 테이블에 대한 쿼리는 관계형 테이블인 것처럼 테이블 이름을 사용합니다.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> 외부 테이블에 대한 쿼리가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."*오류로 인해 실패할 수 있습니다. 이는 외부 데이터에 *더티* 레코드가 포함되어 있음을 나타냅니다. 열의 실제 데이터 형식/개수가 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식에 맞지 않는 경우 데이터 레코드가 '더티'로 간주됩니다. 이 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지, 그리고 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티인 경우 CREATE EXTERNAL TABLE DDL의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>Azure Blob 저장소에서 데이터 로드
+## <a name="load-data-with-external-tables"></a>외부 테이블을 사용하여 데이터 로드
 이 예제에서는 SQL 데이터 웨어하우스 데이터베이스로 Azure blob 저장소에서 데이터를 로드합니다.
 
 직접 데이터를 저장하면 쿼리를 위한 데이터 전송 시간을 제거합니다. Columnstore 인덱스를 사용하여 데이터를 저장하면 최대 10배까지 분석 쿼리를 위한 쿼리 성능을 개선합니다.
@@ -86,6 +71,12 @@ FROM   [ext].[CarSensor_Data]
 
 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]를 참조하세요.
 
+> [!NOTE]
+> 외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."*오류로 인해 실패할 수 있습니다. 이는 외부 데이터에 *더티* 레코드가 포함되어 있음을 나타냅니다. 열의 실제 데이터 형식/개수가 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식에 맞지 않는 경우 데이터 레코드가 '더티'로 간주됩니다. 이 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지, 그리고 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티인 경우 CREATE EXTERNAL TABLE DDL의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>새로 로드한 데이터에 대한 통계 만들기
 Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][Statistics] 항목을 참조하세요.  다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
 
@@ -97,8 +88,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 내보내기
-이 섹션은 SQL 데이터 웨어하우스에서 Azure Blob 저장소로 데이터를 내보내는 방법을 보여줍니다. 이 예에서는 모든 계산 노드에서 병렬로 데이터를 내보내는 높은 성능의 Transact-SQL 문인 CREATE EXTERNAL TABLE AS SELECT를 사용합니다.
+## <a name="export-data-with-external-tables"></a>외부 테이블을 사용하여 내보내기
+이 섹션은 SQL 데이터 웨어하우스에서 외부 테이블을 사용하여 Azure BLOB 저장소로 데이터를 내보내는 방법을 보여줍니다. 이 예에서는 모든 계산 노드에서 병렬로 데이터를 내보내는 높은 성능의 Transact-SQL 문인 CREATE EXTERNAL TABLE AS SELECT를 사용합니다.
 
 다음 예에서는 dbo.Weblogs 표에서 열 정의 및 데이터를 사용하여 외부 표 Weblogs2014를 만듭니다. 외부 표 정의는 SQL 데이터 웨어하우스에 저장되며 SELECT 문의 결과는 데이터 원본에서 정의한 Blob 컨테이너 아래에 있는 “/archive/log2014/” 디렉터리로 내보내집니다. 데이터는 지정된 텍스트 파일 형식으로 내보냅니다.
 
@@ -132,6 +123,21 @@ SQL DW로 데이터를 로드할 수 있는 여러 명의 사용자가 필요한
 ```   
  이로 인해 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되어야 합니다.
  
+## <a name="polybase-performance-optimizations"></a>PolyBase 성능 최적화
+PolyBase로 최적의 로드 성능을 이루기 위한 권장 사항은 다음과 같습니다.
+- 대규모 압축 파일은 더 작은 크기의 압축 파일로 분할합니다. 현재 지원되는 압축 형식은 분할이 불가능합니다. 따라서 단일 대용량 파일을 로드하면 성능에 영향이 있습니다.
+- 가장 빠른 로드를 위해 round_robin 힙 준비 테이블에 로드합니다. 이것이 저장소 계층의 데이터를 데이터 웨어하우스로 이동하는 가장 효율적인 방법입니다.
+- 모든 파일 형식에는 서로 다른 성능 특성이 있습니다. 가장 빠르게 로드하려면 압축 구분 텍스트 파일을 사용합니다. UTF-8과 UTF-16의 성능 차이는 미미합니다.
+- 저장소 계층과 데이터 웨어하우스를 배치하여 대기 시간 최소화
+- 대용량 로드 작업이 예상된다면 데이터 웨어하우스를 확장합니다.
+
+## <a name="polybase-limitations"></a>PolyBase 제한 사항
+SQL DW의 PolyBase에는 로드 작업을 설계할 때 고려가 필요한 다음과 같은 제한 사항이 있습니다.
+- 단일 행은 1,000,000바이트보다 넓을 수 없습니다. 정의된 테이블 스키마에 관계없이 항상 적용됩니다.
+- SQL Server 또는 Azure SQL Data Warehouse의 텍스트가 많은 열에서 ORC 파일 형식으로 데이터를 내보낼 때는 Java의 메모리 부족 오류 때문에 50개 열로 제한될 수 있습니다. 이를 해결하려면 열의 하위 집합만 내보냅니다.
+
+
+
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -167,4 +173,3 @@ SQL Data Warehouse로 데이터를 이동하는 방법에 대한 자세한 내�
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

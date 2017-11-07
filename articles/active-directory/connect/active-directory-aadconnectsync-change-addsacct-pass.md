@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 427070021ac547058c2f18be0e58ef6d81822b8a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 14e16a238e60ecfeeb3cbf88c3922a79349dcc75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
 AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신하는 데 사용하는 사용자 계정을 나타냅니다. AD DS 계정의 암호를 변경하는 경우 Azure AD Connect 동기화 서비스를 새 암호로 업데이트해야 합니다. 그렇지 않으면 더 이상 온-프레미스 Active Directory와 올바르게 동기화될 수 없으며 다음 오류가 발생합니다.
@@ -56,4 +55,3 @@ AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신�
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

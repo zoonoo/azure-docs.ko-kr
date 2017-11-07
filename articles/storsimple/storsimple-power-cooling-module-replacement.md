@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple 장치의 전원 및 냉각 모듈 교체
 ## <a name="overview"></a>개요
@@ -146,10 +146,4 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요. 교�
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

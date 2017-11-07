@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>자습서: iLMS와 Azure Active Directory 통합
 
@@ -102,7 +100,7 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 1. Azure Portal의 **iLMS** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-On 구성][4]
+    ![Single Sign-on 구성][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
@@ -123,13 +121,13 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Single Sign-on 구성](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    **로그온 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 **끝점(URL)** 값을 다음과 같은 패턴으로 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    **로그온 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 **끝점(URL)** 값을 다음과 같은 패턴으로 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. JIT 프로비전을 사용하도록 설정하려면 iLMS 응용 프로그램에 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Single Sign-on 구성](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    iLMS에서 **부서, 지역** 및 **국** 특성을 만들고 이러한 특성의 이름을 추가합니다. 위에 표시된 모든 특성이 필요합니다.    
+    iLMS에서 **부서, 지역** 및 **국** 특성을 만들고 이러한 특성의 이름을 추가합니다. 위에 표시된 모든 특성이 필요합니다.  
 
     > [!NOTE] 
     > 이러한 특성을 매핑하려면 iLMS에서 **Create Un-recognized User Account(인식할 수 없는 사용자 계정 만들기)**를 사용하도록 설정해야 합니다. 특성 구성을 이해하려면 [여기](http://support.inspiredelearning.com/customer/portal/articles/2204526)의 지침을 참조하세요.
@@ -325,5 +323,4 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

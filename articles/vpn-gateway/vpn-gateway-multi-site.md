@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
+ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -71,11 +70,11 @@ ms.lasthandoff: 08/08/2017
 동적 라우팅 게이트웨이를 사용한 사이트 간 VPN이 이미 있으면 좋습니다. [가상 네트워크 구성 설정 내보내기](#export)로 진행할 수 있습니다. 아직 만들지 않은 경우는 아래 작업을 수행합니다.
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>사이트 간 가상 네트워크가 이미 있지만 정적(정책 기반) 라우팅 게이트웨이가 있는 경우:
-1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다. 자세한 내용은 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.  
-2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 자세한 내용은 [Azure 클래식 포털에서 VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요. 먼저, 게이트웨이 유형을 동적 라우팅으로 변경합니다.
+1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다.
+2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 지침에 대해서는 [SKU와 VPN 유형 지정](vpn-gateway-howto-site-to-site-classic-portal.md#sku)을 참조하세요. 라우팅 유형을 '동적'으로 지정해야 합니다.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
-1. [Azure 클래식 포털에서 사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
+1. [사이트 간 VPN 연결을 사용하여 Virtual Network 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
 2. [VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
 ## <a name="export"></a>2. 네트워크 구성 파일을 내보내기
@@ -158,7 +157,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일 가져오기
-네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. 클래식 포털 또는 PowerShell을 사용하여 파일을 가져올 수 있습니다.
+네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. PowerShell을 사용하여 파일을 가져올 수 있습니다.
 
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
@@ -210,4 +209,3 @@ Get-AzureVnetConnection -VNetName VNET1
 ## <a name="next-steps"></a>다음 단계
 
 VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
-

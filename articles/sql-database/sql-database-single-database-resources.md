@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 단일 데이터베이스 | Microsoft Docs"
-description: "단일 Azure SQL Database를 관리합니다."
+description: "단일 Azure SQL 데이터베이스의 서비스 계층, 성능 수준 및 저장 용량을 관리합니다."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,15 +12,14 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 08/25/2017
+ms.workload: On Demand
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스에 대한 리소스를 관리합니다.
 
@@ -37,7 +36,7 @@ Azure Portal을 사용하여 새 또는 기존 Azure SQL 데이터베이스의 �
 ![서비스 계층 및 성능 수준 구성](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> P11 또는 P15 서비스 계층을 선택하는 경우 [4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 검토하세요.
+> P11 또는 P15 서비스 계층을 선택하는 경우 [4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 검토하세요.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>PowerShell을 사용하여 단일 데이터베이스 리소스 관리
@@ -60,12 +59,12 @@ Azure CLI를 사용하여 Azure SQL Database 서비스 계층, 성능 수준 및
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |데이터베이스 만들기|
-|[az sql db list](/cli/azure/sql/db#list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|데이터베이스 사용 정보 반환|
-|[az sql db show](/cli/azure/sql/db#show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
-|[az sql db update](/cli/azure/sql/db#update)|데이터베이스 업데이트|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
+
 
 > [!TIP]
 > 데이터베이스의 크기 정보를 쿼리한 후 단일 Azure SQL Database를 다른 성능 수준으로 크기 조정하는 Azure CLI 예제 스크립트는 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
@@ -78,7 +77,7 @@ Transact-SQL을 사용하여 Azure SQL Database 서비스 계층, 성능 수준 
 | 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
-| [ALTER DATABASE (Azure SQL 데이터베이스)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
 |[sys.database_usage(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Azure SQL Database 서버의 데이터베이스 수, 유형 및 기간을 나열합니다.|
 
@@ -95,14 +94,14 @@ Azure SQL Database 서비스 계층, 성능 수준 및 저장소 용량을 설�
 
 | 명령 | 설명 |
 | --- | --- |
-|[Databases - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[Databases - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
-|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
-|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
-|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[Databases - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스를 가져옵니다.|
+|[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
+|[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 
 
 
@@ -111,4 +110,3 @@ Azure SQL Database 서비스 계층, 성능 수준 및 저장소 용량을 설�
 - 서비스 계층, 성능 수준 및 저장소 용량에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 - 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
-

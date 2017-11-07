@@ -4,7 +4,7 @@ description: "PowerShell을 사용하여 다중 NIC이 있는 VM(클래식)을 �
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 03/22/2017
 Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 인터페이스)를 연결할 수 있습니다. 여러 NIC를 사용하면 NIC 간에 트래픽 유형을 분리할 수 있습니다. 예를 들어 하나의 NIC는 인터넷과 통신하는 동안 다른 NIC는 인터넷에 연결되지 않은 내부 리소스와만 통신할 수 있습니다. 여러 NIC 간에 네트워크 트래픽을 분리하는 기능은 응용 프로그램 전달 및 WAN 최적화 솔루션과 같은 많은 네트워크 가상 어플라이언스에 필요합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](virtual-network-deploy-multinic-arm-ps.md)을 사용하여 이러한 단계를 수행하는 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 배포 모델](../virtual-machines/windows/multiple-nics.md)을 사용하여 이러한 단계를 수행하는 방법을 알아봅니다.
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -154,7 +153,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
     -VM $vmConfig
     ```
-
+    
 6. 각 VM에 데이터 디스크를 만듭니다.
 
     ```powershell
@@ -182,7 +181,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     ```
 
 ### <a name="step-4---run-the-script"></a>4단계 - 스크립트 실행
-스크립트를 다운로드하여 요구에 맞게 변경했으므로, 이제 이 스크립트를 실행하여 여러 NIC와 백 엔드 데이터베이스 VM을 만듭니다.
+이제 스크립트를 다운로드하여 요구에 맞게 변경했으므로 이 스크립트를 실행하여 여러 NIC를 포함하는 백 엔드 데이터베이스 VM을 만듭니다.
 
 1. 스크립트를 저장하여 **PowerShell** 명령 프롬프트 또는 **PowerShell ISE**에서 실행합니다. 아래와 같이 초기 출력에 표시됩니다.
 
@@ -192,8 +191,11 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. 자격 증명 프롬프트에 필요한 정보를 입력하고 **확인**을 클릭합니다. 다음 출력이 반환됩니다.
+2. 자격 증명 프롬프트에 필요한 정보를 입력하고 **확인**을 클릭합니다. 다음과 같은 출력이 반환됩니다.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5단계 - VM의 운영 체제 내에서 라우팅 구성
+
+Azure DHCP는 가상 컴퓨터에 연결된 첫 번째(기본) 네트워크 인터페이스에 기본 게이트웨이를 할당합니다. Azure는 가상 컴퓨터에 연결된 추가(보조) 네트워크 인터페이스에는 기본 게이트웨이를 할당하지 않습니다. 따라서 보조 네트워크 인터페이스가 있는 서브넷 외부의 리소스와는 기본적으로 통신할 수 없습니다. 그러나 보조 네트워크 인터페이스는 서브넷 외부의 리소스와 통신할 수 있습니다. 보조 네트워크 인터페이스에 라우팅을 구성하려면 [여러 네트워크 인터페이스를 사용하여 가상 컴퓨터 운영 체제 내에서 라우팅](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces)을 참조하세요.

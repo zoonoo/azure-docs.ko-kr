@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3705457e4c90f8869496f7f5177531bd128d1057
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-overview"></a>Azure DNS 개요
 
 Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. Azure DNS는 DNS 도메인에 대한 호스팅 서비스로, Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
@@ -53,5 +51,4 @@ Azure DNS에 대한 질문과 대답을 보려면 [Azure DNS FAQ](dns-faq.md)를
 Azure DNS에 [DNS 영역을 만드는](./dns-getstarted-create-dnszone-portal.md) 방법을 알아봅니다.
 
 Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
-
 

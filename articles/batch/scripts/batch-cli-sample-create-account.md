@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>Azure CLI로 배치 계정 만들기
 
 이 스크립트는 Azure 배치 계정을 만들고 계정의 다양한 속성을 쿼리 및 업데이트하는 방법을 보여 줍니다.
@@ -34,14 +32,14 @@ ms.lasthandoff: 09/09/2017
 
 배치 계정을 만들 때 기본적으로 계산 노드가 Batch 서비스에 내부적으로 할당됩니다. 할당된 계산 노드에는 별도의 코어 할당량이 적용되며 공유 키 자격 증명 또는 Azure Active Dirctory 토큰을 통해 계정을 인증할 수 있습니다.
 
-[!code-azurecli[메인](../../../cli_scripts/batch/create-account/create-account.sh "계정 만들기")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>사용자 구독을 사용하는 배치 계정 샘플 스크립트
 
 Batch에서 사용자 고유의 Azure 구독에 계산 노드를 만들도록 선택할 수도 있습니다.
 계산 노드를 구독에 할당한 계정은 Azure Active Directory 토큰을 통해 인증되어야 하며 할당된 계산 노드는 구독 할당량에 포함됩니다. 이 모드에서 계정을 만들려면 계정을 만들 때 Key Vault를 지정해야 합니다.
 
-[!code-azurecli[메인](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "사용자 구독을 사용하여 계정 만들기")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -73,4 +71,3 @@ az group delete --name myResourceGroup
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 Batch CLI 스크립트 샘플은 [Azure Batch CLI 설명서](../batch-cli-samples.md)에서 확인할 수 있습니다.
-

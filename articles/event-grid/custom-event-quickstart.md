@@ -1,22 +1,20 @@
 ---
-title: "Azure Event Grid에 대한 사용자 지정 이벤트 | Microsoft Docs"
-description: "Azure Event Grid를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다."
+title: "CLI와 Azure Event Grid에 대한 사용자 지정 이벤트 | Microsoft Docs"
+description: "Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다."
 services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/15/2017
+ms.date: 10/11/2017
 ms.topic: hero-article
 ms.service: event-grid
+ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-
-# <a name="create-and-route-custom-events-with-azure-event-grid"></a>Azure Event Grid로 사용자 지정 이벤트 만들기 및 라우팅
+# <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 일반적으로 웹후크 또는 Azure Function과 같은 이벤트에 응답하는 끝점으로 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 이벤트를 메시지를 수집하기만 하는 URL로 보냅니다. 오픈 소스이면서 [RequestBin](https://requestb.in/)이라는 타사 도구를 사용하여 이 URL을 만듭니다.
 
@@ -119,7 +117,6 @@ az group delete --name gridResourceGroup
 토픽 및 이벤트 구독을 만드는 방법을 배웠으므로 어떤 Event Grid가 도움이 되는지 자세히 알아보세요.
 
 - [Event Grid 정보](overview.md)
-- [Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅(미리 보기)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Azure Event Grid 및 Logic Apps를 사용하여 가상 컴퓨터 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)
-

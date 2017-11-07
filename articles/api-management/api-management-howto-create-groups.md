@@ -3,7 +3,7 @@ title: "Azure API Management에서 그룹을 사용하여 개발자 계정 관�
 description: "Azure API 관리에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 33660b45-442f-44be-9a4a-1899d7f699b0
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
-ms.lasthandoff: 01/31/2017
-
+ms.openlocfilehash: 00322340d67fd064a0dc9149790e031b94390709
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 API 관리에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
@@ -115,4 +115,3 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
-

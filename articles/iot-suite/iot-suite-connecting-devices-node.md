@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 8f45d0e86a95779d5ceeddb72638b14e0e7a80eb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 6459b6196eb7f4a083b67e5a421bcc0d51d39e5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Node.js)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -255,4 +254,3 @@ Node.js 버전 0.11.5 이상이 개발 컴퓨터에 설치되었는지 확인합
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-

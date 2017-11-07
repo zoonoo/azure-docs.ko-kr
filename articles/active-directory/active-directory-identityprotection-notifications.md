@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
-ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: abc0f3926905295a9cf239146cce7fc57da7eb29
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory ID 보호 알림
 Azure AD ID 보호는 두 가지 유형의 자동화된 알림 전자 메일을 보내어 사용자 위험과 위험 이벤트를 관리합니다.
@@ -42,25 +41,24 @@ Azure AD ID 보호가 계정이 손상되었다고 식별하는 경우 사용자
 * ID 보호에서 관련된 보고서에 대한 링크
 
 <br>
-![재구성](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+![수정](./media/active-directory-identityprotection-notifications/400.png "수정")
 <br>
 
 주 단위 요약 메일 보내기를 끌 수 있습니다.
 <br><br>
-![사용자 위험](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![사용자 위험](./media/active-directory-identityprotection-notifications/62.png "사용자 위험")
 <br>
 
 **관련 구성 대화 상자를 열려면**
 
 1. **Azure AD ID 보호** 블레이드에서 **설정**을 클릭합니다.
    <br><br>
-   ![사용자 위험 정책](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
+   ![사용자 위험 정책](./media/active-directory-identityprotection-notifications/401.png "사용자 위험 정책")
    <br>
 2. **일반** 섹션에서 **알림**을 클릭합니다.
    <br><br>
-   ![사용자 위험 정책](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
+   ![사용자 위험 정책](./media/active-directory-identityprotection-notifications/405.png "사용자 위험 정책")
    <br>
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-

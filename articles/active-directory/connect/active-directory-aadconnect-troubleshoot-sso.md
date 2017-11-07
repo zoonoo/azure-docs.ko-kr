@@ -12,28 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
 이 문서에서는 Azure AD Seamless Single Sign-On과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
+- 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
+- Edge 브라우저는 지원되지 않습니다.
+- 특히 공유 컴퓨터 시나리오에서 Office 클라이언트 시작으로 인해 사용자에 대한 추가 로그인 메시지가 표시됩니다. 사용자는 자주 자신의 사용자 이름을 입력해야 하지만 암호를 입력할 필요는 없습니다.
+- 원활한 SSO에 성공하면 사용자에게 "로그인 유지"를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 SharePoint 및 OneDrive 매핑 시나리오가 작동하지 않습니다.
+- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
+- Internet Explorer에서 향상된 보호 모드가 설정되어 있을 때는 Seamless SSO가 작동하지 않습니다.
+- iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 30개 이상의 AD 포리스트를 동기화하면 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)하여 해결할 수 있습니다.
 - "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net )을 추가하면 **사용자가 로그인 할 수 없습니다**.
-- Firefox 및 Edge의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 Internet Explorer에서 향상된 보호 모드가 켜져 있을 때도 마찬가지입니다.
-
->[!IMPORTANT]
->최근 고객이 신고한 문제를 조사하기 위해 에지에 대한 지원을 롤백했습니다.
 
 ## <a name="check-status-of-the-feature"></a>기능의 상태 확인
 
@@ -41,9 +42,9 @@ ms.lasthandoff: 08/07/2017
 
 ![Azure Active Directory 관리 센터 - Azure AD Connect 블레이드](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
-Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 살펴보는 것이 좋습니다.
+테넌트에 연결된 Azure AD Premium 라이선스가 있는 경우 [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 [로그인 활동 보고서](../active-directory-reporting-activity-sign-ins.md)를 볼 수도 있습니다.
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/active-directory-aadconnect-sso/sso9.png)
 
@@ -67,7 +68,7 @@ Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azur
 다음 검사 목록을 사용하여 Seamless SSO 문제를 해결합니다.
 
 - Azure AD Connect에서 Seamless SSO 기능이 활성화되는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 활성화할 수 없으면 모든 [필수 조건](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites)가 제대로 충족되고 있는지 확인합니다.
-- 이러한 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )이 모두 사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
+- 이러한 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)이 모두 사용자의 인트라넷 영역 설정의 일부인지 확인합니다.
 - 회사 장치가 AD 도메인에 가입되어 있는지 확인합니다.
 - 사용자가 AD 도메인 계정으로 장치에 로그인했는지 확인합니다.
 - 사용자의 계정이 Seamless SSO가 설정된 AD 포리스트에 있는지 확인합니다.
@@ -120,4 +121,3 @@ Seamless SSO를 사용하여 사용자 로그인 문제를 해결하려면 [Azur
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5단계. 테넌트에서 기능 활성화
 
 `Enable-AzureADSSO`를 호출하고 `Enable: ` 프롬프트에서 "true"를 입력하여 테넌트에서 해당 기능을 설정합니다.
-

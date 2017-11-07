@@ -1,5 +1,5 @@
 ---
-title: "예측 유지 관리 연습 | Microsoft Docs"
+title: "예측 유지 관리 솔루션 연습 - Azure | Microsoft Docs"
 description: "Azure IoT 예측 정비 사전 구성 솔루션에 대한 연습입니다."
 services: 
 suite: iot-suite
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
+ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>미리 구성된 예측 유지 관리 솔루션 연습
 

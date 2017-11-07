@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b5ac3afd973b5765ba151e766754934b49ac0e0c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>자습서: EPIM(EthicsPoint Incident Management)과 Azure Active Directory 통합
 
@@ -227,5 +225,4 @@ EPIM(EthicsPoint Incident Management)에서 Azure AD Single Sign-On을 구성하
 [201]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_203.png
-
 

@@ -1,5 +1,5 @@
 ---
-title: "연결된 공장 Azure IoT Suite 솔루션 연습 | Microsoft Docs"
+title: "연결된 팩터리 솔루션 연습 - Azure | Microsoft Docs"
 description: "공장 및 해당 아키텍처에 연결된 Azure IoT 미리 구성된 솔루션에 대한 설명입니다."
 services: 
 suite: iot-suite
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
+ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
@@ -35,7 +34,7 @@ IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-soluti
 
 솔루션을 고유한 구현을 위한 출발점으로 사용하고 사용자의 특정 비즈니스 요구 사항을 충족하도록 [사용자 지정][lnk-customize]할 수 있습니다.
 
-이 문서는 작동 방식을 이해할 수 있도록 연결된 공장 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
+이 문서는 작동 방식을 이해할 수 있도록 연결된 공장 솔루션의 핵심 요소 중 일부를 안내합니다. 문서에서는 솔루션을 통해 데이터 흐름 방식도 설명합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
@@ -125,12 +124,116 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 ## <a name="web-app"></a>웹앱
 미리 구성된 솔루션의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화로 이루어집니다.
 
+## <a name="telemetry-data-flow"></a>원격 분석 데이터 흐름
+
+![원격 분석 데이터 흐름](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>흐름 단계
+
+1. OPC 게시자는 로컬 인증서 저장소에서 필수 OPC UA X509 인증서 및 IoT Hub 보안 자격 증명을 읽습니다.
+    - 필요한 경우 OPC 게시자는 인증서 저장소에서 누락된 인증서 또는 자격 증명을 만들고 저장합니다.
+
+2. OPC 게시자는 IoT Hub에 등록됩니다.
+    - 구성된 프로토콜을 사용합니다. IoT Hub 클라이언트 SDK 지원 프로토콜을 사용할 수 있습니다. 기본값은 MQTT입니다.
+    - 프로토콜 통신은 TLS로 보호됩니다.
+
+3. OPC 게시자는 구성 파일을 읽습니다.
+
+4. OPC 게시자는 구성된 각 OPC UA 서버에서 OPC 세션을 만듭니다.
+    - TCP 연결을 사용합니다.
+    - OPC 게시자와 OPC UA 서버는 X509 인증서를 사용하여 서로 인증합니다.
+    - 모든 추가 OPC UA 트래픽은 구성된 OPC UA 암호화 메커니즘에 의해 암호화됩니다.
+    - OPC 게시자는 구성된 각 게시 간격에 대한 OPC 세션에서 OPC 구독을 만듭니다.
+    - OPC 구독에서 게시할 OPC 노드에 대해 OPC 모니터링 항목을 만듭니다.
+
+5. 모니터링된 OPC 노드 값이 변경되면 OPC UA 서버는 OPC 게시자에 업데이트를 보냅니다.
+
+6. OPC 게시자는 새 값의 코드를 변환합니다.
+    - 일괄 처리를 사용하는 경우 여러 변경 내용을 일괄 처리합니다.
+    - IoT Hub 메시지를 만듭니다.
+
+7. OPC 게시자는 IoT Hub로 메시지를 보냅니다.
+    - 구성된 프로토콜을 사용합니다.
+    - 통신은 TLS로 보호됩니다.
+
+8. TSI(Time Series Insights)는 IoT Hub에서 메시지를 읽습니다.
+    - TCP/TLS에 AMQP를 사용합니다.
+    - 이 단계는 데이터 센터의 내부 절차입니다.
+
+9. TSI의 미사용 데이터입니다.
+
+10. Azure App Service 쿼리에서 연결된 팩터리 WebApp에는 TSI의 데이터가 필요합니다.
+    - TCP/TLS 보호 통신을 사용합니다.
+    - 이 단계는 데이터 센터의 내부 절차입니다.
+
+11. 웹 브라우저는 연결된 팩터리 WebApp에 연결됩니다.
+    - 연결된 팩터리 대시보드를 렌더링합니다.
+    - HTTPS를 통해 연결합니다.
+    - 연결된 팩터리 앱에 액세스하려면 Azure Active Directory를 통한 사용자의 인증이 필요합니다.
+    - 연결된 팩터리 앱에 대한 WebApi 호출은 위조 방지 토큰에 의해 보호됩니다.
+
+12. 데이터 업데이트에서 연결된 팩터리 WebApp은 업데이트된 데이터를 웹 브라우저에 보냅니다.
+    - SignalR 프로토콜을 사용합니다.
+    - TCP/TLS로 보호됩니다.
+
+## <a name="browsing-data-flow"></a>데이터 흐름 검색
+
+![데이터 흐름 검색](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>흐름 단계
+
+1. OPC 프록시(서버 구성 요소)를 시작합니다.
+    - 로컬 저장소에서 공유 선택키를 읽습니다.
+    - 필요한 경우 누락된 선택키를 저장소에 저장합니다.
+
+2. OPC 프록시(서버 구성 요소)는 IoT Hub에 등록됩니다.
+    - IoT Hub에서 알려진 장치를 모두 읽습니다.
+    - 소켓 또는 보안 Websocket을 통해 TLS에서 MQTT를 사용합니다.
+
+3. 웹 브라우저는 연결된 팩터리 WebApp에 연결하고 연결된 팩터리 대시보드를 렌더링합니다.
+    - HTTPS를 사용합니다.
+    - 사용자는 연결할 OPC UA 서버를 선택합니다.
+
+4. 연결된 팩터리 WebApp은 선택한 OPC UA 서버에 대한 OPC UA 세션을 설정합니다.
+    - OPC UA 스택을 사용합니다.
+
+5. OPC 프록시 전송은 OPC UA 서버에 대한 TCP 소켓 연결을 설정하기 위해 OPC UA 스택에서 요청을 받습니다.
+    - TCP 페이로드를 검색하고 그대로 사용합니다.
+    - 이 단계는 연결된 팩터리 WebApp의 내부 절차입니다.
+
+6. OPC 프록시(클라이언트 구성 요소)는 IoT Hub 장치 레지스트리에서 OPC 프록시(서버 구성 요소) 장치를 조회합니다. 그런 다음 IoT Hub에서 OPC 프록시(서버 구성 요소) 장치의 장치 메서드를 호출합니다.
+    - TCP/TLS에 HTTPS를 사용하여 OPC 프록시를 조회합니다.
+    - TCP/TLS에 HTTPS를 사용하여 OPC UA 서버에 대한 TCP 소켓 연결을 설정합니다.
+    - 이 단계는 데이터 센터의 내부 절차입니다.
+
+7. IoT Hub는 OPC 프록시(서버 구성 요소) 장치에서 장치 메서드를 호출합니다.
+    - 소켓 또는 보안 Websocket 연결을 통해 TLS에 설정된 MQTT를 사용하여 OPC UA 서버에 대한 TCP 소켓 연결을 설정합니다.
+
+8. OPC 프록시(서버 구성 요소)는 작업 현장 네트워크에 TCP 페이로드를 보냅니다.
+
+9. OPC UA 서버는 페이로드를 처리하고 응답을 다시 보냅니다.
+
+10. OPC 프록시(서버 구성 요소)의 소켓에서 응답을 수신합니다.
+    - OPC 프록시는 데이터를 장치 메서드의 반환 값으로 IoT Hub 및 OPC 프록시(클라이언트 구성 요소)에 보냅니다.
+    - 이 데이터는 연결된 팩터리 앱에 있는 OPC UA 스택에 전달됩니다.
+
+11. 연결된 팩터리 WebApp은 OPC UA 서버에서 받은 OPC UA 관련 정보를 포함한 OPC 브라우저 UX를 렌더링할 웹 브라우저에 반환합니다.
+    - OPC 주소 공간을 검색하고 기능을 OPC 주소 공간의 노드에 적용하는 동안 OPC 브라우저 UX 클라이언트 부분에서는 위조 방지 토큰으로 보호된 HTTPS를 통한 AJAX 호출을 사용하여 연결된 팩터리 WebApp에서 데이터를 가져옵니다.
+    - 필요한 경우 클라이언트는 4~10단계에서 설명한 통신을 사용하여 OPC UA 서버와 정보를 교환합니다.
+
+> [!NOTE]
+> OPC 프록시(서버 구성 요소) 및 OPC 프록시(클라이언트 구성 요소)는 OPC UA 통신 관련된 모든 TCP 트래픽에 대한 #4~#10단계를 완료합니다.
+
+> [!NOTE]
+> 연결된 팩터리 WebApp 내에 있는 OPC UA 서버 및 OPC UA 스택의 경우 OPC 프록시 통신이 투명하고 인증 및 암호화에 대한 모든 OPC UA 보안 기능이 적용됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
 
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 * [연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
+* [OPC 게시자 참조 구현](iot-suite-connected-factory-publisher.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -141,4 +244,3 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-

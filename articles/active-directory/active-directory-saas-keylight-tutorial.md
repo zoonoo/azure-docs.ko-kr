@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e64a966f24411818abc4cc4ab29a428b5577d012
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>자습서: Azure Active Directory와 LockPath Keylight 통합
 
@@ -278,5 +276,4 @@ LockPath Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 [201]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_203.png
-
 

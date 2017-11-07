@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: adigan;giridham;trinadhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
 Azure Backup Server를 사용하여 Recovery Services 자격 증명 모음으로 백업한 데이터를 복구할 수 있습니다. 이 과정이 Azure Backup Server 관리 콘솔에 통합되며 다른 Azure Backup 구성 요소의 복구 워크플로와 유사합니다.
@@ -54,10 +53,10 @@ Azure Backup Server에서 데이터를 복구하려면
 5. 적절한 항목을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
 
     ![외부 DPM 복구](./media/backup-azure-alternate-dpm-server/recover.png)
-6. **복구 선택 사항**을 검토합니다. 복구될 백업 복사본의 날짜와 시간, 백업 복사본이 만들어진 원본을 확인합니다. 선택 항목이 올바르지 않으면 **취소**를 클릭하여 다시 백업 탭으로 돌아가 적절한 복구 지점을 선택합니다. 선택 항목이 올바르면 **다음**을 클릭합니다.
+6. **복구 선택 사항**을 검토합니다. 복구될 백업 복사본의 날짜와 시간, 백업 복사본이 만들어진 원본을 확인합니다. 선택 항목이 올바르지 않으면 **취소** 를 클릭하여 다시 백업 탭으로 돌아가 적절한 복구 지점을 선택합니다. 선택 항목이 올바르면 **다음**을 클릭합니다.
 
     ![외부 DPM 복구 요약](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
-7. **대체 위치로 복구**를 선택합니다. **찾아보기**를 선택하여 복구할 올바른 위치를 찾습니다.
+7. **대체 위치로 복구**를 선택합니다. **찾아보기** 를 선택하여 복구할 올바른 위치를 찾습니다.
 
     ![외부 DPM 복구 대체 위치](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 8. **복사본 만들기**, **건너뛰기** 또는 **덮어쓰기** 옵션 중에서 선택합니다.
@@ -107,4 +106,3 @@ Azure Backup Server에서 데이터를 복구하려면
 
 ## <a name="next-steps"></a>다음 단계:
 •   [Azure Backup FAQ](backup-azure-backup-faq.md)
-

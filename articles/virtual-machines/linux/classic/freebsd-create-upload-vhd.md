@@ -3,7 +3,7 @@ title: "FreeBSD VM 이미지 만들기 및 업로드 | Microsoft Docs"
 description: "FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하여 Azure 가상 컴퓨터를 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kyliel
+ms.author: huishao
+ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>FreeBSD VHD를 만들어서 Azure에 업로드
 이 문서에서는 FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure에서 VM(가상 컴퓨터)을 만들 수 있습니다.
@@ -207,4 +206,3 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 5. 프로비전이 완료되면 FreeBSD VM이 Azure에서 실행됩니다.
 
     ![Azure의 FreeBSD 이미지](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-

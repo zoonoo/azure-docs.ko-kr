@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 위치 설정
 템플릿을 배포할 때는 각 리소스의 위치를 지정해야 합니다. 이 항목에서는 각 리소스 유형에 대한 구독에서 사용할 수 있는 위치를 확인하는 방법을 보여 줍니다.
@@ -101,5 +100,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 작성 방법에 대한 권장 사항은 [Azure Resource Manager 템플릿 생성 모범 사례](resource-manager-template-best-practices.md)를 참조하세요.
-
 

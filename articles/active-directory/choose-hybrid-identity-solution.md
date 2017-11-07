@@ -13,14 +13,12 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 하이브리드 ID 솔루션
 [Microsoft Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 하이브리드 ID 솔루션을 사용하면 온-프레미스의 사용자를 계속 관리하면서 온-프레미스 디렉터리 개체를 Azure AD와 동기화할 수 있습니다. 온-프레미스 Windows Server Active Directory와 Azure AD와의 동기화를 계획할 때는 맨 먼저 동기화된 ID를 사용할지 또는 페더레이션 ID를 사용할지를 결정해야 합니다. 동기화된 ID 및 선택적으로 암호 해시를 사용하여 사용자는 같은 암호로 온-프레미스 및 클라우드 기반 조직 리소스에 모두 액세스할 수 있습니다. SSO(Single Sign-On) 또는 온-프레미스 MFA와 같은 고급 시나리오 요구 사항의 경우 AD FS(Active Directory Federation Services)를 배포하여 ID를 페더레이션해야 합니다. 
 
@@ -99,5 +97,4 @@ ID 페더레이션이라고도 하는 이 로그인 방법은 모든 사용자 �
 [Azure AD Connect 설치](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 [하이브리드 ID 동기화 모니터링](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)
-
 

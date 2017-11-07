@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 웹 응용 프로그램 방화벽 추가 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure 보안 센터 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure 보안 센터에서 웹 응용 프로그램 방화벽 추가
 Azure Security Center에서는 웹 응용 프로그램을 보호하기 위해 Microsoft 파트너의 WAF(웹 응용 프로그램 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이 권장 사항을 적용하는 방법의 예를 보여 줍니다.
 
 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.
 
-Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/app-service-app-service-environments-readme.md)를 참조하세요.
+Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.
@@ -70,7 +68,7 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "웹 응용 프로그램 추가"를 구현하는 방법을 보여 주었습니다. 웹 응용 프로그램 방화벽 구성에 대한 자세한 내용은 다음을 참조하세요.
 
-* [앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -88,4 +86,3 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-

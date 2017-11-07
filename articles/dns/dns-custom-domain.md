@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
+ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공
 
 Azure DNS는 사용자 지정 도메인을 지원하거나 FQDN(정규화된 도메인 이름)이 있는 모든 Azure 리소스에 대해 사용자 지정 도메인용 DNS를 제공합니다. 예를 들어, Azure 웹앱이 있으며 사용자가 contoso.com 또는 www.contoso.com을 FQDN으로 사용하여 액세스하도록 설정하려고 합니다. 이 문서에서는 사용자 지정 도메인을 사용하기 위해 Azure DNS로 Azure 서비스를 구성하는 과정을 안내합니다.
@@ -136,9 +134,9 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 
 ![그림 1](./media/dns-custom-domain/finalnslookup.png)
 
-App Service에 사용자 지정 도메인을 매핑하는 방법에 대한 자세한 내용은 [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)을 참조하세요.
+App Service에 사용자 지정 도메인을 매핑하는 방법에 대한 자세한 내용은 [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)을 참조하세요.
 
-사용자 지정 도메인을 구매해야 하는 경우 App Service 도메인에 대해 자세히 알아보려면 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구입](../app-service-web/custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
+사용자 지정 도메인을 구매해야 하는 경우 App Service 도메인에 대해 자세히 알아보려면 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구입](../app-service/custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
 
 ## <a name="blob-storage"></a>Blob 저장소
 

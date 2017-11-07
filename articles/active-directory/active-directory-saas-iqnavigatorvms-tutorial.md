@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 1164723a171843541098f6adbda0e65f7e82a0cb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>자습서: IQNavigator VMS와 Azure Active Directory 통합
 
@@ -138,7 +137,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     
     ![Single Sign-on 구성](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
 
-    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여넣습니다.
+    c. 복사 단추를 클릭하여 **페더레이션 메타데이터 문서** URL을 복사하여 메모장에 붙여 넣습니다.
     
     ![Single Sign-on 구성](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
      
@@ -254,5 +253,4 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 [201]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_203.png
-
 

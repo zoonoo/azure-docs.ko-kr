@@ -1,44 +1,42 @@
 # 개요
-## [Power BI Embedded란?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [Power BI Embedded의 새로운 기능](power-bi-embedded-whats-new.md)
+## [Power BI Embedded란?](what-is-power-bi-embedded.md)
 
 # 시작
-## [Power BI Embedded 시작](power-bi-embedded-get-started.md)
-## [샘플 시작](power-bi-embedded-get-started-sample.md)
-## [FAQ](power-bi-embedded-faq.md)
+## [Power BI Embedded 시작](get-started.md)
+## [샘플 시작](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # 방법
-## 계획 및 디자인
-### [일반적인 시나리오](power-bi-embedded-scenarios.md)
+## 용량 관리
+### [용량 만들기](create-capacity.md)
+### [용량 크기 조정](scale-capacity.md)
+### [용량 일시 중지 및 시작](pause-start.md)
+## [Azure AD 앱 등록](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/)
+## [Power BI 콘텐츠 포함](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)
 
-## 관리
-### [데이터 원본에 연결](power-bi-embedded-connect-datasource.md)
-### [Power BI 보고서 포함](power-bi-embedded-embed-report.md)
-### [보고서 사용](power-bi-embedded-interact-with-reports.md)
-### [데이터 집합에서 새 보고서 만들기](power-bi-embedded-create-report-from-dataset.md)
-### [보고서 저장](power-bi-embedded-save-reports.md)
-### [보기와 편집 간 전환](power-bi-embedded-toggle-mode.md)
+## 마이그레이션
+### [Power BI 작업 영역 컬렉션에서 마이그레이션하는 방법](migrate-from-power-bi-workspace-collections.md)
+### [마이그레이션 도구](migrate-tool.md)
+### [마이그레이션 코드 조각](migrate-code-snippets.md)
 
-## 보안
-### [인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
-### [Power BI Embedded를 사용하는 행 수준 보안](power-bi-embedded-rls.md)
+# 샘플
+## [코드 샘플](https://github.com/Microsoft/PowerBI-Developer-Samples)
+## [샘플 연습](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # 참조
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
-## [PowerShell](/powershell/module/azurerm.powerbiembedded)
-## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
-## [.NET SDK 다운로드](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-## [관리 REST API](/rest/api/powerbiembedded/)
-## [REST API](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-
+## API
+### [Azure Resource Management REST API](/rest/api/powerbiembedded/)
+### [REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+## SDK
+### [.NET SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+### [JavaScript SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [JavaScript embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [JavaScript Git 리포지토리](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Power BI C# Git 리포지토리](https://github.com/Microsoft/PowerBI-CSharp)
-## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Apiary](http://docs.powerbi.apiary.io/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [샘플 응용 프로그램](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/powerbi)
+## GitHub 리포지토리
+### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+

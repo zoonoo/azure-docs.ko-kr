@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Python 스크립트로 Log Analytics에서 데이터 검색
 모든 REST API 클라이언트는 [Log Analytics 로그 검색 API](log-analytics-log-search-api.md)를 통해 Log Analytics 작업 영역에서 데이터를 검색할 수 있습니다.  이 문서에서는 Log Analytics 로그 검색 API를 사용하는 Python 스크립트 예제를 보여 줍니다.  
 

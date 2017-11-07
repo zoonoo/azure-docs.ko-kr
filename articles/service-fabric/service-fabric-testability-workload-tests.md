@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: eefc05c85d07f397261f2230373ad93e07675159
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 7ec671c23e101d0f7401bd4656fb201111602cad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="simulate-failures-during-service-workloads"></a>서비스 워크로드 중 오류를 시뮬레이션합니다.
 Azure 서비스 패브릭의 테스트 용이성 시나리오를 통해 개발자는 개별 결함의 처리에 대해 걱정하지 않아도 됩니다. 그러나 클라이언트 워크로드 및 오류의 명시적인 인터리빙이 필요한 시나리오가 있습니다. 클라이언트 워크로드 및 결함의 인터리빙은 장애가 발생했을 때 서비스가 실제로 일부 작업을 수행하도록 보장합니다. 제공되는 제어 테스트 용이성 수준을 볼 때, 이것은 워크로드 실행의 정확한 지점일 수 있습니다. 응용프로그램 내의 다양한 상태에서 결함의 유도를 통해 버그를 찾고 품질을 향상시킬 수 있습니다.
@@ -160,4 +158,3 @@ class Test
     }
 }
 ```
-

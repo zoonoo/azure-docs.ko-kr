@@ -3,7 +3,7 @@ title: "Azure SQL Database에 대한 자동 조정 사용 | Microsoft Docs"
 description: "Azure SQL Database에서 쉽게 자동 조정을 사용할 수 있습니다."
 services: sql-database
 documentationcenter: 
-author: vvasic
+author: veljko-msft
 manager: drasumic
 editor: vvasic
 ms.assetid: 
@@ -12,16 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
-ms.date: 06/05/2016
-ms.author: vvasic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b391b1f7aa37c5a06fc320ce892534187deb4959
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.workload: Inactive
+ms.date: 09/19/2016
+ms.author: veljko-msft
+ms.openlocfilehash: 82db5996c1ba1f224593e4eaa5b3b0067755db49
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="enable-automatic-tuning"></a>자동 조정 사용
 
@@ -43,7 +41,7 @@ Azure Portal을 통해 각 데이터베이스에서 개별적으로 자동 조�
 > 동일한 구성 설정을 모든 데이터베이스에 대해 자동으로 적용할 수 있도록 서버 수준에서 자동 조정 구성을 관리하는 것이 좋습니다. 데이터베이스가 동일한 서버에서 서로 다른 경우 개별 데이터베이스에서 자동 조정을 구성합니다.
 >
 
-단일 데이터베이스에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동한 다음 **자동 조정**을 선택합니다. 확인란을 선택하여 데이터베이스에서 설정을 상속하도록 단일 데이터베이스를 구성하거나 데이터베이스에 대한 구성을 개별적으로 지정할 수 있습니다.
+단일 데이터베이스에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동한 다음 **자동 조정**을 선택합니다. 옵션을 선택하여 서버에서 설정을 상속하도록 단일 데이터베이스를 구성하거나 데이터베이스에 대한 구성을 개별적으로 지정할 수 있습니다.
 
 ![데이터베이스](./media/sql-database-automatic-tuning-enable/database.png)
 
@@ -53,4 +51,3 @@ Azure Portal을 통해 각 데이터베이스에서 개별적으로 자동 조�
 * 자동 조정 및 성능을 개선할 수 있는 방법에 대한 자세한 내용은 [자동 조정 문서](sql-database-automatic-tuning.md)를 참조하세요.
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](sql-database-advisor.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
-

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 기본 정책 관리
 
 Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) 문서를 참조하세요.  
@@ -92,4 +89,3 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) - 다른 랩 정책을 수정하는 방법 알아보기 
-

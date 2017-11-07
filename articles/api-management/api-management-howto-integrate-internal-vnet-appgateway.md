@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
+ms.openlocfilehash: 834a81c36557feffaa01c256dad0338617486773
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합 
 
@@ -33,6 +32,16 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 * 단일 API Management 리소스를 사용하며 외부 소비자가 사용할 수 있는 API Management에서 정의된 API의 하위 집합을 갖습니다.
 * 공용 인터넷에서 API Management에 대한 액세스를 켜기 및 끄기로 전환하는 턴키 방법을 제공합니다. 
 
+## <a name="prerequisites"></a>필수 조건
+
+이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
+
++ 활성 Azure 구독.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ APIM 인스턴스. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
+
 ##<a name="scenario"> </a> 시나리오
 이 문서에서는 내부 및 외부 소비자가 단일 API Management 서비스를 사용하여 온-프레미스 및 클라우드 API에서 단일 프런트 엔드 역할을 하도록 만드는 방법을 다룹니다. Application Gateway에서 사용 가능한 PathBasedRouting 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
@@ -42,7 +51,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="before-you-begin"> </a> 시작하기 전에
 
-1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
+1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 2. Virtual Network를 만들고 API Management 및 Application Gateway에 대한 별도 서브넷을 만듭니다. 
 3. Virtual Network에 대한 사용자 지정 DNS 서버를 만들려면 배포를 시작하기 전에 수행합니다. Virtual Network의 새 서브넷에서 만든 가상 컴퓨터가 모든 Azure 서비스 끝점을 확인하고 액세스할 수 있도록 하여 작동을 이중으로 확인합니다.
 
@@ -349,4 +358,3 @@ VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우�
 * API Management 및 VNET에 대한 자세한 정보
   * [VNET 내에서만 사용할 수 있는 API Management 사용](api-management-using-with-internal-vnet.md)
   * [VNET에서 API Management 사용](api-management-using-with-vnet.md)
-

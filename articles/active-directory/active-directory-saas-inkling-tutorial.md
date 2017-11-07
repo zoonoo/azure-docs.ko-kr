@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>자습서: Inkling과 Azure Active Directory 통합
 
@@ -46,7 +46,7 @@ Inkling과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -124,7 +124,7 @@ Inkling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 4. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![Single Sign-on 구성](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
 
@@ -242,8 +242,3 @@ Inkling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [201]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

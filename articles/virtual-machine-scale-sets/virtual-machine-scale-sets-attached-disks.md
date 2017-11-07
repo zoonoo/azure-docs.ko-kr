@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM Scale Sets 및 연결된 데이터 디스크
 이제 Azure [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)은 연결된 데이터 디스크가 있는 가상 컴퓨터를 지원합니다. Azure Managed Disks를 사용하여 만든 확장 집합에 대한 저장소 프로필에서 데이터 디스크를 정의할 수 있습니다. 이전에 크기 집합에서 VM과 함께 사용할 수 있는 직접 연결된 저장소 옵션에는 OS 드라이브 및 임시 드라이브가 있었습니다.
@@ -38,7 +37,7 @@ _vmss create_ 명령을 지정하지 않으면 특정 구성 값을 기본값으
 ```bash
 az vmss create --help
 ```
-연결된 데이터 디스크를 포함한 크기 집합을 만드는 또 다른 방법은 Azure 리소스 관리자 템플릿에서 크기 집합을 정의하고 _storageProfile_에서 _dataDisks_ 섹션을 포함하며 템플릿을 배포하는 것입니다. 위에 있는 50GB 및 100GB 디스크 예제는 템플릿에서 다음과 같이 정의됩니다.
+연결된 데이터 디스크를 포함한 크기 집합을 만드는 또 다른 방법은 Azure Resource Manager 템플릿에서 크기 집합을 정의하고 _storageProfile_에서 _dataDisks_ 섹션을 포함하며 템플릿을 배포하는 것입니다. 위에 있는 50GB 및 100GB 디스크 예제는 템플릿에서 다음과 같이 정의됩니다.
 ```json
 "dataDisks": [
     {
@@ -128,6 +127,5 @@ Azure Managed Disks 및 확장 집합 연결 데이터 디스크에 대한 지�
 크기 집합에 대한 연결된 디스크 지원의 초기 구현 중에 크기 집합에 있는 개별 VM 간에 데이터 디스크를 연결하거나 분리할 수 없습니다.
 
 크기 집합에 있는 연결된 데이터 디스크에 대한 Azure Portal 지원은 처음부터 제한됩니다. 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.
-
 
 

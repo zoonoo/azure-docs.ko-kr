@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>OMS(Operations Management Suite) 보안 및 감사 솔루션에 보안 제품 연결 
 이 문서를 통해 보안 제품을 OMS 보안 및 감사 솔루션에 연결할 수 있습니다. 다음 원본이 지원됩니다.
@@ -64,7 +63,7 @@ OMS 보안은 Syslogs 및 [Cisco ASA](https://blogs.technet.microsoft.com/msoms/
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. *security_events.conf*라는 파일을 다운로드하고 OMS 에이전트 컴퓨터의 */etc/opt/microsoft/omsagent/conf/omsagent.d/*에 배치합니다.
-4. syslog 데몬을 다시 시작하려면 아래 명령을 입력합니다.  *syslog-ng를 실행하기 위해*
+4. syslog 데몬을 다시 시작하려면 아래 명령을 입력합니다. *syslog-ng 실행의 경우:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구�
 * [OMS(Operations Management Suite) 개요](operations-management-suite-overview.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
-
 

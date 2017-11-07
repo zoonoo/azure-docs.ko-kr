@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/25/2017
 | **하이퍼바이저** | **버전** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 이상 |
-| VMware ESXi |5.5 이상 |
+| VMware ESXi |5.5 및 6.0 |
 
 ### <a name="virtual-device-requirements"></a>가상 장치 요구 사항
 | **구성 요소** | **요구 사항** |
@@ -119,7 +119,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 | URL 패턴 | 구성 요소/기능 |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스|
 | `http://*.backup.windowsazure.com` |장치 등록 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
@@ -130,5 +130,4 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 ## <a name="next-step"></a>다음 단계
 * [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

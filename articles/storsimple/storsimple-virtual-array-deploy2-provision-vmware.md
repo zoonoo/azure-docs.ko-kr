@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -119,7 +119,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 14. vSphere 클라이언트 창으로 돌아갑니다. ESXi 서버를 선택한 상태에서 마우스 오른쪽 단추를 클릭하고 **새 가상 컴퓨터**를 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. **새 가상 컴퓨터 만들기** 창이 나타납니다. **구성** 페이지에서 **사용자 지정** 옵션을 선택합니다. **Next**를 클릭합니다.
+15. **새 가상 컴퓨터 만들기** 창이 나타납니다. **구성** 페이지에서 **사용자 지정** 옵션을 선택합니다. **다음**을 누릅니다.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. **이름 및 위치** 페이지에서 가상 컴퓨터의 이름을 지정합니다. 이 이름은 앞서 8단계에서 지정한 폴더 이름(권장 모범 사례)과 일치해야 합니다.
 
@@ -133,10 +133,10 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 19. **게스트 운영 체제** 페이지에서 **게스트 운영 체제**를 **Windows**로 선택합니다. **버전**은 드롭다운 목록에서 **Microsoft Windows Server 2012(64비트)**를 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓 당 코어의 수**를 조정합니다. **다음**을 클릭합니다.
+20. **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓 당 코어의 수**를 조정합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. **메모리** 페이지에서 RAM을 8GB(또는 그 이상)로 지정합니다. **다음**을 클릭합니다.
+21. **메모리** 페이지에서 RAM을 8GB(또는 그 이상)로 지정합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. **네트워크** 페이지에서 네트워크 인터페이스의 수를 지정합니다. 최소 요구 사항은 네트워크 인터페이스 하나입니다.
@@ -145,10 +145,10 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 23. **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS 컨트롤러**를 그대로 둡니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **다음**을 클릭합니다.
+24. **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores** (데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
+25. **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores** (데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. **고급 옵션** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
@@ -163,10 +163,10 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
+30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
+31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 누릅니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
@@ -243,4 +243,3 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열을 파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
 * [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

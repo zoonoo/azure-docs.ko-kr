@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 674d01b2c0818dc10fdab5844a23c5ebf29bb2d2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>자습서: Innotas와 Azure Active Directory 통합
 
@@ -227,5 +225,4 @@ Innotas를 프로비저닝하는 사용자를 구성할 작업 항목이 없습�
 [201]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-innotas-tutorial/tutorial_general_203.png
-
 

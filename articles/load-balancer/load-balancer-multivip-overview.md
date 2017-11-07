@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2016
+ms.date: 09/25/2017
 ms.author: chkuhtz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1045a18f5fd9739a6028198deea129e9e621f127
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure Load Balancer에 대한 다중 VIP
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
@@ -136,4 +137,3 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 * 부동 IP 규칙을 사용할 경우 응용 프로그램은 아웃바운드 흐름에 대해 DIP를 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 VIP 주소에 바인딩하는 경우 아웃바운드 흐름을 재작성하기 위해 SNAT을 사용할 수 없어 흐름이 실패합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
-

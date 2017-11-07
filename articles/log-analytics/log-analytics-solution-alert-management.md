@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 경고 관리 솔루션
 
@@ -136,4 +135,3 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](log-analytics-alerts.md) 에 관하여 알아보세요.
-

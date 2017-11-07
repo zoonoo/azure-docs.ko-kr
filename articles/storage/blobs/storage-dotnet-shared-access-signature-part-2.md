@@ -3,7 +3,7 @@ title: "Azure Blob Storage를 사용하여 SAS(공유 액세스 서명) 만들�
 description: "이 자습서에서는 Blob Storage에서 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0d7bede352667931527c8583cb172a46a37b5aa8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용
 
@@ -598,4 +597,3 @@ Additional error information: The remote server returned an error: (403) Forbidd
 * [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)
 * [공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-

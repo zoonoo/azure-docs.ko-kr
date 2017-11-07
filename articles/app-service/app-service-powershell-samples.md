@@ -16,12 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: e35cea1a057b9c5f86325bfb6cf6e0e27f4ce203
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
-
+ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 
@@ -47,4 +46,3 @@ ms.lasthandoff: 04/06/2017
 |**앱 모니터링**||
 | [웹 서버 로그로 웹앱 모니터링](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Azure 웹앱을 만들고 로깅을 사용하도록 설정하고 로그를 로컬 컴퓨터에 다운로드합니다. |
 | | |
-

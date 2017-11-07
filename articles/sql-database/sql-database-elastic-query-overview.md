@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 탄력적 쿼리 개요 | Microsoft Docs"
-description: "탄력적 쿼리 기능 개요"
+description: "탄력적 쿼리를 사용하여 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,21 +8,20 @@ author: MladjoA
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
+ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
-탄력적 데이터베이스 쿼리 기능(미리 보기)을 사용하면 Azure SQL Database에서 여러 데이터베이스에 걸쳐 있는 TRANSACT-SQL 쿼리를 실행할 수 있습니다. 이를 통해 데이터베이스 간 쿼리를 수행하여 원격 테이블에 액세스하고 Microsoft와 타사 도구(Excel, PowerBI, Tableau 등)를 연결하여 여러 데이터베이스의 데이터 계층 전체를 쿼리할 수 있습니다. 이 기능을 사용하여 SQL Database에서 큰 데이터 계층에 대한 쿼리를 확장할 수 있으며 비즈니스 인텔리전스 (BI) 보고서의 결과를 시각화할 수도 있습니다.
+탄력적 데이터베이스 쿼리 기능(미리 보기)을 사용하면 Azure SQL Database에서 여러 데이터베이스에 걸쳐 있는 TRANSACT-SQL 쿼리를 실행할 수 있습니다. 이를 통해 데이터베이스 간 쿼리를 수행하여 원격 테이블에 액세스하고 Microsoft와 타사 도구(Excel, PowerBI, Tableau 등)를 연결하여 여러 데이터베이스의 데이터 계층 전체를 쿼리할 수 있습니다. 이 기능을 사용하여SQL Database에서 큰 데이터 계층에 대한 쿼리를 확장할 수 있으며 비즈니스 인텔리전스 (BI) 보고서의 결과를 시각화할 수도 있습니다.
 
 
 ## <a name="why-use-elastic-queries"></a>탄력적 쿼리를 사용하는 이유
@@ -50,7 +49,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="elastic-query-scenarios"></a>탄력적 쿼리 시나리오
 
 목표는 여러 데이터베이스를 통해 하나의 전체적인 결과를 얻을 수 있도록 쿼리 시나리오를 간소화하는 것입니다. 쿼리는 사용자 또는 응용 프로그램에서 직접 작성할 수도 있고 데이터베이스에 연결된 도구를 통해 간접적으로 작성할 수도 있습니다. 이것은 보고서를 만들거나, 유료 BI 또는 데이터 통합 도구나 변경할 수 없는 모든 소프트웨어를 사용할 때 특히 유용합니다. 탄력적 쿼리와 함께 Excel, PowerBI, Tableau, 혹은 Cognos같은 친숙한 SQL 서버 안의 연결 환경 도구를 사용해 여러 데이터베이스를 쿼리할 수 있습니다.
-탄력적 쿼리는 또한 SQL Server Management Studio 또는 Visual Studio에서 발급하는 쿼리를 통해 전체 데이터베이스 컬렉션에 쉽게 액세스할 수 있으며, Entity Framework 또는 기타 ORM 환경에서 데이터 베이스 간 쿼리를 수월하게 해줍니다. 그림 1에서는 기존 클라우드 응용 프로그램( [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)사용)이 수평 확장 데이터 계층에서 구축되고, 탄력적 쿼리가 데이터베이스 간 보고에 사용되는 것을 보여 줍니다.
+탄력적 쿼리는 또한 SQL Server Management Studio 또는 Visual Studio에서 발급하는 쿼리를 통해 전체 데이터베이스  컬렉션에 쉽게 액세스할 수 있으며, Entity Framework 또는 기타 ORM 환경에서 데이터 베이스 간 쿼리를 수월하게 해줍니다. 그림 1에서는 기존 클라우드 응용 프로그램( [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)사용)이 수평 확장 데이터 계층에서 구축되고, 탄력적 쿼리가 데이터베이스 간 보고에 사용되는 것을 보여 줍니다.
 
 **그림 1** 수평 확장된 데이터 계층에서 사용하는 탄력적 쿼리
 
@@ -110,7 +109,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 * [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 * [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-* 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 데이터 계층을 나타내는 [분할 맵](sql-database-elastic-scale-shard-map-management.md)을 만듭니다.   
+* 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 데이터 계층을 나타내는 [분할 맵](sql-database-elastic-scale-shard-map-management.md) 을 만듭니다.   
 * [CREATE/DROP EXTERNA DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)**SHARD_MAP_MANAGER** 형식의 mydatasource
 * [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
@@ -131,7 +130,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 > 
 
 ## <a name="cost"></a>비용
-탄력적 데이터베이스 쿼리는 Azure SQL Database의 비용 안에 포함됩니다. 원격 데이터베이스가 탄력적 끝점과는 다른 데이터 센터에 있는 토폴로지를 지원하나, 원격 데이터베이스에서의 데이터 송신에는 일반 [Azure 요금](https://azure.microsoft.com/pricing/details/data-transfers/)이 부과됩니다.
+Elastic Database 쿼리는 Azure SQL Database의 비용 안에 포함됩니다. 원격 데이터베이스가 탄력적 끝점과는 다른 데이터 센터에 있는 토폴로지를 지원하나, 원격 데이터베이스에서의 데이터 송신에는 일반 [Azure 요금](https://azure.microsoft.com/pricing/details/data-transfers/)이 부과됩니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 * 표준 성능 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 때 탄력적 쿼리 기능을 로드해야 하며 성능 계층이 높으면 로드 성능이 향상됩니다.
@@ -142,7 +141,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 * 외부 테이블에 대한 열 통계는 현재 지원되지 않습니다. 테이블 통계는 지원되지만 수동으로 만들어야 합니다.
 
 ## <a name="feedback"></a>사용자 의견
-아래 Disqus, MSDN 포럼 또는 Stackoverflow에서 탄력적 쿼리에 대한 경험과 의견을 나눌 수 있습니다. 모든 종류의 서비스에 대한 사용자 의견에 관심이 있습니다.(결함, 조잡함, 기능의 격차)
+아래 Livefyre, MSDN 포럼 또는 Stackoverflow에서 탄력적 쿼리에 대한 경험과 의견을 나눌 수 있습니다. 모든 종류의 서비스에 대한 사용자 의견에 관심이 있습니다.(결함, 조잡함, 기능의 격차)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -160,4 +159,3 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 [5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
-

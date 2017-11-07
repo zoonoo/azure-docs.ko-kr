@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
+ms.openlocfilehash: 71bb55ab4800389c956cebd00eb3e6e506610153
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: ec1b34e4f539d2e95bb1f99fca3a6a0ec682ef51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM 만들기
 
@@ -48,7 +47,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 ## <a name="vm-quick-create-aliases"></a>VM quick-create 별칭
 
-배포를 선택하는 빠른 방법은 가장 일반적인 OS 배포에 매핑된 Azure CLI 별칭을 사용하는 것입니다. 다음 테이블에 별칭이 나열되어 있습니다(Azure CLI 버전 0.10 현재). `quick-create`을 사용하는 모든 배포는 기본적으로 더 빠른 프로비전 및 고성능 디스크 액세스를 제공하는 SSD(반도체 드라이브) 저장소에서 지원되는 VM에 대해 이루어집니다. (이러한 별칭은 Azure에 사용할 수 있는 배포의 작은 부분을 나타냅니다. [웹에서](https://azure.microsoft.com/marketplace/virtual-machines/) [PowerShell을 통해 이미지를 검색](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 Azure Marketplace에 있는 이미지를 더 많이 찾거나 [고유의 사용자 지정 이미지를 업로드합니다](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
+배포를 선택하는 빠른 방법은 가장 일반적인 OS 배포에 매핑된 Azure CLI 별칭을 사용하는 것입니다. 다음 테이블에 별칭이 나열되어 있습니다(Azure CLI 버전 0.10 현재). `quick-create`을 사용하는 모든 배포는 기본적으로 더 빠른 프로비전 및 고성능 디스크 액세스를 제공하는 SSD(반도체 드라이브) 저장소에서 지원되는 VM에 대해 이루어집니다. (이러한 별칭은 Azure에 사용할 수 있는 배포의 작은 부분을 나타냅니다. [웹에서](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) [PowerShell을 통해 이미지를 검색](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 Azure Marketplace에 있는 이미지를 더 많이 찾거나 [고유의 사용자 지정 이미지를 업로드합니다](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | 게시자 | 제안 | SKU | 버전 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -208,4 +207,3 @@ myAdminUser@myVM:~$
 * [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [다양한 명령으로 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 Docker 호스트로 신속하게 만들 수 있습니다](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

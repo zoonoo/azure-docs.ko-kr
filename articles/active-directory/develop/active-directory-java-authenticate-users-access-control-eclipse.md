@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
 이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(액세스 제어 서비스)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
@@ -171,7 +169,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
    
     ![ACS용 JSP 파일 추가 예제][add_jsp_file_acs]
    
-    **다음**을 클릭합니다.
+    **다음**을 누릅니다.
 4. **JSP 템플릿 선택** 대화 상자에서 **새 JSP 파일(html)**을 선택하고 **마침**을 클릭합니다.
 5. index.jsp 파일이 Eclipse에서 열리면 **Hello ACF World!**를 표시하도록 텍스트를 추가합니다. 기존 `<body>` 요소 내. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
    
@@ -299,5 +297,4 @@ ACS에서 응용 프로그램에 반환하는 SAML(Security Assertion Markup Lan
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
 

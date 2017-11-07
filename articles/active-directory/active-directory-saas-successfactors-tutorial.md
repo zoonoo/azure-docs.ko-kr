@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
-ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>자습서: SuccessFactors와 Azure Active Directory 통합
 이 자습서에서는 SuccessFactors와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
@@ -331,4 +330,3 @@ SuccessFactors에서 사용자를 생성하려면 [SuccessFactors 지원 팀](ht
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-

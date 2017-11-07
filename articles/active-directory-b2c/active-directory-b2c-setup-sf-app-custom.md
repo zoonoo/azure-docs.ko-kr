@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: SAML을 통해 Salesforce 계정을 사용하여 로그인
 
@@ -256,4 +255,3 @@ Azure Portal에서 방금 업로드한 사용자 지정 정책을 테스트하�
 ## <a name="next-steps"></a>다음 단계
 
 [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com)에 대한 피드백을 제공합니다.
-

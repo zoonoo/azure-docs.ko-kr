@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
 2013-08-15 버전부터 Azure 저장소 서비스는 Blob, 테이블, 큐 및 파일 서비스에 대해 CORS(원본 간 리소스 공유)를 지원합니다. CORS는 특정 도메인에서 실행되는 웹 응용 프로그램이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 웹 브라우저는 웹 페이지가 다른 도메인의 API를 호출할 수 없도록 하는 [동일 원본 정책](http://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다. CORS는 특정 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다. CORS에 대한 자세한 내용은 [CORS 사양](http://www.w3.org/TR/cors/)을 참조하세요.
@@ -190,5 +189,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
-
 

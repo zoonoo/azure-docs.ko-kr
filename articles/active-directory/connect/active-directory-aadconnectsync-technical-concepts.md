@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3623537c80bd0e4190d1e51f289a4b194c13878d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: e178c5fa453c753aabdc38449273f46a90e1194a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
 이 문서에서는 [아키텍처 이해](active-directory-aadconnectsync-technical-concepts.md)항목을 요약합니다.
@@ -41,8 +40,7 @@ MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서
 ## <a name="connector"></a>커넥터
 연결된 디렉터리와 통신하는 데 사용되는 코드 모듈을 커넥터(이전의 MA(관리 에이전트))라고 합니다.
 
-이러한 작업은 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다.
-커넥터는 특수 에이전트의 배포에 의존하지 않고 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 응용 프로그램 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
+이러한 작업은 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 커넥터는 특수 에이전트의 배포에 의존하지 않고 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 응용 프로그램 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
 
 위 그림에서 커넥터는 커넥터 공간와 동의어 이지만 외부 시스템과의 모든 통신을 포함합니다.
 
@@ -91,4 +89,3 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/9/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.
@@ -155,7 +153,7 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
             protected List<ServiceInstanceListener> createServiceInstanceListeners() {
                 <ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
                 listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationlistener(context)));
-                return listeners;        
+                return listeners;       
             }
 
             ...
@@ -195,4 +193,3 @@ Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 [9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [10]: ./media/service-fabric-reverseproxy/internal-communication.png
-

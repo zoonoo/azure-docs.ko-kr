@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 3134872eb59f2f6219499f3d5a92673f680af04d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
 Azure 컨테이너 서비스는 Apache Mesos 및 Marathon을 미리 구성하는 마스터 서버 집합을 제공합니다. 클러스터에서 응용 프로그램을 오케스트레이션하는 데 사용할 수 있지만 이러한 목적으로는 마스터 서버를 사용하지 않는 것이 좋습니다. 예를 들어 Marathon 구성을 조정하려면 마스터 서버 자체에 로그인하고 변경해야 합니다. 이 방법에서는 표준과 약간 다르고 독립적으로 처리 및 관리해야 하는 고유 마스터 서버를 권장합니다. 또한 한 팀에 필요한 구성은 다른 팀에게는 최적의 구성이 아닐 수도 있습니다.
@@ -58,5 +57,4 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
 `dcos config show` 명령을 사용하여 CLI가 작동 중인 Marathon의 인스턴스를 확인할 수 있습니다. `dcos config unset marathon.url`명령으로 마스터 Marathon 서비스를 사용하도록 되돌릴 수 있습니다.
-
 

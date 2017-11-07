@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -313,6 +312,8 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 전체 URL은 Azure 포털의 클러스터 필수 창에서도 사용 가능합니다.
 
+브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치를 지정해야 합니다.
+
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory를 사용하여 보안 클러스터에 연결
 
 AAD로 보호되는 클러스터에 연결하려면 브라우저를 다음으로 연결합니다.
@@ -356,4 +357,3 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 * [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)
-

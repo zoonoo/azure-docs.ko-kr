@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 특정 필드를 작성하는 방법
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)에서 응용 프로그램 등록에 사용 가능한 모든 필드에 대해 간략하게 설명합니다.
@@ -61,4 +59,3 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
-

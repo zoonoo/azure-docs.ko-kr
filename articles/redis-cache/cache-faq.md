@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache FAQ
 Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -476,4 +475,3 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 보관된 설명서를 보려면 [보관된 In-Role Cache 설명서](https://msdn.microsoft.com/library/azure/dn386103.aspx)를 참조하세요.
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
-

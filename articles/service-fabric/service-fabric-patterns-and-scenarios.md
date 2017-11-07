@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 패턴 및 시나리오
 Azure Service Fabric을 사용하여 대규모 마이크로 서비스를 빌드하려면 PaaS(platform as a service)를 디자인하고 빌드한 전문가에게 알아봅니다. 적절한 아키텍처를 시작한 다음 응용 프로그램에 대한 리소스를 최적화하는 방법을 알아봅니다. [Service Fabric 패턴 및 사례](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) 과정에서는 Service Fabric 시나리오 및 응용 프로그램 영역에 대해 실제 고객이 가장 자주 묻는 질문에 답변합니다.
@@ -101,4 +99,3 @@ Visual Studio Team Services를 통한 지속적인 통합/지속적인 업데이
 
 ## <a name="next-steps"></a>다음 단계
 지금까지 Service Fabric 패턴 및 시나리오에 대해 배웠습니다. 이제 [클러스터 만들기 및 관리](service-fabric-deploy-anywhere.md), [Cloud Services 앱을 Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [지속적인 업데이트 설정](service-fabric-set-up-continuous-integration.md) 및 [컨테이너 배포](service-fabric-containers-overview.md) 방법에 대해 자세히 알아봅니다.
-

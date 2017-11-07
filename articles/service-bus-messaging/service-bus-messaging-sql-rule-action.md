@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 구문
 
 *SqlRuleAction*은 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 클래스의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 수행된SQL 언어 기반 구문으로 작성된 일련의 작업을 나타냅니다.   
@@ -226,4 +223,3 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-

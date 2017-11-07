@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
 
 WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. 
@@ -174,5 +171,4 @@ WAF에 대한 요금 청구는 2017/5/5에 시작됩니다. 그 때까지 WAF SK
 ## <a name="next-steps"></a>다음 단계
 
 WAF 기능을 살펴본 후에는 [Application Gateway에서 웹 응용 프로그램 방화벽을 구성하는 방법](application-gateway-web-application-firewall-portal.md)을 참조하세요.
-
 

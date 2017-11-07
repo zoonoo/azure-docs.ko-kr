@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
-ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-
-
+ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>서비스 공급자에 대한 Log Analytics 기능
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
@@ -26,7 +26,7 @@ Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Soft
 대기업은 서비스 공급자와 많은 유사성을 공유하는데, 특히 중앙 IT 팀이 다양한 사업부의 IT 관리를 담당한다는 점이 그렇습니다. 간단한 설명을 위해 이 문서에서는 *서비스 공급자*라는 용어를 사용하지만 기업 및 기타 고객에 대해서도 같은 기능을 사용할 수 있습니다.
 
 ## <a name="cloud-solution-provider"></a>클라우드 솔루션 공급자
-[CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램에 참여하는 파트너 및 서비스 공급자에게는 Log Analytics가 CSP 구독에서 사용할 수 있는 Azure 서비스 중 하나입니다. 
+[CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램에 참여하는 파트너 및 서비스 공급자에게는 Log Analytics가 [Azure CSP 구독](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview)에서 사용할 수 있는 Azure 서비스 중 하나입니다. 
 
 Log Analytics의 경우 다음 기능을 *클라우드 솔루션 공급자* 구독에서 사용할 수 있습니다.
 
@@ -82,10 +82,4 @@ CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있
 * [PowerShell](log-analytics-powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화 
 * [경고](log-analytics-alerts.md)를 사용하여 기존 시스템과 통합
 * [PowerBI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

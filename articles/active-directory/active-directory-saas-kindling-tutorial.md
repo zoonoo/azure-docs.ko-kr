@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>자습서: Kindling과 Azure Active Directory 통합
 
@@ -114,7 +112,7 @@ Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.kindlingapp.com`
 
-    b.  **식별자** 텍스트 상자에서  `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP` 패턴을 사용하여 URL을 입력합니다.
+    b.  **식별자** 텍스트 상자에서 `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Kindling 지원 팀](mailto:support@kindlingapp.com)에 문의하세요.
@@ -230,5 +228,4 @@ Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [201]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
-
 

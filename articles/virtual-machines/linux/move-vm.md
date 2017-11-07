@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1fe1ab201bb1cd1c6dbfffe288f5c5be1f049d28
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux VM을 다른 구독 또는 리소스 그룹으로 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 Linux VM을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
@@ -59,5 +58,4 @@ Windows 컴퓨터의 명령 프롬프트에서 작업하는 경우 선언할 때
 
 ## <a name="next-steps"></a>다음 단계
 리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../resource-group-move-resources.md)을 참조하세요.    
-
 

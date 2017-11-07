@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -252,7 +251,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 > 성능 테스트 결과를 살펴 보려면 [라이브 스트림](app-insights-live-stream.md) 및 [프로필](app-insights-profiler.md)을 사용합니다.
 >
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 * [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](app-insights-powershell.md#add-an-availability-test)합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 
@@ -304,4 +303,3 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

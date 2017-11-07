@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 668a3ab46a70c0ee25fa87031d27c0f4333ec89c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Elemental 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 > [!div class="op_single_selector"]
@@ -174,4 +173,3 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

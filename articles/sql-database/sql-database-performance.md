@@ -1,6 +1,6 @@
 ---
 title: "성능 모니터링 및 향상 - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL 데이터베이스는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다."
+description: "Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -12,16 +12,14 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 49b24619372d41ff25f815ca493ca7e6ce69ef9c
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.
@@ -76,7 +74,6 @@ Azure SQL Database는 자동으로 [성능 권장 사항](sql-database-advisor.m
 **[Query Performance Insight 사용 방법](sql-database-query-performance.md)** 문서에서 이 페이지에 대한 자세한 내용을 알아보세요.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md)
+* [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md)
 * [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
-
 

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: e1a28c70edddca878c18d860b3029324955fff15
-ms.contentlocale: ko-kr
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>iOS 앱에서 Microsoft Graph API 호출
 
 이 가이드에서는 네이티브 iOS(Swift) 응용 프로그램이 액세스 토큰을 얻고 Azure Active Directory v2 끝점에서 액세스 토큰이 필요한 Microsoft Graph API를 한 개 이상 호출할 수 있는 방법에 대해 설명합니다.
@@ -53,5 +52,4 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 |라이브러리|설명|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS용 Microsoft 인증 라이브러리 미리 보기|
-
 

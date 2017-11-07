@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,8 +29,7 @@ ms.lasthandoff: 09/07/2017
 
 이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Azure 앱 서비스에서 Node.js 웹 앱 만들기](../app-service-web/app-service-web-get-started-nodejs.md)
-* [WebMatrix를 사용하여 Node.js 웹앱 빌드 및 Azure에 배포](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Azure App Service에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
 * [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -451,4 +449,4 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
 * [Node.js 개발자 센터](/develop/nodejs/)
-* [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포](../app-service/app-service-web-get-started-nodejs.md)

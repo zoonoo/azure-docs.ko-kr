@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API 시작
 
@@ -44,5 +43,4 @@ Azure Active Directory는 다양한 보고서를 제공합니다. 이러한 보�
 
 ## <a name="next-steps"></a>다음 단계
 모든 사용 가능한 Azure AD Graph API 끝점을 보려면 이 링크: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)를 사용합니다.
-
 

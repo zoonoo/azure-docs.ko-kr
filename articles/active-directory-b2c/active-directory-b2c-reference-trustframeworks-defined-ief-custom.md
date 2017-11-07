@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
 ID 경험 프레임워크를 사용하는 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책은 조직에 중앙 집중식 서비스를 제공합니다. 이 서비스로 인해 대규모 커뮤니티에서 ID 페더레이션의 복잡성이 감소합니다. 복잡성은 단일 트러스트 관계 및 단일 메타데이터 교환으로 줄어듭니다.
@@ -130,4 +128,3 @@ Azure AD B2C ID 경험 프레임워크를 활용하는 사용자 지정 정책�
 사용자 경험에는 신뢰 당사자와 다른 참가자 간의 "실시간" 상호 운용성을 연결하는 데 사용되는 프로토콜 프로필과 메타데이터가 포함됩니다. TF 사양의 일부로 게시된 정책 준수를 적용하기 위한 ID 정보 교환 요청/응답 메시지에 적용되는 런타임 작업 규칙도 있습니다. 사용자 경험에 대한 아이디어는 고객 경험을 사용자 지정하기 위한 핵심 요소입니다. 시스템이 프로토콜 수준에서 작동하는 방식에 대한 정보도 제공합니다.
 
 이를 기반으로 신뢰 당사자 응용 프로그램 및 포털에서는 컨텍스트에 따라 특정 정책 이름을 전달하는 ID 경험 프레임워크를 활용하는 Azure AD B2C 사용자 지정 정책을 호출하고, 불만, 혼란 또는 위험 없이 원하는 동작과 정보 교환을 정확하게 얻을 수 있습니다.
-

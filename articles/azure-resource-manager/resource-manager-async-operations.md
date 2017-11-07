@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 5590ced0e7d2a68fd525178ee21590b0897b58d7
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
 작업을 신속하게 완료할 수 없기 때문에 일부 Azure REST 작업을 비동기적으로 실행합니다. 이 항목에서는 응답에서 반환되는 값을 통해 비동기 작업의 상태를 추적하는 방법을 설명합니다.  
@@ -89,7 +89,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 ## <a name="example-requests-and-responses"></a>예제 요청 및 응답
 
-### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>가상 컴퓨터 시작(Azure-AsyncOperation에서&202;)
+### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>가상 컴퓨터 시작(Azure-AsyncOperation에서 202)
 이 예제에서는 가상 컴퓨터의 **시작** 작업 상태를 확인하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
 ```HTTP
@@ -120,7 +120,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 }
 ```
 
-### <a name="deploy-resources-201-with-azure-asyncoperation"></a>리소스 배포(Azure-AsyncOperation에서&201;)
+### <a name="deploy-resources-201-with-azure-asyncoperation"></a>리소스 배포(Azure-AsyncOperation에서 201)
 
 이 예제에서는 Azure에 리소스를 배포하는 **배포** 작업의 상태를 확인하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
@@ -160,7 +160,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{res
 {"status":"Succeeded"}
 ```
 
-### <a name="create-storage-account-202-with-location-and-retry-after"></a>저장소 계정 만들기(위치 및 Retry-After에서&202;)
+### <a name="create-storage-account-202-with-location-and-retry-after"></a>저장소 계정 만들기(위치 및 Retry-After에서 202)
 
 이 예제에서는 저장소 계정의 **만들기** 작업 상태를 확인하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
@@ -196,8 +196,3 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 * 각 REST 작업에 대한 설명서는 [REST API 설명서](/rest/api/)를 참조하세요.
 * Resource Manager REST API를 통해 리소스를 관리하는 방법에 대한 정보는 [Resource Manager REST API 사용](resource-manager-rest-api.md)을 참조하세요.
 * Resource Manager REST API를 통해 템플릿을 배포하는 방법에 대한 정보는 [Resource Manager 템플릿 및 Resource Manager REST API를 사용하여 리소스 배포](resource-group-template-deploy-rest.md)를 참조하세요.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: "PowerShell 예제 - 활성 지역 복제 - 풀된 Azure SQL Database | Microsoft Docs"
-description: "풀된 Azure SQL Database에 활성 지역 복제를 설정하는 Azure PowerShell 예제 스크립트"
+description: "풀된 Azure SQL Database에 활성 지역 복제를 설정하고 장애 조치(Failover)하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 07/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 34a4970e9b0e99cbbbbc52788b00edab4a197755
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 18c1960df07905dc60542d95a5ff9e85e58aa2f4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>PowerShell을 사용하여 풀된 Azure SQL Database에 대한 활성 지역 복제 구성
 
 이 PowerShell 스크립트 예제는 탄력적 풀에서 Azure SQL Database에 대해 활성 지역 복제를 구성하고 Azure SQL Database의 보조 복제본으로 장애 조치(failover)합니다.
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
-[!code-powershell[주](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "탄력적 풀에 대한 활성 지역 복제 설정")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Set up active geo-replication for elastic pool")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -66,4 +64,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
-

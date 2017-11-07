@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ba55f9b62d274aa3eb91723c62b53f54de0891b5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>자습서:Azure Active Directory와 Hightail 통합
 
@@ -152,7 +150,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     c. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
-    d. **네임스페이스**를 비어 있는 상태로 둡니다.
+    d. **네임스페이스**를 비워 둡니다.
     
     e. **Ok**를 클릭합니다.
 
@@ -295,5 +293,4 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [201]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure 대시보드 공유
 대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. 다른 사람이 Azure [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 대시보드를 볼 수 있도록 허용합니다. 역할에 사용자 또는 사용자 그룹을 할당하고 해당 역할이 사용자가 게시된 대시보드를 보거나 수정할 수 있는지 정의합니다. 
@@ -77,5 +76,4 @@ RBAC(역할 기반 액세스 제어)를 사용하여 세 개의 다른 수준 �
 ## <a name="next-steps"></a>다음 단계
 * 역할의 목록은 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
 * 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
-
 

@@ -33,7 +33,7 @@ articles/sql-database/sql-database-connect-query.md
     * 하한 값은 **.0**으로 끝나고 상한 값은 **.255**로 끝나도록 하면 유용할 수 있습니다.
     
     ![허용할 IP 주소 범위를 추가합니다.][b41-AddRange]
-11. **저장**을 클릭합니다.
+11. **Save**를 클릭합니다.
 
 <!-- Image references. -->
 

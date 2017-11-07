@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 파티션을 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-10-create-partitions"></a>단원 10: 파티션 만들기
 
@@ -119,4 +118,3 @@ ms.lasthandoff: 06/03/2017
   
  ## <a name="whats-next"></a>다음 작업
 다음 단원 [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)로 이동합니다. 
-

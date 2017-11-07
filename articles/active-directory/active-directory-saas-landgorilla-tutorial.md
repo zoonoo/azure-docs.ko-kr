@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 744c420aa0298c59c44e645b95a716ad876752de
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>자습서: Land Gorilla Client와 Azure Active Directory 통합
 
@@ -240,4 +239,3 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [201]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-landgorilla-tutorial/tutorial_general_203.png
-

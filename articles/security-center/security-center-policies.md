@@ -12,44 +12,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 10/13/2017
 ms.author: yurid
+ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f4e3f74ce3f342eecf633cd748e2b7b21b2ccdd2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-azure-security-center"></a>Azure Security Center에서 보안 정책 설정
-이 문서에서는 Security Center에 보안 정책을 구성하는 작업을 수행하는 데 필요한 단계를 안내합니다.
+# <a name="set-security-policies-in-security-center"></a>Security Center에서 보안 정책 설정
+이 문서에서는 Security Center에 보안 정책을 구성하는 작업을 수행하는 데 필요한 단계를 안내합니다. 
 
->[!NOTE] 
->2017년 6월 초부터 Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집 및 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
->
 
-## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 지정된 구독 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Security Center에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대한 정책을 정의합니다.
+## <a name="how-security-policies-work"></a>보안 정책 작동 방법
+Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하고 정책 준수를 모니터링할 수 있습니다. 
+
+> [!NOTE]
+> 이제 제한된 미리 보기 상태인 Azure Policy를 사용하여 Security Center 정책을 확장할 수 있습니다. [여기](http://aka.ms/getpolicy)를 클릭하여 미리 보기에 조인하거나 [여기](security-center-azure-policy.md)에서 설명서를 참조하세요.
 
 예를 들어 개발 또는 테스트에 사용되는 리소스는 프로덕션 응용 프로그램에 사용되는 리소스와 보안 요구 사항이 다릅니다. 마찬가지로 PII(Personally Identifiable Information) 같은 규제된 데이터를 가진 응용 프로그램에는 더 높은 수준의 보안이 필요할 수 있습니다. Azure Security Center에서 활성화된 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure Security Center 계획 및 운영 가이드](security-center-planning-and-operations-guide.md)를 참고하세요.
 
-## <a name="set-security-policies"></a>보안 정책 설정
-각 구독에 대한 보안 정책을 구성할 수 있습니다. 보안 정책을 수정하려면 해당 구독의 소유자 또는 참여자여야 합니다. Azure Portal에 로그인하고 다음 단계에 따라 Security Center에서 보안 정책을 구성합니다.
+## <a name="edit-security-policies"></a>보안 정책 편집
+Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정하려면 해당 구독의 소유자, 참여자 또는 보안 관리자여야 합니다. Azure Portal에 로그인하고 다음 단계에 따라 Security Center에서 보안 정책을 구성합니다. 
 
-1. Security Center 대시보드에서 **정책** 타일을 클릭합니다.
-2. 열린 [보안 정책] 블레이드에서 보안 정책을 사용하도록 설정하려는 구독을 선택합니다.
+1.  **Security Center** 대시보드의 **일반** 아래에서 **보안 정책**을 클릭합니다.
+2.  보안 정책을 사용하도록 설정하려는 구독을 선택합니다.
+3.  **정책 구성 요소** 섹션에서 **보안 정책**을 클릭합니다.
+4.  Security Center에 할당된 기본 정책입니다. 사용 가능한 보안 권장 사항을 설정/해제할 수 있습니다.
+5.  편집이 끝나면 **저장**을 클릭합니다.
 
-    ![정책 정의](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. 선택한 구독에 대한 **보안 정책** 블레이드가 일련의 옵션과 함께 열립니다. 이 블레이드에서 사용할 수 있는 옵션은 다음과 같습니다.
-
-   * **방지 정책**: 이 옵션을 사용하여 구독당 정책을 구성할 수 있습니다.  
-   * **전자 메일 알림**: 이 옵션을 사용하여 최초로 일별 경고가 발생할 때와 높은 심각도 경고가 발생하는 경우에 전송되는 전자 메일 알림을 구성합니다. 전자 메일 기본 설정은 구독 정책에 대해서만 구성할 수 있습니다. 전자 메일 알림을 구성하는 방법에 대한 자세한 내용은 [Azure Security Center에 보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)을 참고하세요.
-   * **가격 책정 계층**: 이 옵션을 사용하여 가격 책정 계층 선택을 업그레이드합니다. 가격 책정 옵션에 대해 자세히 알아보려면 [Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
-4. **가상 컴퓨터에서 데이터 수집** 옵션을 **켜기**로 설정합니다. 이 옵션을 사용하면 Microsoft Monitoring Agent를 사용하는 기존 리소스 및 새 리소스에 대한 자동 로그 컬렉션이 가능합니다. 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용하는 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리를 고려하여 Azure 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다.
-
-5. **보안 정책** 블레이드에서 **방지 정책**을 클릭하여 사용할 수 있는 옵션을 표시합니다. **켜기**를 클릭하여 이 구독에 관련된 보안 권장 사항을 사용할 수 있습니다.
-
-    ![보안 정책 선택](./media/security-center-policies/security-center-policies-fig7.png)
+## <a name="available-security-policy-options"></a>사용 가능한 보안 정책 옵션
 
 다음 테이블을 참조로 사용하여 각 옵션을 이해합니다.
 
@@ -68,15 +60,9 @@ ms.lasthandoff: 07/28/2017
 | Storage 암호화 |현재 이 기능은 Azure Blob 및 Files에서 사용할 수 있습니다. Storage 서비스 암호화를 사용하도록 설정하더라도 이후 새 데이터만 암호화되고 이 저장소 계정의 기존 파일은 암호화되지 않은 상태로 유지됩니다. |
 | JIT 네트워크 액세스 |Just-In-Time이 활성화되면 Security Center는 NSG 규칙을 만들어 Azure VM으로의 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 자세한 내용은 [Just-In-Time를 사용하여 가상 컴퓨터 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 참조하세요. |
 
-옵션을 모두 구성하면 권장 사항이 있는 **보안 정책** 블레이드에서 **확인**을 클릭하고 초기 설정이 있는 **보안 정책** 블레이드에서 **저장**을 클릭합니다.
 
-> [!NOTE]
-> 가격 책정 계층은 여전히 리소스 그룹 수준에 적용할 수 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/security-center/) 페이지를 참조하세요.
->
->
-
-## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+## <a name="next-step"></a>다음 단계
+이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md)로 설정합니다. 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
@@ -84,4 +70,3 @@ ms.lasthandoff: 07/28/2017
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md). 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-

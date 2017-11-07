@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: d643647d4103acd511ed270132c844da12f2ac9b
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8b8fda17a8d1d1796d5299e3aba4b0fd5e719a4c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -142,7 +140,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 응용 프로그램 실행
 
-### <a name="install-the-prerequisite-packages"></a>필수 구성 요소 패키지 설치
+### <a name="login-to-your-raspberry-pi"></a>Raspberry Pi에 로그인
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
@@ -158,41 +156,26 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    > [!NOTE] 
    기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
 
-1. 다음 명령을 실행하여 C와 Cmake에 대한 Microsoft Azure IoT 장치 SDK의 필수 구성 요소 패키지를 설치합니다.
-
-   ```bash
-   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-   sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-   git clone git://git.drogon.net/wiringPi
-   cd ./wiringPi
-   ./build
-   ```
-
 
 ### <a name="configure-the-sample-application"></a>샘플 응용 프로그램 구성
 
 1. 다음 명령을 실행하여 샘플 응용 프로그램을 복제합니다.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   sudo apt-get install git-core
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
-1. 다음 명령을 실행하여 config 파일을 엽니다.
+
+2. 설치 스크립트를 실행합니다.
 
    ```bash
-   cd iot-hub-c-raspberrypi-client-app
-   nano config.h
+   cd ./iot-hub-c-raspberrypi-client-app
+   sudo chmod u+x setup.sh
+   sudo ./setup.sh
    ```
 
-   ![Config 파일](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
-
-   이 파일에는 사용자가 구성할 수 있는 두 개의 매크로가 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `INTERVAL`입니다. 두 번째는 시뮬레이션된 센서 데이터의 사용 여부에 대한 부울 값인 `SIMULATED_DATA`입니다.
-
-   **센서가 없는 경우** `SIMULATED_DATA` 값을 `1`로 설정하여 샘플 응용 프로그램에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
-
-1. Control-O > Enter > Control-X를 눌러 저장하고 종료합니다.
+   > [!NOTE] 
+   > **실제 BME280이 없는** 경우 '--simulated-data'를 명령줄 매개 변수로 사용하여 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. `sudo ./setup.sh --simulated-data`
 
 ### <a name="build-and-run-the-sample-application"></a>응용 프로그램 빌드 및 실행
 
@@ -222,4 +205,3 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 사용자 IoT Hub로 보낸 메시지 또는 명령줄 인터페이스에서 Raspberry Pi로 보낸 송신 메시지를 보려면 [iothub-explorer를 사용한 클라우드 장치 메시징 관리 자습서](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

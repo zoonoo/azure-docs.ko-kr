@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle 앱에 대한 알림 허브 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -46,7 +46,7 @@ ADM(Amazon 장치 메시징)을 사용하여 푸시 알림을 받는 빈 Kindle 
 4. **Create a New Security Profile**을 클릭한 다음 새 보안 프로필(예: **TestAdm 보안 프로필**)을 만듭니다. 그런 다음 **Save**를 클릭합니다.
    
     ![][3]
-5. **Security Profiles** 를 클릭하여 방금 만든 보안 프로필을 확인합니다. 나중에 사용할 수 있도록 **클라이언트 ID** 및 **클라이언트 암호** 값을 복사해 둡니다.
+5. **Security Profiles**를 클릭하여 방금 만든 보안 프로필을 확인합니다. 나중에 사용할 수 있도록 **클라이언트 ID** 및 **클라이언트 암호** 값을 복사해 둡니다.
    
     ![][4]
 
@@ -84,7 +84,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
         xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-1. 사용 권한을 매니페스트 요소 아래에 첫 번째 요소로 추가합니다. **[YOUR PACKAGE NAME]** 을 앱을 만드는 데 사용한 패키지로 바꿉니다.
+1. 사용 권한을 매니페스트 요소 아래에 첫 번째 요소로 추가합니다. **[YOUR PACKAGE NAME]**을 앱을 만드는 데 사용한 패키지로 바꿉니다.
    
         <permission
          android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -265,9 +265,3 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,16 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: adsolank;juliako;
+ms.openlocfilehash: 07b388deca4d712de67127c8fc4e6701244e3209
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: dfcf3d972ef34a550e111bd30ede3b986daf2505
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱
 ## <a name="overview"></a>개요
-**Azure 미디어 인덱서 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure 미디어 인덱서 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure 미디어 인덱서** 에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 일본어 등입니다.
+**Azure 미디어 인덱서 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure 미디어 인덱서 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure 미디어 인덱서** 에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
 
 **Azure 미디어 인덱서 2 미리 보기** MP는 현재 미리 보기 상태입니다.
 
@@ -285,8 +284,7 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

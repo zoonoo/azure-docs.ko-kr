@@ -12,21 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 
 [Microsoft 진단 EventFlow](https://github.com/Azure/diagnostics-eventflow)(영문)는 노드의 이벤트를 하나 이상의 모니터링 대상으로 라우팅할 수 있습니다. EventFlow가 서비스 프로젝트에 NuGet 패키지로 포함되어 있어 EventFlow 코드와 구성이 서비스와 함께 이동하므로 Azure 진단에 대해 앞에서 언급한 노드별 구성 문제가 제거됩니다. EventFlow는 서비스 프로세스 내에서 실행되며 구성된 출력에 직접 연결됩니다. 이러한 직접 연결로 인해 EventFlow는 Azure, 컨테이너 및 온-프레미스 서비스 배포에서 작동합니다. 각 EventFlow 파이프라인이 외부 연결을 만들기 때문에 컨테이너와 같이 고밀도 시나리오에서 EventFlow를 실행하는 경우 신중해야 합니다. 따라서 여러 프로세스를 호스트하는 경우 몇 가지 아웃바운드 연결이 생성됩니다. 이 경우`ServiceType`의 모든 복제본이 동일한 프로세스에서 실행되어 아웃바운드 연결 수를 제한하므로 Service Fabric 응용 프로그램에 별로 문제가 되지 않습니다. EventFlow는 이벤트 필터링도 제공하므로 지정된 필터와 일치하는 이벤트만 보냅니다.
 
-## <a name="setting-up-eventflow"></a>EventFlow 설정
+## <a name="set-up-eventflow"></a>EventFlow 설정
 
 EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. EventFlow를 Service Fabric 서비스 프로젝트에 추가하려면 Solution Explorer에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 “NuGet 패키지 관리”를 선택합니다. "찾아보기" 탭으로 전환하고 "`Diagnostics.EventFlow`"를 검색합니다.
 
@@ -43,7 +41,7 @@ EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. Eve
 
 모든 패키지를 설치한 다음에는 서비스에서 EventFlow를 구성하여 활성화합니다.
 
-## <a name="configuring-and-enabling-log-collection"></a>로그 수집 구성 및 사용
+## <a name="configure-and-enable-log-collection"></a>로그 수집 구성 및 활성화
 로그 보내기를 담당하는 EventFlow 파이프라인은 구성 파일에 저장된 사양으로부터 만들어집니다. `Microsoft.Diagnostics.EventFlow.ServiceFabric` 패키지는 시작 EventFlow 구성 파일을 `PackageRoot\Config` 솔루션 폴더에 `eventFlowConfig.json` 이름으로 설치합니다. 기본 서비스 `EventSource` 클래스 및 구성하려는 다른 입력에서 데이터를 수집하고 적절한 위치로 데이터를 보내도록 이 구성 파일을 수정해야 합니다.
 
 다음은 위에서 언급한 NuGet 패키지를 기반으로 하는 샘플 *eventFlowConfig.json*입니다.
@@ -138,13 +136,13 @@ namespace Stateless1
 
 `ServiceFabricDiagnosticsPipelineFactory`의 `CreatePipeline` 메서드 매개 변수 형태로 전달되는 이름은 EventFlow 로그 수집 파이프라인을 나타내는 *상태 개체*의 이름입니다. EventFlow에서 오류가 발생하고 Service Fabric 상태 하위 시스템을 통해 보고할 경우 이 이름을 사용합니다.
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>eventFlowConfig에서 Service Fabric 설정 및 응용 프로그램 매개 변수 사용
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>eventFlowConfig에서 Service Fabric 설정 및 응용 프로그램 매개 변수 사용
 
 EventFlow는 Service Fabric 설정 및 응용 프로그램 매개 변수를 사용하여 EventFlow 설정 구성을 지원합니다. 값에 대해 다음 특수 구문을 사용하여 Service Fabric 설정 매개 변수를 참조할 수 있습니다.
 
 ```json
 servicefabric:/<section-name>/<setting-name>
-``` 
+```
 
 `<section-name>`은 Service Fabric 구성 섹션의 이름이고 `<setting-name>`은 EventFlow 설정을 구성하는 데 사용할 값을 제공하는 구성 설정입니다. 이 작업을 수행하는 방법에 대한 자세한 내용을 보려면 [Support for Service Fabric settings and application parameters](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters)(Service Fabric 설정 및 응용 프로그램 매개 변수 지원)를 참조하세요.
 
@@ -157,4 +155,3 @@ servicefabric:/<section-name>/<setting-name>
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [OMS를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 설명서](https://github.com/Azure/diagnostics-eventflow)
-

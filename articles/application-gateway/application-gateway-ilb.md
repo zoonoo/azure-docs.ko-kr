@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>내부 부하 분산 장치 (ILB)를 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -222,6 +221,5 @@ DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

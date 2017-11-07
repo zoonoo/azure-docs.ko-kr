@@ -4,31 +4,34 @@
 ## [DNS 영역 및 레코드](dns-zones-records.md)
 ## [Azure DNS로 DNS 위임](dns-domain-delegation.md)
 ## [DNS FAQ](dns-faq.md)
+## [개인 DNS 영역 사용](private-dns-overview.md)
 
 # 시작
 
 ## DNS 영역 및 레코드 만들기
-### [포털](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Azure 포털](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-cli.md)
+### [Azure CLI](dns-getstarted-cli.md)
 
+## 개인 DNS 영역 및 레코드 만들기
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Azure DNS에 도메인 위임](dns-delegate-domain-azure-dns.md)
 ## [웹앱에 대한 사용자 지정 DNS 레코드 만들기](dns-web-sites-custom-domain.md)
 
 # 방법
 
 ## DNS 영역 관리
-### [포털](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Azure 포털](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS 레코드 관리
-### [포털](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Azure 포털](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## 역방향 DNS 관리
 ### [개요](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -61,7 +64,7 @@
 ## [가상 컴퓨터](/azure/virtual-machines/)
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [웹앱](/azure/app-service-web/)
+## [웹앱](/azure/app-service/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)

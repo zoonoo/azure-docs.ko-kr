@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 규칙 엔진 일치 조건
 이 항목에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건에 대해 자세히 설명합니다.
 
@@ -124,10 +123,4 @@ URL 쿼리 와일드카드 | 지정된 값을 요청의 쿼리 문자열에 대�
 * [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
 * [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

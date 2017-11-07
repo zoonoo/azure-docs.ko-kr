@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 SQL Server 환경 최적화
 
@@ -48,7 +47,7 @@ SQL 평가는 현재 지원되는 모든 버전의 SQL Server Standard, Develope
 * SQL Server가 설치된 서버에 에이전트를 설치해야 합니다.
 * SQL 평가 솔루션을 사용하려면 OMS 에이전트가 있는 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.
 * 솔루션을 설치하기 위해 Azure Portal을 사용하는 경우 사용자는 Azure 구독의 관리자 또는 참가자여야 합니다. 또한 사용자는 OMS 작업 영역 참가자의 구성원이거나 OMS 포털에서 관리자 역할이 있어야 합니다.
-* SQL 평가에서 Operations Manager 에이전트를 사용하는 경우 Operations Manager 실행 계정을 사용해야 합니다. 자세한 내용은 아래의 [OMS용 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-oms)을 참조하세요.
+* SQL 평가에서 Operations Manager 에이전트를 사용하는 경우 Operations Manager 실행 계정을 사용해야 합니다. 자세한 내용은 아래의 [OMS용 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-oms) 을 참조하세요.
 
   > [!NOTE]
   > MMA 에이전트는 Operations Manager 실행 계정을 지원하지 않습니다.
@@ -64,7 +63,7 @@ SQL 평가는 사용자가 설정한 에이전트를 사용하여 WMI 데이터,
 
 다음 표에는 에이전트에 대한 데이터 수집 방법, Operations Manager(SCOM)가 필요한지 여부 및 에이전트에서 데이터가 수집되는 빈도가 나와 있습니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  | &#8226; |7 일 |
 
@@ -249,4 +248,3 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md) 하여 자세한 SQL 평가 데이터 및 권장 사항을 확인합니다.
-

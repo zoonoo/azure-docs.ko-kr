@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET Web API 빌드
 
@@ -39,8 +38,8 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 * 응용 프로그램에서 **웹앱** 또는 **Web API**를 포함합니다.
 * 웹앱의 **리디렉션 URI** `https://localhost:44332/`를 사용합니다. 이 코드 샘플에 대한 웹앱 클라이언트의 기본 위치입니다.
-* 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 나중에 필요합니다.
-* 앱 식별자를 **앱 ID URI**에 입력합니다.
+* 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 나중에 필요합니다.
+* 앱 식별자를 **앱 ID URI**에 입력합니다. 전체 **앱 ID URI**를 복사합니다. 나중에 필요합니다.
 * **게시된 범위** 메뉴를 통해 사용 권한을 추가합니다.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -82,7 +81,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     * `ida:ClientSecret`을 웹앱 비밀 키로 바꿉니다.
     * `ida:SignUpSignInPolicyId`를 "등록 또는 로그인" 정책 이름으로 바꿉니다.
     * `ida:EditProfilePolicyId`를 "프로필 편집" 정책 이름으로 바꿉니다.
-    * `ida:ResetPasswordPolicyId`을 "암호 재설정" 정책 이름으로 바꿉니다.
+    * `ida:ResetPasswordPolicyId`를 "암호 재설정" 정책 이름으로 바꿉니다.
+    * `api:ApiIdentifier`를 “앱 ID URI”로 바꿉니다.
 
 
 ## <a name="secure-the-api"></a>API 보호
@@ -209,7 +209,6 @@ public IEnumerable<Models.Task> Get()
 
 마지막으로 `TaskWebApp`과 `TaskService`를 모두 빌드하고 실행합니다. 사용자의 할 일 모음에 일부 작업을 만들고 클라이언트를 중지하고 다시 시작한 후에 API에서 어떻게 유지할지 확인합니다.
 
-## <a name="edit-your-policies"></a>청책 편집
+## <a name="edit-your-policies"></a>정책 편집
 
 Azure AD B2C를 사용하여 API를 보호한 후에 로그인/등록 정책을 시험해 보고 API에서 효과(또는 부족)를 확인할 수 있습니다. 정책에서 응용 프로그램 클레임을 조작하고 Web API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 이 문서의 앞에서 설명한 것처럼 추가한 모든 클레임은 `ClaimsPrincipal` 개체의 .NET MVC Web API에서 사용할 수 있습니다.
-

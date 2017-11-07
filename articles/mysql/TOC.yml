@@ -57,11 +57,15 @@
           href: concepts-servers.md
         - name: 지원되는 버전
           href: concepts-supported-versions.md
+        - name: 서버 로그
+          href: concepts-server-logs.md
+        - name: 고가용성
+          href: concepts-high-availability.md
     - name: 리소스
       items:
         - name: 가격 책정 계층
           href: concepts-service-tiers.md
-        - name: 계산 단위
+        - name: Compute 단위
           href: concepts-compute-unit-and-storage.md
         - name: 제한
           href: concepts-limits.md
@@ -71,10 +75,12 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+    - name: 모니터
+      href: concepts-monitoring.md
     - name: 개발
       items:
-        - name: 연결 라이브러리
-          href: concepts-connection-libraries.md
+        - name: 드라이버 및 도구 호환성
+          href: concepts-compatibility.md
         - name: 응용 프로그램 개발
           href: concepts-database-application-development.md
     - name: 데이터베이스 마이그레이션
@@ -99,6 +105,8 @@
       items:
         - name: Azure 포털
           href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
     - name: 응용 프로그램 연결
       items:
         - name: 연결 문자열
@@ -111,6 +119,18 @@
       items:
         - name: Azure 포털
           href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-using-cli.md
+    - name: 서버 로그 액세스
+      items:
+        - name: Azure 포털
+          href: howto-configure-server-logs-in-portal.md
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
+    - name: 모니터
+      items:
+        - name: 메트릭에 대한 경고 만들기
+          href: howto-alert-on-metric.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -119,6 +139,8 @@
       href: /rest/api/mysql
 - name: 리소스
   items:
+    - name: 배포 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: 가격
@@ -135,3 +157,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 지원 옵션
       href: 'https://azure.microsoft.com/support/options/'
+    - name: 고객 사례
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 2706f22d2bc3e77a53f0a6a39dcbea8048879d01
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure CDN(Content Delivery Network) 개요
 > [!NOTE]
@@ -75,7 +74,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | [실시간 통계](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [실시간 경고](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __사용 편의성__ |
-| [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md), [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)와 같은 Azure와 간편하게 통합 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)와 같은 Azure와 간편하게 통합 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리. |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | |**&#x2713;** |
 | 캐시/헤더 설정( [규칙 엔진](cdn-rules-engine.md)사용) | | |**&#x2713;** |
@@ -100,5 +99,4 @@ CDN을 시작하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조�
 [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
-
 

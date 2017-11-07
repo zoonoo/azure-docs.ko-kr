@@ -3,7 +3,7 @@ title: "GitHub Enterprise와 Azure Automation 소스 제어 통합 | Microsoft D
 description: "Automation runbook의 소스 제어를 위해 GitHub Enterprise와의 통합을 구성하는 방법을 자세히 설명합니다."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
+ms.openlocfilehash: 2b3ca90382a1c4fb6446799ad539ab8ee603aefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure Automation 시나리오 - GitHub Enterprise와 Automation 소스 제어 통합
 
 Automation은 현재 GitHub 소스 제어 리포지토리에 Automation 계정의 Runbook을 연결할 수 있도록 하는 소스 제어 통합을 지원합니다.  그러나 DevOps 작업을 지원하기 위해 [GitHub Enterprise](https://enterprise.github.com/home) 배포한 고객은 비즈니스 프로세스 및 서비스 관리 작업을 자동화하도록 개발된 runbook의 수명 주기를 관리하는 데도 이 기능을 사용하려고 할 수 있습니다.  
@@ -92,4 +90,3 @@ Azure Portal의 Automation 계정에서 Runbook 갤러리의 *Export-RunAsCertif
 
 -  Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
 -  PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

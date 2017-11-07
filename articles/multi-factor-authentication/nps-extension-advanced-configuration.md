@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: ef922668f080b8f02f07c2f9724f5a98171fb754
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 67581624ca00893176e6d31c7b2de92a19fe966a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션
 
 NPS(네트워크 정책 서버) 확장은 온-프레미스 인프라에 클라우드 기반 Azure Multi-Factor Authentication 기능을 확장합니다. 이 문서에서는 이미 확장이 설치되어 있으며 현재 사용자 요구에 따라 확장을 사용자 지정하는 방법에 대해 알기 원한다고 가정합니다. 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>첫 가상 네트워크 만들기
 
 다음 그림과 같이 두 개의 서브넷이 있는 가상 네트워크(VNet)를 만들고, 두 개의 가상 컴퓨터(VM)를 만들어서 각 VM을 서브넷 중 하나에 연결하는 방법을 알아봅니다.
@@ -42,13 +40,13 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
 
 두 개의 서브넷이 있는 가상 네트워크를 만들려면 다음 단계를 완료합니다. 일반적으로 서브넷 간의 트래픽 흐름을 제어하기 위해 다른 서브넷이 사용됩니다.
 
-1. [Azure Portal](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
+1. [Azure 포털](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
 2. 포털의 **즐겨찾기** 창에서 **새로 만들기**를 클릭합니다.
 3. **새로 만들기** 블레이드에서 **네트워킹**을 클릭합니다. 다음 그림과 같이 **네트워킹** 블레이드에서 **Virtual Network**를 클릭합니다.
 
     ![가상 네트워크 다이어그램](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
 
-4.  **가상 네트워크** 블레이드에서 배포 모델로 *리소스 관리자*를 선택한 상태로 두고 **만들기**를 클릭합니다.
+4.  **가상 네트워크** 블레이드에서 배포 모델로 *Resource Manager*를 선택한 상태로 두고 **만들기**를 클릭합니다.
 5.  **가상 네트워크 만들기** 블레이드가 나타나면 다음 값을 입력한 다음 **만들기**를 클릭합니다.
 
     |**설정**|**값**|**세부 정보**|
@@ -58,7 +56,7 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
     |**서브넷 이름**|*프런트 엔드*|서브넷 이름은 가상 네트워크 내에서 고유해야 합니다.|
     |**서브넷 주소 범위**|*10.0.0.0/24*| 지정하는 범위가 가상 네트워크에 대해 정의한 주소 공간 내에 존재해야 합니다.|
     |**구독**|*[사용자의 구독]*|VNet을 만들 구독을 선택합니다. VNet은 단일 구독 내에 존재합니다.|
-    |**리소스 그룹**|**새로 만들기:** *MyRG*|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [리소스 관리자](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
+    |**리소스 그룹**|**새로 만들기:** *MyRG*|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
     |**위치**:|*미국 서부*| 일반적으로 물리적 위치에 가장 가까운 위치가 선택되어 있습니다.|
 
     VNet을 만드는 데 몇 초 정도 걸립니다. 만들어지면 Azure Portal 대시보드가 보입니다.
@@ -253,4 +251,3 @@ VM의 모든 아웃바운드 연결이 기본적으로 허용되기 때문에 VM
 - [네트워크 인터페이스](virtual-network-network-interface.md)
 - [네트워크 보안 그룹](virtual-networks-nsg.md)
 - [가상 컴퓨터](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

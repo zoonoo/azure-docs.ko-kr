@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>VPN Gateway 계획 및 설계
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 08/16/2017
 
 ### <a name="compare"></a>프레미스 간 연결 옵션
 
-온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려면 사이트 간, 지점 및 사이트 간, ExpressRoute의 세 가지 방법을 사용할 수 있습니다. 사용 가능한 여러 크로스-프레미스 연결을 비교하십시오. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
+온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려면 사이트 간, 지점 및 사이트 간, Express 경로의 세 가지 방법을 사용할 수 있습니다. 사용 가능한 여러 크로스-프레미스 연결을 비교하십시오. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
 
 * 솔루션에 어떤 종류의 처리량이 필요한가요?
 * 보안 VPN을 통한 공용 인터넷을 통해 통신하시겠어요? 아니면 개인 연결을 통해 통신하시겠어요?
@@ -92,7 +91,7 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 게이트웨이 유형은 다음과 같습니다.
 
 * Vpn
-* ExpressRoute
+* Express 경로
 
 #### <a name="connectiontype"></a>연결 형식 정보
 
@@ -100,7 +99,7 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 
 * IPsec
 * Vnet2Vnet
-* ExpressRoute
+* Express 경로
 * VPNClient
 
 #### <a name="vpntype"></a>VPN 형식 정보

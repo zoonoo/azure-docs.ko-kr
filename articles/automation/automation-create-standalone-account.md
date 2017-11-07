@@ -3,7 +3,7 @@ title: "독립 실행형 Azure Automation 계정 만들기 | Microsoft Docs"
 description: "Azure 자동화에서 보안 주체 인증을 만들고 테스트하며 예제를 사용하는 과정을 안내하는 자습서입니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 이 항목에서는 Runbook 작업의 고급 모니터링을 제공하기 위해 OMS Log Analytics에서 추가 관리 솔루션 또는 통합을 포함하지 않고 Azure Automation을 평가하고 알아보려는 경우 Azure Portal에서 Automation 계정을 만드는 방법을 보여 줍니다.  해당 관리 솔루션을 추가하거나 나중에 언제든지 Log Analytics를 통합할 수 있습니다.  Automation 계정을 사용하여 Azure Resource Manager 또는 Azure 클래식 배포 중 하나에서 리소스를 관리하는 Runbook을 인증할 수 있습니다.
 
@@ -92,4 +90,3 @@ Automation 계정을 만들거나 업데이트하려면 이 항목을 완료하�
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 * Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](automation-first-runbook-textual-python2.md)을 참조하세요.
-

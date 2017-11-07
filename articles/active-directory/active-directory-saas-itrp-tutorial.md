@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: fae1c7b6b0e04c1e23123d3aee7913cb3131e645
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
 
@@ -282,5 +280,4 @@ ITRP의 경우 프로비저닝 수동 작업입니다.
 [201]: ./media/active-directory-saas-itrp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-itrp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-itrp-tutorial/tutorial_general_203.png
-
 

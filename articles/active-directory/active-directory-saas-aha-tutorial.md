@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 7723864b2e1ab2d5b69d86f0fa18416b9d3f9aa3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>자습서: Aha!와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Aha! 를 통합하는 방법에 대해 알아봅니다.
+이 자습서에서는 Aha!를 Azure AD(Azure Active Directory)와 통합하는 방법을 알아봅니다.
 
-Azure AD와 Aha! 를 통합하면 다음과 같은 이점이 제공됩니다.
+Aha!를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 - Aha!에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 자동으로 Aha!에 로그온하도록 설정할 수 있습니다. Azure AD 계정이 포함된 (Single Sign-On)
@@ -55,7 +53,7 @@ Aha!와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-aha-from-the-gallery"></a>갤러리에서 Aha! 추가
-Azure AD와 Aha! 통합을 구성하려면 갤러리의 Aha! 를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+Azure AD에서 Aha!의 통합을 구성하려면 갤러리에서 Aha!를 관리된 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Aha!를 추가하려면 다음 단계를 수행합니다.**
 
@@ -80,7 +78,7 @@ Azure AD와 Aha! 통합을 구성하려면 갤러리의 Aha! 를 관리되는 Sa
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-aha-tutorial/tutorial_aha_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Aha! 에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 Aha!를 사용하여 Azure AD Single Sign-On을 구성하고 테스트합니다. 이 작업은 "Britta Simon"이라는 테스트 사용자를 기반으로 합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Aha! 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Aha! 의 관련 사용자 간에 연결이 형성되어야 합니다.
 
@@ -108,7 +106,7 @@ Aha!에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
  
     ![Single Sign-on 구성](./media/active-directory-saas-aha-tutorial/tutorial_aha_samlbase.png)
 
-3. **Aha!  도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **Aha! 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-aha-tutorial/tutorial_aha_url.png)
 
@@ -117,7 +115,7 @@ Aha!에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     b. **식별자** 텍스트 상자에서 `https://<companyname>.aha.io` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Aha!  클라이언트 지원팀](https://www.aha.io/company/contact)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Aha! 클라이언트 지원팀](https://www.aha.io/company/contact)에 문의하세요. 
  
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -255,5 +253,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 [201]: ./media/active-directory-saas-aha-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-aha-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-aha-tutorial/tutorial_general_203.png
-
 

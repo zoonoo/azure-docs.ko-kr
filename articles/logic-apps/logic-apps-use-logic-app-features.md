@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>논리 앱 기능 사용
 
@@ -122,8 +120,7 @@ Logic App Designer가 있더라도 논리 앱을 정의하는 코드를 직접 �
 2. `When_a_feed-item_is_published` 동작으로 이동하여 `queries` 섹션을 찾고 쿼리 값을 `"feedUrl": "#@{parameters('currentFeedUrl')}"`로 바꿉니다. 
 
     두 개 이상의 문자열을 조인하기 위해 `concat` 함수를 사용할 수도 있습니다. 
-    예를 들어 `"@concat('#',parameters('currentFeedUrl'))"` 
-   는 위와 동일하게 작동합니다.
+    예를 들어 `"@concat('#',parameters('currentFeedUrl'))"`은 위와 동일하게 작동합니다.
 
 3.  완료하면 **저장**을 선택합니다. 
 

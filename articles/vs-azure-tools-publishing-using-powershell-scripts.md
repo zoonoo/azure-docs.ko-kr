@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시
 Visual Studio에서 웹 응용 프로그램을 만들 경우 Windows PowerShell 스크립트를 만든 다음 나중에 Azure에 Azure 앱 서비스 또는 가상 컴퓨터로 웹 사이트 게시를 자동화하는 데 사용할 수 있습니다. Visual Studio 편집기에서 요구 사항에 맞게 Windows PowerShell 스크립트를 편집 및 확장하거나 스크립트를 기존 빌드, 테스트, 게시 스크립트와 통합할 수 있습니다.
@@ -38,7 +37,7 @@ Visual Studio에서 웹 응용 프로그램을 만들 경우 Windows PowerShell 
 Azure 개발 시 Visual Studio에서 PowerShell을 사용하기 위한 추가 도구와 리소스를 사용할 수 있습니다. [Visual Studio용 PowerShell](http://go.microsoft.com/fwlink/?LinkId=404012)을 참조하세요.
 
 ## <a name="generating-the-publish-scripts"></a>게시 스크립트 생성
-새 프로젝트를 만들 때 [이 지침](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service-web/app-service-web-get-started-dotnet.md)할 수도 있습니다.
+새 프로젝트를 만들 때 [이 지침](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service/app-service-web-get-started-dotnet.md)할 수도 있습니다.
 
 ## <a name="scripts-that-visual-studio-generates"></a>Visual Studio에서 생성하는 스크립트
 Visual Studio는 2개의 Windows PowerShell 파일이 포함되어 있는 솔루션 수준 폴더 **PublishScripts** , 가상 컴퓨터 또는 웹 사이트의 게시 스크립트, 스크립트에 사용할 수 있는 함수가 포함된 모듈을 만듭니다. Visual Studio는 또한 배포하는 프로젝트의 상세 정보를 지정하는 JSON 형식으로 파일을 생성합니다.
@@ -141,7 +140,7 @@ JSON 파일은 **Configurations** 폴더에 생성되며 Azure에 배포할 리�
 
 JSON 구성을 편집하여 게시 스크립트를 실행할 때 발생하는 결과를 변경할 수 있습니다. `cloudService` 및 `virtualMachine` 섹션은 필수이며 `databases` 섹션은 필요하지 않을 경우 삭제할 수 있습니다. Visual Studio에서 생성한 기본 구성 파일에 비어 있는 속성은 선택 사항입니다. 기본 구성 파일에 값이 있는 속성은 필수 속성입니다.
 
-Azure에 단일 프로덕션 사이트가 아닌 여러 배포 환경(슬롯이라고 함)이 포함된 웹 사이트가 있을 경우 JSON 구성 파일에서 웹 사이트 이름에 슬롯 이름을 포함할 수 있습니다. 예를 들어 이름이 **mysite**인 웹 사이트와 **test**라는 슬롯이 있을 경우 URI는 mysite-test.cloudapp.net이지만 구성 파일에서 사용해야 할 올바른 이름은 mysite(test)입니다. 구독에 웹 사이트와 슬롯이 이미 있는 경우에만 이렇게 할 수 있습니다. 없을 경우에는 슬롯을 지정하지 않고 스크립트를 실행한 다음 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 슬롯을 만들고 수정한 웹 사이트 이름으로 스크립트를 실행합니다. 웹앱의 배포 슬롯에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 스테이징 환경 설정](app-service-web/web-sites-staged-publishing.md)을 참조하세요.
+Azure에 단일 프로덕션 사이트가 아닌 여러 배포 환경(슬롯이라고 함)이 포함된 웹 사이트가 있을 경우 JSON 구성 파일에서 웹 사이트 이름에 슬롯 이름을 포함할 수 있습니다. 예를 들어 이름이 **mysite**인 웹 사이트와 **test**라는 슬롯이 있을 경우 URI는 mysite-test.cloudapp.net이지만 구성 파일에서 사용해야 할 올바른 이름은 mysite(test)입니다. 구독에 웹 사이트와 슬롯이 이미 있는 경우에만 이렇게 할 수 있습니다. 없을 경우에는 슬롯을 지정하지 않고 스크립트를 실행한 다음 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 슬롯을 만들고 수정한 웹 사이트 이름으로 스크립트를 실행합니다. 웹앱의 배포 슬롯에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 스테이징 환경 설정](app-service/web-sites-staged-publishing.md)을 참조하세요.
 
 ## <a name="how-to-run-the-publish-scripts"></a>게시 스크립트 실행 방법
 이전에 Windows PowerShell 스크립트를 실행한 적이 없는 경우 우선 스크립트를 실행할 수 있도록 실행 정책을 설정해야 합니다. 이 기능은 사용자가 맬웨어 또는 바이러스에 취약한 Windows PowerShell 스크립트를 실행하지 못하도록 방지하는 보안 기능입니다.
@@ -344,4 +343,3 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 ## <a name="next-steps"></a>다음 단계
 [Windows PowerShell을 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
-

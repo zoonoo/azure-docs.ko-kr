@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
 DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다.  Azure 자동화 DSC(필요한 상태 구성)는 DevOps 팀이 채택할 수 있는 새로운 옵션이 추가되는 것을 환영합니다.  이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다.  이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
@@ -176,10 +176,4 @@ New-ConfigurationScript.ps1:
 * [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

@@ -9,14 +9,12 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
  
  Azure Search와 관련된 개념, 코드, 시나리오에 대한 일반적인 질문의 답변을 알아봅니다.

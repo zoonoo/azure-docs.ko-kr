@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
  이 이벤트는 풀이 생성되면 내보내집니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다. 풀의 대상 크기가 0 계산 노드보다 큰 경우 이 이벤트 직 후 풀 크기 조정 시작 이벤트가 수행됩니다.
@@ -98,4 +97,3 @@ ms.lasthandoff: 04/22/2017
 |요소 이름|형식|참고 사항|
 |------------------|--------------|----------|
 |subnetId|String|풀의 계산 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|
-

@@ -12,17 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: a6e5712026dc2da3627c07e9b411c81fb9a7e1fb
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="install-or-update-mono-on-hdinsight"></a>HDInsight에서 Mono 설치 또는 업데이트
 
 HDInsight 3.4 이상에서 특정 버전의 [Mono](https://www.mono-project.com)를 설치하는 방법을 알아봅니다.
@@ -57,9 +55,10 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
     https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
+설치된 Mono 버전을 지정하려면 __매개 변수__ 필드의 버전 번호를 사용합니다. 예를 들어, `5.4`를 입력하여 Mono 5.4를 설치합니다.
+
 > [!NOTE]
 > 이 스크립트로 HDInsight를 구성할 때 스크립트를 __Persisted__로 표시합니다. 이 설정을 사용하면 HDInsight에서 해당 스크립트가 크기 조정 작업을 통해 추가된 작업자 노드에 적용될 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

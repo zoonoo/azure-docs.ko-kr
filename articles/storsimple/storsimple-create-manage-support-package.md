@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>StorSimple 지원 패키지 만들기 및 관리
 ## <a name="overview"></a>개요
@@ -166,10 +166,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 ## <a name="next-steps"></a>다음 단계
 * [지원 패키지 및 장치 로그를 사용하여 장치 배포 문제를 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

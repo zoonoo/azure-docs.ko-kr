@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
 ## <a name="overview"></a>개요
@@ -134,7 +133,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ## <a name="blur-types"></a>흐리게 형식
 
-**결합** 또는 **편집** 모드에는 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다(**낮음**, **중간**, **높음**, **디버그** 및 **검정**). 기본적으로 **중간**이 사용됩니다.
+**결합** 또는 **편집** 모드에는 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다(**낮음**, **중간**, **높음**, **상자** 및 **검정**). 기본적으로 **중간**이 사용됩니다.
 
 아래에 흐리게 형식의 샘플을 확인할 수 있습니다.
 
@@ -154,9 +153,9 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ![높음](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>디버그
+#### <a name="box"></a>Box
 
-![디버그](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>검정
 
@@ -353,5 +352,4 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 컴퓨터 확장 집합에 대한 네트워킹
 
@@ -308,4 +307,3 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 
 ## <a name="next-steps"></a>다음 단계
 Azure 가상 네트워크에 대한 자세한 내용은 [이 설명서](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-

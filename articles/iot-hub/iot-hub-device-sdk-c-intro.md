@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
+ms.openlocfilehash: 9f0ea741355c6403cde6f02d8263dd8bff7e553b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 459b630f28fe48064f4ba280974f3fdbdb82f0a6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
@@ -125,7 +124,7 @@ static const char* connectionString = "[device connection string]";
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 MQTT 프로토콜을 사용하므로 **Microsoft.Azure.umqtt** 및 **Microsoft.Azure.IoTHub.MqttTransport** 패키지(AMQP 및 HTTP에 해당하는 패키지가 있음)도 포함해야 합니다. 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
+SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 MQTT 프로토콜을 사용하므로 **Microsoft.Azure.umqtt** 및 **Microsoft.Azure.IoTHub.MqttTransport** 패키지(AMQP 및 HTTPS에 해당하는 패키지가 있음)도 포함해야 합니다. 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
 **iothub\_client\_sample\_amqp.c** 원본 파일에서 샘플 응용 프로그램의 구현을 찾을 수 있습니다.
 
@@ -148,7 +147,7 @@ else
     ...
 ```
 
-장치 탐색기 도구에서 얻은 장치 연결 문자열의 복사본을 이 함수에 전달합니다. 또한 사용할 통신 프로토콜도 지정합니다. 이 예제에서는 MQTT를 사용하지만 AMQP와 HTTP도 옵션입니다.
+장치 탐색기 도구에서 얻은 장치 연결 문자열의 복사본을 이 함수에 전달합니다. 또한 사용할 통신 프로토콜도 지정합니다. 이 예제에서는 MQTT를 사용하지만 AMQP와 HTTPS도 옵션입니다.
 
 유효한 **IOTHUB\_CLIENT\_HANDLE**이 있으면 API 호출을 시작하여 IoT Hub와 메시지를 보내고 받을 수 있습니다.
 
@@ -375,7 +374,7 @@ else
 ...
 ```
 
-**serializer\_init** 함수에 대한 호출은 일회성 호출이며, 기본 라이브러리를 초기화합니다. 그런 다음 **IoTHubClient** 샘플과 동일한 API인 **IoTHubClient\_LL\_CreateFromConnectionString** 함수를 호출합니다. 이 호출은 장치 연결 문자열을 설정하며, 사용하려는 프로토콜을 선택하는 위치이기도 합니다. 이 샘플은 MQTT를 전송으로 사용하지만, AMQP 또는 HTTP를 사용할 수도 있습니다.
+**serializer\_init** 함수에 대한 호출은 일회성 호출이며, 기본 라이브러리를 초기화합니다. 그런 다음 **IoTHubClient** 샘플과 동일한 API인 **IoTHubClient\_LL\_CreateFromConnectionString** 함수를 호출합니다. 이 호출은 장치 연결 문자열을 설정하며, 사용하려는 프로토콜을 선택하는 위치이기도 합니다. 이 샘플은 MQTT를 전송으로 사용하지만, AMQP 또는 HTTPS를 사용할 수도 있습니다.
 
 마지막으로 **CREATE\_MODEL\_INSTANCE** 함수를 호출합니다. **WeatherStation**은 모델의 네임스페이스이며, **ContosoAnemometer**는 모델의 이름입니다. 모델 인스턴스가 만들어지면 이를 사용하여 메시지 보내기 및 받기를 시작할 수 있습니다. 하지만 모델을 이해하는 것이 중요합니다.
 
@@ -579,4 +578,3 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

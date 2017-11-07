@@ -4,7 +4,7 @@ description: "Azure Analysis Services에 자습서 프로젝트를 배포하는 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/17/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-13-deploy"></a>단원 13: 배포
 
@@ -82,4 +81,3 @@ ms.lasthandoff: 08/21/2017
 [추가 단원 - 동적 보안](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [추가 단원 - 세부 정보 행](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [추가 단원 - 불규칙한 계층 구조](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
-

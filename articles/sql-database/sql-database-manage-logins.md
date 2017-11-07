@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL 로그인 및 사용자 | Microsoft Docs"
-description: "SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다."
+description: "SQL Database 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다."
 keywords: "sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스"
 services: sql-database
 documentationcenter: 
@@ -14,16 +14,14 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>데이터베이스 액세스 제어 및 권한 부여
 
@@ -66,13 +64,13 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 
 ![관리자 액세스 경로](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-서버 수준 방화벽에서 열려 있는 포트를 사용하면 관리자가 모든 SQL 데이터베이스에 연결할 수 있습니다.
+서버 수준 방화벽에서 열려 있는 포트를 사용하면 관리자가 모든 SQL Database에 연결할 수 있습니다.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>SQL Server Management Studio를 사용하여 데이터베이스에 연결
 서버, 데이터베이스, 서버 수준 방화벽 규칙을 만들고 SQL Server Management Studio를 사용하여 데이터베이스를 쿼리하는 방법에 대한 연습은 [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-portal.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 ## <a name="additional-server-level-administrative-roles"></a>추가 서버 수준 관리 역할
@@ -157,7 +155,7 @@ GRANT ALTER ANY USER TO Mary;
 데이터베이스 역할은 **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, **db_denydatareader**와 같은 기본 제공된 역할일 수 있습니다. **db_owner**는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 예를 들어 **db_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 필요합니다. [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 문을 사용하여 고유의 사용자 정의된 데이터베이스 역할을 만들고 각 역할에 비즈니스 요구에 필요한 최소한의 권한을 신중하게 부여하는 것이 좋습니다. 사용자가 여러 역할의 멤버인 경우 모두에 대한 권한을 집계합니다.
 
 ## <a name="permissions"></a>권한
-SQL 데이터베이스에는 개별적으로 부여하거나 거부할 수 있는 100개가 넘는 사용 권한이 있습니다. 이러한 사용 권한은 대부분 중첩됩니다. 예를 들어 스키마에 대한 `UPDATE` 권한에는 해당 스키마 내에 있는 각 테이블에 대한 `UPDATE` 권한이 포함됩니다. 대부분의 사용 권한 시스템에서와 같이 사용 권한 거부는 권한 부여를 재정의합니다. 중첩된 특성과 사용 권한 수로 인해 데이터베이스를 제대로 보호할 적절한 사용 권한 시스템을 설계하는 데 신중을 기할 수 있습니다. [사용 권한(데이터베이스 엔진)](https://msdn.microsoft.com/library/ms191291.aspx)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](http://go.microsoft.com/fwlink/?LinkId=229142)을 검토하세요.
+SQL Database에는 개별적으로 부여하거나 거부할 수 있는 100개가 넘는 사용 권한이 있습니다. 이러한 사용 권한은 대부분 중첩됩니다. 예를 들어 스키마에 대한 `UPDATE` 권한에는 해당 스키마 내에 있는 각 테이블에 대한 `UPDATE` 권한이 포함됩니다. 대부분의 사용 권한 시스템에서와 같이 사용 권한 거부는 권한 부여를 재정의합니다. 중첩된 특성과 사용 권한 수로 인해 데이터베이스를 제대로 보호할 적절한 사용 권한 시스템을 설계하는 데 신중을 기할 수 있습니다. [사용 권한(데이터베이스 엔진)](https://msdn.microsoft.com/library/ms191291.aspx)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](http://go.microsoft.com/fwlink/?LinkId=229142)을 검토하세요.
 
 
 ### <a name="considerations-and-restrictions"></a>고려 사항 및 제한 사항
@@ -194,4 +192,3 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
 - 보기 및 저장 프로시저에 대한 자세한 내용은 [보기 및 저장 프로시저 만들기](https://msdn.microsoft.com/library/ms365311.aspx)를 참조하세요.
 - 데이터베이스 개체에 대한 액세스 권한 부여에 대한 자세한 내용은 [데이터베이스 개체에 대한 액세스 권한 부여](https://msdn.microsoft.com/library/ms365327.aspx)를 참조하세요.
-

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: d25353a61b2a60bff28aa0679d38110e77d19e64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
-ms.contentlocale: ko-kr
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="setting-up-your-ios-application"></a>iOS 응용 프로그램 설정
 
@@ -157,4 +157,3 @@ Main.storyboard 파일은 프로젝트 템플릿의 일부로 자동으로 만�
     </scene>
 </scenes>
 ```
-

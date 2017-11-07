@@ -3,7 +3,7 @@ title: "Azure 자동화 데이터 관리 | Microsoft Docs"
 description: "이 문서는 Azure 자동화 환경 관리에 대한 여러 항목을 포함합니다.  현재 Azure 자동화에 데이터 보존 및 Azure 자동화 재해 복구 백업이 포함되어 있습니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
-
+ms.openlocfilehash: e4a90f47167cfa2497e1ad5ae9db025d2d7d91dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-automation-data"></a>Azure 자동화 데이터 관리
 이 문서는 Azure 자동화 환경 관리에 대한 여러 항목을 포함합니다.
@@ -82,5 +80,4 @@ Azure 자동화 계정의 표준인 지역에서 복제는 중복성을 위해 �
 | 일본 동부 |일본 서부 |
 
 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한  경우 Microsoft는 복구를 시도합니다. 기본 데이터를을 복원할 수 없는 경우 지역 장애 조치(failover)가 수행되고 영향을 받는 고객은 해당 구독을 통해 이에 대한 알림을 받게 됩니다.
-
 

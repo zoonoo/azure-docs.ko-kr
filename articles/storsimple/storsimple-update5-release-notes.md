@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/28/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 시리즈 업데이트 5 릴리스 정보
 
@@ -73,5 +72,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="next-step"></a>다음 단계
 
 StorSimple 장치에 [업데이트 5를 설치](storsimple-8000-install-update-5.md)하는 방법을 알아봅니다.
-
 

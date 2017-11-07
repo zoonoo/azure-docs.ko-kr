@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
 
@@ -80,4 +79,3 @@ ms.lasthandoff: 08/23/2017
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

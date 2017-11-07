@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>자습서: Clever와 Azure Active Directory 통합
 
@@ -293,5 +292,4 @@ Clever의 경우 Clever 플랫폼에 사용자를 추가하려면 [Clever 클라
 [201]: ./media/active-directory-saas-clever-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clever-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clever-tutorial/tutorial_general_203.png
-
 

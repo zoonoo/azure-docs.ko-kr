@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7bd8de649ba2975c47f7e84feb0438c51756a697
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: eafcc2f9d53bcdae63036df070e5adec24cbc252
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>클라우드 서비스의 성능 테스트
 ## <a name="overview"></a>개요
@@ -114,5 +113,4 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-
 

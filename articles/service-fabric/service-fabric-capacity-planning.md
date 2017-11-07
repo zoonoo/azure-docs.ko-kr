@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>서비스 패브릭 응용 프로그램의 용량 계획
 이 문서에서는 Azure 서비스 패브릭 응용 프로그램을 실행하는 데 필요한 리소스(CPU, RAM, 디스크 저장소) 양을 추정하는 방법을 배웁니다. 대부분의 경우 시간이 지나면서 리소스 요구 사항도 변합니다. 일반적으로 서비스를 개발/테스트하는 단계에서는 리소스가 적게 필요하고, 프로덕션 단계로 넘어가서 응용 프로그램의 인기가 높아지면 더 많은 리소스가 필요하게 됩니다. 응용 프로그램을 설계할 때에는 현재의 장기 요구 사항을 고려하고 고객의 높은 요구 사항에 따라 서비스를 확장할 수 있도록 선택을 내리도록 합니다.
@@ -67,4 +66,3 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-

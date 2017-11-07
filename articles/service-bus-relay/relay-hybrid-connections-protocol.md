@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
-ms.author: sethm;clemensv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # Azure 릴레이 하이브리드 연결 프로토콜
 Azure 릴레이는 Azure Service Bus 플랫폼의 주요 기능 요소 중 하나입니다. 릴레이의 새로운 *하이브리드 연결* 기능은 HTTP 및 WebSockets를 기반으로 하는 안전한 개방형 프로토콜의 진화된 형태입니다. 이는 소유 프로토콜을 기반으로 빌드된, 동일한 이름의 이전 *BizTalk Services* 기능을 대체합니다. 하이브리드 연결을 Azure App Services에 통합하여 그 기능을 계속 수행합니다.
@@ -269,5 +267,4 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 * [네임스페이스 만들기](relay-create-namespace-portal.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)
-
 

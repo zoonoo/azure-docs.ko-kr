@@ -4,7 +4,7 @@ description: "Azure에서 Analysis Services의 큰 그림을 가져옵니다."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -39,7 +38,7 @@ Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Editio
 테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 개발자의 경우 테이블 형식 모델에는 모델 개체를 설명하는 TOM(테이블 형식 개체 모델)이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다.
 
 ## <a name="better-with-azure"></a>Azure를 통해 더욱 향상된 환경
-Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/data-factory-introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다.
+Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다.
 
 ## <a name="get-up-and-running-quickly"></a>빠른 준비 및 실행
 Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md)과 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 프로비전할 수 있습니다. 단일 템플릿을 사용하면 저장소 계정 및 Azure Functions과 같은 다른 Azure 구성 요소와 함께 여러 서비스를 배포할 수 있습니다. 
@@ -74,8 +73,8 @@ Azure Analysis Services는 조직의 온-프레미스 및 클라우드의 [데�
 
 ![BI 개발자 도구](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SSDT(SQL Server Data Tools) for Visual Studio
-[SSDT(SQL Server Data Tools) for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다.
+#### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Visual Studio용 SSDT(SQL Server Data Tools)
+[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다.
 
 #### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. 클라우드에서 서버에 연결합니다. XMLA 쿼리 창에서 TMSL 스크립트를 직접 실행하고 TMSL 스크립트를 사용하여 작업을 자동화합니다. SSMS가 매월 업데이트되므로 새 특징과 기능이 빠르게 출시됩니다.
@@ -128,4 +127,3 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 
 ## <a name="next-steps"></a>다음 단계
 Azure Analysis Services에 대해 자세히 이해했으므로 이제는 이 서비스를 시작할 단계입니다. Azure에서 [서버를 만드는 방법](analysis-services-create-server.md)을 알아봅니다. 서버가 준비되었으면 [Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)를 단계별로 수행하여 완전한 기능을 갖춘 테이블 형식 모델을 만들고 서버에 배포하는 방법을 알아봅니다.
-

@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/23/2017
 ms.author: maheshu
+ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 08ea5f557498f64825da8fe03d146cace0c53526
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
 다음 지침은 Azure AD 도메인 서비스와 함께 사용할 가상 네트워크를 선택하는 데 도움을 줍니다.
 
 ### <a name="type-of-azure-virtual-network"></a>Azure 가상 네트워크 유형
-* 클래식 Azure 가상 네트워크에서 Azure AD 도메인 서비스를 활성화할 수 있습니다. 그러나 클래식 가상 네트워크에 대한 지원은 곧 중단될 예정입니다. 새로 만든 관리되는 도메인에 리소스 관리자 가상 네트워크를 사용하는 것이 좋습니다.
-* Azure AD Domain Services는 Azure Resource Manager를 사용하여 만든 가상 네트워크에서 활성화될 수 있습니다.
+* **Resource Manager 가상 네트워크**: Azure AD Domain Services는 Azure Resource Manager를 사용하여 만든 가상 네트워크에서 활성화될 수 있습니다.
+* 클래식 Azure Virtual Network에서 Azure AD Domain Services를 활성화할 수 없습니다.
 * 다른 가상 네트워크를 Azure AD Domain Services가 활성화된 가상 네트워크에 연결할 수 있습니다. 자세한 내용은 [네트워크 연결](active-directory-ds-networking.md#network-connectivity) 섹션을 참조하세요.
 * **지역 가상 네트워크**: 기존 가상 네트워크를 사용할 계획인 경우 해당 네트워크가 지역 가상 네트워크인지 확인합니다.
 
@@ -54,7 +53,7 @@ ms.lasthandoff: 08/29/2017
 
 ![권장되는 서브넷 디자인](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="best-practices-for-choosing-a-subnet"></a>서브넷을 선택하기 위한 모범 사례
+### <a name="guidelines-for-choosing-a-subnet"></a>서브넷 선택 지침
 * **Azure 가상 네트워크 내 별도 전용 서브넷**에 Azure AD Domain Services를 배포합니다.
 * 관리되는 도메인 전용 서브넷에는 NSG를 적용하지 않습니다. 전용 서브넷에 NSG를 적용해야 하는 경우 **도메인을 서비스하고 관리하는 데 필요한 포트를 차단하지 마십시오**.
 * 관리되는 도메인의 전용 서브넷에서 사용할 수 있는 IP 주소의 수를 지나치게 제한하지 않습니다. 이 제한으로 인해 서비스에서 두 도메인 컨트롤러를 관리되는 도메인에 사용할 수 없게 됩니다.
@@ -75,8 +74,13 @@ ms.lasthandoff: 08/29/2017
 | 5986 |도메인 관리 |
 | 636 |관리되는 도메인에 대한 LDAPS(Secure LDAP) 액세스 보안 |
 
+관리되는 도메인에서 원격으로 PowerShell을 사용하여 관리 작업을 수행하는 데 포트 5986을 사용합니다. 관리되는 도메인의 도메인 컨트롤러는 일반적으로 이 포트에서 수신하지 않습니다. 서비스는 관리 또는 유지 관리 작업을 관리되는 도메인에서 수행해야 하는 경우에만 관리되는 도메인 컨트롤러에서 이 포트를 엽니다. 작업이 완료되는 즉시 서비스는 관리되는 도메인 컨트롤러에서 이 포트를 종료합니다.
+
+관리되는 도메인에 대한 원격 데스크톱 연결에 포트 3389를 사용합니다. 이 포트도 관리되는 도메인에서 주로 꺼진 상태로 유지됩니다. 이 서비스를 사용하면 문제를 해결하기 위해 관리되는 도메인에 연결해야 하는 경우에만 이 포트를 사용할 수 있으며 시작한 서비스 요청에 대한 응답으로 시작됩니다. 원격으로 PowerShell을 사용하여 관리 및 모니터링 작업을 수행하므로 이 메커니즘은 지속적으로 사용되지 않습니다. 이 포트는 고급 문제 해결을 위해 관리되는 도메인에 원격으로 연결해야 하는 드문 경우에만 사용됩니다. 문제 해결 작업이 완료되는 즉시 포트가 닫힙니다.
+
+
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Azure AD Domain Services를 사용하는 가상 네트워크에 대한 샘플 NSG
-다음 표는 Azure AD Domain Services 관리되는 도메인을 사용하여 가상 네트워크에 대해 구성할 수 있는 샘플 NSG를 보여 줍니다. 이 규칙을 통해 위에서 지정된 포트의 인바운드 트래픽에서 관리되는 도메인을 패치되고 업데이트된 상태로 유지하고 Microsoft에서 모니터링할 수 있도록 합니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다.
+다음 표는 Azure AD Domain Services 관리되는 도메인을 사용하여 가상 네트워크에 대해 구성할 수 있는 샘플 NSG를 보여 줍니다. 이 규칙을 통해 필수 포트의 인바운드 트래픽에서 관리되는 도메인을 패치되고 업데이트된 상태로 유지하고 Microsoft에서 모니터링할 수 있도록 합니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다.
 
 또한 NSG는 인터넷을 통해 보안 LDAP 액세스를 잠그는 방법을 보여 줍니다. 인터넷을 통해 관리되는 도메인에 대한 보안 LDAP 액세스를 비활성화한 경우 이 규칙을 건너뜁니다. 이 NSG에는 지정된 IP 주소 집합에서만 TCP 포트 636을 통해 인바운드 LDAPS 액세스를 허용하는 규칙 집합이 포함되어 있습니다. 지정된 IP 주소에서 인터넷을 통해 LDAPS 액세스를 허용하는 NSG 규칙은 DenyAll NSG 규칙보다 우선 순위가 높습니다.
 
@@ -121,4 +125,3 @@ Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트
 * [클래식 배포 모델에 대한 VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
 * [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-

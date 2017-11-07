@@ -14,12 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -210,7 +209,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 * **실제 장치에서:** USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다.  이제 장치에서 응용 프로그램과 상호 작용할 수 있습니다.
 
-  개발 환경을 개선합니다.  [Mobizen] [ 20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다.  Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
+  개발 환경을 개선합니다.  [Mobizen][20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다.  Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
 * **Android 에뮬레이터에서:** 에뮬레이터에서 실행할 때 필요한 추가 구성 단계가 있습니다.
 
@@ -362,4 +361,3 @@ SDK 사용 방법을 알아봅니다.
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
 [21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
-

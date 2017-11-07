@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
+ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b45d85d0d77cf47f36cb793bc8c0dbe2d5c12634
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>.NET을 사용하여 장치에서 IoT Hub가 있는 클라우드로 파일 업로드
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 07/21/2017
 * 자주 샘플링되는 진동 데이터
 * 특정 형태의 전처리된 데이터
 
-이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/index.md) 또는 [Hadoop](../hdinsight/index.md) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
+이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.md) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 이 자습서의 끝 부분에서 다음의 두 .NET 콘솔 앱을 실행합니다.
 
@@ -204,4 +203,3 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-

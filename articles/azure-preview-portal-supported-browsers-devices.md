@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure Portal에서 지원되는 브라우저 및 장치
 [Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 장치 및 브라우저에서 실행할 수 있습니다.
@@ -37,5 +36,4 @@ Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다.
 * Safari(최신 버전, Mac만 해당)
 * Chrome(최신 버전)
 * Firefox(최신 버전)
-
 

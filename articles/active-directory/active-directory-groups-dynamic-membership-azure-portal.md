@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
@@ -40,17 +39,19 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 ## <a name="to-create-an-advanced-rule"></a>고급 규칙을 만들려면
 1. 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. **사용자 및 그룹**을 선택합니다.
-3. **모든 그룹**을 선택합니다.
+3. **모든 그룹**을 선택하고 **새 그룹**을 선택합니다.
 
-   ![그룹 블레이드 열기](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. **모든 그룹**에서 **새 그룹**을 선택합니다.
+   ![새 그룹 추가](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![새 그룹 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. **그룹** 블레이드에서 새 그룹에 대한 이름 및 설명을 입력합니다. 사용자 또는 장치에 대한 규칙을 만들지 여부에 따라 **동적 사용자** 또는 **동적 장치** 중에서 **멤버 자격 유형**을 선택한 다음 **동적 쿼리 추가**를 선택합니다. 장치 규칙에 사용되는 특성은 [특성을 사용하여 장치 개체에 대한 규칙 만들기](#using-attributes-to-create-rules-for-device-objects)를 참조하세요.
+4. **그룹** 블레이드에서 새 그룹에 대한 이름 및 설명을 입력합니다. 사용자 또는 장치에 대한 규칙을 만들지 여부에 따라 **동적 사용자** 또는 **동적 장치** 중에서 **멤버 자격 유형**을 선택한 다음 **동적 쿼리 추가**를 선택합니다. 규칙 작성기를 사용하여 간단한 규칙을 작성하거나 고급 규칙을 직접 작성할 수 있습니다. 이 문서는 고급 규칙의 예제 뿐만 아니라 사용 가능한 사용자 및 장치 특성에 대한 자세한 정보를 포함합니다.
 
    ![동적 멤버 자격 규칙 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. **동적 멤버 자격 규칙** 블레이드에서 **동적 멤버 자격 고급 규칙 추가** 상자에 규칙을 입력하고 Enter를 누른 다음 블레이드 맨 아래의 **만들기**를 선택합니다.
-7. **만들기** on the **그룹**을 선택하여 그룹을 만듭니다.
+
+5. 규칙을 만든 후 블레이드 맨 아래에서 **쿼리 추가**를 선택합니다.
+6. **만들기** on the **그룹**을 선택하여 그룹을 만듭니다.
+
+> [!TIP]
+> 입력한 고급 규칙이 올바르지 않으면 그룹 만들기가 실패할 수 있습니다. 포털의 오른쪽 상단 구석에 알림이 표시됩니다. 알림에는 시스템에서 규칙을 수락할 수 없는 이유에 대한 설명이 포함되어 있습니다. 이 알림을 신중하게 읽고 규칙을 유효하게 수정하는 방법을 이해하세요.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>고급 규칙 본문 생성
 그룹의 동적 멤버 자격에 대해 만들 수 있는 고급 규칙은 기본적으로 세 부분으로 구성되며 true 또는 false 결과를 생성하는 이진 식입니다. 세 부분은 다음과 같습니다.
@@ -119,15 +120,13 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
-다음 표에서는 잠재적인 오류와 오류가 발생할 경우 이를 수정하는 방법을 나열합니다.
+다음 표에서는 일반적인 오류와 이를 수정하는 방법을 나열하고 있습니다.
 
 | 쿼리 구문 분석 오류 | 잘못된 사용법 | 수정된 사용법 |
 | --- | --- | --- |
-| 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>속성은 [지원되는 속성 목록](#supported-properties)를 선택합니다. |
-| 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>속성은 부울 형식입니다. 위의 목록에서 부울 형식에 지원되는 연산자(-eq 또는 -ne)를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
-| 오류: 이진 식 형식이 올바르지 않습니다. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
-| 오류: 동적 멤버 자격을 설정하는 동안 알 수 없는 오류가 발생했습니다. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
+| 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>[지원되는 속성 목록](#supported-properties)에 있는 특성인지 확인합니다. |
+| 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>사용된 연산자는 속성 형식에 지원되지 않습니다(이 예제에서 -contains는 부울 형식에 사용할 수 없습니다). 속성 형식에 올바른 연산자를 사용합니다. |
+| 오류: 쿼리 컴파일 오류입니다. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. 연산자가 없습니다. 두 개의 조인 조건자(-and 또는 -or)를 사용합니다.<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. -match와 함께 사용되는 정규식 오류입니다.<br/><br/>(user.userPrincipalName -match ".*@domain.ext") 또는 (user.userPrincipalName -match "@domain.ext$")|
 
 ## <a name="supported-properties"></a>지원되는 속성
 다음은 고급 규칙에 사용할 수 있는 모든 사용자 속성입니다.
@@ -278,7 +277,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob Iphone”)
- deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "IOS")
+ deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")
  deviceOSVersion | 임의의 문자열 값입니다. | (device.OSVersion -eq "9.1")
  deviceCategory | 유효한 장치 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
@@ -294,7 +293,73 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 
 
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>동적 멤버 자격을 정적으로 또는 그 반대로 변경
+그룹에서 멤버 자격을 관리하는 방식을 변경할 수 있습니다. 이것은 시스템에 동일한 그룹 이름과 ID를 유지하려는 경우에 유용하므로 그룹에 대한 기존 참조는 여전히 유효합니다. 새 그룹을 만들면 해당 참조를 업데이트해야 합니다.
 
+이 기능을 지원하기 위해 Azure Portal을 업데이트 하는 중입니다. 그 전까지 [Azure 클래식 포털](https://manage.windowsazure.com)([여기](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)의 지침에 따라)을 사용하거나 다음과 같이 PowerShell cmdlet을 사용할 수 있습니다.
+
+> [!WARNING]
+> 기존 정적 그룹을 동적 그룹으로 변경할 경우 기존의 모든 멤버가 그룹에서 제거된 후 멤버 자격 규칙이 처리되어 새 멤버가 추가됩니다. 그룹이 앱 또는 리소스에 대한 액세스를 제어하는 데 사용되는 경우 멤버 자격 규칙이 완전히 처리될 때까지는 원래 멤버가 액세스하지 못할 수 있습니다.
+>
+> 그룹의 새 멤버 자격이 예상대로 유지되는지 확인하기 위해 새 멤버 자격 규칙을 미리 테스트하는 것이 좋습니다.
+
+**PowerShell을 사용하여 그룹에 대한 멤버 자격 관리 변경**
+
+> [!NOTE]
+> 동적 그룹 속성을 변경하려면 [Azure AD PowerShell 버전 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [여기](https://www.powershellgallery.com/packages/AzureADPreview)에서 설치할 수 있습니다.
+
+기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
+
+```
+#The moniker for dynamic groups as used in the GroupTypes property of a group object
+$dynamicGroupTypeString = "DynamicMembership"
+
+function ConvertDynamicGroupToStatic
+{
+    Param([string]$groupId)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a static group. Aborting conversion.";
+    }
+
+
+    #remove the type for dynamic groups, but keep the other type values
+    $groupTypes.Remove($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
+}
+
+function ConvertStaticGroupToDynamic
+{
+    Param([string]$groupId, [string]$dynamicMembershipRule)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a dynamic group. Aborting conversion.";
+    }
+    #add the dynamic group type to existing types
+    $groupTypes.Add($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
+}
+```
+그룹을 고정으로 지정하려면:
+```
+ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
+```
+그룹을 동적으로 지정하려면:
+```
+ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
+```
 ## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory의 그룹에 대한 추가 정보를 제공합니다.
 
@@ -303,4 +368,3 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-

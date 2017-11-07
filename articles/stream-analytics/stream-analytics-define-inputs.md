@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>데이터 연결: 이벤트에서 Stream Analytics으로의 데이터 스트림 입력에 대해 알아보기
 Stream Analytics 작업에 대한 데이터 연결은 데이터 원본의 이벤트 스트림이며 작업의 *입력*으로 참조됩니다. Stream Analytics는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 비롯한 Azure 데이터 스트림 원본과 높은 수준으로 통합됩니다. 이러한 입력 원본은 분석 작업과 동일한 Azure 구독 또는 다른 구독에서 가져올 수 있습니다.
@@ -35,6 +34,12 @@ Stream Analytics 작업에 대한 데이터 연결은 데이터 원본의 이벤
 Stream Analytics은 *참조 데이터*라는 입력도 지원합니다. 고정적이거나 천천히 변하는 보조 데이터입니다. 일반적으로 상관 관계 및 조회를 수행하는 데 사용됩니다. 예를 들어 정적 값을 조회하기 위해 SQL 조인을 수행하기는 하지만 데이터 스트림 입력의 데이터를 참조 데이터의 데이터로 조인할 수 있습니다. Azure Blob 저장소는 현재 유일하게 지원되는 참조 데이터용 입력 소스입니다. 참조 데이터 원본 Blob은 크기가 100MB로 제한됩니다.
 
 참조 데이터 입력을 만드는 방법을 알아보려면 [참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.  
+
+## <a name="compression"></a>압축
+
+Azure Stream Analytics는 모든 데이터 스트림 입력 원본(Event Hub, IoT Hub 및 Blob Storage)에서 압축을 지원합니다. 이 기능은 Azure Portal의 **새 입력** 블레이드에 새 드롭다운 옵션을 추가하므로 선택적으로 데이터 스트림을 압축하도록 선택할 수 있습니다. 지원되는 유형은 현재 None, GZip 및 Deflate 압축입니다. 
+
+압축은 Avro 직렬화와 함께 지원되지 않으며 참조 데이터에 적용되지 않습니다. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Event Hubs에서 데이터 스트림 입력 만들기
 
@@ -57,6 +62,7 @@ Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프�
 | **이벤트 허브 소비자 그룹**(선택 사항) |이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 기본 소비자 그룹을 사용합니다. 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. |
 | **이벤트 직렬화 형식** |들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
 | **Encoding** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
+| **압축**(선택 사항) | 들어오는 데이터 스트림의 압축 유형(None, GZip 또는 Deflate)입니다. |
 
 데이터를 이벤트 허브에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
@@ -75,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Event Hub를 IoT Hub Route의 끝점으로 사용하는 경우에는 [GetMetadataPropertyValue 함수](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx)를 사용하여 IoT Hub 메타데이터에 액세스할 수 있습니다.
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>IoT Hub에서 데이터 스트림 입력 만들기
 Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게시-구독 이벤트 처리기입니다.
@@ -102,6 +112,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프가 
 | **소비자 그룹**(선택 사항) |IoT Hub에서 데이터를 수집하는 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 기본 소비자 그룹을 사용합니다. 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용하는 것이 좋습니다. |
 | **이벤트 직렬화 형식** |들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
 | **Encoding** |현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
+| **압축**(선택 사항) | 들어오는 데이터 스트림의 압축 유형(None, GZip 또는 Deflate)입니다. |
 
 데이터를 IoT Hub에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
@@ -144,6 +155,7 @@ CSV 형식의 입력은 데이터 집합에 대한 필드를 정의하는 헤더
 | **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 `HH`입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식(JSON, CSV 또는 Avro)입니다. |
 | **Encoding** | CSV 및 JSON의 경우 UTF-8이 현재 지원되는 유일한 인코딩 형식입니다. |
+| **압축**(선택 사항) | 들어오는 데이터 스트림의 압축 유형(None, GZip 또는 Deflate)입니다. |
 
 데이터를 Blob Storage 원본에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
@@ -182,4 +194,3 @@ Stream Analytics 작업을 위한 Azure의 데이터 연결 옵션에 대해 알
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

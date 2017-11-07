@@ -1,27 +1,26 @@
 ---
-title: "Azure SQL Database를 사용하는 다중 테넌트 Wingtip SaaS 응용 프로그램 배포 및 탐색 | Microsoft Docs"
+title: "다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs"
 description: "Azure SQL Database를 사용하는 SaaS 패턴을 보여 주는 Wingtip SaaS 다중 테넌트 응용 프로그램을 배포하고 탐색합니다."
 keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f624485d32901abb5f0d01c86fc30ddaaae261a3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램 배포 및 탐색 - Wingtip SaaS
 
@@ -203,4 +202,3 @@ Wingtip SaaS 앱을 배포합니다.
 * 탄력적 풀에 대한 자세한 내용은 [*Azure SQL 탄력적 풀이란?*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)을 참조하세요.
 * 탄력적 작업에 대해 알아보려면 [*규모가 확장된 클라우드 데이터베이스 관리*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)를 참조하세요.
 * 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [*다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)을 참조하세요.
-

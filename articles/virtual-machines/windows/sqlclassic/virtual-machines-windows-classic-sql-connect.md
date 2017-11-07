@@ -14,15 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
 > [!div class="op_single_selector"]
@@ -112,5 +109,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다. 
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

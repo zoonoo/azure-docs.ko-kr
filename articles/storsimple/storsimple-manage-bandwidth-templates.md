@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
 ## <a name="overview"></a>개요
@@ -158,5 +156,4 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
 

@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: cae11f53df768daf5846ac719a45715709326d76
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.com) 또는 Microsoft 계정(예: bsimon@outlook.com)의 추가 보안 수준을 제공합니다.
 
@@ -63,7 +61,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![QR 코드를 제공하는 화면](./media/authenticator-app-how-to/barcode2.png)
 3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **+**를 선택한 다음 회사 또는 학교 계정을 추가할지 지정합니다.
-4. 카메라를 사용하여 QR 코드를 스캔한 다음 **완료**를 선택하여 QR 코드 화면을 닫습니다.
+4. 카메라를 사용하여 QR 코드를 스캔한 다음 **완료** 를 선택하여 QR 코드 화면을 닫습니다.
 
     카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동](#add-an-account-to-the-app-manually)으로 입력할 수 있습니다.
 
@@ -93,10 +91,10 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 
-### <a name="add-an-account-to-the-app-using-touch-id"></a>Touch ID를 사용하여 앱에 계정 추가
-IOS의 Microsoft Authenticator 앱은 Touch ID를 지원합니다.  Azure Multi-Factor Authentication을 사용하면 조직에서 장치에 대해 PIN을 요청할 수 있습니다. Touch ID를 사용할 경우 iOS 사용자는 PIN을 입력할 필요가 없습니다. 대신 지문을 스캔하고 **승인**을 선택할 수 있습니다.
+### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>장치의 지문이나 안면 인식 기능을 사용하여 앱에 계정 추가
+조직에서는 인증 시도를 완료하기 위해 PIN을 요구할 수 있습니다. Microsoft Authenticator 앱에서는 PIN 대신 장치의 지문이나 안면 인식 기능을 사용할 수 있습니다. 앱에서 최초 확인 시 이 기능을 설정하기 위해 Touch ID(iOS) 또는 지문 인식을 대신 사용하는 옵션이 표시됩니다. 
 
-Microsoft Authenticator를 통한 Touch ID 설정은 간단합니다. PIN을 사용하여 일반 확인 인증을 완료합니다. 장치에서 Touch ID를 지원하는 경우 Microsoft Authenticator는 자동으로 해당 계정에 대해 Touch ID를 설정합니다.
+Microsoft Authenticator에 Touch ID를 설정하려면 PIN을 사용하여 일반 확인 시도를 완료해야 합니다. Microsoft Authenticator가 자동으로 Touch ID를 지원하는 장치에 대해 해당 기능을 설정합니다. 
 
 ![Touch ID 설정 확인](./media/authenticator-app-how-to/touchid1.png)
 
@@ -109,4 +107,3 @@ Microsoft Authenticator를 통한 Touch ID 설정은 간단합니다. PIN을 사
 앱에 계정이 추가되면 모두 제대로 구성되었는지 확인하는 테스트 확인을 수행하라는 메시지가 표시될 수 있습니다. 그런 다음 완료됩니다. 다음에 로그인할 때까지 다른 작업을 수행할 필요가 없습니다.
 
 앱에서 확인 코드를 사용하도록 선택한 경우 홈페이지에 표시됩니다. 필요한 경우에 항상 새 코드를 갖도록 30초마다 변경됩니다. 하지만 로그인하고 확인 코드를 입력하라는 메시지가 나타날 때까지 아무것도 할 필요가 없습니다.  
-

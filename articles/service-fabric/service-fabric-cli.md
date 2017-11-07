@@ -6,28 +6,48 @@ author: samedder
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
+ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
 Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔터티와 상호 작용하고 이를 관리하기 위한 명령줄 유틸리티입니다. Service Fabric CLI는 Windows 또는 Linux 클러스터에서 사용할 수 있으며, Python을 지원하는 모든 플랫폼에서 실행됩니다.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-Python 2.7 및 3.6을 모두 지원하지만, Python 3.6을 사용하는 것이 좋습니다. 다음 섹션에서는 모든 필수 구성 요소 및 CLI를 설치하는 방법에 대해 설명합니다.
+CLI는 Python 버전 2.7, 3.5, 3.6을 지원합니다. Python 2.7 지원이 끝나기 때문에 Python 3.6이 권장된 버전입니다.
+
+### <a name="service-fabric-target-runtime"></a>Service Fabric 대상 런타임
+
+Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하기 위한 것입니다. 다음 표를 사용하여 설치할 CLI의 버전을 확인합니다.
+
+| CLI 버전   | 지원되는 런타임 버전 |
+|---------------|---------------------------|
+| 최신(~=3)  | 최신(~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+필요에 따라 `pip install` 명령에 `==<version>`을 접미사로 붙여 설치하기 위해 CLI의 대상 버전을 지정할 수 있습니다. 예를 들어 1.1.0 버전에서 구문은 다음과 같습니다.
+
+```
+pip install -I sfctl==1.1.0
+```
+
+필요한 경우 다음 `pip install` 명령을 앞에서 언급한 명령으로 바꿉니다.
+
+Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](https://github.com/Azure/service-fabric-cli/releases)를 참조하세요.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python 및 Service Fabric CLI 설치
 
- 플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3.6 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
+플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
 
 ### <a name="windows"></a>Windows
 
@@ -50,33 +70,45 @@ pip --version
 
 그러면 다음 명령을 실행하여 Service Fabric CLI를 설치합니다.
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Linux용 Ubuntu 및 Windows 하위 시스템
 
-Ubuntu 16.04 Desktop의 경우 타사 PPA(Personal Package Archive)를 사용하여 Python 3.6을 설치할 수 있습니다.
-
-터미널에서 다음 명령을 실행합니다.
+Service Fabric CLI를 설치하려면 그러면 다음 명령을 실행합니다.
 
 ```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-그런 다음 Python 3.6을 설치하기 위해 Service Fabric CLI를 설치하려면 다음 명령을 실행합니다.
+다음을 사용하여 설치를 테스트할 수 있습니다.
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-이러한 단계는 Python 3.5 및 2.7 시스템 설치에 영향을 주지 않습니다. Ubuntu에 익숙하지 않으면 이러한 설치를 수정하지 마세요.
+다음과 같은 명령을 찾을 수 없음 오류가 표시되면:
 
+`sfctl: command not found`
+
+`$PATH`에서 `~/.local/bin`에 액세스할 수 있도록 합니다.
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
+Linux용 Windows 하위 시스템에 대한 설치가 잘못된 폴더 사용 권한으로 인해 실패하는 경우 승격된 사용 권한으로 다시 시도해야 합니다.
+
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 것이 좋습니다. HomeBrew가 아직 설치되지 않은 경우 다음 명령을 실행하여 설치합니다.
@@ -92,8 +124,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-이러한 단계는 Python 2.7 시스템 설치를 수정하지 않습니다.
 
 ## <a name="cli-syntax"></a>CLI 구문
 
@@ -120,10 +150,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 클러스터 끝점은 접두사로 `http` 또는 `https`를 사용해야 합니다. HTTP 게이트웨이에 대한 포트를 포함해야 합니다. 포트 및 주소는 Service Fabric Explorer URL와 동일합니다.
 
-인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다.
+인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다. CA 서명되지 않은 자체 서명된 인증서인 경우 `--no-verify` 옵션을 전달하여 CA 확인을 건너뛸 수 있습니다.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 자세한 내용은 [안전한 Azure Service Fabric 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요.
@@ -175,6 +205,12 @@ Service Fabric CLI는 PEM(확장명 .pem) 파일의 클라이언트 쪽 인증�
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+마찬가지로, PEM 파일에서 PFX 파일로 변환하려면 다음 명령을 사용할 수 있습니다(여기에서 암호가 제공되지 않음).
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 자세한 내용은 [OpenSSL 설명서](https://www.openssl.org/docs/)를 참조하세요.
 
 ### <a name="connection-problems"></a>연결 문제
@@ -203,8 +239,16 @@ sfctl application -h
 sfctl application create -h
 ```
 
+## <a name="updating-the-service-fabric-cli"></a>Service Fabric CLI 업데이트 
+
+Service Fabric CLI를 업데이트하려면 다음 명령을 실행합니다(원래 설치 중 선택한 항목에 따라 `pip`를 `pip3`으로 대체).
+
+```bash
+pip uninstall sfctl
+pip install sfctl
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Service Fabric CLI에서 응용 프로그램 배포](service-fabric-application-lifecycle-sfctl.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)
-

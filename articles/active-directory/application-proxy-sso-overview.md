@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법
 
 Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니다.  사용자가 클라우드에서 Azure Active Directory에만 로그인하면 되기 때문에 최상의 사용자 환경을 제공합니다. 사용자가 Azure Active Directory에 인증하면 응용 프로그램 프록시 커넥터에서 온-프레미스 응용 프로그램에 대한 인증을 처리합니다. 백 엔드 응용 프로그램은 응용 프로그램 프록시를 통한 원격 사용자 로그인과 도메인에 가입된 장치의 정상적인 사용 간 차이점을 구별할 수 없습니다. 
@@ -81,4 +79,3 @@ Windows 통합 인증 설정에 대한 내용은 [응용 프로그램 프록시�
 - [응용 프로그램 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-sso-azure-portal.md)
 - [응용 프로그램 프록시를 사용하는 Single Sign-On에 대한 Kerberos 제한된 위임](active-directory-application-proxy-sso-using-kcd.md)
 - [응용 프로그램 프록시를 사용하는 Single Sign-On에 대한 헤더 기반 인증](application-proxy-ping-access.md) 
-

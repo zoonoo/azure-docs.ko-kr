@@ -13,16 +13,15 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: e918e2863384d44533efaee25d3fea3cceedba77
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -104,7 +103,7 @@ ms.lasthandoff: 08/31/2017
 
 ### <a name="whoisaa"></a> 구독의 계정 관리자는 누구인가요?
 
-계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있는 권한이 있습니다. 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
+계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.azure.com/Subscriptions)에 액세스하고, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있는 권한이 있습니다. 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
 
 1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요.
 1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.

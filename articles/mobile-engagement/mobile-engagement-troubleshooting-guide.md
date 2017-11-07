@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - 문제 해결 가이드
 ## <a name="introduction"></a>소개
@@ -28,10 +27,10 @@ ms.lasthandoff: 11/17/2016
 ## <a name="general"></a>일반
 일반적으로 다음을 항상 확인해야 합니다.
 
-1.  [시작 자습서](mobile-engagement-windows-store-dotnet-get-started.md)
+1. [시작 자습서](mobile-engagement-windows-store-dotnet-get-started.md)
 2. 최신 버전의 플랫폼 SDK를 사용합니다. 
 3. 일부 문제는 에뮬레이터에만 관련이 있으므로 실제 장치와 에뮬레이터 모두에서 테스트합니다. 
-4.  [여기](../azure-subscription-service-limits.md)
+4. [여기](../azure-subscription-service-limits.md)
 5. 모바일 고객 관리 서비스 백 엔드에 연결할 수 없거나 데이터가 지속적으로 로드되지 않는 경우 [여기](https://azure.microsoft.com/status/)
 
 ## <a name="monitor-issues"></a>'모니터' 문제
@@ -78,7 +77,7 @@ ms.lasthandoff: 11/17/2016
    * 인증서가 유효하고 iOS 푸시 알림에 대해 만료되지 않았는지 확인합니다. 
    * 모바일 고객 관리 앱에서 *프로덕션* 인증서를 올바르게 구성되었는지 확인합니다. 
    * *실제, 물리적 장치*에서 테스트하고 있는지 확인합니다. iOS 시뮬레이터는 푸시 메시지를 처리할 수 없습니다.
-   * 모바일 앱에서 번들 식별자가 올바르게 구성되었는지 확인합니다.  [여기](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+   * 모바일 앱에서 번들 식별자가 올바르게 구성되었는지 확인합니다. [여기](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
    * 테스트할 때 모바일 프로비저닝 프로필에서 "임시" 배포를 사용합니다. 앱이 "디버그"를 사용하여 컴파일된 경우 알림을 받을 수 없습니다.
 2. **Android**
    
@@ -115,5 +114,4 @@ ms.lasthandoff: 11/17/2016
    * 장치 ID
    * 모바일 고객 관리 SDK 버전(예: Android SDK v2.1.0)
    * 정확한 오류 메시지 및 시나리오가 있는 오류 세부 정보
-
 

@@ -4,7 +4,7 @@ description: "Azure에서 Analysis Services 서버 인스턴스를 만드는 방
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Azure Portal에서 Azure Analysis Services 서버 만들기
 이 문서에서는 Azure 구독에서 Analysis Services 서버 리소스를 만드는 과정을 안내합니다.
@@ -60,5 +59,4 @@ ms.lasthandoff: 08/04/2017
 일단 서버를 만들면 SSMS 또는 SSDT를 사용하여 [모델을 배포](analysis-services-deploy.md)할 수 있습니다.
 
 서버에 배포하는 모델이 온-프레미스 데이터 원본에 연결된 경우 네트워크의 컴퓨터에서 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다.
-
 

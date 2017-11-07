@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 215b774c20d80a67b1cefa2634131bd44860c692
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>Stream Analytics에서 쿼리를 작성하는 방법
 Azure Stream Analytics의 스트림 처리 논리에 대한 쿼리 작성은 작업이 시작되기 전에 정의되고 데이터가 작업에 도착할 때 실행되는 "고정 쿼리"로 구현됩니다. 데이터 변환은 대체로 임시 의미 체계를 나타내는 데 사용되는 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) 과 같은 언어 확장이 추가된 T-SQL의 하위 집합인, SQL과 유사한 쿼리 언어로 표현됩니다.
@@ -70,5 +69,4 @@ Azure Stream Analytics의 스트림 처리 논리에 대한 쿼리 작성은 작
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

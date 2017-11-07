@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad43b5bb4f6f51f25acb9b2160661addab481762
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -243,7 +242,8 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 **IBinder** 인터페이스를 **Table** 및 **Blob** 특성과 함께 사용할 수도 있습니다.
 
 ## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
-**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob Storage로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Table Storage로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
+**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플에 대해서는 [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
+<!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Blob 작업을 트리거하는 문자열 큐 메시지
 문자열이 포함된 큐 메시지의 경우 **queueTrigger**는 메시지 내용이 포함된 **Blob** 특성의 **blobPath** 매개 변수에 사용할 수 있는 자리 표시자입니다.
@@ -258,7 +258,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure blob 저장소를 사용하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하세요.
+**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 사용합니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure blob 저장소를 사용하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요.
 
 특성이 **Stream** 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 **FileAccess** 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 
@@ -469,7 +469,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 많은 작업 기능이 동시에 실행될 수 있지만 콘솔은 단일 스레드이므로 콘솔 출력을 특정 메서드 호출에 연결할 수 없습니다. 따라서 SDK에서는 각 함수 호출에 고유한 로그 작성기 개체를 제공합니다.
 
-[응용 프로그램 추적 로그](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 앱을 구성한 방식에 따라 웹 앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
+[응용 프로그램 추적 로그](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 앱을 구성한 방식에 따라 웹 앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
 
 콘솔 출력은 프로그램이 Azure WebJob에서 실행되는 경우에만 대시보드에 표시되고, 프로그램이 로컬로 실행되거나 다른 환경에서 실행되는 경우에는 표시되지 않습니다.
 
@@ -513,5 +513,4 @@ Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
 

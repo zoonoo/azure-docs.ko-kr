@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions Cosmos DB 바인딩 | Microsoft Docs"
-description: "Azure Functions에서 Azure Cosmos DB 바인딩을 사용하는 방법을 파악합니다."
+title: "Functions에 대한 Azure Cosmos DB 바인딩 | Microsoft Docs"
+description: "Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -9,33 +9,104 @@ editor:
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/19/2017
 ms.author: glenga
+ms.openlocfilehash: d05c0342e771e229a7175570ad227c4359980990
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB 바인딩
+# <a name="azure-cosmos-db-bindings-for-functions"></a>Functions에 대한 Azure Cosmos DB 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 Azure Cosmos DB 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Cosmos DB에 대한 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 Azure Cosmos DB 바인딩을 구성하고 코딩하는 방법을 설명합니다. Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Cosmos DB에 대한 자세한 내용은 [Cosmos DB 소개](../documentdb/documentdb-introduction.md) 및 [Cosmos DB 콘솔 응용 프로그램 빌드](../documentdb/documentdb-get-started.md)를 참조하세요.
+Azure Cosmos DB를 통한 서버를 사용하지 않는 컴퓨팅에 대한 자세한 내용은 [Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅](..\cosmos-db\serverless-computing-database.md)을 참조하세요.
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## <a name="azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거
+
+Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change-feed.md)를 사용하여 파티션의 변경 내용을 수신 대기합니다. 트리거에는 파티션에 _임대_를 저장하는 데 사용할 보조 컬렉션이 필요합니다.
+
+트리거가 작동할 수 있도록 모니터링되는 컬렉션과 임대를 포함하고 있는 컬렉션을 모두 사용할 수 있어야 합니다.
+
+Azure Cosmos DB 트리거는 다음 속성을 지원합니다.
+
+|속성  |설명  |
+|---------|---------|
+|**type** | `cosmosDBTrigger`로 설정해야 합니다. |
+|**name** | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. | 
+|**direction** | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**connectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
+|**databaseName** | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
+|**collectionName** | 모니터링되는 컬렉션의 이름입니다. |
+| **leaseConnectionStringSetting** | (선택 사항) 임대 컬렉션을 보유하고 있는 서비스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
+| **leaseDatabaseName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션을 보유하는 데이터베이스의 이름입니다. 설정하지 않으면 `databaseName` 설정 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
+| **leaseCollectionName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. |
+| **createLeaseCollectionIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. |
+| **leaseCollectionThroughput** | (선택 사항) 임대 컬렉션이 생성될 때 할당할 요청 단위의 양을 정의합니다. 이 설정은 `createLeaseCollectionIfNotExists`가 `true`로 설정된 경우에만 사용됩니다. 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다.
+
+>[!NOTE] 
+>임대 컬렉션에 연결하는 데 사용되는 연결 문자열에 쓰기 권한이 있어야 합니다.
+
+이러한 속성은 Azure Portal에서 함수의 통합 탭에서 설정하거나 `function.json` 프로젝트 파일을 편집하여 설정할 수 있습니다.
+
+## <a name="using-an-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거 사용
+
+이 섹션에는 Azure Cosmos DB 트리거를 사용하는 방법에 대한 예제가 포함되어 있습니다. 예제에서는 다음과 같은 트리거 메타데이터를 가정합니다.
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+포털에서 함수 앱을 사용하여 Azure Cosmos DB 트리거를 만드는 방법에 대한 예제는 [Azure Cosmos DB에 의해 트리거되는 함수 만들기](functions-create-cosmos-db-triggered-function.md)를 참조하세요. 
+
+### <a name="trigger-sample-in-c"></a>C#에서 트리거 샘플 #
+```cs 
+    #r "Microsoft.Azure.Documents.Client"
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using System;
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+    }
+```
+
+
+### <a name="trigger-sample-in-javascript"></a>JavaScript의 트리거 샘플
+```javascript
+    module.exports = function (context, documents) {
+        context.log('First document Id modified : ', documents[0].id);
+
+        context.done();
+    }
+```
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>DocumentDB API 입력 바인딩
-DocumentDB API 입력 바인딩은 Cosmos DB 문서를 검색하고 함수의 명명된 입력 매개 변수를 전달합니다. 함수를 호출한 트리거에 따라 문서 ID를 결정할 수 있습니다. 
+DocumentDB API 입력 바인딩은 Azure Cosmos DB 문서를 검색하여 함수의 명명된 입력 매개 변수에 전달합니다. 함수를 호출한 트리거에 따라 문서 ID를 결정할 수 있습니다. 
 
 DocumentDB API 입력 바인딩은 *function.json*에 다음 속성이 있습니다.
 
@@ -46,9 +117,9 @@ DocumentDB API 입력 바인딩은 *function.json*에 다음 속성이 있습니
 |**databaseName** | 문서를 포함하는 데이터베이스입니다.        |
 |**collectionName**  | 문서를 포함하는 컬렉션의 이름입니다. |
 |**id**     | 검색할 문서의 ID입니다. 이 속성은 바인딩 매개 변수를 지원합니다. 자세한 내용은 [바인딩 식에서 사용자 지정 입력 속성에 바인딩](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)을 참조하세요. |
-|**sqlQuery**     | 여러 문서를 검색하는 데 사용되는 Cosmos DB SQL 쿼리입니다. 쿼리는 `SELECT * FROM c where c.departmentId = {departmentId}` 예제와 같이 런타임 바인딩을 지원합니다.        |
-|**연결**     |Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
-|**direction**     | `in`으로 설정해야 합니다.         |
+|**sqlQuery**     | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 쿼리는 `SELECT * FROM c where c.departmentId = {departmentId}` 예제와 같이 런타임 바인딩을 지원합니다.        |
+|**연결**     |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**direction**     | `in`로 설정해야 합니다.         |
 
 **id** 및 **sqlQuery** 속성을 둘 다 설정할 수는 없습니다. 둘 다 설정하지 않으면 전체 컬렉션이 검색됩니다.
 
@@ -144,7 +215,7 @@ SQL 쿼리로 지정된 여러 문서를 검색하려고 하며 큐 트리거를
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -189,8 +260,8 @@ DocumentDB API 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이�
 |**databaseName** | 문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
 |**createIfNotExists**     | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.  |
-|**연결**     |Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
-|**direction**     | `out`으로 설정해야 합니다.         |
+|**연결**     |Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
+|**direction**     | `out`로 설정해야 합니다.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>DocumentDB API 출력 바인딩 사용
 이 섹션에서는 함수 코드에서 DocumentDB API 출력 바인딩을 사용하는 방법을 보여 줍니다.
@@ -229,7 +300,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB API 출력 바
 }
 ```
 
-그리고 각 레코드에 대해 다음과 같은 형식의 Cosmos DB 문서를 만들려고 합니다.
+그리고 각 레코드에 대해 다음과 같은 형식의 Azure Cosmos DB 문서를 만들려고 합니다.
 
 ```json
 {
@@ -331,4 +402,3 @@ module.exports = function (context) {
   context.done();
 };
 ```
-

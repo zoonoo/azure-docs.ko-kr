@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
 Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-security-center-power-bi)를 사용하면 어디서든 모바일 장치를 포함하여 권장 사항 및 보안 경고를 시각화, 분석 및 필터링할 수 있습니다. Power BI 대시보드를 사용하여 추세를 표시하고 패턴을 공격합니다. 리소스 또는 원본 IP 주소에서 보안 경고 및 리소스 또는 시대에서 알려지지 않은 보안 위험을 봅니다.
@@ -120,4 +119,3 @@ Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/m
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-

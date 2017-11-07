@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 1a6c4b19261aa34e668554ccad2b6340cddf9bf5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
 ## <a name="create-a-linkedin-application"></a>LinkedIn 응용 프로그램 만들기
@@ -51,5 +50,4 @@ Azure Active Directory(Azure AD) B2C에서 LinkedIn을 ID 공급자로 사용하
 5. **ID 공급자 형식**을 클릭하고 **LinkedIn**을 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 LinkedIn 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
 7. **확인**, **만들기**를 차례로 클릭하여 LinkedIn 구성을 저장합니다.
-
 

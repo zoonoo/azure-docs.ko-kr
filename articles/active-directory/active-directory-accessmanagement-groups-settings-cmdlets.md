@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory cmdlet을 사용하여 그룹 설정 구성 | Microsoft Docs"
+title: "Azure Active Directory에서 PowerShell을 사용하여 그룹 설정 구성 | Microsoft Docs"
 description: "Azure Active Directory cmdlet을 사용하여 그룹 설정을 관리하는 방법"
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/04/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
+ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
 > [!IMPORTANT]
-> 이 콘텐츠는 Office 365 그룹에만 적용됩니다. 사용자가 보안 그룹을 만들 수 있도록 하는 방법에 대한 자세한 내용은 [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`를 설정하세요. 
+> 이 콘텐츠는 Office 365 그룹에만 적용됩니다. 사용자가 보안 그룹을 만들 수 있도록 하는 방법에 대한 자세한 내용은 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`를 설정하세요. 
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
@@ -90,18 +89,19 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 | **설정** | **설명** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |디렉터리에서 통합 그룹 만들기가 허용되는지 나타내는 플래그입니다. |
+|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 통합 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. |
 |  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 통합 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
 |  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. |
 |  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” |아직 구현되지 않았습니다.
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | 사용 안 함. 구현되지 않았습니다. |
+| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용 안 함. 구현되지 않았습니다. |
+| <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: "False" | 사용 안 함
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 통합 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
 |  <ul><li>AllowToAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
 |  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |통합 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
-|  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True | 관리자가 아닌 사용자가 새 통합 그룹을 만들 수 있는지 여부를 나타내는 부울 값입니다. |
 
 
 ## <a name="read-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 읽기
@@ -218,4 +218,3 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

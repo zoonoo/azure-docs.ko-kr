@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 로그 검색 REST API
 이 가이드는 Log Analytics 검색 REST API를 사용하는 방법의 예제를 비롯한 기본 자습서를 제공합니다. Log Analytics는 OMS(Operations Management Suite)의 일부입니다.
@@ -419,4 +418,3 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
-

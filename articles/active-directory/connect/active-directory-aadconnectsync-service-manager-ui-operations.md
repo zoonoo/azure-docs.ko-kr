@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7f50ce0d4842bde809664c392ebee5425a70e6f0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/08/2017
-
+ms.openlocfilehash: a1475e4fcd11eb008badba49665f4af6029a1697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Sync Service Manager 작업 탭 사용
 
@@ -49,4 +48,3 @@ ms.lasthandoff: 03/08/2017
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

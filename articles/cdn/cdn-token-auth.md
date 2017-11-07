@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -147,4 +144,3 @@ ms.lasthandoff: 03/29/2017
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정
 
 [CDN 개요](cdn-overview.md) 항목을 참조하세요.
-

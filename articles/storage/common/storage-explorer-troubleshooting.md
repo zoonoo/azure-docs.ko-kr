@@ -11,17 +11,15 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
+ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
 Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 사용할 수 있는 독립 실행형 앱입니다. 앱은 Azure, Sovereign Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
@@ -30,7 +28,7 @@ Microsoft Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에�
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
-계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
+AAD(Azure Active Directory) 계정만 지원됩니다. ADFS 계정을 사용하는 경우 Storage 탐색기에 대한 로그인은 작동하지 않습니다. 계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>오류: 인증서 체인의 자체 서명된 인증서
 
@@ -182,4 +180,3 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 이렇게 하려면 **도움말** 메뉴를 클릭한 다음 **피드백 보내기**를 클릭합니다.
 
 ![사용자 의견](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-

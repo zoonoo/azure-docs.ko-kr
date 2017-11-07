@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: acc9160f86e58c7af4779a8bab5627dc5c5ad721
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>자습서: CS Stars와 Azure Active Directory 통합
 
@@ -227,5 +225,4 @@ CS Stars에서 만든 사용자를 가져오려면 [CS Stars 지원 팀](http://
 [201]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_203.png
-
 

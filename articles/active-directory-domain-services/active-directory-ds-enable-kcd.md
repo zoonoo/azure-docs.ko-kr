@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: ce5ba551f071055a9aaebb99395ada4e96ffcc76
-ms.openlocfilehash: 47e81ad02c544cb269abed0a4936c30fc404f01a
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: f36f16a7bb00ace9fd5164eb38ba77f015f22f5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>관리되는 도메인에서 Kerberos 제한 위임(KCD) 구성
 대부분의 응용 프로그램은 사용자의 컨텍스트에서 리소스에 액세스해야 합니다. Active Directory는 이 사용 사례가 가능한 Kerberos 위임이라고 하는 메커니즘을 지원합니다. 또한 사용자의 컨텍스트에서 특정 리소스에만 액세스할 수 있도록 위임을 제한할 수 있습니다. Azure AD Domain Services 관리되는 도메인은 더 안전하게 잠겨 있으므로 기존의 Active Directory 도메인과는 다릅니다.
 
@@ -63,4 +61,3 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)
-

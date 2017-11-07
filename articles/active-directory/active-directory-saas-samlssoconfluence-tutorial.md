@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>자습서: SAML SSO for Confluence by resolution GmbH와 Azure Active Directory 통합
 
@@ -133,7 +131,7 @@ SAML SSO for Confluence by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
 6. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Single Sign-on 구성](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. 다른 웹 브라우저 창에서 **SAML SSO for Confluence by resolution GmbH 관리 포털**에 관리자로 로그인합니다.
 
@@ -159,7 +157,7 @@ SAML SSO for Confluence by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
     ![Single Sign-on 구성](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    **관리**를 클릭합니다.
+13. **관리**를 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ SAML SSO for Confluence by resolution GmbH에서 Azure AD Single Sign-On을 구�
 
     d. **로드** 단추를 클릭합니다.
 
-    e. IdP 메타데이터를 읽고 스크린샷에서 강조 표시된 대로 필드를 채웁니다.    
+    e. IdP 메타데이터를 읽고 스크린샷에서 강조 표시된 대로 필드를 채웁니다. 
 18. **설정 저장** 단추를 클릭하여 해당 설정을 저장합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ SAML SSO for Confluence by resolution GmbH에서 프로비전은 수동 작업�
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

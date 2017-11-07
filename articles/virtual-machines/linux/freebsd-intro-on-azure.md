@@ -3,7 +3,7 @@ title: "Azure의 FreeBSD 소개 | Microsoft Docs"
 description: "Azure에서 FreeBSD 가상 컴퓨터를 사용하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-ms.author: kyliel
+ms.date: 09/13/2017
+ms.author: huishao
+ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ada9fddd7ffccc3dcbfe3eac05d99b710b67cbc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 항목에서는 Azure에서 FreeBSD 가상 컴퓨터를 실행하는 방법의 개요를 제공합니다.
@@ -32,6 +31,7 @@ Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이
 
 - FreeBSD 10.3 릴리스
 - FreeBSD 11.0 릴리스
+- FreeBSD 11.1 릴리스
 
 이 에이전트는 처음 사용 시 VM을 프로비전(사용자 이름, 암호 또는 SSH 키, 호스트 이름 등)하고 선택적 VM 확장 기능을 사용하도록 설정하는 것과 같은 작업을 위해 FreeBSD VM과 Azure 패브릭 간의 통신을 담당합니다.
 
@@ -42,6 +42,7 @@ FreeBSD 가상 컴퓨터 배포 작업은 Azure Portal에서 Azure Marketplace�
 
 - [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [Azure Marketplace의 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [Azure Marketplace의 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>FreeBSD에서 Azure CLI 2.0을 통해 FreeBSD VM 만들기
 먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 설치해야 합니다.
@@ -134,4 +135,3 @@ $ sudo <COMMAND>
 ## <a name="next-steps"></a>다음 단계
 * [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.
 * 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](classic/freebsd-create-upload-vhd.md)를 참조하세요.
-

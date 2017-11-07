@@ -3,7 +3,7 @@ title: "Azure Key Vault 시작 | Microsoft Docs"
 description: "이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 주요 자격 증명 모음 시작
 Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
@@ -234,4 +233,3 @@ Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은
 Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
-

@@ -11,15 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: df707f2c54ce6d4fd48490085b182ad16d7cfaed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
 
 사람들이 사용자의 웹앱을 사용하는 경우, 가장 큰 관심을 갖는 페이지, 사용자가 있는 위치 및 사용하는 브라우저 및 운영 체제를 알아봅니다. [Azure Application Insights](app-insights-overview.md)를 사용하여 업무 및 원격 사용을 분석합니다.
@@ -74,5 +72,4 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
     - [사용자 흐름](app-insights-usage-flows.md)
     - [통합 문서](app-insights-usage-workbooks.md)
     - [사용자 컨텍스트 추가](app-insights-usage-send-user-context.md)
-
 

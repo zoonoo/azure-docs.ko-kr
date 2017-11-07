@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -60,21 +58,21 @@ ms.lasthandoff: 06/17/2017
     ![연결 블레이드](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
 4. **연결** 블레이드에서 **+추가**를 클릭합니다.
    
-    ![연결 추가 단추](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+    ![연결 추가 버튼](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "연결 추가 버튼")<br>
 5. **연결 추가** 블레이드에서 다음 필드를 작성합니다.
    
    * **이름:** 연결을 만들고자 하는 사이트에 부여하고자 하는 이름입니다.
    * **연결 형식:** **사이트 간(IPSec)**을 선택합니다.
      
-     ![연결 추가 블레이드](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![연결 추가 블레이드](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "연결 추가 블레이드")<br>
 
 ## <a name="part2"></a>2부 - 로컬 네트워크 게이트웨이 추가
 1. **로컬 네트워크 게이트웨이**를 클릭하고 ***로컬 네트워크 게이트웨이를 선택 합니다***. 그러면 **로컬 네트워크 게이트웨이 선택** 블레이드가 열립니다.
    
-    ![로컬 네트워크 게이트웨이 선택](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+    ![로컬 네트워크 게이트웨이 선택](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "로컬 네트워크 게이트웨이 선택")<br>
 2. **로컬 네트워크 게이트웨이 만들기** 블레이드를 열려면 **새로 만들기**를 클릭합니다.
    
-    ![로컬 네트워크 게이트웨이 만들기 블레이드](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![로컬 네트워크 게이트웨이 블레이드 만들기](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "로컬 네트워크 게이트웨이 만들기")<br>
 3. **로컬 네트워크 게이트웨이 만들기** 블레이드에서 다음 필드를 작성합니다.
    
    * **이름:** 로컬 네트워크 게이트웨이 리소스에 부여하고자 하는 이름입니다.
@@ -96,4 +94,3 @@ ms.lasthandoff: 06/17/2017
 ## <a name="next-steps"></a>다음 단계
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 가상 컴퓨터 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.
-

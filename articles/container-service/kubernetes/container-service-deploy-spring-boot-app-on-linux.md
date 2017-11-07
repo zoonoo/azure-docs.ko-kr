@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
+ms.openlocfilehash: daa0ed81a6b9f20e146698947099a991da42cd6d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 5f0b470bd46cfeaf00b3092dbe9db507ed50f622
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-on-linux-in-the-azure-container-service"></a>Azure Container Service에서 Linux에 Spring Boot 응용 프로그램 배포
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 **[Spring Framework]**는 Java 개발자가 엔터프라이즈 수준의 응용 프로그램을 만드는 데 도움이 되는 오픈 소스 솔루션입니다. 해당 플랫폼을 기반으로 하여 빌드되는 인기 있는 프로젝트 중 하나가 [Spring Boot]입니다. 이 프로젝트는 독립 실행형 Java 응용 프로그램을 만드는 간단한 방법을 제공합니다.
 
@@ -315,4 +315,3 @@ Azure와 함께 사용자 지정 Docker 이미지를 사용하는 방법에 대�
 [LX01]: ./media/container-service-deploy-spring-boot-app-on-linux/LX01.png
 [LX02]: ./media/container-service-deploy-spring-boot-app-on-linux/LX02.png
 [LX03]: ./media/container-service-deploy-spring-boot-app-on-linux/LX03.png
-

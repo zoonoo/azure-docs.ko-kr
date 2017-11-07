@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용의 영향
 [PairNamespaceAsync][PairNamespaceAsync] 메서드는 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] 인스턴스를 사용하여 사용자 대신 눈에 보이는 작업을 수행합니다. 이 기능을 사용할 때는 비용을 고려해야 하기 때문에, 이러한 작업을 이해하고 사용할 때 어떤 점을 예측해야 하는지 알아두면 유용합니다. API는 사용자를 대신해 다음과 같은 자동 동작을 수행합니다.
@@ -120,4 +119,3 @@ Service Bus 비동기 메시징에 대한 자세한 내용은 [비동기 메시�
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-

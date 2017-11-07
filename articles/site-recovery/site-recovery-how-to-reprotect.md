@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
+ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 다시 보호
 
@@ -29,10 +28,13 @@ ms.lasthandoff: 09/02/2017
 이 문서에서는 Azure 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호하는 방법에 대해 설명합니다. 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구할 준비가 되면 이 문서의 지침을 따릅니다([Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-failover.md)에 설명됨).
 
 > [!WARNING]
-> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)하고 가상 컴퓨터를 또 다른 리소스 그룹으로 이동했거나 Azure 가상 컴퓨터를 삭제한 후에는 장애 복구(failback)를 수행할 수 없습니다.
+> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)했거나, 가상 컴퓨터를 다른 리소스 그룹으로 이동했거나, Azure 가상 컴퓨터를 삭제한 후에 장애 복구(failback)를 수행할 수 없습니다. 가상 컴퓨터의 보호를 사용하지 않으면 장애 복구를 수행할 수 없습니다.
 
 
 다시 보호가 완료되고 보호된 가상 컴퓨터에서 복제하는 경우 가상 컴퓨터에서 장애 복구를 시작하여 온-프레미스 사이트로 가져올 수 있습니다.
+
+> [!NOTE]
+> 다시 보호하고 ESXi 호스트에 장애 복구할 수 있습니다. Hyper-V 호스트나 VMware 워크스테이션 또는 다른 가상화 플랫폼에 가상 컴퓨터를 장애 복구할 수 없습니다.
 
 이 문서의 마지막 부분 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시할 수 있습니다.
 
@@ -41,6 +43,11 @@ ms.lasthandoff: 09/02/2017
 
 
 ## <a name="prerequisites"></a>필수 조건
+
+> [!IMPORTANT]
+> Azure로 장애 조치 중에는 온-프레미스 사이트에 액세스할 수 없습니다. 따라서 구성 서버는 사용할 수 없거나 종료된 상태일 수 있습니다. 다시 보호 및 장애 복구 중에 온-프레미스 구성 서버는 실행 중이며 연결 양호 상태여야 합니다.
+
+
 가상 컴퓨터 다시 보호를 준비하는 경우 다음 필수 작업을 수행하거나 고려합니다.
 
 * vCenter Server에서 장애 복구하려는 가상 컴퓨터를 관리하는 경우 vCenter Server에서 가상 컴퓨터를 검색하는 데 [필요한 권한](site-recovery-vmware-to-azure-classic.md)이 있는지 확인해야 합니다.
@@ -93,13 +100,15 @@ ExpressRoute 연결을 설정하는 경우 가상 컴퓨터와 프로세스 서�
  ![VPN 아키텍처 다이어그램](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-복제는 S2S VPN 또는 ExpressRoute 네트워크의 개인 피어링을 통해서만 수행됩니다. 네트워크 채널을 통해 충분한 대역폭을 사용할 수 있는지 확인합니다.
+Azure에서 온-프레미스로의 복제는 S2S VPN 또는 ExpressRoute 네트워크의 개인 피어링을 통해서만 수행될 수 있습니다. 네트워크 채널을 통해 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 Azure 기반 프로세스 서버를 설치하는 방법에 대한 자세한 내용은 [Azure에서 실행되는 프로세스 서버 관리](site-recovery-vmware-setup-azure-ps-resource-manager.md)를 참조하세요.
 
 > [!TIP]
 > 장애 복구(failback) 중에는 Azure 기반 프로세스 서버를 사용하는 것이 좋습니다. 프로세스 서버가 복제 가상 컴퓨터(Azure에서 장애 조치된 시스템)와 가까울수록 복제 성능이 더 높습니다. 그러나 POC(개념 증명) 또는 데모 중에 POC를 더 빨리 완료하기 위해 개인 피어링을 사용하는 ExpressRoute와 함께 온-프레미스 프로세스 서버를 사용할 수 있습니다.
 
+> [!NOTE]
+> 온-프레미스에서 Azure로의 복제는 공용 피어링을 사용하는 인터넷 또는 ExpressRoute를 통해서만 수행될 수 있습니다. Azure에서 온-프레미스로의 복제는 개인 피어링을 사용하는 S2S VPN 또는 ExpressRoute를 통해서만 수행될 수 있습니다.
 
 
 #### <a name="what-ports-should-i-open-on-different-components-so-that-reprotection-can-work"></a>다시 보호가 작동할 수 있도록 다른 구성 요소에서 열어야 할 포트는 무엇인가요?
@@ -248,7 +257,7 @@ Azure의 가상 컴퓨터를 기존의 온-프레미스 가상 컴퓨터에 복�
 1. 다시 보호하는 가상 컴퓨터는 Windows Server 2016입니다. 현재 이 운영 체제는 장애 복구에 대해 지원되지 않지만 곧 지원될 예정입니다.
 2. 이미 장애 복구 중인 Master 대상 서버에서 동일한 이름을 가진 가상 컴퓨터가 있습니다.
 
-이 문제를 해결하려면 다른 호스트에서 다른 마스터 대상 서버를 선택하므로 다시 보호는 이름이 충돌하지 않는 다른 호스트에 컴퓨터를 만들 수 있습니다. 이름 충돌이 발생하지 않는 다른 호스트에 마스터 대상의 vMotion을 수행할 수도 있습니다.
+이 문제를 해결하려면 다른 호스트에서 다른 마스터 대상 서버를 선택하므로 다시 보호는 이름이 충돌하지 않는 다른 호스트에 컴퓨터를 만들 수 있습니다. 이름 충돌이 발생하지 않는 다른 호스트에 마스터 대상의 vMotion을 수행할 수도 있습니다. 기존 가상 컴퓨터가 이탈 컴퓨터인 경우 이름을 바꿔서 동일한 ESXi 호스트에 새 가상 컴퓨터를 만들 수 있습니다.
 
 ### <a name="error-code-78093"></a>오류 코드 78093
 
@@ -256,6 +265,9 @@ Azure의 가상 컴퓨터를 기존의 온-프레미스 가상 컴퓨터에 복�
 
 온-프레미스에 장애 조치된 가상 컴퓨터를 다시 보호하려면 Azure 가상 컴퓨터를 실행해야 합니다. 따라서 모바일 서비스를 구성 서버 온-프레미스에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있습니다. 컴퓨터가 잘못된 네트워크에 있거나 실행되지 않는 경우(응답하지 않는 상태 또는 종료) 구성 서버는 다시 보호를 시작하기 위해 가상 컴퓨터에서 모바일 서비스에 연결할 수 없습니다. 다시 온-프레미스와 통신하기 시작할 수 있도록 가상 컴퓨터를 다시 시작할 수 있습니다. Azure 가상 컴퓨터를 시작한 후에 작업 다시 보호 다시 시작
 
+### <a name="error-code-8061"></a>오류 코드 8061
 
+*데이터 저장소가 ESXi 호스트에서 액세스할 수 없습니다.*
 
+장애 복구(failback)는 [마스터 대상 필수 정보](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) 및 [지원 데이터 저장소](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback)를 참조합니다.
 

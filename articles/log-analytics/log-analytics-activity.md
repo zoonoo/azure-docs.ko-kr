@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-azure-activity-logs"></a>Azure 활동 로그 보기
 
 ![Azure 활동 로그 기호](./media/log-analytics-activity/activity-log-analytics.png)
@@ -104,4 +101,3 @@ Activity Log Analytics 솔루션을 작업 영역에 추가하면 개요 대시�
 
 - 특정 활동이 발생하면 [경고](log-analytics-alerts-creating.md)를 만듭니다.
 - [로그 검색](log-analytics-log-searches.md)을 사용하여 활동 로그의 자세한 정보를 봅니다.
-

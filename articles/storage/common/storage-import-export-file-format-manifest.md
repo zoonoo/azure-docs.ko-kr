@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export 서비스 매니페스트 파일 형식
 드라이브 매니페스트 파일에서는 Azure Blob Storage의 Blob와 가져오기 또는 내보내기 작업으로 구성된 드라이브의 파일 간에 매핑을 설명합니다. 가져오기 작업의 경우 매니페스트 파일은 드라이브 준비 프로세스의 일부로 만들어지고 Azure 데이터 센터에 드라이브를 전송하기 전에 드라이브에 저장됩니다. 내보내기 작업 도중 Azure Import/Export 서비스에 의해 매니페스트가 생성되어 드라이브에 저장됩니다.  
   
@@ -137,4 +135,3 @@ block-list ::=
 ## <a name="next-steps"></a>다음 단계
  
 * [저장소 Import/Export REST API](/rest/api/storageimportexport/)
-

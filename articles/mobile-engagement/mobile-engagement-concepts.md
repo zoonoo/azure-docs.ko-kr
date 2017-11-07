@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement 개념
 Mobile Engagement는 지원되는 모든 플랫폼에 공통되는 몇 가지 개념을 정의합니다. 이 문서에서는 이러한 개념을 간략하게 설명합니다.
@@ -87,5 +86,4 @@ Mobile Engagement SDK의 API 또는 Mobile Engagement 플랫폼의 장치 API를
 * [Azure Mobile Engagement의 Windows Phone Silverlight SDK 개요](mobile-engagement-windows-phone-sdk-overview.md)
 * [Azure Mobile Engagement용 iOS SDK](mobile-engagement-ios-sdk-overview.md)
 * [Azure Mobile Engagement용 Android SDK](mobile-engagement-android-sdk-overview.md)
-
 

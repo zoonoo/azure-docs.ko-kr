@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스
  
@@ -154,5 +153,4 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 * Azure Portal을 사용하여 [Azure AD 인증에 액세스하고 Azure Media Services API를 사용](media-services-portal-get-started-with-aad.md)합니다.
 * Azure AD 인증을 사용하여 [.NET으로 Azure Media Services API에 액세스](media-services-dotnet-get-started-with-aad.md)합니다.
-
 

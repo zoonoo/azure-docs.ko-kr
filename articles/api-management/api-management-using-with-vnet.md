@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 09/19/2017
 ms.author: apimpm
+ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API 관리를 사용하는 방법
 Azure VNET(가상 네트워크)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure 가상 네트워크에 대해 자세히 알아보려면 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -29,48 +28,56 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 > [!NOTE]
 > Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
 >
->
+
+## <a name="prerequisites"></a>필수 조건
+
+이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
+
++ 활성 Azure 구독.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ APIM 인스턴스. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
++ VNET 연결은 프리미엄 및 개발자 계층에서만 사용할 수 있습니다. [업그레이드 및 확장](upgrade-and-scale.md#upgrade-and-scale) 항목에서 지침에 따라 이러한 계층 중 하나로 전환합니다.
 
 ## <a name="enable-vpn"> </a>VNET 연결 사용
-> [!NOTE]
-> VNET 연결은 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다. 계층 간에 전환하려면 Azure Portal 포털에서 API Management 서비스를 열고 **크기 조정 및 가격 책정** 탭을 엽니다. **가격 책정 계층** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
->
 
-VNET 연결을 사용하려면 Azure Portal 포털에서 API Management 서비스를 열고 **가상 네트워크** 페이지를 엽니다.
+### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Azure Portal을 사용하여 VNET 연결 사용
 
-![API 관리의 가상 네트워크 메뉴][api-management-using-vnet-menu]
+1. [Azure Portal](https://portal.azure.com/)에서 APIM 인스턴스로 이동합니다.
+2. **사용자 지정 도메인 및 SSL**을 선택합니다.
+3. API Management 인스턴스를 가상 네트워크 내부에 배포되도록 구성합니다.
 
-원하는 액세스 유형을 선택합니다.
+    ![API 관리의 가상 네트워크 메뉴][api-management-using-vnet-menu]
+4. 원하는 액세스 유형을 선택합니다.
+    
+    * **외부**: 외부 부하 분산 장치를 통해 공용 인터넷에서 API 관리 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 게이트웨이에서 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
+    
+    ![공용 피어링][api-management-vnet-public]
+    
+    * **내부**: 내부 부하 분산 장치를 통해 가상 네트워크 내에서만 API 관리 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 게이트웨이에서 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
+    
+    ![개인 피어링][api-management-vnet-private]`
 
-* **외부**: 외부 부하 분산 장치를 통해 공용 인터넷에서 API 관리 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 게이트웨이에서 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
+    이제 API 관리 서비스가 프로비전되는 모든 지역 목록이 보입니다. VNET 및 모든 지역에 대한 서브넷을 선택합니다. 이 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
+    
+    > [!NOTE]
+    > 위 다이어그램에서 **서비스 끝점**에는 게이트웨이/프록시, 게시자 포털, 개발자 포털, GIT 및 직접 관리 끝점이 포함되어 있습니다.
+    > 위 다이어그램에서 **관리 끝점**은 Azure Portal 및 Powershell을 통해 구성을 관리하기 위해 서비스에서 호스팅하는 끝점입니다.
+    > 또한 이 다이어그램은 다양한 끝점에 대한 IP 주소를 보여주지만, API Management 서비스**만** 이 구성된 호스트 이름에서 응답합니다.
+    
+    > [!IMPORTANT]
+    > Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스는 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
+    >
 
-![공용 피어링][api-management-vnet-public]
+    ![VPN 선택][api-management-setup-vpn-select]
 
-* **내부**: 내부 부하 분산 장치를 통해 가상 네트워크 내에서만 API 관리 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 게이트웨이에서 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
-
-![개인 피어링][api-management-vnet-private]
-
-이제 API 관리 서비스가 프로비전되는 모든 지역 목록이 보입니다. VNET 및 모든 지역에 대한 서브넷을 선택합니다. 이 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
-
-> [!NOTE]
-> 위 다이어그램에서 **서비스 끝점**에는 게이트웨이/프록시, 게시자 포털, 개발자 포털, GIT 및 직접 관리 끝점이 포함되어 있습니다.
-> 위 다이어그램에서 **관리 끝점**은 Azure Portal 및 Powershell을 통해 구성을 관리하기 위해 서비스에서 호스팅하는 끝점입니다.
-> 또한 이 다이어그램은 다양한 끝점에 대한 IP 주소를 보여주지만, API Management 서비스**만** 이 구성된 호스트 이름에서 응답합니다.
-
-> [!IMPORTANT]
-> Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스는 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
->
->
-
-![VPN 선택][api-management-setup-vpn-select]
-
-화면 위쪽에서 **저장**을 클릭합니다.
+5. 화면 위쪽에서 **저장**을 클릭합니다.
 
 > [!NOTE]
 > API Management 인스턴스의 VIP 주소는 VNET이 활성화되거나 비활성화될 때마다 변경됩니다.  
 > VIP 주소는 API Management를 **외부**에서 **내부**로 또는 그 반대로 이동할 때도 변경됩니다.
 >
-
 
 > [!IMPORTANT]
 > VNET에서 API Management를 제거하거나 배포된 것을 변경할 경우 이전에 사용한 VNET는 최대 4시간 동안 잠긴 상태를 유지할 수 있습니다. 이 기간에는 VNET를 삭제하거나 새 리소스를 배포할 수 없게 됩니다.
@@ -93,24 +100,27 @@ API 관리 서비스가 VNET에 연결된 후에는 공용 서비스에 액세�
 * **사용자 지정 DNS 서버 설치**: API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 지침을 따르세요. 아래의 포트 테이블 및 기타 네트워크 요구 사항을 참조하세요.
 
 > [!IMPORTANT]
-> VNET에 사용자 지정 DNS 서버를 사용하고 있는 경우에는 API Management 서비스를 배포하기 **전에** 설정하는 것이 좋습니다. 그렇지 않으면 [네트워크 구성 작업 적용](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice#ApiManagementService_ApplyNetworkConfigurationUpdates)을 실행하여 DNS 서버를 변경할 때마다 API Management 서비스를 업데이트해야 합니다.
+> VNET에 사용자 지정 DNS 서버를 사용하고 있는 경우에는 API Management 서비스를 배포하기 **전에** 설정하는 것이 좋습니다. 그렇지 않으면 [네트워크 구성 작업 적용](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)을 실행하여 DNS 서버를 변경할 때마다 API Management 서비스를 업데이트해야 합니다.
 
 * **API Management에 필요한 포트**: API Management가 배포된 인바운드 및 아웃바운드 트래픽은 [네트워크 보안 그룹][Network Security Group]을 사용하여 제어할 수 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API Management를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
 API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다.
 
-| 소스/대상 포트 | 방향 | 전송 프로토콜 | 목적 | 원본 / 대상 | 액세스 유형 |
+| 소스/대상 포트 | 방향 | 전송 프로토콜 | 원본 / 대상 | 목적(*) | 가상 네트워크 유형 |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |인바운드 |TCP |API 관리에 대한 클라이언트 통신 |인터넷 / VIRTUAL_NETWORK |외부 |
-| * / 3443 |인바운드 |TCP |Azure Portal 및 Powershell용 관리 끝점 |인터넷 / VIRTUAL_NETWORK |외부 및 내부 |
-| * / 80, 443 |아웃바운드 |TCP |Azure 저장소 및 Azure Service Bus에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 1433 |아웃바운드 |TCP |Azure SQL에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 11000 - 11999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 14000 - 14999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 5671 |아웃바운드 |AMQP |이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| 6381 - 6383 / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |Redis 캐시에 대한 종속성 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |외부 및 내부 |-
-| * / 445 |아웃바운드 |TCP |GIT의 Azure 파일 공유에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / * | 인바운드 |TCP |Azure 인프라 부하 분산 장치 | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |외부 및 내부 |
+| * / 80, 443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|API 관리에 대한 클라이언트 통신|외부 |
+| * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 끝점 |내부 |
+| * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure Storage 끝점에 대한 액세스** |외부 및 내부 |
+| * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL 끝점에 대한 액세스** |외부 및 내부 |
+| * / 11000 - 11999 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL V12에 대한 액세스** |외부 및 내부 |
+| * / 14000 - 14999 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure SQL V12에 대한 액세스** |외부 및 내부 |
+| * / 5671 |아웃바운드 |AMQP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
+| * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |
+| * / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스 |외부 및 내부 |
+| * / * | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
+
+>[!IMPORTANT]
+> * API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
 
 * **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
 
@@ -129,14 +139,27 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 
 
 ## <a name="troubleshooting"> </a>문제 해결
-네트워크를 변경할 때 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)를 참조하여 API Management 서비스에서 사용하는 중요한 리소스에 대한 액세스를 손실하지 않았는지에 대한 유효성을 검사합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
+* **초기 설정**: API Management 서비스를 서브넷으로 초기 배포하는 작업이 성공하지 않는 경우 먼저 동일한 서브넷에 가상 컴퓨터를 배포하는 것이 좋습니다. 그런 다음 원격 데스크톱을 가상 컴퓨터에 연결하고 사용자의 Azure 구독 아래 각 리소스에 대한 연결이 구축되었는지 확인합니다. 
+    * Azure Storage Blob
+    * Azure SQL Database
+
+ > [!IMPORTANT]
+ > 연결을 검증한 후에는 서브넷에 배포된 리소스를 모두 제거한 다음 API Management를 서비넷으로 배포합니다.
+
+* **증분 업데이트**: 네트워크를 변경할 경우 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)를 참조하여 API Management 서비스가 중요 리소스에 대한 액세스를 손실하지 않았는지에 대한 유효성을 검사합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
+
+* **리소스 탐색 링크**: 리소스 관리자 스타일 Vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다. 
+
+## <a name="routing"> </a> 라우팅
++ 모든 서비스 끝점에 대한 액세스를 제공하기 위해 부하 분산된 VIP(공용 IP 주소)가 예약됩니다.
++ 서브넷 IP 범위의 IP 주소(DIP)는 VNet 내의 리소스에 액세스하는 데 사용되고 Vnet과 공용 IP 주소(VIP)는 VNet 외부 리소스에 액세스하는 데 사용됩니다.
++ 부하 분산된 공용 IP 주소는 Azure Portal의 개요/기본 정보 블레이드에서 확인할 수 있습니다.
 
 ## <a name="limitations"> </a>제한 사항
 * API 관리 인스턴스가 포함된 서브넷은 다른 Azure 리소스 종류를 포함할 수 없습니다.
 * 서브넷과 API 관리 서비스는 동일한 구독에 있어야 합니다.
 * API 관리 인스턴스가 포함된 서브넷은 구독 간에 이동할 수 없습니다.
-* 내부 가상 네트워크를 사용할 때는 [RFC 1918](https://tools.ietf.org/html/rfc1918)에 명시된 범위의 내부 IP 주소만 사용할 수 있으며 공용 IP 주소를 제공할 수 없습니다.
-* 내부 가상 네트워크가 구성된 다중 하위 지역 API Management 배포의 경우 사용자가 DNS를 소유하므로 자신의 부하 분산을 직접 관리해야 합니다.
+* 내부 가상 네트워크 모드에서 구성된 다중 지역 API Management 배포의 경우 사용자는 라우팅을 소유하는 여러 지역 사이에서 부하 분산을 관리할 책임이 있습니다.
 
 
 ## <a name="related-content"> </a>관련 콘텐츠
@@ -157,4 +180,3 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
-

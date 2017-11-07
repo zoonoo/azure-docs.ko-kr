@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
 미사용 암호화는 일반적으로 반도체 드라이브(SSD) 및 하드 디스크(HDD)와 같은 비휘발성 저장소 장치에서 데이터를 암호화하는 것을 말합니다. Cosmos DB는 해당 주 데이터베이스를 SSD에 저장합니다. 해당 미디어 첨부 파일 및 백업은 일반적으로 HDD로 백업되는 Azure Blob Storage에 저장됩니다. Cosmos DB에 대한 미사용 암호화가 릴리스됨에 따라 모든 데이터베이스, 미디어 첨부 파일 및 백업이 암호화됩니다. 이제 데이터는 전송 중(네트워크를 통해)과 미사용 시(비휘발성 저장소) 암호화되므로 종단 간 암호화가 가능합니다.
@@ -71,4 +68,3 @@ A: 에뮬레이터는 독립 실행형 개발/테스트 도구이며 관리되�
 
 Cosmos DB 보안 및 최신 개선 사항에 대한 개요는 [Azure Cosmos DB 데이터베이스 보안](database-security.md)을 참조하세요.
 Microsoft 인증에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/en-us/support/trust-center/)를 참조하세요.
-

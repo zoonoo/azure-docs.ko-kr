@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 소개: DocumentDB API
 
@@ -111,5 +110,4 @@ Cosmos DB 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대�
 Azure 계정이 있나요? 그러면 계정을 만들고 Cosmos DB를 시작하는 과정을 안내하는 [빠른 시작](../cosmos-db/create-documentdb-dotnet.md)을 따라 Azure Cosmos DB를 시작할 수 있습니다.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
 

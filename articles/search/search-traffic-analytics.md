@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-search-traffic-analytics"></a>검색 트래픽 분석이란
 검색 트래픽 분석은 검색 서비스에 대한 피드백 루프를 구현하기 위한 패턴입니다. 이 패턴은 필요한 데이터 및 여러 플랫폼에서 서비스를 모니터링할 수 있는 업계 선두 제품인 Application Insights를 사용하여 필요한 데이터를 수집하는 방법을 설명합니다.
 
@@ -176,11 +175,11 @@ Power BI Desktop 템플릿을 인스턴스화하려면 Application Insights에 �
 
 Power BI Desktop 템플릿에 포함된 메트릭:
 
-*    CTR(클릭률): 특정 문서를 클릭한 사용자와 총 검색 수의 비율.
-*    클릭 없이 검색: 클릭을 등록하지 않는 상위 쿼리를 일컫는 용어
-*    최다 클릭 문서: 최근 24시간, 7일 및 30일 동안 ID별로 클릭 횟수가 가장 많은 문서.
-*    인기 용어-문서 쌍: 같은 문서를 클릭하는 결과로 이어진 용어이며 클릭 수를 기준으로 정렬됩니다.
-*    시간 대비 클릭: 검색 쿼리 이후 시간 별로 버킷 구성된 클릭
+*   CTR(클릭률): 특정 문서를 클릭한 사용자와 총 검색 수의 비율.
+*   클릭 없이 검색: 클릭을 등록하지 않는 상위 쿼리를 일컫는 용어
+*   최다 클릭 문서: 최근 24시간, 7일 및 30일 동안 ID별로 클릭 횟수가 가장 많은 문서.
+*   인기 용어-문서 쌍: 같은 문서를 클릭하는 결과로 이어진 용어이며 클릭 수를 기준으로 정렬됩니다.
+*   시간 대비 클릭: 검색 쿼리 이후 시간 별로 버킷 구성된 클릭
 
 ![Application Insights에서 읽기 위한 Power BI 템플릿][3]
 
@@ -196,4 +195,3 @@ Application Insights에 대한 추가 정보는 [여기](https://go.microsoft.co
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
 [2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
 [3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
-

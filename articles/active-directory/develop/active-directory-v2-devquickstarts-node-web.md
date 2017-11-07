@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Node.js 웹앱에 로그인 추가
 
@@ -423,5 +421,4 @@ Passport는 모든 전략(Twitter, Facebook 등)에 유사한 패턴을 사용�
 
 ### <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 보안 사고가 발생할 때 알림을 받으려면 등록하는 것이 좋습니다. [Microsoft 기술 보안 알림](https://technet.microsoft.com/security/dd252948) 페이지에서 보안 권고 알림을 구독합니다.
-
 

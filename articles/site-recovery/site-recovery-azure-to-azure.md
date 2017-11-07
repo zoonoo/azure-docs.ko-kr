@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 지역 간 Azure VM 복제
 
 >[!NOTE]
@@ -148,4 +145,3 @@ Azure 지역 간의 VM 복제를 설정하기 위해 수행해야 하는 작업�
 
 - 여러 장애 조치(failover) 유형 및 장애 조치(failover) 실행 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
 - [복구 계획을 사용](site-recovery-create-recovery-plans.md)하여 RTO를 줄이는 방법에 대해 자세히 알아봅니다.
-

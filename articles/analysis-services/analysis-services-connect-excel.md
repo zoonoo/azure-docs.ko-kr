@@ -4,7 +4,7 @@ description: "Excel을 사용하여 Azure Analysis Services 서버에 연결하�
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 7597792a525583497ec6a400e668eda2adc9a93e
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
@@ -47,6 +46,5 @@ Excel 2016에서 Get Data를 사용하여 Excel에서 서버에 연결합니다.
 ## <a name="see-also"></a>참고 항목
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [서버 관리](analysis-services-manage.md)     
-
 
 

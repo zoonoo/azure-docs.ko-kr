@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>StorSimple 데이터 관리자 서비스 UI를 사용하여 관리(비공개 미리 보기)
 
 이 문서에서는 StorSimple 데이터 관리자 UI를 사용하여 StorSimple 8000 시리즈 장치에 있는 데이터에 대한 데이터 변환을 수행하는 방법을 설명합니다. 그러면 Azure Media Services, Azure HDInsight, Azure Machine Learning 및 Azure Search와 같은 다른 Azure 서비스에서 변환된 데이터를 사용할 수 있습니다. 
@@ -109,8 +109,3 @@ StorSimple에서 작업 정의에 지정된 저장소 계정으로 데이터를 
 ## <a name="next-steps"></a>다음 단계
 
 [.NET SDK를 사용하여 StorSimple 데이터 관리자 작업을 시작합니다](storsimple-data-manager-dotnet-jobs.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

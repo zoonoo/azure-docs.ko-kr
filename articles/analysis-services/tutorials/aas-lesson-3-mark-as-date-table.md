@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 날짜 테이
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: c62f2726fef5219155a08b70c61162c914600d1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>단원 3: 날짜 테이블로 표시
 
@@ -60,4 +59,3 @@ DAX 시간 인텔리전스 함수를 사용할 때마다, 나중에 측정값을
 ## <a name="whats-next"></a>다음 작업
 [단원 4: 관계 만들기](../tutorials/aas-lesson-4-create-relationships.md)
   
-

@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 통과 인증: 스마트 잠금
 
 ## <a name="overview"></a>개요
@@ -45,6 +43,9 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 1.  Azure AD의 잠금 임계값은 AD의 계정 잠금 임계값보다 _작아야_ 합니다. AD의 계정 잠금 임계값은 Azure AD의 잠금 임계값보다 2-3배 이상은 크게 설정하는 것이 좋습니다.
 2.  Azure AD의 잠금 기간(초 단위)이 AD의 다음 시간 이후 계정 잠금 재설정(분 단위)보다 _길어야_ 합니다.
 
+>[!IMPORTANT]
+>현재 관리자는 사용자의 클라우드 계정이 스마트 잠금 기능에서 잠긴 경우 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.
+
 ## <a name="verify-your-ad-account-lockout-policies"></a>AD 계정 잠금 정책 확인
 
 다음 지침을 사용하여 AD 계정 잠금 정책을 확인합니다.
@@ -56,7 +57,7 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 
 ![AD 계정 잠금 정책](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>Graph API를 사용하여 테넌트의 스마트 잠금 값 관리
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Graph API를 사용하여 테넌트의 스마트 잠금 값 관리(프리미엄 라이선스 필요)
 
 >[!IMPORTANT]
 >그래픽 API를 사용하여 Azure AD의 잠금 임계값 및 잠금 기간을 수정하는 것은 Azure AD Premium P2 기능입니다.  또한 사용자가 테넌트에서 전역 관리자여야 합니다.
@@ -79,7 +80,7 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 1. Graph 탐색기에 테넌트의 전역 관리자로 로그인합니다. 메시지가 표시되면 요청된 권한에 대해 액세스를 부여합니다.
 2. "권한 수정"을 클릭하고 "Directory.ReadWrite.All" 권한을 선택합니다.
 3. Graph API 요청을 다음과 같이 구성합니다. 버전을 "BETA"로, 요청 유형을 "POST"로, URL을 `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`로 설정합니다.
-4. 다음 JSON 요청을 복사하여 "요청 본문" 필드에 붙여 넣습니다. 스마트 잠금 값을 적절하게 변경하고 `templateId`에 대해 임의의 GUID를 사용합니다.
+4. 다음 JSON 요청을 복사하여 "요청 본문" 필드에 붙여 넣습니다.
 5. "쿼리 실행"을 클릭하여 테넌트의 스마트 잠금 값을 설정합니다.
 
 ```
@@ -149,4 +150,3 @@ Azure AD는 무차별 암호 대입 공격으로부터 보호하고 실제 사�
 
 ## <a name="next-steps"></a>다음 단계
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/01/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Windows Server 호스트에 StorSimple 가상 배열에 대한 다중 경로 I/O 구성
 ## <a name="overview"></a>개요
@@ -157,5 +157,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 배열에 생성된 볼륨이
    
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열을 관리](storsimple-virtual-array-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
 

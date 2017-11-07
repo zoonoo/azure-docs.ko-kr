@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Azure 상의 응용 프로그램 아키텍처
 Microsoft Azure에서 클라우드 기반 솔루션의 보안을 유지하려면 견고한 아키텍처 기초가 중요합니다. 설계자, 디자이너 및 구현자는 모두 응용 프로그램 및 서비스 아키텍처의 풍부한 지식을 활용합니다. 이러한 기본 지식은 모든 클라우드 기반 솔루션의 구성 요소를 이해하고 디자인 및 구현의 모든 측면으로 보안을 손쉽게 통합하는 데 도움이 됩니다.
@@ -56,4 +55,3 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 * [교육 비디오를 시청](http://aka.ms/3dBlueprintTemplateVideo) 하여 이 템플릿으로 무엇을 할 수 있는지 알아보십시오.
 * [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate)
 * [클라우드 및 엔터프라이즈 기호](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) 를 다운로드하여 3D 템플릿과 함께 사용
-

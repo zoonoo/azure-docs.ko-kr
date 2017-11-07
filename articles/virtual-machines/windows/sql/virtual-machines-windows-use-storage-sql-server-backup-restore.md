@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure 저장소 사용
 ## <a name="overview"></a>개요
@@ -77,5 +76,4 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 문제가 발생하는 경우 [URL에 대한 SQL Server 백업 - 최상의 방법 및 문제 해결](https://msdn.microsoft.com/library/jj919149.aspx)항목을 검토하세요.
 
 기타 SQL Server 백업 및 복원 옵션에 대해서는 [Azure Virtual Machines에서 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
-
 

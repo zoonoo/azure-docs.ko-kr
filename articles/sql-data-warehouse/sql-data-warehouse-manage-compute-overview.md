@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/22/2017
+ms.date: 3/23/2017
 ms.author: elbutter
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL 데이터 웨어하우스의 계산 능력 관리(개요)
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.lasthandoff: 04/12/2017
 
 SQL 데이터 웨어하우스는 저장소와 계산을 분리하여 각각의 성능을 독립적으로 조정할 수 있습니다. 따라서 데이터 양에 관계 없이 성능 요구 사항에 맞게 계산을 확장할 수 있습니다. 이 아키텍처의 자연스러운 결과는 계산 및 저장소에 대한 [청구][billed]가 분리되어 있다는 것입니다. 
 
-이 개요에서는 SQL Data Warehouse에서 규모 확장이 작동하는 방법과 SQL Data Warehouse의 일시 중지, 다시 시작 및 확장 기능을 활용하는 방법에 대해 설명합니다. DWU(데이터 웨어하우스 단위)와 성능 간의 관계에 대해 알아 보려면 [DWU][data warehouse units (DWUs)] 페이지를 참조하세요. 
+이 개요에서는 SQL Data Warehouse에서 규모 확장이 작동하는 방법과 SQL Data Warehouse의 일시 중지, 다시 시작 및 확장 기능을 활용하는 방법에 대해 설명합니다. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>SQL Data Warehouse에서 계산 관리 작업이 작동하는 방법
 SQL Data Warehouse의 아키텍처는 제어 노드, 계산 노드 및 60개 배포판으로 분산된 저장소 계층으로 구성됩니다. 
@@ -87,10 +86,10 @@ SQL Data Warehouse의 정상적인 활성 세션 동안 메타데이터를 관�
 
 ## <a name="scale-compute"></a>계산 조정
 
-SQL Data Warehouse의 성능은 CPU, 메모리 및 I/O 대역폭과 같은 계산 리소스를 추상화한 측정값인 [DWU(데이터 웨어하우스 단위)][data warehouse units (DWUs)]로 측정됩니다. 시스템 성능을 조정하려는 사용자는 포털, T-SQL 및 REST API와 같은 다양한 방법을 통해 시스템 성능을 조정할 수 있습니다. 
+SQL Data Warehouse의 성능은 CPU, 메모리, I/O 대역폭과 같은 계산 리소스를 추상화한 측정값인 [DWU(데이터 웨어하우스 단위)][DWU(데이터 웨어하우스 단위)]로 측정됩니다. 시스템 성능을 조정하려는 사용자는 포털, T-SQL 및 REST API와 같은 다양한 방법을 통해 시스템 성능을 조정할 수 있습니다. 
 
 ### <a name="how-do-i-scale-compute"></a>계산 크기는 어떻게 조정합니까?
-DWU 설정을 변경하여 SQL Data Warehouse에 대한 계산 성능을 관리합니다. 특정 작업에 대해 DWU를 더 많이 추가하면 성능이 [선형적으로][linearly] 향상됩니다.  시스템을 강화하거나 축소할 때 성능이 눈에 띄게 변경되는 DWU 제품을 제공합니다. 
+DWU 설정을 변경하여 SQL Data Warehouse에 대한 계산 성능을 관리합니다. 특정 작업에 대해 DWU를 더 많이 추가하면 성능이 이에 비례하여 향상됩니다.  시스템을 강화하거나 축소할 때 성능이 눈에 띄게 변경되는 DWU 제품을 제공합니다. 
 
 DWU를 조정할 경우 다음과 같은 개별 방법을 사용할 수 있습니다.
 
@@ -182,9 +181,7 @@ DWU 성능 조정 시기에 대한 권장 사항:
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
@@ -220,4 +217,3 @@ DWU 성능 조정 시기에 대한 권장 사항:
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
-

@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/23/2017
+ms.date: 09/25/2017
 ms.author: raynew
+ms.openlocfilehash: 202e0ac8be36e9156ec16fadc1b722f4eb3d1432
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="create-recovery-plans"></a>복구 계획 만들기
 
 
 이 문서는 [Azure Site Recovery](site-recovery-overview.md)에서 복구 계획을 만들고 사용자 지정하는 정보를 제공합니다.
 
-이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
  다음을 수행하는 복구 계획을 만듭니다.
 
@@ -77,10 +76,13 @@ ms.lasthandoff: 08/12/2017
 * VMM 배포에 최소 1개의 라이브러리 서버가 있는지 확인합니다. 기본적으로 라이브러리는 VMM 서버에 대한 경로를 공유하며, MSCVMMLibrary라는 폴더 이름으로 VMM 서버에 로컬로 위치해 있습니다.
     * 라이브러리 공유 경로가 원격인 경우(또는 로컬이지만 MSCVMMLibrary와 공유하지 않는 경우), 공유를 다음처럼 구성합니다(\\libserver2.contoso.com\share\를 예제로 사용).
       * 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**으로 이동합니다.
-      * **ScriptLibraryPath** 값을 편집하고 \\libserver2.contoso.com\share\.로 입력합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다.
+      * **ScriptLibraryPath** 값을 편집하고 \\libserver2.contoso.com\share\.로 입력합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이 노드는 공유의 루트 노드입니다. **VMM의 루트 노드에서 라이브러리 찾아이것을 확인할 수 있습니다. 열리는 경로가 경로의 루트이며 변수에서 사용해야 할 경로입니다**.
       * VMM 서비스 계정과 동일한 권한을 가진 사용자 계정을 사용하여 스크립트를 테스트해야 합니다. 테스트된 독립 실행형 스크립트가 복구 계획과 동일한 방식으로 실행되는지 확인합니다. VMM 서버에서 실행 정책을 다음과 같이 우회하도록 설정합니다.
-        * 상승된 권한을 사용하여 64 비트 Windows PowerShell 콘솔을 엽니다.
-        * 유형: **Set-executionpolicy bypass**. [자세히 알아보세요](https://technet.microsoft.com/library/ee176961.aspx)을 확인하세요.
+        * 상승된 권한을 사용하여 **64비트 Windows PowerShell** 콘솔을 엽니다.
+        * 유형: **Set-executionpolicy bypass**. [자세히 알아봅니다](https://technet.microsoft.com/library/ee176961.aspx).
+
+> [!IMPORTANT]
+> 64비트 PowerShell에서만 실행 정책을 바이패스로 설정해야 합니다. 32비트 PowerShell에 설정하면 스크립트가 실행되지 않습니다.
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>계획에 스크립트 또는 수동 작업 추가
 
@@ -106,4 +108,3 @@ VMM 원본 사이트가 있는 경우 VMM 서버에 스크립트를 생성하고
 ## <a name="next-steps"></a>다음 단계
 
 장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
-

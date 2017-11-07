@@ -15,12 +15,11 @@ ms.workload8: na
 ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
+ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: bc543cdf3d375076af5b5f17f8ca216dd5bf72b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
 이 문서는 Azure 로그 통합에 대한 FAQ(질문과 대답)입니다. 
@@ -133,4 +132,3 @@ Azure Network Watcher는 많은 양의 로깅 정보를 생성합니다. 이 로
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-

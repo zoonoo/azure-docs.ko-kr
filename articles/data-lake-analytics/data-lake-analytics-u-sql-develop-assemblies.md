@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Azure Data Lake Analytics 작업용 U-SQL 어셈블리 개발
 코드 숨김을 Data Lake Analytics 작업에 사용 및 재사용되는 어셈블리로 전환하는 방법을 알아봅니다. 

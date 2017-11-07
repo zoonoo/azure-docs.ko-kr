@@ -3,7 +3,7 @@ title: "Azure CLI 2.0을 사용하여 Azure DNS 시작 | Microsoft Docs"
 description: "Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure CLI 2.0을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumuD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,15 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/25/2017
-
+ms.author: kumud
+ms.openlocfilehash: adcbe69abca72aa0372b78eb357efdc56acf1c26
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS 시작
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 �
 Azure DNS에서 DNS 영역 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 영역 관리](dns-operations-dnszones-cli.md)를 참조하세요.
 
 Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
-

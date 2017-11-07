@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal을 사용하여 VM으로 포트 열기 | Microsoft Docs"
-description: "Azure Portal의 리소스 관리자 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
+description: "Azure 포털의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -61,5 +60,5 @@ ms.lasthandoff: 08/23/2017
 ## <a name="next-steps"></a>다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
-* [Azure 리소스 관리자 개요](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)
 * [NSG(네트워크 보안 그룹)란?](../../virtual-network/virtual-networks-nsg.md)

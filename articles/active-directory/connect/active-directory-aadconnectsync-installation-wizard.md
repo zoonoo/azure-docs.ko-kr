@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: f18e11ac7482b78925d1885ceb20696146603ad2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
 처음으로 Azure AD Connect 설치 마법사를 실행하는 경우 설치를 구성하는 방법을 안내합니다. 설치 마법사를 다시 실행하는 경우 유지 관리에 대한 옵션을 제공합니다.
@@ -91,4 +90,3 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

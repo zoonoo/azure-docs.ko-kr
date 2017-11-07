@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
+ms.openlocfilehash: 7e3837582e2020dc560a2b624352f7326ea87c3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5abf1d80a62344f93d4c5491adba65a3e7400258
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-device-management-java"></a>장치 관리 시작(Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
@@ -158,6 +156,12 @@ ms.lasthandoff: 08/09/2017
         }
       }
     }
+    ```
+
+1. 다음 예외를 throw하도록 **main** 메서드의 서명을 수정합니다.
+
+    ```java
+    public static void main(String[] args) throws IOException
     ```
 
 1. 시뮬레이트된 장치에서 재부팅 직접 메서드를 호출하려면 **main** 메서드에 다음 코드를 추가합니다.

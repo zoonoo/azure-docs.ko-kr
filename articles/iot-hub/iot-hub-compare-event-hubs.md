@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
+ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12389b4be03b714d99edcf3fd621bd2d9c586540
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Azure IoT Hub 및 Azure Event Hubs의 비교
 IoT Hub의 주요 사용 사례 중 하나는 장치에서 원격 분석을 수집하는 것입니다. 이러한 이유로 IoT Hub를 [Azure Event Hubs][Azure Event Hubs]와 자주 비교합니다. IoT Hub와 마찬가지로 Event Hubs는 짧은 대기 시간 및 높은 안정성으로 엄청난 규모의 클라우드에 이벤트 및 원격 분석을 가능하게 하는 이벤트 처리 서비스입니다.
@@ -30,11 +29,11 @@ IoT Hub의 주요 사용 사례 중 하나는 장치에서 원격 분석을 수�
 | --- | --- | --- |
 | 통신 패턴 | [장치-클라우드 통신][lnk-d2c-guidance](메시징, 파일 업로드 및 reported 속성) 및 [클라우드-장치 통신][lnk-c2d-guidance](직접 메서드, desired 속성, 메시징)을 사용합니다. |이벤트 수신만(일반적으로 장치-클라우드 시나리오에 대해 고려됨)만 가능합니다. |
 | 장치 상태 정보 | [장치 쌍][lnk-twins]은 장치 상태 정보를 저장하고 쿼리할 수 있습니다. | 어떤 장치 상태 정보도 저장할 수 없습니다. |
-| 장치 프로토콜 지원 |MQTT, WebSocket을 통한 MQTT, AMQP, WebSocket을 통한 AMQP 및 HTTP를 지원합니다. 또한 IoT Hub는 사용자 지정 가능한 프로토콜 게이트웨이 구현인 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]에서 작동하여 사용자 지정 프로토콜을 지원합니다. |AMQP, WebSocket을 통한 AMQP 및 HTTP를 지원합니다. |
+| 장치 프로토콜 지원 |MQTT, WebSocket을 통한 MQTT, AMQP, WebSocket을 통한 AMQP 및 HTTPS를 지원합니다. 또한 IoT Hub는 사용자 지정 가능한 프로토콜 게이트웨이 구현인 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]에서 작동하여 사용자 지정 프로토콜을 지원합니다. |AMQP, WebSocket을 통한 AMQP 및 HTTPS를 지원합니다. |
 | 보안 |장치 단위 ID 및 취소 가능한 액세스 제어를 제공합니다. [IoT Hub 개발자 가이드의 보안 섹션]을 참조하세요. |[게시자의 정책][Event Hubs publisher policies]을 통해 제한된 해지 지원을 포함하는 Event Hubs 전반의 [공유 액세스 정책][Event Hubs - security]을 제공합니다. IoT 솔루션은 종종 장치당 자격 증명 및 스푸핑 방지 측정을 지원하기 위해 사용자 지정 솔루션을 구현해야 합니다. |
 | 작업 모니터링 |IoT 솔루션을 사용하여 다양한 장치 ID 관리와 개별 인증 오류, 제한 및 잘못된 형식 예외 등의 연결 이벤트를 구독할 수 있습니다. 이러한 이벤트를 통해 개별 장치 수준에서 연결 문제를 신속 하게 식별할 수 있습니다. |집계 메트릭만 표시합니다. |
 | 확장 |수백만 대의 연결된 장치를 동시에 지원하도록 최적화됩니다. |[Azure Event Hubs 할당량][Azure Event Hubs quotas]에 따라 연결을 계측합니다. 반면에 이벤트 허브를 통해 사용자는 전송된 각 메시지에 파티션을 지정할 수 있습니다. |
-| 장치 SDK |직접 MQTT, AMQP 및 HTTP API 외에도 다양한 플랫폼 및 언어에 대해 [장치 SDK][Azure IoT SDKs]를 제공합니다. |AMQP 및 HTTP 전송 인터페이스 외에도 .NET, Java 및 C에서 지원됩니다. |
+| 장치 SDK |직접 MQTT, AMQP 및 HTTPS API 외에도 다양한 플랫폼 및 언어에 대해 [장치 SDK][Azure IoT SDKs]를 제공합니다. |AMQP 및 HTTPS 전송 인터페이스 외에도 .NET, Java 및 C에서 지원됩니다. |
 | 파일 업로드 |IoT 솔루션을 사용하여 장치에서 클라우드로 파일을 업로드합니다. 워크플로 통합에 대한 파일 알림 끝점과 디버깅 지원에 대한 작업 모니터링 범주를 포함합니다. | 지원되지 않습니다. |
 | 메시지를 여러 끝점으로 라우팅 | 최대 10개의 사용자 지정 끝점이 지원됩니다. 규칙은 메시지가 사용자 지정 끝점으로 라우팅되는 방식을 결정합니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기][lnk-devguide-messaging]를 참조하세요. | 메시지 디스패치를 위해서는 추가 코드를 쓰고 호스트해야 합니다. |
 
@@ -66,4 +65,3 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-

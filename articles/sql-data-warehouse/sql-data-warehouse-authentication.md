@@ -16,13 +16,11 @@ ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 대한 인증
 > [!div class="op_single_selector"]
@@ -100,4 +98,3 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
-

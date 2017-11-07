@@ -10,17 +10,16 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/15/2017
+ms.date: 10/11/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 2291088b3d8e50f4e8143bf8560580e89db4cae3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 668e7d18951412e9649e2f5273a4ef1116ee8117
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/02/2017
 
 > [!IMPORTANT] 
 > Azure SQL Database 자동화된 내보내기는 2017년 3월 1일에 사용이 중지되었습니다. [장기 백업 보존](sql-database-long-term-retention.md
-) 또는 [Azure Automation](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)을 사용하여 선택한 일정에 따라 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플의 경우 GitHub에서 [샘플 PowerShell 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드합니다.
+) 또는 [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)을 사용하여 선택한 일정에 따라 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플의 경우 GitHub에서 [샘플 PowerShell 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드합니다.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL Database를 내보낼 경우 고려 사항
@@ -51,7 +50,7 @@ ms.lasthandoff: 08/02/2017
 
 ![데이터베이스 내보내기](./media/sql-database-export/database-export.png)
 
-내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **가져오기/내보내기** 기록을 클릭합니다.
+내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **Import/Export** 기록을 클릭합니다.
 
 ![내보내기 기록](./media/sql-database-export/export-history.png)
 ![내보내기 기록 상태](./media/sql-database-export/export-history2.png)
@@ -104,4 +103,3 @@ $exportStatus
 * SQL Server Database에 BACPAC를 가져오는 방법에 대해 자세히 알아보려면 [SQL Server Database로 BACPCAC 가져오기](https://msdn.microsoft.com/library/hh710052.aspx)를 참조하세요.
 * SQL Server Database에서 BACPAC를 내보내는 방법을 알아보려면 [데이터 계층 응용 프로그램 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) 및 [첫 번째 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
 * 마이그레이션에 대한 사전 준비로 SQL Server에서 Azure SQL Database로 내보내는 경우 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
-

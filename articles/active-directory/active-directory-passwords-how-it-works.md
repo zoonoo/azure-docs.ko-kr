@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -78,7 +77,7 @@ SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으�
 
 사용자는 관리자가 사용하도록 설정하고 요구하는 인증 방법으로 데이터를 표시하는 경우에만 자신의 암호를 재설정할 수 있습니다.
 
-사용자가 자신의 휴대폰 번호를 디렉터리에 표시하지 않고 다만 암호 재설정을 위해서만 사용하려는 경우 관리자는 해당 번호를 디렉터리에서 채우지 않아야 하며 사용자는 [암호 재설정 등록 포털](http://aka.ms/ssprsetup)을 통해 자신의 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에는 게시되지 않습니다. Azure 관리자 계정이 해당 인증 전화 번호를 등록하는 경우 휴대폰 필드로 채워지고 표시됩니다.
+사용자가 자신의 휴대폰 번호를 디렉터리에 표시하지 않고 다만 암호 재설정을 위해서만 사용하려는 경우 관리자는 해당 번호를 디렉터리에서 채우지 않아야 하며 사용자는 [암호 재설정 등록 포털](http://aka.ms/ssprsetup)을 통해 자신의 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에는 게시되지 않습니다.
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
 
@@ -274,5 +273,4 @@ Azure AD Connect 유틸리티에서 지정된 계정에는 암호 재설정, 암
 * [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-
 

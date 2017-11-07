@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Azure 파일 저장소와 함께 저장소 탐색기(미리 보기) 사용
 
 Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure 파일 저장소를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. 파일 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 저장소 탐색기(미리 보기)를 사용하여 파일 공유 및 파일 작업을 하는 방법을 알아봅니다.
@@ -262,4 +261,3 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 - [최신 저장소 탐색기(미리 보기) 릴리스 정보 및 비디오](http://www.storageexplorer.com/)를 보세요.
 
 - [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
-

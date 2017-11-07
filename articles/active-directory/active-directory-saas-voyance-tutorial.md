@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: e860b810904fb7972d75d55d913d5622ff9a406a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>자습서: Azure Active Directory와 Voyance 통합
 
@@ -261,5 +260,4 @@ Voyance에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [201]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_203.png
-
 

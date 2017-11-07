@@ -10,24 +10,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/29/2017
 ms.author: bwren
+ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 4955f90de06cd720d78c5bb60c0adcd7dc633245
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Log Analytics 프로세스 자동화
 [Microsoft Flow](https://ms.flow.microsoft.com)를 사용하면 다양한 서비스에 수백 가지 작업을 통해 자동화된 워크플로를 만들 수 있습니다. 한 작업의 출력을 서로 다른 서비스 간의 통합을 만들 수 있는 다른 작업에 대한 입력으로 사용할 수 있습니다.  Microsoft Flow에 대한 Azure Log Analytics 커넥터를 사용하면 Log Analytics의 로그 검색으로 검색한 데이터를 포함하는 워크플로를 빌드할 수 있습니다.
 
 예를 들어 Microsoft Flow를 통해 Office 365의 전자 메일 알림에서 Log Analytics 데이터를 사용하거나, Visual Studio Team Services에서 버그를 만들거나, Slack 메시지를 게시할 수 있습니다.  메일이나 트윗이 수신될 때와 같이 연결된 서비스의 일부 작업 또는 단순 일정에서 워크플로를 트리거할 수 있습니다.  
-
-
-> [!NOTE]
-> Microsoft Flow에 대한 Azure Log Analytics 커넥터를 위해서는 작업 영역을 새로운 Log Analytics 쿼리 언어로 업그레이드해야 합니다. [Azure Log Analytics 작업 영역을 새 로그 검색으로 업그레이드](log-analytics-log-search-upgrade.md)에서 새 언어에 대해 자세히 알아보고 작업 영역을 업그레이드하는 절차를 확인할 수 있습니다.  
 
 이 문서의 자습서에서는 Microsoft Flow의 Log Analytics 사용 방법에 관한 예제를 통해 Log Analytics 로그 검색의 결과를 전자 메일로 자동으로 보내는 흐름을 만드는 방법을 보여 줍니다. 
 
@@ -57,7 +51,7 @@ ms.lasthandoff: 08/10/2017
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
-    | sort by Computerindow. 
+    | sort by Computer
 ```
 
 2. **차트 형식**에 **HTML 테이블**을 선택합니다.<br><br>![Log Analytics 작업](media/log-analytics-flow-tutorial/flow03.png)
@@ -85,7 +79,6 @@ ms.lasthandoff: 08/10/2017
 
 - [Log Analytics의 로그 검색](log-analytics-log-search-new.md)에 대해 자세히 알아보세요.
 - [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.
-
 
 
 

@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 데이터를 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="lesson-2-get-data"></a>단원 2: 데이터 가져오기
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 이 단원에서는 SSDT의 데이터 가져오기를 사용하여 AdventureWorksDW2014 예제 데이터베이스에 연결하고 데이터를 선택하며, 미리 보기 및 필터를 수행한 후 모델 작업 영역으로 가져옵니다.  
   
 데이터 가져오기를 사용하여 Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, 파일 등 다양한 원본에서 데이터를 가져올 수 있습니다. 파워 쿼리 M 수식을 사용하여 데이터를 쿼리할 수도 있습니다.
+
+> [!NOTE]
+> 이 자습서의 작업 및 이미지는 온-프레미스 서버에서 AdventureWorksDW2014 데이터베이스에 대한 연결을 보여 줍니다. 경우에 따라 Azure에서 AdventureWorksDW2014 데이터베이스는 달라질 수 있습니다.
   
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
@@ -71,13 +72,19 @@ AdventureWorksDW2014 예제 데이터베이스의 테이블에는 모델에 포�
   
 #### <a name="to-filter-the-table-data-before-importing"></a>가져오기 전에 테이블 데이터를 필터링하려면  
   
-1.  쿼리 편집기에서 **DimCustomer** 테이블을 선택합니다. 데이터 원본(AdventureWorksDWQ2014 예제 데이터베이스)에서 DimCustomer 테이블 뷰가 나타납니다. 
+1.  쿼리 편집기에서 **DimCustomer** 테이블을 선택합니다. 데이터 원본(AdventureWorksDW2014 예제 데이터베이스)에서 DimCustomer 테이블 뷰가 나타납니다. 
   
 2.  **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**을 다중 선택(Ctrl + 클릭)한 후 마우스 오른쪽 단추를 클릭한 후 **열 제거**를 클릭합니다. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     이러한 열에 대한 값은 인터넷 판매 분석과 관련이 없으므로 이러한 열을 가져올 필요가 없습니다. 불필요한 열을 제거하여 모델을 더 작고 효율적으로 만듭니다.  
+
+    > [!TIP]
+    > 실수한 경우 **적용된 단계**에서 단계를 삭제하여 백업할 수 있습니다.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  각 테이블에서 다음 열을 제거하여 나머지 테이블을 필터링합니다.  
     
@@ -85,7 +92,7 @@ AdventureWorksDW2014 예제 데이터베이스의 테이블에는 모델에 포�
     
       |열|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ AdventureWorksDW2014 예제 데이터베이스의 테이블에는 모델에 포�
   
     **FactInternetSales**
   
-      |열|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      제거된 열이 없습니다.
   
 ## <a name="Import"></a>선택한 테이블 및 열 데이터 가져오기  
 이제 불필요한 데이터를 미리보고 필터링했으며 원하는 나머지 데이터를 가져올 수 있습니다. 마법사가 테이블 간의 관계와 함께 테이블 데이터를 가져옵니다. 모델에 새 테이블 및 열이 생성되고 필터링된 데이터는 가져오지 않습니다.  
@@ -160,4 +163,3 @@ AdventureWorksDW2014 예제 데이터베이스의 테이블에는 모델에 포�
 
   
   
-

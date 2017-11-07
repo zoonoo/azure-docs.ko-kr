@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 96d05bd6bdbe0006aa1f8fff7b518f11cebc5d0a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: ccab427857b1439f37f3d9f193e35a4fc2237014
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 대해 Single Sign-On을 구성하는 방법
 
 SSO(Single Sign-On)를 사용하면 사용자가 여러 번 인증하지 않고도 응용 프로그램에 액세스할 수 있습니다. Azure Active Directory에 대해 클라우드에서 단일 인증을 허용하고 서비스 또는 커넥터가 사용자를 가장하여 응용 프로그램에서 추가 인증 질문을 완료할 수 있습니다.
@@ -49,4 +47,3 @@ SSO를 구성하려면 먼저 응용 프로그램이 Azure Active Directory를 �
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-

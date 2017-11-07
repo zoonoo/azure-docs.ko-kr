@@ -71,10 +71,12 @@
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: 참조
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
+    - name: PowerShell
+      href: /powershell/module/azurerm.compute
     - name: REST (영문)
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: 리소스
   items:
     - name: Azure 로드맵

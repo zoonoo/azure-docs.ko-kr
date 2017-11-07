@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 끝점 개요 
 
@@ -106,11 +105,10 @@ CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 표준|**중지됨** 상�
 CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 프리미엄|**중지됨** 상태에서 허용됩니다. **시작됨** 상태에서 허용되지 않습니다. 클래식 CDN을 삭제하고 새로 만들어서 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

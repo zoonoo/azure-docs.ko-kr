@@ -1,9 +1,9 @@
 ---
-title: Enable FTP in App Service on Azure Stack | Microsoft Docs
-description: Steps to complete to enable FTP in App Service on Azure Stack
+title: "Azure Stack의 App Service에서 FTP를 사용하도록 설정 | Microsoft Docs"
+description: "Azure Stack의 App Service에서 FTP를 사용하도록 설정하기 위해 완료할 단계"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
+author: ErikjeMS
 manager: stefsch
 editor: 
 ms.assetid: 
@@ -13,45 +13,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
-ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: de37e12b47d566395717104de87a5dabc00fd5f4
-ms.openlocfilehash: 689e970cf0beb4ac05e1434f4f9a3b887d00005b
-ms.lasthandoff: 02/08/2017
-
-
+ms.author: erikje
+ms.openlocfilehash: 9cadc57831ac7f7e5d32b10a4a87dab3fac02958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-ftp-in-app-service-on-azure-stack"></a>Enable FTP in App Service on Azure Stack
+# <a name="enable-ftp-in-app-service-on-azure-stack"></a>Azure Stack의 App Service에서 FTP를 사용하도록 설정
 
-Once you have successfully deployed App Service on Azure Stack if you wish to enable FTP publishing, so that your tenants can upload their application files and content, there are some additional steps that need to be completed.  In future releases these steps will be automated.
+FTP 게시를 사용하도록 설정하려는 경우 Azure Stack에서 App Service를 성공적으로 배포했으면 테넌트에서 응용 프로그램 파일 및 콘텐츠를 업로드할 수 있으므로 완료해야 하는 추가 단계가 있습니다.  이후 릴리스에서는 이러한 단계가 자동화됩니다.
 
 > [!NOTE]
-> These steps are for Service or Enterprise Administrators configuring an App Service on Azure Stack Resource Provider.
+> 이러한 단계는 Azure Stack 리소스 공급자에서 App Service를 구성하는 서비스 또는 엔터프라이즈 관리자를 위한 것입니다.
 
-## <a name="enable-ftp"></a>Enable FTP
+## <a name="enable-ftp"></a>FTP를 사용하도록 설정
 
-1.  Log in to the Azure Stack portal as the service administrator.
-2.  Browse to **Network interfaces** and select the **FTP-NIC** under **Resource Group** - **AppService-LOCAL**. ![Azure Stack Network Interfaces][1]
-3.  Note the **Public IP Address** of the **FTP-NIC**. 
-![Azure Stack Network Interface Details][2]
-4.  Next Browse to **Virtual Machines** and select the **FTP0-VM**. ![Azure Stack Virtual Machines][3]
-5.  Open a remote desktop session to the VM using the **Connect** button and login to the session using the Administrator credentials you set during App Service deployment.  
-![Azure Stack Virtual Machine Details][4]
-6.  Open **Internet Information Service (IIS) Manager** on the FTP VM (FTP0-VM).
-7.  Under **Sites** select **Hosting FTP Site**.
-8.  Open **FTP Firewall Support**. ![IIS Manager on App Service FTP0-VM][5]
-9.  Enter the Public IP Address of the FTP-NIC and click **Apply** ![IIS Manager FTP Firewall Support][6]
+1.  서비스 관리자로 Azure Stack 포털에 로그인합니다.
+2.  **네트워크 인터페이스**로 이동한 후 **리소스 그룹** - **앱 서비스-로컬**에서 **FTP-NIC**를 선택합니다. ![Azure Stack 네트워크 인터페이스][1]
+3.  **FTP-NIC**의 **공용 IP 주소**를 적어둡니다. 
+![Azure Stack 네트워크 인터페이스 정보][2]
+4.  다음에는 **Virtual Machines**로 이동한 후 **FTP0-VM**을 선택합니다. ![Azure Stack Virtual Machines][3]
+5.  **연결** 단추를 사용하여 VM에 대한 원격 데스크톱 세션을 열고 App Service 배포 중에 설정한 관리자 자격 증명을 사용하여 세션에 로그인합니다.  
+![Azure Stack 가상 컴퓨터 정보][4]
+6.  FTP VM(FTP0-VM)에서 **IIS(인터넷 정보 서비스) 관리자**를 엽니다.
+7.  **사이트**에서 **FTP 호스트 사이트**를 선택합니다.
+8.  **FTP 방화벽 지원**을 엽니다. ![App Service FTP0-VM의 IIS 관리자][5]
+9.  FTP-NIC의 공용 IP 주소를 입력하고 **적용** ![IIS 관리자 FTP 방화벽 지원][6]을 클릭합니다.
 
-## <a name="validate-the-enabling-of-ftp"></a>Validate the enabling of FTP
+## <a name="validate-the-enabling-of-ftp"></a>FTP 사용 유효성 검사
 
-1.  Log in to the Azure Stack portal as either the service administrator or as a tenant.
-2.  Browse to **App Services** and select a Web, Mobile, or API App you have created. ![App Services][7]
-3.  In the application details note the **FTP Hostname** and **FTP/deployment username**. ![App Service App Details][8]
+1.  서비스 관리자 또는 테넌트로 Azure Stack 포털에 로그인합니다.
+2.  **App Services**로 이동한 후 만든 웹앱, 모바일 앱 또는 API 앱을 선택합니다. ![App Services][7]
+3.  응용 프로그램 세부 정보에서 **FTP 호스트 이름** 및 **FTP/배포 사용자 이름**을 적어둡니다. ![App Service 앱 정보][8]
 > [!NOTE]
-> If you do not see an entry under **FTP/deployment username**, you need to set the Deployment credentials first using the **Deployment Credentials** Blade.
+> **FTP/배포 사용자 이름** 아래에 아무 항목도 표시되지 않으면 먼저 **배포 자격 증명** 블레이드를 사용해서 배포 자격 증명을 설정해야 합니다.
 
-4.  Open Windows Explorer, enter the FTP hostname into the file address bar for example, ftp://ftp.appservice.azurestack.local
-5.  When prompted enter the **Deployment credentials** you noted in step 3, if the feature has been enabled you will see a directory listing of the app service application's contents. ![FTP File Listing][9]
+4.  Windows 탐색기를 열고 파일 주소 표시줄에 FTP 호스트 이름(예: ftp://ftp.appservice.azurestack.local)을 입력합니다.
+5.  **배포 자격 증명**을 입력하도록 요구되면 3단계에서 적어둔 정보를 입력합니다. 이 기능이 사용되도록 설정되면 App Service의 응용 프로그램 콘텐츠를 포함하는 디렉터리 목록이 표시됩니다. ![FTP 파일 나열][9]
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interfaces.png
 [2]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interface-details.png
@@ -62,4 +61,3 @@ Once you have successfully deployed App Service on Azure Stack if you wish to en
 [7]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-services.png
 [8]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-service-app-detail.png
 [9]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-ftp-file-listing.png
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HDFS 문제 해결
 
 Apache Ambari에서 HDFS(Hadoop 분산 파일 시스템) 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
@@ -234,4 +232,3 @@ HDInsight 클러스터 규모가 매우 적은 수의 노드로 축소되었습�
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
-

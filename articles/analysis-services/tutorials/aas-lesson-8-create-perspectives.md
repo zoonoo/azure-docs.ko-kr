@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 큐브 뷰를
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 491500909b0de0360afae45e172e85999d764fe0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: a8bb8748d4fe39d664055549564d08524cdc80f3
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-8-create-perspectives"></a>단원 8: 큐브 뷰 만들기
 
@@ -59,4 +58,3 @@ ms.lasthandoff: 06/03/2017
   
   
   
-

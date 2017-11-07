@@ -1,6 +1,6 @@
 ---
 title: "Azure의 Linux VM 개요 | Microsoft Docs"
-description: "Linux 가상 컴퓨터를 사용하여 Azure 계산, 저장소 및 네트워킹 서비스를 설명합니다."
+description: "Linux 가상 컴퓨터를 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
 Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, Virtual Machines, 데이터베이스, 모바일, 네트워킹, 저장소 및 웹을 비롯한 나날이 다양해지는 통합 공용 클라우드 서비스입니다.  Microsoft Azure는 온-프레미스 하드웨어에 투자하지 않고 원하는 때에 사용에 대한 비용을 지불할 수 있도록 확장할 수 있는 계산 플랫폼을 제공합니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.
@@ -42,14 +41,14 @@ Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리
 또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. Managed Disks에 대한 자세한 내용은 [Managed Disks 개요](../windows/managed-disks-overview.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines--instances"></a>Azure Virtual Machines 및 인스턴스
-Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾습니다. 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 목록에 다양한 옵션을 추가합니다.
+Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure Marketplace에서 Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾습니다. 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 목록에 다양한 옵션을 추가합니다.
 
 선택한 기본 Linux 배포가 현재 갤러리에 없는 경우 [Azure에서 Linux VHD 만들기 및 업로드](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 따라 "직접 Linux" VM을 가져올 수 있습니다.
 
 Azure 가상 컴퓨터를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 거의 모든 운영 체제(Windows, Linux 또는 증가하는 파트너 목록 중 하나에서 사용자 지정으로 만든 운영 체제)에서 거의 모든 워크로드 및 언어를 배포할 수 있습니다. 그래도 원하는 내용이 표시되지 않나요?  걱정하지 마세요. 온-프레미스에서 고유한 이미지를 가져올 수 있습니다.
 
 ## <a name="vm-sizes"></a>VM 크기
-Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈 중 하나에서 VM 크기를 선택하게 됩니다. 크기는 가상 컴퓨터의 처리 성능, 메모리 및 저장소 용량에 영향을 줍니다. VM이 할당된 리소스를 실행하고 소비하는 시간에 따라 청구됩니다. [Virtual Machine 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 전체 목록입니다.
+Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈 중 하나에서 VM 크기를 선택하게 됩니다. 크기는 가상 컴퓨터의 처리 성능, 메모리 및 저장소 용량에 영향을 줍니다. VM이 할당된 리소스를 실행하고 소비하는 시간에 따라 청구됩니다. [Virtual Machines 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 전체 목록입니다.
 
 다음은 시리즈(A, D, DS, G 및 GS) 중 하나에서 VM 크기를 선택하기 위한 몇 가지 기본 지침입니다.
 * A 시리즈 VM은 간단한 워크로드 및 개발/테스트 시나리오에 대한 초급 수준의 VM 가격을 책정한 값입니다. 모든 지역에서 광범위하게 사용할 수 있고 가상 컴퓨터에 사용할 수 있는 모든 표준 리소스를 연결하고 사용할 수 있습니다.
@@ -60,9 +59,9 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 
 참고: DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 워크로드에 SSD가 지원하는 높은 성능과 짧은 대기 시간을 갖는 저장소인 Premium Storage에 대한 권한을 갖습니다. Premium Storage는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../../storage/common/storage-premium-storage.md)
+* [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../windows/premium-storage.md)
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 적절한 DevOps 문화권을 얻으려면 모든 인프라가 코드여야 합니다.  모든 인프라가 코드로 되어 있으면 쉽게 다시 만들 수 있습니다(Phoenix 서버).  Azure는 Ansible, Chef, SaltStack 및 Puppet과 같은 모든 주요 자동화 도구와 함께 작동합니다.  또한 Azure는 자체 자동화 도구도 제공합니다.
 
 * [Azure 템플릿](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -120,7 +119,7 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 ## <a name="storage"></a>저장소
-* [Microsoft Azure 저장소 소개](../../storage/common/storage-introduction.md)
+* [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md)
 * [azure-cli를 사용하여 Linux VM에 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Portal에서 Linux VM에 데이터 디스크를 연결하는 방법](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -139,4 +138,3 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 이제 Azure의 Linux를 대략적으로 이해하게 되었을 것입니다.  다음 단계로는 좀 더 깊이 들어가서 몇 개의 VM을 만들어 보겠습니다.
 
 * [Azure CLI를 통해 일반 작업을 위한 샘플 스크립트 확장 목록 탐색](cli-samples.md)
-

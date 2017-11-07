@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: ea5169c1a95f00e78ae3f5f177812466eb7a0deb
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Azure Automation을 사용하여 Windows VM 수직 확장
 
 수직 확장은 워크로드에 응답하여 컴퓨터의 리소스를 늘리거나 줄이는 프로세스입니다. Azure에서는 가상 컴퓨터의 크기를 변경하여 이를 수행할 수 있습니다. 이는 다음과 같은 시나리오에 유용합니다.
@@ -93,5 +91,4 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 ![가상 컴퓨터 1에 경고 추가](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![가상 컴퓨터 2에 경고 추가](./media/vertical-scaling-automation/add-alert-webhook-2.png)
-
 

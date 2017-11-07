@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 구현하는 방법을 보여 줍니다. 만드는 MEAN 스택을 사용하여 데이터베이스에서 책을 추가, 삭제 및 나열할 수 있습니다. 다음 방법에 대해 알아봅니다.
@@ -355,4 +353,3 @@ SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다
 
 > [!div class="nextstepaction"]
 > [SSL로 웹 서버 보안](tutorial-secure-web-server.md)
-

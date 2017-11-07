@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure Portal에서 역할 기반 액세스 제어 시작
 보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure RBAC(역할 기반 액세스 제어)는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
@@ -68,4 +67,3 @@ Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스�
 * [Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 통해 시작합니다.
 * [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
-

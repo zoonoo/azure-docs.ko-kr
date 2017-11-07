@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: bwren
+ms.author: borooji;mbullwin
+ms.openlocfilehash: 9261f44a0c0400a0a8d908b0ff72318c637771de
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 7704a7465941d317adfa83d8c6832de273eed39c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -350,4 +349,3 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 * [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 * [샘플링](app-insights-sampling.md)
 * [문제 해결](app-insights-troubleshoot-faq.md)
-

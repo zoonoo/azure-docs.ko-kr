@@ -1,5 +1,5 @@
 ---
-title: "미리 구성된 예측 유지 관리 솔루션 | Microsoft Docs"
+title: "예측 유지 관리 솔루션 개요 - Azure | Microsoft Docs"
 description: "Azure IoT Suite 예측 정비 사전 구성 솔루션에 대한 설명입니다."
 services: 
 suite: iot-suite
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
+ms.openlocfilehash: 369e61b091c79df8ad2d874693aedc3b23e512c8
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>예측 정비 사전 구성 솔루션 개요
 
@@ -145,7 +144,7 @@ Azure IoT가 예측 정비 시나리오를 가능하게 하는 방식에 대해 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk_iot_suite]: iot-suite-overview.md
+[lnk_iot_suite]: iot-suite-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 

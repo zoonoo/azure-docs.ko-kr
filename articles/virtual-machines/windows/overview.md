@@ -16,16 +16,15 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 컴퓨터 개요
 
-Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](../../app-service-web/choose-web-site-cloud-service-vm.md) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 가상 컴퓨터를 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
+Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](../../app-service/choose-web-site-cloud-service-vm.md) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 가상 컴퓨터를 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
 
 Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
@@ -38,7 +37,7 @@ Azure 가상 컴퓨터는 다양한 방식으로 사용할 수 있습니다. 일
 응용 프로그램에서 사용하는 VM의 수는 요구 사항을 충족하는 데 필요한 만큼 늘리거나 줄일 수 있습니다.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM을 만들기 전의 고려 사항
-Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
+Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나 다양한 [디자인 고려 사항](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)이 있습니다. VM의 이러한 양상으로 인해 시작하기 전에 다음 항목을 중요하게 고려해야 합니다.
 
 * 응용 프로그램 리소스 이름
 * 리소스가 저장되어 있는 위치
@@ -49,7 +48,7 @@ Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나
 * VM에 필요한 관련 리소스
 
 ### <a name="naming"></a>이름 지정
-가상 컴퓨터에는 할당된 [이름](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
+가상 컴퓨터에는 할당된 [이름](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
 
 Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 컴퓨터 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-generalized-managed.md) 이 이미지를 사용하여 가상 컴퓨터를 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 컴퓨터 이름을 동일하게 지정하는 것이 좋습니다.
 

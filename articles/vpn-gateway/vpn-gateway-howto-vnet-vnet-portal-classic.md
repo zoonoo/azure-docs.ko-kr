@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -90,8 +89,8 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 포털을 사용하여 클래식 가상 네트워크를 만들 때 다음 단계를 사용하여 가상 네트워크 블레이드로 이동해야 합니다. 그렇지 않으면 가상 네트워크를 만드는 옵션이 표시되지 않습니다.
 
 1. '+'를 클릭하여 '새로 만들기' 블레이드를 엽니다.
-2. ‘Marketplace 검색’ 필드에 ‘Virtual Network’를 입력합니다. 대신, 네트워킹 -> Virtual Network를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
-3. 반환된 목록에서 ‘Virtual Network’를 찾아서 클릭하여 Virtual Network 블레이드를 엽니다. 
+2. ‘Marketplace 검색’ 필드에 ‘가상 네트워크’를 입력합니다. 대신, 네트워킹 -> 가상 네트워크를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
+3. 반환된 목록에서 ‘가상 네트워크’를 찾아서 클릭하여 가상 네트워크 블레이드를 엽니다. 
 4. 가상 네트워크 블레이드에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 
 
 이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
@@ -118,7 +117,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 **VNet을 만드는 경우 다음 설정에 유념하세요.**
 
-* **Virtual Network 주소 공간** – Virtual Network 주소 공간 페이지에서 가상 네트워크에 사용할 주소 범위를 지정합니다. 가상 네트워크에 배포하는 VM 및 다른 역할 인스턴스에 할당될 동적 IP 주소입니다.<br>선택하는 주소 공간은 이 VNet이 연결될 다른 VNet 또는 온-프레미스 위치의 주소 공간과 겹칠 수 없습니다.
+* **가상 네트워크 주소 공간** – 가상 네트워크 주소 공간 페이지에서 가상 네트워크에 사용할 주소 범위를 지정합니다. 가상 네트워크에 배포하는 VM 및 다른 역할 인스턴스에 할당될 동적 IP 주소입니다.<br>선택하는 주소 공간은 이 VNet이 연결될 다른 VNet 또는 온-프레미스 위치의 주소 공간과 겹칠 수 없습니다.
 
 * **위치** – 가상 네트워크를 만들 때 Azure 위치(지역)와 연결합니다. 예를 들어 실제로 West US에 배치할 가상 네트워크에 VM을 배포하려는 경우 해당 위치를 선택합니다. 가상 네트워크를 만든 후에는 가상 네트워크에 연결된 위치를 변경할 수 없습니다.
 
@@ -280,7 +279,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
 * 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
 * 여러 가상 네트워크를 연결할 때 VPN 장치는 필요하지 않습니다.
-* VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
+* VNet 간 연결은 Azure 가상 네트워크 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
 * VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.
 * 가상 네트워크 연결을 다중 사이트 VPN과 동시에 사용할 수 있습니다. 가상 네트워크 VPN 게이트웨이당 최대 10개의 VPN 터널을 다른 가상 네트워크 또는 온-프레미스 사이트에 연결할 수 있습니다.
 * 가상 네트워크 및 온-프레미스 로컬 네트워크 사이트의 주소 공간이 겹쳐서는 안 됩니다. 주소 공간이 겹치면 가상 네트워크 만들기 또는 netcfg 구성 파일 업로드가 실패합니다.
@@ -290,4 +289,3 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 ## <a name="next-steps"></a>다음 단계
 연결을 확인합니다. [VPN Gateway 연결 확인](vpn-gateway-verify-connection-resource-manager.md)을 참조하세요.
-

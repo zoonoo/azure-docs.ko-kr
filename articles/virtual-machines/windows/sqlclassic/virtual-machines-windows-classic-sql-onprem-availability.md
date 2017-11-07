@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>온-프레미스 Always On 가용성 그룹을 Azure로 확장
 Always On 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
@@ -95,5 +93,4 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 **Azure 복제본 추가 마법사** 를 사용하여 Always On 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

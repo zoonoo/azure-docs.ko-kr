@@ -1,6 +1,6 @@
 ---
-title: "Azure Cloud Shell(미리 보기) 빠른 시작 | Microsoft Docs"
-description: "Azure Cloud Shell의 빠른 시작"
+title: "Azure Cloud Shell의 Bash(미리 보기) 빠른 시작 | Microsoft Docs"
+description: "Azure Cloud Shell의 Bash에 대한 빠른 시작"
 services: 
 documentationcenter: 
 author: jluk
@@ -12,28 +12,34 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
+ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
-# <a name="quickstart-for-using-the-azure-cloud-shell"></a>Azure Cloud Shell을 사용하는 빠른 시작
+이 문서는 [Azure Portal](https://ms.portal.azure.com/)에서 Azure Cloud Shell의 Bash를 사용하는 방법을 자세히 설명합니다.
 
-이 문서에서는 [Azure Portal](https://ms.portal.azure.com/)에서 Azure Cloud Shell을 사용하는 방법을 자세히 설명합니다.
+> [!NOTE]
+> [Azure Cloud Shell의 PowerShell](quickstart-powershell.md) 빠른 시작도 사용할 수 있습니다.
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
-![](media/shell-icon.png)
+![](media/quickstart/shell-icon.png)
 2. 구독을 선택하여 저장소 계정 및 Azure 파일 공유 만들기
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]
 > 모든 세션에서 Azure CLI 2.0에 대해 자동으로 인증됩니다.
+
+### <a name="select-the-bash-environment"></a>Bash 환경 선택
+1. 셸 창 왼쪽에서 환경 드롭다운 선택 <br>
+![](media/quickstart/env-selector.png)
+2. Bash 선택
 
 ### <a name="set-your-subscription"></a>구독을 설정합니다.
 1. 액세스할 수 있는 구독을 나열합니다. <br>
@@ -61,16 +67,16 @@ ms.lasthandoff: 08/21/2017
 1. Azure Portal 검색 표시줄에서 VM 이름을 검색합니다.
 2. "연결"을 클릭하고 다음을 실행합니다.`ssh username@ipaddress`
 
-![](media/sshcmd-copy.png)
+![](media/quickstart/sshcmd-copy.png)
 
-SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니다.
-![](media/ubuntu-welcome.png)
+SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니다. <br>
+![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>정리 
 리소스 그룹 및 해당 그룹 내의 모든 리소스를 삭제합니다. <br>
-`az group delete -n MyRG`을 실행합니다.
+`az group delete -n MyRG` 실행
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell의 저장소 유지 알아보기](persisting-shell-storage.md) <br>
-[Azure CLI 2.0에 대해 알아보기](https://docs.microsoft.com/cli/azure/) <br>
+[Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>
+[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
 [Azure File Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>

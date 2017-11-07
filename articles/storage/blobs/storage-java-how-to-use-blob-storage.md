@@ -3,7 +3,7 @@ title: "Java에서 Azure Blob Storage(개체 저장소)를 사용하는 방법 |
 description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 services: storage
 documentationcenter: java
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 91ef09916dbb587305572ea640fb4408ea9aebb6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e4de1bc57adf668f383d1fbaf4a721a61576d2a0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>Java에서 Blob 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -288,4 +287,3 @@ catch (Exception e)
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-

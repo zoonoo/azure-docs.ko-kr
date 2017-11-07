@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
 이 문서에는 다양한 서버 및 Azure Backup Server로 보호할 수 있는 워크로드가 나와 있습니다. 다음 매트릭스는 Azure Backup Server v1 및 v2를 사용하여 보호할 수 있는 항목을 나열합니다.
@@ -112,4 +110,3 @@ Azure Backup Server는 다음과 같은 클러스터 된 응용 프로그램에�
 -   SQL Server - Azure Backup Server는 CSV(클러스터 공유 볼륨)에서 호스트되는 SQL Server 데이터베이스를 백업할 수 없습니다.
 
 Azure Backup Server는 DPM 서버와 동일한 도메인에 있는 클러스터 워크로드 및 하위 도메인이나 트러스트된 도메인에 있는 클러스터 워크로드를 보호할 수 있습니다. 트러스트되지 않은 도메인 또는 작업 그룹의 데이터 원본을 보호하려면 단일 서버의 경우 NTLM 또는 인증서 인증을 사용하거나 클러스터의 경우 인증서 인증만 사용합니다.
-

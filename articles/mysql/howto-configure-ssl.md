@@ -8,13 +8,12 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 10/25/2017
+ms.openlocfilehash: 83830e4776eaa7c4f10bc14dcefd47c6eaf25997
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 77e1b6266a2cf47949fa06358ec003f6b6b38065
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 응용 프로그램 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -25,18 +24,18 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 
 ## <a name="step-2-bind-ssl"></a>2단계: SSL 바인딩
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL로 MySQL 워크벤치를 사용하는 서버에 연결
-SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자에서 MySQL Workbench의 **SSL** 탭으로 이동합니다. **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 **SSL CA 파일:** 필드에 입력합니다.
-![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
+![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png) 기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL로 MySQL CLI를 사용하는 서버에 연결
-MySQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.
+SSL 인증서를 바인딩하는 다른 방법은 다음 명령을 실행하여 MySQL 명령줄 인터페이스를 사용하는 것입니다.
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>3단계: Azure에 SSL 연결 적용 
-### <a name="using-azure-portal"></a>Azure Portal 사용
-Azure Portal을 사용하여 MySQL용 Azure Database 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **Save**를 클릭합니다. Microsoft는 향상된 보안을 위해 항상 **SSL 연결 적용**을 활성화하는 것을 권장합니다.
+### <a name="using-the-azure-portal"></a>Azure Portal 사용
+Azure Portal을 사용하여 MySQL용 Azure Database 서버를 방문한 다음 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정한 다음 **저장**을 클릭합니다. Microsoft는 향상된 보안을 위해 항상 **SSL 연결 적용**을 활성화하는 것을 권장합니다.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
@@ -45,31 +44,119 @@ Azure CLI에서 Enabled 또는 Disabled 값을 각각 사용하여 **ssl-enforce
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-ssl-connection"></a>4단계: SSL 연결 확인
+## <a name="step-4-verify-the-ssl-connection"></a>4단계: SSL 연결 확인
 mysql **status** 명령을 실행하여 SSL로 MySQL 서버에 연결되어 있는지 확인합니다.
 ```dos
 mysql> status
 ```
-출력을 검토하여 연결이 암호화되는지 확인합니다. **SSL: Cipher in use is AES256-SHA**라고 표시되어야 합니다. 
+출력을 검토하여 연결이 암호화되었는지 확인합니다. **SSL: 사용 중인 암호 그룹은 AES256-SHA**를 표시해야 합니다. 
 
 ## <a name="sample-code"></a>샘플 코드
+응용 프로그램에서 SSL을 통해 Azure Database for MySQL에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 ### <a name="php"></a>PHP
 ```
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
-mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306);
+mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="python"></a>파이썬
+### <a name="python-mysqlconnector-python"></a>Python(MySQLConnector Python)
 ```
 try:
-conn = mysql.connector.connect(user='myadmin@myserver4demo',password='yourpassword',database='quickstartdb',host='myserver4demo.mysql.database.azure.com',ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn=mysql.connector.connect(user='myadmin@myserver4demo', 
+        password='yourpassword', 
+        database='quickstartdb', 
+        host='myserver4demo.mysql.database.azure.com', 
+        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
- print(err)
+    print(err)
+```
+### <a name="python-pymysql"></a>Python(PyMySQL)
+```
+conn = pymysql.connect(user = 'myadmin@myserver4demo', 
+        password = 'yourpassword', 
+        database = 'quickstartdb', 
+        host = 'myserver4demo.mysql.database.azure.com', 
+        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+```
+### <a name="ruby"></a>루비
+```
+client = Mysql2::Client.new(
+        :host     => 'myserver4demo.mysql.database.azure.com', 
+        :username => 'myadmin@myserver4demo',      
+        :password => 'yourpassword',    
+        :database => 'quickstartdb',
+        :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+    )
+```
+### <a name="golang"></a>Golang
+```
+rootCertPool := x509.NewCertPool()
+pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
+if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+    log.Fatal("Failed to append PEM.")
+}
+mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool, InsecureSkipVerify: true})
+var connectionString string
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@myserver4demo' , 'yourpassword', 'myserver4demo.mysql.database.azure.com', 'quickstartdb') 
+db, _ := sql.Open("mysql", connectionString)
+```
+### <a name="javajdbc"></a>JAVA(JDBC)
+```
+# generate truststore and keystore in code
+String importCert = " -import "+
+    " -alias mysqlServerCACert "+
+    " -file " + ssl_ca +
+    " -keystore truststore "+
+    " -trustcacerts " + 
+    " -storepass password -noprompt ";
+String genKey = " -genkey -keyalg rsa " +
+    " -alias mysqlClientCertificate -keystore keystore " +
+    " -storepass password123 -keypass password " + 
+    " -dname CN=MS ";
+sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
+sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
+
+# use the generated keystore and truststore 
+System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
+System.setProperty("javax.net.ssl.keyStorePassword","password");
+System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
+System.setProperty("javax.net.ssl.trustStorePassword","password");
+
+url = String.format("jdbc:mysql://%s/%s?serverTimezone=UTC&useSSL=true", 'myserver4demo.mysql.database.azure.com', 'quickstartdb');
+properties.setProperty("user", 'myadmin@myserver4demo');
+properties.setProperty("password", 'yourpassword');
+conn = DriverManager.getConnection(url, properties);
+```
+### <a name="javamariadb"></a>JAVA(MariaDB)
+```
+# generate truststore and keystore in code
+String importCert = " -import "+
+    " -alias mysqlServerCACert "+
+    " -file " + ssl_ca +
+    " -keystore truststore "+
+    " -trustcacerts " + 
+    " -storepass password -noprompt ";
+String genKey = " -genkey -keyalg rsa " +
+    " -alias mysqlClientCertificate -keystore keystore " +
+    " -storepass password123 -keypass password " + 
+    " -dname CN=MS ";
+sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
+sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
+
+# use the generated keystore and truststore 
+System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
+System.setProperty("javax.net.ssl.keyStorePassword","password");
+System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
+System.setProperty("javax.net.ssl.trustStorePassword","password");
+
+url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=true", 'myserver4demo.mysql.database.azure.com', 'quickstartdb');
+properties.setProperty("user", 'myadmin@myserver4demo');
+properties.setProperty("password", 'yourpassword');
+conn = DriverManager.getConnection(url, properties);
 ```
 
 ## <a name="next-steps"></a>다음 단계
 [MySQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)에 이어지는 다양한 응용 프로그램 연결 옵션 검토
-

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부
 이 문서에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부를 탐구하여 핵심 구성 요소가 백그라운드에서 어떻게 작동하는지 살펴봅니다.
 
@@ -56,5 +53,4 @@ ms.lasthandoff: 05/04/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-
 

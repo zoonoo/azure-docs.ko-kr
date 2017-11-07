@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>비즈니스 연속성을 위한 Azure Cosmos DB의 자동 지역별 장애 조치(failover)
 Azure Cosmos DB는 일관성, 가용성, 성능을 적절히 보증하면서 서로 간에 명확히 절충하는 완전 관리형 [다중 지역 데이터베이스 계정](distribute-data-globally.md)을 제공하여 글로벌 데이터 배포를 단순화합니다. Cosmos DB 계정은 고가용성, 짧은 대기 시간(한 자릿수 ms), [잘 정의된 일관성 수준](consistency-levels.md), multi-homing API를 사용한 투명한 지역별 장애 조치(failover) 및 전 세계적으로 처리량과 저장소를 탄력적으로 확장할 수 있는 기능을 제공합니다. 
@@ -86,19 +85,40 @@ DocumentClient usClient = new DocumentClient(
 
 **쓰기 지역에 가동 중단이 발생하면 어떻게 됩니까?**
 
-영향을 받은 지역이 지정된 Cosmos DB 계정의 현재 쓰기 지역이면 해당 지역이 자동으로 오프라인으로 표시됩니다. 그런 다음 대체 지역이 영향을 받은 각 Cosmos DB 계정의 쓰기 지역으로 승격됩니다. Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)으로 Cosmos DB 계정의 지역 선택 순서를 완전히 제어할 수 있습니다. 
+영향을 받은 지역이 현재 쓰기 지역이고 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)가 사용되도록 설정되면 해당 지역은 자동으로 오프라인으로 표시됩니다. 그런 다음 대체 지역이 영향을 받은 Azure Cosmos DB 계정의 쓰기 지역으로 승격됩니다. Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)으로 Azure Cosmos DB 계정에 대해 자동 장애 조치(Failover)를 사용하도록 설정하고 지역 선택 순서를 완전히 제어할 수 있습니다. 
 
 ![Azure Cosmos DB의 장애 조치(failover) 우선 순위](./media/regional-failover/failover-priorities.png)
 
-자동 장애 조치(failover) 중에는 Cosmos DB가 지정된 우선 순위에 따라 지정된 Cosmos DB 계정의 다음 쓰기 지역을 자동으로 선택합니다. 
+자동 장애 조치(Failover) 중에는 Azure Cosmos DB가 지정된 우선 순위에 따라 지정된 Azure Cosmos DB 계정의 다음 쓰기 지역을 자동으로 선택합니다. 응용 프로그램은 DocumentClient 클래스의 WriteEndpoint 속성을 사용하여 쓰기 지역의 변경 내용을 검색할 수 있습니다.
 
 ![Azure Cosmos DB의 쓰기 지역 장애](./media/regional-failover/write-region-failures.png)
 
 영향을 받은 지역이 가동 중단에서 복구되면 해당 지역에서 영향을 받은 모든 Cosmos DB 계정이 서비스에서 자동으로 복구됩니다. 
 
-* 영향을 받은 지역에 이전 쓰기 지역이 있는 Cosmos DB 계정은 지역 복구 후에도 읽기 가능한 상태의 오프라인 모드로 유지됩니다. 
-* 이 지역을 쿼리하여 현재 쓰기 지역에서 사용 가능한 데이터와 비교함으로써 가동 중단 중에 복제되지 않은 쓰기를 모두 계산할 수 있습니다. 응용 프로그램의 요구에 따라 병합 및/또는 충돌 해결을 수행하고 변경 내용의 최종 집합을 현재 쓰기 지역에 다시 쓸 수 있습니다. 
-* 변경 내용 병합을 완료한 후 지역을 제거했다가 Cosmos DB 계정에 다시 추가하면 영향을 받은 지역을 다시 온라인 상태로 전환할 수 있습니다. 지역이 다시 추가되면 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 수동 장애 조치를 수행하여 쓰기 지역으로 다시 구성할 수 있습니다.
+* 작동 중단 동안 읽기 지역에 복제되지 않은 이전 쓰기 지역의 데이터는 충돌 피드로 게시됩니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램별 논리에 따라 충돌을 해결하고, 업데이트된 데이터를 Azure Cosmos DB 계정에 적절히 다시 쓸 수 있습니다. 
+* 이전 쓰기 지역이 읽기 지역으로 다시 만들어진 후 자동으로 다시 온라인 상태로 전환됩니다. 
+* Azure Portal을 통해 또는 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 수동 장애 조치(Failover)를 수행하여 자동으로 온라인으로 다시 전환된 읽기 지역을 쓰기 지역으로 다시 구성할 수 있습니다.
+
+다음 코드 조각에서는 영향을 받는 지역이 가동 중단에서 복구된 후 충돌을 처리하는 방법을 보여 줍니다.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>수동 장애 조치
 
@@ -123,5 +143,4 @@ DocumentClient usClient = new DocumentClient(
 * [Azure Cosmos DB를 통한 전역 일관성](consistency-levels.md)에 대한 자세한 정보
 * Azure Cosmos DB의 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)를 사용하여 여러 지역으로 개발
 * Azure DocumentDB로 [다중 지역 기록기 아키텍처](multi-region-writers.md)를 작성하는 방법에 대해 알아봅니다.
-
 

@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: 로그 수집
 
 이 문서에서는 사용자 지정 정책을 사용하여 문제를 진단할 수 있도록 Azure AD B2C에서 로그를 수집하는 단계를 설명합니다.
@@ -118,4 +116,3 @@ traces \| where timestamp > ago(1d) | 마지막 날에 Azure AD B2C에서 생성
 ## <a name="next-steps"></a>다음 단계
 
 Application Insights에서 데이터를 탐색하여 고유한 ID 환경을 제공하기 위해 ID 경험 프레임워크 기본 B2C가 작동하는 방법을 이해할 수 있습니다.
-

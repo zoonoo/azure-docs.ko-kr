@@ -14,12 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Azure 자동화 DSC 시작하기
 이 항목에서는 Azure 자동화 DSC(필요한 상태 구성)로 만들기, 가져오기 및 구성 컴파일링, 관리할 컴퓨터 온보드 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure 자동화 DSC가 무엇인지의 개요는 [Azure 자동화 DSC 개요](automation-dsc-overview.md)를 참조하세요. DSC 설명서는 [Windows PowerShell 필요한 상태 구성 개요](https://msdn.microsoft.com/PowerShell/dsc/overview)를 참조하세요.
@@ -219,5 +218,4 @@ Azure 자동화 DSC에 의해 노드를 더 이상 관리하지 않으려는 경
 * [Windows PowerShell 필요한 상태 구성 개요](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Azure 자동화 DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
-
 

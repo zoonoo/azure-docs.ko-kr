@@ -16,12 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7152d184bb6d1d4b81aeb47e2c7c9160ada36023
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 03cc1d2d47ce8194b293824b29a07cef423be34d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
 > [!div class="op_single_selector"]
@@ -106,5 +105,4 @@ Azure Portal에서 가상 컴퓨터 속성의 **확장** 블레이드에서 줄�
 확장에 의해 지원되는 서비스 중 하나를 사용하기 시작합니다. 자세한 내용은 이 문서의 [지원되는 서비스](#supported-services) 섹션에 참조된 항목을 참조하세요.
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

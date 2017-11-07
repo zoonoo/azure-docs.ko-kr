@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 응용 프로그램에 대한 액세스 관리
 
@@ -124,9 +122,9 @@ Office 365 응용 프로그램은 테넌트 제한을 완전히 지원하기 위
 
 Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하고 수정하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 테넌트 제한을 테스트하도록 Fiddler를 구성하려면 다음 단계를 수행합니다.
 
-1.    [Fiddler 다운로드하고 설치합니다](http://www.telerik.com/fiddler).
-2.    [Fiddler 도움말 설명서](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)에 따라 HTTPS 트래픽 암호를 해독하도록 Fiddler를 구성합니다.
-3.    사용자 지정 규칙을 사용하여 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context* 머리글을 삽입하도록 Fiddler를 구성합니다.
+1.  [Fiddler 다운로드하고 설치합니다](http://www.telerik.com/fiddler).
+2.  [Fiddler 도움말 설명서](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)에 따라 HTTPS 트래픽 암호를 해독하도록 Fiddler를 구성합니다.
+3.  사용자 지정 규칙을 사용하여 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context* 머리글을 삽입하도록 Fiddler를 구성합니다.
   1. Fiddler Web Debugger 도구에서 **Rules** 메뉴를 선택하고 **Customize Rules...**를 선택하여 CustomRules 파일을 엽니다.
   2. 다음 줄은 *OnBeforeRequest* 함수 맨 앞에 추가합니다. \<tenant domain\>을 테넌트에 등록된 도메인(예: contoso.onmicrosoft.com)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.
 
@@ -148,8 +146,8 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처**�
 
 프록시 인프라의 기능에 따라 사용자에게 설정을 단계별로 롤아웃할 수 있습니다. 다음은 고려해야 할 몇 가지 고급 옵션입니다.
 
-1.    일반 사용자는 프로덕션 프록시 인프라를 계속 사용할 수 있지만 PAC 파일을 사용하여 테스트 사용자는 테스트 프록시 인프라를 가리키도록 합니다.
-2.    일부 프록시 서버는 그룹을 사용하여 다양한 구성을 지원할 수 있습니다.
+1.  일반 사용자는 프로덕션 프록시 인프라를 계속 사용할 수 있지만 PAC 파일을 사용하여 테스트 사용자는 테스트 프록시 인프라를 가리키도록 합니다.
+2.  일부 프록시 서버는 그룹을 사용하여 다양한 구성을 지원할 수 있습니다.
 
 특정 세부 정보에 대해서는 프록시 서버 설명서를 참조하세요.
 
@@ -158,4 +156,3 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처**�
 - [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) 참조
 
 - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 검토
-

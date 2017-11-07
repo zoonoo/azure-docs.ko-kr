@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Security Center 플랫폼 마이그레이션
 
@@ -78,5 +77,4 @@ OMS 보안 솔루션을 설치하지 않은 기존 고객의 경우 Microsoft에
 - 데이터 수집이 필요하며 표준 가격 책정 계층의 고객에게 자동으로 설정됩니다.
 - Azure Security Center는 Azure 확장을 통해 배포되지 않은 맬웨어 방지 솔루션을 검색하기 시작합니다. Symantec Endpoint Protection 검색 및 Windows 2016용 Defender를 먼저 사용할 수 있습니다.
 - 방지 정책 및 알림은 *구독* 수준에서만 구성 가능하지만 가격은 여전히 *리소스 그룹* 수준에서 설정 가능합니다.
-
 

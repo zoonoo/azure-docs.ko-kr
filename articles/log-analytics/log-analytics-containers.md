@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/20/2017
 ms.author: magoedte;banders
+ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -289,12 +288,12 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 OMS 작업 영
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-agent-for-kubernetes"></a>Kubernetes용 OMS 에이전트 구성
+#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>Kubernetes용 OMS Linux에이전트 구성
 
-Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
+Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
 
-- 비밀 정보(omsagent.yaml)가 없는 기본 OMS 에이전트 DaemonSet
-- 비밀 yaml(omsagentsecret.yaml) 파일을 생성하는 비밀 생성 스크립트를 통해 비밀 정보(omsagent-ds-secrets.yaml)를 사용하는 OMS 에이전트 DaemonSet yaml 파일.
+- 비밀 정보(omsagent.yaml)가 없는 Linux용 기본 OMS 에이전트 DaemonSet
+- 비밀 yaml(omsagentsecret.yaml) 파일을 생성하는 비밀 생성 스크립트를 통해 비밀 정보(omsagent-ds-secrets.yaml)를 사용하는 Linux용 OMS 에이전트 DaemonSet yaml 파일입니다.
 
 비밀을 포함 또는 포함하지 않고 omsagent DaemonSet를 만들도록 선택할 수 있습니다.
 
@@ -371,7 +370,7 @@ Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 �
     ```
 
 
-Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [omsagent yaml 파일](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)에 다음 예제 정보를 사용하여 비밀 정보를 보호합니다.
+Kubernetes의 경우 스크립트를 사용하여 Linux용 OMS 에이전트의 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [omsagent yaml 파일](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)에 다음 예제 정보를 사용하여 비밀 정보를 보호합니다.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -387,6 +386,98 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
+
+#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Windows Kubernetes용 OMS 에이전트 구성
+Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 페이지에는 비밀 정보를 포함하여 사용할 수 있는 파일이 있습니다.  마스터 및 에이전트 노드에 대해 별도의 OMS 에이전트를 설치해야 합니다.  
+
+1. 마스터 노드에 대한 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 로그인하여 비밀을 만듭니다.
+    1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
+        - 비밀 생성 스크립트 - secret-gen.sh
+        - 비밀 템플릿 - secret-template.yaml
+
+    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+    3. ``` kubectl create -f omsagentsecret.yaml ```을 실행하여 omsagent daemon-set 만들기
+    4. 확인하려면 다음을 실행합니다.
+    
+        ``` 
+        root@ubuntu16-13db:~# kubectl get secrets
+        ```
+
+        출력은 다음과 유사합니다.
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+    
+        Type:   Opaque
+    
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes 
+        ```
+
+    5. ```kubectl create -f ws-omsagent-de-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
+
+2. OMS 에이전트 DaemonSet가 다음과 같이 실행 중인지 확인합니다.
+
+    ```
+    root@ubuntu16-13db:~# kubectl get deployment omsagent
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   1         1         <none>          1h
+    ```
+
+3. Windows를 실행하는 작업자 노드에 에이전트를 설치하려면 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts) 섹션의 단계를 따릅니다. 
+
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포 
+Helm을 사용하여 Linux Kubernetes 환경에 OMS 에이전트를 배포하려면 다음 단계를 수행합니다.
+
+1. ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```을 실행하여 omsagent daemon-set 만들기
+2. 결과는 다음과 유사합니다.
+
+    ```
+    NAME:   omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     3s
+
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         3s
+    ```
+3. ```helm status "omsagent"```를 실행하여 omsagent의 상태를 확인할 수 있으며, 출력은 다음과 유사합니다.
+
+    ```
+    keiko@k8s-master-3814F33-0:~$ helm status omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+ 
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
+    ```
+자세한 내용을 보려면 [컨테이너 솔루션 Helm 차트](https://aka.ms/omscontainerhelm)를 방문하세요.
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Windows 컨테이너 호스트 설치 및 구성
 
@@ -574,4 +665,3 @@ Type=Perf <containerName>
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md) 하여 자세한 컨테이너 데이터 레코드를 볼 수 있습니다.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 14945cf23ead64b90a9e9ad6503a96f1b0669675
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -452,8 +451,7 @@ IngestManifestFile 자산에 대한 대량 수집의 일환으로 업로드될 �
 IngestManifest의  BlobStorageUriForUpload 속성이 제공하는 blob 저장소 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 응용 프로그램을 사용할 수 있습니다. 주목할 만한 고속 업로드 서비스 중 하나는 [Azure 응용 프로그램용 Aspera On Demand](http://go.microsoft.com/fwlink/?LinkId=272001)입니다.
 
 ### <a name="monitor-bulk-ingest-progress"></a>대량 수집 진행률 모니터
-IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 수집 과정을 
-모니터할 수 있습니다. 속성은 복합 형식인 [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics)입니다. 통계 속성을 폴링하여 IngestManifest ID를 전달하는 HTTP GET 요청을 제출합니다.
+IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 수집 과정을 모니터할 수 있습니다. 속성은 복합 형식인 [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics)입니다. 통계 속성을 폴링하여 IngestManifest ID를 전달하는 HTTP GET 요청을 제출합니다.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>암호화에 사용되는 ContentKey 만들기
 자산에 암호화를 사용하면 자산 파일을 만들기 전에 암호화에 사용할 ContentKey를 만들어야 합니다. 저장소 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
@@ -524,5 +522,4 @@ ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
 

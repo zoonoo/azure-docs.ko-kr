@@ -12,28 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: c5971a137d9081be8c5978f481ec42a1f91e5a56
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Data Lake Store 시작
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 Azure CLI 2.0을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요.
 
@@ -68,7 +61,7 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a>Azure 데이터 레이크 저장소 계정 만들기
+## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정 만들기
 
 1. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다. 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다. 
    
@@ -76,15 +69,15 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. 데이터 레이크 저장소 계정을 만듭니다.
+2. Data Lake Store 계정을 만듭니다.
    
     ```azurecli
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Data Lake 저장소 계정에서 폴더 만들기
+## <a name="create-folders-in-a-data-lake-store-account"></a>Data Lake Store 계정에서 폴더 만들기
 
-Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터를 관리하고 저장할 수 있습니다. 다음 명령을 사용하여 Data Lake Store의 루트에 있는 **mynewfolder**라는 폴더를 만듭니다.
+Azure Data Lake Store 계정에서 폴더를 만들어 데이터를 관리하고 저장할 수 있습니다. 다음 명령을 사용하여 Data Lake Store의 루트에 있는 **mynewfolder**라는 폴더를 만듭니다.
 
 ```azurecli
 az dls fs create --account mydatalakestore --path /mynewfolder --folder
@@ -99,7 +92,7 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 
 루트 수준에서 Data Lake Store에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래 코드 조각은 이전 섹션에서 만든 폴더(**mynewfolder**)에 일부 샘플 데이터를 업로드하는 방법을 보여 줍니다.
 
-업로드할 일부 샘플 데이터를 찾는 경우 **Azure 데이터 레이크 Git 리포지토리** 의 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)폴더에 있을 수 있습니다. 파일을 다운로드하고 컴퓨터의 로컬 디렉터리(예: C:\sampledata\)에 저장합니다.
+업로드할 일부 샘플 데이터를 찾는 경우 **Azure Data Lake Git 리포지토리**의 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)폴더에 있을 수 있습니다. 파일을 다운로드하고 컴퓨터의 로컬 디렉터리(예: C:\sampledata\)에 저장합니다.
 
 ```azurecli
 az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
@@ -113,7 +106,7 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 
 ## <a name="list-files-in-a-data-lake-store-account"></a>Data Lake Store 계정의 파일 나열
 
-다음 명령을 사용하여 데이터 레이크 저장소 계정의 파일을 나열합니다.
+다음 명령을 사용하여 Data Lake Store 계정의 파일을 나열합니다.
 
 ```azurecli
 az dls fs list --account mydatalakestore --path /mynewfolder
@@ -230,21 +223,17 @@ az dls fs list --account mydatalakestore --path /mynewfolder
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a>Data Lake 저장소 계정 삭제
-다음 명령을 사용하여 데이터 레이크 저장소 계정을 삭제합니다.
+## <a name="delete-a-data-lake-store-account"></a>Data Lake Store 계정 삭제
+다음 명령을 사용하여 Data Lake Store 계정을 삭제합니다.
 
 ```azurecli
 az dls account delete --account mydatalakestore
 ```
 
-메시지가 표시되면 **Y** 를 입력하여 계정을 삭제합니다.
+메시지가 표시되면 **Y**를 입력하여 계정을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-* [Azure Data Lake Store CLI 2.0 참조](https://docs.microsoft.com/cli/azure/dls)
-* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-* [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-[azure-command-line-tools]: ../xplat-cli-install.md
-
+* [빅 데이터 요구 사항에 Azure Data Lake Store 사용](data-lake-store-data-scenarios.md) 
+* [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
+* [Azure 데이터 레이크 분석에 Data Lake Store 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight에 Data Lake Store 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 22d64ba9c9bdceda108b1160aef32ff3d38e4b03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 10d73f9209d804f3003e6eb9e4e75a5b2198af0c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>연락처 메일, 주소 및 전화 번호와 같은 Azure 계정 프로필 정보 변경
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 08/31/2017
 
 ## <a name="how-to-change-your-profile-information"></a>프로필 정보를 변경하는 방법
 
-1. [Azure 계정 센터](https://account.windowsazure.com/) 에 계정 관리자로 로그인하여 **프로필**을 클릭합니다. 
+1. [Azure 계정 센터](https://account.azure.com/Profile)에 로그인합니다.
 1. **세부 정보 편집** 단추를 클릭하고 **프로필** 정보를 업데이트합니다.
 
    ![프로필](./media/billing-how-to-change-azure-account-profile/profile.png)
@@ -63,5 +62,4 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. 
-
 

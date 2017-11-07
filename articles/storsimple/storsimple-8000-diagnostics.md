@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 장치 문제 해결
 
@@ -443,4 +442,3 @@ Controller0>
 * [Invoke-HcsDiagnostics cmdlet의 구문](https://technet.microsoft.com/library/mt795371.aspx)에 대해 알아보세요.
 
 * 사용자의 StorSimple 장치에서 [배포 문제 해결](storsimple-troubleshoot-deployment.md) 방법에 대한 자세한 정보를 알아보세요.
-

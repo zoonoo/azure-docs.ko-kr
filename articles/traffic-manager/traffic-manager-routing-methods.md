@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>트래픽 관리자 라우팅 방법
 
 Azure Traffic Manager는 다양한 서비스 끝점에 네트워크 트래픽을 라우팅하는 방법을 결정하는 네 가지 트래픽 라우팅 방법을 지원합니다. Traffic Manager는 트래픽 라우팅 메서드를 수신한 각 DNS 쿼리에 적용합니다. 트래픽 라우팅 메서드는 DNS 응답에서 반환된 끝점을 결정합니다.
@@ -136,7 +134,6 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

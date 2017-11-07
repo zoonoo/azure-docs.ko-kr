@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
 웹 응용 프로그램뿐만 아니라 ADAL(Azure AD Authentication Library)로 구성된 네이티브 클라이언트 앱을 게시하는 데 Azure Active Directory 응용 프로그램 프록시를 사용할 수도 있습니다. 네이티브 클라이언트 앱은 장치에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다. 
@@ -100,4 +98,3 @@ ADAL을 이러한 매개 변수로 편집하면 사용자가 회사 네트워크
 네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
 
 [응용 프로그램 프록시에 대한 Single Sign-On](application-proxy-sso-overview.md) 설정에 대한 자세히 알아보세요.
-

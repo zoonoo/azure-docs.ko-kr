@@ -1,9 +1,9 @@
 ---
-title: "계산 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링 | Microsoft Docs"
+title: "Compute 에뮬레이터에서 로컬로 클라우드 서비스 프로파일링 | Microsoft Docs"
 services: cloud-services
 description: "Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능 문제를 조사합니다."
 documentationcenter: 
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 tags: 
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
-ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/10/2016
-
+ms.author: mikejo
+ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
+# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
 클라우드 서비스를 Azure에 게시할 때 [Azure 응용 프로그램 프로파일링][1]에 설명된 대로 Visual Studio에서 프로파일링 데이터를 수집하고 로컬에서 분석하게 할 수 있습니다.
 [Azure에서 성능 카운터 사용][2]에 설명된 대로 진단을 사용하여 다양한 성능 카운터를 추적할 수도 있습니다.
@@ -71,7 +70,7 @@ ms.lasthandoff: 12/10/2016
             }
         }
 
-솔루션 구성을 **릴리스**로 설정하여 디버깅(Ctrl+F5) 없이 로컬에서 클라우드 서비스를 빌드하고 실행합니다. 그러면 로컬에서 응용 프로그램을 실행하기 위한 모든 파일 및 폴더가 생성되고 모든 시뮬레이터가 시작됩니다. 작업 표시줄에서 계산 에뮬레이터 UI를 시작하여 작업자 역할이 실행 중인지 확인합니다.
+솔루션 구성을 **릴리스**로 설정하여 디버깅(Ctrl+F5) 없이 로컬에서 클라우드 서비스를 빌드하고 실행합니다. 그러면 로컬에서 응용 프로그램을 실행하기 위한 모든 파일 및 폴더가 생성되고 모든 시뮬레이터가 시작됩니다. 작업 표시줄에서 Compute 에뮬레이터 UI를 시작하여 작업자 역할이 실행 중인지 확인합니다.
 
 ## <a name="2-attach-to-a-process"></a>2: 프로세스에 연결
 Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링하는 대신 실행 중인 프로세스에 프로파일러를 연결해야 합니다. 
@@ -87,17 +86,17 @@ Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링
 프로젝트 폴더가 네트워크 드라이브에 있는 경우 프로파일러에서 프로파일링 보고서를 저장할 다른 위치를 제공하라는 메시지를 표시합니다.
 
  WaIISHost.exe에 연결하여 웹 역할에 연결할 수도 있습니다.
-응용 프로그램에 작업자 역할 프로세스가 여러 개 있는 경우 processID를 사용하여 구분해야 합니다. Process 개체에 액세스하면 프로그래밍 방식으로 processID를 쿼리할 수 있습니다. 예를 들어 역할에 포함된 RoleEntryPoint 파생 클래스의 Run 메서드에 이 코드를 추가하면 계산 에뮬레이터 UI의 로그에서 연결할 프로세스를 확인할 수 있습니다.
+응용 프로그램에 작업자 역할 프로세스가 여러 개 있는 경우 processID를 사용하여 구분해야 합니다. Process 개체에 액세스하면 프로그래밍 방식으로 processID를 쿼리할 수 있습니다. 예를 들어 역할에 포함된 RoleEntryPoint 파생 클래스의 Run 메서드에 이 코드를 추가하면 Compute 에뮬레이터 UI의 로그에서 연결할 프로세스를 확인할 수 있습니다.
 
     var process = System.Diagnostics.Process.GetCurrentProcess();
     var message = String.Format("Process ID: {0}", process.Id);
     Trace.WriteLine(message, "Information");
 
-로그를 보려면 계산 에뮬레이터 UI를 시작합니다.
+로그를 보려면 Compute 에뮬레이터 UI를 시작합니다.
 
-![계산 에뮬레이터 UI 시작][8]
+![Compute 에뮬레이터 UI 시작][8]
 
-계산 에뮬레이터 UI에서 콘솔 창의 제목 표시줄을 클릭하여 작업자 역할 로그 콘솔 창을 엽니다. 로그에서 프로세스 ID를 확인할 수 있습니다.
+Compute 에뮬레이터 UI에서 콘솔 창의 제목 표시줄을 클릭하여 작업자 역할 로그 콘솔 창을 엽니다. 로그에서 프로세스 ID를 확인할 수 있습니다.
 
 ![프로세스 ID 보기][9]
 
@@ -151,8 +150,8 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 ## <a name="troubleshooting"></a>문제 해결
 * 릴리스 빌드를 프로파일링하고 있는지 확인하고 디버깅 없이 시작합니다.
 * 프로파일러 메뉴에서 연결/분리 옵션을 사용할 수 없는 경우 성능 마법사를 실행합니다.
-* 계산 에뮬레이터 UI를 사용하여 응용 프로그램의 상태를 확인합니다. 
-* 에뮬레이터에서 응용 프로그램을 시작하거나 프로파일러에 연결하는 데 문제가 있는 경우 계산 에뮬레이터를 종료했다가 다시 시작합니다. 그래도 문제가 해결되지 않으면 다시 부팅해 보세요. 이 문제는 계산 에뮬레이터를 사용하여 실행 중인 배포를 일시 중단하고 제거하는 경우에 발생할 수 있습니다.
+* Compute 에뮬레이터 UI를 사용하여 응용 프로그램의 상태를 확인합니다. 
+* 에뮬레이터에서 응용 프로그램을 시작하거나 프로파일러에 연결하는 데 문제가 있는 경우 계산 에뮬레이터를 종료했다가 다시 시작합니다. 그래도 문제가 해결되지 않으면 다시 부팅해 보세요. 이 문제는 Compute 에뮬레이터를 사용하여 실행 중인 배포를 일시 중단하고 제거하는 경우에 발생할 수 있습니다.
 * 명령줄에서 프로파일링 명령, 특히 전역 설정을 사용한 경우 VSPerfClrEnv /globaloff가 호출되고 VsPerfMon.exe가 종료되었는지 확인합니다.
 * 샘플링 시 "PRF0025: 수집한 데이터가 없습니다." 메시지가 표시되는 경우 연결한 프로세스에 CPU 작업이 있는지 확인합니다. 계산 작업을 수행하지 않는 응용 프로그램은 샘플링 데이터를 생성하지 않을 수 있습니다.  샘플링이 수행되기 전에 프로세스가 종료되었을 수도 있습니다. 프로파일링 중인 역할에 대한 Run 메서드가 종료되지 않았는지 확인합니다.
 
@@ -175,4 +174,3 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
-

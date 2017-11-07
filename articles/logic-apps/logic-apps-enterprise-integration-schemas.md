@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
-ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩용 스키마로 XML 유효성 검사
 
@@ -60,11 +58,11 @@ ms.lasthandoff: 02/07/2017
 
 **이 액세스 수준을 확인하려면**
 
-1.    **Azure Storage 탐색기**를 엽니다. 
+1.  **Azure Storage 탐색기**를 엽니다. 
 
-2.    **Blob 컨테이너** 아래에서 원하는 blob 컨테이너를 선택합니다. 
+2.  **Blob 컨테이너** 아래에서 원하는 blob 컨테이너를 선택합니다. 
 
-3.    **보안**, **액세스 수준**을 선택합니다.
+3.  **보안**, **액세스 수준**을 선택합니다.
 
 Blob 보안 액세스 수준이 **공용**인 경우 다음 단계를 수행합니다.
 
@@ -134,5 +132,4 @@ Blob 보안 액세스 수준이 **익명 액세스 없음**인 경우 다음 단
 
 ## <a name="next-steps"></a>다음 단계
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-
 

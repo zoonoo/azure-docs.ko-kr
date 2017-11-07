@@ -3,7 +3,7 @@ title: "Azure Application Insights의 가격 책정 및 데이터 볼륨 관리 
 description: "Application Insights에서 원격 분석을 관리하고 비용을 모니터링합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights에서 가격 및 데이터 볼륨 관리
 
@@ -170,7 +169,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 보존된 각 레코드에서 `itemCount` 은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 
 Azure Resource Management를 사용하여 가격 계획을 설정하는 스크립트를 작성할 수 있습니다. [방법을 알아보세요](app-insights-powershell.md#price).
 
@@ -187,5 +186,4 @@ Azure Resource Management를 사용하여 가격 계획을 설정하는 스크�
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

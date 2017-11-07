@@ -4,15 +4,15 @@
 # 시작
 ## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
 # 방법
 
-## Data Lake Analytics 계정 관리
+## Data Lake Analytics 관리
 ### [Azure 포털](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
@@ -33,6 +33,7 @@
 
 ## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [비정상적인 되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 ### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -41,12 +42,12 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
-## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [REST (영문)](/rest/api/datalakeanalytics/)
-## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
+## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)

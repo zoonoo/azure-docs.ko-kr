@@ -12,17 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다. 이 기능은 VMware에서 Azure 및 Hyper-V에서 Azure로의 시나리오를 위해 지원됩니다.
+
+## <a name="supported-scenarios"></a>지원되는 시나리오
+**기능** | **VMware에서 Azure로** | **Hyper-V에서 Azure로** | **Azure 간**| **Hyper-V 간** 
+--|--|--|--|--
+디스크 제외 | 예 | 예 | 아니요 | 아니요
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -270,4 +274,3 @@ Azure Virtual Machine의 페이징 파일 설정은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
-

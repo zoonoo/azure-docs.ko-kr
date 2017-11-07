@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
 ## <a name="overview"></a>개요
@@ -228,4 +227,3 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 [Media Services 개념](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
-

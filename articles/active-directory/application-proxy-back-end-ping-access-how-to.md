@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: a9da67373465cebbdbecae5c8fb8bd0a0ee3c171
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>PingAccess를 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법
 
 이제 PingAccess를 사용하여 응용 프로그램 프록시의 이점을 헤더 기반 인증을 사용하는 응용 프로그램으로 확장할 수 있습니다. 헤더를 사용하지 않는 응용 프로그램의 경우 [Single Sign-on 설명서](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)에서 다른 옵션을 참조하세요.
@@ -38,4 +36,3 @@ PingAccess를 사용하도록 응용 프로그램을 구성하는 작업은 네 
 4.  PingAccess에서 응용 프로그램 구성
 
 이러한 각 단계에 대한 자세한 내용은 [Single Sign-On과 헤더 설명서](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access)를 참조하세요.
-

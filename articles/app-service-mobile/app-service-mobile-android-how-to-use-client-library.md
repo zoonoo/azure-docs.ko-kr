@@ -13,12 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
+ms.openlocfilehash: 3ccd892cf693ed959f71845c3571601825c90cf2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4b15d024ca6d5bbafe83d321a64021aecd78c4a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
@@ -108,7 +107,7 @@ package com.example.appname.services;
 import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
-public AzureServiceAdapter {
+public class AzureServiceAdapter {
     private String mMobileBackendUrl = "https://myappname.azurewebsites.net";
     private Context mContext;
     private MobileServiceClient mClient;
@@ -1312,7 +1311,6 @@ client.setGsonBuilder(
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
-

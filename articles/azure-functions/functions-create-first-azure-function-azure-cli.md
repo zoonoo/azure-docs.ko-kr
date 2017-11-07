@@ -12,14 +12,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: faa592af285569c7423a1597fcd9086311486abc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>Azure CLI를 사용하여 첫 번째 함수 만들기
 
 빠른 시작 자습서는 Azure Functions를 사용하여 첫 번째 함수를 만드는 방법을 설명합니다. Azure CLI를 사용하여 함수를 호스트하고 서버를 사용하지 않는 인프라인 함수 앱을 만듭니다. 함수 코드 자체는 GitHub 샘플 리포지토리에서 배포됩니다.    
@@ -125,7 +123,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-배포 소스가 설정되었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
+배포 원본이 설정되면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
 
 ```json
 {
@@ -170,4 +168,3 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

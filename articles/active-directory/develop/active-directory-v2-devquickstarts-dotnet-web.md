@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
-ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>.NET MVC 웹앱에 로그인 추가
 v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다.  Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.
@@ -219,4 +217,3 @@ OpenID Connect로 사용자를 인증할 때 v2.0 끝점은 클레임 또는 사
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-

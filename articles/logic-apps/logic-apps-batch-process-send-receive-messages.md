@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>논리 앱의 메시지 보내기, 받기 및 일괄 처리
 
 그룹에서 함께 메시지를 처리하려면 데이터 항목 또는 메시지를 *일괄 처리*로 보내 해당 항목을 일괄 처리로 처리할 수 있습니다. 이 방법은 데이터 항목을 특정 방식으로 그룹화하여 함께 처리하려는 경우에 유용합니다. 
@@ -62,13 +60,22 @@ ms.lasthandoff: 08/10/2017
 3. 일괄 처리에 사용할 이름을 입력하고, 다음 예와 같이 일괄 처리를 릴리스하기 위한 조건을 지정합니다.
 
    * **일괄 처리 이름**: 일괄 처리를 식별하는 데 사용되는 이름으로, 이 예제에서는 “TestBatch”입니다.
+   * **릴리스 기준**: 일괄 처리 릴리스 기준으로, 메시지 수, 일정 또는 둘 다를 기준으로 할 수 있습니다.
+   
+     ![Batch 트리거 세부 정보 제공](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **메시지 수**: 처리를 릴리스하기 전 일괄 처리로 저장하는 메시지 수입니다. 이 예제에서는 “5”입니다.
 
-   ![Batch 트리거 세부 정보 제공](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Batch 트리거 세부 정보 제공](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. 일괄 처리 트리거가 발생할 때 전자 메일을 보내는 다른 작업을 추가합니다. 일괄 처리에 항목이 5개가 될 때마다 논리 앱에서 전자 메일을 보냅니다.
+   * **일정**: 처리에 대한 일괄 처리 릴리스 일정입니다. 이 예제에서는 "5분 간격"입니다.
 
-   1. 일괄 처리 트리거에서 **+다음 단계** > **작업 추가**를 선택합니다.
+     ![Batch 트리거 세부 정보 제공](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. 일괄 처리 트리거가 발생할 때 전자 메일을 보내는 다른 작업을 추가합니다. 일괄 처리에 항목이 5개가 될 때마다 또는 5분이 경과할 때마다 논리 앱에서 전자 메일을 보냅니다.
+
+   1. 일괄 처리 트리거에서 **+새 단계** > **작업 추가**를 선택합니다.
 
    2. 검색 상자에서 필터로 “전자 메일”을 입력합니다.
    전자 메일 공급자에 따라 전자 메일 커넥터를 선택합니다.
@@ -108,6 +115,10 @@ ms.lasthandoff: 08/10/2017
 7.  이제 일괄 처리 수신기 논리 앱을 만들었으므로 논리 앱을 저장합니다.
 
     ![논리 앱 저장](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > 분할의 메시지 제한은 5,000개 또는 80MB입니다. 두 조건 중 하나가 충족될 경우 사용자 정의 조건에 맞지 않더라도 일괄 처리가 해제될 수 있습니다.
+
 
 <a name="batch-sender"></a>
 
@@ -194,4 +205,3 @@ BatchSender 논리 앱은 1분마다 실행되며, 1부터 5 사이의 난수를
 * [JSON을 사용하여 논리 앱 정의 빌드](../logic-apps/logic-apps-author-definitions.md)
 * [Azure Logic Apps 및 함수를 사용하여 Visual Studio에서 서버를 사용하지 않는 앱 빌드](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [논리 앱에 대한 예외 처리 및 오류 로깅](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

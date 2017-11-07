@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
-ms.contentlocale: ko-kr
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
 이 섹션에서는 ASP.NET 프로젝트에서 OpenID Connect를 사용하여 OWIN 미들웨어를 통해 인증 파이프라인을 설치 및 구성하는 단계를 보여 줍니다. 
@@ -151,5 +149,4 @@ public class Startup
 
 > *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 응용 프로그램이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에 쿠키를 사용하므로 위의 코드에서처럼 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에 특정 조직 하나로 액세스를 제한하지 않도록 지시합니다.
 <!--end-collapse-->
-
 

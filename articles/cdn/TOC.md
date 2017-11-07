@@ -6,11 +6,11 @@
 
 # 방법
 ## 통합
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
-### [사용자 지정 도메인을 CDN에 매핑](cdn-map-content-to-custom-domain.md)
+### [CDN 끝점에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
 ### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
 ## 콘텐츠 최적화
 ### [최적화 개요](cdn-optimization-overview.md)
@@ -19,7 +19,7 @@
 ####[동적 사이트 가속](cdn-dynamic-site-acceleration.md)
  
 ## 관리
-### [PowerShell로 관리](cdn-manage-powershell.md)
+### [Azure PowerShell로 관리](cdn-manage-powershell.md)
 ### TTL(Time to Live) 구성
 #### [Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage Blob service 콘텐츠](cdn-manage-expiration-of-blob-content.md)
@@ -37,11 +37,14 @@
 ### [HTTP/2 지원](cdn-http2.md)
 
 ## 분석
-### [사용 패턴 분석](cdn-analyze-usage-patterns.md)
-### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
-### [실시간 통계 보기](cdn-real-time-stats.md)
-### [에지 노드 성능 분석](cdn-edge-performance.md)
-### [진단 로그로 메트릭 내보내기](cdn-log-analysis.md)
+### [Azure CDN 사용 패턴 분석](cdn-log-analysis.md)
+#### [Verizon의 핵심 보고서](cdn-analyze-usage-patterns.md)
+#### [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)
+#### [Azure 진단 로그](cdn-azure-diagnostic-logs.md)
+### Verizon의 Azure CDN에 대한 분석 도구
+#### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
+#### [실시간 통계 보기](cdn-real-time-stats.md)
+#### [에지 노드 성능 분석](cdn-edge-performance.md)
 
 ## 개발
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +56,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST (영문)](/rest/api/cdn/)

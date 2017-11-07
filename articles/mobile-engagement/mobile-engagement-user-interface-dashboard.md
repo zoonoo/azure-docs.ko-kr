@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>응용 프로그램에 대한 데이터의 차트를 보고 관리하는 방법
 분석 섹션에서 정보를 검색하는 대신 원하는 정확한 정보를 제공하는 방식으로 고객은 UI의 대시보드 섹션을 통해 사용자 지정된 차트를 만들어 작업 시간을 최대한 활용할 수 있습니다. 대시보드에는 지정된 시간(시간/일/주/월/사용자 지정) 동안의 각 응용 프로그램 버전별 활성 사용자 수와 응용 프로그램의 추세가 표시됩니다. 지난 7일 동안의 추세가 표시됩니다.
@@ -132,5 +131,4 @@ ms.lasthandoff: 03/01/2017
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

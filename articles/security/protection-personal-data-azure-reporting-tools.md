@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Azure 보고 도구로 개인 데이터의 문서 보호
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 08/30/2017
 
 미국에 본사를 둔 대형 크루즈 회사는 영국 제도뿐만 아니라 지중해, 아드리아해 및 발트해의 여정을 제공하기 위해 운영을 확대하고 있습니다. 이러한 노력의 일환으로 이탈리아, 독일, 덴마크 및 영국에 기반을 둔 여러 개의 소형 크루즈 라인을 인수했습니다.
 
-이 회사는 회사 데이터의 처리 및 저장에 Microsoft Azure를 사용합니다. 여기에는 식별 가능한 개인 정보 즉, 이름, 주소, 전화 번호 및 글로벌 고객층의 신용 카드 정보가 포함됩니다. 또한 주소, 전화 번호, 세금 식별 번호 및 모든 위치의 회사 직원에 대한 기타 정보 등 기존의 인적 자원 정보도 포함합니다. 크루즈 라인은 또한 현재 및 과거 고객과의 관계를 추적하기 위해 개인 정보가 포함된 보상 및 충성도 프로그램 회원에 대한 대규모 데이터베이스를 유지합니다.
+이 회사는 회사 데이터의 처리 및 저장에 Microsoft Azure를 사용합니다. 여기에는 식별 가능한 개인 정보 즉, 이름, 주소, 전화 번호 및 글로벌 고객층의 신용 카드 정보가 포함됩니다. 주소, 전화 번호, 납세자 번호 및 모든 위치의 회사 직원에 대한 기타 정보와 같이 기존의 인적 자원 정보도 포함됩니다. 또한 크루즈 라인에서 현재 및 과거 고객과의 관계를 추적하기 위해 개인 정보가 포함된 보상 및 충성도 프로그램 구성원에 대한 대규모 데이터베이스를 유지하고 있습니다.
 
 회사 직원은 회사의 원격 사무실에서 네트워크에 액세스하고 전 세계에 위치한 여행사는 일부 회사 리소스에 액세스할 수 있습니다.
 
@@ -276,4 +275,3 @@ Azure Security Center에서 데이터 수집을 사용하도록 설정하면 Mic
 [Microsoft Azure의 모니터링 개요](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
 [Azure 활동 로그 소개(비디오)](https://azure.microsoft.com/resources/videos/intro-activity-log/)
-

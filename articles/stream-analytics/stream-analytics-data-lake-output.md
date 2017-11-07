@@ -1,6 +1,6 @@
 ---
 title: "Stream Analytics Data Lake Store 출력 | Microsoft Docs"
-description: "Stream Analytics 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
+description: "스트림 분석 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
 keywords: 
 services: stream-analytics
 documentationcenter: 
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake 저장소 출력
-Stream Analytics 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
+# <a name="stream-analytics-data-lake-store-output"></a>스트림 분석 Data Lake 저장소 출력
+스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Data Lake 저장소 계정 권한 부여
 1. Data Lake Store를 Azure Portal에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 클래식 포털을 통해 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
@@ -73,7 +72,7 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 </tr>
 <tr>
 <td>구분 기호</td>
-<td>CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
+<td>CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.</td>
 </tr>
 <tr>
 <td>형식</td>
@@ -88,5 +87,4 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Data Lake 저장소 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하면 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 성공하면 "권한 부여를 성공적으로 갱신했습니다"가 표시됩니다. 페이지의 맨 아래에서 "저장"을 클릭해야 하고 데이터 손실을 방지하도록 마지막 중지 시간에서 작업을 다시 시작하여 진행할 수 있습니다.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

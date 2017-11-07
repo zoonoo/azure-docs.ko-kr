@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 91ff3c96e4d7928131eba83c0e8c1951782447be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>C#을 사용하여 Azure IoT Edge 모듈 만들기
 
@@ -386,5 +385,4 @@ ms.lasthandoff: 07/04/2017
 
 >[!IMPORTANT]
 `Ctrl` + `C`를 사용하여 `IoT Edge` 게이트웨이 응용 프로그램을 종료하는 것이 좋습니다(즉, **gw.exe**). 이 작업은 프로세스를 비정상적으로 종료할 수 있기 때문입니다.
-
 

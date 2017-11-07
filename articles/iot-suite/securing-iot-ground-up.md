@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 장치의 안전한 프로비전, 이러한 장치 및 클라우드 간의 보안 연결, 처리 및 저장 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 장치, 배포의 지리적 분산 및 솔루션 내 많은 수의 장치에 대한 작업이 포함됩니다.
 
@@ -49,7 +47,7 @@ Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 �
 
 Microsoft Azure IoT Suite는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다. 
 
-[IoT Suite](iot-suite-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
+[IoT Suite](iot-suite-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
 
 Azure IoT Suite에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 Azure IoT Suite를 세 가지 주요 보안 영역으로 세분화했습니다. 
 
@@ -124,4 +122,3 @@ IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
-

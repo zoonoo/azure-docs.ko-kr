@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9178c485a92e04564c95dae8073f045b5c639bb7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: bf12e1bde56c06e496d29ad27ba3da65cd94629e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Network Watcher 토폴로지 보기
 
 > [!div class="op_single_selector"]
@@ -116,4 +114,3 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 ## <a name="next-steps"></a>다음 단계
 
 [보안 그룹 개요 보기](network-watcher-security-group-view-overview.md)를 방문하여 네트워크 리소스에 적용되는 보안 규칙에 대해 자세히 알아봅니다.
-

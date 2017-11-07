@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5f4cc3e97ba7adde2aaac471951a3130d79910f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -1096,8 +1095,8 @@ public class MyHandler : DelegatingHandler
 [앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Microsoft 계정 로그인을 사용하도록 앱 등록]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Active Directory 로그온에 앱 서비스를 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Microsoft 계정 로그인을 사용하도록 앱 등록]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Active Directory 로그온에 앱 서비스를 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
@@ -1143,4 +1142,3 @@ public class MyHandler : DelegatingHandler
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
-

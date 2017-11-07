@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 07/12/2017
 ms.author: kevin;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="system-views"></a>시스템 뷰
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 데이터 웨어하우스 카탈로그 보기
@@ -246,4 +245,3 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 
 <!--Other Web references-->
-

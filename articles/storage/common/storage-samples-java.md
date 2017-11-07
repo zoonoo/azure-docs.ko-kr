@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
 
@@ -217,4 +216,3 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 
 * .NET: [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)
 * 다른 모든 언어: [Azure Storage 샘플](../storage-samples.md)
-

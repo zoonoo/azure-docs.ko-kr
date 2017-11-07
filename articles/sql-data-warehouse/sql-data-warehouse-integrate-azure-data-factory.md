@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
 Azure 데이터 팩터리는 데이터를 전송 및 SQL 데이터 웨어하우스에 대한 저장 프로시저의 실행 조율을 위한 완전한 관리 메서드를 제공합니다.  이렇게 하면 복잡한 ETL(Extract Transform and Load) 프로시저를 SQL 데이터 웨어하우스와 함께 보다 쉽게 설정하고 예약할 수 있습니다. Azure Data Factory의 전체 개요는 [Azure Data Factory 설명서][Azure Data Factory documentation]를 참조하세요.
@@ -47,7 +45,7 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[Copy data with Azure Data Factory]: ../data-factory/copy-activity-overview.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 
@@ -55,5 +53,4 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Other Web references-->
 [Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
-
 

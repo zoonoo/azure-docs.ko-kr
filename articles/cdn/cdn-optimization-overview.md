@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>시나리오에 대한 Azure 콘텐츠 배달 최적화
 
@@ -115,7 +114,6 @@ Verizon의 Azure Content Delivery Network는 일반 웹 배달 최적화 형식�
 동적 사이트 가속에는 동적 콘텐츠의 대기 시간과 성능에 도움이 되는 다양한 기술이 포함되어 있습니다. 경로 및 네트워크 최적화, TCP 최적화 등이 이러한 기술에 포함됩니다. 
 
 이 최적화를 사용하여 캐시할 수 없는 수많은 응답을 포함하는 웹앱을 가속화할 수 있습니다. 예를 들어 검색 결과, 체크 아웃 트랜잭션 또는 실시간 데이터가 있습니다. 정적 데이터에 대해 핵심 CDN 캐싱 기능을 계속 사용할 수 있습니다. 
-
 
 
 

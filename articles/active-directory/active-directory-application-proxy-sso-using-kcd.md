@@ -15,14 +15,12 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
 Windows 통합 인증으로 보안되는 응용 프로그램 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 Single Sign-On을 제공할 수 있습니다. 이러한 응용 프로그램은 액세스를 위해 Kerberos 티켓이 필요합니다. 응용 프로그램 프록시는 KCD(Kerberos 제한된 위임)을 사용하여 이러한 응용 프로그램을 지원합니다. 
@@ -79,7 +77,7 @@ Sharepointserviceaccount는 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨
 1. [응용 프로그램 프록시로 응용 프로그램 게시](application-proxy-publish-azure-portal.md)에 설명된 지침에 따라 응용 프로그램을 게시합니다. 반드시 **Azure Active Directory**를 **사전 인증 메서드**로 선택해야 합니다.
 2. 응용 프로그램이 엔터프라이즈 응용 프로그램 목록에 나타나면 선택하고 **Single Sign-On**을 클릭합니다.
 3. Single Sign-On 모드를 **Windows 통합 인증**으로 설정합니다.  
-4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN**을 입력합니다. 이 예제에서는 게시된 응용 프로그램에 대한 SPN이 http/www.contoso.com입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다. 
+4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN** 을 입력합니다. 이 예제에서는 게시된 응용 프로그램에 대한 SPN이 http/www.contoso.com입니다. 이 SPN은 커넥터가 위임된 자격 증명을 제공할 수 있는 서비스 목록에 있어야 합니다. 
 5. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](#Working-with-different-on-premises-and-cloud-identities) 참조
 
    ![고급 응용 프로그램 구성](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
@@ -111,7 +109,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
 1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID**를 선택합니다.
+2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
 
    * 사용자 계정 이름(예: joe@contoso.com)
    * 대체 사용자 계정 이름(예: joed@contoso.local)
@@ -121,7 +119,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>다른 ID에 대한 SSO 문제 해결
 SSO 프로세스에 오류가 있으면 [문제 해결](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)에서 설명한 대로 커넥터 컴퓨터 이벤트 로그에 표시됩니다.
-그러나 어떤 경우에는 백 엔드 응용 프로그램에 요청을 성공적으로 보내는 반면 해당 응용 프로그램에서 다양한 다른 HTTP 응답으로 회신합니다. 이러한 경우 문제를 해결하려면 응용 프로그램 프록시 세션 이벤트 로그에서 커넥터 컴퓨터에 있는 이벤트 번호 24029의 검사를 시작해야 합니다. 위임에 사용된 사용자 ID는 이벤트 세부 정보의 "user" 필드에 표시됩니다. 세션 로그를 켜려면 이벤트 뷰어 보기 메뉴에서 **분석 및 디버그 로그 표시**를 선택합니다.
+그러나 어떤 경우에는 백 엔드 응용 프로그램에 요청을 성공적으로 보내는 반면 해당 응용 프로그램에서 다양한 다른 HTTP 응답으로 회신합니다. 이러한 경우 문제를 해결하려면 응용 프로그램 프록시 세션 이벤트 로그에서 커넥터 컴퓨터에 있는 이벤트 번호 24029의 검사를 시작해야 합니다. 위임에 사용된 사용자 ID는 이벤트 세부 정보의 "user" 필드에 표시됩니다. 세션 로그를 켜려면 이벤트 뷰어 보기 메뉴에서 **분석 및 디버그 로그 표시** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -130,5 +128,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](application-proxy-back-e
 
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
 

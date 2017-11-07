@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure 저장소 리소스 나열
 목록 작업은 Azure 저장소를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
@@ -203,5 +202,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 * [Azure Storage Client Library for C++ API 설명서](http://azure.github.io/azure-storage-cpp/)
 * [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
-
 

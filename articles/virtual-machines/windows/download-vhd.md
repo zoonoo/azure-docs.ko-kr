@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
 
 이 문서에서는 Azure Portal을 사용하여 Azure에서 [Windows VHD(가상 하드 디스크)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 파일을 다운로드하는 방법을 배웁니다. 
@@ -81,5 +79,4 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 - [Azure로 VHD 파일 업로드](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 방법을 알아봅니다. 
 - [저장소 계정의 비관리 디스크에서 관리 디스크를 만듭니다](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [PowerShell을 사용하여 Azure 디스크를 관리합니다](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

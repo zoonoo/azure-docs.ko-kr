@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 526666301aad1e5284c621024649d9cd52c92d18
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 LinkedIn Elevate 구성
 
 
@@ -48,9 +46,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>LinkedIn Elevate에 사용자 할당을 위한 주요 팁
 
-*    프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 LinkedIn Elevate에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+*   프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 LinkedIn Elevate에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*    사용자를 LinkedIn Elevate에 할당할 때 할당 대화 상자에서 **사용자** 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
+*   사용자를 LinkedIn Elevate에 할당할 때 할당 대화 상자에서 **사용자** 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>LinkedIn Elevate에 사용자 프로비전 구성
@@ -92,9 +90,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 8) Single Sign-On에 대한 LinkedIn Elevate를 이미 구성한 경우 검색 필드를 사용하여 LinkedIn Elevate의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **LinkedIn Elevate**를 검색합니다. 검색 결과에서 LinkedIn Elevate를 선택하고 응용 프로그램의 목록에 추가합니다.
 
-9)    LinkedIn Elevate의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
+9)  LinkedIn Elevate의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-10)    **프로비전 모드**를 **자동**으로 설정합니다.
+10) **프로비전 모드**를 **자동**으로 설정합니다.
 
 ![LinkedIn Elevate 프로비전](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -125,4 +123,3 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-

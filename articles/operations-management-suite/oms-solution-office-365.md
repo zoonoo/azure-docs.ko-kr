@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
+ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Office 365 솔루션
 
@@ -281,11 +280,11 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 | 쿼리 | 설명 |
 | --- | --- |
-|Office 365 구독의 모든 작업 수 |`Type = OfficeActivity | measure count() by Operation` |
-|SharePoint 사이트 사용량|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
-|사용자 유형별 파일 액세스 작업|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
-|특정 키워드를 사용한 검색|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
-|Exchange에서 외부 작업 모니터링|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+|Office 365 구독의 모든 작업 수 |Type = OfficeActivity &#124; measure count() by Operation |
+|SharePoint 사이트 사용량|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
+|사용자 유형별 파일 액세스 작업|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|특정 키워드를 사용한 검색|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|Exchange에서 외부 작업 모니터링|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
 
 
 
@@ -305,4 +304,3 @@ Office 365 솔루션이 데이터를 정상적으로 수집하지 않는 경우 
 * [Log Analytics](../log-analytics/log-analytics-log-searches.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
 * 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../log-analytics/log-analytics-alerts.md)를 수행합니다.  
-

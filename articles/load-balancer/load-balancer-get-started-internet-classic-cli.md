@@ -3,7 +3,7 @@ title: "인터넷 연결 부하 분산 장치 만들기 - Azure CLI 클래식 | 
 description: "Azure CLI를 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Azure CLI에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -36,7 +35,7 @@ ms.lasthandoff: 03/21/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>CLI를 사용하여 인터넷 연결 부하 분산 장치 만들기 단계별 지침
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>CLI를 사용하여 인터넷 연결 부하 분산 장치 만들기
 
 이 가이드에서는 위의 시나리오에 따라 인터넷 부하 분산 장치를 만드는 방법을 보여줍니다.
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 03/21/2017
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계
 
 두 번째 가상 컴퓨터 "web2"를 부하 분산 장치 집합에 추가합니다.
 
@@ -72,7 +71,7 @@ azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계
 
 `azure vm show` 를 사용하여 부하 분산 장치 구성을 확인합니다.
 
@@ -152,4 +151,3 @@ azure vm endpoint delete web1 tcp-80-80
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

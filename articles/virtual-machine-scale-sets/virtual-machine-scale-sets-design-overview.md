@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 항목은 Virtual Machine 확장 집합을 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine 확장 집합에 대한 자세한 내용은 [Virtual Machine 확장 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -77,5 +76,4 @@ Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Ma
 사용자 지정 이미지에 구축된 확장 집합은 Azure Managed Disks로 구성된 경우 최대 300개의 VM 용량을 가질 수 있습니다. 확장 집합이 사용자 관리 저장소 계정으로 구성된 경우 하나의 저장소 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 저장소에 구축하는 확장 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
 
 이러한 한도보다 더 많은 VM이 있는 경우 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)에 나오는 것처럼 여러 확장 집합을 배포해야 합니다.
-
 

@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/19/2017
 ms.author: billmath
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증을 배포하는 방법
@@ -29,7 +27,7 @@ ms.lasthandoff: 08/24/2017
 Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 온-프레미스 Active Directory와 직접 비교해서 암호의 유효성을 검사하여 사용자를 로그인합니다.
 
 >[!IMPORTANT]
->Azure AD 통과 인증은 현재 미리 보기로 제공됩니다. 미리 보기를 통해 이 기능을 사용한 경우 [여기](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md) 제공된 지침에 따라 인증 에이전트의 미리 보기 버전을 업그레이드했는지 확인해야 합니다.
+>미리 보기를 통해 이 기능을 사용한 경우 [여기](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md) 제공된 지침에 따라 인증 에이전트의 미리 보기 버전을 업그레이드했는지 확인해야 합니다.
 
 통과 인증을 배포하려면 다음 지침을 따라야 합니다.
 
@@ -45,7 +43,11 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
 1. Azure AD Connect를 실행할, Windows Server 2012 R2 이상이 실행되는 서버를 식별합니다. 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트에 서버를 추가합니다.
-2. 이전 단계에서 식별한 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.557.0 이상인지 확인합니다.
+2. 이전 단계에서 식별한 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.644.0 이상인지 확인합니다.
+
+    >[!NOTE]
+    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 **암호 해시 동기화**와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
+
 3. 독립 실행형 인증 에이전트를 실행할, Windows Server 2012 R2 이상이 실행되는 추가 서버를 식별합니다. 인증 에이전트 버전이 1.5.193.0 이상이어야 합니다. 로그인 요청의 고가용성을 보장하려면 이 서버가 필요합니다. 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트에 서버를 추가합니다.
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성해야 합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 **아웃바운드** 요청을 만들 수 있는지 확인합니다.
@@ -89,7 +91,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 ![Azure AD Connect - 사용자 로그인](./media/active-directory-aadconnect-sso/sso3.png)
 
-Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 경로 사용), Azure AD Connect에서 **사용자 로그인 변경 페이지**를 선택하고 **다음**을 클릭합니다. 그런 다음 **통과 인증**을 로그온 방법으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치되고 테넌트에서 기능이 사용됩니다.
+Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 경로 사용), Azure AD Connect에서 **사용자 로그인 변경** 작업을 선택하고 **다음**을 클릭합니다. 그런 다음 **통과 인증**을 로그온 방법으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치되고 테넌트에서 기능이 사용됩니다.
 
 ![Azure AD Connect - 사용자 로그인 변경](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -130,10 +132,11 @@ Azure AD Connect를 이미 설치한 경우([빠른 설치](active-directory-aad
 >[여기](https://aka.ms/getauthagent)에서 인증 에이전트를 다운로드할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [**현재 제한 사항**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 이 기능은 현재 미리 보기로 제공됩니다. 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
+- [**스마트 잠금**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - 테넌트에서 사용자 계정을 보호하도록 스마트 잠금 기능을 구성합니다.
+- [**현재 제한 사항** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [**기술 심층 분석**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
 - [**FAQ(질문과 대답)**](active-directory-aadconnect-pass-through-authentication-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
+- [**보안 심층 분석**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 해당 기능에 대한 자세한 추가 기술 정보입니다.
 - [**Azure AD 원활한 SSO**](active-directory-aadconnect-sso.md) - 이 보완 기능에 대해 자세히 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
-

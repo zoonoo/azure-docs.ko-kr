@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>데이터 레이크 저장소와 다른 Azure 서비스 통합
 Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용하면 광범위한 범위의 시나리오를 사용할 수 있습니다. 다음 문서에는 데이터 레이크 저장소와 통합될 수 있는 서비스가 나열되어 있습니다.
@@ -41,7 +40,7 @@ Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용�
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Azure Data Factory에 데이터 레이크 저장소 사용
 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 를 사용하여 Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, Azure 저장소 Blob 및 온-프레미스 데이터베이스에서 데이터를 수집할 수 있습니다. Azure 에코시스템의 첫 번째 클래스가 된 Azure Data Factory를 사용하면 이러한 원본에서 Azure 데이터 레이크 저장소로 데이터를 수집하는 작업을 오케스트레이션할 수 있습니다.
 
-Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 대한 지침은 [Data Factory를 사용하여 데이터 레이크 저장소에서 데이터 이동](../data-factory/data-factory-azure-datalake-connector.md)을 참조하세요.
+Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 대한 지침은 [Data Factory를 사용하여 데이터 레이크 저장소에서 데이터 이동](../data-factory/connector-azure-data-lake-store.md)을 참조하세요.
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사
 Azure 데이터 레이크 저장소에서는 Azure Blob 저장소에서 데이터 레이크 저장소 계정에 데이터를 복사할 수 있는 명령줄 도구인 AdlCopy를 제공합니다. 자세한 내용은 [Azure 저장소 Blob에서 Data Lake 저장소에 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)를 참조하세요.
@@ -71,5 +70,4 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 * [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 * [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 * [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)  
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 45b2a500751830f6ca19fe8450a7781cb0fcb618
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>클러스터링이 포함된 프리미엄 Azure Redis Cache 만들기
 
 이 시나리오에서는 활성화된 클러스터링 및 2개의 분할이 포함된 6GB 프리미엄 계층 Azure Redis Cache를 만드는 방법에 대해 배웁니다.

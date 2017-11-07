@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.lasthandoff: 03/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple 장치의 컨트롤러 모듈 교체
 ## <a name="overview"></a>개요
@@ -106,7 +105,7 @@ Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발
 8. 컨트롤러가 다시 시작된 후 Azure 클래식 포털에서 **컨트롤러 상태** 및 **클러스터 상태**를 검사하여 컨트롤러가 다시 정상 상태로 돌아갔으며 대기 모드에 있는지 확인합니다.
 
 > [!NOTE]
-> 직렬 콘솔을 통해 장치를 모니터링하는 경우 컨트롤러가 교체 절차에서 복구되는 동안 여러 번 다시 시작되는 것을 확인할 수 있습니다. 직렬 콘솔 메뉴가 표시되면 교체가 완료된 것입니다. 컨트롤러 교체를 시작한 후&2;시간 내에 메뉴가 표시되지 않는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+> 직렬 콘솔을 통해 장치를 모니터링하는 경우 컨트롤러가 교체 절차에서 복구되는 동안 여러 번 다시 시작되는 것을 확인할 수 있습니다. 직렬 콘솔 메뉴가 표시되면 교체가 완료된 것입니다. 컨트롤러 교체를 시작한 후 2시간 내에 메뉴가 표시되지 않는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 >
 > 업데이트 4부터는 장치의 Windows PowerShell 인터페이스에서 cmdlet `Get-HCSControllerReplacementStatus`를 사용하여 컨트롤러 대체 프로세스의 상태를 모니터링할 수도 있습니다.
 > 
@@ -248,5 +247,4 @@ Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
-
 

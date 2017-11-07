@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 2d824d8d5eb8a25db128397b908a126bd87213ea
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>자습서: UserEcho와 Azure Active Directory 통합
 
@@ -283,5 +282,4 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 [201]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_203.png
-
 

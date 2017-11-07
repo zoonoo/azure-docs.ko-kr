@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
 Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 컴퓨터 배포에 대해 설명합니다.  다음 방법에 대해 알아봅니다.
@@ -589,4 +587,3 @@ az group delete --name myResourceGroup
 [자습서: Oracle GoldenGate 구성](Configure-oracle-golden-gate.md)
 
 [Oracle DB 설계](oracle-design.md) 검토
-

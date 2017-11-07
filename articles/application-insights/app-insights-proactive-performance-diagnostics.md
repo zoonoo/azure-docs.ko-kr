@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -191,4 +190,3 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
-

@@ -12,20 +12,21 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2017
+ms.topic: troubleshooting
+ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Azure 구독에 Office 365 테넌트 연결
-Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 별도 Azure 및 Office 365 구독을 연결합니다. 구독을 연결하려면 Azure 서비스 관리자 계정으로 Azure에 로그인하고 디렉터리를 추가한 다음 Azure Active Directory 테넌트에 Office 365 조직 계정을 추가합니다.
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Azure 구독에 Office 365 테넌트 연결
+Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 별도 Azure 및 Office 365 구독을 연결합니다. 구독을 연결하려면 Azure 서비스 관리자 계정으로 Azure에 로그인하고 디렉터리를 추가한 다음 Azure Active Directory 테넌트에 Office 365 직장 또는 학교 계정을 추가합니다.
 
-Azure Active Directory 인스턴스에서 사용자를 위한 Office 365 구독이 필요하거나 Office 365 계정이 있지만 Azure 계정이 없는 경우 [Office 365 계정을 사용하여 Azure에 등록](billing-use-existing-office-365-account-azure-subscription.md)을 참조하세요. 
+**기존 Azure 구독을 Office 365 직장 또는 학교 계정으로 이동하시겠습니까?** 개인 Microsoft 계정으로 사용하여 Azure에 등록하거나 Office 365 계정으로 로그인한 경우 구독을 양도하는 것이 좋습니다. [Azure 구독 소유권을 다른 계정에 양도](billing-subscription-transfer.md)를 참조하세요. 
+
+**Office 365를 사용하여 Azure에 등록하시겠습니까?** [Office 365 계정을 사용하여 Azure에 등록](billing-use-existing-office-365-account-azure-subscription.md)을 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독 서비스 관리자의 자격 증명이 있어야 합니다. 공동 관리자 계정은 이 문서의 단계 중 일부를 수행할 수 없습니다. 서비스 관리자를 변경하려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)을 참조하세요.
@@ -92,6 +93,4 @@ Azure 구독에 관리자를 추가하려면 [구독 또는 서비스를 관리�
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
-
 

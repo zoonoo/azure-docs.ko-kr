@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 2907c1e4e39f975b4dc4e9382d7258c5d56dbbdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -39,7 +38,7 @@ ms.lasthandoff: 01/12/2017
 <authentication-basic username="username" password="password" />  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <authentication-basic username="testuser" password="testpassword" />  
@@ -59,7 +58,7 @@ ms.lasthandoff: 01/12/2017
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
- 이 정책은 다음 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** 인바운드  
   
@@ -93,7 +92,7 @@ ms.lasthandoff: 01/12/2017
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
- 이 정책은 다음 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** 인바운드  
   

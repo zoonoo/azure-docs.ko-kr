@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory에서 모바일 앱 관리를 통한 조건부 액세스 | Microsoft Docs"
-description: "Azure Active Directory에서 모바일 앱 관리를 통한 조건부 액세스가 작동되는 방식을 알아봅니다."
+title: "Azure Active Directory 앱 기반 조건부 액세스 | Microsoft Docs"
+description: "Azure Active Directory 앱 기반 조건부 액세스가 작동하는 방식을 알아봅니다."
 services: active-directory
 keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
 documentationcenter: 
@@ -13,66 +13,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
+ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: c6bc39dc151c80ffe1306464da60a029e54cc6b1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="conditional-access-with-mobile-app-management-in-azure-active-directory"></a>Azure Active Directory에서 모바일 앱 관리를 통한 조건부 액세스  
+# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 앱 기반 조건부 액세스  
 
-Intune 앱 보호 정책과 결합된 Azure Portal의 Azure AD(Active Directory) 앱 기반 조건부 액세스는 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한하는 등 Intune 앱 보호를 지원하는 모바일 앱으로 클라우드 앱에 대한 액세스를 제한하는 데 유용합니다. 이 지원을 통해 관리용으로 Intune MDM에 의해 등록되지 않은 장치는 여전히 회사 데이터를 보호할 수 있습니다.   
+직원은 개인 및 회사 작업에 대해 모바일 장치를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 앱 기반 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 클라이언트 앱으로 제한할 수 있습니다.  
 
-모바일 앱 관리 조건부 액세스를 사용하면 개인 및 회사 장치 모두에 대한 데이터를 보호하는 방법에 유연성을 제공하는 장치 기반 조건부 액세스 정책과 같은 다른 정책과 결합할 수 있습니다. 
+이 항목에서는 Azure AD 앱 기반 조건부 액세스를 구성하는 방법을 설명합니다.
+
+## <a name="overview"></a>개요
+
+[Azure AD 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 장치로 제한할 수 있습니다.
+
+[Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책은 장치 관리 솔루션에 장치를 등록하거나 등록하지 않고 회사의 데이터를 보호할 수 있도록 하는 MDM(모바일 장치 관리) 솔루션이 필요하지 않습니다.
+
+Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱에 대한 액세스를 Intune 앱 보호 정책을 지원하는 클라이언트 앱으로 제한할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
+
+조건부 액세스 용어에서 이러한 클라이언트 앱을 **승인된 클라이언트 앱**이라고 합니다.  
+
+
+![조건부 액세스](./media/active-directory-conditional-access-mam/05.png)
+
+
+승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)을 참조하세요.
+
+
+앱 기반 조건부 액세스 정책을 [장치 기반 조건부 액세스 정책](active-directory-conditional-access-policy-connected-applications.md)과 같은 다른 정책과 결합하여 개인 및 회사 장치 모두에 대한 데이터를 보호하는 방법에 유연성을 제공할 수 있습니다.
+
+ 
+
 
 ##<a name="before-you-begin"></a>시작하기 전에
 
 이 토픽은 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
+- [승인된 클라이언트 앱 요구 사항](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) 기술 참조.
+
+
 - [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)에 대한 기본 개념.
 
 - [조건부 액세스 정책을 구성하는](active-directory-conditional-access-azure-portal-get-started.md) 방법.
 
-
-또한 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 살펴봅니다.  
-
-
+- [조건부 액세스 정책의 마이그레이션](active-directory-conditional-access-best-practices.md#policy-migration).
+ 
 
 ## <a name="prerequisites"></a>필수 조건
 
-1.  앱 기반 조건부 액세스 정책을 만들기 전에 Enterprise Mobility + Security 또는 Azure Active Directory Premium 구독이 있어야 하며 사용자에게 EMS 또는 Azure AD에 대한 라이선스가 있어야 합니다. 
-2.  모바일 앱 관리 정책을 사용하여 새 조건부 액세스를 만들기 전에 시나리오 및 마이그레이션 고려 사항을 검토해야 합니다.
-
-## <a name="supported-platforms"></a>지원되는 플랫폼
-
--   iOS
-
--   Android
-
-## <a name="approved-client-applications"></a>승인된 클라이언트 응용 프로그램 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft 팀
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+앱 기반 조건부 액세스 정책을 만들기 위해 Enterprise Mobility + Security 또는 Azure Active Directory Premium 구독이 있어야 하며 사용자에게 EMS 또는 Azure AD에 대한 라이선스가 있어야 합니다. 
 
 
 ## <a name="exchange-online-policy"></a>Exchange Online 정책 
 
-이 시나리오는 승인된 앱을 통한 Exchange Online에 대한 액세스를 위해 모바일 앱 관리 정책을 사용한 조건부 액세스로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 조건부 액세스 정책으로 구성됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -246,9 +245,9 @@ Intune 앱 보호 정책과 결합된 Azure Portal의 Azure AD(Active Directory)
 자세한 정보는 [Microsoft Intune으로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)를 참조하세요.
 
 
-## <a name="mobile-application-management-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 모바일 응용 프로그램 관리 또는 준수 장치 정책
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 또는 준수 장치 정책
 
-이 시나리오는 승인된 앱을 통한 Exchange Online에 대한 액세스를 위해 모바일 앱 관리 또는 준수 장치 정책을 사용한 조건부 액세스로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 또는 준수 장치 조건부 액세스 정책으로 구성됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -338,9 +337,10 @@ Intune 앱 보호 정책과 결합된 Azure Portal의 Azure AD(Active Directory)
 
 
 
-## <a name="mobile-application-management-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 모바일 응용 프로그램 관리 및 준수 장치 정책
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 및 준수 장치 정책
 
-이 시나리오는 승인된 앱을 통한 Exchange Online에 대한 액세스를 위해 모바일 앱 관리 및 준수 장치 정책을 사용한 조건부 액세스로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 및 준수 장치 조건부 액세스 정책으로 구성됩니다.
+
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
@@ -436,87 +436,6 @@ Intune 앱 보호 정책과 결합된 Azure Portal의 Azure AD(Active Directory)
 자세한 정보는 [Microsoft Intune으로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)를 참조하세요.
 
 
-
-## <a name="migration-considerations"></a>마이그레이션 고려 사항
-
-Azure 클래식 포털에서 구성된 정책이 있는 경우 다음 이유로 인해 Azure Portal로 마이그레이션해야 합니다.
-
-
-- Azure 클래식 포털 정책 및 Azure Portal 정책에 있는 사용자는 두 정책의 요구 사항을 충족해야 합니다. 
-
-- 기존 정책을 마이그레이션하지 않는 경우 액세스 권한을 부여하는 정책을 구현할 수 없게 됩니다.
-
-
-## <a name="migration-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 마이그레이션
-
-이 시나리오에서는 
-
-- 사용자 [Azure 클래식 포털](https://manage.windowsazure.com)에서 다음을 구성했습니다.
-
-    - SharePoint Online
-
-    ![조건부 액세스](./media/active-directory-conditional-access-mam/14.png)
-
-    - 장치 기반 조건부 액세스 정책
-
-    ![조건부 액세스](./media/active-directory-conditional-access-mam/15.png)
-
-- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 구성하려고 합니다. 
- 
-
-### <a name="configuration"></a>구성 
-
-- 장치 기반 조건부 액세스 정책 검토
-
-- Azure Portal로 마이그레이션 
-
-- 모바일 응용 프로그램 관리 조건부 액세스 정책 추가
-
-
-## <a name="migrating-from-intune"></a>Intune에서 마이그레이션 
-
-이 시나리오에서는
-
-- [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade )에서 구성된 Exchange Online 또는 SharePoint Online 중 하나에 대한 모바일 응용 프로그램 관리 조건부 액세스 정책이 있습니다.
-
-    ![조건부 액세스](./media/active-directory-conditional-access-mam/15.png)
-
-- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스를 사용하여 마이그레이션하려고 합니다.
-
-
-### <a name="configuration"></a>구성 
- 
-- 장치 기반 조건부 액세스 정책 검토
-
-- Azure Portal로 마이그레이션 
-
-- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
-
-- 장치 기반 컨트롤 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
- 
-
-## <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Azure 클래식 포털 및 Intune에서 마이그레이션
-
-이 시나리오에서는
-
-- 다음이 구성되어 있습니다.
-
-    - **Azure 클래식 포털:** 장치 기반 조건부 
-
-    - **Intune:** 모바일 응용 프로그램 관리 조건부 액세스 정책 
-    
-- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 사용하여 두 정책을 마이그레이션하려고 합니다.
-
-
-### <a name="configuration"></a>구성
-
-- 장치 기반 조건부 액세스 정책 검토
-
-- Azure Portal로 마이그레이션 
-
-- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
-
-- 장치 기반 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
 
 
 

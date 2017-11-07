@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 이 문서는 핵심 Event Hubs .NET Standard 클라이언트 API 일부를 요약해서 설명합니다. 현재 다음과 같은 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
@@ -32,7 +30,7 @@ ms.lasthandoff: 08/16/2017
 ## <a name="event-hubs-client"></a>Event Hubs 클라이언트
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)는 이벤트를 전송하고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 끝점에 대한 새 연결을 만듭니다.
 
-### <a name="create-an-event-hubs-client"></a>Event Hubs 클라이언트 만들기
+### <a name="create-an-event-hubs-client"></a>이벤트 허브 클라이언트 만들기
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 개체는 연결 문자열에서 만들어집니다. 새 클라이언트를 인스턴스화하는 가장 간단한 방법은 다음 예제에 나와 있습니다.
 
 ```csharp
@@ -180,9 +178,9 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Event Hubs 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
+이벤트 허브 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
-* [Azure Event Hubs 정의](event-hubs-what-is-event-hubs.md)
+* [Azure 이벤트 허브 정의](event-hubs-what-is-event-hubs.md)
 * [사용할 수 있는 Event Hubs API](event-hubs-api-overview.md)
 
 .NET API 참조는 다음과 같습니다.

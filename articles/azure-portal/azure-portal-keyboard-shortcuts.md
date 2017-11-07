@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure Portal에서 바로 가기 키
 이 문서에서는 Azure Portal를 통해 작동하는 바로 가기 키를 보여 줍니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.

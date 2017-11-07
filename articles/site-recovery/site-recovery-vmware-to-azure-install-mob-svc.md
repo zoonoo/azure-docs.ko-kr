@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>모바일 서비스(VMware/Azure 물리적 서버) 설치
 Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버에 모바일 서비스를 배포할 수 있습니다.
 
@@ -30,7 +28,7 @@ Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 �
 * [Azure Automation 및 자동화 DSC(필요한 상태 구성)를 사용하여 모바일 서비스 설치](site-recovery-automate-mobility-service-install.md)
 * [GUI(그래픽 사용자 인터페이스)를 사용하여 수동으로 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [명령 프롬프트에서 수동으로 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
-* [Azure Site Recovery에서 강제 설치를 사용하여 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+* [Site Recovery에서 강제 설치를 사용하여 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -86,7 +84,25 @@ Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수행하�
 
 
 > [!NOTE]
-모바일 서비스를 설치한 후 Azure Portal에서 **복제** 단추를 선택하여 이러한 VM 보호를 시작합니다.
+모바일 서비스를 설치한 후 Azure Portal에서 **+복제** 단추를 선택하여 이러한 VM 보호를 시작합니다.
+
+## <a name="update-mobility-service"></a>모바일 서비스를 업데이트합니다.
+
+> [!WARNING]
+> 보호된 서버에서 모바일 서비스의 업데이트를 시작하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요. [구성 서버를 업데이트하는 방법](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) 및 [확장 프로세스 서버를 업데이트하는 방법](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)에 대해 자세히 알아봅니다.
+
+1. Azure Portal에서 <Your Vault> -> 복제된 항목 보기로 이동합니다.
+2. **구성 서버**를 최신 버전으로 업데이트한 경우 읽을 수 있는 *새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다.라는 알림이 표시됩니다. 클릭하여 설치합니다.*
+   
+     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. 알림을 클릭하여 가상 컴퓨터 선택 페이지를 엽니다.
+4. 모바일 서비스를 업그레이드하려는 가상 컴퓨터를 선택하고 확인 단추를 클릭합니다.
+
+     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+5. 선택한 가상 컴퓨터 각각에 대한 모바일 서비스 업데이트 작업을 시작합니다.
+
+> [!NOTE]
+> 모바일 서비스를 설치하는 데 사용되는 계정의 암호를 업데이트하는 방법에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure-manage-configuration-server.md). 
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Windows Server 컴퓨터에서 모바일 서비스 제거
 Windows Server 컴퓨터에서 모바일 서비스를 제거하려면 다음 방법 중 하나를 사용합니다.
@@ -111,4 +127,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

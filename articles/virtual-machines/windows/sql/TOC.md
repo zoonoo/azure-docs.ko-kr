@@ -1,6 +1,6 @@
 # 개요
-## [Azure VM의 SQL Server란?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [가격 책정](virtual-machines-windows-sql-server-pricing-guidance.md)
+## [Windows SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [가격](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # 시작
@@ -16,8 +16,8 @@
 #### [자동 - 템플릿 사용](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [수동 - 필수 조건](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [수동 - 자습서](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [부하 분산 장치 - 포털](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [부하 분산 장치 - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [부하 분산 장치 - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [부하 분산 장치 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [여러 영역](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 장애 조치 클러스터 인스턴스
 #### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [응용 프로그램 패턴](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server 드라이버](https://msdn.microsoft.com/library/mt654049.aspx)

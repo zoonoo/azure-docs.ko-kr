@@ -1,30 +1,28 @@
 ---
-title: "다중 테넌트 앱에서 Azure SQL Database 복원 | Microsoft Docs"
+title: "다중 테넌트 SaaS 앱에서 Azure SQL Database 복원 | Microsoft Docs"
 description: "실수로 데이터를 삭제한 후 단일 테넌트 SQL Database를 복원하는 방법에 대해 알아봅니다."
-keywords: "sql 데이터베이스 자습서"
+keywords: "SQL Database 자습서"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: a6ad292b9e63c6aaabed09e7569a86a41192ae97
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Wingtip SaaS 테넌트 SQL Database 복원
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 단일 테넌트 Azure SQL Database 복원
 
 Wingtip SaaS 앱은 각 테넌트에 자체 데이터베이스가 있는 테넌트당 데이터베이스 모델을 사용하여 빌드됩니다. 이 모델의 이점 중 하나는 다른 테넌트에 영향을 주지 않으면서 격리된 단일 테넌트의 데이터를 쉽게 복원할 수 있다는 것입니다.
 
@@ -149,6 +147,5 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
-* [Azure SQL 데이터베이스의 비즈니스 연속성 개요](sql-database-business-continuity.md)
+* [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL Database 백업에 대한 자세한 정보](sql-database-automated-backups.md)
-

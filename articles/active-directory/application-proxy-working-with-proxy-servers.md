@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 47b17c0d81e8597d3125949b26906cc356a9af11
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
 이 문서에서는 아웃바운드 프록시 서버로 작업하도록 Azure AD(Azure Active Directory) 응용 프로그램 프록시 커넥터를 구성하는 방법을 설명합니다. 네트워크 환경에 기존 프록시가 있는 고객을 위한 것입니다.
@@ -189,4 +187,3 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 - [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
 
 - 커넥터 연결 문제가 있는 경우 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD)에 질문하거나 지원 팀을 사용하여 티켓을 만드세요.
-

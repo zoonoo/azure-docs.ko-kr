@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 디코딩
 
 EDIFACT 메시지 디코드 커넥터를 사용하여 유효성을 검사하고, EDI 및 파트너별 속성의 유효성을 검사하고, 교환을 트랜잭션 집합으로 분할하거나 전체 교환을 유지하고, 처리된 트랜잭션에 대한 승인을 생성할 수 있습니다. 이 커넥터를 사용하려면 논리 앱에서 기존 트리거에 커넥터를 추가해야 합니다.
@@ -104,5 +101,4 @@ EDIFACT 커넥터에 대 한 Swagger 세부 정보를 보려면 [EDIFACT](/conne
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
+ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b0749847af81521e0ffe6b5f1e115fff558df5cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. Azure를 응용 프로그램과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다.
@@ -111,7 +109,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 이 섹션에서는 응용 프로그램 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="web-application-vulnerability-scanning"></a>웹 응용 프로그램 취약성 스캔
-[App Service 앱](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
+[App Service 앱](https://docs.microsoft.com/azure/app-service/app-service-web-overview)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
 
 ### <a name="penetration-testing"></a>침투 테스트
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://security-forms.azure.com/penetration-testing/terms) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
@@ -123,10 +121,10 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [App Service 인증/권한 부여](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)는 앱 백 엔드에서 코드를 변경할 필요가 없도록 사용자가 응용 프로그램에 로그인하는 방법을 제공하는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
 ### <a name="layered-security-architecture"></a>계층화된 보안 아키텍처
-[App Service 환경](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
+[App Service 환경](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)이 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 배포된 격리된 런타임 환경을 제공하므로 개발자는 각 응용 프로그램 계층에 서로 다른 수준의 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다. 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다. [NSG(네트워크 보안 그룹)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)은 App Service 환경을 포함하는 Azure Virtual Network 서브넷에서 사용하여 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>웹 서버 진단 및 응용 프로그램 진단
-앱 서비스 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) 및 [응용 프로그램 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 응용 프로그램을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
+앱 서비스 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 [웹 서버 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) 및 [응용 프로그램 진단](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)으로 구분됩니다. 웹 서버에서 사이트와 응용 프로그램을 진단하고 문제를 해결하는 두 가지의 큰 발전이 이루어졌습니다.
 
 첫째, 새로운 기능으로 응용 프로그램 풀, 작업자 프로세스, 사이트, 응용 프로그램 도메인 및 실행 중인 요청에 대한 실시간 상태 정보가 있습니다. 둘째, 새로운 이점으로 요청-응답 프로세스 전체에서 요청을 추적하는 자세한 추적 이벤트가 있습니다.
 
@@ -142,7 +140,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 -   웹 서버 로깅 - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
 #### <a name="application-diagnostics"></a>응용 프로그램 진단
-[응용 프로그램 진단](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)을 사용하면 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 응용 프로그램 진단에는 두 가지 주요 유형의 이벤트, 즉 응용 프로그램 성능과 관련된 이벤트와 응용 프로그램 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 응용 프로그램 코드에서 발생하는 문제와 관련이 있습니다.
+[응용 프로그램 진단](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)을 사용하면 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 응용 프로그램 진단에는 두 가지 주요 유형의 이벤트, 즉 응용 프로그램 성능과 관련된 이벤트와 응용 프로그램 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 응용 프로그램 코드에서 발생하는 문제와 관련이 있습니다.
 
 응용 프로그램 진단에서 다음과 같은 방법으로 그룹화된 이벤트를 볼 수 있습니다.
 
@@ -275,11 +273,11 @@ Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manag
 
 Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
+[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
--   들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
+-   가상 컴퓨터에 들어오는 인터넷 트래픽을 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
+-   가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합. 
 
 - 외부 트래픽을 특정 가상 컴퓨터로 전달
 
@@ -398,4 +396,3 @@ Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위�
 - [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 
 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링합니다.
-

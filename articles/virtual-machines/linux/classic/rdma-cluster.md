@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
@@ -380,4 +379,3 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 * Linux 클러스터에 Linux MPI 응용 프로그램을 배포하고 실행합니다.
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) 를 참조하세요.
 * CentOS 기반 HPC 이미지를 사용하여 Intel Lustre 클러스터를 만들기 위해 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) 을 사용해 봅니다. 자세한 내용은 [Microsoft Azure에서 Intel Cloud Edition for Lustre 배포](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/)(영문)를 참조하세요.
-

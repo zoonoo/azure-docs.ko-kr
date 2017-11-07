@@ -3,7 +3,7 @@ title: "SSL 오프로드 구성 - Azure Application Gateway - Azure Portal | Mic
 description: "이 문서에서는 Azure Portal을 사용하여 SSL 오프로드와 함께 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 23b5a529e7ee7db5615340352fb68b2e64e45972
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
 
@@ -89,5 +88,4 @@ Azure Application Gateway를 사용하여 사용자 지정 상태 프로브를 �
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
-
 

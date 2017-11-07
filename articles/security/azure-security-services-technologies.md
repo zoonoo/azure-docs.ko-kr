@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 보안 서비스 및 기술
 현재 및 미래 Azure 고객들과 이야기를 나눌 때 우리는 이런 질문을 자주 받습니다. “Azure가 제공하는 모든 보안 관련 서비스 및 기술 목록을 구비하고 계십니까?”
@@ -73,4 +72,3 @@ ms.lasthandoff: 08/21/2017
 * [Azure express 경로](../expressroute/expressroute-introduction.md)
 * [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
 * [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
-

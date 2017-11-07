@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 ## <a name="overview"></a>개요
@@ -86,10 +86,4 @@ Azure 클래식 포털의 **구성** 페이지에서 ACR을 삭제합니다.
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

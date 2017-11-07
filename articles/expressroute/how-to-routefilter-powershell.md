@@ -3,8 +3,8 @@ title: "Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: P
 description: "이 문서에서는 PowerShell을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>Microsoft 피어링에 대한 경로 필터 구성
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft 피어링에 대한 경로 필터 구성: PowerShell
+> [!div class="op_single_selector"]
+> * [Azure 포털](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 경로 필터는 Microsoft 피어링을 통해 지원되는 서비스의 하위 집합을 사용하는 방법입니다. 이 문서의 단계는 ExpressRoute 회로에 대한 경로 필터를 구성하고 관리하는 데 도움이 됩니다.
 
-Dynamics 365 서비스 및 Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Office 365 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
+Dynamics 365 서비스, Exchange Online, SharePoint Online, 비즈니스용 Skype 같은 Office 365 서비스 그리고 저장소 및 SQL DB 같은 Azure 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 
 모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 수행할 수 있습니다.
 
@@ -100,7 +104,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>1단계. 접두사 및 BGP 커뮤니티 값의 목록 가져오기
+## <a name="prefixes"></a>1단계: 접두사 및 BGP 커뮤니티 값의 목록 가져오기
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. BGP 커뮤니티 값의 목록 가져오기
 
@@ -113,7 +117,7 @@ Get-AzureRmBgpServiceCommunity
 
 경로 필터에 사용하려는 BGP 커뮤니티 값 목록을 만듭니다. 예를 들어, Dynamics 365 서비스의 BGP 커뮤니티 값은 12076:5040입니다.
 
-## <a name="filter"></a>2단계. 경로 필터 및 필터 규칙 만들기
+## <a name="filter"></a>2단계: 경로 필터 및 필터 규칙 만들기
 
 경로 필터에는 하나의 규칙만이 있을 수 있고 규칙은 '허용' 형식이어야 합니다. 이 규칙에는 관련된 BGP 커뮤니티 값의 목록이 있을 수 있습니다
 
@@ -143,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>3단계. 경로 필터를 ExpressRoute 회로에 연결합니다.
+## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결
 
 Microsoft 피어링만 있다고 가정하고 다음 명령을 실행하여 경로 필터를 ExpressRoute 회로에 연결합니다.
 
@@ -152,7 +156,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>경로 필터의 속성을 가져오려면
+## <a name="tasks"></a>일반 작업
+
+### <a name="getproperties"></a>경로 필터의 속성을 가져오려면
 
 경로 필터의 속성을 가져오려면 다음 단계를 사용합니다.
 
@@ -168,7 +174,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>경로 필터의 속성을 업데이트하려면
+### <a name="updateproperties"></a>경로 필터의 속성을 업데이트하려면
 
 경로 필터가 이미 회로에 연결된 경우 BGP 커뮤니티 목록에 대한 업데이트로 인해 설정된 BGP 세션을 통해 적절한 접두사 보급 변경 내용을 자동으로 전파합니다. 다음 명령을 사용하여 경로 필터의 BGP 커뮤니티 목록을 업데이트할 수 있습니다.
 
@@ -178,7 +184,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>ExpressRoute 회로에서 경로 필터를 분리하려면
+### <a name="detach"></a>ExpressRoute 회로에서 경로 필터를 분리하려면
 
 경로 필터를 ExpressRoute 회로에서 분리하면 접두사가 BGP 세션을 통해 보급되지 않습니다. 다음 명령을 사용하여 ExpressRoute 회로에서 경로 필터를 분리할 수 있습니다.
   
@@ -187,7 +193,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>경로 필터를 삭제하려면
+### <a name="delete"></a>경로 필터를 삭제하려면
 
 회로에 연결되지 않은 경우에만 필터를 삭제할 수 있습니다. 경로 필터를 삭제하기 전에 회로에 연결되지 않았는지 확인합니다. 다음 명령을 사용하여 경로 필터를 삭제할 수 있습니다.
 

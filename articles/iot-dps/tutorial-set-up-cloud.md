@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 장치 프로비전을 위한 클라우드 리소스 구성
 
 이 자습서에서는 IoT Hub Device Provisioning Service를 사용하여 자동 장치 프로비전을 위해 클라우드를 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -30,11 +28,11 @@ ms.lasthandoff: 09/06/2017
 > * Device Provisioning Service에 IoT Hub 연결
 > * Device Provisioning Service에서 할당 정책 설정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Device Provisioning Service 인스턴스 만들기 및 ID 범위 가져오기
 
@@ -70,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. Device Provisioning Service 페이지에서 **연결된 IoT Hub**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4. **IoT Hub에 링크 추가** 페이지에서 라디오 단추를 사용하여 연결된 IoT Hub가 현재 구독 또는 다른 구독 중 어디에 있는지를 지정합니다. 그런 다음 IoT Hub 이름을 **IoT Hub** 상자에서 선택합니다.
-5. **저장**을 클릭합니다.
+5. **Save**를 클릭합니다.
 
    ![포털에서 DPS에 연결할 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -107,4 +105,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 > [!div class="nextstepaction"]
 > [프로비전을 위한 장치 설정](tutorial-set-up-device.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
+ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -35,6 +34,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -851,6 +851,89 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+## <a name="guid"></a>GUID
+
+`guid (baseString, ...)`
+
+매개 변수로 제공된 값을 기반으로 고유 식별자 형식의 값을 만듭니다.
+
+### <a name="parameters"></a>매개 변수
+
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| baseString |예 |string |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
+| 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+
+### <a name="remarks"></a>설명
+
+이 함수는 고유 식별자 형식의 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
+
+반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 36자입니다. 전역적으로 고유하지 않습니다.
+
+다음 예제에서는 guid를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
+
+구독에 범위가 지정된 고유함
+
+```json
+"[guid(subscription().subscriptionId)]"
+```
+
+리소스 그룹에 범위가 지정된 고유함
+
+```json
+"[guid(resourceGroup().id)]"
+```
+
+리소스 그룹의 배포에 범위가 지정된 고유함
+
+```json
+"[guid(resourceGroup().id, deployment().name)]"
+```
+
+### <a name="return-value"></a>반환 값
+
+고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
+
+### <a name="examples"></a>예
+
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "guidPerSubscription": {
+            "value": "[guid(subscription().subscriptionId)]",
+            "type": "string"
+        },
+        "guidPerResourceGroup": {
+            "value": "[guid(resourceGroup().id)]",
+            "type": "string"
+        },
+        "guidPerDeployment": {
+            "value": "[guid(resourceGroup().id, deployment().name)]",
+            "type": "string"
+        }
+    }
+}
+```
+
+Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+```
+
+PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -2230,7 +2313,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
-
 

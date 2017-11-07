@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure Stream Analytics 문제 해결 가이드
 
 Azure Stream Analytics 문제 해결은 언뜻 보기에 복잡한 노력이 필요한 것처럼 보일 수 있습니다. 여러 사용자가 작업을 한 후에 프로세스를 간소화하고 입력, 출력, 쿼리 및 함수에 대한 추측을 제거하는 데 도움이 되도록 이 가이드를 만들었습니다.
@@ -99,4 +97,3 @@ Stream Analytics 작업 문제 해결에서 최상의 결과를 얻으려면 다
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

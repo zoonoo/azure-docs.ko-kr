@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -71,13 +70,22 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
+아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
+2. 게이트웨이를 삭제합니다.
+* [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure PowerShell - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [원하는 형식의 새 게이트웨이 만들기 및 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 
 예. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이를 구성하려면 VNet의 게이트웨이 서브넷을 만들어야 합니다. 모든 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷에 다른 이름을 지정하지 않습니다. 게이트웨이 서브넷에 VM 또는 다른 항목을 배포하지 않습니다.
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소가 할당되어야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /27 이상으로 만드는 것이 좋습니다(/27, /26, /25 등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 그러한 요구 사항을 충족하는지 확인하세요.
 
-### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Virtual Machines 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
 아니요.
 
@@ -111,9 +119,8 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 #### <a name="classic-deployment-model"></a>클래식 배포 모델
 
 * Azure Portal: 클래식 가상 네트워크 > VPN 연결 > 사이트 간 VPN 연결 > 로컬 사이트 이름 > 로컬 사이트 > 클라이언트 주소 공간으로 이동합니다. 
-* 클래식 포털: 로컬 Networks의 Networks 페이지에서 가상 네트워크의 게이트웨이를 통해 보낼 각 범위를 추가합니다. 
 
-### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있습니까?
+### <a name="can-i-configure-force-tunneling"></a>강제 터널링을 구성할 수 있나요?
 
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
@@ -159,9 +166,17 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="P2S"></a>지점 및 사이트 간 연결
+## <a name="P2S"></a>지점 및 사이트 간 - 네이티브 Azure 인증서 인증
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+이 섹션은 Resource Manager 배포 모델에 적용됩니다.
+
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>지점 및 사이트 간 - RADIUS 인증
+
+이 섹션은 Resource Manager 배포 모델에 적용됩니다.
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet 간 연결 및 다중 사이트 연결
 
@@ -229,4 +244,3 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
-

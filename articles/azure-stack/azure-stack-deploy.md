@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: "Azure 스택 개발 키트 배포 필수 구성 요소 | Microsoft Docs"
+description: "Azure 스택 개발 키트 (클라우드 연산자)에 대 한 환경 및 하드웨어 요구 사항을 봅니다."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,92 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e4e2293149b64056d1ec9d1900119e9f4f511d06
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/24/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
-Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+# <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
+
+*적용 대상: Azure 스택 개발 키트*
+
+배포 하기 전에 [Azure 스택 개발 키트](azure-stack-poc.md), 컴퓨터가 다음 요구 사항을 충족 하는지 확인 하십시오.
 
 
-## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+## <a name="hardware"></a>하드웨어
+| 구성 요소 | 최소 | 권장 |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| 디스크 드라이브: 운영 체제 |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |
+| 디스크 드라이브: 일반 개발 키트 데이터 * |4개의 디스크. 각 디스크는 최소 140GB의 용량을 제공합니다(SSD 또는 HDD). 사용 가능한 모든 디스크 사용 됩니다. |4개의 디스크. 각 디스크 용량 (SSD 또는 HDD) 250GB 최소를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |
+| Compute: CPU |듀얼 소켓의 경우: 12 실제 코어 수 (합계) |듀얼 소켓의 경우: 16 실제 코어 수 (합계) |
+| Compute: 메모리 |96GB RAM |128GB RAM (PaaS 리소스 공급자를 지원 하기 위해 최소입니다.)|
+| Compute: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
+| 네트워크: NIC |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |
+| HW 로고 인증 |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*다양 한를 추가 하려는 경우이 권장 용량 보다 더 많은 해야는 [마켓플레이스 항목](azure-stack-download-azure-marketplace-item.md) Azure에서.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**데이터 디스크 드라이브 구성:** 모든 데이터 드라이브는 동일한 유형 (모든 SAS 또는 모든 SATA) 및 용량 이어야 합니다. SAS 디스크 드라이브를 사용 하면 단일 경로 (다중 경로 지원이 없는 MPIO 제공)를 통해 디스크 드라이브를 첨부 되어야 합니다.
 
-**HBA configuration options**
+**HBA 구성 옵션**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (기본 설정) 간단한 HBA
+* RAID HBA – 어댑터 "통과" 모드로 구성 해야 합니다.
+* RAID HBA – 디스크는 단일 디스크, RAID-0으로 구성되어야 합니다.
 
-**Supported bus and media type combinations**
+**지원되는 버스 및 미디어 형식 조합**
 
 * SATA HDD
 * SAS HDD
 * RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
+* RAID SSD (미디어 형식이 지정 되지 않은/알 수 없는 경우\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*통과 기능 없이 RAID 컨트롤러에는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러는 지정되지 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용됩니다. 따라서 이러한 ssd 개발 키트를 배포할 수 있습니다.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**예제 HBA**: LSI 9207 8i, LSI-9300-8i 또는 LSI-9265-8i 통과 모드
 
-Sample OEM configurations are available.
+샘플 OEM 구성을 사용할 수 있습니다.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>운영 체제
+|  | **요구 사항** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **OS 버전** |Windows Server 2012 R2 이상. 운영 체제 버전은 중요 한 배포를 시작 하기 전에으로 Azure 스택 설치에 포함 된 VHD에 호스트 컴퓨터를 부팅 합니다. 모든 필요한 패치 및 운영 체제 이미지에 이미 통합 됩니다. 개발 키트에서 사용 되는 모든 Windows Server 인스턴스를 활성화 하는 모든 키를 사용 하지 마십시오. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>배포 요구 사항 확인 도구
+운영 체제를 설치한 후 사용할 수 있습니다는 [Azure 스택에 대 한 배포 검사](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) 하드웨어 요구 사항을 모두 충족 하는지 확인 합니다.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>계정 요구 사항
+일반적으로 인터넷 연결 되 면 Microsoft Azure에 연결할 수 있는 개발 키트를 배포 합니다. 이 경우 개발 키트를 배포 하는 Azure Active Directory (Azure AD) 계정을 구성 해야 합니다.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+사용자 환경에서 인터넷에 연결 되지 않은 경우 Azure AD를 사용 하지 않음, Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택을 배포할 수 있습니다. 개발 키트에는 AD FS 및 Active Directory 도메인 서비스 인스턴스는 자체 포함 되어 있습니다. 이 옵션을 사용 하 여 배포 하는 경우에 미리 계정을 설정할 필요가 없습니다.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+AD FS 옵션을 사용 하 여 배포 하는 경우에 Azure AD로 전환 하려면 Azure 스택을 다시 배포 해야 합니다.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Azure Active Directory 계정
+Azure 스택을 Azure AD 계정을 사용 하 여 배포 하려면 배포 PowerShell 스크립트를 실행 하기 전에 Azure AD 계정을 준비 해야 합니다. 이 계정이 Azure AD 테 넌 트에 대 한 전역 관리자가 됩니다. 프로 비전 하 고 응용 프로그램 및 Azure Active Directory Graph API와 상호 작용 하는 모든 Azure 스택을 서비스에 대 한 서비스 사용자를 위임 사용 됩니다. (나중에 변경할 수 있습니다)이 표시 되는 기본 공급자 구독의 소유자도도 사용 됩니다. 이 계정을 사용 하 여 Azure 스택 시스템의 관리자 포털에 로그인 수 있습니다.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. 하나 이상의 Azure AD에 대 한 디렉터리 관리자가 해당 하는 Azure AD 계정을 만듭니다. 를 이미 있는 하나를 사용할 수 있습니다. 그렇지 않으면에서 만들 수 있습니다 하나를 무료로 [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (중국 방문 <http://go.microsoft.com/fwlink/?LinkID=717821> 대신). 하려는 경우 나중에 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md), 구독을 새로 만든 계정에도 있어야 합니다.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    6 단계에서 사용 하기 위해이 자격 증명을 저장 [개발 키트 배포](azure-stack-run-powershell-script.md#deploy-the-development-kit)합니다. 이 *서비스 관리자* 계정을 구성 하 고 리소스 클라우드, 사용자 계정, 테 넌 트 계획, 할당량 및 가격을 관리할 수 있습니다. 포털에서 웹 사이트 클라우드, 가상 컴퓨터 개인 클라우드 및 계획을 만들고 사용자 구독을 관리할 수 있습니다.
+2. [만들](azure-stack-add-new-user-aad.md) 테 넌 트로 개발 키트에 로그인 할 수 있도록 계정 하나 이상 있습니다.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Azure Active Directory 계정** | **지원됩니까?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | 유효한 공용 Azure 구독에 회사 또는 학교 계정 |예 |
+   | 유효한 공용 Azure 구독의 Microsoft 계정 |예 |
+   | 회사 또는 학교 계정을 유효한 중국 Azure 구독 |예 |
+   | 유효한 미국 정부 Azure 구독에 회사 또는 학교 계정 |예 |
 
-## <a name="network"></a>Network
+## <a name="network"></a>네트워크
 ### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+개발 키트 컴퓨터에 대 한 스위치에서 사용 가능한 포트를 하나의 합니다.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+개발 키트 컴퓨터 스위치 액세스 포트 또는 트렁크 포트에 연결을 지원 합니다. 스위치에 특수한 기능이 필요하지 않습니다. 트렁크 포트를 사용하거나 VLAN ID를 구성해야 하는 경우 배포 매개 변수로 VLAN ID를 제공해야 합니다. 예제를 확인할 수는 [배포 매개 변수 목록이](azure-stack-run-powershell-script.md)합니다.
 
-### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+### <a name="subnet"></a>서브넷
+서브넷에 개발 키트 컴퓨터를 연결 하지 않습니다.
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -108,52 +110,52 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+이러한 서브넷은 개발 키트 환경 내에서 내부 네트워크에 예약 되어 있습니다.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+IPv4만 지원됩니다. IPv6 네트워크를 만들 수 없습니다.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+NIC가 연결하는 네트워크에서 사용 가능한 DHCP 서버가 있는지 확인합니다. DHCP를 사용할 수 없는 경우 호스트에서 사용하는 것 외에도 추가 정적 IPv4 네트워크를 준비해야 합니다. 해당 IP 주소를 제공 해야 및 게이트웨이 배포 매개 변수입니다. 예제를 확인할 수는 [배포 매개 변수 목록이](azure-stack-run-powershell-script.md)합니다.
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>인터넷 액세스
+Azure 스택 직접 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure 스택 인터넷 액세스를 사용 하는 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 MA BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>원격 분석
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+원격 분석 이후 버전의 Azure 스택 셰이프는 도움이 됩니다. 피드백에 신속 하 게 응답 새로운 기능을 제공 하 고 품질을 향상 시킬 수 있습니다. Microsoft Azure 스택 Windows Server 2016 및 SQL Server 2014를 포함합니다. 이러한 제품을 모두 기본 설정에서 변경 되며 모두 Microsoft Enterprise 개인정보취급방침 설명 됩니다. Azure 스택은 오픈 소스 소프트웨어는 Microsoft로 원격 분석이 전송에 수정 되지 않은 포함 됩니다. Azure 스택 원격 분석 데이터의 몇 가지 예는 다음과 같습니다.
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- 배포 등록 정보
+- 경고 열리고 닫힐 때
+- 네트워크 리소스의 수
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+원격 분석 데이터 흐름을 지원 하려면 포트 443 (HTTPS) 네트워크에서 열려 있어야 합니다. 클라이언트 끝점 https://vortex-win.data.microsoft.com입니다.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Azure 스택에 대 한 원격 분석을 제공 하지 않으려면 경우 있습니다 수 해제 개발 키트 호스트 및 아래에 설명 된 대로 인프라 가상 컴퓨터에.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>(선택 사항) 개발 키트 호스트에서 원격 분석을 해제 설정
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+개발 키트 호스트에 대 한 원격 분석 해제 하려는 경우 배포 스크립트를 실행 하기 전에 해야 합니다.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+하기 전에 [asdk installer.ps1 스크립트를 실행 중인]() 개발 키트 호스트를 배포 하는 CloudBuilder.vhdx로 부팅 하 고 관리자 권한 PowerShell 창에서 다음 스크립트를 실행 합니다.
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name "AllowTelemetry" -Value '0'  
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+설정 **AllowTelemetry** 을 Windows와 Azure 스택 배포에 대 한 0으로 원격 분석을 해제 합니다. 운영 체제에서 중요 한 보안 이벤트만 전송 됩니다. 설정은 모든 호스트 및 Vm의 경우 인프라에서 Windows 원격 분석을 제어 하 고 확장 작업을 수행 하면 새 노드/Vm에 다시 적용 됩니다.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>(선택 사항) 인프라는 가상 컴퓨터에서 원격 분석을 해제 설정
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+배포에 성공한 후 (AzureStack\AzureStackAdmin 사용자)로 관리자 권한 PowerShell 창에서 다음 스크립트 개발 키트 호스트에서 실행 합니다.
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -167,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+SQL Server 원격 분석을 구성 하려면 참조 [SQL Server 2016을 구성 하는 방법](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft)합니다.
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>사용 현황 보고
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+등록을 통해 Azure 스택 정방향 사용 정보를 Azure에도 구성 됩니다. 사용 보고는 독립적으로 제어 원격 분석에서 합니다. 사용 시기를 보고를 해제할 수 있습니다 [등록](azure-stack-register.md) Github에서 스크립트를 사용 하 여 합니다. 방금 설정한는 **$reportUsage** 매개 변수를 **$false**합니다.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+사용 현황 데이터의 형식이에 설명 된 대로 [보고서 Azure 스택 사용 현황 데이터를 Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting)합니다. Azure 스택 개발 키트 사용자 실제로 요금이 부과 되지 않습니다. 이 기능 사용 보고 작동 원리를 테스트할 수 있도록 개발 키트에 포함 됩니다. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>다음 단계
+[Azure 스택 개발 키트 배포 패키지를 다운로드 합니다.](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Azure 스택 개발 키트를 배포 합니다.](azure-stack-run-powershell-script.md)
 

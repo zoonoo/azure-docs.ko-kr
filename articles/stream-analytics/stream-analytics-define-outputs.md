@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>스트림 분석 출력: 저장소에 대한 옵션, 분석
 스트림 분석 작업을 만들 때는 결과 데이터를 어떤 방식으로 사용할지를 고려해야 합니다. 스트림 분석 작업 결과를 어떻게 보고 어디에 저장하시겠습니까?
@@ -57,7 +56,7 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 </tr>
 <tr>
 <td>경로 접두사 패턴</td>
-<td>지정된 Data Lake 저장소 계정 내에서 파일을 작성하는 데 사용되는 파일 경로입니다. <BR>{date}, {time}<BR>예제 1: folder1/logs/{date}/{time}<BR>예제 2: folder1/logs/{date}</td>
+<td>파일 명명은 다음 규칙을 따릅니다. <BR>{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension <BR> <BR>예제 출력 파일:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>또한 새 파일이 생성되는 상황은 다음과 같습니다.<BR>1. 출력 스키마의 변경 <BR>2. 작업의 외부 또는 내부 다시 시작<BR><BR>또한 파일 경로 패턴에 후행 "/"가 포함되어 있지 않으면 파일 경로의 마지막 패턴이 파일 이름 접두사로 처리됩니다.<BR><BR>예제:<BR>경로 패턴 folder1/logs/HH에서 생성되는 파일은 folder1/logs/02_134343_gguid_1.csv와 같습니다.</td>
 </tr>
 <tr>
 <td>날짜 형식[<I>선택 사항</I>]</td>
@@ -81,7 +80,7 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 </tr>
 <tr>
 <td>형식</td>
-<td>JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다.</td>
+<td>JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간대로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 </tr>
 <tr>
 <td>경로 접두사 패턴 [선택 사항]</td>
-<td>지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로입니다.<BR>경로 내에서 Blob가 작성된 빈도를 지정하기 위해 2개의 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다.<BR>{date}, {time}<BR>예제 1: cluster1/logs/{date}/{time}<BR>예제 2: cluster1/logs/{date}</td>
+<td>지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. <BR> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 2개의 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. <BR> {date}, {time} <BR> 예제 1: cluster1/logs/{date}/{time} <BR> 예제 2: cluster1/logs/{date} <BR> <BR> 파일 명명은 다음 규칙을 따릅니다. <BR> {경로 접두사 패턴}/schemaHashcode_Guid_Number.extension <BR> <BR> 예제 출력 파일: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> 또한 새 파일이 생성되는 상황은 다음과 같습니다. <BR> 1. 현재 파일이 허용되는 최대 블록 수(현재 50,000)를 초과합니다. <BR> 2. 출력 스키마의 변경 <BR> 3. 작업의 외부 또는 내부 다시 시작  </td>
 </tr>
 <tr>
 <td>날짜 형식[선택 사항]</td>
@@ -182,7 +181,7 @@ Azure Portal에서 출력으로 Data Lake 저장소를 선택하는 경우 기�
 | 이벤트 직렬화 형식 |출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다. |
 | 인코딩 |CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
-| 형식 |JSON 형식에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. |
+| 형식 |JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간대로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) 를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
@@ -267,7 +266,7 @@ DateTime | string | string |  DateTime | string
 | Partition Key |파티션 키를 포함하는 출력 열의 이름입니다. 파티션 키는 엔터티 기본 키의 첫 번째 부분을 형성하는 지정된 테이블 내에서 분할에 고유한 식별자입니다. 크기가 최대 1KB인 문자열 값입니다. |
 | Row Key |행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. |
 | 배치 크기 |배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 Batch 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
-
+ 
 ## <a name="service-bus-queues"></a>서비스 버스 큐
 [서비스 버스 큐](https://msdn.microsoft.com/library/azure/hh367516.aspx) 는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
 
@@ -298,7 +297,7 @@ DateTime | string | string |  DateTime | string
 | 토픽 정책 이름 |또한 토픽을 만들 때 토픽 구성 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | 토픽 정책 키 |서비스 버스 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 선택키 |
 | 이벤트 직렬화 형식 |출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다. |
-| 인코딩 |CSV 또는 JSON 형식인 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
+ | 인코딩 |CSV 또는 JSON 형식인 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -315,6 +314,23 @@ DateTime | string | string |  DateTime | string
   2\) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  
 * **파티션 키** – 선택 사항. 컬렉션 이름 패턴에 {parition} 토큰을 사용하는 경우에만 필요합니다. 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
 * **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
+
+## <a name="azure-functions-in-preview"></a>Azure Functions(미리 보기)
+Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지 않고도 필요 시 코드를 실행할 수 있는 서버를 사용하지 않는 계산 서비스입니다. Azure 또는 타사 서비스에서 발생하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다.  트리거에 응답하는 이러한 Azure Functions 기능 때문에 Azure Stream Analytics에 대한 출력이 자연스럽게 제공될 수 있습니다. 이 출력 어댑터를 사용하여 Stream Analytics를 Azure Functions에 연결하고, 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
+
+Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합니다. 새 Azure Function 출력 어댑터는 다음의 구성 가능한 속성을 통해 사용할 수 있습니다.
+
+| 속성 이름 | 설명 |
+| --- | --- |
+| 함수 앱 |Azure Functions 앱의 이름 |
+| 함수 |Azure Functions 앱의 함수 이름 |
+| 최대 일괄 처리 크기 |이 속성은 Azure 함수에 전송될 각 출력 일괄 처리의 최대 크기를 설정하는 데 사용할 수 있습니다. 기본적으로 이 값은 256KB입니다. |
+| 최대 일괄 처리 수  |이름으로 알 수 있듯이 이 속성을 사용하면 Azure Functions로 전송되는 각 일괄 처리의 최대 이벤트 수를 지정할 수 있습니다. 기본 최대 일괄 처리 수 값은 100입니다. |
+| 키 |다른 구독에서 Azure 함수를 사용하려는 경우 함수에 액세스하기 위한 키를 제공하여 이렇게 할 수 있습니다. |
+
+Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무 큼) 예외를 수신하면 Azure Functions으로 전송하는 일괄 처리 크기를 줄입니다. Azure 함수 코드에서 이 예외를 사용하여 Azure Stream Analytics가 너무 큰 일괄 처리를 전송하지 않도록 합니다. 또한 함수에 사용되는 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력한 값과 일치하는지 확인합니다. 
+
+그뿐 아니라 상황에서는 또한 기간 안에 발생하는 이벤트가 없으면 출력이 생성되지 않습니다. 결과적으로 computeResult 함수는 호출되지 않습니다. 이 동작은 기본 제공 기간 이동 집계 함수와 일치합니다.
 
 
 ## <a name="get-help"></a>도움말 보기
@@ -335,4 +351,3 @@ DateTime | string | string |  DateTime | string
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

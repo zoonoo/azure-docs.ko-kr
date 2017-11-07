@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 09/22/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e2b3efe7f247c4ffee11ab437860ecbc95036cd7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
@@ -50,6 +49,8 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS는 이제 사설 DNS 영역(현재는 미리 보기 기능)도 지원합니다.  사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
 
 ## <a name="get-a-dns-zone"></a>DNS 영역 가져오기
 
@@ -171,5 +172,4 @@ DNS 영역에서 [레코드 집합 및 레코드 관리](dns-operations-recordse
 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)하는 방법을 알아봅니다.
 <br>
 [Azure DNS PowerShell 참조 설명서](/powershell/module/azurerm.dns)를 검토합니다.
-
 

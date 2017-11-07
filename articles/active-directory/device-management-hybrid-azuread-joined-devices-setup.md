@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -35,7 +34,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
 
-- **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입된 장치를 말합니다.
+- **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입 된 장치를 말합니다.
 - **Windows 하위 수준 장치** - 이 용어는 Windows 10과 Windows Server 2016 중 어떤 것도 실행하지 않는 **지원되는** 도메인에 가입된 Windows 장치를 말합니다.  
 
 
@@ -133,8 +132,9 @@ cmdlet:
 
 `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Active Directory PowerShell 모듈을 사용합니다. 이 모듈은 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
+- 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용하는 Active Directory PowerShell 모듈 및 AD DS 도구를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
 - **MSOnline PowerShell 모듈 버전 1.1.166.0**에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)를 사용합니다.   
+- AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다.  기능 - 원격 서버 관리 도구 - 역할 관리 도구 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 
 Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경우 아래 스크립트를 사용하여 서비스 연결 지점을 만들 수 있습니다.
 
@@ -294,8 +294,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 위의 클레임에서
 
-- `$<domain>`은 AD FS 서비스 URL
-- `<verified-domain-name>`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자
+- `<verified-domain-name>`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자입니다. 예를 들면 Value = "http://contoso.com/adfs/services/trust/"와 같습니다.
 
 
 
@@ -583,4 +582,3 @@ System Center Configuration Manager 같은 소프트웨어 배포 시스템을 �
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

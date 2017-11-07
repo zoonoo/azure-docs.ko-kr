@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
@@ -73,7 +72,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
 
-2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 다음 정보를 제공합니다.
+2. **선택적 구성** 섹션에서 **스크립트 동작**을 선택하고 다음 정보를 제공합니다.
 
    * **이름**: 스크립트 동작의 이름을 입력합니다.
 
@@ -87,7 +86,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
    * **PARAMETERS**: 이 필드는 공백으로 둡니다.
 
-3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
+3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 섹션의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
 4. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 만듭니다.
 
@@ -180,4 +179,3 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 * [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다.
 
 * [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md).
-

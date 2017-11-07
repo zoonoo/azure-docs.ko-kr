@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 55c5abccb2472d653a4e355e39a19a224b979b85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>응용 프로그램에 사용자를 구성 및 프로비전하는 문제
 
 
@@ -35,4 +33,3 @@ ms.lasthandoff: 04/18/2017
   * [Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성할 때 문제가 발생함](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [내 Azure AD 갤러리 응용 프로그램에 프로비전을 설정했지만 사용자가 프로비전되지 않음](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [내 Azure AD 갤러리 응용 프로그램에 프로비전이 작동하지만 잘못된 사용자 집합이 프로비전됨](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

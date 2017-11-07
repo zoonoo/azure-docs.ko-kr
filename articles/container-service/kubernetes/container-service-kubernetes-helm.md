@@ -16,14 +16,15 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd137de99864fbac2c73400a88956f6afa324db
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 703b516c8fd443d2bb751530a8f62496b020cb5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포 
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm을 사용하여 Kubernetes 클러스터에 컨테이너 배포
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Helm](https://github.com/kubernetes/helm/)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. Apt-get, Yum 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다. 이 문서는 Azure Container Service에 배포된 Kubernetes 클러스터에서 Helm을 이용하여 작업하는 방법을 보여줍니다.
 
@@ -154,5 +155,4 @@ sudo mysql –h v1-mariadb
 ## <a name="next-steps"></a>다음 단계
 
 * Kubernetes 차트 관리에 대한 자세한 내용을 보려면 [Helm 설명서](https://github.com/kubernetes/helm/blob/master/docs/index.md)를 참조하십시오. 
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 61576d3a915d209e7355e04432e586dcf66e7c5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합
 
@@ -225,5 +224,4 @@ WSS로 트래픽을 프록시하도록 웹 브라우저를 구성한 후 웹 브
 [201]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-symantec-tutorial/tutorial_general_203.png
-
 

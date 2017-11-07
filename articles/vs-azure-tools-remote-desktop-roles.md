@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Azure 역할과 함께 원격 데스크톱 사용
 Azure SDK와 원격 데스크톱 서비스를 사용하여 Azure 역할 및 Azure에서 호스팅되는 가상 컴퓨터에 액세스할 수 있습니다. Visual Studio에서 Azure 클라우드 서비스 프로젝트에서 원격 데스크톱 서비스를 구성할 수 있습니다. 원격 데스크톱 서비스를 사용하려면 하나 이상의 역할을 포함하는 작업 프로젝트를 만든 다음 Azure에 게시합니다.
@@ -77,5 +76,4 @@ Azure에서 클라우드 서비스를 게시한 후 서버 탐색기를 사용�
    
     ![원격 데스크톱을 통해 연결](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. 이전에 만든 사용자 이름 및 암호를 입력합니다. 이제 원격 세션에 로그인됩니다.
-
 

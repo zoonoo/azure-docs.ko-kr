@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
 
 ![System Center Operations Manager 평가 기호](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
@@ -65,7 +63,7 @@ System Center Operations Manager 평가는 사용하도록 설정한 서버를 �
 
 다음 테이블은 System Center Operations Manager 평가에 대한 데이터 수집 방법 및 에이전트에서 데이터가 수집되는 빈도를 보여줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | | | | &#8226; | | 7일 |
 
@@ -292,4 +290,3 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ## <a name="next-steps"></a>다음 단계
 
 - [로그를 검색](log-analytics-log-searches.md)하여 자세한 System Center Operations Manager 평가 데이터 및 권장 사항을 확인합니다.
-

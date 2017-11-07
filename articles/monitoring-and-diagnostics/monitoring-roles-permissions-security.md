@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -75,15 +74,23 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 
 | 작업 | 설명 |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |경고 규칙 읽기/쓰기/삭제 |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |작업 그룹을 읽고 쓰고 삭제합니다. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |활동 로그 알림을 읽고 쓰고 삭제합니다. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |경고 규칙 읽고 쓰고 삭제합니다(메트릭 경고). |
 | Microsoft.Insights/AlertRules/Incidents/Read |경고 규칙에 대한 사건 나열(트리거된 경고 규칙 내역). 포털에만 적용됩니다. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |자동 크기 조정 설정 읽기/쓰기/삭제 |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |진단 설정 읽기/쓰기/삭제 |
+| Microsoft.Insights/EventCategories/Read |활동 로그의 가능한 모든 범주를 나열합니다. Azure Portal에서 사용됩니다. |
 | Microsoft.Insights/eventtypes/digestevents/Read |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
 | Microsoft.Insights/eventtypes/values/Read |구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 네트워크 흐름 로그의 진단 설정을 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/LogDefinitions/Read |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |로그 프로필을 읽고 쓰고 삭제합니다(이벤트 허브 또는 저장소 계정으로 활동 로그 스트리밍). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |거의 실시간으로 메트릭 경고를 읽고 쓰고 삭제합니다(공개 미리 보기). |
 | Microsoft.Insights/MetricDefinitions/Read |메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
 | Microsoft.Insights/Metrics/Read |리소스에 대한 메트릭을 읽습니다. |
+| Microsoft.Insights/Register/Action |Azure Monitor 리소스 공급자를 등록합니다. |
+
 
 > [!NOTE]
 > 리소스에 대한 알림, 진단 설정 및 메트릭에 액세스하려면 해당 사용자에게 리소스 형식과 리소스 범위에 대한 읽기 액세스 권한이 있어야 합니다. 저장소 계정에 보관하거나 이벤트 허브에 스트리밍하는 진단 설정 또는 로그 프로필을 만들려면 해당 사용자에게 대상 리소스에 대한 ListKeys 권한도 있어야 합니다.
@@ -170,5 +177,4 @@ New-AzureRmRoleDefinition -Role $role
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager의 RBAC 및 권한에 대해 읽기](../active-directory/role-based-access-control-what-is.md)
 * [Azure의 모니터링 개요 읽기](monitoring-overview.md)
-
 

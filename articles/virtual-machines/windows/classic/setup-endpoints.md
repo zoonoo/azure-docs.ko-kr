@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 60861819a7e437bb715b14c0e8eaf74f13b33ebf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure에서 클래식 Windows 가상 컴퓨터에 끝점을 설정하는 방법
 클래식 배포 모델을 사용하여 Azure에서 만든 모든 Windows 가상 컴퓨터는 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다. 이 문서는 [Linux 가상 컴퓨터](../../linux/classic/setup-endpoints.md)에도 적용됩니다.
@@ -39,4 +37,3 @@ Azure Portal에서 Windows 가상 컴퓨터를 만들 때 원격 데스크톱, W
 * Azure PowerShell cmdlet을 사용하여 VM 끝점을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요.
 * Azure PowerShell cmdlet을 사용하여 끝점에서 ACL을 관리하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../../../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
 * 리소스 관리자 배포 모델에서 가상 컴퓨터를 만들면, Azure PowerShell을 사용하여 VM에 대한 트래픽을 제어하는 [네트워크 보안 그룹을 만들 수 있습니다](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) .
-

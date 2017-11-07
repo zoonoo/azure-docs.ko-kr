@@ -75,6 +75,7 @@ sections:
           - html: 'Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>를 사용하여 데이터 쿼리'
           - html: 'Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>를 사용하여 전역 데이터베이스 복제'
           - html: <a href="local-emulator">에뮬레이터를 사용하여 로컬로 응용 프로그램 개발</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기</a>
   - title: 샘플
     items:
       - type: list

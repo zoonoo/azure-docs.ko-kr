@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
+ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5ff4d86082c03dcd7098743a984a97aa70232d1d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Xamarin에서 Blob 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -245,10 +244,9 @@ namespace XamarinApp.WinPhone
 이 자습서에서는 특히 Blob Storage에서 한 시나리오에 초점을 맞춰서 Xamarin에서 Azure Storage를 사용하는 플랫폼 간 응용 프로그램을 만드는 방법을 배웠습니다. 그러나 Blob Storage 뿐만 아니라 Table, File 및 Queue Storage로도 많은 작업을 수행할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
+* [Azure Files 소개](../files/storage-files-introduction.md)
+* [.NET을 사용하여 Azure Files 개발](../files/storage-dotnet-how-to-use-files.md)
 * [.NET을 사용하여 Azure 테이블 저장소 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [.NET을 사용하여 Azure 큐 저장소 시작](../queues/storage-dotnet-how-to-use-queues.md)
-* [Windows에서 Azure 파일 저장소 시작](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-

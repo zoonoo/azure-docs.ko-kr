@@ -10,23 +10,22 @@ tags: azure-resource-manager,azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
+ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
 VPN Gateway 연결을 통해 Azure 내 Virtual Network와 온-프레미스 IT 인프라 사이에 안전한 프레미스 간 연결을 설정할 수 있습니다.
 
-이 문서에서는 온-프레미스 리소스에서 Azure 가상 컴퓨터로의 네트워크 처리량을 유효성 검사하는 방법을 보여 줍니다. 문제 해결 지침도 제공합니다.
+이 문서에서는 온-프레미스 리소스에서 Azure VM(가상 컴퓨터)으로의 네트워크 처리량을 유효성 검사하는 방법을 보여줍니다. 문제 해결 지침도 제공합니다.
 
 >[!NOTE]
 >이 문서는 일반적인 문제를 진단하고 해결하는 데 사용됩니다. 다음 정보를 사용하여 문제를 해결할 수 없는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
@@ -40,7 +39,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 - 온-프레미스 VPN 장치([유효성 검사된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable) 목록 보기).
 - 공용 인터넷
 - Azure VPN Gateway
-- Azure 가상 컴퓨터
+- Azure VM
 
 다음 다이어그램에서는 VPN을 통한 온-프레미스 네트워크와 Azure Virtual Network의 논리적 연결을 보여 줍니다.
 
@@ -140,4 +139,3 @@ tracert를 통해 Microsoft Azure Edge 장치를 추적하여 홉 사이에 100m
 
 - [Azure 가상 컴퓨터에 대한 네트워크 처리량 최적화](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-

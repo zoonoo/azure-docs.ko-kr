@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 4fb77ed0241d15338c2574fd22828507c3e40cb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>IoT 게이트웨이를 사용하여 장치를 클라우드에 연결 - SensorTag-Azure IoT Hub
 
@@ -172,4 +171,3 @@ BLE(Bluetooth Low Energy) 응용 프로그램 예제는 Azure IoT Edge에서 제
 ## <a name="next-steps"></a>다음 단계
 
 [IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-

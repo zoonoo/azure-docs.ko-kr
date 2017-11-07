@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
-ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>사용 시작 및 최종 사용자에게 도달하는 푸시 관리 방법
 SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 사용하기 시작하여 응용 프로그램의 사용자에게 푸시 알림을 할 수 있습니다.  
@@ -311,5 +310,4 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

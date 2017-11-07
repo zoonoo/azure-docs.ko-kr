@@ -14,23 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure Blob을 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
+이 문서에서는 Azure Blob을 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 버전 1.x를 사용합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Blob이 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 이 섹션에서는 **BlobTrigger** 특성을 사용하는 방법을 보여 줍니다.
 
- **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  응용 프로그램에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 [BlobTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
+ **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.  응용 프로그램에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 **QueueTrigger** 특성을 사용하는 것이 좋습니다.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자
 다음 코드 샘플은 *입력* 컨테이너에 표시된 텍스트 Blob를 *출력* 컨테이너에 복사합니다.
@@ -142,7 +141,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 *
 ## <a name="how-to-handle-poison-blobs"></a>포이즌 Blob을 처리하는 방법
 **BlobTrigger** 함수가 일시적인 오류로 인해 실패할 경우 SDK에서 이 함수를 다시 호출합니다. 그러나 Blob의 콘텐츠로 인해 실패한 경우에는 Blob을 처리하려고 할 때마다 함수가 실패합니다. 기본적으로 SDK는 지정된 Blob에 대해 함수를 최대 5번 호출합니다. 5번의 시도에 실패하면 *webjobs-blobtrigger-poison*이라는 큐에 메시지를 추가합니다.
 
-최대 다시 시도 횟수는 구성 가능합니다. 동일한 [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다.
+최대 다시 시도 횟수는 구성 가능합니다. 동일한 **MaxDequeueCount** 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다.
 
 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
@@ -204,7 +203,7 @@ Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure �
 Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 
 ## <a name="related-topics-covered-by-the-queues-article"></a>큐 문서에서 다루는 관련 항목
-큐 메시지에 의해 트리거되는 Blob을 처리하는 방법 또는 Blob 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요
+큐 메시지에 의해 트리거되는 Blob을 처리하는 방법 또는 Blob 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요
 
 이 문서에서 다루는 관련 항목은 다음과 같습니다.
 
@@ -220,5 +219,4 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
 

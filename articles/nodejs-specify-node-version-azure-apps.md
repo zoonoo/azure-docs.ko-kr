@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
-
+ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Azure 응용 프로그램에서 Node.js 버전 지정
 Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 특정 버전의 Node.js를 사용하는지 확인하는 것이 좋습니다. Azure에 호스트되는 응용 프로그램에 대해 이 작업을 수행하는 여러 가지 방법이 있습니다.
@@ -90,12 +89,11 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
     응용 프로그램이 게시된 후 브라우저에서 웹 사이트를 엽니다. "Hello from Azure running node version: v0.8.1"이라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포](app-service-web/app-service-web-get-started-nodejs.md) 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
+지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포](app-service/app-service-web-get-started-nodejs.md) 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
 
 자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]:cli-install-nodejs.md
 [Azure 명령줄 도구]:cli-install-nodejs.md
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
-
+[build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md

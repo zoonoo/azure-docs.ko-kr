@@ -11,17 +11,16 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 700c68f354c61cb975ae684d558e650631ff4d66
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: d753772adeb9064f391f1e3846de654bdb60facf
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL을 디자인합니다 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Azure Database for PostgreSQL 만들기
+> * PostgreSQL용 Azure Database 서버 만들기
 > * 서버 방화벽 구성
 > * [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/20/2017
 > * 데이터 업데이트
 > * 데이터 복원
 
-브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI 2.0을 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 코드 블록을 실행할 수 있습니다.
+브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI 2.0을 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 명령을 실행할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -64,7 +63,10 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 
 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) 명령을 사용하여 Azure PostgreSQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) 또는 [PgAdmin](https://www.pgadmin.org/)과 같은 외부 응용 프로그램에서 Azure PostgreSQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
 
-IP 범위를 적용하는 방화벽 규칙을 설정하여 네트워크에서 연결할 수 있습니다. 다음 예제에서는 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create)를 사용하여 IP 주소 범위에 대한 `AllowAllIps` 방화벽 규칙을 만듭니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
+IP 범위를 적용하는 방화벽 규칙을 설정하여 네트워크에서 연결할 수 있습니다. 다음 예제에서는 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create)를 사용하여 모든 IP 주소에서 연결할 수 있는 방화벽 규칙 `AllowAllIps`를 만듭니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
+
+Azure PostgreSQL 서버에 대한 액세스를 네트워크로만 제한하려면 회사 네트워크 IP 주소 범위만 처리하도록 방화벽 규칙을 설정할 수 있습니다.
+
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -108,7 +110,7 @@ az postgres server show --resource-group myresourcegroup --name mypgserver-20170
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>psql을 사용하여 Azure Database for PostgreSQL 데이터베이스에 연결
 클라이언트 컴퓨터에 PostgreSQL이 설치되어 있는 경우 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 로컬 인스턴스 또는 Azure 클라우드 콘솔을 사용하여 Azure PostgreSQL 서버에 연결할 수 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 PostgreSQL용 Azure Database 서버에 연결해 보겠습니다.
 
-1. 다음 psql 명령을 실행하여 Azure Database for PostgreSQL 서버에 연결합니다.
+1. 다음 psql 명령을 실행하여 Azure Database for PostgreSQL 데이터베이스에 연결합니다.
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -146,34 +148,35 @@ CREATE TABLE inventory (
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>테이블에 데이터 로드
-이제 테이블을 만들었으므로 이 테이블에 일부 데이터를 삽입할 수 있습니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 일부 삽입합니다.
+## <a name="load-data-into-the-table"></a>테이블에 데이터 로드
+이제 테이블을 만들었으므로 이 테이블에 일부 데이터를 삽입할 수 있습니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 삽입합니다.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-이제 앞에서 만든 테이블에 두 개의 샘플 데이터 행이 있습니다.
+앞에서 만든 테이블에 두 개의 샘플 데이터 행이 추가되었습니다.
 
 ## <a name="query-and-update-the-data-in-the-tables"></a>테이블의 데이터 쿼리 및 업데이트
-다음 쿼리를 실행하여 데이터베이스 테이블에서 정보를 검색합니다. 
+다음 쿼리를 실행하여 인벤토리 테이블에서 정보를 검색합니다. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-또한 테이블의 데이터를 업데이트할 수도 있습니다
+또한 인벤토리 테이블의 데이터를 업데이트할 수도 있습니다.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-이에 따라 데이터를 검색할 때 해당 행이 업데이트됩니다.
+데이터를 검색할 때 업데이트된 값을 볼 수 있습니다.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>이전 시점으로 데이터베이스 복원
-실수로 테이블을 삭제한 경우를 가정해 보겠습니다. 이런 경우는 쉽게 복구할 수 없는 경우입니다. Azure Database for PostgreSQL를 사용하면 특정 시점(마지막 시점에서 최대 7일 전(기본) 및 35일 전(표준))으로 되돌아가 이 시점의 새 서버로 복원할 수 있습니다. 이 새 서버를 사용하여 삭제된 데이터를 복구할 수 있습니다. 다음 단계에서는 테이블이 추가되기 이전 시점으로 샘플 서버를 복원합니다.
+실수로 테이블을 삭제한 경우를 가정해 보겠습니다. 이런 경우는 쉽게 복구할 수 없는 경우입니다. Azure Database for PostgreSQL을 사용하면 특정 시점(기본의 경우 최대 7일, 표준의 경우 최대 35일)으로 되돌아갈 수 있고 이 시점을 새 서버로 복원할 수 있습니다. 이 새 서버를 사용하여 삭제된 데이터를 복구할 수 있습니다. 
 
+다음 명령은 샘플 서버를 테이블이 추가되기 전 시점으로 복원합니다.
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -186,7 +189,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 | restore-point-in-time | 2017-04-13T13:59:00Z | 복원하려는 지정 시간을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2017-04-13T05:59:00-08:00`과 같은 고유한 현지 표준 시간대 또는 UTC Zulu 형식 `2017-04-13T13:59:00Z`를 사용할 수도 있습니다. |
 | --source-server | mypgserver-20170401 | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
 
-서버를 지정 시간으로 복원하면 새 서버가 만들어지고 사용자가 지정한 지정 시간의 원본 서버를 복사합니다. 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 동일합니다.
+서버를 지정 시간으로 복원하면 새 서버가 만들어지고 사용자가 지정한 시점의 원본 서버로 복사됩니다. 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 동일합니다.
 
 명령은 동기화되고 서버가 복원된 후에 반환됩니다. 복원이 완료되면 생성된 새 서버를 찾습니다. 데이터가 예상대로 복원되었는지 확인합니다.
 
@@ -194,7 +197,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
-> * Azure Database for PostgreSQL 만들기
+> * PostgreSQL용 Azure Database 서버 만들기
 > * 서버 방화벽 구성
 > * [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
@@ -203,4 +206,3 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 > * 데이터 복원
 
 다음에는 Azure Portal을 사용하여 유사한 작업을 수행하는 방법에 대해 알아보고, [Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-portal.md) 자습서를 검토합니다.
-

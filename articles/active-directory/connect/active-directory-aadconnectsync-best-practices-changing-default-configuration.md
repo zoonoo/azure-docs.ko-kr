@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
-ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: b723ad800ccc0f3040eb480bb72960943b1fdb16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
 이 항목에서는 Azure AD Connect 동기화에 지원되거나 지원되지 않는 변경사항을 설명합니다.
@@ -71,4 +70,3 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

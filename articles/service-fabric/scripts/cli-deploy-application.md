@@ -15,14 +15,12 @@ ms.topic: sample
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
+ms.openlocfilehash: 2bbf689820a92cfa01b26fdbacb4526ade8956ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 74d54b314e81dc260e800e32d6c3edd5215c82b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 배포
 
 이 샘플 스크립트는 클러스터 이미지 저장소에 응용 프로그램 패키지를 복사하고, 응용 프로그램 유형을 클러스터에 등록하고, 해당 응용 프로그램 유형에서 응용 프로그램 인스턴스를 만듭니다. 이때 기본 서비스도 만들어집니다.
@@ -31,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "클러스터에 응용 프로그램 배포")]
+[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "Deploy an application to a cluster")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -42,4 +40,3 @@ ms.lasthandoff: 08/24/2017
 자세한 내용은 [Service Fabric CLI 설명서](../service-fabric-cli.md)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 Service Fabric CLI 샘플은 [Service Fabric CLI 샘플](../samples-cli.md)에서 확인할 수 있습니다.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
-ms.sourcegitcommit: 3f130c7718e204ba2e826c2500d8935a6285f71f
-ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -55,7 +54,7 @@ ms.lasthandoff: 09/20/2017
 **배포 모델** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
 **클래식** | 지원됨 | 클래식 가상 컴퓨터는 복제한 후 클래식 가상 컴퓨터로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
-**Resource Manager** | 지원됨 |
+**리소스 관리자** | 지원됨 |
 
 >[!NOTE]
 >
@@ -85,6 +84,8 @@ ms.lasthandoff: 09/20/2017
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7
+- Debian 8
 - Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -144,8 +145,8 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
-최대 OS 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
-최대 데이터 디스크 크기 | 1023GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 OS 디스크 크기 | 2048GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
+최대 데이터 디스크 크기 | 4,095GB | [VM에서 사용되는 디스크](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)를 참조하세요.
 데이터 디스크 수 | Azure VM 크기에 따라 최대 64개 지원 | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
 임시 디스크 | 항상 복제에서 제외됨 | 임시 디스크는 항상 복제에서 제외됩니다. Azure 지침에 따라 임시 디스크에 영구 데이터를 저장해서는 안 됩니다. 자세한 내용은 [Azure VM의 임시 디스크](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)를 참조하세요.
 디스크의 데이터 변경률 | 디스크당 최대 6MBps | 디스크의 평균 데이터 변경률이 지속적으로 6MBps를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 6MBps를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
@@ -191,4 +192,3 @@ VNet 간 연결 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-t
 ## <a name="next-steps"></a>다음 단계
 - [Azure VM 복제를 위한 네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)에 대해 자세히 알아보기
 - [Azure VM을 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호 시작
-

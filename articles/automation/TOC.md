@@ -45,6 +45,7 @@
 ## 배포 구성 관리(DSC)
 ### [DSC(필요한 상태 구성) 개요](automation-dsc-overview.md)
 ### [시작](automation-dsc-getting-started.md)
+### [원하는 상태로 서버 구성 및 Azure Automation를 사용하여 드리프트 관리](tutorial-configure-servers-desired-state.md)
 ### [관리를 위한 컴퓨터 탑재](automation-dsc-onboarding.md)
 ### [DSC 구성 컴파일](automation-dsc-compile.md)
 ### [Chocolatey를 사용하여 연속 배포](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포](automation-deploy-template-runbook.md)
 ## 솔루션
-### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
+#### [여러 VM에 대한 업데이트 관리](manage-update-multi.md)
+#### [OMS 업데이트 관리와 SCCMr 통합](oms-solution-updatemgmt-sccmintegration.md)
+### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
+### [VM의 변경 내용 추적](automation-vm-change-tracking.md)
+### [인벤토리 수집을 사용하여 VM 관리](automation-vm-inventory.md)
 ### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 ## 모니터
 ### [Log Analytics에 Azure Automation 작업 데이터 전달](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [일반적인 오류 해결](automation-troubleshooting-automation-errors.md)
 ### [Hybrid Runbook Worker 문제 해결](automation-troubleshooting-hybrid-runbook-worker.md)
 # 참조
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST (영문)](/rest/api/automation)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt163781)

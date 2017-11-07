@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
+ms.openlocfilehash: a0598d32b5bad240c0a5d77a6e19285115a9f6b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a5f34e487a6b2a99f5fcd5c4639ceb6da36806d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: .NET을 사용하여 MongoDB 앱에 연결
 
@@ -62,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="set-up-your-mongodb-app"></a>MongoDB 앱 설치
 
-최소한의 수정으로 [가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure에서 웹앱 만들기](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) 자습서를 사용하여 MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 빠르게 설치할 수 있습니다(로컬로 또는 Azure 웹앱에 게시됨).  
+최소한의 수정으로 [가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure에서 웹앱 만들기](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) 자습서를 사용하여 MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 빠르게 설치할 수 있습니다(로컬로 또는 Azure 웹앱에 게시됨).  
 
 1. 한 번 수정하여 자습서를 수행합니다.  Dal.cs 코드를 다음으로 바꿉니다.
 
@@ -229,5 +228,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
-
 

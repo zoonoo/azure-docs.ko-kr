@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 10/06/2017
 ms.author: sethm
+ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="amqp-10-support-in-service-bus"></a>서비스 버스의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 응용 프로그램을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 응용 프로그램을 생성할 수 있습니다. 이러한 구성 요소는 모두 서비스 버스에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.
@@ -98,4 +97,3 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [AMQP를 사용하여 Java에서 Service Bus 사용]: service-bus-amqp-java.md
 [Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-

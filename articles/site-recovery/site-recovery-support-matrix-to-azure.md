@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
+ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 30ccdc62e68ff86d693b9eb3477c65e4e6a1fe3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
 
 이 문서에서는 Azure로 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다. Azure Site Recovery 요구 사항에 대한 자세한 내용은 [필수 구성 요소](site-recovery-prereq.md)를 참조하세요.
+
+> [!NOTE]
+> 지원되는 매트릭스의 업데이트와 호환되려면 Site Recovery 공급자와 에이전트를 최신 버전으로 업데이트해야 합니다.
 
 
 ## <a name="support-for-deployment-options"></a>배포 옵션에 대한 지원
@@ -47,7 +49,7 @@ ms.lasthandoff: 08/30/2017
 
   >[!Note]
   > Windows Server 2016 및 2012 R2 호스트가 혼합된 System Center Virtual Machine Manager 2016 클라우드는 현재 지원되지 않습니다.
-
+  > 기존 SCVMM 2012 R2를 2016으로 업그레이드하는 구성은 현재 지원되지 않습니다.
 ### <a name="host-servers"></a>호스트 서버
 
 **배포웹사이트를** | **지원**
@@ -237,4 +239,3 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 ## <a name="next-steps"></a>다음 단계
 [필수 구성 요소 확인](site-recovery-prereq.md)
-

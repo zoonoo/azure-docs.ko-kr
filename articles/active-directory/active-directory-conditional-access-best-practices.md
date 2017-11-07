@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/16/2017
 ms.author: markvi
 ms.reviewer: calebb
+ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -98,30 +97,91 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 
 
-## <a name="common-scenarios"></a>일반적인 시나리오
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>앱에 다단계 인증 필요
+## <a name="policy-migration"></a>정책 마이그레이션
 
-대다수 사용 환경에서는 다른 앱보다 특히 높은 수준의 보호를 요구하는 앱이 있습니다.
-예를 들어 중요한 데이터에 액세스할 수 있는 앱의 경우가 여기에 해당합니다.
-이러한 앱에 또 다른 보호 계층을 추가하려는 경우 사용자가 이러한 앱에 액세스할 때 다단계 인증을 요구하는 조건부 액세스 정책을 구성할 수 있습니다.
+Azure 클래식 포털에서 구성된 정책이 있는 경우 다음 이유로 인해 Azure Portal로 마이그레이션해야 합니다.
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>신뢰할 수 없는 네트워크에서 액세스하기 위한 다단계 인증 필요
+- Azure 클래식 포털 정책 및 Azure Portal 정책에 있는 사용자는 두 정책의 요구 사항을 충족해야 합니다. 
 
-이 시나리오는 다단계 인증에 대한 요구 사항을 추가하기 때문에 이전 시나리오와 비슷합니다.
-그러나 주요 차이점은 이 요구 사항에 대한 조건에 있습니다.  
-이전 시나리오는 중요한 데이터에 액세스할 수 있는 앱에 초점을 맞추었지만, 이 시나리오는 신뢰할 수 있는 위치에 초점을 맞추고 있습니다.  
-즉 사용자가 신뢰할 수 없는 네트워크에서 앱에 액세스하는 경우 다단계 인증에 대한 요구 사항이 있을 수 있습니다.
+- 기존 정책을 마이그레이션하지 않는 경우 액세스 권한을 부여하는 정책을 구현할 수 없게 됩니다.
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>신뢰할 수 있는 장치만 Office 365 서비스에 액세스 가능
+### <a name="migration-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 마이그레이션
 
-사용자 환경에서 Intune을 사용하는 경우 Azure 콘솔에서 조건부 액세스 정책 인터페이스를 즉시 사용할 수 있습니다.
+이 시나리오에서는 
 
-많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 각 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉, 새 정책을 만들 때 조건부 액세스로 보호하려는 각 Office 365 앱을 포함하도록 클라우드 앱을 구성합니다.
+- 사용자 [Azure 클래식 포털](https://manage.windowsazure.com)에서 다음을 구성했습니다.
+
+    - SharePoint Online
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - 장치 기반 조건부 액세스 정책
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 구성하려고 합니다. 
+ 
+
+#### <a name="configuration"></a>구성 
+
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- 모바일 응용 프로그램 관리 조건부 액세스 정책 추가
+
+
+### <a name="migrating-from-intune"></a>Intune에서 마이그레이션 
+
+이 시나리오에서는
+
+- [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade )에서 구성된 Exchange Online 또는 SharePoint Online 중 하나에 대한 모바일 응용 프로그램 관리 조건부 액세스 정책이 있습니다.
+
+    ![조건부 액세스](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스를 사용하여 마이그레이션하려고 합니다.
+
+
+#### <a name="configuration"></a>구성 
+ 
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
+
+- 장치 기반 컨트롤 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Azure 클래식 포털 및 Intune에서 마이그레이션
+
+이 시나리오에서는
+
+- 다음이 구성되어 있습니다.
+
+    - **Azure 클래식 포털:** 장치 기반 조건부 
+
+    - **Intune:** 모바일 응용 프로그램 관리 조건부 액세스 정책 
+    
+- Azure Portal에서 모바일 응용 프로그램 관리 조건부 액세스 정책을 사용하여 두 정책을 마이그레이션하려고 합니다.
+
+
+#### <a name="configuration"></a>구성
+
+- 장치 기반 조건부 액세스 정책 검토
+
+- Azure Portal로 마이그레이션 
+
+- Intune에서 Exchange Online 또는 SharePoint Online에 대해 구성된 모바일 응용 프로그램 관리 조건부 액세스 정책을 검토합니다.
+
+- 장치 기반 외에 **승인된 응용 프로그램 필요**를 위한 컨트롤을 추가합니다. 
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 
 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
-

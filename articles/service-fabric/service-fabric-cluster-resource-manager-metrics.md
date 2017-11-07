@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭*은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.
@@ -64,7 +63,7 @@ ms.lasthandoff: 08/19/2017
 
 모든 메트릭에는 자체에 대해 설명하는 이름,가중치 및 기본 로드와 같은 몇 가지 속성이 있습니다.
 
-* 메트릭 이름: 메트릭의 이름입니다. 메트릭 이름은 리소스 관리자의 관점에서 클러스터 내의 메트릭에 대한 고유한 식별자입니다.
+* 메트릭 이름: 메트릭의 이름입니다. 메트릭 이름은 Resource Manager의 관점에서 클러스터 내의 메트릭에 대한 고유한 식별자입니다.
 * Weight: 메트릭 가중치는 이 서비스에 대한 다른 메트릭에 상대적으로 이 메트릭이 갖는 중요도를 정의합니다.
 * 기본 부하: 기본 부하는 서비스가 상태 비저장 서비스인지 또는 상태 저장 서비스인지에 따라 다르게 표현됩니다.
   * 상태 비저장 서비스의 경우 각 메트릭에는 DefaultLoad라는 단일 속성만 있습니다.
@@ -224,16 +223,16 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 다음과 같은 몇 가지에 대한 설명이 필요합니다.
 
-* 1.75의 비율이 합리적인지를 무엇이 결정했나요? 클러스터 리소스 관리자는 충분한지 또는 추가 작업이 필요한지를 어떻게 확인하나요?
+* 1.75의 비율이 합리적인지를 무엇이 결정했나요? Cluster Resource Manager는 충분한지 또는 추가 작업이 필요한지를 어떻게 확인하나요?
 * 언제 부하가 분산되나요?
 * 메모리의 가중치가 "높음"은 무슨 의미인가요?
 
 ## <a name="metric-weights"></a>메트릭 가중치
-여러 서비스에서 동일한 메트릭을 추적하는 것이 중요합니다. 이 전역 보기를 통해 클러스터 리소스 관리자에서 클러스터의 사용량을 추적하고, 노드 간에 사용량을 분산하며, 노드에서 용량을 초과하지 않도록 보장할 수 있습니다. 그러나 서비스에서 동일한 메트릭의 중요도에 따라 서로 다른 보기가 있을 수 있습니다. 또한 메트릭과 서비스가 많은 클러스터에서는 모든 메트릭에 대해 완벽하게 분산된 솔루션이 없을 수도 있습니다. 클러스터 리소스 관리자는 이러한 상황을 어떻게 처리해야 할까요?
+여러 서비스에서 동일한 메트릭을 추적하는 것이 중요합니다. 이 전역 보기를 통해 클러스터 리소스 관리자에서 클러스터의 사용량을 추적하고, 노드 간에 사용량을 분산하며, 노드에서 용량을 초과하지 않도록 보장할 수 있습니다. 그러나 서비스에서 동일한 메트릭의 중요도에 따라 서로 다른 보기가 있을 수 있습니다. 또한 메트릭과 서비스가 많은 클러스터에서는 모든 메트릭에 대해 완벽하게 분산된 솔루션이 없을 수도 있습니다. Cluster Resource Manager는 이러한 상황을 어떻게 처리해야 할까요?
 
-메트릭 가중치를 통해 클러스터 리소스 관리자는 완벽한 답이 없을 때 클러스터를 분산하는 방법을 결정할 수 있습니다. 메트릭 가중치를 통해 클러스터 리소스 관리자가 특정 서비스를 다르게 분산할 수도 있습니다. 메트릭은 0, 낮음, 보통, 높음 등 네 가지 가중치 수준을 사용할 수 있습니다. 작업이 분산되는지 여부를 고려할 때 가중치가 0인 메트릭은 작업에 아무런 영향을 주지 않습니다. 그러나 로드는 용량 관리에 여전히 영향을 줍니다. 가중치가 0인 메트릭은 여전히 유용하며, 서비스 동작 및 성능 모니터링의 일부로 자주 사용됩니다. [이 문서](service-fabric-diagnostics-event-generation-infra.md)에서는 서비스 모니터링 및 진단을 위해 메트릭을 사용하는 방법에 대해 자세히 설명합니다. 
+메트릭 가중치를 통해 Cluster Resource Manager는 완벽한 답이 없을 때 클러스터를 분산하는 방법을 결정할 수 있습니다. 메트릭 가중치를 통해 Cluster Resource Manager가 특정 서비스를 다르게 분산할 수도 있습니다. 메트릭은 0, 낮음, 보통, 높음 등 네 가지 가중치 수준을 사용할 수 있습니다. 작업이 분산되는지 여부를 고려할 때 가중치가 0인 메트릭은 작업에 아무런 영향을 주지 않습니다. 그러나 로드는 용량 관리에 여전히 영향을 줍니다. 가중치가 0인 메트릭은 여전히 유용하며, 서비스 동작 및 성능 모니터링의 일부로 자주 사용됩니다. [이 문서](service-fabric-diagnostics-event-generation-infra.md)에서는 서비스 모니터링 및 진단을 위해 메트릭을 사용하는 방법에 대해 자세히 설명합니다. 
 
-클러스터에서 서로 다른 메트릭 가중치의 실제 영향은 클러스터 리소스 관리자가 서로 다른 솔루션을 생성한다는 것입니다. 메트릭 가중치는 클러스터 리소스 관리자에게 특정 메트릭이 다른 메트릭보다 더 중요함을 알려 줍니다. 완벽한 솔루션이 없으면 클러스터 리소스 관리자는 가중치가 더 높은 메트릭을 더 잘 분산하는 솔루션을 선호합니다. 서비스에서 특정 메트릭이 중요하지 않다고 인식하면 해당 메트릭의 사용이 분산되지 않았다고 확인할 수 있습니다. 이렇게 하면 다른 서비스에서 중요한 메트릭을 균등하게 분산할 수 있습니다.
+클러스터에서 서로 다른 메트릭 가중치의 실제 영향은 Cluster Resource Manager가 서로 다른 솔루션을 생성한다는 것입니다. 메트릭 가중치는 Cluster Resource Manager에게 특정 메트릭이 다른 메트릭보다 더 중요함을 알려 줍니다. 완벽한 솔루션이 없으면 Cluster Resource Manager는 가중치가 더 높은 메트릭을 더 잘 분산하는 솔루션을 선호합니다. 서비스에서 특정 메트릭이 중요하지 않다고 인식하면 해당 메트릭의 사용이 분산되지 않았다고 확인할 수 있습니다. 이렇게 하면 다른 서비스에서 중요한 메트릭을 균등하게 분산할 수 있습니다.
 
 일부 로드 보고서의 예와 다른 메트릭 가중치에 따라 클러스터에서 다른 할당을 수행하게 되는 방식을 살펴보겠습니다. 이 예에서 메트릭의 상대 가중치를 전환하면 클러스터 리소스 관리자에서 서비스의 다른 정렬을 만들게 됩니다.
 
@@ -252,7 +251,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 모든 메트릭에 대해 추적되는 여러 가중치가 있습니다. 첫 번째 가중치는 서비스를 만들 때 메트릭에 대해 정의된 가중치입니다. 다른 가중치는 자동으로 계산되는 전역 가중치입니다. 클러스터 리소스 관리자는 솔루션의 점수를 매길 때 이러한 두 가중치를 모두 사용합니다. 두 가중치를 모두 고려해야 합니다. 이렇게 하면 클러스터 리소스 관리자에서 자체의 우선 순위에 따라 각 서비스를 분산하고 클러스터 전체가 올바르게 할당될 수 있습니다.
 
-클러스터 리소스 관리자가 전역 및 로컬 분산에 대해 고려하지 않는다면 어떤 상황이 발생하나요? 전역적으로 분산된 솔루션을 구축하는 것은 쉽지만 개별 서비스에 대한 리소스 분산이 제대로 수행되지 않을 수 있습니다. 다음 예에서는 기본 메트릭만으로 구성된 서비스를 살펴보고, 전역 분산만 고려할 때 어떤 상황이 발생하는지 알아보겠습니다.
+Cluster Resource Manager가 전역 및 로컬 분산에 대해 고려하지 않는다면 어떤 상황이 발생하나요? 전역적으로 분산된 솔루션을 구축하는 것은 쉽지만 개별 서비스에 대한 리소스 분산이 제대로 수행되지 않을 수 있습니다. 다음 예에서는 기본 메트릭만으로 구성된 서비스를 살펴보고, 전역 분산만 고려할 때 어떤 상황이 발생하는지 알아보겠습니다.
 
 <center>
 ![전역에만 해당하는 솔루션의 영향][Image4]
@@ -260,17 +259,16 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 전역 분산에만 기반한 위 예제에서는 실제로 클러스터 전체가 분산되었습니다. 모든 노드에서 기본 복제본의 수와 총 복제본의 수가 동일합니다. 그러나 이 할당의 실제 영향은 그렇게 좋지 않습니다. 모든 주 복제본을 제거하기 때문에 어떤 노드의 손실이 특정 워크로드에 불균형적으로 영향을 미칩니다. 예를 들어, 첫 번째 노드가 실패할 경우 원형 서비스의 3가지 파티션에 대한 3가지 기본 복제본이 모두 손실될 수 있습니다. 반대로 삼각형 서비스와 육각형 서비스의 파티션에서 복제본을 잃게 됩니다. 가동 중지된 복제본을 복구해야 하는 것 외에는 이로 인해 중단이 발생하지 않습니다.
 
-아래쪽 예제에서는 클러스터 리소스 관리자가 전역 및 서비스별 부하 분산에 따라 복제본을 배포했습니다. 솔루션의 점수를 계산할 때 대부분의 가중치를 전역 솔루션에 부여했고 (구성 가능한) 일부를 개별 서비스에 할당했습니다. 메트릭에 대한 전역 분산은 각 서비스의 메트릭 가중치의 평균에 따라 계산됩니다. 각 서비스는 자체 정의된 메트릭 가중치에 따라 분산됩니다. 이렇게 하면 서비스가 자체의 필요에 따라 자체 내에서 분산됩니다. 결과적으로 동일한 첫 번째 노드가 실패하면 오류가 모든 서비스의 모든 파티션에 분산됩니다. 각각에 대한 영향이 같습니다.
+아래쪽 예제에서는 Cluster Resource Manager가 전역 및 서비스별 부하 분산에 따라 복제본을 배포했습니다. 솔루션의 점수를 계산할 때 대부분의 가중치를 전역 솔루션에 부여했고 (구성 가능한) 일부를 개별 서비스에 할당했습니다. 메트릭에 대한 전역 분산은 각 서비스의 메트릭 가중치의 평균에 따라 계산됩니다. 각 서비스는 자체 정의된 메트릭 가중치에 따라 분산됩니다. 이렇게 하면 서비스가 자체의 필요에 따라 자체 내에서 분산됩니다. 결과적으로 동일한 첫 번째 노드가 실패하면 오류가 모든 서비스의 모든 파티션에 분산됩니다. 각각에 대한 영향이 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
 - 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-- 처음부터 시작 및 [Service Fabric 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+- 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
+- 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
-

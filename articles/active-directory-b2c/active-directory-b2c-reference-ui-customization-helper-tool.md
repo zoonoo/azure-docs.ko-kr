@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
 이 문서는 Azure AD(Azure Active Directory) B2C의 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md) 에 동반됩니다. 다음 단계는 제공되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 연습하는 방법을 설명합니다.
@@ -86,10 +86,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 사용자의 저장소 계정에 샘플 콘텐츠를 업로드한 후에는 이를 참조하도록 등록 정책을 편집해야 합니다. 이번에는 사용자 저장소 계정의 URL을 사용하여 위 ["정책 사용자 지정"](#customize-your-policy) 섹션의 단계를 반복합니다. 예를 들어 `unified.html` 파일의 위치는 `<url-of-your-container>/wingtip/unified.html`이 되어야 합니다.
 
 이제 **지금 실행** 단추 또는 자체 응용 프로그램을 사용하여 정책을 다시 실행할 수 있습니다. 두 경우 모두 동일한 샘플 HTML 및 CSS를 사용했으므로 결과는 거의 동일한 모양이어야 합니다. 하지만 사용자의 정책은 자신의 Azure Blob 저장소 인스턴스를 참조하며 원하는 대로 파일을 편집하고 다시 업로드할 수 있습니다. HTML 및 CSS 사용자 지정에 대한 자세한 내용은 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -13,13 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
-
+ms.openlocfilehash: 1a6355c18aed8a4040121e5af482328b70294b83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드
 
@@ -36,6 +34,10 @@ Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니�
 * 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
 또한 클라우드에서 컴퓨터 구성을 관리할 수 없는 경우 Azure 자동화 DSC는 보고서 전용 끝점으로 사용될 수 있습니다. 이 옵션을 사용하면 DSC 온-프레미스를 통해 원하는 구성을 설정(푸시)하고 Azure 자동화에서 원하는 상태로 노드 준수에서 다양하게 보고하는 세부 정보를 볼 수 있습니다.
+
+> [!NOTE]
+> DSC를 사용한 Azure VM 관리는 설치된 가상 컴퓨터 DSC 확장이 2.7보다 큰 경우 추가 비용 없이 포함됩니다.  자세한 내용은 [**Automation 가격 책정 페이지**](https://azure.microsoft.com/en-us/pricing/details/automation/)를 참조하세요.
+
 
 다음 섹션에서는 Azure 자동화 DSC에 대해 각 컴퓨터 형식을 온보드하는 방법을 간략히 설명합니다.
 
@@ -123,13 +125,13 @@ Azure 자동화 DSC를 사용하면 Azure 포털, Azure 리소스 관리자 템�
 
 [Azure 포털](https://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
 
-**온보드할 가상 컴퓨터 선택**에서 온보드할 하나 이상의 Azure 가상 컴퓨터를 선택합니다.
+등록하려면 Azure 가상 컴퓨터를 선택합니다.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+컴퓨터에 필요한 상태 확장이 설치된 PowerShell이 없고 전원 상태가 실행 중인 경우 **연결**을 클릭합니다.
 
-**등록 데이터 구성**에서 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4) 과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
@@ -393,4 +395,3 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure 자동화 DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
-

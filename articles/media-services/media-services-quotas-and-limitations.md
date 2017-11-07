@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc6737217ee24f1e698644648ad4f1552f900d96
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 16bebdda823869f5e98c16c3859543632fb07240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 이 토픽은 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다.
@@ -31,5 +30,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

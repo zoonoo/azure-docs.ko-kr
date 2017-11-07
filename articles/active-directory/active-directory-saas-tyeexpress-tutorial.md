@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>자습서: T&E Express와 Azure Active Directory 통합
 
@@ -136,7 +135,7 @@ T&E Express에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Single Sign-On 구성](./media/active-directory-saas-tyeexpress-tutorial/tyeAdmin.png)
 
-11. **Guardar(저장)** 단추를 클릭하여 설정을 저장합니다.    
+11. **Guardar(저장)** 단추를 클릭하여 설정을 저장합니다. 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -250,5 +249,4 @@ T&E Express의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_203.png
-
 

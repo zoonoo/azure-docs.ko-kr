@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4c3a2e65b83fab6fe5b8b7778782a747bb5e9cf9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>MySQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 문서의 단계에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 [Python](https://python.org)을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 Mac OS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 이 항목에서는 Python을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -27,7 +26,7 @@ ms.lasthandoff: 07/21/2017
 - [Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Python 및 MySQL 커넥터 설치
-자신의 컴퓨터에 [Python](https://www.python.org/downloads/)과 [Python용 MySQL 커넥터](https://dev.mysql.com/downloads/connector/python/)를 설치합니다. 플랫폼에 따라 다음 단계를 수행합니다.
+자신의 컴퓨터에 [Python](https://www.python.org/downloads/)과 [Python용 MySQL 커넥터](https://dev.mysql.com/downloads/connector/python/)를 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
 
 ### <a name="windows"></a>Windows
 1. [python.org](https://www.python.org/downloads/windows/)에서 Python 2.7을 다운로드하고 설치합니다. 
@@ -70,8 +69,8 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
    
 
 ## <a name="run-python-code"></a>Python 코드 실행
-- 코드를 텍스트 파일에 붙여넣고 C:\pythonmysql\createtable.py 또는 /home/username/pythonmysql/createtable.py와 같이 .py 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
-- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). 그런 다음 python 명령 다음에 파일 이름을 입력하여 응용 프로그램을 실행합니다(예: `python createtable.py`). Windows OS에서 python.exe를 찾을 수 없으면 실행 파일의 전체 경로를 제공하거나 경로 환경 변수에 Python 경로를 추가할 수 있습니다. `C:\python27\python.exe createtable.py`
+- 코드를 텍스트 파일에 붙여넣고 .py 파일 확장명이 포함된 프로젝트 폴더(C:\pythonmysql\createtable.py 또는 /home/username/pythonmysql/createtable.py)에 저장합니다.
+- 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). 그런 다음 python 명령 다음에 파일 이름을 입력하여 응용 프로그램을 실행합니다(예: `python createtable.py`). Windows OS에서 python.exe를 찾을 수 없으면 실행 파일의 전체 경로를 제공하거나 경로 환경 변수에 Python 경로를 추가해야 할 수 있습니다. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 다음 코드를 사용하여 서버에 연결하고, 테이블을 만들고, **INSERT** SQL 문을 통해 데이터를 로드합니다. 
@@ -269,4 +268,3 @@ else:
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./concepts-migrate-import-export.md)
-

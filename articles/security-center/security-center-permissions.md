@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
@@ -66,4 +63,3 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 - [Azure 리소스의 보안 상태 모니터링](security-center-monitoring.md)
 - [Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
 - [파트너 보안 솔루션 모니터링](security-center-partner-solutions.md)
-

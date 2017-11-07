@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>Kerberos 제한 위임을 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법
 
 게시된 응용 프로그램에 SSO를 적용하는 데 사용할 수 있는 방법은 응용 프로그램마다 약간 다를 수 있으며 Azure 응용 프로그램 프록시가 즉시 사용할 수 있는 옵션 중 하나는 KCD(Kerberos 제한 위임)입니다. 여기서 커넥터 호스트는 사용자 대신 백 엔드 응용 프로그램에 대해 제한된 Kerberos 인증을 수행하도록 구성됩니다.
@@ -171,4 +169,3 @@ Kerberos를 사용할 수 없는 경우 IIS에서 응용 프로그램의 인증 
 
 ## <a name="next-steps"></a>다음 단계
 [관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

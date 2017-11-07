@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
+ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
 Azure AD(Azure Active Directory)는 OAuth 2.0을 사용하여 사용자는 Azure AD 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다. 이 가이드는 언어 독립적이며 공개 소스 라이브러리를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
@@ -207,7 +206,7 @@ JSON 웹 토큰에 대한 자세한 내용은 [JWT IETF 초안 사양](http://go
 | 클레임 유형 | 설명 |
 | --- | --- |
 | aud |토큰의 대상입니다. 토큰이 클라이언트 응용 프로그램에 발급된 경우 대상 그룹은 클라이언트의 `client_id` 입니다. |
-| exp |만료 시간입니다. 토큰이 만료되는 시간입니다. 토큰이 유효하려면 현재 날짜/시간이 `exp` 값보다 작거나 같아야 합니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰이 발급된 시간까지 기간(초)으로 표시됩니다. |
+| exp |만료 시간입니다. 토큰이 만료되는 시간입니다. 토큰이 유효하려면 현재 날짜/시간이 `exp` 값보다 작거나 같아야 합니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | family_name |사용자의 성입니다. 응용 프로그램이 이 값을 표시할 수 있습니다. |
 | given_name |사용자의 이름입니다. 응용 프로그램이 이 값을 표시할 수 있습니다. |
 | iat |발급 시간입니다. JWT가 발급된 시간입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰이 발급된 시간까지 기간(초)으로 표시됩니다. |
@@ -379,4 +378,3 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | correlation_id |여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
 오류 코드 및 권장되는 클라이언트 작업에 대한 설명은 [토큰 끝점 오류에 대한 오류 코드](#error-codes-for-token-endpoint-errors)를 참조하세요.
-

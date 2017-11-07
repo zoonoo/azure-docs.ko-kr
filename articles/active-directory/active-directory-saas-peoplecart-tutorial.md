@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: b83a1621263cac0b23bbd35a49fda213d2e4271a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>자습서: Peoplecart와 Azure Active Directory 통합
 
@@ -225,5 +224,4 @@ Peoplecart에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [201]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-peoplecart-tutorial/tutorial_general_203.png
-
 

@@ -14,15 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-the-azure-functions-runtime-preview"></a>Azure Functions 런타임 미리 보기 설치
 
 Azure Functions 런타임 미리 보기를 설치하려는 경우 다음 단계를 수행해야 합니다.

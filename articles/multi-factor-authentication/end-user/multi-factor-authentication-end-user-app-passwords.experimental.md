@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1ecc2bdef5ff7ef8ed8dded7dc12428ce9657821
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication에서 앱 암호란 무엇인가요?
 Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트와 같은 특정 비브라우저 앱은 현재 다단계 인증을 지원하지 않습니다. 다단계 인증은 사용자 기준으로 사용되도록 설정됩니다.  즉, 다음과 같은 경우 사용자가 다단계 인증을 사용할 수 없습니다.
@@ -63,7 +62,7 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Azure Portal에서 앱 암호 관리
 Azure에서 2단계 인증을 사용하는 경우 Azure Portal을 통해 앱 암호를 만들려고 합니다.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Azure Portal에서 앱 암호를 만들려면
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>Azure 포털에서 앱 암호를 만들려면
 1. Azure 클래식 포털에 로그인합니다.
 2. 위쪽에서 사용자 이름을 마우스 오른쪽 단추로 클릭하고 [추가 보안 인증]을 선택합니다.
 3. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
@@ -74,7 +73,7 @@ Azure에서 2단계 인증을 사용하는 경우 Azure Portal을 통해 앱 암
    ![클라우드](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Azure Portal에서 앱 암호를 삭제하려면
+### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Azure 포털에서 앱 암호를 삭제하려면
 1. Azure 클래식 포털에 로그인합니다.
 2. 위쪽에서 사용자 이름을 마우스 오른쪽 단추로 클릭하고 [추가 보안 인증]을 선택합니다.
 3. 위쪽에서 [추가 보안 인증] 옆에 있는 **앱 암호**를 선택합니다.
@@ -123,4 +122,3 @@ Azure에서 2단계 인증을 사용하는 경우 Azure Portal을 통해 앱 암
 - [2단계 인증 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하여 텍스트 또는 전화를 받는 대신 앱 알림으로 로그인을 확인합니다. 
-

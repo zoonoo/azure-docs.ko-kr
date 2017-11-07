@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 등록 장치 구성 방법 | Microsoft Docs"
-description: "Azure Active Directory 등록 장치를 구성하는 방법에 대해 알아봅니다."
+title: "Azure Active Directory 등록 장치 설정 | Microsoft Docs"
+description: "Azure Active Directory 등록 장치를 설정하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,14 +15,13 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: d73062a258f05a630692670363cabf0080aba1ab
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-configure-azure-active-directory-registered-windows-10-devices"></a>Azure Active Directory 등록 Windows 10 장치를 구성하는 방법
+# <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Azure Active Directory 등록 Windows 10 장치 설정
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
@@ -108,7 +107,6 @@ Windows 10 장치를 등록하려면 장치를 등록할 수 있도록 장치 �
 - 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
 - Azure AD 포털에서 장치를 관리하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)를 참조하세요.
-
 
 
 

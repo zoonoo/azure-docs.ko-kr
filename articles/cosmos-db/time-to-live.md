@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
-응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
+응용 프로그램은 방대한 양의 데이터를 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
 
 "time to live" 또는 TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준에서 설정하면 Cosmos DB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
 
@@ -42,7 +41,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
    * 속성은 DefaultTTL이 상위 컬렉션에 있는 경우에 적용할 수 있습니다.
    * 상위 컬렉션에 대한 DefaultTTL 값을 재정의합니다.
 
-문서가 만료되는 즉시(`ttl` + `_ts` >= 현재 서버 시간) 문서는 "만료"된 것으로 표시됩니다. 이 시간 이후에 어떤 작업도 이러한 문서에 허용되지 않으며 수행되는 쿼리 결과에서 제외됩니다. 문서는 시스템에서 물리적으로 삭제되고 나중에 선택적으로 백그라운드에서 삭제됩니다. 이는 컬렉션 예산에서 [RU(요청 단위)](request-units.md) 를 사용하지 않습니다.
+문서가 만료되는 즉시(`ttl` + `_ts` <= 현재 서버 시간) 문서는 “만료”된 것으로 표시됩니다. 이 시간 이후에 어떤 작업도 이러한 문서에 허용되지 않으며 수행되는 쿼리 결과에서 제외됩니다. 문서는 시스템에서 물리적으로 삭제되고 나중에 선택적으로 백그라운드에서 삭제됩니다. 이는 컬렉션 예산에서 [RU(요청 단위)](request-units.md)를 사용하지 않습니다.
 
 위의 논리는 다음 행렬에 표시될 수 있습니다.
 
@@ -174,5 +173,4 @@ TTL은 문서 전체에 적용됩니다. 문서의 일부만 만료하고 싶다
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB에 대한 자세한 내용은 서비스 [*설명서*](https://azure.microsoft.com/documentation/services/cosmos-db/) 페이지를 참조하세요.
-
 

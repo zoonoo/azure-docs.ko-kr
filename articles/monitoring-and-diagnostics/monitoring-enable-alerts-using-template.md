@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/21/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.
@@ -404,5 +403,4 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 ## <a name="next-steps"></a>다음 단계
 * [경고에 대해 알아보기](insights-receive-alert-notifications.md)
 * [진단 설정 추가](monitoring-enable-diagnostic-logs-using-template.md) 
-
 

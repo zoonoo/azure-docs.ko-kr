@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>마케팅 콘텐츠로 제품 만들기 완료
 이 게시 프로세스 단계에서는 Azure 마켓플레이스의 특정 마케팅 콘텐츠와 제품 및/또는 SKU에 대한 세부 정보를 제공해야 합니다. 예를 들어 제품 및/또는 SKU를 스테이징으로 푸시하는 데 필요한 제품 설명, 회사 로고, 가격 계획, 세부 계획 정보 및 기타 정보를 제공합니다. 이 정보는 Azure 포털에서 마케팅 콘텐츠로 사용됩니다. [게시 포털][link-pubportal]에서 이 프로세스를 시작합니다.
@@ -287,9 +287,3 @@ SKU를 사용할 수 있는 위치를 신중하게 고려해야 합니다. 일�
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

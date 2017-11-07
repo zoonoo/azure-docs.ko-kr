@@ -8,15 +8,14 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 33198e5a6e11df2db3a17fc96a0b3cd4b1a284e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
+# <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 액세스할 수 있습니다. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/17/2017
 
    ![내 IP 주소는 무엇입니까에 대한 Bing](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. 추가 주소 범위를 추가합니다. MySQL용 Azure Database 방화벽에 대한 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 하나의 단일 IP 주소에 규칙을 제한하려는 경우 시작 IP 및 끝 IP에 대한 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자와 사용자가 유효한 자격 증명이 있는 MySQL 서버의 데이터베이스에 액세스할 수 있습니다.
+4. 추가 주소 범위를 추가합니다. MySQL용 Azure Database 방화벽에 대한 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 하나의 단일 IP 주소로 규칙을 제한하려는 경우 시작 IP 및 끝 IP 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자와 사용자가 유효한 자격 증명이 있는 MySQL 서버의 데이터베이스에 액세스할 수 있습니다.
 
    ![Azure Portal - 방화벽 규칙 ](./media/howto-manage-firewall-using-portal/5-specify-addresses.png)
 
@@ -44,14 +43,13 @@ ms.lasthandoff: 06/17/2017
 
    ![Azure Portal - 저장 클릭](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
-## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Azure 포털을 통해 기존 서버 수준 방화벽 규칙 관리
+## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 통해 기존 서버 수준 방화벽 규칙 관리
 방화벽 규칙을 관리하는 단계를 반복합니다.
 * 현재 컴퓨터를 추가하려면 **+ 내 IP 추가**를 클릭합니다.
 * 추가 IP 주소를 추가하려면 **규칙 이름**, **시작 IP** 및 **끝 IP**를 입력합니다.
-* 기존 규칙을 수정 하려면 규칙의 필드 중 하나를 클릭 후 변경 합니다.
-* 기존 규칙을 삭제하려면 줄임표 [...]를 클릭하고 **삭제**를 클릭합니다.
+* 기존 규칙을 수정하려면 규칙의 필드 중 하나를 클릭한 후 수정합니다.
+* 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제**를 클릭합니다.
 * **저장**을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - MySQL용 Azure Database 서버 연결에 대한 도움말은 [MySQL용 Azure Database에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.
-

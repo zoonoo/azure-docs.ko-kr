@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako;cenkdin
+ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Azure 미디어 서비스 REST API로 필터 생성
 > [!div class="op_single_selector"]
@@ -340,5 +339,4 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 
 ## <a name="see-also"></a>참고 항목
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
-
 

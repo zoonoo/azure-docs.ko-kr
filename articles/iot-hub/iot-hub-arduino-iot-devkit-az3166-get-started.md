@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
+ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 253a2d34ea5b3f4f8253900be27c54fe5ca1dacf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -102,6 +101,9 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 ### <a name="upgrade-to-the-latest-firmware"></a>최신 펌웨어로 업그레이드
 
+> [!NOTE] 
+> v1.1부터 DevKit은 부팅 로더에서 ST-SAFE를 활성화합니다. v1.1에서 실행 중인 경우 제대로 작동하려면 펌웨어를 업그레이드해야 합니다.
+
 펌웨어를 업그레이드해야 하는 경우 화면에는 최신 펌웨어 버전이 표시됩니다. 업그레이드하려면 [펌웨어 업그레이드](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) 가이드를 따릅니다.
 
 ![최신 펌웨어 버전 표시](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
@@ -119,7 +121,6 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 이제 IoT 응용 프로그램을 빌드하도록 개발 환경(도구 및 패키지)을 설정할 시간입니다. 운영 체제에 따라 Windows 또는 macOS 버전을 선택할 수 있습니다.
 
-
 ### <a name="windows"></a>Windows
 
 설치 패키지를 사용하여 개발 환경을 준비하는 것이 좋습니다. 문제가 발생하는 경우 [수동 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/)를 따라 수행할 수 있습니다.
@@ -129,8 +130,7 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 다운로드한 .zip 파일은 DevKit 개발에 필요한 모든 필요한 도구 및 패키지를 포함합니다.
 
 > [!div class="button"]
-[다운로드](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
-
+[다운로드](https://aka.ms/devkit/prod/installpackage/latest)
 
 .zip 파일은 다음 도구 및 패키지를 포함합니다. 이미 일부 구성 요소를 설치한 경우 스크립트에서 이를 검색하고 건너뜁니다.
 
@@ -144,13 +144,16 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 #### <a name="run-the-installation-script"></a>설치 스크립트 실행
 
-Windows 파일 탐색기에서 .zip 파일을 찾고 압축을 풉니다. Install.cmd를 찾아 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+Windows 파일 탐색기에서 .zip 파일을 찾고 압축을 풉니다. `install.cmd`를 찾아 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
 ![파일 탐색기](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
 
 설치하는 동안 각 도구 또는 패키지의 진행 상태를 볼 수 있습니다.
 
 ![설치 진행률](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
+
+> [!NOTE] 
+> 환경에 따라 Arduino IDE를 설치할 때 오류가 발생하는 경우가 있습니다. 이런 경우 [Arduino IDE를 개별적으로 설치](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows)하고 install.cmd를 다시 실행할 수 있습니다. 아니면 [수동 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows)에 따라 필요한 모든 도구와 패키지를 설치하십시오.
 
 #### <a name="install-drivers"></a>드라이버 설치
 
@@ -161,86 +164,53 @@ Arduino 확장에 대한 VS Code는 Arduino IDE에 의존합니다. Arduino IDE�
 인터넷 속도에 따라 설치에는 약 10분이 걸립니다. 설치가 완료되면 바탕 화면에 Visual Studio Code 및 Arduino IDE 바로 가기가 표시됩니다.
 
 > [!NOTE] 
-> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
+> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. 해결하려면 VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
 
+### <a name="macos"></a>macOS
 
-### <a name="macos-preview"></a>macOS(미리 보기)
+One-Click 설치 환경을 사용하여 개발 환경을 준비하는 것이 좋습니다. 문제가 발생하는 경우 [수동 단계](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/)를 따라 수행할 수 있습니다.
 
-이 단계를 따라 macOS에서 개발 환경을 준비합니다.
+#### <a name="install-homebrew"></a>Homebrew 설치
 
-#### <a name="install-azure-cli-20"></a>Azure CLI 2.0 설치
+> [!NOTE] 
+> Homebrew를 설치한 경우 이 단계를 건너뛸 수 있습니다.
 
-1. `curl` 명령을 사용하여 Azure CLI 2.0을 설치합니다.
+[Homebrew 설치 지침](https://docs.brew.sh/Installation.html)에 따라 설치합니다.
 
-   ```bash
-   curl -L https://aka.ms/InstallAzureCli | bash
-   ```
+#### <a name="download-the-latest-package"></a>최신 패키지 다운로드
+다운로드한 .zip 파일은 DevKit 개발에 필요한 모든 필요한 도구 및 패키지를 포함합니다.
 
-2. 변경 내용을 적용하기 위해 명령 셸을 다시 시작합니다.
+> [!div class="button"]
+[다운로드](https://aka.ms/devkit/prod/installpackage/mac/latest)
 
-   ```bash
-   exec -l $SHELL
-   ```
+.zip 파일은 다음 도구 및 패키지를 포함합니다. 이미 일부 구성 요소를 설치한 경우 스크립트에서 이를 검색하고 건너뜁니다.
 
-Azure CLI 2.0을 설치하는 방법에 대한 자세한 내용은 [공식 가이드](https://docs.microsoft.com//cli/azure/install-azure-cli)를 참조하세요.
+* Node.js 및 Yarn: 설치 스크립트 및 자동화된 작업에 대한 런타임
+* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Azure 리소스를 관리하기 위한 플랫폼 간 명령줄 환경입니다.
+* VS Code([Visual Studio Code](https://code.visualstudio.com/)): DevKit 개발을 위한 간단한 코드 편집기입니다.
+* [Arduino용 Visual Studio Code 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Visual Studio Code에서 Arduino 개발을 사용하는 확장입니다.
+* [Arduino IDE](https://www.arduino.cc/en/Main/Software): Arduino에 대한 확장을 사용하는 도구입니다.
+* DevKit 보드 패키지: DevKit에 대한 도구 체인, 라이브러리 및 프로젝트입니다.
+* ST 링크 유틸리티: 필수 도구 및 드라이버입니다.
 
-#### <a name="install-the-arduino-ide"></a>Arduino IDE 설치
+#### <a name="run-the-installation-script"></a>설치 스크립트 실행
 
-Visual Studio Code Arduino 확장은 Arduino IDE에 의존합니다. [macOS용 Arduino IDE](https://www.arduino.cc/en/Main/Software)를 다운로드하고 설치합니다.
+파인더에서 .zip을 찾아서 압축을 풉니다.
 
-#### <a name="install-visual-studio-code"></a>Visual Studio Code 설치
+터미널 앱을 실행하고 zip 파일을 추출한 폴더를 찾아 실행합니다.
 
-[macOS용 Visual Studio Code](https://code.visualstudio.com/)를 다운로드하고 설치합니다. 이는 DevKit IoT 응용 프로그램을 구축하기 위한 기본 개발 도구가 됩니다.
+```bash
+./install.sh
+```
 
-####  <a name="download-the-latest-package"></a>최신 패키지 다운로드
-
-1. Node.js를 설치합니다. 인기 있는 macOS 패키지 관리자 [Homebrew](https://brew.sh/) 또는 [미리 빌드된 설치 관리자](https://nodejs.org/en/download/)를 사용하여 설치할 수 있습니다.
-
-2. VS Code에서 DevKit 개발에 필요한 작업 스크립트를 포함하는 .zip 파일을 다운로드합니다.
-
-   > [!div class="button"]
-   [다운로드](https://azureboard.azureedge.net/installpackage/devkit_tasks_1.0.2.zip)
-
-3. .zip 파일을 찾고 압축을 풉니다. 그런 다음 **터미널** 앱을 실행하고 다음 명령을 실행합니다.
-
-   a. 압축을 푼 폴더를 macOS 사용자 폴더로 이동합니다.
-      ```bash
-      mv [.zip extracted folder]/azure-board-cli ~/. ; cd ~/azure-board-cli
-      ```
-  
-   b. npm 패키지 설치
-      ```
-      npm install
-      ```
-
-#### <a name="install-the-vs-code-extension-for-arduino"></a>Arduino용 VS Code 확장 설치
-
-Visual Studio Code에서 직접 Azure Marketplace 확장을 설치할 수 있습니다. 왼쪽 창에서 확장 아이콘을 선택하고 **Arduino**를 검색한 후 **설치**를 선택합니다.
-
-![Arduino 확장 찾기](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
-
-#### <a name="install-the-devkit-board-package"></a>DevKit 보드 패키지 설치
-
-Visual Studio Code에서 보드 관리자를 사용하여 DevKit 보드를 추가합니다.
-
-1. Cmd+Shift+P를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 보드 관리자**를 찾아서 선택합니다.
-
-2. 오른쪽 아래에서 **추가 URL**을 선택합니다.
-   ![추가 URL 링크](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
-
-3. settings.json 파일에서 **사용자 설정** 창의 맨 아래에 선을 추가하고 저장합니다.
-   ```json
-   "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-   ```
-   ![사용자 설정 창에 추가된 코드](media/iot-hub-arduino-devkit-az3166-get-started/installation-settings-json-mac.png)
-
-4. 보드 관리자에서 **az3166**을 검색하고 최신 버전을 설치합니다.
-   ![az3166 설치](media/iot-hub-arduino-devkit-az3166-get-started/installation-az3166-mac.png)
+> [!NOTE] 
+> Homebrew 권한 오류가 발생하면 `brew doctor`를 실행하여 해결합니다. 자세한 내용은 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos)를 참조하세요.
 
 이제 macOS에 대해 필요한 모든 도구 및 패키지를 설치했습니다.
 
-
 ## <a name="open-the-project-folder"></a>프로젝트 폴더 열기
+
+Azure IoT Hub를 만들고, DevKit을 연결하고, 센서로부터 온도 및 습도 데이터를 수집하고, 데이터를 IoT Hub에 전송합니다.
 
 ### <a name="start-vs-code"></a>VS Code 시작
 
@@ -249,20 +219,20 @@ DevKit이 연결되어 있지 않은지 확인합니다. VS Code를 먼저 시�
 ![소개 페이지](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
 
 > [!NOTE] 
-> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류와 함께 메시지가 표시됩니다. VS Code를 닫고 Arduino IDE를 다시 시작합니다. VS Code는 Arduino IDE 경로를 제대로 찾아야 합니다.
+> 경우에 따라서 VS Code를 시작할 때 Arduino IDE 또는 관련된 보드 패키지를 찾을 수 없다는 오류 메시지가 나타납니다. VS Code를 닫고 Arduino IDE를 다시 한 번 시작하면 VS Code가 Arduino IDE 경로를 올바르게 찾습니다.
 
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-**Arduino 예제** 탭에서 **MXCHIP AZ3166에 대한 예제** > **AzureIoT**로 이동하고 **GetStarted**를 선택합니다.
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **GetStarted**를 선택합니다. 그러면 프로젝트 폴더가 있는 새 VSCode 창이 열립니다.
 
 ![Arduino 예제 탭](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
 
-창을 닫은 경우 다시 열면 됩니다. Cmd+Shift+P(macOS: Cmd+Shift+P)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
-솔루션 창에서 `task cloud-provision`를 입력하여 Ctrl+P(macOS: Cmd+P)를 통해 작업을 실행합니다.
+솔루션 창에서 `task cloud-provision`를 입력하여 `Ctrl+P`(macOS: `Cmd+P`)를 통해 작업을 실행합니다.
 
 VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프로비전하는 과정을 안내합니다.
 
@@ -272,13 +242,15 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 ### <a name="install-the-required-library"></a>필요한 라이브러리 설치
 
-1. F1 키 또는 Cmd+Shift+P(macOS: Cmd+Shift+P)를 선택하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 라이브러리 관리자**를 찾아서 선택합니다.
+1. `F1` 또는 `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 눌러 명령 팔레트를 열고 **Arduino**를 입력한 다음 **Arduino: 라이브러리 관리자**를 찾아서 선택합니다.
 
-2. **ArduinoJson** 라이브러리를 검색하고 **설치**를 선택합니다.
+2. **ArduinoJson** 라이브러리를 검색하고 **설치**: ![Arduino 라이브러리 설치](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)를 선택합니다.
 
-### <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+### <a name="build-and-upload-the-device-code-windows"></a>장치 코드 빌드 및 업로드(Windows)
+1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
+2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에 DevKit ID와 '구성'이 표시됩니다.
 
-Ctrl+P(macOS: Cmd+P)를 사용하여 `task device-upload`를 실행합니다. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에는 **구성**이 표시됩니다. `task cloud-provision` 단계에서 검색되는 연결 문자열을 설정하는 것입니다.
+이는 `task cloud-provision` 단계에서 검색하는 연결 문자열을 설정하기 위한 것입니다.
 
 그런 다음 터미널은 Arduino 스케치 확인 및 업로드를 시작합니다.
 
@@ -286,13 +258,32 @@ Ctrl+P(macOS: Cmd+P)를 사용하여 `task device-upload`를 실행합니다. �
 
 DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
+### <a name="build-and-upload-the-device-code-mac"></a>장치 코드 빌드 및 업로드(Mac)
+
+1. DevKit을 구성 모드로 전환: 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에는 '구성'이 표시됩니다.
+2. `Cmd+P`를 사용하여 `task device-upload`를 실행합니다.
+
+이는 `task cloud-provision` 단계에서 검색하는 연결 문자열을 설정하기 위한 것입니다.
+
+그러면 VSCode가 Arduino 스케치를 확인하고 업로드하기 시작합니다.
+
+![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+
+DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
+
 ## <a name="test-the-project"></a>프로젝트 테스트
 
-VS Code에서 상태 표시줄의 전원 플러그 아이콘을 선택하여 직렬 모니터를 엽니다.
+VS Code에서 다음 단계에 따라 직렬 모니터를 열고 설정합니다.
+
+1. 상태 표시줄에서 `COM[X]` 단어를 클릭하여 오른쪽 COM 포트를 `STMicroelectronics`: ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)로 설정합니다.
+
+2. 상태 표시줄의 전원 플러그 아이콘을 클릭하여 직렬 모니터: ![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)를 엽니다.
+
+3. 상태 표시줄에서 전송 속도를 나타내는 숫자를 클릭하고 `115200`: ![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)으로 설정합니다.
 
 다음과 같은 결과가 표시되면 샘플 응용 프로그램은 성공적으로 실행됩니다.
 
-* 직렬 모니터는 다음 스크린샷의 내용으로 동일한 정보를 표시합니다.
+* 직렬 모니터는 아래 스크린샷의 내용으로 동일한 정보를 표시합니다.
 * MXChip IoT DevKit의 LED가 깜박입니다.
 
 ![VS Code의 최종 출력](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
@@ -314,4 +305,3 @@ IoT Hub에 MXChip IoT DevKit를 성공적으로 연결하고 캡처된 센서 �
 - [Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 날씨 예측](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
 - [iothub-explorer를 사용하여 장치 관리](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
 - [Logic Apps를 사용하여 원격 모니터링 및 알림](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Azure VM의 Windows Server Active Directory
 이 탐색 항목에는 Azure VM(가상 컴퓨터)에서 Windows Server AD DS(Active Directory 도메인 서비스) 또는 AD FS(Active Directory Federation Services)를 배포하는 방법에 대한 다른 항목의 링크를 포함합니다.
@@ -37,5 +36,4 @@ ms.lasthandoff: 08/11/2017
 ## <a name="additional-resources"></a>추가 리소스
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
-
 

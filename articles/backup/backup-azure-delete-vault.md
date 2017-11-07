@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 Azure Backup 서비스에는 Backup 자격 증명 모음과 Recovery Services 자격 증명 모음의 두 가지 자격 증명 모음 유형이 있습니다. Backup 자격 증명 모음을 먼저 제공했습니다. 그런 다음 Recovery Services 자격 증명 모음에서 확장된 Resource Manager 배포가 지원됩니다. 자격 증명 모음에 저장해야 하는 정보 종속성 및 확장된 기능으로 인해 Backup 또는 Recovery Services 자격 증명 모음을 삭제하는 것이 혼동될 수 있습니다. 이 문서에서는 클래식 포털 및 Azure Portal에서 자격 증명 모음을 삭제하는 방법을 설명합니다.  
 
 | **배포 유형** | **포털** | **자격 증명 모음 이름** |
 | --- | --- | --- |
-| 클래식 |클래식 |Backup 자격 증명 모음 |
-| 리소스 관리자 |Azure |Recovery Services 자격 증명 모음 |
+| 클래식 |클래식 |백업 자격 증명 모음 |
+| 리소스 관리자 |Azure |복구 서비스 자격 증명 모음 |
 
 > [!NOTE]
-> Backup 자격 증명 모음을 사용하여 Resource Manager에서 배포한 솔루션을 보호할 수는 없습니다. 그러나 Recovery Services 자격 증명 모음을 사용하면 클래식 방식으로 배포한 서버와 VM을 보호할 수는 있습니다.  
+> 백업 자격 증명 모음을 사용하여 Resource Manager에서 배포한 솔루션을 보호할 수는 없습니다. 그러나 Recovery Services 자격 증명 모음을 사용하면 클래식 방식으로 배포한 서버와 VM을 보호할 수는 있습니다.  
 >
 
 > [!IMPORTANT]
@@ -53,11 +52,11 @@ Recovery Services 자격 증명 모음이 이미 열려 있는 경우 두 번째
 
 1. Azure Portal을 열고 대시보드에서 삭제할 자격 증명 모음을 엽니다.
 
-   허브 메뉴에서 대시보드에 고정된 Recovery Services 자격 증명 모음이 없는 경우 **서비스 더 보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**을 클릭합니다.
+   허브 메뉴에서 대시보드에 고정된 Recovery Services 자격 증명 모음이 없는 경우 **서비스 더 보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
 
-   ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
+   ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Recovery Services 자격 증명 모음의 목록이 표시됩니다. 목록에서 삭제할 자격 증명 모음을 선택합니다.
+   복구 서비스 자격 증명 모음의 목록이 표시됩니다. 목록에서 삭제할 자격 증명 모음을 선택합니다.
 
    ![목록에서 자격 증명 모음 선택](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
 2. 자격 증명 모음 보기에서 **필수** 창을 확인합니다. 자격 증명 모음을 삭제하려면 보호된 항목이 없어야 합니다. 0이 아닌 숫자가 있는 경우 **백업 항목** 또는 **백업 관리 서버** 아래에서 해당 항목을 제거해야 자격 증명 모음을 삭제할 수 있습니다.
@@ -227,4 +226,3 @@ DPM 서버를 보호하는 데 사용되는 자격 증명 모음을 삭제하려
 5. 목록에서 서버를 삭제하려면 서버 이름을 마우스 오른쪽 단추로 클릭한 다음 **삭제**를 클릭합니다.
     **삭제** 블레이드가 열립니다.
 6. **삭제** 블레이드에서 서버 이름이 제공됩니다. 이름이 긴 경우 Backup 관리 서버 목록에서 복사하고 붙여넣을 수 있습니다. 그런 다음 **삭제**를 클릭합니다.  
-

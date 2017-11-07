@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Azure 검색 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -65,10 +65,4 @@ Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/
 인덱스를 설계할 때 계획 단계에서 각 의사 결정에 대해 신중하게 생각합니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://docs.microsoft.com/rest/api/searchservice/Create-Index)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 배포된 후 인덱스를 변경하려면 데이터를 다시 작성하고 다시 로드해야 합니다.
 
 데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 검색 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

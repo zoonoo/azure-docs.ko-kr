@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Cache 프리미엄 계층 소개
 Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 응용 프로그램을 빌드하는 데 사용할 수 있습니다. 
@@ -103,5 +101,4 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 * [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
 * [Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache에서 데이터를 내보내는 방법](cache-how-to-import-export-data.md)
 * [Azure Redis Cache를 관리하는 방법](cache-administration.md)
-
 

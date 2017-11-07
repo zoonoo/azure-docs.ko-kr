@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: manayar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>CSP를 통해 VMware 가상 컴퓨터를 Azure에 복제하기 위해 Azure Site Recovery에서 다중 테넌트 지원
 
@@ -222,4 +220,3 @@ VM 필수 구성 요소는 [Azure Site Recovery 설명서](site-recovery-vmware-
     ![사용자 추가](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     대부분의 관리 작업은 *참여자* 역할로 충분합니다. 이 액세스 수준을 가진 사용자는 액세스 수준 변경(*소유자* 수준 액세스가 필요)을 제외하고 구독에 관한 모든 작업을 수행할 수 있습니다. 또한 필요에 따라 액세스 수준을 미세 조정할 수 있습니다.
-

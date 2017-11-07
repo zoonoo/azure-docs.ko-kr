@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 2a25c24fd7625374d269622a805f386fcd52bb5f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>내 ASP.NET 5 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
 ## <a name="references-added"></a>참조 추가됨
@@ -41,5 +40,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 프로젝트의 config.json 파일에 선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다.
 
 자세한 내용은 [ASP.NET 5](http://www.asp.net/vnext)를 참조하세요.
-
 

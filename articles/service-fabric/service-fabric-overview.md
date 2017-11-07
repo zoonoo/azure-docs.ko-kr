@@ -12,15 +12,14 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: mfussell
+ms.date: 09/20/2017
+ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -50,12 +49,14 @@ Service Fabric은 어디에서나 실행됩니다. Azure 또는 온-프레미스
 
 ![서비스 패브릭 플랫폼][Image1]
 
-온-프레미스에서 클러스터를 만들기에 대한 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
+Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell과 통합됩니다. [Windows에서 개발 환경 준비](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)를 참조하세요. Linux 개발을 위해 Service Fabric Java SDK는 Eclipse와 통합되고, Yeoman은 Java, .NET Core 및 컨테이너 응용 프로그램에 대한 템플릿을 생성하는 데 사용됩니다. [Linux에서 개발 환경 준비](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)를 참조하세요.
+
+클러스터를 만드는 방법에 대한 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
 Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 응용 프로그램을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure 클라우드 서비스 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 장치, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
 
-Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델 ](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
+Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
 
 
 ## <a name="application-lifecycle-management"></a>응용 프로그램 수명 주기 관리
@@ -89,8 +90,8 @@ Service Fabric은 [Visual Studio Team Services](https://www.visualstudio.com/tea
 * 자세한 내용은 다음을 참조하세요.
   * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
   * [용어 개요](service-fabric-technical-overview.md)
-* 서비스 패브릭 [개발 환경](service-fabric-get-started.md)  
+* [Windows 개발 환경](service-fabric-get-started.md) 설정  
+* [Linux 개발 환경](service-fabric-get-started-linux.md) 설정
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-

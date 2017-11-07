@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
 
@@ -97,4 +95,3 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 ## <a name="next-steps"></a>다음 단계
 
 * [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-

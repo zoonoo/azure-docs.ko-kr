@@ -1,6 +1,6 @@
-* [Azure 앱 서비스에 앱 배포](../articles/app-service-web/web-sites-deploy.md)
-* [소스 제어 및 연속 통합 구성](../articles/app-service-web/app-service-continuous-deployment.md)
-* [배포 슬롯을 사용하여 스테이징 배포](../articles/app-service-web/web-sites-staged-publishing.md)
+* [Azure 앱 서비스에 앱 배포](../articles/app-service/app-service-deploy-local-git.md)
+* [소스 제어 및 연속 통합 구성](../articles/app-service/app-service-continuous-deployment.md)
+* [배포 슬롯을 사용하여 스테이징 배포](../articles/app-service/web-sites-staged-publishing.md)
 * [게시 및 역할 기반 액세스 제어(RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## <a name="videos"></a>비디오

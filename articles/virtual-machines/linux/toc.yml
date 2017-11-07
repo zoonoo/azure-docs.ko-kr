@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: VM 만들기 - 포털
       href: quick-create-portal.md
-    - name: VM 만들기 - PowerShell
+    - name: VM 만들기 - Azure PowerShell
       href: quick-create-powershell.md
 - name: 자습서
   items:
@@ -31,9 +31,9 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 컴퓨터 백업
+    - name: 9 - 가상 컴퓨터 Backup
       href: tutorial-backup-vms.md
-    - name: 10 - 가상 컴퓨터 모니터링
+    - name: 10 - VM 모니터링 및 업데이트
       href: tutorial-monitoring.md
     - name: 11 - VM 보안 관리
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: 개념
   items:
@@ -63,12 +63,40 @@
       href: regions-and-availability.md
     - name: VM 유형 및 크기
       href: sizes.md
+      items:
+        - name: 범용 가상 컴퓨터
+          href: sizes-general.md
+          items:
+            - name: B-시리즈 버스터블
+              href: b-series-burstable.md
+        - name: Compute에 최적화
+          href: sizes-compute.md
+        - name: 메모리에 최적화
+          href: sizes-memory.md
+        - name: Storage에 최적화
+          href: sizes-storage.md
+        - name: GPU에 최적화
+          href: sizes-gpu.md
+          items:
+            - name: GPU 드라이버 설정
+              href: n-series-driver-setup.md
+        - name: 고성능 계산
+          href: sizes-hpc.md
+        - name: Azure 계산 단위(ACU)
+          href: sizes-general.md
     - name: 보증 배포
       href: endorsed-distros.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 저장소
       href: azure-vm-storage-overview.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: 프리미엄 저장소 성능
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 응용 프로그램
@@ -79,7 +107,7 @@
       href: security-policy.md
     - name: 모니터링
       href: monitor.md
-    - name: 백업 및 복구
+    - name: Backup 및 복구
       href: backup-recovery.md
     - name: 고성능 컴퓨팅
       href: high-performance-computing.md
@@ -143,6 +171,8 @@
               href: agent-user-guide.md
             - name: 에이전트 업데이트
               href: update-agent.md
+        - name: 계획된 유지 보수
+          href: maintenance-notifications.md
         - name: 예약된 이벤트
           href: scheduled-events.md
         - name: 모니터 메타데이터
@@ -185,6 +215,8 @@
           href: manage-availability.md
         - name: 수직 확장
           href: vertical-scaling-automation.md
+        - name: 가용성 영역에서 VM 만들기
+          href: create-cli-availability-zone.md
     - name: 자동화 도구 사용
       items:
         - name: Ansible
@@ -201,6 +233,17 @@
               href: terraform-install-configure.md
             - name: 완전한 VM 만들기
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Jenkins 서버 만들기
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: VM 에이전트를 사용하여 크기 조정
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Storage에 아티팩트 게시
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Jenkins 보안
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: 컨테이너 실행
       items:
         - name: Docker 호스트 만들기
@@ -218,11 +261,25 @@
             - name: 첫 번째 앱 배포
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: OpenShift 개요
+              href: openshift-get-started.md
+            - name: OpenShift 필수 구성 요소
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Container Platform
+              href: openshift-container-platform.md
+            - name: OpenShift 사후 배포 작업
+              href: openshift-post-deployment.md
+            - name: 배포 문제 해결
+              href: openshift-troubleshooting.md
         - name: Azure의 SAP
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: FreeBSD 패킷 필터
           href: freebsd-pf-nat.md
         - name: 데이터베이스
@@ -260,6 +317,8 @@
           href: expand-disks.md
         - name: 디스크 스냅숏
           href: snapshot-copy-managed-disk.md
+        - name: 디스크의 복구 및 재해 복구
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
         - name: Managed Disks로 변환
@@ -268,6 +327,8 @@
           href: convert-disk-storage.md
         - name: VM에 파일 복사
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: 파일 저장소 사용
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 템플릿을 사용하여 디스크 배포

@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
@@ -81,7 +80,7 @@ Azure Active Directory ID 보호:
 5. 이전과 동일한 자격 증명을 사용하여 이전에 로그인한 후 몇 분 내에 [https://myapps.microsoft.com](https://myapps.microsoft.com) 에 로그인합니다.
 
 로그인이 2-4시간 이내에 ID 보호 대시보드에 나타납니다.<br>
-포함된 복잡한 기계 학습 모델 때문에 선택되지 않을 수 있습니다.<br>  여러 Azure AD 계정에 이러한 단계를 복제할 수도 있습니다.
+포함된 복잡한 기계 학습 모델 때문에 선택되지 않을 수 있습니다.<br> 여러 Azure AD 계정에 이러한 단계를 복제할 수도 있습니다.
 
 ## <a name="simulating-vulnerabilities"></a>취약점 시뮬레이션
 취약점은 잘못된 행위자에 의해 악용될 수 있는 Azure AD 환경의 단점입니다. 현재 3가지 유형의 취약점은 Azure AD의 다른 기능을 활용하는 Azure AD ID 보호에 표시됩니다. 이러한 기능이 설정되면 이러한 취약성이 ID 보호 대시보드에 자동으로 표시됩니다.
@@ -110,7 +109,7 @@ Azure Active Directory ID 보호:
 11. **저장**을 클릭합니다.
 12. 이제 위험 수준이 상승한 사용자로 로그인하여 위험 기반 조건부 액세스를 테스트할 수 있습니다. 사용자 위험이 보통인 경우 정책 구성에 따라 로그인이 차단되거나 암호를 변경하도록 강제됩니다. 
     <br><br>
-    ![플레이 북](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![플레이 북](./media/active-directory-identityprotection-playbook/201.png "플레이 북")
     <br>
 
 ## <a name="sign-in-risk"></a>로그인 위험
@@ -137,5 +136,4 @@ Azure Active Directory ID 보호:
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
 

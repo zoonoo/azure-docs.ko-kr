@@ -3,7 +3,7 @@ title: "Azure Load Balancer의 IPv6에 대한 개요 | Microsoft Docs"
 description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원 이해하기."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용해 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
@@ -85,4 +86,3 @@ IPv6를 사용하여 부하 분산 장치를 배포하는 방법을 알아봅니
 * [템플릿을 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-template.md)
 * [Azure PowerShell을 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-ps.md)
 * [Azure CLI를 사용하여 IPv6와 함께 부하 분산 장치 배포하기](load-balancer-ipv6-internet-cli.md)
-

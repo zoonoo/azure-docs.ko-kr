@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: fb071365d8d716085d1b1bd1cb52fffc830fd75c
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>PowerShell을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
@@ -247,5 +246,4 @@ VM을 만들기 전에 VM에서 사용할 리소스 그룹, VNet, 공용 IP 및 
         EndTime             : [Subscription Id]
         Error               : 
         ErrorText           : 
-
 

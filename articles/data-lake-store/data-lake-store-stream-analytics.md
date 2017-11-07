@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
-ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure 스트림 분석을 사용하여 Azure 저장소 Blob에서 Data Lake 저장소에 데이터 스트리밍
 이 문서는 Azure 스트림 분석 작업에 대한 출력으로 Azure Data Lake 저장소를 사용하는 방법을 알아봅니다. 이 문서에서는 Azure 저장소 Blob(입력)에서 데이터를 읽고 Data Lake 저장소(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
@@ -129,4 +127,3 @@ ms.lasthandoff: 01/06/2017
 
 ## <a name="see-also"></a>참고 항목
 * [HDInsight 클러스터를 만들어 Data Lake 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-

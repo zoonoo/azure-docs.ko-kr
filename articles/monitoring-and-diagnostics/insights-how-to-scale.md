@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>수동 또는 자동으로 인스턴스 개수 조정
 [Azure 포털](https://portal.azure.com/)에서 서비스의 인스턴스 개수를 수동으로 설정하거나, 수요에 다라 자동으로 크기가 조정되도록 매개 변수를 설정할 수 있습니다. 이를 일반적으로 *규모 확장* 또는 *규모 감축*이라고 합니다.
@@ -128,5 +127,4 @@ ms.lasthandoff: 07/21/2017
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [이벤트 및 활동 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 합니다.
-
 

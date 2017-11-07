@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: c6d31816b5919afb2cc67bc42321422183ab30df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 
 
@@ -58,4 +57,3 @@ Node.js Express 앱을 만드는 자습서의 다음 단계로 진행할 수 있
 
 > [!div class="nextstepaction"]
 > [Angular CLI를 사용하여 Node.js Express 앱 만들기](tutorial-develop-mongodb-nodejs-part2.md)
-

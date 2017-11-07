@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: b6ded8ba1adf03fdccbdb7573c09fae1857c8b16
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>자습서: ScreenSteps와 Azure Active Directory 통합
 
@@ -269,5 +268,4 @@ ScreenSteps에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 [201]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-screensteps-tutorial/tutorial_general_203.png
-
 

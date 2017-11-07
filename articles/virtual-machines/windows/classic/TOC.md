@@ -1,13 +1,13 @@
 # 개요
-## [가상 컴퓨터 정보](../../virtual-machines-windows-about.md)
+## [가상 컴퓨터 정보](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [디스크 및 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [가상 네트워크](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
-## [VM, 웹 사이트 및 클라우드 서비스 비교](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [VM, 웹 사이트 및 클라우드 서비스 비교](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [컨테이너](../../virtual-machines-windows-containers.md)
 
 # 시작
-## [포털을 사용하여 VM 만들기](tutorial.md)
+## [Azure Portal을 사용하여 VM 만들기](tutorial.md)
 ## [VM에 로그온](connect-logon.md)
 ## [Azure PowerShell 설치](/powershell/azure/overview)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
@@ -85,15 +85,15 @@
 ### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager 템플릿 작성](../../../resource-group-authoring-templates.md)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
-## [계산 REST](/rest/api/compute)
-## [네트워크 REST](/rest/api)
-## [저장소 REST](/rest/api/storageservices)
+## [계산 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [네트워크 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [저장소 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)

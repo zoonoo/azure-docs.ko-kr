@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 13190189074b24b2d28cd3ce46cf8571f3e1e1d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 770b1b8418baba78371dda43eb255dde8a1d13e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
 지리적 트래픽 라우팅 방법을 사용하면 요청이 발생하는 지리적 위치를 기반으로 특정 끝점에 트래픽을 보낼 수 있습니다. 이 자습서는 이 라우팅 방법을 사용하여 Traffic Manager 프로필을 만들고, 특정 지역에서 트래픽을 받도록 끝점을 구성하는 방법을 보여 줍니다.
@@ -65,4 +63,3 @@ ms.lasthandoff: 07/26/2017
 
 - [지리적 트래픽 라우팅 방법](traffic-manager-routing-methods.md#geographic)에 대해 자세히 알아봅니다.
 - [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)에 대해 알아보세요.
-

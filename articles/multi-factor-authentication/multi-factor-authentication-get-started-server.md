@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -54,7 +53,7 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 | Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
-| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>윈도우 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
+| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
 
@@ -90,26 +89,42 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버 다운로드
+## <a name="download-the-mfa-server---public-preview"></a>MFA 서버 다운로드 - 공개 미리 보기
+
+다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
+
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Active Directory** > **Multi-Factor Authentication**을 선택합니다.
+3. **서버 설정**을 선택합니다.
+4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
+
+   ![MFA 서버 다운로드](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
+
+
+## <a name="download-the-mfa-server"></a>MFA 서버를 다운로드합니다.
+
+다음 단계를 따라 pfweb 포털에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. **사용자 및 그룹**을 클릭합니다.
-4. **모든 사용자**를 클릭합니다.
-5. **Multi-Factor Authentication**을 클릭합니다.
+3. **사용자 및 그룹**을 선택합니다.
+4. **모든 사용자**를 선택합니다.
+5. **Multi-Factor Authentication**을 선택합니다.
 6. **Multi-Factor Authentication** 섹션 아래에서 **서비스 설정**을 선택합니다.
 
    ![서비스 설정 페이지](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. 새 페이지가 열립니다.
-7. **다운로드**를 클릭합니다.
+7. **다운로드**를 선택합니다.
 8. **다운로드** 링크를 클릭하고 설치 프로그램을 저장합니다.
 
    ![MFA 서버 다운로드](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버 설치 및 구성
+## <a name="install-and-configure-the-mfa-server"></a>MFA 서버 설치 및 구성
 
 서버를 다운로드했으므로 이제 서버를 설치하고 구성할 수 있습니다. 설치하려는 서버가 계획 섹션에 나열된 요구 사항을 충족하는지 확인합니다.
 
@@ -201,4 +216,3 @@ Azure MFA 서버를 백업하려면 **PhoneFactor.pfdata** 파일을 포함한 *
 - [RADIUS를 사용하여 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)를 설정 및 구성합니다.
 - [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](multi-factor-authentication-get-started-server-webservice.md)
 - [Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오](multi-factor-authentication-advanced-vpn-configurations.md)
-

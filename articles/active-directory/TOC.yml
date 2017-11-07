@@ -1,6 +1,8 @@
+- name: 액세스 관리 개요
+  href: manage-access-to-azure-resources.md
 - name: Azure의 리소스 액세스
   href: active-directory-understanding-resource-access.md
-- name: 역할 기반 액세스 제어
+- name: 역할 기반 Access Control(RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: 액세스 할당 관리
@@ -31,10 +33,16 @@
       href: role-based-access-control-troubleshooting.md
     - name: 리소스 공급자 작업
       href: role-based-access-control-resource-provider-operations.md
+- name: RBAC용 PIM(Privileged Identity Management)
+  href: pim-azure-resource.md
+- name: Azure 관리에 대한 조건부 액세스
+  href: conditional-access-azure-management.md
 - name: 관리되는 서비스 ID
   href: msi-overview.md
   items:
-    - name: Windows VM에 대해 MSI 구성
+    - name: 로그인하거나 토큰을 획득하는 방법
+      href: msi-how-to-get-access-token-using-msi.md
+    - name: Azure VM에 대한 MSI 구성
       items:
         - name: Azure Portal 사용
           href: msi-qs-configure-portal-windows-vm.md
@@ -44,7 +52,9 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Azure Resource Manager 템플릿 사용
           href: msi-qs-configure-template-windows-vm.md
-    - name: MSI 액세스 권한을 Azure 리소스에 할당
+        - name: Azure SDK 사용
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Resource Manager에 대한 VM MSI 액세스 권한 부여
       items:
         - name: Azure Portal 사용
           href: msi-howto-assign-access-portal.md
@@ -52,23 +62,37 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI 사용
           href: msi-howto-assign-access-cli.md
-    - name: MSI를 사용하여 Azure Resource Manager에 액세스
+    - name: VM MSI를 사용하여 Azure Data Lake Store에 액세스
       items:
-        - name: Windows VM 사용
+        - name: Windows VM에서
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Linux VM에서
+          href: msi-tutorial-linux-vm-access-datalake.md
+    - name: VM MSI를 사용하여 Azure Resource Manager에 액세스
+      items:
+        - name: Windows VM에서
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Linux VM 사용
+        - name: Linux VM에서
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: MSI를 사용하여 Azure Storage
+    - name: VM MSI를 사용하여 Azure SQL에 액세스
       items:
-        - name: Windows VM 사용
+        - name: Windows VM에서
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: VM MSI를 사용하여 Azure Storage에 액세스
+      items:
+        - name: 액세스 키를 사용하는 Windows VM에서
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Linux VM 사용
+        - name: SAS를 사용하는 Windows VM에서
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: 액세스 키를 사용하는 Linux VM에서
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: MSI를 사용하여 비 Azure AD 리소스에 액세스
+        - name: SAS를 사용하는 Linux VM에서
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: VM MSI를 사용하여 Azure Key Vault에 액세스
       items:
-        - name: Windows VM 사용
+        - name: Windows VM에서
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Linux VM 사용
+        - name: Linux VM에서
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: 알려진 문제
+    - name: FAQ 및 알려진 문제
       href: msi-known-issues.md

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da3c16a433cf31272375a36bb4f84a210f803478
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 16da3cd543ccbb7fe346261f91d2e9a3ceaf3a8b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>PowerShell을 사용하여 고가용성을 위한 Azure Cosmos DB 장애 조치 정책 만들기
 
 이 샘플 PowerShell 스크립트는 Azure Cosmos DB의 고가용성을 위한 장애 조치 정책을 만듭니다. 
@@ -32,7 +30,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/modify-failover-priority/modify-failover-priority.ps1?highlight=36-39,42-47 "Azure Cosmos DB DocumentDB API 계정 만들기")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/modify-failover-priority/modify-failover-priority.ps1?highlight=36-39,42-47 "Create an Azure Cosmos DB DocumentDB API account")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

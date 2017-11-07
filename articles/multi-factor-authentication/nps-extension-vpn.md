@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Azure용 NPS(네트워크 정책 서버) 확장을 사용하여 Azure MFA(Multi-Factor Authentication)와 VPN 인프라 통합
 
 ## <a name="overview"></a>개요
@@ -100,12 +98,12 @@ NPS 확장을 사용하려면 NPS 역할 서비스가 설치된 Windows Server 2
 
 ### <a name="libraries"></a>라이브러리
 
-다음 두 라이브러리가 필요합니다.
+이러한 라이브러리는 확장으로 자동 설치됩니다.
 
-* [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
-* _Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0_ 이상 최신 릴리스 및 설치 지침은 [Microsoft Azure Active Directory PowerShell 모듈 버전 릴리스 기록](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx)을 참조하세요.
+-   [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-이러한 라이브러리는 달리 명시하지 않은 기존 설명서에도 불구하고 NPS 확장 설치 파일(버전 0.9.1.2)과 함께 패키지되지 않습니다. 적어도 Visual Studio 2013용 Visual C++ 재배포 가능 패키지를 설치해야 합니다. Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
+Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 동기화되는 Azure Active Directory 
 
@@ -208,7 +206,7 @@ NPS를 설치하려면 Azure Active Directory의 GUID를 알고 있어야 합니
 
  ![라우팅 및 원격 액세스](./media/nps-extension-vpn/image14.png)
  
-4. **[서버 이름](로컬) 속성** 대화 상자에서 **보안** 탭을 클릭합니다. 
+4. **[서버 이름} (로컬) 속성** 대화 상자에서 **보안** 탭을 클릭합니다. 
 5. **보안** 탭의 [인증 공급자] 아래에서 **RADIUS 인증**, **구성**을 차례로 클릭합니다.
 
  ![RADIUS 인증](./media/nps-extension-vpn/image15.png)
@@ -476,5 +474,4 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)
 
 [Azure Active Directory와 온-프레미스 디렉터리 통합](../active-directory/connect/active-directory-aadconnect.md)
-
 

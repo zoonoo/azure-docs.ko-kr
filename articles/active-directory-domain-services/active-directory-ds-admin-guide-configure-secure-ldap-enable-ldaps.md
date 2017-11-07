@@ -12,34 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [작업 2 - 보안 LDAP 인증서를 .PFX 파일로 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)를 완료했는지 확인합니다.
 
-이 작업을 완료하는 데 미리 보기 Azure Portal 환경을 사용할 것인지 Azure 클래식 포털을 사용할 것인지 선택합니다.
-> [!div class="op_single_selector"]
-> * **Azure Portal(미리 보기)**: [Azure Portal을 사용하여 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-> * **Azure 클래식 포털**: [클래식 Azure Portal을 사용하여 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
->
->
 
-
-## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview"></a>작업 3 - Azure Portal(미리 보기)을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정
+## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>작업 3 - Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정
 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
 1. **[Azure Portal](https://portal.azure.com)**로 이동합니다.
 
-2. **리소스 검색** 검색 상자에서 'domain services'를 검색합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다. **Azure AD Domain Services** 블레이드에 관리되는 도메인이 나열됩니다.
+2. **리소스 검색** 검색 상자에서 'domain services'를 검색합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다. **Azure AD Domain Services** 페이지에 관리되는 도메인이 나열됩니다.
 
     ![프로비전되는 관리되는 도메인 찾기](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -49,12 +41,16 @@ ms.lasthandoff: 08/16/2017
 
 3. 탐색 창에서 **보안 LDAP**를 클릭합니다.
 
-    ![Domain Services - 보안 LDAP 블레이드](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - 보안 LDAP 페이지](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. 기본적으로 관리되는 도메인에 대한 보안 LDAP 액세스는 사용하지 않도록 설정되어 있습니다. **보안 LDAP**를 **사용**으로 토글합니다.
 
     ![보안 LDAP를 사용하도록 설정](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. 기본적으로 인터넷에서 관리되는 도메인에 대한 보안 LDAP 액세스는 사용하지 않도록 설정되어 있습니다. 필요한 경우 **Allow secure LDAP access over the internet**(인터넷을 통한 보안 LDAP 액세스 허용)을 **사용**으로 토글합니다. 
+
+    > [!TIP]
+    > 인터넷을 통한 보안 LDAP 액세스를 사용하는 경우 필요한 원본 IP 주소 범위에 대한 액세스를 잠그려면 NSG를 설정하는 것이 좋습니다. [인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet)에 대한 지침을 참조하세요.
+    >
 
 6. **보안 LDAP 인증서가 포함된 .PFX 파일** 뒤의 폴더 아이콘을 클릭합니다. 관리되는 도메인에 대한 보안 LDAP 액세스를 위해 인증서를 사용하여 PFX 파일의 경로를 지정합니다.
 
@@ -81,7 +77,7 @@ ms.lasthandoff: 08/16/2017
 
 이 태스크를 시작하기 전에 [태스크 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview)에 나와 있는 단계를 완료해야 합니다.
 
-관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정했으면 클라이언트 컴퓨터가 관리되는 도메인을 찾을 수 있도록 DNS를 업데이트 야 합니다. 작업 3이 완료되면 외부 IP 주소가 **LDAPS 액세스를 위한 외부 IP 주소**의 **속성** 블레이드에 표시됩니다.
+관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정했으면 클라이언트 컴퓨터가 관리되는 도메인을 찾을 수 있도록 DNS를 업데이트 야 합니다. 작업 3이 완료되면 외부 IP 주소가 **LDAPS 액세스를 위한 외부 IP 주소**의 **속성** 탭에 표시됩니다.
 
 관리되는 도메인의 DNS 이름(예: 'ldaps.contoso100.com')이 이 외부 IP 주소를 가리키도록 외부 DNS 공급자를 구성합니다. 이 예에서는 다음과 같은 DNS 항목을 만들어야 합니다.
 
@@ -119,4 +115,3 @@ ms.lasthandoff: 08/16/2017
 * [Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
 * [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
 * [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-

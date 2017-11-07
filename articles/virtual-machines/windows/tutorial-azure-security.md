@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Azure Security Center를 사용하여 가상 컴퓨터 보안 모니터링
 
@@ -149,4 +148,3 @@ Visual Studio Team Services 및 IIS를 실행하는 Windows VM을 사용하여 C
 
 > [!div class="nextstepaction"]
 > [Visual Studio Team Services CI/CD 파이프라인](./tutorial-vsts-iis-cicd.md)
-

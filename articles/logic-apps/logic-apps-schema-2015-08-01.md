@@ -1,5 +1,5 @@
 ---
-title: "2015년&8;월&1;일 스키마 업데이트 미리 보기 - Azure Logic Apps | Microsoft Docs"
+title: "2015년 8월 1일 스키마 업데이트 미리 보기 - Azure Logic Apps | Microsoft Docs"
 description: "스키마 버전 2015-08-01-preview로 Azure Logic Apps에 대한 JSON 정의 만들기"
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
 Azure Logic Apps에 대한 새 스키마 및 API 버전에 논리 앱의 안정성 및 사용 편의성을 개선하는 향상된 주요 기능이 포함됩니다.
 
-*    **APIApp** 작업 유형이 새로운 [**APIConnection**](#api-connections) 작업 유형으로 업데이트되었습니다.
-*    **Repeat**가 [**Foreach**](#foreach)로 이름이 변경되었습니다.
-*    [**HTTP 수신기** API 앱](#http-listener)은 더 이상 필요하지 않습니다.
-*    하위 워크플로 호출에 [새 스키마](#child-workflows)를 사용합니다.
+*   **APIApp** 작업 유형이 새로운 [**APIConnection**](#api-connections) 작업 유형으로 업데이트되었습니다.
+*   **Repeat**가 [**Foreach**](#foreach)로 이름이 변경되었습니다.
+*   [**HTTP 수신기** API 앱](#http-listener)은 더 이상 필요하지 않습니다.
+*   하위 워크플로 호출에 [새 스키마](#child-workflows)를 사용합니다.
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>API 연결로 이동
@@ -480,4 +478,3 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 ## <a name="coming-soon-enterprise-integration-apis"></a>서비스 예정: 엔터프라이즈 통합 API
 
 관리된 버전의 엔터프라이즈 통합 API가 없습니다(예: AS2). 그 동안은 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다. 자세한 내용은 [통합 로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 
-

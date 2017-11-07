@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
+ms.openlocfilehash: 14da9256def60d678ef5cae795fef1c373914b5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 52c04b234d460a62daf4b067a5d322af144f15f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>여러 응용 프로그램에 Key Vault 액세스 권한 부여
 
@@ -58,4 +57,3 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 ## <a name="next-steps"></a>다음 단계
 
 [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)에 대해 좀 더 자세히 알아봅니다.
-

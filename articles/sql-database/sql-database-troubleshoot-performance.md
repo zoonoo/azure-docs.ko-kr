@@ -10,19 +10,17 @@ keywords: "sql 성능 튜닝, 데이터베이스 성능 튜닝, sql 성능 튜�
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: v-shysun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 4eb344bf9e87ef1a8f469268211588e51696164e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -43,7 +41,7 @@ Azure SQL Database를 사용하면 데이터베이스 사용량을 쉽게 모니
 이러한 보고서 또는 뷰를 사용하여 몇 가지 문제를 파악하는 경우 Azure SQL Database의 성능을 향상시키는 데 사용할 수 있는 기술을 찾으려면 [성능 지침 항목](sql-database-performance-guidance.md)을 참조하세요.
 
 > [!IMPORTANT] 
-> Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 >
 
 ## <a name="optimize-database-to-improve-performance"></a>데이터베이스 최적화로 성능 개선
@@ -67,6 +65,6 @@ Azure SQL Database를 사용하면 [성능 튜닝 권장 사항](sql-database-ad
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure SQL Database에서 자동 튜닝을 사용하도록 설정하고 자동 튜닝 기능으로 워크로드를 완벽하게 관리하려면 [자동 튜닝 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
+- Azure SQL Database에서 자동 조정을 사용하도록 설정하고 자동 조정 기능으로 작업을 완벽하게 관리하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
 - 수동 튜닝을 사용하려면 [Azure Portal에서 튜닝 권장 사항](sql-database-advisor-portal.md)을 검토하고 쿼리의 성능을 개선하는 권장 사항을 직접 적용합니다.
 - [Azure SQL Database 서비스 계층](sql-database-performance-guidance.md)을 변경하여 데이터베이스에 제공되는 리소스를 변경합니다.

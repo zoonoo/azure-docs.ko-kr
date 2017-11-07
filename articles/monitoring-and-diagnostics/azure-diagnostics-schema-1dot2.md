@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
-ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 진단 1.2 구성 스키마
 > [!NOTE]
@@ -206,4 +204,3 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 모든 이벤트를 수집하려면 "*"를 지정합니다.|
-

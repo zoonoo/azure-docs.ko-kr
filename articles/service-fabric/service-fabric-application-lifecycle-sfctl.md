@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Azure Service Fabric CLI를 사용하여 Azure Service Fabric 응용 프로그램 관리
 
@@ -31,14 +30,14 @@ Azure Service Fabric 클러스터에서 실행 중인 응용 프로그램을 만
 
 1. Service Fabric 이미지 저장소에 응용 프로그램 패키지를 업로드합니다.
 2. 응용 프로그램 유형을 프로비전합니다.
-3. 응용 프로그램을 지정하고 만듭니다.
-4. 서비스를 지정하고 만듭니다.
+3. 이미지 저장소 콘텐츠를 삭제합니다.
+4. 응용 프로그램을 지정하고 만듭니다.
+5. 서비스를 지정하고 만듭니다.
 
 기존 응용 프로그램을 제거하려면 다음이 단계를 완료합니다.
 
 1. 응용 프로그램을 삭제합니다.
 2. 관련된 응용 프로그램 유형의 프로비전을 해제합니다.
-3. 이미지 저장소 콘텐츠를 삭제합니다.
 
 ## <a name="deploy-a-new-application"></a>새 응용 프로그램 배포
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 `application-type-build-path`의 값은 응용 프로그램 패키지를 업로드하는 디렉터리의 이름입니다.
+
+### <a name="delete-the-application-package"></a>응용 프로그램 패키지 삭제
+
+응용 프로그램이 성공적으로 등록된 후에는 응용 프로그램 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 응용 프로그램 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 응용 프로그램 패키지를 그대로 두면 디스크 저장소를 소비하고 응용 프로그램 성능 문제로 이어집니다. 
+
+이미지 저장소에서 응용 프로그램 패키지를 삭제하려면 다음 명령을 사용합니다.
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path`는 응용 프로그램을 만들 때 업로드한 디렉터리의 이름이어야 합니다.
 
 ### <a name="create-an-application-from-an-application-type"></a>응용 프로그램 유형에서 응용 프로그램 만들기
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 유형 이름 및 유형 버전은 이전에 프로비전된 응용 프로그램 매니페스트의 이름 및 버전과 일치해야 합니다.
 
-### <a name="delete-the-application-package"></a>응용 프로그램 패키지 삭제
-
-응용 프로그램 유형이 프로비전 해제된 후에는 더 이상 필요하지 않은 경우 응용 프로그램 패키지를 이미지 저장소에서 삭제할 수 있습니다. 응용 프로그램 패키지를 삭제하면 디스크 공간을 확보하는 데 도움이 됩니다. 
-
-이미지 저장소에서 응용 프로그램 패키지를 삭제하려면 다음 명령을 사용합니다.
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path`는 응용 프로그램을 만들 때 업로드한 디렉터리의 이름이어야 합니다.
-
 ## <a name="upgrade-application"></a>응용 프로그램 업그레이드
 
 응용 프로그램을 만든 후 동일한 단계 모음을 반복하여 응용 프로그램의 두 번째 버전을 프로비전할 수 있습니다. 그런 다음 Service Fabric 응용 프로그램 업그레이드를 사용하여 응용 프로그램의 두 번째 버전 실행으로 전환할 수 있습니다. 자세한 내용은 [Service Fabric 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대한 설명서를 참조하세요.
@@ -148,6 +147,7 @@ sfctl store delete --content-path app_package_dir
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 모니터링되는 자동 업그레이드를 수행하고 다음 명령을 실행하여 업그레이드를 시작하는 것이 좋습니다.
@@ -169,4 +169,3 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 * [Service Fabric CLI 기본 사항](service-fabric-cli.md)
 * [Linux에서 Service Fabric 시작](service-fabric-get-started-linux.md)
 * [Service Fabric 응용 프로그램 업그레이드 시작](service-fabric-application-upgrade.md)
-

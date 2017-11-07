@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: d0b0ddba5ad9f8c584cd35c6f20edf76883b425d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: cac4c333e59ef9a0f28a2f93a7afee22eeafd54e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음
 
 이 문서를 통해 페이지로 이동하지만 페이지가 올바르게 표시하지 않는 경우 Azure Active Directory 응용 프로그램 프록시 응용 프로그램의 문제를 해결할 수 있습니다.
@@ -40,4 +38,3 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
-

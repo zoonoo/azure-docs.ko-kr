@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export 서비스 메타데이터 및 속성 파일 형식
 가져오기 작업 또는 내보내기 작업의 일부로 하나 이상의 Blob에 대한 메타데이터 및 속성을 지정할 수 있습니다. 가져오기 작업의 일부로 만들어지는 Blob에 대한 메타데이터 또는 속성을 설정하려면 가져올 데이터가 있는 하드 드라이브에 메타데이터 또는 속성 파일을 제공합니다. 내보내기 작업의 경우 메타데이터 및 속성은 반환된 하드 드라이브에 포함된 메타데이터 또는 속성 파일에 기록됩니다.  
@@ -73,4 +72,3 @@ ms.lasthandoff: 04/25/2017
 ## <a name="next-steps"></a>다음 단계
 
 Blob 메타데이터 및 속성을 설정하는 방법에 대한 자세한 규칙은 [Blob 속성 설정](/rest/api/storageservices/set-blob-properties), [Blob 메타데이터 설정](/rest/api/storageservices/set-blob-metadata) 및 [Blob 리소스에 대한 속성 및 메타데이터 설정 및 검색](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)을 참조하세요.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -81,15 +80,15 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
 - *원본 컴퓨터* – 처음에 백업이 수행되었고 현재는 사용할 수 없는 컴퓨터입니다.
 - *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
-- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 Recovery Services 자격 증명 모음입니다. <br/>
+- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 복구 서비스 자격 증명 모음입니다. <br/>
 
 > [!NOTE]
 > 이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 Windows Server 2016 컴퓨터에서 수행된 백업은 Windows Server 2012 R2로 복원될 수 없습니다. 그러나 반대는 가능합니다. Windows Server 2016을 복원하려면 Windows Server 2012 R2에서 백업을 사용할 수 있습니다.
 >
 
 1. **대상 컴퓨터**에서 *Microsoft Azure Backup* 스냅인을 엽니다.
-2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 Recovery Services 자격 증명 모음에 등록됐는지 확인합니다.
-3. **데이터 복구**를 클릭하여 워크플로를 시작합니다.
+2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 복구 서비스 자격 증명 모음에 등록됐는지 확인합니다.
+3. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
 
     ![데이터 복구](./media/backup-azure-restore-windows-server-classic/recover.png)
 
@@ -97,9 +96,9 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
     ![다른 서버](./media/backup-azure-restore-system-state/anotherserver.png)
 
-5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 *샘플 자격 증명 모음*에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일과 연결된 Recovery Services 자격 증명 모음이 표시됩니다.
+5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일과 연결된 Recovery Services 자격 증명 모음이 표시됩니다.
 
-6. Backup 서버 선택 창의 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
+6. 백업 서버 선택 창의 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
 
     ![컴퓨터 목록](./media/backup-azure-restore-windows-server-classic/machinelist.png)
 
@@ -132,7 +131,7 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Windows Server에서 복원된 시스템 상태 적용
 
-Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일로 복구했다면 Windows Server Backup 유틸리티를 사용하여 복구된 시스템 상태를 Windows Server에 적용합니다. Windows Server Backup 유틸리티를 서버에 사용할 수 있습니다. 다음 단계에서는 복구된 시스템 상태를 적용하는 방법을 설명합니다.
+Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일로 복구했다면 Windows Server 백업 유틸리티를 사용하여 복구된 시스템 상태를 Windows Server에 적용합니다. Windows Server Backup 유틸리티를 서버에 사용할 수 있습니다. 다음 단계에서는 복구된 시스템 상태를 적용하는 방법을 설명합니다.
 
 1. 다음 명령을 사용하여 *디렉터리 서비스 복구 모드*로 서버를 다시 부팅합니다. 관리자 권한 명령 프롬프트에서 다음을 수행합니다.
 
@@ -149,7 +148,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
     ![여기에서 복원할 로컬 백업 선택](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-4. 로컬 Backup 콘솔의 **작업 창**에서 **복구**를 클릭하여 복구 마법사를 엽니다.
+4. 로컬 백업 콘솔의 **작업 창**에서 **복구**를 클릭하여 복구 마법사를 엽니다.
 
 5. **다른 위치에 저장된 백업** 옵션을 선택하고 **다음**을 클릭합니다.
 
@@ -225,4 +224,3 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 ## <a name="next-steps"></a>다음 단계
 * 파일과 폴더를 복구했으므로 [백업을 관리](backup-azure-manage-windows-server.md)할 수 있습니다.
-

@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 73e3211416a1d110f1714872290a4156f3d194f7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
 > [!div class="op_single_selector"]
@@ -151,7 +150,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 사용자 지정 역할을 만들려면 다음을 사용합니다.
 
-    azure role create --inputfile <file path>
+    azure role definition create --role-definition <file path>
 
 다음 예제에서는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
 
@@ -160,9 +159,9 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![RBAC Azure 명령줄 - azure role create - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>사용자 지정 역할 수정
-사용자 지정 역할을 수정하려면 먼저 `azure role show` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의 파일을 원하는 대로 변경합니다. 마지막으로 `azure role set` 을 사용하여 수정한 역할 정의를 저장합니다.
+사용자 지정 역할을 수정하려면 먼저 `azure role definition list` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의 파일을 원하는 대로 변경합니다. 마지막으로 `azure role definition update` 을 사용하여 수정한 역할 정의를 저장합니다.
 
-    azure role set --inputfile <file path>
+    azure role definition update --role-definition <file path>
 
 다음 예제에서는 **작업**에 *Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 Virtual Machine Operator 사용자 지정 역할의 **AssignableScopes**에 Azure 구독을 추가합니다.
 
@@ -171,7 +170,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![RBAC Azure 명령줄 - azure role set - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
-사용자 지정 역할을 삭제하려면 먼저 `azure role show` 명령을 사용하여 역할의 **ID** 를 확인합니다. 그런 다음 `azure role delete` 명령을 사용하여 **ID**를 지정하여 역할을 삭제합니다.
+사용자 지정 역할을 삭제하려면 먼저 `azure role definition list` 명령을 사용하여 역할의 **ID** 를 확인합니다. 그런 다음 `azure role definition delete` 명령을 사용하여 **ID**를 지정하여 역할을 삭제합니다.
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 제거합니다.
 
@@ -183,7 +182,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 다음 명령에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
 
 ```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure 명령줄 - azure role list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -191,12 +190,11 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 *Production4* 구독에서 사용할 수 없습니다. 이 구독이 해당 역할의 **AssignableScopes**에 없기 때문입니다.
 
 ```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure 명령줄 - 사용자 지정 역할에 대한 azure role list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

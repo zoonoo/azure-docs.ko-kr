@@ -1,6 +1,6 @@
 ---
-title: "C++를 사용하여 Azure File Storage 개발 | Microsoft Docs"
-description: "Azure File Storage를 사용하여 파일 데이터를 저장하는 C++ 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
+title: "C++를 사용하여 Azure Files 개발 | Microsoft Docs"
+description: "Azure Files를 사용하여 파일 데이터를 저장하는 C++ 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="develop-for-azure-file-storage-with-c"></a>C++를 사용하여 Azure File Storage 개발
+# <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
 
-이 자습서는 Azure File Storage에서 기본 작업을 수행하는 방법을 알려줍니다. C++로 작성된 샘플을 통해 공유 및 디렉터리 만들기, 업로드, 목록 및 파일을 삭제하는 방법을 배웁니다. Azure File Storage를 처음 접하는 경우 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 유용할 것입니다.
+이 자습서는 Azure Files에서 기본 작업을 수행하는 방법을 알려줍니다. C++로 작성된 샘플을 통해 공유 및 디렉터리 만들기, 업로드, 목록 및 파일을 삭제하는 방법을 배웁니다. Azure Files를 처음 접하는 경우 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 유용할 것입니다.
 
 
 * Azure 파일 공유 만들기 및 삭제
@@ -40,7 +38,7 @@ ms.lasthandoff: 08/21/2017
 * 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
 
 > [!Note]  
-> Azure File Storage는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [Azure File Storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api)를 사용하여 Azure File Storage와 통신하는 Azure Storage C++ SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
 
 ## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
 샘플을 빌드하려면 Azure Storage Client Library 2.4.0 for C++를 설치해야 합니다. Azure 저장소 계정도 만들었어야 합니다.
@@ -54,8 +52,8 @@ Azure Storage Client 2.4.0 for C++를 설치하려면 다음 방법 중 하나�
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Azure File Storage를 사용하도록 응용 프로그램 설정
-Azure File Storage를 조작하려는 C++ 소스 파일의 맨 위에 다음 include 문을 추가합니다.
+## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 응용 프로그램 설정
+Azure Files를 조작하려는 C++ 소스 파일의 맨 위에 다음 include 문을 추가합니다.
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,15 +79,15 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-Azure File Storage의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 저장소 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 그 내용에 액세스하려면 Azure File Storage 클라이언트를 사용해야 합니다.
+Azure Files의 모든 파일 및 디렉터리는 **공유**라는 이름의 컨테이너 안에 있습니다. 저장소 계정은 계정 용량이 허용하는 만큼의 공유를 가질 수 있습니다. 공유 및 그 내용에 액세스하려면 Azure Files 클라이언트를 사용해야 합니다.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Azure File Storage 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다.
+Azure Files 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다.
 
 ```cpp
 // Get a reference to the file share
@@ -120,7 +118,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
-루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 저장소를 구성할 수 있습니다. Azure File Storage를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드에서는 루트 디렉터리 아래 **my-sample-directory**를 만들고 **my-sample-subdirectory**라는 하위 디렉터리를 만듭니다.
+루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 저장소를 구성할 수 있습니다. Azure Files를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드에서는 루트 디렉터리 아래 **my-sample-directory**를 만들고 **my-sample-subdirectory**라는 하위 디렉터리를 만듭니다.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +239,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>파일 삭제
-다른 일반적인 Azure File Storage 작업은 파일의 삭제입니다. 다음 코드는 루트 디렉터리 아래 저장된 my-sample-file-3이라는 파일을 삭제합니다.
+다른 일반적인 Azure Files 작업은 파일 삭제입니다. 다음 코드는 루트 디렉터리 아래 저장된 my-sample-file-3이라는 파일을 삭제합니다.
 
 ```cpp
 // Get a reference to the root directory for the share.    

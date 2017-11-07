@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: c8c7642a28f1dc386a73d014abe13ec36c6cbe69
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 3782c0a76ea8728a146b3d73774f74c31187cbfd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>X12 메시지의 추적을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링합니다.
 기업 간(B2B) 트랜잭션을 모니터링하기 위해 Azure 통합 계정에서 이러한 X12 추적 스키마를 사용할 수 있습니다.
@@ -358,4 +356,3 @@ ms.lasthandoff: 03/01/2017
 * [B2B 사용자 지정 추적 스키마에 대해 자세히 알아보기](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 * [Operations Management Suite 포털에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
 * [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 알아봅니다.  
-

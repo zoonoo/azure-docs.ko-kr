@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
+ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Azure에서 Linux VM용 SSH 키 쌍 및 추가 인증서를 만드는 자세한 연습
 SSH 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Virtual Machines를 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 암호는 추측할 수 있으며 철저한 무차별 암호 대입 시도로 인해 VM을 오픈하여 암호를 추측합니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 만든 VM은 배포의 일부로 SSH 공개 키를 포함할 수 있으며 SSH에 대한 암호 로그인을 사용하지 않도록 설정하는 게시 배포 구성 단계를 제거합니다. 이 문서에서는 Linux 가상 컴퓨터에서 사용 등을 위한 자세한 단계 및 인증서 생성에 대한 추가 예제를 제공합니다. SSH 키 쌍을 신속하게 만들고 사용하려면 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
@@ -57,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = 키를 만드는 데 사용한 프로그램
 
-`-t rsa` = RSA 형식을 만드는 키 유형[wikipedia][끝에 괄호](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `)
+`-t rsa` = [RSA 형식으로 만들 키의 유형](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 `-b 2048` = 키의 비트
 
 `-C "azureuser@myserver"` = 쉽게 식별할 수 있도록 공개 키 파일의 끝에 추가된 주석  일반적으로 전자 메일은 주석으로 사용되지만 인프라에 가장 적합한 것을 사용할 수 있습니다.
@@ -217,4 +215,3 @@ ssh fedora22
 * [Azure 템플릿을 사용하여 보안 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Portal을 사용하여 보안 Linux VM 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure CLI를 사용하여 보안 Linux VM 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

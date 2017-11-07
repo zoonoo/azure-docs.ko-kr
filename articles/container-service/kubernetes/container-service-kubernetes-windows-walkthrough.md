@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows 컨테이너용 Kubernetes 클러스터 배포
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure Container Service](../container-service-intro.md)에서 [Kubernetes](https://kubernetes.io/docs/home/) 클러스터를 배포하는 방법에 대해 자세히 설명합니다. 클러스터가 배포되면 Kubernetes `kubectl` 명령줄 도구를 사용하여 해당 클러스터에 연결하고 첫 번째 Windows 컨테이너를 배포합니다.
 
@@ -110,7 +110,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 이 기본 예제에서는 JSON 파일을 사용하여 Microsoft IIS(Internet Information Server) 컨테이너를 지정한 다음 `kubctl apply` 명령을 사용하여 Pod를 만듭니다. 
 
-`iis.json`이라는 로컬 파일을 만들고 다음 텍스트를 복사합니다. 이 파일은 Kubernetes에게 [Docker 허브](https://hub.docker.com/r/nanoserver/iis/)의 공용 컨테이너 이미지를 사용하여 Windows Server 2016 Nano Server에서 IIS를 실행하도록 지시합니다. 컨테이너는 포트 80을 사용하지만, 처음에 클러스터 네트워크 내에서만 액세스할 수 있습니다.
+`iis.json`이라는 로컬 파일을 만들고 다음 텍스트를 복사합니다. 이 파일은 Kubernetes에게 [Docker 허브](https://hub.docker.com/r/microsoft/iis/)의 공용 컨테이너 이미지를 사용하여 Windows Server 2016 Nano Server에서 IIS를 실행하도록 지시합니다. 컨테이너는 포트 80을 사용하지만, 처음에 클러스터 네트워크 내에서만 액세스할 수 있습니다.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ iis      1/1          Running       0           32s
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-이 명령을 사용하면 Kubernetes에서 해당 공용 IP 주소를 사용하여 서비스 및 [Azure 부하 분산 장치 규칙](container-service-kubernetes-load-balancing.md)을 만듭니다. 
+이 명령을 사용하면 Kubernetes에서 해당 공용 IP 주소를 사용하여 서비스 및 Azure Load Balancer 규칙을 만듭니다. 
 
 다음 명령을 실행하여 서비스의 상태를 확인합니다.
 
@@ -203,4 +203,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes 클러스터 관리](container-service-tutorial-kubernetes-prepare-app.md)
-

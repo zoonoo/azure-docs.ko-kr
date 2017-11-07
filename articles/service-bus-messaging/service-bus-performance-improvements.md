@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
-이 문서에서는 조정된 메시지를 교환할 때 [Azure Service Bus 메시징](https://azure.microsoft.com/services/service-bus/)을 사용하여 성능을 최적화하는 방법을 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
+이 문서에서는 조정된 메시지를 교환할 때 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 문서의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
 
-이 항목 전반적으로 "클라이언트"라는 용어는 Service Bus에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 메시지를 Service Bus 큐 또는 토픽에 보내는 Service Bus 큐 또는 토픽 클라이언트에 사용됩니다. "수신기"라는 용어는 Service Bus 큐 또는 구독에서 메시지를 수신하는 Service Bus 큐 또는 구독 클라이언트를 가리킵니다.
+이 항목 전반적으로 "클라이언트"라는 용어는 Service Bus에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 메시지를 Service Bus 큐 또는 토픽 구독에 보내는 Service Bus 큐 또는 토픽 클라이언트에 사용됩니다. "수신기"라는 용어는 Service Bus 큐 또는 구독에서 메시지를 수신하는 Service Bus 큐 또는 구독 클라이언트를 가리킵니다.
 
 다음 섹션에서는 서비스 버스가 성능 향상을 위해 사용하는 몇 가지 개념에 대해 소개합니다.
 
@@ -119,7 +117,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 일괄 처리된 저장소 액세스는 청구 가능한 메시징 작업의 수에 영향을 주지 않으며 큐, 토픽 또는 구독의 속성입니다. 또한 수신 모드와 독립적이며 클라이언트와 서비스 버스 서비스 간 사용되는 프로토콜과도 무관합니다.
 
 ## <a name="prefetching"></a>프리페치
-프리페치에서는 큐 또는 구독 클라이언트가 수신 작업을 수행할 때 서비스에서 추가 메시지를 로드할 수 있습니다. 클라이언트는 이러한 메시지를 로컬 캐시에 저장합니다. 캐시 크기는 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 또는 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 속성으로 결정됩니다. 프리페치를 사용할 수 있는 각 클라이언트는 각각의 캐시를 유지합니다. 캐시는 클라이언트 사이에서 공유되지 않습니다. 클라이언트가 수신 작업을 시작할 때 캐시가 비어 있으면 서비스에서 메시지의 배치를 전송합니다. 배치의 크기는 캐시의 크기와 256KB 중 더 작은 값입니다. 클라이언트가 수신 작업을 시작할 때 캐시에 메시지가 포함되어 있으면 캐시에서 해당 메시지를 가져옵니다.
+[프리페치](service-bus-prefetch.md)에서는 큐 또는 구독 클라이언트가 수신 작업을 수행할 때 서비스에서 추가 메시지를 로드할 수 있습니다. 클라이언트는 이러한 메시지를 로컬 캐시에 저장합니다. 캐시 크기는 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 또는 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 속성으로 결정됩니다. 프리페치를 사용할 수 있는 각 클라이언트는 각각의 캐시를 유지합니다. 캐시는 클라이언트 사이에서 공유되지 않습니다. 클라이언트가 수신 작업을 시작할 때 캐시가 비어 있으면 서비스에서 메시지의 배치를 전송합니다. 배치의 크기는 캐시의 크기와 256KB 중 더 작은 값입니다. 클라이언트가 수신 작업을 시작할 때 캐시에 메시지가 포함되어 있으면 캐시에서 해당 메시지를 가져옵니다.
 
 메시지가 프리페치되는 경우 서비스는 프리페치된 메시지를 잠급니다. 이렇게 하면 프리페치된 메시지를 다른 수신기가 받을 수 없습니다. 잠금이 만료되기 전에 수신기가 메시지를 완료할 수 없는 경우 다른 수신기가 메시지를 사용할 수 있습니다. 프리페치된 메시지의 복사본은 캐시에 남아 있습니다. 만료 및 캐시된 복사본을 사용하는 수신기가 해당 메시지를 완료하려고 하면 예외를 수신합니다. 기본적으로 메시지 잠금은 60초 후에 만료됩니다. 이 값은 5분으로 연장할 수 있습니다. 만료된 메시지를 사용하지 못하도록 하려면 캐시 크기가 언제나 잠금 시간 초과 간격 이내에 클라이언트가 사용할 수 있는 메시지 수보다 작아야 합니다.
 
@@ -147,7 +145,7 @@ namespaceManager.CreateTopic(td);
 > 기본 엔터티는 트랜잭션을 지원하지 않습니다.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>분할된 큐 또는 토픽 사용
-Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
+Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 [분할된 큐 또는 토픽](service-bus-partitioning.md)은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
 ```csharp
 // Create partitioned queue.
@@ -250,17 +248,16 @@ Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되�
 ## <a name="next-steps"></a>다음 단계
 Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
+[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing

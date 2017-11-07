@@ -4,7 +4,7 @@ description: "Azure의 Analysis Services 서버에서 데이터베이스 역할 
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: d0bc7d7514f111b4bbde33bd60ae21264bd797fc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -151,5 +150,4 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   [서버 관리자 관리](analysis-services-server-admins.md)   
   [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)  
   [TMSL(테이블 형식 모델 스크립트 언어) 참조](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
-
 

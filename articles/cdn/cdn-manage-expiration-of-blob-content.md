@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Azure CDN에서 Azure Storage Blob의 만료 관리
 > [!div class="op_single_selector"]
@@ -119,5 +118,4 @@ Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저 [개발자 도�
 ## <a name="next-steps"></a>다음 단계
 * [*캐시 제어* 헤더에 대해 참고하기](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](cdn-manage-expiration-of-cloud-service-content.md)
-
 

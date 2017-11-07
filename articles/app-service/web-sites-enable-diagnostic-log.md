@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
+ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정
 ## <a name="overview"></a>개요
@@ -275,7 +274,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 >
 
 ## <a name="nextsteps"></a> 다음 단계
-* [웹앱을 모니터링하는 방법](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
+* [웹앱을 모니터링하는 방법](web-sites-monitor.md)
 * [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -287,4 +286,3 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -125,4 +124,3 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](insights-autoscale-to-webhook-email.md)
 * [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [가상 컴퓨터 규모 집합 자동 크기 조정 문제 해결](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

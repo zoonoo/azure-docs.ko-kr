@@ -1,5 +1,5 @@
 # 개요
-## [Cloud Service란?](cloud-services-choose-me.md)
+## [란?](cloud-services-choose-me.md)
 ## [클라우드 서비스 구성 파일 및 패키징](cloud-services-model-and-package.md)
 
 # 시작
@@ -34,13 +34,13 @@
 #### [클라우드 서비스 역할에서 작업을 사용하여 .NET 설치](cloud-services-dotnet-install-dotnet.md)
 
 ### 원격 데스크톱 구성
-#### [포털](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure 포털](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [클래식 포털](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 배포
 ### 포털에서 클라우드 서비스 만들기 및 배포
-#### [포털](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
 #### [클래식 포털](cloud-services-how-to-create-deploy.md)
 ### [PowerShell에서 빈 클라우드 서비스 컨테이너 만들기](cloud-services-powershell-create-cloud-container.md)
 ### 사용자 지정 도메인 이름 구성
@@ -51,14 +51,14 @@
 
 ## 서비스 관리
 ### 일반적인 관리 작업
-#### [포털](cloud-services-how-to-manage-portal.md)
+#### [Azure 포털](cloud-services-how-to-manage-portal.md)
 #### [클래식 포털](cloud-services-how-to-manage.md)
 ### 클라우드 서비스 구성
-#### [포털](cloud-services-how-to-configure-portal.md)
+#### [Azure 포털](cloud-services-how-to-configure-portal.md)
 #### [클래식 포털](cloud-services-how-to-configure.md)
 ### [Azure Automation을 사용하여 클라우드 서비스 관리](automation-manage-cloud-services.md)
 ### 자동 크기 조정 구성
-#### [포털](cloud-services-how-to-scale-portal.md)
+#### [Azure 포털](cloud-services-how-to-scale-portal.md)
 #### [클래식 포털](cloud-services-how-to-scale.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
 
@@ -80,7 +80,7 @@
 ### [성능 테스트](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio 프로파일러를 사용하여 테스트](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 진단 사용
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure 진단에서 성능 카운터 사용](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -100,7 +100,7 @@
 ### [일반적인 배포 문제](cloud-services-troubleshoot-deployment-problems.md)
 ### [역할 시작 실패](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [복구 지침](cloud-services-disaster-recovery-guidance.md)
-### 클라우드 서비스 FAQ
+### Cloud Services FAQ
 #### [응용 프로그램 및 서비스 가용성 FAQ](cloud-services-application-and-service-availability-faq.md)
 #### [구성 및 관리 FAQ](cloud-services-configuration-and-management-faq.md)
 #### [연결 및 네트워킹 FAQ](cloud-services-connectivity-and-networking-faq.md)
@@ -108,9 +108,15 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XML 스키마](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XML 스키마](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
+## [.csdef XML 스키마](schema-csdef-file.md)
+### [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)
+### [WebRole 스키마](schema-csdef-webrole.md)
+### [WorkerRole 스키마](schema-csdef-workerrole.md)
+### [NetworkTrafficRules 스키마](schema-csdef-networktrafficrules.md)
+## [.cscfg XML 스키마](schema-cscfg-file.md)
+### [역할 스키마](schema-cscfg-role.md)
+### [NetworkConfiguration 스키마](schema-cscfg-networkconfiguration.md)
+## [REST (영문)](/rest/api/compute/cloudservices/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)

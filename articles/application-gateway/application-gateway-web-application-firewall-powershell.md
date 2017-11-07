@@ -3,7 +3,7 @@ title: "웹 응용 프로그램 방화벽 구성: Azure Application Gateway | Mi
 description: "이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽을 사용하는 방법을 안내합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3d01763709e58d25047a6dec4361bcf6553d54e0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>새 또는 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 구성
 
@@ -236,4 +235,3 @@ DnsSettings              : {
 진단 로깅을 구성하여 WAF를 통해 검색 또는 방지되는 이벤트를 기록하는 방법을 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요.
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-

@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책 시작
 
@@ -218,4 +217,3 @@ Facebook을 설정하려면:
 이 시작 가이드에서 사용된 기본 파일에는 이미 다른 ID 공급자를 추가하는 데 필요한 내용 일부가 포함되어 있습니다. 로그인 설정에 대한 자세한 내용은 [Azure Active Directory B2C: Azure AD 계정을 사용하여 로그인](active-directory-b2c-setup-aad-custom.md) 문서를 참조하세요.
 
 ID 경험 프레임워크를 사용하는 Azure AD B2C의 사용자 지정 정책에 대한 개요는 [Azure Active Directory B2C: 사용자 지정 정책](active-directory-b2c-overview-custom.md) 문서를 참조하세요. 
-

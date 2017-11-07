@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux용 OMS 에이전트에서 Log Analytics에 Nagios 및 Zabbix의 경고 수집 
 [Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다.  [다른 원본의 경고](log-analytics-alerts.md)와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 OMS 에이전트를 구성하는 방법을 설명합니다.
@@ -116,4 +114,3 @@ Zabbix에서 수집된 경고는 **경고**의 **형식** 및 **Zabbix**의 **So
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에서 [경고](log-analytics-alerts.md)에 대해 알아봅니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
-

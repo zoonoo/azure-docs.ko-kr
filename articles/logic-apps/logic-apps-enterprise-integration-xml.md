@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 02/27/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 9d40c5028fd8b3ab20f7562dce9274664e4e56ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 3fec4935f5317be4bf8c9e05f1c24a7c05381b1e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>논리 앱에서 XML 유효성을 검사 및 변환하고, 플랫 파일을 인코딩 및 디코딩하며, 메시지 기능 보강
 
 논리 앱을 사용하여 송신 및 수신하는 XML 메시지를 처리하는 기능이 있습니다. 이 기능은 엔터프라이즈 통합 팩에 포함됩니다. 백그라운드로 BizTalk Server가 있는 사용자의 경우 엔터프라이즈 통합 팩을 통해 메시지를 변환 및 유효성 검사하거나, 플랫 파일로 작업하며, XPath를 사용하여 메시지를 보강하거나 메시지에서 특정 속성을 추출하는 유사한 기능을 사용할 수 있습니다. 
@@ -41,4 +39,3 @@ Azure Logic Apps의 XML 기능을 사용하여 [완벽하게 작동하는 논리
 
 ## <a name="learn-more"></a>자세한 정보
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
-

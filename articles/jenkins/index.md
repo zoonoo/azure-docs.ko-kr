@@ -12,12 +12,11 @@ ms.topic: landing-page
 ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 <div class="content">
     <h1>Azure에서 Jenkins®</h1>
@@ -46,4 +45,3 @@ ms.lasthandoff: 08/31/2017
 <h4>      
 Jenkins®는 Public Interest, Inc.에서 소프트웨어의 등록된 상표입니다. [Jenkins® 로고](https://wiki.jenkins.io/display/JENKINS/Logo)는 [Jenkins 프로젝트](https://jenkins.io)의 [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)에서 라이선스를 체결했습니다.</h4>
 </div>
-

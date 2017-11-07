@@ -14,12 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a3debf3380b57faa5b7b30f612698fe6de5b7067
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: a0f3b294f2a655a5ff891d4fd1be9137080349a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Azure Redis Cache에 대한 Azure CLI 샘플
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 04/15/2017
 | [캐시 세부 정보 가져오기](./scripts/show-cache.md) | 프로비전 상태를 포함한 Azure Redis Cache 인스턴스의 세부 정보를 가져옵니다. |
 | [호스트 이름, 포트 및 키 가져오기](./scripts/cache-keys-ports.md) | Azure Redis Cache 인스턴스의 호스트 이름, 포트 및 키를 가져옵니다. |
 |**웹앱과 캐시**||
-| [Redis Cache에 웹앱 연결](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | Azure 웹앱 및 Redis Cache를 만들고 앱 설정에 Redis 연결 세부 정보를 추가합니다. |
+| [Redis Cache에 웹앱 연결](./../app-service/scripts/app-service-cli-app-service-redis.md) | Azure 웹앱 및 Redis Cache를 만들고 앱 설정에 Redis 연결 세부 정보를 추가합니다. |
 |**캐시 삭제**||
 | [캐시 삭제](./scripts/delete-cache.md) | Azure Redis Cache 인스턴스를 삭제합니다.  |
 | | |

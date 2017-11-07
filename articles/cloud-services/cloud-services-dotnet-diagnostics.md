@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure 진단 사용
 Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참조하세요.
@@ -141,7 +139,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual C# 항목** -> **데이터** -> **XML 파일**을 선택하여 **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. 파일 이름을 “WadExample.xml”로 지정합니다.
+2. **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual C# 항목** -> **데이터** -> **XML 파일**을 클릭하면 됩니다. 파일 이름을 “WadExample.xml”로 지정합니다.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4**를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. **Schemas** 속성에서 **...**를 클릭합니다. **추가...**를 클릭합니다. 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인**을 클릭합니다.
@@ -206,4 +204,3 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-

@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>.NET을 사용하여 IoT Hub에 장치 연결
 
@@ -201,7 +200,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     Console.ReadLine();
     ```
 
-    기본적으로 .NET Framework 앱의 **Create** 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 **DeviceClient** 인스턴스를 만듭니다. MQTT 또는 HTTP 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 **Create** 메서드의 재정의를 사용합니다. UWP 및 PCL 클라이언트는 기본적으로 HTTP 프로토콜을 사용합니다. HTTP 프로토콜을 사용하려면 **Microsoft.AspNet.WebApi.Client** NuGet 패키지를 프로젝트에 추가하여 **System.Net.Http.Formatting** 네임스페이스를 포함해야 합니다.
+    기본적으로 .NET Framework 앱의 **Create** 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 **DeviceClient** 인스턴스를 만듭니다. MQTT 또는 HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 **Create** 메서드의 재정의를 사용합니다. UWP 및 PCL 클라이언트는 기본적으로 HTTPS 프로토콜을 사용합니다. HTTPS 프로토콜을 사용하려면 **Microsoft.AspNet.WebApi.Client** NuGet 패키지를 프로젝트에 추가하여 **System.Net.Http.Formatting** 네임스페이스를 포함해야 합니다.
 
 이 자습서에서는 IoT Hub 장치 앱을 만드는 단계를 안내합니다. [Azure IoT Hub에 연결된 서비스][lnk-connected-service] Visual Studio 확장을 사용하여 장치 앱에 필요한 코드를 추가할 수 있습니다.
 
@@ -263,4 +262,3 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-

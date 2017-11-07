@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Azure 스택 계획, 제안, 할당량 및 구독 개요 | Microsoft Docs"
+description: "클라우드 연산자로 Azure 스택 계획, 제안, 할당량 및 구독을 이해 하려고 합니다."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9f19d4ea53fb07bff97a5cd06d10af74f605bf1c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
-Azure Stack lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+[Azure 스택](azure-stack-poc.md) 광범위 한을 제공할 수 있습니다. 가상 컴퓨터를 같은 SQL Server 데이터베이스, SharePoint, Exchange, 서비스 및에 [Azure 마켓플레이스 항목](azure-stack-marketplace-azure-items.md)합니다. Azure 스택 운영자를 구성 하 고 계획, 제안, 할당량을 사용 하 여 Azure 스택의 같은 서비스를 제공 합니다.
 
-When you deliver a service, you'll follow these high-level steps:
+하나 이상의 계획을 포함 하는 제공 하 고 각 계획 하나 이상의 서비스를 포함 합니다. 제어 계획을 만들어 다른 제품으로 조합 하면
+- 액세스할 수 있는 서비스 및 리소스 사용자
+- 사용자가 사용할 수 있는 이러한 리소스의 크기
+- 지역에서 리소스에 액세스할 수
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+서비스를 제공 하는 경우에 같은 대략적인 단계를 수행 합니다.
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+1. 사용자에 게 제공 하려는 서비스를 추가 합니다.
+2. 하나 이상의 서비스를 포함 하는 계획을 만듭니다. 계획을 만들 때 선택 하거나 각 서비스의 리소스 제한 계획에 정의 하는 할당량 만들기 됩니다.
+3. (기본 계획 및 계획 선택적 추가 기능 포함)는 하나 이상의 계획을 포함 하는 제안을 만듭니다.
+
+이 요청을 만든 후 서비스 및 제공 하는 리소스에 액세스 하도록 하려면 사용자가 구독할 수 있습니다. 사용자가 원하는 만큼 많은 혜택을 구독할 수 있습니다. 다음 다이어그램에서는 두 구독가 사용자의 간단한 예를 보여 줍니다. 각 행사 계획 또는 둘을 가지 며 각 계획을 액세스할 수 있도록 서비스
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>요금제
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+계획은 하나 이상의 서비스가 모인 그룹입니다. Azure 스택 연산자로 있습니다 [계획을 만들고](azure-stack-create-plan.md) 사용자에 게 제공할 수 있습니다. 차례로 사용자가 구독할 계획 및 여기에 포함 하는 서비스를 사용 하 여 제공 합니다. 계획을 만들 때 확인 하 여 할당량을 설정, 기본 계획을 정의 하 고, 선택적 추가 기능 계획을 포함 하는 것이 좋습니다.
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>할당량
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+를 클라우드 용량을 관리할 수 있도록 선택 하거나 계획의 각 서비스에 대 한 할당량을 만듭니다. 할당량은 사용자 구독 수를 프로 비전 하거나 사용 하는 상위 리소스 제한을 정의 합니다. 예를 들어 할당량 최대 5 개 가상 컴퓨터를 만들 사용자를 통합할 수 있습니다. 다양 한 가상 컴퓨터, RAM 및 CPU와 같은 리소스를 제한할 수 할당량 제한 합니다.
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+지역에 따라 할당량을 구성할 수 있습니다. 예를 들어 영역 A의에서 계산 서비스를 포함 하는 계획의 두 가상 컴퓨터, 4GB RAM 및 10 CPU 코어 할당량이 있을 수 있습니다. Azure 스택 개발 키트 한 지역에에서 (라는 *로컬*)를 사용할 수 있습니다.
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>기본 계획
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+제공 하는 서비스를 만들 때 서비스 관리자는 기본 계획을 포함할 수 있습니다. 이러한 기본 계획은 해당 제품을 구독 하는 사용자 때 기본적으로 포함 됩니다. 사용자가 구독 (해당 할당량)와 해당 기본 계획에 지정 된 모든 리소스 공급자에 대 한 액세스를 유지 됩니다.
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>추가 기능 계획
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+제공 하는 선택적 추가 기능 계획을 포함할 수도 있습니다. 추가 기능 계획은 구독에서 기본적으로 포함되지 않습니다. 추가 기능 계획은 추가 계획 (할당량)와 구독자의 구독에 추가할 수 있는 제품에서 사용할 수 있는입니다. 예를 들어 서비스를 도입 하기로 결정 하는 고객는 평가판에 대 한 제한 된 리소스를 사용 하 여 기본 계획 및 추가 기능 계획 더 많은 리소스를 제안할 수 있습니다.
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>제품
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+제안은 그룹에 사용자가 등록할 수 있도록 만들어야 하는 하나 이상의 계획입니다. 예를 들어 제공 알파 계획 A를 포함할 수 있습니다 계산 서비스와 저장소 및 네트워크 서비스의 집합을 포함 하는 계획 B 세트를 포함 합니다. 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+때 있습니다 [제안을 만들](azure-stack-create-offer.md), 하나 이상의 기본 계획을 포함 해야 하지만 사용자가 자신의 구독에 추가할 수 있는 추가 기능 계획을 만들 수 있습니다.
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>구독
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+구독은은 사용자가 해당 제공을 액세스 하는 방법입니다. 서비스 공급자에서 Azure 스택 연산자 인 경우 사용자 (테 넌 트) 구독 해당 제공 하 여 서비스를 구입 합니다. 조직에 Azure 스택 연산자를 사용 하는 경우 (직원) 사용자가 제공 하는 서비스 요금을 지불 구독할 수 있습니다. 특정 오퍼와 사용자의 각 조합에 고유 구독입니다. 따라서 사용자는 여러 제품에 대 한 구독을 가질 수 있습니다 하지만 각 구독 제품 하나에 적용 됩니다. 고유한 각 구독에만 적용 하는 계획과 제안, 할당량 – 구독 간에 공유할 수는 없습니다. 사용자가 만드는 각 리소스가 하나의 구독에 연결 됩니다.
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>기본 공급자 구독
 
+Azure 스택 개발 키트를 배포할 때 기본 공급자 구독이 자동으로 만들어집니다. 이 구독 Azure 스택 관리, 리소스 공급자를 배포 및 계획 및 사용자에 대 한 제품을 만드는 데 사용할 수 있습니다. 보안 및 라이선스 이유로 것 쓰일 수 없습니다 고객 작업 및 응용 프로그램을 실행 합니다. 
+
+## <a name="next-steps"></a>다음 단계
+
+[계획 만들기](azure-stack-create-plan.md)

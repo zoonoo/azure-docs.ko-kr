@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법
 이전 자습서에서는 VM(가상 컴퓨터)에 SSH를 적용하고 NGINX를 수동으로 설치하는 방법에 대해 알아보았습니다. 빠르고 일관된 방식으로 VM을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -286,4 +284,3 @@ az vm open-port \
 
 > [!div class="nextstepaction"]
 > [사용자 지정 VM 이미지 만들기](./tutorial-custom-images.md)
-

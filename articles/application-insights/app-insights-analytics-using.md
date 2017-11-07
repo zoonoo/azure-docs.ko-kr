@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: danha; mbullwin
+ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights에서 Analytics 사용
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -135,7 +134,7 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 ![분석 진단](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>대시보드에 고정
-다이어그램 또는 테이블을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭하면 됩니다. (이 기능을 설정하려면 [앱의 가격 패키지를 업그레이드](app-insights-pricing.md)해야 할 수 있습니다.) 
+다이어그램 또는 테이블을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭하면 됩니다. 
 
 ![핀 클릭](./media/app-insights-analytics-using/pin-01.png)
 
@@ -238,5 +237,4 @@ CSV 파일에서 데이터를 가져올 수 있습니다. 일반적인 용도는
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

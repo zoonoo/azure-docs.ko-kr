@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
+ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 484db494e7975df950543d19bf841a4df7cdd139
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric에 Windows 컨테이너로 .NET 응용 프로그램 배포
 
 이 자습서에서는 기존 ASP.NET 응용 프로그램을 Windows 컨테이너로 배포하는 방법을 보여 줍니다.
@@ -131,11 +129,11 @@ Azure의 Service Fabric에서 응용 프로그램을 실행할 수 있도록 준
 ### <a name="expose-the-port-for-the-app"></a>앱에 대해 포트 노출
 구성한 Service Fabric 클러스터는 기본적으로 Azure Load Balancer에서 포트 *80*을 열어 들어오는 트래픽과 클러스터의 균형을 조정합니다. docker-compose.yml 파일을 통해 이 포트에 컨테이너를 노출시킬 수 있습니다.
 
-Visual Studio에서 **솔루션 탐색기**를 열고 **docker-compose**를 찾아 **docker-compose.override.yml** 파일을 엽니다.
+Visual Studio에서 **솔루션 탐색기**를 열고 **docker-compose**를 찾아 **docker-compose.yml** 파일을 엽니다.
 
 `fabrikamfiber.web:` 노드를 수정하고 `ports:`라는 자식 노드를 추가합니다.
 
-문자열 항목 `- "80:80"`을 추가합니다.
+문자열 항목 `- "80:80"`을 추가합니다. docker-compose.yml 파일은 다음과 같아야 합니다.
 
 ```yml
   version: '3'
@@ -217,6 +215,8 @@ Azure 구독을 선택합니다.
 > * 기존 응용 프로그램 컨테이너화
 > * Visual Studio 및 VSTS와의 연속 통합 설정
 
+자습서의 다음 부분에서는 [컨테이너에 대한 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)을 설정하는 방법을 알아봅니다.
+
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
 Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
@@ -251,4 +251,3 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
 [image-publish-repo]: media/service-fabric-host-app-in-a-container/publish-repo.png
 [image-setup-ci]: media/service-fabric-host-app-in-a-container/configure-continuous-integration.png
-

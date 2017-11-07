@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>PowerShell을 사용하여 Azure Network Watcher를 통해 연결 확인
 
 > [!div class="op_single_selector"]
@@ -69,7 +67,7 @@ AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>가상 컴퓨터에 대한 연결 확인
 
-이 예제에서는 포트 80을 통해 대상 가상 컴퓨터에 대한 연결을 확인합니다.
+이 예제에서는 포트 80을 통해 대상 가상 컴퓨터에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
 ### <a name="example"></a>예제
 
@@ -80,11 +78,11 @@ $destVMName = "Database0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 $VM2 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
@@ -164,7 +162,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>라우팅 문제 확인
 
-이 예제에서는 가상 컴퓨터와 원격 끝점 간의 연결을 확인합니다.
+이 예제에서는 가상 컴퓨터와 원격 끝점 간의 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
 ### <a name="example"></a>예제
 
@@ -173,11 +171,10 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
-
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
@@ -229,7 +226,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>웹 사이트 대기 시간 확인
 
-다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
+다음 예제에서는 웹 사이트에 대한 연결을 확인합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
 ### <a name="example"></a>예제
 
@@ -238,11 +235,11 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
 ```
@@ -282,7 +279,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 끝점에 대한 연결 확인
 
-다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 테스트합니다.
+다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 테스트합니다. 이 예제에서는 원본 VM이 포함된 지역에서 Network Watcher를 사용할 수 있어야 합니다.  
 
 ### <a name="example"></a>예제
 
@@ -292,10 +289,10 @@ $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```
@@ -340,7 +337,6 @@ Hops             : [
 트래픽이 차단되지 않아야 하는데 차단된 경우 [네트워크 보안 그룹 관리](../virtual-network/virtual-network-manage-nsg-arm-portal.md)를 참조하여 정의된 네트워크 보안 그룹 및 보안 규칙을 추적합니다.
 
 <!-- Image references -->
-
 
 
 

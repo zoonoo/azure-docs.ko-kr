@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-policy-reference"></a>Azure API 관리 정책 참조
 이 섹션에서는 [API Management 정책 참조][API Management policy reference]에 있는 정책에 대한 인덱스를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책][Policies in API Management]을 참조하세요.
@@ -124,6 +122,5 @@ ms.lasthandoff: 07/06/2017
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
-
 
 

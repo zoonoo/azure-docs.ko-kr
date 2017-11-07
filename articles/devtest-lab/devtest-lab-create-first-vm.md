@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 첫 번째 VM 만들기
 
@@ -55,4 +53,3 @@ DevTest Labs에 처음에 액세스하고 첫 번째 VM을 만드는 경우 미�
 * VM을 만든 후에는 해당 VM의 블레이드에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
 * 이후의 VM을 랩에 추가하는 방법에 대한 자세한 정보는 [랩에 VM 추가](devtest-lab-add-vm.md)를 확인하세요.
 * [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 탐색합니다.
-

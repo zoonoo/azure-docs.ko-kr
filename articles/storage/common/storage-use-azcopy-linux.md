@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 28/9/2017
 ms.author: seguler
+ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 441227d84b9c1ec721ae36fdc423ba797654f128
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 Linux에서 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob 및 File Storage에(로부터) 복사하도록 디자인된 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
@@ -29,16 +28,19 @@ Linux에서 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Mi
 ## <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
 ### <a name="installation-on-linux"></a>Linux에서 설치
 
-Linux에서 AzCopy를 사용하려면 플랫폼에 .NET Core framework가 있어야 합니다. [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 페이지에서 설치 지침을 참조하세요.
+문서에는 다양한 버전의 Ubuntu에 대한 명령이 포함됩니다.  `lsb_release -a` 명령을 사용하여 배포 릴리스 및 코드명을 확인합니다. 
 
-예를 들어, Ubuntu 16.10에 .NET Core를 설치해 보겠습니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 설치 페이지를 확인하세요.
+Linux에서 AzCopy를 사용하려면 플랫폼에 .NET Core framework(버전 1.1.x)가 있어야 합니다. [.NET Core](https://www.microsoft.com/net/download/linux) 페이지에서 설치 지침을 참조하세요.
+
+예를 들어, Ubuntu 16.04에 .NET Core를 설치해 보겠습니다. 최신 설치 가이드를 보려면 [Linux에서.NET Core](https://www.microsoft.com/net/download/linux) 설치 페이지를 확인하세요.
 
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.3
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 .NET Core를 설치했으면 AzCopy를 다운로드 및 설치합니다.
@@ -51,76 +53,6 @@ sudo ./install.sh
 
 Linux에서 AzCopy가 설치되면 추출한 파일을 제거할 수 있습니다. 또는 superuser 권한이 없는 경우 추출된 폴더에서 셸 스크립트 'azcopy'를 사용하여 AzCopy를 실행할 수도 있습니다. 
 
-### <a name="alternative-installation-on-ubuntu"></a>Ubuntu에 대체 설치
-
-**Ubuntu 14.04**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.04**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.10**
-
-.Net Core에 대한 apt 원본 추가:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy 설치:
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## <a name="writing-your-first-azcopy-command"></a>첫 번째 AzCopy 명령 작성
 AzCopy 명령의 기본 구문은 다음과 같습니다.
@@ -564,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
+파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `--blob-type page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다. 사용 가능한 형식은 `page | block | append`입니다.
 
 `--sync-copy`는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
@@ -758,5 +690,4 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>자습서: CA PPM과 Azure Active Directory 통합
 
@@ -112,9 +110,9 @@ CA PPM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Single Sign-on 구성](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. **식별자** 텍스트 상자에서  `https://ca.ondemand.saml.20.post.<companyname>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://ca.ondemand.saml.20.post.<companyname>` 패턴을 사용하여 URL을 입력합니다.
     
-    b. **회신 URL** 텍스트 상자에서  `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`을(를) 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`을(를) 입력합니다.
 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 가져오려면 [CA PPM 지원팀](mailto:catechnicalsupport@ca.com)에 문의합니다.
@@ -226,5 +224,4 @@ CA PPM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [201]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
-
 

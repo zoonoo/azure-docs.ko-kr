@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 59ae075944ce7e19542f19d285440c3822922fbe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>HDInsight(PowerShell)의 Hadoop 및 Apache Mahout을 사용하여 영화 추천 생성
 
@@ -76,7 +75,7 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
 > [!NOTE]
 > 이 파일은 HDInsight 클러스터에 연결하고 작업을 실행하는 데 사용하는 정보를 안내합니다. 작업을 완료하고 output.txt 파일을 다운로드하는 데 몇 분이 걸립니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
 > Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제거하지 않습니다. 이 `--tempDir` 매개 변수는 쉽게 삭제할 수 있도록 임시 파일을 특정 디렉터리로 분리하기 위해 예제 작업에서 지정되었습니다.
@@ -98,7 +97,7 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
 
 생성된 출력을 응용 프로그램에서 사용할 수 있긴 하지만 사용자에게 친숙한 형식은 아닙니다. 서버의 `moviedb.txt`를 사용하여 영화 이름으로 `movieId`를 분석할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 영화 이름과 함께 추천 항목을 표시합니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
 다음 명령을 사용하여 사용자에게 친숙한 형식으로 추천 정보를 표시합니다. 
 
@@ -231,4 +230,3 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

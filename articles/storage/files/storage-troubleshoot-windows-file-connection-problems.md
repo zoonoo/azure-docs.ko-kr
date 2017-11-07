@@ -1,6 +1,6 @@
 ---
-title: "Windows에서 Azure File Storage 문제 해결 | Microsoft Docs"
-description: "Windows에서 Azure File Storage 문제 해결"
+title: "Windows에서 Azure Files 문제 해결 | Microsoft Docs"
+description: "Windows에서 Azure Files 문제 해결"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 09/19/2017
 ms.author: genli
+ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 0e3bbf5ad2ae9cda72876af6bdf880e3aa4f63ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Windows에서 Azure File Storage 문제 해결
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
-이 문서에는 Windows 클라이언트에서 연결할 때 Microsoft Azure File Storage에 관련된 일반적인 문제가 나열됩니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure 파일 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure 파일 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
+이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure 파일 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure 파일 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
 
 <a id="error53-67-87"></a>
@@ -50,7 +49,7 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="cause-2-port-445-is-blocked"></a>원인 2: 포트 445 차단
 
-시스템 오류 53 또는 시스템 오류 67은 Azure File 데이터 센터에 대한 포트 445 아웃바운드 통신이 차단될 경우 발생할 수 있습니다. 포트 445에서 시작되는 액세스를 허용하거나 거부하는 ISP에 대한 요약을 확인하려면 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)으로 이동합니다.
+시스템 오류 53 또는 시스템 오류 67은 Azure Files 데이터 센터에 대한 포트 445 아웃바운드 통신이 차단될 경우 발생할 수 있습니다. 포트 445에서 시작되는 액세스를 허용하거나 거부하는 ISP에 대한 요약을 확인하려면 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)으로 이동합니다.
 
 이 이유로 "시스템 오류 53" 메시지가 수신되었는지 이해하려면 Portqry를 사용하여 TCP:445 끝점을 쿼리할 수 있습니다. TCP:445 끝점이 필터링됨으로 표시될 경우 TCP 포트가 차단됩니다. 다음은 예제 쿼리입니다.
 
@@ -68,7 +67,7 @@ IT 부서와 협력하여 [Azure IP 범위](https://www.microsoft.com/download/d
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>원인 3: NTLMv1 사용
 
-클라이언트에서 NTLMv1 통신이 사용될 경우 시스템 오류 53 또는 시스템 오류 87이 발생할 수 있습니다. Azure File Storage는 NTLMv2 인증만을 지원합니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure File Storage에 대한 통신이 차단됩니다. 
+클라이언트에서 NTLMv1 통신이 사용될 경우 시스템 오류 53 또는 시스템 오류 87이 발생할 수 있습니다. Azure Files는 NTLMv2 인증만 지원합니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 
 
 이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
 
@@ -94,7 +93,7 @@ IT 부서와 협력하여 [Azure IP 범위](https://www.microsoft.com/download/d
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-windows"></a>Windows에서 Azure File Storage 간에 느린 파일 복사
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Windows에서 Azure Files와 서로 파일을 복사하는 속도 느림
 
 Azure File 서비스에 파일을 전송하려고 하면 성능 저하가 발생할 수 있습니다.
 
@@ -153,7 +152,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 - 슬래시(/)가 첫 번째 문자가 아닐 경우 키 주위에 큰따옴표를 배치하여 이 문제를 해결합니다. 슬래시(/)가 첫 번째 문자일 경우 대화형 모드를 사용하여 암호를 개별적으로 입력하거나 키를 다시 생성하여 슬래시(/) 문자로 시작되지 않는 키를 얻습니다.
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-file-storage-drive"></a>응용 프로그램 또는 서비스가 탑재된 Azure File Storage 드라이브에 액세스할 수 없습니다.
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>응용 프로그램 또는 서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없습니다.
 
 ### <a name="cause"></a>원인
 
@@ -174,7 +173,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 네트워크를 통해 파일이 복사되면 파일은 원본 컴퓨터에서 암호를 해독하고, 일반 텍스트로 전송되어 대상에서 다시 암호화됩니다. 하지만 암호화된 파일을 복사하려 하는 경우 다음 오류가 발생할 수 있습니다. "암호화를 지원하지 않는 대상에 파일을 복사하고 있습니다."
 
 ### <a name="cause"></a>원인
-EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 수 있습니다. Bitlocker로 암호화된 파일을 Azure File Storage로 복사할 수 있습니다. 하지만 Azure File Storage는 NTFS EFS를 지원하지 않습니다.
+EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 수 있습니다. BitLocker로 암호화된 파일을 Azure Files로 복사할 수 있습니다. 하지만 Azure Files는 NTFS EFS를 지원하지 않습니다.
 
 ### <a name="workaround"></a>해결 방법
 파일을 네트워크로 복사하려면 먼저 파일을 암호 해독해야 합니다. 다음 방법 중 하나를 사용합니다.
@@ -190,4 +189,3 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

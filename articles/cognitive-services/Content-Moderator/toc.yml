@@ -4,6 +4,30 @@
   items:
     - name: Content Moderator 정보
       href: overview.md
+- name: 빠른 시작
+  items:
+    - name: 검토 도구
+      href: quick-start.md
+    - name: 중재 API
+      items:
+        - name: 이미지 API
+          href: try-image-api.md
+        - name: 이미지 목록 API
+          href: try-image-list-api.md
+        - name: 텍스트 API
+          href: try-text-api.md
+        - name: 용어 목록 API
+          href: try-terms-list-api.md
+    - name: API 검토
+      items:
+        - name: 작업
+          href: try-review-api-job.md
+        - name: 검토
+          href: try-review-api-review.md
+        - name: 워크플로
+          href: try-review-api-workflow.md
+- name: 개념
+  items:
     - name: 이미지 조정
       href: image-moderation-api.md
     - name: 텍스트 조정
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: API 검토
       href: review-api.md
-- name: 시작
+- name: 방법 가이드
   items:
     - name: 검토 도구
-      href: quick-start.md
-    - name: 중재 API 사용해 보기
-      items:
-        - name: 이미지
-          href: try-image-api.md
-        - name: 이미지 목록
-          href: try-image-list-api.md
-        - name: 텍스트
-          href: try-text-api.md
-        - name: 용어 목록
-          href: try-terms-list-api.md
-    - name: 검토 API 사용해 보기
-      items:
-        - name: 작업
-          href: try-review-api-job.md
-        - name: 검토
-          href: try-review-api-review.md
-        - name: 워크플로
-          href: try-review-api-workflow.md
-- name: 방법
-  items:
-    - name: 검토 도구 사용
       items:
         - name: 사용자 참여형
           href: Review-Tool-User-Guide/human-in-the-loop.md
@@ -60,6 +62,12 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: 대시보드 보기
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: 자습서
+  items:
+    - name: Facebook 게시물 조정
+      href: facebook-post-moderation.md
+    - name: 전자 상거래 카탈로그 조정
+      href: ecommerce-retail-catalog-moderation.md
 - name: API 참조
   items:
     - name: 모든 API
@@ -71,6 +79,6 @@
     - name: Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: FAQ
       href: FAQs.md

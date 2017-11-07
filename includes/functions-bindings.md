@@ -8,10 +8,15 @@
 | [큐 및 토픽](../articles/azure-functions/functions-bindings-service-bus.md) |Azure 서비스 버스 |✔ | |✔ |  
 | [저장소 테이블](../articles/azure-functions/functions-bindings-storage-table.md) |Azure 저장소 | |✔ |✔ |  
 | [SQL 테이블](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure 모바일 앱 | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
 | [푸시 알림](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure 알림 허브 | | |✔ |  
 | [Twilio SMS 문자](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [SendGrid 전자 메일](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+| [Excel 테이블](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [OneDrive 파일](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [Outlook 전자 메일](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
+| [Microsoft Graph 이벤트](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
+| [인증 토큰](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
 
 (\* - 모든 트리거는 입력된 데이터를 연결함)
 

@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 또는 다른 LDAP 디렉터리와 통합합니다. 디렉터리 스키마와 일치하는 특성을 구성하고 자동 사용자 동기화를 설정할 수 있습니다.
@@ -139,4 +138,3 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 백업 RADIUS 프록시나 LDAP 프록시로 제공하기 위해 또는 IIS 인증을 위해 추가 Multi-Factor Auth 서버를 설정할 수 있습니다. 동기화 구성은 모든 에이전트 간에 공유됩니다. 그러나 이러한 에이전트 중 하나만 Multi-Factor Auth 서버 서비스를 실행할 수 있습니다. 이 탭을 사용하면 동기화를 위해 사용하도록 설정해야 하는 Multi-Factor Auth 서버를 선택할 수 있습니다.
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

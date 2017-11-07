@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Azure Active Directory Domain Service에 RedHat Linux VM 조인
 
 이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 컴퓨터를 AADDS(Azure Active Directory Domain Services) 관리되는 도메인에 조인하는 방법을 보여 줍니다.  요구 사항은 다음과 같습니다.
@@ -112,4 +110,3 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 * [Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 RHUI(Red Hat Update Infrastructure)](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Resource Manager에서 가상 컴퓨터에 대한 Key Vault 설정](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

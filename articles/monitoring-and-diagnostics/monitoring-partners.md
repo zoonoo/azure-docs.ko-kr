@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![파트너 로고][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![파트너 로고][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![파트너 로고][cloudmonix-logo]<br/>**CloudHealth**][cloudmonix-anchor] |
+| [![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![파트너 로고][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![파트너 로고][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![파트너 로고][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API를 통한 Azure Activity Log를 포함하여 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
@@ -36,7 +35,7 @@ Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API�
 [설명서로 이동합니다.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Services(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
+AppDynamics APM(Application Performance Management)을 사용하면 응용 프로그램 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 응용 프로그램의 성능을 최적화할 수 있습니다. AppDynamics APM은 Azure Marketplace와 자연스럽게 통합되며 Azure Cloud Service(PaaS, 웹 및 작업자 역할 포함), 가상 컴퓨터(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue (Microsoft Service Bus), 데이터 저장소, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다.
 
 [설명서로 이동합니다.][appdynamics-doc]
 
@@ -159,4 +158,3 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
-

@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 Excel에서 �
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 6f47de43ff8d94de22f8b7c12fa0707a8d7ffbbc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-12-analyze-in-excel"></a>단원 12: Excel에서 분석
 
@@ -83,4 +82,3 @@ ms.lasthandoff: 06/03/2017
   
   
   
-

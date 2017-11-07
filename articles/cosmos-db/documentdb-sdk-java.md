@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -48,10 +47,15 @@ ms.lasthandoff: 08/11/2017
 
 <tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](documentdb-java-application.md)</td></tr>
 
-<tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**지원되는 최소 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
+* 단일 파티션 키 범위 읽기 문제가 해결되었습니다.
+* 이름이 짧은 데이터베이스에 영향을 주는 ResourceID 구문 분석 문제가 해결되었습니다.
+* 파티션 키 인코딩으로 인한 문제가 해결되었습니다.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
 * 파티션 분할 동안 요청 처리에 대한 중요한 버그 수정.
@@ -170,6 +174,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.13.0](#1.13.0) |2017년 8월 25일 |--- |
 | [1.12.0](#1.12.0) |2017년 7월 11일 |--- |
 | [1.11.0](#1.11.0) |2017년 5월 10일 |--- |
 | [1.10.0](#1.10.0) |2017년 3월 11일 |--- |
@@ -205,5 +210,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
-
 

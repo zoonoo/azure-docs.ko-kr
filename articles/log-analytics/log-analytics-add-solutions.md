@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
@@ -86,7 +85,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 | [Azure 네트워크 보안 그룹 분석](log-analytics-azure-networking-analytics.md)     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
 | [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md)                                                       | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br>&nbsp;노드당&nbsp;(OMS)                                                                          | Log Analytics 작업 영역을 Automation 계정에 연결해야 함|
 | [Azure Web Apps 분석](log-analytics-azure-web-apps-analytics.md)     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
-|[백업](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)                                                                       | 기존 Backup 자격 증명 모음이 필요합니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+|[백업](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)                                                                       | 기존 백업 자격 증명 모음이 필요합니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
 | [용량 및 성능(미리 보기)](log-analytics-capacity.md)                                                   | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
 | [변경 내용 추적](log-analytics-change-tracking.md)                                       | <ul><li>자동화 및 제어</li></ul>                                  | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
 | [컨테이너](log-analytics-containers.md)                                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
@@ -281,4 +280,3 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md)하여 솔루션에서 수집한 자세한 정보를 확인합니다.
-

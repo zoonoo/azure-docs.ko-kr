@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
-
-
+ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
 ## <a name="overview"></a>개요
@@ -102,10 +102,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 * [StorSimple 모니터링 표시기 LED 사용](storsimple-monitoring-indicators.md)
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

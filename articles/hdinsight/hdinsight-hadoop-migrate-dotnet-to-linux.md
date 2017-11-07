@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -55,7 +54,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (ht
     ![이식성 분석기 결과 대화 상자](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> 분석기는 솔루션의 모든 문제를 탐지할 수 없습니다. 예를 들어 `c:\temp\file.txt` 파일 경로는 Mono가 Windows에서 실행되고 경로가 해당 컨텍스트에서 유효하기 때문에 정상인 것으로 간주됩니다. 하지만 이 경로는 Linux 플랫폼에서 유효하지 않습니다.
+> 분석기는 솔루션의 모든 문제를 탐지할 수 없습니다. 예를 들어 Mono가 Windows에서 실행 중이면 `c:\temp\file.txt`의 파일 경로가 정상으로 간주됩니다. 동일한 경로가 Linux 플랫폼에서는 유효하지 않습니다.
 
 ## <a name="manual-portability-analysis"></a>수동 이식성 분석
 

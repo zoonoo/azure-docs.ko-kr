@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
@@ -76,7 +75,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 �
 
 <sup>2</sup> 여러 포트가 게이트웨이 구성을 수행하는 경우 아웃바운드 라우팅된 트래픽 순서는 아래 [포트 라우팅](#routing-metric)에 설명된 포트 라우팅 순서에 따라 결정됩니다.
 
-<sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 직접 또는 구성된 웹 프록시를 통해 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
+<sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 직접 또는 구성된 웹 프록시를 통해 연결할 수 있어야 합니다. 고정 IP 주소는 가비지 수집 및 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없으며 가비지 수집이 제대로 작동하지 않습니다.
 
 > [!IMPORTANT]
 > 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
@@ -249,4 +248,3 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

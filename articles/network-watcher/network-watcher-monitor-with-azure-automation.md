@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
 
 고객에게 안정적인 서비스를 제공하기 위해서는 네트워크 성능에 대해 깊은 통찰력을 얻는 것이 중요합니다. 따라서 네트워크 중단 상태를 신속하게 검색하고 수정 작업을 수행하여 중단 조건을 완화하는 것이 중요합니다. Azure Automation을 사용하면 Runbook을 통해 프로그래밍 방식으로 작업을 구현 및 실행할 수 있습니다. Azure Automation을 사용하면 지속적인 자동 관리 네트워크 모니터링 및 경고를 수행하는 완벽한 작성법이 만들어집니다.
@@ -201,4 +199,3 @@ Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

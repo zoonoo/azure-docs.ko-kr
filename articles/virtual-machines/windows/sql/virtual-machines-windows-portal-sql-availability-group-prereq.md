@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
 이 자습서에서는 [Azure VM(Virtual Machines)에 SQL Server Always On 가용성 그룹](virtual-machines-windows-portal-sql-availability-group-tutorial.md)을 만들기 위해 필수 구성 요소를 완료하는 방법을 보여 줍니다. 필수 구성 요소를 완료하면 단일 리소스 그룹에 도메인 컨트롤러, 두 개의 SQL Server VM 및 감시 서버가 포함됩니다.
@@ -498,4 +496,3 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 만들기](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-

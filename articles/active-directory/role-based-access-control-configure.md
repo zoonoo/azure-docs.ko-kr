@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리
 > [!div class="op_single_selector"]
@@ -80,5 +79,4 @@ Azure 포털 이외의 도구에서 Azure RBAC 명령을 사용하여 역할을 
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md)
 * [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
-
 

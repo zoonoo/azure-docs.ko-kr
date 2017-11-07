@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?"
-description: "Azure Site Recovery는 온-프레미스 가상 컴퓨터 및 물리적 서버의 복제, 장애 조치 및 복구를 Azure 또는 보조 온-프레미스 사이트로 조정하여 워크로드 및 응용 프로그램을 보호합니다."
+title: "Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까? | Microsoft Docs"
+description: "Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
-이 문서에서는 Azure Site Recovery 서비스로 복제할 수 있는 워크로드 및 응용 프로그램을 설명합니다.
 
-이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 복제할 수 있는 워크로드 및 응용 프로그램에 대해 설명합니다.
+
+
 
 ## <a name="overview"></a>개요
+
 조직은 계획되거나 계획되지 않은 중단 중에 워크로드 및 데이터를 안전하고 사용 가능하게 유지하며 가능한 신속히 정상적인 작업 조건으로 복구하는 BCDR(비즈니스 연속성 및 재해 복구) 전략이 필요합니다.
 
 Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를 사용하여 응용 프로그램 인식 복제를 클라우드 또는 보조 사이트에 배포할 수 있습니다. 앱이 Windows 또는 Linux 기반이거나, VMware 또는 Hyper-V의 어떤 물리적 서버에서 실행되든지 Site Recovery를 사용하여 복제를 오케스트레이션하고 재해 복구 테스트를 수행하며 장애 조치 및 정애 복구를 실행할 수 있습니다.
@@ -34,6 +35,7 @@ Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를
 사이트 복구는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 포함하여 Microsoft 응용 프로그램을 통합합니다. Oracle, SAP 및 Red Hat을 비롯한 선두 공급 업체와도 긴밀히 협력 중입니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>응용 프로그램 복제에 Site Recovery를 사용해야 하는 이유
+
 사이트 복구는 다음과 같이 응용 프로그램 수준 보호 및 복구에 기여합니다.
 
 * 지원되는 컴퓨터에서 실행 중인 모든 워크로드에 복제를 제공하는 앱 중립성.
@@ -158,5 +160,5 @@ Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세�
 Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](site-recovery-citrix-xenapp-and-xendesktop.md). 또는 세부 사항을 동일하게 설명하는 [Citrix의 백서](https://aka.ms/citrix-xenapp-xendesktop-with-asr)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[필수 구성 요소 확인](site-recovery-prereq.md)
 
+Azure VM 복제를 사용하여 [시작](azure-to-azure-quickstart.md)합니다.

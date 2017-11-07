@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 05006a78cc7d82bc048ec5706465f7140eb40e94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 
 [Azure IoT Hub 가격 책정][lnk-pricing]에서는 IoT Hub에 대한 기타 SKU 및 가격 책정에 대한 일반적인 정보를 제공합니다. 이 문서에서는 IoT Hub에서 다양한 IoT Hub 기능이 메시지로 측정되는 방식에 대한 자세한 추가 정보를 제공합니다.
@@ -62,4 +60,3 @@ ms.lasthandoff: 08/29/2017
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-message-size]: iot-hub-devguide-messages-construct.md
-

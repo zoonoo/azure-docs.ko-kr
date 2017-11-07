@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: e14f42497d5ee0c89fe1fa0824431e2d82e6555a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 145e7470bbc01c676a1fb5856c0f9a8726e667fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk 서비스: 제한
 
@@ -47,7 +45,7 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
   RoleInstanceA가 제한 중입니다. RoleInstanceB는 제한하고 있지 않습니다. 이런 경우 RoleInstanceB의 메시지가 예상대로 처리됩니다. RoleInstanceA의 메시지는 취소되고 다음과 같은 오류를 표시하며 실패합니다.<br/><br/>
   **서버가 사용 중입니다. 나중에 다시 시도하세요.**<br/><br/>
 * 어떤 끌어오기 원본도 메시지를 폴링하거나 다운로드하지 않습니다. 예를 들면 다음과 같습니다.<br/>
-   파이프라인이 외부 FTP 원본에서 메시지를 끌어옵니다. 끌어오기를 수행하는 역할 인스턴스가 제한 상태로 전환됩니다. 이런 경우 역할 인스턴스가 제한을 중지할 때까지 파이프라인에서 추가 메시지 다운로드를 중지합니다.
+  파이프라인이 외부 FTP 원본에서 메시지를 끌어옵니다. 끌어오기를 수행하는 역할 인스턴스가 제한 상태로 전환됩니다. 이런 경우 역할 인스턴스가 제한을 중지할 때까지 파이프라인에서 추가 메시지 다운로드를 중지합니다.
 * 클라이언트에서 메시지를 다시 제출할 수 있도록 응답이 클라이언트로 전송됩니다.
 * 제한이 해결될 때까지 기다려야 합니다. 특히 낮은 임계값에 도달할 때까지 기다려야 합니다.
 
@@ -70,5 +68,4 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 * [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
 

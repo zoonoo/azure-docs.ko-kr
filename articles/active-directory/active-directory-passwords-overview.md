@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/20/2017
-
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정
 
@@ -55,8 +54,8 @@ Azure Active Directory(Azure AD) SSPR(셀프 서비스 암호 재설정)은 사�
 
 Azure AD 셀프 서비스 암호 재설정은 구독에 따라 세 가지 계층으로 제공됩니다.
 
-* **Azure AD Free** - 클라우드 전용 관리자는 해당하는 고유한 암호를 재설정할 수 있습니다
-* **Azure AD 기본** 또는 **유료 Office 365 구독** - 클라우드 전용 사용자 및 클라우드 전용 관리자는 해당하는 고유한 암호를 재설정할 수 있습니다
+* **Azure AD Free** - 클라우드 전용 관리자가 자신의 암호를 다시 설정할 수 있습니다.
+* **Azure AD Basic** 또는 **유료 Office 365 구독** - 클라우드 전용 사용자가 자신의 암호를 변경할 수 있고, 클라우드 전용 관리자가 자신의 암호를 다시 설정할 수 있습니다.
 * **Azure AD Premium** - 사용자 또는 관리자는 클라우드 전용, 페더레이션된 또는 암호 동기화된 사용자를 포함하여 해당하는 고유한 암호를 재설정할 수 있습니다. 온-프레미스 암호는 비밀번호 쓰기 저장을 사용하도록 설정해야 합니다.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Azure AD 셀프 서비스 암호 재설정, 부분의 합
@@ -94,5 +93,4 @@ Azure AD의 셀프 서비스 암호 재설정은 다음 구성 요소로 구성�
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-
 

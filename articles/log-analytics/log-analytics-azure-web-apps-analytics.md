@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
 
 ![웹앱 기호](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
-Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소스의 다양한 메트릭을 수집함으로써 [Azure Web Apps](../app-service-web/app-service-web-overview.md)에 대한 자세한 정보를 제공합니다. 이 솔루션을 사용하여 웹앱 리소스 메트릭 데이터를 분석하고 검색할 수 있습니다.
+Azure Web Apps 분석(미리 보기) 솔루션은 모든 Azure Web Apps 리소스의 다양한 메트릭을 수집함으로써 [Azure Web Apps](../app-service/app-service-web-overview.md)에 대한 자세한 정보를 제공합니다. 이 솔루션을 사용하여 웹앱 리소스 메트릭 데이터를 분석하고 검색할 수 있습니다.
 
 이 솔루션을 사용하면 다음을 확인할 수 있습니다.
 
@@ -97,14 +95,14 @@ Azure Web Apps 분석 솔루션을 작업 영역에 추가하면 개요 대시�
 | 열 | 설명 |
 | --- | --- |
 | Azure Webapps |   |
-| 웹앱 요청 추세 | 선택한 날짜 범위에 대한 웹앱 요청 추세의 꺾은선형 차트를 표시하고 상위 10개의 웹 요청 목록을 표시합니다. 꺾은선형 차트를 클릭하면 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code>에 대한 로그 검색이 실행됩니다. <br>웹 요청 항목을 클릭하면 요청된 웹 요청 메트릭 추세에 대한 로그 검색이 실행됩니다. |
+| 웹앱 요청 추세 | 선택한 날짜 범위에 대한 웹앱 요청 추세의 꺾은선형 차트를 표시하고 상위 10개의 웹 요청 목록을 표시합니다. 꺾은선형 차트를 클릭하여 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code>에 대한 로그 검색을 실행합니다. <br>웹 요청 항목을 클릭하면 요청된 웹 요청 메트릭 추세에 대한 로그 검색이 실행됩니다. |
 | 웹앱 응답 시간 | 선택한 날짜 범위에 대한 웹앱 응답 시간의 꺾은선형 차트를 보여 줍니다. 상위 10개 웹앱 응답 시간도 표시됩니다. 차트를 클릭하면 <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code>에 대한 로그 검색이 실행됩니다.<br> 웹앱을 클릭하여 웹앱에 대한 응답 시간을 반환하는 로그 검색을 실행합니다. |
-| 웹앱 트래픽 | 웹앱 트래픽(MB 단위)에 대한 꺾은선형 차트를 표시하고 상위 웹앱 트래픽을 표시합니다. 이 차트를 클릭하면 <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code>에 대한 로그 검색이 실행됩니다.<br> 마지막 1분 동안 트래픽이 발생한 모든 웹앱이 표시됩니다. 웹앱을 클릭하면 웹앱에 대해 받은 바이트 및 보내 바이트를 표시하는 로그 검색이 실행됩니다. |
+| 웹앱 트래픽 | 웹앱 트래픽(MB 단위)에 대한 꺾은선형 차트를 표시하고 상위 웹앱 트래픽을 표시합니다. 차트를 클릭하면 <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code>에 대한 로그 검색이 실행됩니다.<br> 마지막 1분 동안 트래픽이 발생한 모든 웹앱이 표시됩니다. 웹앱을 클릭하면 웹앱에 대해 받은 바이트 및 보내 바이트를 표시하는 로그 검색이 실행됩니다. |
 | Azure App Service 계획 |   |
-| CPU 사용률이 &gt; 80%인 App Service 계획 | CPU 사용률이 80%를 초과하는 App Service 계획의 총 수를 표시하고 CPU 사용률별 상위 10개의 App Service 계획을 나열합니다. 합계 영역을 클릭하면 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code>에 대한 로그 검색이 실행됩니다.<br> App Service 계획 및 평균 CPU 사용률 목록이 표시됩니다. App Service 계획을 클릭하면 평균 CPU 사용률을 보여 주는 로그 검색이 실행됩니다. |
-| 메모리 사용률이 &gt; 80%인 App Service 계획 | 메모리 사용률이 80%를 초과하는 App Service 계획의 총 수를 표시하고 메모리 사용률별 상위 10개의 App Service 계획을 나열합니다. 합계 영역을 클릭하면 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code>에 대한 로그 검색이 실행됩니다.<br> App Service 계획 및 평균 메모리 사용률 목록이 표시됩니다. App Service 계획을 클릭하면 평균 메모리 사용률을 보여 주는 로그 검색이 실행됩니다. |
+| CPU 사용률이 &gt; 80%인 App Service 계획 | CPU 사용률이 80%를 초과하는 App Service 계획의 총 수를 표시하고 CPU 사용률별 상위 10개의 App Service 계획을 나열합니다. 합계 영역을 클릭하여 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code>에 대한 로그 검색을 실행합니다.<br> App Service 계획 및 평균 CPU 사용률 목록이 표시됩니다. App Service 계획을 클릭하면 평균 CPU 사용률을 보여 주는 로그 검색이 실행됩니다. |
+| 메모리 사용률이 &gt; 80%인 App Service 계획 | 메모리 사용률이 80%를 초과하는 App Service 계획의 총 수를 표시하고 메모리 사용률별 상위 10개의 App Service 계획을 나열합니다. 합계 영역을 클릭하여 <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code>에 대한 로그 검색을 실행합니다.<br> App Service 계획 및 평균 메모리 사용률 목록이 표시됩니다. App Service 계획을 클릭하면 평균 메모리 사용률을 보여 주는 로그 검색이 실행됩니다. |
 | Azure Web Apps 활동 로그 |   |
-| Azure Web Apps 활동 감사 | [활동 로그](log-analytics-activity.md)가 있는 웹앱의 총 수를 표시하고 상위 10개의 활동 로그 작업을 나열합니다. 합계 영역을 클릭하면 <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code>에 대한 로그 검색이 실행됩니다.<br> 활동 로그 작업의 목록이 표시됩니다. 활동 로그 작업을 클릭하면 작업에 대한 레코드를 나열하는 로그 검색이 실행됩니다. |
+| Azure Web Apps 활동 감사 | [활동 로그](log-analytics-activity.md)가 있는 웹앱의 총 수를 표시하고 상위 10개의 활동 로그 작업을 나열합니다. 합계 영역을 클릭하여 <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code>에 대한 로그 검색을 실행합니다.<br> 활동 로그 작업의 목록이 표시됩니다. 활동 로그 작업을 클릭하면 작업에 대한 레코드를 나열하는 로그 검색이 실행됩니다. |
 
 
 
@@ -144,4 +142,3 @@ Azure Web Apps 분석 솔루션을 작업 영역에 추가하면 개요 대시�
 
 - 특정 메트릭에 대한 [경고](log-analytics-alerts-creating.md)를 만듭니다.
 - [로그 검색](log-analytics-log-searches.md)을 사용하여 활동 로그의 자세한 정보를 봅니다.
-

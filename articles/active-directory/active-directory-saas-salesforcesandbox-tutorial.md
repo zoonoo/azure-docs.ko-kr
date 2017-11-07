@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory 통합
 
@@ -271,7 +270,7 @@ SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-* [사용자 프로비전 구성](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
+* [사용자 프로비저닝 구성](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
 
 
 
@@ -288,5 +287,4 @@ SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널
 [201]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_203.png
-
 

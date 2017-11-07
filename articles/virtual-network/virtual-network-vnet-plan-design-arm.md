@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure 가상 네트워크 계획 및 디자인
 실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](virtual-networks-create-vnet-arm-pportal.md)을 알아보는 것이 좋습니다.
@@ -253,4 +252,3 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
 * [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md) 에 대해 알아봅니다.
 * [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)에 대해 알아봅니다.
-

@@ -1,27 +1,25 @@
 ---
-title: "Wingtip SaaS - Azure SQL Database 다중 테넌트 앱 소개 | Microsoft Docs"
-description: "Azure SQL Database를 사용하는 샘플 다중 테넌트 응용 프로그램인 Wingtip SaaS 앱 사용에 대해 알아봅니다."
-keywords: "sql 데이터베이스 자습서"
+title: "Azure SQL Database 다중 테넌트 앱 예제 - Wingtip SaaS | Microsoft Docs"
+description: "Azure SQL Database를 사용하는 샘플 다중 테넌트 응용 프로그램인 Wingtip SaaS 예제 사용에 대해 알아봅니다."
+keywords: "SQL Database 자습서"
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.openlocfilehash: 46c9a3eadc2c23959b4d08649c6c0215d44b493e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램 소개
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>SQL Database 다중 테넌트 SaaS 앱 예제 소개
 
 *Wingtip SaaS* 응용 프로그램은 SQL Database의 고유 장점을 보여주는 샘플 다중 테넌트 앱입니다. 앱은 테넌트별 데이터베이스(SaaS 응용 프로그램 패턴)를 사용하여 여러 테넌트에 서비스를 제공합니다. 이 앱은 여러 SaaS 디자인 및 관리 패턴을 포함한 SaaS 시나리오를 사용할 수 있게 해주는 Azure SQL Database의 기능을 보여주기 위해 설계되었습니다. 신속하게 가동 및 실행하기 위해 Wingtip SaaS 앱에서 5분 내에 배포합니다.
 

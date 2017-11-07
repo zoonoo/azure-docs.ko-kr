@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
 이 문서는 다른 데이터베이스에서 SQL Data Warehouse로 코드를 마이그레이션하는 경우 수행해야 하는 코드 변경 사항을 설명합니다. 일부 SQL 데이터 웨어하우스 기능은 원래 분산 방식으로 작동하도록 디자인되었기 때문에 크게 성능을 향상시킬 수 있습니다. 그러나 성능 및 확장을 유지하려면 일부 기능은 사용할 수 없습니다.
@@ -34,8 +32,7 @@ ms.lasthandoff: 06/30/2017
 * [병합 문][merge statement]
 * 데이터베이스 간 조인
 * [커서][cursors]
-* <seg>
-  [INSERT..EXEC][INSERT..EXEC]</seg>
+* [INSERT..EXEC][INSERT..EXEC]
 * output 절
 * 인라인 사용자 정의 함수
 * 다중 문 함수
@@ -139,4 +136,3 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 <!--MSDN references-->
 
 <!--Other Web references-->
-

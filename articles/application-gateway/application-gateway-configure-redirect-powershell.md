@@ -3,7 +3,7 @@ title: "Azure Application Gateway에 대한 리디렉션 구성 - PowerShell | M
 description: "이 페이지에서는 PowerShell을 사용하여 Application Gateway에 대한 리디렉션을 구성하는 시나리오를 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,15 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 84a25e572a27df2fe46e07c4ab0a4aab5969d68e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway에서 리디렉션 구성
 
 응용 프로그램 게이트웨이는 정의된 구성에 따라 트래픽을 리디렉션하는 기능을 지원합니다. 일반 방문에서 리디렉션에 대해 자세히 알아보려면 [Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 참조하세요. 이 문서에서는 HTTP에서 HTTPS로의 리디렉션, 경로 기반 리디렉션, 다중 사이트 리디렉션 및 외부 사이트로의 리디렉션에 대한 예제를 제공합니다.

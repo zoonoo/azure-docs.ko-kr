@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -238,4 +237,3 @@ Azure Cosmos DB는 처리량, 대기 시간, 일관성 및 가용성 메트릭�
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
 9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
 사용자는 공용 API를 사용하거나 등록 도구 클릭 한 번으로 Azure Data Catalog 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 다음 테이블은 현재 카탈로그로 지원되는 모든 데이터 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 데이터 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 두 번째 테이블에는 각 데이터 원본 연결 속성의 자세한 기술 사양이 포함되어 있습니다.
@@ -980,4 +978,3 @@ ms.lasthandoff: 07/08/2017
       </td>
     </tr>
 </table>
-

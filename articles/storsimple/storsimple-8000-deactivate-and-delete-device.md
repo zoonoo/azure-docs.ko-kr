@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 장치 비활성화 및 삭제
 
@@ -121,5 +120,4 @@ StorSimple Cloud Appliance를 포털에서 비활성화하면 가상 컴퓨터 �
 * 비활성화된 장치를 공장 기본 설정으로 복원하려면 [장치를 공장 기본 설정으로 초기화](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings)로 이동합니다.
 * 기술 지원을 받으려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 * StorSimple 장치 관리자 서비스를 사용하는 방법을 자세히 알아보려면 [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md)(StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치 관리)로 이동하세요.
-
 

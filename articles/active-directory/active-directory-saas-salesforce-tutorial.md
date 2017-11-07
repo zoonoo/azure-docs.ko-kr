@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -268,7 +266,7 @@ Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-* [사용자 프로비전 구성](active-directory-saas-salesforce-provisioning-tutorial.md)
+* [사용자 프로비저닝 구성](active-directory-saas-salesforce-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -283,5 +281,4 @@ Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https
 [201]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_203.png
-
 

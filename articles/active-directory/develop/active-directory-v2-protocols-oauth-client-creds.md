@@ -1,4 +1,3 @@
-
 ---
 title: "Azure AD v 2.0을 사용하여 사용자 상호 작용 없이 보안 리소스에 액세스 | Microsoft Docs"
 description: "OAuth 2.0 인증 프로토콜의 Azure AD 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
 *양각 OAuth*라고도 하는 [OAuth 2.0 클라이언트 자격 증명 권한 부여](http://tools.ietf.org/html/rfc6749#section-4.4)를 사용하여 응용 프로그램의 ID로 웹 호스팅 리소스에 액세스할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
@@ -166,7 +163,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
 | scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 끝점을 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token). 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | grant_type |필수 |`client_credentials`이어야 합니다. |
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
@@ -232,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## 코드 샘플
 관리 동의 끝점을 사용하여 클라이언트 자격 증명 권한 부여를 구현하는 응용 프로그램의 예를 보려면 [v2.0 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 참조하세요.
-

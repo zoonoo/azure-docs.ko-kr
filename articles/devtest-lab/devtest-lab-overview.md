@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
 ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-azure-devtest-labs"></a>Azure DevTest Labs 정보
 ## <a name="overview"></a>개요
@@ -50,5 +49,4 @@ DevTest Lab을 사용하면 팀에서 응용 프로그램 개발 및 테스트�
 
 ## <a name="next-steps"></a>다음 단계
 [DevTest Lab 개념](devtest-lab-concepts.md)
-
 

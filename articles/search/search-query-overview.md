@@ -13,13 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
-
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Azure 검색 인덱스 쿼리
 > [!div class="op_single_selector"]
@@ -68,4 +66,4 @@ Azure 검색에서는 `highlight`, `highlightPreTag` 및 `highlightPostTag` 매�
 
 + Azure Portal에서 [검색 탐색기](search-explorer.md)를 사용합니다. [샘플 인덱스](search-get-started-portal.md)를 배포하여 포털에서 도구를 사용하여 몇 분 안에 인덱스를 쿼리할 수 있습니다.
 
-+ [Fiddler](search-fiddler.md) 또는 Chrome Postman을 사용하여 검색 서비스에 업로드한 인덱스에 대한 쿼리를 제출합니다. 두 도구는 HTTP 끝점에 대한 REST 호출을 지원합니다. 
++ Telerik Fiddler 또는 Chrome Postman을 사용하여 검색 서비스에 업로드한 인덱스에 대한 쿼리를 제출합니다. 두 도구는 HTTP 끝점에 대한 REST 호출을 지원합니다. 

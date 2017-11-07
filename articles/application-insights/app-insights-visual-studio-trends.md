@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: c0c1eb80685d18794bcae7acaa16b777ff21b3e6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio에서 추세 분석
 Application Insights 추세 도구는 웹 응용 프로그램의 중요한 원격 분석 이벤트가 시간이 지남에 따라 어떻게 변했는지 시각화하여, 문제와 잘못된 부분을 신속하게 식별하는 데 도움을 줍니다. 더 자세한 진단 정보에 연결하면 추세를 통해 앱의 성능을 향상시키고 예외의 원인을 추적하며 사용자 지정 이벤트로부터 새로운 정보를 발견할 수 있습니다.
@@ -107,5 +106,4 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 | **[Visual Studio Online에서 Application Insights로 작업](app-insights-visual-studio.md)**<br/>원격 분석을 검색하고, CodeLens에서 데이터를 확인하며, Application Insights를 구성합니다. Visual Studio 내에서 모두 수행할 수 있습니다. |![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/app-insights-visual-studio-trends/34.png) |
 | **[더 많은 데이터 추가](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Application Insights 포털 사용](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
-
 

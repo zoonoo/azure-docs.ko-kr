@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
+ms.openlocfilehash: 21229ad7277ce03e5276fe965d73b5e5eba12424
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 
@@ -71,7 +70,7 @@ while(true)
 
 ## <a name="export-devices"></a>내보내기 장치
 
-**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/common/storage-security-guide.md#data-plane-security)을 사용하는 [Azure Storage](../storage/index.md) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
+**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/common/storage-security-guide.md#data-plane-security)을 사용하는 [Azure Storage](../storage/index.yml) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
 
 이 메서드를 사용하면 사용자가 제어하는 blob에 장치 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
@@ -196,7 +195,7 @@ ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장�
 
 **ImportDevicesAsync** 메서드에 매개 변수 두 개를 선택합니다.
 
-* 작업에 대한 *입력*으로 [Azure Storage](../storage/index.md) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+* 작업에 대한 *입력*으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
    SharedAccessBlobPermissions.Read
@@ -413,4 +412,3 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

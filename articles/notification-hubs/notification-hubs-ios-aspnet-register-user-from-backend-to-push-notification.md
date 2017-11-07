@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 > [!div class="op_single_selector"]
@@ -220,9 +220,3 @@ ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
 [알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Notification Hubs 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

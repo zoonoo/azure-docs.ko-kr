@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4a88cf56eea3dd562d4d5dcc4fe7364ea226a348
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성을 변경하는 방법
 이 항목의 목적은 Azure AD Connect 동기화에서 기본 구성을 변경하는 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 몇 가지 간단한 내용을 변경할 수 있습니다.
@@ -418,4 +417,3 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기�
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

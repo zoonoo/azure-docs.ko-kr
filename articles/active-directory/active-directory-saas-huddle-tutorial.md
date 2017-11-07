@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 59d4019545d39ec76bf401696338140f430630c9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>자습서: Huddle과 Azure Active Directory 통합
 
@@ -260,4 +258,3 @@ Azure AD 사용자가 Huddle에 로그인할 수 있도록 하려면 Huddle로 �
 [201]: ./media/active-directory-saas-huddle-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-huddle-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-huddle-tutorial/tutorial_general_203.png
-

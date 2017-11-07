@@ -11,36 +11,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
-이 문서에는 Azure Active Directory 보고에 대한 FAQ(질문과 대답)가 포함되어 있습니다.  
-자세한 내용은 [Azure Active Directory 보고](active-directory-reporting-azure-portal.md)를 참조하세요. 
+이 문서에는 Azure AD(Azure Active Directory) 보고에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory 보고](active-directory-reporting-azure-portal.md)를 참조하세요. 
+
+**Q: https://graph.windows.net/&lt;tenant-name&gt;/reports/ 끝점 API를 사용하여 Azure AD 감사 및 통합 응용 프로그램 사용 보고서를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
+
+**A:** [API 참조 설명서](https://developer.microsoft.com/graph/)에서 새로운 API를 사용하여 [활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)에 액세스하는 방법을 알아보세요. 이 끝점에는 이전 API 끝점에서 가져온 모든 데이터를 제공하는 두 개의 보고서(감사 및 로그인)가 있습니다. 이 새 끝점에는 앱 사용, 장치 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
+
+
+--- 
+
+**Q: https://graph.windows.net/&lt;tenant-name&gt;/reports/ 끝점 API를 사용하여 Azure AD 보안 보고서(누출된 자격 증명 또는 익명 IP 주소의 로그인 등, 특정 유형의 검색)를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
+
+**A:** [ID 보호 위험 이벤트 API](active-directory-identityprotection-graph-getting-started.md)를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 이벤트를 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 MS Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.
+
+--- 
 
 **Q: Azure Portal에서 활동 로그 (감사 및 로그인)의 데이터 보존은 어떻게 됩니까?** 
 
-**A:** 무료 고객의 경우 7일의 데이터 보존을 제공하고 Azure AD Premium 1 또는 2 Premium 라이선스로 전환하면 최대 30일간 데이터에 액세스할 수 있습니다. 보존에 대한 자세한 내용은 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)을 참조하세요.
+**A:** 무료 고객을 위해 7일 동안 데이터를 제공하며, 사용자가 Azure AD Premium 1 또는 Premium 2 라이선스를 구입하여 최대 30일간 데이터에 액세스할 수도 있습니다. 보고서 보존에 대한 자세한 내용은 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)을 참조하세요.
 
 --- 
 
 **Q: 내 작업을 완료한 후 얼마나 지나야 활동 데이터를 볼 수 있습니까?**
 
-**A:** 감사 활동 로그에는 15분에서 1시간까지의 대기 시간이 있습니다. 로그인 활동 로그의 대기 시간은 15분(대부분의 레코드)에서 최대 2시간(일부 레코드)입니다.
+**A:** 감사 활동 로그에는 15분에서 1시간까지의 대기 시간이 있습니다. 로그인 활동 로그는 레코드에 따라 15분에서 2시간까지 걸릴 수 있습니다.
 
 ---
 
-**Q: Azure Portal에서 해당 활동을 보거나 API를 통해 데이터를 가져오기 위해 전역 관리자 권한이 필요합니까?**
+**Q: Azure Portal에서 해당 활동 로그인을 보거나 API를 통해 데이터를 가져오기 위해 전역 관리자 권한이 필요한가요?**
 
-**A:** 아니요. **보안 읽기 권한자**, **보안 관리자** 또는 **전역 관리자**라면 Azure Portal에서 데이터를 보거나 API를 통해 액세스하여 데이터를 볼 수 있습니다.
+**A:** 아니요. Azure Portal에서 또는 API를 통해 보고 데이터를 가져오려면 **보안 읽기 권한자**, **보안 관리자** 또는 **전역 관리자**여야 합니다.
 
 ---
 
@@ -105,9 +116,8 @@ ms.lasthandoff: 08/23/2017
 
 ---
 
-**Q: IP 주소는 로그인 및 위험한 로그인 보고서에서 어떻게 계산됩니까?**
+**Q: IP 주소는 로그인 및 위험한 로그인 보고서에서 어떻게 계산되나요?**
 
 **A:** IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. 모바일 공급자 및 클라이언트 장치가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 IP 주소를 발급하는 VPN과 같은 요인에 의해 복잡합니다. 위의 설명을 고려하면 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보에 기반한 최상의 노력입니다. 
 
 ---
-

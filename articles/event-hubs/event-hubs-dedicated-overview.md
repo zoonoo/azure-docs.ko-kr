@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
 *Event Hubs Dedicated* 용량은 요구 사항이 가장 까다로운 고객을 위해 단일 테넌트 배포를 제공합니다. 전체 규모 Azure Event Hubs는 초당 2백만 개 이상의 이벤트 또는 초당 최대 2GB의 원격 분석을 수신할 수 있으며 완벽한 내구성의 저장소와 1초 미만의 대기 시간을 제공합니다. 또한 동일한 시스템에서 실시간 및 배치를 처리하여 통합 솔루션을 사용할 수 있습니다. 제품에 [Event Hubs 캡처](event-hubs-capture-overview.md)가 포함되어 있기 때문에 단일 스트림으로 실시간 및 배치 기반 파이프라인을 모두 지원하여 솔루션의 복잡성을 줄일 수 있습니다.
@@ -70,4 +68,3 @@ Event Hubs Dedicated 용량에 대한 추가 정보를 얻으려면 Microsoft �
 
 - [Event Hubs Dedicated 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) Microsoft 영업 담당자 또는 Microsoft 지원 서비스에서 Event Hubs Dedicated 용량에 대한 추가 정보를 얻을 수도 있습니다.
 - [Event Hubs FAQ](event-hubs-faq.md)에서는 가격 책정 정보를 설명하고 이벤트 허브에 대해 일부 자주 묻는 질문에 대한 답변을 제공합니다. 
-

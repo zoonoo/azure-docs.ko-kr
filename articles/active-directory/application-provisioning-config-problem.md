@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전 구성 문제
 
 앱에 대해 [자동 사용자 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)을 구성하려면(지원되는 경우) 자동 프로비전에 대해 응용 프로그램을 준비하는 특정 지침을 따라야 합니다. 그런 다음 Azure Portal에서 프로비전 서비스를 구성하여 사용자 계정을 응용 프로그램에 동기화할 수 있습니다.
@@ -70,4 +68,3 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 응용 프로�
 
 #<a name="next-steps"></a>다음 단계
 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
-

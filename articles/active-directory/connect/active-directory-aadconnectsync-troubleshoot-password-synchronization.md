@@ -14,15 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
+ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결
-이 항목에서는 암호 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다. 버전 1.1.524.0 이상인 Azure AD(Azure Active Directory) Connect 배포의 경우 이제 암호 동기화 문제를 해결하는 데 사용할 수 있는 진단 cmdlet이 있습니다.
+이 항목에서는 암호 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
+
+버전 1.1.614.0 이상인 Azure AD(Azure Active Directory) Connect 배포의 경우 암호 동기화 문제를 해결하는 데 마법사에서 문제 해결 작업을 사용할 수 있습니다.
+
+* 암호가 동기화되지 않는 문제가 있으면 [암호가 동기화되지 않음: 문제 해결 작업을 사용하여 문제 해결](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task) 섹션을 참조하세요.
+
+* 개별 개체에 문제가 있으면 [한 개체가 암호를 동기화하지 않음: 문제 해결 작업을 사용하여 문제 해결](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task) 섹션을 참조하세요.
+
+버전 1.1.524.0 이상인 배포의 경우 이제 암호 동기화 문제를 해결하는 데 사용할 수 있는 진단 cmdlet이 있습니다.
 
 * 암호가 동기화되지 않는 문제가 있으면 [암호가 동기화되지 않음: 진단 cmdlet을 사용하여 문제 해결](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet) 섹션을 참조하세요.
 
@@ -34,25 +41,33 @@ ms.lasthandoff: 08/19/2017
 
 * 개별 개체에 문제가 있으면 [한 개체가 암호를 동기화하지 않음: 수동 문제 해결 단계](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps) 섹션을 참조하세요.
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>암호가 동기화되지 않음: 진단 cmdlet을 사용하여 문제 해결
-`Invoke-ADSyncDiagnostics` cmdlet을 사용하여 암호가 동기화되지 않은 이유를 파악할 수 있습니다.
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>암호가 동기화되지 않음: 문제 해결 작업을 사용하여 문제 해결
+문제 해결 작업을 사용하여 암호가 동기화되지 않은 이유를 파악할 수 있습니다.
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
+> 문제 해결 작업은 Azure AD Connect 버전 1.1.614.0 이상에서만 사용할 수 있습니다.
 
-### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+### <a name="run-the-troubleshooting-task"></a>문제 해결 작업 실행
 암호가 동기화되지 않는 문제를 해결하려면
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
 
 2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
 
-3. `Import-Module ADSyncDiagnostics`을 실행합니다.
+3. Azure AD Connect 마법사를 시작합니다.
 
-4. `Invoke-ADSyncDiagnostics -PasswordSync`을 실행합니다.
+4. **추가 작업** 페이지로 이동하고 **문제 해결**을 선택하고 **다음**을 클릭합니다.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>cmdlet의 결과 이해
-진단 cmdlet은 다음 검사를 수행합니다.
+5. 문제 해결 페이지에서 **시작**을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
+
+6. 주 메뉴에서 **암호 동기화 문제 해결**을 선택합니다.
+
+7. 하위 메뉴에**암호 동기화가 전혀 작동하지 않음**을 선택합니다.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
+문제 해결 작업에서는 다음 검사를 수행합니다.
 
 * Azure AD 테넌트에 암호 동기화 기능이 사용되는지 확인합니다.
 
@@ -74,7 +89,7 @@ ms.lasthandoff: 08/19/2017
 
 ![암호 동기화에 대한 진단 출력](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-이 섹션의 나머지 부분에서는 cmdlet 및 해당 문제에서 반환되는 특정 결과에 대해 설명합니다.
+이 섹션의 나머지 부분에서는 이 작업과, 해당 문제에서 반환되는 특정 결과에 대해 설명합니다.
 
 #### <a name="password-synchronization-feature-isnt-enabled"></a>암호 동기화 기능이 사용되지 않음
 Azure AD Connect 마법사를 통해 암호 동기화를 사용하도록 설정하지 않은 경우 다음 오류가 반환됩니다.
@@ -101,32 +116,34 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 동기화가 일시
 
 ![잘못된 자격 증명](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>한 개체가 암호를 동기화하지 않음: 진단 cmdlet을 사용하여 문제 해결
-`Invoke-ADSyncDiagnostics` cmdlet을 사용하여 한 개체가 암호를 동기화하지 않는 이유를 확인할 수 있습니다.
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>한 개체가 암호를 동기화하지 않음: 문제 해결 작업을 사용하여 문제 해결
+
+문제 해결 작업을 사용하여 한 개체가 암호를 동기화하지 않는 이유를 확인할 수 있습니다.
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
+> 문제 해결 작업은 Azure AD Connect 버전 1.1.614.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
-암호가 동기화되지 않는 문제를 해결하려면
+특정 사용자 개체에 대한 문제 해결
 
 1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
 
 2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
 
-3. `Import-Module ADSyncDiagnostics`을 실행합니다.
+3. Azure AD Connect 마법사를 시작합니다.
 
-4. 다음 cmdlet을 실행합니다.
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
-   ```
-   예:
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
-   ```
+4. **추가 작업** 페이지로 이동하고 **문제 해결**을 선택하고 **다음**을 클릭합니다.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>cmdlet의 결과 이해
-진단 cmdlet은 다음 검사를 수행합니다.
+5. 문제 해결 페이지에서 **시작**을 클릭하여 PowerShell의 문제 해결 메뉴를 시작합니다.
+
+6. 주 메뉴에서 **암호 동기화 문제 해결**을 선택합니다.
+
+7. 하위 메뉴에서 **특정 사용자 계정에 대해 암호가 동기화되지 않음**을 선택합니다.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>문제 해결 작업의 결과 이해
+문제 해결 작업에서는 다음 검사를 수행합니다.
 
 * Active Directory 커넥터 공간, 메타버스 및 Azure AD 커넥터 공간에서 Active Directory 개체의 상태를 검사합니다.
 
@@ -154,6 +171,52 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 동기화가 일시
 기본적으로 Azure AD Connect는 7일 동안의 암호 동기화 시도 결과를 저장합니다. 선택한 Active Directory 개체에 대한 결과를 사용할 수 없는 경우 다음 경고가 반환됩니다.
 
 ![단일 개체에 대한 진단 출력 - 암호 동기화 기록 없음](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>암호가 동기화되지 않음: 진단 cmdlet을 사용하여 문제 해결
+`Invoke-ADSyncDiagnostics` cmdlet을 사용하여 암호가 동기화되지 않은 이유를 파악할 수 있습니다.
+
+> [!NOTE]
+> `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
+
+### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+암호가 동기화되지 않는 문제를 해결하려면
+
+1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
+
+2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
+
+3. `Import-Module ADSyncDiagnostics`을 실행합니다.
+
+4. `Invoke-ADSyncDiagnostics -PasswordSync`을 실행합니다.
+
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>한 개체가 암호를 동기화하지 않음: 진단 cmdlet을 사용하여 문제 해결
+`Invoke-ADSyncDiagnostics` cmdlet을 사용하여 한 개체가 암호를 동기화하지 않는 이유를 확인할 수 있습니다.
+
+> [!NOTE]
+> `Invoke-ADSyncDiagnostics` cmdlet은 Azure AD Connect 버전 1.1.524.0 이상에서만 사용할 수 있습니다.
+
+### <a name="run-the-diagnostics-cmdlet"></a>진단 cmdlet 실행
+사용자에 대해 암호가 동기화되지 않는 문제를 해결하려면
+
+1. **관리자 권한으로 실행** 옵션을 사용하여 Azure AD Connect 서버에서 새 Windows PowerShell 세션을 엽니다.
+
+2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
+
+3. `Import-Module ADSyncDiagnostics`을 실행합니다.
+
+4. 다음 cmdlet을 실행합니다.
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   예:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>암호가 동기화되지 않음: 수동 문제 해결 단계
@@ -354,4 +417,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-

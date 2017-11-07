@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: d0441f1e96e94352d4112ec387058b47074d8b0b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 보안 검사 목록
 이 문서에서는 Azure Service Fabric 환경을 보호하는 데 도움이 되는 사용하기 쉬운 검사 목록을 제공합니다.
@@ -51,4 +50,3 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 - [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Service Fabric 상태 모델 소개](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction)
-

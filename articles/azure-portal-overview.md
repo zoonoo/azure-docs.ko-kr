@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal 개요 | Microsoft Docs"
-description: "Microsoft Azure Portal을 사용하는 방법에 대해 알아봅니다."
+description: "Microsoft Azure 포털을 사용하는 방법에 대해 알아봅니다."
 services: 
 documentationcenter: 
 author: davidwrede
@@ -14,30 +14,29 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-portal-overview"></a>Microsoft Azure Portal 개요
-Microsoft Azure Portal은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다.  이 자습서는 포털에 익숙해지도록 이러한 주요 기능 중 일부를 사용하는 방법을 보여줍니다.
+# <a name="microsoft-azure-portal-overview"></a>Microsoft Azure 포털 개요
+Microsoft Azure 포털은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다.  이 자습서는 포털에 익숙해지도록 이러한 주요 기능 중 일부를 사용하는 방법을 보여줍니다.
 
-* **포괄적인 마켓플레이스**를 사용하여 구입하거나 프로비전할 수 있는 Microsoft 및 다른 공급 업체의 수천 개의 항목을 탐색할 수 있습니다.
-* **통합되고 확장 가능한 브라우저 환경**을 사용하여 관심 있는 리소스를 쉽게 찾고 다양한 관리 작업을 수행할 수 있습니다.
+* **포괄적인 마켓플레이스** 를 사용하여 구입하거나 프로비전할 수 있는 Microsoft 및 다른 공급 업체의 수천 개의 항목을 탐색할 수 있습니다.
+* **통합되고 확장 가능한 브라우저 환경** 을 사용하여 관심 있는 리소스를 쉽게 찾고 다양한 관리 작업을 수행할 수 있습니다.
 * **일관적인 관리 페이지** (또는 블레이드)를 사용하면 노출 설정, 작업, 대금 청구 정보, 상태 모니터링 및 사용 현황 데이터 등 일관된 방식으로 Azure의 다양한 서비스를 관리할 수 있습니다.
-* **개인 환경**을 사용하면 로그인할 때마다 확인하려는 정보를 표시하는 사용자 지정된 시작 화면을 만들 수 있습니다.  또한 타일이 포함된 관리 블레이드를 사용자 지정할 수 있습니다.
+* **개인 환경** 을 사용하면 로그인할 때마다 확인하려는 정보를 표시하는 사용자 지정된 시작 화면을 만들 수 있습니다.  또한 타일이 포함된 관리 블레이드를 사용자 지정할 수 있습니다.
   
-  ![Azure Portal UI 개요][UIOrientation]
+  ![Azure 포털 UI 개요][UIOrientation]
 
 ## <a name="before-you-get-started"></a>시작하기 전에
-이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다.  없는 경우 지금 [평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)하세요.  구독한 후에는 <https://portal.azure.com>에서 포털에 액세스할 수 있습니다.
+이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다.  없는 경우 지금 [무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/) 하세요.  구독한 후에는 <https://portal.azure.com>에서 포털에 액세스할 수 있습니다.
 
 ## <a name="how-to-create-a-resource"></a>리소스를 만드는 방법
 Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레이스가 있습니다.  새 Windows Server 2012 VM을 만들려는 경우를 가정해 보겠습니다.  +새로 만들기 허브는 마켓플레이스의 큐레이트된 주요 범주 집합에 대한 진입점입니다.  각 범주에는 모든 범주 및 검색을 표시하는 전체 마켓플레이스의 링크와 함께 소규모의 주요 항목 집합이 있습니다. 새 Windows Server 2012 VM을 만들려면 다음 작업을 수행합니다.  
 
-1. Windows Server 2012는 주요 항목이므로 Compute 범주에서 선택할 수 있습니다.  
+1. Windows Server 2012는 주요 항목이므로 계산 범주에서 선택할 수 있습니다.  
 2. 양식에서 몇 가지 기본 입력 항목을 작성합니다.
 3. '만들기'를 클릭하면 VM이 즉시 프로비전되기 시작합니다.
 
@@ -77,7 +76,7 @@ Azure에는 수천 개의 항목을 한 곳에서 만들 수 있는 마켓플레
 * RBAC(역할 기반 액세스)를 사용하여 리소스에 대한 액세스를 제어하는 방법을 알아보았습니다.
 * 도움말 및 지원을 얻는 방법을 알아보았습니다.
 
-Microsoft Azure Portal은 클라우드에서 응용 프로그램을 빌드 및 관리하는 작업을 크게 간소화합니다.  Microsoft는 지속적으로 [사용자 의견을 듣고](https://feedback.azure.com/forums/223579-azure-preview-portal/) 개선하므로 항상 [관리 블로그](https://azure.microsoft.com/blog/topics/management/)에서 최신 정보를 확인하시기 바랍니다.  [ScottGu의 블로그](http://weblogs.asp.net/scottgu)는 모든 Azure 업데이트를 확인하는 데 유용합니다.
+Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 관리하는 작업을 크게 간소화합니다.  Microsoft는 지속적으로 [사용자 의견을 듣고](https://feedback.azure.com/forums/223579-azure-preview-portal/) 개선하므로 항상 [관리 블로그](https://azure.microsoft.com/blog/topics/management/)에서 최신 정보를 확인하시기 바랍니다.  [ScottGu의 블로그](http://weblogs.asp.net/scottgu) 는 모든 Azure 업데이트를 확인하는 데 유용합니다.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -85,4 +84,3 @@ Microsoft Azure Portal은 클라우드에서 응용 프로그램을 빌드 및 �
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
-

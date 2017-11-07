@@ -8,20 +8,17 @@ author: torsteng
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
@@ -196,4 +193,3 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 
 <!--anchors-->
-

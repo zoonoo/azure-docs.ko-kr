@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 31fed307a32e629d00aab7cc9d5167ee16d83936
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-etime"></a>자습서: ADP eTime과 Azure Active Directory 통합
 
@@ -112,7 +110,7 @@ ADP eTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_url.png)
 
-    a. **식별자** 텍스트 상자에서  `https://<servername>.adp.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<servername>.adp.com` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<servername>.adp.com/affwebservices/public/saml2assertionconsumer` 
  
@@ -253,5 +251,4 @@ ADP eTime에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [201]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_203.png
-
 

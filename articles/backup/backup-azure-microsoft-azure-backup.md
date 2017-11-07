@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure 백업 서버를 사용하여 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -276,4 +275,3 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 * [SQL Server 백업](backup-azure-backup-sql.md)
 * [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 * [대체 서버 백업](backup-azure-alternate-dpm-server.md)
-

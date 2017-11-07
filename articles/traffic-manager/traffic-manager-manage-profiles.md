@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Azure 트래픽 관리자 프로필 관리
 
 Traffic Manager 프로필에서는 트래픽 라우팅 방법을 사용하여 클라우드 서비스나 웹 사이트 끝점에 대한 트래픽의 배포를 제어합니다. 이 문서에서는 이러한 프로필을 만들고 관리하는 방법을 설명합니다.
@@ -76,4 +74,3 @@ Azure Portal을 사용하여 Traffic Manager 프로필을 만들 수 있습니�
 * [지리적 라우팅 메서드 구성](traffic-manager-configure-geographic-routing-method.md) 
 * [가중 라우팅 메서드 구성](traffic-manager-configure-weighted-routing-method.md)
 * [성능 라우팅 메서드 구성](traffic-manager-configure-performance-routing-method.md)
-

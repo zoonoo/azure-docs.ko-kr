@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 689864b15890d8bc4a8a58a37f2034c66491654a
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
@@ -112,5 +111,4 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md) 
-
 

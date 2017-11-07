@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>DocumentDB API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법
 
@@ -46,7 +45,7 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 모든 읽기는 PreferredLocations 목록에서 첫 번째 사용 가능한 지역으로 전송됩니다. 요청이 실패하면 클라이언트는 목록의 다음 지역으로 옮겨갑니다.
 
-SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 3개 지역에서 사용할 수 있지만 클라이언트는 PreferredLocations에 쓰기에 해당하지 않는 지역 중 두 가지만 지정했다면, 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
+SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 4개 지역에서 사용될 수 있지만 클라이언트는 PreferredLocations에 두 읽기(쓰기 아님) 지역만 지정했다면, PreferredLocations에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. PreferredLocations에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
 
 응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 끝점과 읽기 끝점을 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
@@ -177,5 +176,4 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

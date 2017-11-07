@@ -3,7 +3,7 @@ title: "Windows 서버 및 작업자 역할용 Azure Application Insights | Micr
 description: "ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET 응용 프로그램에 대한 Application Insights를 수동으로 구성
 
@@ -149,5 +148,4 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [원격 분석 더 추가](app-insights-asp-net-more.md) 합니다.
-
 

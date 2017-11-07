@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
 > [!NOTE]
@@ -30,7 +29,7 @@ ms.lasthandoff: 08/28/2017
 ## <a name="overview"></a>개요
 Microsoft AMS(Azure Media Services)를 사용하면 사용자 컴퓨터에서 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 AES(Advanced Encryption Standard, 128비트 암호화 키 사용) 및 PlayReady 및/또는 Widevine DRM을 사용하는 CENC(일반 암호화) 및 Apple FairPlay로 동적 암호화된 콘텐츠를 제공할 수 있습니다. 
 
-AMS는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증된 클라이언트에 배달하는 서비스를 제공합니다. Azure Portal을 사용하면 모든 암호화 형식에 대해 **키/라이선스 권한 부여 정책**을 만들 수 있습니다.
+AMS는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증된 클라이언트에 배달하는 서비스를 제공합니다. Azure Portal을 사용하면 모든 암호화 형식에 대해 **키/라이선스 권한 부여 정책** 을 만들 수 있습니다.
 
 이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 정책을 구성하는 방법에 대해 설명합니다. 또한 자산에 동적 암호화를 적용하는 방법을 보여 줍니다.
 
@@ -135,5 +134,4 @@ Media Services 학습 경로를 검토합니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 82a001dd53cdddcf3b360090f3250af593c96fbb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: 고객에게 Twitter 계정으로 등록 및 로그인 제공
 
 > [!NOTE]
@@ -47,5 +45,4 @@ Azure AD(Azure Active Directory) B2C에서 Twitter를 ID 공급자로 사용하�
 5. **ID 공급자 형식**을 클릭하고 **Twitter**를 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 **클라이언트 ID**에 Twitter **Consumer Key**(소비자 키)를 입력하고 **클라이언트 암호**에 Twitter **Consumer Secret**(소비자 암호)을 입력합니다.
 7. **확인**을 클릭한 다음 **만들기**를 클릭하여 Twitter 구성을 저장합니다.
-
 

@@ -3,7 +3,7 @@ title: "Azure Storage 분석을 사용하여 로그 및 메트릭 데이터 수�
 description: "저장소 분석을 사용하면 모든 저장소 서비스에 대한 메트릭 데이터를 추적하고 Blob, 큐 및 테이블 저장소에 대한 로그를 수집할 수 있습니다."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-analytics"></a>저장소 분석
 
@@ -38,7 +37,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 저장소 서비스 활동이 있는 경우에만 로그 항목이 작성됩니다. 예를 들어 저장소 계정의 Blob 서비스에는 활동이 있지만 테이블 또는 큐 서비스에는 활동이 없으면 Blob 서비스와 관련된 로그만 작성됩니다.
 
-Azure File Storage에는 저장소 분석 로깅을 사용할 수 없습니다.
+저장소 분석 로깅은 Azure Files에 사용할 수 없습니다.
 
 ### <a name="logging-authenticated-requests"></a>인증된 요청 로깅
 다음과 같은 유형의 인증된 요청이 기록됩니다.
@@ -192,5 +191,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 * [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/hh343258.aspx)
 * [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 * [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
-
 

@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [노드](relay-hybrid-connections-node-get-started.md)
 ## [WCF 릴레이](relay-wcf-dotnet-get-started.md)
+## [WCF 릴레이 자습서](service-bus-relay-tutorial.md)
+## [WCF 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
 
 # 방법
 ## 계획 및 디자인
@@ -18,7 +20,9 @@
 ## 개발
 ### [사용 가능한 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
-#### [노드](relay-hybrid-connections-node-ws-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## 관리
+### [Azure Monitoring을 사용하여 Azure Relay 모니터링](relay-metrics-azure-monitor.md)
 
 # 참조
 ## .NET

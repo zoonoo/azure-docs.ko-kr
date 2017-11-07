@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: c4bfe2a1f1d22a3b23f381a7afe600d1cfc962b2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 0463904fd9bf1138587d0d214e572ddd38cc2184
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>인코딩 속도 및 동시성 관리
 
@@ -42,5 +41,4 @@ Media Services에서 **예약 단위 유형**은 미디어 처리 태스크를 �
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

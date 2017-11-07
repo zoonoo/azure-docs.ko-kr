@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 이 항목에서는 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 안내합니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요. 기존 리소스가 있고 해당 리소스에 대한 템플릿을 가져오려는 경우 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 
@@ -97,58 +95,21 @@ ms.lasthandoff: 09/06/2017
 
 배포가 완료되면 저장소 계정이 리소스 그룹에 있습니다.
 
-## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-[Cloud Shell](../cloud-shell/overview.md)을 사용하여 템플릿 배포를 위한 Azure CLI 명령을 실행할 수 있습니다. 그러나 먼저 Cloud Shell용 파일 공유에 템플릿을 로드해야 합니다. Cloud Shell을 사용해 본 적이 없다면 [Azure Cloud Shell 개요](../cloud-shell/overview.md)에서 Cloud Shell 설정 방법을 참조하세요.
+Azure CLI의 경우 다음 명령을 사용합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Cloud Shell 리소스 그룹을 선택합니다. 이름 패턴은 `cloud-shell-storage-<region>`입니다.
+현재 PowerShell을 미리 보기로 Cloud Shell에서 사용할 수 있습니다. PowerShell의 경우 다음 명령을 사용합니다.
 
-   ![리소스 그룹 선택](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Cloud Shell용 저장소 계정을 선택합니다.
-
-   ![저장소 계정 선택](./media/resource-manager-create-first-template/select-storage.png)
-
-4. **파일**을 선택합니다.
-
-   ![파일 선택](./media/resource-manager-create-first-template/select-files.png)
-
-5. Cloud Shell용 파일 공유를 선택합니다. 이름 패턴은 `cs-<user>-<domain>-com-<uniqueGuid>`입니다.
-
-   ![파일 공유 선택](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. **디렉터리 추가**를 선택합니다.
-
-   ![디렉터리 추가](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. 이름을 **templates**로 지정하고 **확인**을 선택합니다.
-
-   ![디렉터리 이름 지정](./media/resource-manager-create-first-template/name-templates.png)
-
-8. 새 디렉터리를 선택합니다.
-
-   ![디렉터리 선택](./media/resource-manager-create-first-template/select-templates.png)
-
-9. **업로드**를 선택합니다.
-
-   ![업로드 선택](./media/resource-manager-create-first-template/select-upload.png)
-
-10. 템플릿을 찾아서 업로드합니다.
-
-   ![파일 업로드](./media/resource-manager-create-first-template/upload-files.png)
-
-11. 프롬프트를 엽니다.
-
-   ![Cloud Shell 열기](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Cloud Shell에서 다음 명령을 입력합니다.
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 배포가 완료되면 저장소 계정이 리소스 그룹에 있습니다.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 * 저장소 계정의 속성에 대한 자세한 내용은 [저장소 계정 템플릿 참조](/azure/templates/microsoft.storage/storageaccounts)를 참조하세요.
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
-

@@ -32,6 +32,7 @@
 ##### [Intel NUC를 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## 확장된 IoT 시나리오
 ### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,10 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
-### [장치에서 파일 업로드](iot-hub-csharp-csharp-file-upload.md)
+### 장치에서 파일 업로드
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.JS](iot-hub-node-node-file-upload.md)
 ### 쌍 장치 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,40 +100,54 @@
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-device-management-getstarted.md)
 ### 쌍 속성 사용 방법
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-twin-how-to-configure.md)
 ### 장치 작업을 사용하여 장치 펌웨어 업데이트
 #### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-firmware-update.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-firmware-update.md)
 ### 작업 예약 및 브로드캐스트
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## 관리
 ### IoT Hub 만들기 
-#### [포털 사용](iot-hub-create-through-portal.md)
-#### [PowerShell 사용](iot-hub-create-using-powershell.md)
-#### [CLI 2.0 사용](iot-hub-create-using-cli.md)
+#### [Azure Portal 사용](iot-hub-create-through-portal.md)
+#### [Azure PowerShell 사용](iot-hub-create-using-powershell.md)
+#### [Azure CLI 사용](iot-hub-create-using-cli.md)
 #### [CLI 사용](iot-hub-create-using-cli-nodejs.md)
 #### [REST API 사용](iot-hub-rm-rest.md)
-#### [PowerShell의 템플릿 사용](iot-hub-rm-template-powershell.md)
+#### [Azure PowerShell의 템플릿 사용](iot-hub-rm-template-powershell.md)
 #### [.NET의 템플릿 사용](iot-hub-rm-template.md)
 ### 파일 업로드 구성
-#### [포털 사용](iot-hub-configure-file-upload.md)
-#### [PowerShell 사용](iot-hub-configure-file-upload-powershell.md)
-#### [CLI 2.0 사용](iot-hub-configure-file-upload-cli.md)
-### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
+#### [Azure Portal 사용](iot-hub-configure-file-upload.md)
+#### [Azure PowerShell 사용](iot-hub-configure-file-upload-powershell.md)
+#### [Azure CLI 사용](iot-hub-configure-file-upload-cli.md)
+### [진단 및 모니터링](iot-hub-monitor-resource-health.md)
+#### [진단 설정으로 마이그레이션](iot-hub-migrate-to-diagnostics-settings.md)
+#### [작업 모니터링](iot-hub-operations-monitoring.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
-### [작업 모니터링](iot-hub-operations-monitoring.md)
+### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [IP 필터링 구성](iot-hub-ip-filtering.md)
+
 ## 보안
 ### [처음부터 보안을 고려](iot-hub-security-ground-up.md)
 ### [보안 모범 사례](iot-hub-security-best-practices.md)
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
+### X.509 CA 인증서를 사용한 보안
+#### [X.509 CA 인증서 보안 개요](iot-hub-x509ca-overview.md)
+##### [X.509 CA 인증서 보안 개념](iot-hub-x509ca-concept.md)
+#### [X.509 CA 인증서 보안 시작](iot-hub-security-x509-get-started.md)
+##### [인증서 만들기 - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [개요](iot-hub-iot-edge-overview.md)
 ### 시작
@@ -161,7 +179,8 @@
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js SDK](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js(장치)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js(서비스)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [C 장치 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -172,7 +191,7 @@
 
 # 관련 항목
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure 이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)
+## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 

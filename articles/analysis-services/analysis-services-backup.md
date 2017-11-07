@@ -4,7 +4,7 @@ description: "Azure Analysis Services 데이터베이스를 백업하고 복원�
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,26 +12,24 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: f96e72e4decd475e7859eb7f70046a277b718ac8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
+# <a name="backup-and-restore"></a>Backup 및 복원
 
-# <a name="backup-and-restore"></a>백업 및 복원
-
-Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. 백업 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 저장소 계정과 컨테이너를 사용하거나 서버에 대한 저장소 설정을 구성할 때 만들 수 있습니다.
+Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 저장소 계정과 컨테이너를 사용하거나 서버에 대한 저장소 설정을 구성할 때 만들 수 있습니다.
 
 > [!NOTE]
 > 저장소 계정을 만들면 새로운 유료 서비스가 발생할 수 있습니다. 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 > 
 > 
 
-백업은 abf 확장명으로 저장됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. 백업은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다. 
+백업은 abf 확장명으로 저장됩니다. 메모리 내 테이블 형식 모델의 경우 모델 데이터와 메타데이터가 모두 저장됩니다. DirectQuery 테이블 형식 모델의 경우 모델 메타데이터만 저장됩니다. Backup은 선택한 옵션에 따라 압축하고 암호화할 수 있습니다. 
 
 
 
@@ -40,9 +38,9 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 
 ### <a name="to-configure-storage-settings"></a>저장소 설정을 구성하려면
-1.  Azure Portal > **설정**에서 **백업**을 클릭합니다.
+1.  Azure Portal > **설정**에서 **Backup**을 클릭합니다.
 
-    ![설정의 백업](./media/analysis-services-backup/aas-backup-backups.png)
+    ![설정의 Backup](./media/analysis-services-backup/aas-backup-backups.png)
 
 2.  **사용**을 클릭한 다음 **저장소 설정**을 클릭합니다.
 
@@ -58,17 +56,17 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     ![백업 설정 저장](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 
 1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **백업**을 클릭합니다.
 
-2. **데이터베이스 백업** > **백업 파일**에서 **찾아보기**를 클릭합니다.
+2. **데이터베이스 Backup** > **Backup 파일**에서 **찾아보기**를 클릭합니다.
 
 3. **다른 이름으로 파일 저장** 대화 상자에서 폴더 경로 확인한 다음 백업 파일의 이름을 입력합니다. 
 
-4. **데이터베이스 백업** 대화 상자에서 옵션을 선택 합니다.
+4. **데이터베이스 Backup** 대화 상자에서 옵션을 선택 합니다.
 
     **파일 덮어쓰기 허용** - 이름이 같은 백업 파일을 덮어쓰려면 이 옵션을 선택합니다. 이 옵션을 선택하지 않으면 저장하려는 파일에 동일한 위치에 이미 있는 파일과 같은 이름을 사용할 수 없습니다.
 
@@ -96,7 +94,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 1. SSMS에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **복원**을 클릭합니다.
 
-2. **데이터베이스 백업** 대화 상자의 **백업 파일**에서 **찾아보기**를 클릭합니다.
+2. **데이터베이스 Backup** 대화 상자의 **Backup 파일**에서 **찾아보기**를 클릭합니다.
 
 3. **데이터베이스 파일 찾기** 대화 상자에서 복원하려는 파일을 선택합니다.
 
@@ -115,4 +113,3 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)  
 [고가용성](analysis-services-bcdr.md)     
 [Azure Analysis Services 관리](analysis-services-manage.md)
-

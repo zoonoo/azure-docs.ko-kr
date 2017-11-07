@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
+ms.openlocfilehash: ab6f9110dccd3cfc15092f535650e8d8cb1af13c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b1841aea07140a855a1978e7c3141f76aa2d8862
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
@@ -77,4 +76,3 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 2. **추가**를 클릭합니다.
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인**을 클릭합니다. 이제 허용 목록이 추가되었습니다.
-

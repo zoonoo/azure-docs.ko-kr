@@ -3,7 +3,7 @@ title: "Azure Application Insights를 최대한 활용하기 | Microsoft Docs"
 description: "Application Insights를 시작한 경우 다음 기능을 사용할 수 있습니다."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
-ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/08/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 06af02408b66291fe6b3efac71f91df5d2db6478
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights의 추가 원격 분석
 [ASP.NET 코드에 Application Insights를 추가](app-insights-asp-net.md)한 후 추가 원격 분석을 위해 수행할 수 있는 몇 가지 작업이 있습니다. 
@@ -31,7 +30,6 @@ ms.lasthandoff: 02/08/2017
 |MSBuild에서 [Ensure buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) 생성|[annotationsin 메트릭 차트 작성](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[사용자 지정 이벤트 및 메트릭 작성](app-insights-api-custom-events-metrics.md)|비즈니스 이벤트 및 메트릭의 수를 계산하고, 자세한 사용 현황을 추적하는 등의 작업을 수행합니다.|
 |[라이브 사이트 프로파일링](https://aka.ms/AIProfilerPreview)|라이브 웹앱의 자세한 함수 타이밍|
-
 
 
 

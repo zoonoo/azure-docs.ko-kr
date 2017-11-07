@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.lasthandoff: 04/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Azure Virtual Machines에서 자동으로 Always On 가용성 그룹 구성: Resource Manager
 
@@ -212,4 +211,3 @@ SQL Server에 RDP하려면 다음 단계를 수행합니다.
 7. **원격 데스크톱**에서 원격 컴퓨터의 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없다고 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **sqlserver-0.contoso.com**이 됩니다. **예**를 클릭합니다.
 
 이제 RDP를 사용하여 SQL Server 가상 컴퓨터에 연결되었습니다. SQL Server Management Studio를 열고 SQL Server의 기본 인스턴스에 연결하여 가용성 그룹이 구성되는지 확인합니다.
-

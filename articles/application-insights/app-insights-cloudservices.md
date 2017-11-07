@@ -4,7 +4,7 @@ description: "Application Insights를 사용하여 웹 및 작업자 역할을 �
 services: application-insights
 documentationcenter: 
 keywords: "WAD2AI, Azure 진단"
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 692cd9e3113589142a7df84da88215eabe8f10fd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="application-insights-for-azure-cloud-services"></a>Azure 클라우드 서비스용 Application Insights
+# <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Microsoft Azure Cloud Service 앱](https://azure.microsoft.com/services/cloud-services/)은 Application Insights SDK의 데이터를 Cloud Services의 [Azure 진단](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 조합하여 [Application Insights][start]로 가용성, 성능, 오류 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![예제](./media/app-insights-cloudservices/sample.png)
@@ -222,15 +221,15 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 ## <a name="display-everything-together"></a>모든 항목을 함께 표시
 시스템에 대한 전반적인 정보를 얻기 위해 주요 모니터링 차트를 하나의 [대시보드](app-insights-dashboards.md)로 가져올 수 있습니다. 예를 들어 각 역할의 요청 및 실패 수를 고정할 수 있습니다. 
 
-시스템에서 스트림 분석과 같은 다른 Azure 서비스를 사용하는 경우 해당 모니터링 차트도 포함합니다. 
+시스템에서 Stream Analytics와 같은 다른 Azure 서비스를 사용하는 경우 해당 모니터링 차트도 포함합니다. 
 
 클라이언트 모바일 앱이 있는 경우 주요 사용자 작업에 대한 사용자 지정 이벤트를 보내는 일부 코드를 삽입하고 [HockeyApp 브리지](app-insights-hockeyapp-bridge-app.md)를 만듭니다. [분석](app-insights-analytics.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
 ## <a name="example"></a>예제
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
 
-## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure 클라우드 서비스에서 실행할 때의 "메서드를 찾을 수 없음" 예외
-.NET 4.6용으로 빌드하셨나요? 4.6은 Azure 클라우드 서비스 역할에서 자동으로 지원되지 않습니다. [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) 합니다.
+## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services에서 실행할 때의 "메서드를 찾을 수 없음" 예외
+.NET 4.6용으로 빌드하셨나요? 4.6은 Azure Cloud Services 역할에서 자동으로 지원되지 않습니다. [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) 합니다.
 
 ## <a name="video"></a>비디오
 
@@ -252,4 +251,3 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-

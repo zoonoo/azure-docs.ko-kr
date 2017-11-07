@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
 이 문서에서는 AMS(Azure Media Services) 사용자 커뮤니티에 자주 올라오는 질문과 대답을 다룹니다.
 
 ## <a name="general-ams-faqs"></a>일반 AMS FAQ
+
+Q: Apple iOS 장치에 스트리밍하려면 어떻게 하나요?
+
+A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 (콘텐츠 배달)[media-services-deliver-content-overview.md] 참조).
+
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 
 A: 예약 단위는 인코딩 및 인덱싱 작업에서 동일합니다. [인코딩 예약 단위 크기를 조정하는 방법](media-services-scale-media-processing-overview.md)의 지침에 따르세요. **참고** : 인덱서 성능은 예약 단위 유형의 영향을 받지 않습니다.
@@ -81,4 +85,3 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

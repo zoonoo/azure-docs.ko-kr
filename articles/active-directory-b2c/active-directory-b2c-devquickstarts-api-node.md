@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js를 사용하여 Web API 보안 유지
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Azure AD(Azure Active Directory) B2C로 OAuth 2.0 액세스 토큰을 사용하�
 이 샘플을 수행하려면 다음을 수행해야 합니다.
 
 1. Azure AD에 응용 프로그램을 등록합니다.
-2. Passport의 `azure-ad-passport` 플러그 인을 사용하도록 응용 프로그램을 설정합니다.
+2. Passport의 `passport-azure-ad` 플러그 인을 사용하도록 응용 프로그램을 설정합니다.
 3. "to-do list" Web API를 호출하도록 클라이언트 응용 프로그램을 구성합니다.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
@@ -762,4 +760,3 @@ Restify 및 OAuth를 사용하여 REST API를 구현했습니다. 이제 충분�
 이제 다음과 같이 좀 더 고급 항목으로 이동할 수 있습니다.
 
 [B2C로 iOS를 사용하여 Web API에 연결](active-directory-b2c-devquickstarts-ios.md)
-

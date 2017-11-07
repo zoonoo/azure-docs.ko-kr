@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>서비스 버스 아키텍처
 이 문서에서는 Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다.
@@ -48,6 +47,5 @@ Service Bus 아키텍처의 개요를 읽었으므로 자세한 내용은 다음
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 * [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐를 사용하는 큐 메시징 솔루션](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
-
 
 

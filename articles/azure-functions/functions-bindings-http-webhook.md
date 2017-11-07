@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 및 WebHook 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -64,7 +63,7 @@ HTTP 트리거는 다음 예제와 같이 function.json의 `bindings` 배열에 
 |속성  |설명  |
 |---------|---------|
 | **name** | 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. [코드에서 HTTP 트리거 사용](#httptriggerusage)을 참조하세요. |
-| **type** | 필수 - `httpTrigger`로 설정해야 합니다. |
+| **type** | 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | 필수 - `in`으로 설정해야 합니다. |
 | **authLevel** | 키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 값은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [키 사용](#keys)을 참조하세요. |
 | **methods** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 끝점 사용자 지정](#url)을 참조하세요. |
@@ -98,7 +97,7 @@ HTTP 출력 바인딩은 다음 예제와 같이 function.json의 `bindings` 배
 |---------|---------|
 |**name** | 응답에 대한 함수 코드에 사용되는 변수 이름입니다. [코드에서 HTTP 출력 바인딩 사용](#outputusage)을 참조하세요. |
 | **type** |`http`로 설정해야 합니다. |
-| **direction** | `out`으로 설정해야 합니다. |
+| **direction** | `out`로 설정해야 합니다. |
 
 <a name="outputusage"></a>
 ### <a name="working-with-an-http-output-binding-from-code"></a>코드에서 HTTP 출력 바인딩 사용
@@ -202,7 +201,7 @@ module.exports = function (context, req) {
 
 함수의 *host.json* 파일을 업데이트하는 방법에 대한 자세한 내용은 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)을 참조하세요. 
 
-*host.json* 파일에서 구성할 수 있는 다른 속성에 대한 자세한 내용은 [host.json 참조](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)를 참조하세요.
+*host.json* 파일에서 구성할 수 있는 다른 속성에 대한 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
 
 <a name="keys"></a>
@@ -447,5 +446,4 @@ module.exports = function (context, data) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
@@ -85,4 +84,3 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - 자세한 방법 Application Insights를 사용하여 [ASP.NET Core 응용 프로그램을 구성](app-insights-asp-net.md)하는 방법을 알아봅니다.
 - Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
-

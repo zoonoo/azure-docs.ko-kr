@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
+ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
-> [!div class="op_single_selector"]
-> * [C# 스크립트](functions-reference-csharp.md)
-> * [F# 스크립트](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions의 JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 보내고 받는 `context` 개체를 전달하는 함수를 쉽게 내보낼 수 있도록 합니다.
 
@@ -54,14 +48,14 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 `direction === "in"`의 바인딩은 함수 인수로 전달됩니다. 즉, [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx)를 사용하여 동적으로 새 입력을 처리할 수 있습니다(예: 모든 입력에 대해 반복되는 `arguments.length` 사용). 이 기능은 `context` 개체를 참조하지 않고 트리거 데이터에 예측 가능한 방식으로 액세스할 수 있으므로 트리거만 있고 추가 입력이 없는 경우에 편리합니다.
 
-내보내기 문에 인수를 지정하지 않은 경우에도 *function.json*에서 발생하는 순서에 따라 인수가 항상 함수에 전달됩니다. 예를 들어 `function(context, a, b)`을 `function(context, a)`으로 변경하는 경우 `arguments[3]`를 참조하여 여전히 함수 코드의 `b` 값을 가져올 수 있습니다.
+내보내기 문에 인수를 지정하지 않은 경우에도 *function.json*에서 발생하는 순서에 따라 인수가 항상 함수에 전달됩니다. 예를 들어 `function(context, a, b)`을 `function(context, a)`으로 변경하는 경우 `arguments[2]`를 참조하여 여전히 함수 코드의 `b` 값을 가져올 수 있습니다.
 
 또한 방향에 관계없이 모든 바인딩은 `context` 개체로 전달됩니다(다음 스크립트 참조). 
 
 ## <a name="context-object"></a>context 개체
 런타임은 함수로 데이터를 전달하거나 전달받으며 사용자가 런타임과 통신할 수 있도록 하는 `context` 개체를 사용합니다.
 
-context 개체는 항상 함수의 첫 번째 매개 변수이며 런타임을 올바르게 사용하는 데 필요한 `context.done` 및 `context.log`와 같은 메서드를 가지고 있으므로 포함되어야 합니다. 원하는 개체 이름(예: `ctx` 또는 `c`)을 지정할 수 있습니다.
+`context` 개체는 항상 함수에 대한 첫 번째 매개 변수이며, 런타임을 올바르게 사용하는 데 필요한 `context.done` 및 `context.log`와 같은 메서드를 가지고 있으므로 포함되어야 합니다. 원하는 개체 이름(예: `ctx` 또는 `c`)을 지정할 수 있습니다.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -202,7 +196,7 @@ Functions를 통해 콘솔에 쓸 임계값 추적 수준을 정의할 수 있�
 }  
 ```
 
-**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. host.json 파일에 대한 자세한 내용은 [host.json 참조 항목](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)(영문)을 참조하세요.
+**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 
@@ -335,8 +329,5 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 코어가 있
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
-* [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
-* [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-
 

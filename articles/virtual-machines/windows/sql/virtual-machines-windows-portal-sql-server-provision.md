@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 가상 컴퓨터 프로비전 | Microsoft Docs"
-description: "포털을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만들고 연결하기. 이 자습서는 리소스 관리자 모드를 사용합니다."
+title: "Azure에서 Windows SQL Server 2017 VM 만들기 | Microsoft Docs"
+description: "이 자습서는 Azure Portal에서 Windows SQL Server 2017 가상 컴퓨터를 만드는 방법을 보여줍니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 SQL Server 가상 컴퓨터 프로비저닝
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 컴퓨터 프로비전
+
 > [!div class="op_single_selector"]
 > * [포털](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-이 종단간 자습서는 Azure Portal을 사용하여 SQL Server를 실행하는 가상 컴퓨터를 프로비전하는 방법을 보여줍니다.
-
-Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 클릭 몇 번으로, 갤러리에서 SQL VM 이미지 중 하나를 선택하고 Azure 환경에 프로비전할 수 있습니다.
+이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server가 설치된 Windows 가상 컴퓨터를 만듭니다.
 
 이 자습서에서는 다음을 수행합니다.
 
-* [갤러리에서 SQL VM 이미지 선택](#select-a-sql-vm-image-from-the-gallery)
-* [VM 구성 및 만들기](#configure-the-vm)
-* [원격 데스크톱을 사용하여 VM 열기](#open-the-vm-with-remote-desktop)
-* [원격으로 SQL Server 연결](#connect-to-sql-server-remotely)
+* [갤러리에서 SQL VM 이미지 선택](#select)
+* [VM 구성 및 만들기](#configure)
+* [원격 데스크톱을 사용하여 VM 열기](#remotedesktop)
+* [원격으로 SQL Server 연결](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>갤러리에서 SQL VM 이미지 선택
+## <a id="select"></a> 갤러리에서 SQL VM 이미지 선택
 
 1. 사용자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
    > [!NOTE]
    > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
-2. Azure Portal에서 **새로 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
+1. Azure Portal에서 **새로 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
 
-3. **새로 만들기** 창에서 **Compute**를 클릭한 다음 **모두 표시**를 클릭합니다.
+1. **새로 만들기** 창에서 **Compute**를 클릭한 다음 **모두 표시**를 클릭합니다.
 
    ![새 계산 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. 검색 필드에 **SQL Server**를 입력하고 ENTER 키를 누릅니다.
+1. 검색 필드에 **SQL Server 2017**을 입력하고 ENTER 키를 누릅니다.
 
-5. 그런 다음, **필터** 아이콘을 클릭하고 게시자로 **Microsoft**를 선택합니다. 필터 창에서 **완료**를 클릭하여 결과를 Microsoft 게시 SQL Server 이미지로 필터링합니다.
+1. **필터** 아이콘을 클릭합니다.
+
+1. 필터 창에서 **Windows 기반** 하위 범주 및 게시자로 **Microsoft**를 선택합니다. 그런 다음 **완료**를 클릭하여 Microsoft에 게시된 Windows SQL Server 이미지에 대한 결과를 필터링합니다.
 
    ![Azure Virtual Machines 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다.
+1. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다.
 
-6. **무료 라이선스: Windows Server 2016에서 SQL Server 2016 SP1 Developer**용 이미지를 선택합니다.
+1. **체험용 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer**라는 이미지를 선택합니다.
 
    > [!TIP]
    > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 그러나 이 자습서에 사용할 이미지를 자유롭게 선택할 수 있습니다.
@@ -70,13 +69,13 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
    >
    > 이러한 옵션에 대한 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
-7. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. 
+1. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. 
 
-8. **만들기**를 클릭합니다.
+1. **만들기**를 클릭합니다.
 
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>VM 구성
+## <a id="configure"></a> VM 구성
 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 창이 있습니다.
 
 | 단계 | 설명 |
@@ -156,7 +155,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 창이 있습니다.
 | [자동화된 패치](#automated-patching) |
 | [자동화된 Backup](#automated-backup) |
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
-| [R 서비스](#r-services) |
+| [SQL Server Machine Learning 서비스](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>연결
 
@@ -257,14 +256,11 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vau
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)을 참조하세요.
 
-### <a name="r-services"></a>R 서비스
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning 서비스
 
-[SQL Server R 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2016을 사용하여 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용**을 클릭합니다.
+[SQL Server Machine Learning 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2017을 사용하여 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용**을 클릭합니다.
 
-> [!NOTE]
-> SQL Server 2016 Developer Edition의 경우 이 옵션이 포털에서 잘못 비활성화되어 있습니다. Developer 버전의 경우 VM을 생성한 후 R 서비스를 수동으로 활성화해야 합니다.
-
-![SQL Server R 서비스 사용](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![SQL Server Machine Learning 서비스 사용](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 SQL Server 설정 구성을 마치면 **확인**을 클릭합니다.
 
@@ -275,9 +271,9 @@ SQL Server 설정 구성을 마치면 **확인**을 클릭합니다.
 Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에 있는 **알림** 단추는 배포의 기본 상태를 표시합니다.
 
 > [!NOTE]
-> 배포 시간에 대한 정보를 제공하기 위해 SQL VM을 미국 동부 지역에 기본 설정을 사용하여 배포해 두었습니다. 이 테스트 배포는 완료하기까지 총 26분이 소요되었습니다. 사용자의 지역 및 선택한 설정에 따라서 배포 시간이 더 빠르거나 늦을 수 있습니다.
+> 배포 시간에 대한 정보를 제공하기 위해 SQL VM을 미국 동부 지역에 기본 설정을 사용하여 배포해 두었습니다. 이 테스트 배포를 완료하는 데 약 12분이 걸렸습니다. 사용자의 지역 및 선택한 설정에 따라서 배포 시간이 더 빠르거나 늦을 수 있습니다.
 
-## <a name="open-the-vm-with-remote-desktop"></a>원격 데스크톱을 사용하여 VM 열기
+## <a id="remotedesktop"></a> 원격 데스크톱을 사용하여 VM 열기
 
 다음 단계를 사용하여 원격 데스크톱으로 SQL Server 가상 컴퓨터에 연결합니다.
 
@@ -295,7 +291,7 @@ SQL Server 가상 컴퓨터에 연결된 후에, SQL Server Management Studio를
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>원격으로 SQL Server 연결
+## <a id="connect"></a> 원격으로 SQL Server에 연결
 
 이 자습서에서는 가상 컴퓨터와 **SQL Server 인증**에 대해 **공용** 액세스를 선택했습니다. 이러한 설정은 가상 컴퓨터가 인터넷을 통한 모든 클라이언트의 SQL Server 연결을 허용하도록 자동으로 구성합니다(올바른 SQL 로그인이 있다는 가정 하에).
 

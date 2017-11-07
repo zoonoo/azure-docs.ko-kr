@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 63dd4299f5d4bcd98f87fa78c2d7da080a105696
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석
 ## <a name="overview"></a>개요
@@ -125,7 +124,7 @@ Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능
 [Azure Media 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -138,4 +137,3 @@ Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-

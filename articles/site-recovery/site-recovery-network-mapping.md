@@ -12,17 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/23/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-
-
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM 복제를 위한 네트워크 매핑 계획
 
 
@@ -112,7 +109,7 @@ VMNetwork2-시카고 | SilverCloud1 | SilverCloud2 | 사용할 수 없음
  | GoldCloud1 | GoldCloud2 | 사용 가능
 
 
-대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
+대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제 가상 컴퓨터가 장애 조치(failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
 
 #### <a name="failback-behavior"></a>장애 복구 동작
@@ -129,9 +126,9 @@ VM2(VM1의 복제) | VMNetwork1-시카고
 
 **시나리오** | **결과**
 ---|---
-장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되지 않음 | VM-1에 원본 네트워크에 연결된 상태로 유지됩니다.
-장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되고 연결이 끊김 | VM-1의 연결이 끊김
-장애 조치(Failover) 후 VM-2의 네트워크 속성이 변경되고 VMNetwork2-시카고에 연결됨 | VMNetwork2-시카고가 매핑되지 않는 경우 VM-1의 연결이 끊김
+장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되지 않음 | VM-1에 원본 네트워크에 연결된 상태로 유지됩니다.
+장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되고 연결이 끊김 | VM-1의 연결이 끊김
+장애 조치(failover) 후 VM-2의 네트워크 속성이 변경되고 VMNetwork2-시카고에 연결됨 | VMNetwork2-시카고가 매핑되지 않는 경우 VM-1의 연결이 끊김
 VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetwork1-시카고에 매핑된 네트워크에 연결됨
 
 
@@ -139,4 +136,3 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 ## <a name="next-steps"></a>다음 단계
 
 [네트워크 인프라 계획](site-recovery-network-design.md)에 대해 자세히 알아봅니다.
-

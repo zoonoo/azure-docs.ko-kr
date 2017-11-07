@@ -4,7 +4,7 @@ description: "Azure Analysis Services 자습서 프로젝트에서 측정값을 
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-6-create-measures"></a>단원 6: 측정값 만들기
 
@@ -53,7 +52,7 @@ ms.lasthandoff: 06/03/2017
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    왼쪽 위 셀에는 이제 측정값 이름인 **DaysCurrentQuarterToDate**와 결과인 **92**가 차례로 포함됩니다.
+    왼쪽 위 셀에는 이제 측정값 이름인 **DaysCurrentQuarterToDate**와 결과인 **92**가 차례로 포함됩니다. 사용자 필터가 적용되지 않았으므로 이 지점에서 결과는 관련이 없습니다.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ ms.lasthandoff: 06/03/2017
     |TaxAmt|InternetTotalTaxAmt|합계|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|합계|=SUM([Freight])|  
   
-2.  측정값 표에서 빈 셀을 클릭하고 수식 입력줄을 사용하여 다음 측정값을 순서대로 만들고 이름을 지정합니다.  
+2.  측정값 표에서 빈 셀을 클릭하고 수식 입력줄을 사용하여 다음 사용자 지정 측정값을 순서대로 만듭니다.  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ FactInternetSales 테이블에 대해 만든 측정값을 사용하여 사용자
 [단원 7: 핵심 성과 지표 만들기](../tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 
   
-

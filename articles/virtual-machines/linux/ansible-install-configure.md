@@ -4,7 +4,7 @@ description: "Ubuntu, CentOS 및 SLES에서 Azure 리소스를 관리하기 위�
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/25/2017
+ms.date: 09/25/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 52b763274437961dccfc862c8a45fbd57ea9fc4e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 3fabfee169c3ebedc7bca81a6a6d9a44171daf20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Azure에서 가상 컴퓨터를 관리하기 위한 Ansible 설치 및 구성
 이 문서에는 가장 일반적인 Linux 배포판 중 일부에 대해 Ansible 및 필요한 Azure Python SDK 모듈을 설치하는 방법을 자세히 설명합니다. 설치된 패키지를 특정 플랫폼에 맞게 조정하여 다른 배포판에 Ansible을 설치할 수 있습니다. Azure 리소스를 안전하게 만들기 위해 Ansible에 대한 자격 증명을 만들고 정의하는 방법도 알아봅니다. 
 
@@ -66,13 +64,8 @@ VM에서 Azure Python SDK 모듈 및 Ansible에 대한 필수 패키지를 다�
 ## Install pre-requisite packages
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
-## Install Azure SDKs via pip
-pip install "azure==2.0.0rc5" msrestazure
-
-## Install Ansible via apt
-sudo apt-get install -y software-properties-common
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-get update && sudo apt-get install -y ansible
+## Install Ansible and Azure SDKs via pip
+pip install ansible[azure]
 ```
 
 이제 계속해서 [Azure 자격 증명 만들기](#create-azure-credentials) 작업을 수행합니다.
@@ -103,11 +96,8 @@ VM에서 Azure Python SDK 모듈 및 Ansible에 대한 필수 패키지를 다�
 sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
 sudo yum install -y python-pip python-wheel
 
-## Install Azure SDKs via pip
-sudo pip install "azure==2.0.0rc5" msrestazure
-
-## Install Ansible via yum
-sudo yum install -y ansible
+## Install Ansible and Azure SDKs via pip
+sudo pip install ansible[azure]
 ```
 
 이제 계속해서 [Azure 자격 증명 만들기](#create-azure-credentials) 작업을 수행합니다.
@@ -136,11 +126,10 @@ VM에서 Azure Python SDK 모듈 및 Ansible에 대한 필수 패키지를 다�
 ```bash
 ## Install pre-requisite packages
 sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel python-pip python-setuptools python-azure-sdk
+    libopenssl-devel libtool python-pip python-setuptools
 
-## Install Ansible via zypper
-sudo zypper addrepo http://download.opensuse.org/repositories/systemsmanagement/SLE_12_SP2/systemsmanagement.repo
-sudo zypper refresh && sudo zypper install ansible
+## Install Ansible and Azure SDKs via pip
+sudo pip install ansible[azure]
 ```
 
 이제 계속해서 [Azure 자격 증명 만들기](#create-azure-credentials) 작업을 수행합니다.
@@ -189,8 +178,8 @@ vi ~/.azure/credentials
 ```bash
 [default]
 subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-client_id=66cf7166-dd13-40f9-bca2-3e9a43f2b3a4
-secret=b8326643-f7e9-48fb-b0d5-952b68ab3def
+client_id=eec5624a-90f8-4386-8a87-02730b5410d5
+secret=531dcffa-3aff-4488-99bb-4816c395ea3f
 tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
 ```
 
@@ -200,8 +189,8 @@ Ansible Tower 또는 Jenkins와 같은 도구를 사용하려는 경우 다음�
 
 ```bash
 export AZURE_SUBSCRIPTION_ID=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-export AZURE_CLIENT_ID=66cf7166-dd13-40f9-bca2-3e9a43f2b3a4
-export AZURE_SECRET=8326643-f7e9-48fb-b0d5-952b68ab3def
+export AZURE_CLIENT_ID=eec5624a-90f8-4386-8a87-02730b5410d5
+export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
 export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
 ```
 

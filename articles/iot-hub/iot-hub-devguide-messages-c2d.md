@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-장치 메시지 보내기
 
@@ -43,7 +42,7 @@ IoT Hub 서비스가 장치에 메시지를 보내면 서비스는 메시지 상
 장치는 다음을 선택할 수도 있습니다.
 
 * 메시지 *거부*. 이 경우 IoT Hub는 메시지를 **Deadlettered** 상태로 설정합니다. MQTT 프로토콜을 통해 연결하는 장치는 클라우드-장치 메시지를 거부할 수 없습니다.
-* 메시지 *중단*. 이 경우 IoT Hub는 상태를 **큐에 넣음**으로 설정하여 메시지를 큐에 다시 넣습니다.
+* 메시지 *중단*. 이 경우 IoT Hub는 상태를 **큐에 넣음**으로 설정하여 메시지를 큐에 다시 넣습니다. MQTT 프로토콜을 통해 연결하는 장치는 클라우드-장치 메시지를 중단할 수 없습니다.
 
 스레드는 IoT Hub에 알리지 않고 메시지를 처리하는 데 실패할 수 있습니다. 이 경우 *표시 또는 잠금 시간 초과* 후에 메시지는 **숨김** 상태에서 **큐에 넣음** 상태로 자동 전환됩니다. 이 시간 제한의 기본값은 1분입니다.
 
@@ -151,4 +150,3 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

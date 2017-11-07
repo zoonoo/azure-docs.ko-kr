@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: e9c9cfda4dda1ec3f1b002016118bd49d540e90a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>AS2 메시지 및 MDN의 추적을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링
 Azure 통합 계정에서 다음 AS2 추적 스키마를 사용하여 B2B(business-to-business) 트랜잭션을 모니터링할 수 있습니다.
@@ -139,4 +137,3 @@ Azure 통합 계정에서 다음 AS2 추적 스키마를 사용하여 B2B(busine
 * [B2B 사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)에 대해 자세히 알아봅니다.   
 * [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)에 대해 자세히 알아봅니다.   
 * [Operations Management Suite 포털에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
-

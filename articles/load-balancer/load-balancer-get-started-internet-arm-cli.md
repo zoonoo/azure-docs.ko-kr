@@ -3,7 +3,7 @@ title: "인터넷 연결 부하 분산 장치 만들기 - Azure CLI | Microsoft 
 description: "Azure CLI를 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Azure CLI를 사용하여 인터넷 부하 분산 장치 만들기
 
@@ -28,6 +28,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +88,7 @@ ms.lasthandoff: 03/21/2017
     ```
 
    > [!IMPORTANT]
-   > 부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN(정규화된 도메인 이름)으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다.
+   > 부하 분산 장치는 공용 IP의 도메인 레이블을 FQDN으로 사용합니다. 이는 부하 분산 장치 FQDN(정규화된 도메인 이름)으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다.
    > 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com*입니다.
 
 ## <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
@@ -309,4 +312,3 @@ azure network lb delete --resource-group nrprg --name nrplb
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

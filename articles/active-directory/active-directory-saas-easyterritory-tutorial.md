@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 46f99496397e2ed39b1d9410453dac7983ced612
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>자습서: EasyTerritory와 Azure Active Directory 통합
 
@@ -229,5 +228,4 @@ EasyTerritory에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [201]: ./media/active-directory-saas-easyterritory-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-easyterritory-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-easyterritory-tutorial/tutorial_general_203.png
-
 

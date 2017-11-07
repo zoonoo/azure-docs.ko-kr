@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -153,7 +151,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     ![Single Sign-on 구성](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    **관리**를 클릭합니다.
+12. **관리**를 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     d. **로드** 단추를 클릭합니다.
 
-    e. IdP 메타데이터를 읽고 스크린샷에서 강조 표시된 대로 필드를 채웁니다.    
+    e. IdP 메타데이터를 읽고 스크린샷에서 강조 표시된 대로 필드를 채웁니다. 
 
 16. **설정 저장** 단추를 클릭하여 해당 설정을 저장합니다.
 
@@ -251,7 +249,7 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 
     d. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 
-    e. **사용자 만들기**를 클릭합니다.    
+    e. **사용자 만들기**를 클릭합니다.   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -310,5 +308,4 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

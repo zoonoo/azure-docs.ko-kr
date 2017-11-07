@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Citrix XenApp 및 XenDesktop 배포 복제
 
@@ -200,4 +198,3 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
 ## <a name="next-steps"></a>다음 단계
 
 이 백서에서 XenApp 및 XenDesktop 배포를 복제하는 방법에 대해 [자세히](https://aka.ms/citrix-xenapp-xendesktop-with-asr) 알아볼 수 있습니다. Site Recovery를 사용하여 [다른 응용 프로그램을 복제하는 방법](site-recovery-workload.md)에 대한 지침을 확인하세요.
-

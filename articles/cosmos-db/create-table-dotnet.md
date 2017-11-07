@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: 테이블 API를 사용하여 .NET 응용 프로그램 빌드
 
@@ -87,18 +86,23 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
     table.CreateIfNotExists();
     ```
 
-* 새 테이블 컨테이너가 만들어집니다. 이 코드는 일반적인 Azure Table Storage SDK와 매우 유사합니다. 
+* `TableOperation` 클래스를 사용하여 테이블에서 일련의 단계가 실행됩니다.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
+
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
@@ -119,7 +123,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
-## <a name="run-the-web-app"></a>웹앱 실행
+## <a name="run-the-console-app"></a>콘솔 앱 실행
 
 1. Visual Studio의 **솔루션 탐색기**에서 **PremiumTableGetStarted** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. 
 
@@ -158,5 +162,4 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 > [!div class="nextstepaction"]
 > [테이블 API를 사용하여 쿼리](tutorial-query-table.md)
-
 

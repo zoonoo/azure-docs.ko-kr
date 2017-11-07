@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/29/2017
 ms.author: jroth
+ms.openlocfilehash: 33c306258b6be40f2c5cbc016e3c84e36bf61e0d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 4b8cc80f2d1ed6f09ec917118dc9495d20394b94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>Azure PowerShell(리소스 관리자)을 사용하여 SQL Server 가상 컴퓨터 프로비전
 > [!div class="op_single_selector"]
@@ -75,7 +74,7 @@ $ResourceGroupName = "sqlvm1"
 ### <a name="storage-properties"></a>저장소 속성
 다음 변수를 사용하여 가상 컴퓨터에서 사용할 저장소 계정 및 저장소 유형을 정의합니다.
 
-원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 이 예제에서는 프로덕션 워크로드에 권장되는 [프리미엄 저장소](../../../storage/common/storage-premium-storage.md)를 사용합니다. 이 참고 자료 및 기타 권장 사항에 대한 세부 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
+원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 이 예제에서는 프로덕션 워크로드에 권장되는 [Premium Storage](../premium-storage.md)를 사용합니다. 이 참고 자료 및 기타 권장 사항에 대한 세부 정보는 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"
@@ -277,7 +276,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 
 가상 컴퓨터가 만들어집니다. 가상 컴퓨터의 디스크에 대해 지정된 저장소 계정은 프리미엄 저장소 계정이므로 표준 저장소 계정이 부팅 진단에 대해 만들어집니다.
 
-이제 Azure 포털에서 이 컴퓨터를 보고 [해당 공용 IP 주소 및 정규화된 도메인 이름](virtual-machines-windows-portal-sql-server-provision.md)을 확인할 수 있습니다.
+이제 Azure Portal에서 이 컴퓨터를 보고 [해당 공용 IP 주소 및 정규화된 도메인 이름](virtual-machines-windows-portal-sql-server-provision.md)을 확인할 수 있습니다.
 
 ## <a name="example-script"></a>예제 스크립트
 다음 스크립트에는 이 자습서에 대한 전체 PowerShell 스크립트가 포함됩니다. **Add-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하도록 이미 Azure 구독을 설정한 것으로 가정합니다.
@@ -343,4 +342,3 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터가 만들어지면 RDP를 사용하여 가상 컴퓨터에 연결하고 연결을 설정할 수 있습니다. 자세한 내용은 [Azure(리소스 관리자)에서 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
-

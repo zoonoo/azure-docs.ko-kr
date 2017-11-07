@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>논리 앱에서 Azure Blob Storage 커넥터 사용
 Azure Blob Storage 커넥터를 사용하여 논리 앱 내의 저장소 계정에서 blob을 업로드, 업데이트, 가져오기 및 삭제할 수 있습니다.  
@@ -77,5 +75,4 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-
 

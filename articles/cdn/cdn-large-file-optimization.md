@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Azure Content Delivery Network를 통한 대용량 파일 다운로드 최적화
 
@@ -127,4 +126,3 @@ Verizon에 대한 최적화 기능은 기본적으로 사용하도록 설정되�
 ### <a name="azure-content-delivery-network-from-verizon"></a>Verizon의 Azure Content Delivery Network
 
 일반 웹 배달 최적화 형식은 대용량 파일을 배달할 수 있습니다.
-

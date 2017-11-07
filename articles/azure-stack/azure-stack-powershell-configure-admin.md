@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
-description: Learn how to Configure the Azure Stack operator's PowerShell environment.
+title: "Azure 스택 운영자의 PowerShell 환경 구성 | Microsoft Docs"
+description: "Azure 스택 운영자의 PowerShell 환경을 구성 하는 방법을 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,47 +12,50 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 10/23/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 34e3a52a7b26db2d1d713efd69719a253cef2d2d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: 51861184b92e482484ce61c5006f403d439bfec7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
+# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Azure 스택 운영자의 PowerShell 환경 구성
 
-# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configure the Azure Stack operator's PowerShell environment
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) topic. 
+Azure 스택 연산자로 Azure 스택 개발 키트 PowerShell 환경을 구성할 수 있습니다. 를 구성한 후에 경고, 등 관리 제공, 계획, 할당량 만들기와 같은 Azure 스택 리소스를 관리할 수 PowerShell을 사용할 수 있습니다. 이 항목 적용 되는 환경, 사용자 환경에 대 한 PowerShell을 설정 하려는 경우 참조할 클라우드 연산자와 함께 사용할 범위가 [Azure 스택 사용자의 PowerShell 환경을 구성](user/azure-stack-powershell-configure-user.md) 항목입니다. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>필수 조건
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
+다음 필수 구성 요소에서 실행 하거나는 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), 또는 Windows 기반 외부 클라이언트에서 있다면 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+* 설치 [Azure 스택 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
+* 다운로드는 [Azure 스택을 사용 하는 데 필요한 도구](azure-stack-powershell-download.md)합니다.  
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configure the operator environment and sign in to Azure Stack
+## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>운영자 환경을 구성 하 고 Azure 스택에 로그인
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure the Azure Stack operator environment with PowerShell:
+Powershell (해야 AAD tenantName, GraphAudience 끝점 및 사용자 환경에 따라 ArmEndpoint 값 대체 Azure 스택 운영자 환경을 구성 하려면 다음 스크립트 중 하나를 실행 하는 배포 (Azure AD 또는 AD FS)의 형식에 따라 구성):
 
-### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) based deployments
+### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) 기반의 배포
        
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
-    -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -65,23 +68,25 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federation Services (AD FS) based deployments
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federation Services (AD FS) 기반의 배포
          
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
-    -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.local.azurestack.external/" `
-    -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack     
   $TenantID = Get-AzsDirectoryTenantId `
@@ -94,14 +99,14 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>연결 테스트
 
-Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+설정 하는 모든 작업을 두었습니다 이제 보겠습니다 Azure 스택 내에서 리소스를 만드는 PowerShell을 사용 합니다. 예를 들어 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 컴퓨터를 추가할 수 있습니다. 다음 명령을 사용 하 여 "MyResourceGroup" 라는 리소스 그룹을 만듭니다.
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+## <a name="next-steps"></a>다음 단계
+* [Azure Stack용 템플릿 개발](user/azure-stack-develop-templates.md)
+* [PowerShell을 사용하여 템플릿 배포](user/azure-stack-deploy-template-powershell.md)

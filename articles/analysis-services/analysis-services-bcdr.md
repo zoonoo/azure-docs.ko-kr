@@ -4,7 +4,7 @@ description: "Azure Analysis Services 고가용성 보장."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 ms.assetid: 
 ms.service: analysis-services
@@ -12,16 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0a9bdf3afba87ba1e7a1047907ab9eeb0ef8a842
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 554c5e6e3e3cfa2742ef27a3c1510176184b6bd0
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
 이 문서에서는 Azure Analysis Services 서버에 대한 고가용성을 보장하는 방법을 설명합니다. 
 
@@ -38,7 +36,6 @@ ms.lasthandoff: 06/03/2017
 
 
 ## <a name="related-information"></a>관련 정보
-[백업 및 복원](analysis-services-backup.md)   
+[Backup 및 복원](analysis-services-backup.md)   
 [Azure Analysis Services 관리](analysis-services-manage.md) 
-
 

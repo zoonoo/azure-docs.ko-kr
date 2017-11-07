@@ -1,6 +1,6 @@
 ---
 title: "OMS 솔루션에 저장된 검색 및 경고 | Microsoft Docs"
-description: "OMS의 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 ARM 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다."
+description: "OMS의 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 리소스 관리 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,18 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!NOTE]
@@ -35,7 +32,7 @@ ms.lasthandoff: 05/26/2017
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](operations-management-suite-solutions-creating.md)과 [ARM 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
+이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](operations-management-suite-solutions-creating.md)과 [Resource Manager 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
@@ -44,6 +41,21 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 다음 저장된 검색 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
+
+## <a name="log-analytics-api-version"></a>Log Analytics API 버전
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 리소스와는 다릅니다.  
+
+ 다음 표에서는 레거시 및 업그레이드된 작업 영역에 대한 Log Analytics API 버전과 각각에 대해 서로 다른 구문을 지정하는 샘플 쿼리가 나와 있습니다. 
+
+| 작업 영역 버전 | API 버전 | 샘플 쿼리 |
+|:---|:---|:---|
+| v1(레거시)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2(업그레이드된 버전) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+버전마다 지원되는 작업 영역에 대해서는 다음을 참조하세요.
+
+- 레거시 쿼리 언어를 사용하는 템플릿을 레거시 또는 업그레이드된 작업 영역에 설치할 수 있습니다.  업그레이드된 작업 영역에 설치한 경우 사용자가 실행할 때 쿼리가 새 언어로 즉시 변환됩니다.
+- 업그레이드된 쿼리 언어를 사용하는 템플릿은 업그레이드된 작업 영역에만 설치할 수 있습니다.
 
 
 ## <a name="saved-searches"></a>저장된 검색
@@ -511,5 +523,4 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 ## <a name="next-steps"></a>다음 단계
 * 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
 * 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
-
 

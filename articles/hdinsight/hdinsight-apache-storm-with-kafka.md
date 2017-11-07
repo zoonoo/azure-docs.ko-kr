@@ -13,14 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/12/2017
 ms.author: larryfr
+ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
 
@@ -73,14 +72,14 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     
     * Azure 리소스 그룹
     * Azure 가상 네트워크
-    * Azure Storage 계정
+    * Azure 저장소 계정
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 
   > [!WARNING]
   > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
-2. 다음 지침을 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
+2. 다음 지침을 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
    
     ![HDInsight 사용자 지정 배포](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -102,9 +101,9 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
-리소스를 만들면 리소스 그룹의 블레이드가 표시됩니다.
+리소스를 만들면 리소스 그룹의 섹션이 표시됩니다.
 
-![vnet 및 클러스터에 대한 리소스 그룹 블레이드](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![VNet 및 클러스터에 대한 리소스 그룹 섹션](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > HDInsight 클러스터의 이름은 **storm-BASENAME** 및 **kafka-BASENAME**이며, 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
@@ -295,7 +294,7 @@ Flux 토폴로지에 대한 자세한 내용은 [https://storm.apache.org/releas
   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
-2. 토폴로지가 시작되면 Storm UI를 엽니다. 이 웹 UI는 https://storm-BASENAME.azurehdinsight.net/stormui에 있습니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다. 
+2. 토폴로지가 시작되면 Storm UI를 엽니다. 이 웹 UI는 `https://storm-BASENAME.azurehdinsight.net/stormui`에 있습니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다. 
 
     메시지가 표시되면 클러스터를 만들 때 사용한 관리자 로그인 이름(기본값: `admin`)과 암호를 사용합니다. 다음 이미지와 비슷한 웹 페이지가 표시됩니다.
 

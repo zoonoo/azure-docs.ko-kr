@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database FAQ | Microsoft Docs
-description: "클라우드 데이터베이스 및 Azure SQL 데이터베이스, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다."
+description: "클라우드 데이터베이스 및 Azure SQL Database, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,18 +12,16 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: On Demand
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="sql-database-faq"></a>SQL 데이터베이스 FAQ
+# <a name="sql-database-faq"></a>SQL Database FAQ
 
 ## <a name="what-is-the-current-version-of-sql-database"></a>SQL Database의 최신 버전은 무엇인가요?
 SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니다.
@@ -38,9 +36,9 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 [데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>권한이 부여된 IP 주소만 서버에 액세스할 수 있도록 허용하려면 어떻게 해야 하나요?
-[방법: SQL 데이터베이스에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+[방법: SQL Database에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
-## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>SQL 데이터베이스 사용량은 청구서에 어떻게 표시되나요?
+## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>SQL Database 사용량은 청구서에 어떻게 표시되나요?
 SQL Database는 서비스 계층 + 단일 데이터베이스에 대한 성능 수준 또는 탄력적 풀당 eDTU에 따라 예측 가능한 시간당 요금이 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 또한 서비스 계층 + 성능 수준 및 풀당 eDTU가 청구서에 세부적으로 표시되어 각 해당 월에 사용한 데이터베이스 일수를 쉽게 확인할 수 있습니다.
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 되나요?
@@ -70,15 +68,15 @@ SQL Database는 서비스 계층 + 단일 데이터베이스에 대한 성능 �
 * 탄력적 풀의 가격은 풀의 eDTU 수를 기준으로 책정됩니다. 탄력적 풀의 가격은 그 안의 탄력적 데이터베이스 사용률 및 수와 무관합니다.
 * 가격은 (풀 eDTU 수)x(eDTU 당 단위 가격)으로 계산됩니다.
 
-탄력적 풀의 단위 eDTU 가격은 동일한 서비스 계층에 있는 단일 데이터베이스의 단위 DTU 가격보다 높습니다. 자세한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+탄력적 풀의 단위 eDTU 가격은 동일한 서비스 계층에 있는 단일 데이터베이스의 단위 DTU 가격보다 높습니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
 
-eDTU 및 서비스 계층을 이해하려면 [SQL 데이터베이스 옵션 및 성능](sql-database-service-tiers.md)을 참조하세요.
+eDTU 및 서비스 계층을 이해하려면 [SQL Database 옵션 및 성능](sql-database-service-tiers.md)을 참조하세요.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀에서 활성 지역 복제의 사용량은 청구서에 어떻게 표시되나요?
 단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(기본 풀 및 보조 풀)에 프로비전된 eDTU에 대해서만 요금이 청구됩니다.
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>감사 기능 사용이 청구서 요금에 반영되는 방식
-감사는 추가 비용 없이 SQL Database 서비스에 기본으로 제공되며 Basic, Standard, Premium 및 Premium RS 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure 저장소 계정을 사용하며 감사 로그의 크기에 따라 Azure 저장소의 테이블 및 큐에 대한 요금이 부과됩니다.
+감사는 추가 비용 없이 SQL Database 서비스에 기본으로 제공되며 Basic, Standard, Premium 및 Premium RS 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure Storage 계정을 사용하며 감사 로그의 크기에 따라 Azure Storage의 테이블 및 큐에 대한 요금이 부과됩니다.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀에 적합한 서비스 계층과 성능 수준을 찾으려면 어떻게 해야 하나요?
 몇 가지 도구를 사용할 수 있습니다. 
@@ -100,7 +98,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL 데이터베이스 옵션 및 
 일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool.md)을 참조하세요.
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공된다는 것은 어떤 의미인가요?
-백업 저장소는 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 및 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.
+Backup 저장소는 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 및 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL Database에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Web/Business에서 새 서비스 계층으로 옮기려고 합니다. 알아야 할 사항은 무엇인가요?
 Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium, Premium RS 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 
@@ -125,4 +123,3 @@ DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 
 
 ## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
 * [Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
-

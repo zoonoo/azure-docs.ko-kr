@@ -3,7 +3,7 @@ title: "Azure AD 사용자 계정 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation에서 Runbook에 대해 Azure AD 사용자 계정 자격 증명을 만들어서 Azure 및 클래식 Azure에서 인증하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory 사용자, azure 서비스 관리, azure ad 사용자 계정"
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Azure 클래식 배포 및 Resource Manager를 사용하여 Runbook 인증
 이 문서에서는 Azure 클래식 배포 모델 또는 Azure Resource Manager 리소스에 대해 실행되는 Azure Automation Runbook에 대한 Azure AD 사용자 계정을 구성하기 위해 수행해야 하는 단계를 설명합니다.  Azure Resource Manager 기반 Runbook에 대해 이 인증 ID가 계속 지원되겠지만 Azure 실행 계정을 사용할 것을 권장합니다.       
@@ -91,5 +90,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 
 ## <a name="next-steps"></a>다음 단계
 * 다음 [Azure Automation Runbook 형식](automation-runbook-types.md) 문서에서 다양한 Runbook 유형 및 고유한 Runbook을 만드는 단계를 검토합니다.
-
 

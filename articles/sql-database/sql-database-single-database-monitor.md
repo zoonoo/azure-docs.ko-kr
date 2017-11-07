@@ -13,19 +13,21 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 01/10/2017
+ms.workload: On Demand
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: e11ed3275413b428523eef78a5a89b537f6a4afc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.openlocfilehash: 211036f32df719bf329783b3e4333a8496aa1676
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 데이터베이스 성능 모니터링
+# <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 성능 모니터링
 Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 모니터링을 통해 데이터베이스에 과도한 용량이 있는지, 리소스가 최대값에 도달하는 문제가 있는지 확인한 후 데이터베이스의 성능 수준 및 [서비스 계층](sql-database-service-tiers.md)을 조정할 시기인지 여부를 결정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 그래픽 도구를 사용하거나 SQL [동적 관리 뷰](https://msdn.microsoft.com/library/ms188754.aspx)를 사용하여 데이터베이스를 모니터링할 수 있습니다.
+
+> [!TIP]
+> 데이터베이스 성능 자동 모니터링에 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 사용합니다. 성능 문제가 검색되면 문제의 세부 정보와 RCA(근본 원인 분석)가 포함된 진단 로그가 생성됩니다. 성능 개선 권장 향상이 제공됩니다(가능한 경우).
+>
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
 [Azure 포털](https://portal.azure.com/)에서 데이터베이스를 선택하고 **모니터링** 차트를 클릭하여 단일 데이터베이스의 사용률을 모니터링할 수 있습니다. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
@@ -46,7 +48,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 성능 메트릭이 더 낮은 성능 수준으로 다운그레이드할 수 있는지 여부를 판단하는 데 도움이 될 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 낮은 성능 수준으로 이동하도록 결정하기 전에 갑자기 증가하거나 변동하는 워크로드에 주의해야 합니다.
 
 ## <a name="monitor-databases-using-dmvs"></a>DMV를 사용하여 데이터베이스 모니터링
-포털에 노출된 것과 같은 메트릭을 서버의 논리 **마스터** 데이터베이스에 있는 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource_stats**를 사용합니다. 더 작은 시간 범위의 자세한 데이터를 모니터링해야 하는 경우 **sys.dm_db_resource_stats**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 성능 지침](sql-database-single-database-monitor.md#monitor-resource-use)을 참조하세요.
+포털에 노출된 것과 같은 메트릭을 서버의 논리 **마스터** 데이터베이스에 있는 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource_stats**를 사용합니다. 더 작은 시간 범위의 자세한 데이터를 모니터링해야 하는 경우 **sys.dm_db_resource_stats**를 사용합니다. 자세한 내용은 [Azure SQL Database 성능 지침](sql-database-single-database-monitor.md#monitor-resource-use)을 참조하세요.
 
 > [!NOTE]
 > **sys.dm_db_resource_stats**는 Web 및 Business Edition 데이터베이스에서 사용할 때 빈 결과 집합을 반환합니다.
@@ -210,3 +212,7 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
 
 SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰를 쿼리하고 **active_session_count** 열을 검토하여 세션에 대한 통계 자료를 얻을 수 있습니다. 
 
+## <a name="next-steps"></a>다음 단계
+
+- [Azure SQL Database 자동 튜닝](sql-database-automatic-tuning.md)을 사용하여 데이터베이스 인덱스 및 쿼리 실행 계획을 자동으로 튜닝합니다.
+- [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 사용하여 데이터베이스 성능을 자동으로 모니터링합니다. 이 기능은 성능 문제의 진단 정보 및 근본 원인 분석을 제공합니다.

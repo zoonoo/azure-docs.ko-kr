@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>StorSimple 장치 관리자를 사용하여 StorSimple 가상 배열에 대한 경고 관리
 
@@ -171,5 +170,4 @@ Microsoft 지원에 정보를 보내야 할 경우 텍스트 파일에 알림 �
 ## <a name="next-steps"></a>다음 단계
 
 * [StorSimple 가상 배열에 대해 더 알아봅니다](storsimple-ova-overview.md).
-
 

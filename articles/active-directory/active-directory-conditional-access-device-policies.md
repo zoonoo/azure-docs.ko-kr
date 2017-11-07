@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2d0794781946195fc6fbab413299012e6949a4bc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d33babd331570624ca6a0fc967c79dbc467a1b40
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Office 365 서비스에 대한 Active Directory 조건부 액세스 장치 정책
 
@@ -47,4 +46,3 @@ Azure AD 장치 등록 서비스를 사용하여 장치를 등록해야 합니�
 ## <a name="next-steps"></a>다음 단계
 
 *   일반적인 질문에 대한 답변은 [Azure Active Directory 조건부 액세스 FAQ](active-directory-conditional-faqs.md)를 참조하세요.
-

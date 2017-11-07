@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>작업 다이어그램을 사용하여 데이터 기반 디버그
 
 Azure Portal의 **모니터링** 블레이드에 있는 작업 다이어그램은 작업 파이프라인을 시각화하는 데 도움이 될 수 있습니다. 입력, 출력 및 쿼리 단계를 보여 줍니다. 작업 다이어그램을 사용하여 각 단계의 메트릭을 검사하면 문제를 해결할 때 문제의 원인을 더 빠르게 격리할 수 있습니다.
@@ -96,4 +94,3 @@ Azure Event Hubs 입력의 파티션을 보려면 **. . .**을 선택합니다. 
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
 * [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

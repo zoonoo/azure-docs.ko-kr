@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
 이 페이지에서는 일반적인 Azure DNS 질문에 대한 문제 해결 정보를 제공합니다.
@@ -104,10 +104,4 @@ SRV 레코드 이름(서비스 이름 'sip', 프로토콜 'tcp') 예제:
 * [Azure DNS 영역 및 레코드](dns-zones-records.md) 알아보기
 * Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: b1a468caa22159ad603dbec1ef530e7e0e24f96d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>자습서: Reward Gateway와 Azure Active Directory 통합
 
@@ -236,5 +234,4 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [201]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_203.png
-
 

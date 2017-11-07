@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 249a8bfb6cab66af19fbf15cb270c9377f49358f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정
 Stream Analytics 작업을 설정하고 그 작업을 통해 몇 가지 샘플 데이터를 실행하면 아주 간단한 경우가 종종 있습니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Stream Analytics의 Azure Machine Learning 함수란 무엇입니까?
-Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다. Machine Learning 웹 서비스는 같은 웹 서비스 API 호출의 여러 행을 "배치로 처리"하여 전체적인 처리량을 개선할 수 있으며, 이러한 배치를 미니 배치라고 부릅니다. 자세한 내용은 [Stream Analytics의 Azure Machine Learning 함수](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) 및 [Azure Machine Learning 웹 서비스](../machine-learning/machine-learning-consume-web-services.md) 문서를 참조하세요.
+Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 Azure Machine Learning 웹 서비스 요청입니다. Machine Learning 웹 서비스는 같은 웹 서비스 API 호출의 여러 행을 "배치로 처리"하여 전체적인 처리량을 개선할 수 있으며, 이러한 배치를 미니 배치라고 부릅니다. 자세한 내용은 [Stream Analytics의 Azure Machine Learning 함수](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) 및 [Azure Machine Learning 웹 서비스](../machine-learning/studio/consume-web-services.md) 문서를 참조하세요.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning 함수를 사용하여 Stream Analytics 작업 구성
 Stream Analytics 작업에 대한 Machine Learning 함수를 구성할 때 두 가지 매개 변수를 고려해야 합니다. 하나는 Machine Learning 함수 호출의 배치 크기이고, 다른 하나는 Stream Analytics 작업에 프로비전된 SU(스트리밍 단위)입니다. 이러한 개매 변수의 적절한 값을 결정하려면 먼저 대기 시간과 처리량, 즉, Stream Analytics 작업의 대기 시간과 각 SU의 처리량을 결정해야 합니다. SU를 추가하면 작업 실행 비용이 증가하기는 하지만 언제나 SU를 작업에 추가하여 적절하게 분할된 Stream Analytics 쿼리의 처리량을 높일 수 있습니다.
@@ -45,7 +44,7 @@ Stream Analytics 작업에 대한 Machine Learning 함수를 구성할 때 두 �
 
 Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합니다. 이 값을 최대 값(현재는 200)으로 설정하는 것이 좋습니다.
 
-이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/machine-learning-scaling-webservice.md)를 참조하세요.
+이 설정에 대한 자세한 내용은 [Machine Learning 웹 서비스와 관련된 크기 조정 문서](../machine-learning/studio/scaling-webservice.md)를 참조하세요.
 
 ## <a name="example--sentiment-analysis"></a>예 – 정서 분석
 다음 예제는 [Stream Analytics Machine Learning 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)에 설명된 대로 정서 분석 Machine Learning 함수를 사용하는 Stream Analytics 작업을 포함하고 있습니다.
@@ -122,4 +121,3 @@ Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

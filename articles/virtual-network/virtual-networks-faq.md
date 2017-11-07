@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
+ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -179,9 +178,9 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
 예. ASE(앱 서비스 환경)를 사용하여 VNet 내부에 Web Apps를 배포할 수 있습니다. VNet에 대해 지점 및 사이트 간 연결이 구성된 경우 Azure VNet에서 모든 Web Apps를 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [앱 서비스 환경에서 웹앱 만들기](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Azure Virtual Network에 앱 통합](../app-service-web/web-sites-integrate-with-vnet.md)
-* [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [앱 서비스 환경에서 웹앱 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)
+* [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
 예. (선택 사항) VNet 내에서 Cloud Services 역할 인스턴스를 배포할 수 있습니다. 이를 수행하려면 서비스 구성의 네트워크 구성 섹션에서 VNet 이름 및 역할/서브넷 매핑을 지정합니다. 이진 파일을 업데이트할 필요가 없습니다.
@@ -216,4 +215,3 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 - [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
 - [리소스 관리자](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 및 [클래식](/powershell/module/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - 두 배포 모델을 통해 배포된 VNet을 관리하는 [Azure CLI(명령줄 인터페이스)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources).  
-

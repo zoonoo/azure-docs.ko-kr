@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
+ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 29f074f1ced5a3f4305d961a98f45e4a3b7792ef
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Azure Data Lake Store와 Azure Blob 저장소 비교
 이 문서의 테이블은 빅 데이터 처리의 일부 주요 측면을 따라 Azure Data Lake Store와 Azure Blob 저장소 간의 차이점을 요약합니다. Azure Blob 저장소는 다양한 저장소 시나리오를 위해 설계된 확장성 있는 범용 개체 저장소입니다. Azure Data Lake Store는 빅 데이터 분석 워크로드에 대해 최적화된 하이퍼 스케일 리포지토리입니다.
@@ -37,7 +36,7 @@ ms.lasthandoff: 08/21/2017
 | 데이터 작업 - 인증 프로토콜 |OAuth 2.0. 호출은 Azure Active Directory가 발급한 유효한 JWT(JSON Web Token)를 포함해야 함 |해시 기반 메시지 인증 코드(HMAC)입니다. 호출은 HTTP 요청 일부를 통해 Base64 인코딩된 SHA-256 해시를 포함해야 합니다. |
 | 데이터 작업 - 인증 |POSIX 액세스 제어 목록(ACL)입니다.  Azure Active Directory ID에 따른 ACL은 파일 및 폴더 수준에서 설정할 수 있습니다. |계정 수준 인증의 경우 - [계정 액세스 키](../storage/common/storage-create-storage-account.md#manage-your-storage-account) 사용.<br>계정, 컨테이너 또는 Blob 권한 부여의 경우 - [공유 액세스 서명 키](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 사용. |
 | 데이터 작업 - 감사 |사용 가능. 자세한 내용은 [여기](data-lake-store-diagnostic-logs.md) 를 참조하세요. |사용 가능 |
-| 미사용 암호화 데이터 |투명한, 서버 쪽 <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(출시 예정)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
+| 미사용 암호화 데이터 |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(출시 예정)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
 | 관리 작업(예: 계정 만들기) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |
 | 개발자 SDK |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, c + +, Ruby |
 | 분석 워크로드 성능 |병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. |분석 워크로드에 대해 최적화되지 않음 |
@@ -50,5 +49,4 @@ ms.lasthandoff: 08/21/2017
 ### <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Store 개요](data-lake-store-overview.md)
 * [Data Lake 저장소 시작](data-lake-store-get-started-portal.md)
-
 

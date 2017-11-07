@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
 > [!IMPORTANT]
@@ -33,4 +31,3 @@ ms.lasthandoff: 06/02/2017
 
 ## <a name="next-steps"></a>다음 단계 
 [Linux를 실행하는 사용자 지정 가상 컴퓨터를 만들](../../linux/classic/createportal.md) 수도 있습니다.
-

@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fea8d8dff9c98f928ed7c5ed2b130c7f614f3f9e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
@@ -84,4 +81,3 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 [Logon]:connect-logon.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
-

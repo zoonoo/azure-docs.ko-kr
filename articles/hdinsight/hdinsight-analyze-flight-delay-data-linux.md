@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 07927f1660681af35428747b51a8c14ba6153a7a
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
 
@@ -167,9 +166,6 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-   > [!NOTE]
-   > 이 예제에서 HDInsight 클러스터의 헤드 노드에 연결되어 있기 때문에 `localhost`을 사용합니다. 여기서 HiveServer2가 실행 중입니다.
-
 4. __flightdelays.hql__ 스크립트 실행이 완료된 후에 다음 명령을 사용하여 대화형 Beeline 세션을 엽니다.
 
     ```
@@ -267,7 +263,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     이 명령은 지연 테이블을 만든 데이터베이스를 포함한 데이터베이스 목록을 반환합니다.
 
-2. 다음 명령을 사용하여 hivesampletable에서 mobiledata 테이블로 데이터를 내보냅니다.
+2. 다음 명령을 사용하여 hivesampletable에서 delays 테이블로 데이터를 내보냅니다.
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -275,13 +271,13 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     Sqoop은 지연 테이블을 포함하는 데이터베이스에 연결되고 `/tutorials/flightdelays/output` 디렉터리에서 지연 테이블로 데이터를 내보냅니다.
 
-3. 명령이 완료되면 TSQL 유틸리티를 사용하여 데이터베이스에 연결하기 위해 다음을 사용합니다.
+3. sqoop 명령이 완료되면 tsql 유틸리티를 사용하여 데이터베이스에 연결합니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    다음 문을 사용하여 데이터가 mobiledata 테이블로 내보내졌는지 확인합니다.
+    다음 문을 사용하여 데이터가 delays 테이블로 내보내졌는지 확인합니다.
 
     ```
     SELECT * FROM delays
@@ -290,7 +286,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     테이블에 데이터 목록이 표시됩니다. `exit` 를 입력하여 tsql 유틸리티를 종료합니다.
 
-## <a id="nextsteps"></a> 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -323,4 +319,3 @@ HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

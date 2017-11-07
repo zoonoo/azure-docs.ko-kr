@@ -3,7 +3,7 @@ title: "Linux VM에 대한 DHCPv6 구성 | Microsoft Docs"
 description: "Linux VM에 대한 DHCPv6를 구성하는 방법"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot"
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 84558cb6e3a5524969f590eb0272a64ad8839ab5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configuring-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적으로 구성된 DHCPv6가 없습니다. IPv6를 지원하려면 DHCPv6가 사용 중인 Linux OS 배포 내에 구성되어야 합니다. 다른 Linux 배포는 다른 패키지를 사용하기 때문에 DHCPv6는 다른 방법으로 구성됩니다.
 
@@ -149,4 +150,3 @@ Azure의 최근 CoreOS 이미지는 DHCPv6를 사용해 미리 구성되었습�
     ```bash
     sudo systemctl restart systemd-networkd
     ```
-

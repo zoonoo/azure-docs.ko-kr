@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 26a8bb17dad5a01b401ce7f9b484f09822825cbf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>자습서: RFPIO와 Azure Active Directory 통합
 
@@ -295,5 +293,4 @@ RFPIO의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-rfpio-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rfpio-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rfpio-tutorial/tutorial_general_203.png
-
 

@@ -13,22 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
 Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합니다. 이 통합을 통해 다른 Azure 및 타사 서비스와 함께 오케스트레이션에서 함수의 컴퓨팅 기능을 사용할 수 있습니다. 
 
-이 자습서에서는 Logic Apps 및 Azure Cognitive Services와 함께 함수를 사용하여 Twitter 게시물에서 감정을 분석하는 방법을 보여 줍니다. HTTP 트리거된 함수는 감정 점수를 기준으로 트윗을 녹색, 노랑 또는 빨강으로 분류합니다. 불량 감정이 감지되면 전자 메일이 전송됩니다. 
+이 자습서에서는 Azure의 Logic Apps 및 Microsoft Cognitive Services와 함께 함수를 사용하여 Twitter 게시물에서 감정을 분석하는 방법을 보여 줍니다. HTTP 트리거된 함수는 감정 점수를 기준으로 트윗을 녹색, 노랑 또는 빨강으로 분류합니다. 불량 감정이 감지되면 전자 메일이 전송됩니다. 
 
 ![논리 앱 디자이너에서 앱의 처음 2단계를 보여 주는 이미지](media/functions-twitter-email/designer1.png)
 
@@ -59,7 +57,7 @@ Cognitive Services 계정은 모니터링되는 트윗의 감정을 검색하는
 
 3. **데이터 + 분석** > **Cognitive Services**를 클릭합니다. 그런 다음 테이블에 지정된 설정을 사용하고 약관에 동의하고 **대시보드에 고정**을 선택합니다.
 
-    ![Cognitive 계정 만들기 블레이드](media/functions-twitter-email/cog_svcs_account.png)
+    ![Cognitive 계정 만들기 페이지](media/functions-twitter-email/cog_svcs_account.png)
 
     | 설정      |  제안 값   | 설명                                        |
     | --- | --- | --- |
@@ -131,11 +129,12 @@ Cognitive Services 계정은 모니터링되는 트윗의 감정을 검색하는
     | 설정      |  제안 값   | 설명                                        |
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | 앱에 적절한 이름을 선택합니다. |
-    | **리소스 그룹** | myResourceGroup | 텍스트를 분석하는 데 사용되는 API입니다.  |
-    | **위치**: | 미국 동부 | 가까운 위치를 선택합니다. |
-    | **리소스 그룹** | myResourceGroup | 이전과 동일한 기존 리소스 그룹을 선택합니다.|
+    | **리소스 그룹** | myResourceGroup | 이전과 동일한 기존 리소스 그룹을 선택합니다. |
+    | **위치**: | 미국 동부 | 가까운 위치를 선택합니다. |    
 
-4. **만들기**를 클릭하여 논리 앱을 만듭니다. 앱이 만들어지면 대시보드에 고정된 새 논리 앱을 클릭합니다. 그런 다음 논리 앱 디자이너에서 아래로 스크롤하고 **빈 논리 앱** 템플릿을 클릭합니다. 
+4. **대시보드에 고정**을 선택한 다음 **만들기**를 클릭하여 논리 앱을 만듭니다. 
+
+5. 앱이 만들어지면 대시보드에 고정된 새 논리 앱을 클릭합니다. 그런 다음 논리 앱 디자이너에서 아래로 스크롤하고 **빈 논리 앱** 템플릿을 클릭합니다. 
 
     ![빈 논리 앱 템플릿](media/functions-twitter-email/blank.png)
 
@@ -153,7 +152,7 @@ Cognitive Services 계정은 모니터링되는 트윗의 감정을 검색하는
 
     | 설정      |  제안 값   | 설명                                        |
     | ----------------- | ------------ | ------------- |
-    | **검색 텍스트** | #Azure | 선택한 간격에서 새 트윗을 생성하는 데 많이 사용되는 해시태그를 사용합니다. 무료 계층을 사용하고 사용자 해시태그가 너무 많이 사용되면 Cognitive Services 계정에서 트랜잭션을 신속하게 사용할 수 있습니다. |
+    | **검색 텍스트** | #Azure | 선택한 간격으로 새 트윗을 생성할 만큼 충분히 인기 있는 해시태그를 사용합니다. 무료 계층을 사용하고 사용자 해시태그가 너무 많이 사용되면 Cognitive Services 계정에서 트랜잭션을 신속하게 사용할 수 있습니다. |
     | **Frequency(빈도)** | 분 | Twitter 폴링에 사용되는 빈도 단위입니다.  |
     | **간격** | 15 | 빈도 단위에서 Twitter 요청 간 경과된 시간입니다. |
 
@@ -212,7 +211,7 @@ Cognitive Services 계정은 모니터링되는 트윗의 감정을 검색하는
 
 4. **전자 메일 보내기** 작업에서 테이블에 지정된 대로 전자 메일 설정을 사용합니다. 
 
-    ![전자 메일 보내기 작업에 대한 전자 메일을 구성합니다.](media/functions-twitter-email/sendemail.png)
+    ![전자 메일 보내기 작업에 대한 전자 메일을 구성합니다.](media/functions-twitter-email/sendEmail.png)
 
     | 설정      |  제안 값   | 설명  |
     | ----------------- | ------------ | ------------- |
@@ -275,5 +274,4 @@ Cognitive Services 계정은 모니터링되는 트윗의 감정을 검색하는
 > [Azure Functions를 사용하여 서버 없는 API 만들기](functions-create-serverless-api.md)
 
 Logic Apps에 대해 자세히 알아보려면 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)를 참조하세요.
-
 

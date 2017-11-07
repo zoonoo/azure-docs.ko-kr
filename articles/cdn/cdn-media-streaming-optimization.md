@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
+ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Azure Content Delivery Network를 통한 미디어 스트리밍 최적화 
  
@@ -61,7 +60,7 @@ Akamai의 Azure Content Delivery Network에서 자산이 스트리밍 매니페�
 많은 사용자가 아직 존재하지 않는 조각을 요청할 때는 짧은 부정 캐싱 시간이 원본 서버 오프로드에 유용합니다. 예를 들어 원본 서버에서 해당 시간(초) 동안 패킷을 사용할 수 없는 라이브 스트림이 있습니다. 또한 비디오 내용이 일반적으로 수정되지 않기 때문에 캐싱 간격은 길수록 원본 서버의 요청을 오프로드하는 데 도움이 됩니다.
  
 
-|    | 일반<br> web<br>배달 | 일반<br> 미디어<br> 스트리밍 | 주문형 비디오 <br>미디어<br> 스트리밍  
+|   | 일반 웹 배달 | 일반 미디어 스트리밍 | 주문형 비디오 미디어 스트리밍  
 --- | --- | --- | ---
 캐싱: 긍정 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |365일 | 365일   
 캐싱: 부정 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 | 1초
@@ -98,5 +97,4 @@ Verizon의 Azure Content Delivery Network는 일반 웹 배달 최적화 형식�
 ### <a name="cache-fill-wait-time"></a>캐시 채우기 대기 시간
 
  부분 캐시 공유와 함께 유용한 캐시 채우기 대기 시간 기능은 HTTP 응답 헤더가 원본 서버에서 도착할 때까지 에지 서버에서 동일한 리소스에 대한 향후 요청을 보류하도록 합니다. 타이머가 만료되기 전에 원본 서버의 HTTP 응답 헤더가 도착하면 보류된 모든 요청이 증가하는 캐시에서 처리됩니다. 동시에 캐시는 원본 서버의 데이터로 채워집니다. 기본적으로 캐시 채우기 대기 시간은 3,000밀리초로 설정됩니다. 
-
 

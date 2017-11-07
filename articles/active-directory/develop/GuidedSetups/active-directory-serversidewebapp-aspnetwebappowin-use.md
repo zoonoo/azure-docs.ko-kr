@@ -15,23 +15,21 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
-ms.contentlocale: ko-kr
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>로그인 및 로그아웃 요청을 처리하는 컨트롤러 추가
 
 이 단계에서는 로그인 및 로그아웃 메서드를 노출하는 새 컨트롤러를 만드는 방법을 보여 줍니다.
 
-1.    `Controllers` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add` > `Controller`를 선택합니다.
-2.    `MVC (.NET version) Controller – Empty`를 선택합니다.
-3.    *추가*를 클릭합니다.
-4.    이름을 `HomeController`로 지정하고 *추가*를 클릭합니다.
-5.    클래스에 *OWIN* 참조를 추가합니다.
+1.  `Controllers` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add` > `Controller`를 선택합니다.
+2.  `MVC (.NET version) Controller – Empty`를 선택합니다.
+3.  *추가*를 클릭합니다.
+4.  이름을 `HomeController`로 지정하고 *추가*를 클릭합니다.
+5.  클래스에 *OWIN* 참조를 추가합니다.
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +73,9 @@ public void SignOut()
 
 Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보를 표시하는 새 보기를 만듭니다.
 
-1.    `Views\Home` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add View`를 선택합니다.
-2.    이름을 `Index`로 지정합니다.
-3.    로그인 단추를 포함하는 다음 HTML을 파일에 추가합니다.
+1.  `Views\Home` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add View`를 선택합니다.
+2.  이름을 `Index`로 지정합니다.
+3.  로그인 단추를 포함하는 다음 HTML을 파일에 추가합니다.
 
 ```html
 <html>
@@ -118,17 +116,17 @@ else
 ```
 <!--start-collapse-->
 ### <a name="more-information"></a>추가 정보
-> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [이 페이지](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines")를 참조하세요.
+> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [이 페이지](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")를 참조하세요.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>사용자의 클레임을 표시하는 컨트롤러 추가
 이 컨트롤러는 컨트롤러를 보호하는 `[Authorize]` 특성의 사용을 보여 줍니다. 이 특성은 인증된 사용자만 허용하여 컨트롤러에 대한 액세스를 제한합니다. 아래 코드에서는 이 특성을 활용하여 로그인의 일부로 검색된 사용자 클레임을 표시합니다.
 
-1.    `Controllers` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add` > `Controller`를 선택합니다.
-2.    `MVC {version} Controller – Empty`를 선택합니다.
-3.    *추가*를 클릭합니다.
-4.    이름을 `ClaimsController`로 지정합니다.
-5.    컨트롤러 클래스의 코드를 아래 코드로 바꿉니다. 그러면 클래스에 `[Authorize]` 특성이 추가됩니다.
+1.  `Controllers` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add` > `Controller`를 선택합니다.
+2.  `MVC {version} Controller – Empty`를 선택합니다.
+3.  *추가*를 클릭합니다.
+4.  이름을 `ClaimsController`로 지정합니다.
+5.  컨트롤러 클래스의 코드를 아래 코드로 바꿉니다. 그러면 클래스에 `[Authorize]` 특성이 추가됩니다.
 
 ```csharp
 [Authorize]
@@ -167,9 +165,9 @@ public class ClaimsController : Controller
 
 Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이지에 표시합니다.
 
-1.    `Views\Claims` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add View`를 선택합니다.
-2.    이름을 `Index`로 지정합니다.
-3.    다음 HTML을 파일에 추가합니다.
+1.  `Views\Claims` 폴더를 마우스 오른쪽 단추로 클릭하고 `Add View`를 선택합니다.
+2.  이름을 `Index`로 지정합니다.
+3.  다음 HTML을 파일에 추가합니다.
 
 ```html
 <html>
@@ -200,4 +198,3 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 </body>
 </html>
 ```
-

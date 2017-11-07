@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 디자인, 빌드 및 배포
 
 [Azure Portal](https://portal.azure.com/)에서 Azure Logic Apps를 만들고 관리할 수 있는 좋은 방법을 제공하지만 Logic Apps를 디자인, 빌드 및 배포하기 위해 Visual Studio를 사용할 수도 있습니다. Visual Studio는 Logic Apps Designer와 같이 논리 앱을 빌드하는 풍부한 도구를 제공하고, 배포 및 자동화 템플릿을 구성하고, 모든 환경에 배포합니다. 
@@ -238,4 +236,3 @@ parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사�
 * [일반적인 예제 및 시나리오 보기](logic-apps-examples-and-scenarios.md)
 * [Azure Logic Apps을 사용하여 비즈니스 프로세스를 자동화하는 방법 알아보기](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Azure Logic Apps과 시스템을 통합하는 방법 알아보기](http://channel9.msdn.com/Events/Build/2016/P462)
-

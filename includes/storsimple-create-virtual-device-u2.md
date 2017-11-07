@@ -21,7 +21,7 @@
       > 
    7. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 물리적 장치만 사용하는 경우, 암호화 키는 사용자 장치와 함께 유지되므로 Microsoft는 해독할 수 없습니다. 
       
-       가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security)을 참조하세요.
+       가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-security.md)을 참조하세요.
    8. 확인 아이콘을 클릭하여 가상 장치를 만듭니다. 장치를 프로비전하는 데 30분 정도 걸릴 수 있습니다.
       
       ![StorSimple 가상 장치 만들기 단계](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

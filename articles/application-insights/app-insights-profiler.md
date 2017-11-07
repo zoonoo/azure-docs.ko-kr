@@ -3,7 +3,7 @@ title: "Application Insights를 사용하여 Azure에서 라이브 웹앱 프로
 description: "적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: f6669d90878398dcd4592df97180dcd59b146350
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 09/05/2017
 
 [Azure Application Insights](app-insights-overview.md)의 프로파일링 도구를 사용하여 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. 앱에서 제공한 라이브 요청의 자세한 프로필을 보여 주고 가장 많은 시간을 사용하는 '실행 부하 과다 경로'를 강조 표시합니다. 서로 다른 응답 시간을 갖는 예제를 자동으로 선택합니다. 프로파일러는 오버헤드를 최소화하기 위해 다양한 기법을 사용합니다.
 
-프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
+프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure App Services에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>프로파일러 활성화
@@ -46,10 +45,11 @@ Application Insights로 구성된 웹앱은 구성 블레이드에 나열됩니�
 
 구성 블레이드에서 *프로파일러 사용* 또는 *프로파일러 사용 안 함* 단추를 사용하여 연결된 모든 웹앱의 프로파일러를 제어합니다.
 
-
-
 ![구성 블레이드][linked app services]
 
+App Service 계획을 통해 호스트되는 웹앱와 달리 *Azure Compute* 리소스(예:: 가상 컴퓨터, 가상 컴퓨터 크기 집합, Service Fabric, Cloud Services)에 호스트되는 응용 프로그램은 Azure에서 직접 관리되지 않습니다. 이 경우에는 여기에 연결하기 위한 웹앱이 없으며 화면에서 클릭하여 프로파일러를 사용하도록 설정하기만 하면 됩니다.
+
+## <a name="disable-the-profiler"></a>프로파일러 사용 안 함
 개별 App Service 인스턴스에 대해 프로파일러를 중지하거나 다시 시작하려면 **App Service 리소스**의 **웹 작업**에서 찾을 수 있습니다. 삭제하려면 **확장** 아래에서 확인합니다.
 
 ![웹 작업에 대한 프로파일러 사용 안 함][disable-profiler-webjob]
@@ -65,11 +65,17 @@ WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하�
 [Azure Compute 리소스에 대한 미리 보기 버전의 프로파일러](https://go.microsoft.com/fwlink/?linkid=848155)가 있습니다.
 
 
-## <a name="limits"></a>제한
+## <a name="limitations"></a>제한 사항
 
 기본 데이터 보존 기간은 5일입니다. 매일 최대 10GB가 수집됩니다.
 
 프로파일러 서비스에는 요금이 부과되지 않습니다. 웹앱은 적어도 App Services의 기본 계층에 호스트되어야 합니다.
+
+## <a name="overhead-and-sampling-algorithm"></a>오버헤드 및 샘플링 알고리즘
+
+Profiler는 Profiler가 추적을 캡처하도록 설정된 응용 프로그램을 호스트하는 각 가상 컴퓨터에서 시간당 2분씩 임의로 실행됩니다. Profiler는 실행되는 동안 서버에 CPU 오버헤드 5-15%를 추가합니다.
+응용 프로그램을 호스트하는 데 사용할 수 있는 서버가 많을수록 Profiler가 전체 응용 프로그램 성능에 주는 영향은 감소합니다. 샘플링 알고리즘으로 인해 Profiler는 지정된 시간에 서버 중 5%에서만 실행되므로, 웹 요청을 처리하여 Profiler로부터의 오버헤드가 적용되는 서버를 상쇄할 수 있는 서버가 더 많아지기 때문입니다.
+
 
 ## <a name="viewing-profiler-data"></a>프로파일러 데이터 보기
 
@@ -85,9 +91,13 @@ WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하�
 * **수** - 블레이드 시간 범위에서 이러한 요청 수입니다.
 * **중앙값** - 앱이 요청에 응답하는 데 걸리는 일반적인 시간입니다. 모든 응답의 절반은 이것보다 더 빨랐습니다.
 * **95 백분위수** 응답의 95%는 이것보다 더 빨랐습니다. 이 수치가 중앙값과 전혀 다른 경우 앱에 간헐적 문제가 있을 수 있습니다. (또는 캐시와 같은 디자인 기능으로 설명될 수 있습니다.)
-* **예제** - 아이콘은 프로파일러가 이 작업에 대한 스택 추적을 캡처했음을 나타냅니다.
+* **프로파일러 추적** - 아이콘은 프로파일러가 이 작업에 대한 스택 추적을 캡처했음을 나타냅니다.
 
-예제 아이콘을 클릭하여 추적 탐색기를 엽니다. 탐색기는 응답 시간에 따라 분류된 프로파일러가 캡처한 몇 가지 샘플을 보여 줍니다.
+보기 단추를 클릭하여 추적 탐색기를 엽니다. 탐색기는 응답 시간에 따라 분류된 프로파일러가 캡처한 몇 가지 샘플을 보여 줍니다.
+
+미리 보기 성능 블레이드를 사용하는 경우 오른쪽 아래 모서리에 있는 **작업 수행** 섹션으로 이동하여 프로파일러 추적을 확인합니다. 프로파일러 추적 단추를 클릭합니다.
+
+![Application Insights 성능 블레이드 미리 보기 프로파일러 추적][performance-blade-v2-examples]
 
 샘플을 선택하여 요청을 실행하는 데 걸린 시간의 코드 수준 분석을 표시합니다.
 
@@ -152,6 +162,10 @@ CPU는 명령을 실행 중입니다.
 
 ## <a id="troubleshooting"></a>문제 해결
 
+### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
+
+현재 동일한 서비스 계획에 실행 중인 최대 4개의 Azure Web Apps 및 배포 슬롯에서 프로파일러를 사용하도록 설정할 수 있습니다. 프로파일러 웹 작업이 너무 많은 활성 프로파일링 세션을 보고하는 경우 일부 웹앱을 다른 서비스 계획으로 이동해야 합니다.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Application Insights Profiler가 실행되고 있는지 어떻게 알 수 있습니까?
 
 프로파일러는 웹앱에서 지속형 웹 작업으로 실행됩니다. https://portal.azure.com에서 웹앱 리소스를 열고 웹 작업 블레이드에서 "ApplicationInsightsProfiler" 상태를 확인할 수 있습니다. 실행되지 않는 경우 **로그**를 열어 자세한 정보를 찾습니다.
@@ -160,7 +174,7 @@ CPU는 명령을 실행 중입니다.
 
 다음 몇 가지 사항으로 확인할 수 있습니다.
 
-1. 웹앱 서비스 계획이 기본 계층 이상인지 확인합니다.
+1. 웹App Service 계획이 기본 계층 이상인지 확인합니다.
 2. 웹앱에서 Application Insights SDK 2.2 베타 이상이 활성화되었는지 확인합니다.
 3. 웹앱에 Application Insights SDK에서 사용하는 동일한 계측 키를 가진 APPINSIGHTS_INSTRUMENTATIONKEY 설정이 있는지 확인합니다.
 4. 웹앱이 .NET Framework 4.6에서 실행 중인지 확인합니다.
@@ -192,6 +206,18 @@ Application Insights Profiler를 활성화하면 Azure Service Profiler 에이�
 
 포털에서 지원 티켓을 제출합니다. 오류 메시지의 상관 관계 ID를 포함하세요.
 
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>배포 오류 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Profiler가 사용하도록 설정된 App Services 리소스에 웹앱을 재배포하는 경우 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'와 같은 오류가 표시될 수 있습니다. VSTS 배포 파이프라인 또는 스크립트에서 웹 배포를 실행하면 이 오류가 발생합니다.
+이 문제를 해결하려면 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
+
+```
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
+```
+
+그러면 App Insights Profiler에서 사용하는 폴더가 삭제되며 배포 프로세스 차단이 해제됩니다. 현재 실행 중인 Profiler 인스턴스에는 아무런 영향이 없습니다.
+
+
 ## <a name="manual-installation"></a>수동 설치
 
 프로파일러를 구성하면 웹앱의 설정에 다음 업데이트가 이루어집니다. 환경에 필요한 경우, 예를 들어 응용 프로그램이 ASE(Azure App Service Environment)에서 실행되는 경우 이 작업을 수동으로 직접 수행할 수 있습니다.
@@ -216,6 +242,7 @@ ASP.NET Core 응용 프로그램을 사용하려면 Microsoft.ApplicationInsight
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png
@@ -223,4 +250,3 @@ ASP.NET Core 응용 프로그램을 사용하려면 Microsoft.ApplicationInsight
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
-

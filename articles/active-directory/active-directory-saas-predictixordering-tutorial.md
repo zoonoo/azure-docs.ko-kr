@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 8536a741f9b114ac6787c7aefb4c76ec6c4ed83e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>자습서: Predictix Ordering과 Azure Active Directory 통합
 
@@ -230,5 +229,4 @@ Predictix Ordering에서 Azure AD Single Sign-On을 구성하고 테스트하려
 [201]: ./media/active-directory-saas-predictixordering-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-predictixordering-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-predictixordering-tutorial/tutorial_general_203.png
-
 

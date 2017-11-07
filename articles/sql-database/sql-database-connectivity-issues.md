@@ -1,6 +1,6 @@
 ---
 title: "SQL 연결 오류 해결, 일시적 오류 | Microsoft Azure Docs"
-description: "SQL 연결 오류 또는 Azure SQL 데이터베이스의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다. "
+description: "SQL 연결 오류 또는 Azure SQL Database의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다. "
 keywords: "SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류"
 services: sql-database
 documentationcenter: 
@@ -10,29 +10,27 @@ editor:
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 0d2d187ca55ca6e7723139423b4b28783f256704
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL 데이터베이스 오류의 문제 해결, 진단 및 예방
-이 문서에서는 클라이언트 응용 프로그램이 Azure SQL 데이터베이스와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
+# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방
+이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>일시적인 오류(일시 장애)
-일시적인 오류(일시 결함)에는 자체적으로 신속히 환익되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 대부분 60초 이내에 완료됩니다. 이 재구성 기간 중에는 Azure SQL 데이터베이스에 대한 연결에 문제가 있을 수 있습니다. Azure SQL 데이터베이스에 연결되는 응용 프로그램은 이러한 일시적인 오류를 예상하고 사용자에게 응용 프로그램 오류로 표시하는 대신 코드에 재시도 논리를 구현하여 처리하도록 빌드됩니다.
+일시적인 오류(일시 결함)에는 자체적으로 신속히 환익되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 대부분 60초 이내에 완료됩니다. 이 재구성 기간 중에는 Azure SQL Database에 대한 연결에 문제가 있을 수 있습니다. Azure SQL Database에 연결되는 응용 프로그램은 이러한 일시적인 오류를 예상하고 사용자에게 응용 프로그램 오류로 표시하는 대신 코드에 재시도 논리를 구현하여 처리하도록 빌드됩니다.
 
-클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 항목 윗부분의 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 메시지](sql-database-develop-error-messages.md)에서 나열된 일시적 오류 목록과 비교할 수 있습니다.
+클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 항목 윗부분의 [SQL Database 클라이언트 응용 프로그램의 SQL 오류 메시지](sql-database-develop-error-messages.md)에서 나열된 일시적 오류 목록과 비교할 수 있습니다.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -47,7 +45,7 @@ ms.lasthandoff: 06/28/2017
 ### <a name="retry-logic-for-transient-errors"></a>일시적인 오류에 대한 재시도 논리
 간혹 일시적 오류가 발생하는 클라이언트 프로그램에 재시도 논리가 포함된 경우 더욱 견고해질 수 있습니다.
 
-프로그램이 타사 미들웨어를 통해 Azure SQL 데이터베이스와 통신하는 경우 공급업체에 문의하여 미들웨어에 일시적 오류에 대한 재시도 논리가 포함되어 있는지 여부를 확인해야 합니다.
+프로그램이 타사 미들웨어를 통해 Azure SQL Database와 통신하는 경우 공급업체에 문의하여 미들웨어에 일시적 오류에 대한 재시도 논리가 포함되어 있는지 여부를 확인해야 합니다.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
@@ -76,7 +74,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 #### <a name="code-samples-with-retry-logic"></a>재시도 논리가 포함된 코드 샘플
 재시도 논리가 포함된 코드 샘플은 다음에서 다양한 언어로 다운로드할 수 있습니다.
 
-* [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
+* [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -119,7 +117,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
-클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.6.1 이상((또는 .NET Core)을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL Database에 연결되면 .NET 4.6.1 이상(또는 .NET Core)을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -153,24 +151,24 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-azure-sql-database"></a>Azure SQL 데이터베이스 연결
+## <a name="connections-to-azure-sql-database"></a>Azure SQL Database 연결
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>연결: 연결 문자열
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
+Azure SQL Database에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### <a name="connection-ip-address"></a>연결: IP 주소
-SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
+SQL Database 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
 
 IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 오류 메시지로 필요한 IP 주소를 표시합니다.
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
+자세한 내용은 [방법: SQL Database에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
@@ -189,16 +187,16 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 
 클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
+포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL Database 방화벽](sql-database-firewall-configure.md)
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### <a name="connection-adonet-461"></a>연결: ADO.NET 4.6.1
-프로그램이 Azure SQL 데이터베이스에 연결하는 데 **System.Data.SqlClient.SqlConnection** 과 같은 ADO.NET 클래스를 사용할 경우 버전 4.6.1 이상의 .NET Framework를 사용하는 것이 좋습니다.
+프로그램이 Azure SQL Database에 연결하는 데 **System.Data.SqlClient.SqlConnection** 과 같은 ADO.NET 클래스를 사용할 경우 버전 4.6.1 이상의 .NET Framework를 사용하는 것이 좋습니다.
 
 ADO.NET 4.6.1:
 
-* Azure SQL 데이터베이스의 경우 **SqlConnection.Open** 메서드를 사용하여 연결을 열 때 안정성 향상이 있습니다. **Open** 메서드는 이제 연결 제한 시간 내에 특정 오류에 대해 일시적인 오류에 대한 응답으로 최적의 재시도 메커니즘을 통합합니다.
+* Azure SQL Database의 경우 **SqlConnection.Open** 메서드를 사용하여 연결을 열 때 안정성 향상이 있습니다. **Open** 메서드는 이제 연결 제한 시간 내에 특정 오류에 대해 일시적인 오류에 대한 응답으로 최적의 재시도 메커니즘을 통합합니다.
 * 연결 풀링을 지원합니다. 또한 프로그램에 제공하는 연결 개체가 올바르게 작동하는지를 효율적으로 확인합니다.
 
 연결 풀에서 연결 개체를 사용할 경우 바로 연결을 사용하지 않을 때 프로그램에서 연결을 일시적으로 닫는 것이 좋습니다. 연결을 다시 열 경우 새로 연결하는 것만큼 많은 비용이 들지 않습니다.
@@ -213,7 +211,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>진단: 유틸리티에서 연결할 수 있는지 여부 테스트
-프로그램에서 Azure SQL 데이터베이스에 연결할 수 없을 경우 한 가지 진단 방법으로 유틸리티 프로그램에 연결해 볼 수 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
+프로그램에서 Azure SQL Database에 연결할 수 없을 경우 한 가지 진단 방법으로 유틸리티 프로그램에 연결해 볼 수 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
 
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
@@ -233,7 +231,7 @@ Linux에서 다음 유틸리티는 도움이 될 수 있습니다.
 * `nmap -sS -O 127.0.0.1`
   * (IP 주소가 되도록 예제 값을 변경합니다.)
 
-Windows에서는 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 Azure SQL 데이터베이스 서버에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
+Windows에서는 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 Azure SQL Database 서버에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
 
 ```
 [C:\Users\johndoe\]
@@ -258,7 +256,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 ### <a name="diagnostics-log-your-errors"></a>진단: 오류 기록
 간헐적 문제는 며칠 또는 몇 주간 일반 패턴을 발견하여 진단하는 것이 가장 좋은 경우가 있습니다.
 
-클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 Azure SQL 데이터베이스에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
+클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 Azure SQL Database에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
 Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다.
 
@@ -276,8 +274,8 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>진단: SQL 데이터베이스 로그에서 문제 이벤트 검색
-Azure SQL 데이터베이스 로그에서 문제 이벤트에 대한 항목을 검색할 수 있습니다. **마스터** 데이터베이스에서 다음 Transact-SQL SELECT 문을 시도해 보세요.
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>진단: SQL Database 로그에서 문제 이벤트 검색
+Azure SQL Database 로그에서 문제 이벤트에 대한 항목을 검색할 수 있습니다. **마스터** 데이터베이스에서 다음 Transact-SQL SELECT 문을 시도해 보세요.
 
 ```
 SELECT
@@ -318,7 +316,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저 다음을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
+Enterprise Library 6(EntLib60)은 Azure SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저 다음을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
 
 * [Enterprise Library 6 – 2013년 4월](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
@@ -445,8 +443,7 @@ public bool IsTransient(Exception ex)
 
 
 ## <a name="next-steps"></a>다음 단계
-* 다른 일반적인 Azure SQL 데이터베이스 연결 문제를 해결하는 경우, [Azure SQL 데이터베이스에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
+* 다른 일반적인 Azure SQL Database 연결 문제를 해결하는 경우, [Azure SQL Database에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
 * [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
-
 

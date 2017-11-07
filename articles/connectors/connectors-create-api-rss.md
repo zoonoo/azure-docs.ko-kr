@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 308d78550e9e60303b70d591eb4e6bfff3e49ce7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-rss-connector"></a>RSS 커넥터 시작
 RSS는 블로그 항목 및 뉴스 헤드라인처럼 자주 업데이트되는 콘텐츠를 게시하는 데 사용되는 인기 있는 웹 배포 형식입니다.  많은 콘텐츠 게시자는 사용자가 구독할 수 있는 RSS 피드를 제공합니다.  RSS 커넥터를 사용하여 피드 정보를 검색하고 RSS 피드에 새 항목이 게시될 때 흐름을 트리거합니다.

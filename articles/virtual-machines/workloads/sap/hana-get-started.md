@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -53,7 +52,7 @@ SAP HANA 인스턴스 또는 S/4HANA 또는 BW/4HANA 시스템을 매우 빠른 
 ### <a name="sap-hana-backup"></a>SAP HANA 백업
 Azure VM에서 SAP HANA 데이터베이스를 백업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure Virtual Machines의 SAP HANA 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-* [파일 수준의 SAP HANA Azure 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+* [파일 수준의 SAP HANA Azure Backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 * [저장소 스냅숏에 기반한 SAP HANA 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 ### <a name="sap-cloud-appliance-library"></a>SAP 클라우드 어플라이언스 라이브러리
@@ -201,7 +200,7 @@ Linux를 게스트 OS로 실행하는 Azure VM에 디스크를 연결하는 방�
 
 Azure Premium Storage에서는 디스크 캐싱 모드를 정의할 수 있습니다. /hana/data 및 /hana/log를 보유하는 스트라이프 집합의 경우 디스크 캐싱을 비활성화해야 합니다. 다른 볼륨(디스크)의 경우 캐싱 모드를 **ReadOnly**로 설정해야 합니다.
 
-자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../../../storage/common/storage-premium-storage.md)를 참조하세요.
+자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../../windows/premium-storage.md)를 참조하세요.
 
 VM 만들기를 위한 샘플 JSON 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)으로 이동합니다.
 vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 저장소 섹션이 있습니다. 이 템플릿을 기반으로 사용할 수 있습니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.
@@ -454,5 +453,4 @@ Linux/HANA용 NetWeaver 7.5 다운로드:
 HANA SP12 Platform Edition 다운로드:
 
  ![HANA SP12 Platform Edition을 다운로드하기 위한 SAP 서비스 설치 및 업그레이드 창](./media/hana-get-started/image002.jpg)
-
 

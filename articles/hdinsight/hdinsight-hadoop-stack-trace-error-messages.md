@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight에서 Hadoop의 인덱스 문제 해결 문서
 문서는 오류의 유형별로 구성됩니다.
@@ -38,5 +37,4 @@ ms.lasthandoff: 08/17/2017
 * [HDInsight의 Linux 기반 Hadoop에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
-
 

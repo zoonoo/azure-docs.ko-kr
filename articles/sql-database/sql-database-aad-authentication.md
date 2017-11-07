@@ -13,18 +13,17 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 08/11/2017
+ms.workload: Active
+ms.date: 09/12/2017
 ms.author: rickbyh
+ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c83d482eaf476388a174dfb02ae6ef53ebe921bc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용
-Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Database 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
+Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Database 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
 
 * SQL Server 인증에 대한 대안을 제공합니다.
 * 데이터베이스 서버 전체에서 사용자 ID의 확산을 중지합니다.
@@ -34,7 +33,7 @@ Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사�
 * Azure AD 인증에서는 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 * Azure AD는 SQL Database에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
 * Azure AD 인증은 도메인 동기화 없이 로컬 Azure Active Directory에 대해 ADFS(도메인 페더레이션) 또는 기본 사용자/암호 인증을 지원합니다.  
-* Azure AD는 MFA(Multi-Factor Authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다.  MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [ 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.  
+* Azure AD는 MFA(Multi-Factor Authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다.  MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.  
 
 >  [!NOTE]  
 >  Azure VM에서 실행되는 SQL Server에 연결하는 경우 Azure Active Directory 계정은 사용할 수 없습니다. 대신 도메인 Active Directory 계정을 사용합니다.  
@@ -69,7 +68,7 @@ Azure AD 인증을 사용할 때는 SQL Database 서버에 대해 SQL Server 관
 ## <a name="permissions"></a>권한
 새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
 
-Azure SQL Database 또는 SQL Data Warehouse에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 이에 대해서는 아래 4, 5단계에서 설명합니다. 모든 Azure AD 인증은 Azure Active Directory 관리자가 Azure SQL Database 또는 SQL Data Warehouse 서버에 대해 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 SQL Server 내에 이전에 만든 기존 Azure Active Directory 사용자는 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 더 이상 연결할 수 없습니다.
+Azure SQL Database 또는 SQL Data Warehouse에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 이 내용은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)에서 설명합니다. 모든 Azure AD 인증은 Azure Active Directory 관리자가 Azure SQL Database 또는 SQL Data Warehouse 서버에 대해 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 SQL Server 내에 이전에 만든 기존 Azure Active Directory 사용자는 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 더 이상 연결할 수 없습니다.
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 기능 및 제한 사항
 Azure AD의 다음 멤버를 Azure SQL Server 또는 SQL Data Warehouse에서 프로비저닝할 수 있습니다.
@@ -79,7 +78,6 @@ Azure AD의 다음 멤버를 Azure SQL Server 또는 SQL Data Warehouse에서 �
 * 네이티브 또는 페더레이션 도메인 멤버인 다른 Azure AD에서 가져온 멤버입니다.
 * 보안 그룹으로 만들어진 Active Directory 그룹.
 
-Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스트 계정(예: gmail.com, yahoo.com)은 지원되지 않습니다. 계정 및 암호를 사용하여 [https://login.live.com](https://login.live.com) 에 로그인할 수 있는 경우 Azure SQL Database 또는 Azure SQL Data Warehouse에 대한 Azure AD 인증에 지원되지 않는 Microsoft 계정을 사용하는 것입니다.
 
 ## <a name="connecting-using-azure-ad-identities"></a>Azure AD ID를 사용하여 연결
 
@@ -127,5 +125,4 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
-
 

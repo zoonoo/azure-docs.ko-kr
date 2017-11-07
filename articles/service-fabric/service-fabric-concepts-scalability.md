@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
 Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 응용 프로그램을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 
@@ -95,7 +94,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
     * Service Fabric에서 [응용 프로그램 용량](service-fabric-cluster-resource-manager-application-groups.md)은 특정 응용 프로그램 인스턴스에 사용할 수 있는 리소스의 양을 제어하는 데 사용할 수 있는 개념입니다. 예를 들어 지정된 서비스에서 크기 조정을 위해 다른 인스턴스를 만들어야 한다고 결정할 수 있습니다. 그러나 이 응용 프로그램 인스턴스에는 특정 메트릭에 대한 용량이 부족합니다. 이러한 특정 고객 또는 워크로드에 더 많은 리소스를 계속 부여해야 하는 경우 해당 응용 프로그램의 기존 용량을 늘리거나 새 응용 프로그램을 만들 수 있습니다. 
 
 ## <a name="scaling-at-the-partition-level"></a>파티션 수준에서 크기 조정
-Service Fabric은 파티션을 지원합니다. 분할은 서비스를 여러 논리적 및 물리적 섹션으로 나누며, 각 섹션은 독립적으로 작동합니다. 어떤 복제본 집합에서도 모든 호출을 처리하고 모든 상태를 한 번에 조작할 수 없기 때문에 이 기능은 상태 저장 서비스에 유용합니다. [분할 개요](service-fabric-concepts-partitioning.md)는 지원되는 분할 체계의 유형에 대한 정보를 제공합니다. 각 파티션의 복제본은 클러스터의 노드에 분산되어 해당 서비스의 로드를 분산하고 전체 또는 일부 파티션의 서비스가 단일 실패 지점을 갖지 않도록 합니다. 
+Service Fabric은 파티션을 지원합니다. 분할은 서비스를 여러 논리적 및 물리적 섹션으로 나누며, 각 섹션은 독립적으로 작동합니다. 어떤 복제본 집합에서도 모든 호출을 처리하고 모든 상태를 한 번에 조작할 수 없기 때문에 이 기능은 상태 저장 서비스에 유용합니다. [분할 개요](service-fabric-concepts-partitioning.md) 는 지원되는 분할 체계의 유형에 대한 정보를 제공합니다. 각 파티션의 복제본은 클러스터의 노드에 분산되어 해당 서비스의 로드를 분산하고 전체 또는 일부 파티션의 서비스가 단일 실패 지점을 갖지 않도록 합니다. 
 
 서비스가 0개의 하위 키, 99개의 상위 키 및 4개의 파티션 개수를 가진 범위 지정 파티션 구성표를 사용한다고 가정합니다. 3노드 클러스터에서 서비스는 다음과 같이 각 노드에서 리소스를 공유하는 4개의 복제본으로 배치될 수 있습니다.
 
@@ -151,4 +150,3 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 
 * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
 * [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
-

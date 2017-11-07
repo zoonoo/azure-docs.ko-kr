@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
 
@@ -341,5 +339,4 @@ Microsoft는 클라우드 인프라의 탄력성을 보장하고 공격으로부
 Microsoft 보안 데이터 및 분석을 사용하여 더 지능적이고 효과적인 위협 검색을 수행합니다.
 
 - [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) - 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터를 최적으로 사용하기 위해 수행할 수 있는 일단의 단계 및 작업입니다.
-
 

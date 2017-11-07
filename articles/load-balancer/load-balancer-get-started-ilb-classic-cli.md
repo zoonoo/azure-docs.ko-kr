@@ -3,7 +3,7 @@ title: "내부 부하 분산 장치 만들기 - Azure CLI 클래식 | Microsoft 
 description: "Azure CLI를 사용하여 클래식 배포 모델에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -40,9 +39,9 @@ ms.lasthandoff: 03/21/2017
 
 내부 부하 분산 장치 집합과 이 집합으로 해당 트래픽을 전송할 서버를 만들려면 다음을 수행해야 합니다.
 
-1. 부하 분산 집합의 서버 간에 부하가 분산될 들어오는 트래픽의 끝점이 되는 내부 부하 분산의 인스턴스를 만듭니다.
-2. 들어오는 트래픽을 수신할 가상 컴퓨터에 해당하는 끝점을 추가합니다.
-3. 부하가 분산될 트래픽을 전송하는 서버가 해당 트래픽을 내부 부하 분산 인스턴스의 VIP(가상 IP) 주소로 전송하도록 구성합니다.
+1. 부하가 분산된 집합의 서버 간에 부하가 분산되어 들어오는 트래픽의 끝점이 되는 내부 부하 분산의 인스턴스를 만듭니다.
+2. 들어오는 트래픽을 수신할 수 있는 가상 컴퓨터에 해당하는 끝점을 추가합니다.
+3. 서버가 해당 트래픽을 내부 부하 분산 인스턴스의 VIP(가상 IP) 주소로 전송하도록 구성합니다.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI를 사용하여 내부 부하 분산 장치 만들기 단계별 지침
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 03/21/2017
 
 시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 컴퓨터 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 컴퓨터는 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
 
-이 가이드를 통해 개인 포트로 포트 1433과 로컬 포트로 포트 1433을 사용하여 내부 부하 분산 장치 집합을 만듭니다.
+이 가이드를 통해 개인 포트로 포트 1433과 로컬 포트로 포트 1433을 사용하는 내부 부하 분산 장치 집합을 만듭니다.
 
 이는 일반적인 시나리오로, 백 엔드의 SQL 가상 컴퓨터는 데이터베이스 서버가 공용 IP 주소를 사용하여 직접 노출되지 않는다는 것을 보장하기 위해 내부 부하 분산 장치를 사용합니다.
 
@@ -92,7 +91,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 ### <a name="step-2"></a>2단계
 
-첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 컴퓨터 및 프로브 포트를 내부 부하 분산 장치 집합에 연결합니다.
+첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 컴퓨터 및 프로브 포트를 내부 부하 분산 장치 집합에 연결할 수 있습니다.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -106,7 +105,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 azure vm show DB1
 ```
 
-다음과 같이 출력됩니다.
+출력은 다음과 같습니다.
 
     azure vm show DB1
     info:    Executing command vm show
@@ -180,4 +179,3 @@ azure vm endpoint delete DB1 tcp-1433-1433
 [원본 IP 선호도를 사용하여 부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-

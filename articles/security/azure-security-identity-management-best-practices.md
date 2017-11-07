@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](http://aka.ms/byodcg) 장치 및 클라우드 응용 프로그램이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
@@ -136,9 +136,3 @@ SaaS 앱의 인증 시나리오에 대한 자세한 내용은 [Azure AD에 대�
 
 자신의 ID 시스템을 적극적으로 모니터링하지 않는 조직은 사용자 자격 증명이 손상될 위험에 직면합니다. 이러한 자격 증명을 사용하여 의심스러운 활동이 일어나고 있다는 것을 알아야 이 유형의 위협을 완화시킬 수 있습니다.
 Azure ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

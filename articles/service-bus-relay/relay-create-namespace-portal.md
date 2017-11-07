@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dc2b69db669366a89b33751ca2b3a9f5af292da2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure 포털을 사용하여 릴레이 네임스페이스 만들기
 네임스페이스는 모든 Azure Relay 구성 요소에 대한 공용 컨테이너입니다. 여러 릴레이는 단일 네임스페이스에 있을 수 있으며, 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 현재 서로 다른 두 가지 방법으로 릴레이 네임스페이스를 만들 수 있습니다.
 
@@ -38,5 +36,4 @@ ms.lasthandoff: 05/18/2017
 * [릴레이 FAQ](relay-faq.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)
-
 

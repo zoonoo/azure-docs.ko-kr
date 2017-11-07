@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: pratshar
+ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
 
@@ -203,4 +202,3 @@ SQL Server Standard 클러스터의 경우, 계획되지 않은 장애 조치 �
 
 ## <a name="next-steps"></a>다음 단계
 Site Recovery 아키텍처에 대해 [자세히 알아봅니다](site-recovery-components.md).
-

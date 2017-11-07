@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-input-validation--mitigations"></a>보안 프레임: 입력 유효성 검사 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
@@ -686,4 +684,3 @@ myCommand.Fill(userDataset);
 | **특성**              | 해당 없음  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | **단계** | <p>입력 및 데이터 유효성 검사는 WCF 응용 프로그램을 보호하기 위한 하나의 중요한 방어선을 나타냅니다. 악성 클라이언트의 공격으로부터 서비스를 보호하기 위해 WCF 서비스 작업에 노출된 모든 매개 변수의 유효성을 검사해야 합니다. 반대로 악성 서비스에 의한 공격으로부터 클라이언트를 보호하기 위해 클라이언트에서 받은 모든 반환 값의 유효성도 검사해야 합니다.</p><p>WCF는 사용자 지정 확장을 만들어 WCF 런타임 동작을 사용자 지정할 수 있는 다양한 확장성 지점을 제공합니다. 메시지 검사기와 매개 변수 검사기는 클라이언트와 서비스 간에 전달되는 데이터를 보다 효율적으로 제어하는 데 사용되는 두 가지 확장성 메커니즘입니다. 입력 유효성 검사에 매개 변수 검사기를 사용해야 하며, 서비스에서 들어오고 나가는 전체 메시지를 검사해야 하는 경우에만 메시지 검사기를 사용해야 합니다.</p><p>입력 유효성 검사를 수행하려면 .NET 클래스를 빌드하고, 서비스의 작업에 대한 매개 변수의 유효성을 검사하기 위해 사용자 지정 매개 변수 검사기를 구현합니다. 그런 다음 사용자 지정 끝점 동작을 구현하여 클라이언트와 서비스 모두에서 유효성 검사를 사용하도록 설정합니다. 마지막으로 확장된 사용자 지정 끝점 동작을 서비스 또는 클라이언트의 구성 파일에 노출할 수 있도록 하는 클래스에 사용자 지정 구성 요소를 구현합니다.</p>|
-

@@ -15,13 +15,11 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8013fc618fe78ea16c21a4605deb91797bf00f7d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>v2.0 끝점을 사용하여 Windows 유니버설 앱에 로그인 추가
   Windows 유니버설 앱에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다. 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.
@@ -34,5 +32,4 @@ ms.lasthandoff: 05/25/2017
     ## Get security updates for our products
 
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
 

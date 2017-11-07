@@ -13,15 +13,14 @@ ms.custom: mvc,security
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
+ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
@@ -179,7 +178,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![감사 설정](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. **저장소 세부 정보** 를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
+4. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. 
 
    > [!TIP]
    > 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
@@ -188,7 +187,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 5. **Save**를 클릭합니다.
 
 > [!IMPORTANT]
-> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 자세한 내용은 [Automation(PowerShell/REST API)](sql-database-auditing.md#subheading-7) 섹션을 참조하세요.
+> 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>SQL Database 위협 감지 사용
@@ -254,5 +253,4 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
 > [!div class="nextstepaction"]
 >[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
-
 

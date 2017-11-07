@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
-ms.author: clemensv;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c16bcf30ab96f79e59404a41852e4cd227e28b08
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
-
+ms.date: 10/12/2017
+ms.author: sethm
+ms.openlocfilehash: e5070e225387f5d4ae9d49234b4e260a57436291
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>서비스 버스 배달 못 한 편지 큐의 개요
 
 Service Bus 큐 및 토픽 구독은 *배달 못 한 편지 큐*(DLQ)라고 하는 보조 하위 큐를 제공합니다. 배달 못 한 편지 큐는 명시적으로 만들 필요가 없으며 주 엔터티와 독립적으로 삭제하거나 관리할 수 없습니다.
 
-이 문서에서는 Azure Service Bus에서 배달하지 못한 편지 큐에 대해 설명합니다. 대부분의 토론은 GitHub에 대해 [배달하지 못한 편지 큐 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue)에서 설명합니다.
+이 문서에서는 Azure Service Bus에서 배달하지 못한 편지 큐에 대해 설명합니다. 대부분의 토론은 GitHub의 [배달하지 못한 편지 큐 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue)에서 설명합니다.
  
 ## <a name="the-dead-letter-queue"></a>배달하지 못한 편지 큐
 
@@ -34,13 +32,13 @@ Service Bus 큐 및 토픽 구독은 *배달 못 한 편지 큐*(DLQ)라고 하�
 
 API 및 프로토콜의 관점에서, 부모 엔터티의 배달 못 한 편지 제스처를 통해 메시지를 제출할 수 있다는 점만 제외하면 DLQ는 다른 큐와 거의 비슷합니다. 뿐만 아니라 활성 시간이 관찰되지 않으며, DLQ의 메시지를 배달 못 한 편지로 처리할 수 없습니다. 배달 못 한 편지 큐는 배달 보기-잠금 및 트랜잭션 작업을 완벽하게 지원합니다.
 
-DLQ는 자동으로 정리되지 않습니다. 사용자가 DLQ에서 명시적으로 메시지를 검색하고 배달 못 한 메시지에서 [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CompleteAsync)를 호출할 때까지 메시지가 DLQ에 남아 있습니다.
+DLQ는 자동으로 정리되지 않습니다. 사용자가 DLQ에서 명시적으로 메시지를 검색하고 배달 못 한 메시지에서 [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)를 호출할 때까지 메시지가 DLQ에 남아 있습니다.
 
 ## <a name="moving-messages-to-the-dlq"></a>DLQ로 메시지 이동
 
 서비스 버스의 여러 활동에 의해 메시징 엔진 자체 내에서 DLQ로 메시지가 푸시됩니다. 또한 응용 프로그램이 명시적으로 메시지를 DLQ로 이동시킬 수 있습니다. 
 
-broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeadLetter_System_String_System_String_) 메서드 내부 버전을 호출하므로 해당 메시지에 두 속성 `DeadLetterReason` 및 `DeadLetterErrorDescription` 속성이 추가됩니다.
+broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) 메서드 내부 버전을 호출하므로 해당 메시지에 두 속성 `DeadLetterReason` 및 `DeadLetterErrorDescription` 속성이 추가됩니다.
 
 응용 프로그램에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
 
@@ -54,9 +52,9 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 | 응용 프로그램에서 명시적으로 배달 못 한 편지로 처리 |응용 프로그램에서 지정 |응용 프로그램에서 지정 |
 
 ## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
-큐와 구독에는 각각 [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount) 및 [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_MaxDeliveryCount) 속성이 있으며, 기본값은 10입니다. 메시지가 잠금([ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)) 모드에서 전달되었지만 명시적으로 중단되었거나 잠금이 만료되면 메시지의 [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount)가 증가합니다. [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount)가 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)를 초과하면 메시지가 DLQ로 이동되고, `MaxDeliveryCountExceeded` 이유 코드를 지정합니다.
+큐와 구독에는 각각 [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 및 [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) 속성이 있으며, 기본값은 10입니다. 메시지가 잠금([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)) 모드에서 전달되었지만 명시적으로 중단되었거나 잠금이 만료되면 메시지의 [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)가 증가합니다. [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)가 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount)를 초과하면 메시지가 DLQ로 이동되고, `MaxDeliveryCountExceeded` 이유 코드를 지정합니다.
 
-이 동작을 비활성화할 수는 없지만 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)를 매우 큰 수로 설정할 수 있습니다.
+이 동작을 비활성화할 수는 없지만 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount)를 매우 큰 수로 설정할 수 있습니다.
 
 ## <a name="exceeding-timetolive"></a>TimeToLive 초과
 [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
@@ -77,7 +75,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 - 대상 큐 또는 항목은 사용되지 않도록 설정되거나 삭제됩니다.
 - 대상 큐 또는 항목이 최대 엔터티 크기를 초과합니다.
 
-이러한 배달 못한 메시지를 검색하기 위해 [FormatTransferDeadletterPath](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_) 유틸리티 메서드를 사용하여 받는 사람을 만들 수 있습니다.
+이러한 배달 못한 메시지를 검색하기 위해 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 유틸리티 메서드를 사용하여 받는 사람을 만들 수 있습니다.
 
 ## <a name="example"></a>예제
 다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
@@ -104,5 +102,4 @@ while(true)
 
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
 

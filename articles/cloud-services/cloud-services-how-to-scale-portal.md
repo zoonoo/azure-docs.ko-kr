@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-how-to-scale-portal.md)
@@ -114,4 +112,3 @@ ms.lasthandoff: 08/21/2017
 3. 크기를 조정할 역할의 인스턴스입니다.
 
 크기 조정 설정을 구성한 후 맨 위에 있는 **저장** 아이콘을 선택합니다.
-

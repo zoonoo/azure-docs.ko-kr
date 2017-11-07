@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Azure App Service에 Spring Boot 응용 프로그램 배포
 
 **[Spring Framework]**는 Java 개발자가 엔터프라이즈 수준 응용 프로그램을 만드는 데 도움이 되는 오픈 소스 솔루션이며, 해당 플랫폼 맨 위에 빌드되는 인기 있는 프로젝트 중 하나가 [Spring Boot]입니다. 이 프로젝트는 독립 실행형 Java 응용 프로그램을 만들기 위한 간단한 방법을 제공합니다.
@@ -91,7 +89,7 @@ ms.lasthandoff: 08/10/2017
 
 1. Azure Portal의 계정에 로그인한 후 **App Services** 메뉴 아이콘을 클릭합니다.
    
-   ![Azure Portal][AZ01]
+   ![Azure 포털][AZ01]
 
 1. **App Services** 페이지가 표시되면 **+ 추가**를 클릭하여 새 App Service를 만듭니다.
 
@@ -111,7 +109,7 @@ ms.lasthandoff: 08/10/2017
 
 1. 웹앱을 만든 후 **App Services** 메뉴 아이콘을 클릭한 다음 새로 만든 웹앱을 클릭합니다.
 
-   ![Web Apps 나열][AZ06]
+   ![웹앱 나열][AZ06]
 
 1. 웹앱이 표시되면 다음 단계를 사용하여 Java 버전을 지정합니다.
 
@@ -216,8 +214,8 @@ Spring Boot 샘플 프로젝트에 대한 자세한 내용은 [Spring Boot 시�
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [Azure Portal]: https://portal.azure.com/
-[Azure App Service에서 웹앱 구성]: /azure/app-service-web/web-sites-configure
-[FTP/S를 사용하여 Azure App Service에 앱 배포]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
+[Azure App Service에서 웹앱 구성]: /azure/app-service/web-sites-configure
+[FTP/S를 사용하여 Azure App Service에 앱 배포]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [무료 Azure 계정]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [JDK(Java Developer Kit)]: http://www.oracle.com/technetwork/java/javase/downloads/
@@ -243,4 +241,3 @@ Spring Boot 샘플 프로젝트에 대한 자세한 내용은 [Spring Boot 시�
 [AZ08]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ08.png
 [AZ09]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ09.png
 [AZ10]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ10.png
-

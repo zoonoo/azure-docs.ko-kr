@@ -1,6 +1,6 @@
 ---
-title: "상태 저장 Reliable Services 진단 | Microsoft Docs"
-description: "상태 저장 Reliable Services의 진단 기능"
+title: "Azure Service Fabric 상태 저장 Reliable Services 진단 | Microsoft Docs"
+description: "Azure Service Fabric 상태 저장 Reliable Services의 진단 기능"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: d7dfb16407aa6e89a6bbf4db303bd5332cf31432
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -50,4 +48,3 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 
 ## <a name="next-steps"></a>다음 단계
 * [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-

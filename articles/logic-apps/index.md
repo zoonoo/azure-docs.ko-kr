@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 7f9790a52365b76e9d3dd1fdf1a17ab2aaaf8b5a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logic-apps-documentation"></a>Logic Apps 설명서
 
 클라우드에서 확장 가능한 워크플로를 단순화하고 통합하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조를 통해 온-프레미스 및 클라우드에 자동화된 비즈니스 워크플로를 디자인하고 배포할 수 있습니다.
@@ -172,6 +170,5 @@ ms.lasthandoff: 06/02/2017
         </div>
     </li>
 </ul>
-
 
 

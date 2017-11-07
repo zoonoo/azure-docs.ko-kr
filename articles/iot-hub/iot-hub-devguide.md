@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: adb9a12899e9040cd83d522c734448989636fe29
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
 
@@ -49,11 +48,11 @@ Azure IoT Hub는 다음을 제공합니다.
 * [장치에 직접 메서드 호출][devguide-directmethods] - 직접 메서드의 수명 주기, 백 엔드 앱에서 장치에 대한 메서드를 호출하고 장치에서 직접 메서드를 처리하는 방법에 대한 정보를 설명합니다.
 * [여러 장치에서 작업 예약][devguide-jobs] - 여러 장치에서 작업을 예약하는 방법을 설명합니다. 이 문서에서는 직접 메서드 실행, 장치 쌍을 사용하여 장치 업데이트와 같은 태스크를 수행하는 작업을 제출하는 방법을 설명합니다. 또한 작업 상태를 쿼리하는 방법도 설명합니다.
 * [참조 - 통신 프로토콜 선택][devguide-protocol]에서는 IoT Hub가 장치 통신에 대해 지원하는 통신 프로토콜을 설명하고 열려 있어야 하는 포트를 나열합니다.
-* [참조 - IoT Hub 끝점][devguide-endpoints] - 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다. 이 문서에서는 IoT Hub에서 추가 끝점을 만드는 방법과 비표준 시나리오에서 IoT Hub 끝점에 대한 장치 연결을 사용하도록 하는 필드 게이트웨이를 사용하는 방법에 대해서도 설명합니다.
+* [참조 - IoT Hub 끝점][devguide-endpoints] - 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다. 이 문서에서는 IoT Hub에서 추가 끝점을 만드는 방법과 비표준 시나리오에서 IoT Hub 끝점에 대한 연결을 사용하도록 하는 필드 게이트웨이를 사용하는 방법에 대해서도 설명합니다.
 * [참조 - 장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][devguide-query]에서는 허브에서 장치 쌍 및 작업에 대한 정보를 검색할 수 있는 IoT Hub 쿼리 언어를 설명합니다.
-* [참조 - 할당량 및 제한][devguide-quotas] - IoT Hub 서비스에 설정된 할당량과 할당량을 초과할 때 표시될 것으로 예상되는 제한 동작이 요약되어 잇습니다.
+* [참조 - 할당량 및 제한][devguide-quotas]에는 IoT Hub 서비스에 설정된 할당량과 할당량을 초과할 때 발생하는 제한이 요약되어 있습니다.
 * [참조 – 가격 책정][devguide-pricing] - IoT Hub의 다양한 SKU 및 가격 책정에 대한 일반적인 정보와 IoT Hub에서 다양한 IoT Hub 기능에 대한 요금을 메시지로 적용하는 방식에 대한 자세한 정보를 제공합니다.
-* [참조 - 장치 및 서비스 SDK][devguide-sdks] - IoT Hub와 상호 작용하는 장치 앱과 서비스 앱을 개발할 때 사용할 수 있는 Azure IoT SDK를 나열하고 있습니다. 이 문서에는 온라인 API 설명서에 대한 링크가 제공됩니다.
+* [참조 - 장치 및 서비스 SDK][devguide-sdks]에는 IoT Hub와 상호 작용하는 장치 및 서비스 앱을 개발을 위한 Azure IoT SDK가 나열되어 있습니다. 이 문서에는 온라인 API 설명서에 대한 링크가 제공됩니다.
 * [참조 - IoT Hub MQTT 지원][devguide-mqtt] - IoT Hub가 MQTT 프로토콜을 어떻게 지원하는지에 대한 자세한 정보가 제공됩니다. 이 문서에서는 Azure IoT SDK에 기본 제공되는 MQTT 프로토콜에 대한 지원을 설명하며 MQTT 프로토콜을 직접 사용하는 방법을 제공합니다.
 * [용어집][devguide-glossary] - 일반적인 IoT Hub 관련 용어 목록입니다.
 
@@ -79,4 +78,3 @@ Azure IoT Hub는 다음을 제공합니다.
 [devguide-messages-c2d]: iot-hub-devguide-messages-c2d.md
 [devguide-format]: iot-hub-devguide-messages-construct.md
 [devguide-protocol]: iot-hub-devguide-protocols.md
-

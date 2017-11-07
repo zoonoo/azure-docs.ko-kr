@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 10/09/2017
 ms.author: owend
+ms.openlocfilehash: 71c4c8929a80a46ba2b9ba204f5666d40607f303
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
@@ -44,6 +43,7 @@ ms.lasthandoff: 08/24/2017
 * 단일 컴퓨터에는 하나의 게이트웨이를 설치할 수 있습니다.
 * 유지되고 대기 상태로 전환되지 않는 컴퓨터에 게이트웨이를 설치합니다.
 * 네트워크에 무선으로 연결된 컴퓨터에 게이트웨이를 설치하지 않습니다. 성능이 감소될 수 있습니다.
+* 게이트웨이를 등록한 구독과 동일한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 
 
 ## <a name="download"></a>다운로드
@@ -57,13 +57,9 @@ ms.lasthandoff: 08/24/2017
 
    ![설치 위치 및 사용 조건](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. **온-프레미스 데이터 게이트웨이(권장)**를 선택합니다. Azure Analysis Services는 개인 모드를 지원하지 않습니다.
+3. Azure에 로그인합니다. 계정은 테넌트의 Azure Active Directory에 있어야 합니다. 게이트웨이 관리자가 이 계정을 사용합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 
-   ![게이트웨이 유형 선택](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Azure에 로그인할 계정을 입력합니다. 계정은 테넌트의 Azure Active Directory에 있어야 합니다. 게이트웨이 관리자가 이 계정을 사용합니다. 
-
-   ![Azure에 로그인할 계정 입력](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Azure에 로그인](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
    > 도메인 계정으로 로그인하는 경우 Azure AD의 조직 계정에 매핑됩니다. 조직 계정은 게이트웨이 관리자로 사용됩니다.
@@ -92,7 +88,6 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
     * **이름**: 게이트웨이 리소스의 이름을 입력합니다. 
 
     * **구독**: 게이트웨이 리소스와 연결할 Azure 구독을 선택합니다. 
-    이 구독은 서버가 있는 동일한 구독이어야 합니다.
    
       기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다.
 
@@ -122,4 +117,3 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 ## <a name="next-steps"></a>다음 단계
 * [Analysis Services 관리](analysis-services-manage.md)   
 * [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)
-

@@ -14,19 +14,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/12/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
 
-이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었고 [트리거, 바인딩, JobHost 런타임 같은 WebJobs SDK 개념](../app-service-web/websites-dotnet-webjobs-sdk.md)에 익숙하다고 가정합니다. Azure Functions는 WebJobs SDK를 기반으로 합니다. 
+이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었고 [트리거, 바인딩, JobHost 런타임 같은 WebJobs SDK 개념](https://github.com/Azure/azure-webjobs-sdk/wiki)에 익숙하다고 가정합니다. Azure Functions는 WebJobs SDK를 기반으로 합니다. 
 
 ## <a name="function-code"></a>함수 코드
 *함수* 는 Azure Functions의 기본 개념입니다. 원하는 언어로 함수 코드를 작성하고 코드와 구성 파일을 같은 폴더에 저장합니다. 구성의 이름은 `function.json`이며 JSON 구성 데이터가 들어 있습니다. 다양한 언어가 지원되며, 각각의 언어에는 해당 언어에 맞춰 가장 잘 작동하도록 최적화된 약간 다른 환경이 갖춰져 있습니다. 
@@ -79,7 +78,7 @@ Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝�
 ## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
-함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
+함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/app-service-deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
 
 #### <a name="to-use-app-service-editor"></a>앱 서비스 편집기 사용하기
 1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.
@@ -96,7 +95,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 3. `D:\home\site\wwwroot\`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot\<function_name>`로 이동하여 함수 파일을 업데이트합니다.
 4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다. 파일을 삭제할 수 있는 파일 표에는 두 가지 영역이 있습니다. *.zip* 파일의 경우 "여기에 끌어 와서 업로드하고 압축을 풉니다" 레이블이 있는 상자가 나타납니다. 다른 파일 형식의 경우 "압축" 상자 외부에 파일 표를 살펴봅니다.
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### <a name="to-use-continuous-deployment"></a>연속 배포를 사용하려면
 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)항목의 지침을 따릅니다.
@@ -106,7 +105,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 ## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
 
-`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. Azure Portal의 **설정** 탭에서 함수 앱의 정확한 버전을 볼 수 있습니다.
+`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “”~1은 함수 앱이 주요 버전으로 1을 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](functions-versions.md)을 참조하세요.
 
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.
@@ -134,5 +133,4 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
-
 

@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
 
 Azure Active Directory를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름 및 On-Behalf-Of 흐름에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
@@ -105,4 +102,3 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 응용 프로그램 매니페스트에 편집 내용을 저장하고 Azure AD에 업로드합니다. keycredentials 속성은 다중 값이므로 풍부한 키 관리를 위해 여러 인증서를 업로드할 수 있습니다.
-

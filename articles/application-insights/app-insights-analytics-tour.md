@@ -3,7 +3,7 @@ title: "Azure Application Insights 내 Analytics 둘러보기 | Microsoft Docs"
 description: "Application Insights의 강력한 검색 도구인 Analytics의 모든 주요 쿼리에 대한 간단한 샘플"
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights의 Analytics 둘러보기
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -58,6 +57,16 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 > 웹 브라우저에서 사용할 수 있는 결과의 순서를 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 항목을 안정적으로 정렬하려면 `top` 또는 `sort` 연산자를 사용합니다.
 >
 >
+
+## <a name="query-across-applications"></a>응용 프로그램 간 쿼리
+여러 Application Insights 응용 프로그램의 데이터를 결합하려는 경우 **앱** 키워드를 사용하여 테이블 이름과 함께 응용 프로그램을 지정합니다.  이 쿼리는 **union** 명령을 사용하여 두 개의 서로 다른 응용 프로그램의 요청을 결합합니다.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 및 [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` 은(는) 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을(를) 사용합니다.
@@ -704,4 +713,3 @@ Tracktrace()를 사용하여 앱에서 보낸 원격 분석 데이터나 [다른
 * [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-

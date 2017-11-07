@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
+ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: d45a43d1d4304fd0028d15b4797228a22cc6e76f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 컴퓨터
 
 이 문서에서는 가상 컴퓨터에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 컴퓨터를 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 저장소 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
@@ -283,7 +281,7 @@ ms.lasthandoff: 09/09/2017
 - [크기](sizes.md)
 - [이름](/architecture/best-practices/naming-conventions) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
-- [네트워크 인터페이스](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 부트 진단
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
@@ -460,4 +458,3 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 - [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
 - [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
-

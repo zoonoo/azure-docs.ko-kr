@@ -17,35 +17,37 @@
 
 # 방법
 ## 회로 만들기 및 수정
-### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure 포털](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## 피어링 구성 만들기 및 수정
 ### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
-## 가상 네트워크를 Express 경로 회로에 연결합니다.
-### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+## 가상 네트워크를 ExpressRoute 회로에 연결합니다.
+### [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 ### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
 ## Microsoft 피어링에 대한 경로 필터 구성
 ### [Azure 포털](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성
 ### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)
+## [ExpressRoute에 대한 네트워크 성능 모니터 구성](how-to-npm.md)
 
 ## 모범 사례
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)
 ### [라우팅 최적화](expressroute-optimize-routing.md)
 ### [비대칭 라우팅](expressroute-asymmetric-routing.md)
-### [ExpressRoute용 NAT](expressroute-routing-nat.md)
+### [ExpressRoute용 NAT](expressroute-nat.md)
 
 ## 문제 해결
 ### [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
@@ -53,7 +55,7 @@
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
 
 # 참조
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)

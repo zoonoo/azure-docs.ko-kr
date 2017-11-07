@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 10/19/2017
 ms.author: maheshu
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -28,14 +27,17 @@ ms.lasthandoff: 09/06/2017
 Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반적인 문제에 대한 솔루션은 [문제 해결 가이드](active-directory-ds-troubleshooting.md) 를 참조합니다.
 
 ### <a name="configuration"></a>구성
-#### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 도메인을 만들 수 있나요?
-아니요. 단일 Azure AD 디렉터리에 대해 Azure AD 도메인 서비스에서 서비스되는 단일 도메인만 만들 수 있습니다.  
+#### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
+아니요. 단일 Azure AD 디렉터리에 Azure AD Domain Services에서 제공하는 단일 관리되는 도메인만 만들 수 있습니다.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니까?
 예. Azure Resource Manager 가상 네트워크에서 Azure AD Domain Services를 사용할 수 있습니다. 이 기능은 현재 미리 보기 상태입니다.
 
-#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>기존 관리되는 도메인을 클래식 가상 네트워크에서 리소스 관리자 가상 네트워크로 마이그레이션할 수 있나요?
-현재는 아닙니다. 나중에 기존 관리되는 도메인을 클래식 가상 네트워크에서 리소스 관리자 가상 네트워크로 마이그레이션하는 메커니즘을 제공할 예정입니다. 업데이트로 최신 상태를 유지하세요.
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>기존 관리되는 도메인을 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 마이그레이션할 수 있나요?
+현재는 아닙니다. 나중에 기존 관리되는 도메인을 클래식 가상 네트워크에서 Resource Manager 가상 네트워크로 마이그레이션하는 메커니즘을 제공할 예정입니다.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Azure CSP(클라우드 솔루션 공급자) 구독에서 Azure AD Domain Services를 사용할 수 있나요?
+아니요. CSP 구독에 지원을 추가하기 위해 노력하고 있습니다.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>페더레이션된 Azure AD 디렉터리에서 Azure AD Domain Services를 사용할 수 있습니까? ADFS를 사용하여 사용자를 Office 365에 대한 액세스에 인증하고 Azure AD에 암호 해시를 동기화하지 않습니다. 이 디렉터리에 Azure AD Domain Services를 사용할 수 있습니까?
 아니요. Azure AD Domain Services에서는 NTLM 또는 Kerberos를 통해 사용자를 인증하기 위해 사용자 계정의 암호 해시에 액세스해야 합니다. 페더레이션된 디렉터리에서는 Azure AD 디렉터리에 암호 해시가 저장되지 않습니다. 따라서 Azure AD Domain Services는 이러한 Azure AD 디렉터리와 함께 작동하지 않습니다.
@@ -47,7 +49,10 @@ Azure AD 도메인 서비스를 구성 또는 관리할 때 발생하는 일반�
 Azure AD 도메인 서비스의 PowerShell/자동화된 배포는 현재 사용할 수 없습니다.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD 도메인 서비스는 새 Azure 포털에서 사용할 수 있나요?
-예. [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD Domain Services를 구성할 수 있습니다. 나중에 [Azure 클래식 포털](https://manage.windowsazure.com)의 지원을 중지할 예정입니다.
+예. [Azure Portal](https://portal.azure.com)을 사용하여 Azure AD Domain Services를 구성할 수 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com)은 더 이상 지원되지 않습니다.
+
+#### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?
+아니요. 일부 작업은 Azure AD Domain Services를 사용하는 설정의 일부분으로 수행되어야 합니다. 이러한 작업은 Resource Manager 템플릿을 통해 수행할 수 없습니다. 새로운 Azure Portal에서 디렉터리에 Azure AD Domain Services를 사용하도록 설정합니다.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.
@@ -82,11 +87,10 @@ Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된
 이 서비스는 Azure을 위해 무료 평가판에 포함됩니다. [Azure의 1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 #### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인을 일시 중지할 수 있나요? 
-안 됩니다. Azure AD Domain Services 관리되는 도메인을 사용하도록 설정했으면 관리되는 도메인을 사용하지 않거나/삭제할 때까지 선택한 가상 네트워크에서 해당 서비스가 제공됩니다. 서비스를 일시 중지할 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 단위로 계속 청구됩니다.
+아니요. Azure AD Domain Services 관리되는 도메인을 사용하도록 설정했으면 관리되는 도메인을 사용하지 않거나/삭제할 때까지 선택한 가상 네트워크에서 해당 서비스가 제공됩니다. 서비스를 일시 중지할 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 기준으로 계속 청구됩니다.
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?
 아니요. Azure AD Domain Services는 종량제 Azure 서비스이며 EMS의 일부가 아닙니다. Azure AD Domain Services는 모든 에디션의 Azure AD(무료, 기본 및 프리미엄)에 사용할 수 있습니다. 사용 방식에 따라 시간 단위로 청구됩니다.
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>어떤 Azure 지역에서 서비스를 사용할 수 있습니까?
 Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
-

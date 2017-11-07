@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
-ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 54ee403f283bc5dc79911e2e813dd513ff595828
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-xamarin-apps"></a>Xamarin 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -196,4 +194,3 @@ ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또�
 이제 추가 ID 시나리오로 이동할 수 있습니다. 예를 들어 [Azure AD를 사용하여 .NET Web API 보안 유지](active-directory-devquickstarts-webapi-dotnet.md)를 시도해 보세요.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

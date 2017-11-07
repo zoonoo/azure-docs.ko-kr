@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 09/18/2017
 ms.author: milanga;juliako;
+ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dfff2900aedd3fa2cb0b38d18e71f001c44ababa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 ## <a name="overview"></a>개요
@@ -154,7 +153,7 @@ ms.lasthandoff: 07/21/2017
 #### <a name="aggregate-defaults"></a>집계 기본값
 집계 창 및 간격 설정에는 아래 값이 권장됩니다. AggregateEmotionWindowMs는 AggregateEmotionIntervalMs보다 길어야 합니다.
 
-|| 기본값 | 최소값 | 최대값 |
+|| 기본값 | 최대값 | 최소값 |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
@@ -501,8 +500,7 @@ ms.lasthandoff: 07/21/2017
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://amslabs.azurewebsites.net/demos/Analytics.html)
-
 

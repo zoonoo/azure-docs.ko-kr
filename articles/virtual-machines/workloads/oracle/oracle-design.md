@@ -15,15 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
+ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9bd9ff35cebc2aeaf0558dcf1a37887050682f0a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
-
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
 ## <a name="assumptions"></a>가정
@@ -118,7 +115,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 #### <a name="2-choose-a-vm"></a>2. VM 선택
 
-다음 단계에서는 AWR 보고서에서 수집한 정보에 따라 요구 사항을 충족하는 비슷한 크기의 VM을 선택합니다. [메모리 최적화](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory) 문서에서 사용 가능한 VM 목록을 찾을 수 있습니다.
+다음 단계에서는 AWR 보고서에서 수집한 정보에 따라 요구 사항을 충족하는 비슷한 크기의 VM을 선택합니다. [메모리 최적화](../../linux/sizes-memory.md) 문서에서 사용 가능한 VM 목록을 찾을 수 있습니다.
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. ACU에 따라 비슷한 VM 시리즈로 VM 크기 미세 조정
 
@@ -238,4 +235,3 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 
 - [자습서: 고가용성 VM 만들기](../../linux/create-cli-complete.md)
 - [VM 배포 Azure CLI 샘플 탐색](../../linux/cli-samples.md)
-

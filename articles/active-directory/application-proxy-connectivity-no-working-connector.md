@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5b133afd82afecbfab250c2760404a4173086fa5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 4945958deedc8a1d9989ff901192c03a5363b4dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 대해 작동하는 커넥터 그룹 없음
 
 이 문서는 Azure Active Directory와 통합된 응용 프로그램 프록시 응용 프로그램에 대해 감지된 커넥터가 없을 때 자주 발생하는 문제를 해결하는 방법을 설명합니다.
@@ -68,6 +66,5 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
-
 
 

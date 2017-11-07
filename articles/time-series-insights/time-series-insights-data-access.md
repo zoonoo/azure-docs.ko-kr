@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/20/2017
-
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
-
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 데이터 액세스 권한 부여
 
 Time Series Insights 환경에는 다음과 같은 두 가지 독립적인 액세스 정책이 있습니다.
@@ -44,12 +42,13 @@ Time Series Insights 환경에는 다음과 같은 두 가지 독립적인 액�
 다음 단계는 사용자 주체에 대한 데이터 액세스를 부여하는 방법을 보여 줍니다.
 
 1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2.  Azure Portal의 왼쪽에 있는 메뉴에서 “모든 리소스”를 클릭합니다.
-3.  Time Series Insights 환경을 선택합니다.
+2.  검색 창에서 "시계열"을 입력합니다.
+3.  시계열 환경을 클릭합니다.
+4.  목록에서 Time Series Insights 환경을 선택합니다.
 
   ![Time Series Insights 소스 관리 - 환경](media/data-access/getstarted-grant-data-access1.png)
 
-4.  “데이터 평면 액세스”를 선택하고 “추가”를 클릭합니다.
+4.  "데이터 액세스 정책"을 선택한 다음 "추가"를 클릭합니다.
 
   ![Time Series Insights 소스 관리 - 추가](media/data-access/getstarted-grant-data-access2.png)
 
@@ -75,4 +74,3 @@ Time Series Insights 환경에는 다음과 같은 두 가지 독립적인 액�
 * [이벤트 원본 만들기](time-series-insights-add-event-source.md)
 * 이벤트 원본으로 [이벤트 보내기](time-series-insights-send-events.md)
 * [Time Series Insights 포털](https://insights.timeseries.azure.com)에서 환경 보기
-

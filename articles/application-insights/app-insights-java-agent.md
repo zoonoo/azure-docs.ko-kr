@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/25/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
 
@@ -112,4 +111,3 @@ Application Insights 리소스에서 원격 종속성과 메서드 실행 시간
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-

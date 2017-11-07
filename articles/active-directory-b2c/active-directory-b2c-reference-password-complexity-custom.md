@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
+ms.openlocfilehash: c28a1d30127956f6cc589b1efef6bff12117e3f1
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 5be521a08ab70be891ddd5fcb374adc52d5c0705
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>사용자 지정 정책에서 암호 복잡성 구성
+
+> [!NOTE]
+> **이 기능은 미리 보기 상태입니다.**  [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com)에 연락하여 테스트 테넌트에 이 기능을 사용하도록 설정할 것을 요청하세요.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -232,4 +234,3 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
-

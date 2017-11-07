@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 99018277392cab44a6b579ad45b4611739a803d8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>자습서: Neota Logic Studio와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Neota Logic Studio를 통합하는 방법에 대해 알아봅니다.
@@ -226,5 +224,4 @@ Neota Logic Studio에서 Azure AD Single Sign-On을 구성하고 테스트하려
 [201]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_203.png
-
 

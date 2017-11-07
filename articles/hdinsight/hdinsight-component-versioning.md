@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
+ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 
@@ -98,7 +97,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 사용 중지
 Microsoft Azure HDInsight 버전 3.3은 Windows에 대한 HDInsight의 마지막 버전이었습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. 또는 Windows 3.3 이전 버전의 HDInsight 클러스터가 설치된 경우 2018년 7월 31일 이전에 Linux HDInsight로 마이그레이션해야 합니다(HDInsight 버전 3.5 이상). Linux OS로 마이그레이션하면 HDInsight 클러스터를 만들거나 크기를 조정하는 기능을 유지할 수 있습니다. Windows의 HDInsight 버전 3.3에 대한 지원은 2016년 6월 27일에 만료되었습니다.
 
-HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 Hive, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. HDInsight의 이후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows HDInsight는 향후에 더 이상 릴리스되지 않습니다. 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. HDInsight의 이후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows HDInsight는 향후에 더 이상 릴리스되지 않습니다. 
 
 ## <a name="faqs"></a>FAQ
 
@@ -112,7 +111,7 @@ Windows HDInsight가 사용 중지된 후에 새로운 Windows HDInsight를 만�
 Azure HDInsight 버전 3.3은 Windows용 HDInsight의 마지막 버전이었습니다. Windows HDInsight가 사용 중지되기 전에 모든 HDInsight Windows 클러스터 버전 3.3 이전은 Linux HDInsight 버전 3.5 이상으로 마이그레이션되어야 합니다. Linux HDInsight로 클러스터를 마이그레이션하면 새 클러스터를 만들거나 기존 클러스터 크기를 조정하는 기능을 유지할 수 있습니다. 
 
 ### <a name="what-do-i-need-to-do"></a>수행하려면 무엇이 필요한가요?
-2018년 7월 31일 이전에 지원되는 HDInsight Linux 클러스터에 HDInsight Windows 클러스터를 마이그레이션합니다. [HDInsight 마이그레이션 문서](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)에서 자세히 알아봅니다. Azure HDInsight 버전에 대한 자세한 내용은 [지원되는 버전](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) 목록을 참조하세요. 
+2018년 7월 31일 이전에 지원되는 HDInsight Linux 클러스터에 HDInsight Windows 클러스터를 마이그레이션합니다. [HDInsight 마이그레이션 문서](hdinsight-migrate-from-windows-to-linux.md)에서 자세히 알아봅니다. Azure HDInsight 버전에 대한 자세한 내용은 [지원되는 버전](hdinsight-component-versioning.md#supported-hdinsight-versions) 목록을 참조하세요. 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>클러스터 OS 형식은 어디서 확인할 수 있나요?
 Azure Portal에서 HDInsight 클러스터 개요 페이지로 이동하여 **Essentials** 아래에서 **클러스터 형식**을 찾습니다. 클러스터 OS 형식은 해당 페이지에 나열됩니다. 
@@ -121,7 +120,7 @@ Azure Portal에서 HDInsight 클러스터 개요 페이지로 이동하여 **Ess
 HDInsight Windows 클러스터가 그대로 실행되지만 새로운 HDInsight Windows를 만들거나 기존 HDInsight Windows의 크기를 조정할 수 없습니다. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>내 클러스터에 .NET 종속성이 있습니다. Linux에서 이 종속성을 해결하려면 어떻게 하나요?
-[Mono 프로젝트](http://www.mono-project.com/)를 사용하여 Linux 클러스터 종속성을 확인할 수 있습니다. 이 .NET의 오픈 소스 구현은 HDInsight Linux 클러스터에 사용할 수 있습니다. [HDInsight 마이그레이션 문서](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)에서 자세히 알아봅니다. 
+[Mono 프로젝트](http://www.mono-project.com/)를 사용하여 Linux 클러스터 종속성을 확인할 수 있습니다. 이 .NET의 오픈 소스 구현은 HDInsight Linux 클러스터에 사용할 수 있습니다. [HDInsight 마이그레이션 문서](hdinsight-migrate-from-windows-to-linux.md)에서 자세히 알아봅니다. 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>사용자가 Windows HDInsight에 새 고객입니다. HDInsight Windows 클러스터를 만들려면 어떻게 할까요?
 2017년 7월 3일을 기준으로 기존 HDInsight Windows 고객만이 새로운 HDInsight Windows 클러스터를 만들 수 있습니다. 신규 고객은 PowerShell 또는 SDK를 사용하여 Azure Portal에서 HDInsight Windows 클러스터를 만들 수 없습니다. 신규 고객은 Linux HDInsight 클러스터를 만드는 것이 좋습니다. 기존 고객은 Windows HDInsight 사용 중지 날짜까지 새로운 HDInsight Windows 클러스터를 만들 수 있습니다. 
@@ -135,10 +134,10 @@ HDInsight Windows 클러스터가 그대로 실행되지만 새로운 HDInsight 
 * Hadoop 및 기타 빅 데이터 기술에 대한 오픈 소스 커뮤니티의 활발한 개발 기능
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux HDInsight는 Windows HDInsight에서 사용할 수 있는 기능 이외의 추가 기능을 제공하나요?
-HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 Hive, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 약정
-SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 버전의 _지원 만료 날짜_가 날짜를 지난 경우 HDInsight 클러스터는 지원 기간이 종료된 것입니다. 지원되는 버전에 대한 자세한 내용은 [지원되는 HDInsight 클러스터 버전](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) 목록을 참조하세요. 새로운 X+1 버전이 사용 가능해진 후에 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
+SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 버전의 _지원 만료 날짜_가 날짜를 지난 경우 HDInsight 클러스터는 지원 기간이 종료된 것입니다. 지원되는 버전에 대한 자세한 내용은 [지원되는 HDInsight 클러스터 버전](hdinsight-migrate-from-windows-to-linux.md) 목록을 참조하세요. 새로운 X+1 버전이 사용 가능해진 후에 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
 
 * 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
 * 수식 2: HDInsight 클러스터 버전 X+1이 Azure Portal에서 사용 가능한 날짜에 90일을 추가합니다.
@@ -187,7 +186,7 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 _Standard_ 및 _Premium_
 | HBase |예 |아니요 |
 | Storm |예 |아니요 |
 | R 서버 |예 |아니요 |
-| 대화형 Hive(미리 보기) |예 |아니요 |
+| 대화형 쿼리 |예 |아니요 |
 | Kafka(미리 보기) |예 |아니요 | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>HDInsight Premium에서 Azure Data Lake Store에 대한 지원
@@ -262,4 +261,3 @@ HDInsight Premium의 가격 및 SLA에 대한 자세한 내용은 [HDInsight 가
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
-

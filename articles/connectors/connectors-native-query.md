@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-
-
+ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
 쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.
@@ -42,12 +42,14 @@ ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
    
     ![쿼리 작업 선택](./media/connectors-native-query/using-action-1.png)
 4. 필터링할 배열을 선택합니다. (다음 스크린샷은 Twitter 검색에서 결과의 배열을 표시합니다.)
-5. 각 항목에 대해 평가할 조건을 만듭니다. (다음 스크린샷은 폴로워가 100명 이상인 사용자로부터 오는 트윗을 필터링합니다.)
+5. 각 항목에 대해 평가할 조건을 만듭니다. (다음 스크린샷은 팔로워가 100명 이상인 사용자로부터 오는 트윗을 필터링합니다.)
    
     ![쿼리 작업 완료](./media/connectors-native-query/using-action-2.png)
    
     이 작업은 필터 요구 사항을 충족하는 결과만 포함하는 새 배열을 출력합니다.
 6. 도구 모음의 왼쪽 위 모서리를 클릭하여 저장하면 논리 앱이 저장하고 게시합니다(활성화).
+
+\* HTTP 끝점을 호출하고 JSON 응답을 수신하는 경우 _JSON 구문 분석_ 작업을 사용하여 JSON 응답을 구문 분석합니다. 이 단계를 수행하지 않으면 _필터 배열_에 본문만 표시되고 JSON 페이로드 구조는 알 수 없습니다.
 
 ## <a name="query-action"></a>쿼리 작업
 여기에는 이 커넥터가 지원하는 작업에 대한 세부 정보가 나와 있습니다. 커넥터에는 한 개의 가능한 작업이 있습니다.
@@ -79,10 +81,4 @@ HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

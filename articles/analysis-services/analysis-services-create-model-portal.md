@@ -4,7 +4,7 @@ description: "Azure Portal에서 웹 디자이너를 사용하여 Azure Analysis
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 0a70ce4a106b8d9103080f050ab2317cd69348c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure Portal에서 모델 만들기
 
@@ -72,6 +71,5 @@ Azure Portal의 Azure Analysis Services 웹 디자이너(미리 보기) 기능�
 ## <a name="next-steps"></a>다음 단계 
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [Excel과 연결](analysis-services-connect-excel.md)  
-
 
 

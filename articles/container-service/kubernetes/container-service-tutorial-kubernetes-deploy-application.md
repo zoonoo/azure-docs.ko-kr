@@ -14,23 +14,23 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: 2c9563a38f0aedcb6f67fd44031a47a712088ddc
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 81a6a3d5364642b2da75faf875d64d2f4a1939d4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Kubernetes 매니페스트 파일 다운로드
+> * Kubernetes 매니페스트 파일 업데이트
 > * Kubernetes에서 응용 프로그램 실행
 > * 응용 프로그램 테스트
 
@@ -40,29 +40,15 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
+이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다. 
 
-최소한 이 자습서에는 Kubernetes 클러스터가 필요합니다.
+이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 응용 프로그램 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요.
 
-## <a name="get-manifest-file"></a>매니페스트 파일 가져오기
-
-이 자습서에서는 Kubernetes 매니페스트를 사용하여 [Kubernetes 개체](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/)를 배포합니다. Kubernetes 매니페스트는 Kubernetes 개체 배포 및 구성 지침이 포함된 YAML 또는 JSON 형식이 지정된 파일입니다.
-
-이 자습서의 응용 프로그램 매니페스트 파일은 이전 자습서에서 복제된 Azure Vote 응용 프로그램 리포지토리에서 제공됩니다. 아직 이 리포지토리를 복제하지 않은 경우 다음 명령을 사용하여 리포지토리를 복제합니다. 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-매니페스트 파일은 복제된 리포지토리의 다음 디렉터리에 있습니다.
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
 
 ## <a name="update-manifest-file"></a>매니페스트 파일 업데이트
 
-Azure Container Registry를 사용하여 컨테이너 이미지를 저장하는 경우 매니페스트를 ACR loginServer 이름으로 업데이트해야 합니다.
+이 자습서에서는 ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장했습니다. 응용 프로그램을 실행하기 전에 Kubernetes 매니페스트 파일에서 ACR 로그인 서버 이름을 업데이트해야 합니다.
 
 [az acr list](/cli/azure/acr#list) 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
@@ -70,7 +56,13 @@ Azure Container Registry를 사용하여 컨테이너 이미지를 저장하는 
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-샘플 매니페스트를 *microsoft*라는 리포지토리 이름으로 미리 만들었습니다. 텍스트 편집기로 파일을 열고 *microsoft* 값을 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+매니페스트 파일은 로그인 서버 이름 `microsoft`를 사용하여 미리 작성되었습니다. 원하는 텍스트 편집기에서 파일을 엽니다. 이 예제에서는 `vi`를 사용하여 파일을 엽니다.
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+`microsoft`는 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
 
 ```yaml
 containers:
@@ -78,12 +70,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+파일을 저장하고 닫습니다.
+
 ## <a name="deploy-application"></a>응용 프로그램 배포
 
 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 명령을 사용하여 응용 프로그램을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 출력:
@@ -105,7 +99,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 **EXTERNAL-IP**가 *보류 중*으로 표시됩니다. EXTERNAL-IP 주소가 *보류 중*에서 *IP 주소*로 변경되면 `CTRL-C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
+처음에는 `azure-vote-front` 서비스에 대한 **EXTERNAL-IP**가 `pending`으로 표시됩니다. EXTERNAL-IP 주소가 `pending`에서 `IP address`로 변경되면 `CTRL-C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

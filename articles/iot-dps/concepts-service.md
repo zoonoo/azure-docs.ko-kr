@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 1a37f0753ab576aba9154e148b026b70877176f2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning 서비스 개념
 
 IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. Device Provisioning 서비스를 사용하여 안전하고 확장 가능한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다.
@@ -53,14 +51,14 @@ Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-등록 그룹은 특정 증명 메커니즘을 공유하는 장치의 그룹입니다. 등록 그룹의 모든 장치는 동일한 루트 CA에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다.
+등록 그룹은 특정 증명 메커니즘을 공유하는 장치의 그룹입니다. 등록 그룹의 모든 장치는 동일한 루트 CA에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
 
 > [!TIP]
 > 원하는 초기 구성을 공유하는 다수의 장치 또는 동일한 테넌트로 이동하는 장치에 대한 등록 그룹을 사용하는 것이 좋습니다.
 
 ### <a name="individual-enrollment"></a>개별 등록
 
-개별 등록은 등록할 수 있는 단일 장치에 대한 항목입니다. 개별 등록은 증명 메커니즘으로 X.509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
+개별 등록은 등록할 수 있는 단일 장치에 대한 항목입니다. 개별 등록은 증명 메커니즘으로 X.509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 개별 등록의 등록 ID는 영숫자, 소문자이며 하이픈을 포함할 수 있습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
 
 > [!TIP]
 > 고유한 초기 구성이 필요한 장치 또는 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다.
@@ -72,4 +70,3 @@ Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 
 ## <a name="operations"></a>작업
 
 작업은 Device Provisioning 서비스의 대금 청구 단위입니다. 하나의 작업은 서비스에 대한 하나의 명령의 성공적인 완료입니다. 작업에는 장치 등록 및 재등록이 포함되며, 등록 목록 항목 추가, 등록 목록 항목 업데이트 같은 서비스 쪽 변경도 포함됩니다.
-

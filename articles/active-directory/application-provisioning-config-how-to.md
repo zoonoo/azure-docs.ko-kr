@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: 2e38fcb30ea7632339a3ba8815a536872cfcc69e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성하는 방법
 
 *사용자 계정 프로비전*은 응용 프로그램의 로컬 사용자 프로필 저장소에 사용자 계정 레코드를 생성, 업데이트 및/또는 비활성화하는 작업입니다. 대부분의 클라우드 및 SaaS 응용 프로그램은 고유한 로컬 사용자 프로필 저장소에 사용자 역할 및 권한을 저장하고, 로컬 저장소의 그러한 사용자 레코드의 존재는 Single Sign-On 및 작업에 대한 액세스를 위해 *필요*합니다.
@@ -54,5 +52,4 @@ Azure Portal에서 엔터프라이즈 앱에 대한 왼쪽 탐색 창의 **프�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
-
 

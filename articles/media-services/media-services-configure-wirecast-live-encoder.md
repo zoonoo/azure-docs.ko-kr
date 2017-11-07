@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 > [!div class="op_single_selector"]
@@ -177,4 +176,3 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

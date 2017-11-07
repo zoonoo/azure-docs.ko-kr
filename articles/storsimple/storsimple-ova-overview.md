@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/09/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 6ba37cbfc8c92d00cf0ec02dd7b1ea9795946bcd
 ms.openlocfilehash: 100eed4694d2017333ef25eca86034d17cce78d1
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 ## <a name="overview"></a>개요
@@ -189,10 +190,4 @@ StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 [가상 배열 포털을 준비](storsimple-virtual-array-deploy1-portal-prep.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

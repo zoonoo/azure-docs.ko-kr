@@ -1,10 +1,10 @@
 ---
 title: "StorSimple 8000 시리즈 장치에 업데이트 5 설치 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 4를 설치하는 방법에 대해 설명합니다."
+description: "StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 5를 설치하는 방법에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2017
+ms.date: 10/06/2017
 ms.author: alkohli
+ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 84056daaada94875af3d969847ead41c003a1606
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5 설치
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Portal을 통해서와 핫픽스 방법을 사용하여 이전 소프트웨어 버전을 실행하는 StorSimple 장치에 업데이트 5를 설치하는 방법에 대해 설명합니다. 핫픽스 방법은 StorSimple 장치의 DATA 0 이외의 네트워크 인터페이스에 게이트웨이가 구성되어 있고 업데이트 1 이전 소프트웨어 버전에서 업데이트하려는 경우에 사용됩니다.
+이 자습서에서는 Azure Portal을 통해서와 핫픽스 방법을 사용하여 이전 소프트웨어 버전을 실행하는 StorSimple 장치에 업데이트 5를 설치하는 방법에 대해 설명합니다. 핫픽스 메서드는 이전의 업데이트 3 버전을 실행 중인 장치에 업데이트 5를 설치할 때 사용합니다. 핫픽스 방법은 StorSimple 장치의 DATA 0 이외의 네트워크 인터페이스에 게이트웨이가 구성되어 있고 업데이트 1 이전 소프트웨어 버전에서 업데이트하려는 경우에도 사용됩니다.
 
 업데이트 5는 장치 소프트웨어, Storport 및 Spaceport, OS 보안 업데이트 및 기타 OS 업데이트, 디스크 펌웨어 업데이트를 포함합니다.  장치 소프트웨어, Spaceport, Storport, 보안 및 기타 OS 업데이트는 무중단 업데이트입니다. Azure Portal을 통해 또는 핫픽스 메서드를 통해 무중단 또는 정기적인 업데이트를 적용할 수 있습니다. 디스크 펌웨어 업데이트는 작업 중단 업데이트이며 장치의 Windows PowerShell 인터페이스를 사용하여 핫픽스 메서드를 통해 유지 관리 모드에 있을 때 적용됩니다.
 
 > [!IMPORTANT]
 > * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 장치 상태를 확인합니다. Azure Portal에서 업데이트를 적용하는 경우 이러한 사전 검사를 수행합니다.
+> * 업데이트 3 이전 버전을 실행하는 장치를 업데이트할 때는 핫픽스 방법을 사용하여 업데이트를 설치하는 것이 좋습니다. 업데이트 과정 중의 지원을 위해 [지원 티켓을 로그](storsimple-8000-contact-microsoft-support.md)합니다.
 > * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. 포털에서 사전 업데이트 게이트웨이 검사가 실패한 경우 (업데이트를 설치하려면) 장치의 Windows PowerShell 인터페이스로 이동해야 합니다. 업데이트하는 버전에 따라 업데이트 설치에 4시간(이상)이 걸릴 수 있습니다. 장치의 Windows PowerShell 인터페이스를 통해 유지 관리 모드 업데이트를 설치해야 합니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 이는 장치에 중단 시간을 발생시킵니다.
 > * 선택적 StorSimple Snapshot Manager를 실행하는 경우 장치를 업데이트하기 전에 Snapshot Manager 버전을 업데이트 5로 업그레이드했는지 확인합니다.
 
@@ -47,12 +47,11 @@ ms.lasthandoff: 08/23/2017
 
 장치가 **StorSimple 8000 시리즈 업데이트 5(6.3.9600.17845)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜**를 수정해야 합니다.
 
-* 이제 유지 관리 모드 업데이트가 사용 가능하다고 표시됩니다(이 메시지는 업데이트를 설치한 후 최대 24시간 동안 계속 표시될 수 있음). 유지 관리 모드 업데이트는 작업 중단 업데이트이므로 장치 가동 중지 시간이 발생할 수 있으며, 장치의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다.
+이제 유지 관리 모드 업데이트가 사용 가능하다고 표시됩니다(이 메시지는 업데이트를 설치한 후 최대 24시간 동안 계속 표시될 수 있음). 유지 관리 모드 업데이트를 설치하는 단계는 다음 섹션에 자세히 설명되어 있습니다.
 
-* [핫픽스를 다운로드하려면](#to-download-hotfixes)에 나열된 단계를 사용하여 유지 관리 모드 업데이트를 다운로드한 후 KB4011837을 검색한 후 다운로드합니다. 이 KB는 디스크 펌웨어 업데이트를 설치합니다(다른 업데이트가 이미 설치되어 있어야 함). [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes) 에 나열된 단계를 따라 유지 관리 모드 업데이트를 설치합니다.
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## <a name="install-update-5-as-a-hotfix"></a>핫픽스로 업데이트 5 설치
-
 
 핫픽스 방법을 사용하여 업그레이드할 수 있는 소프트웨어 버전은 다음과 같습니다.
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 08/23/2017
 * 업데이트 4
 
 > [!NOTE] 
-> Azure Portal을 통해 업데이트 5를 설치하는 것이 좋습니다. Azure Portal을 통해 업데이트를 설치하려고 할 때 게이트웨이 검사에 실패하는 경우 이 절차를 따릅니다. 비데이터 0 네트워크 인터페이스에 할당된 게이트웨이가 있고 장치가 업데이트 1 이전의 소프트웨어 버전을 실행하는 경우 확인이 실패합니다.
+> 업데이트 3 이상 버전에서 업데이트할 때 업데이트 5를 설치하는 권장 방법은 Azure Portal을 사용하는 것입니다. 업데이트 3 이전 버전을 실행하는 장치를 업데이트할 때 이 절차를 사용합니다. Azure Portal을 통해 업데이트를 설치하려고 할 때 게이트웨이 검사에 실패하는 경우에도 이 절차를 사용할 수 있습니다. 비데이터 0 네트워크 인터페이스에 할당된 게이트웨이가 있고 장치가 업데이트 1 이전의 소프트웨어 버전을 실행하는 경우 확인이 실패합니다.
 
 핫픽스 메서드에는 다음 세 단계가 포함됩니다.
 
@@ -114,5 +113,4 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 5 릴리스](storsimple-update5-release-notes.md)에 대해 자세히 알아봅니다.
-
 

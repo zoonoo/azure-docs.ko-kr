@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB 컨테이너에 대한 처리량 설정
 
 Azure Portal 또는 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너에 대한 처리량을 설정할 수 있습니다. 
@@ -89,4 +86,3 @@ Cosmos DB 단일 파티션 컬렉션에서 사용할 수 있는 최소 처리량
 ## <a name="next-steps"></a>다음 단계
 
 Cosmos DB를 사용하여 프로비전을 수행하고 대규모로 크기를 조정하려면 [Cosmos DB로 분할 및 크기 조정](partition-data.md)을 참조하세요.
-

@@ -15,14 +15,12 @@ ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
 
 요즈음 직원은 어디서나 언제든지 어느 장치에서나 생산성을 높이기를 원합니다. 태블릿, 휴대폰 또는 랩톱을 막론하고 자신의 장치에서 일하기를 원합니다. 그리고 해당하는 모든 응용 프로그램인 클라우드의 SaaS 앱 및 회사 앱 온-프레미스 모두에도 액세스할 수 있다고 예상합니다. 온-프레미스 응용 프로그램에 대한 액세스를 제공하려면 일반적으로 가상 사설망(VPN) 또는 완충 영역(DMZ)이 필요했습니다. 이러한 솔루션은 복잡하고 안전하게 만들기도 어려울 뿐만 아니라 설정과 관리에도 비용이 많이 듭니다.
@@ -102,5 +100,4 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 * [사용자 지정 홈페이지 설정](application-proxy-office365-app-launcher.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
 

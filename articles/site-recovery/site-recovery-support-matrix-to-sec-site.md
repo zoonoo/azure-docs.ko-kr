@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 보조 사이트에 복제하기 위한 지원 매트릭스
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 06/15/2017
 
   >[!Note]
   > Windows Server 2016 및 2012 R2 호스트가 혼합된 VMM 2016 클라우드는 현재 지원되지 않습니다.
-
+  > 기존 SCVMM 2012 R2를 2016으로 업그레이드하는 구성은 현재 지원되지 않습니다.
 ### <a name="host-servers"></a>호스트 서버
 
 **배포웹사이트를** | **지원**
@@ -139,4 +137,3 @@ RDM | 예 | 해당 없음
 
 - [VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](site-recovery-vmm-to-vmm.md)
 - [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)
-

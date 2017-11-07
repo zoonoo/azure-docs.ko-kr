@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
+ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Azure에서 StorSimple 가상 장치 배포 및 관리
 ## <a name="overview"></a>개요
@@ -34,12 +33,12 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리) |Standard_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** |사전 업데이트 2 이상을 실행하는 버전 |업데이트 2 이상을 실행하는 버전 |
 | **지역 가용성** |모든 Azure 지역 |Premium Storage 및 DS3 Azure VM을 지원하는 모든 Azure 지역<br></br> [이 목록](https://azure.microsoft.com/en-us/regions/services)을 사용하여 *Virtual Machines > DS 시리즈* 및 *저장소 > 디스크 저장소*를 자신의 지역에서 사용할 수 있습니다. |
-| **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/common/storage-premium-storage.md) 방법 알아보기 |
+| **저장소 유형** |로컬 디스크에 Azure Standard Storage 사용<br></br> [Standard Storage 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크용 Azure Premium Storage 사용<sup>2</sup> <br></br>[Premium Storage 계정을 만드는](../virtual-machines/windows/premium-storage.md) |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드  <br></br>재해 복구용 보조 장치 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
 
-<sup>2</sup> *8010와 8020은 모두 클라우드 계층에 Azure 표준 저장소를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
+<sup>2</sup>*8010와 8020은 모두 클라우드 계층에 Azure Standard Storage를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
 
 이 문서는 Azure에서 StorSimple 가상 장치를 배포하는 단계별 프로세스를 설명합니다. 이 문서를 읽고 나면:
 
@@ -64,15 +63,15 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 | **서비스 데이터 암호화 키** |물리적 장치에서 다시 생성된 후 새 키로 가상 장치를 업데이트합니다. |가상 장치에서 다시 생성할 수 없습니다. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>가상 장치에 대한 필수 구성 요소
-다음 섹션에서는 StorSimple 가상 장치에 대한 구성 필수 구성 요소를 설명합니다. 가상 장치를 배포하기 전에 [가상 장치를 사용하기 위한 보안 고려 사항](storsimple-security.md#storsimple-virtual-device-security)을 참조하세요.
+다음 섹션에서는 StorSimple 가상 장치에 대한 구성 필수 구성 요소를 설명합니다. 가상 장치를 배포하기 전에 [가상 장치를 사용하기 위한 보안 고려 사항](storsimple-security.md)을 참조하세요.
 
 #### <a name="azure-requirements"></a>Azure 요구 사항
 가상 장치를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
 
-* 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 프리미엄 저장소를 사용하는 경우 프리미엄 저장소를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스](https://azure.microsoft.com/en-us/regions/services) 목록에서 *디스크 저장소*의 행에 해당하는 지역입니다.
+* 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Premium Storage를 사용하는 경우 Premium Storage를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스](https://azure.microsoft.com/en-us/regions/services) 목록에서 *디스크 저장소*의 행에 해당하는 지역입니다.
 * 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 가상 장치 만들기에 실패합니다.
 * 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
-* 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.                             
+* 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.                             
 
   * iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
   * 가상 장치와 동일한 가상 네트워크에서 실행 중입니다.
@@ -83,7 +82,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 가상 장치를 만들기 전에 Azure StorSimple 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 가상 장치에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-manage-acrs.md) 를 추가합니다.
-* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/common/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/common/storage-premium-storage.md)을 만드는 방법을 참조하세요.
+* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 Storage 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [Standard Storage 계정](../storage/common/storage-create-storage-account.md) 또는 [Premium Storage 계정](../virtual-machines/windows/premium-storage.md)을 만드는 방법을 참조하세요.
 * 데이터에 사용된 계정이 아닌 가상 장치 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
 시작하기 전에 다음 정보가 있는지 확인합니다.
@@ -172,8 +171,8 @@ StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준
 * **소프트웨어 업데이트** – 업데이트 상태 메시지와 함께 소프트웨어가 마지막으로 업데이트된 날짜를 볼 수 있습니다. 새 업데이트를 확인하려는 경우 수동 검사를 수행하려면 페이지 맨 아래에 있는 **업데이트 검색** 단추를 사용할 수 있습니다. 업데이트를 사용할 수 있는 경우 **업데이트 설치** 를 클릭하여 설치합니다. 가상 장치에는 단일 인터페이스만 있기 때문에 업데이트 적용 시 약간의 서비스가 중단됨을 의미합니다. 가상 장치가 자동으로 종료되고 다시 시작되어(필요한 경우) 출시된 업데이트를 적용합니다. 단계별 절차를 보려면 [장치 업데이트](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)로 이동하세요.
 * **지원 패키지** – 지원 패키지를 만들고 업데이트하여 Microsoft 지원이 가상 장치의 문제를 해결할 수 있도록 합니다. 단계별 절차를 보려면 [지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md)로 이동하세요.
 
-### <a name="storage-accounts-for-a-virtual-device"></a>가상 장치에 대한 저장소 계정
-저장소 계정은 StorSimple Manager 서비스, 가상 장치 및 물리적 장치에서 사용하기 위해 만듭니다. 저장소 계정을 만들면 영역은 모든 시스템 구성 요소 전체에 걸쳐 일관성을 보장 하도록 친숙한 이름의 지역 식별자를 사용하는 것이 좋습니다. 가상 장치의 경우, 성능 문제를 방지하도록 모든 구성 요소가 동일한 영역에 있는 것이 중요합니다.
+### <a name="storage-accounts-for-a-virtual-device"></a>가상 장치에 대한 Storage 계정
+Storage 계정은 StorSimple Manager 서비스, 가상 장치 및 물리적 장치에서 사용하기 위해 만듭니다. 저장소 계정을 만들면 영역은 모든 시스템 구성 요소 전체에 걸쳐 일관성을 보장 하도록 친숙한 이름의 지역 식별자를 사용하는 것이 좋습니다. 가상 장치의 경우, 성능 문제를 방지하도록 모든 구성 요소가 동일한 영역에 있는 것이 중요합니다.
 
 단계별 절차를 보려면 [저장소 계정 추가](storsimple-manage-storage-accounts.md#add-a-storage-account)로 이동하세요.
 
@@ -192,7 +191,7 @@ StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준
 장치가 StorSimple 관리자 서비스 페이지에서 비활성화로 표시되는 즉시, **장치** 페이지의 장치 목록에서 가상 장치를 삭제할 수 있습니다.
 
 ### <a name="start-stop-and-restart-a-virtual-device"></a>가상 장치 시작, 중지 및 다시 시작
-StorSimple 물리적 장치와 달리, StorSimple 가상 장치에서 누를 전원 켜짐 또는 꺼짐 단추가 없습니다. 그러나 가상 장치를 중지하고 다시 시작해야 하는 경우가 있을 수 있습니다. 예를 들어, 일부 업데이트에서는 VM을 다시 시작해야 업데이트 프로세스를 완료할 수 있습니다. 가상 장치를 가장 쉽게 시작, 중지 및 다시 시작할 수 있는 방법은 가상 컴퓨터 관리 콘솔을 사용하는 것입니다.
+StorSimple 물리적 장치와 달리, StorSimple 가상 장치에서 누를 전원 켜짐 또는 꺼짐 단추가 없습니다. 그러나 가상 장치를 중지하고 다시 시작해야 하는 경우가 있을 수 있습니다. 예를 들어, 일부 업데이트에서는 VM을 다시 시작해야 업데이트 프로세스를 완료할 수 있습니다. 가상 장치를 가장 쉽게 시작, 중지 및 다시 시작할 수 있는 방법은 Virtual Machines 관리 콘솔을 사용하는 것입니다.
 
 관리 콘솔을 보면 가상 장치가 생성된 후 시작되기 때문에 상태는 **실행 중** 입니다. 언제든지 가상 컴퓨터를 시작하고 중지하고 다시 시작할 수 있습니다.
 
@@ -205,7 +204,7 @@ StorSimple 물리적 장치와 달리, StorSimple 가상 장치에서 누를 전
 DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 중 하나입니다. 이 시나리오에서는 물리적 StorSimple 장치 또는 전체 데이터 센터를 사용하지 못할 수 있습니다. 다행스럽게도 가상 장치를 사용하여 다른 위치에서 작업을 복원할 수 있습니다. DR 중, 원본 장치의 볼륨 컨테이너는 소유권을 변경하고 가상 장치로 전송됩니다. DR에 대한 필수 구성 요소는 가상 장치가 작성되고 구성되었는지, 볼륨 컨테이너 내의 모든 볼륨을 오프라인으로 전환했는지 및 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있는지 입니다.
 
 > [!NOTE]
-> * DR에 대한 보조 장치로 가상 장치를 사용하는 경우에는 8010에 30TB의 표준 저장소가 있고 8020에 64TB의 프리미엄 저장소가 있다는 것을 기억합니다. 높은 용량의 8020 가상 장치가 DR 시나리오에 보다 적합할 수 있습니다.
+> * DR에 대한 보조 장치로 가상 장치를 사용하는 경우에는 8010에 30TB의 Standard Storage가 있고 8020에 64TB의 Premium Storage가 있다는 것을 기억합니다. 높은 용량의 8020 가상 장치가 DR 시나리오에 보다 적합할 수 있습니다.
 > * 업데이트 2를 실행하는 장치에서 사전 업데이트 1 소프트웨어를 실행하는 장치로 장애 조치 또는 복제할 수 없습니다. 하지만 업데이트 2를 실행하는 장치에서 업데이트 1(1.1 또는 1.2)을 실행하는 장치로 장애 조치는 가능합니다.
 >
 >
@@ -236,4 +235,3 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple Manager 서비스를 사용하여 가상 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 * [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
-

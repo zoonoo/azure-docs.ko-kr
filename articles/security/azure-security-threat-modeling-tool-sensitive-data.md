@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
@@ -465,4 +463,3 @@ clientCredentialType을 인증서 또는 Windows로 설정
   </bindings> 
 </system.serviceModel> 
 ```
-

@@ -12,15 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
+ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52cb5f2569b6c3a5301752b1e8bfb6cea13ff7f6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -44,7 +43,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table 저장소](../storage/common/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB와 작업할 수 있습니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
 
-저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다. Azure Cosmos DB는 향후 업데이트에서 처리량 액세스에 최적화된 테이블을 지원하고, 기존 Azure Table 저장소 계정을 Azure Cosmos DB로 완벽하게 업그레이드할 것입니다.
+저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다.
 
 현재 Azure Table 저장소를 사용하는 경우 "프리미엄 테이블" 미리 보기를 사용하면 다음과 같은 이점이 있습니다.
 
@@ -53,7 +52,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 - 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
 - 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
 - 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
-- 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+- 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
 
 미리 보기에서 Azure Cosmos DB는 .NET SDK를 사용하여 Table API를 지원합니다. NuGet에서 [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스와 메서드 서명이 있는 [Azure Storage 미리 보기 SDK](https://aka.ms/premiumtablenuget)를 다운로드할 수 있지만, Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수도 있습니다 .
@@ -363,4 +362,3 @@ table.DeleteIfExists();
 
 > [!div class="nextstepaction"]
 > [Table API를 사용하여 쿼리](tutorial-query-table.md)
-

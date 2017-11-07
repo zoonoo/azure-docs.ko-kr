@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>기존 Azure 모바일 서비스를 Azure 앱 서비스로 마이그레이션
 [Azure 앱 서비스의 일반적인 가용성]을 사용하여 Azure 모바일 서비스 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure 앱 서비스의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure 모바일 서비스에서 Azure 앱 서비스에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -145,7 +144,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다.  일반적으로 �
 4. 게시 메뉴에서 **배포 자격 증명**을 클릭합니다.
 5. 제공한 상자에 새 배포 자격 증명을 입력한 다음 저장 단추를 클릭합니다.
 
-이러한 자격 증명을 사용하여 git를 통해 사이트를 복제하거나 GitHub, TFS 또는 Mercurial에서 자동화된 배포를 설치할 수 있습니다.  자세한 내용은 [Azure 앱 서비스 배포 설명서]를 참조하세요.
+이러한 자격 증명을 사용하여 git를 통해 사이트를 복제하거나 GitHub, TFS 또는 Mercurial에서 자동화된 배포를 설치할 수 있습니다.  자세한 내용은 [Azure App Service 배포 설명서]를 참조하세요.
 
 ### <a name="appsettings"></a>응용 프로그램 설정
 마이그레이션된 모바일 서비스에 대한 설정은 대부분 앱 설정을 통해 사용할 수 있습니다.  [Azure 포털]에서 앱 설정의 목록을 가져올 수 있습니다.
@@ -358,7 +357,7 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 응용 프로그램이 App Service에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
 
 * [스테이징 슬롯] 을 배포하면 사이트에 대한 변경 내용을 준비하고 A/B 테스트를 수행할 수 있습니다.
-* [WebJobs] 은 요청 시 예약된 작업을 대체합니다.
+* [WebJobs]는 요청 시 예약된 작업을 대체합니다.
 * TFS, GitHub 또는 Mercurial에 사이트를 연결하여 사이트를 [지속적으로 배포] 할 수 있습니다.
 * [Application Insights] 를 사용하여 사이트를 모니터링할 수 있습니다.
 * 동일한 코드에서 웹 사이트 및 모바일 API를 제공합니다.
@@ -375,29 +374,26 @@ Traffic Manager 프로필을 만들면 프로필에 마이그레이션된 모바
 <!-- Links -->
 [앱 서비스 가격]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[자동 크기 조정]: ../app-service-web/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
+[자동 크기 조정]: ../app-service/web-sites-scale.md
+[Azure App Service]: ../app-service/app-service-web-overview.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
-[지속적으로 배포]: ../app-service-web/app-service-continuous-deployment.md
+[지속적으로 배포]: ../app-service/app-service-continuous-deployment.md
 [혼합 네임스페이스를 변환]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
+[사용자 지정 도메인 이름]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 앱 서비스의 일반적인 가용성]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[로깅]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[로깅]: ../app-service/web-sites-enable-diagnostic-log.md
 [Mobile App Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [모바일 서비스 vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [알림 허브]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[성능 모니터링]: ../app-service-web/web-sites-monitor.md
+[성능 모니터링]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[스테이징 슬롯]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[스테이징 슬롯]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md
-

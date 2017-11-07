@@ -1,6 +1,6 @@
 ---
 title: "상시 암호화: SQL Database - Azure Key Vault | Microsoft Docs"
-description: "이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다."
+description: "이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다."
 keywords: "데이터 암호화, 암호화 키, 클라우드 암호화"
 services: sql-database
 documentationcenter: 
@@ -10,24 +10,23 @@ editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL 데이터베이스의 중요한 데이터 보호 및 Azure 주요 자격 증명 모음에 암호화 키 저장
+# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
-이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
+이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure Key Vault에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
 
-상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL 데이터베이스 및 SQL Server 내의 새로운 데이터 암호 기술입니다. 상시 암호화는 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 데이터 암호화를 구성한 후 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
+상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL Database 및 SQL Server 내의 새로운 데이터 암호 기술입니다. 상시 암호화는 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 데이터 암호화를 구성한 후 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
 상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 응용 프로그램을 만들어 암호화된 데이터로 작업합니다.
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 04/27/2017
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * [Azure PowerShell](/powershell/azure/overview) 버전 1.0 이상. 실행 중인 PowerShell 버전을 보려면 **(Get-Module azure -ListAvailable).Version** 을 입력합니다.
 
-## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>클라이언트 응용 프로그램에서 SQL 데이터베이스 서비스에 액세스하도록 설정
+## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정
 필요한 인증을 설정하고 다음 코드에서 응용 프로그램을 인증하는 데 필요한 *ClientId* 및 *Secret*를 가져와 클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정해야 합니다.
 
 1. [Azure 클래식 포털](http://manage.windowsazure.com)을 엽니다.
@@ -68,7 +67,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="create-a-key-vault-to-store-your-keys"></a>키를 저장할 주요 자격 증명 모음 만들기
 클라이언트 앱이 구성되고 클라이언트 ID가 있으므로 이제 주요 자격 증명 모음을 만들고 사용자와 사용자 응용 프로그램에서 이 자격 증명 모음의 암호에 액세스하도록 허용하는 액세스 정책을 구성해야 합니다(항상 암호화된 키). 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
 
-다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성하는 방법은 [Azure 주요 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
+다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성하는 방법은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
@@ -152,18 +151,18 @@ SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설�
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. SSN 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. BirthDate 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
+SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
 
 ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
 ### <a name="master-key-configuration"></a>마스터 키 구성
-**마스터 키 구성** 페이지는 CMK를 설치하고 CMK가 저장될 키 저장소 공급자를 선택합니다. 현재 Windows 인증서 저장소, Azure 주요 자격 증명 모음 또는 하드웨어 보안 모듈(HSM)에 CMK를 저장할 수 있습니다.
+**마스터 키 구성** 페이지는 CMK를 설치하고 CMK가 저장될 키 저장소 공급자를 선택합니다. 현재 Windows 인증서 저장소, Azure Key Vault 또는 하드웨어 보안 모듈(HSM)에 CMK를 저장할 수 있습니다.
 
-이 자습서에서는 Azure 주요 자격 증명 모음에 키를 저장하는 방법을 보여 줍니다.
+이 자습서에서는 Azure Key Vault에 키를 저장하는 방법을 보여 줍니다.
 
-1. **Azure 주요 자격 증명 모음**을 선택합니다.
+1. **Azure Key Vault**를 선택합니다.
 2. 드롭다운 목록에서 원하는 주요 자격 증명 모음을 선택합니다.
-3. **다음**을 클릭합니다.
+3. **다음**을 누릅니다.
 
 ![마스터 키 구성](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -178,8 +177,8 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 ### <a name="verify-the-wizards-actions"></a>마법사의 작업 확인
 마법사가 완료된 후에 데이터베이스는 상시 암호화에 대해 설정됩니다. 마법사는 다음 작업을 수행했습니다.
 
-* 열 마스터 키가 만들어지고 Azure 주요 자격 증명 모음에 저장됩니다.
-* 열 암호화 키가 만들어지고 Azure 주요 자격 증명 모음에 저장됩니다.
+* 열 마스터 키가 만들어지고 Azure Key Vault에 저장됩니다.
+* 열 암호화 키가 만들어지고 Azure Key Vault에 저장됩니다.
 * 암호화에 선택한 열을 구성합니다. Patients 테이블에는 현재 데이터가 없지만 이제 선택된 열의 기존 데이터가 암호화됩니다.
 
 **Clinic** > **보안** > **상시 암호화 키**를 확장하여 SSMS에서 키 만들기를 확인할 수 있습니다.
@@ -227,8 +226,8 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
 
-## <a name="register-the-azure-key-vault-provider"></a>Azure 주요 자격 증명 모음 공급자 등록
-다음 코드는 ADO.NET 드라이버로 Azure 주요 자격 증명 모음 공급자를 등록하는 방법을 보여 줍니다.
+## <a name="register-the-azure-key-vault-provider"></a>Azure Key Vault 공급자 등록
+다음 코드는 ADO.NET 드라이버로 Azure Key Vault 공급자를 등록하는 방법을 보여 줍니다.
 
     private static ClientCredential _clientCredential;
 
@@ -252,7 +251,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 이 샘플에서는 다음 방법을 설명합니다.
 
 * 연결 문자열을 수정하여 상시 암호화 사용.
-* Azure 주요 자격 증명 모음을 응용 프로그램의 키 저장소 공급자로 등록  
+* Azure Key Vault를 응용 프로그램의 키 저장소 공급자로 등록  
 * 암호화된 열에 데이터 삽입.
 * 암호화된 열에서 특정 값에 필터링하여 레코드 선택.
 
@@ -641,5 +640,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암�
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 * [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

@@ -11,15 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="unlicensed-usage-report"></a>허가되지 않은 사용 현황 보고서
 허가되지 않은 사용 현황 보고서를 사용하면 유료 Azure AD 기능을 사용하는 허가되지 않은 사용자를 식별할 수 있습니다. 이를 통해 구매한 라이선스를 더 잘 활용할 수 있도록 해주고 추가 라이선스가 필요할 때를 알려줍니다. 
@@ -46,5 +44,4 @@ Azure AD Premium 라이선스가 없는 경우에 적용되는 조건부 액세�
 ## <a name="see-also"></a>참고 항목
 * [Office 365 및 기타 Azure Active Directory 연결 앱과 함께 조건부 액세스 사용](active-directory-conditional-access.md)
 * [Azure AD 조건부 액세스 시작하기](active-directory-conditional-access-azuread-connected-apps.md) 
-
 

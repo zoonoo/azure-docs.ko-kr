@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
+ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 우리는 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
@@ -106,7 +105,7 @@ Azure Cosmos DB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱�
 
 만든 날짜 순으로 게시물이 정렬된 “최신” 스트림을 유지하거나, 지난 24시간 이내에 좋아요가 많이 추가된 순으로 게시물이 정렬된 “인기” 스트림을 유지할 수 있습니다. 또한 팔로워와 관심사 같은 논리에 따라 각 사용자에 대한 사용자 지정 스트림을 구현할 수도 있으며, 이는 여전히 게시물 목록으로 유지됩니다. 이러한 목록을 빌드하는 방법이 중요하지만 읽기 성능이 그대로 유지되어야 합니다. 이러한 목록 중 하나를 가져온 후에는 여러 페이지의 게시물을 한 번에 가져오기 위해 [IN 연산자](documentdb-sql-query.md#WhereClause)를 사용하여 Cosmos DB에 대한 단일 쿼리를 실행합니다.
 
-피드 스트림은 [Azure App Service](https://azure.microsoft.com/services/app-service/)의 백그라운드 프로세스인 [Webjobs](../app-service-web/web-sites-create-web-jobs.md)를 사용하여 빌드할 수 있습니다. 게시물을 만든 후 [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md)를 통해 트리거되고 고유한 사용자 지정 논리를 기반으로 스트림 내에 게시물 전파를 구현하는 [Azure Storage](https://azure.microsoft.com/services/storage/), [큐](../storage/queues/storage-dotnet-how-to-use-queues.md) 및 Webjobs를 사용하여 백그라운드 처리를 트리거할 수 있습니다. 
+피드 스트림은 [Azure App Service](https://azure.microsoft.com/services/app-service/)의 백그라운드 프로세스인 [Webjobs](../app-service/web-sites-create-web-jobs.md)를 사용하여 빌드할 수 있습니다. 게시물을 만든 후 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 통해 트리거되고 고유한 사용자 지정 논리를 기반으로 스트림 내에 게시물 전파를 구현하는 [Azure Storage](https://azure.microsoft.com/services/storage/), [큐](../storage/queues/storage-dotnet-how-to-use-queues.md) 및 Webjobs를 사용하여 백그라운드 처리를 트리거할 수 있습니다. 
 
 이 동일한 기술을 사용하여 궁극적으로 일관된 환경을 만들어 게시물에 대한 평점 및 좋아요를 지연된 방식으로 처리할 수 있습니다.
 
@@ -240,7 +239,7 @@ Cosmos DB는 지정된 **파티션 키**(문서의 특성 중 하나로 정의�
 
 Cosmos DB를 사용하면 몇 번의 클릭으로 투명하게 [데이터를 전역으로 복제](../cosmos-db/tutorial-global-distribution-documentdb.md)하고 [클라이언트 코드](../cosmos-db/tutorial-global-distribution-documentdb.md)에서 사용 가능한 지역 중 하나를 자동으로 선택할 수 있습니다. 즉, [여러 장애 조치 지역](regional-failover.md)을 사용할 수 있습니다. 
 
-전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 [성능 구성](../app-service-web/web-sites-traffic-manager.md)을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 Cosmos DB 복제본에 연결됩니다.
+전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 성능 구성을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 Cosmos DB 복제본에 연결됩니다.
 
 ![소셜 플랫폼에 전역적 적용 범위 추가](./media/social-media-apps/social-media-apps-global-replicate.png)
 

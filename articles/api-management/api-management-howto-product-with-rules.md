@@ -3,7 +3,7 @@ title: "Azure API Management로 API 보호 | Microsoft Docs"
 description: "할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
+ms.openlocfilehash: c13d08c2f5ea6cfb5bed19b94c09f3d7dd37c21f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Azure API Management를 사용하여 속도 제한으로 API 보호
 이 가이드에서는 Azure API Management로 속도 제한 및 할당량 정책을 구성하여 백엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여줍니다.
@@ -326,4 +325,3 @@ API Management의 제품은 보호되거나 개방될 수 있습니다. 사용�
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

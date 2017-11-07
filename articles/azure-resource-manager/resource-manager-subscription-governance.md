@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스
 기업은 민첩성과 유연성을 위해 공용 클라우드 도입을 확대하고 있습니다. 또한 수익을 창출하고 비즈니스에 맞게 리소스를 최적화하는 클라우드의 장점을 활용하고 있습니다. Microsoft Azure는 광범위한 워크로드 및 응용 프로그램을 처리할 구성 요소와 같이 기업에서 조합할 수 있는 다양한 서비스를 제공합니다. 
@@ -255,5 +254,4 @@ Azure가 처음으로 릴리스되었을 때 구독에 대한 액세스 제어�
 
 ## <a name="next-steps"></a>다음 단계
 * 이제 구독 관리에 대해 살펴보았으며 실제 권장 사항에 대해 알아보겠습니다. [Azure 구독 관리 구현 예제](resource-manager-subscription-examples.md)를 참조하세요.
-
 

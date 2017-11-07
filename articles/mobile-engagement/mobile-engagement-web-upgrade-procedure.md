@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement 웹 SDK 업그레이드 절차
 이전 버전의 Azure Mobile Engagement SDK를 웹 응용 프로그램에 이미 통합한 경우 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
@@ -120,10 +120,4 @@ Mobile Engagement에서는 연결 문자열을 사용하여 응용 프로그램 
 전역 JavaScript 개체 `window.capptain`은 이름이 `window.azureEngagement`로 변경되었지만 API 호출에 `window.engagement` 별칭을 사용할 수 있습니다. SDK 구성 정의에는 별칭을 사용할 수 없습니다.
 
 예: `capptain.deviceId`가 `engagement.deviceId`로 변경, `capptain.agent.startActivity`가 `engagement.agent.startActivity`로 변경 등...
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

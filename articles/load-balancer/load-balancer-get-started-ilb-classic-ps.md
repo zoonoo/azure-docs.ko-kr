@@ -3,7 +3,7 @@ title: "Azure 내부 부하 분산 장치 만들기 - PowerShell 클래식 | Mic
 description: "클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
-
+ms.openlocfilehash: 85fd757bdd6dd9906a23977b760f01bb1f85bf77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell을 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -116,7 +116,7 @@ Get-AzureInternalLoadBalancer 명령 표시에서 IP 주소를 확인하고 필�
 * 두 기존 데이터베이스 서버 이름은 DB1, DB2입니다.
 * 웹 계층의 웹 서버는 개인 IP 주소를 사용하여 데이터베이스 계층의 데이터베이스 서버에 연결합니다. 다른 옵션은 가상 네트워크에 자체 DNS를 사용하고 내부 부하 분산 장치 집합에 A 레코드를 수동으로 등록하는 것입니다.
 
-다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고&2;개의 데이터베이스 서버에 해당하는 가상 컴퓨터에 끝점을 추가합니다.
+다음 명령은 **ILBset** 라는 새 내부 부하 분산 인스턴스를 구성하고 2개의 데이터베이스 서버에 해당하는 가상 컴퓨터에 끝점을 추가합니다.
 
 ```powershell
 $svc="mytestcloud"
@@ -189,10 +189,4 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [원본 IP 선호도를 사용하여 부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -3,7 +3,7 @@ title: Azure Application Insights FAQ | Microsoft Docs
 description: "Application Insights에 대한 질문과 대답입니다."
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -105,7 +104,7 @@ ms.lasthandoff: 05/17/2017
 * HTTP 요청
 * [종속성](app-insights-asp-net-dependencies.md). 호출: SQL Database, 외부 서비스(Azure Cosmos DB, 테이블, Blob Storage 및 큐)에 대한 HTTP 호출. 
 * [예외](app-insights-asp-net-exceptions.md) 및 스택 추적.
-* [성능 카운터](app-insights-performance-counters.md) - [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하는 경우 Azure 모니터링(app-insights-azure-web-apps.md) 또는 [Application Insights collectd 기록기](app-insights-java-collectd.md).
+* [성능 카운터](app-insights-performance-counters.md) - [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하는 경우 [Azure 모니터링](app-insights-azure-web-apps.md) 또는 [Application Insights collectd 기록기](app-insights-java-collectd.md).
 * 코딩하는 [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md).
 * 적절한 수집기를 구성한 경우 [추적 로그](app-insights-asp-net-trace-logs.md).
 
@@ -187,7 +186,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 * JavaScript SDK는 웹 클라이언트에서 사용자 쿠키를 설정하여 다시 방문하는 사용자와 그룹 작업에 대한 세션 쿠키를 식별합니다.
 * 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)할 수 있습니다.
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
-* 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
+* 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
 
 ## <a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
 | 표시 내용 | 시작 방법 | 원하는 이유 |
@@ -212,7 +211,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 ```
 
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 
 ### <a name="configuring-application-insights"></a>Application Insights 구성
 
@@ -281,4 +280,3 @@ ApplicationInsights.config에서 다음과 같이 설정하여 서버에서 게�
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
-

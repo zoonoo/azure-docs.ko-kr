@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ba02fb8385afeefd0162ff79074352bb02275b55
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fd2df7e1029ced11974d0b832258bed2cf3bbb27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 가상 컴퓨터 관리
 > [!IMPORTANT] 
@@ -99,5 +98,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 * 추가 디스크를 통해 만들기
 * 기존 부하 분산 집합의 구성원으로 만들기
 * 고정 IP 주소로 만들기
-
 

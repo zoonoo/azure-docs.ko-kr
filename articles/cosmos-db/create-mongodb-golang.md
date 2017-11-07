@@ -9,19 +9,17 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang 및 Azure Portal에서 MongoDB API 콘솔 앱 빌드
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-이 빠른 시작은 [Golang](https://golang.org/)로 작성된 기존의 [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) 앱을 사용하는 방법을 보여주고 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결합니다.
+이 빠른 시작은 [Golang](https://golang.org/)로 작성된 기존의 [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) 앱을 사용하는 방법을 보여주고 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결합니다.
 
 즉, Golang 응용 프로그램은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 응용 프로그램에 대해 투명합니다.
 
@@ -247,4 +245,3 @@ Azure Portal로 돌아가서 데이터 탐색기에서 문서를 확인합니다
 
 > [!div class="nextstepaction"]
 > [MongoDB API용 Azure Cosmos DB로 데이터 가져오기](mongodb-migrate.md)
-

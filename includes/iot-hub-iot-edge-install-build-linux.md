@@ -2,11 +2,11 @@
 
 이 자습서의 단계에서는 Ubuntu Linux를 실행 중이라고 가정합니다.
 
-셸을 열고 다음 명령을 실행하여 필수 구성 요소 패키지를 설치합니다.
+필수 구성 요소 패키지를 설치하려면 셸을 열고 다음 명령을 실행합니다.
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 셸에서 다음 명령을 실행하여 로컬 컴퓨터에 Azure IoT Edge GitHub 리포지토리를 복제합니다.

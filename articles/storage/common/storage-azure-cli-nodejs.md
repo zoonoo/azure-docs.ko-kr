@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
+ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 837cf0f2b8db011b38de795339560574027030f8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage에서 Azure CLI 1.0 사용
 
@@ -183,7 +182,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](../storage-dotnet-how-to-use-files.md) 또는 [Linux에서 Azure File Storage 사용 방법](../storage-how-to-use-files-linux.md)을 참조하세요.
+Azure Files는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
@@ -242,4 +241,3 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 * [Azure 서비스 관리 모드의 Azure CLI 명령](../../cli-install-nodejs.md)
 
 Resource Manager 배포 모델과 함께 사용할 수 있도록 Python으로 작성된 차세대 CLI인 [Azure CLI 2.0](../storage-azure-cli.md)도 사용해 볼 수 있습니다.
-

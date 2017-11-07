@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 메모리 내 기술 | Microsoft Docs"
-description: "Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 이러한 기술을 활용하는 방법을 알아봅니다."
+description: "Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다."
 services: sql-database
 documentationCenter: 
 author: jodebrui
@@ -9,18 +9,17 @@ editor:
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jodebrui
+ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -529,4 +528,3 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SSDT(SQL Server Data Tools)](http://msdn.microsoft.com/library/mt204009.aspx)
-

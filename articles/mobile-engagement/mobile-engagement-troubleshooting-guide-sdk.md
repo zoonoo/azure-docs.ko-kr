@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>SDK 통합 문제에 대한 문제 해결 가이드
 다음은 Azure Mobile Engagement가 응용 프로그램에 통합되는 방법과 관련해서 발생할 수 있는 문제입니다.
@@ -135,5 +134,4 @@ ms.lasthandoff: 12/08/2016
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

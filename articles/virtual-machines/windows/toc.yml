@@ -31,15 +31,17 @@
       href: tutorial-load-balancer.md
     - name: 8 - 네트워킹 관리
       href: tutorial-virtual-network.md
-    - name: 9 - 가상 컴퓨터 백업
+    - name: 9 - 가상 컴퓨터 Backup
       href: tutorial-backup-vms.md
-    - name: 10 - 가상 컴퓨터 모니터링
+    - name: 10 - VM 모니터링 및 업데이트
       href: tutorial-monitoring.md
     - name: 11 - VM 보안 관리
       href: tutorial-azure-security.md
     - name: 12 - 팀 서비스 CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - SSL로 웹 서버 보안
+    - name: 13 - SQL\IIS 설치\.NET 스택
+      href: tutorial-iis-sql.md
+    - name: 14 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
 - name: 샘플
   items:
@@ -55,10 +57,38 @@
       href: regions-and-availability.md
     - name: VM 유형 및 크기
       href: sizes.md
+      items:
+        - name: 범용 가상 컴퓨터
+          href: sizes-general.md
+          items:
+            - name: B-시리즈 버스터블
+              href: b-series-burstable.md
+        - name: Compute에 최적화
+          href: sizes-compute.md
+        - name: 메모리에 최적화
+          href: sizes-memory.md
+        - name: Storage에 최적화
+          href: sizes-storage.md
+        - name: GPU에 최적화
+          href: sizes-gpu.md
+          items:
+            - name: GPU 드라이버 설정
+              href: n-series-driver-setup.md
+        - name: 고성능 계산
+          href: sizes-hpc.md
+        - name: Azure 계산 단위(ACU)
+          href: sizes-general.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 저장소
       href: about-disks-and-vhds.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: 프리미엄 저장소 성능
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 응용 프로그램
@@ -69,7 +99,7 @@
       href: security-policy.md
     - name: 모니터링
       href: monitor.md
-    - name: 백업 및 복구
+    - name: Backup 및 복구
       href: backup-recovery.md
     - name: 고성능 컴퓨팅
       href: high-performance-computing.md
@@ -131,6 +161,8 @@
           href: download-template.md
         - name: Azure VM 에이전트
           href: agent-user-guide.md
+        - name: 계획된 유지 보수
+          href: maintenance-notifications.md
         - name: 예약된 이벤트
           href: scheduled-events.md
         - name: 모니터 메타데이터
@@ -143,7 +175,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: 일반화된 이미지 사용
           href: create-vm-generalized-managed.md
-        - name: 특수화된 이미지 사용
+        - name: 특수화된 디스크 사용
           href: create-vm-specialized.md
         - name: VM을 이미지에 캡처
           href: capture-image-resource.md
@@ -161,6 +193,12 @@
           href: manage-availability.md
         - name: 수직 확장
           href: vertical-scaling-automation.md
+        - name: 가용성 영역에서 VM 만들기
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: 포털
+              href: create-portal-availability-zone.md
     - name: 자동화 도구 사용
       items:
         - name: Chef
@@ -168,7 +206,7 @@
     - name: 응용 프로그램 실행
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: Azure의 SAP
@@ -204,12 +242,16 @@
           href: detach-disk.md
         - name: 디스크 크기 조정
           href: expand-os-disk.md
+        - name: 디스크의 복구 및 재해 복구
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 디스크 스냅숏
           href: snapshot-copy-managed-disk.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
         - name: 디스크를 표준 또는 프리미엄으로 변환
           href: convert-disk-storage.md
+        - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: 파일 저장소 사용
           href: mount-azure-file-storage.md
         - name: 템플릿을 사용하여 디스크 배포
@@ -336,11 +378,13 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: PerfInsights 사용
           href: how-to-use-perfInsights.md
+        - name: 성능 진단 VM 확장
+          href: performance-diagnostics-vm-extension.md
 - name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
@@ -350,7 +394,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: 계산 REST
+    - name: Compute REST
       href: /rest/api/compute
     - name: Managed Disks REST
       href: /rest/api/manageddisks

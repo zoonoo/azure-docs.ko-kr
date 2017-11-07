@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: BernardoAMunoz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 040d58a81a9b41fe660e4276d698bf884f90bb6c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-health-overview"></a>Azure Resource Health 개요
  
@@ -91,7 +90,6 @@ Resource Health는 Azure 문제가 리소스에 영향을 주는 경우 진단 �
 리소스 상태에 대한 자세한 내용은 다음 리소스를 확인하세요.
 -  [Azure Resource Health에서 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
 -  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
-
 
 
 

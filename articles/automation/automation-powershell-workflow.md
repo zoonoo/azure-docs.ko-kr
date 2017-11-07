@@ -3,7 +3,7 @@ title: "Azure Automation에 대한 PowerShell 워크플로 학습 | Microsoft Do
 description: "이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 PowerShell 워크플로 간의 중대한 차이와 Automation Runbook에 적용되는 개념을 빠르게 이해하도록 하기 위해 제공됩니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습 
 Azure 자동화의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 몇 가지 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  
@@ -261,4 +260,3 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 ## <a name="next-steps"></a>다음 단계
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
-

@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 43fe6d30bb08c6f79151705437cb184cbf154898
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 Azure CLI 샘플
 
@@ -53,4 +52,3 @@ ms.lasthandoff: 08/21/2017
 |**가상 컴퓨터 문제 해결**||
 | [VM 운영 체제 디스크 문제 해결](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fcli%2fazure%2ftoc.json) | 두 번째 VM의 데이터 디스크처럼 첫 번째 VM에서 운영 체제 디스크를 탑재합니다. |
 | | |
-

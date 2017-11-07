@@ -53,9 +53,9 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>원래 하드 디스크에서 VM 만들기
 
-원래 가상 하드 디스크에서 VM을 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용합니다.
+원래 가상 하드 디스크에서 VM을 만들려면 [Azure Portal](https://portal.azure.com)을 사용합니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 포털의 맨 아래에서 **새로 만들기** > **Compute** > **Virtual Machine** > **갤러리에서**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 포털의 왼쪽 맨 위에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 차례로 선택합니다.
 3. **이미지 선택** 섹션에서 **내 디스크**를 선택한 후 원래 가상 하드 디스크를 선택합니다. 위치 정보를 확인합니다. VM을 배포해야 하는 지역입니다. [다음] 단추를 선택합니다.
 4. **가상 컴퓨터 구성** 섹션에서 VM 이름을 입력하고 VM 크기를 선택합니다.

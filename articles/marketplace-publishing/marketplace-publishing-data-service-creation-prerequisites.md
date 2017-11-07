@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Azure 마켓플레이스용 데이터 서비스 제품 생성을 위한 기술 필수 조건
 > [!IMPORTANT]
@@ -67,9 +67,3 @@ OData 서비스는 백 엔드의 데이터베이스에 위배되지만 않으면
 전반적인 과정을 검토하거나 게시의 각 단계에 해당하는 문서를 보려면 [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하세요.
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

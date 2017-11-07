@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-advanced-threat-detection"></a>Azure 고급 위협 검색
 ## <a name="introduction"></a>소개
 
@@ -153,15 +151,15 @@ Log Analytics와의 상호 작용은 대부분 모든 브라우저에서 실행�
 
 Azure Automation은 PowerShell을 기반으로 하며 Azure 클라우드에서 실행되는 Runbook을 사용하여 관리 프로세스를 자동화합니다. 또한 Runbook을 로컬 데이터 센터의 서버에서 실행하여 로컬 리소스를 관리할 수 있습니다. Azure Automation은 PowerShell DSC(필요한 상태 구성)를 사용하여 구성 관리를 제공합니다.
 
-![Azure Automation](./media/azure-threat-detection/azure-threat-detection-fig7.png)
+![Azure 자동화](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
 Azure에서 호스팅되는 DSC 리소스를 만들고 관리하며, 클라우드 및 온-프레미스 시스템에 적용하여 구성을 정의하고 자동으로 적용하거나, 표류에 대한 보고서를 가져와서 보안 구성이 정책 내에 유지되도록 할 수 있습니다.
 
-## <a name="azure-security-center"></a>Azure Security Center
+## <a name="azure-security-center"></a>Azure 보안 센터
 
 Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
 
-![Azure Security Center](./media/azure-threat-detection/azure-threat-detection-fig8.png)
+![Azure 보안 센터](./media/azure-threat-detection/azure-threat-detection-fig8.png)
 
 Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스에 존재하는 Microsoft의 글로벌 서비스에서 얻은 원격 분석의 포괄적인 집합에 액세스할 수 있습니다. 이 광범위하고 다양한 데이터 집합의 컬렉션을 통해 Microsoft는 온라인 서비스 뿐만 아니라 해당 온-프레미스 소비자 및 엔터프라이즈 제품에서도 새로운 공격 패턴 및 추세를 검색할 수 있습니다.
 
@@ -181,7 +179,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 ![위협 인텔리전스](./media/azure-threat-detection/azure-threat-detection-fig10.jpg)
 
-또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
+또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure 보안 센터는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
 
 -   **강력한 기계 학습 기능 활용** - Azure Security Center는 Azure 배포를 대상으로 하는 위협을 검색하는 데 사용할 수 있는 방대한 양의 클라우드 네트워크 활동 데이터에 액세스할 수 있습니다. 예:
 
@@ -217,7 +215,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
-Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
+Azure 보안 센터는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
 
 -   **인바운드 RDP/SSH 무차별 암호 대입 공격**: 배포에는 매일 많은 로그인이 있는 바쁜 가상 컴퓨터와 로그인이 거의 없는 다른 가상 컴퓨터가 있을 수 있습니다. Azure Security Center는 이러한 가상 컴퓨터에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
 
@@ -290,7 +288,7 @@ SQL Database 위협 검색기는 다음 검색 방법 중 하나를 사용합니
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 응용 프로그램 방화벽
 
-[웹 응용 프로그램 방화벽](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)은 표준 [응용 프로그램 배달 제어](https://kemptechnologies.com/in/application-delivery-controllers) 기능에 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 응용 프로그램 방화벽은 대부분의 [OWASP 상위 10개 일반 웹 취약성](https://www.owasp.org/index.php/Top_10_2010-Main)(영문)으로부터 보호함으로써 이를 수행합니다.
+[웹 응용 프로그램 방화벽](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)은 표준 [응용 프로그램 배달 제어](https://kemptechnologies.com/in/application-delivery-controllers) 기능에 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 응용 프로그램 방화벽은 대부분의 [OWASP 상위 10개 일반 웹 취약성](https://www.owasp.org/index.php/Top_10_2010-Main)(영문)으로부터 보호함으로써 이를 수행합니다.
 
 ![Application Gateway 웹 응용 프로그램 방화벽](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
@@ -432,4 +430,3 @@ Azure Security Center의 고급 검색 기능은 Microsoft Azure 리소스를 �
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)
 
 Azure SQL Database 위협 검색은 데이터베이스에 대한 잠재적 위협에 대한 문제를 해결하는 데 도움이 되었습니다.
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>끝점 액세스 제어 목록이란?
 
@@ -93,5 +91,4 @@ ACL은 규칙 목록이 포함된 개체입니다. ACL을 만들어 가상 컴�
 
 ## <a name="next-steps"></a>다음 단계
 [PowerShell을 사용하여 끝점에 대한 액세스 제어 목록 관리](virtual-networks-acl-powershell.md)
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
+ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 83cb82b9807718e7a509312d159eb766a5da1d2c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 
 이 문서에서는 가져오기 작업을 위해 드라이브를 준비하는 전체 과정을 설명합니다.
@@ -35,7 +33,7 @@ ms.lasthandoff: 08/21/2017
 |H:\Video\ |비디오 컬렉션|12TB|
 |H:\Photo\ |사진 컬렉션|30GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 디스크 이미지|25GB|
-|\\\bigshare\john\music\|네트워크 공유에서 음악 파일 컬렉션|10 GB|
+|\\\bigshare\john\music\ |네트워크 공유에서 음악 파일 컬렉션|10 GB|
 
 ## <a name="storage-account-destinations"></a>저장소 계정 대상
 
@@ -133,4 +131,3 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 * [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [자주 사용 되는 명령에 대한 빠른 참조](../storage-import-export-tool-quick-reference.md)
-

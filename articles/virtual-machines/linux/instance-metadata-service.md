@@ -1,9 +1,9 @@
 ---
-title: "Linux VM용 Azure Instance Metadata Service | Microsoft Docs"
+title: Azure Instance Metadata Service | Microsoft Docs
 description: "Linux VM의 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 가져오는 RESTful 인터페이스입니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: harijay
+author: harijayms
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: harijay
+ms.date: 10/10/2017
+ms.author: harijayms
+ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a61acbe0532ece3a6a26ceb366c12c69db4c304c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
-
-# <a name="azure-instance-metadata-service-for-linux-vms"></a>Linux VM용 Azure Instance Metadata Service
+# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
 
 Azure Instance Metadata Service는 가상 컴퓨터를 관리 및 구성하는 데 사용할 수 있는 가상 컴퓨터 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.
@@ -31,31 +29,31 @@ Azure Instance Metadata Service는 가상 컴퓨터를 관리 및 구성하는 �
 Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 끝점입니다. 이 끝점은 VM 내부에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`) 에서 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 서비스는 글로벌 Azure 지역에서 **일반 공급**됩니다. 정부, 중국 및 독일어 Azure 클라우드에 대한 공개 미리 보기로 제공됩니다. 정기적으로 업데이트를 받아 가상 컴퓨터 인스턴스에 대한 새 정보를 노출합니다. 이 페이지에는 사용 가능한 최신 [데이터 범주](#instance-metadata-data-categories)가 반영되어 있습니다.
+> 이 서비스는 모든 Azure 지역에서 **일반 공급**됩니다.  정기적으로 업데이트를 받아 가상 컴퓨터 인스턴스에 대한 새 정보를 노출합니다. 이 페이지에는 사용 가능한 최신 [데이터 범주](#instance-metadata-data-categories)가 반영되어 있습니다.
 
 ## <a name="service-availability"></a>서비스 가용성
-이 서비스는 일반 공급되는 모든 글로벌 Azure 지역에서 사용할 수 있습니다. 정부, 중국 또는 독일 지역에 대한 공개 미리 보기로 제공됩니다.
+이 서비스는 일반 공급되는 모든 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
-영역                                        | 가용성
------------------------------------------------|-----------------------------------------------
-[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 미리 보기 
-[Azure 중국](https://www.azure.cn/)                                                           | 미리 보기
-[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 미리 보기
+영역                                        | 가용성                                 | 지원되는 버전
+-----------------------------------------------|-----------------------------------------------|-----------------
+[일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급   | 2017-04-02, 2017-08-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02
+[Azure 중국](https://www.azure.cn/)                                                           | 일반 공급 | 2017-04-02
+[Azure 독일](https://azure.microsoft.com/overview/clouds/germany/)                    | 일반 공급 | 2017-04-02
 
-이 표는 다른 Azure 클라우드에서 서비스를 사용할 수 있을 때 업데이트됩니다.
+이 표는 서비스 업데이트가 있거나 지원되는 새 버전을 사용할 수 있을 때 업데이트됩니다.
 
 Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](http://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
 
 ## <a name="usage"></a>사용
 
 ### <a name="versioning"></a>버전 관리
-인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 최신 버전은 `2017-04-02`입니다.
+인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 글로벌 Azure에서 최신 버전은 `2017-08-01`입니다. 현재 지원되는 버전은 (2017-04-02, 2017-08-01)입니다.
 
 > [!NOTE] 
 > 예약된 이벤트의 이전 미리 보기 릴리스는 api-version으로 {최신 버전}을 지원했습니다. 이 형식은 더 이상 지원되지 않으며 향후 사용되지 않을 예정입니다.
 
-새로운 버전이 추가되더라도 스크립트가 특정 데이터 형식에 종속성이 있는 경우 이전 버전에 여전히 액세스할 수 있습니다. 그러나 현재 미리 보기 버전(2017-03-01)은 서비스가 일반 공급되면 사용하지 못할 수 있습니다.
+새로운 버전이 추가되더라도 스크립트가 특정 데이터 형식에 종속성이 있는 경우 이전 버전에 여전히 액세스할 수 있습니다. 그러나 이전 미리 보기 버전(2017-03-01)은 서비스가 일반 공급되면 사용하지 못할 수 있습니다.
 
 ### <a name="using-headers"></a>헤더 사용
 Instance Metadata Service를 쿼리할 때 요청이 실수로 리디렉션되지 않도록 `Metadata: true` 헤더를 제공해야 합니다.
@@ -72,7 +70,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 모든 인스턴스 메타데이터 쿼리는 대/소문자를 구분합니다.
 
 ### <a name="data-output"></a>데이터 출력
-기본적으로 Instance Metadata Service는 JSON 형식(`Content-Type: application/json`)의 데이터를 반환합니다. 그러나 다른 API는 요청된 경우 다른 형식으로 데이터를 반환할 수 있습니다.
+기본적으로 Instance Metadata Service는 JSON 형식(`Content-Type: application/json`)의 데이터를 반환합니다. 그러나 다른 API는 요청된 경우 다른 형식으로 데이터를 반환합니다.
 다음 표는 API에서 지원할 수 있는 다른 데이터 형식에 대한 참조입니다.
 
 API | 기본 데이터 형식 | 다른 형식
@@ -112,7 +110,7 @@ HTTP 상태 코드 | 이유
 **요청**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **응답**
@@ -159,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **요청**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 **응답**
@@ -170,17 +168,21 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "westcentralus",
-    "name": "IMDSSample",
+    "location": "westus",
+    "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
+    "placementGroupId": "",
+    "platformFaultDomain": "1",
+    "platformUpdateDomain": "1",
     "publisher": "Canonical",
-    "sku": "16.04.0-LTS",
-    "version": "16.04.201610200",
-    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
-    "vmSize": "Standard_A1"
+    "resourceGroupName": "myrg",
+    "sku": "16.04-LTS",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "16.04.201708030",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmSize": "Standard_D1"
   },
   "network": {
     "interface": [
@@ -188,13 +190,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv4": {
           "ipAddress": [
             {
-              "privateIpAddress": "10.1.0.4",
+              "privateIpAddress": "10.1.2.5",
               "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.1.0.0",
+              "address": "10.1.2.0",
               "prefix": "24"
             }
           ]
@@ -202,7 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv6": {
           "ipAddress": []
         },
-        "macAddress": "000D3AF806EC"
+        "macAddress": "000D3A36DDED"
       }
     ]
   }
@@ -277,26 +279,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>인스턴스 메타데이터 데이터 범주
 다음 데이터 범주는 Instance Metadata Service를 통해 사용할 수 있습니다.
 
-Data | 설명
------|------------
-location | VM을 실행하는 Azure 지역
-name | VM의 이름 
-offer | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다.
-publisher | VM 이미지 게시자
-sku | VM 이미지에 해당하는 SKU  
-버전 | VM 이미지의 버전 
-osType | Linux 또는or Windows 
-platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md)
-platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md)
-vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-vmSize | [VM 크기](sizes.md)
-ipv4/privateIpAddress | VM의 로컬 IPv4 주소 
-ipv4/publicIpAddress | VM의 공용 IPv4 주소
-subnet/address | VM의 서브넷 주소
-subnet/prefix | 서브넷 접두사, 예:24
-ipv6/ipaddress | VM의 로컬 IPv6 주소
-macAddress | VM MAC 주소 
-scheduledevents | 현재 공개 미리 보기 [scheduledevents](scheduled-events.md) 참조
+Data | 설명 | 도입된 버전 
+-----|-------------|-----------------------
+location | VM을 실행하는 Azure 지역 | 2017-04-02 
+name | VM의 이름 | 2017-04-02
+offer | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다. | 2017-04-02
+publisher | VM 이미지 게시자 | 2017-04-02
+sku | VM 이미지에 해당하는 SKU | 2017-04-02
+버전 | VM 이미지의 버전 | 2017-04-02
+osType | Linux 또는or Windows | 2017-04-02
+platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
+platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
+vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
+vmSize | [VM 크기](sizes.md) | 2017-04-02
+subscriptionId | 가상 컴퓨터에 대한 Azure 구독 | 2017-08-01
+tags | 가상 컴퓨터에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+resourceGroupName | 가상 컴퓨터에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+placementGroupId | 가상 컴퓨터 크기 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
+ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
+subnet/address | VM의 서브넷 주소 | 2017-04-02 
+subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02 
+ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
+macAddress | VM MAC 주소 | 2017-04-02 
+scheduledevents | 현재 공개 미리 보기 [scheduledevents](scheduled-events.md) 참조 | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 
@@ -371,8 +377,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 언어 | 예제 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
-python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
@@ -387,13 +393,15 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다. 나중에 Cloud Service VM에 대한 지원을 추가할 수 있습니다.
 3. 잠시 전에 Azure Resource Manager를 통해 내 가상 컴퓨터를 만들었습니다. 계산 메타데이터 정보가 왜 표시되지 않나요?
    * 2016년 9월 이후에 생성된 VM의 경우 계산 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
-4. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
+4. 새 버전 2017-08-01용으로 채워진 데이터 중 일부만 표시됩니다.
+   * 2016년 9월 이후에 생성된 VM의 경우 계산 메타데이터를 표시하려면 [태그](../../azure-resource-manager/resource-group-using-tags.md)를 추가하세요. 이전 VM(2016년 9월 전에 생성된)의 경우 메타데이터를 새로 고치도록 VM에 확장 또는 데이터 디스크를 추가/제거하세요.
+5. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
-5. 추가 질문/의견은 어디에 공유하나요?
+6. 추가 질문/의견은 어디에 공유하나요?
    * 의견은 http://feedback.azure.com에서 알려주세요.
 7. 가상 컴퓨터 확장 집합 인스턴스에 작동하나요?
    * 예, 메타데이터 서비스는 확장 집합 인스턴스에 사용할 수 있습니다. 
-6. 서비스에 대한 지원을 받으려면 어떻게 하나요?
+8. 서비스에 대한 지원을 받으려면 어떻게 하나요?
    * 서비스에 대한 지원을 받으려면 Azure Portal에서 긴 다시 시도 후 메타데이터 받을 수 없는 VM에 대한 지원 문제를 만듭니다. 
 
    ![인스턴스 메타데이터 지원](./media/instance-metadata-service/InstanceMetadata-support.png)
@@ -401,4 +409,3 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>다음 단계
 
 - Instance Metadata Service에서 **공개 미리 보기**로 제공되는 [scheduledevents](scheduled-events.md) API에 대해 자세히 알아봅니다.
-

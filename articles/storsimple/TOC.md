@@ -36,6 +36,7 @@
 #### [작업 관리](storsimple-virtual-array-manage-jobs.md)
 #### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
 #### [Windows Server 호스트에 MPIO 구성](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [경고를 사용하여 모니터](storsimple-virtual-array-manage-alerts.md)
 #### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
 #### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [솔루션이란?](storsimple-overview.md)
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
+### [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)
 
 ## 시작
 
@@ -99,6 +101,7 @@
 ##### [볼륨 컨테이너 관리](storsimple-8000-manage-volume-containers.md)
 ##### [볼륨 관리 - 현재](storsimple-8000-manage-volumes-u2.md)
 ###### [FAQ: 로컬로 고정된 볼륨](storsimple-8000-local-volume-faq.md)
+##### [역할 기반 액세스 제어](storsimple-8000-role-based-access-control.md)
 ##### [ACR 관리](storsimple-8000-manage-acrs.md)
 ##### [대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md)
 ##### [작업 보기 및 관리](storsimple-8000-manage-jobs-u2.md)
@@ -117,6 +120,7 @@
 ##### [데이터 0 설정 수정](storsimple-8000-modify-data-0.md)
 
 
+
 #### [StorSimple Snapshot Manager 사용](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md)
 ##### [StorSimple Snapshot Manager 인터페이스 정보](storsimple-use-snapshot-manager.md)
@@ -127,6 +131,11 @@
 ##### [StorSimple Snapshot Manager를 통해 백업 작업 관리](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [StorSimple Snapshot Manager를 통해 볼륨 관리](storsimple-snapshot-manager-manage-volumes.md)
 ##### [StorSimple Snapshot Manager에서 MMC 작업 사용](storsimple-snapshot-manager-mmc-menu.md)
+
+### 자동화
+
+#### [Azure PowerShell 샘플 스크립트 사용](storsimple-8000-automation-azurerm-scripts.md)
+#### [Azure Automation Runbook 사용](storsimple-8000-automation-azurerm-runbook.md)
 
 ### 솔루션 빌드
 #### [Veeam를 사용하는 StorSimple](storsimple-configure-backup-target-veeam.md)
@@ -185,7 +194,7 @@
 #### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
 ## 참조
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 시리즈(클래식 포털)

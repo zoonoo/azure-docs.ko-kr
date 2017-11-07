@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/18/2017
 ms.author: yurid
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Security Center에서 적응 응용 프로그램 컨트롤(미리 보기)
 이 연습을 통해 Azure Security Center에서 응용 프로그램 컨트롤을 구성하는 방법에 대해 알아봅니다.
@@ -34,15 +33,18 @@ ms.lasthandoff: 09/14/2017
 - 조직에서 허용되지 않는 특정 소프트웨어 도구를 사용하지 않습니다.
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
+> [!NOTE]
+> 적응 응용 프로그램 컨트롤은 제한된 공개 미리 보기로서 Azure Security Center Standard 고객이 사용할 수 있습니다. 전자 메일로 [당사](mailto:ASC_appcontrol@microsoft.com)에 구독 ID를 보내어 미리 보기에 조인하세요.
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤을 사용하는 방법은 무엇입니까?
-적응 응용 프로그램 컨트롤은 구성된 리소스 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. Security Center에서 응용 프로그램 허용 목록을 구성하려면 아래 단계를 따릅니다.
+적응 응용 프로그램 컨트롤은 구성된 리소스 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 응용 프로그램 허용 목록을 구성할 수 있습니다.
 
 1.  **Security Center** 대시보드를 열고 **개요**를 클릭합니다.
 2.  **고급 클라우드 방어** 아래에서 **적응 응용 프로그램 컨트롤** 타일은 현재 제 위치에서 몇 대의 VM을 제어할 수 있는지 모든 VM과 비교하여 보여줍니다. 또한 지난 주에 발견된 문제의 수도 보여줍니다. 
 
     ![적응 응용 프로그램 컨트롤](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
 
-3. **적응 응용 프로그램 컨트롤** 타일을 클릭하면 더 많은 옵션을 볼 수 있습니다.
+3. 더 많은 옵션은 **적응 응용 프로그램 컨트롤** 타일을 클릭합니다.
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -51,14 +53,12 @@ ms.lasthandoff: 09/14/2017
     * **구성됨**: 응용 프로그램 컨트롤로 구성된 VM을 포함하는 리소스 그룹의 목록입니다. 
     * **권장 사항 없음**: 응용 프로그램 컨트롤 권장 사항이 없는 VM을 포함하는 리소스 그룹의 목록입니다. 예를 들어 응용 프로그램이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
 
-이어지는 섹션은 각 옵션에 대한 자세한 내용과 사용 방법이 나와 있습니다.
-
 ### <a name="configure-a-new-application-control-policy"></a>새 응용 프로그램 컨트롤 정책 구성
 **권장** 탭을 클릭하여 응용 프로그램 컨트롤 권장 사항이 있는 리소스 그룹의 목록을 확인합니다.
 
 ![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-목록에는 다음이 포함됩니다.
+이 목록에는 다음과 같은 정보가 포함됩니다.
 - **이름**: 구독 또는 리소스 그룹의 이름
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
 - **상태**: 권장의 상태로 대부분의 경우 열려 있음
@@ -68,14 +68,16 @@ ms.lasthandoff: 09/14/2017
 
 ![응용 프로그램 컨트롤 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-**VM 선택**에서 권장된 VM 목록을 검토하고 응용 프로그램 컨트롤을 적용하지 않으려는 것을 선택 취소합니다. **허용 목록 규칙에 대한 프로세스 선택**에서 권장된 응용 프로그램의 목록을 검토하고 적용하지 않으려는 것을 선택 취소합니다. 목록에는 다음이 포함됩니다.
+**VM 선택**에서 권장된 VM 목록을 검토하고 응용 프로그램 컨트롤을 적용하지 않으려는 것을 선택 취소합니다. **허용 목록 규칙에 대한 프로세스 선택**에서 권장된 응용 프로그램의 목록을 검토하고 적용하지 않으려는 것을 선택 취소합니다. 이 목록에는 다음과 같은 정보가 포함됩니다.
 
 - **이름**: 전체 응용 프로그램 경로
 - **프로세스**: 모든 경로 내에 있는 응용 프로그램 수
 - **일반**: true는 이러한 프로세스가 리소스 그룹에 있는 대부분의 VM에서 실행되었음을 나타냅니다.
-- **악용 가능**: 경고 아이콘은 응용 프로그램 허용 목록을 우회하기 위해 공격자가 사용할 수 응용 프로그램임을 나타냅니다. 승인하기 전에 이들 응용 프로그램을 검토하는 것이 좋습니다. 
+- **악용 가능**: 경고 아이콘은 응용 프로그램 허용 목록을 우회하기 위해 공격자가 사용할 수 응용 프로그램임을 나타냅니다. 승인 전에 이러한 응용 프로그램을 검토하는 것이 좋습니다. 
 
 선택이 완료되면 **만들기** 단추를 클릭합니다. 기본적으로 Security Center는 항상*감사* 모드에서 응용 프로그램 컨트롤을 통해 사용할 수 있습니다. 허용 목록이 워크로드에 부정적인 영향을 주지 않는 것으로 확인되면 *적용* 모드로 변경할 수 있습니다.
+
+Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
 
 > [!NOTE]
 > 보안 모범 사례는 Security Center가 항상 허용 목록에 있는 응용 프로그램에 대한 게시자 규칙을 만들려고 시도하고, 응용 프로그램에 게시자 정보가 없는 경우에만(즉, 서명되지 않음) 특정 EXE의 전체 경로에 대해 경로 규칙을 만드는 것입니다.
@@ -87,7 +89,7 @@ ms.lasthandoff: 09/14/2017
 
 ![리소스 그룹](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-목록에는 다음이 포함됩니다.
+이 목록에는 다음과 같은 정보가 포함됩니다.
 
 - **이름**: 구독 또는 리소스 그룹의 이름
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
@@ -112,7 +114,7 @@ ms.lasthandoff: 09/14/2017
     - **ViolationsBlocked**: 적용 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행되려 합니다.
     - **ViolationsAudited**: 감사 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행됩니다.
     - **RulesViolatedManually**: 사용자가 ASC 관리 포털을 통해서가 아닌 VM에서 규칙을 수동으로 구성하려고 하는 경우입니다.
-- ** VM 수**: 이러한 문제 유형이 있는 가상 컴퓨터의 수입니다.
+-  **VM 수**: 이러한 문제 유형이 있는 가상 컴퓨터의 수입니다.
 
 이러한 줄을 하나씩 클릭하면 이러한 유형의 위반이 있는 모든 VM에 대한 정보를 볼 수 있는 [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 페이지로 리디렉션됩니다. 각 줄의 끝에 있는 세 점을 클릭하면 해당 특정 항목을 삭제할 수 있습니다. **가상 컴퓨터 구성** 섹션에는 이러한 규칙이 적용된 VM이 나열되어 있습니다. 
 
@@ -122,7 +124,7 @@ ms.lasthandoff: 09/14/2017
 
 ![허용 목록 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-각 줄의 끝에 있는 세 점을 클릭하면 특정 규칙을 삭제할 수 있습니다. **허용 목록 규칙 경로**은 디지털 인증서로 서명되지 않았지만, 여전히 허용 목록 규칙에 있는 응용 프로그램에 대한 전체 응용 프로그램 경로(실행 파일 포함)를 나열합니다. 
+각 줄의 끝에 있는 세 점을 클릭하면 특정 규칙을 삭제할 수 있습니다. **허용 목록 규칙 경로**는 디지털 인증서로 서명되지 않았지만, 여전히 허용 목록 규칙에 있는 응용 프로그램에 대한 전체 응용 프로그램 경로(실행 파일 포함)를 나열합니다. 
 
 > [!NOTE]
 > 기본적으로 보안 모범 사례는 Security Center가 항상 허용 목록에 있는 EXE에 대한 게시자 규칙을 만들려고 시도하고, EXE에 게시자 정보가 없는 경우에만(즉, 서명되지 않음) 특정 EXE의 전체 경로에 대해 경로 규칙을 만드는 것입니다.
@@ -145,12 +147,8 @@ Security Center는 안정적인 응용 프로그램의 집합을 실행하는 �
 - **이름**: 구독 또는 리소스 그룹의 이름.
 - **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수.
 
-## <a name="preview-registration"></a>미리 보기 등록
-
-적응 응용 프로그램 컨트롤은 제한된 공개 미리 보기로서 Azure Security Center Standard 고객이 사용할 수 있습니다. 구독 ID를 [당사](mailto:ASC_appcontrol@microsoft.com)로 전자 메일을 보내어 미리 보기에 가입하세요.
-
-## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center에서 적응 응용 프로그램 컨트롤을 사용하여 Azure VM에서 실행되는 응용 프로그램의 허용 목록을 나열하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+## <a name="next-steps"></a>다음 단계
+이 문서에서는 Azure Security Center에서 적응 응용 프로그램 컨트롤을 사용하여 Azure VM에서 실행되는 응용 프로그램의 허용 목록을 나열하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
@@ -158,5 +156,4 @@ Security Center는 안정적인 응용 프로그램의 집합을 실행하는 �
 * [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다. 
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
 

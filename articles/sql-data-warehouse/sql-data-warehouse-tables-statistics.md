@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블에 대한 통계 관리
 > [!div class="op_single_selector"]
@@ -497,4 +495,3 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
-

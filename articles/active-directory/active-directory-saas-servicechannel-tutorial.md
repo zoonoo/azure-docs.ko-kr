@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory 통합
 
@@ -122,7 +120,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 4. ServiceChannel 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **NameIdentifier(사용자 식별자)**는 유일한 필수 클레임이며 기본값은 **user.userprincipalname**이지만 ServiceChannel에서는 **user.mail**과 매핑되도록 예상합니다. JIT(Just-In-Time) 사용자 프로비전을 활성화하려는 경우 아래와 같이 다음 클레임을 추가해야 합니다. **역할** 클레임은 사용자의 역할을 포함하는 **user.assignedroles**에 매핑되어야 합니다.  
 
     클레임에 대한 자세한 지침은 [여기](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example)에서 ServiceChannel 가이드를 참조할 수 있습니다.
-      
+    
     ![Single Sign-on 구성](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

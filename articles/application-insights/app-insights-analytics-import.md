@@ -4,21 +4,20 @@ description: "앱 원격 분석에 연결할 정적 데이터를 가져오거나
 services: application-insights
 keywords: "개방형 스키마, 데이터 가져오기"
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -367,5 +366,4 @@ namespace IngestionClient
 ## <a name="next-steps"></a>다음 단계
 
 * [Log Analytics 쿼리 언어 둘러보기](app-insights-analytics-tour.md)
-* [*Logstash*를 사용하여 Application Insights에 데이터 전송](https://github.com/Microsoft/logstash-output-application-insights)
-
+* Logstash를 사용 중인 경우 [Logstash 플러그 인을 사용하여 Application Insights로 데이터를 보냅니다](https://github.com/Microsoft/logstash-output-application-insights).

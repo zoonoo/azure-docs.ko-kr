@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>행위자 타이머 및 미리 알림
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
@@ -232,4 +230,3 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 Reliable Actor 이벤트 및 재진입에 대해 알아봅니다.
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
-

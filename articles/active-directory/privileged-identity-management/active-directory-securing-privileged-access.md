@@ -3,8 +3,8 @@ title: "Azure AD에서 권한 있는 액세스 보안 | Microsoft Docs"
 description: "Azure, Azure Active Directory 및 Microsoft Online Services에서 권한 있는 액세스 보안에 대한 접근 방법을 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c96a0bd6710d60629bc631fe7e1f642cdb2bada6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD에서 권한 있는 액세스 보안
 최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
@@ -52,7 +50,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 ## <a name="time-bound-privileges"></a>시간 제한 권한
 일부 조직에서는 높은 권한이 있는 역할의 사용자가 너무 많은 것을 볼 수 있습니다. 서비스 등록 등의 특정 작업에 대한 역할에 사용자가 추가되었을 수 있지만 이후 그러한 권한을 자주 사용하지 않았습니다.
 
-권한에 대한 노출 시간을 줄이고 사용에 대한 가시성을 높이려면 사용자가 작업을 수행해야 하는 "적시에"(JIT)에 권한만 사용하도록 제한합니다. Azure Active Directory 및 Microsoft Online Services에서 [Azure AD PIM(Privileged Identity Management)](http://aka.ms/AzurePIM)을 사용할 수 있습니다.
+권한의 노출 시간을 줄이고 용도에 대한 가시성을 증가하려면 해당 권한 "JIT"(just in time)만 사용하도록 사용자를 제한하거나 확신을 가지고 축약된 기간에 대해 이러한 역할을 할당합니다. 권한은 자동으로 취소됩니다. Azure Active Directory, Azure Resources(미리 보기) 및 Microsoft Online Services에서 [Azure AD PIM(Privileged Identity Management)](http://aka.ms/AzurePIM)을 사용할 수 있습니다.
 
 ![PIM 대시보드][2]
 
@@ -64,9 +62,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 ## <a name="conditional-access"></a>조건부 액세스
 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
 
-![MFA를 사용하는 조건부 액세스 규칙 설정][4]
-
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 * [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md) 사용
 * [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) 사용
 * [Azure AD ID 보호](../active-directory-identityprotection.md) 사용
@@ -78,5 +74,3 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png
-

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>.NET 백엔드를 통한 Azure 알림 허브의 사용자 알림
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -205,7 +205,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 
 
-1. 솔루션 탐색기의 **공유** 프로젝트 아래에서 **App.xaml.cs** 파일을 엽니다.  `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 위에서 추가한 단추 처리기는 알림 등록을 초기화합니다.
+1. 솔루션 탐색기의 **공유** 프로젝트 아래에서 **App.xaml.cs** 파일을 엽니다. `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 위에서 추가한 단추 처리기는 알림 등록을 초기화합니다.
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -343,11 +343,5 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 <!-- URLs. -->
 [알림 허브 시작]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [보안 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-[Notification Hubs를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

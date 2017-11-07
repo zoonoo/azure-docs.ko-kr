@@ -1,6 +1,6 @@
 ---
 title: "Java CA 저장소에 인증서 추가 | Microsoft 문서"
-description: "Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure Service Bus용 CA 인증서를 추가하는 방법에 대해 알아봅니다."
+description: "Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure 서비스 버스용 CA 인증서를 추가하는 방법에 대해 알아봅니다."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,20 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Java CA 인증서 저장소에 인증서 추가
-다음 단계는 Java CA 인증서(cacerts) 저장소에 CA(인증 기관) 인증서를 추가하는 방법을 보여 줍니다. 사용된 예제는 Twilio 서비스에 필요한 CA 인증서용입니다. 항목의 뒷부분에 제공된 정보는 Azure Service Bus용 CA 인증서를 설치하는 방법을 설명합니다. 
+다음 단계는 Java CA 인증서(cacerts) 저장소에 CA(인증 기관) 인증서를 추가하는 방법을 보여 줍니다. 사용된 예제는 Twilio 서비스에 필요한 CA 인증서용입니다. 항목의 뒷부분에 제공된 정보는 Azure 서비스 버스용 CA 인증서를 설치하는 방법을 설명합니다. 
 
 JDK를 압축하고 Azure 프로젝트의 **approot** 폴더에 추가하기 전에 keytool을 사용하여 CA 인증서를 추가하거나 keytool을 사용하여 인증서를 추가하는 Azure 시작 작업을 실행할 수 있습니다. 이 예제에서는 JDK를 압축하기 전에 CA 인증서를 추가한다고 가정합니다. 또한 예제에서는 특정 CA 인증서가 사용되지만 다른 CA 인증서를 얻고 cacerts 저장소로 가져오는 단계도 이와 유사합니다.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>cacerts 저장소에 인증서를 추가하려면
-1. JDK의 **jdk\jre\lib\security** 폴더로 설정된 명령 프롬프트에서 다음을 실행하여 설치된 인증서를 확인합니다.
+1. JDK의 **jdk\jre\lib\security** 폴더로 설정된 관리자 명령 프롬프트에서 다음을 실행하여 설치된 인증서를 확인합니다.
    
     `keytool -list -keystore cacerts`
    
@@ -46,7 +45,7 @@ JDK를 압축하고 Azure 프로젝트의 **approot** 폴더에 추가하기 전
 keytool에 대한 자세한 내용은 <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>을 참조하세요.
 
 ## <a name="azure-root-certificates"></a>Azure 루트 인증서
-Azure 서비스(예: Azure Service Bus)를 사용하는 응용 프로그램은 Baltimore CyberTrust Root 인증서를 신뢰해야 합니다. 2013년 4월 15일부터 Azure는 GTE CyberTrust Global Root에서 Baltimore CyberTrust Root로 마이그레이션을 시작했습니다. 이 마이그레이션을 완료하는 데 몇 달이 걸렸습니다.
+Azure 서비스(예: Azure 서비스 버스)를 사용하는 응용 프로그램은 Baltimore CyberTrust Root 인증서를 신뢰해야 합니다. 2013년 4월 15일부터 Azure는 GTE CyberTrust Global Root에서 Baltimore CyberTrust Root로 마이그레이션을 시작했습니다. 이 마이그레이션을 완료하는 데 몇 달이 걸렸습니다.
 
 Baltimore 인증서가 cacerts 저장소에 이미 설치되어 있을 수도 있으므로 먼저 **keytool -list** 명령을 실행하여 인증서가 있는지 확인해야 합니다.
 
@@ -56,5 +55,4 @@ Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b
 Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Azure 루트 인증서 마이그레이션](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)(영문)을 참조하세요.
 
 Java에 대한 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 참조하세요.
-
 

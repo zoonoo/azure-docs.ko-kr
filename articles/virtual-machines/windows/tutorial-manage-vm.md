@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a26f33247710431d433f3309ecdaca20e605c75a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리
 
 Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
@@ -35,7 +33,10 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -43,7 +44,7 @@ Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *EastUS* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
 ```
 
@@ -57,7 +58,7 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
 
 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 서브넷을 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
     -AddressPrefix 192.168.1.0/24
@@ -65,7 +66,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 
 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
@@ -77,7 +78,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
@@ -89,7 +90,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 네트워크 인터페이스 카드를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $nic = New-AzureRmNetworkInterface `
   -ResourceGroupName myResourceGroupVM  `
   -Location EastUS `
@@ -104,7 +105,7 @@ Azure NSG([네트워크 보안 그룹](../../virtual-network/virtual-networks-ns
 
 인바운드 NSG 규칙을 만들려면 [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)를 사용합니다. 다음 예제는 이름이 *myNSGRule*이고 가상 컴퓨터에 대해 포트 *3389*를 여는 NSG 규칙을 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myNSGRule `
   -Protocol Tcp `
@@ -119,7 +120,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
 
 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 통해 *myNSGRule*을 사용하여 NSG를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupVM `
     -Location EastUS `
@@ -129,7 +130,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)를 사용하여 가상 네트워크의 서브넷에 NSG를 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
     -VirtualNetwork $vnet `
@@ -139,7 +140,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)를 사용하여 가상 네트워크를 업데이트합니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
@@ -149,19 +150,19 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 가상 컴퓨터의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)를 사용하여 가상 컴퓨터에 대한 초기 구성을 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
 [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)을 사용하여 운영 체제 정보를 가상 컴퓨터 구성에 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMOperatingSystem `
     -VM $vm `
     -Windows `
@@ -172,7 +173,7 @@ $vm = Set-AzureRmVMOperatingSystem `
 
 [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)를 사용하여 이미지 정보를 가상 컴퓨터 구성에 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
@@ -183,7 +184,7 @@ $vm = Set-AzureRmVMSourceImage `
 
 [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)를 사용하여 운영 체제 디스크 설정을 가상 컴퓨터 구성에 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMOSDisk `
     -VM $vm `
     -Name myOsDisk `
@@ -194,13 +195,13 @@ $vm = Set-AzureRmVMOSDisk `
 
 [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)를 사용하여 이전에 만든 네트워크 인터페이스 카드를 가상 컴퓨터 구성에 추가합니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 컴퓨터를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
 ```
 
@@ -210,11 +211,11 @@ New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
 
 다음 명령을 실행하여 가상 컴퓨터의 공용 IP 주소를 반환합니다. 다음 단계에서 웹 연결을 테스트하기 위해 브라우저와 연결할 수 있도록 이 IP 주소를 기록해 둡니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-다음 명령을 사용하여 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 *publicIPAddress*로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
+다음 명령을 사용하여 로컬 컴퓨터에서 가상 컴퓨터와의 원격 데스크톱 세션을 만듭니다. 해당 IP 주소를 가상 컴퓨터의 *publicIPAddress*로 바꿉니다. 가상 컴퓨터를 만들 때 사용되는 자격 증명을 묻는 메시지가 표시되면 입력합니다.
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -232,11 +233,11 @@ Get-AzureRmVMImagePublisher -Location "EastUS"
 
 이미지 제안 목록을 반환하려면 [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer)를 사용합니다. 이 명령을 사용하면 반환된 목록이 지정된 게시자를 기준으로 필터링됩니다. 
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
-```powershell
+```azurepowershell-interactive
 Offer             PublisherName          Location
 -----             -------------          -------- 
 Windows-HUB       MicrosoftWindowsServer EastUS 
@@ -246,11 +247,11 @@ WindowsServer-HUB MicrosoftWindowsServer EastUS
 
 그런 다음 [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 명령으로 게시자 및 제안 이름을 기준으로 필터링하여 이미지 이름 목록을 반환합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
-```powershell
+```azurepowershell-interactive
 Skus                                      Offer         PublisherName          Location
 ----                                      -----         -------------          --------
 2008-R2-SP1                               WindowsServer MicrosoftWindowsServer EastUS  
@@ -271,7 +272,7 @@ Skus                                      Offer         PublisherName          L
 
 이 정보를 사용하여 특정 이미지가 있는 VM을 배포할 수 있습니다. 이 예제에서는 VM 개체에서 이미지 이름을 설정합니다. 배포 단계를 완료하려면 이 자습서의 이전 예제를 참조하세요.
 
-```powershell
+```azurepowershell-interactive
 $vm = Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
@@ -302,7 +303,7 @@ $vm = Set-AzureRmVMSourceImage `
 
 특정 영역에서 사용할 수 있는 VM 크기의 목록을 보려면 [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 명령을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMSize -Location EastUS
 ```
 
@@ -312,13 +313,13 @@ VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 �
 
 VM의 크기를 조정하기 전에 원하는 크기를 현재 VM 클러스터에서 사용할 수 있는지 확인합니다. [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 명령은 크기 목록을 반환합니다. 
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
 ```
 
 원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다.
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
 $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
@@ -326,7 +327,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM
 
 원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거되고 고정 IP 주소를 사용하지 않는 한 공용 IP 주소가 변경됩니다. 
 
-```powershell
+```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
 $vm.HardwareProfile.VmSize = "Standard_F4s"
@@ -354,7 +355,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 특정 VM의 상태를 검색하려면 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 명령을 사용합니다. 가상 컴퓨터 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVM `
     -ResourceGroupName myResourceGroupVM `
     -Name myVM `
@@ -363,7 +364,7 @@ Get-AzureRmVM `
 
 출력:
 
-```powershell
+```azurepowershell-interactive
 Status
 ------
 PowerState/running
@@ -377,7 +378,7 @@ PowerState/running
 
 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm)을 사용하여 가상 컴퓨터를 중지하고 할당을 취소합니다.
 
-```powershell
+```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 ```
 
@@ -385,7 +386,7 @@ Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 
 ### <a name="start-virtual-machine"></a>가상 컴퓨터 시작
 
-```powershell
+```azurepowershell-interactive
 Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 ```
 
@@ -393,7 +394,7 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 
 리소스 그룹을 삭제하면 그 안에 포함된 리소스도 모두 삭제됩니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 ```
 
@@ -412,4 +413,3 @@ VM 디스크에 대해 자세히 알아보려면 다음 자습서로 이동합�
 
 > [!div class="nextstepaction"]
 > [VM 디스크 만들기 및 관리](./tutorial-manage-data-disk.md)
-

@@ -4,7 +4,7 @@ description: "Azure CLI 2.0을 사용하여 Resource Manager 템플릿에서 Lin
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
@@ -13,16 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
-
+ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 컴퓨터를 만드는 방법
 이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Linux VM(가상 컴퓨터)을 신속하게 배포하는 방법을 보여 줍니다. [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
@@ -60,7 +58,7 @@ az network public-ip show \
     --output tsv
 ```
 
-그런 다음 정상적으로 VM에 SSH할 수 있습니다.
+그런 다음 정상적으로 VM에 SSH할 수 있습니다. 이전 명령에서 사용자 고유의 공용 IP 주소를 제공합니다.
 
 ```bash
 ssh azureuser@<ipAddress>

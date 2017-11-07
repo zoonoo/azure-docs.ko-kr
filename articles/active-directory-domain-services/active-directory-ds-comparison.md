@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
 Azure AD Domain Services를 사용하면 Azure에서 ID 인프라 유지 관리에 대해 걱정할 필요없이 Azure 인프라 서비스에서 워크로드를 배포할 수 있습니다. 이 관리되는 서비스는 고유한 서비스에 배포하고 관리하는 일반적인 Windows Server Active Directory 배포와 다릅니다. 서비스는 쉽게 배포할 수 있으며 자동화된 상태 모니터링 및 업데이트 관리를 제공합니다. 서비스를 지속적으로 개발하여 일반적인 배포 시나리오에 대한 지원을 추가할 예정입니다.
@@ -121,4 +119,3 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 * [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-

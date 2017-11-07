@@ -15,22 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 11f2f72073fd23c0a7c61dedb270f64d42b98025
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
-성능 및 규모 테스트는 응용 프로그램 개발의 핵심 단계입니다. 대부분의 응용 프로그램에서 데이터베이스 계층은 전반적인 성능 및 확장성에 큰 영향을 미치므로 성능 테스트의 주요 구성 요소입니다. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 탄력적인 규모 및 예측 가능한 성능을 위해 작성되었으므로 고성능 데이터베이스 계층을 필요로 하는 응용 프로그램에 가장 적합합니다. 
+성능 및 규모 테스트는 응용 프로그램 개발의 핵심 단계입니다. 많은 응용 프로그램에서 데이터베이스 계층은 전체 성능과 확장성에 큰 영향을 미칩니다. 따라서 성능 테스트의 주요 구성 요소가 됩니다. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 탄력적 확장 및 예측 가능한 성능을 목적으로 구축되었습니다. 이러한 기능은 고성능 데이터베이스 계층이 필요한 응용 프로그램에 잘 맞습니다. 
 
-이 문서는 개발자가 자신의 Cosmos DB 작업에 대한 성능 테스트 모음을 구현하거나 Cosmos DB에서 고성능 응용 프로그램 시나리오를 평가할 때 참조로 사용됩니다. 또한 이 문서는 데이터베이스의 격리된 성능 테스트에 중점을 두지만 프로덕션 응용 프로그램에 대한 모범 사례도 제공합니다.
+이 문서는 Azure Cosmos DB 워크로드에 대해 성능 테스트 세트를 구현하는 개발자가 참조할 수 있습니다. 또한 고성능 응용 프로그램 시나리오에 대해 Azure Cosmos DB를 평가하는 데도 사용할 수 있습니다. 또한 이 문서는 데이터베이스의 격리된 성능 테스트에 중점을 두지만 프로덕션 응용 프로그램에 대한 모범 사례도 제공합니다.
 
-이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.   
+이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다. 
 
-* Cosmos DB의 성능 테스트를 위한 샘플 .NET 클라이언트 응용 프로그램은 어디에서 찾을 수 있나요? 
-* 클라이언트 응용 프로그램에서 Cosmos DB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
+* Azure Cosmos DB의 성능 테스트를 위한 샘플 .NET 클라이언트 응용 프로그램은 어디에서 찾을 수 있나요? 
+* 클라이언트 응용 프로그램에서 Azure Cosmos DB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
 
 코드를 시작하려면 [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하세요. 
 
@@ -39,17 +38,17 @@ ms.lasthandoff: 08/30/2017
 > 
 > 
 
-Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 대한 자세한 내용은 [Azure Cosmos DB 성능 팁](performance-tips.md)을 참조하세요.
+Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 대한 자세한 내용은 [Azure Cosmos DB 성능 팁](performance-tips.md)을 참조하세요.
 
 ## <a name="run-the-performance-testing-application"></a>성능 테스트 응용 프로그램 실행
-다음 단계에 설명된 대로 시작하는 가장 빠른 방법은 .NET 샘플을 컴파일 및 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
+가장 빠른 시작 방법은 다음 단계에 설명된 대로 아래의 .NET 샘플을 컴파일하고 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
 
 **1단계:** [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하거나 GitHub 리포지토리를 분기합니다.
 
 **2단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate(옵션)에 대한 설정을 수정합니다.
 
 > [!NOTE]
-> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 저장소 및 처리량의 비용을 별도로 청구하므로 테스트 후에 Azure Cosmos DB 컬렉션을 삭제하거나 처리량을 줄여 비용을 절감할 수 있습니다.
+> 높은 처리량의 컬렉션을 프로비전하기 전에 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하여 컬렉션당 비용을 추정합니다. Azure Cosmos DB는 시간 단위로 저장소 및 처리량을 독립적으로 청구합니다. 테스트 후 Azure Cosmos DB 컬렉션을 삭제하거나 처리량을 낮추어 비용을 절감할 수 있습니다.
 > 
 > 
 
@@ -101,11 +100,10 @@ Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 대한
 실행 중인 앱이 있는 경우 다양한 [인덱싱 정책](indexing-policies.md) 및 [일관성 수준](consistency-levels.md)을 시도하면서 처리량 및 대기 시간에 미치는 영향을 이해할 수 있습니다. 소스 코드를 검토하고 자체 테스트 제품군 또는 프로덕션 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 .NET 콘솔 앱을 사용하여 Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 .NET 콘솔 앱을 사용하여 Azure Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Azure Cosmos DB 성능 향상을 위한 클라이언트 구성 옵션](performance-tips.md)
 * [Azure Cosmos DB의 서버 쪽 분할](partition-data.md)
-
 
 

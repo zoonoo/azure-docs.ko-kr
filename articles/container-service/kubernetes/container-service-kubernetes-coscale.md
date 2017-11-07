@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: ec73646f7b49669da82d9cda2a1348d447942619
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f894191baced710fc0f5a8c8692df98033341a48
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>CoScale을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 이 문서에서는 [CoScale](https://www.coscale.com/) 에이전트를 배포하여 Azure Container Service의 Kubernetes 클러스터에 있는 모든 노드 및 컨테이너를 모니터링하는 방법을 보여 줍니다. 이러한 구성을 위해서는 CoScale 계정이 필요합니다. 
 
@@ -89,5 +89,4 @@ CoScale 에이전트는 클러스터의 새 컴퓨터에 자동으로 배포됩�
 ## <a name="next-steps"></a>다음 단계
 
 CoScale 모니터링 솔루션에 대한 자세한 내용은 [CoScale 설명서](http://docs.coscale.com/) 및 [블로그](https://www.coscale.com/blog)를 참조하세요. 
-
 

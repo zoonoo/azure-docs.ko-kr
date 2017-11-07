@@ -3,7 +3,7 @@ title: "연속 배달을 통해 원격 디버깅 사용 | Microsoft Docs"
 description: "연속 배달을 사용하여 Azure에 배포할 경우 원격 디버깅을 사용하도록 설정하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: .net
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: kraigb
+ms.author: mikejo
+ms.openlocfilehash: c2bd67afc0c289de94019497e57b57f97a759f3a
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a10b142283cf19295330238ac7289329b2d1f70e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용
 클라우드 서비스 또는 가상 컴퓨터의 경우 다음 단계를 따라 [연속 배달](cloud-services-dotnet-continuous-delivery.md) 을 사용하여 Azure에 게시하면 Azure에서 원격 디버깅을 사용할 수 있습니다.
@@ -34,7 +33,7 @@ ms.lasthandoff: 08/28/2017
     
     또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
 
-3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명된 인증서를 만듭니다. .pfx 및 RDP 인증서 지문을 유지하고 대상 클라우드 서비스에 인증서를 업로드합니다.
+3. [Azure Cloud Services에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명된 인증서를 만듭니다. .pfx 및 RDP 인증서 지문을 유지하고 대상 클라우드 서비스에 인증서를 업로드합니다.
 4. MSBuild 명령줄에 다음 옵션을 사용하여 원격 디버그를 사용하도록 설정한 상태로 빌드 및 패키지화합니다. (꺾쇠 괄호가 항목의 경우 시스템 및 프로젝트 파일에 대한 실제 경로를 대체합니다.)
    
         msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
@@ -45,9 +44,9 @@ ms.lasthandoff: 08/28/2017
 6. Visual Studio 및 Azure SDK for .NET이 설치된 컴퓨터로 인증서(.pfx 파일)를 가져옵니다. `CurrentUser\My` 인증서 저장소로 로 가져와야 합니다. 그렇지 않은 경우 Visual Studio의 디버거에 연결는 데 실패합니다.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>가상 컴퓨터에 원격 디버깅 사용
-1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Visual Studio에서 Azure Virtual Machine 만들기 및 관리](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 Virtual Machines 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Visual Studio에서 Azure Virtual Machine 만들기 및 관리](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 2. [Azure 클래식 포털 페이지](http://go.microsoft.com/fwlink/p/?LinkID=269851)에서, 가상 컴퓨터 대시보드를 보고 가상 컴퓨터의 **RDP 인증서 지문**을 확인합니다. 이 값은 확장 구성에서 `ServerThumbprint` 값에 사용됩니다.
-3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md) 에서 간략히 설명한 대로 클라이언트 인증서를 만듭니다(.pfx 및 RDP 인증서 지문 유지).
+3. [Azure Cloud Services에 대한 인증서 개요](cloud-services-certs-create.md) 에서 간략히 설명한 대로 클라이언트 인증서를 만듭니다(.pfx 및 RDP 인증서 지문 유지).
 4. Azure PowerShell(0.7.4 이후 버전)을 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)에 간략히 설명한 대로 설치합니다.
 5. 다음 스크립트를 실행하여 RemoteDebug 확장을 사용합니다. 경로 및 개인 데이터를 사용자의 데이터(예: 구독 이름, 서비스 이름 및 지문)로 바꿉니다.
    
@@ -95,5 +94,4 @@ ms.lasthandoff: 08/28/2017
     ```
 
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
-
 

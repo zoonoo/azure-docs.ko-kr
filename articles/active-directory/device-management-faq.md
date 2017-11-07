@@ -11,17 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3b37033e0c96e01c73bef15af1b85116f404c354
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
+
+
+
+**Q: macOS 장치를 등록하려면 어떻게 할까요?**
+
+**A:** macOS 장치를 등록하려면:
+
+1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [macOS 장치에 대한 조건부 액세스 정책 정의](active-directory-conditional-access-azure-portal.md) 
+
+**설명**
+
+- 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](active-directory-conditional-access-technical-reference.md#client-apps-condition)가 필요합니다. 
+
+- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 장치를 등록하라는 메시지가 표시됩니다.
+
+---
 
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
 
@@ -151,5 +167,4 @@ ms.lasthandoff: 09/05/2017
 - [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
 ---
-
 

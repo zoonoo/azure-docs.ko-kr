@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>이벤트 허브 인증 및 보안 모델 개요
 
@@ -118,5 +117,4 @@ Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 
 [이벤트 허브 개요]: event-hubs-what-is-event-hubs.md
 [Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [공유 액세스 서명 개요]: ../service-bus-messaging/service-bus-sas.md
-
 

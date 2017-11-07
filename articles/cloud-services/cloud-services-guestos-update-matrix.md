@@ -1,6 +1,6 @@
 ---
 title: "최신 Azure 게스트 OS 릴리스에 대해 알아보기 | Microsoft Docs"
-description: "Azure  Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
+description: "Azure Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 10/22/2017
 ms.author: raiye
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -30,14 +29,26 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 >
 
 
-> [!NOTE]
-> RSS 피드는 최근에 사용되지 않습니다. 곧 제공될 새 피드에 대한 업데이트에 대해 알아봅니다.
+> [!TIP]
+>  [게스트 OS 업데이트 RSS 피드]를 구독하여 모든 게스트 OS 변경 사항에 가장 시기 적절한 알림을 받을 수 있습니다.
+>
+>
+
+> [!IMPORTANT]
+> 11월 롤아웃부터 지원되며 게스트 OS의 최신 2 버전만 Azure Portal에서 지원되며 사용할 수 있습니다.
 >
 >
 
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+
+
+###### <a name="october-6-2017"></a>**2017년 10월 6일**
+9월 게스트 OS가 릴리스되었습니다. Windows Server 2016 9월 릴리스의 경우 netfx3이 기본적으로 사용됩니다. 고객은 워크플로에서 4.x 런타임과 함께 .NET 2.x 앱을 실행해야 하는 경우 또는 .NET 2.x 앱 실행 시 오류가 발생하여 .NET 4.x 앱을 실행한 경우 ‘dism /online /disable-feature /featurename:netfx3’을 OnStart에 추가해야 합니다.
+
+###### <a name="september-14-2017"></a>**2017년 9월 14일**
+9월 게스트 OS 롤아웃은 9월 14일에 시작되고 10월 9일에 출시될 예정입니다.
 
 ###### <a name="august-24-2017"></a>**2017년 8월 24일**
 8월 게스트 OS가 릴리스되었습니다.
@@ -66,16 +77,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ###### <a name="april-18-2017"></a>**2017년 4월 18일**
 게스트 OS 4월 롤아웃은 4월 18일에 시작되며 5월 9일에 출시될 예정입니다.
 
-###### <a name="april-10-2017"></a>**2017년 4월 10일**
-게스트 OS 3월 롤아웃은 2017년 3월 14일에 시작되었으며 2017년 4월 10일에 출시되었습니다.
-
-###### <a name="january-10-2017"></a>**2017년 1월 10일**
-1월 게스트 OS에는 OS 제품군 2(Windows 2008 Server R2)에만 영향을 미치는 패치가 포함되어 있습니다. 따라서 이번 달에는 OS 제품군 2 이미지(WA-GUEST-OS-2.59_201701-01)만 릴리스했습니다. 모든 다른 OS 제품군의 경우 12월 OS(201612-01)는 최신 상태를 유지합니다.
-
 
 ## <a name="releases"></a>릴리스
 ## <a name="family-5-releases"></a>제품군 5 릴리스
-**Windows Server, 2016**
+**Windows Server 2016**
 
 설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
@@ -87,9 +92,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |2017년 10월 6일 |5.13 후 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |2017년 8월 24일 |5.12 후 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |2017년 8월 3일 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |2017년 7월 7일 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
@@ -100,7 +106,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
 
-.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -109,9 +115,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |2017년 10월 6일 |4.48 후 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |2017년 8월 24일 |4.47 후 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |2017년 8월 3일 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |2017년 7월 7일 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
@@ -126,7 +133,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
 **Windows Server 2012**
 
-.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -135,9 +142,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |2017년 10월 6일 |3.55 후 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |2017년 8월 24일 |3.54 후 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |2017년 8월 3일 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |2017년 7월 7일 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
@@ -152,7 +160,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
 
-.NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2 지원
+설치된 .NET Framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > *가 표시된 날짜는 변경될 수 있음
@@ -161,9 +169,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |2017년 10월 6일 |2.68 후 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |2017년 8월 24일 |2.67 후 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |2017년 8월 3일 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |2017년 7월 7일 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |2017년 7월 7일 |2017년 10월 6일 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |2017년 6월 5일 |2017년 8월 24일 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |2017년 5월 9일 |2017년 8월 3일 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |2017년 4월 10일 |2017년 7월 7일 |TBD |
@@ -232,6 +241,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## <a name="guest-os-supportability-and-retirement-policy"></a>게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
+[게스트 OS 업데이트 RSS 피드]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -251,4 +261,3 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [수정 사항]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-

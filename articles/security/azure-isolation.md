@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
+ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
 ### <a name="overview"></a>개요
@@ -58,7 +56,7 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](https://docs.microsoft
 
 사용자, 그룹 및 해당 디렉터리에서 응용 프로그램은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
-- Azure AD에서 데이터에 액세스하려면 [STS(보안 토큰 서비스)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)를 통한 사용자 인증이 필요합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다.
+- Azure AD의 데이터에 대한 액세스는 보안 토큰 서비스(STS)를 통해 사용자 인증이 필요합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다.
 
 ![Azure 테넌트](./media/azure-isolation/azure-isolation-fig1.png)
 
@@ -348,5 +346,4 @@ Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사�
 - [저장소 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure는 고객 VM 기반 계산을 저장소와 분리합니다. 이러한 분리를 통해 계산 및 저장소를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다. 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. 모든 요청은 고객의 선택에 따라 HTTP 또는 HTTPS를 통해 실행됩니다.
-
 

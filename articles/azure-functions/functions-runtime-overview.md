@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
+ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 98d1e2ad162f4b69be4fdf9a5b004f640fbb5d7e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-runtime-overview"></a>Azure Functions 런타임 개요
 
 Azure Functions 런타임은Azure Functions 프로그래밍 모델 온-프레미스의 간편성 및 유연성을 활용하는 새로운 방법을 제공합니다. Azure Functions와 같은 오픈 소스 루트 기술을 기반으로 하는 Azure Functions 런타임은 온-프레미스에 배포되어 클라우드 서비스와 거의 동일한 개발 환경을 제공합니다.
@@ -56,4 +54,3 @@ Azure Functions 런타임을 시작하려면 **SQL Server** 인스턴스에 대�
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
-

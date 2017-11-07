@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
-ms.contentlocale: ko-kr
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management를 관리하기 위해 액세스 권한 제공
 조직에 대한 Azure AD Privileged Identity Management (PIM)을 사용하는 전역 관리자는 자동적으로 역할 할당 및 PIM에 대한 액세스를 가집니다. 하지만, 기본적으로 다른 전역 관리자를 포함하여 아무도 쓰기 액세스 권한을 갖지 못합니다. 다른 전역 관리자, 보안 관리자 및 보안 판독기에는 Azure AD PIM에 대한 읽기 전용 액세스 권한이 있습니다. PIM에 대한 액세스를 제공하기 위해 첫 번째 사용자가 다른 사용자를 **권한 있는 역할 관리자** 역할에 할당할 수 있습니다. 이 할당은 PIM 자체 내에서 수행해야 하고 PowerShell 또는 다른 포털을 통해 변경할 수 없습니다.
@@ -62,4 +61,3 @@ ms.lasthandoff: 01/27/2017
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
-

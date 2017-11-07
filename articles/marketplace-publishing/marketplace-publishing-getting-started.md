@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Azure Marketplace에 제품 게시 및 관리
 다른 Azure 고객 및 파트너가 구매하여 사용하도록 개발자가 Azure Marketplace에 나열된 솔루션을 만들고, 배포하고, 관리하는 데 도움을 주기 위해 이 문서를 제공합니다.
@@ -107,4 +105,3 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 
 ## <a name="additional-resources"></a>추가 리소스
 [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
-

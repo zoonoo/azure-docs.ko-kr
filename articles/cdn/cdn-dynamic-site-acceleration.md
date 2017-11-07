@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -137,7 +136,6 @@ Verizon Premium에 ADN을 사용하고 있는 경우 규칙 엔진을 사용하�
 예: `mydynamic.azureedge.net/index.html`은 동적 페이지이고 DSA 끝점에서 로드됩니다.  html 페이지는 `mystatic.azureedge.net/banner.jpg` 및 `mystatic.azureedge.net/scripts.js` 등의 정적 CDN 끝점에서 로드한 JavaScript 라이브러리 또는 이미지와 같은 여러 정적 자산을 참조합니다. 
 
 ASP.NET 웹 응용 프로그램의 컨트롤러를 사용하여 특정 CDN URL을 통해 콘텐츠를 제공하는 방법은 [여기](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller)에서 예를 확인할 수 있습니다.
-
 
 
 

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 10/09/2017
 ms.author: terrylan
+ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 37419e40808fc8104cb89f6a742874ad6f8c838f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure 보안 센터에서 보안 권장 사항 관리
 이 문서에서는 Azure 보안 센터의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -43,13 +42,13 @@ ms.lasthandoff: 08/21/2017
 현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) , SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-policies.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### <a name="monitor-recommendations"></a>권장 사항 모니터링
-보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **Security Center** 블레이드의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
+보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **개요**의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
 
 ![권장 사항 타일][1]
 
-각 권장 사항에 대한 세부 정보를 보려면:
+각 권장 사항에 대한 세부 정보를 보려면 **개요**에서 **권장 사항** 타일을 선택합니다. **권장 사항**이 열립니다.
 
-**Security Center** 블레이드에서 **권장 사항 타일**을 선택합니다. **권장 사항** 블레이드가 열립니다.
+![필터 권장 사항][2]
 
 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 이 테이블의 열은 다음과 같습니다.
 
@@ -73,17 +72,16 @@ ms.lasthandoff: 08/21/2017
 
 | 권장 사항 | 설명 |
 | --- | --- |
-| [구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md) |구독 또는 구독의 VM(가상 컴퓨터) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
+| [구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md) |각 구독과 모든 Azure VM(VIrtual Machines) 및 비 Azure 컴퓨터에 대한 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
 | [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
-| [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
+| [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 Windows 및 Linux VM과 컴퓨터에 배포하는 것이 좋습니다. |
 | [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
-| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/app-service-app-service-environments-readme.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
+| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
 | [차세대 방화벽 추가](security-center-add-next-generation-firewall.md) |보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하라는 권장 사항입니다. |
 | [NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |인바운드 트래픽이 NGFW를 통해 VM로 강제하도록 네트워크 보안 그룹(NSG) 규칙을 구성하는 것이 좋습니다. |
 | [Endpoint Protection 설치](security-center-install-endpoint-protection.md) |VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다. |
-| [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md) |끝점 보호 오류를 해결하는 것이 좋습니다. |
 | [서브넷 또는 가상 컴퓨터에서 네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md) |서브넷 또는 VM에서 NSG를 활성화하는 것이 좋습니다. |
 | [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md) |NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다. |
 | [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
@@ -101,7 +99,6 @@ ms.lasthandoff: 08/21/2017
 
 1. **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
 
-    ![필터 권장 사항][2]
 2. 권장 사항이 적용하기에 적절하지 않다고 생각되면 권장 사항을 해제하고 보기에서 필터링합니다. 권장 사항을 해제하는 두 가지 방법이 있습니다. 한 가지 방법은 항목을 마우스 오른쪽 단추로 클릭한 다음 **해제**를 선택하는 것입니다. 다른 방법은 마우스 포인터로 항목을 가리키고 오른쪽에 나타나는 점 세 개를 클릭한 다음 **해제**를 선택하는 것입니다. **필터**를 클릭하고 **해제됨**을 선택하면 해제된 권장 사항을 볼 수 있습니다.
 
     ![권장 사항 해제][3]
@@ -125,4 +122,3 @@ ms.lasthandoff: 08/21/2017
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
-

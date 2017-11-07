@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/11/2017
 ms.author: bwren
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>정규식을 사용하여 Log Analytics에서 로그 검색 필터링
+
+>[!NOTE]
+> 이 문서는 Log Analytics에서 레거시 쿼리 언어를 사용하는 정규식에 대해 설명합니다.  작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 [언어 설명서의 정규식](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax)을 참조해야 합니다.
+
 
 [로그 검색](log-analytics-log-searches.md)을 사용하면 Log Analytics 리포지토리에서 정보를 추출할 수 있습니다.  [필터 식](log-analytics-search-reference.md#filter-expressions)을 사용하면 특정 조건에 따라 검색 결과를 필터링할 수 있습니다.  **RegEx** 키워드를 사용하면 이 필터에 대한 정규식을 지정할 수 있습니다.  
 
@@ -99,4 +102,3 @@ ms.lasthandoff: 08/11/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [검색 로그](log-analytics-log-searches.md)에 대해 알아보고 Log Analytics 리포지토리에서 데이터를 보고 분석합니다.
-

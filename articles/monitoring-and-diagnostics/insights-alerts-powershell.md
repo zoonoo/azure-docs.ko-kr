@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure 서비스의 Azure Monitor에서 메트릭 경고 만들기 - PowerShell
 > [!div class="op_single_selector"]
@@ -97,7 +96,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     Get-AzureRmMetricDefinition에 사용 가능한 모든 옵션 목록은 Get-MetricDefinitions를 실행하여 확인할 수 있습니다.
+     Get-AzureRmMetricDefinition에 사용 가능한 모든 옵션 목록은 `Get-Help Get-AzureRmMetricDefinition -Detailed`를 실행하여 확인할 수 있습니다.
 5. 다음 예제에서는 웹 사이트 리소스에 대한 경고를 설정합니다. 이 경고는 어느 트래픽이나 5분 동안 계속 수신되면 항상 트리거되며, 트래픽이 5분 동안 수신되지 않으면 다시 트리거됩니다.
 
     ```PowerShell
@@ -135,4 +134,3 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그 수집](monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
-

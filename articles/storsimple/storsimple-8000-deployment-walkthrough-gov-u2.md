@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 장치 배포
 
@@ -197,5 +196,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-8000-cloud-appliance-u2.md)를 구성합니다.
 * [StorSimple 장치 관리자 서비스](storsimple-8000-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리합니다.
-
 

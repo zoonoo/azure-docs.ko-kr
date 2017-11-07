@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure 저장소의 데이터 이동
 온-프레미스 데이터를 Azure 저장소로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
@@ -78,4 +77,3 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 ### <a name="moving-data-faq"></a>데이터 이동 FAQ:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD를 복사하지 않고 한 지역에서 다른 지역으로 마이그레이션할 수 있나요?
 지역 간에 VHD를 복사하는 유일한 방법은 각 지역의 저장소 계정 간에 데이터를 복사하는 것입니다. 이 작업에는 AZCopy를 사용할 수 있습니다. 자세한 내용은 AzCopy 명령줄 유틸리티로 데이터 전송을 참조하세요. 대용량 데이터의 경우 Azure Import/Export를 사용할 수도 있습니다. 자세한 내용은 [Azure 가져오기/내보내기](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) 를 참조하세요.
-

@@ -3,7 +3,7 @@ title: "Azure API 관리에서 API를 만드는 방법"
 description: "Azure API 관리에서 API를 만들고 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 14c20da4-f29f-4b28-bec7-3d4c50b734da
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 496aa7754b35877900da020283c8b7efe0e04cef
-
-
+ms.openlocfilehash: 79630fb8998d47aab8eed38daf7d5fcef3d870d7
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Azure API 관리에서 API를 만드는 방법
 API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 새 API가 게시자 포털에서 생성되고 필요한 작업이 추가됩니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
@@ -94,9 +94,3 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
 [How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

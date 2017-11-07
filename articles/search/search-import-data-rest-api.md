@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API를 사용하여 Azure 검색에 데이터 업로드
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ URL에서 서비스 이름, 인덱스 이름(이 경우 "호텔") 뿐만 아니�
 
 ## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md) 를 참조하세요.
-

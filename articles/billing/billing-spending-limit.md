@@ -11,15 +11,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli
+ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure 지출 한도의 작동 방식 및 제거 방법 이해
 
@@ -69,7 +68,11 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>제거한 후에 지출 한도를 설정하려면 어떻게 하나요?
 
-지출 한도는 자동으로만 설정됩니다. 안타깝게도 제거된 후 사용자가 직접 설정할 수 있는 옵션이 없습니다. 다시 설정되지 않는 한도에 대해 걱정되는 경우 **현재 청구 기간에 대한 지출 한도 제거** 옵션을 선택했는지 확인합니다.
+이 기능은 지출 한도가 무기한으로 제거된 경우에만 사용할 수 있습니다. 다음 청구 기간이 시작될 때 자동으로 설정하도록 변경합니다.
+
+1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
+1. 지출 한도 옵션을 변경하려면 노란색 배너를 클릭합니다.
+1. **다음 청구 기간에서 지출 한도 설정\<청구 기간의 시작 날짜\>** 선택
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>사용자 지정 지출 한도를 설정하려면 어떻게 하나요?
 
@@ -82,4 +85,3 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

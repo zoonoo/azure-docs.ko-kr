@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
+ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
@@ -254,7 +252,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **규칙 형식**에서 **아웃바운드**를 클릭합니다.
-4. **Out to AAD – User Join**이라는 규칙을 찾고 **편집**을 클릭합니다.
+4. 사용하는 Connect의 버전에 따라 **Out to AAD – User Join** 또는 **Out to AAD - User Join SOAInAD**라는 규칙을 찾고 **편집**을 클릭합니다.
 5. 팝업에서 **예** 를 선택하여 규칙의 복사본을 만듭니다.
 6. **설명** 페이지에서 50과 같은 사용하지 않는 값으로 **우선 순위**를 변경합니다.
 7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에서 **@contoso.com**를 입력하고 **절 추가**를 클릭합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에서**@contoso.com**을 입력합니다.
@@ -303,4 +301,3 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 - [Azure AD와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure 저장소에서 동시성 관리
 ## <a name="overview"></a>개요
@@ -290,5 +289,4 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure 저장소 소개](storage-introduction.md)
 * [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../storage-dotnet-how-to-use-queues.md) 및 [파일](../storage-dotnet-how-to-use-files.md)에 대한 저장소 시작
 * 저장소 아키텍처 – [Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 

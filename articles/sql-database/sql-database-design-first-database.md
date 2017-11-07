@@ -1,6 +1,6 @@
 ---
 title: "첫 번째 Azure SQL Database 디자인 | Microsoft Docs"
-description: "첫 번째 Azure SQL Database를 디자인하는 방법을 알아봅니다."
+description: "Azure Portal에서 SQL Server Management Studio를 사용하여 최초의 Azure SQL 데이터베이스를 설계하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,17 +13,15 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>첫 번째 Azure SQL Database 디자인
 
 Azure SQL Database는 Microsoft Cloud("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
@@ -77,13 +75,13 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-   | **위치** | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+   | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. **선택**을 클릭합니다.
 
-6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU 수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU 수 및 저장소 크기에 대한 옵션을 살펴봅니다. 
+6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU 수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU 및 저장소 수에 대한 옵션을 살펴봅니다. 
 
 7. 이 자습서에서는 **표준** 서비스 계층을 선택한 다음 슬라이더를 사용하여 **100DTU(S3)** 및 **400**GB 저장소를 선택합니다.
 
@@ -92,7 +90,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 8. **추가 기능 저장소** 옵션을 사용하려면 미리 보기 약관에 동의합니다. 
 
    > [!IMPORTANT]
-   > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+   > \* 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
    >
    >\* 프리미엄 계층의 경우 현재 미국 동부 2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
    > 
@@ -157,7 +155,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
    | 설정       | 제안 값 | 설명 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
-   | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver20170313.database.windows.net**과 같아야 합니다. |
+   | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver20170824.database.windows.net**과 비슷해야 합니다. |
    | 인증 | 공개 | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
    | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
    | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
@@ -341,4 +339,3 @@ Visual Studio 및 C#을 사용하여 데이터베이스를 설계하는 방법�
 
 > [!div class="nextstepaction"]
 >[Azure SQL Database 설계 및 C#과 ADO.NET에 연결T](sql-database-design-first-database-csharp.md)
-

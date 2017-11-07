@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>자습서: Springer Link와 Azure Active Directory 통합
 
@@ -235,5 +234,4 @@ Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [201]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-springerlink-tutorial/tutorial_general_203.png
-
 

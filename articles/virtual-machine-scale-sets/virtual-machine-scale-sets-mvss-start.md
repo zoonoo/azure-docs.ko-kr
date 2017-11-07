@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 3b978f5448c2cfbba4d02e3efd730dea7c7813c3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Virtual Machine Scale Sets 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
 
@@ -213,4 +211,3 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

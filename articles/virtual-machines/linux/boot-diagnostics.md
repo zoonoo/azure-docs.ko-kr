@@ -12,19 +12,18 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/21/2017
 ms.author: delhan
+ms.openlocfilehash: 79e412bd7523a55fc7d081121af9434520868880
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 Linux 가상 컴퓨터 문제를 해결하는 방법
 
-이제 Azure에서 두 가지 디버깅 기능에 대한 지원이 제공됩니다. Azure Virtual Machines 리소스 관리자 배포 모델에 대한 콘솔 출력 및 스크린샷 지원. 
+이제 Azure에서 두 가지 디버깅 기능에 대한 지원이 제공됩니다. Azure Virtual Machines Resource Manager 배포 모델에 대한 콘솔 출력 및 스크린샷 지원. 
 
 자신의 이미지를 Azure로 가져 오거나 플랫폼 이미지 중 하나를 부팅 할 때 Virtual Machines가 부팅 불가능한 상태가 되는 데에는 많은 이유가 있을 수 있습니다. 이 기능을 사용하면 부팅 오류에서 Virtual Machines를 쉽게 진단하고 복구할 수 있습니다.
 
@@ -45,7 +44,7 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
 - [FSTAB 오류](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>새 가상 컴퓨터에서 진단 사용
-1. Preview 포털에서 새 Virtual Machine을 만드는 경우 배포 모델 드롭다운에서 **Azure 리소스 관리자**를 선택합니다.
+1. Preview 포털에서 새 Virtual Machine을 만드는 경우 배포 모델 드롭다운에서 **Azure Resource Manager**를 선택합니다.
  
     ![리소스 관리자](./media/boot-diagnostics/screenshot3.jpg)
 
@@ -53,7 +52,7 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
  
     ![VM 만들기](./media/boot-diagnostics/screenshot4.jpg)
 
-3. Azure 리소스 관리자 템플릿에서 배포하는 경우 Virtual Machine 리소스로 이동하고 진단 프로필 섹션을 추가합니다. "2015-06-15" API 버전 헤더를 사용해야 합니다.
+3. Azure Resource Manager 템플릿에서 배포하는 경우 Virtual Machine 리소스로 이동하고 진단 프로필 섹션을 추가합니다. "2015-06-15" API 버전 헤더를 사용해야 합니다.
 
     ```json
     {

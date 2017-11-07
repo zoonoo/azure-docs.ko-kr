@@ -15,14 +15,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Azure DB Cosmos DocumentDB API에서 Spring Boot Starter를 사용하는 방법
 
 ## <a name="overview"></a>개요
@@ -51,7 +49,7 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
 1. **데이터베이스**를 클릭한 후 **Azure Cosmos DB**를 클릭합니다.
 
-   ![Azure Portal][AZ02]
+   ![Azure portal][AZ02]
 
 1. **Azure Cosmos DB** 페이지에서 다음 정보를 입력합니다.
 
@@ -71,7 +69,7 @@ Azure Cosmos DB는 개발자가 DocumentDB, MongoDB, Graph 및 Table API와 같�
 
 1. 데이터베이스에 대한 속성 페이지가 표시되면 **액세스 키**를 클릭하고 데이터베이스에 대한 URI 및 액세스 키를 복사합니다. 이러한 값은 Spring Boot 응용 프로그램에서 사용하게 됩니다.
 
-   ![Azure Portal][AZ05]
+   ![Azure portal][AZ05]
 
 ## <a name="create-a-simple-spring-boot-application-with-the-spring-initializr"></a>Spring Initializr를 사용하여 간단한 Spring Boot 응용 프로그램 만들기
 
@@ -347,4 +345,3 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [JV01]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV01.png
 [JV02]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV02.png
 [JV03]: ./media/documentdb-java-spring-boot-starter-with-cosmos-db/JV03.png
-

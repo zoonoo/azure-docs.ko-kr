@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 1754c40a4c555ae1349549657e5906e023cb3bd8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 9faee35fea8fbbc79b4cbcf8af2b4b3e2b6aa946
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>위임된 권한과 응용 프로그램 권한 간의 차이점을 인식하는 방법
 
 ## <a name="recommended-documents"></a>권장되는 문서
@@ -31,4 +29,3 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>다음 단계
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

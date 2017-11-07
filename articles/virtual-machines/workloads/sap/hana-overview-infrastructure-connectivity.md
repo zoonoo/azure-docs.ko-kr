@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 인프라 및 연결 
 
 이 가이드를 읽기에 앞서 일부 사전 정의. [SAP HANA (큰 인스턴스) 개요 및 Azure 상의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 다른 클래스를 도입했습니다.
@@ -299,6 +297,5 @@ VNet을 제거하면 제거될 IP 주소 공간 범위를 제공하는 Azure 지
 추가 Azure(큰 인스턴스)의 SAP HANA ExpressRoute 회로를 제거하려면 Azure의 SAP HANA Service Management를 통해 Azure 지원 요청을 열고 회로를 삭제하도록 요청합니다. Azure 구독 내에서 필요에 따라 VNet을 삭제하거나 유지할 수 있습니다. 그러나 HANA 큰 인스턴스 ExpressRoute 회로와 연결된 VNet 게이트웨이 간에 연결을 삭제해야 합니다.
 
 VNet도 제거하려면 위의 섹션에서 VNet 삭제에 대한 지침을 따릅니다.
-
 
 

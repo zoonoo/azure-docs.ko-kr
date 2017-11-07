@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
+ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9c6eab099057ef91f79ff1a97e1cc1bd397fc946
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
 OMS(Microsoft Operations Management Suite)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 한 곳에서 볼 수 있는 OMS Log Analytics에 포함된 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
@@ -52,8 +50,7 @@ Container Solution에 대한 자세한 내용은 [Container Solution Log Analyti
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. 여기서 `wsid`(OMS 작업 영역 ID) 및 `wskey`(작업 영역 ID에 대한 OMS 기본 키)를 입력하도록 요구하는 메시지가 표시됩니다. `wsid`과 `wskey`를 모두 가져오려면 <https://mms.microsoft.com>에서 OMS 계정을 만들어야 합니다.
-다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 `wsid` 및 `wskey`를 획득해야 합니다.
+3. 여기서 `wsid`(OMS 작업 영역 ID) 및 `wskey`(작업 영역 ID에 대한 OMS 기본 키)를 입력하도록 요구하는 메시지가 표시됩니다. `wsid`과 `wskey`를 모두 가져오려면 <https://mms.microsoft.com>에서 OMS 계정을 만들어야 합니다. 다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 `wsid` 및 `wskey`를 획득해야 합니다.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -117,4 +114,3 @@ $ dcos package uninstall msoms
 ## <a name="next-steps"></a>다음 단계
 
  이제 컨테이너를 모니터링하도록 OMS를 설정했으므로 [컨테이너 대시보드 참조](../../log-analytics/log-analytics-containers.md)를 참조하세요.
-

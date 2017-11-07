@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ae5f4fd391cbf62b41d1a65f1d8107cefe3a5df3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure Portal에서 Media Encoder Standard를 사용하여 자산 인코딩
 
@@ -58,5 +57,4 @@ Media Encoder Standard를 사용하여 콘텐츠를 인코딩하려면:
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Portal에서 [인코딩 작업의 진행률 모니터링](media-services-portal-check-job-progress.md)  
-
 

@@ -3,7 +3,7 @@ title: "새 Azure Application Insights 리소스 만들기 | Microsoft Docs"
 description: "새 라이브 응용 프로그램에 대한 Application Insights 모니터링을 수동으로 설정합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: bwren
+ms.author: mbullwin
+ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 054e49478e70aeb15a012592fbb9642c39a60496
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 Azure Application Insights는 Microsoft Azure *리소스*에 응용 프로그램에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 응용 프로그램을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 응용 프로그램의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
@@ -60,7 +59,7 @@ Application Insights SDK를 응용 프로그램에 설치합니다. 이 단계�
 SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할 때 코드를 작성할 필요가 없습니다. 사용자 작업을 추적하거나 문제를 보다 세부적으로 진단하려면 [API를 사용][api]하여 사용자 고유의 원격 분석을 보내도록 합니다.
 
 ## <a name="monitor"></a>원격 분석 데이터 보기
-빠른 시작 블레이드를 닫으면 Azure Portal의 사용자 응용 프로그램 블레이드로 돌아갑니다.
+빠른 시작 블레이드를 닫으면 Azure 포털의 사용자 응용 프로그램 블레이드로 돌아갑니다.
 
 검색 타일을 클릭하여 첫 번째 이벤트가 표시되는 [진단 검색][diagnostic]을 확인합니다. 
 
@@ -81,5 +80,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
-
 

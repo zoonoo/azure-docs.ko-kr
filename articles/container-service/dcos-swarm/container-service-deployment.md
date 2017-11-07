@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 0ef256537bf095e2a5d582bd345a9c8dcede2095
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: caf6b470c334793931594df56ee13c4de9c8ba93
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Azure Portal을 사용하여 Docker 컨테이너 호스팅 솔루션 배포
 
@@ -84,7 +83,7 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
 
 5. **에이전트 구성** 블레이드에서 다음 정보를 입력합니다.
 
-    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 이 값은 에이전트 확장 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 DC/OS에 대한 공개 규모 집합이 생성됩니다. 이 공용 확장 집합의 에이전트 수는 클러스터의 마스터 수에 의해 결정됩니다. 마스터 하나에 대해 공용 에이전트 하나이고, 마스터 셋 또는 다섯에 대해 공용 에이전트는 둘 입니다.
+    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 이 값은 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 DC/OS에 대한 공개 규모 집합이 생성됩니다. 이 공용 크기 집합의 에이전트 수는 클러스터의 마스터 수에 의해 결정됩니다. 마스터 하나에 대해 공용 에이전트 하나이고, 마스터 셋 또는 다섯에 대해 공용 에이전트는 둘 입니다.
     * **에이전트 가상 컴퓨터 크기**: 에이전트 가상 컴퓨터의 크기입니다.
     * **운영 체제**: 이 설정은 현재 Kubernetes orchestrator를 선택한 경우에만 사용할 수 있습니다. 에이전트에서 실행하려면 Linux 배포 또는 Windows Server 운영 체제를 선택하세요. 이 설정은 클러스터가 Linux 또는 Windows 컨테이너 앱을 실행할 수 있을지 여부를 결정합니다. 
 
@@ -212,4 +211,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 * [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 * [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 * [Azure Container Service 및 Kubernetes로 작업](../kubernetes/container-service-kubernetes-walkthrough.md)
-

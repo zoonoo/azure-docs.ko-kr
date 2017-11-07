@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
@@ -59,7 +58,7 @@ HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 
 
 Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md) 문서의 단계를 사용합니다. 생성 프로세스 중 다음 단계를 사용하여 Solr을 설치합니다.
 
-1. __클러스터 요약__ 블레이드에서 __고급 설정__을 선택한 다음 __스크립트 작업__을 선택합니다. 양식에 다음 정보를 입력합니다.
+1. __클러스터 요약__ 섹션에서 __고급 설정__을 선택한 다음 __스크립트 동작__을 선택합니다. 양식에 다음 정보를 입력합니다.
 
    * **이름**: 스크립트 동작의 이름을 입력합니다.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +67,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
    * **ZOOKEEPER**: Zookeeper 노드에 설치하려면 이 옵션을 선택합니다.
    * **PARAMETERS**: 이 필드는 공백으로 둡니다.
 
-2. **스크립트 동작** 블레이드의 아래쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **다음** 단추를 사용하여 __클러스터 요약__으로 돌아갑니다.
+2. **스크립트 동작** 섹션의 맨 아래에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **다음** 단추를 사용하여 __클러스터 요약__으로 돌아갑니다.
 
 3. __클러스터 요약__ 페이지에서 __생성__을 선택하여 클러스터를 만듭니다.
 
@@ -329,4 +328,3 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [https://cwiki.apach
 * [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-

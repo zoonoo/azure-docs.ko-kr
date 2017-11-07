@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Server 및 데이터베이스 만들기 및 관리 | Microsoft Docs"
-description: "Azure SQL Database 서버 및 데이터베이스 개념, Azure Portal, PowerShell, Azure CLI, Transact-SQL 및 REST API를 사용하여 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다."
+description: "SQL Database 서버 및 데이터베이스 개념, 서버 및 데이터베이스 생성 및 관리에 대해 알아봅니다."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -12,17 +12,15 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 07/19/2017
+ms.workload: On Demand
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 3bd39b9a63cd4a18eabee3d1737daac56b3e37df
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
 Azure SQL Database는 [다양한 워크로드에 대한 계산 및 저장소 리소스](sql-database-service-tiers.md)를 정의한 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만든 Microsoft Azure의 관리되는 데이터베이스입니다. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다. 
@@ -41,7 +39,7 @@ Azure SQL Database는 다음과 같을 수 있습니다.
 >
  
 - Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL_LATIN1_GENERAL_CP1_CI_AS**이며 여기서 **LATIN1_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
-- Microsoft Azure SQL 데이터베이스는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원합니다.
+- Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원합니다.
 - TCP/IP 연결만 허용됩니다.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Azure SQL 논리 서버란?
@@ -134,6 +132,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|서버의 방화벽 규칙 가져오기|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|서버에서 방화벽 규칙 수정|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|서버에서 방화벽 규칙 삭제|
+| New-AzureRmSqlServerVirtualNetworkRule | Virtual Network 서비스 끝점인 서브넷을 기반으로 [*가상 네트워크 규칙*](sql-database-vnet-service-endpoint-rule-overview.md)을 만듭니다. |
 
 > [!TIP]
 > PowerShell 빠른 시작 자습서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요. PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
@@ -145,25 +144,25 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |데이터베이스 만들기|
-|[az sql db list](/cli/azure/sql/db#list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|데이터베이스 사용 정보 반환|
-|[az sql db show](/cli/azure/sql/db#show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
-|[az sql db update](/cli/azure/sql/db#update)|데이터베이스 업데이트|
-|[az sql db delete](/cli/azure/sql/db#delete)|데이터베이스 제거|
-|[az group create](/cli/azure/group#create)|리소스 그룹 만들기|
-|[az sql server create](/cli/azure/sql/server#create)|서버 만들기|
-|[az sql server list](/cli/azure/sql/server#list)|서버 나열|
-|[az sql server list-usages](/cli/azure/sql/server#list-usages)|서버 사용 반환|
-|[az sql server show](/cli/azure/sql/server#show)|서버 가져오기|
-|[az sql server update](/cli/azure/sql/server#update)|서버 업데이트|
-|[az sql server delete](/cli/azure/sql/server#delete)|서버를 삭제합니다.|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#create)|서버 방화벽 규칙 만들기|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#list)|서버의 방화벽 규칙 나열|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#show)|방화벽 규칙의 세부 정보 표시|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule#update)|방화벽 규칙 업데이트|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#delete)|방화벽 규칙 삭제|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |데이터베이스 만들기|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|데이터베이스 사용 정보 반환|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|데이터베이스 업데이트|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|데이터베이스 제거|
+|[az group create](/cli/azure/group#az_group_create)|리소스 그룹 만들기|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|서버 만들기|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|서버 나열|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|서버 사용 반환|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|서버 가져오기|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|서버 업데이트|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|서버를 삭제합니다.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
 
 > [!TIP]
 > Azure CLI 빠른 시작 자습서는 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
@@ -180,7 +179,7 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 | 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
-| [ALTER DATABASE (Azure SQL 데이터베이스)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Azure SQL 데이터베이스를 수정합니다. |
 |[ALTER DATABASE(Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Azure SQL Data Warehouse를 수정합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
@@ -219,7 +218,7 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 |[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
 |[데이터베이스 - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|권장되는 탄력적 풀 내부의 데이터베이스 목록을 반환합니다.|
 |[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - Update](/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Update](/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 |[Firewall Rules - Create 또는 Update](/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
 |[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
 |[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
@@ -231,4 +230,3 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 - Azure SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요.
 - SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.
-

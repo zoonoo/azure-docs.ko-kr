@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 세부 사용 요금 CSV 파일에는 현재 청구 기간에 대한 일별 요금과 측정기 수준 사용 요금이 포함되어 있습니다. 
@@ -86,8 +85,7 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 세부 사용량 파일에 더 자세한 내용을 보려는 요금이 있는 경우 [Microsoft Azure 청구서 이해](./billing-understand-your-bill.md)를 참조하세요.
 
 ## <a name="external"></a>외부 서비스 요금은 어떤가요?
-외부 서비스(또는 마켓플레이스 주문)는 독립 서비스 공급업체에서 제공하며 별도로 청구됩니다. Azure 청구서에 요금이 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
+외부 서비스(또는 Marketplace 주문)는 독립 서비스 공급업체에서 제공하며 별도로 청구됩니다. Azure 청구서에 요금이 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?)하여 문제를 신속하게 해결하세요.
-

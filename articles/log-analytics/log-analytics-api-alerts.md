@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
@@ -324,5 +322,4 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](log-analytics-log-search-api.md) 합니다.
-
 

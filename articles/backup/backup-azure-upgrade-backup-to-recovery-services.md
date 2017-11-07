@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
 
@@ -42,7 +41,7 @@ Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업�
 
 Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하기 전에 다음과 같은 문제를 확인합니다.
 
-- **최소 에이전트 버전**: 자격 증명 모음을 업그레이드하려면 MARS(Microsoft Azure Recovery Services) 에이전트가 2.0.9070.0 버전 이상인지 확인합니다. MARS 에이전트가 2.0.9070.0보다 오래된 경우 업그레이드 프로세스를 시작하기 전에 에이전트를 업데이트합니다.
+- **최소 에이전트 버전**: 자격 증명 모음을 업그레이드하려면 MARS(Microsoft Azure Recovery Services) 에이전트가 2.0.9083.0 버전 이상인지 확인합니다. MARS 에이전트가 2.0.9083.0보다 오래된 경우 업그레이드 프로세스를 시작하기 전에 에이전트를 업데이트합니다.
 - **인스턴스 기반 청구 모델**: Recovery Services 자격 증명 모음은 인스턴스 기반 청구 모델만을 지원합니다. 백업 자격 증명 모음이 이전 저장소 기반 청구 모델을 사용하는 경우 업그레이드하는 동안 청구 모델을 변환합니다.
 - **진행 중인 백업 구성 작업 없음**: 업그레이드하는 동안 관리 평면에 대한 액세스가 제한됩니다. 모든 관리 평면 작업을 완료한 다음 업그레이드를 시작합니다.
 
@@ -69,7 +68,8 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 >[!NOTE]
 > 리소스 그룹 이름에는 제약이 있습니다. 지침을 준수해야 합니다. 그렇지 않으면 자격 증명 모음 업그레이드에 실패할 수 있습니다.
 >
->
+>**Azure US Government** 고객은 스크립트를 실행하는 동안 환경을 "AzureUSGovernment"로 설정해야 합니다.
+>**Azure China** 고객은 스크립트를 실행하는 동안 환경을 "AzureChinaCloud"로 설정해야 합니다.
 
 다음 코드 조각은 PowerShell 명령이 표시되는 예제입니다.
 
@@ -84,7 +84,7 @@ PowerShell 스크립트는 자격 증명을 입력하라는 메시지를 표시�
 ### <a name="pre-requisites-checking"></a>필수 구성 요소 확인
 Azure 자격 증명을 입력하면 Azure에서는 환경이 다음과 같은 전제 조건을 충족하는지 확인합니다.
 
-- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9070이 필요합니다. 항목이 2.0.9070보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 최신 버전의 에이전트를 다운로드할 수 있습니다.
+- **최소 에이전트 버전** - Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드하려면 적어도 MARS 에이전트 버전 2.0.9083.0이 필요합니다. 항목이 2.0.9083.0보다 이전인 에이전트를 사용하여 백업 자격 증명 모음에 등록하는 경우 필수 구성 요소 검사에 실패합니다. 필수 구성 요소 확인이 실패하면 에이전트를 업데이트하고 자격 증명 모음을 다시 업그레이드합니다. [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 최신 버전의 에이전트를 다운로드할 수 있습니다.
 - **진행 중인 구성 작업**: 누군가가 업그레이드할 백업 자격 증명 모음에 대한 작업을 구성하거나 항목을 등록하는 경우 필수 구성 요소 검사가 실패합니다. 구성을 완료하거나 항목의 등록을 마치고 자격 증명 모음 업그레이드 프로세스를 시작합니다.
 - **저장소 기반 청구 모델**: Recovery Services 자격 증명 모음은 인스턴스 기반 청구 모델을 지원합니다. 저장소 기반 청구 모델을 사용하는 백업 자격 증명 모음에 자격 증명 모음 업그레이드를 실행하면 자격 증명 모음과 함께 요금 청구 모델을 업그레이드하라는 메시지가 표시됩니다. 그렇지 않으면 청구 모델을 먼저 업데이트한 다음 자격 증명 모음 업그레이드를 실행할 수 있습니다.
 - Recovery Services 자격 증명 모음의 리소스 그룹을 식별합니다. Resource Manager 배포 기능을 활용하려면 리소스 그룹에서 Recovery Services 자격 증명 모음을 저장해야 합니다. 사용할 리소스 그룹을 모르는 경우 이름을 지정하고 업그레이드 프로세스에서 리소스 그룹을 만듭니다. 또한 업그레이드 프로세스는 새 리소스 그룹과 자격 증명 모음을 연결합니다.
@@ -147,8 +147,8 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 장기 보존을 위해 이 컴퓨터의 백업 저장소를 사용해야 하는 경우 자격 증명 모음을 업그레이드할 수 없습니다. 이후 릴리스에서 이러한 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 더 이상 이 컴퓨터의 백업을 저장하지 않아도 되는 경우 자격 증명 모음에서 이 컴퓨터의 등록을 취소하고 업그레이드를 다시 시도하세요.
 
-**업그레이드 이후에 온-프레미스 리소스에 대한 작업 정보를 볼 수 없는 이유는 무엇인가요?**</br>
-온-프레미스 백업(MARS 에이전트, DPM 및 Azure Backup Server)에 대한 모니터링은 Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드할 때 얻을 수 있는 새로운 기능입니다. 모니터링 정보는 서비스와 동기화되는 데 최대 12시간이 걸립니다.
+**업그레이드 이후에 리소스에 대한 작업 정보를 볼 수 없는 이유는 무엇인가요?**</br>
+백업(MARS 에이전트 및 IaaS)에 대한 모니터링은 Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드할 때 얻을 수 있는 새로운 기능입니다. 모니터링 정보는 서비스와 동기화되는 데 최대 12시간이 걸립니다.
 
 **문제를 보고하려면 어떻게 해야 하나요?**</br>
 자격 증명 모음 업그레이드가 일부 실패하면 오류에 나열된 OperationId를 적어둡니다. Microsoft 지원은 문제를 해결하기 위해 사전 예방적으로 작동합니다. 지원에 문의하거나 구독 ID, 자격 증명 모음 이름 및 OperationId를 적은 이메일을 rsvaultupgrade@service.microsoft.com으로 보내주세요. 최대한 빨리 문제를 해결하려고 합니다. Microsoft에서 분명히 지시하지 않은 경우 작업을 다시 시도하지 마세요.
@@ -159,4 +159,3 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 [IaaS VM 백업](backup-azure-arm-vms-prepare.md)</br>
 [Azure Backup Server 백업](backup-azure-microsoft-azure-backup.md)</br>
 [Windows Server 백업](backup-configure-vault.md)
-

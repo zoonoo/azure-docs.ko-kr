@@ -16,13 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: f4b2e8a5583855df7472af3fbef01ac641caf6bf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 Azure CLI 샘플
 
@@ -39,8 +37,7 @@ ms.lasthandoff: 06/06/2017
 |**네트워크 가상 컴퓨터**||
 | [가상 컴퓨터 간의 네트워크 트래픽 보안](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | 두 개의 가상 컴퓨터, 모든 관련된 리소스 및 내부 및 외부 NSG(네트워크 보안 그룹)를 만듭니다. |
 |**가상 컴퓨터 보호**||
-| [VM 및 데이터 디스크 암호화](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Key Vault, 암호화 키 및 서비스 사용자를 만든 다음 VM을 암호화합니다. |
+| [VM 및 데이터 디스크 암호화](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Azure Key Vault, 암호화 키 및 서비스 주체를 만든 다음 VM을 암호화합니다. |
 |**가상 컴퓨터 모니터링**||
 | [Operations Management Suite를 사용하여 VM 모니터링](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | 가상 컴퓨터를 만들고 Operations Management Suite 에이전트를 설치하고 OMS 작업 영역에서 VM을 등록합니다.  |
 | | |
-

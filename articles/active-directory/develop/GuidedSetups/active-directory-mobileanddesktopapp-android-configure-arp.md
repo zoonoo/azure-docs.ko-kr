@@ -15,21 +15,18 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b034bf99351c5b33c51d9a8401434160bddb15be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: c09937582118ebcc5b8cbc1f43a0a2019f2f7a89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 
 이 단계에서는 프로젝트에 클라이언트 ID를 추가해야 합니다.
 
-1.    (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
-2.    `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.
+1.  (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
+2.  `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -56,4 +53,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 ### <a name="what-is-next"></a>다음 내용
 
 [테스트 및 유효성 검사](active-directory-mobileanddesktopapp-android-test.md)
-

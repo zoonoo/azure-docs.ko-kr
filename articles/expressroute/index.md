@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1c9d64f415a94c35bc6e41706ce78b0da34a0131
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="expressroute-documentation"></a>ExpressRoute 설명서
 
 ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
@@ -112,6 +110,5 @@ ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 
         </div>
     </li>
 </ul>
-
 
 

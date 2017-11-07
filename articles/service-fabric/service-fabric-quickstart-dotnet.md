@@ -12,17 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 10/02/2017
 ms.author: mikhegn
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
@@ -135,7 +133,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
 2. **연결 끝점** 필드에 클러스터의 연결 끝점을 입력하고 **게시**를 클릭합니다. Party 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. - 예를 들면 `winh1x87d1d.westus.cloudapp.azure.com:19000`입니다.
 
-3. 브라우저를 열고 클러스터 주소에 입력합니다(예: `http://winh1x87d1d.westus.cloudapp.azure.com`). 이제 Azure의 클러스터에서 실행 중인 응용 프로그램이 표시됩니다.
+3. 브라우저를 열고 클러스터 주소에 ':8080'을 뒤에 붙여 입력하여 클러스터로 응용 프로그램을 가져옵니다(예: `http://winh1x87d1d.westus.cloudapp.azure.com:8080`). 이제 Azure의 클러스터에서 실행 중인 응용 프로그램이 표시됩니다.
 
 ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 

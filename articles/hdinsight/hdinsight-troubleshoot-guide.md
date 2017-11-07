@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 문제 해결
 
 | Apache 워크로드 | 가장 많이 하는 질문 |
@@ -40,4 +37,3 @@ ms.lasthandoff: 08/23/2017
 | 로그 및 덤프 | - [Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Linux에서 Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [HDInsight 로그 분석](hdinsight-debug-jobs.md)|
 | 오류 | - [WebHCat 오류 이해 및 해결](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [OutofMemory 오류를 해결하기 위한 Hive 설정](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | 도구 | - [Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)<br>- [Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md) |
-

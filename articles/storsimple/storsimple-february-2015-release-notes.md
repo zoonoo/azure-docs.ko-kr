@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-03-release-notes---february-2015"></a>StorSimple 8000 시리즈 업데이트 0.3 릴리스 정보 - 2015년 2월
 ## <a name="overview"></a>개요
@@ -83,5 +81,4 @@ StorSimple 장치를 업데이트하기 전에 다음 필수 조건이 충족되
 
 ## <a name="virtual-device-updates-in-the-february-release"></a>2월 릴리스의 가상 장치 업데이트
 이 릴리스에는 가상 장치에 대한 업데이트는 포함되지 않습니다. 이 업데이트를 적용해도 가상 장치의 소프트웨어 버전은 변경되지 않습니다.
-
 

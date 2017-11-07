@@ -3,7 +3,7 @@ title: "Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하�
 description: "Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법 배우기"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
 Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. 이벤트 허브는 이벤트 파이프라인에 대한 "현관"의 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환 및 저장될 수 있습니다. 이벤트 허브는 이러한 이벤트를 소비하는 데에서 이벤트 스트림의 프로덕션을 분리하므로 이벤트 소비자가 자신의 개인 일정에 이벤트를 액세스할 수 있습니다.
@@ -140,4 +138,3 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-

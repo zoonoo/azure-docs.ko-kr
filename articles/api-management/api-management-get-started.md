@@ -3,7 +3,7 @@ title: "Azure API Management에서 첫 번째 API 관리 | Microsoft Docs"
 description: "API를 만들고, 작업을 추가하고, API 관리를 시작하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 0866b94003111267951a0d7917d616a370961880
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Azure API 관리에서 첫 번째 API 관리
 ## <a name="overview"> </a>개요
@@ -71,7 +71,7 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 서비스 인스턴스에 대해 원하는 **구독**, **리소스 그룹** 및 **지역**을 선택합니다.
 
-**조직 이름**으로  **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에서 메일 주소를 입력합니다.
+**조직 이름**으로 **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에서 이메일 주소를 입력합니다.
 
 > [!NOTE]
 > 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법][How to configure notifications and email templates in Azure API Management]을 참조하세요.
@@ -254,9 +254,3 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

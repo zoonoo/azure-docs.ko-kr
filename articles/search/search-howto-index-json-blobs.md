@@ -12,15 +12,14 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure 검색 BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 JSON이 포함된 blob에서 구조화된 콘텐츠를 추출하도록 Azure 검색 blob 인덱서를 구성하는 방법을 보여 줍니다.
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 04/11/2017
 각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure Search 인덱스를 채울 수 있습니다.
 
 > [!IMPORTANT]
-> JSON 배열 구문 분석 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview**버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> JSON 배열 구문 분석 기능은 현재 미리 보기 상태입니다. **2016-09-01-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 
@@ -171,4 +170,3 @@ JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 �
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
-

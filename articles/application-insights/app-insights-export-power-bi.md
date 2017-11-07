@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/15/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터를 분석하는 데 도움을 주고 통찰력을 공유하는 비즈니스 분석 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -119,5 +118,4 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](http://www.powerbi.com/learning/)
 * [Analytics 자습서](app-insights-analytics-tour.md)
-
 

@@ -1,4 +1,4 @@
-* [Azure 앱 서비스 크기 조정](../articles/app-service-web/web-sites-scale.md)
+* [Azure 앱 서비스 크기 조정](../articles/app-service/web-sites-scale.md)
   
   * 중복성 및 안정성 이해
   * 상태 저장 vs 상태 비저장 응용 프로그램

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>자습서: iQualify LMS와 Azure Active Directory 통합
 
@@ -308,5 +307,4 @@ iQualify LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [201]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqualify-tutorial/tutorial_general_203.png
-
 

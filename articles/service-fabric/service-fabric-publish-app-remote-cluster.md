@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-ms.translationtype: HT
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-remove-applications-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 배포 및 제거
 > [!div class="op_single_selector"]
@@ -113,4 +112,3 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 [2]: ./media/service-fabric-publish-app-remote-cluster/EditParams.png
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: kgremban
+ms.openlocfilehash: 19f3228b874fc4e37bf83388dae4341428226482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication 시작
 이 문서에서는 클라우드에서 Azure Multi-Factor Authentication을 사용하기 시작하는 방법에 대해 설명합니다.
@@ -46,5 +45,4 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>다음 단계
 클라우드에서 Azure Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 구성](multi-factor-authentication-whats-next.md)을 참조하세요.
-
 

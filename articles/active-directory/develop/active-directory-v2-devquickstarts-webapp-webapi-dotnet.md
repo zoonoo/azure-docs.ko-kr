@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>.NET 웹앱에서 Web API 호출
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱 및 Web API에 빠르게 추가할 수 있습니다.  여기서는 Microsoft OWIN 미들웨어를 활용하여 OpenID Connect로 사용자를 로그인하는 MVC 웹앱을 만듭니다.  이 웹앱은 OAuth 2.0에서 보호 된 웹 API에 대한 OAuth 2.0 액세스 토큰을 가져와서 지정된 사용자의 “할 일 목록"을 만들고, 읽고, 삭제할 수 있도록 합니다.
@@ -201,5 +199,4 @@ catch (MsalException ee)
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
 

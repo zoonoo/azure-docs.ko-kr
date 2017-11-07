@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>자습서: 사용자 프로비전에 대한 Workplace by Facebook 구성
 
@@ -67,7 +65,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook에 자동으로 동기화하는 기능을 지원합니다. 이 자동 동기화를 사용하면 Workplace by Facebook에서 사용자가 처음으로 로그인하기 전에 사용자에게 액세스 권한을 부여하는 데 필요한 데이터를 가져올 수 있습니다. 또한 Azure AD에서 액세스가 취소되면 Workplace by Facebook에서 사용자 프로비전을 취소합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **Enterprise Apps**(엔터프라이즈 앱) > **모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
 
 2. 이미 Workplace by Facebook에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Workplace by Facebook의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Workplace by Facebook**을 검색합니다. 검색 결과에서 Workplace by Facebook을 선택하고 응용 프로그램 목록에 추가합니다.
 
@@ -102,5 +100,4 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 * [Single Sign-On 구성](active-directory-saas-workplacebyfacebook-tutorial.md)
-
 

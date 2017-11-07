@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API에 대한 SQL 쿼리
 Microsoft Azure Cosmos DB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. Cosmos DB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다. 
@@ -1022,7 +1021,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB API SQL의 **IN** 키워드
       ]
     ]
 
-이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.  
+이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children` 을 분할하고 결과를 단일 배열로 평면화합니다.  
 
 **쿼리**
 
@@ -1146,7 +1145,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB API SQL의 **IN** 키워드
 
 확인할 첫 번째 사항은 **JOIN** 절의 `from_source`가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.  
 
-* 배열의 각 자식 요소 **c**를 확장합니다.
+* 배열의 각 자식 요소 **c** 를 확장합니다.
 * 문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
 * 마지막으로, 루트 개체 **f** 의 이름 속성만 프로젝션합니다. 
 
@@ -1255,7 +1254,7 @@ Azure Cosmos DB는 저장 프로시저 및 트리거 측면에서 컬렉션에 �
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
 
-위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
+위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` and `pattern` 을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다. 
 
@@ -2210,7 +2209,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 .NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` and `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다. 
 
-또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컬렉션의 경우 `PartitionKey`을 사용하여 단일 파티션에 대해 쿼리를 실행할 수 있고(Cosmos DB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있음) `EnableCrossPartitionQuery`를 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다. 
+또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. `EnableScanInQuery` 를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컬렉션의 경우 `PartitionKey`을 사용하여 단일 파티션에 대해 쿼리를 실행할 수 있고(Cosmos DB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있음) `EnableCrossPartitionQuery`를 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다. 
 
 쿼리가 포함된 추가 샘플은 [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 
 

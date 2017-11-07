@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
-
+ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
 U-SQL은 빅 데이터 유형의 워크로드를 위해 설계된 쿼리 언어입니다. U-SQL의 고유한 기능 중 하나는 SQL과 같은 선언적 언어와 C#에서 제공하는 확장성 및 프로그래밍 기능을 결합한 것입니다. 이 가이드에서는 C#에서 사용할 수 있는 U-SQL 언어의 확장성과 프로그래밍 기능을 집중적으로 설명합니다.
@@ -2123,7 +2120,7 @@ public class EmptyUserReducer : IReducer
 **SqlUserDefinedReducer**는 UDR(사용자 정의 리듀서) 정의의 선택적 특성이며, IsRecursive 속성을 정의하는 데 사용됩니다.
 
 * bool IsRecursive    
-* **true**는 idempotent 유형의 리듀서인지 여부를 나타냅니다.
+* **true** = 이 리듀서가 결합적이고 교환 가능한지 여부를 나타냅니다.
 
 주 프로그래밍 개체는 **input** 및 **output**입니다. input 개체는 입력 행을 열거하는 데 사용됩니다. Output 개체는 감소 작업의 결과로 출력 행을 설정하는 데 사용됩니다.
 
@@ -2220,4 +2217,3 @@ OUTPUT @rs2
     TO @output_file 
     USING Outputters.Text();
 ```
-

@@ -9,18 +9,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 264a9e8f109ff77d8fbd81f01ba40d21aebea538
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Java를 사용하여 Azure SQL Database 쿼리
 
@@ -161,5 +160,4 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 - [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
 - [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)
 - [문제/질문 보고](https://github.com/microsoft/mssql-jdbc/issues)
-
 

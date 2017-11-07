@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
 클라우드 서비스 작업자 또는 웹 역할 서비스 정의 파일에서 런타임 구성 값을 환경 변수로 노출할 수 있습니다. 다음 XPath 값(API 값에 해당)을 사용할 수 있습니다.
@@ -168,5 +167,4 @@ ms.lasthandoff: 04/20/2017
 [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) 패키지를 만듭니다.
 
 역할에 대해 [원격 데스크톱](cloud-services-role-enable-remote-desktop.md) 을 사용하도록 설정합니다.
-
 

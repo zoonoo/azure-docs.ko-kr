@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 10/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Azure에서 첫 번째 Service Fabric 클러스터 만들기
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 이 빠른 시작을 사용하여 몇 분만에 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 또는 [Azure Portal](http://portal.azure.com)을 통해 Windows 또는 Linux에서 실행하는 다섯 개의 노드 클러스터를 만들 수 있습니다.  
 
@@ -35,7 +33,7 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 ### <a name="create-the-cluster"></a>클러스터 만들기
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
-2. **새로 만들기** 블레이드에서 **계산**을 선택한 다음 **계산** 블레이드에서 **Service Fabric 클러스터**를 선택합니다.
+2. **Service Fabric**을 검색하고 반환된 결과의 **Service Fabric 클러스터**에서 **Service Fabric 클러스터**를 선택합니다.  **만들기**를 클릭합니다.
 3. Service Fabric **기본 사항** 양식을 입력합니다. **운영 체제**의 경우 클러스터 노드를 실행하려는 Windows 또는 Linux의 버전을 선택합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 컴퓨터에 로그인하는 데 사용됩니다 **리소스 그룹**에 대해 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 만들어지고 전체적으로 관리되는 논리적 컨테이너입니다. 완료되면 **확인**을 클릭합니다.
 
     ![클러스터 설정 출력][cluster-setup-basics]
@@ -70,18 +68,6 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 
     알림에서 만들기 진행률을 볼 수 있습니다. (화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 모양 아이콘을 클릭합니다.) 클러스터를 만드는 동안 **시작 보드에 고정**을 클릭하면 **Service Fabric 클러스터 배포 중**이 **시작** 보드에 고정됩니다.
 
-### <a name="view-cluster-status"></a>클러스터 상태 보기
-클러스터를 만들면 포털의 **개요** 블레이드에서 클러스터를 검사할 수 있습니다. 이제 대시보드에서 클러스터의 공용 끝점 및 Service Fabric Explorer에 대한 링크를 포함한 클러스터 세부 정보를 볼 수 있습니다.
-
-![클러스터 상태][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터 시각화
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 응용 프로그램을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 클러스터에서 실행되는 서비스입니다.  포털의 클러스터 **개요** 페이지의 **Service Fabric Explorer** 링크를 클릭하여 웹 브라우저를 사용하는 서비스에 액세스합니다.  브라우저에 직접 주소를 입력할 수도 있습니다. [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있습니다.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>PowerShell을 사용하여 클러스터에 연결
 PowerShell을 사용하도록 연결하여 클러스터가 실행되고 있는지 확인합니다.  ServiceFabric PowerShell 모듈은 [Service Fabric SDK](service-fabric-get-started.md)에서 설치됩니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet은 클러스터에 대한 연결을 설정합니다.   
 
@@ -112,83 +98,83 @@ Azure Portal에서 리소스 그룹을 삭제합니다.
     ![리소스 그룹 삭제][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure PowerShell을 사용하여 보안 클러스터 배포
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 1. [Azure PowerShell 모듈 버전 4.0 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 컴퓨터에 다운로드합니다.
 
-2. Windows PowerShell 창을 열고 다음 명령을 실행합니다. 
-    
-    ```powershell
-
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    다음과 유사한 결과가 표시됩니다.
-
-    ![ps-list][ps-list]
-
-3. Azure에 로그인하고 클러스터를 만들려는 구독을 선택합니다.
+2. [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet을 실행하여 X.509 인증서로 보호된 5노드 Service Fabric 클러스터를 만듭니다. 이 명령은 자체 서명된 인증서를 만들고 새로운 Key Vault에 업로드합니다. 인증서는 로컬 디렉터리에도 복사됩니다. *-OS* 매개 변수를 설정하여 클러스터 노드에서 실행되는 Windows 또는 Linux 버전을 선택합니다. 필요에 따라 매개 변수를 사용자 지정합니다. 
 
     ```powershell
+    #Provide the subscription Id
+    $subscriptionId = 'yourSubscriptionId'
 
-    Login-AzureRmAccount
-
-    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
-    ```
-
-4. 이제 다음 명령을 실행하여 보안 클러스터를 만듭니다. 매개 변수를 사용자 지정해야 합니다. 
-
-    ```powershell
+    # Certificate variables.
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-    $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
-    $clusterloc="SouthCentralUS"
-    $subname="$RGname.$clusterloc.cloudapp.azure.com"
     $certfolder="c:\mycertificates\"
-    $clustersize=1 # can take values 1, 3-99
 
-    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    # Variables for VM admin.
+    $adminuser="vmadmin"
+    $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+    # Variables for common values
+    $clusterloc="SouthCentralUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=5 
+
+    # Set the context to the subscription ID where the cluster will be created
+    Login-AzureRmAccount
+    Get-AzureRmSubscription
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+    # Create the Service Fabric cluster.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    명령을 완료하는 데 10~30분이 걸릴 수 있습니다. 작업이 끝나면 다음과 유사한 출력이 표시되어야 합니다. 출력에는 인증서, KeyVault 업로드 위치 및 인증서가 복사되는 위치에 대한 정보가 포함됩니다. 
+    명령을 완료하는 데 10~30분이 걸릴 수 있습니다. 작업이 끝나면 다음과 유사한 출력이 표시되어야 합니다. 출력에는 인증서, KeyVault 업로드 위치 및 인증서가 복사되는 위치에 대한 정보가 포함됩니다.     
 
-    ![ps-out][ps-out]
+3. 참조하는 데 필요하기 때문에 전체 출력을 복사하고 텍스트 파일에 저장합니다. 출력에서 다음 정보를 기록해 둡니다. 
 
-5. 참조하는 데 필요하기 때문에 전체 출력을 복사하고 텍스트 파일에 저장합니다. 출력에서 다음 정보를 기록해 둡니다. 
-
-    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-    - **ClientConnectionEndpointPort** : 19000
+    - CertificateSavedLocalPath
+    - CertificateThumbprint
+    - ManagementEndpoint
+    - ClientConnectionEndpointPort
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>로컬 컴퓨터에 인증서 설치
   
 클러스터에 연결하려면 현재 사용자의 개인 (내) 저장소에 인증서를 설치해야 합니다. 
 
-다음 PowerShell 실행
+다음을 실행합니다.
 
 ```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
-        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+        -FilePath C:\mycertificates\<certificatename>.pfx `
+        -Password $certpwd
 ```
 
 이제 보안 클러스터에 연결할 준비가 되었습니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결 
 
-다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 클러스터를 설정하는 데 사용된 인증서와 일치해야 합니다. 
+[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 클러스터를 설정하는 데 사용된 인증서와 일치해야 합니다. 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -X509Credential -ServerCertThumbprint <CertificateThumbprint> `
+          -FindType FindByThumbprint -FindValue <CertificateThumbprint> `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-
-다음 예제에서는 완료된 매개 변수를 보여줍니다. 
+다음 예제에서는 샘플 매개 변수를 보여줍니다. 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
@@ -205,24 +191,88 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.clouda
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Visual Studio에서 클러스터에 앱 게시
-
-이제 Azure 클러스터를 설정했으므로 [클러스터에 게시](service-fabric-publish-app-remote-cluster.md) 문서를 수행하여 Visual Studio에서 Azure 클러스터에 이 응용 프로그램을 게시할 수 있습니다. 
-
 ### <a name="remove-the-cluster"></a>클러스터 제거
 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다. 
 
 ```powershell
+$groupname="mysfclustergroup"
+Remove-AzureRmResourceGroup -Name $groupname -Force
+```
+## <a name="use-azure-cli"></a>Azure CLI 사용
 
-Remove-AzureRmResourceGroup -Name $RGname -Force
+1. 컴퓨터에 [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치합니다.
+2. Azure에 로그인하고 클러스터를 만들려는 구독을 선택합니다.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령을 실행하여 X.509 인증서로 보호된 5노드 Service Fabric 클러스터를 만듭니다. 이 명령은 자체 서명된 인증서를 만들고 새로운 Key Vault에 업로드합니다. 인증서는 로컬 디렉터리에도 복사됩니다. *-os* 매개 변수를 설정하여 클러스터 노드에서 실행되는 Windows 또는 Linux 버전을 선택합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
 
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>클러스터에 연결
+인증서를 사용하여 클러스터에 연결하려면 다음 CLI 명령을 실행합니다.  인증에 클라이언트 인증서를 사용하는 경우 인증서 세부 정보는 클러스터 노드에 배포된 인증서와 일치해야 합니다.  자체 서명된 인증서에 `--no-verify` 옵션을 사용합니다.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+다음 명령을 실행하여 사용자가 연결되어 있고 클러스터 상태가 정상인지를 확인합니다.
+
+```azurecli
+az sf cluster health
+```
+
+### <a name="connect-to-the-nodes-directly"></a>노드에 직접 연결 
+
+Linux 클러스터에서 노드에 연결하려면 3389부터 포트 번호를 지정하여 노드를 연결하는 데 SSH를 사용할 수 있습니다. 예를 들어 앞에서 만든 5개의 노드 클러스터에 대한 명령은 다음과 같습니다.
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
+### <a name="remove-the-cluster"></a>클러스터 제거
+클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다. 
+
+```azurecli
+ResourceGroupName = "aztestclustergroup"
+az group delete --name $ResourceGroupName
 ```
 
 ## <a name="next-steps"></a>다음 단계
 이제 개발 클러스터를 설정했으며 다음을 시도하세요.
-* [포털에서 보안 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
-* [템플릿에서 클러스터 만들기](service-fabric-cluster-creation-via-arm.md) 
+* [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+* [클러스터 제거](service-fabric-cluster-delete.md) 
 * [PowerShell을 사용하여 앱 배포](service-fabric-deploy-remove-applications.md)
+* [CLI를 사용하여 앱 배포](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
@@ -230,6 +280,3 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

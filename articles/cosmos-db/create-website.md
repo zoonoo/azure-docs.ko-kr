@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
@@ -62,8 +60,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 1. [Azure 포털](https://portal.azure.com)에 로그인하고 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
     ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment1.png)
-2. 템플릿 배포 항목을 선택하고 **만들기**
-    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
+2. 템플릿 배포 항목을 선택하고 **만들기** ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
 3. **템플릿 편집**을 클릭하고 DocDBWebsiteTodo.json 템플릿 파일의 내용을 붙여 넣고 **저장**을 클릭합니다.
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment3.png)
 4. **매개 변수 편집**을 클릭하고 각 필수 매개 변수 값을 제공하고 **확인**을 클릭합니다.  매개 변수는 다음과 같습니다.
@@ -103,8 +100,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 1. [Azure 포털](https://portal.azure.com)에서 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
     ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment1.png)
-2. 템플릿 배포 항목을 선택하고 **만들기**
-    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
+2. 템플릿 배포 항목을 선택하고 **만들기** ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
 3. **템플릿 편집**을 클릭하고 DocDBWebSite.json 템플릿 파일의 내용을 붙여 넣고 **저장**을 클릭합니다.
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment3.png)
 4. **매개 변수 편집**을 클릭하고 각 필수 매개 변수 값을 제공하고 **확인**을 클릭합니다.  매개 변수는 다음과 같습니다.
@@ -122,8 +118,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment6.png)
 7. 배포가 완료되면 리소스 그룹 블레이드가 열립니다.
    ![리소스 그룹 블레이드의 스크린샷](./media/create-website/TemplateDeployment7.png)  
-8. 리소스 목록에서 웹앱 리소스를 클릭한 다음 **응용 프로그램 설정**
-    ![리소스 그룹의 스크린샷](./media/create-website/TemplateDeployment9.png)을 클릭합니다.  
+8. 리소스 목록에서 웹앱 리소스를 클릭한 다음 **응용 프로그램 설정** ![리소스 그룹의 스크린샷](./media/create-website/TemplateDeployment9.png)을 클릭합니다.  
 9. 응용 프로그램 설정이 Azure Cosmos DB 끝점 및 각 Azure Cosmos DB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
 
     ![응용 프로그램 설정의 스크린샷](./media/create-website/TemplateDeployment10.png)  
@@ -140,11 +135,9 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 클래식 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
-
 

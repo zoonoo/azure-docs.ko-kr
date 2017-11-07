@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Microsoft OMS(Operations Management Suite)에서 B2B 통신 추적
 
 통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)에서 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.

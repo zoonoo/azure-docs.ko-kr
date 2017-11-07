@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 만들기
 
@@ -95,5 +94,4 @@ Azure Portal의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니�
 ## <a name="next-steps"></a>다음 단계
 * [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md)
 * [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
-
 

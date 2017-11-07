@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ae4b312fb1a24c89021ca073dff05a4a2f1dcf3f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure 저장소 시작(Azure WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure 테이블 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
+이 문서에서는 Azure 테이블 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 버전 1.x를 사용합니다.
 
 Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.  자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) 을 참조하세요.
 
@@ -148,5 +147,4 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 **Cloud
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
 

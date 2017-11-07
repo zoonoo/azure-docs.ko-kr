@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 클라우드 서비스 인증서 개요
 Azure에서는 인증서가 Cloud Services([서비스 인증서](#what-are-service-certificates)) 및 관리 API를 사용한 인증(비 클래식 Azure Portal이 아닌 Azure 클래식 포털을 사용하는 경우 [관리 인증서](#what-are-management-certificates))에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
@@ -97,5 +96,4 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 [서비스 인증서를 Azure 클래식 포털](cloud-services-configure-ssl-certificate.md)(또는 [Azure Portal](cloud-services-configure-ssl-certificate-portal.md))에 업로드합니다.
 
 [관리 API 인증서](../azure-api-management-certs.md) 를 Azure 클래식 포털에 업로드합니다. Azure Portal에서는 인증을 위해 관리 인증서를 사용하지 않습니다.
-
 

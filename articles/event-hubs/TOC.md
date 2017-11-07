@@ -22,6 +22,7 @@
 
 # 방법
 ## 계획 및 디자인
+### [지역에서 재해 복구 및 지역에서 복제](event-hubs-geo-dr.md)
 ### [Event Hubs 전용](event-hubs-dedicated-overview.md)
 ### [인증 및 보안 모델 개요](event-hubs-authentication-and-security-model-overview.md)
 ### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
@@ -33,6 +34,7 @@
 #### [진단 로그](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 관리
+### [Azure Monitoring을 사용하여 Event Hubs 모니터링](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs 관리 라이브러리](event-hubs-management-libraries.md)
 ### 캡처
 #### [이벤트 허브 캡처](event-hubs-capture-overview.md)

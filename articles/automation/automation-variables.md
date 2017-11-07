@@ -3,7 +3,7 @@ title: "Azure 자동화의 변수 자산 | Microsoft Docs"
 description: "변수 자산은 Azure 자동화의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다.  이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: d3b04dcc856d4637cf7029701a5e169d3096d15c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 자동화의 변수 자산
 
@@ -52,7 +51,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * Boolean
 * Null
 
-## <a name="cmdlets-and-workflow-activities"></a>Cmdlet 및 워크플로 활동
+## <a name="scripting-the-creation-and-management-of-variables"></a>변수 만들기 및 관리 스크립트 작성
 
 다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md) 의 일부로 전송됩니다.
 
@@ -72,6 +71,16 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 > [!NOTE] 
 > **Get-AutomationVariable**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
+
+다음 테이블의 함수는 Python2 Runbook의 변수 액세스 및 검색에 사용됩니다. 
+
+|Python2 함수|설명|
+|:---|:---|
+|automationassets.get_automation_variable|기존 변수의 값을 검색합니다. |
+|automationassets.set_automation_variable|기존 변수의 값을 설정합니다. |
+
+> [!NOTE] 
+> 자산 함수에 액세스하려면 Python Runbook 맨 위에서 "automationassets" 모듈을 가져와야 합니다.
 
 ## <a name="creating-a-new-automation-variable"></a>새 자동화 변수 만들기
 
@@ -107,7 +116,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 변수 사용
 
-**Set-AutomationVariable** 활동을 사용하여 runbook 및 DSC 구성의 자동화 변수의 값을 설정하고, **Get-AutomationVariable**를 사용하여 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 새 변수를 만들 수는 유일한 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 것입니다.
+**Set-AutomationVariable** 활동을 사용하여 PowerShell Runbook 또는 DSC 구성에서 Automation 변수의 값을 설정하고, **Get-AutomationVariable**을 사용하여 해당 변수를 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 새 변수를 만들 수는 유일한 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 것입니다.
 
 
 ### <a name="textual-runbook-samples"></a>텍스트 Runbook 샘플
@@ -134,7 +143,6 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
-
 다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 컴퓨터를 시작합니다.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
@@ -159,6 +167,27 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
           Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
        }
     }
+    
+#### <a name="setting-and-retrieving-a-variable-in-python2"></a>Python2에서 변수 설정 및 검색
+다음 샘플 코드는 Python2 Runbook에서 변수를 사용 및 설정하고 없는 변수에 대한 예외를 처리하는 방법을 보여 줍니다.
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a variable
+    value = automationassets.get_automation_variable("test-variable")
+    print value
+
+    # set a variable (value can be int/bool/string)
+    automationassets.set_automation_variable("test-variable", True)
+    automationassets.set_automation_variable("test-variable", 4)
+    automationassets.set_automation_variable("test-variable", "test-string")
+
+    # handle a non-existent variable exception
+    try:
+        value = automationassets.get_automation_variable("non-existing variable")
+    except AutomationAssetNotFound:
+        print "variable not found"
 
 
 ### <a name="graphical-runbook-samples"></a>그래픽 Runbook 샘플
@@ -176,5 +205,4 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 * 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md) 
-
 

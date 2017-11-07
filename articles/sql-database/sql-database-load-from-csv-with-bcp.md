@@ -12,15 +12,14 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 01/10/2017
 ms.author: carlrab
+ms.openlocfilehash: 2f00a740b3cc59c4e7b3b378c06cfa8cb05e8380
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV에서 Azure SQL Database(플랫 파일)로 데이터 로드
 bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database로 데이터를 가져올 수 있습니다.
@@ -119,4 +118,3 @@ SQL Server 데이터베이스를 마이그레이션하려면 [SQL Server 데이�
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

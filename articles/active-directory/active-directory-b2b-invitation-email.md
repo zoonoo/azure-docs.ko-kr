@@ -15,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B 공동 작업 초대 전자 메일의 요소
 
 초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
@@ -90,4 +86,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-

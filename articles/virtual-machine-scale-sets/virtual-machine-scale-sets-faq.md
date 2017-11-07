@@ -13,17 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure Virtual Machine Scale Sets에 대한 FAQ
 
 Azure의 Virtual Machine Scale Sets에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
@@ -329,7 +327,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 
 
-## <a name="compliance"></a>규정 준수
+## <a name="compliance-and-security"></a>규정 준수 및 보안
 
 ### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>가상 컴퓨터 확장 집합은 PCI 규정을 준수하나요?
 
@@ -339,9 +337,9 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/Compliance/PCI)를 참조하세요.
 
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>[Azure 관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)가 VM 크기 집합에서 작동하나요?
 
-
-
+예. Azure 빠른 시작 템플릿에서 일부 예제 MSI 템플릿을 확인할 수 있습니다. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>확장
@@ -461,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 개인 저장소 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 저장소 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)을 참조하세요.
 
 
-
-
-
-
-
 ## <a name="networking"></a>네트워킹
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
@@ -510,7 +503,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>동일한 구독 및 동일한 지역에서 가상 컴퓨터 확장 집합에 대해 VIP 교환을 수행하려면 어떻게 합니까?
 
-Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 컴퓨터 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. 예제는 [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 더 빠른 옵션은 두 개의 백 엔드 풀 및 라우팅 규칙과 함께 Azure Application Gateway를 사용하는 것입니다. 또는 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/en-us/services/app-service/)를 사용하여 응용 프로그램을 호스트할 수도 있습니다.
+Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 컴퓨터 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. 예제는 [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 더 빠른 옵션은 두 개의 백 엔드 풀 및 라우팅 규칙과 함께 Azure Application Gateway를 사용하는 것입니다. 또는 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/services/app-service/)를 사용하여 응용 프로그램을 호스트할 수도 있습니다.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>정적 개인 IP 주소를 할당하는 데 사용할 개인 IP 주소의 범위를 지정하려면 어떻게 하나요?
 
@@ -650,7 +643,15 @@ VM이 2개 미만인 가상 컴퓨터 확장 집합을 만드는 또 다른 경�
 
 자세한 내용은 [가상 컴퓨터 확장 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Azure OMS(Operations Management Suite)와 확장 집합을 통합할 수 있나요?
 
+예, 확장 집합 VM에서 OMS 확장을 설치하여 수행할 수 있습니다. Azure CLI 예는 다음과 같습니다.
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+OMS 포털에서 필수 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
+
+참고: 확장 집합 _upgradePolicy_를 수동으로 설정한 경우 이에 대한 업그레이드를 호출하여 집합의 모든 VM에 확장을 적용해야 합니다. CLI에서는 _az vmss update-instances_입니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -703,5 +704,4 @@ VM이 2개 미만인 가상 컴퓨터 확장 집합을 만드는 또 다른 경�
 - 가상 컴퓨터 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.
   - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 종단 간 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 컴퓨터 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 컴퓨터 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
-
 

@@ -16,16 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
-ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용
 
 확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 이를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)에서 찾을 수 있으며 diff의 관련 부분은 설명과 함께 아래에 있습니다.
@@ -150,5 +146,4 @@ ms.lasthandoff: 02/08/2017
 확장 집합을 사용하는 예제 리소스 관리자 템플릿은 [Azure 빠른 시작 템플릿 github 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 "vmss"를 검색하세요.
 
 일반적인 정보는 [확장 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
-
 

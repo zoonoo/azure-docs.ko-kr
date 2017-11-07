@@ -1,4 +1,4 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>포털 즐겨찾기에 함수 앱 추가 
+## <a name="favorite-functions-in-the-portal"></a>포털의 즐겨 찾는 함수 
 
 아직 수행하지 않은 경우 Azure Portal에서 즐겨찾기에 함수 앱을 추가합니다. 이렇게 하면 함수 앱을 보다 쉽게 찾을 수 있습니다. 이미 이 작업을 수행한 경우 다음 섹션으로 건너뜁니다. 
 

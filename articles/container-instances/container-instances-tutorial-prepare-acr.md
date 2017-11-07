@@ -14,17 +14,15 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
 세 부분으로 이루어진 자습서의 두 번째 부분입니다. [이전 단계](./container-instances-tutorial-prepare-app.md)에서 [Node.js](http://nodejs.org)로 작성된 간단한 웹 응용 프로그램에 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./container-instances-tutorial-prepare-app.md)로 돌아갑니다. 
@@ -40,7 +38,7 @@ Azure Container Registry는 Docker 컨테이너 이미지를 위한 Azure 기반
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.12 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
@@ -62,7 +60,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
-ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인해야 합니다. [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
+ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인해야 합니다. [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
 
 ```azurecli
 az acr login --name <acrName>
@@ -125,7 +123,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 
 ## <a name="list-images-in-azure-container-registry"></a>Azure Container Registry에서 이미지 나열
 
-Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#list) 명령을 사용합니다. 이 명령을 컨테이너 레지스트리 이름으로 업데이트합니다.
+Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#list) 명령을 사용합니다. 이 명령을 컨테이너 레지스트리 이름으로 업데이트합니다.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -166,4 +164,3 @@ Azure Container Instances를 사용하여 컨테이너를 Azure에 배포하는 
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances에 컨테이너 배포](./container-instances-tutorial-deploy-app.md)
-

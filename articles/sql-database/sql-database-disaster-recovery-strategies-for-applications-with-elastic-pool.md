@@ -12,19 +12,17 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
-
+ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략
-수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 재해 복구 기능을 지원합니다. 이 문서에서는 이러한 SQL 데이터베이스 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.
+수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 재해 복구 기능을 지원합니다. 이 문서에서는 이러한 SQL Database 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.
 
 이 문서에서는 다음과 같은 canonical SaaS ISV 응용 프로그램 패턴을 사용합니다.
 
@@ -64,7 +62,7 @@ ms.lasthandoff: 06/22/2017
 
 ![그림 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-이 전략의 주요 **장점** 은 데이터 계층 중복성을 위해 지속적으로 발생하는 비용이 낮은 것입니다. 백업은 응용 프로그램 다시 쓰기 없이 추가 비용이 발생하지 않으면서 SQL 데이터베이스 서비스에 의해 자동으로 수행됩니다.  탄력적 데이터베이스를 복원한 경우에만 비용이 발생합니다. **단점**은 모든 테넌트 데이터베이스를 전체 복구하는 데 상당한 시간이 소요된다는 것입니다. 소요되는 시간은 DR 지역에서 시작할 총 복원 수와 테넌트 데이터베이스의 전체 크기에 따라 달라집니다. 일부 테넌트의 복원을 다른 복원보다 우선하더라도 기존 고객 데이터베이스에 전체 영향을 최소화하기 위해 서비스가 조정하고 제한하므로 동일한 지역에서 시작된 모든 다른 복원과 경쟁하게 됩니다. 또한 DR 지역에 새 탄력적 풀이 생성될 때까지는 테넌트 데이터베이스의 복구를 시작할 수 없습니다.
+이 전략의 주요 **장점** 은 데이터 계층 중복성을 위해 지속적으로 발생하는 비용이 낮은 것입니다. Backup은 응용 프로그램 다시 쓰기 없이 추가 비용이 발생하지 않으면서 SQL Database 서비스에 의해 자동으로 수행됩니다.  탄력적 데이터베이스를 복원한 경우에만 비용이 발생합니다. **단점**은 모든 테넌트 데이터베이스를 전체 복구하는 데 상당한 시간이 소요된다는 것입니다. 소요되는 시간은 DR 지역에서 시작할 총 복원 수와 테넌트 데이터베이스의 전체 크기에 따라 달라집니다. 일부 테넌트의 복원을 다른 복원보다 우선하더라도 기존 고객 데이터베이스에 전체 영향을 최소화하기 위해 서비스가 조정하고 제한하므로 동일한 지역에서 시작된 모든 다른 복원과 경쟁하게 됩니다. 또한 DR 지역에 새 탄력적 풀이 생성될 때까지는 테넌트 데이터베이스의 복구를 시작할 수 없습니다.
 
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>시나리오 2. 계층화된 서비스를 포함하는 완성도 높은 응용 프로그램
 <i>계층화된 서비스 제품 및 평가판 고객/유료 고객을 위한 다양한 SLA를 포함하는 완성도 높은 SaaS 응용 프로그램입니다. 평가판 고객을 위해 가능한 비용을 절감해야 합니다. 평가판 고객은 중단 시간이 있을 수 있지만 중단 시간이 발생할 가능성을 줄이고 싶습니다. 유료 고객의 경우 중단 시간이 있을 경우 고객이 이탈할 위험이 있습니다. 따라서 유료 고객이 항상 데이터에 액세스할 수 있도록 하고 싶습니다.</i> 
@@ -168,10 +166,9 @@ DR 지역에서 응용 프로그램을 복원한 *후* Azure에 의해 주 지�
 이 문서는 SaaS ISV 다중 테넌트 응용 프로그램에서 사용하는 데이터베이스 계층에 대한 재해 복구 전략에 중점을 둡니다. 비즈니스 모델, 고객에게 제공할 SLA, 예산 제약 등 응용 프로그램의 요구에 따라 전략을 선택합니다. 각 설명된 전략에는 장단점이 나와 있어 합리적인 의사 결정이 가능합니다. 또한 특정 응용 프로그램은 다른 Azure 구성 요소를 포함할 가능성이 높습니다. 따라서 해당 비즈니스 연속성 지침을 검토하고 데이터베이스 계층의 복구를 오케스트레이션합니다. Azure에서 데이터베이스 응용 프로그램 복구를 관리하는 방법에 대해 자세히 알아보려면 [재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-* Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
+* Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
-
 

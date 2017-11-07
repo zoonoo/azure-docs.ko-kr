@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 09/27/2017
 ms.author: seguler
+ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db1761a9a3b8a74a39b2d441849fb89d44cd42b
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -50,45 +49,30 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 ## <a name="setup"></a>설정  
 
 1. [.NET Core 설치 가이드](https://www.microsoft.com/net/core)를 방문하여 .NET Core를 설치합니다. 사용자 환경을 선택할 때 명령줄 옵션을 선택합니다. 
-2. 명령줄에서 프로젝트에 대한 디렉터리를 만듭니다. 이 디렉터리로 이동한 다음 `dotnet new`를 입력하여 C# 콘솔 프로젝트를 만듭니다.
-3. Visual Studio Code에서 이 디렉터리를 엽니다. 이 단계는 `code .`를 입력하여 명령줄을 통해 빠르게 수행할 수 있습니다.  
+2. 명령줄에서 프로젝트에 대한 디렉터리를 만듭니다. 이 디렉터리로 이동한 다음 `dotnet new console -o <sample-project-name>`를 입력하여 C# 콘솔 프로젝트를 만듭니다.
+3. Visual Studio Code에서 이 디렉터리를 엽니다. 이 단계는 Windows에서 `code .`를 입력하여 명령줄을 통해 빠르게 수행할 수 있습니다.  
 4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다. 
 5. 이 시점에서 두 가지 프롬프트가 표시됩니다. 하나는 "빌드 및 디버그에 필요한 자산"을 추가하는 것입니다. "예"를 클릭합니다. 또 다른 프롬프트는 해결되지 않은 종속성을 복원하는 것입니다. "복원"을 클릭합니다.
-6. 이제 응용 프로그램에는 `.vscode` 디렉터리에 `launch.json` 파일이 있어야 합니다. 이 파일에서 `externalConsole` 값을 `true`로 변경합니다.
+6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 ` "console": "externalTerminal"`로 읽어야 합니다.
 7. Visual Studio Code를 사용하면 .NET Core 응용 프로그램을 디버그할 수 있습니다. `F5` 키를 눌러 응용 프로그램을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다. 
 
 ## <a name="add-data-movement-library-to-your-project"></a>프로젝트에 데이터 이동 라이브러리 추가
 
-1. `project.json` 파일의 `dependencies` 섹션에 최신 버전의 데이터 이동 라이브러리를 추가합니다. 이 문서를 작성한 시점에서 해당 버전은 `"Microsoft.Azure.Storage.DataMovement": "0.5.0"`입니다. 
-2. `imports` 섹션에 `"portable-net45+win8"`을 추가합니다. 
-3. 프로젝트를 복원하기 위해 프롬프트가 표시됩니다. "복원" 단추를 클릭합니다. 또한 프로젝트 디렉터리의 루트에 `dotnet restore` 명령을 입력하여 명령줄에서 프로젝트를 복원할 수도 있습니다.
+1. `<project-name>.csproj` 파일의 `dependencies` 섹션에 최신 버전의 데이터 이동 라이브러리를 추가합니다. 이 문서를 작성한 시점에서 해당 버전은 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`입니다. 
+2. 프로젝트를 복원하기 위해 프롬프트가 표시됩니다. "복원" 단추를 클릭합니다. 또한 프로젝트 디렉터리의 루트에 `dotnet restore` 명령을 입력하여 명령줄에서 프로젝트를 복원할 수도 있습니다.
 
-다음과 같이 `project.json`을 수정합니다.
+다음과 같이 `<project-name>.csproj`을 수정합니다.
 
-    {
-      "version": "1.0.0-*",
-      "buildOptions": {
-        "debugType": "portable",
-        "emitEntryPoint": true
-      },
-      "dependencies": {
-        "Microsoft.Azure.Storage.DataMovement": "0.5.0"
-      },
-      "frameworks": {
-        "netcoreapp1.1": {
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "type": "platform",
-              "version": "1.1.0"
-            }
-          },
-          "imports": [
-            "dnxcore50",
-            "portable-net45+win8"
-          ]
-        }
-      }
-    }
+    <Project Sdk="Microsoft.NET.Sdk">
+
+        <PropertyGroup>
+            <OutputType>Exe</OutputType>
+            <TargetFramework>netcoreapp2.0</TargetFramework>
+        </PropertyGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
+            </ItemGroup>
+        </Project>
 
 ## <a name="set-up-the-skeleton-of-your-application"></a>응용 프로그램의 기본 구조 설정
 가장 먼저 수행할 작업은 응용 프로그램의 "기본 구조" 코드를 설정하는 것입니다. 이 코드는 저장소 계정 이름과 계정 키를 묻는 메시지를 표시하고 해당 자격 증명을 사용하여 `CloudStorageAccount` 개체를 만듭니다. 이 개체는 모든 전송 시나리오에서 저장소 계정과 상호 작용하는 데 사용됩니다. 또한 이 코드는 실행하고자 하는 전송 작업의 유형도 선택하도록 요청합니다. 
@@ -98,6 +82,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 ```csharp
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -584,7 +569,6 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 이 시작 자습서에서 Azure Storage와 상호 작용하고 Windows, Linux 및 macOS에서 실행되는 응용 프로그램을 만들었습니다. 이 입문서에서는 Blob Storage에 초점을 맞추었지만, 이 동일한 정보를 File Storage에도 적용할 수 있습니다. 자세한 내용은 [Azure Storage 데이터 이동 라이브러리 참조 설명서](https://azure.github.io/azure-storage-net-data-movement)를 참조하세요.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
 
 
 

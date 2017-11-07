@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Security Center에서 Azure Storage 계정에 암호화 사용
 Azure Security Center에서는 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다.
@@ -32,7 +31,7 @@ SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 �
 >
 >
 
-Storage 서비스 암호화는 리소스 관리자 저장소 계정에만 지원됩니다. 클래식 저장소 계정은 현재 지원되지 않습니다. 클래식 및 리소스 관리자 배포 모델을 이해하려면 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+Storage 서비스 암호화는 Resource Manager 저장소 계정에만 지원됩니다. 클래식 저장소 계정은 현재 지원되지 않습니다. 클래식 및 Resource Manager 배포 모델을 이해하려면 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.
@@ -54,7 +53,7 @@ Storage 서비스 암호화는 리소스 관리자 저장소 계정에만 지원
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Security Center 권장 사항 "Azure Storage 계정에 암호화 사용"을 구현하는 방법을 보여 줍니다. Azure Storage 서비스 암호화에 대한 자세한 내용은 다음을 참조하세요.
 
-* [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)
+* [휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화](../storage/common/storage-service-encryption.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -69,4 +68,3 @@ Storage 서비스 암호화는 리소스 관리자 저장소 계정에만 지원
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-

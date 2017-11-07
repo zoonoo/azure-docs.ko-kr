@@ -9,21 +9,18 @@ editor:
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 42c89f09eee4394fec7d2f33f51ddc5875587530
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 끝점 변경
 
 > [!IMPORTANT]
@@ -85,4 +82,3 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 캐나다 동부 |40.86.227.82, 40.86.225.194 |
 | 영국 북부 |13.87.101.18, 13.87.100.232 |
 | 영국 남부 2 |13.87.32.202, 13.87.32.226 |
-

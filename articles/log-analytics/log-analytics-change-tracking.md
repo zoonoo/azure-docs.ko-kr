@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 
@@ -102,7 +101,7 @@ ms.lasthandoff: 08/14/2017
 
 다음 표에서는 데이터 수집 방법 및 변경 내용 추적에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Linux 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Linux 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows 및 Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 변경 유형에 따라 5분부터 50분 자세한 내용은 다음 테이블을 참조하세요. |
 
@@ -183,5 +182,4 @@ Log Analytics는 변경 내용 추적 솔루션을 사용하여 Windows 레지�
 3. 로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
-
+* [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.

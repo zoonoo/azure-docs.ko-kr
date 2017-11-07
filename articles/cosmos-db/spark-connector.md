@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8ecbb478c81cde25bbd0d1c9ee07ae02b07f8cc7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark-Azure Cosmos DB 커넥터를 사용하여 실시간 빅 데이터 분석 가속화
 
 Spark-Azure Cosmos DB 커넥터를 사용하면 Azure Cosmos DB가 Apache Spark 작업의 입력 소스 또는 출력 싱크로 작동할 수 있습니다. [Spark](http://spark.apache.org/)를 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 연결하면 빠르게 움직이는 데이터 과학 문제를 더욱 빠르게 해결할 수 있도록 하므로 Azure Cosmos DB를 사용하여 데이터를 신속하게 저장하고 쿼리할 수 있습니다. Spark-Azure Cosmos DB 커넥터는 네이티브 Azure Cosmos DB 관리 인덱스를 효율적으로 활용합니다. 인덱스는 IoT(사물 인터넷)에서 데이터 과학 및 분석 시나리오에 이르기까지 급변하는 전역 분산 데이터에 대한 분석 및 푸시다운 조건자 필터링을 수행할 때 업데이트할 수 있는 열을 사용할 수 있도록 합니다.
@@ -354,4 +352,3 @@ Cosmos DB와 Spark를 아직 연결하지 않았으면 [azure-cosmosdb-spark](ht
 * [샘플 스크립트 및 노트북](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)(영문)
 
 또한 [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)(Apache Spark SQL, DataFrame 및 데이터 집합 가이드) 및 [Azure HDInsight의 Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.
-

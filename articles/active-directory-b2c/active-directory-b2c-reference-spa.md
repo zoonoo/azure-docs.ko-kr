@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 로그인
 
@@ -104,7 +102,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | p |필수 |실행할 정책입니다. Azure AD B2C 테넌트에서 생성된 정책의 이름입니다. 정책 이름 값은 **b2c\_1\_**로 시작해야 합니다. 자세한 내용은 [Azure AD B2C 기본 제공 정책](active-directory-b2c-reference-policies.md)을 참조하세요. |
 | prompt |옵션 |필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. Single Sign-On은 적용되지 않습니다. |
 
-이 시점에서 정책의 워크플로를 완료하도록 사용자에게 요청합니다. 이 경우 사용자 이름과 암호를 입력하거나, 소셜 ID로 로그인하거나, 디렉터리를 등록하거나, 다른 단계를 수행할 수도 있습니다. 사용자 작업은 정책을 정의한 방법에 따라 다릅니다.
+이 시점에서 정책의 워크플로를 완료하도록 사용자에게 요청합니다. 이 경우 사용자 이름과 암호를 입력하거나, 소셜 ID로 로그인하거나, 디렉터리를 등록하거나, 다른 단계를 수행할 수도 있습니다. 사용자 작업은 정책을 정의한 방식에 따라 다릅니다.
 
 사용자가 정책을 완료하면 Azure AD에서 앱에 대한 응답을 `redirect_uri`에 사용한 값으로 반환합니다. `response_mode` 매개 변수에 지정된 메서드를 사용합니다. 실행된 정책과 관계 없이 사용자 작업 시나리오 각각에 대한 응답은 정확히 동일합니다.
 
@@ -289,5 +287,4 @@ p=b2c_1_sign_in
 
 * [Node.js를 사용하여 단일 페이지 앱 만들기](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)(영문)
 * [.NET을 사용하여 단일 페이지 앱 만들기](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)(영문)
-
 

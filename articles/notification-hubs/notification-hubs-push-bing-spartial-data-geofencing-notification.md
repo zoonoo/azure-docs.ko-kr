@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림
 > [!NOTE]
@@ -119,7 +118,7 @@ Bing 맵 개발자 센터에서 데이터 원본을 설정할 수 있습니다. 
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-위치 기능을 선언하는 대로 솔루션에 `Core`이라는 새 폴더를 만들고 `LocationHelper.cs`라는 새 파일을 추가합니다.
+위치 기능을 선언하는 대로 솔루션에 `Core`라는 새 폴더를 만들고 `LocationHelper.cs`라는 새 파일을 추가합니다.
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
@@ -259,7 +258,7 @@ Bing 맵 개발자 센터에서 데이터 원본을 설정할 수 있습니다. 
 
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
 
-`ApiHelper.cs` 이라는 프로젝트 내에서 새 클래스를 만들고 Bing에 연결하는 데 사용하여 지점 경계 교차점을 확인합니다. 다음과 같이 `IsPointWithinBounds` 함수를 구현합니다.
+`ApiHelper.cs`이라는 프로젝트 내에서 새 클래스를 만들고 Bing에 연결하는 데 사용하여 지점 경계 교차점을 확인합니다. 다음과 같이 `IsPointWithinBounds` 함수를 구현합니다.
 
     public class ApiHelper
     {
@@ -381,15 +380,14 @@ UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 �
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 위의 단계 이외에 솔루션이 프로덕션을 준비하도록 수행해야 하는 두 가지 단계가 있습니다.
 
-무엇보다도, 지역 구분이 동적인지 확인해야 합니다. 기존 데이터 원본 내에서 새 경계를 업로드할 수 있도록 Bing API와 함께 몇 가지 작업이 필요합니다. 주제에 대한 자세한 내용은 [Bing 공간 데이터 서비스 API 설명서](https://msdn.microsoft.com/library/ff701734.aspx) 를 참조합니다.
+무엇보다도, 지역 구분이 동적인지 확인해야 합니다. 기존 데이터 원본 내에서 새 경계를 업로드할 수 있도록 Bing API와 함께 몇 가지 작업이 필요합니다. 주제에 대한 자세한 내용은 [Bing 공간 데이터 서비스 API 설명서](https://msdn.microsoft.com/library/ff701734.aspx)를 참조합니다.
 
 둘째, 맞는 참가자에게 배달했는지 확인하기 위해 작업을 수행하는 경우 [태그 지정](notification-hubs-tags-segment-push-message.md)을 통해 대상을 지정할 수 있습니다.
 
 위에 표시된 솔루션은 다양한 대상 플랫폼이 있을 수 있는 시나리오를 설명하므로 시스템 관련 기능에 대해 지역 구분을 제한하지 않습니다. 즉, 유니버설 Windows 플랫폼은 [지역 구분을 기본으로 검색](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)하는 기능을 제공합니다.
 
 알림 허브 기능에 대한 자세한 내용은 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인합니다.
-
 

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
+ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 1d10c347795227ed056a95d1bcd4aff82af7b876
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-docker-swarm-cluster"></a>Docker Swarm 클러스터 배포
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Docker Swarm 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
@@ -67,6 +65,8 @@ az group create --name myResourceGroup --location westus
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
+
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 명령이 완료되고 클러스터에 대해 json으로 형식화된 정보가 반환됩니다.
 

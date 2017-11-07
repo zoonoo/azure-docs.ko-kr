@@ -11,25 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
-> [!IMPORTANT]
-> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure Portal은 Azure 리소스를 보다 정확하게 관리할 수 있도록 [역할 기반 액세스 제어](role-based-access-control-configure.md)를 제공합니다.
-> 
-> 
 
-2013년 10월에 Azure 클래식 포털 및 서비스 관리 API는 Azure 리소스에 대한 액세스를 관리하기 위한 사용자 환경을 개선하기 위한 토대를 마련하기 위해 Azure Active Directory와 통합되었습니다. Azure Active Directory는 이미 사용자 관리, 온-프레미스 디렉터리 동기화, 다단계 인증 및 응용 프로그램 액세스 제어와 같은 훌륭한 기능을 제공합니다. 물론 이러한 기능들로 Azure 리소스를 전반적으로 관리할 수 있습니다.
-
-Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)를 방문하여 액세스하는 Azure 계정의 소유자는 계정 관리자(AA)입니다. 구독은 결제를 위한 컨테이너이지만 보안 경계로서의 역할도 합니다. 각 구독에는 [Azure 클래식 포털](https://manage.windowsazure.com/)을 사용하여 해당 구독에서 Azure 리소스를 추가, 제거 및 수정할 수 있는 서비스 관리자(SA)가 있습니다. 새 구독의 기본 SA는 AA이지만 AA가 Azure 계정 센터에서 SA를 변경할 수 있습니다.
+Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)를 방문하여 액세스하는 Azure 계정의 소유자는 계정 관리자(AA)입니다. 구독은 결제를 위한 컨테이너이지만 보안 경계로서의 역할도 합니다. 각 구독에는 [Azure Portal](https://portal.azure.com/)을 사용하여 해당 구독에서 Azure 리소스를 추가, 제거 및 수정할 수 있는 SA(서비스 관리자)가 있습니다. 새 구독의 기본 SA는 AA이지만 AA가 Azure 계정 센터에서 SA를 변경할 수 있습니다.
 
 <br><br>![Azure 계정][1]
 
@@ -67,4 +60,3 @@ Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하�
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
-

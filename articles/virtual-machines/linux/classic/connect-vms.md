@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: e222645509640b104410f87e4bcd22834c8d9ec1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-linux-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>클래식 배포 모델을 사용하여 만든 Linux 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
 > [!IMPORTANT]
@@ -37,4 +35,3 @@ ms.lasthandoff: 06/07/2017
 
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](attach-disk.md) 하는 것이 좋습니다.
-

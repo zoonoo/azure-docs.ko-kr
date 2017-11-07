@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 2e53c3ff2ffbef95d6b72ca6afb3b4de377f0389
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 네트워크 보안 그룹 관리
 
@@ -367,5 +366,4 @@ azure network vnet subnet set --resource-group RG-NSG \
 
 ## <a name="next-steps"></a>다음 단계
 * [로깅을 사용합니다](virtual-network-nsg-manage-log.md) .
-
 

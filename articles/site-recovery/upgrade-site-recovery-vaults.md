@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Site Recovery 자격 증명 모음에서 Azure Resource Manager 기반 Recovery Services 자격 증명 모음으로 업그레이드
 
@@ -81,7 +80,7 @@ Site Recovery 자격 증명 모음에서 Azure Resource Manager 기반 Recovery 
 
 **이 업그레이드가 진행 중인 복제에 주는 영향은 무엇인가요?**
 
-안 됩니다. 진행 중인 복제는 업그레이드 중과 후에 중단 없이 계속됩니다.
+아니요. 진행 중인 복제는 업그레이드 중과 후에 중단 없이 계속됩니다.
 
 **사이트 간 VPN, IP 설정 등의 네트워크 설정은 어떻게 되나요?**
 
@@ -186,4 +185,3 @@ PowerShell에서 다음 명령을 실행합니다.
 Site Recovery 자격 증명 모음에서 각 보호 그룹은 복사 빈도, 복구 지점 재방문 주기, 응용 프로그램 일관성 스냅숏 빈도 및 기타 복제 설정으로 구성됩니다. Recovery Services 자격 증명 모음에서 이러한 설정은 복제 정책으로 구성됩니다. 정책 이름은 보호 그룹 또는 *primarycloud_Policy*의 이름입니다.
 
 복제 정책에 대한 자세한 내용은 [Azure에 대한 VMware의 복제 정책 관리](site-recovery-setup-replication-settings-vmware.md)를 참조하세요.
-

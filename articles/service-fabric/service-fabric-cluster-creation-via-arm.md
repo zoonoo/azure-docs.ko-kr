@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -591,7 +590,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 인증서의 주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-이 주체 이름은 [Resource Manager 템플릿 매개 변수 구성](#configure-arm)에 설명된 대로 보안 Service Fabric 클러스터(Azure AD 없음)를 만드는 데 필요한 항목입니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다. Linux 미리 보기 클러스터에서는 Azure AD 인증을 지원하지 않습니다. [사용자에게 역할 할당](#assign-roles) 섹션에 설명된 대로 관리 및 클라이언트 역할을 할당할 수 있습니다. Linux 미리 보기 클러스터에 대해 관리자 및 클라이언트 역할을 지정할 때는 인증에 대한 인증서 지문을 제공해야 합니다. 이 미리 보기 릴리스에서는 체인 유효성 검사나 해지가 수행되지 않으므로 주체 이름은 제공하지 않습니다.
+이 주체 이름은 [Resource Manager 템플릿 매개 변수 구성](#configure-arm)에 설명된 대로 보안 Service Fabric 클러스터(Azure AD 없음)를 만드는 데 필요한 항목입니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다. Linux 클러스터는 Azure AD 인증을 지원하지 않습니다. [사용자에게 역할 할당](#assign-roles) 섹션에 설명된 대로 관리 및 클라이언트 역할을 할당할 수 있습니다. Linux 클러스터에 대해 관리자 및 클라이언트 역할을 지정할 때는 인증에 대한 인증서 지문을 제공해야 합니다. 체인 유효성 검사나 해지가 수행되지 않으므로 주체 이름은 제공하지 않습니다.
 
 자체 서명 인증서를 테스트에 사용하려는 경우 같은 스크립트를 사용하여 생성할 수 있습니다. 그런 다음 인증서 경로와 인증서 이름 대신 `ss` 플래그를 제공하여 Key Vault에 해당 인증서를 업로드할 수 있습니다. 예를 들어 자체 서명된 인증서를 만들고 업로드하는 다음 명령을 참조하세요.
 
@@ -682,5 +681,4 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-
 

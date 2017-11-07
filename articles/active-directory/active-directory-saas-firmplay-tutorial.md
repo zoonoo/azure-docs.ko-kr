@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>자습서: FirmPlay - Employee Advocacy for Recruiting과 Azure Active Directory 통합
 
@@ -47,7 +46,7 @@ FirmPlay - Employee Advocacy for Recruiting과 Azure AD 통합을 구성하려�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -94,7 +93,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[FirmPlay - Employee Advocacy for Recruiting 테스트 사용자 만들기](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user) ** - FirmPlay: Employee Advocacy for Recruiting에서 Azure AD 담당자와 연결된 Britta Simon에 해당하는 사용자가 있어야 합니다.
+3. **[FirmPlay - Employee Advocacy for Recruiting 테스트 사용자 만들기](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay: Employee Advocacy for Recruiting에서 Azure AD 담당자와 연결된 Britta Simon에 해당하는 사용자가 있어야 합니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -121,7 +120,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 4. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![Single Sign-on 구성](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
 

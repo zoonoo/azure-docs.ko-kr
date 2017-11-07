@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>자습서: Datahug와 Azure Active Directory 통합
 
@@ -105,7 +104,7 @@ Datahug에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-On 구성](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
 
 3. **Datahug 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
@@ -203,7 +202,7 @@ Datahug의 경우 프로비전은 수동 작업입니다.
     ![직원 추가](./media/active-directory-saas-datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > **환영 메일 보내기** 확인란을 선택하여 사용자에게 등록 메일을 보낼 수 있습니다.    
+    > **환영 메일 보내기** 확인란을 선택하여 사용자에게 등록 메일을 보낼 수 있습니다.  
     > Salesforce에 대한 계정을 만들 경우 환영 메일을 보내지 마세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -261,5 +260,4 @@ Datahug의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_203.png
-
 

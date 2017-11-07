@@ -27,7 +27,7 @@
 #### [ASP.NET을 사용하여 현재 사용자 등록](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [플랫폼 간 알림 보내기](notification-hubs-aspnet-cross-platform-notification.md)
 ### 서버 SDK 작업
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.JS](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## 자동화
-### [PowerShell을 사용하여 Notification Hubs 배포 및 관리](notification-hubs-deploy-and-manage-powershell.md)
+### [Azure PowerShell을 사용하여 Notification Hubs 배포 및 관리](notification-hubs-deploy-and-manage-powershell.md)
 ### [예약된 알림 보내기](notification-hubs-send-push-notifications-scheduled.md)
 
 ## 문제 해결
@@ -61,7 +61,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST (영문)](/rest/api/notificationhubs)
 

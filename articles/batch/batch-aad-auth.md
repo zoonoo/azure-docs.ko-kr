@@ -3,7 +3,7 @@ title: "Azure Active Directory를 사용하여 Azure Batch 서비스 솔루션 �
 description: "Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합니다."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,16 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
 Azure Batch는 [Azure Active Directory][aad_about](Azure AD) 인증을 지원합니다. Azure AD는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure에서는 Azure AD를 자체적으로 사용하여 고객, 서비스 관리자 및 조직 사용자를 인증합니다.
@@ -33,13 +31,6 @@ Azure Batch와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 
 - **서비스 주체**를 사용하여 무인으로 실행되는 응용 프로그램을 인증합니다. 서비스 주체는 런타임에 리소스에 액세스할 때 응용 프로그램을 나타내기 위해 응용 프로그램에 대한 정책과 권한을 정의합니다.
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
-
-## <a name="authentication-and-pool-allocation-mode"></a>인증 및 풀 할당 모드
-
-배치 계정을 만들 때 해당 계정에 대해 생성된 풀을 할당해야 하는 위치를 지정할 수 있습니다. 기본 Batch 서비스 구독 또는 사용자 구독 중 하나에서 풀을 할당하도록 선택할 수 있습니다. 사용자의 선택은 해당 계정의 리소스에 대한 액세스를 인증하는 방법에 영향을 줍니다.
-
-- **Batch 서비스 구독** - 기본적으로 Batch 풀은 Batch 서비스 구독에 할당됩니다. 이 옵션을 선택하면 [공유 키](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) 또는 Azure AD로 해당 계정의 리소스에 대한 액세스를 인증할 수 있습니다.
-- **사용자 구독** - 지정한 사용자 구독에 Batch 풀을 할당하도록 선택할 수 있습니다. 이 옵션을 선택하는 경우 Azure AD로 인증해야 합니다.
 
 ## <a name="endpoints-for-authentication"></a>인증에 대한 끝점
 
@@ -332,4 +323,3 @@ Azure AD를 사용하여 Batch Management 응용 프로그램을 인증하려면
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD의 인증 시나리오"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Azure Active Directory와 응용 프로그램 통합"
 [azure_portal]: http://portal.azure.com
-

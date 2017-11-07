@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 Azure DNS 시작 | Microsoft Docs"
 description: "Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. PowerShell을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,14 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.lasthandoff: 04/21/2017
-
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-powershell"></a>PowerShell을 사용하여 Azure DNS 시작
 
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 04/21/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-이 문서에서는 Azure PowerShell을 사용하여 DNS 영역 및 레코드를 만드는 단계를 안내합니다. Azure Portal 또는 플랫폼 간 Azure CLI를 사용하여 이러한 단계를 수행할 수도 있습니다.
+이 문서에서는 Azure PowerShell을 사용하여 DNS 영역 및 레코드를 만드는 단계를 안내합니다. Azure Portal 또는 플랫폼 간 Azure CLI를 사용하여 이러한 단계를 수행할 수도 있습니다. Azure DNS는 사설 도메인 만들기도 지원합니다. 첫 번째 사설 DNS 영역 및 레코드를 만드는 방법에 대한 단계별 지침은 [PowerShell을 사용하여 Azure 사설 DNS 영역 시작](private-dns-getstarted-powershell.md)을 참조하세요.
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
@@ -107,5 +106,4 @@ Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 �
 Azure DNS에서 DNS 영역 관리에 대한 자세한 내용은 [PowerShell을 사용하여 Azure DNS에서 DNS 영역 관리](dns-operations-dnszones.md)를 참조하세요.
 
 Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets.md)를 참조하세요.
-
 

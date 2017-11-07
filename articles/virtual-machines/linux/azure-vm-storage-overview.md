@@ -14,15 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
+ms.openlocfilehash: 934580f6fcfdbff6e61626ed685459478559717d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  Azure Storage는 개발자가 새로운 시나리오를 지원할 대규모 응용 프로그램을 빌드할 수 있게 할 뿐만 아니라 Azure 가상 컴퓨터의 저장소 기반을 제공합니다.
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  Azure Storage는 개발자가 새로운 시나리오를 지원할 대규모 응용 프로그램을 빌드할 수 있게 할 뿐만 아니라 Azure Virtual Machines의 저장소 기반을 제공합니다.
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -30,7 +29,7 @@ Azure VM은 이제 [Azure Storage 계정](../../storage/common/storage-introduct
 
 - 자동 확장성 지원. Azure는 디스크를 만들고 기본 저장소를 관리하여 구독당 최대 10,000개의 디스크를 지원합니다.
 - 가용성 집합으로 향상된 안정성. Azure는 가용성 집합 내에서 자동으로 VM 디스크를 서로 분리합니다.
-- 향상된 액세스 제어. Managed Disks는 [Azure RBAC(역할 기반 액세스 제어)](../../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다.
+- 향상된 액세스 제어. Managed Disks는 [Azure 역할 기반 Access Control(RBAC)](../../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다.
 
 Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../windows/managed-disks-overview.md#pricing-and-billing)를 참조하세요.
 
@@ -85,19 +84,19 @@ az vm create \
 Azure Standard Storage는 저장소의 기본 형식입니다.  Standard Storage는 영구적이면서 동시에 비용 효율적입니다.  
 
 ## <a name="premium-storage"></a>Premium Storage
-Azure 프리미엄 저장소는 I/O 사용량이 많은 작업을 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소를 사용하는 가상 컴퓨터(VM) 디스크는 솔리드 스테이트 드라이브(SSD)에 데이터를 저장합니다. 이 디스크의 속도와 성능 혜택을 활용하여 응용 프로그램의 VM 디스크를 Azure 프리미엄 저장소로 마이그레이션할 수 있습니다.
+Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 가상 컴퓨터(VM) 디스크는 솔리드 스테이트 드라이브(SSD)에 데이터를 저장합니다. 이 디스크의 속도와 성능 혜택을 활용하여 응용 프로그램의 VM 디스크를 Azure Premium Storage로 마이그레이션할 수 있습니다.
 
 Premium Storage 기능은 다음과 같습니다.
 
 * Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
-* 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
+* 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(Virtual Machines)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
 * 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
-* [Premium Storage](../../storage/common/storage-premium-storage.md)
+* [Premium Storage](../windows/premium-storage.md)
 
-## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
-프리미엄 저장소는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. 프리미엄 저장소 지원 VM에서 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 하지만 Premium Storage와 호환되지 않는 VM 시리즈에서는 Premium Storage 디스크를 사용할 수 없습니다.
+## <a name="premium-storage-supported-vms"></a>Premium Storage 지원 VM
+Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 Azure VM(Virtual Machines)을 지원합니다. Premium Storage 지원 VM에서 표준 및 Premium Storage 디스크를 모두 사용할 수 있습니다. 하지만 Premium Storage와 호환되지 않는 VM 시리즈에서는 Premium Storage 디스크를 사용할 수 없습니다.
 
-다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다.
+다음은 Premium Storage로 유효성을 검사한 Linux 배포판입니다.
 
 | 배포 | 버전 | 지원되는 커널 |
 | --- | --- | --- |
@@ -132,7 +131,7 @@ Azure 쿨 저장소 계층은 드물게 액세스하는 오래 지속되는 데�
 | 및 트랜잭션 비용 |및 트랜잭션 비용 | |
 
 ## <a name="redundancy"></a>중복
-Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 Azure 저장소 SLA을 충족합니다.
+Microsoft Azure Storage 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 Azure Storage SLA을 충족합니다.
 
 저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
 
@@ -155,10 +154,10 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 Azure Storage 중복에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Azure 저장소 복제](../../storage/common/storage-redundancy.md)
+* [Azure Storage 복제](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>확장성
-Azure 저장소는 대규모로 확장할 수 있으므로, 수백 테라바이트의 데이터를 저장 및 처리함으로써 과학, 재무 분석 및 미디어 응용 프로그램에 필요한 빅 데이터 시나리오를 지원할 수 있습니다. 또는 소규모 비즈니스 웹 사이트에 필요한 소량의 데이터를 저장할 수도 있습니다. 저장소 요구량이 줄면 저장하는 데이터에 대해서만 비용을 지불하면 됩니다. Azure 저장소는 현재 수십조에 달하는 고유한 고객 개체를 저장하고 초당 평균 수백만 건의 요청을 처리합니다.
+Azure Storage는 대규모로 확장할 수 있으므로, 수백 테라바이트의 데이터를 저장 및 처리함으로써 과학, 재무 분석 및 미디어 응용 프로그램에 필요한 빅 데이터 시나리오를 지원할 수 있습니다. 또는 소규모 비즈니스 웹 사이트에 필요한 소량의 데이터를 저장할 수도 있습니다. 저장소 요구량이 줄면 저장하는 데이터에 대해서만 비용을 지불하면 됩니다. Azure Storage는 현재 수십조에 달하는 고유한 고객 개체를 저장하고 초당 평균 수백만 건의 요청을 처리합니다.
 
 Standard Storage 계정: Standard Storage 계정의 최대 총 요청 속도는 20,000IOPS입니다. 표준 저장소 계정에서 모든 가상 컴퓨터 디스크의 총 IOPS는 이 제한을 초과할 수 없습니다.
 
@@ -183,19 +182,19 @@ Microsoft Cloud 독일은 유럽에 이미 사용할 수 있는 Microsoft Cloud 
 * [Azure 지역 맵](https://azure.microsoft.com/regions/)
 
 ## <a name="security"></a>보안
-Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다. 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 저장소 계정 자체의 보안을 유지할 수 있습니다. 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다. SSE(저장소 서비스 암호화)를 사용하여 데이터가 Azure Storage에 기록될 때 자동으로 암호화되도록 설정할 수 있습니다. 가상 컴퓨터에서 사용되는 OS 및 데이터 디스크는 Azure 디스크 암호화를 사용하여 암호화되도록 설정할 수 있습니다. 공유 액세스 서명을 사용하여 Azure 저장소의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
+Azure Storage는 여러 개발자가 보안 응용 프로그램을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다. 역할 기반 Access Control 및 Azure Active Directory를 사용하여 저장소 계정 자체의 보안을 유지할 수 있습니다. 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다. SSE(저장소 서비스 암호화)를 사용하여 데이터가 Azure Storage에 기록될 때 자동으로 암호화되도록 설정할 수 있습니다. 가상 컴퓨터에서 사용되는 OS 및 데이터 디스크는 Azure 디스크 암호화를 사용하여 암호화되도록 설정할 수 있습니다. 공유 액세스 서명을 사용하여 Azure Storage의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
 
 ### <a name="management-plane-security"></a>관리 평면 보안
-관리 평면은 저장소 계정 관리에 사용되는 리소스로 구성됩니다. 이 섹션에서는 Azure Resource Manager 배포 모델 및 RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정에 대한 액세스를 제어하는 방법에 대해 설명합니다. 또한 저장소 계정 키의 관리와 이러한 키를 다시 생성하는 방법에 대해서도 설명합니다.
+관리 평면은 저장소 계정 관리에 사용되는 리소스로 구성됩니다. 이 섹션에서는 Azure Resource Manager 배포 모델 및 RBAC(역할 기반 Access Control)를 사용하여 저장소 계정에 대한 액세스를 제어하는 방법에 대해 설명합니다. 또한 저장소 계정 키의 관리와 이러한 키를 다시 생성하는 방법에 대해서도 설명합니다.
 
 ### <a name="data-plane-security"></a>데이터 평면 보안
-이 섹션에서는 공유 액세스 서명 및 저장된 액세스 정책을 사용하여 저장소 계정에 있는 Blob, 파일, 큐, 테이블 등의 실제 데이터 개체에 대한 액세스를 허용하는 방법을 살펴볼 것입니다. 서비스 수준 SAS 및 계정 수준 SAS에 대한 설명이 제공됩니다. 또한 특정 IP 주소(또는 IP 주소 범위)에 대한 액세스를 제한하는 방법, 사용되는 프로토콜을 HTTPS로 제한하는 방법 및 만료를 기다리지 않고 공유 액세스 서명을 해지하는 방법도 알아봅니다.
+이 섹션에서는 공유 액세스 서명 및 저장된 액세스 정책을 사용하여 Storage 계정에 있는 Blob, 파일, 큐, 테이블 등의 실제 데이터 개체에 대한 액세스를 허용하는 방법을 살펴볼 것입니다. 서비스 수준 SAS 및 계정 수준 SAS에 대한 설명이 제공됩니다. 또한 특정 IP 주소(또는 IP 주소 범위)에 대한 액세스를 제한하는 방법, 사용되는 프로토콜을 HTTPS로 제한하는 방법 및 만료를 기다리지 않고 공유 액세스 서명을 해지하는 방법도 알아봅니다.
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
-이 섹션에서는 Azure 저장소 간에 전송하는 데이터를 보호하는 방법을 설명합니다. 그뿐 아니라 권장되는 HTTPS 사용과 Azure 파일 공유를 위해 SMB 3.0에서 사용되는 암호화에 대해 설명합니다. 또한 클라이언트 응용 프로그램의 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 클라이언트 쪽 암호화도 살펴봅니다.
+이 섹션에서는 Azure Storage 간에 전송하는 데이터를 보호하는 방법을 설명합니다. 그뿐 아니라 권장되는 HTTPS 사용과 Azure 파일 공유를 위해 SMB 3.0에서 사용되는 암호화에 대해 설명합니다. 또한 클라이언트 응용 프로그램의 저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 클라이언트 쪽 암호화도 살펴봅니다.
 
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
-SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정에 사용하도록 설정하는 방법을 알아보고, 이로 인해 블록 Blob, 페이지 Blob 및 추가 Blob을 Azure 저장소에 쓸 때 자동으로 암호화되는 과정을 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
+SSE(Storage 서비스 암호화)와 이 암호화 방법을 Storage 계정에 사용하도록 설정하는 방법을 알아보고, 이로 인해 블록 Blob, 페이지 Blob 및 추가 Blob을 Azure Storage에 쓸 때 자동으로 암호화되는 과정을 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
 
 * [Azure Storage 보안 가이드](../../storage/common/storage-security-guide.md)
 
@@ -204,12 +203,11 @@ SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정�
 
 Linux 가상 컴퓨터에서 디스크는 일반적으로 **/dev/sdb**이며, Azure Linux 에이전트에 의해 **/mnt**로 포맷되고 마운트됩니다. 임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Linux 가상 컴퓨터의 크기](sizes.md)를 참조하세요.
 
-Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure Virtual Machines에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="cost-savings"></a>비용 절감
 * [저장소 비용](https://azure.microsoft.com/pricing/details/storage/)
 * [저장소 비용 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)
 
 ## <a name="storage-limits"></a>저장소 제한
-* [저장소 서비스 제한](../../azure-subscription-service-limits.md#storage-limits)
-
+* [Storage 서비스 제한](../../azure-subscription-service-limits.md#storage-limits)

@@ -15,18 +15,17 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Spark 및 Apache TinkerPop Gremlin을 사용하여 그래프 분석 수행
 
 [Azure Cosmos DB](introduction.md)는 Microsoft에서 제공하는 전 세계에 배포된 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 코어인 전역 배포 및 수평적 규모 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 만들고 쿼리할 수 있습니다. Azure Cosmos DB는 [Apache TinkerPop Gremlin](graph-introduction.md)을 사용하는 OLTP(온라인 트랜잭션 처리) 그래프 워크로드를 지원합니다.
 
-[Spark](http://spark.apache.org/)는 범용 OLAP(온라인 분석 처리) 데이터 처리에 중점을 둔 Apache Software Foundation 프로젝트입니다. Spark는 Hadoop MapReduce 모델과 유사한 하이브리드 메모리 내/디스크 기반 분산형 컴퓨팅 모델을 제공합니다. Apache Spark는 클라우드에서 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)를 사용하여 배포할 수 있습니다.
+[Spark](http://spark.apache.org/)는 범용 OLAP(온라인 분석 처리) 데이터 처리에 중점을 둔 Apache Software Foundation 프로젝트입니다. Spark는 Hadoop MapReduce 모델과 유사한 하이브리드 메모리 내/디스크 기반 분산형 컴퓨팅 모델을 제공합니다. Apache Spark는 클라우드에서 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)를 사용하여 배포할 수 있습니다.
 
 Azure Cosmos DB와 Spark를 결합하여 Gremlin을 사용할 때 OLTP와 OLAP 워크로드를 모두 수행할 수 있습니다. 이 빠른 시작 문서는 Azure HDInsight Spark 클러스터에서 Azure Cosmos DB에 Gremlin 쿼리를 실행하는 방법을 보여줍니다.
 
@@ -406,4 +405,3 @@ Azure Cosmos DB에 그래프를 유지할 수 있는 방법을 보여주려면 �
 이 빠른 시작 문서에서는 Azure Cosmos DB와 Spark를 결합하여 그래프를 사용하는 방법을 알아 보았습니다.
 
 > [!div class="nextstepaction"]
-

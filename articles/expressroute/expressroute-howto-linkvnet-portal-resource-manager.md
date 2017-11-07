@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
+ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -76,7 +75,7 @@ ms.lasthandoff: 07/28/2017
 
 - 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다.
 - 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다.
-- 단일 부서(이 예제에서는 IT)가 Express 경로 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 Express 경로 회로를 사용할 수 있습니다.
+- 단일 부서(이 예제에서는 IT)가 Express 경로 회로를 소유할 수 있습니다. 다른 Azure Active Directory 테넌트 및 기업계약 등록에 연결된 구독을 포함하여 조직 내 다른 구독에서 ExpressRoute 회로 및 해당 회로와 연결된 권한 부여를 사용할 수 있습니다. 
 
     > [!NOTE]
     > 전용 회로에 대한 연결 및 대역폭 요금은 Express 경로 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -143,4 +142,3 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 ## <a name="next-steps"></a>다음 단계
 ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
-

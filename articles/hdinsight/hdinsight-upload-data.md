@@ -17,18 +17,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
 
 Azure HDInsight는 Azure Storage 및 Azure Data Lake Store를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. Azure Storage 및 Data Lake Store는 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Storage 및 Data Lake Store는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Storage를 사용하는 이점에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용][hdinsight-storage] 및 [HDInsight에서 Data Lake Store 사용](hdinsight-hadoop-use-data-lake-store.md)을 참조하세요.
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 요구 사항을 확인하세요.
 
@@ -159,7 +158,7 @@ Linux 미리 보기에서 Azcopy를 사용할 수 있습니다.  [Linux 미리 �
 Hadoop 명령을 사용하려면 먼저 다음 방법 중 하나를 사용하여 헤드 노드에 연결해야 합니다.
 
 * **Windows 기반 HDInsight**: [원격 데스크톱을 사용하여 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux 기반 HDInsight**: SSH를 사용하여 연결([SSH 명령](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Linux 기반 HDInsight**: [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하여 연결
 
 연결된 후에 저장소에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
 
@@ -329,4 +328,3 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-

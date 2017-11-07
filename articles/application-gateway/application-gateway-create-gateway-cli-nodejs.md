@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: 5106b0a480bb853ad75ad1aaca896f7a72fc4f71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Application Gateway 만들기
 
@@ -45,7 +44,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 ## <a name="scenario"></a>시나리오
 
-이 시나리오에서는 Azure 포털을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+이 시나리오에서는 Azure Portal을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
 
 이 시나리오에서는 다음을 수행합니다.
 
@@ -58,7 +57,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
+Azure Application Gateway에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -161,4 +160,3 @@ azure network application-gateway create \
 [1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
-

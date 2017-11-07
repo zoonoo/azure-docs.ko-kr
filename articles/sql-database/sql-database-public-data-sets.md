@@ -13,15 +13,14 @@ ms.service: sql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: Inactive
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: ffb8c7cb4a5337e075c69f5e74552f7ead7c7565
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
@@ -60,4 +59,3 @@ ms.lasthandoff: 03/29/2017
 | [GitHub 보관](https://www.githubarchive.org/) | "GitHub 보관은 [이벤트의] 공용 GitHub 타임라인을 기록하고, 보관하고, 추가 분석을 위해 쉽게 액세스할 수 있도록 하는 프로젝트입니다." | 웹 클라이언트에서.gz(Gzip) 형식의 JSON 인코딩 이벤트 보관 파일을 다운로드합니다. |
 | [GHTorrent 프로젝트의 GitHub 작업 데이터](http://ghtorrent.org/) | "GHTorrent 프로젝트는 GitHub REST API를 통해 제공되는 데이터의 확장 및 쿼리 가능한 오프라인 미러를 만들기 위한 작업입니다. GHTorrent는 GitHub 공용 이벤트 타임라인을 모니터링합니다. 각 이벤트에 대해 해당 콘텐츠 및 종속성을 철저히 검색합니다." | MySQL 데이터베이스 덤프는 CSV 형식입니다. |
 | [Stack Overflow 데이터 덤프](https://archive.org/details/stackexchange) | "[Stack Overflow를 포함하여] 스택 교환 네트워크에서 모든 사용자가 만든 콘텐츠의 익명 처리된 덤프입니다." | "[Stack Overflow 등의] 각 사이트는 bzip2 압축을 사용하여 7-zip을 통해 압축된 XML 파일로 구성되는 별도 아카이브로 형식이 지정됩니다. 각 사이트 보관 파일에는 Posts, Users, Votes, Comments, PostHistory 및 PostLinks가 포함됩니다." |
-

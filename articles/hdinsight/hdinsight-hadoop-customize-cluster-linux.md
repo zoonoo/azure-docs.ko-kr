@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
+ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: cbfdc3c4b6a6d0f3174c9d7512c3aadd926a56df
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -32,7 +31,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-스크립트 작업을 Azure Marketplace에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
+스크립트 작업을 Azure 마켓플레이스에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure 마켓플레이스에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
 ## <a name="permissions"></a>권한
 
@@ -51,7 +50,7 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 
 액세스 관리 작업에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)
+* [Azure 포털에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)
 * [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="understanding-script-actions"></a>스크립트 작업 이해
@@ -155,7 +154,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 이 단계에�
 
 스크립트 작업 스크립트는 다음 유틸리티를 통해 사용할 수 있습니다.
 
-* Azure Portal
+* Azure 포털
 * Azure PowerShell
 * Azure CLI
 * HDInsight .NET SDK
@@ -176,7 +175,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 이 섹션에는 HDInsight 클러스터를 만들 때 스크립트 작업을 사용할 수 있는 다양한 방법에 대한 예제를 제공합니다.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure Portal에서 스크립트 작업 사용
+### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure 포털에서 스크립트 작업 사용
 
 1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. __클러스터 요약__ 섹션에 도달하면 중지합니다.
 
@@ -438,7 +437,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 다음 스크립트는 PowerShell을 사용하는 클러스터를 만들 때 스크립트 작업을 적용하는 방법에 대해 보여줍니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
 
 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -450,9 +449,9 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 이 섹션에서는 실행 중인 클러스터에 스크립트 작업을 적용하는 방법을 알아봅니다.
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Azure Portal에서 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Azure 포털에서 실행 중인 클러스터에 스크립트 작업 적용
 
-1. [Azure Portal](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
 
 2. HDInsight 클러스터 개요에서 **스크립트 작업** 타일을 선택합니다.
 
@@ -489,7 +488,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 다음 예제에서는 실행 중인 클러스터에 스크립트 작업을 적용하는 방법을 보여줍니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
 작업이 완료되면 다음 텍스트와 유사한 정보가 제공됩니다.
 
@@ -544,9 +543,9 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>기록 보기, 스크립트 작업 승격 및 강등
 
-### <a name="using-the-azure-portal"></a>Azure Portal 사용
+### <a name="using-the-azure-portal"></a>Azure 포털 사용
 
-1. [Azure Portal](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
 
 2. HDInsight 클러스터 개요에서 **스크립트 작업** 타일을 선택합니다.
 
@@ -581,7 +580,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 다음 예제 스크립트는 cmdlet을 사용하여 스크립트를 승격한 후 다시 강등하는 방법을 보여줍니다.
 
-[!code-powershell[기본](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -722,4 +721,3 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 * [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
-

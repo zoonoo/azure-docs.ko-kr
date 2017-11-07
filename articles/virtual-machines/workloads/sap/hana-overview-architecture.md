@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -183,7 +182,7 @@ HANA 대규모 인스턴스에서 SAP HANA를 실행할 때와 Azure에 배포�
 | SKU | 메모리 크기 | 저장소 크기 | 여러 데이터베이스가 장착된 크기 |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x768 GB HANA 인스턴스<br /> 또는 1x512 GB 인스턴스 + 1x256 GB 인스턴스<br /> 또는 3x256 GB 인스턴스 | 
-| S72m | 768 GB | 3 TB | 3x512GB HANA 인스턴스<br />또는 1x512 GB 인스턴스 + 1x1 TB 인스턴스<br />또는 6x256 GB 인스턴스<br />또는 1x1.5 TB 인스턴스 | 
+| S72m | 1.5 TB | 6 TB | 3x512GB HANA 인스턴스<br />또는 1x512 GB 인스턴스 + 1x1 TB 인스턴스<br />또는 6x256 GB 인스턴스<br />또는 1x1.5 TB 인스턴스 | 
 | S192m | 4 TB | 16 TB | 8x512 GB 인스턴스<br />또는 4x1 TB 인스턴스<br />또는 4x512 GB 인스턴스 + 2x1 TB 인스턴스<br />또는 4x768 GB 인스턴스 + 2x512 GB 인스턴스<br />또는 1x4 TB 인스턴스 |
 | S384xm | 8 TB | 22 TB | 4x2 TB 인스턴스<br />또는 2x4 TB 인스턴스<br />또는 2x3 TB 인스턴스 + 1x2 TB 인스턴스<br />또는 2x2.5 TB 인스턴스 + 1x3 TB 인스턴스<br />또는 1x8 TB 인스턴스 |
 
@@ -483,6 +482,5 @@ HANA 큰 인스턴스 및 Azure VM 간에 전송된 데이터는 암호화되지
 
 > [!IMPORTANT] 
 > 여러 ExpressRoute 회로가 사용되는 경우 트래픽을 제대로 라우팅하기 위해서는 AS Path 앞에 추가 및 로컬 기본 BGP 설정을 사용해야 합니다.
-
 
 

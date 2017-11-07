@@ -12,16 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="performance-metrics"></a>성능 메트릭
 
 클러스터의 성능 및 클러스터에서 실행 중인 응용 프로그램을 이해하기 위해 메트릭을 수집해야 합니다. Service Fabric 클러스터의 경우 다음과 같은 성능 카운터를 수집하는 것이 좋습니다.
@@ -42,7 +40,7 @@ ms.lasthandoff: 07/21/2017
 | PhysicalDisk(디스크당) | 디스크 쓰기 바이트/초 |
 | 메모리 | Available MBytes |
 | PagingFile | % 사용량 |
-| 프로세스(합계) | % Processor Time |
+| 프로세서(합계) | % Processor Time |
 | 프로세스(서비스당) | % Processor Time |
 | 프로세스(서비스당) | ID 프로세스 |
 | 프로세스(서비스당) | 프로세스 바이트 |
@@ -50,6 +48,11 @@ ms.lasthandoff: 07/21/2017
 | 프로세스(서비스당) | 가상 바이트 |
 | 프로세스(서비스당) | 작업 집합 |
 | 프로세스(서비스당) | 작업 집합 - 개인 |
+| 네트워크 인터페이스(모든 인스턴스) | Output Queue Length |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Discarded |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Received Discarded |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Errors |
+| 네트워크 인터페이스(모든 인스턴스) | Packets Received Errors |
 
 ## <a name="net-applications-and-services"></a>.NET 응용 프로그램 및 서비스
 
@@ -81,4 +84,3 @@ Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성�
 
 * Service Fabric에서 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
 * [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 통해 성능 메트릭 수집
-

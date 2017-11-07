@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-movement-cost"></a>서비스 이동 비용
 Service Fabric 클러스터 리소스 관리자에서 클러스터에 적용할 변경 내용을 결정할 때 고려할 요소는 이러한 변경에 소요되는 비용입니다. "비용"이라는 개념은 클러스터를 향상시킬 수 있는 정도와 절충됩니다. 분산, 조각 모음 및 기타 요구 사항을 위해 서비스를 이동할 때 비용이 고려됩니다. 목표는 최소 중단 또는 비용으로 요구 사항을 충족하는 것입니다. 
@@ -100,7 +99,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다.
+독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json를 통해 수행됩니다.
 
 ```json
 "fabricSettings": [
@@ -121,4 +120,3 @@ ClusterManifest.xml:
 - 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [Service Fabric 클러스터 부하 분산](service-fabric-cluster-resource-manager-balancing.md)을 참조하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
-

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
-
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure 포털을 사용하여 인터넷 연결 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
@@ -29,11 +29,13 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -54,21 +56,21 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Azure 포털에서 부하 분산 장치 설정
 
 > [!IMPORTANT]
-> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는&2;개의 VM이 **myVNet**의 **myAvailSet**이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는 2개의 VM이 **myVNet**의 **myAvailSet**이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 1. 브라우저에서 Azure 포털 [http://portal.azure.com](http://portal.azure.com) 으로 이동하고 Azure 계정으로 로그인합니다.
 2. 화면 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
 3. **부하 분산 장치 만들기** 블레이드에서 부하 분산 장치의 이름을 입력합니다. 여기서는 **myLoadBalancer**라고 지칭합니다.
 4. **형식**에서 **Public**을 선택합니다.
 5. **공용 IP 주소** 아래에서 **myPublicIP**이라는 새 공용 IP를 만듭니다.
-6. 리소스 그룹에서 **myRG**를 선택합니다. 그런 다음 해당 **위치**를 선택하고 **확인**을 클릭합니다. 부하 분산 장치는 배포를 시작하며 배포를 성공적으로 완료하는 데 몇 분 정도 걸립니다.
+6. 리소스 그룹에서 **myRG**를 선택합니다. 그런 다음 해당 **위치**를 선택하고 **확인**을 클릭합니다. 그러면 부하 분산 장치에서 배포를 시작하며 배포를 완료하는 데 몇 분 정도가 걸립니다.
 
     ![부하 분산 장치에 대한 리소스 그룹 업데이트](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 ## <a name="create-a-back-end-address-pool"></a>백 엔드 주소 풀 만들기
 
 1. 부하 분산 장치가 성공적으로 배포되면 리소스 내에서 선택합니다. 설정에서 백 엔드 풀을 선택합니다. 백 엔드 풀의 이름을 입력합니다. 표시되는 블레이드 위쪽의 **추가** 단추를 클릭합니다.
-2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web&1;** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
+2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web 1** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
 
     ![백 엔드 주소 풀에 추가 ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
@@ -81,7 +83,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
     부하 분산 장치의 설정에서 프로브를 선택합니다. 그런 후 블레이드 위쪽에서 **추가**를 클릭합니다.
 
     프로브를 구성하는 방법에는 HTTP 또는 TCP의 두 가지가 있습니다. 이 예제에서는 HTTP가 표시되지만 TCP도 비슷한 방식으로 구성할 수 있습니다.
-    필요한 정보를 업데이트합니다. 설명대로 **myLoadBalancer**가 포트 80에서 트래픽 로드를 분산합니다. 선택한 경로는 HealthProbe.aspx이고, 간격은 15초이고, 비정상 임계값은 2입니다. 완료되면 **확인**을 클릭하여 프로브를 만듭니다.
+    필요한 정보를 업데이트합니다. 앞서 언급한 대로 **myLoadBalancer**는 포트 80에서 트래픽의 부하를 분산합니다. 선택한 경로는 HealthProbe.aspx이고, 간격은 15초이고, 비정상 임계값은 2입니다. 완료되면 **확인**을 클릭하여 프로브를 만듭니다.
 
     'I' 아이콘 위에 포인터를 가져가 이러한 개별 구성 및 요구 사항에 맞게 변경하는 방법을 자세히 알아봅니다.
 
@@ -112,9 +114,3 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

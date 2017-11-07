@@ -16,14 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
+ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
 
@@ -39,7 +37,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -113,7 +111,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
 ## <a name="generate-the-openapi-definition"></a>OpenAPI 정의 생성
 
-이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 [API 앱](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술 뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](http://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다
+이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 API Apps, [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](http://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다.
 
 1. API(이 경우 POST)에서 지원하는 *동사*만 선택합니다. 이를 통해 생성된 API 정의가 더 분명해집니다.
 
@@ -175,20 +173,9 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
     이 정의는 전체 OpenAPI 정의가 되기 위해서는 더 많은 메타데이터가 필요하므로 _템플릿_으로 설명됩니다. 다음 단계에서 해당 정의를 수정합니다.
 
 ## <a name="modify-the-openapi-definition"></a>OpenAPI 정의 수정
-이제 템플릿 정의가 있으므로 API의 작업 및 데이터 구조에 대한 추가 메타데이터를 제공하도록 수정합니다. 이 자습서에서는 아래의 수정된 정의를 **API 정의** 창에 붙여 넣고 **저장**을 클릭하기만 하면 됩니다.
+이제 템플릿 정의가 있으므로 API의 작업 및 데이터 구조에 대한 추가 메타데이터를 제공하도록 수정합니다. **API 정의**에서 생성된 정의를 `post`부터 정의 가장 아래쪽까지 삭제하여 아래 콘텐츠에 붙여넣고 **저장**을 클릭합니다.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +235,7 @@ securityDefinitions:
     in: query
 ```
 
-즉, 기본 템플릿에서 어떤 유형의 수정을 수행했는지 이해하는 것이 중요합니다.
+이 경우 그냥 업데이트된 메타데이터에 붙여넣을 수도 있지만 기본 템플릿에서 어떤 유형의 수정을 수행했는지 이해하는 것이 중요합니다.
 
 + API가 JSON 형식으로 데이터를 생성하고 소비한다고 지정했습니다.
 
@@ -308,4 +295,3 @@ API 정의를 사용하기 전에 Azure Functions UI에 테스트하는 것이 �
 다음 항목으로 이동하여 만든 OpenAPI 정의를 사용하는 PowerApps 앱을 만드는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
 > [PowerApps에서 함수 호출](functions-powerapps-scenario.md)
-

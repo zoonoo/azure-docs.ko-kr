@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성 문제
 
 이 문서는 비갤러리 응용 프로그램에 대해 **암호 Single Sign-On**을 구성할 때 발생하는 일반적인 문제를 이해하는 데 도움이 됩니다.
@@ -47,7 +45,7 @@ ms.lasthandoff: 04/18/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -61,7 +59,7 @@ ms.lasthandoff: 04/18/2017
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **암호 기반의 로그온** 모드를 선택합니다.
+8.  **암호 기반 로그온** 모드를 선택합니다.
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. **제공하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
 
@@ -77,7 +75,7 @@ ms.lasthandoff: 04/18/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -91,7 +89,7 @@ ms.lasthandoff: 04/18/2017
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **암호 기반의 로그온** 모드를 선택합니다.
+8.  **암호 기반 로그온** 모드를 선택합니다.
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. **제공하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
 
@@ -201,39 +199,39 @@ ms.lasthandoff: 04/18/2017
 
 -   **제목** - 알림의 설명이 포함된 제목
 
-    -   예 - **응용 프로그램 프록시 설정**
+    -   예제 - **응용 프로그램 프록시 설정**
 
 -   **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
-    -   예 - **입력한 내부 url은 이미 다른 응용 프로그램에서 사용 중입니다.**
+    -   예제 - **입력한 내부 url은 이미 다른 응용 프로그램에서 사용 중입니다.**
 
 -   **알림 ID** - 알림의 고유 ID
 
-    -   예 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+    -   예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
 -   **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
 
-    -   예 – **302fd775-3329-4670-a9f3-bea37004f0bc**
+    -   예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
 -   **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
 
-    -   예 – **2017-03-23T19:50:43.7583681Z**
+    -   예제 – **2017-03-23T19:50:43.7583681Z**
 
 -   **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
 
-    -   예 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+    -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – 작업을 수행한 사용자
 
-    -   예 – **tperkins@f128.info**
+    -   예제 – **tperkins@f128.info**
 
 -   **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
-    -   예 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+    -   예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
 -   **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
 
-    -   예 – **17f84be4-51f8-483a-b533-383791227a99**
+    -   예제 – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>자세한 알림 항목
 
@@ -247,11 +245,11 @@ ms.lasthandoff: 04/18/2017
 
 -   **개체 ID** – **(비어 있을 수 있음)** 작업이 수행된 개체 ID
 
-    -   예 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+    -   예제 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-    -   예 – **내부 url 'http://bing.com/'은 이미 사용 중이므로 유효하지 않습니다.**
+    -   예제 – **내부 url 'http://bing.com/'은 이미 사용 중이므로 유효하지 않습니다.**
 
 -   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보 복사
 
@@ -259,5 +257,4 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-
 

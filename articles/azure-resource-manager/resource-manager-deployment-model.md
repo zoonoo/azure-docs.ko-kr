@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 이 항목에서는 Azure Resource Manager와 클래식 배포 모델, 리소스 상태 및 리소스가 둘 중 하나를 통해 배포된 이유에 대해 알아봅니다. Resource Manager와 클래식 배포 모델은 Azure 솔루션을 배포하고 관리하는 별개의 두 가지 방식을 나타냅니다. 서로 다른 두 가지 API 집합을 통해 작업하며, 배포된 리소스에는 중요한 차이점이 있습니다. 두 가지 모델은 서로 완전히 호환되지 않습니다. 이 항목에서는 이러한 차이점을 설명합니다.
@@ -219,5 +217,4 @@ Azure Resource Manager를 사용하여 만든 가상 컴퓨터, 가상 네트워
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 정의하는 템플릿을 만들기 위해 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 * 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
-
 

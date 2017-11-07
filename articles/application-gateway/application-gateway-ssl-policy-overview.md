@@ -1,4 +1,4 @@
----   
+---
 title: "Azure Application Gateway의 SSL 정책 개요 | Microsoft Docs"
 description: "Azure Application Gateway에 대해 자세히 알게 되면 SSL 정책을 구성할 수 있습니다."
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Application Gateway SSL 정책 개요
 
 Azure Application Gateway를 사용하여 SSL 인증서 관리를 중앙 집중화하고 백 엔드 서버 팜에서 암호화 및 암호 해독 오버헤드를 줄일 수 있습니다. 또한 이러한 중앙 집중식 SSL 처리를 통해 조직의 보안 요구 사항에 적합한 중앙 SSL 정책을 지정할 수 있습니다. 그러면 보안 지침과 권장되는 정보 및 규정 준수 요구 사항을 충족할 수 있습니다.
@@ -107,4 +104,3 @@ Application Gateway는 사용자 지정 정책을 선택할 수 있는 다음과
 ## <a name="next-steps"></a>다음 단계
 
 SSL 정책 구성에 대해 자세히 알아보려면 [Application Gateway에 SSL 정책 구성](application-gateway-configure-ssl-policy-powershell.md)을 참조하세요.
-

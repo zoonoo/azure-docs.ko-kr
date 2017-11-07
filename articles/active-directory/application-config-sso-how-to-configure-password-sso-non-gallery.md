@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 03200aeb1b6ca6f01a78c95e9014f5290c114e6a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: f629ec99824199306ebf825901beaa99d83d434d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
 
 Azure AD 응용 프로그램 갤러리 내에서 찾을 수 있는 선택 항목 외에도 원하는 응용 프로그램이 나열되어 있지 않은 경우 **비 갤러리 응용 프로그램**을 추가하는 옵션도 있습니다. 이 기능을 사용하여 조직에 이미 있는 응용 프로그램 또는 [Azure AD 응용 프로그램 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)의 일부가 아닌 공급 업체에서 사용할 수 있는 타사 응용 프로그램을 추가할 수 있습니다.
@@ -57,7 +55,7 @@ Azure AD 응용 프로그램 갤러리 내에서 찾을 수 있는 선택 항목
 
 Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
 
--   [비 갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
+-   [비갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
 
 -   [암호 Single Sign-On에 대한 응용 프로그램 구성](#configure-the-application-for-password-single-sign-on)
 
@@ -69,33 +67,33 @@ Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행
 
 ## <a name="add-a-non-gallery-application"></a>비 갤러리 응용 프로그램 추가
 
-Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를 따릅니다.
+Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
 5.  **엔터프라이즈 응용 프로그램** 블레이드의 오른쪽 위 모서리에서 **추가** 단추를 클릭합니다.
 
-6.  **비 갤러리 응용 프로그램**을 클릭합니다.
+6.  **비갤러리 응용 프로그램**을 클릭합니다.
 
 7.  **이름** 텍스트 상자에 응용 프로그램의 이름을 입력합니다. **추가**를 선택합니다.
 
-짧은 시간 후 응용 프로그램의 구성 블레이드를 볼 수 있습니다.
+짧은 시간 후에 응용 프로그램의 구성 블레이드를 볼 수 있습니다.
 
 ## <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
 
-응용 프로그램에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
+응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -107,7 +105,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **암호 기반의 로그온** 모드를 선택합니다.
+8.  **암호 기반 로그온** 모드를 선택합니다.
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. URL에서 로그인 필드가 표시되는지 확인합니다.
 
@@ -121,9 +119,9 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -157,9 +155,9 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -175,11 +173,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를
 
 9.  **할당 추가** 블레이드에서 **사용자 및 그룹** 선택기를 클릭합니다.
 
-10. **이름 또는 전자 메일 주소로 검색** 검색 상자에 할당하려는 그룹의 **전체 그룹 이름**을 입력합니다.
+10. **이름 또는 메일 주소로 검색** 검색 상자에 할당하려는 그룹의 **전체 그룹 이름**을 입력합니다.
 
 11. 목록의 **그룹** 위로 마우스를 이동하여 **확인란**을 표시합니다. 그룹의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **둘 이상의 그룹을 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 그룹 이름**을 입력하고 확인란을 클릭하여 이 그룹을 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **둘 이상의 그룹을 추가**하려는 경우 **이름 또는 메일 주소로 검색** 검색 상자에 다른 **전체 그룹 이름**을 입력하고 확인란을 클릭하여 이 그룹을 **선택됨** 목록에 추가합니다.
 
 13. 그룹 선택이 완료되면 **선택** 단추를 클릭하여 응용 프로그램에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
@@ -191,4 +189,3 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 다음 단계를
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](active-directory-application-proxy-sso-using-kcd.md)
-

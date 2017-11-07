@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
+ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 
@@ -37,7 +36,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 | 활동 로그 | 이벤트 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure Monitor 이벤트 API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**저장소 blob 또는 이벤트 허브:** [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](monitoring-diagnostic-logs-schema.md) | <ul><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | 게스트 OS 로그 계산(예: IIS, ETW, syslog) | 이벤트 | [Windows](../virtual-machines-dotnet-diagnostics.md) 및 Linux 가상 컴퓨터(v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**저장소 테이블 또는 blob:** [Windows 또는 Linux Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**이벤트 허브:** [Windows Azure 진단](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
-| App Service 로그 | 이벤트 | App Services | <ul><li>**File, Table 또는 Blob Storage:** [웹앱 진단](../app-service-web/web-sites-enable-diagnostic-log.md)</li></ul> |
+| App Service 로그 | 이벤트 | App Services | <ul><li>**File, Table 또는 Blob Storage:** [웹앱 진단](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | 저장소 로그 | 이벤트 | Azure 저장소 | <ul><li>**저장소 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Security Center 경고 | 이벤트 | Azure 보안 센터 | <ul><li>**REST API:** [보안 경고](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
 | Active Directory 보고 | 이벤트 | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory Graph API](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
@@ -55,4 +54,3 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 - [Azure Monitor 메트릭](monitoring-overview-metrics.md)에 대해 자세히 알아보기
 - [Azure 활동 로그](monitoring-overview-activity-logs.md)에 대해 자세히 알아보기
 - [Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)에 대해 자세히 알아보기
-

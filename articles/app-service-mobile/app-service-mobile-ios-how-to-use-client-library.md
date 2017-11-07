@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
+ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure 모바일 앱용 iOS 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -688,7 +687,7 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 ## <a name="twitter-fabric"></a>방법: iOS용 Twitter Fabric을 사용하여 사용자 인증
 Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.
 
-1. 다음으로 [Twitter 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-twitter-authentication.md) 자습서를 수행하여 Twitter 로그인에 모바일 앱 백 엔드를 구성합니다.
+1. 다음으로 [Twitter 로그인에 앱 서비스를 구성하는 방법](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) 자습서를 수행하여 Twitter 로그인에 모바일 앱 백 엔드를 구성합니다.
 2. [iOS용 Fabric - 시작] 설명서를 수행하고 TwitterKit를 설정하여 프로젝트에 Fabric을 추가합니다.
 
    > [!NOTE]
@@ -762,7 +761,7 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 ## <a name="google-sdk"></a>방법: iOS용 Google 로그인 SDK를 사용하여 사용자 인증
 Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다.  최근에 Google에서 OAuth 보안 정책 변경 소식을 발표했습니다.  정책이 변경됨에 따라 향후에는 Google SDK를 사용해야 할 것입니다.
 
-1. 다음으로 [Google 로그인에 App Service를 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md) 자습서를 수행하여 Google 로그인에 모바일 앱 백 엔드를 구성합니다.
+1. 다음으로 [Google 로그인에 App Service를 구성하는 방법](../app-service/app-service-mobile-how-to-configure-google-authentication.md) 자습서를 수행하여 Google 로그인에 모바일 앱 백 엔드를 구성합니다.
 2. [iOS용 Google 로그인 - 통합 시작](https://developers.google.com/identity/sign-in/ios/start-integrating) 설명서에 따라 iOS용 Google SDK를 설치합니다. "백 엔드 서버를 사용하여 인증" 섹션은 건너뛰어도 됩니다.
 3. 사용하는 언어에 따라 대리자의 `signIn:didSignInForUser:withError:` 메서드에 다음을 추가합니다.
 
@@ -876,8 +875,7 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
-

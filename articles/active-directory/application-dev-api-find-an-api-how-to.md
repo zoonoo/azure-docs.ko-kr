@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 98c247a03132ad1f5bf158d257cd5ba764162112
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: e0c07fd030339d025894520500d2cd948d31af45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대해 필요한 특정 API를 찾는 방법
 
 API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다. 클라이언트 응용 프로그램에 리소스 응용 프로그램 웹 API를 표시하려는 경우 API에 대한 액세스 범위 및 역할을 구성해야 합니다. 클라이언트 응용 프로그램에서 웹 API에 액세스하도록 하려면 앱 등록에서 API에 액세스하기 위한 권한을 구성해야 합니다.
@@ -38,6 +36,5 @@ API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다.
 -   [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 -   [Azure Active Directory 응용 프로그램 매니페스트 이해](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
 
 

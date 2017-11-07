@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 알림 허브를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -266,7 +266,7 @@ Windows 알림 메시지를 보내려면
 
 그 결과, 알림 허브 전송 요청 HTTP URL에 "test" 쿼리 문자열이 추가됩니다. 
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>자습서 완료
+## <a name="complete-tutorial"></a>자습서 완료
 이제 Python 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
 알림 허브 클라이언트를 초기화합니다( [시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
@@ -322,7 +322,7 @@ Python 코드를 실행하면 대상 장치에 나타나는 알림이 생성됩�
 
 ## <a name="examples"></a>예제:
 ### <a name="enabling-debug-property"></a>디버그 속성 사용
-NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면 자세한 HTTP 요청 및 응답 덤프뿐 아니라 요청 시 전달된 HTTP 헤더 및 알림 허브에서 수신된 HTTP 응답을 확인할 수 있는 다음과 같은 NotificationOutcome이 표시됩니다.        ![][1]
+NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록 설정하면 자세한 HTTP 요청 및 응답 덤프뿐 아니라 요청 시 전달된 HTTP 헤더 및 알림 허브에서 수신된 HTTP 응답을 확인할 수 있는 다음과 같은 NotificationOutcome이 표시됩니다. ![][1]
 
 예를 들어 메시지가 푸시 알림 서비스로 전송되면 
 
@@ -374,8 +374,8 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 이 항목에서는 알림 허브에 대한 단순한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 위의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
-*  [속보 자습서]
-*  [지역화 뉴스 자습서]
+* [속보 자습서]
+* [지역화 뉴스 자습서]
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
@@ -389,10 +389,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

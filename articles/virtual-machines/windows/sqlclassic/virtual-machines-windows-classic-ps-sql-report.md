@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -67,7 +66,7 @@ ms.lasthandoff: 03/31/2017
    * **크기: A3** 은 SQL Server 작업에 권장되는 VM 크기입니다. VM이 보고서 서버로만 사용되는 경우 보고서 서버의 작업이 크지 않는 한 VM 크기는 A2이면 충분합니다. VM 가격 책정 정보는 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
    * **새 사용자 이름**: 제공하는 이름은 VM에서 관리자로 만들어집니다.
    * **새 암호** 및 **확인**. 이 암호는 새 관리자 계정에 대해 사용되므로 강력한 암호를 사용하는 것이 좋습니다.
-   * **다음**을 클릭합니다. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * **다음**을 누릅니다. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. 다음 페이지에서 다음 필드를 편집합니다.
    
    * **클라우드 서비스**: **새 클라우드 서비스 만들기**를 선택합니다.
@@ -512,7 +511,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
    
    1. **데이터베이스 변경**을 클릭합니다.
    2. **새 보고서 서버 데이터베이스 만들기**를 클릭한 후 **다음**을 클릭합니다.
-   3. 기본 **서버 이름**을 VM 이름으로 그대로 적용하고 기본 **인증 유형**을 **현재 사용자** – **통합된 보안**으로 그대로 적용합니다. **다음**을 클릭합니다.
+   3. 기본 **서버 이름**을 VM 이름으로 그대로 적용하고 기본 **인증 유형**을 **현재 사용자** – **통합된 보안**으로 그대로 적용합니다. **다음**을 누릅니다.
    4. 기본 **데이터베이스 이름**을 **ReportServer**로 그대로 적용하고 **다음**을 클릭합니다.
    5. 기본 **인증 유형**을 **서비스 자격 증명**으로 그대로 적용하고 **다음**을 클릭합니다.
    6. 왼쪽 창에서 **다음** on the **다음** 을 클릭합니다.
@@ -608,5 +607,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Azure VM의 SQL Server에 대한 기타 리소스 링크
 [Azure 가상 컴퓨터의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
 

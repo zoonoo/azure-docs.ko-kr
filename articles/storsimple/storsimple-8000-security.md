@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -273,5 +271,4 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-u2.md)
-
 

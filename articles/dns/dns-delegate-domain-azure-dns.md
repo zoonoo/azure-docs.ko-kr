@@ -3,8 +3,8 @@ title: "Azure DNS에 도메인 위임 | Microsoft Docs"
 description: "도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,15 +12,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS에 도메인 위임
 
 Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 도메인에 대한 DNS 쿼리가 Azure DNS에 도달하려면 부모 도메인에서 Azure DNS로 도메인을 위임해야 합니다. Azure DNS는 도메인 등록 기관이 아닙니다. 이 문서에서는 Azure DNS에 도메인을 위임하는 방법을 알아봅니다.
@@ -32,11 +30,11 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 클릭한 다음 **DNS 영역**을 클릭하여 DNS 영역 블레이드 만들기를 엽니다.
+1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 차례로 클릭한 다음 **DNS 영역**을 클릭하여 [DNS 영역 만들기] 페이지를 엽니다.
 
     ![DNS 영역](./media/dns-domain-delegation/dns.png)
 
-1. **DNS 영역 만들기** 블레이드에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
+1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
 
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
@@ -52,9 +50,9 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 
 DNS 영역을 Azure DNS에 위임하려면 먼저 해당 영역에 대한 이름 서버 이름을 알아야 합니다. Azure DNS는 영역이 만들어질 때마다 풀에서 이름 서버를 할당합니다.
 
-1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 블레이드에서 **contoso.net** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 [이름을 기준으로 필터링...]에 **contoso.net**을 입력합니다. 응용 프로그램 게이트웨이에 간편하게 액세스할 수 있는 상자입니다. 
+1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 페이지에서 **contoso.net** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 [이름을 기준으로 필터링...]에 **contoso.net**을 입력합니다. 응용 프로그램 게이트웨이에 간편하게 액세스할 수 있는 상자입니다. 
 
-1. DNS 영역 블레이드에서 이름 서버를 검색합니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', 'ns4-01.azure-dns.info'가 할당되었습니다.
+1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', 'ns4-01.azure-dns.info'가 할당되었습니다.
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -87,7 +85,7 @@ Metadata          :
 ### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
+az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
 다음 예제는 응답입니다.
@@ -124,7 +122,7 @@ DNS 영역을 만들었고 이름 서버를 확보했으니, 이제 Azure DNS �
 
 Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이름 서버 이름을 사용해야 합니다. 도메인 이름에 상관 없이 4개의 이름 서버 이름을 모두 사용하는 것이 좋습니다. 도메인 위임에는 같은 최상위 도메인을 도메인으로 사용하는 이름 서버 이름이 필요하지 않습니다.
 
-이러한 IP 주소는 나중에 변경될 수 있으므로 Azure DNS 이름 서버 IP 주소를 가리키는 데 '연결 레코드'를 사용하지 않아야 합니다. 고유한 영역에서 이름 서버 이름을 사용하는 위임('베니티 이름 서버'라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
+이러한 IP 주소는 나중에 변경될 수 있으므로 Azure DNS 이름 서버 IP 주소를 가리키는 데 '글루 레코드'를 사용하지 않습니다. 고유한 영역에서 이름 서버 이름을 사용하는 위임('베니티 이름 서버'라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
 
 ## <a name="verify-name-resolution-is-working"></a>이름 확인이 작동하는지 확인
 
@@ -163,11 +161,11 @@ default TTL = 300 (5 mins)
 ### <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 클릭한 다음 **DNS 영역**을 클릭하여 DNS 영역 블레이드 만들기를 엽니다.
+1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 차례로 클릭한 다음 **DNS 영역**을 클릭하여 [DNS 영역 만들기] 페이지를 엽니다.
 
     ![DNS 영역](./media/dns-domain-delegation/dns.png)
 
-1. **DNS 영역 만들기** 블레이드에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
+1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음 **만들기**를 클릭합니다.
 
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
@@ -181,9 +179,9 @@ default TTL = 300 (5 mins)
 
 ### <a name="retrieve-name-servers"></a>이름 서버 검색
 
-1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 블레이드에서 **partners.contoso.net** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 [이름을 기준으로 필터링...]에 **partners.contoso.net**을 입력합니다. DNS 영역에 간편하게 액세스할 수 있는 상자입니다.
+1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. **모든 리소스** 페이지에서 **partners.contoso.net** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 [이름을 기준으로 필터링...]에 **partners.contoso.net**을 입력합니다. DNS 영역에 간편하게 액세스할 수 있는 상자입니다.
 
-1. DNS 영역 블레이드에서 이름 서버를 검색합니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', 'ns4-01.azure-dns.info'가 할당되었습니다.
+1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', 'ns4-01.azure-dns.info'가 할당되었습니다.
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -193,7 +191,7 @@ Azure DNS는 할당된 이름 서버를 포함하는 영역에 권한이 있는 
 
 1. Azure Portal에서 **contoso.net** DNS 영역으로 이동합니다.
 1. **+ 레코드 집합**을 클릭합니다.
-1. **레코드 집합 추가** 블레이드에서 다음 값을 입력한 다음 **확인**을 클릭합니다.
+1. **레코드 집합 추가** 페이지에서 다음 값을 입력한 다음 **확인**을 클릭합니다.
 
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
@@ -299,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 완료합니다.
 
-1. Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. [모든 리소스] 블레이드에서 **contosorg** 리소스 그룹을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...**에 **contosorg**를 입력합니다. 리소스 그룹에 간편하게 액세스할 수 있는 상자입니다.
-1. **contosorg** 블레이드에서 **삭제** 단추를 클릭합니다.
+1. Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. [모든 리소스] 페이지에서 **contosorg** 리소스 그룹을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...**에 **contosorg**를 입력합니다. 리소스 그룹에 간편하게 액세스할 수 있는 상자입니다.
+1. **contosorg** 페이지에서 **삭제** 단추를 클릭합니다.
 1. 포털에서 삭제할 리소스 그룹의 이름을 입력하여 리소스 그룹 삭제를 확인해야 합니다. 리소스 그룹 이름으로 *contosorg*를 입력한 다음 **삭제**를 클릭합니다. 리소스 그룹을 삭제하면 리소스 그룹 내 모든 리소스가 삭제되므로 리소스 그룹을 삭제하기 전에 리소스 그룹의 콘텐츠를 항상 확인해야 합니다. 포털에서 리소스 그룹 내 포함된 모든 리소스가 삭제된 다음 리소스 그룹 자체가 삭제됩니다. 이 프로세스는 몇 분 정도 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -308,4 +306,3 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 [DNS 영역 관리](dns-operations-dnszones.md)
 
 [DNS 레코드 관리](dns-operations-recordsets.md)
-

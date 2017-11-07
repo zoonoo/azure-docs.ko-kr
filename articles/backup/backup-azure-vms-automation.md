@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/30/2017
+ms.date: 10/13/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 414fb9adaa1535d82b1bc385ff0864394efb837c
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업
 > [!div class="op_single_selector"]
@@ -447,6 +446,29 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     }
     ```
 
+    #### <a name="managed-encrypted-vms-bek-only"></a>관리 및 암호화되는 VM(BEK만 해당)
+
+    관리 및 암호화되는 VM의 경우(BEK만 사용하여 암호화됨) Blob Storage에서 관리 디스크를 만든 후 디스크를 연결해야 합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요. 다음 샘플 코드는 관리 및 암호화된 VM에 대해 데이터 디스크를 연결하는 방법을 보여 줍니다.
+
+     ```
+    PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    PS C:\> $storageType = "StandardLRS"
+    PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
+    PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
+    PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
+     {
+     $dataDiskName = $vm.Name + $dd.name ;
+     $dataVhdUri = $dd.vhd.uri ;
+     $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
+     $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
+     Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
+     }
+    ```
+
     #### <a name="managed-encrypted-vms-bek-and-kek"></a>관리되고 암호화된 VM(BEK 및 KEK)
 
     관리 및 암호화되는 VM의 경우(BEK 및 KEK를 암호화됨) Blob Storage에서 관리 디스크를 만든 후 디스크를 연결해야 합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요. 다음 샘플 코드는 관리 및 암호화된 VM에 대해 데이터 디스크를 연결하는 방법을 보여 줍니다.
@@ -488,4 +510,3 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
 ## <a name="next-steps"></a>다음 단계
 PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 [Windows Server용 백업 배포 및 관리](backup-client-automation.md) PowerShell 문서를 참조하세요. DPM 백업을 관리하는 경우 [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation.md) 문서를 참조하세요. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.  
-

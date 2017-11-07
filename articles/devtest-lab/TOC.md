@@ -14,8 +14,9 @@
 # 방법 가이드
 ## 랩에서 VM 사용
 ### [VM 만들기](devtest-lab-add-vm.md)
-### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
+### [클레임할 수 있는 VM 만들기 및 관리](devtest-lab-add-claimable-vm.md)
 ### [Azure CLI로 VM 만들기 및 관리](devtest-lab-vmcli.md)
+### [VM 다시 시작](devtest-lab-restart-vm.md)
 
 ## 랩에서 환경 사용
 ### [환경 만들기](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [정책 및 일정 설정](devtest-lab-set-lab-policy.md)
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md)
+### [사용이 허가된 이미지를 사용하도록 설정](devtest-lab-enable-licensed-images.md)
 ### [랩에 태그 추가](devtest-lab-add-tag.md)
 
 ## [사용자 지정 이미지 또는 수식 선택](devtest-lab-comparing-vm-base-image-types.md)

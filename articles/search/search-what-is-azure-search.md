@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: baf73639eb6506b14d0d3a4de1bf55b66e973b95
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
@@ -129,6 +128,5 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 + 3-4분 구간에서는 서비스 프로비전을 다룹니다. 
 + 4-6분 구간에서는 기본 제공 부동산 데이터 집합을 사용하여 인덱스를 만드는 데 사용되는 데이터 가져오기 마법사를 다룹니다.
 + 6-9분 구간에서는 검색 탐색기 및 다양한 쿼리를 다룹니다.
-
 
 

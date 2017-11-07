@@ -12,45 +12,42 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 0aa1836ee1445894022b95fefc2338ef53698240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Azure IoT Edge를 사용하여 시뮬레이션된 장치(Windows)에서 장치-클라우드 메시지 보내기
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>샘플을 실행하는 방법
+## <a name="run-the-sample"></a>샘플 실행
 
 **build.cmd** 스크립트는 **iot-edge** 리포지토리의 로컬 복사본에 있는 **build** 폴더에 해당 출력을 생성합니다. 이 출력에는 이 샘플에서 사용된 네 개의 IoT Edge 모듈이 포함됩니다.
 
-빌드 스크립트는 다음을 배치합니다.
+빌드 스크립트는 다음 파일을 만듭니다.
 
 * **build\\modules\\logger\\Debug** 폴더에 **logger.dll**.
 * **build\\modules\\iothub\\Debug** 폴더에 **iothub.dll**.
 * **build\\modules\\identitymap\\Debug** 폴더에 **identity\_map.dll**.
 * **build\\modules\\simulated\_device\\Debug** 폴더에 **simulated\_device.dll**.
 
-다음 JSON 설정 파일에 표시된 대로 **module path** 값에 이러한 경로를 사용합니다.
+simulated\_device\_cloud\_upload\_win JSON 설정 파일에 표시된 대로 이러한 경로를 **module path** 값에 사용합니다.
 
-simulated\_device\_cloud\_upload\_sample 프로세스는 JSON 구성 파일에 대한 경로를 명령줄 인수 형태로 사용합니다. 다음 예제 JSON 파일은 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**의 SDK 리포지토리에서 제공됩니다. 이 구성 파일은 빌드 스크립트를 수정하여 IoT Edge 모듈이나 샘플 실행 파일을 기본 위치가 아닌 위치에 배치한 경우 외에는 그대로 작동합니다.
+simulated\_device\_cloud\_upload 샘플 프로세스는 JSON 구성 파일에 대한 경로를 명령줄 인수 형태로 사용합니다. 다음 예제 JSON 파일은 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**의 SDK 리포지토리에 제공됩니다. 이 구성 파일은 빌드 스크립트를 수정하여 IoT Edge 모듈이나 샘플 실행 파일을 기본 위치가 아닌 위치에 배치한 경우 외에는 그대로 작동합니다.
 
 > [!NOTE]
 > 모듈 경로는 simulated\_device\_cloud\_upload\_sample.exe가 있는 디렉터리에 대한 상대 경로입니다. 샘플 JSON 구성 파일은 현재 작업 디렉터리에서 작성 중인 ‘deviceCloudUploadGatewaylog.log’를 기본값으로 사용합니다.
 
-텍스트 편집기에서 **iot-edge** 리포지토리의 로컬 복사본에 있는 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** 파일을 엽니다. 이 파일은 샘플 게이트웨이에서 IoT Edge 모듈을 구성합니다.
+텍스트 편집기에서 **iot-edge** 리포지토리의 로컬 복사본에 있는 **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** 파일을 엽니다. 이 파일은 샘플 게이트웨이에서 IoT Edge 모듈을 구성합니다.
 
 * **IoTHub** 모듈이 IoT Hub에 연결됩니다. IoT Hub에 데이터를 보내도록 이를 구성합니다. 특히 **IoTHubName** 값을 IoT Hub의 이름으로 설정하고, **IoTHubSuffix** 값을 **azure-devices.net**으로 설정합니다. **HTTP**, **AMQP** 또는 **MQTT** 중 하나에 **Transport** 값을 설정합니다. 현재 **HTTP**만 모든 장치 메시지에 대한 하나의 TCP 연결을 공유합니다. 값을 **AMQP** 또는 **MQTT**로 설정하는 경우 게이트웨이는 각 장치에 대해 IoT Hub에 대한 별도의 TCP 연결을 유지합니다.
-* **mapping** 모듈은 시뮬레이션된 장치의 MAC 주소를 IoT Hub 장치 ID에 매핑합니다. **deviceId** 값이 IoT Hub에 추가한 두 장치의 ID와 일치하는지, 그리고 **deviceKey** 값에 두 장치의 키가 포함되어 있는지 확인합니다.
+* **mapping** 모듈은 시뮬레이션된 장치의 MAC 주소를 IoT Hub 장치 ID에 매핑합니다. **deviceId** 값을 IoT Hub에 추가한 두 장치의 ID로 설정합니다. **deviceKey** 값을 두 장치의 키로 설정합니다.
 * **BLE1** 및 **BLE2** 모듈은 시뮬레이션된 장치입니다. 해당 모듈 MAC 주소가 **mapping** 모듈의 주소와 어떻게 일치되는지 확인합니다.
 * **Logger** 모듈은 게이트웨이 활동을 파일에 로깅합니다.
 * 다음 예제에 나온 **module path** 값은 simulated\_device\_cloud\_upload\_sample.exe가 있는 디렉터리에 대한 상대 경로입니다.
@@ -104,7 +101,8 @@ simulated\_device\_cloud\_upload\_sample 프로세스는 JSON 구성 파일에 �
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +114,8 @@ simulated\_device\_cloud\_upload\_sample 프로세스는 JSON 구성 파일에 �
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

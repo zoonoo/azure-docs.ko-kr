@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 36de09434ae5082e5f92dcc9a82bba88f5b89c85
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 0c32a6719292aa903aa32dfdc4a31114e7a28346
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory의 새로운 Enterprise Application 관리 기능 
 
@@ -155,7 +154,6 @@ Azure AD(Azure Active Directory)는 앱을 보다 간단하고 효율적으로 �
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)를 참조하세요.
-
 
 
 

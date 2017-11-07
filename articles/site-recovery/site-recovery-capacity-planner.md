@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.contentlocale: ko-kr
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획
 
@@ -128,4 +126,3 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 2. 변경하려면 **Workload Qualification** 워크시트를 수정하고 **플래너 도구에 데이터 전송**을 다시 클릭합니다.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7ab18ea9e7302f6cd2a89e7c2cce7f5a46c66a1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-networking"></a>Azure 네트워킹
 
 Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워킹 기능을 제공합니다. 다음과 같은 주요 기능에 대해 알아보려면 그 중 하나를 클릭합니다.
@@ -39,7 +37,7 @@ Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워�
 
 Virtual Machines, Cloud Services, 가상 컴퓨터 확장 집합, Azure App Service 환경과 같은 Azure 리소스는 Azure VNet(가상 네트워크)를 통해 서로 개별적으로 통신할 수 있습니다. [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json) 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 각 Azure 구독 및 Azure [지역](https://azure.microsoft.com/regions) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
-- 공용 및 개인(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스를 사용자가 할당한 주소 공간의 개인 IP 주소에 할당합니다.
+- 공용 및 사설(RFC 1918) 주소를 사용하여 사용자 지정 사설 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스에 사용자가 할당한 주소 공간의 사설 IP 주소를 할당합니다.
 - VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 - Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다.
 
@@ -78,7 +76,7 @@ VPN 연결 또는 직접 개별 연결을 통해 VNet의 리소스 액세스할 
 
 ![ExpressRoute](./media/networking-overview/expressroute.png)
 
-이 종류의 연결은 ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. ExpressRoute는 사이트 간 연결과 함께 사용할 수 있습니다.
+이 종류의 연결은 ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 전용입니다. 트래픽이 인터넷을 트래버스하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. ExpressRoute는 사이트 간 연결과 함께 사용할 수 있습니다.
 
 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 
@@ -164,4 +162,3 @@ Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터
 - [첫 번째 가상 네트워크 만들기](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 첫 번째 VNet을 만들고 일부 VM을 연결합니다.
 - [지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 VNet에 컴퓨터를 연결합니다.
 - [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서의 단계를 완료하여 공용 서버에 인터넷 트래픽의 부하를 분산합니다.
-

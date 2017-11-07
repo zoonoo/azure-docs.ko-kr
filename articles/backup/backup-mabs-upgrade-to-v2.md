@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 설치
 
 Azure Backup Server를 사용하여 VM(가상 컴퓨터), 워크로드, 파일 및 폴더 등을 보호할 수 있습니다. Azure Backup Server v2는 Azure Backup Server v1을 기반으로 빌드되고 v1에서 사용할 수 없는 새로운 기능을 제공합니다. v1 및 v2의 기능 비교에 대해서는 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 
@@ -288,5 +286,4 @@ Azure Backup Server v2를 설치하면 두 개의 새로운 cmdlet을 사용할 
 - [Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)
 - [Backup Server를 사용하여 SQL Server 백업](backup-azure-sql-mabs.md)
 - [Backup Server에서 Modern Backup Storage 사용](backup-mabs-add-storage.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>자습서: Litmos와 Azure Active Directory 통합
 
@@ -295,5 +294,4 @@ Litmos 응용 프로그램은 적시에 프로비전을 지원합니다. 즉, �
 [201]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_203.png
-
 

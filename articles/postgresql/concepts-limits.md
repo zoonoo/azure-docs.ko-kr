@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 PostgreSQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -64,4 +63,3 @@ PostgreSQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 
 - [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-service-tiers.md) 이해
 - [지원되는 PostgreSQL Database 버전](concepts-supported-versions.md) 이해
 - [Azure Portal을 사용하여 PostgreSQL용 Azure 데이터베이스에서 서버를 백업 및 복원하는 방법](howto-restore-server-portal.md) 검토
-

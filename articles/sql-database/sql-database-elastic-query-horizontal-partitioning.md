@@ -8,18 +8,17 @@ author: MladjoA
 ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: c43b34124fd0ccdbe03ce3d336388cbd3b77ad9a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -204,4 +203,3 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
-

@@ -9,24 +9,22 @@ editor:
 ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 7058139814a0a20d6fb6305e1e469946bb6b7d77
-ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 9ccd7d78169fa5324808e91724e8e193b56b0290
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL Database 만들기 및 관리(미리 보기)
 
 
-**탄력적 데이터베이스 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. 탄력적 데이터베이스 작업은 현재 Azure 포털 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure Portal 화면은 [탄력적 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
+**Elastic Database 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. Elastic Database 작업은 현재 Azure Portal 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure Portal 화면은 [탄력적 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [Elastic Database 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [Elastic Database 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -107,6 +105,5 @@ ms.lasthandoff: 02/16/2017
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 [5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
-
 
 

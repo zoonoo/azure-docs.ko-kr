@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/07/2017
 ms.author: mimig
+ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -64,12 +63,31 @@ Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 �
 자세한 내용은 [Azure Cosmos DB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지를 참조하세요. Azure Cosmos DB 사용 요금은 프로비전된 컨테이너 수, 컨테이너가 온라인이었던 시간 및 각 컨테이너의 프로비전된 처리량에 따라 결정됩니다. 여기서 *컨테이너*라는 용어는 DocumentDB API 컬렉션, Graph API 그래프, MongoDB API 컬렉션 및 Table API 테이블을 의미합니다. 
 
 ### <a name="is-a-free-account-available"></a>무료 계정을 사용할 수 있나요?
+예, 약정이나 비용 없이 시간이 제한된 계정에 등록할 수 있습니다. 등록하려면 [무료로 Azure Cosmos DB 사용](https://azure.microsoft.com/try/cosmosdb/)을 방문하거나 [Azure Cosmos DB FAQ 사용](#try-cosmos-db)을 자세히 참조하세요.
+
 Azure를 처음 사용하는 경우 [Azure 평가판 계정](https://azure.microsoft.com/free/)에 등록하면 30일간 모든 Azure 서비스를 사용해 볼 수 있습니다. Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [평가판 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
 
 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 응용 프로그램을 개발하고 테스트할 수 있습니다. Azure Cosmos DB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Azure Cosmos DB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 또는 [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)을 통해 문의하거나 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)으로 메일을 보내 Azure Cosmos DB 엔지니어링 팀과의 1:1 채팅을 예약하세요. 
+
+<a id="try-cosmos-db"></a>
+## <a name="try-azure-cosmos-db-subscriptions"></a>Azure Cosmos DB 구독 사용
+
+이제 구독이나 요금, 약정 없이 시간이 제한된 Cosmos DB를 경험할 수 있습니다. Azure Cosmos DB 구독에 등록하려면 [무료로 Azure Cosmos DB 사용](https://azure.microsoft.com/try/cosmosdb/)로 이동합니다. 이 구독은 [Azure 평가판](https://azure.microsoft.com/free/)과 별도이며 Azure 평가판 또는 Azure 유료 구독 외에 추가로 사용할 수 있습니다. 
+
+Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆에 있는 Azure Portal에 표시됩니다. 
+
+다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
+
+* SQL(DocumentDB API), Gremlin(Graph API) 및 테이블 계정의 구독당 하나의 컨테이너
+* MongoDB 계정의 구독당 최대 3개의 컬렉션
+* 10GB 저장소 용량
+* 전역 복제는 미국 중부, 유럽 북부 및 동남 아시아와 같은 [Azure 지역](https://azure.microsoft.com/regions/)에서 사용할 수 있습니다.
+* 최대 처리량 5K RU/s
+* 구독은 24시간 후에 만료되고 최대 총 48시간까지 확장될 수 있습니다.
+* Azure Cosmos DB 계정 사용에 Azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 계획을 사용하는 구독자에게 지원이 제공됩니다. 
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB 설정
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Azure Cosmos DB에는 어떻게 등록하나요?
@@ -426,4 +444,3 @@ DocumentDB는 포털에 Azure 서비스로 더 이상 나타나지 않습니다.
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
-

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: 50cb4a2803b6aebe8b39ec9fb02da2293c1065fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ce5d26943839d9fe53508d396825289d77cf2f8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 
@@ -54,4 +53,3 @@ Ctrl 키를 누른 채로 <code>Info.plist</code>를 클릭하여 상황에 맞�
     </dict>
 </array>
 ```
-

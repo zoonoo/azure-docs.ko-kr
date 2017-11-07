@@ -12,15 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 장치 프로비전
 
 이 자습서에서는 DPS(Device Provisioning Service)를 사용하여 부하가 분산된 여러 IoT Hub에 대해 장치를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -31,7 +28,7 @@ ms.lasthandoff: 09/06/2017
 > * DPS 할당 정책을 **균등하게 배포**하도록 설정
 > * DPS에 새 IoT Hub 연결
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,4 +85,3 @@ DPS가 해당 허브에 장치를 등록할 수 있도록 DPS와 IoT Hub를 연�
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

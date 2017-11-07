@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: 16ceef9c923b6a933a5caf752991b466346e0ebc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Azure Network Watcher의 연결 확인 소개
 
 Network Watcher의 연결 기능은 가상 컴퓨터에서 VM(가상 컴퓨터), FQDN(정규화된 도메인 이름), URI 또는 IPv4 주소까지 직접 TCP 연결을 확인하는 기능을 제공합니다. 네트워크 시나리오는 복잡하며, Azure에서 제공하는 네트워크 보안 그룹, 방화벽, 사용자 정의 경로 및 리소스를 사용하여 구현됩니다. 복잡한 구성은 연결 문제 해결을 어렵게 만듭니다. Network Watcher는 연결 문제를 찾고 감지하는 시간을 줄이는 데 도움이 됩니다. 반환된 결과를 통해 연결 문제가 플랫폼으로 인한 것인지 아니면 사용자 구성 문제인지에 대한 통찰력을 얻을 수 있습니다. 연결은 [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md) 및 [REST API](network-watcher-connectivity-rest.md)로 확인할 수 있습니다.
@@ -90,5 +88,4 @@ Network Watcher의 연결 기능은 가상 컴퓨터에서 VM(가상 컴퓨터),
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
 

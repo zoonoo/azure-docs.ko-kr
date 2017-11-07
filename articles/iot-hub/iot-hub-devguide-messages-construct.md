@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 08/08/2017
 
 속성 이름과 값은 다음과 같은 경우에 ASCII 영숫자 문자와 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``를 포함할 수 있습니다.
 
-* HTTP 프로토콜을 사용하여 장치-클라우드 메시지를 보냅니다.
+* HTTPS 프로토콜을 사용하여 장치-클라우드 메시지를 보냅니다.
 * 클라우드-장치 메시지를 보냅니다.
 
 다른 프로토콜을 사용하여 보낸 메시지를 인코딩하고 디코딩하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.
@@ -77,4 +76,3 @@ IoT Hub의 메시지 크기 제한에 대한 자세한 내용은 [IoT Hub 할당
 [lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
-

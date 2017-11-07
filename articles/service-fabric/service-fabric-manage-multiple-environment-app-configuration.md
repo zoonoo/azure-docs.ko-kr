@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 671cc9b0f7b7b37fcf5b052f7e34bc98e66b2838
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>여러 환경에 대한 응용 프로그램 매개 변수 관리
 하나의 컴퓨터에서 수천개의 컴퓨터를 사용하여 Azure 서비스 패브릭 클러스터를 만들 수 있습니다. 응용 프로그램 이진 파일은 다양한 환경에 걸쳐 수정하지 않고 실행할 수 있는 반면 응용 프로그램은 배포하는 컴퓨터의 수에 따라 다르게 구성하려는 경우가 많습니다.
@@ -227,4 +226,3 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-

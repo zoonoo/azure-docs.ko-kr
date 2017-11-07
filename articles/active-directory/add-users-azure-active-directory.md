@@ -15,12 +15,11 @@ ms.date: 08/22/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 새 사용자 추가
 이 문서에서는 Azure Porta을 사용하거나 온-프레미스 Windows Server AD 사용자 계정 데이터를 동기화하여 한 번에 하나씩 Azure AD(Azure Active Directory)에서 조직에 새 사용자를 추가하는 방법을 설명합니다. 

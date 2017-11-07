@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
+ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed9c955096a5427e8184bb6c542ad85ff4c302be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
+
+## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+|실행된 검사|
+|---|
+|<ul><li>API Management 서비스가 가동되고 실행 중인가?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |실행된 검사|
@@ -60,6 +63,12 @@ ms.lasthandoff: 07/21/2017
 |실행된 검사|
 |---|
 |<ul><li>사용자가 지역의 Data Lake Store에 데이터를 업로드할 수 있는가?</li><li>사용자가 지역의 Data Lake Store에서 데이터를 다운로드할 수 있는가?</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+
+|실행된 검사|
+|---|
+|<ul><li>IoT Hub가 실행되고 있는가?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |실행된 검사|

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
+ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Linux 확장 집합 템플릿에서 게스트 메트릭을 사용한 자동 크기 조정
 
-Azure에서는 VM 및 확장 집합에서 수집되는 두 유형의 메트릭이 있습니다. 일부는 호스트 VM에서, 다른 일부는 게스트 VM에서 수집됩니다. 호스트 메트릭은 호스트 VM에서 수집되기 때문에 추가 설정이 필요 없습니다. 반면, 게스트 메트릭의 경우는 게스트 VM에서 [Microsoft Azure 진단 확장](../virtual-machines/windows/extensions-diagnostics-template.md) 또는 [Linux Azure 진단 확장](../virtual-machines/linux/diagnostic-extension.md)을 설치해야 합니다. 호스트 메트릭 대신 게스트 메트릭을 사용하는 한 가지 일반적인 원인은 게스트 메트릭에서 제공되는 메트릭이 호스트 메트릭보다 더 많기 때문입니다. 이러한 예로 메모리 소비 메트릭을 들 수 있습니다. 이 메트릭은 게스트 메트릭을 통해서만 사용할 수 있습니다. 지원되는 호스트 메트릭의 목록은 [여기](../monitoring-and-diagnostics/monitoring-supported-metrics.md)에 있으며, 흔히 사용되는 게스트 메트릭의 목록은 [여기](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)에 있습니다. 이 문서에서는 Linux 확장 집합용 게스트 메트릭을 기반으로 자동 크기 조정 규칙을 사용하도록 [실행 가능한 최소 확장 집합 템플릿](./virtual-machine-scale-sets-mvss-start.md)을 수정하는 방법을 보여 줍니다.
+Azure에서는 VM 및 확장 집합에서 수집되는 두 유형의 메트릭이 있습니다. 일부는 호스트 VM에서, 다른 일부는 게스트 VM에서 수집됩니다. 상위 수준에서 표준 CPU, 디스크 및 네트워크 메트릭을 사용하는 경우 호스트 메트릭이 가장 잘 맞을 것입니다. 그러나 보다 광범위한 메트릭을 선택해야 할 경우에는 게스트 메트릭이 더 적합할 것입니다. 둘 사이의 차이점을 살펴보겠습니다.
+
+호스트 메트릭은 좀 더 간단하고 안정적입니다. 또한 호스트 VM에서 수집되기 때문에 추가 설정이 필요 없습니다. 반면, 게스트 메트릭의 경우는 게스트 VM에서 [Microsoft Azure 진단 확장](../virtual-machines/windows/extensions-diagnostics-template.md) 또는 [Linux Azure 진단 확장](../virtual-machines/linux/diagnostic-extension.md)을 설치해야 합니다. 호스트 메트릭 대신 게스트 메트릭을 사용하는 한 가지 일반적인 원인은 게스트 메트릭에서 제공되는 메트릭이 호스트 메트릭보다 더 많기 때문입니다. 이러한 예로 메모리 소비 메트릭을 들 수 있습니다. 이 메트릭은 게스트 메트릭을 통해서만 사용할 수 있습니다. 지원되는 호스트 메트릭의 목록은 [여기](../monitoring-and-diagnostics/monitoring-supported-metrics.md)에 있으며, 흔히 사용되는 게스트 메트릭의 목록은 [여기](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)에 있습니다. 이 문서에서는 Linux 확장 집합용 게스트 메트릭을 기반으로 자동 크기 조정 규칙을 사용하도록 [실행 가능한 최소 확장 집합 템플릿](./virtual-machine-scale-sets-mvss-start.md)을 수정하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
@@ -189,4 +189,3 @@ Azure에서는 VM 및 확장 집합에서 수집되는 두 유형의 메트릭�
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

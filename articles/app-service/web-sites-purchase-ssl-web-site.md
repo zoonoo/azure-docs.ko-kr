@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fb38555f1f299352f06deae1ca231895163068e5
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성
 
-이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 Web App의 보안을 유지합니다.
+이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 웹앱의 보안을 유지하는 방법을 보여 줍니다.
 
 ## <a name="step-1---log-in-to-azure"></a>1단계 - Azure에 로그인
 
@@ -39,7 +38,7 @@ Azure Portal http://portal.azure.com 에 로그인합니다.
 SSL 인증서에 친숙한 **이름** 및 **도메인 이름**을 입력합니다.
 
 > [!NOTE]
-> 구매 프로세스의 가장 중요한 부분 중 하나입니다. 이 인증서로 보호하려면 올바른 호스트 이름(사용자 지정 도메인)을 입력 해야 합니다. **마세요** . 
+> 이 단계는 구매 프로세스의 가장 중요한 부분 중 하나입니다. 이 인증서로 보호하려면 올바른 호스트 이름(사용자 지정 도메인)을 입력 해야 합니다. **마세요** . 
 >
 
 **구독**, **리소스 그룹** 및 **인증서 SKU**를 선택합니다.
@@ -54,15 +53,15 @@ SSL 인증서에 친숙한 **이름** 및 **도메인 이름**을 입력합니�
 > [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다.
 >
 
-SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 리소스 블레이드를 열어야 합니다.
+SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지를 열어야 합니다.
 
 ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태가 **"발급 보류 중"**으로 표시됩니다.
+이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태는 **"발급 보류 중"**입니다.
 
-인증서 속성 블레이드 내에서 **인증서 구성**을 클릭하고 **1단계: 저장**을 클릭하여 이 인증서를 Azure Key Vault에 저장합니다.
+인증서 속성 페이지 내에서 **인증서 구성**을 클릭하고 **1단계: 저장**을 클릭하여 이 인증서를 Azure Key Vault에 저장합니다.
 
-**Key Vault 상태** 블레이드에서 **Key Vault 리포지토리**를 클릭하여 이 인증서를 저장할 기존 Key Vault를 선택하거나 **새 Key Vault 만들기**로 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
+**Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 이 인증서를 저장할 기존 Key Vault를 선택하거나 **새 Key Vault 만들기**로 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
 
 > [!NOTE]
 > Azure Key Vault의 경우 이 인증서를 저장하는 데 약간의 요금이 부과됩니다.
@@ -76,9 +75,9 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 ## <a name="step-4---verify-the-domain-ownership"></a>4단계 - 도메인 소유권 확인
 
 > [!NOTE]
-> App Service Certificate에서는 도메인 확인 방법으로 도메인 확인, 메일 확인 및 수동 확인을 지원합니다. 자세한 내용은 [고급 섹션](#advanced)을 참조하세요.
+> App Service Certificate에서는 도메인 확인 방법으로 도메인 확인, 메일 확인 및 수동 확인을 지원합니다. 이러한 확인 유형은 [고급 섹션](#advanced)에 자세히 설명되어 있습니다.
 
-3단계에서 사용한 것과 동일한 **인증서 구성** 블레이드에서 **2단계: 확인**을 클릭합니다.
+3단계에서 사용한 것과 동일한 **인증서 구성** 페이지에서 **2단계: 확인**을 클릭합니다.
 
 **도메인 확인** 가장 간편한 프로세스이지만 **[Azure App Service에서 사용자 지정 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)**한 **경우에만** 해당됩니다.
 **확인** 단추를 클릭하고 이 단계를 완료합니다.
@@ -122,11 +121,11 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[기본](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "웹앱에 사용자 지정 SSL 인증서 바인딩")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[기본](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "웹앱에 사용자 지정 SSL 인증서 바인딩")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="advanced"></a>고급
 
@@ -151,7 +150,7 @@ App Service Certificate에서는 도메인 확인 방법으로 메일 확인 및
 
 1. **"starfield.html"**이라는 HTML 파일 만들기
 
-1. 이 파일의 내용은 도메인 확인 토큰의 이름과 정확히 같아야 합니다. (토큰은 도메인 확인 상태 블레이드에서 복사할 수 있습니다.)
+1. 이 파일의 내용은 도메인 확인 토큰의 이름과 정확히 같아야 합니다. (토큰은 도메인 확인 상태 페이지에서 복사할 수 있습니다.)
 
 1. 이 파일을 도메인을 호스팅하는 웹 서버의 루트에서 업로드합니다. `/.well-known/pki-validation/starfield.html`
 
@@ -182,13 +181,21 @@ IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니�
 
 ## <a name="rekey-and-sync-the-certificate"></a>인증서 키 다시 생성 및 동기화
 
-인증서의 키를 다시 생성하려면 **인증서 속성** 블레이드에서 **키 다시 생성 및 동기화** 옵션을 선택합니다.
+인증서의 키를 다시 생성하려면 **인증서 속성** 페이지에서 **키 다시 생성 및 동기화** 옵션을 선택합니다.
 
 프로세스를 시작하려면 **키 다시 생성** 단추를 클릭합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
 
 ![SSL 키 다시 생성 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 인증서 키를 다시 생성하면 인증서가 인증 기관에서 발급한 새 인증서로 롤링됩니다.
+
+<a name="notrenewed"></a>
+## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>내 SSL 인증서가 자동 갱신되지 않는 이유는 무엇인가요?
+
+SSL 인증서가 자동 갱신에 대해 구성되었지만 자동으로 갱신되지 않는 경우 보류 중인 도메인 확인이 있을 수 있습니다. 다음 사항에 유의하세요. 
+
+- App Service 인증서를 생성하는 GoDaddy는 3년에 한 번 도메인 확인이 필요합니다. 도메인 관리자는 도메인을 확인하기 위한 전자 메일을 3년에 한 번 받습니다. 전자 메일 확인 또는 도메인 확인에 대한 실패는 App Service 인증서가 자동으로 갱신되는 것을 방지합니다. 
+- 2017년 3월 31일 이전에 발급된 모든 App Service 인증서는 다음 갱신 시 도메인의 확인이 필요합니다(인증서에 대해 자동 갱신이 활성화된 경우에도). GoDaddy 정책 변경의 결과입니다. 전자 메일을 확인하고 이 일회성 도메인 확인을 완료하여 App Service 인증서의 자동 갱신을 계속합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

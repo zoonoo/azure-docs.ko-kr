@@ -5,8 +5,8 @@
 
 # 시작
 ## [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md)
-## [논리 앱용 템플릿](logic-apps-use-logic-app-templates.md)
-## [템플릿에서 논리 앱 만들기](logic-apps-arm-provision.md)
+## [템플릿에서 논리 앱 만들기](logic-apps-create-logic-apps-from-templates.md)
+## [Resource Manager 템플릿에서 논리 앱 만들기](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [논리 앱으로 MABS 앱 이동](logic-apps-move-from-mabs.md)
 
 # 방법
@@ -19,8 +19,20 @@
 ### [메시지 일괄 처리](logic-apps-batch-process-send-receive-messages.md)
 ### [작성자 논리 앱 정의](logic-apps-author-definitions.md)
 ### [논리 앱 호출, 트리거 또는 중첩](logic-apps-http-endpoint.md)
-### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
-### [논리 앱에 대한 사용자 지정 API 호출](logic-apps-custom-hosted-api.md)
+### 사용자 지정 커넥터 개발
+#### [사용자 지정 커넥터 개요](custom-connector-overview.md)
+#### [Web API에서 커넥터 만들기](custom-connector-build-web-api-app-tutorial.md)
+#### [Azure AD를 사용하여 커넥터 보호](custom-connector-azure-active-directory-authentication.md)
+#### [Postman을 사용하여 API 설명](custom-connector-api-postman-collection.md)
+#### [사용자 지정 커넥터에 대한 OpenAPI 확장](custom-connector-openapi-extensions.md)
+#### [OpenAPI 커넥터 만들기 및 등록](logic-apps-custom-connector-register.md)
+#### [SOAP 커넥터 만들기 및 등록](logic-apps-soap-connector-create-register.md)
+#### [커넥터 인증](custom-connector-submit-certification.md)
+#### [사용자 지정 커넥터에 대한 FAQ](custom-connector-faq.md)
+### 사용자 지정 API 개발
+#### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
+#### [사용자 지정 API에 대한 호출 보호](logic-apps-custom-api-authentication.md)
+#### [사용자 지정 API 배포 및 호출](logic-apps-custom-api-host-deploy-call.md)
 ### [오류 및 예외 처리](logic-apps-exception-handling.md)
 ### [콘텐츠 형식 처리](logic-apps-content-type.md)
 ### [논리 앱 보안](logic-apps-securing-a-logic-app.md)
@@ -32,6 +44,7 @@
 ### [파트너](logic-apps-enterprise-integration-partners.md)
 ### [규약](logic-apps-enterprise-integration-agreements.md)
 ### [B2B 처리](logic-apps-enterprise-integration-b2b.md)
+### [일괄 처리로 EDI 메시지 보내기](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML 처리](logic-apps-enterprise-integration-xml.md)
 ### [플랫 파일 처리](logic-apps-enterprise-integration-flatfile.md)
 ### [XML 유효성 검사](logic-apps-enterprise-integration-xml-validation.md)
@@ -73,12 +86,11 @@
 #### [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## 예제, 시나리오 및 연습
-### [개요](logic-apps-examples-and-scenarios.md)
+## [예제, 시나리오 및 연습](logic-apps-examples-and-scenarios.md)
 ### [서버를 사용하지 않는 소셜 대시보드 만들기](logic-apps-scenario-social-serverless.md)
 ### [Azure Functions를 사용하여 논리 앱 호출](logic-apps-scenario-function-sb-trigger.md)
 ### [오류 및 예외 처리 추가](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B 처리](logic-apps-enterprise-integration-b2b.md)
+### [B2B 처리](logic-apps-enterprise-integration-b2b.md) 
 
 ## 가격 및 청구
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -98,7 +110,7 @@
 ## [워크플로 정의 언어](logic-apps-workflow-definition-language.md)
 ## [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## 커넥터: 심도 있는 항목
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)
@@ -109,7 +121,7 @@
 ### [DB2](../connectors/connectors-create-api-db2.md)
 ### [Dynamics 365 CRM Online](../connectors/connectors-create-api-crmonline.md)
 ### [EDIFACT](logic-apps-enterprise-integration-edifact.md)
-### [이벤트 허브](../connectors/connectors-create-api-azure-event-hubs.md)
+### [Event Hubs](../connectors/connectors-create-api-azure-event-hubs.md)
 ### [파일 시스템](logic-apps-using-file-connector.md)
 ### [플랫 파일](logic-apps-enterprise-integration-flatfile.md)
 ### [FTP](../connectors/connectors-create-api-ftp.md)
@@ -125,7 +137,7 @@
 ### [Salesforce](../connectors/connectors-create-api-salesforce.md)
 ### [SAP](logic-apps-using-sap-connector.md)
 ### [일정](../connectors/connectors-native-recurrence.md)
-### [서비스 버스](../connectors/connectors-create-api-servicebus.md)
+### [Service Bus](../connectors/connectors-create-api-servicebus.md)
 ### [SharePoint Online](../connectors/connectors-create-api-sharepointonline.md)
 ### [SharePoint Server](../connectors/connectors-create-api-sharepointonline.md)
 ### [SQL Server](../connectors/connectors-create-api-sqlazure.md)

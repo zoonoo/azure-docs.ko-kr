@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 Azure File storage를 관리하는 방법 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure File Storage를 관리하는 방법을 알아봅니다."
+title: "PowerShell을 사용하여 Azure Files를 관리하는 방법 | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure Files를 관리하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,20 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>PowerShell을 사용하여 Azure File storage를 관리하는 방법
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>PowerShell을 사용하여 Azure Files를 관리하는 방법
 Azure PowerShell을 사용하여 파일 공유를 만들고 관리할 수 있습니다.
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure Storage에 대한 PowerShell cmdlet 설치
-PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure 저장소에 대한 PowerShell cmdlet 설치
+PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 > [!NOTE]
 > 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
@@ -96,7 +95,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>다음 단계
-Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 
 * [FAQ](../storage-files-faq.md)
 * [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure 앱 서비스로 콘텐츠 동기화
 이 자습서는 Dropbox 및 OneDrive와 같은 인기 있는 클라우드 저장소 서비스에서 콘텐츠를 동기화하여 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 를 배포하는 방법을 보여줍니다. 
 
-## <a name="a-nameoverviewaoverview-of-content-sync-deployment"></a><a name="overview"></a>콘텐츠 동기화 배포 개요
+## <a name="overview"></a>콘텐츠 동기화 배포 개요
 주문형 콘텐츠 동기화 배포는 앱 서비스와 통합된 [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki) 에서 제공됩니다. [Azure 포털](https://portal.azure.com)에서 클라우드 저장소의 폴더를 지정하고 해당 폴더에서 앱 코드 및 콘텐츠 작업을 수행한 다음 단추를 클릭하여 앱 서비스를 동기화할 수 있습니다. 콘텐츠 동기화는 빌드 및 배포에 Kudu 프로세스를 활용합니다. 
 
-## <a name="a-namecontentsyncahow-to-enable-content-sync-deployment"></a><a name="contentsync"></a>콘텐츠 동기화 배포를 사용하는 방법
+## <a name="contentsync"></a>콘텐츠 동기화 배포를 사용하는 방법
 [Azure 포털](https://portal.azure.com)에서 콘텐츠 동기화를 사용하려면 다음 단계를 따릅니다.
 
 1. Azure Portal의 앱 블레이드에서 **설정** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
@@ -48,5 +47,4 @@ ms.lasthandoff: 11/17/2016
     ![배포 기록](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 Dropbox 배포에 대한 자세한 내용은 [Dropbox에서 배포](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx)에서 제공됩니다. 
-
 

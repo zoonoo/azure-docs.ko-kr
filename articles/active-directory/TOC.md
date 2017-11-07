@@ -5,8 +5,11 @@
 ## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
 ## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
 ## [FAQ](active-directory-faq.md)
+## [새로운 기능](whats-new.md)
+
 
 # 시작
+## [Azure AD 시작](get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
 ## [회사 브랜딩 구성](customize-branding.md)
@@ -42,10 +45,9 @@
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
-#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
-### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
+#### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
+#### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
-### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
 ### [사용자 작업 정보 관리](active-directory-users-work-info-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 
@@ -55,7 +57,7 @@
 ### 그룹 관리
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [클래식 포털](active-directory-accessmanagement-manage-groups.md)
-#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
@@ -64,7 +66,8 @@
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
-#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
+#### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
+#### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
@@ -95,6 +98,7 @@
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -107,24 +111,22 @@
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 
-## [암호 관리](active-directory-passwords-overview.md)
+## 암호 관리
+### [암호 개요](active-directory-passwords-overview.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
-### [라이선스 SSPR](active-directory-passwords-licensing.md)
-### [SSPR 배포](active-directory-passwords-best-practices.md)
+### [SSPR 작동 방법](active-directory-passwords-how-it-works.md)
+### [SSPR 배포 가이드](active-directory-passwords-best-practices.md)
+### [SSPR 정책](active-directory-passwords-policy.md)
+### [SSPR 사용자 지정](active-directory-passwords-customize.md)
+### [SSPR 데이터 요구 사항](active-directory-passwords-data.md)
+### [SSPR 보고](active-directory-passwords-reporting.md)
 ### IT 관리자: 암호 재설정
 #### [Azure 포털](active-directory-users-reset-password-azure-portal.md)
-#### [Azure 클래식 포털](active-directory-create-users-reset-password.md)
-### [SSPR 정책 이해](active-directory-passwords-policy.md)
-### [암호 재설정 이해](active-directory-passwords-how-it-works.md)
-### [SSPR 사용자 지정](active-directory-passwords-customize.md)
-### [SSPR에 사용된 데이터](active-directory-passwords-data.md)
-### [SSPR에 대한 보고](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [라이선스 SSPR](active-directory-passwords-licensing.md)
 ### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
-### [암호 해시 동기화](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [문제 해결](active-directory-passwords-troubleshoot.md)
 ### [FAQ](active-directory-passwords-faq.md)
 
@@ -137,7 +139,7 @@
 ### 작업
 #### [Azure AD 등록 Windows 10 장치 설정](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD 가입 장치 설정](device-management-azuread-joined-devices-setup.md)
-#### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
 ### 문제 해결
@@ -148,9 +150,14 @@
 ### [개요](active-directory-enable-sso-scenario.md)
 ### [시작](active-directory-integrating-applications-getting-started.md)
 ### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
-### [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)
-#### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### [클라우드 앱 검색](cloudappdiscovery-get-started.md)
+#### [스냅숏 보고서 만들기](cloudappdiscovery-set-up-snapshots.md)
+#### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+#### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
+#### 에이전트 기반 검색
+##### [Cloud App Discovery는 무엇입니까?](active-directory-cloudappdiscovery-whatis.md)
+##### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
@@ -197,6 +204,8 @@
 #### [내 앱 모두 보기](active-directory-coreapps-view-azure-portal.md)
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
+#### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
+#### [사용자의 환경에서 타사 앱 숨기기](active-directory-coreapps-hide-third-party-app.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
@@ -231,6 +240,7 @@
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
 ### [O365 디렉터리](active-directory-manage-o365-subscription.md)
 ### [셀프 서비스 등록](active-directory-self-service-signup.md)
+#### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -242,7 +252,7 @@
 #### [B2B 사용자를 추가하는 관리자](active-directory-b2b-admin-add-users.md)
 #### [B2B 사용자를 추가하는 지식 근로자](active-directory-b2b-iw-add-users.md)
 #### [API 및 사용자 지정](active-directory-b2b-api.md)
-#### [코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
+#### [코드 및 Azure PowerShell 샘플](active-directory-b2b-code-samples.md)
 #### [셀프 서비스 등록 포털 샘플](active-directory-b2b-self-service-portal.md)
 #### [초대 전자 메일](active-directory-b2b-invitation-email.md)
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
@@ -274,6 +284,17 @@
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
+## 액세스 검토
+### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [액세스 검토 완료](active-directory-azure-ad-controls-complete-access-review.md)
+### [액세스 검토 만들](active-directory-azure-ad-controls-create-access-review.md)
+### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-access-review.md)
+### [액세스 검토 방법](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
+
+
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [컨트롤](active-directory-conditional-access-controls.md)
@@ -281,15 +302,15 @@
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### 작업
+##### [클래식 정책 마이그레이션](active-directory-conditional-access-migration.md)
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 ##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
+##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
 ##### [VPN 연결 설정](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
 ##### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [FAQ](active-directory-conditional-faqs.md)
-#### [클래식 포털](active-directory-conditional-access.md)
-##### [시작](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [암호 없이 인증](active-directory-azureadjoin-passport.md)
@@ -311,6 +332,9 @@
 #### [용어](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+
+## [Azure AD와 다른 서비스 통합]()
+### [LinkedIn 통합 사용](linkedin-integration.md)
 
 ## [Azure VM에 AD DS 배포](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM의 Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
@@ -335,7 +359,7 @@
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
-## [PowerShell cmdlet](/powershell/azure/overview)
+## [Azure PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)

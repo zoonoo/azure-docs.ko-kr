@@ -10,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
+ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 07aaefc0b2f806178651c2192f6abcbae9a31f83
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 사용자 지정 도메인 이름 추가
 
@@ -62,7 +61,7 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 이제 [사용자 지정 도메인 이름을 포함하는 사용자 이름을 할당](active-directory-users-create-azure-portal.md)할 수 있습니다. 사용자 지정 도메인 이름을 사용하여 클라우드 기반 사용자 계정을 만들거나 이전에 동기화된 온-프레미스 사용자 계정 정보를 업데이트합니다. [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 또는 [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)를 사용하여 동기화된 사용자 계정 도메인 접미사 정보를 변경할 수도 있습니다.
 
 > [!TIP]
-> 최대 900개의 사용자 지정 도메인 이름을 추가할 수 있지만 하나만 새 계정을 만들 때 기본적으로 사용되는 [Azure AD 디렉터리에 대한 기본 도메인 이름으로 설정](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory)할 수 있습니다.
+> 최대 900개의 관리되는 도메인 이름을 추가할 수 있습니다. 온-프레미스 Active Directory와의 페더레이션을 위해 모든 도메인을 구성하려는 경우 각 디렉터리에서 최대 450개의 도메인 이름을 추가할 수 있습니다. 자세한 내용은 [페더레이션 및 관리되는 도메인 이름](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 사용자 지정 도메인 이름을 확인할 수 없는 경우 다음 문제 해결 단계를 사용해 보세요.

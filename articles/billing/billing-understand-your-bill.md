@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 현황 파일 및 비용 관리 보고서와 청구서를 비교합니다.
@@ -55,7 +54,7 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
  |리소스 |측정기 이름 |
  |지역 |측정기 영역 |
  |사용 |소비된 수량 |
- |포함됨 |포함된 수량 |
+ |포함됨 |표함된 수량 |
  |청구 가능 |초과 수량 |
 
 청구서의 **사용 요금** 섹션에는 청구 기간 동안 사용된 각 미터의 총 값이 있습니다. 예를 들어, 다음 스크린샷은 Azure Scheduler 서비스에 대한 사용 요금을 보여줍니다.
@@ -111,4 +110,3 @@ Azure Portal은 요금을 확인하는 데도 도움이 됩니다. Azure Portal�
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-

@@ -3,7 +3,7 @@ title: "Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Docs"
 description: "Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다."
 services: storage
 documentationcenter: nodejs
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: ce61687e0f64b5971daca85265ef0e7d2b6f43b8
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a76770c7a2101675f7cbf953ce9c3b1750656477
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,7 +33,7 @@ ms.lasthandoff: 09/07/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service-web/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포](https://www.microsoft.com/web/webmatrix/)를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포](https://www.microsoft.com/web/webmatrix/)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>저장소에 액세스하도록 응용 프로그램 구성
 Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure 저장소 SDK가 필요합니다.
@@ -334,16 +333,21 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그][Azure Storage 팀 블로그]를 방문하세요.
+* [Azure Storage 팀 블로그][Azure Storage Team Blog](영문)를 방문하세요.
 * GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
 
+
+
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+
 [Azure Portal]: https://portal.azure.com
-[Azure App Service에서 Node.js 웹앱 만들기](../../app-service-web/app-service-web-get-started-nodejs.md)
-   
 
+[Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md)
 
-[Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Azure Storage 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/ [웹 매트릭스를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: https://www.microsoft.com/web/webmatrix/   
+[Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

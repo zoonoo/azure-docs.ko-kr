@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
+ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -139,6 +138,9 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
 </ApplicationManifest>
 ```
 
+Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
+
+
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 끝점 재정의
 
 ApplicationManifest에서 ConfigOverrides 섹션의 형제로 지정될 ResourceOverrides 섹션을 추가합니다. 이 섹션에서는 ServiceManiifest에 지정된 resources 섹션의 Endpoints 섹션에 대한 재정의를 지정할 수 있습니다.
@@ -198,4 +200,3 @@ ServiceManifest에서 다음을 지정했습니다.
 또한 Applications 매개 변수에 대한 Port1 및 Protocol1 값은 null이거나 비어 있습니다. 포트는 여전히 ServiceFabric에 의해 결정됩니다. 또한 Protocol은 tcp가 됩니다.
 
 잘못된 값을 지정한다고 가정해 보겠습니다. Port의 경우처럼 int 대신 문자열 값 "Foo"를 지정했습니다.  New-ServiceFabricApplication 명령은 다음 오류와 함께 실패합니다. 'ResourceOverrides' 섹션에서 이름이 'ServiceEndpoint1'이고 특성이 'Port1'인 재정의 매개 변수가 잘못되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.
-

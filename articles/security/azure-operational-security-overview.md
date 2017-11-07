@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크입니다.
 
@@ -162,4 +160,3 @@ OMS 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 �
 - [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
 - [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts)
 - [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources)
-

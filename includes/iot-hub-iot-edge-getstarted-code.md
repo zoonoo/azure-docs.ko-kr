@@ -4,28 +4,28 @@
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
@@ -36,11 +36,11 @@
 
 ### <a name="iot-edge-gateway-creation"></a>IoT Edge 게이트웨이 만들기
 
-*게이트웨이 프로세스*를 구현해야 합니다. 이 프로그램은 내부 인프라(broker)를 만들고, IoT Edge 모듈을 로드하며, 게이트웨이 프로세스를 구성합니다. IoT Edge는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway\_Create\_From\_JSON** 함수를 제공합니다. **Gateway\_Create\_From\_JSON** 함수를 사용하려면 로드할 IoT Edge 모듈을 지정하는 JSON 파일에 대한 경로를 이 함수에 전달합니다.
+게이트웨이를 만들려면 *게이트웨이 프로세스*를 구현합니다. 이 프로그램은 내부 인프라(broker)를 만들고, IoT Edge 모듈을 로드하며, 게이트웨이 프로세스를 구성합니다. IoT Edge는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway\_Create\_From\_JSON** 함수를 제공합니다. **Gateway\_Create\_From\_JSON** 함수를 사용하려면 로드할 IoT Edge 모듈을 지정하는 JSON 파일에 대한 경로를 이 함수에 전달합니다.
 
 *Hello World* 샘플의 게이트웨이 프로세스에 대한 코드는 [main.c][lnk-main-c] 파일에서 찾을 수 있습니다. 읽기 쉽도록, 다음 코드 조각에서는 게이트웨이 프로세스 코드의 간략한 버전을 보여줍니다. 이 예제 프로그램은 게이트웨이를 만든 다음 게이트웨이를 허물기 전에 사용자가 **ENTER** 키를 누를 때까지 대기합니다.
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -119,7 +119,7 @@ JSON 설정 파일에는 로드할 IoT Edge 모듈의 목록과 모듈 간의 �
 
 메시지를 게시하기 위해 hello\_world 모듈에 사용되는 코드는 ['hello_world.c'][lnk-helloworld-c] 파일에서 찾을 수 있습니다. 다음 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여 줍니다.
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Hello\_world 모듈 메시지 처리
-
 hello\_world 모듈에서는 다른 IoT Edge 모듈이 broker에 게시하는 메시지를 절대로 처리하지 않습니다. 따라서 hello\_world 모듈에서 메시지 콜백의 구현은 수행되지 않는 함수입니다.
 
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>로거 모듈 메시지 게시 및 처리
+### <a name="logger-module-message-processing"></a>로거 모듈 메시지 처리
 
 로거 모듈은 broker에서 메시지를 수신하고 파일에 기록합니다. 메시지를 게시하지 않습니다. 따라서 로거 모듈의 코드는 **Broker_Publish** 함수를 절대 호출하지 않습니다.
 
 [logger.c][lnk-logger-c] 파일의 **Logger_Recieve** 함수는 broker가 로거 모듈에 메시지를 전달하기 위해 호출하는 콜백입니다. 다음 코드 조각은 읽기 쉽도록 코멘트가 추가되고 일부 오류 처리 코드가 제거된 수정 버전을 보여 줍니다.
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -223,7 +221,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 메시지를 로그 파일에 기록하는 단순한 IoT Edge 게이트웨이를 실행했습니다. 메시지를 IoT Hub에 보내는 샘플을 실행하려면 [IoT Edge – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-linux] 또는 [IoT Edge – Windows를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-windows]를 참조하세요.
+이 문서에서는 메시지를 로그 파일에 기록하는 단순한 IoT Edge 게이트웨이를 실행했습니다. IoT Hub에 메시지를 보내는 샘플을 실행하려면 다음을 참조하세요.
+
+- [IoT Edge – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-linux]. 
+- [IoT Edge – Windows를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

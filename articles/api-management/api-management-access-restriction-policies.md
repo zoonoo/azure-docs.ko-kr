@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -387,7 +386,7 @@ ms.lasthandoff: 08/31/2017
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -517,6 +516,7 @@ ms.lasthandoff: 08/31/2017
 |require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니요|true|
 |require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
 |require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  
+|구분 기호|문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.|아니요|해당 없음| 
 |url|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 끝점 URL입니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
@@ -528,4 +528,3 @@ ms.lasthandoff: 08/31/2017
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-

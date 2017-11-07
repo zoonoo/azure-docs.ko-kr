@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 292598b79b9b9749de8c4994de32349625611195
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
-
+ms.openlocfilehash: cd5db703ab0b89b8597c99c0d536bc07f883ebc6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Azure Marketplace Seller Insights 포털을 사용하는 방법
 
@@ -418,4 +416,3 @@ Seller Insights 포털 사용자는 조직에서 사용할 수 있는 모든 데
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
 [35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png
-

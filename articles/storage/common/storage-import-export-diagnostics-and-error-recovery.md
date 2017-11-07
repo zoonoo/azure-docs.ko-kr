@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 진단 및 오류 복구
 처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 저장소 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs#Jobs_Update) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
 
@@ -64,4 +62,3 @@ ms.lasthandoff: 03/30/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-

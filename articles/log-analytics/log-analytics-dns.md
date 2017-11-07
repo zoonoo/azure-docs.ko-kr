@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
-ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
 ![DNS 분석 기호](./media/log-analytics-dns/dns-analytics-symbol.png)
@@ -192,4 +190,3 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 ## <a name="next-steps"></a>다음 단계
 
 [로그를 검색](log-analytics-log-searches.md)하여 자세한 DNS 로그 레코드를 볼 수 있습니다.
-

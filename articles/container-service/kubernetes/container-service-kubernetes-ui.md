@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: 15d423bff629650e205f70c61c592da91339c834
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fbdd3c2450c5385b782d72eb90008a093f6a7298
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure Container Service에서 Kubernetes 웹 UI 사용
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
@@ -134,5 +134,4 @@ UI에서 개체를 보는 것 외에도 Kubernetes API 개체를 편집하고 �
 이렇게 하면 Pod 중 하나가 삭제되어 삭제할 복제본이 두 개가 됩니다.
 
  
-
 

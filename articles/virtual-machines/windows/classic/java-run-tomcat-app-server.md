@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
 > [!IMPORTANT]
@@ -55,7 +54,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
    4. 적합한 **구독**을 선택합니다.
    5. **리소스 그룹**에 대해 **새로 만들기**를 클릭하고 새 리소스 그룹의 이름을 입력합니다. 또는 **기존 항목 사용**을 클릭하고 사용 가능한 리소스 그룹 중 하나를 선택합니다.
    6. 가상 컴퓨터가 있는 위치(예: **미국 중남부**)를 선택합니다.
-6. **다음**을 클릭합니다.
+6. **다음**을 누릅니다.
 7. **가상 컴퓨터 이미지 크기** 블레이드에서 **A1 표준** 또는 적절한 다른 이미지를 선택합니다.
 8. **선택**을 클릭합니다.
 
@@ -121,7 +120,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 10. **이름** 화면에서 규칙 이름(예: **HttpIn**)(규칙 이름은 끝점 이름과 일치하지 않아도 됨)을 지정하고 **마침**을 클릭합니다.  
     ![새 인바운드 규칙 이름][NewRuleName]
 
-이제 외부 브라우저에서 Tomcat 웹 사이트를 볼 수 있어야 합니다. 브라우저의 주소 창에 **http://*your\_DNS\_name*.cloudapp.net**형식의 URL을 입력합니다. 여기서***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
+이제 외부 브라우저에서 Tomcat 웹 사이트를 볼 수 있어야 합니다. 브라우저의 주소 창에 **http://*your\_DNS\_name*.cloudapp.net** 형식의 URL을 입력합니다. 여기서 ***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
 
 ## <a name="application-lifecycle-considerations"></a>응용 프로그램 수명 주기 고려 사항
 * 사용자 고유의 WAR(웹 응용 프로그램 보관)을 만들어 **webapps** 폴더에 추가할 수 있습니다. 예를 들어 기본 JSP(Java 서비스 페이지) 동적 웹 프로젝트를 만들어 WAR 파일로 내보냅니다. 다음으로, 이 WAR을 가상 컴퓨터의 Apache Tomcat **webapps** 폴더에 복사한 후 브라우저에서 실행합니다.
@@ -159,4 +158,3 @@ Azure Storage, Service Bus, SQL Database 등 Java 응용 프로그램에 포함�
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

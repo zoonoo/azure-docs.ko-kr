@@ -24,9 +24,17 @@ sections:
         style: icon48
         items:
           - image:
-              src: /azure/app-service-api/media/index/cli.svg
+              src: /azure/event-grid/media/index/cli.svg
             text: Azure CLI
             href: /azure/event-grid/custom-event-quickstart
+          - image:
+              src: /azure/event-grid/media/index/logo_powershell.svg
+            text: Azure PowerShell
+            href: /azure/event-grid/custom-event-quickstart-powershell
+          - image:
+              src: /azure/event-grid/media/index/portal.svg
+            text: Azure 포털
+            href: /azure/event-grid/custom-event-quickstart-portal
   - title: 단계별 자습서
     items:
       - type: paragraph
@@ -35,6 +43,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">논리 앱을 사용하여 VM에 대한 변경 내용 모니터링</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">업로드된 이미지의 크기 조정</a>
   - title: 참조
     items:
       - type: list
@@ -42,7 +51,7 @@ sections:
         className: cardsD
         items:
           - title: 명령줄
-            html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p>
+            html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
           - title: REST API
             html: <p><a href="/rest/api/eventgrid">REST (영문)</a></p>
           - title: 스키마

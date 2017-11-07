@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple 가상 배열 모범 사례
 ## <a name="overview"></a>개요
@@ -285,5 +284,4 @@ Windows 인덱싱 프로세스를 사용하는 경우 다음 지침을 따르세
 
 ## <a name="see-also"></a>참고 항목
 StorSimple Manager 서비스를 통해 [StorSimple 가상 배열을 관리하는 방법](storsimple-virtual-array-manager-service-administration.md) 에 대해 알아봅니다.
-
 

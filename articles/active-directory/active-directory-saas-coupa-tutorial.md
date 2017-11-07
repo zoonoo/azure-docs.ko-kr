@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 이 자습서는 Azure 및 Coupa의 통합을 보여주기 위한 것입니다.  
@@ -91,7 +90,7 @@ Coupa에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpr
    1. **로그온 URL** 텍스트 상자에 사용자가 Coupar 응용 프로그램에 로그인하는 데 사용하는 URL(예: “*http://company.Coupa.com*”)을 입력합니다.
    2. 다운로드한 Coupa 메타데이터 파일을 연 다음 **AssertionConsumerService index/URL**을 복사합니다.
    3. **Coupa 회신 URL** 텍스트 상자에 **AssertionConsumerService index/URL** 값을 붙여 넣습니다.
-   4. **다음**을 클릭합니다.
+   4. **다음**을 누릅니다.
 8. **Coupa에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬 저장합니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-coupa-tutorial/IC791905.png "Single Sign-On 구성")
@@ -151,5 +150,4 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
    ![예](./media/active-directory-saas-coupa-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
 

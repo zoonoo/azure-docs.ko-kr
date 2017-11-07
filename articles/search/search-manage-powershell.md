@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
-ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure 검색 서비스 관리
 > [!div class="op_single_selector"]
@@ -138,5 +137,4 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 * [기타 서비스에서 데이터를 로드하기 위한 인덱서 설정](search-indexer-overview.md)
 * [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
 * [Azure 검색 트래픽 분석](search-traffic-analytics.md)
-
 

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 242fa094010694d7060b05e5892ce738d5b37a32
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 감사 API 참조
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
@@ -241,5 +240,4 @@ datetime는 UTC 형식이어야 합니다.
 ## <a name="next-steps"></a>다음 단계
 * 필터링된 시스템 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 감사 API 샘플](active-directory-reporting-api-audit-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
 

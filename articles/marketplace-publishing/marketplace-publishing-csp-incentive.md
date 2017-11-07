@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: DavidBosland
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Azure 마켓플레이스에서 클라우드 솔루션 공급자 "대리점 인센티브"를 확인 및 변경
 2016년 3월 15일부터 마켓플레이스 게시자에게 CSP(클라우드 솔루션 공급자) "대리점 인센티브"가 제공됩니다.  이 인센티브 값의 기본 설정은 **예**입니다.  게시자는 인센티브 프로그램을 옵트아웃하도록 선택할 수 있습니다.  이 문서에서는 옵트아웃이 가능하도록 게시자 프로필에서 설정을 변경하는 방법을 보여 줍니다.
 
 "대리점 인센티브" 상태를 확인 또는 변경하려면 다음 단계를 수행하세요.
 
-1.  [Microsoft Azure 게시 계정](https://publish.windowsazure.com/workspace)
+1. [Microsoft Azure 게시 계정](https://publish.windowsazure.com/workspace)
 
    ![프로필 시작 화면][1]
-2.  **게시자**
+2. **게시자**
 
    ![프로필 시작 화면 - 게시자 링크][2]
 3. 프로필에서 CSP에 대한 정보를 확인합니다.  "대리점 인센티브"를 **예 또는 아니요로 설정하는 스위치**가 있습니다. 기본 설정은 “예”입니다.
@@ -46,4 +45,3 @@ ms.lasthandoff: 12/08/2016
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-

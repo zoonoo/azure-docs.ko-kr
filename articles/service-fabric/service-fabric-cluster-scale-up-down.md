@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>자동 크기 조정 규칙을 사용하여 서비스 패브릭 클러스터 크기 조정
 가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [서비스 패브릭 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 컴퓨터 확장 집합으로 구성되므로 각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
@@ -53,7 +52,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 [각 가상 컴퓨터 확장 집합에 대해 자동 크기 조정을 설정](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)하는 지침을 따르세요.
 
 > [!NOTE]
-> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) 을 호출해야 합니다.
+> 규모 축소 시나리오에서 노드 형식에 골드 또는 실버 내구성 수준이 없다면 적절한 노드 이름과 함께 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) 을 호출해야 합니다.
 > 
 > 
 
@@ -100,7 +99,7 @@ Service Fabric Explorer에 나열된 노드는 서비스 패브릭 시스템 서
 
 VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵션이 있습니다.
 
-1) 클러스터에서 노드 형식에 대해 골드 또는 실버(곧 사용 가능) 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그러면 규모를 축소할 때 시스템 서비스(FM)에서 해당 노드를 자동으로 제거합니다.
+1) 클러스터에서 노드 형식에 대해 골드 또는 실버 내구성 수준을 선택하면 인프라 통합이 제공됩니다. 그러면 규모를 축소할 때 시스템 서비스(FM)에서 해당 노드를 자동으로 제거합니다.
 [여기에서 내구성 수준에 대한 세부 정보](service-fabric-cluster-capacity.md)
 
 2) VM 인스턴스가 규모 축소되면 [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx)을 호출해야 합니다.
@@ -120,4 +119,3 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

@@ -3,7 +3,7 @@ title: "Azure AD 앱 프록시 - 커넥터 설치 시작 | Microsoft Docs"
 description: "Azure Portal에서 응용 프로그램 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: kgremban
+ms.date: 10/02/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>응용 프로그램 프록시 시작 및 커넥터 설치
 이 문서에서는 Azure AD에서 클라우드 디렉터리에 Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하는 단계를 안내합니다.
 
@@ -63,7 +61,7 @@ Azure AD 응용 프로그램 프록시를 위한 환경을 준비하려면 먼�
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. 커넥터는 등록 프로세스에 대한 login.windows.net 및 login.microsoftonline.net에 대한 액세스가 필요합니다.
+4. 커넥터는 등록 프로세스에 대한 login.windows.net 및 login.microsoftonline.com에 대한 액세스가 필요합니다.
 
 5. [Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다.
 
@@ -108,4 +106,3 @@ Azure Portal에서 테넌트로 로그인하고 **Azure Active Directory** > **�
 이제 [응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)할 준비가 되었습니다.
 
 별도 네트워크 또는 다른 위치에 응용 프로그램이 있는 경우 다른 커넥터 그룹을 사용하여 커넥터를 논리 단위로 구성합니다. [응용 프로그램 프록시 커넥터 작업](active-directory-application-proxy-connectors-azure-portal.md)에 대해 자세히 알아봅니다.
-

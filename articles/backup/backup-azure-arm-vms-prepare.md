@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
+ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 컴퓨터를 백업하기 위한 환경 준비
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.lasthandoff: 09/05/2017
 Azure Backup 서비스에는 VM을 보호하는 두 가지 유형의 자격 증명 모음이(백업 자격 증명 모음 및 복구 서비스 자격 증명 모음) 있습니다. 백업 자격 증명 모음은 클래식 배포 모델을 사용하여 배포된 VM을 보호합니다. 복구 서비스 자격 증명 모음은 **클래식으로 배포되거나 Resource Manager 배포 VM을 양쪽 모두** 보호합니다. Resource Manager 배포 VM을 보호하려면 복구 서비스 자격 증명 모음을 사용해야 합니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
 >
 >
 
@@ -205,7 +204,13 @@ VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대�
 | HTTP 프록시 |허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어<br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음 |프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용 목록
-Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
+* Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
+* 서비스 태그를 사용하여 [Service Tags](../virtual-network/security-overview.md#service-tags)를 사용하는 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 저장소 계정에 대한 액세스를 허용하는 규칙이 인터넷 액세스를 차단하는 규칙보다 우선 순위가 높아야 합니다. 
+
+  ![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> 저장소 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소에 대한 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
 VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저장소에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이므로, HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
@@ -315,4 +320,3 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-

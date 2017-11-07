@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 846941ae095a7d6f428bd0d189abc9f0c1848aa8
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 컴퓨터의 Key Vault를 설정하는 방법
 
@@ -61,4 +60,3 @@ az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForD
 
 ## <a name="next-steps"></a>다음 단계
 템플릿을 사용하여 Key Vault을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.
-

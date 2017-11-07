@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
-ms.lasthandoff: 05/03/2017
-
-
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
@@ -406,7 +405,7 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 ```
 **저장** 시 Azure Functions가 필요한 이진 파일을 다운로드합니다.
 
-**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 타이머에 대한 [CRON 식](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번 실행됩니다.
+**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 타이머에 대한 [CRON 식](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번 실행됩니다.
 
 동일한 **통합** 탭에서 **Azure Blob Storage** 형식의 입력을 추가합니다. 이렇게 하면 함수에서 확인하는 최신 이벤트의 타임스탬프를 포함하는 sync.txt 파일을 가리키게 됩니다. 그러면 함수 내에서 매개 변수 이름으로 사용할 수 있게 됩니다. 위의 코드에서 Azure Blob Storage 입력에 대한 매개 변수 이름은 *inputBlob*으로 예상됩니다. sync.txt 파일이 상주할 저장소 계정을 선택합니다(같은 저장소 계정일 수도 있고 다른 저장소 계정일 수도 있음). 경로 필드에는 파일이 {container-name}/path/to/sync.txt 형식으로 상주하는 경로를 입력합니다.
 
@@ -438,4 +437,3 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 작업의 경우 **Office 365 - 전자 메일 보내기**를 선택합니다. 정의된 조건에서 **false**를 반환하는 경우 보낼 전자 메일을 작성하도록 필드를 채웁니다. Office 365가 없는 경우 같은 결과를 얻을 수 있는 대안을 살펴볼 수 있습니다.
 
 현재는 1분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
-

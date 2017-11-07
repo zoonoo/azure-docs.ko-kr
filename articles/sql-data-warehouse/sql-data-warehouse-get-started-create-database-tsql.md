@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: ko-kr
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ ms.lasthandoff: 12/07/2016
 시작하려면 다음이 필요합니다.
 
 * **Azure 계정**: [Azure 무료 평가판][Azure Free Trial] 또는 [MSDN Azure 크레딧][MSDN Azure Credits]을 방문하여 계정을 만듭니다.
-* **Azure SQL Server**: 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기][Create an Azure SQL Database logical server with the Azure Portal] 또는 [PowerShell을 사용하여 Azure SQL Database 논리 서버 만들기][Create an Azure SQL Database logical server with PowerShell]를 참조하세요.
+* **Azure SQL Server**: 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기][Azure Portal을 사용하여 Azure SQL Database 논리 서버 만들기] 또는 [PowerShell을 사용하여 Azure SQL Database 논리 서버 만들기][PowerShell을 사용하여 Azure SQL Database 논리 서버 만들기]를 참조하세요.
 * **리소스 그룹**: Azure SQL Server와 동일한 리소스 그룹을 사용하거나 [리소스 그룹을 만드는 방법][how to create a resource group]을 참조하세요.
 * **T-SQL을 실행할 환경**: [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] 또한 [SSMS][SSMS]을 사용하여 T-SQL을 실행할 수 있습니다.
 
@@ -89,4 +87,3 @@ SQL Data Warehouse에서 프로비전을 완료했으면 [샘플 데이터를 �
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

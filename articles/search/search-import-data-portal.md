@@ -15,13 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>포털을 사용하여 Azure 검색으로 데이터 가져오기
 Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가져오기** 마법사가 Azure Search 대시보드에 제공됩니다. 
@@ -121,5 +119,4 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
 

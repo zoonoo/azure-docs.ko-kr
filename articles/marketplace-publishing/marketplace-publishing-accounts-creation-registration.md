@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.lasthandoff: 01/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 이 문서에서는 Azure 마켓플레이스에서 승인된 Microsoft 개발자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.
@@ -45,7 +44,7 @@ ms.lasthandoff: 01/06/2017
 * 개발자 계정에 액세스해야 하는 모든 사람을 포함하는 회사 전자 메일 배포 목록을 설정하고 보안 정보에 이 전자 메일 주소를 추가합니다. 이렇게 하면 목록에 있는 모든 직원이 필요할 때 보안 코드를 받고 Microsoft 계정의 보안 정보를 관리할 수 있습니다. 배포 목록을 설정할 수 없는 경우 개인 전자 메일 계정 소유자는 메시지가 표시되면(예: 새 보안 정보가 계정에 추가되거나 새 장치에서 액세스해야 하는 경우) 보안 코드에 액세스하여 공유할 수 있어야 합니다.
 * 확장할 필요가 없고 핵심 팀 구성원에 액세스할 수 있는 회사 전화 번호를 추가합니다.
 * 일반적으로 개발자가 신뢰할 수 있는 장치를 사용하여 회사의 개발자 계정에 로그인하도록 합니다. 모든 핵심 팀 구성원은 이러한 신뢰할 수 있는 장치에 액세스할 수 있어야 합니다. 이렇게 하면 계정에 액세스할 때 보안 코드를 전송할 필요성이 줄어듭니다.
-* 신뢰할 수 없는 PC에서 계정에 액세스할 수 있도록 해야 하는 경우 해당 액세스를 최대&5;명의 개발자로 제한합니다. 이상적으로는 이러한 개발자가 동일한 지리적 네트워크 위치를 공유하는 컴퓨터에서 계정에 액세스해야 합니다.
+* 신뢰할 수 없는 PC에서 계정에 액세스할 수 있도록 해야 하는 경우 해당 액세스를 최대 5명의 개발자로 제한합니다. 이상적으로는 이러한 개발자가 동일한 지리적 네트워크 위치를 공유하는 컴퓨터에서 계정에 액세스해야 합니다.
 * [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage)에서 회사의 보안 정보를 자주 검토하여 모두 최신 정보인지 확인합니다.
 
 개발자 계정은 주로 신뢰할 수 있는 PC에서 액세스해야 합니다. 이는 주당 계정별로 생성되는 코드 수에 제한이 있기 때문에 중요합니다. 또한 가장 원활한 로그인 환경을 가능하게 합니다.
@@ -54,7 +53,7 @@ ms.lasthandoff: 01/06/2017
 
 ### <a name="instructions"></a>지침
 1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 브라우징 세션을 열어 기존 계정에 로그인되지 않았는지 확인합니다.
-2. [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx) 링크를 사용하여 전자 메일(예: 위의 지침에 따라 windowsapp@fabrikam.com))을 Microsoft 계정으로 등록합니다. 아래의 지침을 따르세요.
+2. [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx) 링크를 사용하여 전자 메일(예: 위의 지침에 따라 windowsapp@fabrikam.com)을 Microsoft 계정으로 등록합니다. 아래의 지침을 따르세요.
 
    1. 계정을 Microsoft 계정으로 등록하는 동안 시스템에서 문자 메시지 또는 자동 응답 통화 형태로 계정 확인 코드를 보낼 올바른 전화번호를 제공해야 합니다.
    2. 계정을 Microsoft 계정으로 등록하는 동안 계정 확인을 위해 자동 전자 메일을 수신하기 위한 올바른 전자 메일 ID를 제공해야 합니다.
@@ -160,13 +159,13 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
    > 지급 계좌를 업데이트하거나 변경해야 하는 경우 위의 동일한 단계를 따라 현재 정보를 새 정보로 바꿉니다. 지급 계좌를 변경하면 한 번의 지불 주기까지 지불을 연기할 수 있습니다. 이러한 지불 연기는 처음 지급 계좌를 설정할 때와 마찬가지로 계정 변경 내용을 확인해야 하기 때문에 발생합니다. 계정 확인 작업이 끝난 후 여전히 전체 금액에 대해 비용을 지불해야 하는 경우 현재 지불 주기에 대한 모든 지불 대금이 다음 주기에 추가됩니다.
    >
    >
-4. **다음**을 클릭합니다.
+4. **다음**을 누릅니다.
 
 **세금 정보**
 
 1. Microsoft 계정을 사용하여(필요한 경우) [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure) 에 로그인합니다.
 2. 왼쪽 메뉴에서 **세금 프로필** 을 클릭합니다.
-3. **세금 양식 작성** 페이지에서 영주권이 있는 국가 또는 지역을 선택한 후 주요 시민권을 보유한 국가 또는 지역을 선택합니다. **다음**을 클릭합니다.
+3. **세금 양식 작성** 페이지에서 영주권이 있는 국가 또는 지역을 선택한 후 주요 시민권을 보유한 국가 또는 지역을 선택합니다. **다음**을 누릅니다.
 4. 세금 세부 정보를 입력하고 **다음**을 클릭합니다.
 
 > [!WARNING]
@@ -259,4 +258,3 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-

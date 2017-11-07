@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
+ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)에서 Spark 구조적 스트림 사용
 
 Azure HDInsight의 Apache Kafka에서 데이터를 읽는 Spark 구조적 스트림을 사용하는 방법을 알아봅니다.
@@ -92,7 +90,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 ## <a name="get-the-kafka-brokers"></a>Kafka broker를 가져옵니다.
 
-이 예제의 코드는 Kafka 클러스터에 있는 Kafka broker 호스트에 연결합니다. 두 개의 Kafka broker 호스트 주소를 찾으려면 다음 PowerShell 또는 Bash 예제를 사용합니다.
+이 예제의 코드는 Kafka 클러스터에 있는 Kafka broker 호스트에 연결합니다. 두 Kafka broker 호스트의 주소를 찾으려면 다음 PowerShell 또는 Bash 예제를 사용합니다.
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"

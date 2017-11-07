@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 컴퓨터 백업 문제 해결
 > [!div class="op_single_selector"]
@@ -49,7 +48,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="backup"></a>백업
 | 백업 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 백업 |스냅숏 상태에 대해 VM 에이전트와 통신하지 못했습니다. 스냅숏 VM 하위 작업의 제한 시간이 초과되었습니다. 이를 해결하는 방법은 문제 해결 가이드를 참조하세요. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. [VM 스냅숏 문제 디버깅 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)에 대해 자세히 알아봅니다. <br> VM 에이전트가 아무 문제도 유발하지 않으면, VM을 다시 시작합니다. 가끔 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 "잘못된 상태"를 초기화합니다. |
+| 백업 |스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다. 스냅숏 VM 하위 작업 시간 초과. 이를 해결하는 방법은 문제 해결 가이드를 참조하세요. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. [VM 스냅숏 문제 디버깅 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)에 대해 자세히 알아봅니다. <br> VM 에이전트가 아무 문제도 유발하지 않으면, VM을 다시 시작합니다. 가끔 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 "잘못된 상태"를 초기화합니다. |
 | 백업 |내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |VM 저장소에 액세스하는 데 일시적인 문제가 있는지 확인합니다. [Azure 상태](https://azure.microsoft.com/en-us/status/) 를 확인하여 지역의 계산/저장소/네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 완화되면 백업을 다시 시도합니다. |
 | 백업 |VM이 더 이상 존재하지 않아 작업을 수행할 수 없습니다. |백업용으로 구성된 VM이 삭제되었기 때문에 백업을 수행할 수 없습니다. 이 경우 보호된 항목 보기로 이동하여 향후의 백업을 중지시키고, 보호된 항목을 선택하여 보호 중지를 클릭합니다. 백업 데이터 보존 옵션을 선택하여 데이터를 보존할 수 있습니다. 나중에 등록된 항목 보기에서 보호 구성을 클릭하여 이 가상 컴퓨터에 대한 보호를 다시 시작할 수 있습니다. |
 | 백업 |선택한 항목에 Azure 복구 서비스 확장을 설치하지 못했습니다. Azure 복구 서비스 확장의 필수 조건인 VM 에이전트가 있어야 합니다. Azure VM 에이전트를 설치하고 등록 작업을 다시 시작하세요. |<ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> [자세히 알아보세요](#validating-vm-agent-installation) . |
@@ -115,4 +114,3 @@ Windows VM에서 VM 에이전트 버전을 확인하는 방법
 
 1. Azure Virtual Machine에 로그온하고 *C:\WindowsAzure\Packages* 폴더로 이동합니다. WaAppAgent.exe 파일을 찾습니다.
 2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다.
-

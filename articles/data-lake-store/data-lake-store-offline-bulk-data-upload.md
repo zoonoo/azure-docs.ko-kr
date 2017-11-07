@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
+ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Azure Import/Export 서비스를 사용하여 Data Lake Store에 오프라인 데이터 복사
 이 문서에서는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 같은 오프라인 복사 방법을 사용하여 대량 데이터 집합(200GB 초과)을 Azure Data Lake Store에 복사하는 방법을 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
@@ -70,7 +69,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 ## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Azure Storage Blob에서 Azure Data Lake Store로 데이터 복사
 가져오기 작업의 상태가 완료되었다고 표시되면 지정한 Azure Storage Blob에서 데이터를 사용할 수 있는지 확인할 수 있습니다. 그런 다음 다양한 방법으로 Blob에서 Azure Data Lake Store로 해당 데이터를 이동할 수 있습니다. 데이터를 업로드하는 데 사용 가능한 모든 옵션은 [Data Lake Store에 데이터 수집](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store)을 참조하세요.
 
-이 섹션에서는 데이터 복사용 Azure Data Factory 파이프라인을 만드는 데 사용할 수 있는 JSON 정의를 제공합니다. 이러한 JSON 정의는 [Azure Portal](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md)에서 사용할 수 있습니다.
+이 섹션에서는 데이터 복사용 Azure Data Factory 파이프라인을 만드는 데 사용할 수 있는 JSON 정의를 제공합니다. 이러한 JSON 정의는 [Azure Portal](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md)에서 사용할 수 있습니다.
 
 ### <a name="source-linked-service-azure-storage-blob"></a>원본에 연결된 서비스(Azure Storage Blob)
 ````
@@ -188,7 +187,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
     }
 }
 ````
-자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Store로 데이터 이동](../data-factory/data-factory-azure-datalake-connector.md)을 참조하세요.
+자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Store로 데이터 이동](../data-factory/connector-azure-data-lake-store.md)을 참조하세요.
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Azure Data Lake Store에서 데이터 파일 다시 생성
 319GB의 파일로 시작하고 작은 크기의 파일로 분할하여 Azure Import/Export 서비스를 사용하여 파일을 전송할 수 있었습니다. 이제 데이터가 Azure Data Lake Store에 있으므로 파일을 원래 크기로 다시 생성할 수 있습니다. 다음 Azure PowerShell cmdlet을 사용하여 이 작업을 수행할 수 있습니다.
@@ -212,4 +211,3 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-

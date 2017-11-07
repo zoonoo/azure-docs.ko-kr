@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.lasthandoff: 01/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
 논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.
@@ -51,7 +50,7 @@ ms.lasthandoff: 01/20/2017
 ![응답 트리거](./media/connectors-native-reqres/using-trigger.png)
 
 ## <a name="use-the-http-response-action"></a>HTTP 응답 작업 사용
-HTTP 응답 작업은 HTTP 요청에 의해 트리거되는 워크플로에서 사용할 때만 유효합니다. 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다.  응답 작업은 워크플로 내의 어느 단계에도 추가할 수 있습니다. 논리 앱은 들어오는 요청이 있을 때 응답을 받기 위해&1;분 동안만 열어둡니다.  1분 후에 워크플로에서 전송된 응답이 없으면(정의에는 응답 작업이 있음) `504 GATEWAY TIMEOUT` 이 호출자에게 반환됩니다.
+HTTP 응답 작업은 HTTP 요청에 의해 트리거되는 워크플로에서 사용할 때만 유효합니다. 응답 작업을 정의하지 않으면 `202 ACCEPTED` 응답이 호출자에게 즉시 반환됩니다.  응답 작업은 워크플로 내의 어느 단계에도 추가할 수 있습니다. 논리 앱은 들어오는 요청이 있을 때 응답을 받기 위해 1분 동안만 열어둡니다.  1분 후에 워크플로에서 전송된 응답이 없으면(정의에는 응답 작업이 있음) `504 GATEWAY TIMEOUT` 이 호출자에게 반환됩니다.
 
 HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 
@@ -111,5 +110,4 @@ HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
-
 

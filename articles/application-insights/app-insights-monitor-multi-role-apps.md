@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
+ms.openlocfilehash: ca1bb8ee886c4b4e69be9dd653d6a52b874e1f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights(미리 보기)로 다중 구성 요소 응용 프로그램 모니터링
 
@@ -129,4 +128,3 @@ Azure Portal에서 응용 프로그램에 대한 리소스를 엽니다. 미리 
 ## <a name="next-steps"></a>다음 단계
 
 * [개발, 테스트 및 프로덕션의 원격 분석 구분](app-insights-separate-resources.md)
-

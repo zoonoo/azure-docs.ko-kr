@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 1ffa517469da1a8d79917b9747abc97ca3bef463
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Stream Analytics 작업에 대한 출력 데이터를 구성하는 방법
 
 Azure Stream Analytics 작업은 기존 데이터 링크에 대한 연결을 정의하는 하나 이상의 데이터 출력에 연결할 수 있습니다. Stream Analytics 작업이 들어오는 데이터를 처리 및 변환하면 데이터 출력 이벤트 스트림이 작업의 출력에 기록됩니다.
@@ -60,5 +58,4 @@ Stream Analytics 작업에 출력을 추가하려면
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

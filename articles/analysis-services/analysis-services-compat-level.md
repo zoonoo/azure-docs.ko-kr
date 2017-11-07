@@ -4,7 +4,7 @@ description: "테이블 형식 데이터 모델 호환성 수준을 이해합니
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 11/01/2017
 ms.author: owend
+ms.openlocfilehash: 41bf697cd1d91ea0ba56ed6fad0e5b9c442ecec2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
-ms.contentlocale: ko-kr
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
-
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 테이블 형식 모델에 대한 호환성 수준
 
 *호환성 수준*은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 호환성 수준에 대한 변경은 일반적으로 주요 버전의 SQL Server와 일치합니다. 이러한 변경은 두 플랫폼 간의 패리티를 유지하기 위해 Azure Analysis Services에도 구현됩니다. 호환성 수준 변경은 테이블 형식 모델에서 사용할 수 있는 기능에도 영향을 줍니다. 예를 들어 DirectQuery 및 테이블 형식 개체 메타데이터는 호환성 수준에 따라 서로 다른 구현을 갖습니다. 
@@ -58,4 +56,3 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
 ## <a name="next-steps"></a>다음 단계
   [Azure Portal에서 모델 만들기](analysis-services-create-model-portal.md)   
   [Analysis Services 관리](analysis-services-manage.md)  
-

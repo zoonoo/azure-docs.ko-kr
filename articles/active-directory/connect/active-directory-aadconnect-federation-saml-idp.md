@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
 이 항목에서는 SAML 2.0 호환 SP-Lite 프로필 기반 ID 공급자를 기본 STS(보안 토큰 서비스)/ID 공급자로 사용하는 방법에 대한 정보를 제공합니다. 이 기능은 사용자 디렉터리 및 암호 저장소가 SAML 2.0을 사용하여 액세스할 수 있는 온-프레미스에 이미 있는 경우에 유용합니다. 이 기존 사용자 디렉터리는 Office 365 및 다른 Azure AD 보안 리소스에 로그온하는 데 사용할 수 있습니다. SAML 2.0 SP-Lite 프로필은 널리 사용되는 SAML(Security Assertion Markup Language ) 페더레이션 ID 표준을 기준으로 하여 로그온 및 특성 교환 프레임워크를 제공합니다.
@@ -271,4 +269,3 @@ Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단
 - [Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
 - [Azure AD 페더레이션 호환성 목록](active-directory-aadconnect-federation-compatibility.md)
 - [Azure AD Connect 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
-

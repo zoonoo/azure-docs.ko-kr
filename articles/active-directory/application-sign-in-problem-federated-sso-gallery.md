@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 0fc5a8eb3d033d60bf6082d61bf1698924ab91c6
-ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 응용 프로그램에 로그인하는 문제
 
 문제를 해결하려면 다음과 같이 Azure AD에서 응용 프로그램 구성을 확인해야 합니다.
@@ -267,4 +265,3 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
-

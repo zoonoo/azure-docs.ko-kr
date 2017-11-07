@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
-ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 이 문서에서는 Microsoft 앱 등록 포털 [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에 있는 다양한 기능에 대한 컨텍스트 및 설명을 제공합니다.
@@ -48,5 +46,4 @@ ms.lasthandoff: 05/25/2017
 Live SDK 지원을 사용하지 않도록 설정하면 응용 프로그램 암호가 Azure AD 데이터 저장소에만 기록됩니다.  Azure AD 데이터 저장소는 FISMA 규정 준수 등의 특정 표준을 충족하는 엔터프라이즈급 규정을 포함합니다.  Live SDK 지원을 사용하도록 설정하면 응용 프로그램이 이러한 일부 표준을 준수하지 못할 수 있습니다.
 
 Azure AD v2.0 끝점만 사용하려면 안전하게 Live SDK 지원을 사용하지 않도록 설정할 수 있습니다.
-
 

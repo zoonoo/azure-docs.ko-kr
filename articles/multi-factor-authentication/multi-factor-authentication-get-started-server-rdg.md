@@ -15,12 +15,11 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 종종 RD(Remote Desktop) 게이트웨이는 로컬 NPS(Network Policy Services)를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다. Azure MFA와 RD 게이트웨이를 함께 사용하면 사용자가 강력한 인증을 수행하면서 어디서든 자신의 작업 환경에 액세스할 수 있습니다. 
@@ -83,4 +82,3 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 - Azure MFA 및 [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md) 통합
 
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)에서 답변 얻기
-
