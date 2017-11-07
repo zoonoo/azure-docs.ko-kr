@@ -48,7 +48,7 @@
     - name: REST (영문)
       href: /rest/api/container-instances
     - name: PowerShell
-      href: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+      href: '/powershell/module/azurerm.containerinstance#container_instances'
 - name: 리소스
   items:
     - name: Azure 로드맵
