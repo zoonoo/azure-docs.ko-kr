@@ -2,8 +2,3 @@ Azure에서 VM(가상 컴퓨터)을 만들고 공용 IP 주소를 사용하여 �
 
 VM에서 고정 공용 IP를 구현하려면 먼저 고정 공용 IP의 사용 가능 시점 및 사용 방법을 파악해야 합니다. Azure의 IP 주소 지정에 대한 자세한 내용은 [IP 주소 지정 개요](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) 를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

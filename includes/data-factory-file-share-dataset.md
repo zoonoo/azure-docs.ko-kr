@@ -1,5 +1,5 @@
 ## <a name="fileshare-dataset-type-properties"></a>FileShare 데이터 집합 형식 속성
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](../articles/data-factory/data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](../articles/data-factory/v1/data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.
 
 **typeProperties** 섹션은 데이터 집합의 각 형식마다 다릅니다. 데이터 집합 형식에 대한 정보를 제공합니다. **FileShare** 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
@@ -21,7 +21,7 @@
 ### <a name="using-partionedby-property"></a>partionedBy 속성 사용
 이전 섹션에서 설명했듯이 동적 folderPath, partitionedBy된 시계열 데이터에 대한 filename을 지정할 수 있습니다. 지정된 데이터 조각에 대한 논리적 기간을 나타내는 데이터 팩터리 매크로 및 시스템 변수 SliceStart, SliceEnd를 사용하여 이 작업을 수행할 수 있습니다.
 
-시계열 데이터 집합, 예약 및 조각에 대한 자세한 내용은 [데이터 집합 만들기](../articles/data-factory/data-factory-create-datasets.md), [일정 예약 및 실행](../articles/data-factory/data-factory-scheduling-and-execution.md) 및 [파이프라인 만들기](../articles/data-factory/data-factory-create-pipelines.md) 문서를 참조하세요.
+시계열 데이터 집합, 예약 및 조각에 대한 자세한 내용은 [데이터 집합 만들기](../articles/data-factory/v1/data-factory-create-datasets.md), [일정 예약 및 실행](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) 및 [파이프라인 만들기](../articles/data-factory/v1/data-factory-create-pipelines.md) 문서를 참조하세요.
 
 #### <a name="sample-1"></a>샘플 1:
 

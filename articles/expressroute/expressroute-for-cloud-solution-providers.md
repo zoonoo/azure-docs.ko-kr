@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 Express 경로
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 Express 경로입니다. Express 경로를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. Express 경로는 Azure에서 고속의 개인 통신 링크입니다. 
@@ -134,13 +134,6 @@ Azure 가상 네트워크를 만들면 vNet에서 vNet 서브넷 간의 직접 �
 
 추가 정보는 다음 링크에서 확인할 수 있습니다.
 
-[Microsoft 클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
+[클라우드 솔루션 공급자 프로그램의 Azure](https://docs.microsoft.com/azure/cloud-solution-provider)  
 [클라우드 솔루션 공급자로 거래 준비](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft 클라우드 솔루션 공급자 리소스](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

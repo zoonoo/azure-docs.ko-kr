@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
-ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
-ms.lasthandoff: 02/03/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -29,11 +28,11 @@ ms.lasthandoff: 02/03/2017
 샘플링은 트래픽 및 데이터 비용을 줄여주며 제한을 피하는 데 도움이 됩니다.
 
 ## <a name="in-brief"></a>개요:
-* 샘플링은 *n* 레코드에 1을 유지하면서 나머지는 무시합니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
+* 샘플링은 *n*개의 레코드에서 1을 유지하고 나머지는 버립니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
 * 응용 프로그램이 다양한 원격 분석을 보내는 경우 샘플링은 ASP.NET 웹 서버 앱에서 자동으로 발생합니다.
 * 샘플링을 가격 책정 페이지의 포털 또는 .config 파일의 ASP.NET SDK에서 수동으로 설정하여 네트워크 트래픽을 줄일 수도 있습니다.
 * 사용자 지정 이벤트를 기록하고 일련의 이벤트가 유지되는지 아니면 함께 무시되는지 확인하려는 경우 동일한 OperationId 값을 갖는지 확인합니다.
-* 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
+* *n* 샘플링 약수는 `itemCount` 속성의 각 레코드에서 보고되며, 검색에서 "요청 수" 또는 "이벤트 수" 이름으로 표시됩니다. 샘플링이 작업 중이지 않을 때 `itemCount==1`입니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](app-insights-analytics-tour.md#counting-sampled-data)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 
 ## <a name="types-of-sampling"></a>샘플링 유형
@@ -352,5 +351,4 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 ## <a name="next-steps"></a>다음 단계
 * [필터링](app-insights-api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
-
 

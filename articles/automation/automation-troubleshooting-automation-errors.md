@@ -3,7 +3,7 @@ title: "일반적인 Azure Automation 문제 해결 | Microsoft Docs"
 description: "이 문서에서는 일반적인 Azure 자동화 오류 해결을 도와줄정보를 제공합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
-
-
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
 이 문서에서는 Azure 자동화에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
@@ -64,6 +64,22 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 **문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했습니다.
+**오류:** "작업을 세 번 시도했지만 실패했습니다." 오류가 발생하여 Runbook이 실패합니다.
+
+**오류의 원인:** 이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.  
+
+1. 메모리 제한.  샌드박스 [Automation 서비스 제한](../azure-subscription-service-limits.md#automation-limits)에 할당 된 메모리 양에 대한 제한이 문서화되어 있으므로 400MB 이상의 메모리를 사용하는 경우 작업이 실패할 수 있습니다. 
+
+2. 모듈이 호환되지 않음.  이는 모듈 종속성이 올바르지 않은 경우에 발생할 수 있으며 그렇지 않은 경우 일반적으로 Runbook은 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인드할 수 없습니다." 메시지를 반환합니다. 
+
+**문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+
+* 메모리 제한 내에서 작업하는 경우 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것이 좋습니다.  
+
+* [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md) 단계에 따라 Azure 모듈을 업데이트해야 합니다.  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
 **오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 형식 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>`` 형식으로 변환할 수 없습니다." 오류와 함께 Runbook이 실패합니다.
 
@@ -85,8 +101,8 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 
 1. Azure 구독에 로그인합니다.  
 2. 업그레이드할 자동화 계정을 선택합니다.  
-3. **설정** > **가격 책정 계층 및 사용 현황** > **가격 책정 계층**을 클릭합니다.  
-4. **가격 책정 계층 선택** 블레이드에서 **기본**을 선택합니다.    
+3. **설정** > **가격 책정**을 클릭합니다.
+4. 페이지 아래쪽의 **사용**을 클릭하여 계정을 **기본** 계층으로 업그레이드합니다.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
 **오류:** "``<cmdlet name>``: ``<cmdlet name>``이라는 용어가 cmdlet의 이름, 함수, 스크립트 파일 또는 사용이 가능한 프로그램으로 인식되지 않습니다" 오류와 함께 Runbook 작업이 실패하게 됩니다.
@@ -101,7 +117,7 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>시나리오: 장기 실행 runbook이 “동일한 검사점에서 반복적으로 제거되어 작업을 계속 실행할 수 없습니다.” 예외로 인해 지속적으로 실패함
-**오류 원인:** Azure Automation 내의 프로세스에 대한 "공평 분배" 모니터링으로 인한 의도된 동작입니다. 이 동작은 runbook이 3시간 넘게 실행되는 경우 자동으로 일시 중단합니다. 그러나 반환된 오류 메시지에서는 "다음 단계" 옵션을 제공하지 않습니다. runbook은 다양한 이유로 일시 중단될 수 있습니다. 일시 중단은 주로 오류로 인해 발생합니다. 예를 들어 runbook의 catch되지 않은 예외, 네트워크 오류 또는 runbook을 실행하는 Runbook Worker의 작동 중단은 모두 runbook을 일시 중단시키며, 재개 시 마지막 검사점에서 시작되도록 합니다.
+**오류 원인:** Azure Automation 내의 프로세스에 대한 "공평 분배" 모니터링으로 인해 의도적으로 설계된 동작입니다. 이 동작은 Runbook이 3시간 이상 실행되는 경우 자동으로 일시 중단합니다. 그러나 반환된 오류 메시지에서는 "다음 단계" 옵션을 제공하지 않습니다. runbook은 다양한 이유로 일시 중단될 수 있습니다. 일시 중단은 주로 오류로 인해 발생합니다. 예를 들어 runbook의 catch되지 않은 예외, 네트워크 오류 또는 runbook을 실행하는 Runbook Worker의 작동 중단은 모두 runbook을 일시 중단시키며, 재개 시 마지막 검사점에서 시작되도록 합니다.
 
 **문제 해결 팁:** 이 문제를 방지하기 위한 문서화된 해결 방법은 워크플로에서 검사점을 사용하는 것입니다.  자세한 내용은 [PowerShell 워크플로 학습](automation-powershell-workflow.md#checkpoints)을 참조하세요.  "공평 분배" 및 검사점에 대한 자세한 설명은 [Runbook에서 검사점 사용](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) 블로그 문서에서 확인 수 있습니다.
 
@@ -117,7 +133,7 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * **New-AzureRmAutomationModule** cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.  
 
 **문제 해결 팁:**  
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.  
 
 * 모듈이 다음 형식을 따르는지 확인합니다.  
   ModuleName.Zip **->** 모듈 이름 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
@@ -135,16 +151,16 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * "구성 이름"이 아니라 "노드 구성 이름"으로 노드를 할당해야 합니다.  
 * Azure 포털 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
 
-  * Azure Portal을 사용하여 노드 구성을 노드에 할당하려면 **DSC 노드** 블레이드를 열고 노드를 선택한 다음 **노드 구성 할당** 단추를 클릭합니다.  
+  * Azure Portal을 사용하여 노드 구성을 노드에 할당하려면 **DSC 노드** 페이지를 열고, 노드를 선택한 다음, **노드 구성 할당** 단추를 클릭합니다.  
   * PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당하려면 **Set-AzureRmAutomationDscNode** cmdlet을 사용합니다.
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>시나리오: 구성이 컴파일될 때 생성된 노드 구성(mof 파일)이 없음
 **오류:** DSC 컴파일 작업이 "컴파일은 성공적으로 완료되었지만 노드 구성 .mof가 생성되지 않음"이라는 오류로 일시 중단되었습니다.
 
-**오류 원인:** DSC 구성에서 **Node** 키워드 다음에 오는 식이 $null로 계산되는 경우 노드 구성이 생성되지 않습니다.    
+**오류 원인:** DSC 구성에서 **Node** 키워드 다음에 오는 식이 $null로 평가되면 노드 구성이 생성되지 않습니다.    
 
 **문제 해결 팁:**  
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.  
 
 * 구성 정의에서 **Node** 키워드 옆의 식이 $null로 계산되지 않는지 확인합니다.  
 * 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](automation-dsc-compile.md#configurationdata)에서 구성에 필요한 값을 전달해야 합니다.
@@ -172,9 +188,3 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
 * Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/) 에 스크립트 요청을 게시하세요.
 * Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

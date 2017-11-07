@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 08/16/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: e70ac475f8ffce93e89fa09f18f8943eb2371d13
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -28,7 +27,7 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
-**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요(https://manage.windowsazure.com)?**
+**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
 
 **A:** Azure 클래식 포털에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 있는 경우 일회성 활성화 단계를 위해 [http://aka.ms/accessAAD](http://aka.ms/accessAAD)로 이동하십시오. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
 
@@ -126,7 +125,7 @@ Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 �
 - - -
 **Q: 암호 변경을 시도하는 동안 기존 Office 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
 
-**A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)를 참조하세요.
+**A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](active-directory-passwords-best-practices.md)를 참조하세요.
 
 Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
@@ -134,7 +133,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 - [Azure Portal에서 계정 재설정](active-directory-users-reset-password-azure-portal.md)
 - [클래식 Portal에서 계정 재설정](active-directory-create-users-reset-password.md)
-- [PowerShell 사용](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [PowerShell 사용](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -146,7 +145,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 "Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
 
 **Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**</br>
-요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다. 
+요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
 ## <a name="application-access"></a>응용 프로그램 액세스
 **Q: Azure AD 및 해당 기능과 미리 통합된 응용 프로그램의 목록을 어디에서 찾을 수 있나요?**
@@ -162,7 +161,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)
+* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 
 - - -
@@ -212,5 +211,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:** 아니요.  Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
-
+**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.

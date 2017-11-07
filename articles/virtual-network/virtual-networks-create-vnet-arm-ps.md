@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -46,7 +45,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 PowerShell 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
 
-1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
 
 2. 필요에 따라 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG*인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
@@ -182,4 +181,3 @@ PowerShell 사용하여 가상 네트워크를 만들려면 다음 단계를 완
 - 가상 컴퓨터(VM)에서 가상 네트워크 연결은 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md) 문서를 참조하세요. 해당 문서의 단계에서 VNet 및 서브넷을 만드는 대신 기존 VNet 및 서브넷을 VM에 연결하도록 선택할 수 있습니다.
 - 가상 네트워크에서 다른 가상 네트워크 연결은 [VNet 연결](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) 문서를 참조하세요.
 - 가상 네트워크에서 온-프레미스 네트워크 연결은 사이트 간 VPN(가상 사설망) 또는 ExpressRoute 회로를 사용합니다. 자세한 내용은 [사이트 간 VPN을 사용하여 VNet을 온-프레미스 네트워크에 연결](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) 및 [VNet을 ExpressRoute 회선에 연결](../expressroute/expressroute-howto-linkvnet-arm.md) 문서를 참조하세요.
-

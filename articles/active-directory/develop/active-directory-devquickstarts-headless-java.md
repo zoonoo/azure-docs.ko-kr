@@ -3,7 +3,7 @@ title: "Azure AD Java 명령줄 시작 | Microsoft Docs"
 description: "API 액세스를 위해 사용자를 로그인하는 Java 명령줄 앱을 빌드하는 방법"
 services: active-directory
 documentationcenter: java
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: xerners
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: nacanuma
+ms.custom: aaddev
+ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD에서 API를 액세스하기 위해 Java 명령줄 앱 사용
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -268,5 +268,4 @@ public class PublicClient {
 참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
 

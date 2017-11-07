@@ -1,5 +1,5 @@
 ### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Mobile Engagement에 푸시 인증서에 대한 액세스 권한 부여
-사용자를 대신하여 Mobile Engagement에서 푸시 알림을 보내도록 허용하려면 Mobile Engagement에 인증서에 대한 액세스 권한을 부여해야 합니다. 인증서를 구성하고 Mobile Engagement 포털에 입력하여 이를 수행합니다.  [Apple 설명서](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+사용자를 대신하여 Mobile Engagement에서 푸시 알림을 보내도록 허용하려면 Mobile Engagement에 인증서에 대한 액세스 권한을 부여해야 합니다. 인증서를 구성하고 Mobile Engagement 포털에 입력하여 이를 수행합니다. [Apple 설명서](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Mobile Engagement 포털로 이동합니다. 올바른 위치에 있는지 확인하고 맨 아래에서 **연결** 단추를 클릭합니다.
    
@@ -11,7 +11,7 @@
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
+## <a id="send"></a>앱에 알림 보내기
 이제 앱에 푸시를 보낼 간단한 푸시 알림 캠페인을 만듭니다.
 
 1. Mobile Engagement 포털에서 **도달률** 탭으로 이동합니다.
@@ -39,9 +39,4 @@
 8. 이 iOS 장치와 페어링된 Apple Watch가 있으면 해당 Apple Watch에 알림이 표시됩니다.
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

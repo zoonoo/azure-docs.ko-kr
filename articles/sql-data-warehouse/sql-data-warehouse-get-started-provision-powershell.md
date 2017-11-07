@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs
 description: "PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: elbutter;barbkess
+ms.openlocfilehash: a763f1c600c1a3f37cb565a8eb7db3c3f27dcf75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기
 > [!div class="op_single_selector"]
@@ -110,4 +109,3 @@ SQL Data Warehouse를 프로그래밍 방식으로 관리하는 방법에 대한
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

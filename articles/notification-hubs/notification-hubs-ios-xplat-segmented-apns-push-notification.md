@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -324,17 +324,11 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
 
 <!-- URLs. -->
-[방법: Service Bus Notification Hubs(iOS 앱)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notification Hubs를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-ios-notify-users.md
-[알림 허브 지침]: http://msdn.microsoft.com/library/dn530749.aspx
-[iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [Azure 클래식 포털]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

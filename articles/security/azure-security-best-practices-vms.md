@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2017
+ms.date: 07/19/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -65,7 +64,7 @@ RBAC와 같은 기능을 활용하여 데이터 액세스 제어를 적용하지
 
 ## <a name="vm-availability-and-network-access"></a>VM 가용성 및 네트워크 액세스
 
-VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)에서 최소 2개 이상의 VM을 생성하세요.
+VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)에서 최소 2개 이상의 VM을 생성하세요.
 
 또한 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)에서는 부하 분산된 VM이 동일한 가용성 집합에 속해야 합니다. 이러한 VM을 인터넷에서 액세스해야 할 경우 [인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)를 구성해야 합니다.
 
@@ -128,4 +127,3 @@ VM에 대해 강력한 보안 태세를 적용하지 않는 조직은 설정된 
 또한 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 사용하여 리소스 상태에 대한 가시성도 얻을 수 있습니다.
 
 VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인하지 못합니다. VM이 정상보다 더 많은 리소스를 소비하는 경우 이러한 비정상은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
-

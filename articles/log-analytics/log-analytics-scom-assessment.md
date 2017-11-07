@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
+
+![System Center Operations Manager 평가 기호](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 System Center Operations Manager 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고, 구성하고, 사용하도록 도와줍니다.
 
@@ -57,7 +57,7 @@ System Center Operations Manager 평가 솔루션을 사용하여 일정한 간�
 1. [System Center Operations Manager 평가를 위한 계정으로 실행 설정](#operations-manager-run-as-accounts-for-oms)  
 2. [System Center Operations Manager 평가 규칙 구성](#configure-the-assessment-rule)
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
 
 System Center Operations Manager 평가는 사용하도록 설정한 서버를 사용하여 Windows PowerShell, SQL 쿼리, 파일 정보 수집기를 통해 WMI 데이터, 레지스트리 데이터, EventLog 데이터, Operations Manager 데이터를 수집합니다.
 
@@ -65,7 +65,7 @@ System Center Operations Manager 평가는 사용하도록 설정한 서버를 �
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![예](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7일 |
+| Windows | | | | &#8226; | | 7일 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS용 Operations Manager 실행 계정
 
@@ -155,8 +155,8 @@ System Center Operations Manager 평가 솔루션의 관리 팩에는 *Microsoft
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
 2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
-4.    사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
-5.    **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
+4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
+5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
     ![재정의 매개 변수](./media/log-analytics-scom-assessment/rule.png)
 
 이 창에 있는 동안 다음 정차를 사용하여 실행 빈도를 구성합니다.
@@ -179,7 +179,7 @@ System Center Operations Manager 평가 솔루션의 관리 팩에는 *Microsoft
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
 
-가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 - 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 - 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
@@ -221,6 +221,8 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 무시하려는 권장 사항이 있는 경우 OMS에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>무시할 권장 사항을 식별하려면
 
 1. 작업 영역에 로그인하고 로그 검색을 엽니다. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
@@ -237,13 +239,13 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
-2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
+2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음 파일을 저장하고 닫습니다.
 3. OMS에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
 4. Operations Manager 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server.
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
 
-1. 예약된 다음 평가가 실행된 후(기본적으로&7;일마다) 지정된 권장 사항이 평가 대시보드에 무시됨으로 표시됩니다.
+1. 예약된 다음 평가가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 평가 대시보드에 무시됨으로 표시됩니다.
 2. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
     ```
@@ -262,13 +264,13 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 *평가를 실행 빈도를 구성하는 방법이 있나요?* 예. [실행 빈도 구성](#configure-the-run-frequency)을 참조하세요.
 
-*System Center Operations Manager 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?* 예, 검색된 이후 기본적으로&7;일마다 평가됩니다.
+*System Center Operations Manager 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?* 예, 검색된 이후 기본적으로 7일마다 평가됩니다.
 
 *데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?* AdvisorAssessment.exe
 
 *AdvisorAssessment.exe 프로세스가 왜 실행되나요?* AdvisorAssessment.exe는 평가 규칙을 사용하도록 설정된 관리 서버의 HealthService에서 실행됩니다. 이 프로세스를 사용하는 경우 전체 환경에 대한 검색은 원격 데이터 수집을 통해 수행됩니다.
 
-*데이터 수집에 시간이 얼마나 걸리나요?* 서버의 데이터 수집은 약&1;시간이 걸립니다. Operations Manager 인스턴스 또는 데이터베이스가 많은 환경에서는 더 오래 걸릴 수 있습니다.
+*데이터 수집에 시간이 얼마나 걸리나요?* 서버의 데이터 수집은 약 1시간이 걸립니다. Operations Manager 인스턴스 또는 데이터베이스가 많은 환경에서는 더 오래 걸릴 수 있습니다.
 
 *평가 간격을 1440분 미만으로 설정하면 어떻게 되나요?* 평가는 최다 하루에 한번 실행하도록 미리 구성됩니다. 간격 값을 1440분 미만의 값으로 재정의하면 평가는 1440분을 간격 값으로 사용합니다.
 
@@ -288,4 +290,3 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ## <a name="next-steps"></a>다음 단계
 
 - [로그를 검색](log-analytics-log-searches.md)하여 자세한 System Center Operations Manager 평가 데이터 및 권장 사항을 확인합니다.
-

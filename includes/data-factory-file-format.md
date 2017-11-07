@@ -56,7 +56,7 @@ Azure Data Factory는 다음과 같은 서식 유형을 지원합니다.
 * 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 없고 머리글 정보도 없는 몇 줄을 건너뛰려고 합니다. 건너뛸 줄 수를 나타내는 `skipLineCount`를 지정합니다. 파일의 나머지 부분에 헤더 줄이 있으면 `firstRowAsHeader`도 지정할 수 있습니다. `skipLineCount`와 `firstRowAsHeader`를 둘 다 지정하면 먼저 해당 줄을 먼저 건너뛴 다음 입력 파일에서 헤더 정보를 읽습니다.
 
 ### <a name="specifying-jsonformat"></a>JsonFormat 지정
-**DocumentDB에(서) JSON 파일을 그대로 가져오거나 내보내려면** DocumentDB 커넥터의 [JSON 문서 가져오기/내보내기](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) 섹션에 있는 자세한 정보를 참조하세요.
+**Azure Cosmos DB에(서) JSON 파일을 그대로 가져오거나 내보내려면** Azure Cosmos DB 커넥터의 [JSON 문서 가져오기/내보내기](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) 섹션에 있는 자세한 정보를 참조하세요.
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` `type` 속성을 **JsonFormat**으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
@@ -407,7 +407,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 다음 사항에 유의하세요.
 
 * 복합 데이터 형식(구조체, 맵, 목록, 공용 구조체)은 지원되지 않습니다.
-* ORC 파일에는&3;개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+* ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 ### <a name="specifying-parquetformat"></a>ParquetFormat 지정
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:

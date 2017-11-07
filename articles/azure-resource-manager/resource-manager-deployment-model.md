@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 이 항목에서는 Azure Resource Manager와 클래식 배포 모델, 리소스 상태 및 리소스가 둘 중 하나를 통해 배포된 이유에 대해 알아봅니다. Resource Manager와 클래식 배포 모델은 Azure 솔루션을 배포하고 관리하는 별개의 두 가지 방식을 나타냅니다. 서로 다른 두 가지 API 집합을 통해 작업하며, 배포된 리소스에는 중요한 차이점이 있습니다. 두 가지 모델은 서로 완전히 호환되지 않습니다. 이 항목에서는 이러한 차이점을 설명합니다.
@@ -49,7 +48,7 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
 2. 서비스에서 Resource Manager를 지원하지만 두 가지 형식(하나는 Resource Manager용, 하나는 클래식용)을 제공합니다. 이 시나리오는 가상 컴퓨터, 저장소 계정 및 가상 네트워크에만 적용됩니다.
 3. 서비스에서 Resource Manager를 지원하지 않습니다.
 
-서비스에서 Resource Manager를 지원하는지 여부를 확인하려면 [Resource Manager 지원 공급자](resource-manager-supported-services.md)를 참조하세요.
+서비스에서 리소스 관리자를 지원하는지 여부를 확인하려면 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 
 사용하려는 서비스에서 Resource Manager를 지원하지 않으면 클래식 배포를 계속해서 사용해야 합니다.
 
@@ -107,7 +106,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
   azure group deployment create
   ```
 
-* 리소스 종류는 이름에 **(클래식)** 을 포함하지 않습니다. 아래 이미지에서는 형식을 **Storage account**으로 표시합니다.
+* 리소스 종류는 이름에 **(클래식)**을 포함하지 않습니다. 아래 이미지에서는 형식을 **Storage account**으로 표시합니다.
   
     ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
 
@@ -137,7 +136,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
   azure vm create
   ```
    
-* 리소스 종류는 이름에 **(클래식)** 을 포함합니다. 아래 이미지에서는 형식을 **Storage account (classic)**으로 표시합니다.
+* 리소스 종류는 이름에 **(클래식)**을 포함합니다. 아래 이미지에서는 형식을 **Storage account (classic)**으로 표시합니다.
   
     ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)
 
@@ -218,5 +217,4 @@ Azure Resource Manager를 사용하여 만든 가상 컴퓨터, 가상 네트워
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 정의하는 템플릿을 만들기 위해 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 * 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
-
 

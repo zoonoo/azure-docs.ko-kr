@@ -11,16 +11,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
+ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
 
@@ -50,13 +48,15 @@ ms.lasthandoff: 03/09/2017
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
-다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 이 코드 조각은 배치 .NET 라이브러리를 사용하여 이러한 풀의 생성을 보여 줍니다.
+다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 동시 작업 실행을 사용하지 않도록 설정하려면 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 속성을 1로 설정합니다.
+
+이 코드 조각에서는 일괄 처리 .NET 라이브러리를 사용하여 다중 인스턴스 작업용 풀을 만드는 방법을 보여 줍니다.
 
 ```csharp
 CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
-        targetDedicated: 3
+        targetDedicatedComputeNodes: 3
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -66,7 +66,12 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-또한 다중 인스턴스 작업은 **2015년 12월 14일 이후에 만든 풀**의 노드에서*만*실행할 수 있습니다.
+> [!NOTE]
+> 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 
+>
+> 다중 인스턴스 작업은 2015년 12월 14일 이후에 만든 풀의 노드에서만 실행할 수 있습니다.
+>
+>
 
 ### <a name="use-a-starttask-to-install-mpi"></a>StartTask를 사용하여 MPI 설치
 다중 인스턴스 작업으로 MPI 응용 프로그램을 실행하려면 먼저 풀의 계산 노드에 MPI 구현(예: MS-MPI 또는 Intel MPI)을 설치해야 합니다. 노드가 풀에 연결되거나 다시 시작될 때마다 실행하는 [StartTask][net_starttask]를 사용하는 것이 좋습니다. 이 코드 조각은 MS-MPI 설치 패키지를 [리소스 파일][net_resourcefile]로 지정하는 StartTask를 만듭니다. 리소스 파일이 노드로 다운로드된 후에 시작 태스크의 명령줄이 실행됩니다. 이 경우 명령줄은 MS-MPI의 무인 설치를 수행합니다.
@@ -89,7 +94,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>RDMA(원격 직접 메모리 액세스)
-배치 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
+배치 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
 
 다음 문서에서 "RDMA 지원"으로 지정된 크기를 찾습니다.
 
@@ -98,8 +103,8 @@ await myCloudPool.CommitAsync();
   * [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)(Windows만 해당)
 * **VirtualMachineConfiguration** 풀
 
-  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
-  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
+  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
+  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
 
 > [!NOTE]
 > [Linux 계산 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. CloudServiceConfiguration 및 VirtualMachineConfiguration 풀에 대한 자세한 내용은 배치 기능 개요의 [풀](batch-api-basics.md) 섹션을 참조하세요.
@@ -192,7 +197,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 ## <a name="resource-files"></a>리소스 파일
 다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일**입니다.
 
-작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리**로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
+작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/common/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리**로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
 
 다중 인스턴스 작업 자체에 대해 지정한 리소스 파일은 작업의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`에 기본적으로 다운로드됩니다. 언급한 대로 공용 리소스 파일과 달리 주 작업만이 다중 인스턴스 작업 자체에 대해 지정된 리소스 파일을 다운로드합니다.
 
@@ -204,7 +209,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 ## <a name="task-lifetime"></a>작업 수명
 주 작업의 수명은 전체 다중 인스턴스 작업의 수명을 제어합니다. 주 작업이 종료될 때 모든 하위 작업이 종료됩니다. 주 작업의 종료 코드는 작업의 종료 코드이며 따라서 재시도 목적에 대한 작업의 성공 여부를 결정하는 데 사용됩니다.
 
-하위 작업 중 하나라도 실패하는 경우(예:&0;이 아닌 반환 코드와 함께 종료) 전체 다중 인스턴스 작업이 실패합니다. 다중 인스턴스 작업은 종료되고 해당 재시도 한계까지 재시도됩니다.
+하위 작업 중 하나라도 실패하는 경우(예: 0이 아닌 반환 코드와 함께 종료) 전체 다중 인스턴스 작업이 실패합니다. 다중 인스턴스 작업은 종료되고 해당 재시도 한계까지 재시도됩니다.
 
 다중 인스턴스 작업을 삭제하는 경우 주 및 모든 하위 작업도 배치 서비스에서 삭제됩니다. 모든 하위 작업 디렉터리 및 해당 파일은 표준 작업의 경우처럼 계산 노드에서 삭제됩니다.
 
@@ -263,7 +268,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스턴스 태스크를 사용하여 배치 계산 노드에서 [MS-MPI][msmpi_msdn] 응용 프로그램을 실행하는 방법을 보여 줍니다. [준비](#preparation) 및 [실행](#execution)의 단계에 따라 샘플을 실행합니다.
 
 ### <a name="preparation"></a>준비
-1. [How to compile and run a simple MS-MPI program][msmpi_howto](간단한 MS-MPI 프로그램을 컴파일하고 실행하는 방법)의 처음 두 단계를 수행합니다. 이렇게 하면 다음 단계의 필수 조건을 충족시킵니다.
+1. [How to compile and run a simple MS-MPI program][msmpi_howto](간단한 MS-MPI 프로그램을 컴파일하고 실행하는 방법)의 처음 두 단계를 수행합니다. 이렇게 하면 다음 단계의 필수 조건이 충족됩니다.
 2. [MPIHelloWorld][helloworld_proj] 샘플 MPI 프로그램의 *릴리스* 버전을 빌드합니다. 이는 다중 인스턴스 태스크를 통해 계산 노드에서 실행할 프로그램입니다.
 3. `MPIHelloWorld.exe`(2단계에서 빌드) 및 `MSMpiSetup.exe`(1단계에서 다운로드)를 포함하는 Zip 파일을 만듭니다. 다음 단계의 응용 프로그램 패키지로 이 Zip 파일을 업로드합니다.
 4. [Azure Portal][portal]을 사용하여 "MPIHelloWorld"라는 배치 [응용 프로그램](batch-application-packages.md)을 만들고, 이전 단계에서 만든 Zip 파일을 버전 "1.0"의 응용 프로그램 패키지로 지정합니다. 자세한 내용은 [응용 프로그램 업로드 및 관리](batch-application-packages.md#upload-and-manage-applications)를 참조하세요.
@@ -280,7 +285,7 @@ GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스�
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. **Microsoft.Azure.Batch.Samples.Common** 프로젝트의 `AccountSettings.settings`에 배치 계정 및 저장소 계정의 자격 증명을 입력합니다.
 4. MultiInstanceTasks 솔루션을 **빌드 및 실행**하여 배치 풀의 계산 노드에서 MPI 샘플 응용 프로그램을 실행합니다.
-5. *선택 사항*: [Azure Portal][portal] 또는 [배치 탐색기][batch_explorer]를 사용하여 리소스를 삭제하기 전에 샘플 풀, 작업 및 태스크("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask")를 검사합니다.
+5. *선택 사항*: [Azure Portal][portal] 또는 [BatchLabs][batch_labs]를 사용하여 리소스를 삭제하기 전에 샘플 풀, 작업 및 태스크("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask")를 검사합니다.
 
 > [!TIP]
 > Visual Studio가 없는 경우 [Visual Studio 커뮤니티][visual_studio]를 무료로 다운로드할 수 있습니다.
@@ -330,7 +335,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
@@ -369,4 +374,3 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "다중 인스턴스 개요"
-

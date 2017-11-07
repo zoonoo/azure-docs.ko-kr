@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/23/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Jenkins를 사용하여 Linux Java 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -30,7 +29,7 @@ Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니�
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Service Fabric 클러스터 내에서 Jenkins 설정
 
-Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 있습니다. 다음 섹션에서는 클러스터 내에서 설정하는 방법을 보여 줍니다.
+Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 있습니다. 다음 섹션에서는 Azure Storage 계정을 사용하여 컨테이너 인스턴스 상태를 저장하면서 클러스터 내에서 이를 설정하는 방법을 보여 줍니다.
 
 ### <a name="prerequisites"></a>필수 조건
 1. Service Fabric Linux 클러스터를 준비합니다. Azure Portal에서 만든 Service Fabric 클러스터에는 Docker가 이미 설치되어 있습니다. 클러스터를 로컬로 실행하는 경우 ``docker info`` 명령을 사용하여 Docker가 설치되어 있는지 확인합니다. 설치되어 있지 않으면 다음 명령을 사용하여 적절하게 설치합니다.
@@ -42,9 +41,29 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 2. 다음 단계를 사용하여 Service Fabric 컨테이너 응용 프로그램을 클러스터에 배포합니다.
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```
+
+3. Jenkins 컨테이너 인스턴스의 상태를 유지하려는 Azure Storage 파일 공유의 연결 옵션 세부 정보가 필요합니다. 동일한 용도로 Microsoft Azure Portal을 사용하는 경우 ``sfjenkinsstorage1``이라는 Azure Storage 계정을 만드는 단계를 따르세요. ``sfjenkins``라는 저장소 계정 아래 **파일 공유**를 만듭니다. 파일 공유에 대해 **연결**을 클릭하고 다음과 유사하게 **Linux에서 연결** 아래 표시되는 값을 메모해 둡니다.
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+```
+
+> [!NOTE]
+> cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다. 
+>
+
+4. ```setupentrypoint.sh``` 스크립트에서 자리 표시자 값을 해당 azure 저장소 세부 정보로 업데이트합니다.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+``[REMOTE_FILE_SHARE_LOCATION]``을 위의 포인트 3 연결 출력의 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` 값으로 바꿉니다.
+``[FILE_SHARE_CONNECT_OPTIONS_STRING]``을 위의 포인트 3에서 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 값으로 바꿉니다.
+
+5. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
+```azurecli
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 그러면 클러스터에 Jenkins 컨테이너를 설치하고 Service Fabric Explorer를 사용하여 모니터링할 수 있습니다.
@@ -53,7 +72,7 @@ bash Scripts/install.sh
 1. 브라우저에서 ``http://PublicIPorFQDN:8081``으로 이동합니다. 로그인하는 데 필요한 초기 관리자 암호의 경로가 제공됩니다. 관리 사용자 권한으로 Jenkins를 계속 사용할 수 있습니다. 또는 초기 관리자 계정으로 로그인한 후에 사용자를 만들고 변경할 수 있습니다.
 
    > [!NOTE]
-   > 클러스터를 만드는 동안 8081 포트를 응용 프로그램 끝점 포트로 지정해야 합니다.
+   > 클러스터를 만드는 동안 8081 포트를 응용 프로그램 끝점 포트로 지정해야 합니다(이 포트는 클러스터에서 열림).
    >
 
 2. ``docker ps -a``를 사용하여 컨테이너 인스턴스 ID를 가져옵니다.
@@ -102,7 +121,7 @@ Docker를 설치해야 합니다. 다음 명령을 사용하여 터미널에서 
   5. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)에서 설명한 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다.
         * GitHub에서 제공되는 지침을 사용하여 SSH 키를 생성하고 SSH 키를 리포지토리를 호스팅하는 GitHub 계정에 추가합니다.
         * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
-        * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
+      * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -155,4 +174,3 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

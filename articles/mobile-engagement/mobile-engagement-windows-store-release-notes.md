@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Windows 유니버설 앱 SDK 릴리스 정보
 ## <a name="341-11032016"></a>3.4.1 (11/03/2016)
@@ -64,5 +63,4 @@ ms.lasthandoff: 02/09/2017
 * Azure Mobile Engagement의 최초 릴리스입니다.
 * appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
 * 보안이 개선되었습니다.
-
 

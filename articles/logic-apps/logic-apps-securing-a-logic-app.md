@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-your-logic-apps"></a>논리 앱에 대한 액세스 보호
 
 논리 앱을 보호하는 데 사용할 수 있는 많은 도구가 있습니다.
@@ -38,7 +36,7 @@ HTTP 요청([요청](../connectors/connectors-native-reqres.md) 또는 [WebHook]
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 
-논리 앱에 대한 모든 요청 끝점은 URL의 일부로서 [SAS(공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
+논리 앱에 대한 모든 요청 끝점은 URL의 일부로서 [SAS(공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
 
 #### <a name="regenerate-access-keys"></a>액세스 키 다시 생성
 
@@ -264,19 +262,14 @@ HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경�
 
 #### <a name="on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이
 
-논리 앱의 많은 관리형 커넥터는 파일 시스템, SQL, SharePoint, DB2 등 온-프레미스 시스템에 보안 연결을 제공합니다.  게이트웨이는 Azure Service Bus를 통해 암호화된 채널을 사용하여 온-프레미스 데이터를 전달하고, 모든 트래픽은 게이트웨이 에이전트의 보안 아웃바운드 트래픽에서 발생합니다.  게이트웨이의 작동 방식에 대한 자세한 내용은 [이 문서에](logic-apps-gateway-install.md#how-the-gateway-works) 나와 있습니다.
+논리 앱의 많은 관리형 커넥터는 파일 시스템, SQL, SharePoint, DB2 등의 온-프레미스 시스템에 보안 연결을 제공합니다. 게이트웨이는 Azure Service Bus를 통해 암호화된 채널의 온-프레미스 원본에서 데이터를 릴레이합니다. 보안으로 시작하는 모든 트래픽은 게이트웨이 에이전트에서 트래픽을 아웃바운드합니다. [데이터 게이트웨이 작동 원리](logic-apps-gateway-install.md#gateway-cloud-service)에 대해 자세히 알아봅니다.
 
 #### <a name="azure-api-management"></a>Azure API 관리
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/)에는 보안 프록시를 위한 사이트 간 VPN 및 ExpressRoute 통합과 온-프레미스 시스템에 대한 통신 등 온-프레미스 연결 옵션이 있습니다. Logic App Designer에서 워크플로 내의 Azure API Management에서 노출되는 API를 빠르게 선택하여 온-프레미스 시스템에 빠르게 액세스할 수 있습니다.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Azure App Services의 하이브리드 연결
-
-온-프레미스 통신을 위해 Azure API와 Web Apps용 온-프레미스 하이브리드 연결 기능을 사용할 수 있습니다.  하이브리드 연결 및 구성 방법에 대한 자세한 내용은 [이 문서에서](../app-service-web/web-sites-hybrid-connection-get-started.md) 찾아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [배포 템플릿 만들기](logic-apps-create-deploy-template.md)  
 [예외 처리](logic-apps-exception-handling.md)  
 [논리 앱 모니터링](logic-apps-monitor-your-logic-apps.md)  
 [논리 앱 오류 진단 및 문제](logic-apps-diagnosing-failures.md)  
-

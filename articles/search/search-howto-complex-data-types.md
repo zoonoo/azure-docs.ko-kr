@@ -13,13 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90d7d90a6f3a75e230d32fb02b5ae69909d3c31
-
-
+ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search에서 복합 데이터 형식을 모델링하는 방법
 Azure Search 인덱스를 채우는 데 사용되는 외부 데이터 집합에는 가끔 테이블 형식의 행 집합으로 깔끔하게 분류되지 않는 계층적 또는 중첩된 하위 구조가 포함됩니다. 이러한 구조의 예에는 한 고객에 대한 여러 위치와 전화 번호, 단일 SKU에 대한 여러 색과 크기, 한 권의 책에 대한 여러 저자 등이 포함될 수 있습니다. 모델링 용어에서는 이러한 구조를 *복합 데이터 형식*, *복합형 데이터 형식*, *복합성 데이터 형식* 또는 *집계 데이터 형식*이라고도 합니다.
@@ -27,7 +27,7 @@ Azure Search 인덱스를 채우는 데 사용되는 외부 데이터 집합에�
 복합 데이터 형식은 기본적으로 Azure Search에서 지원되지 않지만 입증된 해결책에 구조를 평면화하고 **컬렉션** 데이터 형식을 사용하여 내부 구조를 다시 구성하는 2단계 프로세스가 포함됩니다. 이 문서에 설명된 기술을 사용하면 콘텐츠를 검색, 패싯, 필터링 및 정렬할 수 있습니다.
 
 ## <a name="example-of-a-complex-data-structure"></a>복합 데이터 구조의 예
-일반적으로 이러한 데이터는 JSON 또는 XML 문서 집합으로, 또는 DocumentDB 등의 NoSQL 저장소에 항목으로 상주합니다. 구조적으로, 여러 하위 항목을 검색 및 필터링해야 하므로 문제가 발생합니다.  해결 방법을 설명할 때 일련의 연락처를 예로 나열하는 다음 JSON 문서를 시작점으로 사용합니다.
+일반적으로 이러한 데이터는 JSON 또는 XML 문서 집합으로 또는 Azure Cosmos DB 등의 NoSQL 저장소에 있는 항목으로 상주합니다. 구조적으로, 여러 하위 항목을 검색 및 필터링해야 하므로 문제가 발생합니다.  해결 방법을 설명할 때 일련의 연락처를 예로 나열하는 다음 JSON 문서를 시작점으로 사용합니다.
 
 ~~~~~
 [
@@ -136,11 +136,5 @@ var index = new Index()
 복합 JSON 데이터 집합을 Azure Search로 인덱싱하고 이 [GitHub 리포지토리](https://github.com/liamca/AzureSearchComplexTypes)에서 이 데이터 집합에 대해 여러 가지 쿼리를 수행하는 방법에 대한 예를 볼 수 있습니다.
 
 ## <a name="next-step"></a>다음 단계
-[복합 데이터 형식의 기본 지원에 대해 응답](https://feedback.azure.com/forums/263029-azure-search) 하고 기능 구현과 관련하여 고려해야 할 추가 입력을 제공합니다. 또한 Twitter를 통해 @liamca.에 직접 연락할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[복합 데이터 형식의 기본 지원에 대해 응답](https://feedback.azure.com/forums/263029-azure-search) 하고 기능 구현과 관련하여 고려해야 할 추가 입력을 제공합니다. Twitter를 통해 @liamca에 직접 연락할 수도 있습니다.
 

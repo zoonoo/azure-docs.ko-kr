@@ -2,7 +2,7 @@
 title: "Azure IoT Suite 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
-ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-suite-documentation"></a>IoT Suite 설명서
 
 Microsoft Azure IoT Suite를 빨리 시작해 보세요. 미리 구성된 솔루션을 사용하고 IoT(사물 인터넷) 솔루션 개발을 가속화하세요. Linux, Windows 및 실시간 운영 체제를 포함한 여러 플랫폼에 대해 장치 SDK를 사용하여 새로운 장치를 추가하고 기존 장치를 연결하세요. 단 몇 개의 센서에서 동시에 연결된 수백만 개의 장치들로 쉽게 확장하고, 프로젝트의 규모가 어떻든 Azure의 세계적 가용성을 믿어 보세요.
@@ -100,6 +99,5 @@ Microsoft Azure IoT Suite를 빨리 시작해 보세요. 미리 구성된 솔루
         </div>
     </li>
 </ul>
-
 
 

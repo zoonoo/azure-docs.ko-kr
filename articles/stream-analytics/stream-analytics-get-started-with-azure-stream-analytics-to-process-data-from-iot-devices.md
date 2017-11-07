@@ -4,7 +4,7 @@ description: "스트림 분석 및 실시간 데이터 처리와 IoT 센서 태�
 keywords: "IoT 솔루션, IoT 시작"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,13 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 02/16/2017
-
-
+ms.author: samacha
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure 스트림 분석 시작
 이 자습서에서는 IoT(사물 인터넷) 장치에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
@@ -65,7 +64,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 4. 대시보드에서 작업을 배치할 확인란을 선택한 다음 **만들기**를 클릭합니다.
    
     ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. '배포 시작...'이 나타나야 합니다. 브라우저 창의 오른쪽 상단에 표시합니다. 그리고는 곧 아래와 같이 완료된 창으로 바뀝니다.
+5. 브라우저 창의 오른쪽 위에서 '배포를 시작했습니다.'라고 표시됩니다. 그리고는 곧 아래와 같이 완료된 창으로 바뀝니다.
    
     ![진행 중인 작업 만들기](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -111,7 +110,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 이제 결과에서 245행 및 평균 온도가 100도를 넘는 센서의 이름을 표시해야 합니다. 이 쿼리는 이벤트의 스트림을 30초 동안의 **연속 창**에서 센서 이름인 **dspl**로 그룹화합니다. 임시 쿼리는 시간을 진행할 방법을 명시해야 합니다. **TIMESTAMP BY** 절을 사용하여 모든 임시 계산과 시간을 연결하는 **OUTPUTTIME** 열을 지정했습니다. 자세한 정보는 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [기간 이동 기능](https://msdn.microsoft.com/library/azure/dn835019.aspx)에 대한 MSDN 문서를 참조하세요.
 
 ### <a name="query-detect-absence-of-events"></a>쿼리: 이벤트 부재 감지
-이벤트의 부족을 찾기 위해 어떻게 쿼리를 작성할 수 있나요? 센서가 데이터를 전송한 다음&1;분 동안 이벤트를 보내지 않은 마지막 시간을 살펴보겠습니다. 쿼리는 AbsenseOfEvent.txt 파일에 있습니다.
+이벤트의 부족을 찾기 위해 어떻게 쿼리를 작성할 수 있나요? 센서에서 데이터를 보낸 이후 5초 동안 이벤트를 보내지 않은 마지막 시간을 알아보겠습니다. 쿼리는 AbsenseOfEvent.txt 파일에 있습니다.
 
 ![이벤트의 부재 감지](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
@@ -119,5 +118,4 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 ## <a name="conclusion"></a>결론
 이 자습서의 목적은 다른 Stream Analytics 쿼리 언어 쿼리를 작성하고 브라우저에서 결과를 확인하는 방법을 보여 주는 것입니다. 그러나 이 과정은 시작일 뿐입니다. Stream Analytics으로 많은 작업을 수행할 수 있습니다. Stream Analytics은 다양한 입력 및 출력을 지원하고 Azure Machine Learning에서 함수를 사용하여 데이터 스트림을 분석하는 강력한 도구로 만들 수 있습니다. [학습 맵](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)을 사용하여 Stream Analytics에 대한 탐색을 시작할 수 있습니다. 쿼리를 작성하는 방법에 대한 자세한 내용은 [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)에 대한 문서를 참조하세요.
-
 

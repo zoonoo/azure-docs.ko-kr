@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
 ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>자습서: Wizergos Productivity Software와 Azure Active Directory 통합
 이 자습서에서는 Wizergos Productivity Software와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
@@ -156,7 +155,7 @@ BynWizergos Productivity Software에서 Azure AD Single Sign-on을 구성하고 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png) 
   1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
   2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-  3. **다음**을 클릭합니다.
+  3. **다음**을 누릅니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png)
@@ -164,7 +163,7 @@ BynWizergos Productivity Software에서 Azure AD Single Sign-on을 구성하고 
   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
   4. **역할** 목록에서 **사용자**를 선택합니다.
-  5. **다음**을 클릭합니다.
+  5. **다음**을 누릅니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png)
@@ -224,4 +223,3 @@ BynWizergos Productivity Software에서 Azure AD Single Sign-on을 구성하고 
 [203]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
-

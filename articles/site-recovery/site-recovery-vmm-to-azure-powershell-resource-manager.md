@@ -8,18 +8,17 @@ manager: rochakm
 editor: raynew
 ms.assetid: 6ac509ad-5024-43d8-b621-d8fec019b9a9
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
-ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]
@@ -58,7 +57,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 ### <a name="azure-prerequisites"></a>Azure 필수 조건
 * [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site 복구 관리자 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
 * CSP 구독 시나리오에 복제하려면 CSP 구독이 필요합니다. [CSP 프로그램에 등록하는 방법](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)에서 CSP 프로그램에 대해 자세히 알아보세요.
-* Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md) 를 참조하세요.
+* Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/common/storage-introduction.md) 를 참조하세요.
 * 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인해야 합니다.
 
 > [!NOTE]
@@ -103,9 +102,9 @@ Azure에서 가상 컴퓨터를 보호하는 경우 네트워크 매핑은 원�
 * [Azure에서 가상 네트워크를 구성 및 모니터링하는 방법](https://azure.microsoft.com/documentation/services/virtual-network/)
 
 ### <a name="powershell-prerequisites"></a>PowerShell 필수 구성 요소
-Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](https://msdn.microsoft.com/library/dn850420.aspx)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
+Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](/powershell/azure/overview)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
 
-Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet를 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx)를 참조하세요.
+Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet를 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](/powershell/azure/get-started-azureps)를 참조하세요.
 
 ## <a name="step-1-set-the-subscription"></a>1단계: 구독 설정
 1. Azure powershell에서 다음 cmdlet을 사용하여 Azure 계정에 로그인합니다.
@@ -286,7 +285,7 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> 작업 모니터
+## <a name=monitor></a> 작업 모니터
 다음 명령을 사용하여 작업을 모니터합니다. 처리가 완료될 때까지 기다린 후 다음 작업을 시작할 수 있습니다.
 
     Do
@@ -307,5 +306,4 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 
 ## <a name="next-steps"></a>다음 단계
-[자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx) .
-
+[자세히 알아보세요](/powershell/module/azurerm.recoveryservices.backup/#recovery) .

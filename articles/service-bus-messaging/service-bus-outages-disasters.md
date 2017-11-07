@@ -1,27 +1,27 @@
 ---
 title: "가동 중단 및 재해로부터 Azure Service Bus 응용 프로그램 보호 | Microsoft Docs"
-description: "잠재적 서비스 버스 가동 중단으로부터 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다."
+description: "잠재적 Service Bus 가동 중단으로부터 응용 프로그램을 보호하는 기술."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 10/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
-ms.openlocfilehash: 6424d4dabe20514c0e41c6d755d644494afea302
-ms.lasthandoff: 01/12/2017
-
-
+ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>서비스 버스 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례
+
 중요 업무용 응용 프로그램은 갑작스러운 가동 중단이나 재해가 발생하더라도 계속해서 작동해야 합니다. 이 항목에서는 잠재적 서비스 가동 중단 또는 재해로부터 서비스 버스 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다.
 
 가동 중단이란 Azure 서비스 버스를 일시적으로 사용할 수 없게 됨을 의미합니다. 가동 중단은 메시징 저장소와 같은 서비스 버스의 일부 구성 요소에 영향을 줄 수 있으며 때로는 전체 데이터센터에도 영향을 줄 수 있습니다. 문제가 해결되면 서비스 버스가 다시 사용할 수 있는 상태가 됩니다. 일반적으로 가동 중단으로 인해 메시지나 기타 데이터는 손실되지는 않습니다. 구성 요소 오류의 예로 특정 메시지 저장소를 사용할 수 없는 경우를 들 수 있습니다. 데이터센터 범위의 가동 중단으로는 데이터센터의 전원 문제나 잘못된 데이터센터 네트워크 전환을 예로 들 수 있습니다. 가동 중단은 몇 분에서 며칠까지 지속될 수 있습니다.
@@ -50,8 +50,6 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 릴레이 끝점의 지역 복제를 사용하면 서비스 버스 가동 중단 시에도 릴레이 끝점이 있는 서비스에 연결할 수 있습니다. 지역 복제를 하려면 서비스에서 서로 다른 네임스페이스에 두 릴레이 끝점을 만들어야 합니다. 네임스페이스는 서로 다른 데이터센터에 있어야 하고 두 끝점 이름이 서로 달라야 합니다. 예를 들어, 기본 끝점은 **contosoPrimary.servicebus.windows.net/myPrimaryService**에서 연결할 수 있고 이에 상응하는 보조 끝점은 **contosoSecondary.servicebus.windows.net/mySecondaryService**에서 연결할 수 있습니다.
 
 서비스는 두 끝점을 모두를 수신하고, 클라이언트는 두 끝점 중 어디를 통해서든 서비스를 호출할 수 있습니다. 클라이언트 응용 프로그램은 기본 끝점에서 임의로 하나의 릴레이를 선택하고, 활성 끝점으로 요청을 보냅니다. 오류 코드가 표시되고 작업이 실패하면, 이 오류는 릴레이 끝점을 사용할 수 없음을 나타냅니다. 응용 프로그램은 백업 끝점으로의 채널을 열고, 요청을 다시 발송합니다. 이때 활성 끝점과 백업 끝점의 역할이 서로 바뀝니다. 클라이언트 응용 프로그램은 이전 활성 끝점을 새 백업 끝점으로, 이전 백업 끝점을 새 활성 끝점으로 간주합니다. 두 보내기 작업이 모두 실패하면, 두 엔터티의 역할이 바뀌지 않고 유지되며 오류가 반환됩니다.
-
-[Service Bus 릴레이된 메시지를 사용한 지역 복제][Geo-replication with Service Bus relayed Messages] 샘플을 통해 릴레이를 복제하는 방법을 볼 수 있습니다.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>데이터센터 가동 중단 또는 재해로부터 큐 또는 항목 보호
 조정된 메시징을 사용할 때 데이터센터 가동 중단 시에도 가용성을 유지하기 위해 Service Bus는 *능동*과 *수동* 복제의 두 방식을 지원합니다. 각 방식에서, 지정된 큐 또는 항목이 데이터센터 가동 중단 상태에서도 액세스 가능하려면 양쪽 네임스페이스에서 큐 또는 항목을 모두 만들어야 합니다. 두 엔터티는 동일한 이름을 가질 수 있습니다. 예를 들어, 기본 큐는 **contosoPrimary.servicebus.windows.net/myQueue**에서 연결할 수 있고 이에 상응하는 보조 큐는 **contosoSecondary.servicebus.windows.net/myQueue**에서 연결할 수 있습니다.
@@ -88,15 +86,13 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 재해 복구에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure SQL Database 비즈니스 연속성][Azure SQL Database Business Continuity]
-* [Azure 복구력 기술 지침][Azure resiliency technical guidance]
+* [Azure용 복원 응용 프로그램 디자인][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
-[BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
-
+[Azure resiliency technical guidance]: /azure/architecture/resiliency

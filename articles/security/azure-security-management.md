@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 끝점은 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -201,7 +201,7 @@ Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세�
 
 중앙 집중화된 소프트웨어 업데이트와 함께 그룹 정책을 통해 시스템 강화가 적용됩니다. 감사 및 분석을 위해 이벤트 로그(예: 보안 및 AppLocker)는 관리 워크스테이션에서 수집되며 중앙 위치에 저장됩니다.
 
-또한&2;단계 인증을 필요로 하는 Microsoft의 네트워크의 전용 점프 상자는 Azure의 프로덕션 네트워크에 연결하는 데 사용됩니다.
+또한 2단계 인증을 필요로 하는 Microsoft의 네트워크의 전용 점프 상자는 Azure의 프로덕션 네트워크에 연결하는 데 사용됩니다.
 
 ## <a name="azure-security-checklist"></a>Azure 보안 검사 목록
 관리자가 강화된 워크스테이션에서 수행할 수 있는 작업의 수를 최소화하면 개발 및 관리 환경의 공격 노출 영역을 최소화하는 데 도움이 됩니다. 다음과 같은 기술을 사용하여 강화된 워크스테이션을 보호할 수 있습니다.
@@ -232,9 +232,3 @@ Azure 클라우드 서비스, 가상 컴퓨터 및 응용 프로그램을 관리
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 05/04/2017
 ms.author: boltean
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -94,6 +93,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **sku-name**: sku 이름이며, [F1, S1, S2, S3] 중 하나입니다. 최신 전체 목록은 IoT Hub 가격 책정 페이지를 참조하세요.
 * **units**: 프로비전된 단위의 수입니다. 범위: F1[1-1], S1, S2[1-200], S3[1-10]. IoT Hub 단위는 총 메시지 수와 연결하려는 장치 수를 기반으로 합니다.
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 만들기에 사용할 수 있는 모든 매개 변수를 보려면 명령 프롬프트에서 help 명령을 사용합니다.
 
 ```azurecli
@@ -128,9 +129,8 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]:../cli-install-nodejs.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-

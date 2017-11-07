@@ -2,7 +2,7 @@
 title: "Azure AD에서 지원하는 다른 토큰 및 클레임 유형에 대해 알아보기 | Microsoft Docs"
 description: "AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다."
 documentationcenter: na
-author: bryanla
+author: dstrockis
 services: active-directory
 manager: mbaldwin
 editor: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
-ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
-ms.lasthandoff: 02/18/2017
-
-
+ms.date: 09/07/2017
+ms.author: dastrock
+ms.custom: aaddev
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
 Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -29,7 +29,7 @@ Azure AD는 access_tokens 및 refresh_tokens 둘 다를 활용하는 [OAuth 2.0 
 
 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 전달자 토큰을 수신하기 위해 Azure AD 인증이 필요한 경우에 의도하지 않은 당사자가 가로채기를 방지하기 위해 토큰 보안 설정 단계를 수행해야 합니다. 전달자 토큰에는 권한이 없는 제삼자의 사용을 방지하기 위한 기본 제공 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 일반 텍스트 상태로 전송되는 경우 메시지 가로채기 공격을 사용해서 토큰을 획득하고 보호된 리소스에 무단으로 액세스할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
 
-Azure AD에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다.  JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다.  JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다.  JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다.  Azure AD에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다.  [jwt.calebb.net](http://jwt.calebb.net)등 이러한 작업에 사용할 수 있는 여러 도구가 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
+Azure AD에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다.  JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다.  JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다.  JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다.  Azure AD에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다.  [jwt.ms](https://jwt.ms/) 등 이러한 작업에 사용할 수 있는 여러 도구가 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
 
 ## <a name="idtokens"></a>Id_tokens
 id_token은 [OpenID Connect](active-directory-protocols-openid-connect-code.md)를 사용하여 인증을 수행할 때 앱이 받는 로그인 보안 토큰의 한 형태입니다.  [JWT](#types-of-tokens)로 표시되며 사용자를 앱에 로그인하는 데 사용할 수 있는 클레임을 포함합니다.  id_token의 클레임을 적절하게 사용할 수 있습니다. 일반적으로 계정 정보를 표시하거나 앱에서 액세스 제어 결정을 내리는 데 사용됩니다.
@@ -44,7 +44,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> 연습을 위해 샘플 id_token에 있는 클레임을 [calebb.net](http://jwt.calebb.net)에 붙여넣어 검사하세요.
+> 연습을 위해 샘플 id_token에 있는 클레임을 [jwt.ms](https://jwt.ms/)에 붙여넣어 검사하세요.
 > 
 > 
 
@@ -70,7 +70,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `scp` |범위 |클라이언트 응용 프로그램에 부여된 권한을 가장함을 나타냅니다. 기본 권한은 `user_impersonation`입니다. 보안 리소스의 소유자는 Azure AD에서 추가 값을 등록할 수 있습니다. <br><br> **JWT 값 예제**: <br> `"scp": "user_impersonation"` |
 | `sub` |제목 |응용 프로그램 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation` 클레임이 아닙니다. SubjectConfirmation은 토큰의 주체를 확인하는 방법을 설명합니다. `Bearer` 주체가 소유한 토큰을 통해 주체를 확인한다는 뜻입니다. <br><br> **SAML 값 예제**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **JWT 값 예제**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |테넌트 ID |토큰을 발급한 디렉터리 테넌트를 식별하는 변경할 수 없고 다시 사용할 수 없는 식별자입니다. 이 값을 사용하여 다중 테넌트 응용 프로그램의 테넌트별 디렉터리 리소스에 액세스할 수 있습니다. 예를 들어 이 값을 사용하여 Graph API 호출의 테넌트를 식별할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
-| `nbf`, `exp` |토큰 수명 |토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대&5;분까지 여유 시간을 허용 할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **JWT 값 예제**: <br> `"nbf":1363289634, "exp":1363293234` |
+| `nbf`, `exp` |토큰 수명 |토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대 5분까지 여유 시간을 허용 할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **JWT 값 예제**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |사용자 계정 이름 |사용자 계정의 사용자 이름을 저장합니다.<br><br> **JWT 값 예제**: <br> `"upn": frankm@contoso.com` |
 | `ver` |버전 |토큰의 버전 번호를 저장합니다. <br><br> **JWT 값 예제**: <br> `"ver": "1.0"` |
 
@@ -96,7 +96,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 
-id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
+id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
 
 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플이 제공됩니다. 아래 정보는 단순히 기본 프로세스를 이해하려는 사용자를 위한 것입니다.  JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 옵션이 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대한 자세한 내용은 [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 
@@ -303,4 +303,3 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="related-content"></a>관련 콘텐츠
 * Azure AD Graph API 통해 토큰 수명 정책을 관리하는 방법에 대한 자세한 내용은 Azure AD 그래프 [정책 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 및 [정책 엔터티](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)를 참조하세요.
 * 자세한 내용과 예제를 포함하여, PowerShell cmdlet를 통한 정책 관리 방법에 대한 샘플은 [Azure AD에서 구성 가능한 토큰 수명](../active-directory-configurable-token-lifetimes.md)을 참조하십시오. 
-

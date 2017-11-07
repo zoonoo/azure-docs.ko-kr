@@ -1,30 +1,33 @@
 ---
-title: "Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs"
+title: "Azure Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs"
 description: "이 페이지에서는 응용 프로그램 게이트웨이 다중 사이트 지원에 대한 개요를 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
+editor: 
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 68e88483e3dc7c22968d701d9b79364bb55fb896
-
-
+ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>응용 프로그램 게이트웨이 다중 사이트 호스팅
 
 다중 사이트 호스팅을 통해 동일한 응용 프로그램 게이트웨이 인스턴스에서 둘 이상의 웹 응용 프로그램을 구성할 수 있습니다. 이 기능을 사용하면 최대 20개의 웹 사이트를 하나의 Application Gateway로 추가하여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 다음 예제에서 응용 프로그램 게이트웨이는 두 개의 백 엔드 서버 풀(ContosoServerPool 및 FabrikamServerPool)에서 contoso.com 및 fabrikam.com에 대한 트래픽을 처리합니다.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
+
+> [!IMPORTANT]
+> 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다.  그러면 트래픽이 올바른 백 엔드로 라우팅됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다.
 
 http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, http://fabrikam.com에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
@@ -126,10 +129,4 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 ## <a name="next-steps"></a>다음 단계
 
 다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-multisite-azureresourcemanager-powershell.md) 로 이동해 둘 이상의 웹 응용 프로그램 지원 기능으로 응용 프로그램 게이트웨이를 만듭니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

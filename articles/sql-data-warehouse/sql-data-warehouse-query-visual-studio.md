@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure"
 description: "Visual Studio를 사용하여 SQL 데이터 웨어하우스를 쿼리합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 342f32596c91d2af7c0f33138a43d5c8925d5350
-ms.lasthandoff: 04/03/2017
-
-
+ms.author: anvang;barbkess
+ms.openlocfilehash: 1e44c6c3c47034a892753c69c5ef22a5eac18c0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -104,4 +103,3 @@ Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Ware
 [5]: media/sql-data-warehouse-query-visual-studio/new-query2.png
 [6]: media/sql-data-warehouse-query-visual-studio/run-query.png
 [7]: media/sql-data-warehouse-query-visual-studio/query-results.png
-

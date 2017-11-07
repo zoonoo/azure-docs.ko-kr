@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d82f352d714c0272296eb36782cbbcbac99a1bab
-
-
+ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 장치에 대한 기술 사양 및 규정 준수
 ## <a name="overview"></a>개요
@@ -37,9 +37,9 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | 최대 유입 전류 |20A |20A |
 | 전원 요소 수정 |> 95% 정격 입력 전압 |> 95% 정격 입력 전압 |
 | 고주파 |EN61000-3-2를 충족합니다. |EN61000-3-2를 충족합니다. |
-| 출력 |5V 대기 전압 @ 2.0 A |5V 대기 전압 @ 2.7 A |
-| +5V @ 42 A |+5V @ 40 A | |
-| +12V @ 38 A |+12V @ 38 A | |
+| 출력 |5V 대기 전압 @ 2.0A |5V 대기 전압 @ 2.7A |
+| +5V @ 42A |+5V @ 40A | |
+| +12V @ 38A |+12V @ 38A | |
 | 핫 플러그형 |예 |예 |
 | 스위치 및 LED |AC ON/OFF 스위치와 4개의 상태 표시기 LED |AC ON/OFF 스위치와 6개의 상태 표시기 LED |
 | 냉각 엔클로저 |가변 팬 속도 제어를 사용한 냉각팬 축 |가변 팬 속도 제어를 사용한 냉각팬 축 |
@@ -74,7 +74,7 @@ StorSimple 장치에는 8100 및 8600에 대한 하드 디스크 드라이브 �
 | 총 사용 가능한 용량 * |최대 15TB |최대 38TB |
 | 최대 솔루션 용량(클라우드 포함) |200TB |500TB |
 
-<sup>* </sup>- *총 사용 가능한 용량에는 데이터, 메타데이터 및 버퍼에 대한 사용 가능한 용량이 포함됩니다.*
+<sup>* </sup>- *총 사용 가능한 용량에는 데이터, 메타데이터 및 버퍼에 사용할 수 있는 용량이 포함됩니다.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>엔클로저 차원과 가중치 사양
 다음 표에서 크기 및 무게에 대해 다양한 엔클로저 사양을 보여줍니다.  
@@ -173,10 +173,4 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 데이터 센터에 StorSimple 장치를 배포할 준비가 되었습니다. 자세한 내용은 [온-프레미스 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

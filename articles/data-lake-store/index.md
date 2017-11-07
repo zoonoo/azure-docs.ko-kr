@@ -2,7 +2,7 @@
 title: "Azure Data Lake Store 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 대규모의 Hadoop 호환 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법에 대해 알아봅니다."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 68174d2f86a355a9966a7fb91b22e3eb96102d02
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 3c0327ebb4cb8d6ee66d019326ade4f4bcb258ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-lake-store-documentation"></a>Data Lake Store 설명서
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 04/14/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python(계정 관리)</a></p>
@@ -215,5 +215,4 @@ ms.lasthandoff: 04/14/2017
         </div>
     </li>
 </ul>
-
 

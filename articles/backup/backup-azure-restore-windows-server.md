@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
-ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 > [!div class="op_single_selector"]
@@ -42,38 +41,6 @@ ms.lasthandoff: 02/02/2017
 즉시 복원은 Azure Portal의 Recovery Services 자격 증명 모음에서 그리고 클래식 포털의 Backup 자격 증명 모음에서 사용할 수 있습니다. 즉시 복원을 사용하려면 MARS 업데이트를 다운로드하고 즉시 복원을 언급하는 절차를 따르세요.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-## <a name="recover-data-to-the-same-machine"></a>동일한 컴퓨터로 데이터 복구
-파일을 실수로 삭제했는데 (백업이 수행된) 동일한 컴퓨터에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
-
-1. **Microsoft Azure 백업** 스냅인을 엽니다.
-2. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
-
-    ![데이터 복구](./media/backup-azure-restore-windows-server/recover.png)
-3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(*yourmachinename*)** 옵션을 선택합니다.
-
-    ![동일한 컴퓨터](./media/backup-azure-restore-windows-server/samemachine.png)
-4. **파일 찾아보기** 또는 **파일 검색**을 선택합니다.
-
-    경로가 알려져 있는 하나 이상의 파일을 복원하려는 경우 기본 옵션을 그대로 둡니다. 폴더 구조를 잘 모르지만 파일을 검색하려는 경우 **파일 검색** 옵션을 선택합니다. 이 섹션에서는 기본 옵션을 사용하여 진행합니다.
-
-    ![파일 찾아보기](./media/backup-azure-restore-windows-server/browseandsearch.png)
-5. 다음 화면에서는 파일을 복원하려는 볼륨을 선택합니다.
-
-    어떤 지점이라도 복원할 수 있습니다. 달력 컨트롤에 **굵게** 표시되는 날짜는 복원 지점이 사용 가능함을 나타냅니다. 날짜가 선택되면 백업 일정(및 백업 작업의 성공 여부)에 따라 **시간** 드롭다운에서 특정 시점을 선택할 수 있습니다.
-
-    ![볼륨 및 날짜](./media/backup-azure-restore-windows-server/volanddate.png)
-6. 복구할 항목을 선택합니다. 복원하려는 폴더/파일을 다중 선택할 수 있습니다.
-
-    ![파일 선택](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. 복구 매개 변수를 지정 합니다.
-
-    ![복구 옵션](./media/backup-azure-restore-windows-server/recoveroptions.png)
-
-   * 원래 위치로 복원(파일/폴더가 덮어써짐) 또는 동일한 컴퓨터의 다른 위치로 복원하는 옵션이 있습니다.
-   * 복원하려는 파일/폴더가 대상 위치에 있는 경우 복사본 만들기(동일한 파일의 두 버전) 또는 대상 위치의 파일 덮어쓰기 또는 대상에 있는 파일의 복구 건너뛸 수 있습니다.
-   * 복구할 파일의 ACL을 복원하는 기본 옵션을 그대로 두는 것이 가장 좋습니다.
-8. 이러한 입력을 제공하면 **다음**을 클릭합니다. 이 컴퓨터에 파일을 복원하는 복구 워크플로를 시작합니다.
 
 ## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>즉시 복원을 사용하여 데이터를 동일한 컴퓨터로 복구합니다.
 
@@ -119,49 +86,8 @@ ms.lasthandoff: 02/02/2017
     ![볼륨을 마운트 해제하고 확인](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후&6;시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
+    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후 6시간 동안 마운트된 상태로 유지됩니다. 그러나 탑재 시간은 진행 중인 파일 복사의 경우 최대 24시간까지 확장됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
     >
-
-## <a name="recover-to-an-alternate-machine"></a>다른 컴퓨터로 복구
-
-전체 서버가 손실된 경우에도 Azure 백업에서 데이터를 다른 컴퓨터에 복구할 수 있습니다. 다음 단계는 워크플로를 보여줍니다.  
-
-다음 단계에서 사용되는 용어는 다음과 같습니다.
-
-- *원본 컴퓨터* – 처음에 백업이 수행되었고 현재는 사용할 수 없는 컴퓨터입니다.
-- *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
-- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 백업 자격 증명 모음입니다. <br/>
-
-> [!NOTE]
-> 이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 백업이 Windows 7 컴퓨터에서 수행된 경우 Windows 8 이상의 컴퓨터에서 복원할 수 있습니다. 그러나 그 반대의 경우는 그렇지 않습니다.
->
->
-
-1. **대상 컴퓨터** 에서 *Microsoft Azure 백업*스냅인을 엽니다.
-2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 백업 자격 증명 모음에 등록됐는지 확인합니다.
-3. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
-
-    ![데이터 복구](./media/backup-azure-restore-windows-server-classic/recover.png)
-4. **다른 서버**
-
-    ![다른 서버](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
-5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 잘못되었거나 만료된 경우 Azure 클래식 포털의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일에 대한 백업 자격 증명 모음이 표시됩니다.
-6. 표시된 컴퓨터 목록에서 *원본 컴퓨터* 를 선택합니다.
-
-    ![컴퓨터 목록](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. **파일 검색** 또는 **파일 찾아보기** 옵션을 선택합니다. 이 섹션에서는 **파일 검색** 옵션을 사용합니다.
-
-    ![이를 통해 검색](./media/backup-azure-restore-windows-server-classic/search.png)
-8. 다음 화면에서는 날짜와 볼륨을 선택합니다. 복원하려는 폴더/파일 이름을 검색합니다.
-
-    ![검색 항목](./media/backup-azure-restore-windows-server-classic/searchitems.png)
-9. 파일을 복원해야 하는 위치를 선택합니다.
-
-    ![복원 위치](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
-10. *원본 컴퓨터*를 *샘플 자격 증명 모음*으로 등록할 때 제공한 암호화의 암호를 제공합니다.
-
-    ![암호화](./media/backup-azure-restore-windows-server-classic/encryption.png)
-11. 입력을 제공하면 제공된 대상에 백업된 파일을 복원하는 작업을 트리거하는 **복구**를 클릭합니다.
 
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>즉시 복원을 사용하여 데이터를 대체 컴퓨터에 복원
@@ -195,6 +121,7 @@ ms.lasthandoff: 02/02/2017
 
     자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 유효한 자격 증명 모음을 제공하면 해당 백업 자격 증명 모음의 이름이 나타납니다.
 
+
 6. **백업 서버 선택** 창에서 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택하고 암호를 제공합니다. 그런 후 **다음**을 클릭합니다.
 
     ![컴퓨터 목록](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
@@ -224,9 +151,35 @@ ms.lasthandoff: 02/02/2017
     ![암호화](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후&6;시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
+    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후 6시간 동안 마운트된 상태로 유지됩니다. 그러나 탑재 시간은 진행 중인 파일 복사의 경우 최대 24시간까지 확장됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
     >
+
+## <a name="troubleshooting"></a>문제 해결
+Azure Backup이 **탑재**를 클릭하고 몇 분 후에 복구 볼륨을 성공적으로 탑재하지 않거나 하나 이상의 오류가 발생하여 복구 볼륨을 탑재하는 데 실패하면 일반적으로 복구를 시작하려면 아래 단계를 따릅니다.
+
+1.  몇 분 동안 실행된 경우 진행 중인 탑재 프로세스를 취소합니다.
+
+2.  최신 버전의 Azure Backup 에이전트가 설치되어 있는지 확인합니다. Azure Backup 에이전트의 버전 정보를 확인하려면 Microsoft Azure Backup 콘솔의 **작업** 창에서 **Microsoft Azure Recovery Services 에이전트 정보**를 클릭하고 **버전**이 [이 문서](https://go.microsoft.com/fwlink/?linkid=229525)에 언급된 버전 이상인지 확인합니다. 최신 버전은 [여기](https://go.microsoft.com/fwLink/?LinkID=288905)에서 다운로드할 수 있습니다.
+
+3.  **장치 관리자** -> **저장소 컨트롤러**로 이동하고 **Microsoft iSCSI 초기자**를 찾을 수 있는지 확인합니다. 찾을 수 있는 경우 바로 아래의 7단계로 이동합니다. 
+
+4.  3단계에서 설명한 대로 Microsoft iSCSI 초기자 서비스를 찾을 수 없는 경우 하드웨어 ID와 **ROOT\ISCSIPRT**를 포함한 **알 수 없는 장치**라는 항목을 **장치 관리자** -> **저장소 컨트롤러**에서 찾을 수 있는지 확인합니다.
+
+5.  **알 수 없는 장치**를 마우스 오른쪽 단추로 클릭하고 **업데이트 드라이버 소프트웨어**를 선택합니다.
+
+6.  **업데이트된 드라이버 소프트웨어를 자동으로 검색**하는 옵션을 선택하여 드라이버를 업데이트합니다. 업데이트가 완료되면 다음과 같이 **알 수 없는 장치**를 **Microsoft iSCSI 초기자**로 변경해야 합니다. 
+
+    ![암호화](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
+
+7.  **작업 관리자** -> **서비스(로컬)** -> **Microsoft iSCSI 초기자 서비스**로 이동합니다. 
+
+    ![암호화](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
+    
+8.  서비스를 마우스 오른쪽 단추로 클릭하고 **중지**를 클릭한 다음 마우스 오른쪽 단추로 다시 클릭하고 **시작**을 클릭하여 Microsoft iSCSI 초기자 서비스를 다시 시작합니다.
+
+9.  인스턴트 복원을 사용하여 복구를 다시 시도하세요. 
+
+복구가 계속 실패하면 서버/클라이언트를 다시 부팅합니다. 다시 부팅이 바람직하지 않거나 서버를 다시 부팅한 후에도 복구가 계속 실패하는 경우 다른 컴퓨터에서 복구를 시도하고 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)로 이동하고 지원 요청을 제출하여 Azure 지원에 문의합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 파일과 폴더를 복구했으므로 [백업을 관리](backup-azure-manage-windows-server.md)할 수 있습니다.
-

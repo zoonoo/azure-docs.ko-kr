@@ -3,8 +3,8 @@ title: "Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Docs"
 description: "클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
@@ -122,11 +122,5 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

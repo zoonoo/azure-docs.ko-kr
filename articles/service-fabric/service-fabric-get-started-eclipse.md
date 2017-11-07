@@ -12,16 +12,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 응용 프로그램 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 응용 프로그램을 만들며 Service Fabric 응용 프로그램을 Eclipse Neon의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다.
 
@@ -34,16 +32,21 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
     -   Eclipse Neon에 대한 업데이트를 확인하고 설치하려면 **도움말** > **업데이트 확인**으로 이동합니다.
 
 2.  Service Fabric 플러그 인을 설치하려면 Eclipse Neon에서 **도움말** > **새 소프트웨어 설치**로 이동합니다.
-  1.    **사용** 상자에 **http://dl.windowsazure.com/eclipse/servicefabric**을 입력합니다.
+  1.    **Work with**(사용할 플러그인) 상자에 **http://dl.microsoft.com/eclipse**를 입력합니다.
   2.    **추가**를 클릭합니다.
-    ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
+
+         ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
   3.    Service Fabric 플러그 인을 선택한 다음 **다음**을 클릭합니다.
   4.    설치 단계를 완료한 다음 Microsoft 소프트웨어 사용 조건에 동의합니다.
 
 Service Fabric 플러그 인이 이미 설치된 경우 최신 버전인지 확인합니다. 사용 가능한 업데이트를 확인하려면 **도움말** > **설치 세부 정보**로 이동합니다. 설치된 플러그 인 목록에서 Service Fabric을 선택하고 **업데이트**를 클릭합니다. 사용 가능한 업데이트가 설치됩니다.
 
 > [!NOTE]
-> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(http://dl.windowsazure.com/eclipse/servicefabric)를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
+> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(http://dl.microsoft.com/eclipse/azure/servicefabric)를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
+
+> [!NOTE]
+>Eclipse가 Mac에서 예상대로 작동하지 않는 경우 또는 슈퍼 사용자로 실행해야 하는 경우 **ECLIPSE_INSTALLATION_PATH** 폴더로 이동하고 **Eclipse.app/Contents/MacOS** 하위 폴더를 탐색합니다. `./eclipse`를 실행하여 Eclipse를 시작합니다.
+
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 응용 프로그램 만들기
 
@@ -124,6 +127,12 @@ Service Fabric 서비스를 기존 Service Fabric 응용 프로그램에 추가�
 
     ![Service Fabric 서비스 추가 페이지 4][add-service/p4]
 
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Service Fabric Java 응용 프로그램의 매니페스트 버전 편집
+
+매니페스트 버전을 편집하려면 프로젝트를 클릭하고 **Service Fabric**으로 이동하여 드롭다운 메뉴에서 **매니페스트 버전 편집...**을 선택합니다. 마법사에서 응용 프로그램 매니페스트, 서비스 매니페스트의 매니페스트 버전 및 **코드**, **구성** 및 **데이터** 패키지의 버전을 업데이트할 수 있습니다.
+
+**응용 프로그램 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 응용 프로그램 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
+
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 응용 프로그램 업그레이드
 
 업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application**라는 응용 프로그램을 만드는 플러그 인을 사용하여 배포합니다. 응용 프로그램 유형은 **App1AppicationType**이고 응용 프로그램 버전은 1.0입니다. 이제 가용성을 해치지 않고 응용 프로그램을 업그레이드하려고 합니다.
@@ -140,9 +149,12 @@ Eclipse Neon을 사용하여 응용 프로그램을 업그레이드하려면 중
 
 응용 프로그램 업그레이드에는 몇 분 정도가 소요됩니다. Service Fabric Explorer에서 응용 프로그램 업그레이드를 모니터링할 수 있습니다.
 
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>이전의 Service Fabric Java 응용 프로그램을 마이그레이션하여 Maven에서 사용
+최근에 Service Fabric Java 라이브러리를 Service Fabric Java SDK에서 Maven 리포지토리로 이동했습니다. Eclipse를 사용하여 생성한 새 응용 프로그램은 최신 업데이트된 프로젝트를 생성하는 반면(Maven에서 작업할 수 있음) Maven에서 Service Fabric Java 종속성을 사용하기 위해 이전에 Service Fabric Java SDK를 사용했던 기존 Service Fabric 상태 비저장 또는 작업자 Java 응용 프로그램을 업데이트할 수 있습니다. [여기](service-fabric-migrate-old-javaapp-to-use-maven.md)에서 언급한 단계에 따라 Maven에서 이전의 응용 프로그램이 작동되는지 확인합니다.
+
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png
@@ -161,4 +173,3 @@ Eclipse Neon을 사용하여 응용 프로그램을 업그레이드하려면 중
 
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

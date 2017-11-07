@@ -3,8 +3,8 @@ title: "Eclipse에서 Java를 사용하여 Application Insights 시작하기 | M
 description: "Application Insights를 사용하여 성능 및 사용량 모니터링을 Java 웹 사이트에 추가하기 위해 Eclipse 플러그인을 사용합니다."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Eclipse에서 Java를 사용하여 Application Insights 시작하기
 Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 전송하므로 사용량 및 성능을 분석할 수 있습니다. Application Insights용 Eclipse 플러그인이 프로젝트에 SDK를 자동으로 설치하므로 기본 원격 분석을 이용할 수 있을 뿐 아니라 사용자 지정 원격 분석 작성에 사용할 수 있습니다.   
@@ -225,7 +224,7 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
 #### <a name="track-usage"></a>사용 현황 추적
 * [웹 클라이언트 원격 분석을 추가][usage]하여 페이지 보기 및 기본 사용자 메트릭을 모니터링할 수 있습니다.
-* [사용자 지정 이벤트 및 메트릭을 추적][track]하여 클라이언트와 서버에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
+* [사용자 지정 이벤트 및 메트릭을 추적](app-insights-web-track-usage.md)하여 클라이언트와 서버에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
 
 <!--Link references-->
 
@@ -235,5 +234,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
-
+[usage]: app-insights-javascript.md

@@ -3,7 +3,7 @@ title: "Azure Linux VM 크기 - 범용 | Microsoft Docs"
 description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 범용 크기를 나열합니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 409d2df32906ee75eaa85042e8b1278dc31f0638
-ms.lasthandoff: 04/03/2017
-
-
+ms.date: 09/07/2017
+ms.author: jonbeck
+ms.openlocfilehash: e23d96574afb9a8c60f88a2d6ff02fbb587f3f00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="general-purpose-linux-vm-sizes"></a>범용 Linux VM 크기
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
-
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -41,3 +38,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>다음 단계
 [ACU(Azure Compute 단위)](../windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+

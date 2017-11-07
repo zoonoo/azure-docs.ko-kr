@@ -15,8 +15,3 @@
 8. 워크플로에 대한 변경 내용을 저장합니다.   
    ![서비스 버스 동작 이미지 4](./media/connectors-create-api-servicebus/action-4.png)     
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

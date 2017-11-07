@@ -3,8 +3,8 @@ title: "논리 앱에서 Twitter 커넥터를 사용하는 방법 알아보기 |
 description: "REST API 매개 변수를 사용하는 Twitter 커넥터 개요"
 services: 
 documentationcenter: 
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 13ecb8936484b1c86938a16c7dd6da8000d4ffec
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Twitter 커넥터 시작
 Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
@@ -98,297 +98,11 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
    ![Twitter 작업 이미지 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
 7. 작업 내용을 저장하고 #Seattle 해시 태그로 트윗을 보내 워크플로를 활성화합니다.  
 
-## <a name="technical-details"></a>기술 세부 정보
-이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
 
-## <a name="twitter-triggers"></a>Twitter 트리거
-Twitter 커넥터에는 다음과 같은 트리거가 있습니다.  
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-| 트리거 | 설명 |
-| --- | --- |
-| [새 트윗이 게시될 때](connectors-create-api-twitter.md#when-a-new-tweet-is-posted) |이 작업은 지정된 검색 쿼리와 일치하는 새 트윗이 게시될 때 흐름을 트리거합니다. |
-
-## <a name="twitter-actions"></a>Twitter 작업
-Twitter 커넥터에는 다음과 같은 작업이 있습니다.
-
-| 작업 | 설명 |
-| --- | --- |
-| [사용자 타임라인 가져오기](connectors-create-api-twitter.md#get-user-timeline) |이 작업은 지정된 사용자가 최근 게시한 트윗 목록을 가져옵니다. |
-| [홈 타임라인 가져오기](connectors-create-api-twitter.md#get-home-timeline) |나와 내 팔로워가 게시한 최근 트윗 및 리트윗을 가져옵니다. |
-| [트윗 검색](connectors-create-api-twitter.md#search-tweets) |이 작업은 검색 쿼리와 일치하는 관련 트윗 목록을 가져옵니다. |
-| [팔로워 가져오기](connectors-create-api-twitter.md#get-followers) |이 작업은 지정된 사용자를 팔로우하는 사용자 목록을 가져옵니다. |
-| [내 팔로워 가져오기](connectors-create-api-twitter.md#get-my-followers) |이 작업은 나를 팔로우하는 사용자 목록을 가져옵니다. |
-| [팔로잉 가져오기](connectors-create-api-twitter.md#get-following) |이 작업은 지정된 사용자가 팔로우하는 사람 목록을 가져옵니다. |
-| [내 팔로잉 가져오기](connectors-create-api-twitter.md#get-my-following) |이 작업은 내가 팔로우하는 사용자 목록을 가져옵니다. |
-| [사용자 가져오기](connectors-create-api-twitter.md#get-user) |이 작업은 지정된 사용자의 프로필 정보(예: 사용자 이름, 설명, 팔로워 수 등)를 가져옵니다. |
-| [트윗 게시](connectors-create-api-twitter.md#post-a-tweet) |이 작업은 새 트윗을 게시합니다. |
-
-## <a name="action-details"></a>작업 세부 정보
-이 커넥터에 대한 작업 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
-
-### <a name="get-user-timeline"></a>사용자 타임라인 가져오기
-이 작업은 지정된 사용자가 최근 게시한 트윗 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| userName* |사용자 이름 |사용자의 Twitter 핸들 |
-| maxResults |최대 결과 수 |반환할 최대 트윗 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-TweetModel: 트윗 개체의 표현
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| tweetText |string |트윗의 텍스트 내용 |
-| TweetId |string |트윗의 ID |
-| CreatedAt |string |트윗이 게시된 시간 |
-| RetweetCount |정수 |트윗에 대한 총 리트윗 수 |
-| TweetedBy |string |트윗을 게시한 사용자의 이름 |
-| MediaUrls |array |트윗과 함께 게시된 미디어의 URL |
-| TweetLanguageCode |string |트윗의 언어 코드 |
-| TweetInReplyToUserId |string |현재 트윗이 회신인 트윗의 작성자에 대한 사용자 ID |
-| Favorited |부울 |트윗이 즐겨찾기됨으로 표시되었는지 여부를 나타냄 |
-| UserMentions |array |트윗에 언급된 사용자 목록 |
-| OriginalTweet |정의되지 않음 |현재 트윗이 리트윗된 원본 트윗 |
-| UserDetails |정의되지 않음 |트윗한 사용자의 세부 정보 |
-
-### <a name="get-home-timeline"></a>홈 타임라인 가져오기
-나와 내 팔로워가 게시한 최근 트윗 및 리트윗을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| maxResults |최대 결과 수 |반환할 최대 트윗 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-TweetModel: 트윗 개체의 표현
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| tweetText |string |트윗의 텍스트 내용 |
-| TweetId |string |트윗의 ID |
-| CreatedAt |string |트윗이 게시된 시간 |
-| RetweetCount |정수 |트윗에 대한 총 리트윗 수 |
-| TweetedBy |string |트윗을 게시한 사용자의 이름 |
-| MediaUrls |array |트윗과 함께 게시된 미디어의 URL |
-| TweetLanguageCode |string |트윗의 언어 코드 |
-| TweetInReplyToUserId |string |현재 트윗이 회신인 트윗의 작성자에 대한 사용자 ID |
-| Favorited |부울 |트윗이 즐겨찾기됨으로 표시되었는지 여부를 나타냄 |
-| UserMentions |array |트윗에 언급된 사용자 목록 |
-| OriginalTweet |정의되지 않음 |현재 트윗이 리트윗된 원본 트윗 |
-| UserDetails |정의되지 않음 |트윗한 사용자의 세부 정보 |
-
-### <a name="search-tweets"></a>트윗 검색
-이 작업은 검색 쿼리와 일치하는 관련 트윗 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| searchQuery* |검색 텍스트 |"happy hour", #haiku, love 또는 hate와 같은 검색 용어 |
-| maxResults |최대 결과 수 |반환할 최대 트윗 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-TweetModel: 트윗 개체의 표현
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| tweetText |string |트윗의 텍스트 내용 |
-| TweetId |string |트윗의 ID |
-| CreatedAt |string |트윗이 게시된 시간 |
-| RetweetCount |정수 |트윗에 대한 총 리트윗 수 |
-| TweetedBy |string |트윗을 게시한 사용자의 이름 |
-| MediaUrls |array |트윗과 함께 게시된 미디어의 URL |
-| TweetLanguageCode |string |트윗의 언어 코드 |
-| TweetInReplyToUserId |string |현재 트윗이 회신인 트윗의 작성자에 대한 사용자 ID |
-| Favorited |부울 |트윗이 즐겨찾기됨으로 표시되었는지 여부를 나타냄 |
-| UserMentions |array |트윗에 언급된 사용자 목록 |
-| OriginalTweet |정의되지 않음 |현재 트윗이 리트윗된 원본 트윗 |
-| UserDetails |정의되지 않음 |트윗한 사용자의 세부 정보 |
-
-### <a name="get-followers"></a>팔로워 가져오기
-이 작업은 지정된 사용자를 팔로우하는 사용자 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| userName* |사용자 이름 |사용자의 Twitter 핸들 |
-| maxResults |최대 결과 수 |반환할 최대 사용자 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-UserDetailsModel: Twitter 사용자 세부 정보
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| FullName |string |사용자의 이름 |
-| 위치 |string |사용자의 위치 |
-| Id |정수 |사용자의 Twitter ID |
-| 사용자 이름 |string |사용자의 화면 이름 |
-| FollowersCount |정수 |팔로워 수 |
-| 설명 |string |사용자 설명 |
-| StatusesCount |정수 |사용자 상태 수 |
-| FriendsCount |정수 |친구 수 |
-| FavouritesCount |정수 |사용자가 즐겨찾기한 트윗 수 |
-| ProfileImageUrl |string |프로필 이미지 URL |
-
-### <a name="get-my-followers"></a>내 팔로워 가져오기
-이 작업은 나를 팔로우하는 사용자 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| maxResults |최대 결과 수 |가져올 최대 사용자 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-UserDetailsModel: Twitter 사용자 세부 정보
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| FullName |string |사용자의 이름 |
-| 위치 |string |사용자의 위치 |
-| Id |정수 |사용자의 Twitter ID |
-| 사용자 이름 |string |사용자의 화면 이름 |
-| FollowersCount |정수 |팔로워 수 |
-| 설명 |string |사용자 설명 |
-| StatusesCount |정수 |사용자 상태 수 |
-| FriendsCount |정수 |친구 수 |
-| FavouritesCount |정수 |사용자가 즐겨찾기한 트윗 수 |
-| ProfileImageUrl |string |프로필 이미지 URL |
-
-### <a name="get-following"></a>팔로잉 가져오기
-이 작업은 지정된 사용자가 팔로우하는 사람 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| userName* |사용자 이름 |사용자의 Twitter 핸들 |
-| maxResults |최대 결과 수 |반환할 최대 사용자 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-UserDetailsModel: Twitter 사용자 세부 정보
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| FullName |string |사용자의 이름 |
-| 위치 |string |사용자의 위치 |
-| Id |정수 |사용자의 Twitter ID |
-| 사용자 이름 |string |사용자의 화면 이름 |
-| FollowersCount |정수 |팔로워 수 |
-| 설명 |string |사용자 설명 |
-| StatusesCount |정수 |사용자 상태 수 |
-| FriendsCount |정수 |친구 수 |
-| FavouritesCount |정수 |사용자가 즐겨찾기한 트윗 수 |
-| ProfileImageUrl |string |프로필 이미지 URL |
-
-### <a name="get-my-following"></a>내 팔로잉 가져오기
-이 작업은 내가 팔로우하는 사용자 목록을 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| maxResults |최대 결과 수 |반환할 최대 사용자 수 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-UserDetailsModel: Twitter 사용자 세부 정보
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| FullName |string |사용자의 이름 |
-| 위치 |string |사용자의 위치 |
-| Id |정수 |사용자의 Twitter ID |
-| 사용자 이름 |string |사용자의 화면 이름 |
-| FollowersCount |정수 |팔로워 수 |
-| 설명 |string |사용자 설명 |
-| StatusesCount |정수 |사용자 상태 수 |
-| FriendsCount |정수 |친구 수 |
-| FavouritesCount |정수 |사용자가 즐겨찾기한 트윗 수 |
-| ProfileImageUrl |string |프로필 이미지 URL |
-
-### <a name="get-user"></a>사용자 가져오기
-이 작업은 지정된 사용자의 프로필 정보(예: 사용자 이름, 설명, 팔로워 수 등)를 가져옵니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| userName* |사용자 이름 |사용자의 Twitter 핸들 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-UserDetailsModel: Twitter 사용자 세부 정보
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| FullName |string |사용자의 이름 |
-| 위치 |string |사용자의 위치 |
-| Id |정수 |사용자의 Twitter ID |
-| 사용자 이름 |string |사용자의 화면 이름 |
-| FollowersCount |정수 |팔로워 수 |
-| 설명 |string |사용자 설명 |
-| StatusesCount |정수 |사용자 상태 수 |
-| FriendsCount |정수 |친구 수 |
-| FavouritesCount |정수 |사용자가 즐겨찾기한 트윗 수 |
-| ProfileImageUrl |string |프로필 이미지 URL |
-
-### <a name="post-a-tweet"></a>트윗 게시
-이 작업은 새 트윗을 게시합니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| tweetText |트윗 텍스트 |게시할 텍스트 |
-| body |미디어 |게시할 미디어 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-TweetResponseModel: 게시된 트윗을 나타내는 모델
-
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| TweetId |string |검색된 트윗의 ID |
-
-### <a name="when-a-new-tweet-is-posted"></a>새 트윗이 게시될 때
-이 작업은 지정된 검색 쿼리와 일치하는 새 트윗이 게시될 때 흐름을 트리거합니다. 
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| searchQuery* |검색 텍스트 |"happy hour", #haiku, love 또는 hate와 같은 검색 용어 |
-
-*는 필수 속성을 나타냅니다.
-
-#### <a name="output-details"></a>출력 세부 정보
-TriggerBatchResponse[TweetModel]
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-## <a name="http-responses"></a>HTTP 응답
-위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다. 
-
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 202 |수락됨 |
-| 400 |잘못된 요청 |
-| 401 |권한 없음 |
-| 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
-| 500 |내부 서버 오류. 알 수 없는 오류 발생. |
-| 기본값 |작업이 실패했습니다. |
+[커넥터 세부 정보](/connectors/twitterconnector/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

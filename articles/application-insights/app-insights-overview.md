@@ -3,25 +3,25 @@ title: "Azure Application Insights란? | Microsoft Docs"
 description: "라이브 웹 응용 프로그램의 응용 프로그램 성능을 관리하고 사용 현황을 추적합니다.  문제를 감지, 심사, 진단하고 사람들이 앱을 사용하는 방식을 이해합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c47041bb729a3ee1f3fb4c7baf7f988db226677
-ms.lasthandoff: 04/12/2017
-
-
+ms.topic: overview
+ms.custom: mvc
+ms.date: 05/14/2017
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
-Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다.
+Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio Mobile Center 및 HockeyApp을 통합하여 모바일 앱에서 원격 분석을 수행하고 모니터링할 수 있습니다.
 
 ![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
 
@@ -64,14 +64,17 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 
 |  |  |
 | --- | --- |
+| [**스마트 검색 및 수동 경고**](app-insights-proactive-diagnostics.md)<br/>자동 경고는 앱의 일반적인 원격 분석 패턴에 맞게 조정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](app-insights-alerts.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
 | [**응용 프로그램 맵**](app-insights-app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소입니다. |![응용 프로그램 맵](./media/app-insights-overview/appmap-tn.png)  |
+| [**프로파일러**](app-insights-profiler.md)<br/>샘플링된 요청의 실행 프로필을 검사합니다. |![프로파일러](./media/app-insights-overview/profiler.png) |
+| [**사용 현황 분석**](app-insights-usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
 | [**인스턴스 데이터에 대한 진단 검색**](app-insights-diagnostic-search.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.  |![원격 분석 검색](./media/app-insights-overview/search-tn.png) |
 | [**집계된 데이터에 대한 메트릭 탐색기**](app-insights-metrics-explorer.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다. |![메트릭](./media/app-insights-overview/metrics-tn.png) |
 | [**대시보드**](app-insights-dashboards.md#dashboards)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 응용 프로그램에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |
 | [**라이브 메트릭 스트림**](app-insights-live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
 | [**분석**](app-insights-analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
-| [**자동 및 수동 경고**](app-insights-alerts.md)<br/>자동 경고는 앱의 일반적인 원격 분석 패턴에 맞게 조정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 경고를 설정할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**스냅숏 디버거**](app-insights-snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅숏을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**연속 내보내기**](app-insights-export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
@@ -90,10 +93,10 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 
 * 얼마나 많은 사용자가 영향을 받는지 평가합니다.
 * 오류는 예외, 종속성 호출 및 추적과 연관이 있습니다.
-* 스택 덤프 및 추적 로그를 검사합니다.
+* 프로파일러, 스냅숏, 스택 덤프 및 추적 로그를 검사합니다.
 
 ### <a name="build-measure-learn"></a>빌드, 측정, 학습
-배포하는 각 새로운 기능의 효율성을 측정합니다.
+배포하는 새로운 각 기능의 [효율성을 측정](app-insights-usage-overview.md)합니다.
 
 * 고객이 새 UX 또는 비즈니스 기능을 사용하는 방식을 측정하도록 계획합니다.
 * 코드에 사용자 지정 원격 분석을 작성합니다.
@@ -114,6 +117,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
   * [Node.JS](app-insights-nodejs.md)
   * [기타 플랫폼](app-insights-platforms.md)
 * 페이지 보기, AJAX 및 기타 클라이언트 쪽 원격 분석에 대해 **[웹 페이지를 계측](app-insights-javascript.md)**합니다.
+* **Visual Studio Mobile Center와 통합하여 [모바일 앱 사용 분석](app-insights-mobile-center-quickstart.md)**
 * **[가용성 테스트](app-insights-monitor-web-app-availability.md)** -서버에서 정기적으로 웹 사이트를 ping합니다.
 
 
@@ -160,4 +164,3 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

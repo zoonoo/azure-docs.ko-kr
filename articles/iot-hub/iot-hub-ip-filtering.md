@@ -12,25 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 05/23/2017
 ms.author: boltean
-translationtype: Human Translation
-ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
-ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
-
-
+ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-ip-filters"></a>IP 필터 사용
 
-보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 보안 구성의 일환으로 특정 IP 주소를 블랙리스트 또는 허용 목록에 올려야 하는 경우가 있습니다. _IP 필터_ 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
+보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 경우에 따라 장치가 보안 구성의 일부로 연결할 수 있는 IP 주소를 명시적으로 지정해야 합니다. _IP 필터_ 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
 
 ## <a name="when-to-use"></a>사용하는 경우
 
 특정 IP 주소에 대해 IoT Hub 끝점을 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
-- IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부해야 하는 경우입니다. 예를 들어 IoT Hub를 [Azure ExpressRoute]와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
-- IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 하는 경우입니다.
+- IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure ExpressRoute]와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
+- IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 
@@ -39,9 +38,10 @@ IP 필터 규칙은 IoT Hub 서비스 수준에 적용됩니다. 따라서 IP �
 IoT Hub의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모든 연결 시도는 권한 없음 401 상태 코드 및 설명을 수신합니다. 응답 메시지는 IP 규칙을 언급하지 않습니다.
 
 ## <a name="default-setting"></a>기본 설정
+
 기본적으로 IoT Hub에 대한 포털의 **IP 필터** 그리드는 비어있습니다. 이러한 기본 설정은 허브가 모든 IP 주소의 연결을 수락한다는 것을 의미합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다.
 
-![][img-ip-filter-default]
+![IoT Hub 기본 IP 필터 설정][img-ip-filter-default]
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>IP 필터 규칙 추가 또는 편집
 
@@ -51,24 +51,27 @@ IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지�
 - IP 필터 규칙에 대한 **작업**으로 **거부** 또는 **수락**을 선택합니다.
 - 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.
 
-![][img-ip-filter-add-rule]
+![IP 필터 규칙을 IoT Hub에 추가][img-ip-filter-add-rule]
 
 규칙을 저장한 후 업데이트를 진행 중이라고 알려주는 경고가 표시됩니다.
 
-![][img-ip-filter-save-new-rule]
+![IP 필터 규칙 저장에 대한 알림][img-ip-filter-save-new-rule]
 
-최대&10;개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
+최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
 규칙을 포함하는 행을 두 번 클릭하면 기존 규칙을 편집할 수 있습니다.
 
 > [!NOTE]
 > IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 IoT Hub와 상호 작용하는 것을 막을 수 있습니다.
 
+> [!WARNING]
+> ASA(Azure Stream Analytics)를 사용하여 IP 필터링이 활성화된 IoT Hub에서 메시지를 읽는 경우 ASA 연결 문자열에 이벤트 허브와 호환되는 IoT Hub 이름 및 끝점을 사용합니다.
+
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
 IP 필터 규칙을 삭제하려면 그리드에서 규칙을 하나 이상 선택하고 **삭제**를 클릭합니다.
 
-![][img-ip-filter-delete-rule]
+![IoT Hub IP 필터 규칙 삭제][img-ip-filter-delete-rule]
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
 
@@ -80,14 +83,14 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 새 IP 필터 규칙 순서를 저장하려면 **저장**을 클릭합니다.
 
-![][img-ip-filter-rule-order]
+![IoT Hub IP 필터 규칙의 순서 변경][img-ip-filter-rule-order]
 
 ## <a name="next-steps"></a>다음 단계
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [작업 모니터링][lnk-monitor]
-* [IoT Hub 메트릭][lnk-metrics]
+- [작업 모니터링][lnk-monitor]
+- [IoT Hub 메트릭][lnk-metrics]
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -104,8 +107,3 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

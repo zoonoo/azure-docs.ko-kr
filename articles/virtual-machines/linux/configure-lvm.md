@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 LVM 구성
 이 문서에서는 Azure 가상 컴퓨터의 LVM(논리 볼륨 관리자)을 구성하는 방법을 설명합니다. 가상 컴퓨터에 연결된 모든 디스크에 LVM을 구성할 수 있지만 기본적으로 대부분의 클라우드 이미지는 OS 디스크에 LVM을 구성하지 않습니다. 이는 OS 디스크가 동일한 배포와 형식의 다른 VM에 연결되어 있는 경우(예: 복구 시나리오 중), 중복 볼륨 그룹에 대한 문제를 방지하기 위함입니다. 따라서 데이터 디스크에만 LVM을 사용하는 것이 좋습니다.
@@ -178,4 +177,3 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
     # sudo yum install util-linux
     # sudo fstrim /datadrive
     ```
-

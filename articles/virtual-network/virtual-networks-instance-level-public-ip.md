@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c233439b78fb01beaa3183b79ab633aeb9357ef0
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>인스턴스 수준 공용 Ip(클래식) 개요
 ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 Cloud Services 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. ILPIP는 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
@@ -44,8 +43,8 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 ## <a name="why-would-i-request-an-ilpip"></a>ILPIP를 요청하는 이유
 클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
 
-* **수동 FTP** - VM에 ILPIP를 할당하면 거의 모든 포트에서 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다. ILPIP는 포트가 동적으로 선택되는 수동 FTP와 같은 시나리오를 지원합니다.
-* **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP와 함께 보내지며 ILPIP는 외부 엔터티에 대한 VM을 고유하게 식별합니다.
+* **활성 FTP** - VM에 ILPIP를 할당하면 어떤 포트에서도 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다.  FTP 프로토콜에 대한 자세한 내용은 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] 를 참조하세요.
+* **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP에 매핑되며 ILPIP는 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 > [!NOTE]
 > 과거에는 ILPIP 주소를 PIP(공용 IP) 주소라고 했습니다.
@@ -92,7 +91,7 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            :     Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -148,4 +147,3 @@ Cloud Services 역할 인스턴스에 ILPIP를 추가하려면 다음 단계를 
 ## <a name="next-steps"></a>다음 단계
 * 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md) 이 어떻게 작동하는지 이해합니다.
 * [예약된 IP](virtual-networks-reserved-public-ip.md)에 대해 자세히 알아봅니다.
-

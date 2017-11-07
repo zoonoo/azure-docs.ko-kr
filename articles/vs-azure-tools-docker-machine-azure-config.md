@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Docker Machine으로 Azure에서 Docker 호스트 만들기
 [Docker](https://www.docker.com/) 컨테이너를 실행하려면 호스트 VM이 docker 데몬을 실행해야 합니다.
@@ -37,7 +36,7 @@ Azure 드라이버에는 구독 ID가 필요합니다. [Azure CLI](cli-install-n
 
 **Azure 포털 사용**
 
-* 왼쪽 탐색 페이지에서 구독을 선택하고, 구독 ID를 복사합니다.
+* 왼쪽 탐색 페이지에서 **구독**을 선택하고, 구독 ID를 복사합니다.
 
 **Azure CLI 사용**
 
@@ -48,7 +47,7 @@ Azure 드라이버에는 구독 ID가 필요합니다. [Azure CLI](cli-install-n
 
 다음 예제는 [기본값](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22)을 사용하지만 선택적으로 다음 값을 설정합니다. 
 
-* 공용 IP 및 생성된 인증서와 연결된 이름의 경우 azure-dns.  그러면 VM은 동적 IP를 안전하게 중지하고 릴리스하며 VM이 새 IP로 다시 시작한 후에 다시 연결할 수 있는 기능을 제공합니다.  이름 접두사는 해당 영역 UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com에 대해 고유해야 합니다.
+* 공용 IP 및 생성된 인증서와 연결된 이름의 경우 azure-dns. 가상 컴퓨터의 DNS 이름입니다. 그러면 VM이 안전하게 중지하고 동적 IP를 해제하며 VM이 새 IP로 다시 시작된 후 다시 연결하는 기능을 제공할 수 있습니다. 이름 접두사는 해당 영역 UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com에 고유해야 합니다.
 * 아웃 바운드 인터넷 액세스를 위한 VM의 개방 포트 80
 * 더 빠른 Premium Storage를 활용할 수 있는 VM 크기
 * VM 디스크에 사용하는 Premium Storage
@@ -107,7 +106,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-그리고 실행 중인 컨테이너를 확인하고 `docker-machine ip <VM name>` 을 입력하여 브라우저에 입력할 IP 주소를 찾습니다.
+또한 실행 중인 컨테이너를 확인하려면 `docker-machine ip <VM name>`을 입력하여 브라우저에 입력할 IP 주소를 찾습니다.
 
 ```
 PS C:\> docker-machine ip MyDockerHost
@@ -117,9 +116,8 @@ PS C:\> docker-machine ip MyDockerHost
 ![ngnix 컨테이너 실행](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
 ## <a name="summary"></a>요약
-Docker-machine을 사용하면 개별 docker 호스트 유효성 검사를 위해 Azure에서 docker 호스트를 쉽게 프로비전할 수 있습니다.
+docker-machine을 사용하면 개별 docker 호스트 유효성 검사를 위해 Azure에서 docker 호스트를 쉽게 프로비전할 수 있습니다.
 컨테이너의 프로덕션 호스팅은 [Azure 컨테이너 서비스](http://aka.ms/AzureContainerService)
 
 Visual Studio를 사용한 .NET 핵심 응용 프로그램 개발은 [Visual Studio 용 Docker 도구](http://aka.ms/DockerToolsForVS)
-
 

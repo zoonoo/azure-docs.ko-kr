@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
-ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
-
-
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>BizTalk 서비스 상태를 사용하여 수행할 수 있는 작업과 수행할 수 없는 작업
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 BizTalk 서비스의 현재 상태에 따라 BizTalk 서비스에서 수행할 수 있는 작업이나 수행할 수 없는 작업이 있습니다.
 
 예를 들어 Azure 클래식 포털에서 새로운 BizTalk 서비스를 프로비전합니다. 프로비전이 성공적으로 완료되면 BizTalk 서비스가 `active` 상태입니다. 활성 상태에서 BizTalk 서비스를 중지, 일시 중단 및 삭제할 수 있습니다. BizTalk 서비스를 중지한 경우 중지에 실패하면 BizTalk 서비스가 `StopFailed` 상태로 전환됩니다. `StopFailed` 상태에서는 BizTalk 서비스를 다시 시작할 수 있습니다. 재개와 같은 허용되지 않는 작업을 시도한 경우 다음과 같은 오류가 발생합니다.
@@ -56,10 +59,4 @@ BizTalk 서비스의 현재 상태에 따라 BizTalk 서비스에서 수행할 �
 * [BizTalk Services에 설명된 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [BizTalk Services에 대한 Service Bus 및 액세스 제어 발급자 이름 및 발급자 키 값 검색](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

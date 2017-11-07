@@ -4,7 +4,7 @@ description: "U-SQL에서 인텔리전스 인식 기능을 사용하는 방법�
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
@@ -14,146 +14,75 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
-
-
+ms.openlocfilehash: a651fe045d7eb1265f698ebb89843fd4c2b1c436
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>자습서: U-SQL의 인식 기능 시작
 
-U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 인텔리전스를 사용하도록 합니다. 전체 프로세스는 간단합니다.
+## <a name="overview"></a>개요
+U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 인텔리전스를 사용하도록 합니다. 
+
+다음과 같은 인식 기능을 사용할 수 있습니다.
+* 이미징: 얼굴 감지
+* 이미징: 감정 감지
+* 이미징: 개체 감지(태그 지정)
+* 이미징: OCR(광학 문자 인식)
+* 텍스트: 핵심 구 추출
+* 텍스트: 감정 분석
+
+## <a name="how-to-use-cognitive-in-your-u-sql-script"></a>U-SQL 스크립트에 인식 기능을 사용하는 방법
+
+전체 프로세스는 간단합니다.
 
 * 참조 어셈블리 문을 사용하여 U-SQL 스크립트에 대한 인식 기능을 사용합니다.
-* 처리 작업을 사용하여 인식 기능 사용 
+* Cognitive UDO를 사용하여 입력 행 집합에서 프로세스를 사용하고, 출력 행 집합을 생성합니다.
 
-## <a name="imaging-scenarios"></a>이미징 시나리오
+### <a name="detecting-objects-in-images"></a>이미지에서 개체를 감지합니다.
 
-### <a name="a-simple-example-image-tagging"></a>간단한 예: 이미지 태그 지정
+다음 예제는 인식 기능을 사용하여 이미지에 있는 개체를 감지하는 방법을 보여줍니다.
 
-다음 예제는 이미지에 있는 개체를 감지하기 위한 이미징 기능의 종단 간 사용을 보여줍니다.
+```
+REFERENCE ASSEMBLY ImageCommon;
+REFERENCE ASSEMBLY FaceSdk;
+REFERENCE ASSEMBLY ImageEmotion;
+REFERENCE ASSEMBLY ImageTagging;
+REFERENCE ASSEMBLY ImageOcr;
 
-    REFERENCE ASSEMBLY ImageCommon;
-    REFERENCE ASSEMBLY FaceSdk;
-    REFERENCE ASSEMBLY ImageEmotion;
-    REFERENCE ASSEMBLY ImageTagging;
-    REFERENCE ASSEMBLY ImageOcr;
+// Get the image data
 
-    @imgs =
-        EXTRACT FileName string, ImgData byte[]
-        FROM @"/images/{FileName:*}.jpg"
-        USING new Cognition.Vision.ImageExtractor();
+@imgs =
+    EXTRACT 
+        FileName string, 
+        ImgData byte[]
+    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
+    USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
-    @objects =
-        PROCESS @imgs 
-        PRODUCE FileName,
-                NumObjects int,
-                Tags string
-        READONLY FileName
-        USING new Cognition.Vision.ImageTagger();
+//  Extract the number of objects on each image and tag them 
 
+@tags =
+    PROCESS @imgs 
+    PRODUCE FileName,
+            NumObjects int,
+            Tags SQL.MAP<string, float?>
+    READONLY FileName
+    USING new Cognition.Vision.ImageTagger();
 
-### <a name="extract-emotions-from-human-faces"></a>사람 얼굴에서 감정을 추출합니다. 
+@tags_serialized =
+    SELECT FileName,
+           NumObjects,
+           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
+    FROM @tags;
 
-    @emotions =
-        PROCESS @imgs
-        PRODUCE FileName string,
-                NumFaces int,
-                Emotion string
-        READONLY FileName
-        USING new Cognition.Vision.EmotionAnalyzer();
+OUTPUT @tags_serialized
+    TO "/tags.csv"
+    USING Outputers.Csv();
+```
+더 많은 예제는 **다음 단계** 섹션의 **U-SQL/인식 샘플**을 참조하세요.
 
-### <a name="estimate-age-and-gender-for-human-faces"></a>사람 얼굴에서 연령 및 성별을 예측합니다.
-
-    @faces = 
-            PROCESS @imgs
-            PRODUCE FileName,
-                    NumFaces int,
-                    FaceAge string,
-                    FaceGender string
-            READONLY FileName
-            USING new Cognition.Vision.FaceDetector();
-
-### <a name="detect-text-in-images-ocr"></a>이미지 (OCR)에 있는 텍스트를 감지합니다.
-
-    @ocrs =
-            PROCESS @imgs
-            PRODUCE FileName,
-                    Text string
-            READONLY FileName
-            USING new Cognition.Vision.OcrExtractor();
-
-## <a name="text-scenarios"></a>텍스트 시나리오
-
-### <a name="input-data"></a>데이터 입력
-
-레프 톨스토이의 "전쟁과 평화"로 구성된 입력이 있다고 가정합니다.
-
-    REFERENCE ASSEMBLY [TextCommon];
-    REFERENCE ASSEMBLY [TextSentiment];
-    REFERENCE ASSEMBLY [TextKeyPhrase];
-
-    @WarAndPeace =
-        EXTRACT No int,
-                Year string,
-                Book string,
-                Chapter string,
-                Text string
-        FROM @"/usqlext/samples/cognition/war_and_peace.csv"
-        USING Extractors.Csv();
-
-### <a name="extract-key-phrases-for-each-paragraph"></a>각 단락에 대한 핵심 문구를 추출합니다.
-
-    @keyphrase =
-        PROCESS @WarAndPeace
-        PRODUCE No,
-                Year,
-                Book,
-                Chapter,
-                Text,
-                KeyPhrase string
-        READONLY No,
-                Year,
-                Book,
-                Chapter,
-                Text
-        USING new Cognition.Text.KeyPhraseExtractor();
-
-    // Tokenize the key phrases.
-    @kpsplits =
-        SELECT No,
-            Year,
-            Book,
-            Chapter,
-            Text,
-            T.KeyPhrase
-        FROM @keyphrase
-            CROSS APPLY
-                new Cognition.Text.Splitter("KeyPhrase") AS T(KeyPhrase);
-    
-### <a name="perform-sentiment-analysis-on-each-paragraph"></a>각 단락에서 감정 분석을 수행합니다.
-
-    @sentiment =
-        PROCESS @WarAndPeace
-        PRODUCE No,
-                Year,
-                Book,
-                Chapter,
-                Text,
-                Sentiment string,
-                Conf double
-        READONLY No,
-                Year,
-                Book,
-                Chapter,
-                Text
-        USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+## <a name="next-steps"></a>다음 단계
+* [U-SQL/인식 샘플](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
+* [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 649cc1a78f3a9f343533cb18fb7d763e4f9ea196
 ms.openlocfilehash: 89fa04a1107b6abb49aefd68066443717ac9b731
-ms.lasthandoff: 02/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-visual-studio-docker-development"></a>Visual Studio Docker 개발 문제 해결
 
 Visual Studio Tools for Docker 미리 보기로 작업하는 경우 미리 보기의 특성으로 인해 몇 가지 문제가 발생할 수도 있습니다.
@@ -147,4 +145,3 @@ docker info
     ```
 1. Visual Studio를 엽니다.
 1. 시나리오를 다시 시도합니다.
-

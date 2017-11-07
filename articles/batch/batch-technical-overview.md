@@ -12,15 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch를 사용하여 본질적인 병렬 워크로드 실행
 
@@ -47,7 +46,7 @@ Azure 배치를 사용하면 Azure 계산 리소스를 쉽게 정의하여 응�
 
 또한 배치는 끝에 감소 단계가 있는 병렬 계산 및 [MPI(메시지 전달 인터페이스)](batch-mpi.md) 응용 프로그램 등 보다 복잡한 HPC 워크로드를 수행할 수 있습니다.
 
-Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔루션](batch-hpc-solutions.md)을 참조하세요.
+Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [HPC, 배치 및 큰 계산 솔루션](../virtual-machines/linux/high-performance-computing.md)을 참조하세요.
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
@@ -87,4 +86,3 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-

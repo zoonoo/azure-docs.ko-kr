@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure 주문형 미디어 인코더를 대략�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4d35bdd88998d30435e9e5e916a18b3ce3bc7978
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교
 ## <a name="encoding-overview"></a>인코딩 개요
@@ -97,4 +96,3 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

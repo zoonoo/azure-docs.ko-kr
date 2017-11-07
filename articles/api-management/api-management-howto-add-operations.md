@@ -3,7 +3,7 @@ title: "Azure API 관리에서 API에 작업을 추가하는 방법 | Microsoft 
 description: "Azure API 관리에서 API에 작업을 추가하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: d8b2f91a4d47513572fc5a56c60524d8338c8df4
-ms.openlocfilehash: 4527e27f760a7a0685f92a7108c4e8ff9759d33c
-
-
+ms.openlocfilehash: 8b047c0826590d1cb6a79a2f14ca07764dc2b409
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Azure API 관리에서 API에 작업을 추가하는 방법
 API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다. 이 가이드에서는 API 관리에서 다양한 유형의 작업을 API에 추가하고 구성하는 방법을 보여 줍니다.
@@ -169,9 +169,3 @@ API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다.
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

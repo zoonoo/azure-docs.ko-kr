@@ -28,19 +28,15 @@
     그러면 푸시 처리기 서비스 프로세스에서 모바일 클라이언트 인스턴스에 액세스할 수 있습니다.
 4. **MobileServiceClient**가 만들어지고 나면 다음 코드를 **OnCreate** 메서드에 추가합니다.
    
-     // TodoActivity의 현재 인스턴스를 설정합니다.
-     instance = this;
+       // Set the current instance of TodoActivity.
+       instance = this;
    
-     // GCM 클라이언트가 제대로 설정되었는지 확인합니다.
-     GcmClient.CheckDevice(this); GcmClient.CheckManifest(this);
+       // Make sure the GCM client is set up correctly.
+       GcmClient.CheckDevice(this);
+       GcmClient.CheckManifest(this);
    
-     // 푸시 알림을 위해 앱을 등록합니다.
-     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
+       // Register the app for push notifications.
+       GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 이제 **ToDoActivity** 이 푸시 알림 추가를 위해 준비됩니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

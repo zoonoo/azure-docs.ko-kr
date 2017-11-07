@@ -1,6 +1,4 @@
-## <a name="create-a-service-namespace"></a>서비스 네임스페이스 만들기
-
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 
+Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 네임스페이스를 만들려면
 
@@ -16,6 +14,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페�
 8. **만들기**를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
 ### <a name="obtain-the-management-credentials"></a>관리 자격 증명 얻기
+새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 정기적으로 보낸 사람과 받는 사람을 위해 제한된 권한을 사용하여 추가 규칙을 만드는 방법은 [Service Bus 인증 및 권한 부여](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md)를 참조하세요. 초기 규칙을 복사하려면 다음 단계를 수행합니다. 
+
 1. 네임스페이스 목록에서 새로 만든 네임스페이스 이름을 클릭합니다.
 2. 네임스페이스 블레이드에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 블레이드에서 **RootManageSharedAccessKey**를 클릭합니다.
@@ -25,7 +25,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페�
    
     ![connection-string][connection-string]
 
-5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 임시 위치에 복사 및 붙여넣기합니다.
+5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 임시 위치에 복사 및 붙여넣습니다.
 
 <!--Image references-->
 
@@ -33,7 +33,3 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페�
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 [Azure portal]: https://portal.azure.com
-
-<!--HONumber=Feb17_HO2-->
-
-

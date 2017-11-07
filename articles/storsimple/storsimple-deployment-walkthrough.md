@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
-
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>온-프레미스 StorSimple 장치 배포
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 |  | | |
 | **NTP** |NTP 서버가 입력되는 즉시 시간 동기화를 트리거합니다. `time.windows.com` 또는 공용 시간 서버를 입력할 때 UDP 포트 123이 열려 있는지 확인합니다. |[이 스크립트를 다운로드하고 사용합니다](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 |  | | |
-| **프록시(선택 사항)** |유효한 프록시 URI 및 포트입니까? </br>  인증 모드가 올바릅니까? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
+| **프록시(선택 사항)** |유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
 | &nbsp; |트래픽이 프록시를 통해 라우팅할 수 있습니까? |장치의 프록시 구성 후 DNS 유효성 검사, NTP 확인 또는 HTTP 검사를 실행합니다. 트래픽이 프록시 또는 다른 곳에서 차단된 경우 명확한 그림을 제공합니다. |
 |  | | |
 | **등록** |아웃바운드 TCP 포트 443, 80, 9354가 열려 있는지 확인합니다. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection cmdlet에 대한 자세한 내용](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -239,7 +239,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 StorSimpl
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 저장소 계정 구성
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure 저장소 계정이 필요합니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
 
 **StorSimple 관리자 서비스** 페이지의 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
@@ -282,10 +282,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 ## <a name="next-steps"></a>다음 단계
 * [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 * [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx) 를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

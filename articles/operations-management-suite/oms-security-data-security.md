@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Operations Management Suite 보안 및 감사 솔루션 데이터 보안
 고객이 위협을 방지, 감지하고 위협에 응답할 수 있도록 하려면 [OMS(Operations Management Suite) 보안 및 감사 솔루션](operations-management-suite-overview.md)에서는 다음을 포함하여 리소스에 대한 데이터를 수집하고 처리합니다.
@@ -59,5 +58,4 @@ OMS 보안 및 감사 솔루션에서는 OMS 에이전트가 설치되어 있는
 * [OMS(Operations Management Suite) 개요](operations-management-suite-overview.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
-
 

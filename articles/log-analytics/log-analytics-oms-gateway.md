@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 10/17/2017
 ms.author: magoedte;banders
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 93d653c4e70dd058cf0408d821724a175256c918
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 OMS에 컴퓨터 연결
 
 이 문서에서는 OMS 관리 컴퓨터와 SCOM(System Center Operations Manager) 모니터링 컴퓨터가 인터넷에 액세스 할 수 없는 경우 OMS 서비스로 데이터를 보낼 수 있는 방법에 대해 설명합니다. HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하여 이러한 컴퓨터를 대신하여 OMS 서비스로 보낼 수 있습니다.  
 
 OMS 게이트웨이는 다음을 지원합니다.
 
-1. Azure 자동화 Hybrid Runbook Worker  
-2. OMS 작업 영역에 직접 연결된 Microsoft 모니터링 에이전트가 있는 Windows 컴퓨터
-3. OMS와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함) 또는 Operations Manager 2016 관리 그룹  
+* Azure 자동화 Hybrid Runbook Worker  
+* OMS 작업 영역에 직접 연결된 Microsoft 모니터링 에이전트가 있는 Windows 컴퓨터
+* OMS 작업 영역에 직접 연결된 Linux용 OMS 에이전트가 있는 Linux 컴퓨터  
+* OMS와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함) 또는 Operations Manager 2016 관리 그룹  
 
 IT 보안 정책에 따라 POS(Point of Sale) 장치 또는 IT 서비스를 지원하는 서버와 같이 네트워크의 컴퓨터에서 인터넷에 연결할 수 없지만 이 장치들을 관리하고 모니터링하기 위해 OMS에 연결해야 하는 경우, OMS 게이트웨이와 직접 통신하여 구성을 수신하고 이 장치들을 대신하여 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 OMS 에이전트와 함께 구성되어 OMS 작업 영역에 직접 연결하면 모든 컴퓨터에서 OMS 에이전트를 통해 OMS 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 OMS로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
 
@@ -47,13 +47,14 @@ OMS 게이트웨이 소프트웨어를 실행하는 컴퓨터에 OMS 에이전�
 
 다음 다이어그램에서는 Operations Manager 관리 그룹에서 OMS로의 데이터 흐름을 보여 줍니다.   
 
-![OMS와 Operations Manager의 통신 다이어그램](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
+![OMS와 Operations Manager의 통신 다이어그램](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
 OMS 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴퓨터에는 다음 항목이 있어야 합니다.
 
-* Windows 10, Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 또는 Windows Server 2008 운영 체제
+* Windows 10, Windows 8.1, Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * 최소 4코어 프로세서 및 8GB 메모리 
 
@@ -77,6 +78,9 @@ OMS 게이트웨이는 다음 언어로 제공됩니다.
 - 포르투갈어(포르투갈)
 - 러시아어
 - 스페인어 (국제)
+
+### <a name="supported-encryption-protocols"></a>지원되는 암호화 프로토콜
+OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합니다.  SSL(Secure Sockets Layer)은 지원하지 않습니다.
 
 ## <a name="download-the-oms-gateway"></a>OMS 게이트웨이 다운로드
 
@@ -106,7 +110,7 @@ OMS 게이트웨이 설치 파일을 가져오는 방법에는 세 가지가 있
    1. 게이트웨이에 사용될 TCP 포트 번호를 입력합니다. 설치 프로그램에서 Windows 방화벽의 인바운드 규칙을 이 포트 번호로 구성합니다.  기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
    2. 필요에 따라 게이트웨이가 설치되어 있는 서버에서 프록시를 통해 통신해야 하는 경우 게이트웨이에서 연결해야 하는 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`  비워 두면 게이트웨이에서 인터넷에 직접 연결을 시도합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.<br><br> ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. **다음**을 클릭합니다.
+   3. **다음**을 누릅니다.
 5. Microsoft 업데이트를 사용할 수 없는 경우 이를 사용하도록 설정할 수 있는 [Microsoft 업데이트] 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 6. **대상 폴더** 페이지에서 C:\Program Files\OMS Gateway 기본 폴더를 그대로 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
 7. **설치 준비 완료** 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되어 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
@@ -209,13 +213,13 @@ OMS에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는
 
 컴퓨터에서 업데이트 관리 솔루션을 사용하여 패치를 위해 Hybrid Runbook Worker로 자동으로 등록된 경우 다음 단계를 수행합니다.
 
-1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 OMS 게이트웨이 서비스를 다시 시작합니다.
 
 컴퓨터가 Hybrid Runbook Worker 등록 cmdlet을 사용하여 Azure Automation에 등록된 경우 다음 단계를 수행합니다.
 
 1. 에이전트 서비스 등록 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. OMS 게이트웨이 서비스를 다시 시작합니다.
     `Restart-Service OMSGatewayService`
 
@@ -230,18 +234,18 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 
 3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. *C:\Program Files\Microsoft OMS Gateway\PowerShell* 게이트웨이 설치 경로에서 해당 모듈을 찾을 수 있습니다.
 
-| **Cmdlet** | **매개 변수** | **설명** | **예** |
-| --- | --- | --- | --- |
-| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
-| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |주소 <br> 사용자 이름 <br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. 릴레이 프록시 설정 지우기 즉, 릴레이 프록시 필요 없음: `Set-OMSGatewayRelayProxy -Address ""` |
-| `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |
-| `Add-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에 추가 |`Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에서 제거 |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |현재 허용된 호스트 가져오기(로컬로 구성되어 허용된 호스트만, 자동으로 다운로드되어 허용된 호스트는 포함되지 않음) |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에 추가 |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Remove-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에서 제거 |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬로 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함되지 않음) |`Get-OMSGatewayAllowedClientCertificate` |
+| **Cmdlet** | **매개 변수** | **설명** | **예제** |
+| --- | --- | --- | --- |  
+| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |현재 허용된 호스트 가져오기(로컬로 구성되어 허용된 호스트만, 자동으로 다운로드되어 허용된 호스트는 포함되지 않음) |`Get-OMSGatewayAllowedHost` | 
+| `Add-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에 추가 |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에서 제거 |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에 추가 |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에서 제거 |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬로 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함되지 않음) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>문제 해결
 게이트웨이에서 기록한 이벤트를 수집하려면 OMS 에이전트도 설치해야 합니다.<br><br> ![이벤트 뷰어 – OMS 게이트웨이 로그](./media/log-analytics-oms-gateway/event-viewer.png)
@@ -263,7 +267,7 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 | 104 |HTTP CONNECT 명령이 아님 |
 | 105 |대상 서버가 허용 목록에 없거나 대상 포트가 보안 포트(443)가 아님 <br> <br> 게이트웨이 서버의 MMA 에이전트 및 게이트웨이와 통신하는 에이전트는 동일한 Log Analytics 작업 영역에 연결되어야 합니다. |
 | 105 |ERROR TcpConnection – 클라이언트 인증서가 잘못됨: CN=Gateway <br><br> 다음 사항을 확인합니다. <br>    <br> &#149; 버전 번호가 1.0.395.0 이상인 게이트웨이를 사용 중입니다. <br> &#149; 게이트웨이 서버의 MMA 에이전트 및 게이트웨이와 통신하는 에이전트가 동일한 Log Analytics 작업 영역에 연결되어 있습니다. |
-| 106 |TLS 세션이 의심스럽고 거부되는 모든 이유 |
+| 106 |OMS 게이트웨이는 TLS 1.0, TLS 1.1 및 1.2만 지원합니다.  SSL은 지원하지 않습니다. 지원되지 않는 TLS/SSL 프로토콜 버전의 경우 OMS 게이트웨이는 이벤트 ID 106을 생성합니다.|
 | 107 |TLS 세션이 확인됨 |
 
 **수집할 성능 카운터**
@@ -288,5 +292,4 @@ Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azur
 [Microsoft Azure 피드백 포럼](https://feedback.azure.com/forums/267889)에 OMS 또는 Log Analytics에 대한 피드백을 남길 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터 원본을 추가](log-analytics-data-sources.md)하여 OMS 작업 영역의 연결된 원본에서 데이터를 수집하고 OMS 리포지토리에 저장합니다.
-
+* [데이터 원본을 추가](log-analytics-data-sources.md)하여 Log Analytics 작업 영역의 연결된 원본에서 데이터를 수집하고 Log Analytics 리포지토리에 저장합니다.

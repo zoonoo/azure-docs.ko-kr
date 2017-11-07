@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
-
-
+ms.openlocfilehash: 4c55b116c0dc080ae316caca873a7b693caa793b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft 클라우드 독일의 Azure AD Connect - 공개 미리 보기
 ## <a name="introduction"></a>소개
@@ -35,8 +35,7 @@ Azure AD Connect는 온-프레미스 Active Directory와 Azure Active Directory 
 * 사용할 수 없는 기능은 다음과 같습니다.
   * Azure AD Connect Health
   * 자동 업데이트
-  * 비밀번호 쓰기 저장
-
+ 
 ## <a name="download"></a>다운로드
 포털 내의 Azure AD Connect 블레이드에서 Azure AD Connect를 다운로드할 수 있습니다.  아래 지침을 사용하여 Azure AD Connect 블레이드를 찾을 수 있습니다.
 
@@ -64,10 +63,4 @@ Azure AD Connect를 설치하려면 [여기](active-directory-aadconnect.md#inst
 
 ## <a name="advanced-features-and-additional-information"></a>고급 기능 및 추가 정보
 사용자 지정 설정이나 고급 구성에 대한 추가 정보 및 지침은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 시작하세요.  이 페이지는 추가 지침에 대한 정보 및 링크를 제공합니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

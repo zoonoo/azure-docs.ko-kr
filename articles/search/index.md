@@ -2,7 +2,7 @@
 title: "Azure Search 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "작업 모니터링을 포함하는 강력한 검색 기능을 사용자 지정 웹 또는 모바일 응용 프로그램에 추가하는 방법에 대해 알아봅니다. API, 참조 및 기타 설명서입니다."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: d8bf549455e427549a81ff5476a00cdfb836b5ff
-ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
-
+ms.openlocfilehash: 9debfb5c55332836ff721aae08c7d45c811444f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-documentation"></a>Azure Search 설명서
 
@@ -142,8 +143,8 @@ ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET(관리)</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET(관리)</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python(관리)</a></p>
                    </div>
                 </div>
@@ -164,11 +165,5 @@ ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

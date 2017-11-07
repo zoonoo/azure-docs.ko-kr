@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
-ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
-
-
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>자습서: Halosys와 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에 `https://<company-name>.Halosys.com/client-api/api` 패턴을 사용하여 사용자가 Halosys 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
-    b.**식별자 URL** 텍스트 상자에 `https://<company-name>.Halosys.com` 패턴으로 URL을 입력합니다.    
+    b.**식별자 URL** 텍스트 상자에 `https://<company-name>.Halosys.com` 패턴으로 URL을 입력합니다.   
          
 4. **Halosys에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 파일을 저장합니다.
 
@@ -168,13 +168,13 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
 
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **다음**을 누릅니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
 
@@ -264,9 +264,3 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 08/10/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: e1e81ad1d7b4fe0e044917f090cac59dfd5b6332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-use-service-bus-queues"></a>서비스 버스 큐를 사용하는 방법
+# <a name="how-to-use-service-bus-queues-with-python"></a>Python에서 Service Bus 큐를 사용하는 방법
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure Service Bus 패키지][Python Azure Service Bus package]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
@@ -51,13 +51,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-SAS 키 이름 및 값에 대한 값은 [Azure 클래식 포털][Azure classic portal] 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 Service Bus 네임스페이스 선택)에서 확인할 수 있습니다.
+SAS 키 이름 및 값에 대한 값은 [Azure Portal][Azure portal] 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 Service Bus 네임스페이스 선택)에서 확인할 수 있습니다.
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue**는 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 큐 크기 등 기본 큐 설정을 재정의할 수 있습니다. 다음은 최대 큐 크기를 5GB로, TTL 값을 1분으로 설정하는 예제입니다.
+`create_queue`는 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 큐 크기 등 기본 큐 설정을 재정의할 수 있습니다. 다음은 최대 큐 크기를 5GB로, TTL 값을 1분으로 설정하는 예제입니다.
 
 ```python
 queue_options = Queue()
@@ -68,9 +68,9 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## <a name="send-messages-to-a-queue"></a>큐에 메시지 보내기
-Service Bus 큐에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 **send\_queue\_message** 메서드를 호출합니다.
+Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusService** 개체에 대해 `send_queue_message` 메서드를 호출합니다.
 
-다음 예제에서는 **send\_queue\_message**를 사용하여 *taskqueue*라는 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
+다음 예제에서는 `send_queue_message`를 사용하여 `taskqueue`라는 큐에 테스트 메시지를 보내는 방법을 보여줍니다.
 
 ```python
 msg = Message(b'Test Message')
@@ -80,18 +80,18 @@ bus_service.send_queue_message('taskqueue', msg)
 Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus quotas]을 참조하세요.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
-**ServiceBusService** 개체의 **receive\_queue\_message** 메서드를 사용하여 큐에서 메시지를 받습니다.
+**ServiceBusService** 개체의 `receive_queue_message` 메서드를 사용하여 큐에서 메시지를 받습니다.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-**peek\_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 큐에서 해당 메시지가 삭제됩니다. **peek\_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
+`peek_lock` 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 큐에서 해당 메시지가 삭제됩니다. `peek_lock` 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
 받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
-**peek\_lock** 매개 변수를 **True**로 설정하면 수신은&2;단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
+`peek_lock` 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -112,9 +112,8 @@ msg.delete()
 
 * [큐, 토픽 및 구독][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
 

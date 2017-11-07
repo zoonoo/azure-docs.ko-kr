@@ -3,7 +3,7 @@ title: "SQL Data Warehouse의 임시 테이블 | Microsoft Docs"
 description: "Azure SQL 데이터 웨어하우스에서 임시 테이블로 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
@@ -12,23 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: fd8c31a727dae3b011aa8294a81f005bad72a278
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 임시 테이블
 > [!div class="op_single_selector"]
-> * [개요][개요]
-> * [데이터 형식][데이터 형식]
-> * [배포][배포]
-> * [Index][Index]
-> * [파티션][파티션]
-> * [통계][통계]
-> * [임시][임시]
+> * [개요][Overview]
+> * [데이터 형식][Data Types]
+> * [배포][Distribute]
+> * [인덱스][Index]
+> * [파티션][Partition]
+> * [통계][Statistics]
+> * [임시][Temporary]
 > 
 > 
 
@@ -231,26 +232,20 @@ DROP TABLE #stats_ddl;
 임시 테이블을 구현하는 경우 SQL 데이터 웨어하우스는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세히 알아보려면 [테이블 개요][개요], [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 인덱싱][Index], [테이블 분할][파티션] 및 [테이블 통계 유지 관리][통계]에 대한 문서를 참조하세요.  모범 사례에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+자세히 알아보려면 [테이블 개요][Overview], [테이블 데이터 형식][Data Types], [테이블 배포][Distribute],  [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [테이블 통계 유지 관리][Statistics]에 대한 문서를 참조하세요.  모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개요]: ./sql-data-warehouse-tables-overview.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

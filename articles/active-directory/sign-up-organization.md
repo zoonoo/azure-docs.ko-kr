@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
-ms.lasthandoff: 11/17/2016
-
-
+ms.reviewer: jeffsta
+ms.custom: it-pro
+ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>조직으로 Azure 등록
 얼마 전까지만 해도 Microsoft 계정(Windows Live ID)을 사용해서만 새 Microsoft Azure 구독에 등록할 수 있었습니다. 이제 Azure에서는 다음 두 계정 방법 중 하나를 사용하여 등록할 수 있습니다.
@@ -35,5 +36,4 @@ ms.lasthandoff: 11/17/2016
 * [Microsoft Azure 블로그](https://azure.microsoft.com/blog/)
 * [Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
-
 

@@ -3,8 +3,8 @@ title: "저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage �
 description: "저장소 탐색기(미리 보기)를 사용하여 Azure Blob 컨테이너 및 Blobs 관리"
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f779106e8ca79260c8abba070586e3f03ffa61e9
-
-
+ms.author: cawa
+ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기)를 사용하여 Blob 저장소 리소스 관리
 ## <a name="overview"></a>개요
-[Azure Blob Storage](storage/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
+[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
 Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 저장소 탐색기(미리 보기)를 사용하여 blob 컨테이너 및 blob 작업을 하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -41,7 +41,7 @@ Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 
 3. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기**를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기][0]
-4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항 목록은 [컨테이너 이름 명명 규칙](storage/storage-dotnet-how-to-use-blobs.md#create-a-container) 섹션을 참조하세요.
+4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항 목록은 [컨테이너 이름 명명 규칙](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) 섹션을 참조하세요.
 
    ![Blob 컨테이너 텍스트 상자 만들기][1]
 5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 저장소 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
@@ -96,7 +96,7 @@ Blob 컨테이너는 blob 및 폴더(blob도 포함할 수 있음)를 포함하�
    ![Blob 컨테이너 상황에 맞는 메뉴 붙여넣기][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Blob 컨테이너에 대한 SAS 가져오기
-[SAS(공유 액세스 서명)](storage/storage-dotnet-shared-access-signature-part-1.md)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.
+[SAS(공유 액세스 서명)](storage/common/storage-dotnet-shared-access-signature-part-1.md)는 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.
 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
 
 다음 단계에서는 Blob 컨테이너에 대한 SAS를 만드는 방법을 보여 줍니다.
@@ -174,7 +174,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      2. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다.
 
         ![파일 옵션 업로드][16]
-     3. **Blob 유형**을 지정합니다. [.NET을 사용하여 Azure Blob 저장소 시작](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 문서는 다양한 Blob 유형 간의 차이점을 설명합니다.
+     3. **Blob 유형**을 지정합니다. [.NET을 사용하여 Azure Blob 저장소 시작](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 문서는 다양한 Blob 유형 간의 차이점을 설명합니다.
      4. 필요에 따라 선택한 파일을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **Blob 컨테이너에 폴더 업로드**
@@ -185,7 +185,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      2. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
 
         ![폴더 옵션 업로드][18]
-     3. **Blob 유형**을 지정합니다. [.NET을 사용하여 Azure Blob 저장소 시작](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 문서는 다양한 Blob 유형 간의 차이점을 설명합니다.
+     3. **Blob 유형**을 지정합니다. [.NET을 사용하여 Azure Blob 저장소 시작](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 문서는 다양한 Blob 유형 간의 차이점을 설명합니다.
      4. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
      5. **업로드**를 선택합니다.
    * **로컬 컴퓨터에 blob 다운로드**
@@ -235,9 +235,3 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 [17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

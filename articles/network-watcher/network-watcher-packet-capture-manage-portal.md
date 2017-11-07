@@ -3,7 +3,7 @@ title: "Azure Network Watcher를 사용하여 패킷 캡처 관리 - Azure Porta
 description: "이 페이지에서는 Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 915901ee24d2427ea020db48370790e8ddca6d54
-ms.lasthandoff: 04/03/2017
-
+ms.author: jdial
+ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
 > [!div class="op_single_selector"]
 > - [Azure 포털](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI](network-watcher-packet-capture-manage-cli.md)
-> - [REST API](network-watcher-packet-capture-manage-rest.md)
+> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽을 추적하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다. 이 기능은 원격으로 패킷 캡처를 트리거할 수 있게 하여 원하는 컴퓨터에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다.
 
@@ -86,7 +86,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 - **로컬 파일 경로** - 패킷 캡처를 저장할 가상 컴퓨터의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.
 - **패킷당 최대 바이트** - 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다.
 - **세션당 최대 바이트** - 값이 패킷 캡처 종료일에 도달한 후 캡처된 총 바이트 수입니다.
-- **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 1800초입니다.
+- **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 18000초입니다.
 
 > [!NOTE]
 > Premium Storage 계정에서는 패킷 캡처 저장이 현재 지원되지 않습니다.
@@ -146,7 +146,6 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 [3]: ./media/network-watcher-packet-capture-manage-portal/figure3.png
 [4]: ./media/network-watcher-packet-capture-manage-portal/figure4.png
 [agent]: ./media/network-watcher-packet-capture-manage-portal/agent.png
-
 
 
 

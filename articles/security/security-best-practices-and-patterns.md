@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.lasthandoff: 03/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
 현재 다음과 같은 Azure 보안 모범 사례 및 패턴 문서가 있습니다. Azure 보안 모범 사례 및 패턴과 관련하여 늘어가는 목록이 업데이트되는 것을 보려면 이 사이트를 정기적으로 방문하도록 합니다.  
@@ -48,4 +47,3 @@ Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합�
 * 해당 모범 사례를 사용하는 방법을 알아보는 방법
 
 Azure 보안 아키텍처 및 모범 사례에 대한 많은 문서를 갖추려고 합니다. 추가할 항목이 있으시면 이 페이지의 아래쪽에 있는 토론 영역에서 알려주세요.
-

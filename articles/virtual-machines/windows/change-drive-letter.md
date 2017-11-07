@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/31/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e3c97fdc9d4c69e2d67744798bc0b47d21b08ddf
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
 응용 프로그램에서 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브 문자를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 디스크를 사용하지 마세요.
@@ -29,13 +28,8 @@ ms.lasthandoff: 03/31/2017
 
 Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 ## <a name="attach-the-data-disk"></a>데이터 디스크 연결
-우선 가상 컴퓨터에 데이터 디스크를 연결해야 합니다. 
-
-* 포털을 사용하려면 [Azure Portal에서 데이터 디스크를 연결하는 방법](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-* 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 
+우선 가상 컴퓨터에 데이터 디스크를 연결해야 합니다. 포털을 사용하여 이를 수행하려면 [Azure Portal에서 관리되는 데이터 디스크를 연결하는 방법](attach-managed-disk-portal.md)을 참조하세요.
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>pagefile.sys를 C 드라이브로 임시 이동
 1. 가상 컴퓨터에 연결합니다. 
@@ -69,6 +63,5 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 9. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [추가 데이터 디스크를 연결](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
-
+* [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
 

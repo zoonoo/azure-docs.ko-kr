@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2bba3084a27186a2d6f728d6030ec9fa8afd0658
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 6955e3d8c7b032ee898be11e611080905b5069ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
-Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.  
+Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Azure 진단 확장을 가상 컴퓨터 정의에 추가
 Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 진단 확장을 리소스 관리자 템플릿에 VM 리소스로 추가해야 합니다.
@@ -73,7 +72,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
 *publisher* 속성의 값이 **Microsoft.Azure.Diagnostics**이고 *type* 속성의 값이 **IaaSDiagnostics**이면, Azure 진단 확장이 고유하게 식별됩니다.
 
-*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**는 Azure 클래식 포털에 의해 쉽게 식별할 수 있게 해줍니다. 이 포털은 Azure 클래식 포털에서 모니터링 차트를 올바르게 나타내줍니다.
+*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**로 설정하면 Azure Portal에서 모니터링 차트가 올바르게 표시되도록 Azure Portal에서 쉽게 식별할 수 있습니다.
 
 *typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신의 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다. 
 
@@ -167,7 +166,6 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 
 ## <a name="next-steps"></a>다음 단계
 * 진단 확장을 포함하는 Windows 가상 컴퓨터의 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* [Azure PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure 명령줄](../linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Resource Manager 템플릿 배포
+* [Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Azure 명령줄](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Resource Manager 템플릿 배포
 * [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md)
-
 

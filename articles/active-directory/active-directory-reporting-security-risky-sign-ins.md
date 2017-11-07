@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 포털 – 미리 보기의 위험한 로그인 보고서 | Microsoft Docs"
-description: "Azure Active Directory 포털 – 미리 보기의 위험한 로그인 보고서에 대해 알아보기"
+title: "Azure Active Directory 포털의 위험한 로그인 보고서 | Microsoft Docs"
+description: "Azure Active Directory 포털의 위험한 로그인 보고서에 대해 알아보기"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 08/24/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory 포털 – 미리 보기의 위험한 로그인 보고서
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
 
-Azure Active Directory [미리 보기](active-directory-preview-explainer.md)의 보안 보고를 사용하여 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. 
+Azure Active Directory(Azure AD)에서 보안 보고를 통해 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. 
 
-Azure Active Directory는 사용자 계정에 관련된 의심스러운 작업을 감지합니다. 작업이 감지된 경우 *위험 이벤트*라는 레코드가 만들어집니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요. 
+Azure AD는 사용자 계정에 관련된 의심스러운 작업을 감지합니다. 작업이 감지된 경우 *위험 이벤트*라는 레코드가 만들어집니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요. 
 
 감지된 위험 이벤트를 계산하는 데 사용합니다.
 
@@ -31,14 +31,27 @@ Azure Active Directory는 사용자 계정에 관련된 의심스러운 작업�
 
 - **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 [위험 플래그가 지정된 사용자](active-directory-identityprotection.md#users-flagged-for-risk)를 참조하세요.  
 
-Azure Portal의 **보안** 섹션에서 **Azure Active Directory** 블레이드에 대한 보안 보고서를 찾을 수 있습니다. 
+[Azure Portal](https://portal.azure.com)의 **보안** 섹션에서 **Azure Active Directory** 블레이드에 대한 보안 보고서를 찾을 수 있습니다. 
 
 ![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>보안 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?  
+
+모든 Azure Active Directory 버전에서 위험한 로그인 보고서를 제공합니다.  
+그러나 보고서의 세분성 수준은 다음과 같이 버전에 따라 다릅니다. 
+
+- **Azure Active Directory Free 및 Basic 버전**에는 이미 위험 로그인 목록이 있습니다. 
+
+- **Azure Active Directory Premium 1** 버전은 각 보고서에서 검색된 기본 위험 이벤트 중 일부를 검사할 수 있게 함으로써 이 모델을 확장합니다. 
+
+- **Azure Active Directory Premium 2** 버전은 모든 기본 위험 이벤트에 대한 가장 자세한 정보를 제공하며, 구성된 위험 수준에 자동으로 응답하는 보안 정책을 구성할 수도 있습니다.
+
+
+
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 무료 및 기본 버전
 
-Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된 위험한 로그인 목록을 제공합니다. 위험 이벤트 보고서는 다음을 제공합니다.
+Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된 위험한 로그인 목록을 제공합니다. 이 보고서는 다음을 표시합니다.
 
 - **사용자** - 로그인 작업 중에 사용한 사용자의 이름
 - **IP** - Azure Active Directory에 연결하는 데 사용한 장치의 IP 주소
@@ -46,7 +59,6 @@ Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된
 - **로그인 시간** - 로그인을 수행한 시간
 - **상태** - 로그인의 상태
 
-이 보고서는 보고서 데이터를 다운로드하는 옵션을 제공합니다.
 
 ![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -60,6 +72,15 @@ Azure Active Directory 무료 및 기본 버전은 사용자에 대해 감지된
 ![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 자세한 내용은 [수동으로 위험 이벤트 닫기](active-directory-identityprotection.md#closing-risk-events-manually)를 참조하세요.
+
+이 보고서는 다음과 같은 옵션을 제공합니다.
+
+- 리소스 검색
+- 보고서 데이터 다운로드
+
+
+![위험한 로그인](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 
@@ -113,5 +134,4 @@ Azure Active Directory Premium Edition의 위험한 로그인 보고서에 제�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Active Directory ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호](active-directory-identityprotection.md)를 참조하세요.
-
 

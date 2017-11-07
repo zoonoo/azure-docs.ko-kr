@@ -1,10 +1,9 @@
 ---
-
 title: "Azure Network Watcher 문제 해결로 VPN Gateway 모니터링 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation 및 Network Watcher로 온-프레미스 연결을 진단하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -13,15 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
-ms.lasthandoff: 03/29/2017
-
-
+ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
 
 고객에게 안정적인 서비스를 제공하기 위해서는 네트워크 성능에 대해 깊은 통찰력을 얻는 것이 중요합니다. 따라서 네트워크 중단 상태를 신속하게 검색하고 수정 작업을 수행하여 중단 조건을 완화하는 것이 중요합니다. Azure Automation을 사용하면 Runbook을 통해 프로그래밍 방식으로 작업을 구현 및 실행할 수 있습니다. Azure Automation을 사용하면 지속적인 자동 관리 네트워크 모니터링 및 경고를 수행하는 완벽한 작성법이 만들어집니다.
@@ -43,17 +40,18 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 이 시나리오를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.
 
-- Azure에서 Azure Automation 계정.
+- Azure에서 Azure Automation 계정. Automation 계정에 최신 모듈 및 AzureRM.Network 모듈이 있는지 확인합니다. AzureRM.Network 모듈을 Automation 계정에 추가해야 하는 경우 모듈 갤러리에서 해당 모듈을 사용할 수 있습니다.
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
 - Azure Automation에 정의된 유효한 SMTP 서버(Office 365, 온-프레미스 전자 메일 또는 기타) 및 자격 증명
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
+- 로그를 저장할 기존 컨테이너가 포함된 기존 저장소 계정
 
 > [!NOTE]
 > 이전 이미지에 나와 있는 인프라는 설명을 위한 것이며 이 문서에 포함된 단계로는 만들어지지 않습니다.
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)을 참조하세요.
+예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)을 참조하세요.
 
 ### <a name="step-1"></a>1단계
 
@@ -86,14 +84,27 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 다음 코드를 사용하고 **저장**을 클릭합니다.
 
 ```PowerShell
+# Set these variables to the proper values for your environment
+$o365AutomationCredential = "<Office 365 account>"
+$fromEmail = "<from email address>"
+$toEmail = "<to email address>"
+$smtpServer = "<smtp.office365.com>"
+$smtpPort = 587
+$runAsConnectionName = "<AzureRunAsConnection>"
+$subscriptionId = "<subscription id>"
+$region = "<Azure region>"
+$vpnConnectionName = "<vpn connection name>"
+$vpnConnectionResourceGroup = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$storageAccountResourceGroup = "<resource group name>"
+$storageAccountContainer = "<container name>"
+
 # Get credentials for Office 365 account
-$MyCredential = "Office 365 account"
-$Cred = Get-AutomationPSCredential -Name $MyCredential
+$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 
 # Get the connection "AzureRunAsConnection "
-$connectionName = "AzureRunAsConnection"
-$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-$subscriptionId = "<subscription id>"
+$servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
+
 "Logging in to Azure..."
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -103,35 +114,34 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $region }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
-
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName -ResourceGroupName $vpnConnectionResourceGroup
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $storageAccountResourceGroup 
+$storagePath = "$($sa.PrimaryEndpoints.Blob)$($storageAccountContainer)"
+$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath $storagePath
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $body = "Connection for $($connection.name) is: $($result.code) `n$($result.results[0].summary) `nView the logs at $($storagePath) to learn more."
+        Write-Output $body
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
-        -To 'admin@contoso.com' `
+        -To $toEmail `
         -Subject $subject `
-        -Body $Body `
+        -Body $body `
         -UseSsl `
-        -Port 587 `
-        -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -Port $smtpPort `
+        -SmtpServer $smtpServer `
+        -From $fromEmail `
         -BodyAsHtml `
-        -Credential $Cred
+        -Credential $cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
-
-![5단계][5]
 
 ### <a name="step-6"></a>6단계
 
@@ -189,4 +199,3 @@ Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

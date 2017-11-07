@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
-
-
+ms.openlocfilehash: 32ae9949806e0cb762b87cb739f94ddf3704c2ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Power BI를 사용하여 Data Lake 저장소의 데이터 분석
 이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake 저장소에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
@@ -99,10 +99,4 @@ Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게�
 
 ## <a name="see-also"></a>참고 항목
 * [Data Lake 분석을 사용하여 Data Lake 저장소의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

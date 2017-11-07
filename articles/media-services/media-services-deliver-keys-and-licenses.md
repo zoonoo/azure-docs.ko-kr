@@ -4,7 +4,7 @@ description: "이 문서에서는 AMS(Azure 미디어 서비스)를 사용하여
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
-
-
+ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure 미디어 서비스를 사용하여 DRM 라이선스 또는 AES 키 제공
 AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보호 추가 및 콘텐츠를 스트림할 수 있습니다(자세한 내용은 [이](media-services-protect-with-drm.md) 문서 참조). 그러나 라이선스 및/또는 키를 제공하는 데 AMS만 사용하고 온-프레미스 서버를 사용하여 인코딩, 암호화 및 스트리밍을 수행하려는 고객이 있습니다. 이 문서에서는 AMS를 사용하여 PlayReady 및/또는 Widevine 라이선스를 제공하지만 나머지 작업에는 온-프레미스 서버를 사용하여 수행하는 방법을 설명합니다. 
 
 ## <a name="overview"></a>개요
-미디어 서비스는 PlayReady와 Widevine DRM 라이선스 및 AES-128 키를 제공하는 서비스를 제공합니다. 또한 미디어 서비스는 사용자가 DRM 사용권 계약에 따라 보호하는 콘텐츠를 재생할 때 DRM 런타임이 적용하도록 하려는 권한 및 제한을 구성할 수 있는 API도 제공합니다. 사용자가 사용권 계약에 따라 보호하는 콘텐츠를 요청하면 플레이어 응용 프로그램은 AMS 라이선스 서비스에서 라이선스를 요청합니다. 권한이 부여된 경우 AMS 라이선스 서비스는 플레이어에 라이선스를 발급합니다. PlayReady 및 Widevine 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 암호 해독 키가 들어 있습니다.
+Media Services는 PlayReady와 Widevine DRM 라이선스 및 AES-128 키를 제공하는 서비스를 제공합니다. 또한 미디어 서비스는 사용자가 DRM 사용권 계약에 따라 보호하는 콘텐츠를 재생할 때 DRM 런타임이 적용하도록 하려는 권한 및 제한을 구성할 수 있는 API도 제공합니다. 사용자가 사용권 계약에 따라 보호하는 콘텐츠를 요청하면 플레이어 응용 프로그램은 AMS 라이선스 서비스에서 라이선스를 요청합니다. 권한이 부여된 경우 AMS 라이선스 서비스는 플레이어에 라이선스를 발급합니다. PlayReady 및 Widevine 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 암호 해독 키가 들어 있습니다.
 
 미디어 서비스는 라이선스 또는 키를 요청하는 사용자에 권한을 부여하는 여러 방법을 지원합니다. 콘텐츠 키의 권한 부여 정책을 구성하고 정책에는 하나 이상의 제한(열기 제한 또는 토큰 제한)이 있을 수 있습니다. 토큰 제한 정책은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다. 미디어 서비스 지원 토큰에는 간단한 웹 토큰(SWT) 형식 및 JSON 웹 토큰(JWT) 형식의 토큰을 지원합니다.
 
@@ -35,31 +35,34 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 ## <a name="download-sample"></a>샘플 다운로드
 [여기](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)에서 이 문서에 설명된 샘플을 다운로드할 수 있습니다.
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
+
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
+
+    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+
 ## <a name="net-code-example"></a>.NET 코드 예제
-이 토픽의 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. AMS에서 **콘텐츠 키**, **키 id**, **라이선스 취득 URL**과 같은 정보를 가져와서 온-프레미스 서버를 구성해야 합니다. 온-프레미스 서버를 구성하면 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 AMS 라이선스 서버를 가리키므로 플레이어는 AMS에서 라이선스를 요청합니다. 토큰 인증을 선택하면 AMS 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사하고 유효한 경우 플레이어로 라이선스를 다시 제공합니다. (코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 하며 [이](media-services-protect-with-aes128.md) 문서에서 이 작업을 수행하는 방법을 설명합니다).
+
+다음 코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법을 보여 줍니다. AMS에서 **콘텐츠 키**, **키 id**, **라이선스 취득 URL**과 같은 정보를 가져와서 온-프레미스 서버를 구성해야 합니다. 온-프레미스 서버를 구성하면 자체 스트리밍 서버에서 스트림할 수 있습니다. 암호화된 스트림은 AMS 라이선스 서버를 가리키므로 플레이어는 AMS에서 라이선스를 요청합니다. 토큰 인증을 선택하면 AMS 라이선스 서버는 HTTPS를 통해 전송한 토큰의 유효성을 검사하고 유효한 경우 플레이어로 라이선스를 다시 제공합니다. (코드 예제에서는 일반적인 콘텐츠 키를 만들고 PlayReady 또는 Widevine 라이선스 취득 URL을 가져오는 방법만 보여 줍니다. AES-128 키를 제공하려는 경우에는 봉투 콘텐츠 키를 만들고 키 취득 URL을 가져와야 하며 [이](media-services-protect-with-aes128.md) 문서에서 이 작업을 수행하는 방법을 설명합니다).
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
     using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
     using Newtonsoft.Json;
-
 
     namespace DeliverDRMLicenses
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             private static readonly Uri _sampleIssuer =
                 new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -68,16 +71,13 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 bool tokenRestriction = true;
                 string tokenTemplateString = null;
@@ -86,10 +86,10 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                 IContentKey key = CreateCommonTypeContentKey();
 
                 // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ", 
+                Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
-                Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+                Console.WriteLine("PlayReady License Key delivery URL: {0}",
                     key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 
                 Console.WriteLine("Widevine License Key delivery URL: {0}",
@@ -100,7 +100,7 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                 else
                     AddOpenAuthorizationPolicy(key);
 
-                Console.WriteLine("Added authorization policy: {0}", 
+                Console.WriteLine("Added authorization policy: {0}",
                     key.AuthorizationPolicyId);
                 Console.WriteLine();
                 Console.ReadLine();
@@ -112,15 +112,15 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                 // Create ContentKeyAuthorizationPolicy with Open restrictions 
                 // and create authorization policy          
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Open",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-                        Requirements = null
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Open",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+                            Requirements = null
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -155,15 +155,15 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
             {
                 string tokenTemplateString = GenerateTokenRequirements();
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Token Authorization Policy",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-                        Requirements = tokenTemplateString,
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Token Authorization Policy",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+                            Requirements = tokenTemplateString,
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -220,7 +220,7 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                 //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
-                PlayReadyLicenseResponseTemplate responseTemplate = 
+                PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
                 // The PlayReadyLicenseTemplate class represents a license template 
@@ -274,14 +274,14 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                     allowed_track_types = AllowedTrackTypes.SD_HD,
                     content_key_specs = new[]
                     {
-                        new ContentKeySpecs
-                        {
-                            required_output_protection = 
-                                new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                            security_level = 1,
-                            track_type = "SD"
-                        }
-                    },
+                            new ContentKeySpecs
+                            {
+                                required_output_protection =
+                                    new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                                security_level = 1,
+                                track_type = "SD"
+                            }
+                        },
                     policy_overrides = new
                     {
                         can_play = true,
@@ -310,8 +310,6 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
                 return key;
             }
 
-
-
             static private byte[] GetRandomBuffer(int length)
             {
                 var returnValue = new byte[length];
@@ -324,11 +322,8 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 
                 return returnValue;
             }
-
-
         }
     }
-
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -342,10 +337,4 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)
 
 [파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

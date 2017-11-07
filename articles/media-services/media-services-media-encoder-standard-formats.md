@@ -4,7 +4,7 @@ description: "이 항목에서는 미디어 인코더 표준 형식 및 코덱�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/20/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
-
-
+ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 이 문서에는 미디어 인코더 표준에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
@@ -111,10 +111,4 @@ ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
 [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

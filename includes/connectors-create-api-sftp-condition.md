@@ -10,8 +10,3 @@
 6. 오른쪽에서 **값 선택** 을 선택하고 *ExtractMeFirst*를 입력합니다. 이 예제에서 ExtractMeFirst는 압축을 풀어야 하는 보관 파일임을 나타내기 위해 SFTP 폴더에 대해 액세스 권한이 있는 사람이 파일에 있을 것으로 예상하는 값입니다.  
    ![SFTP 조건 이미지 5](./media/connectors-create-api-sftp/condition-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

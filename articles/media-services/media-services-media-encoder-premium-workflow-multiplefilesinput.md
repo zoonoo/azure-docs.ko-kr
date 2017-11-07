@@ -4,7 +4,7 @@ description: "이 항목에서는 setRuntimeProperties를 사용하여 여러 �
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: c789a5518575706992c8719c1927a8566c504fbb
-
-
+ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
@@ -299,7 +299,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 **워크플로 디자이너**를 열고 **파일** > **새 작업 영역** > **청사진 트랜스코딩**을 선택합니다.
 
-새 워크플로는&3;개의 요소를 보여 줍니다.
+새 워크플로는 3개의 요소를 보여 줍니다.
 
 * 기본 원본 파일
 * 클립 목록 XML
@@ -477,9 +477,3 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

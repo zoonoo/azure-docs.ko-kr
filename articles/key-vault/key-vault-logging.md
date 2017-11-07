@@ -3,7 +3,7 @@ title: "Azure Key Vault 로깅 | Microsoft Docs"
 description: "이 자습서를 사용하여 Azure 키 자격 증명 모음 로깅을 시작할 수 있습니다."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
-ms.author: cabailey
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
-
-
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-key-vault-logging"></a>Azure 키 자격 증명 모음 로깅
 Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
@@ -35,11 +34,11 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 이 자습서를 사용하면 저장소 계정을 만들고 로깅을 활성화하고 수집되는 로깅 정보를 해석하는 Azure 키 자격 증명 모음을 시작하는 데 도움이 됩니다.  
 
 > [!NOTE]
-> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는 [이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
-> 
+> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
+>
 > 현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다.
-> 
-> 
+>
+>
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)
 
@@ -47,7 +46,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 사용하고 있는 기존 키 자격 증명 모음  
-* Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
+* Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
 
 ## <a id="connect"></a>구독에 연결
@@ -66,11 +65,11 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> 이 과정은 중요한 단계이며 사용자 계정에 여러 구독이 연결된 경우 특히 유용합니다. 이 단계를 건너뛰면 Microsoft.Insights를 등록하는 데 오류가 발생할 수 있습니다. 
+> 이 과정은 중요한 단계이며 사용자 계정에 여러 구독이 연결된 경우 특히 유용합니다. 이 단계를 건너뛰면 Microsoft.Insights를 등록하는 데 오류가 발생할 수 있습니다.
 >   
 >
 
-Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a id="storage"></a>로그에 대한 새 저장소 계정 만들기
 로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
@@ -82,8 +81,8 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 > [!NOTE]
 > 기존 저장소 계정을 사용하려는 경우 사용자 키 자격 증명 모음과 동일한 구독을 사용하고 클래식 배포 모델보다는 Resource Manager 배포 모델을 사용해야 합니다.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>로그에 대한 주요 자격 증명 모음 식별
 시작 자습서에서 주요 자격 증명 모음 이름은 **ContosoKeyVault**이었으므로 해당 이름을 계속해서 사용하고 **kv**라는 변수에 세부 정보를 저장합니다.
@@ -168,13 +167,13 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * 리소스 그룹이 여러 개이고 하나의 리소스 그룹에 대한 로그를 다운로드하려는 경우 `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`을(를) 사용합니다.
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * 2016년 1월의 모든 로그를 다운로드하려는 경우 `-Blob '*/year=2016/m=01/*'`을(를) 사용합니다.
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 이제 로그에 있는 것을 확인할 준비가 되었습니다. 진행하기 전에 알아야 할 Get-AzureRmDiagnosticSetting에 대한 두 개 이상의 매개 변수는 다음과 같습니다.
@@ -272,8 +271,6 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-Azure Key Vault의 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
+Azure Key Vault의 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 
 Azure Key Vault을 사용하는 키 회전 및 로그 감사에 대한 자습서는 [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md)을 참조하세요.
-
-

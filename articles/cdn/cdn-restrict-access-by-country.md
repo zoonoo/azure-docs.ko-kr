@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>국가별 Azure CDN 콘텐츠 제한
 
@@ -62,15 +62,9 @@ ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
 ### <a name="country-codes"></a>국가 코드
 **지역 필터링** 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다. [Azure CDN 국가 코드](https://msdn.microsoft.com/library/mt761717.aspx)에서 국가 코드를 찾을 수 있습니다. 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>고려 사항
+## <a id="considerations"></a>고려 사항
 * 지리 필터링 구성에 대한 변경이 적용되려면 Verizon의 경우 최대 90분, Akamai의 경우 2~3분 정도 걸릴 수 있습니다.
 * 이 기능은 와일드카드 문자를 지원하지 않습니다 (예: '*').
 * 상대 경로와 관련된 지역 필터링 구성은 해당 경로에 재귀적으로 적용됩니다.
 * 동일한 상대 경로에 하나의 규칙만 적용할 수 있습니다. (동일한 상대 경로를 가리키는 여러 국가 필터를 만들 수 없습니다  그러나 폴더에는 여러 국가 필터가 있을 수 있습니다. 이는 국가 필터의 재귀적 특성 때문입니다. 즉, 이전에 구성된 폴더의 하위 폴더에 다른 국가 필터를 할당할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

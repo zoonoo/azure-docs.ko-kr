@@ -7,20 +7,18 @@ manager: jhubbard
 author: torsteng
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
+ms.custom: scale out apps
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
@@ -139,7 +137,7 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
 외부 테이블에 대한 액세스 권한이 있는 사용자는 외부 데이터 원본 정의에서 제공한 자격 증명에 따라 자동으로 기본 원격 테이블에 액세스할 수 있습니다. 외부 데이터 원본의 자격 증명을 통해 원치 않는 권한 상승을 방지하려면 외부 테이블에 대한 액세스 관리에 주의가 필요합니다. 일반 SQL 권한을 사용하여 일반 테이블에서처럼 외부 테이블에 대한 액세스를 부여하거나 취소할 수 있습니다.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>예: 수직 분할된 데이터베이스 쿼리
-다음 쿼리는 주문 및 주문 라인을 위한&2;개의 로컬 테이블과 고객을 위한 원격 테이블 간의&3;방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
+다음 쿼리는 주문 및 주문 라인을 위한 2개의 로컬 테이블과 고객을 위한 원격 테이블 간의 3방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
 
     SELECT      
      c_id as customer,
@@ -195,4 +193,3 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 
 <!--anchors-->
-

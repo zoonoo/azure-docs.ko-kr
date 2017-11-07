@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 12811b5cbfc6072075395d8542b79d10d2873286
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>예약된 IP 주소(클래식)
 
@@ -58,7 +57,7 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 
 ## <a name="manage-reserved-vips"></a>예약된 VIP 관리
 
-[PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료하여 PowerShell을 설치 및 구성했는지 확인합니다. 
+[PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계를 완료하여 PowerShell을 설치 및 구성했는지 확인합니다. 
 
 예약된 IP를 사용하려면 먼저 구독에 예약된 IP를 추가해야 합니다. *미국 중부* 위치에서 사용할 수 있는 공용 IP 주소 풀에서 예약된 IP를 만들려면 다음 명령을 실행합니다.
 
@@ -168,5 +167,4 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md) 이 어떻게 작동하는지 이해합니다.
 * [예약된 개인 IP 주소](virtual-networks-reserved-private-ip.md)에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP) 주소](virtual-networks-instance-level-public-ip.md)에 대해 알아봅니다.
-
 

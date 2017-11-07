@@ -3,7 +3,7 @@ title: "Azure Network Watcher 인스턴스 만들기 | Microsoft Docs"
 description: "이 페이지는 포털 및 Azure REST API를 사용하여 Network Watcher의 인스턴스를 만드는 단계를 제공합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7d8eb5972d35eac6cb55fc393090cfcc21ec341c
-ms.lasthandoff: 03/31/2017
-
+ms.author: jdial
+ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
 Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. 시나리오 수준 모니터링을 사용하면 종단 간 네트워크 수준 보기에서 문제를 진단할 수 있습니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
@@ -33,6 +32,12 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 **더 많은 서비스** > **네트워킹** > **Network Watcher**로 이동합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
 
 ![Network Watcher 만들기][1]
+
+포털을 사용하여 Network Watcher를 활성화하면 Network Watcher 인스턴스의 이름이 NetworkWatcher_region_name으로 자동 설정됩니다. 여기서 region_name은 인스턴스가 설정된 Azure 지역에 해당됩니다.  예를 들어 미국 중서부에서 활성화된 Network Watcher의 이름은 NetworkWatcher_westcentralus입니다.
+
+또한 Network Watcher 인스턴스는 NetworkWatcherRG라는 리소스 그룹에 자동으로 추가됩니다.  이 리소스 그룹은 아직 존재하지 않는 경우 만들어집니다.
+
+Network Watcher 인스턴스와 이 인스턴스가 배치된 리소스 그룹의 이름을 사용자 지정하려면 아래에 설명된 Powershell, REST API 또는 ARMClient 메서드를 사용할 수 있습니다.  각 옵션에서 Network Watcher를 배치하기 전에 리소스 그룹이 있어야 합니다.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>PowerShell을 사용하여 Network Watcher 만들기
 
@@ -83,7 +88,6 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 Network Watcher 인스턴스를 만든 후 다음 문서 [경고 트리거 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 따라 패키지 캡처를 구성할 수 있습니다.
 
 [1]: ./media/network-watcher-create/figure1.png
-
 
 
 

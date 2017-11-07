@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 10/16/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
 이 항목에서는 Microsoft Azure Service Bus 요청/응답 기반 작업 목록을 정의합니다. 이 정보는 AMQP Management Version 1.0 초안을 기반으로 합니다.  
   
-Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0](service-bus-amqp-protocol-guide.md)을 참조하세요.  
+Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0][AMQP 1.0 프로토콜 가이드]를 참조하세요.  
   
 ## <a name="concepts"></a>개념  
   
@@ -36,7 +34,7 @@ Service Bus가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 �
   
 ### <a name="brokered-message"></a>broker 저장 메시지  
 
-AMQP 메시지에 매핑되는 Service Bus의 메시지를 나타냅니다. 이 매핑은 [Service Bus AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md) 문서에서 정의됩니다.  
+AMQP 메시지에 매핑되는 Service Bus의 메시지를 나타냅니다. 이 매핑은 [Service Bus AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)에서 정의됩니다.  
   
 ## <a name="attach-to-entity-management-node"></a>엔터티 관리 노드에 연결  
 
@@ -47,10 +45,10 @@ AMQP 메시지에 매핑되는 Service Bus의 메시지를 나타냅니다. 이 
 요청 전송을 위해 관리 노드에 대한 링크를 만듭니다.  
   
 ```  
-requestLink = session.attach(       
+requestLink = session.attach(     
 role: SENDER,   
-       target: { address: "<entity address>/$management" },   
-       source: { address: ""<my request link unique address>" }   
+    target: { address: "<entity address>/$management" },   
+    source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -60,10 +58,10 @@ role: SENDER,
 관리 노드에서 응답 수신을 위한 링크를 만듭니다.  
   
 ```  
-responseLink = session.attach(      
+responseLink = session.attach(    
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-       target: { address: "<my response link unique address>" }   
+    target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -93,17 +91,17 @@ requestLink.sendTransfer(
 responseMessage = responseLink.receiveTransfer()  
 ```  
   
-응답 메시지는 다음 형식으로 되어 있습니다.  
+응답 메시지는 다음 형식으로 되어 있습니다.
   
 ```  
 Message(  
-properties: {      
+properties: {     
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },          
+           },         
 )  
   
 ```  
@@ -559,7 +557,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |시퀀스 번호|long 배열|예|시퀀스 번호.|  
-|receiver-settle-mode|ubyte|예|AMQP 코어 v1.0에 지정된 대로 수신기 장착 모드입니다.|  
+|receiver-settle-mode|ubyte|예|AMQP 코어 v1.0에 지정된 대로 **수신기 장착** 모드입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -616,12 +614,13 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |statusDescription|string|아니요|상태에 대한 설명입니다.|
 
 ## <a name="next-steps"></a>다음 단계
+
 AMQP 및 Service Bus에 대해 자세히 알아보려면 다음 링크를 방문하세요.
 
 * [Service Bus AMQP 개요]
-* [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]
+* [AMQP 1.0 프로토콜 가이드]
 * [Windows Server용 Service Bus의 AMQP]
 
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
-[Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 프로토콜 가이드]: service-bus-amqp-protocol-guide.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.asp

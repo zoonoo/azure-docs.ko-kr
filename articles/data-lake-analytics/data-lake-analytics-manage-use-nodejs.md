@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
-
-
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ Node.js용 Azure SDK는 Azure Data Lake 분석 계정, 작업 및 카탈로그 �
 ## <a name="features"></a>기능
 * 계정 관리: 만들기, 가져오기, 나열, 업데이트 및 삭제
 * 작업 관리: 제출, 가져오기, 나열, 취소
-* 카탈로그 관리: 가져오기, 나열, 만들기(암호), 업데이트(암호), 삭제(암호)
+* 카탈로그 관리: 가져오기 및 나열
 
 ## <a name="how-to-install"></a>설치 방법
 ```bash
@@ -137,10 +137,4 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>참고 항목
 * [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 * [Node.js용 Microsoft Azure SDK - Data Lake 저장소 관리](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

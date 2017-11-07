@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 10/03/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>응용 프로그램 업그레이드 문제 해결
 이 문서에서는 Azure 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
@@ -86,6 +85,8 @@ UpgradeReplicaSetCheckTimeout  : 00:00:00
 *PreUpgradeSafetyCheck*의 *UpgradePhase*는 업그레이드를 수행하기 전에 업그레이드 도메인을 준비하는 문제를 의미합니다. 이 경우의 가장 일반적인 문제는 닫을 때 또는 기본 코드 경로의 수준 내리기에서의 서비스 오류입니다.
 
 현재 **UpgradeState**는 *RollingBackCompleted*이므로 원래 업그레이드는 실패 시 업그레이드를 자동으로 롤백하는 롤백 **FailureAction**과 함께 수행되어야 합니다. 원래 업그레이드가 수동 **FailureAction**과 함께 수행되었으면 그 업그레이드는 일시 중단 상태 대신 응용 프로그램의 라이브 디버깅을 가능하게 합니다.
+
+드문 경우지만 시스템이 현재 업그레이드 도메인에 대한 모든 작업을 완료하는 것처럼 전체 업그레이드 시간이 초과되는 경우 **UpgradeDomainProgressAtFailure** 필드가 비어 있을 수 있습니다. 이 경우 **UpgradeTimeout** 및 **UpgradeDomainTimeout** 업그레이드 매개 변수 값을 늘리고 업그레이드를 다시 시도합니다.
 
 ### <a name="investigate-health-check-failures"></a>상태 확인 오류 조사
 상태 확인 오류는 업그레이드 도메인의 모든 노드가 업그레이드를 완료하고 모든 안전 검사를 통과한 후 발생할 수 있는 다양한 문제로 인해 트리거될 수 있습니다. 이 단락 다음에 나오는 출력은 실패한 상태 검사로 인한 일반적인 업그레이드 오류입니다. **UnhealthyEvaluations** 필드는 지정된 [상태 정책](service-fabric-health-introduction.md)에 따라 업그레이드 시 실패한 상태 검사의 스냅숏을 캡처합니다.
@@ -187,7 +188,7 @@ PS D:\temp>
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>서비스 패브릭이 지정된 상태 정책을 따르지 않습니다.
 가능한 원인 1:
 
-서비스 패브릭은 상태 평가에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 정수 엔터티 값으로 반올림합니다. 예를 들어 최대 *MaxPercentUnhealthyReplicasPerPartition*이 21%이고 5개의 복제본이 있는 경우, Service Fabric은 최대 2개의 비정상 복제본(즉, `Math.Ceiling (5\*0.21))을 허용합니다. 따라서 상태 정책도 그에 따라 설정해야 합니다.
+서비스 패브릭은 상태 평가에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 정수 엔터티 값으로 반올림합니다. 예를 들어, 최대 *MaxPercentUnhealthyReplicasPerPartition*이 21%이고 5개의 복제본이 있는 경우 Serivce Fabric은 최대 2개의 비정상 복제본(즉, `Math.Ceiling (5*0.21)`)을 허용합니다. 따라서 상태 정책도 그에 따라 설정해야 합니다.
 
 가능한 원인 2:
 
@@ -222,7 +223,3 @@ PS D:\temp>
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
-
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
-

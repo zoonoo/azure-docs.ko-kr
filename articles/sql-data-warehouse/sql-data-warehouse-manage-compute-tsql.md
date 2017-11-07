@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse의 T-SQL을 사용한 일시 중지, 다시 시
 description: "DWU를 조정하여 성능을 확장하는 Transact-SQL (T-SQL) 작업입니다. 사용량이 많지 않은 시간 동안 다시 조정하여 비용을 절감합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: a970d939-2adf-4856-8a78-d4fe8ab2cceb
@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 94f9bbcfddf8ea3d5ae9bffcb3c196a30f4bb396
-ms.lasthandoff: 03/28/2017
-
-
+ms.date: 03/30/2017
+ms.author: elbutter;barbkess
+ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Azure SQL Data Warehouse의 계산 능력 관리(T-SQL)
 > [!div class="op_single_selector"]
@@ -36,17 +35,17 @@ ms.lasthandoff: 03/28/2017
 ## <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 데이터베이스의 현재 DWU 설정을 보려면
 
-1. Visual Studio 2015에서 SQL Server 개체 탐색기를 엽니다.
+1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
 2. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
 3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다. 
 
 ```sql
 SELECT
     db.name [Database]
-,    ds.edition [Edition]
-,    ds.service_objective [Service Objective]
+,   ds.edition [Edition]
+,   ds.service_objective [Service Objective]
 FROM
-     sys.database_service_objectives ds
+    sys.database_service_objectives ds
 JOIN
     sys.databases db ON ds.database_id = db.database_id
 ```
@@ -117,4 +116,3 @@ AND
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-

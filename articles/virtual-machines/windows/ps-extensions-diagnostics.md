@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 658480c7827e8a703fb25d3062197fedcbe30520
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 진단 확장을 사용하여 Windows를 실행 중인 Azure 가상 컴퓨터(VM)에서 응용 프로그램 로그 또는 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 Windows PowerShell을 사용하여 VM에 대해 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 진단 확장을 사용하여 Windows를 실행 중인 Azure 가상 컴퓨터(VM)에서 응용 프로그램 로그 또는 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 Windows PowerShell을 사용하여 VM에 대해 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>리소스 관리자 배포 모델을 사용하는 경우 진단 확장을 사용하도록 설정
 Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안 리소스 관리자 템플릿에 확장 구성을 추가하여 진단 확장을 사용하도록 설정할 수 있습니다. [Azure Resource Manager를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-리소스 관리자 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면 아래 표시된 [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) PowerShell cmdlet을 사용합니다.
+리소스 관리자 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면 아래 표시된 [Set-AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) PowerShell cmdlet을 사용합니다.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
@@ -48,28 +47,28 @@ Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-VM에서 진단 확장을 사용하도록 설정하면 [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx) cmdlet을 사용하여 현재 설정을 가져올 수 있습니다.
+VM에서 진단 확장을 사용하도록 설정하면 [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) cmdlet을 사용하여 현재 설정을 가져올 수 있습니다.
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식의 XML 구성이 포함됩니다. XML을 읽으려면 디코딩해야 합니다.
+cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함됩니다. WadCfg 및 xmlCfg의 두 종류의 구성이 지원됩니다. WadCfg는 JSON 구성이며 xmlCfg는 Base64 인코딩 형식의 XML 구성입니다. XML을 읽으려면 디코딩해야 합니다.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-[Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet을 사용하면 VM에서 진단 확장을 제거할 수 있습니다.  
+[Remove-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) cmdlet을 사용하면 VM에서 진단 확장을 제거할 수 있습니다.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>클래식 배포 모델을 사용하는 경우 진단 확장을 사용하도록 설정
-[Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet을 사용하면 클래식 배포 모델을 통해 만든 VM에서 진단 확장을 사용하도록 설정할 수 있습니다. 다음 예제에서는 클래식 배포 모델을 통해 새 VM을 만들고 진단 확장을 사용하도록 설정하는 방법을 보여줍니다.
+[Set-AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet을 사용하면 클래식 배포 모델을 통해 만든 VM에서 진단 확장을 사용하도록 설정할 수 있습니다. 다음 예제에서는 클래식 배포 모델을 통해 새 VM을 만들고 진단 확장을 사용하도록 설정하는 방법을 보여줍니다.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-클래식 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면, 우선 [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx) cmdlet을 사용하여 VM 구성을 가져옵니다. 그런 다음 [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet을 사용하여 진단 확장을 포함하도록 VM 구성을 업데이트합니다. 마지막으로 [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx)을 사용하여 VM에 업데이트된 구성을 적용합니다.
+클래식 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면, 우선 [Get-AzureVM](/powershell/module/azure/get-azurevm) cmdlet을 사용하여 VM 구성을 가져옵니다. 그런 다음 [Set-AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet을 사용하여 진단 확장을 포함하도록 VM 구성을 업데이트합니다. 마지막으로 [Update-AzureVM](/powershell/module/azure/update-azurevm)을 사용하여 VM에 업데이트된 구성을 적용합니다.
 
     $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
@@ -198,5 +197,4 @@ cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식
 ## <a name="next-steps"></a>다음 단계
 * 문제 해결을 위한 Azure 진단 기능 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
 * [진단 구성 스키마](https://msdn.microsoft.com/library/azure/mt634524.aspx) 는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
-
 

@@ -1,5 +1,5 @@
 ---
-title: "포털에서 첫 번째 Azure Search 인덱스 만들기 | Microsoft Docs"
+title: "자습서: 포털에서 첫 번째 Azure Search 인덱스 만들기 | Microsoft Docs"
 description: "Azure Portal에서 미리 정의된 샘플 데이터를 사용하여 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다."
 services: search
 documentationcenter: 
@@ -13,16 +13,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 06/26/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>포털에서 첫 번째 Azure Search 인덱스를 만들고 쿼리
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>자습서: 포털에서 첫 번째 Azure Search 인덱스 만들기
 
 Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **데이터를 가져오기** 마법사를 사용하여 신속하게 인덱스를 생성합니다. **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색을 살펴봅니다.  
 
@@ -199,7 +198,7 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 
   개별 구성 요소를 보려면 대시보드에서 **인덱스**, **인덱서** 또는 **데이터 원본** 타일을 클릭하여 기존 개체의 목록을 표시합니다. 다시 빌드할 필요가 없는 인덱스 편집에 대한 자세한 내용은 [인덱스 업데이트(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index)를 참조하세요.
 
-+ 다른 데이터 원본으로 도구 및 단계를 시도해 보세요. `realestate-us-sample` 샘플 데이터 집합은 Azure Search에서 크롤링할 수 있는 Azure SQL Database에서 가져온 것입니다. Azure Search는 Azure SQL Database 외에도 Azure 테이블 저장소, Blob 저장소, Azure VM의 SQL Server, DocumentDB의 플랫 데이터 구조에서 인덱스를 크롤링하고 유추할 수 있습니다. 이 모든 데이터 원본이 마법사에서 지원됩니다. 코드에서 *인덱서*를 사용하여 간편하게 인덱스를 채울 수 있습니다.
++ 다른 데이터 원본으로 도구 및 단계를 시도해 보세요. `realestate-us-sample` 샘플 데이터 집합은 Azure Search에서 크롤링할 수 있는 Azure SQL Database에서 가져온 것입니다. Azure Search는 Azure SQL Database 외에도 Azure Table Storage, Blob Storage, Azure VM의 SQL Server, Azure Cosmos DB의 플랫 데이터 구조에서 인덱스를 크롤링하고 유추할 수 있습니다. 이 모든 데이터 원본이 마법사에서 지원됩니다. 코드에서 *인덱서*를 사용하여 간편하게 인덱스를 채울 수 있습니다.
 
 + 그 외의 비 인덱서 데이터 원본은 푸시 모델을 통해 지원되며, 푸시 모델에서는 코드가 새 행 집합과 변경된 행 집합을 JSON으로 인덱스에 푸시합니다. 자세한 내용은 [Azure Search에서 문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory 인증 및 Resource Manager | Microsoft Docs"
-description: "앱을 다른 Azure 구독과 통합하기 위한 Azure Resource Manager API 및 Active Directory를 사용한 권한 부여 개발자 가이드."
+description: "앱을 다른 Azure 구독과 통합하기 위한 Azure Resource Manager API 및 Azure Active Directory를 사용한 권한 부여 개발자 가이드."
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: de1355a8dc4b0099dca3efc2109ccfb9facf7269
-ms.lasthandoff: 04/05/2017
-
-
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -31,8 +30,6 @@ ms.lasthandoff: 04/05/2017
 2. **앱 전용 액세스**: 디먼 서비스 및 예약된 작업을 실행하는 앱. 리소스에 대한 직접 액세스 권한을 앱의 ID에 부여합니다. 이 방법은 Azure에 대한 장기적인 헤드리스 액세스(자동)가 필요한 앱에 작동합니다.
 
 이 항목에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#을 사용하여 각 단계를 수행하는 방법을 보여 줍니다. 전체 ASP.NET MVC 응용 프로그램은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
-
-이 항목의 모든 코드는 [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense)에서 실행해 볼 수 있는 웹앱으로 실행됩니다.
 
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
 웹앱:
@@ -71,7 +68,7 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 ## <a name="register-application"></a>응용 프로그램 등록
 코딩을 시작하기 전에 Azure Active Directory(AD)를 사용하여 웹앱을 등록합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 응용 프로그램이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 응용 프로그램에 관한 기본 정보를 저장합니다. 또한 앱 등록은 응용 프로그램이 사용자를 대신하여 Microsoft API에 액세스할 때 필요한 여러 가지 위임된 권한을 기록합니다.
 
-앱에서 다른 구독에 액세스하므로 다중 테넌트 응용 프로그램으로 구성해야 합니다. 유효성 검사를 통과하려면 Active Directory와 연결된 도메인을 제공하세요. Active Directory와 연결된 도메인을 보려면 [클래식 포털](https://manage.windowsazure.com)에 로그인합니다. Active Directory를 선택한 다음 **도메인**을 선택합니다.
+앱에서 다른 구독에 액세스하므로 다중 테넌트 응용 프로그램으로 구성해야 합니다. 유효성 검사를 통과하려면 Azure Active Directory와 연결된 도메인을 제공하세요. Azure Active Directory와 연결된 도메인을 보려면 [클래식 포털](https://manage.windowsazure.com)에 로그인합니다. Azure Active Directory를 선택한 다음 **도메인**을 선택합니다.
 
 다음 예에서는 Azure PowerShell을 사용하여 앱을 등록하는 방법을 보여 줍니다. 이 명령이 작동하려면 최신 버전(2016년 8월)의 Azure PowerShell이 있어야 합니다.
 
@@ -90,10 +87,10 @@ AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암�
 ### <a name="optional-configuration---certificate-credential"></a>선택적 구성 - 인증서 자격 증명
 또한 Azure AD는 응용 프로그램에 대한 인증서 자격 증명을 지원합니다. 즉, 자체 서명된 인증서를 만들고 개인 키를 유지하고 Azure AD 응용 프로그램 등록에 공개 키를 추가합니다. 인증을 위해 응용 프로그램이 개인 키를 사용하여서명한 Azure AD에 작은 페이로드를 보내면 Azure AD가 등록된 공개 키를 사용하여 서명의 유효성을 검사합니다.
 
-인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate)를 참조하세요.
+인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
 
 ## <a name="get-tenant-id-from-subscription-id"></a>구독 ID에서 테넌트 ID 가져오기
-Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기 위해서는 응용 프로그램이 Azure 구독을 호스트하는 Azure AD 테넌트의 테넌트 ID를 알고 있어야 합니다. 대부분의 경우 사용자는 자신의 구독 ID를 알고 있지만 Active Directory에 대한 테넌트 ID는 모를 수 있습니다. 사용자의 테넌트 ID를 얻으려면 사용자에게 구독 ID를 요청합니다. 구독에 대한 요청을 보낼 때 이 구독 ID를 제공합니다.
+Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기 위해서는 응용 프로그램이 Azure 구독을 호스트하는 Azure AD 테넌트의 테넌트 ID를 알고 있어야 합니다. 대부분의 경우 사용자는 자신의 구독 ID를 알고 있지만 Azure Active Directory에 대한 테넌트 ID는 모를 수 있습니다. 사용자의 테넌트 ID를 얻으려면 사용자에게 구독 ID를 요청합니다. 구독에 대한 요청을 보낼 때 이 구독 ID를 제공합니다.
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
@@ -364,4 +361,3 @@ ASP.NET MVC 샘플 앱의 [ServicePrincipalHasReadAccessToSubscription](https://
 ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서드](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) 가 이 호출을 구현합니다.
 
 이와 같이 사용자는 이제 응용 프로그램을 사용하여 쉽게 Azure 구독을 연결 및 관리할 수 있습니다.
-

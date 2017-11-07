@@ -1,5 +1,5 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,18 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 08/07/2017
 ms.author: sethm;shvija
-translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: bb37faa10000c0352fcad3d7b2cefadc604716e5
-
-
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기
 
-이 문서에서는 표준/기본 SKU가 있는 **메시징** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 표준 SKU가 있는 **메시징** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
@@ -42,7 +41,7 @@ ms.openlocfilehash: bb37faa10000c0352fcad3d7b2cefadc604716e5
 > 
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
-이 템플릿을 사용하여 [기본, 표준 또는 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) SKU가 있는 Service Bus 네임스페이스를 배포합니다.
+이 템플릿을 사용하여 [표준 또는 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) SKU가 있는 Service Bus 네임스페이스를 배포합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -72,7 +71,6 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -83,7 +81,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ```
 
-이 매개 변수에 허용되는 값(기본, 표준 또는 프리미엄)을 정의하고, 값이 지정되지 않은 경우에는 기본값(표준)을 할당하는 템플릿입니다.
+이 매개 변수에 허용되는 값(표준 또는 프리미엄)을 정의하고, 값이 지정되지 않은 경우에는 기본값(표준)을 할당하는 템플릿입니다.
 
 Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 청구][Service Bus pricing and billing]를 참조하세요.
 
@@ -130,7 +128,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```CLI
+```azurecli
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -139,18 +137,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
-* [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md)
+* [PowerShell을 사용하여 서비스 버스 관리](service-bus-manage-with-ps.md)
 * [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

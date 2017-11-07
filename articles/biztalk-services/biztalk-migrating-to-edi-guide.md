@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 941a7f15da94d92e3c0f65ea61247608c18be029
-
-
+ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk 서비스에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 작성자: Tim Wieman 및 Nitin Mehrotra
 
 검토자: Karthik Bharthy
@@ -121,9 +124,3 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 [Azure로 엔터프라이즈 응용 프로그램 개발](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

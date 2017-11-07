@@ -4,7 +4,7 @@ description: "비디오 요약을 사용하면 원본 비디오에서 흥미로�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 07/18/2017
 ms.author: milanga;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
-ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
-ms.lasthandoff: 02/18/2017
-
-
+ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
 ## <a name="overview"></a>개요
@@ -60,7 +59,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 |  |  |  |
 | --- | --- | --- | --- | --- |
 | 비디오 지속 시간 |d < 3분 |3분 < d < 15분 |
-| 미리 보기 지속 시간 |15초(장면&2;~3개) |30초(장면&3;~5개) |
+| 미리 보기 지속 시간 |15초(장면 2~3개) |30초(장면 3~5개) |
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
@@ -73,7 +72,8 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
         }
     }
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="net-sample-code"></a>.NET 샘플 코드
+
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
@@ -89,7 +89,12 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
         }
 3. 출력 파일을 다운로드합니다. 
 
-### <a name="net-code"></a>.NET 코드
+#### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
+
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+
+#### <a name="example"></a>예제
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -103,24 +108,20 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
 
                 // Run the thumbnail job.
@@ -264,8 +265,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

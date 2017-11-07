@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
 ## <a name="overview"></a>개요
@@ -87,7 +87,7 @@ ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
 | SSD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |SSD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |예 |컨트롤러의 상태 및 섀시 내에서 활성 모드인지 또는 대기 모드인지를 표시합니다. |
 | 컨트롤러의 온도 센서 |I/O |물리적 |Controller |아니요 |I/O 모듈, CPU 온도, DIMM 및 PCIe 센서와 같은 다양한 온도 센서는 허용 오차 내에서 발생하는 온도인지 여부를 나타내는 상태를 표시합니다. |
-| ﻿SAS 확장기 |I/O |물리적 |Controller |아니요 |직렬 연결된 SCSI(SAS) 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
+| SAS 확장기 |I/O |물리적 |Controller |아니요 |직렬 연결된 SCSI(SAS) 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
 | SAS 커넥터 [0-1] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 프로세서 코어 |I/O |물리적 |Controller |아니요 |각 컨트롤러 내에서 프로세서 코어의 상태를 나타냅니다. |
@@ -116,7 +116,7 @@ ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
 | 로컬 저장소 [HDD] |해당 없음 |논리 |공유됨 |해당 없음 |HDD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |예 |EBOD 모듈의 컨트롤러 상태를 표시합니다. |
 | EBOD의 온도 센서 |I/O |물리적 |Controller |아니요 |각 컨트롤러의 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
-| ﻿SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
+| SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
 | SAS 커넥터 [0-2] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에에서 사용된 전원 시스템의 상태를 나타냅니다. |
@@ -128,10 +128,4 @@ ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
 * 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요. 
 * 오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 * 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

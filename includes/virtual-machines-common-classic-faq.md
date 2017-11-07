@@ -12,7 +12,7 @@
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Azure VM에서 무엇을 실행할 수 있습니까?
 모든 구독자는 Azure 가상 컴퓨터에서 서버 소프트웨어를 실행할 수 있습니다. 최신 버전의 Windows Server뿐만 아니라 다양한 Linux 배포를 실행할 수 있습니다. 지원 세부 사항은, 다음을 참조하세요:
 
-• Windows VM의 경우 -- [Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM의 경우 -- [Azure Virtual Machines에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Linux VM의 경우 -- [Azure 인증 배포의 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
@@ -23,12 +23,12 @@ Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows
 
 지역 내에서 현재 Azure 네트워크는 선호도 그룹이 더 이상 필요하지 않도록 설계되었습니다. 또한 가상 네트워크는 지역 범위에 있기 때문에 가상 네트워크를 사용하는 경우 선호도 그룹이 필요하지 않습니다. 이러한 성능 향상으로 인해 일부 시나리오에서는 제한될 수 있으므로 고객에게 선호도 그룹을 사용하도록 권하지 않습니다. 선호도 그룹을 사용하면 특정 하드웨어에 VM을 불필요하게 연결하게 되어 선택할 수 있는 VM 크기를 제한합니다. 선호도 그룹과 연결된 특정 하드웨어가 용량에 근접하는 경우 새 VM을 추가하려고 하면 용량 관련 오류가 발생할 수 있습니다.
 
-Azure Resource Manager 배포 모델 및 Azure 포털에서 선호도 그룹 기능을 아직 지원하지 않습니다. 클래식 Azure 포털의 경우 선호도 그룹을 만들고 선호도 그룹에 고정된 저장소 리소스를 만들기 위한 지원을 하지 않고 있습니다. 선호도 그룹을 사용하는 기존 클라우드 서비스를 수정할 필요가 없습니다. 그러나 Azure 기술 지원 엔지니어가 권장하지 않는 한 새 클라우드 서비스에 대한 선호도 그룹을 사용하지 않도록 합니다.
+Azure Resource Manager 배포 모델 및 Azure Portal에서 선호도 그룹 기능을 아직 지원하지 않습니다. 클래식 Azure Portal의 경우 선호도 그룹을 만들고 선호도 그룹에 고정된 저장소 리소스를 만들기 위한 지원을 하지 않고 있습니다. 선호도 그룹을 사용하는 기존 클라우드 서비스를 수정할 필요가 없습니다. 그러나 Azure 기술 지원 엔지니어가 권장하지 않는 한 새 클라우드 서비스에 대한 선호도 그룹을 사용하지 않도록 합니다.
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
-각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Virtual Machines의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
+Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [Storage 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
@@ -44,7 +44,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 * Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 컴퓨터 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>이러한 가상 컴퓨터는 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
-클래식 배포 모델에서 만든 가상 컴퓨터의 경우 Azure 가상 네트워크를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
+클래식 배포 모델에서 만든 가상 컴퓨터의 경우 Azure Virtual Network를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 가상 컴퓨터를 만들 때, 사용자가 원하는 가상 컴퓨터가 소속될 네트워크를 지정해야 합니다. 가상 네트워크에 기존 가상 컴퓨터를 가입할 수 없습니다. 그러나 기본 가상 컴퓨터에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 컴퓨터를 만들어서 이 문제를 해결할 수 있습니다.
 
@@ -58,8 +58,8 @@ Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스�
 
 Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
-* Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정** 을 클릭합니다.
-* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
+* Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
+* [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
 * Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
@@ -93,10 +93,10 @@ Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하�
 
 * [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 * [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-* [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>백업 및 복구에 대한 나의 옵션은 무엇입니까?
-Azure 백업은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../articles/backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
+Azure Backup은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../articles/backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure Marketplace를 검색합니다.
 
 추가 옵션은 blob 저장소의 스냅샷 기능을 사용하는 것입니다. 이렇게 하려면, blob 스넵샷에 의존하는 모든 작업을 하기전에 VM을 종료해야 합니다. 이는 보류중인 데이터 쓰기를 저장하고 파일 시스템을 일관된 상태에 넣습니다.
 
@@ -125,7 +125,7 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 ## <a name="additional-resources"></a>추가 리소스
 [Azure Virtual Machines 정보](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure CLI로 Linux VM 만들기 및 관리](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure PowerShell을 사용하여 Windows VM 만들기 및 관리](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

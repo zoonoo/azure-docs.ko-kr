@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sdk-content"></a>SDK 콘텐츠
 이 문서에서는 SDK 보관 파일의 콘텐츠를 소개 및 설명합니다.
@@ -51,5 +50,4 @@ ms.lasthandoff: 11/17/2016
 > 
 
 다른 파일은 소프트웨어 라이선스의 복사본입니다.
-
 

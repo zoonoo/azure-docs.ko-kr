@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 10/21/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
-ms.lasthandoff: 03/18/2017
-
-
+ms.reviewer: asteen
+ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/18/2017
 | 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
-| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO(Single Sign-On)
@@ -55,7 +55,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 페더레이션 및 다른 형식의 로그온 소개 |[Azure AD로 Single Sign-On](active-directory-appssoaccess-whatis.md) |
 | Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](http://aka.ms/aadfederatedapps)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](active-directory-app-gallery-listing.md) |
 | [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md) |
-| Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](active-directory-saas-custom-apps.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
+| Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
 | SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](active-directory-sso-certs.md) |
 
@@ -109,7 +109,9 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 |:---:| --- |
 | Azure AD, Office365 및 Intune에 제공되는 조건부 액세스 기능 소개 |[조건부 액세스를 사용한 위험 관리](active-directory-conditional-access.md) |
 | 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-application-proxy-conditional-access.md) |
-| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />- [Windows 7 장치에 대한 단계](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
+
+장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 | [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md)<br />- [Windows 7 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md) |
+
 | 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
@@ -136,7 +138,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 | 작동 방법에 대해 알아보고 일반적인 질문에 대한 답 찾기 |[SaaS 앱에 자동화된 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) |
 | Azure AD와 SaaS 앱 간에 매핑되는 정보 방식 구성 |[특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)<br><br>[특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | SCIM 프로토콜을 지원하는 앱에 자동화된 프로비전을 사용하는 방법 |[SCIM 사용한 앱에 자동화된 사용자 프로비전 설정](active-directory-scim-provisioning.md) |
-| 프로비전 오류의 알림 받기 |[프로비전 알림](active-directory-saas-account-provisioning-notifications.md) |
+| 사용자 프로비전에 대해 보고하고 문제를 해결하는 방법 |[자동 사용자 프로비전 보고](active-directory-saas-provisioning-reporting.md)<br><br>[프로비전 알림](active-directory-saas-account-provisioning-notifications.md)<br><br>[사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md) |
 | 특성 값에 따라 응용 프로그램에 프로비전된 제한 |[범위 지정 필터](active-directory-saas-scoping-filters.md) |
 
 자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#managing-access-to-applications)할 수 있습니다.
@@ -166,16 +168,16 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 그룹 기반 응용 프로그램 액세스 관리는 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 셀프 서비스 그룹 관리, 셀프 서비스 응용 프로그램 관리 및 동적 그룹은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>B2B 공동 작업: 응용 프로그램에 대한 파트너 액세스 사용
-비즈니스가 다른 회사와 협력한 경우 회사 응용 프로그램에 대한 파트너 액세스를 관리해야 할 가능성이 있습니다. Azure Active Directory B2B 공동 작업은 파트너와 앱을 공유하는 쉽고 안전한 방법을 제공합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+비즈니스가 다른 회사와 협력한 경우 회사 응용 프로그램에 대한 파트너 액세스를 관리해야 할 가능성이 있습니다. Azure Active Directory B2B 공동 작업은 파트너와 앱을 공유하는 쉽고 안전한 방법을 제공합니다.
 
 | 문서 가이드 |  |
 |:---:| --- |
 | 다른 Azure AD의 개요는 파트너, 고객 등 외부 사용자를 관리할 수 있는 기능을 갖추고 있습니다. |[Azure AD에서 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md) |
-| B2B 공동 작업 미리 보기 및 시작하는 방법 소개 |[Azure AD와 간단하고 안전한 클라우드 통합](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 공동 작업](active-directory-b2b-collaboration-overview.md) |
-| Azure AD B2B 공동 작업 및 사용하는 방법 자세히 알아보기 |[B2B 공동 작업: 작동 방식](active-directory-b2b-how-it-works.md)<br /><br />[Azure AD B2B 공동 작업 미리 보기의 현재 제한 사항](active-directory-b2b-current-preview-limitations.md)<br /><br />[Azure AD B2B 공동 작업 미리 보기를 사용하는 자세한 연습](active-directory-b2b-detailed-walkthrough.md) |
+| B2B 공동 작업 및 시작하는 방법에 대한 소개 |[Azure AD와 간단하고 안전한 클라우드 통합](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 공동 작업](active-directory-b2b-collaboration-overview.md) |
+| Azure AD B2B 공동 작업 및 사용하는 방법 자세히 알아보기 |[B2B 공동 작업: 작동 방식](active-directory-b2b-how-it-works.md)<br /><br />[Azure AD B2B 공동 작업의 현재 제한 사항](active-directory-b2b-current-limitations.md)<br /><br />[Azure AD B2B 공동 작업 사용에 대한 자세한 연습](active-directory-b2b-detailed-walkthrough.md) |
 | Azure AD B2B 공동 작업의 작동 방법에 대한 기술 세부 정보가 포함된 참조 문서 |[파트너 사용자를 추가하기 위한 CSV 파일 형식](active-directory-b2b-references-csv-file-format.md)<br /><br />[Azure AD B2B 공동 작업의 영향을 받는 사용자 특성](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[파트너 사용자에 대한 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md) |
 
-B2B 공동 작업 미리 보기는 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 현재 사용할 수 있습니다.
+B2B 공동 작업은 현재 [모든 Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다.
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>액세스 패널: 앱 및 셀프 서비스 기능에 액세스하기 위한 포털
 Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 해당 앱 및 그룹 멤버 자격을 관리할 수 있도록 하는 셀프 서비스 기능에 액세스하는 위치에 있습니다. 액세스 패널 외에도 SSO를 사용한 앱에 액세스하기 위한 다른 옵션이 아래 목록에 포함됩니다.
@@ -200,7 +202,7 @@ Azure Active Directory는 여러 보고서 및 경고를 제공하여 응용 프
 | 특정 응용 프로그램에 액세스할 수 있는 사용자에 대한 변경 내용 추적 |[Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md) |
 | 보고 API를 사용하여 원하는 도구에 이러한 보고서의 데이터 내보내기 |[Azure AD Reporting API 시작하기](active-directory-reporting-api-getting-started.md) |
 
-Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여기를 클릭](active-directory-view-access-usage-reports.md#report-editions)합니다.
+Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여기를 클릭](active-directory-view-access-usage-reports.md)합니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Active Directory란?](active-directory-whatis.md)
@@ -210,4 +212,3 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 [Azure Active Directory 도메인 서비스](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-

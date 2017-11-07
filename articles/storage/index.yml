@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Storage 설명서
+metadata:
+  title: 'Azure Storage 설명서 - 자습서, API 참조 | Microsoft Docs'
+  description: 'Microsoft Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.'
+  services: storage
+  author: czeumault
+  manager: carolz
+  ms.service: storage
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/20/2017
+  ms.author: carolz
+abstract:
+  description: 'Microsoft Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.  빠른 시작 및 자습서를 통해 응용 프로그램에서 Azure Storage를 활용 하는 방법을 알아봅니다.'
+sections:
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: 고유한 네임스페이스를 만들어 Azure Storage 데이터 개체를 저장하고 액세스합니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/powershell.svg'
+            text: Azure Powershell
+            href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/storage/common/storage-quickstart-create-storage-account-cli
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: 클라우드에서 이미지 데이터를 업로드하고 처리하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/storage/blobs/storage-upload-process-images">클라우드에서 이미지 데이터 업로드 및 검색</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob을 처리하는 Azure Functions 트리거</a>
+          - html: <a href="/azure/storage/blobs/storage-secure-access-application">응용 프로그램 데이터 보호</a>
+          - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">저장소 모니터링 및 문제 해결</a>
+  - title: 샘플
+    items:
+      - type: paragraph
+        text: 일반 관리 작업에 대한 스크립트를 찾습니다.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+  - title: Pluralsight 비디오 교육 체험
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure에서 .NET으로 개발
+            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+          - title: Azure에서 Node.js로 개발
+            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+  - title: 참조
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
+          - title: 언어
+            html: '<p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.JS</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>'
+          - title: REST (영문)
+            html: '<p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Blob, 큐, 테이블 및 파일</a></p><p><a href="/rest/api/storagerp">리소스 공급자</a></p><p><a href="/rest/api/storageimportexport">가져오기/내보내기</a></p><p><a href="/rest/api/storageservices">저장소 데이터 REST API</a></p>'

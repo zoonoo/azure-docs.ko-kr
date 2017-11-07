@@ -19,8 +19,3 @@
 5. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다.  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

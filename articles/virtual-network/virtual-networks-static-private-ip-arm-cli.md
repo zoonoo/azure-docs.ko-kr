@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: ea54b413b92a4d4e312b741ce42090c77de0e6f5
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
 
@@ -127,15 +126,15 @@ ms.lasthandoff: 02/28/2017
             "resourceGuid": "<guid>"
         }
     }
-        ```
+    ```
     
-    Parameters:
+    매개 변수
 
-    * `--private-ip-address`: Static private IP address for the NIC.
-    * `--vnet-name`: Name of the VNet in wihch to create the NIC.
-    * `--subnet`: Name of the subnet in which to create the NIC.
+    * `--private-ip-address`: NIC에 대한 고정 개인 IP 주소입니다.
+    * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
+    * `--subnet`: NIC가 만들어질 서브넷의 이름입니다.
 
-4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+4. [azure vm create](/cli/azure/vm/nic#create) 명령을 실행하여 위에서 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
     ```azurecli
     az vm create \
@@ -281,5 +280,4 @@ Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 주소
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
 

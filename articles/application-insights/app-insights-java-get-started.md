@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -143,7 +143,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
       <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
@@ -386,7 +386,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 * [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md)을 작성하여 브라우저 또는 서버에서 사용량을 추적합니다.
 * [대시보드](app-insights-dashboards.md)를 만들어서 시스템을 모니터링하기 위한 키 차트를 가져옵니다.
 * 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](app-insights-analytics.md)을 사용합니다.
-* 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+* 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 방문하세요.
 
 <!--Link references-->
 
@@ -398,4 +398,3 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md
-

@@ -4,7 +4,7 @@ description: "AMS REST API를 사용하여 저장소 암호화로 콘텐츠를 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화
+# <a name="encrypting-your-content-with-storage-encryption"></a>저장소 암호화로 콘텐츠 암호화
+
 AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음 암호화된 상태로 저장할 Azure 저장소에 이를 업로드하는 것이 좋습니다.
 
 이 문서에서는 AMS 저장소 암호화에 대한 개요를 제공하며, 저장소 암호화된 콘텐츠를 업로드하는 방법을 보여 줍니다.
@@ -33,17 +33,18 @@ AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 * 콘텐츠 키를 자산에 연결합니다.  
 * AssetFile 엔터티에서 암호화 관련 매개 변수를 설정합니다.
 
-> [!NOTE]
-> 저장소에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
-> 
-> [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+## <a name="considerations"></a>고려 사항 
+
+저장소에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
+
+미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요. 
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="storage-encryption-overview"></a>저장소 암호화 개요
 AMS 저장소 암호화는 **AES-CTR** 모드 암호화를 전체 파일에 적용합니다.  AES CTR 모드는 임의 길이 데이터를 여백 없이 암호화할 수 있는 블록 암호화입니다. AES 알고리즘으로 카운터 블록을 암호화한 다음 암호화 또는 해독할 데이터에 대해 AES의 출력을 XOR 연산하는 방식으로 작동합니다.  사용되는 카운터 블록은 카운터 값의 0~7바이트에 InitializationVector 값을 복사하여 구조화되며 카운터 값의 8~15바이트는 0으로 설정됩니다. 16바이트 카운터 블록에서 8~15바이트(즉 최하위 바이트)는 부호 없는 64비트 단순 정수로 사용되며, 처리되는 후속 데이터 블록마다 1씩 증가하고 네트워크 바이트 순으로 유지됩니다. 이 정수가 최대값(0xFFFFFFFFFFFFFFFF)에 도달했을 때 이 값이 증가하면 카운터의 다른 64비트(즉 0~7바이트)에 미치는 영향 없이 블록 카운트가 0(8~15바이트)으로 재설정됩니다.   AES-CTR 모드 암호화의 보안 유지를 위해 각 콘텐츠 키의 지정된 키 식별자에 대한 InitializationVector 값은 파일마다 고유해야 하며 파일 길이는 2^64블록 미만이어야 합니다.  이것은 카운터 값이 특정 키에서 재사용되지 않게 하기 위한 것입니다. CTR 모드에 대한 자세한 내용은 [이 wiki 페이지](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) 를 참조하세요(wiki 문서에서는 "InitializationVector" 대신 "Nonce"라는 용어를 사용함).
@@ -92,7 +93,6 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
             return Convert.ToBase64String(retVal);
         }
 
-
 1. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 
     저장소 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
@@ -120,7 +120,6 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 응답:
 
@@ -153,8 +152,6 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
     x-ms-version: 2.11
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
-
-
 
 응답:
 
@@ -203,7 +200,6 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     "Checksum":"calculated checksum"
     }
 
-
 응답:
 
     HTTP/1.1 201 Created
@@ -246,7 +242,6 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
-
 
 **HTTP 응답**
 
@@ -292,7 +287,6 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
@@ -366,4 +360,3 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드하면 **MERGE** HTT
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-

@@ -29,16 +29,11 @@
    장치 **퀵 스타트** 페이지로 돌아갑니다.
    
    > [!NOTE]
-   >  **구성** 페이지로 돌아갑니다.
+   > **구성** 페이지로 돌아갑니다.
    > 
    > 
 
 ![동영상 사용 가능](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **동영상 사용 가능**
 
 최소 장치 설치를 완료하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)를 클릭하세요.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -12,15 +12,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 4/6/2017
+ms.topic: troubleshooting
+ms.date: 7/26/2017
 ms.author: v-six
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: cb514d211450bfe012ac9024e191239adf7166ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 클라우드 서비스 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약
@@ -72,4 +71,3 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
    * 위의 #2에 따라 서비스의 CSCFG에 새 ReservedIP를 지정해야 합니다.
 4. 새 배포에 대한 선호도 그룹 제거 - 선호도 그룹은 더 이상 권장되지 않습니다. 위의 #1에 따라 새 클라우드 서비스를 배포합니다. 클라우드 서비스가 선호도 그룹에 없는지 확인합니다.
 5. 지역 가상 네트워크로 변환 - [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
-

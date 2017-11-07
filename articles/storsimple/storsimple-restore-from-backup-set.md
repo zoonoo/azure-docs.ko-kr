@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c507135c4db758e58d8236de4bc76435b8caf32d
-
-
+ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -87,10 +87,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨을 관리](storsimple-manage-volumes.md)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

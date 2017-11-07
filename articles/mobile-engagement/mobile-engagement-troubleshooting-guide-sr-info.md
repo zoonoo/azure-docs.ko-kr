@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-request-sr-information"></a>SR(서비스 요청) 정보
 Mobile Engagement 서비스에 대한 서비스 요청을 개설할 때는 다음 정보를 제공합니다.
@@ -35,11 +34,10 @@ Mobile Engagement 서비스에 대한 서비스 요청을 개설할 때는 다�
 ## <a name="errors-applicable-error-information"></a>오류: 해당 오류 정보
 * 문제가 발생한 API 또는 UI 섹션의 이름
 * 받은 오류 메시지의 텍스트
-*  [문제 해결 가이드](http://go.microsoft.com/fwlink/?LinkId=524382)
+* [문제 해결 가이드](http://go.microsoft.com/fwlink/?LinkId=524382)
 
 ## <a name="code-applicable-coding-information"></a>코드: 해당 코딩 정보
 * 앱의 SDK 버전 및 플랫폼(Android SDK 2.4.1, iOS 1.16.2 등)
 * 프로덕션 앱(또는 개발 앱의 APK/TGZ 파일)의 다운로드 위치
 * "AndroidManifest.xml" 및/또는 Azure Mobile Engagement와 관련된 앱의 코드 조각(고급 문제 해결용)
-
 

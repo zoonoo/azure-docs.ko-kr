@@ -1,5 +1,5 @@
 ---
-title: " Azure에서 Backup 자격 증명 모음 삭제 | Microsoft Docs "
+title: " Azure에서 Recovery Services 자격 증명 모음 삭제 | Microsoft Docs "
 description: "Azure Backup 및 Recovery Services 자격 증명 모음을 삭제하는 방법입니다. 백업 자격 증명 모음은 Azure 클라우드 자격 증명 모음 또는 Azure 복구 자격 증명 모음이라고 할 수 있습니다. 클래식 포털 또는 Azure Portal에서 백업 자격 증명 모음을 삭제할 수 없을 때 문제를 해결합니다."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/14/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 28f8ed91cd2305fdad5105428e50d1d9b3370dd9
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="delete-an-azure-backup-vault"></a>Azure Backup 자격 증명 모음 삭제
+# <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 Azure Backup 서비스에는 Backup 자격 증명 모음과 Recovery Services 자격 증명 모음의 두 가지 자격 증명 모음 유형이 있습니다. Backup 자격 증명 모음을 먼저 제공했습니다. 그런 다음 Recovery Services 자격 증명 모음에서 확장된 Resource Manager 배포가 지원됩니다. 자격 증명 모음에 저장해야 하는 정보 종속성 및 확장된 기능으로 인해 Backup 또는 Recovery Services 자격 증명 모음을 삭제하는 것이 혼동될 수 있습니다. 이 문서에서는 클래식 포털 및 Azure Portal에서 자격 증명 모음을 삭제하는 방법을 설명합니다.  
 
 | **배포 유형** | **포털** | **자격 증명 모음 이름** |
@@ -32,6 +31,11 @@ Azure Backup 서비스에는 Backup 자격 증명 모음과 Recovery Services �
 > [!NOTE]
 > 백업 자격 증명 모음을 사용하여 Resource Manager에서 배포한 솔루션을 보호할 수는 없습니다. 그러나 Recovery Services 자격 증명 모음을 사용하면 클래식 방식으로 배포한 서버와 VM을 보호할 수는 있습니다.  
 >
+
+> [!IMPORTANT]
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 10월 15일**부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. <br/> **2017년 11월 1일 시작**:
+>- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+>- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
 
 이 문서에서는 자격 증명 모음이라는 용어를 사용하여 일반 형식의 Backup 자격 증명 모음 또는 Recovery Services 자격 증명 모음을 나타냅니다. 자격 증명 모음을 구분할 필요가 있을 경우 공식 이름(Backup 자격 증명 모음 또는 Recovery Services 자격 증명 모음)을 사용합니다.
@@ -80,7 +84,7 @@ Recovery Services 자격 증명 모음이 이미 열려 있는 경우 두 번째
     ![백업 데이터 삭제](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
     필요에 따라 데이터를 삭제하는 이유를 제공하고 메모를 추가할 수 있습니다. **백업 중지**를 클릭하면 삭제 작업이 완료되어 자격 증명 모음을 삭제할 수 있습니다. 작업이 완료되었는지 확인하려면 Azure 메시지 ![delete backup data](./media/backup-azure-delete-vault/messages.png)를 입력합니다. <br/>
-    작업이 완료되면 백업 프로세스가 중지되고 해당 항목에 대한 백업 데이터가 삭제되었다는 메시지를 받게 됩니다.
+    작업이 완료되면 백업 프로세스가 중지되고 해당 항목에 대한 백업 데이터가 삭제되었다는 메시지가 표시됩니다.
 
     c. 목록에서 항목을 삭제한 후 **백업 항목** 메뉴에서 **새로 고침**을 클릭하면 자격 증명 모음의 나머지 항목이 표시됩니다.
 
@@ -222,4 +226,3 @@ DPM 서버를 보호하는 데 사용되는 자격 증명 모음을 삭제하려
 5. 목록에서 서버를 삭제하려면 서버 이름을 마우스 오른쪽 단추로 클릭한 다음 **삭제**를 클릭합니다.
     **삭제** 블레이드가 열립니다.
 6. **삭제** 블레이드에서 서버 이름이 제공됩니다. 이름이 긴 경우 Backup 관리 서버 목록에서 복사하고 붙여넣을 수 있습니다. 그런 다음 **삭제**를 클릭합니다.  
-

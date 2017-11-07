@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
-ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-maps-for-xml-data-transform"></a>XML 데이터 변환을 위한 맵 추가
 
@@ -98,10 +98,4 @@ Visual Studio 2015용 [엔터프라이즈 통합 팩](logic-apps-enterprise-inte
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
 * [규약에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")  
 * [변환에 대해 자세히 알아보기](logic-apps-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아보기")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

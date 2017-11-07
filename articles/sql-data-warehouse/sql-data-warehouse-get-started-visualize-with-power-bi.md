@@ -3,7 +3,7 @@ title: "Power BI Microsoft Azure로 SQL 데이터 웨어하우스 데이터 시�
 description: "Power BI로 SQL 데이터 웨어하우스 데이터 시각화"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
-ms.lasthandoff: 01/30/2017
-
-
+ms.author: martinle;barbkess
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 > [!div class="op_single_selector"]
@@ -118,4 +117,3 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 <!--Other-->
 [Azure portal]: https://portal.azure.com/
 [Power BI website]: http://www.powerbi.com/
-

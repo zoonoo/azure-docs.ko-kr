@@ -6,8 +6,3 @@
     ![MPIO 속성 다중 경로 검색](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. 메시지가 표시되면 서버를 다시 부팅합니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

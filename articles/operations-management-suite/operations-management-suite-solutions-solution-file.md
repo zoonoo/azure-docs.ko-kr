@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 742405395a3da792d0df01d7393a6e7fc7a55842
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(미리 보기)에서 관리 솔루션 파일 만들기
 > [!NOTE]
@@ -44,7 +43,7 @@ OMS(Operations Management Suite)의 관리 솔루션은 [Resource Manager 템플
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -94,8 +93,8 @@ OMS(Operations Management Suite)의 관리 솔루션은 [Resource Manager 템플
 | workspaceName |string |Log Analytics 작업 영역 이름입니다. |
 | workspaceRegionId |string |Log Analytics 작업 영역의 지역입니다. |
 
-### <a name="sample"></a>샘플
-솔루션에 대한 샘플 매개 변수 엔터티는 다음과 같습니다.  여기에는 모든 표준 매개 변수와 같은 범주에 있는 두 개의 추가 매개 변수가 포함됩니다.
+
+다음은 솔루션 파일에 복사하여 붙여넣을 수 있는 표준 매개 변수 구조입니다.  
 
     "parameters": {
         "workspaceName": {
@@ -127,23 +126,8 @@ OMS(Operations Management Suite)의 관리 솔루션은 [Resource Manager 템플
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
             }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
         }
+    }
 
 
 **parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스하려면 **parameters('workspaceName')**을 사용합니다.
@@ -260,4 +244,3 @@ OMS(Operations Management Suite)의 관리 솔루션은 [Resource Manager 템플
 * 관리 솔루션에 [Runbook 및 기타 Automation 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
 * [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
-

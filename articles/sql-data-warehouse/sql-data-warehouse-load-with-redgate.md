@@ -3,7 +3,7 @@ title: "Redgate를 사용하여 Azure Data Warehouse에 데이터 로드 | Micro
 description: "데이터 웨어하우징 시나리오에 대해 Redgate의 Data Platform Studio를 사용하는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
-ms.lasthandoff: 02/16/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Redgate Data Platform Studio를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
@@ -32,7 +30,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-이 자습서는 [Redgate의 Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/)(DPS)를 사용하여 온-프레미스 SQL Server에서 Azure SQL Data Warehouse로 데이터를 이동하는 방법을 보여 줍니다. Data Platform Studio는 가장 적합한 호환성 수정 및 최적화를 적용하므로 SQL Data Warehouse를 시작하는 가장 빠른 방법입니다.
+이 자습서에서는 [Redgate의 DPS(Data Platform Studio)](http://www.red-gate.com/products/azure-development/data-platform-studio/)를 사용하여 온-프레미스 SQL Server에서 Azure SQL Data Warehouse로 데이터를 이동하는 방법을 보여 줍니다. Data Platform Studio는 가장 적합한 호환성 수정 및 최적화를 적용하므로 SQL Data Warehouse를 시작하는 가장 빠른 방법입니다.
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com)는 다양한 SQL Server 도구를 제공하는 오래된 Microsoft 파트너입니다. Data Platform Studio의 이 기능은 상업 및 비상업적 용도 모두에서 무료로 제공됩니다.
@@ -43,9 +41,9 @@ ms.lasthandoff: 02/16/2017
 ### <a name="create-or-identify-resources"></a>리소스 만들기 또는 식별
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **온-프레미스 SQL Server Database**: SQL Data Warehouse로 가져올 데이터를 온-프레미스 SQL Server(버전 2008R2 이상)에서 가져와야 합니다. Data Platform Studio는 Azure SQL Database 또는 텍스트 파일에서 직접 가져올 수 없습니다.
+* **온-프레미스 SQL Server Database**: SQL Data Warehouse로 가져올 데이터는 온-프레미스 SQL Server(버전 2008R2 이상)에서 가져와야 합니다. Data Platform Studio는 Azure SQL Database 또는 텍스트 파일에서 직접 가져올 수 없습니다.
 * **Azure Storage 계정**: Data Platform Studio는 SQL Data Warehouse에 데이터를 로드하기 전에 Azure Blob Storage에 데이터를 준비합니다. 저장소 계정으로는 "클래식" 배포 모델보다는 "Resource Manager" 배포 모델(기본값)을 사용해야 합니다. 저장소 계정이 없을 경우 저장소 계정을 만드는 방법을 알아보세요 
-* **SQL Data Warehouse**: 이 자습서는 온-프레미스 SQL Server에서 SQL Data Warehouse로 데이터를 이동하므로 데이터 웨어하우스 온라인이 필요합니다. 데이터 웨어하우스가 아직 없는 경우 Azure SQL Data Warehouse를 만드는 방법을 알아보세요.
+* **SQL Data Warehouse**: 이 자습서에서는 온-프레미스 SQL Server에서 SQL Data Warehouse로 데이터를 이동하므로 데이터 웨어하우스 온라인이 있어야 합니다. 데이터 웨어하우스가 아직 없는 경우 Azure SQL Data Warehouse를 만드는 방법을 알아보세요.
 
 > [!NOTE]
 > 저장소 계정 및 데이터 웨어하우스를 동일한 지역에 만들면 성능이 향상됩니다.
@@ -66,7 +64,7 @@ DPS 주 화면에서 Azure SQL Data Warehouse로 가져오기 링크를 선택�
 ![][1]
 
 ## <a name="step-3-install-the-data-platform-studio-gateway"></a>3단계: Data Platform Studio 게이트웨이 설치
-온-프레미스 SQL Server 데이터베이스에 연결하려면 DPS 게이트웨이를 설치해야 합니다. 게이트웨이는 온-프레미스 환경에 대한 액세스를 제공하는 클라이언트 에이전트로, 데이터를 추출하고 저장소 계정에 업로드합니다. 데이터는 Redgate 서버를 통과하지 않습니다. 게이트웨이를 설치하려면:
+온-프레미스 SQL Server 데이터베이스에 연결하려면 DPS 게이트웨이를 설치해야 합니다. 게이트웨이는 온-프레미스 환경에 대한 액세스를 제공하고, 데이터를 추출하며, 이 데이터를 저장소 계정에 업로드하는 클라이언트 에이전트입니다. 데이터는 Redgate 서버를 통과하지 않습니다. 게이트웨이를 설치하려면:
 
 1. **게이트웨이 만들기** 링크를 클릭합니다.
 2. 제공된 설치 관리자를 사용하여 게이트웨이를 다운로드하여 설치합니다.
@@ -112,7 +110,7 @@ DPS는 데이터를 가져오려고 하는 것을 확인합니다. 가져오기 
 
 ![][6]
 
-DPS에 데이터를 온-프레미스 SQL Serer에서 추출 및 업로드하는 진행 상태와 SQL Data Warehouse로 가져오는 진행 상태를 보여 주는 시각화가 표시됩니다.
+DPS는 온-프레미스 SQL Server에서 데이터를 추출하고 업로드하는 진행 상황과 SQL Data Warehouse로 가져오는 진행 상황을 보여 주는 시각화를 표시합니다.
 
 ![][7]
 
@@ -154,4 +152,3 @@ SQL Data Warehouse에서 데이터를 마이그레이션 및 로드하는 다른
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-

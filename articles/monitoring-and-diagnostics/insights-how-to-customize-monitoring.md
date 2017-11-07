@@ -2,7 +2,7 @@
 title: "Microsoft Azure의 메트릭 개요 | Microsoft 문서"
 description: "Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
-
-
+ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
-모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
+모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
 
 일부 서비스의 경우 메트릭을 확인하기 위해 진단을 켜야 할 수도 있습니다. 가상 컴퓨터와 같은 기타 서비스의 경우 기본 메트릭 집합이 표시되지만 전체 집합 고빈도 메트릭을 사용하도록 설정해야 합니다. 자세히 알아보려면 [모니터링 및 진단 사용](insights-how-to-use-diagnostics.md) 을 참조하세요.
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 선택한 기간에 대한 메트릭을 차트로 작성할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**를 클릭한 후 모니터링할 리소스를 클릭합니다.
-2. **모니터링** 섹션에는 각 Azure 리소스에 대한 가장 중요한 메트릭이 포함됩니다. 예를 들어 웹앱에는 **요청 및 오류**가 있고, 가상 컴퓨터에는 **CPU 비율** 및 **디스크 읽기 및 쓰기**:  ![모니터링 렌즈](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)가 있습니다.
+2. **모니터링** 섹션에는 각 Azure 리소스에 대한 가장 중요한 메트릭이 포함됩니다. 예를 들어 웹앱에는 **요청 및 오류**가 있고, 가상 컴퓨터에는 **CPU 비율** 및 **디스크 읽기 및 쓰기**: ![모니터링 렌즈](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)가 있습니다.
 3. 차트를 클릭하면 **메트릭** 블레이드가 표시됩니다. 블레이드에는 그래프 외에도 선택한 시간 범위의 메트릭 집계(예: 평균, 최소값 및 최대값)를 보여 주는 테이블이 있습니다. 그 아래에는 리소스에 대한 경고 규칙이 있습니다.
     ![메트릭 블레이드](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. 표시되는 선을 사용자 지정하려면 차트의 **편집** 단추 또는 메트릭 블레이드의 **차트 편집** 명령을 클릭합니다.
@@ -48,7 +48,7 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 
 1. 블레이드 맨 위에 있는 **...** 메뉴에서 **타일 추가**를 클릭합니다.  
     ![메뉴 추가](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. 그런 다음  ![갤러리](./media/insights-how-to-customize-monitoring/Insights_Gallery.png) 화면 오른쪽에 있는 **갤러리**에서 차트를 선택할 수 있습니다.
+2. 그런 다음 ![갤러리](./media/insights-how-to-customize-monitoring/Insights_Gallery.png) 화면 오른쪽에 있는 **갤러리**에서 차트를 선택할 수 있습니다.
 3. 원하는 메트릭이 표시되지 않는 경우 언제든지 미리 설정된 메트릭 중 하나를 추가하고 차트를 **편집** 하여 필요한 메트릭을 표시할 수 있습니다.
 
 ## <a name="monitoring-usage-quotas"></a>사용 할당량 모니터링
@@ -58,7 +58,7 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 
 ![사용 현황](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-메트릭과 마찬가지로, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 사용 할당량의 전체 집합에 액세스할 수 있습니다.
+메트릭과 마찬가지로, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 사용 할당량의 전체 집합에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [경고 알림을 수신](insights-receive-alert-notifications.md) 합니다.
@@ -67,10 +67,4 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md) 를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
 * [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
-
-
+ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Azure PowerShell을 사용하여 경로 문제 해결
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -32,9 +32,9 @@ Azure VM(가상 컴퓨터)과의 네트워크 연결 문제가 발생하는 경�
 
 경로 테이블은 서브넷과 연결되며 해당 서브넷의 모든 NIC(네트워크 인터페이스)에서 유효합니다. 다음 유형의 경로를 각 네트워크 인터페이스에 적용할 수 있습니다.
 
-* **시스템 경로:** 기본적으로 Azure VNet(가상 네트워크)에서 생성된 모든 서브넷에는 로컬 VNet 트래픽, VPN Gateway를 통한 온-프레미스 트래픽 및 인터넷 트래픽을 허용하는 시스템 경로 테이블이 있습니다. 또한 피어링된 VNet에 대한 시스템 경로도 있습니다.
-* **BGP 경로:** Express 경로 또는 사이트 간 VPN 연결을 통해 네트워크 인터페이스로 전파됩니다. [VPN Gateway가 있는 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 및 [Express 경로 개요](../expressroute/expressroute-introduction.md) 문서를 읽어 BGP 라우팅에 대해 자세히 알아봅니다.
-* **UDR(사용자 정의 경로):** 네트워크 가상 어플라이언스를 사용하거나 사이트 간 VPN을 통해 온-프레미스 네트워크로 트래픽을 강제 터널링하는 경우 UDR(사용자 정의 경로)이 서브넷 경로 테이블에 연결될 수 있습니다. UDR에 익숙하지 않은 경우 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined-routes) 문서를 읽어보세요.
+* **시스템 경로:** 기본적으로 Azure VNet(Virtual Network)에서 생성된 모든 서브넷에는 로컬 VNet 트래픽, VPN Gateway를 통한 온-프레미스 트래픽 및 인터넷 트래픽을 허용하는 시스템 경로 테이블이 있습니다. 또한 피어링된 VNet에 대한 시스템 경로도 있습니다.
+* **BGP 경로:** ExpressRoute 또는 사이트 간 VPN 연결을 통해 네트워크 인터페이스로 전파됩니다. [VPN Gateway가 있는 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 및 [ExpressRoute 개요](../expressroute/expressroute-introduction.md) 문서를 읽어 BGP 라우팅에 대해 자세히 알아봅니다.
+* **UDR(사용자 정의 경로):** 네트워크 가상 어플라이언스를 사용하거나 사이트 간 VPN을 통해 온-프레미스 네트워크로 트래픽을 강제 터널링하는 경우 UDR(사용자 정의 경로)이 서브넷 경로 테이블에 연결될 수 있습니다. UDR에 익숙하지 않은 경우 [사용자 정의 경로](virtual-networks-udr-overview.md#user-defined) 문서를 읽어보세요.
 
 네트워크 인터페이스에 적용할 수 있는 다양한 경로를 사용하는 경우 유효한 집계 경로를 파악하기 어려울 수 있습니다. VM 네트워크 연결 문제를 해결하려면 Azure Resource Manager 배포 모델에서 네트워크 인터페이스에 대한 모든 유효 경로를 볼 수 있습니다.
 
@@ -57,7 +57,7 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
 ### <a name="view-effective-routes-for-a-network-interface"></a>네트워크 인터페이스에 대한 유효 경로 보기
 네트워크 인터페이스에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서를 읽어보세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요.
 2. 다음 명령은 을 입력하여 리소스 그룹 *RG1*의 네트워크 인터페이스 *VM1-NIC1*에 적용되는 모든 경로를 반환합니다.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -135,10 +135,4 @@ VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합�
 * VNet 피어링 트래픽이 제대로 작동하려면 피어링된 VNet의 접두사 범위에 대해 **nextHopType** *VNetPeering* 의 시스템 경로가 존재해야 합니다. 이러한 경로가 존재하지 않고 VNet 피어링 링크에 문제가 없어 보이는 경우
   * 몇 초 동안 기다린 후 새로 설정된 피어링 링크가 있으면 다시 시도합니다. 경우에 따라 서브넷에 있는 모든 네트워크 인터페이스로 경로를 전파하는 데 시간이 더 오래 걸립니다.
   * NSG(네트워크 보안 그룹) 규칙이 트래픽 흐름에 영향을 미칠 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-powershell.md) 문서를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

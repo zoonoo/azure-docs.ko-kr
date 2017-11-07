@@ -3,8 +3,8 @@ title: "App Service Mobile Apps로 관리되는 클라이언트 라이브러리 
 description: "Windows 및 Xamarin 앱에서 Azure 앱 서비스 모바일 앱용 .NET 클라이언트를 사용하는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: a02b817ecc45594f55de9a94b67dd35e34386735
-ms.openlocfilehash: 1f0dfe06bbcd22727d12b651cd708b208350831a
-ms.lasthandoff: 01/05/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -652,7 +651,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 응용 프로그램에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
-   * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.windows.net/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 유사합니다.
@@ -1096,8 +1095,8 @@ public class MyHandler : DelegatingHandler
 [앱에 인증 추가]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Microsoft 계정 로그인을 사용하도록 앱 등록]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Active Directory 로그온에 앱 서비스를 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Microsoft 계정 로그인을 사용하도록 앱 등록]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Active Directory 로그온에 앱 서비스를 구성하는 방법]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
@@ -1143,4 +1142,3 @@ public class MyHandler : DelegatingHandler
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
-

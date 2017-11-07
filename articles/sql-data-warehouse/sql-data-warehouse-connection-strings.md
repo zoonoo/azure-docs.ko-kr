@@ -3,7 +3,7 @@ title: "SQL Data Warehouse용 드라이버 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스용 드라이버 및 연결 문자열"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 99be9d9b840e3d8cfbb24a76fc3dc8d5e041f63d
-
-
+ms.author: anvang;barbkess
+ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스용 드라이버
 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
@@ -49,12 +50,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Visual Studio를 사용하여 쿼리]를 참조하세요.
+Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요.
 
 <!--Image references-->
 
 <!--Azure.com references-->
-[Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -63,9 +64,3 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

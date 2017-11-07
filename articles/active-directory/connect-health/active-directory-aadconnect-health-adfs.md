@@ -4,7 +4,7 @@ description: "온-프레미스 AD FS 인프라를 모니터링하는 방법에 �
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: femila
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 0ae3f2ddfa37d617c02df2628411a877381412d5
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
@@ -115,7 +115,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 | 마지막 실패 IP |최신 잘못된 요청에서 클라이언트 IP 주소를 표시합니다. |
 
 > [!NOTE]
-> 이 보고서는 해당 시간 내에 수집된 새 정보를 사용하여&2;시간 후마다 자동으로 업데이트됩니다. 따라서 마지막&2;시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
+> 이 보고서는 해당 시간 내에 수집된 새 정보를 사용하여 2시간 후마다 자동으로 업데이트됩니다. 따라서 마지막 2시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
 >
 >
 

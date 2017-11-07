@@ -4,7 +4,7 @@ description: "미디어 서비스 .NET SDK를 사용하여 콘텐츠 키에 대�
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -54,7 +53,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 * 자산 배달 정책을 추가하거나 업데이트하는 경우 기존 로케이터(있는 경우)를 삭제하고 새 로케이터를 만들어야 합니다.
 * 현재 점진적 다운로드를 암호화할 수 없습니다.
 
-## <a name="aes-128-dynamic-encryption"></a>AES&128; 동적 암호화.
+## <a name="aes-128-dynamic-encryption"></a>AES 128 동적 암호화.
 ### <a name="open-restriction"></a>열기 제한
 열기 제한은 시스템이 키를 요청하는 사람에게 키를 제공하는 것을 의미합니다. 이 제한은 테스트 목적으로 유용할 수 있습니다.
 
@@ -102,7 +101,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 
 토큰 제한 옵션을 구성하려면 XML을 사용하여 토큰의 권한 부여 요구 사항을 설명해야 합니다. 토큰 제한 구성 XML은 다음 XML 스키마를 준수 해야 합니다.
 
-#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>토큰 제한 스키마
+#### <a id="schema"></a>토큰 제한 스키마
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -150,7 +149,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-**토큰** 제한 정책을 구성하는 경우 기본 **확인 키**, **발급자** 및 **대상** 매개 변수를 지정해야 합니다. **기본 확인 키**는 토큰을 서명한 키를 포함하며, **발급자**는 토큰을 발급하는 보안 토큰 서비스입니다. **대상**(때로는 **범위**라고도 함)은 토큰의 의도 또는 토큰에서 접근을 인증하는 대상 리소스를 설명합니다. 미디어 서비스 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다. 
+**토큰** 제한 정책을 구성할 때는 기본** 확인 키**, **issuer** 및 **audience** 매개 변수를 지정해야 합니다. **기본 확인 키**는 토큰 서명 시 사용된 키를 포함하며, **issuer**는 토큰을 발급한 보안 토큰 서비스입니다. **대상**(때로는 **범위**라고도 함)은 토큰의 의도 또는 토큰에서 접근을 인증하는 대상 리소스를 설명합니다. 미디어 서비스 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다. 
 
 **.NET용 Media Services SDK**를 사용할 때 **TokenRestrictionTemplate** 클래스를 사용하여 제한 토큰을 생성할 수 있습니다.
 다음 예제에서는 토큰 제한으로 인증 정책을 만듭니다. 이 예제에서는 서명 키(VerificationKey), 토큰 발급자 및 필요한 클레임을 포함하는 토큰을 제공해야 합니다.
@@ -209,7 +208,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a name="a-idtestatest-token"></a><a id="test"></a>테스트 토큰
+#### <a id="test"></a>테스트 토큰
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져오려면 다음을 참조하세요.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -390,8 +389,8 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져오려면 [이](#test) 섹션을 참조하세요. 
 
-## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
-### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
+### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -399,7 +398,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
         IPRestricted = 2,
     }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -408,7 +407,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
       Widevine = 3
     }
 
-### <a name="a-idtokentypeatokentype"></a><a id="TokenType"></a>TokenType
+### <a id="TokenType"></a>TokenType
     public enum TokenType
     {
         Undefined = 0,
@@ -426,5 +425,4 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 ## <a name="next-step"></a>다음 단계
 콘텐츠 키의 권한 부여 정책을 구성했으므로 [자산 배포 정책 구성 방법](media-services-dotnet-configure-asset-delivery-policy.md) 항목으로 이동합니다.
-
 

@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 알림 허브 보안 푸시
 > [!div class="op_single_selector"]
@@ -154,9 +154,3 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 3. iOS 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다. 알림 센터에 보안 알림이 표시되는지 확인해야 합니다.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

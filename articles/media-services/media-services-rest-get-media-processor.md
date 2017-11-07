@@ -1,10 +1,10 @@
 ---
-title: "미디어 프로세서를 만드는 방법 | Microsoft Docs"
+title: "REST를 사용하여 미디어 프로세서 인스턴스를 가져오는 방법 | Microsoft Docs"
 description: "Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
@@ -12,16 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
-ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
+# <a name="how-to-get-a-media-processor-instance"></a>미디어 프로세서 인스턴스를 가져오는 방법
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST (영문)](media-services-rest-get-media-processor.md)
@@ -31,28 +30,24 @@ ms.lasthandoff: 02/21/2017
 ## <a name="overview"></a>개요
 미디어 서비스에서 미디어 프로세서는 미디어 콘텐츠 인코딩, 형식 변환, 암호화 또는 암호 해독과 같은 특정 처리 작업을 다루는 구성 요소입니다. 일반적으로 미디어 콘텐츠 인코드, 암호화 또는 형식 변환 작업을 만들 때 미디어 프로세서를 만듭니다.
 
-다음 표에서는 각 사용 가능한 미디어 프로세서의 이름과 설명을 제공합니다.
+## <a name="azure-media-processors"></a>Azure 미디어 프로세서 
 
-| 미디어 프로세서 이름 | 설명 | 추가 정보 |
-| --- | --- | --- |
-| 미디어 인코더 표준 |주문형 인코딩에 대한 표준 기능을 제공합니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md) |
-| 미디어 인코더 Premium 워크플로 |미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md) |
-| Azure 미디어 인덱서 |미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다. |[Azure 미디어 인덱서](media-services-index-content.md) |
-| Azure 미디어 Hyperlapse(미리 보기) |비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다. |[Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure 미디어 인코더 |사용되지 않음 | |
-| 저장소 암호 해독 |사용되지 않음 | |
-| Azure Media Packager |사용되지 않음 | |
-| Azure Media Encryptor |사용되지 않음 | |
+미디어 프로세스 목록은 다음 항목에서 제공됩니다.
 
-## <a name="get-mediaprocessor"></a>미디어 프로세서 가져오기
-> [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+* [인코딩 미디어 프로세서](scenarios-and-availability.md#encoding-media-processors)
+* [분석 미디어 프로세서](scenarios-and-availability.md#analytics-media-processors)
+
+>[!NOTE]
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+
+## <a name="get-a-media-processor"></a>미디어 프로세서 가져오기
 
 다음 REST 호출에서는 이름으로 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다(이 경우 **미디어 인코더 표준**). 
 
@@ -95,5 +90,4 @@ ms.lasthandoff: 02/21/2017
 
 ## <a name="next-steps"></a>다음 단계
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-rest-get-started.md) 토픽으로 이동합니다.
-
 

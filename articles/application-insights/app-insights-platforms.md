@@ -4,7 +4,7 @@ description: "Application Insights에 사용할 수 있는 언어, 플랫폼 및
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 219ccaf9a97642fda99490423aa94883b0629fb5
-ms.lasthandoff: 04/13/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 4c87ebbcd79576553ad95b99cbdca8ad33a4452e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
 
-## <a name="languages"></a>언어
+## <a name="languages---officially-supported-by-application-insights-team"></a>언어 - Application Insights 팀에서 공식적으로 지원
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript 웹 페이지](app-insights-javascript.md)
-* [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [Node.JS](app-insights-nodejs.md)
+
+## <a name="languages---community-supported"></a>언어 - 커뮤니티 지원
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -38,19 +39,20 @@ ms.lasthandoff: 04/13/2017
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - 이미 운영 중인 앱용](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android)(Mobile Center, HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * 웹 및 작업자 역할을 모두 포함하는 [Azure Cloud Services](app-insights-cloudservices.md)
+* [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(Mobile Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - 이미 운영 중인 앱용](app-insights-java-live.md)
-* [Mac OS X 앱](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
+* [macOS 앱](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)(HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [스프링](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [유니버설 Windows 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
+* [유니버설 Windows 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)(Mobile Center, HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows Phone 8 및 8.1 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Windows Presentation Foundation 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
@@ -64,20 +66,20 @@ ms.lasthandoff: 04/13/2017
 * [클라우드 기반 부하 테스트](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
 ## <a name="content-management-systems"></a>콘텐츠 관리 시스템
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-* [Orchard](https://orchardazureappinsights.codeplex.com)
+* [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [스트림 분석](app-insights-export-power-bi.md)
+* [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
 아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.
-

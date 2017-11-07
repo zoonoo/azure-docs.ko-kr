@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edaacfb8e7c179ac6e4831a113656b3cf128f985
-
-
+ms.openlocfilehash: 8f1936fac543f559a44ad0f9c35b30d1a92dce68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>StorSimple 관리자 서비스를 사용하여 볼륨 복제
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -64,7 +64,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 > 
 > 
 
-이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs.-permanent-clones)를 참조하세요.
+이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs-permanent-clones)를 참조하세요.
 
 이 클론은 이제 정규 볼륨이며 볼륨에 사용할 수 있는 모든 작업은 클론에 사용할 수 있습니다. 백업에 대해 이 볼륨을 구성해야 합니다.
 
@@ -89,10 +89,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 ## <a name="next-steps"></a>다음 단계
 * [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법에 대해 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

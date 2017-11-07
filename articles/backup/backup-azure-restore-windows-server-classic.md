@@ -12,23 +12,30 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: be6bc58ab856309004904626db166331b29199a8
-ms.openlocfilehash: aa8ccc15971bed76d7ce8fd554e6a0f89d985fb8
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 > [!div class="op_single_selector"]
 > * [클래식 포털](backup-azure-restore-windows-server-classic.md)
-> * [Azure Portal](backup-azure-restore-windows-server.md)
+> * [Azure 포털](backup-azure-restore-windows-server.md)
 >
 >
 
-이 문서에서는 백업 자격 증명 모음에서 데이터를 복원하는 방법을 설명합니다. 데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 데이터를 복원하면 다음이 가능해집니다.
+이 문서에서는 백업 자격 증명 모음에서 데이터를 복구하고 서버 또는 컴퓨터로 복원하는 방법에 대해 설명합니다. 2017년 3월부터는 클래식 포털에서 더 이상 백업 자격 증명 모음을 만들 수 없습니다.
+
+> [!IMPORTANT]
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 10월 15일**부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. <br/> **2017년 11월 1일 시작**:
+>- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+>- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
+>
+
+데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 데이터를 복원하면 다음이 가능해집니다.
 
 * 백업을 수행한 동일한 컴퓨터에 데이터를 복원합니다.
 * 다른 컴퓨터에 데이터를 복원합니다.
@@ -86,7 +93,7 @@ ms.lasthandoff: 02/02/2017
     ![볼륨을 마운트 해제하고 확인](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후&6;시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
+    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후 6시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
     >
 
 
@@ -192,13 +199,13 @@ ms.lasthandoff: 02/02/2017
 
     자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 유효한 자격 증명 모음을 제공하면 해당 백업 자격 증명 모음의 이름이 나타납니다.
 
-6. **백업 서버 선택** 창에서 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택하고 암호를 제공합니다. 그런 후 **Next**를 클릭합니다.
+6. **백업 서버 선택** 창에서 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택하고 암호를 제공합니다. 그런 후 **다음**을 클릭합니다.
 
     ![컴퓨터 목록](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. **복구 모드 선택** 창에서 **개별 파일 및 폴더**를 선택하고 **다음**을 클릭합니다.
 
-    ![검색](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Search](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. **볼륨 및 날짜 선택** 창에서 복원할 파일 및/또는 폴더가 들어있는 볼륨을 선택합니다.
 
@@ -221,7 +228,7 @@ ms.lasthandoff: 02/02/2017
     ![암호화](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후&6;시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
+    > 마운트 해제를 클릭하지 않으면 복구 볼륨이 마운트된 후 6시간 동안 마운트된 상태로 유지됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 마운트된 시간 동안 실행되도록 스케줄된 모든 백업 작업은 복구 볼륨이 마운트 해제된 후에 실행됩니다.
     >
 
 
@@ -233,4 +240,3 @@ ms.lasthandoff: 02/02/2017
 * [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 * [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
-

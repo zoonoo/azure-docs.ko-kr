@@ -4,7 +4,7 @@ description: "StorSimple 장치의 상태를 모니터링하는 데 사용되는
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 06/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
-
-
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 장치 관리
 ## <a name="overview"></a>개요
@@ -135,7 +135,7 @@ StorSimple 장치에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 
 ### <a name="controller-indicator-leds"></a>컨트롤러 표시기 LED
 | LED | 설명 |
 | --- | --- |
-| ID LED(파란색) |모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
+| ID LED(파란색) |모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 오류 LED(주황색) |컨트롤러의 오류를 나타냅니다. |
 | 정상 LED(녹색) |녹색은 컨트롤러가 정상임을 나타냅니다. 깜박이는 녹색은 컨트롤러 VPD 구성 오류를 나타냅니다. |
 | SAS 활동 LED(녹색) |녹색은 현재 활동이 없는 연결을 나타냅니다. 깜박이는 녹색은 활동 중인 연결을 나타냅니다. |
@@ -209,12 +209,11 @@ StorSimple 장치는 기본 인클로저 및 EBOD 인클로저 둘 다와 관련
 > * 경보 상태 S1에서 2분 이내에 음소거를 누르지 않으면 상태가 S2 또는 S3으로 자동 전환됩니다.  
 > * 경보 상태 S1에서 S4는 결함 조건이 지워진 후 S0으로 돌아갑니다.  
 > * 다른 상태에서 심각한 결함 상태 S4를 입력할 수 있습니다.  
-> 
-> 
 
-ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할 수 있습니다. 음소거 스위치를 수동으로 조작하지 않으면 2분 후 자동 음소거가 발생합니다. 경보가 음소거 되면 문제가 여전히 있음을 나타내기 위해 짧은 간헐적 경고음이 계속 됩니다. 모든 문제가 해결되면 경보가 멈춥니다.  
 
-다음 표에서는 다양한 경보 조건을 설명합니다.  
+ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할 수 있습니다. 음소거 스위치를 수동으로 조작하지 않으면 2분 후 자동 음소거가 발생합니다. 경보가 음소거 되면 문제가 여전히 있음을 나타내기 위해 짧은 간헐적 경고음이 계속 됩니다. 모든 문제가 해결되면 경보가 멈춥니다.
+
+다음 표에서는 다양한 경보 조건을 설명합니다.
 
 ### <a name="alarm-conditions"></a>경보 조건
 | 가동 상태 | 심각도 | 경보 | Ops 패널 LED |
@@ -240,7 +239,7 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | 전원 부족 |Warning |없음 |모듈 결함 |
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple 하드웨어 구성 요소 및 상태](storsimple-monitor-hardware-status.md)에 대해 자세히 알아봅니다.
+[StorSimple 하드웨어 구성 요소 및 상태](storsimple-8000-monitor-hardware-status.md)에 대해 자세히 알아봅니다.
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -248,11 +247,5 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 [4]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE04.png
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
-
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

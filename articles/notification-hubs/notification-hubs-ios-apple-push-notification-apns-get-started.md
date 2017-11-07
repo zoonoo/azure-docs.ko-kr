@@ -3,7 +3,7 @@ title: "Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기 | Mic
 description: "이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다."
 services: notification-hubs
 documentationcenter: ios
-keywords: "푸시 알림, 푸시알림,ios 푸시 알림"
+keywords: "푸시 알림, 푸시 알림, ios 푸시 알림"
 author: ysxu
 manager: erikre
 editor: 
@@ -15,18 +15,18 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
 ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
 > [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
 > 
 > 
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * [모바일 서비스 iOS SDK 버전 1.2.4]
-*  [Xcode]
+* [Xcode]
 * iOS 8(이상) 지원 장치
 * [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
   
@@ -90,7 +90,7 @@ ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
     Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**, **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
    
     ![Xcode - 프로비전 프로필][9]
-4. [모바일 서비스 iOS SDK 버전 1.2.4] 를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
+4. [모바일 서비스 iOS SDK 버전 1.2.4]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
    
    > [!NOTE]
    > 알림 허브 SDK는 현재 Xcode 7의 bitcode를 지원하지 않습니다.  프로젝터의 **빌드 옵션**에서 **Bitcode 사용**을 **No**로 설정해야 합니다.
@@ -146,7 +146,7 @@ ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-9. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert** 를 표시하려면 다음 메서드를 추가합니다.
+9. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert**를 표시하려면 다음 메서드를 추가합니다.
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
@@ -170,11 +170,11 @@ ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 앱 내에서 푸시 알림을 보내려는 경우 REST 인터페이스를 사용하여 푸시 알림을 보내는 이 섹션의 예를 참조하세요.
 
-1. Xcode에서 `Main.storyboard` 를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
+1. Xcode에서 `Main.storyboard`를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
    
    * 레이블 텍스트가 없는 레이블입니다. 알림을 보내는 오류 보고에 사용됩니다. **줄** 속성은 **0**으로 설정해야 하므로 오른쪽 및 왼쪽 여백과 보기의 위쪽에 크기가 자동으로 제한됩니다.
    * **자리 표시자** 텍스트를 사용한 텍스트 필드가 **알림 메시지 입력**으로 설정됩니다. 아래와 같이 레이블 바로 아래에 있는 필드를 제한합니다. 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
-   * **알림 보내기** 라는 단추는 텍스트 필드의 바로 아래 및 가로 가운데로 제한됩니다.
+   * **알림 보내기**라는 단추는 텍스트 필드의 바로 아래 및 가로 가운데로 제한됩니다.
      
      뷰는 다음과 같이 표시되어야 합니다.
      
@@ -198,7 +198,7 @@ ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. `HubInfo.h` 를 열고 허브에 알림을 보내는 데 사용할 다음 상수를 추가합니다. 자리 표시자 문자열 리터럴을 실제 *DefaultFullSharedAccessSignature* 연결 문자열로 대체합니다.
+3. `HubInfo.h`를 열고 허브에 알림을 보내는 데 사용할 다음 상수를 추가합니다. 자리 표시자 문자열 리터럴을 실제 *DefaultFullSharedAccessSignature* 연결 문자열로 대체합니다.
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
@@ -482,9 +482,3 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 포털]: https://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

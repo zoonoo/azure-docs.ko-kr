@@ -13,17 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 807c80b397abe6ff4dfebc2aa7e443c7c5e84e99
-ms.openlocfilehash: 313118740815de02a9f0797ab334eb7f6f900c58
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업의 사용자 토큰 이해
 
 B2B 공동 작업 사용자에 대해 표시되는 토큰 형태를 알고 싶은 경우 다음에 나와 있는 리소스 테넌트(tenantid:04dcc6ab-388a-4559-b527-fbec656300ea)에서 Azure AD(Azure Active Directory) 게스트 및 Microsoft 계정 게스트에 대한 전달자 토큰 세부 정보 및 토큰 내용을 확인하세요. JWT(JSON 웹 토큰) 내용을 보려면 [https://jwt.io/](https://jwt.io/) 또는 [http://calebb.net](http://calebb.net/)을 사용하세요.
@@ -53,4 +50,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
-

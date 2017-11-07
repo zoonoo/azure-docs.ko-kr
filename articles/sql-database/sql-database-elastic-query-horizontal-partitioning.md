@@ -4,22 +4,21 @@ description: "행 분할에서 탄력적 쿼리를 설정하는 방법"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: torsteng
+author: MladjoA
 ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: c43b34124fd0ccdbe03ce3d336388cbd3b77ad9a
-ms.lasthandoff: 02/22/2017
-
-
+ms.author: mlandzic
+ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -150,7 +149,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 외부 데이터 원본 및 외부 테이블을 정의한 후 외부 테이블을 통해 전체 T-SQL을 사용할 수 있습니다.
 
 ## <a name="example-querying-horizontal-partitioned-databases"></a>예: 수평 분할된 데이터베이스 쿼리
-다음 쿼리는 웨어하우스, 주문 및 주문 라인 간의&3;방향 조인을 수행하고 여러 집계 및 선택적인 필터를 사용합니다. (1) 행 분할(분할)이며 (2) 웨어하우스, 주문 및 주문 라인이 웨어하우스 ID 열로 분할되었으며, 탄력적 쿼리가 분할된 데이터베이스에서 조인을 배치할 수 있고, 분할된 데이터베이스에서 비용이 드는 쿼리 부분을 처리할 수 있다고 가정합니다. 
+다음 쿼리는 웨어하우스, 주문 및 주문 라인 간의 3방향 조인을 수행하고 여러 집계 및 선택적인 필터를 사용합니다. (1) 행 분할(분할)이며 (2) 웨어하우스, 주문 및 주문 라인이 웨어하우스 ID 열로 분할되었으며, 탄력적 쿼리가 분할된 데이터베이스에서 조인을 배치할 수 있고, 분할된 데이터베이스에서 비용이 드는 쿼리 부분을 처리할 수 있다고 가정합니다. 
 
     select  
          w_id as warehouse,
@@ -204,4 +203,3 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
-

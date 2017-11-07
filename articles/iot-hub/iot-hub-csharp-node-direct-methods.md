@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 76f1d32b4afeacae1488b4cf28be6c8cf7f4ea37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-direct-methods-netnode"></a>직접 메서드 사용(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/14/2017
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2017.
-* Node.js 버전 0.10.x 이상
+* Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -80,7 +79,7 @@ ms.lasthandoff: 03/14/2017
    
         response.send(200, 'Input was written to log.', function(err) {
             if(err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -156,7 +155,7 @@ ms.lasthandoff: 03/14/2017
     ```
     node SimulatedDevice.js
     ```
-   열려는 시뮬레이션된 장치를 기다립니다.  ![][7]
+   열려는 시뮬레이션된 장치를 기다립니다. ![][7]
 3. 이제 장치가 연결되어 메서드 호출을 기다리고 있으므로 **CallMethodOnDevice** .NET 앱을 실행하여 시뮬레이션된 장치 응용 프로그램에서 메서드를 호출합니다. 콘솔에 작성된 장치 응답을 볼 수 있습니다.
    
     ![][8]
@@ -200,4 +199,3 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [IoT Hub 시작]: iot-hub-node-node-getstarted.md
-

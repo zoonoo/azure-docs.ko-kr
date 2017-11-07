@@ -13,21 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
-
-
-
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
 이 문서는 PolyBase를 사용하여 ADLS(Azure Data Lake Store)에서 SQL Data Warehouse로 데이터를 로드하는 데 필요한 모든 단계를 제공합니다.
 외부 테이블을 사용하여 ADLS에 저장된 데이터에 대해 임시 쿼리를 실행할 수 있는 동안 모범 사례로 SQL Data Warehouse로 데이터를 가져오는 것을 권장합니다.
-예상 시간: 완료해야 하는 필수 구성 요소를 가지고 있다고 가정하는 10분.
->
+
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 1. 외부 데이터베이스 개체를 만들어 Azure Data Lake Store에서 로드합니다.
@@ -41,12 +38,13 @@ ms.lasthandoff: 03/15/2017
 
 >[!NOTE] 
 > SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다.
+>Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
 
 * SQL Server Management Studio 또는 SQL Server Data Tools, SSMS를 다운로드하고 연결하려면 [SSMS 쿼리](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)를 참조하세요.
 
 * Azure SQL Data Warehouse, 만들려면 https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision을 따릅니다.
 
-* 활성화된 암호화가 없는 Azure Data Lake Store. 만들려면 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal을 따릅니다.
+* Azure Data Lake Store, 암호화를 사용하거나 사용하지 않도록 설정합니다. 만들려면 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal을 따릅니다.
 
 
 
@@ -57,7 +55,7 @@ PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 �
 
 ###  <a name="create-a-credential"></a>자격 증명 만들기
 Azure Data Lake Store에 액세스하려면 다음 단계에서 사용되는 자격 증명 암호를 암호화하는 데이터베이스 마스터 키를 만들어야 합니다.
-그런 다음 AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Windows Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
+그런 다음 AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
 Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 이러한 단계를 수행하기 위한 지침은 [여기](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)에 있습니다.
 
 ```sql
@@ -80,12 +78,17 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
 ### <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
-이 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 명령을 사용하여 데이터의 위치와 데이터의 형식을 저장합니다.
-Azure Portal 및 www.portal.azure.com에서 ADL URI를 찾을 수 있습니다.
+이 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 명령을 사용하여 데이터의 위치와 데이터의 형식을 저장합니다. Azure Portal에서 ADL URI를 찾으려면 Azure Data Lake Store로 이동한 다음 Essentials 패널을 확인합니다.
 
 ```sql
 -- C: Create an external data source
@@ -96,7 +99,7 @@ Azure Portal 및 www.portal.azure.com에서 ADL URI를 찾을 수 있습니다.
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
     CREDENTIAL = ADLCredential
 );
 ```
@@ -161,12 +164,12 @@ WITH
 PolyBase를 사용하는 데이터 로드는 강력한 형식입니다. 즉, 수집되는 데이터의 각 행은 테이블 스키마 정의를 충족해야 합니다.
 지정된 행이 스키마 정의와 일치하지 않는 경우 행은 로드에서 거부됩니다.
 
-거부 형식 및 거부 값은 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의하도록 합니다.
+REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의할 수 있습니다.
 로드 중 거부 값에 도달하는 경우 로드는 실패합니다. 거부된 행의 가장 일반적인 원인은 스키마 정의 불일치입니다.
 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
 위치는 데이터를 읽으려는 맨 위에 있는 디렉터리를 지정합니다.
-이 경우 /DimProduct/ 아래에 하위 디렉터리가 있으면 PolyBase는 하위 디렉터리 내의 모든 데이터를 가져옵니다.
+이 경우 /DimProduct/ 아래에 하위 디렉터리가 있으면 PolyBase는 하위 디렉터리 내의 모든 데이터를 가져옵니다. Azure Data Lake는 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드한 후 읽을 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
 Azure Data Lake Store에서 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS로 로드는 사용자가 만든 강력한 형식의 외부 테이블을 사용합니다.
@@ -209,7 +212,7 @@ Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [Columnstore �
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 이제 Azure SQL Data Warehouse에 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 데이터 로드는 SQL Data Warehouse를 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. [테이블](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) 및 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md)에서 개발 리소스를 확인하세요.
 
 
@@ -234,4 +237,3 @@ Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [Columnstore �
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

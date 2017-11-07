@@ -1,5 +1,5 @@
 ---
-title: "Azure에서 Hyper-V로 장애 복구하는 방법 | Microsoft Docs"
+title: "Azure에서 VMware로 장애 복구하는 방법 | Microsoft Docs"
 description: "가상 컴퓨터를 Azure로 장애 조치(failover)한 후 장애 복구를 시작하여 가상 컴퓨터를 온-프레미스로 복구할 수 있습니다. 장애 복구 방법에 대해 알아보세요."
 services: site-recovery
 documentationcenter: 
@@ -11,26 +11,32 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 28fd433676046ef474ac602c1c9e9829378bfddb
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
+
 이 문서에서는 가상 컴퓨터를 Azure Virtual Machines에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md) 자습서를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 이 문서의 지침에 따라 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구하세요.
 
+> [!WARNING]
+> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)했거나, 가상 컴퓨터를 다른 리소스 그룹으로 이동했거나, Azure 가상 컴퓨터를 삭제한 후에 장애 복구(failback)를 수행할 수 없습니다. 가상 컴퓨터의 보호를 사용하지 않으면 장애 복구를 수행할 수 없습니다.
+
+> [!NOTE]
+> VMware 가상 컴퓨터에서 장애가 발생하면 Hyper-V 호스트로 장애 복구(failback)를 수행할 수 없습니다.
+
 ## <a name="overview-of-failback"></a>장애 복구 개요
-장애 복구의 작동 방식은 다음과 같습니다. Azure로 장애 조치한 후 다음 몇 가지 단계에서 온-프레미스 사이트로 장애 복구합니다.
+장애 복구(failback)의 작동 방식은 다음과 같습니다. Azure로 장애 조치한 후 다음 몇 가지 단계를 거쳐 온-프레미스 사이트로 장애 복구를 수행합니다.
 
 1. 온-프레미스 사이트의 VMware 가상 컴퓨터로 복제를 시작하도록 Azure의 가상 컴퓨터를 [다시 보호](site-recovery-how-to-reprotect.md)합니다. 이 프로세스의 일부로 다음 작업을 수행해야 합니다.
     1. 온-프레미스 마스터 대상 설정: Windows 가상 컴퓨터에 대한 Windows 마스터 대상 및 Linux 가상 컴퓨터에 대한 [Linux 마스터 대상](site-recovery-how-to-install-linux-master-target.md).
     2. [프로세스 서버](site-recovery-vmware-setup-azure-ps-resource-manager.md) 설정.
-    3. [다시 보호](site-recovery-how-to-reprotect.md) 시작.
+    3. [다시 보호](site-recovery-how-to-reprotect.md) 시작. 이렇게 하면 온-프레미스 가상 컴퓨터가 꺼지고 Azure 가상 컴퓨터의 데이터가 온-프레미스 디스크와 동기화됩니다.
 5. Azure의 가상 컴퓨터를 온-프레미스 사이트로 복제한 후 Azure에서 온-프레미스로 장애 조치를 시작합니다.
 
 데이터를 장애 복구한 후에 Azure로 복제를 시작하도록 장애 복구한 온-프레미스 가상 컴퓨터를 다시 보호합니다.
@@ -41,6 +47,9 @@ ms.lasthandoff: 03/22/2017
 ### <a name="fail-back-to-the-original-or-alternate-location"></a>원래 위치 또는 대체 위치로 장애 복구
 
 VMware 가상 컴퓨터를 장애 조치했는데 원본 온-프레미스 가상 컴퓨터가 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 컴퓨터로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 원본 위치 복구라고 합니다. 온-프레미스 가상 컴퓨터가 없는 경우에는 대체 위치 복구 시나리오라고 합니다.
+
+> [!NOTE]
+> 원래 vCenter 및 구성 서버로만 장애 복구를 수행할 수 있습니다. 새 구성 서버를 배포하고 이것을 사용하여 장애 복구를 수행할 수 없습니다. 새 vCenter를 기존 구성 서버에 추가하고 새 vCenter로 장애 복구를 수행할 수도 없습니다.
 
 #### <a name="original-location-recovery"></a>원래 위치 복구
 
@@ -54,13 +63,13 @@ VMware 가상 컴퓨터를 장애 조치했는데 원본 온-프레미스 가상
 가상 컴퓨터를 다시 보호하기 전에 온-프레미스 가상 컴퓨터가 없는 경우를 대체 위치 복구 시나리오라고 합니다. 다시 보호 워크플로에서 온-프레미스 가상 컴퓨터를 다시 만듭니다. 또한 전체 데이터 다운로드가 발생합니다.
 
 * 대체 위치로 장애 복구하는 경우 가상 컴퓨터는 온-프레미스 마스터 대상 서버가 배포되는 것과 동일한 ESX 호스트로 복구됩니다. 디스크를 만드는 데 사용된 데이터 저장소는 가상 컴퓨터를 다시 보호할 때 선택된 데이터 저장소와 동일합니다.
-* VMFS(가상 컴퓨터 파일 시스템) 데이터 저장소에만 장애 복구할 수 있습니다. vSAN 또는 RDM이 있는 경우 다시 보호 및 장애 복구가 작동하지 않습니다.
+* VMFS(가상 컴퓨터 파일 시스템) 또는 vSAN 데이터 저장소에만 장애 복구할 수 있습니다. RDM이 있는 경우 다시 보호 및 장애 복구가 작동하지 않습니다.
 * 다시 보호에는 대량의 초기 데이터 전송과 변경이 수행됩니다. 이 프로세스가 있는 이유는 가상 컴퓨터가 온-프레미스에 없기 때문입니다. 전체 데이터를 다시 복제해야 합니다. 이러한 다시 보호는 원래 위치 복구보다 더 많은 시간이 걸립니다.
-* vSAN 또는 RDM 기반 디스크로 장애 복구할 수 없습니다. VMFS 데이터 저장소에는 새로운 VMDK(가상 컴퓨터 디스크)만 만들 수 있습니다.
+* RDM 기반 디스크로 장애 복구할 수 없습니다. 새로운 VMDK(가상 컴퓨터 디스크)는 VMFS/vSAN 데이터 저장소에서만 만들 수 있습니다.
 
 Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V라고도 함)로만 장애 복구할 수 있습니다. 이 흐름은 대체 위치 복구 아래에 있습니다.
 
-* 보호되고 Azure로 장애 조치된 Windows Server 2008 R2 SP1 서버는 장애 복구할 수 없습니다.
+* 보호되고 Azure로 장애 조치(Failover)된 경우 Windows Server 2008 R2 SP1 물리적 서버.
 * 하나 이상의 마스터 대상 서버와 장애 복구(failback)해야 하는 필수 ESX/ESXi 호스트를 검색해야 합니다.
 
 ## <a name="have-you-completed-reprotection"></a>다시 보호를 완료했습니까?
@@ -68,13 +77,16 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 컴퓨터가 있어야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 따라서 서버의 예정된 정기 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동할 수 있도록 동일한 IP 주소를 사용하여 서버를 복원해야 합니다.
-* 장애 조치를 트리거하려면 마스터 대상 서버에 스냅숏이 없어야 합니다.
+> [!IMPORTANT]
+> Azure로 장애 조치 중에는 온-프레미스 사이트에 액세스할 수 없습니다. 따라서 구성 서버는 사용할 수 없거나 종료된 상태일 수 있습니다. 다시 보호 및 장애 복구 중에 온-프레미스 구성 서버는 실행 중이며 연결 양호 상태여야 합니다.
+
+* 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 서버는 실행 중이며 상태가 양호한 서비스에 연결되어야 합니다. 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 컴퓨터가 있어야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 따라서 서버의 예정된 정기 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동할 수 있도록 동일한 IP 주소를 사용하여 서버를 복원해야 합니다.
+* 다시 보호/장애 조치를 트리거하려면 마스터 대상 서버에 스냅숏이 없어야 합니다.
 
 ## <a name="steps-to-fail-back"></a>장애 복구 단계
 
 > [!IMPORTANT]
-장애 복구를 시작하기 전에 가상 컴퓨터의 다시 보호를 완료했는지 확인합니다. 가상 컴퓨터는 **양호**한 상태로 보호되어야 합니다. 가상 컴퓨터를 다시 보호하려면 [다시 보호하는 방법](site-recovery-how-to-reprotect.md)을 참조하세요.
+> 장애 복구를 시작하기 전에 가상 컴퓨터의 다시 보호를 완료했는지 확인합니다. 가상 컴퓨터는 **양호**한 상태로 보호되어야 합니다. 가상 컴퓨터를 다시 보호하려면 [다시 보호하는 방법](site-recovery-how-to-reprotect.md)을 참조하세요.
 
 1. 복제된 항목 페이지에서 가상 컴퓨터를 선택하고 마우스 오른쪽 단추를 클릭하여 **계획되지 않은 장애 조치**를 선택합니다.
 2. **장애 조치(failover) 확인** 에서 장애 조치(failover) 방향(Azure에서)을 확인하고 장애 조치(failover)에 사용할 복구 지점(최신 또는 최근 응용 프로그램 일치)을 선택합니다. 앱 일치 시점이 최신 시점보다 늦어지고 이로 인해 데이터 손실이 발생합니다.
@@ -93,6 +105,12 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 
 응용 프로그램 일치 복구 지점을 선택하면 단일 가상 컴퓨터 장애 복구가 사용 가능한 최근 응용 프로그램 일치 복구 지점으로 복구됩니다. 복제 그룹이 있는 복구 계획의 경우 각 복제 그룹은 사용 가능한 일반 복구 지점으로 복구됩니다.
 응용 프로그램 일치 복구 지점의 경우 복구가 지연될 수 있고 데이터가 손실될 수 있습니다.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>장애 복구 후 VMware 도구는 어떻게 되나요?
+
+Azure로 장애 조치 중에는 VMware 도구를 Azure 가상 컴퓨터에서 실행할 수 없습니다. Windows 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 비활성화합니다. Linux 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 제거합니다.
+
+Windows 가상 컴퓨터의 장애 복구 중에는 장애 복구 시 VMware 도구가 다시 활성화됩니다. 마찬가지로, linux 가상 컴퓨터의 경우 장애 복구 중에 컴퓨터에 VMware 도구가 다시 설치됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -117,4 +135,3 @@ Azure에서 장애 조치된 가상 컴퓨터를 제거하려면 커밋이 필�
 
 ## <a name="common-issues"></a>일반적인 문제
 장애 복구를 수행 하기 전에 vCenter가 연결되었는지 확인합니다. 연결되지 않은 경우 디스크의 연결을 끊고 가상 컴퓨터를 다시 연결하는 작업이 실패합니다.
-

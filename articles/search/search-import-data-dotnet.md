@@ -1,5 +1,5 @@
 ---
-title: ".NET SDK를 사용하여 Azure Search에 데이터 업로드 | Microsoft Docs"
+title: "데이터 업로드(.NET - Azure Search) | Microsoft Docs"
 description: ".NET SDK를 사용하여 Azure 검색에서 인덱스에 데이터를 업로드하는 방법을 알아봅니다."
 services: search
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
-
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure 검색에 데이터 업로드
 > [!div class="op_single_selector"]
@@ -33,7 +33,8 @@ ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들어야](search-what-is-an-index.md)합니다. 이 문서에서는 [.NET SDK를 사용하여 Azure 검색 인덱스 만들기](search-create-index-dotnet.md#CreateSearchServiceClient)에서 보여준 것처럼 `SearchServiceClient` 개체를 이미 만들었다고 가정합니다.
 
-이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
+> [!NOTE]
+> 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
 
 .NET SDK를 사용하여 인덱스에 문서를 푸시하기 위해 다음을 수행해야 합니다.
 
@@ -154,7 +155,7 @@ Thread.Sleep(2000);
 
 `Index` 메서드에 대한 호출과 관련된 `try`/`catch`를 참고합니다. catch 블록은 인덱싱에 대한 중요한 오류 사례를 다룹니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스되는 동안에 문서를 인덱싱하는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.** 실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
 
-마지막으로&2;초 동안 위의 예에서 코드가 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
+마지막으로 2초 동안 위의 예에서 코드가 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
 
 <a name="HotelClass"></a>
 
@@ -236,10 +237,4 @@ public partial class Hotel
 
 ## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md) 를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

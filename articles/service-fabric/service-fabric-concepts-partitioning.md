@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 06/30/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -130,8 +129,10 @@ ms.lasthandoff: 04/07/2017
 2. **새 프로젝트** 대화 상자에서 서비스 패브릭 응용 프로그램을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
-   
-    ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createstateful.png)
+       ![Visual Studio의 새 서비스 대화 상자][1]
+
+  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
+
 5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationPackageRoot 폴더에 있는 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing_PartitionCount를 26으로 업데이트합니다.
    
     ```xml
@@ -371,3 +372,4 @@ ms.lasthandoff: 04/07/2017
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
-ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
-ms.lasthandoff: 02/23/2017
-
-
+ms.reviewer: jeedes
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>자습서: SuccessFactors와 Azure Active Directory 통합
 이 자습서에서는 SuccessFactors와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.
@@ -45,7 +45,7 @@ SuccessFactors와의 Azure AD 통합을 구성하려면 다음 항목이 필요�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
@@ -330,4 +330,3 @@ SuccessFactors에서 사용자를 생성하려면 [SuccessFactors 지원 팀](ht
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-

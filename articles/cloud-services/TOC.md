@@ -1,5 +1,5 @@
 # 개요
-## [Cloud Service란?](cloud-services-choose-me.md)
+## [란?](cloud-services-choose-me.md)
 ## [클라우드 서비스 구성 파일 및 패키징](cloud-services-model-and-package.md)
 
 # 시작
@@ -17,12 +17,10 @@
 ### [Node.js 응용 프로그램 빌드 및 배포](cloud-services-nodejs-develop-deploy-app.md)
 ### [Express를 사용하여 Node.js 웹 응용 프로그램 빌드](cloud-services-nodejs-develop-deploy-express-app.md)
 ### 저장소 및 Visual Studio
-#### [Blob 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [큐 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [테이블 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [큐 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [테이블 저장소 및 연결된 서비스](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### 연속 빌드 및 배포에 대한 패키지 구성
-#### [Visual Studio Team Services 및 Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS 및 팀 빌드](cloud-services-dotnet-continuous-delivery.md)
 ### [역할에 대한 트래픽 규칙 구성](cloud-services-enable-communication-role-instances.md)
 ### [클라우드 서비스 수명 주기 이벤트 처리](cloud-services-role-lifecycle-dotnet.md)
@@ -36,13 +34,13 @@
 #### [클라우드 서비스 역할에서 작업을 사용하여 .NET 설치](cloud-services-dotnet-install-dotnet.md)
 
 ### 원격 데스크톱 구성
-#### [포털](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure 포털](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [클래식 포털](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 배포
 ### 포털에서 클라우드 서비스 만들기 및 배포
-#### [포털](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
 #### [클래식 포털](cloud-services-how-to-create-deploy.md)
 ### [PowerShell에서 빈 클라우드 서비스 컨테이너 만들기](cloud-services-powershell-create-cloud-container.md)
 ### 사용자 지정 도메인 이름 구성
@@ -53,14 +51,14 @@
 
 ## 서비스 관리
 ### 일반적인 관리 작업
-#### [포털](cloud-services-how-to-manage-portal.md)
+#### [Azure 포털](cloud-services-how-to-manage-portal.md)
 #### [클래식 포털](cloud-services-how-to-manage.md)
 ### 클라우드 서비스 구성
-#### [포털](cloud-services-how-to-configure-portal.md)
+#### [Azure 포털](cloud-services-how-to-configure-portal.md)
 #### [클래식 포털](cloud-services-how-to-configure.md)
 ### [Azure Automation을 사용하여 클라우드 서비스 관리](automation-manage-cloud-services.md)
 ### 자동 크기 조정 구성
-#### [포털](cloud-services-how-to-scale-portal.md)
+#### [Azure 포털](cloud-services-how-to-scale-portal.md)
 #### [클래식 포털](cloud-services-how-to-scale.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
 
@@ -82,7 +80,7 @@
 ### [성능 테스트](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio 프로파일러를 사용하여 테스트](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 진단 사용
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure 진단에서 성능 카운터 사용](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -102,16 +100,29 @@
 ### [일반적인 배포 문제](cloud-services-troubleshoot-deployment-problems.md)
 ### [역할 시작 실패](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [복구 지침](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services FAQ](cloud-services-faq.md)
+### Cloud Services FAQ
+#### [응용 프로그램 및 서비스 가용성 FAQ](cloud-services-application-and-service-availability-faq.md)
+#### [구성 및 관리 FAQ](cloud-services-configuration-and-management-faq.md)
+#### [연결 및 네트워킹 FAQ](cloud-services-connectivity-and-networking-faq.md)
+#### [배포 FAQ](cloud-services-deployment-faq.md)
 
 # 참조
-## [.csdef XML 스키마](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XML 스키마](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [.csdef XML 스키마](schema-csdef-file.md)
+### [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)
+### [WebRole 스키마](schema-csdef-webrole.md)
+### [WorkerRole 스키마](schema-csdef-workerrole.md)
+### [NetworkTrafficRules 스키마](schema-csdef-networktrafficrules.md)
+## [.cscfg XML 스키마](schema-cscfg-file.md)
+### [역할 스키마](schema-cscfg-role.md)
+### [NetworkConfiguration 스키마](schema-cscfg-networkconfiguration.md)
+## [REST (영문)](/rest/api/compute/cloudservices/)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [가격](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

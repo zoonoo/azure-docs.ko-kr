@@ -3,8 +3,8 @@ title: "Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 SDK 버
 description: "모바일 서비스와 Azure 모바일 앱에 대한 클라이언트 SDK의 목록 및 서버 SDK 버전과 호환성"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
-ms.lasthandoff: 03/09/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
 Azure 모바일 서비스의 최신 버전은 Azure 앱 서비스의 **모바일 앱** 기능입니다.
@@ -47,8 +46,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 > [!NOTE]
 > 오프라인 동기화, 인증 및 푸시 알림 영역에서 특히 모바일 서비스와 모바일 앱 간의 많은 동작 변경 사항이 있습니다. 이러한 동작 변경이 앱의 기능을 중단하지 않도록 테스트를 완료한 후에 버전 확인을 옵트아웃해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>모든 버전에 대한 호환성 요약
 아래 차트에서는 모든 클라이언트 및 서버 형식 간의 호환성을 보여줍니다. 백 엔드는 사용하는 서버 SDK에 기반하여 모바일 **서비스** 또는 모바일 **앱**으로 구분됩니다.
@@ -80,7 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-services-server-sdks"></a>모바일 *서비스* 서버 SDK
 | 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**버전 헤더 없음 ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**버전 헤더 없음** |
 | Node.js |(서비스 예정) |**버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
@@ -130,5 +129,3 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
-
-

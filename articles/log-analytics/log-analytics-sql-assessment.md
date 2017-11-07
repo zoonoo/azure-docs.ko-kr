@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 SQL Server 환경 최적화
+
+![SQL 평가 기호](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 SQL 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션 설치를 도와줍니다.
 
@@ -64,7 +65,7 @@ SQL 평가는 사용자가 설정한 에이전트를 사용하여 WMI 데이터,
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![예](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![예](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![아니요](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![아니요](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![예](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 일 |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 일 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS용 Operations Manager 실행 계정
 OMS의 Log Analytics에서는 Operations Manager 에이전트와 관리 그룹을 사용하여 데이터를 수집하여 OMS 서비스로 전송합니다. OMS는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 작업 관련 권한이 필요 합니다. Operations Manager 실행 계정을 구성하여 자격 증명 정보를 제공해야 합니다.
@@ -127,7 +128,7 @@ PowerShell 창을 열고 사용자 정보로 업데이트 한 후 다음 스크�
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
-가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 * 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
@@ -168,6 +169,8 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 OMS에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
 1. 작업 영역에 로그인하고 로그 검색을 엽니다. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
@@ -180,7 +183,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
-2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
+2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음 파일을 저장하고 닫습니다.
 3. OMS에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * Operations Manager 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
@@ -203,7 +206,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 * 지금은 없습니다.
 
-*SQL 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?*
+*SQL 평가 솔루션을 추가한 후 다른 서버가 발견되면 이 서버를 평가하나요?*
 
 * 예, 발견되면 그 시간부터 7일마다 평가됩니다.
 
@@ -245,4 +248,3 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md) 하여 자세한 SQL 평가 데이터 및 권장 사항을 확인합니다.
-

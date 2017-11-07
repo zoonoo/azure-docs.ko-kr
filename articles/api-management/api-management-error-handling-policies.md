@@ -3,7 +3,7 @@ title: "Azure API Management 정책에서 오류 처리 | Microsoft Docs"
 description: "Azure API Management에서 요청을 처리하는 동안 발생할 수 있는 오류 조건에 대응하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
-
+ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 Azure API Management를 통해 게시자는 `ProxyError` 개체를 제공하여 프록시에 대한 요청을 처리하는 동안 발생할 수 있는 오류 조건에 대응할 수 있습니다. `ProxyError` 개체는 [context.LastError](api-management-policy-expressions.md#ContextVariables) 속성을 통해 액세스하며 `on-error` 정책 섹션에서 정책에 의해 사용될 수 있습니다. 이 항목은 Azure API Management에서 오류 처리 기능에 대한 참조를 제공합니다.  
@@ -128,8 +129,3 @@ Azure API Management를 통해 게시자는 `ProxyError` 개체를 제공하여 
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

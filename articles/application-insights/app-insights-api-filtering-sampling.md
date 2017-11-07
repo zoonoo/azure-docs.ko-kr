@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4813610bc938c1a2fb6581bc9d8352b519a2d8ef
-ms.openlocfilehash: ea5285a7997beed926e35649362cee7de53e1efe
-
-
+ms.author: borooji;mbullwin
+ms.openlocfilehash: 9261f44a0c0400a0a8d908b0ff72318c637771de
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -341,32 +341,11 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>SDK 코드
-* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
-* [검색 이벤트 및 로그][diagnostic]
+## <a name="next"></a>다음 단계
+* [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 * [샘플링](app-insights-sampling.md)
-* [문제 해결][qna]
-
-<!--Link references-->
-
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* [문제 해결](app-insights-troubleshoot-faq.md)

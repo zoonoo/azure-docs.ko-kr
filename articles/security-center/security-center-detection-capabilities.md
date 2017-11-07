@@ -12,22 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 09/20/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b6a0504f2dd5d23fa135b8afc371e3a9210d7caa
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: edef9bc1ba2420a4b7d95f891fd8b0b7e144c2ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 보안 센터 감지 기능
 이 문서에서는 Microsoft Azure 리소스를 대상으로 하는 활성 위협을 식별하는 데 도움을 주고 신속하게 응답하는 데 필요한 정보를 제공하는 Azure 보안 센터의 고급 감지 기능을 설명합니다.
 
+고급 검색은 Azure 보안 센터의 표준 계층에서 제공됩니다. 무료 60일 평가판을 사용할 수 있습니다. [보안 정책](security-center-policies.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요. 
+
 > [!NOTE]
-> 고급 검색은 Azure 보안 센터의 표준 계층에서 제공됩니다. 무료 60일 평가판을 사용할 수 있습니다. [보안 정책](security-center-policies.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 방문하세요. 
-> 
-> 
+> Security Center는 Linux 컴퓨터에서 악의적인 행동을 감지하는 감사된 레코드인 공통 감사 프레임워크를 활용하는 새로운 집합의 감지에 대한 제한된 미리 보기를 출시했습니다. 구독 ID를 [당사](mailto:ASC_linuxdetections@microsoft.com)로 전자 메일을 보내어 미리 보기에 가입하세요.
 
 ## <a name="responding-to-todays-threats"></a>오늘날의 위협에 대한 응답
 지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 또는 조직 범죄로 자금 지원을 받으므로 더 많은 사용 가능한 리소스가 있습니다.
@@ -83,12 +82,11 @@ Azure 보안 센터는 위협 상황에서 변경 내용을 지속적으로 모�
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure 보안 센터 감지 기능을 작동하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
+* [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center에서 유형별 보안 경고](security-center-alerts-type.md)
-* [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
 

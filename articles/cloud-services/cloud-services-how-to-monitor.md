@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
-
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-cloud-services"></a>Cloud Services를 모니터링하는 방법
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]
@@ -39,7 +40,7 @@ Azure 클래식 포털의 모니터링 표시는 매우 다양하게 구성할 �
 다음 절차를 사용하여 Azure 클래식 포털에서 자세한 모니터링 또는 최소 모니터링을 구성합니다. 
 
 ### <a name="before-you-begin"></a>시작하기 전에
-* 모니터링 데이터를 저장할 *클래식* 저장소 계정을 만듭니다. 역할에 따라 다른 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+* 모니터링 데이터를 저장할 *클래식* 저장소 계정을 만듭니다. 역할에 따라 다른 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 * 클라우드 서비스 역할에 대해 Azure 진단을 사용하도록 설정합니다. [Cloud Services에 대한 진단 구성](cloud-services-dotnet-diagnostics.md)을 참조하십시오.
 
 역할 구성에서 진단 연결 문자열이 있는지 확인하십시오. Azure 진단을 사용하도록 설정하고 역할 구성에 진단 연결 문자열을 포함할 때까지 자세한 정보 표시를 켤 수 없습니다.   
@@ -175,9 +176,3 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

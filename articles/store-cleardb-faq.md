@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure 앱 서비스를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure 웹앱용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -81,7 +80,10 @@ Azure Resource Manager를 사용하여 ClearDB 데이터베이스 또는 [새 Az
 예, Basic 시리즈 데이터베이스는 전체 업그레이드(Basic 60 ~ Basic 500)할 수 있습니다. Pro 시리즈는 Pro 60을 제외하고 전체 업그레이드(Pro 125 ~ Pro 1000)할 수 있습니다. 현재 Pro 60 데이터베이스 업그레이드는 지원되지 않습니다. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>리소스를 하나의 구독에서 다른 구독으로 마이그레이션할 때 ClearDB MySQL 데이터베이스도 마이그레이션되나요?
-구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](app-service-web/app-service-move-resources.md) 이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
+구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](app-service/app-service-move-resources.md) 이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다. 
+
+## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>내 구독에서 지출 한도에 도달했습니다. 한도를 삭제했고 App Service는 온라인 상태지만 데이터베이스에 액세스할 수 없습니다. 어떻게 ClearDB 데이터베이스를 다시 사용하나요?
+[ClearDB 지원](https://www.cleardb.com/developers/help/support)에 연락하여 데이터베이스를 다시 사용합니다. Azure 구독 정보와 데이터베이스 이름을 제공합니다.
 
 ## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>신용 카드 구독에서 EA 구독으로 ClearDB 데이터베이스를 전송할 수 있나요?
 기존 ClearDB 데이터베이스에서 기존 구독과 연결된 신용 카드를 사용합니다. EA 구독을 사용하려면 데이터를 새 데이터베이스로 마이그레이션해야 합니다.
@@ -105,5 +107,4 @@ EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 
 
 ## <a name="more-information"></a>자세한 정보
 [Azure 마켓플레이스 FAQ](/marketplace/faq/)
-
 

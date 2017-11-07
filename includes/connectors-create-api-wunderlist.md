@@ -16,8 +16,3 @@ Wunderlist 계정에 연결하도록 논리 앱에 권한을 부여하는 단계
 5. 마지막으로 **권한 부여** 단추를 선택합니다.  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

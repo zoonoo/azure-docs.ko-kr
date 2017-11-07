@@ -12,21 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>응용 프로그램에 대한 보안 정책 구성
 Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터에서 실행 중인 응용 프로그램을 보호할 수 있습니다. 또한 Service Fabric으로 배포 시 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다. 따라서 공유되는 호스티드 환경에서도 서로 더욱 안전하게 응용 프로그램을 실행할 수 있습니다.
 
 기본적으로 서비스 패브릭 응용 프로그램은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 또한 Service Fabric은 응용 프로그램의 매니페스트 내에 지정된 로컬 사용자 계정 또는 로컬 시스템 계정을 통해 응용 프로그램을 실행하는 기능을 제공합니다. 지원되는 로컬 시스템 계정 유형은 **LocalUser**, **NetworkService**, **LocalService** 및 **LocalSystem**입니다.
 
- 독립 실행형 설치 관리자를 사용하여 데이터 센터의 Windows Server에서 Service Fabric을 실행하는 경우 Active Directory 도메인 계정을 사용할 수 있습니다.
+ 독립 실행형 설치 관리자를 사용하여 데이터 센터의 Windows Server에서 Service Fabric을 실행하는 경우 그룹 관리 서비스 계정을 포함하여 Active Directory 도메인 계정을 사용할 수 있습니다.
 
 사용자 그룹을 정의하고 만들었으므로 각 그룹에 사용자를 한 명 이상 추가하여 한꺼번에 관리할 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다.
 
@@ -140,6 +139,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 </ApplicationManifest>
 ```
 
+Linux 클러스터의 경우 서비스 또는 설정 진입점을 **root**로 실행하려면 **AccountType**을 **LocalSystem**으로 지정해야 합니다.
+
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>설치 진입점에서 PowerShell 명령 시작
 **SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 배치 파일에서 **PowerShell.exe**를 실행하면 됩니다. 먼저 서비스 프로젝트(예: **MySetup.ps1**)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사* 속성을 설정해야 합니다. 다음은 **TestVariable**이라는 시스템 환경 변수를 설정하는 PowerShell 파일 MySetup.ps1을 시작하는 간단한 배치 파일을 보여 주는 예제입니다.
 
@@ -202,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 이전 단계에서 SetupEntryPoint에 RunAs 정책을 적용하는 방법을 살펴보았습니다. 이번에는 서비스 정책으로 적용할 수 있는 다양한 주체를 만드는 방법을 좀 더 자세히 살펴보겠습니다.
 
 ### <a name="create-local-user-groups"></a>로컬 사용자 그룹 만들기
-그룹에 사용자를 한 명 이상 추가하도록 사용자 그룹을 정의하고 만들 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우에 특히 유용합니다. 다음은 관리자 권한이 있는 **LocalAdminGroup**이라는 로컬 그룹을 보여 줍니다. 두 사용자 Customer1과 Customer2를 이 그룹 구성원으로 만듭니다.
+그룹에 사용자를 한 명 이상 추가하도록 사용자 그룹을 정의하고 만들 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다. 다음은 관리자 권한이 있는 **LocalAdminGroup**이라는 로컬 그룹을 보여 줍니다. 두 사용자 Customer1과 Customer2를 이 그룹 구성원으로 만듭니다.
 
 ```xml
 <Principals>
@@ -239,7 +240,7 @@ Echo "Test console redirection which writes to the application log folder on the
 </Principals>
 ```
 
-응용 프로그램에서 사용자 계정과 암호가 모든 컴퓨터에서 같도록 요구할 경우(예: NTLM 인증을 사용하기 위해) 클러스터 매니페스트는 NTLMAuthenticationEnabled를 true로 설정해야 합니다. 클러스터 매니페스트는 모든 컴퓨터에서 동일한 암호를 생성하는 데 사용될 NTLMAuthenticationPasswordSecret도 지정해야 합니다.
+응용 프로그램에서 사용자 계정과 암호가 모든 컴퓨터에서 같도록 요구할 경우(예: NTLM 인증을 사용하기 위해) 클러스터 매니페스트는 NTLMAuthenticationEnabled를 true로 설정해야 합니다. 클러스터 매니페스트는 모든 컴퓨터에서 동일한 암호를 생성하는 데 사용된 NTLMAuthenticationPasswordSecret도 지정해야 합니다.
 
 ```xml
 <Section Name="Hosting">
@@ -290,10 +291,47 @@ Echo "Test console redirection which writes to the application log folder on the
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>그룹 관리 서비스 계정을 사용합니다.
+독립 실행형 설치 관리자를 사용하여 Windows Server에 설치된 Service Fabric 인스턴스의 경우 그룹 관리 서비스 계정(gMSA)으로 서비스를 실행할 수 있습니다. 도메인 내의 Active Directory 온-프레미스이며 Azure Active Directory(Azure AD)를 사용하지 않습니다. gMSA를 사용하면 `Application Manifest`에 저장된 암호 또는 암호화된 암호가 없습니다.
 
+다음 예에서는 *svc-Test$*라는 gMSA 계정을 작성하는 방법, 해당 관리 서비스 계정을 클러스터 노드에 배포하는 방법 및 사용자 주체를 구성하는 방법을 보여줍니다.
+
+##### <a name="prerequisites"></a>필수 조건.
+- 도메인에 KDS 루트 키가 필요합니다.
+- Windows Server 2012 이상 기능 수준에 도메인이 있어야 합니다.
+
+##### <a name="example"></a>예제
+1. Active Directory 도메인 관리자가 `New-ADServiceAccount` commandlet을 사용하여 그룹 관리 서비스 계정을 만들고 `PrincipalsAllowedToRetrieveManagedPassword`에 Serivce Fabric 클러스터 노드가 모두 포함되도록 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`이 고유해야 합니다.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. 각 Service Fabric 클러스터 노드(예: `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`)에서 gMSA를 설치하고 테스트합니다.
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. 사용자 보안 주체를 구성하고 사용자를 참조하도록 RunAsPolicy를 구성합니다.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP 및 HTTPS 끝점에 보안 액세스 정책 할당
-서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 끝점 리소스를 선언할 경우 이러한 끝점에 할당된 포트가 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어 나열되도록 **SecurityAccessPolicy**를 지정해야 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **ServiceEndpointName**이라는 끝점에 Customer3이라는 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.
+서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 끝점 리소스를 선언할 경우 이러한 끝점에 할당된 포트가 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어 나열되도록 **SecurityAccessPolicy**를 지정해야 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **EndpointName**이라는 끝점에 Customer1 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.
 
 ```xml
 <Policies>
@@ -314,7 +352,12 @@ Echo "Test console redirection which writes to the application log folder on the
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>https 끝점으로 여러 응용 프로그램 업그레이드
+http**s**를 사용할 때는 동일한 응용 프로그램의 서로 다른 인스턴스에 대해 **동일한 포트**를 사용하지 않도록 주의해야 합니다. Service Fabric에서 응용 프로그램 인스턴스 중 하나에 대해 인증서를 업그레이드할 수 없기 때문입니다. 예를 들어, 응용 프로그램 1 또는 응용 프로그램 2 모두 해당 인증서 1을 인증서 2로 업그레이드하려고 합니다. 업그레이드가 발생할 때 Service Fabric은 다른 응용 프로그램에서 아직 사용 중이라고 하더라도 http.sys에서 인증서 1 등록을 정리할 수 있습니다. 이러한 상황을 방지하기 위해 Service Fabric은 인증서와 함께 해당 포트에 등록된(http.sys에 따라) 다른 응용 프로그램 인스턴스가 이미 있는지 검색하고 있는 경우 작업이 실패합니다.
 
+따라서 Service Fabric은 서로 다른 응용 프로그램 인스턴스에 **동일한 포트**를 사용하는 두 가지 다른 서비스의 업그레이드를 지원하지 않습니다. 즉, 동일한 포트에서 서로 다른 서비스에 동일한 인증서를 사용할 수 없습니다. 동일한 포트에서 공유 인증서를 포함해야 하는 경우 배치 제약 조건에 따라 서비스가 서로 다른 컴퓨터에 배치되는지 확인해야 합니다. 또는 각 응용 프로그램 인스턴스에서 각 서비스에 대해 Service Fabric 동적 포트를 사용하는 것이 좋습니다(가능한 경우). 
+
+https로 업그레이드 실패가 표시되면 “The Windows HTTP Server API does not support multiple certificates for applications that share a port(Windows HTTP 서버 API에서 포트를 공유하는 응용 프로그램에 대해 여러 인증서를 지원하지 않습니다).”라는 오류 경고가 표시됩니다.
 
 ## <a name="a-complete-application-manifest-example"></a>완전한 응용 프로그램 매니페스트의 예
 다음 응용 프로그램 매니페스트는 여러 설정을 보여줍니다.
@@ -380,4 +423,3 @@ Echo "Test console redirection which writes to the application log folder on the
 * [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-

@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 9fec253fbf9136cf86a84a6c7b407ea522996226
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
@@ -363,5 +362,4 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 * 새 명령(ARM)
   
         client.Clusters.Delete(resourceGroup, dnsname);
-
 

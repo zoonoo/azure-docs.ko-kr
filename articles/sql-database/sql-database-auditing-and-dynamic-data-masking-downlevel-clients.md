@@ -1,28 +1,32 @@
 ---
-title: "Azure SQL Database의 감사, TDS 리디렉션 및 IP 끝점 | Microsoft Docs"
+title: "Azure SQL Database의 테이블 감사, TDS 리디렉션 및 IP 끝점 | Microsoft Docs"
 description: "Azure SQL Database에서 테이블 감사를 구현할 때 감사, TDS 리디렉션 및 IP 끝점 변경 내용에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: security-protect
-ms.workload: data-management
+ms.custom: security
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: ronitr
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
-ms.lasthandoff: 02/17/2017
-
-
+ms.date: 05/31/2017
+ms.author: giladm
+ms.openlocfilehash: 42c89f09eee4394fec7d2f33f51ddc5875587530
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database - 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 끝점 변경
+
+> [!IMPORTANT]
+> 이 문서는 **이제는 사용되지 않는** 테이블 감사에만 적용됩니다.<br>
+> 하위 클라이언트 연결 문자열을 수정할 필요가 **없는** 새 [Blob 감사](sql-database-auditing.md) 메서드를 사용하세요. Blob 감사에 대한 추가 정보는 [SQL 데이터베이스 감사 시작](sql-database-auditing.md)에서 찾을 수 있습니다.
+
 [데이터베이스 감사](sql-database-auditing.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다. BLOB 감사 메서드를 사용하는 경우에는 해당 리디렉션이 적용되지 않습니다.
 
 ## <a id="subheading-1"></a>하위 클라이언트 지원
@@ -78,4 +82,3 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 캐나다 동부 |40.86.227.82, 40.86.225.194 |
 | 영국 북부 |13.87.101.18, 13.87.100.232 |
 | 영국 남부 2 |13.87.32.202, 13.87.32.226 |
-

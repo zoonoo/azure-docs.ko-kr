@@ -1,5 +1,5 @@
 ---
-title: "HDInsight의 Hadoop 클러스터에 Giraph 설치 및 사용 | Microsoft 문서"
+title: "HDInsight의 Hadoop 클러스터에 Giraph 설치 및 사용 - Azure | Microsoft Docs"
 description: "Giraph를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법 및 Giraph를 사용하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,19 +16,18 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 643a8b6bfadd9464303ffc12b29cd739a7e41f1e
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Giraph 설치 및 사용
 
 스크립트 동작을 사용하여 Giraph로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 대규모 그래프를 처리하기 위해 Giraph를 사용하는 방법을 알아봅니다. Linux 기반 클러스터와 함께 Giraph를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight 클러스터에 Giraph를 설치하는 방법에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)를 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight 클러스터에 Giraph를 설치하는 방법에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)를 참조하세요.
 
 
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 Giraph를 설치할 수 있습니다. HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob( [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1))에서 다운로드할 수 있습니다. 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
@@ -88,21 +87,21 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 2. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다.
 
     > [!IMPORTANT]
-    > Azure 서비스 관리자를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거됩니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
+    > Azure Service Manager를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
 
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -121,7 +120,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     ```
 
     위의 예제에서는 **clustername** 을 Giraph가 설치된 HDInsight 클러스터의 이름으로 바꿉니다.
-3. 결과를 확인합니다. 작업이 완료되면 결과가 **wasbs:///example/out/shotestpaths** 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 **part-m-00001** 및 **part-m-00002**입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
+3. 결과를 확인합니다. 작업이 완료되면 결과가 **wasb:///example/out/shotestpaths** 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 **part-m-00001** 및 **part-m-00002**입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name
@@ -183,4 +182,3 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-

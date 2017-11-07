@@ -8,18 +8,17 @@ manager: lorenr
 editor: 
 ms.assetid: 1f8cd3ac-0522-48eb-a5f0-679ee9192ddb
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
-translationtype: Human Translation
-ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
-ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
 Operations Management Suite에서는 무중단 업무 방식 계획의 일부분으로 사용 가능한 포괄적인 백업 및 재해 복구 솔루션이 제공됩니다.
@@ -59,9 +58,8 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
 * 보호할 수 있도록 설정하려는 컴퓨터에 WMF(Windows Management Framework) 5.0 설치(자동화 DSC의 요구 사항)
 
   > [!NOTE]
-  > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](#Use DSC in disconnected environments) 섹션을 참조하세요.
-  >
-  >
+  > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](## Use DSC in disconnected environments) 섹션을 참조하세요.
+  
 
 모바일 서비스는 명령줄을 통해 설치할 수 있으며 여러 인수를 허용합니다. 그러므로 설치에서 이진 파일을 추출한 다음 DSC 구성을 사용하여 검색할 수 있는 위치에 저장해야 합니다.
 
@@ -511,5 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>다음 단계
-모바일 서비스 에이전트를 배포한 후 가상 컴퓨터에 대해 [복제를 사용하도록 설정](site-recovery-vmware-to-azure.md#enable-replication) 할 수 있습니다.
-
+모바일 서비스 에이전트를 배포한 후 가상 컴퓨터에 대해 [복제를 사용하도록 설정](site-recovery-vmware-to-azure.md) 할 수 있습니다.

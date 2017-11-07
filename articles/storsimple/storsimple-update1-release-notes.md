@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
-ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 02c393f632c355ea5fbde554adbd8b1169ad8bc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 1.2 릴리스 정보
 
@@ -58,7 +57,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 * **Azure 정부 포털에서 가용성** – StorSimple은 이제 Azure 정부 포털에서 사용 가능합니다. [Azure 정부 포털에서 StorSimple 장치를 배포](storsimple-deployment-walkthrough-gov.md)하는 방법을 참조하세요.
 * **다른 클라우드 서비스 공급자에 대한 지원** – 지원되는 다른 클라우드 서비스 공급자는 Amazon S3, RRS가 있는 Amazon S3, HP 및 OpenStack(베타)입니다.
 * **최신 저장소 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure 저장소 서비스 API로 업데이트되었습니다. 업데이트 1 이전 소프트웨어 버전(Release, 0.1, 0.2 및 0.3)을 실행하는 StorSimple 8000 시리즈 장치는 2009년 7월 17일보다 오래된 버전의 Azure 저장소 서비스 API를 사용합니다. 업데이트된 [저장소 서비스 버전 제거에 대한 알림](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)에서 설명한 것처럼, 2016년 8월 1일 이 API는 더 이상 사용되지 않습니다. 2016년 8월 1일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 장치는 정상적으로 작동 중지됩니다.
-* **영역 중복 저장소(ZRS) 지원** – 최신 버전의 저장소 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 저장소(LRS) 및 지역 중복 저장소(GRS) 외에도 영역 중복 저장소(ZRS)를 지원합니다. ZRS 세부 정보는 [Azure 저장소 중복 옵션에 대한 기사](../storage/storage-redundancy.md) 를 참조하세요.
+* **영역 중복 저장소(ZRS) 지원** – 최신 버전의 저장소 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 저장소(LRS) 및 지역 중복 저장소(GRS) 외에도 영역 중복 저장소(ZRS)를 지원합니다. ZRS 세부 정보는 [Azure 저장소 중복 옵션에 대한 기사](../storage/common/storage-redundancy.md) 를 참조하세요.
 * **향상된 초기 배포 및 업데이트 환경** – 이 릴리스에서 설치 및 업데이트 프로세스가 향상되었습니다. 네트워크 구성 및 방화벽 설정이 올바르지 않은 경우 설치 마법사를 통한 설치가 향상되어 사용자에게 피드백을 제공합니다. 추가 진단 cmdlet이 제공되어 장치의 네트워킹 문제를 해결하는 데 도움이 됩니다. 문제 해결에 사용되는 새로운 진단 cmdlet에 대한 자세한 내용은 [배포 문제 해결 문서](storsimple-troubleshoot-deployment.md) 를 참조하세요.
 
 ## <a name="issues-fixed-in-update-12"></a>업데이트 1.2에서 해결된 문제
@@ -113,5 +112,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-steps"></a>다음 단계
 * [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
-
 

@@ -3,8 +3,8 @@ title: "Socket.io를 사용하는 Node.js 응용 프로그램 | Microsoft Docs"
 description: "Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: a85d4348a13b79b5b7542362de9956aa3398375a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이션을 제공합니다. 이 자습서는 Azure에서 채팅 응용 프로그램을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 <http://socket.io/>(영문)를 참조하세요.
@@ -80,6 +79,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. 응용 프로그램이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
    
        //app.listen(3000, function () {            //Original
@@ -105,6 +105,15 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 1. 다음 명령을 실행하여 에뮬레이터를 시작합니다.
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
+   
+      AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7을 다시 설치하세요. 버전이 일치하는지 확인하세요.
+   >
+   >
+
+
 2. 브라우저를 열고 **http://127.0.0.1**로 이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
@@ -163,6 +172,5 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
 
 

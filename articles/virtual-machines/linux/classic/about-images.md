@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 이미지 정보
 > [!IMPORTANT]
@@ -35,4 +34,3 @@ Azure 구독에 사용할 수 있는 이미지를 관리하려면 Mac, Linux 및
 
 ## <a name="next-steps"></a>다음 단계
 [사용자 고유의 이미지를 업로드](create-upload-vhd.md)할 수도 있습니다.
-

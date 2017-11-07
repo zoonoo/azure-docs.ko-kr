@@ -3,7 +3,7 @@ title: "Azure Network Watcher 소개 | Microsoft Docs"
 description: "Azure에서 네트워크에 연결된 리소스를 모니터링하고 시각화하는 Network Watcher 서비스에 대한 개요를 간략히 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
-ms.lasthandoff: 03/04/2017
-
+ms.date: 07/11/2017
+ms.author: jdial
+ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-network-monitoring-overview"></a>Azure 네트워크 모니터링 개요
 
 고객은 VNet, ExpressRoute, Application Gateway, 부하 분산 장치 등과 같은 다양한 개별 네트워크 리소스를 오케스트레이션하고 구성하여 Azure에서 종단 간 네트워크를 구축합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다. 이 모니터링을 리소스 수준 모니터링이라고 합니다.
@@ -36,8 +35,6 @@ ms.lasthandoff: 03/04/2017
 
 Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
 * **[토폴로지](network-watcher-topology-overview.md)** - 리소스 그룹의 네트워크 리소스 간 다양한 연결 및 상호 연결을 보여 주는 네트워크 수준 보기를 제공합니다.
@@ -49,15 +46,16 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 * **[가상 네트워크 게이트웨이 및 연결 문제 해결](network-watcher-troubleshoot-manage-rest.md)** - 가상 네트워크 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
 * **[네트워크 구독 제한](#network-subscription-limits)** - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 * **[진단 로그 구성](#diagnostic-logs)** – 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
+* **[연결(미리 보기)](network-watcher-connectivity-overview.md)** - 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지 확인합니다.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Network Watcher의 RBAC(역할 기반 액세스 제어)
 
-Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. 미리 보기의 Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
+Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../active-directory/role-based-access-control-what-is.md)을 사용합니다. Network Watcher에 필요한 권한은 다음과 같습니다. Network Watcher API를 시작하거나 포털에서 Network Watcher를 사용하기 위한 역할에 필요한 액세스 권한이 있는지 확인하는 것이 중요합니다.
 
 |리소스| 사용 권한|
-|---|---|
+|---|---| 
 |Microsoft.Storage/ |읽기|
-|Microsoft.Authorization/| 읽기|
+|Microsoft.Authorization/| 읽기| 
 |Microsoft.Resources/subscriptions/resourceGroups/| 읽기|
 |Microsoft.Storage/storageAccounts/listServiceSas/ | 작업|
 |Microsoft.Storage/storageAccounts/listAccountSas/ |작업|
@@ -66,13 +64,13 @@ Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../activ
 |Microsoft.Compute/virtualMachines/ |쓰기|
 |Microsoft.Compute/virtualMachineScaleSets/ |읽기|
 |Microsoft.Compute/virtualMachineScaleSets/ |쓰기|
-|Microsoft.Network/networkWatchers/packetCaptures/| 읽기|
+|Microsoft.Network/networkWatchers/packetCaptures/ |읽기|
 |Microsoft.Network/networkWatchers/packetCaptures/| 쓰기|
 |Microsoft.Network/networkWatchers/packetCaptures/| 삭제|
-|Microsoft.Network/networkWatchers/ |쓰기|
-|Microsoft.Network/networkWatchers/| 읽기|
+|Microsoft.Network/networkWatchers/ |쓰기 |
+|Microsoft.Network/networkWatchers/| 읽기 |
 |Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>네트워크 구독 제한
 
@@ -126,12 +124,13 @@ Network Watcher에 대해 알아보았으면 다음을 익힐 수 있습니다.
 
 오픈 소스 도구를 사용하는 [Wireshark로 패킷 캡처 분석](network-watcher-deep-packet-inspection.md)을 통해 보안 취약점을 감지합니다.
 
+Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
 [logs]: ./media/network-watcher-monitoring-overview/logs.png
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
 
 
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -102,7 +102,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     4. **적용**을 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 11. 장치에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 장치 구성을 완료한 다음 StorSimple 장치 관리자 서비스에 장치를 등록합니다.
     
-    1. StorSimple 가상 배열의 **2단계: 서비스 등록 키 받기** 에서 확보한 [서비스 등록 키](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 를 입력합니다.
+    1. StorSimple 가상 배열의 **2단계: 서비스 등록 키 받기** 에서 확보한 [서비스 등록 키](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 를 입력합니다.
     2. 서비스에 장치를 처음으로 등록하는 경우 **서비스 데이터 암호화 키**가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. 이 키는 StorSimple 장치 관리자 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 
        
        서비스에 장치를 처음으로 등록하는 경우가 아니라면 서비스 데이터 암호화 키를 제공해야 합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 받기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 를 참조하세요.
@@ -134,7 +134,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     
     3. 암호화를 위한 사용자 정의 키에 256비트 AES 키가 사용됩니다. 32개의 문자 키를 지정하고 확인을 위해 키를 다시 입력합니다. 나중에 참조할 수 있도록 키 관리 앱에서 키를 기록합니다.
     
-    4. **필수 설정 구성**을 클릭하여 장치와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다.
+    4. **필수 설정 구성**을 클릭하여 장치와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다. **사용하는 저장소 계정이 블록 Blob을 지원하는지 확인합니다. 페이지 Blob은 지원되지 않습니다.** [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
    
     ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. **저장소 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다. 
@@ -209,5 +209,4 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="next-steps"></a>다음 단계
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
-
 

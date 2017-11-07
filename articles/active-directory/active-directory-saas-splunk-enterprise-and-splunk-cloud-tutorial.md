@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>자습서: Splunk Enterprise and Splunk Cloud와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Splunk Enterprise and Splunk Cloud를 통합하는 방법에 대해 알아봅니다.
@@ -127,13 +125,13 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하고
   1. **로그인 URL** 텍스트 상자에서 `https://<splunkserverUrl>/en-US/app/launcher/home` 패턴으로 사용자가 Splunk Enterprise and Splunk Cloud 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.
   2. **식별자** 텍스트 상자에 Splunk Server의 URL을 입력합니다.
   3. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://<splunkserver>/saml/acs`
-  4. **다음**을 클릭합니다.
+  4. **다음**을 누릅니다.
  
 4. **Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-on 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
   1. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
-  2. **다음**을 클릭합니다.
+  2. **다음**을 누릅니다.
 
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Splunk Enterprise and Splunk Cloud 지원 팀에 문의하고 다음을 제공하세요.
 
@@ -172,7 +170,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하고
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
   1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
   2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-  3. **다음**을 클릭합니다.
+  3. **다음**을 누릅니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
   
@@ -181,7 +179,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하고
   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
   4. **역할** 목록에서 **사용자**를 선택합니다.
-  5. **다음**을 클릭합니다.
+  5. **다음**을 누릅니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -254,4 +252,3 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD Single Sign-On을 구성하고
 [203]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_205.png
-

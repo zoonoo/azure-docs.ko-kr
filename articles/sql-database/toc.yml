@@ -1,418 +1,432 @@
-- name: "SQL DB 설명서"
-  href: index.md
-- name: "개요"
+- name: SQL DB 설명서
+  href: index.yml
+- name: 개요
   items:
-  - name: "SQL DB 정보"
-    href: sql-database-technical-overview.md
-- name: "빠른 시작"
+    - name: SQL DB 정보
+      href: sql-database-technical-overview.md
+- name: 빠른 시작
   expanded: true
   items:
-  - name: "DB 만들기 - 포털"
-    href: sql-database-get-started-portal.md
-  - name: "DB 만들기 - Azure CLI"
-    href: sql-database-get-started-cli.md
-  - name: "DB 만들기 - PowerShell"
-    href: sql-database-get-started-powershell.md
-  - name: "관리"
-    items:
-    - name: "SSMS"
-      href: sql-database-connect-query-ssms.md
-    - name: "VS 코드"
-      href: sql-database-connect-query-vscode.md
-  - name: "연결"
-    items:
-    - name: ".NET"
-      href: sql-database-connect-query-dotnet.md
-    - name: "PHP"
-      href: sql-database-connect-query-php.md
-    - name: "Node.js"
-      href: sql-database-connect-query-nodejs.md
-    - name: "Java"
-      href: sql-database-connect-query-java.md
-    - name: "Python"
-      href: sql-database-connect-query-python.md
-    - name: "루비"
-      href: sql-database-connect-query-ruby.md
-- name: "샘플"
+    - name: DB 만들기 - 포털
+      href: sql-database-get-started-portal.md
+    - name: DB 만들기 - Azure CLI
+      href: sql-database-get-started-cli.md
+    - name: DB 만들기 - Azure PowerShell
+      href: sql-database-get-started-powershell.md
+    - name: 연결 및 쿼리
+      items:
+        - name: SSMS
+          href: sql-database-connect-query-ssms.md
+        - name: Azure 포털
+          href: sql-database-connect-query-portal.md
+        - name: VS 코드
+          href: sql-database-connect-query-vscode.md
+        - name: Visual Studio를 사용하여 .NET
+          href: sql-database-connect-query-dotnet-visual-studio.md
+        - name: .NET core
+          href: sql-database-connect-query-dotnet-core.md
+        - name: PHP
+          href: sql-database-connect-query-php.md
+        - name: Node.js
+          href: sql-database-connect-query-nodejs.md
+        - name: Java
+          href: sql-database-connect-query-java.md
+        - name: Python
+          href: sql-database-connect-query-python.md
+        - name: 루비
+          href: sql-database-connect-query-ruby.md
+- name: 자습서
   items:
-  - name: "Azure CLI"
-    href: sql-database-cli-samples.md
-  - name: "PowerShell"
-    href: sql-database-powershell-samples.md
-- name: "자습서"
+    - name: 1- SSMS를 사용하여 DB 설계
+      href: sql-database-design-first-database.md
+    - name: 1- .NET을 사용하여 DB 설계
+      href: sql-database-design-first-database-csharp.md
+    - name: 2 - SQL Server DB 마이그레이션
+      href: sql-database-migrate-your-sql-server-database.md
+    - name: 3 - SQL DB 보안
+      href: sql-database-security-tutorial.md
+    - name: 4 - 지역 분산 데이터베이스 구현
+      href: sql-database-implement-geo-distributed-database.md
+- name: 샘플
   items:
-  - name: "데이터베이스 설계"
-    href: sql-database-design-first-database.md
-  - name: "데이터베이스 마이그레이션"
-    href: sql-database-migrate-your-sql-server-database.md  
-- name: "개념"
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+    - name: Azure CLI
+      href: sql-database-cli-samples.md
+    - name: Azure PowerShell
+      href: sql-database-powershell-samples.md
+- name: 개념
   items:
-  - name: "DB 및 서버"
-    items:
-    - name: "데이터베이스"
-      href: sql-database-overview.md
-    - name: "서버"
-      href: sql-database-server-overview.md
-    - name: "탄력적 풀"
-      href: sql-database-elastic-pool.md
-    - name: "탄력적 풀 사용?"
-      href: sql-database-elastic-pool-guidance.md
-  - name: "리소스"
-    items:
-    - name: "서비스 계층"
-      href: sql-database-service-tiers.md
-    - name: "DTU 및 eDTU"
-      href: sql-database-what-is-a-dtu.md
-    - name: "DTU 벤치마크"
-      href: sql-database-benchmark-overview.md
-    - name: "제한"
-      href: sql-database-resource-limits.md
-    - name: "PaaS 또는 IaaS"
-      href: sql-database-paas-vs-sql-server-iaas.md  
-    - name: "기능"
-      href: sql-database-features.md
-    - name: "도구"
-      href: sql-database-manage-overview.md
-  - name: "데이터 분할"
-    items:
-    - name: "분할된 데이터베이스"
-      href: sql-database-elastic-scale-introduction.md
-    - name: "탄력적인 클라이언트 라이브러리"
-      href: sql-database-elastic-database-client-library.md
-    - name: "분할된 맵"
-      href: sql-database-elastic-scale-shard-map-management.md
-    - name: "쿼리 라우팅"
-      href: sql-database-elastic-scale-data-dependent-routing.md
-    - name: "자격 증명 관리"
-      href: sql-database-elastic-scale-manage-credentials.md
-    - name: "분할된 쿼리"
-      href: sql-database-elastic-scale-multishard-querying.md
-    - name: "탄력적 도구"
-      href: sql-database-elastic-scale-glossary.md
-    - name: "분할된 데이터 이동"
-      href: sql-database-elastic-scale-overview-split-and-merge.md
-    - name: "탄력적 도구 FAQ"
-      href: sql-database-elastic-scale-faq.md
-  - name: "여러 DB 관리"
-    items:
-    - name: "탄력적 쿼리"
-      href: sql-database-elastic-query-overview.md
-    - name: "수평적 데이터"
-      href: sql-database-elastic-query-horizontal-partitioning.md
-    - name: "수직적 데이터"
-      href: sql-database-elastic-query-vertical-partitioning.md
-    - name: "트랜잭션"
-      href: sql-database-elastic-transactions-overview.md
-    - name: "탄력적 작업"
-      href: sql-database-elastic-jobs-overview.md
-  - name: "보안"
-    items:
-    - name: "개요"
-      href: sql-database-security-overview.md
-    - name: "액세스 제어"
-      href: sql-database-control-access.md
-    - name: "방화벽 규칙"
-      href: sql-database-firewall-configure.md
-    - name: "Azure AD"
-      href: sql-database-aad-authentication.md
-    - name: "로그인 및 사용자"
-      href: sql-database-manage-logins.md
-    - name: "Multi-Factor Auth"
-      href: sql-database-ssms-mfa-authentication.md
-    - name: "감사"
-      href: sql-database-auditing.md
-    - name: "감사 및 TDS"
-      href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-    - name: "위협 감지"
-      href: sql-database-threat-detection.md
-    - name: "SQL DB를 사용한 TDE"
-      href: https://msdn.microsoft.com/library/dn948096
-    - name: "상시 암호화"
-      href: https://msdn.microsoft.com/library/mt163865.aspx
-    - name: "데이터 마스킹"
-      href: sql-database-dynamic-data-masking-get-started.md
-  - name: "비즈니스 연속성"
-    items:
-    - name: "개요"
-      href: sql-database-business-continuity.md
-    - name: "데이터베이스 백업"
-      href: sql-database-automated-backups.md
-    - name: "백업 보존"
-      href: sql-database-long-term-retention.md
-    - name: "데이터베이스 복구"
-      href: sql-database-recovery-using-backups.md
-    - name: "지역에서 복제"
-      href: sql-database-geo-replication-overview.md
-    - name: "로그인"
-      href: sql-database-geo-replication-security-config.md
-    - name: "앱 디자인"
-      href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-    - name: "탄력적 풀"
-      href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-    - name: "앱 업그레이드"
-      href: sql-database-manage-application-rolling-upgrade.md
-  - name: "개발"
-    items:
-    - name: "개요"
-      href: sql-database-develop-overview.md
-    - name: "연결"
-      href: sql-database-libraries.md
-    - name: "앱 디자인 - SaaS"
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: "보안 - SaaS"
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: "포트 - ADO.NET"
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: "앱 인증" 
-      href: sql-database-client-id-keys.md
-    - name: "오류 메시지"
-      href: sql-database-develop-error-messages.md
-    - name: "Dapper"
-      href: sql-database-elastic-scale-working-with-dapper.md
-    - name: "JSON 데이터"
-      href: sql-database-json-features.md
-    - name: "메모리 내"
-      href: sql-database-in-memory.md
-    - name: "임시 테이블" 
-      href: sql-database-temporal-tables.md
-    - name: "보존 정책"
-      href: sql-database-temporal-tables-retention-policy.md
-  - name: "데이터베이스 마이그레이션"
-    items:
-    - name: "SQL Server DB"
-      href: sql-database-cloud-migrate.md
-    - name: "T-SQL 변경 사항"
-      href: sql-database-transact-sql-information.md
-  - name: "데이터 이동"
-    items:
-    - name: "DB 복사"
-      href: sql-database-copy.md
-    - name: "DB 가져오기"
-      href: sql-database-import.md
-    - name: "DB 내보내기"
-      href: sql-database-export.md
-  - name: "모니터링 및 튜닝"
-    items:
-    - name: "단일 데이터베이스"
-      href: sql-database-single-database-monitor.md
-    - name: "데이터베이스 관리자"
-      href: sql-database-advisor.md
-    - name: "쿼리 정보"
-      href: sql-database-query-performance.md
-    - name: "쿼리 저장소 작동"
-      href: sql-database-operate-query-store.md
-    - name: "Dmv"
-      href: sql-database-monitoring-with-dmvs.md
-    - name: "성능 지침"
-      href: sql-database-performance-guidance.md
-    - name: "일괄 처리"
-      href: sql-database-use-batching-to-improve-performance.md
-    - name: "확장 이벤트"
-      href: sql-database-xevent-db-diff-from-svr.md
-    - name: "호환성 수준"
-      href: sql-database-compatibility-level-query-performance-130.md
-- name: "방법 가이드"
+    - name: 서비스 기능
+      items:
+        - name: 개요
+          href: sql-database-servers-databases.md
+        - name: 서비스 계층
+          href: sql-database-service-tiers.md
+        - name: 리소스 한계
+          href: sql-database-resource-limits.md
+        - name: 단일 데이터베이스
+          href: sql-database-single-database-resources.md
+        - name: 탄력적 풀
+          href: sql-database-elastic-pool.md
+        - name: 연결 아키텍처
+          href: sql-database-connectivity-architecture.md
+        - name: 방화벽 규칙
+          href: sql-database-firewall-configure.md
+        - name: 방화벽 가상 네트워크 규칙
+          href: sql-database-vnet-service-endpoint-rule-overview.md
+        - name: DTU 및 eDTU
+          href: sql-database-what-is-a-dtu.md
+        - name: DTU 벤치마크
+          href: sql-database-benchmark-overview.md
+        - name: PaaS 또는 IaaS
+          href: sql-database-paas-vs-sql-server-iaas.md
+        - name: 감사
+          href: sql-database-auditing.md
+        - name: 위협 감지
+          href: sql-database-threat-detection.md
+        - name: 데이터베이스 백업
+          href: sql-database-automated-backups.md
+        - name: Backup 보존
+          href: sql-database-long-term-retention.md
+        - name: 장애 조치(failover) 그룹
+          href: sql-database-geo-replication-overview.md
+        - name: 탄력적인 클라이언트 라이브러리
+          href: sql-database-elastic-database-client-library.md
+        - name: 탄력적 쿼리
+          href: sql-database-elastic-query-overview.md
+        - name: 탄력적 트랜잭션
+          href: sql-database-elastic-transactions-overview.md
+        - name: 탄력적 작업
+          href: sql-database-elastic-jobs-overview.md
+        - name: SQL 취약성 평가
+          href: sql-vulnerability-assessment.md
+        - name: SQL Server 일반 기능
+          href: sql-database-features.md
+    - name: 보안
+      items:
+        - name: 개요
+          href: sql-database-security-overview.md
+        - name: 액세스 제어
+          href: sql-database-control-access.md
+        - name: Azure AD
+          href: sql-database-aad-authentication.md
+        - name: 로그인 및 사용자
+          href: sql-database-manage-logins.md
+        - name: Multi-Factor Auth
+          href: sql-database-ssms-mfa-authentication.md
+        - name: 테이블 감사 및 TDS
+          href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+        - name: 데이터 마스킹
+          href: sql-database-dynamic-data-masking-get-started.md
+    - name: 비즈니스 연속성
+      items:
+        - name: 개요
+          href: sql-database-business-continuity.md
+        - name: 데이터베이스 복구
+          href: sql-database-recovery-using-backups.md
+        - name: 보안 구성
+          href: sql-database-geo-replication-security-config.md
+        - name: 앱 디자인 및 복구
+          href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+        - name: 앱 디자인 및 풀
+          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+        - name: 앱 디자인 및 앱 업그레이드
+          href: sql-database-manage-application-rolling-upgrade.md
+        - name: 가동 중단에서 복구
+          href: sql-database-disaster-recovery.md
+        - name: 복구 드릴 수행
+          href: sql-database-disaster-recovery-drills.md
+    - name: SQL Database로 마이그레이션
+      items:
+        - name: SQL Server DB 마이그레이션
+          href: sql-database-cloud-migrate.md
+        - name: T-SQL 변경 사항
+          href: sql-database-transact-sql-information.md
+        - name: 마이그레이션 후 데이터베이스 관리
+          href: sql-database-manage-after-migration.md
+    - name: 데이터 로드 및 이동
+      items:
+        - name: DB 복사
+          href: sql-database-copy.md
+        - name: DB 가져오기
+          href: sql-database-import.md
+        - name: DB 내보내기
+          href: sql-database-export.md
+        - name: 데이터 동기화
+          href: sql-database-sync-data.md
+    - name: 모니터링 및 튜닝
+      items:
+        - name: 개요
+          href: sql-database-troubleshoot-performance.md
+        - name: 성능 모니터링
+          href: sql-database-single-database-monitor.md
+        - name: 성능 권장 사항
+          href: sql-database-advisor.md
+        - name: 자동 조정
+          href: sql-database-automatic-tuning.md
+        - name: 인텔리전스 Insights
+          href: sql-database-intelligent-insights.md
+        - name: 인텔리전스 Insights 진단 로그
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: 수동 조정
+          href: sql-database-performance-guidance.md
+        - name: 쿼리 저장소 작동
+          href: sql-database-operate-query-store.md
+        - name: 확장 이벤트
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: 메모리 내 모니터링
+          href: sql-database-in-memory-oltp-monitoring.md
+    - name: 확장
+      items:
+        - name: 개요
+          href: sql-database-elastic-scale-introduction.md
+        - name: 분할된 맵
+          href: sql-database-elastic-scale-shard-map-management.md
+        - name: 쿼리 라우팅
+          href: sql-database-elastic-scale-data-dependent-routing.md
+        - name: 자격 증명 관리
+          href: sql-database-elastic-scale-manage-credentials.md
+        - name: 분할된 쿼리
+          href: sql-database-elastic-scale-multishard-querying.md
+        - name: 탄력적 도구
+          href: sql-database-elastic-scale-glossary.md
+        - name: 분할된 데이터 이동
+          href: sql-database-elastic-scale-overview-split-and-merge.md
+        - name: 탄력적인 클라이언트 라이브러리 - Dapper
+          href: sql-database-elastic-scale-working-with-dapper.md
+        - name: 탄력적 도구 FAQ
+          href: sql-database-elastic-scale-faq.md
+    - name: 다중 테넌트 SaaS
+      items:
+        - name: SaaS 디자인 패턴
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: SaaS 앱 보안
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: 데이터베이스 개발
+      items:
+        - name: JSON 데이터
+          href: sql-database-json-features.md
+        - name: 메모리 내
+          href: sql-database-in-memory.md
+        - name: 임시 테이블
+          href: sql-database-temporal-tables.md
+        - name: 보존 정책
+          href: sql-database-temporal-tables-retention-policy.md
+        - name: 메모리 내 구성
+          href: sql-database-in-memory-oltp-migration.md
+    - name: 앱 개발
+      items:
+        - name: 개요
+          href: sql-database-develop-overview.md
+        - name: 연결
+          href: sql-database-libraries.md
+        - name: 앱 인증
+          href: sql-database-client-id-keys.md
+        - name: 오류 메시지
+          href: sql-database-develop-error-messages.md
+        - name: 성능을 위한 일괄 처리
+          href: sql-database-use-batching-to-improve-performance.md
+        - name: 연결 지침
+          href: sql-database-connectivity-issues.md
+        - name: 포트 - ADO.NET
+          href: sql-database-develop-direct-route-ports-adonet-v12.md
+- name: 방법 가이드
   items:
-  - name: "탄력적 풀 관리"
-    items:
-    - name: "포털"
-      href: sql-database-elastic-pool-manage-portal.md
-    - name: "PowerShell"
-      href: sql-database-elastic-pool-manage-powershell.md
-    - name: "Transact-SQL"
-      href: sql-database-elastic-pool-manage-tsql.md
-    - name: "C" #
-      href: sql-database-elastic-pool-manage-csharp.md
-  - name: "DB 액세스"
-    items:
-    - name: "SQL Server"
-      href: sql-database-control-access-sql-authentication-get-started.md
-    - name: "Azure AD"
-      href: sql-database-control-access-aad-authentication-get-started.md
-  - name: "데이터 보호"
-    items:
-    - name: "Azure AD 인증"
-      href: sql-database-aad-authentication-configure.md
-    - name: "암호화 - 인증서 저장소"
-      href: sql-database-always-encrypted.md
-    - name: "암호화 - 키 자격 증명 모음"
-      href: sql-database-always-encrypted-azure-key-vault.md
-    - name: "마스크 구성"
-      href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "단일 테이블 복구"
-    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "백업을 위한 자격 증명 모음 구성"
-    href: sql-database-long-term-backup-retention-configure.md
-  - name: "데이터 지역에서 복제"
-    items:
-    - name: "포털"
-      href: sql-database-geo-replication-portal.md
-    - name: "T-SQL - 구성"
-      href: sql-database-geo-replication-transact-sql.md
-    - name: "T-SQL - 장애 조치"
-      href: sql-database-geo-replication-failover-transact-sql.md
-    - name: "복구 - 작동 중단"
-      href: sql-database-disaster-recovery.md
-    - name: "연습 수행"
-      href: sql-database-disaster-recovery-drills.md
-  - name: "데이터 이동"
-    items:
-    - name: "BCP를 사용하여 데이터 로드"
-      href: sql-database-load-from-csv-with-bcp.md
-    - name: "ADF를 사용하여 데이터 로드"
-      href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-    - name: "데이터 동기화"
-      href: sql-database-get-started-sql-data-sync.md
-  - name: "응용 프로그램 연결"
-    items:
-    - name: "C 및 C ++"
-      href: sql-database-develop-cplusplus-simple.md
-    - name: "Excel"
-      href: sql-database-connect-excel.md
-    - name: "인도"
-      href: sql-database-connectivity-issues.md
-    - name: "문제"
-      href: sql-database-troubleshoot-common-connection-issues.md
-    - name: "C를 사용하여 DB 만들기" #
-      href: sql-database-get-started-csharp.md
-  - name: "메모리 내 구성"
-    href: sql-database-in-memory-oltp-migration.md
-  - name: "여러 DB 관리"
-    items:
-    - name: "분할된 앱 만들기"
-      href: sql-database-elastic-scale-get-started.md
-    - name: "분할된 데이터 이동"
-      href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-    - name: "보안 구성"
-      href: sql-database-elastic-scale-split-merge-security-configuration.md
-    - name: "분할된 데이터베이스 추가"
-      href: sql-database-elastic-scale-add-a-shard.md
-    - name: "분할된 맵 문제 해결"
-      href: sql-database-elastic-database-recovery-manager.md
-    - name: "분할된 DB 마이그레이션"
-      href: sql-database-elastic-convert-to-use-elastic-tools.md
-    - name: "카운터 만들기"
-      href: sql-database-elastic-database-perf-counters.md
-    - name: "엔터티 프레임워크 사용"
-      href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: "클라이언트 업그레이드"
-      href: sql-database-elastic-scale-upgrade-client-library.md
-    - name: "탄력적 작업 설치"
-      href: sql-database-elastic-jobs-service-installation.md
-    - name: "작업 만들기 - 포털"
-      href: sql-database-elastic-jobs-create-and-manage.md
-    - name: "작업 만들기 - PowerShell"
-      href: sql-database-elastic-jobs-powershell.md
-    - name: "작업 만들기 - 샘플 앱"
-      href: sql-database-elastic-jobs-getting-started.md
-    - name: "탄력적 작업 제거"
-      href: sql-database-elastic-jobs-uninstall.md
-    - name: "수평적 데이터 쿼리"
-      href: sql-database-elastic-query-getting-started.md
-    - name: "수직적 데이터 쿼리"
-      href: sql-database-elastic-query-getting-started-vertical.md
-  - name: "모니터링 및 튜닝"
-    items:
-    - name: "데이터베이스 관리자 사용"
-      href: sql-database-advisor-portal.md
-    - name: "QPI 사용"
-      href: sql-database-performance.md
-    - name: "평가 및 튜닝"
-      href: sql-database-troubleshoot-performance.md
-    - name: "경고 만들기"
-      href: sql-database-insights-alerts-portal.md
-    - name: "메모리 내 모니터링"
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: "확장된 이벤트 - 이벤트 파일"
-      href: sql-database-xevent-code-event-file.md
-    - name: "확장된 이벤트 - 링 버퍼"
-      href: sql-database-xevent-code-ring-buffer.md
-  - name: "관리"
-    items:
-    - name: "Azure 자동화"
-      href: sql-database-manage-automation.md
-    - name: "Azure RemoteApp"
-      href: sql-database-ssms-remoteapp.md
-    - name: "SSMS - MFA"
-      href: sql-database-ssms-mfa-authentication-configure.md
-- name: "참조"
+    - name: 서비스 기능
+      items:
+        - name: 탄력적 데이터베이스 클라이언트 라이브러리 업그레이드
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: 탄력적 작업 설치
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: 작업 만들기 - 포털
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: 작업 만들기 - Azure PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: 작업 만들기 - 샘플 앱
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: 탄력적 작업 제거
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: 수직 분할된 데이터 쿼리
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: 확장된 데이터 계층에 대한 보고
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: 여러 스키마를 사용하여 테이블에서 쿼리
+          href: sql-database-elastic-query-vertical-partitioning.md
+    - name: 보안
+      items:
+        - name: Azure AD 인증 구성
+          href: sql-database-aad-authentication-configure.md
+        - name: 조건부 액세스
+          href: sql-database-conditional-access.md
+        - name: 상시 암호화 인증서 저장소
+          href: sql-database-always-encrypted.md
+        - name: 상시 암호화 키 자격 증명 모음
+          href: sql-database-always-encrypted-azure-key-vault.md
+        - name: 마스크 구성
+          href: sql-database-dynamic-data-masking-get-started-portal.md
+        - name: Multi-Factor Auth 구성
+          href: sql-database-ssms-mfa-authentication-configure.md
+        - name: PowerShell에서 가상 네트워크 규칙
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
+    - name: 비즈니스 연속성
+      items:
+        - name: 자격 증명 모음 구성 - 백업
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: 지역에서 복제 - 포털
+          href: sql-database-geo-replication-portal.md
+    - name: 데이터 로드 및 이동
+      items:
+        - name: BCP를 사용하여 데이터 로드
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: ADF를 사용하여 데이터 로드
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+        - name: 데이터 동기화
+          href: sql-database-get-started-sql-data-sync.md
+    - name: 모니터링 및 튜닝
+      items:
+        - name: 성능 모니터링 및 향상
+          href: sql-database-performance.md
+        - name: Query Performance Insight 사용
+          href: sql-database-query-performance.md
+        - name: 성능 권장 사항 적용
+          href: sql-database-advisor-portal.md
+        - name: 자동 조정 사용
+          href: sql-database-automatic-tuning-enable.md
+        - name: 인텔리전스 Insights 성능 문제 해결
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+        - name: DMV를 사용하여 성능 모니터링
+          href: sql-database-monitoring-with-dmvs.md
+        - name: 경고 만들기
+          href: sql-database-insights-alerts-portal.md
+        - name: 확장된 이벤트 - 이벤트 파일
+          href: sql-database-xevent-code-event-file.md
+        - name: 확장된 이벤트 - 링 버퍼
+          href: sql-database-xevent-code-ring-buffer.md
+        - name: 진단 로깅
+          href: sql-database-metrics-diag-logging.md
+        - name: 연결 문제 해결
+          href: sql-database-troubleshoot-common-connection-issues.md
+        - name: Azure Automation
+          href: sql-database-manage-automation.md
+        - name: SQL 데이터 동기화의 모범 사례
+          href: sql-database-best-practices-data-sync.md
+        - name: SQL 데이터 동기화 문제 해결
+          href: sql-database-troubleshoot-data-sync.md
+    - name: 확장
+      items:
+        - name: 분할된 앱 만들기
+          href: sql-database-elastic-scale-get-started.md
+        - name: 수평 분할된 데이터 쿼리
+          href: sql-database-elastic-query-getting-started.md
+        - name: 분할된 데이터 이동
+          href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+        - name: 보안 구성
+          href: sql-database-elastic-scale-split-merge-security-configuration.md
+        - name: 분할된 데이터베이스 추가
+          href: sql-database-elastic-scale-add-a-shard.md
+        - name: 분할된 맵 문제 해결
+          href: sql-database-elastic-database-recovery-manager.md
+        - name: 분할된 DB 마이그레이션
+          href: sql-database-elastic-convert-to-use-elastic-tools.md
+        - name: 카운터 만들기
+          href: sql-database-elastic-database-perf-counters.md
+        - name: 엔터티 프레임워크 사용
+          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: 다중 테넌트 SaaS
+      items:
+        - name: 자습서 소개
+          href: sql-database-wtp-overview.md
+        - name: 예제 앱 배포
+          href: sql-database-saas-tutorial.md
+        - name: 테넌트 프로비전
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: 데이터베이스 성능 모니터링
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Log Analytics로 모니터링
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: 단일 테넌트 복원
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: 테넌트 스키마 관리
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: 임시 쿼리 실행
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: 분석용 ETL
+          href: sql-database-saas-tutorial-tenant-analytics.md
+    - name: 앱 개발
+      items:
+        - name: C 및 C ++
+          href: sql-database-develop-cplusplus-simple.md
+        - name: Excel
+          href: sql-database-connect-excel.md
+- name: 참조
   items:
-  - name: "PowerShell"
-    href: /powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
-  - name: "PowerShell(탄력적 DB)"
-    href: /powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
-  - name: "Azure CLI 2.0"
-    href: /cli/azure/sql
-  - name: ".NET"
-    href: /dotnet/api/microsoft.azure.management.sql.models
-  - name: "Java"
-    href: /java/api/com.microsoft.azure.management.sql
-  - name: "Node.js"
-    href: https://msdn.microsoft.com/library/mt652093.aspx
-  - name: "Python"
-    href: https://msdn.microsoft.com/library/mt652092.aspx
-  - name: "Ruby"
-    href: https://msdn.microsoft.com/library/mt691981.aspx
-  - name: "PHP"
-    href: https://msdn.microsoft.com/library/dn865013.aspx
-  - name: "T-SQL"
-    href: https://msdn.microsoft.com/library/bb510741.aspx
-  - name: "REST (영문)"
-    href: https://msdn.microsoft.com/library/mt163571.aspx
-  - name: "SQL Server 도구"
-    href: https://msdn.microsoft.com/library/mt238365.aspx
-  - name: "SSMS(SQL Server Management Studio)"
-    href: https://msdn.microsoft.com/library/mt238290.aspx
-  - name: "SSDT(SQL Server Data Tools)"
-    href: https://msdn.microsoft.com/library/mt204009.aspx
-  - name: "BCP"
-    href: https://msdn.microsoft.com/library/ms162802.aspx
-  - name: "SQLCMD"
-    href: https://msdn.microsoft.com/library/ms162773.aspx
-  - name: "SqlPackage"
-    href: https://msdn.microsoft.com/hh550080.aspx
-  - name: "SQL Database 관리 라이브러리 패키지"
-    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
-  - name: "SQL Server 드라이버"
-    href: https://msdn.microsoft.com/library/mt654049.aspx
-    items:
-    - name: "ADO.NET"
-      href: https://msdn.microsoft.com/library/mt657768.aspx
-    - name: "JDBC"
-      href: https://msdn.microsoft.com/library/mt484311.aspx
-    - name: "ODBC"
-      href: https://msdn.microsoft.com/library/mt654048.aspx
-- name: "리소스"
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.sql/#sql'
+    - name: PowerShell(탄력적 DB)
+      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
+    - name: Azure CLI 2.0
+      href: /cli/azure/sql
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.sql.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.sql
+    - name: Node.js
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
+    - name: Python
+      href: /sql/connect/python/python-driver-for-sql-server
+    - name: Ruby
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
+    - name: PHP
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
+    - name: T-SQL
+      href: /sql/t-sql/language-reference
+    - name: REST (영문)
+      href: /rest/api/sql/
+    - name: SQL Server 도구
+      href: /sql/tools/overview-sql-tools
+    - name: SSMS(SQL Server Management Studio)
+      href: /sql/ssms/download-sql-server-management-studio-ssms
+    - name: SSDT(SQL Server Data Tools)
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - name: BCP
+      href: /sql/tools/bcp-utility
+    - name: SQLCMD
+      href: /sql/tools/sqlcmd-utility
+    - name: SqlPackage
+      href: 'https://msdn.microsoft.com/hh550080.aspx'
+    - name: SQL Database 관리 라이브러리 패키지
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
+    - name: SQL Server 드라이버
+      href: /sql/connect/sql-server-drivers
+      items:
+        - name: ADO.NET
+          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+        - name: JDBC
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+        - name: ODBC
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+- name: 리소스
   items:
-  - name: "FAQ"
-    href: sql-database-faq.md
-  - name: "공용 데이터 집합"
-    href: sql-database-public-data-sets.md  
-  - name: "연결 문제 해결"
-    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
-  - name: "가격"
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: "MSDN 포럼"
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: "스택 오버플로"
-    href: http://stackoverflow.com/questions/tagged/sql-azure
-  - name: "비디오"
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: "서비스 업데이트"
-    href: https://azure.microsoft.com/updates/?service=sql-database
-  - name: "아키텍처 지침"
-    href: https://docs.microsoft.com/sql/#pivot=architecture
-  - name: "고객 구현"
-    href: sql-database-customer-implementations.md
-  - name: "샘플 응용 프로그램"
-    items:
-    - name: "Tailspin 설문 조사"
-      href: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-    - name: "Contoso 클리닉"
-      href: https://github.com/Microsoft/azure-sql-security-sample
-    - name: "탄력적 풀 원격 분석"
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-    - name: "탄력적 풀 사용자 지정 대시보드"
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: FAQ
+      href: sql-database-faq.md
+    - name: 공용 데이터 집합
+      href: sql-database-public-data-sets.md
+    - name: 연결 문제 해결
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: 스택 오버플로
+      href: 'http://stackoverflow.com/questions/tagged/sql-azure'
+    - name: 비디오
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: 아키텍처 센터
+      href: /azure/architecture/
+    - name: 고객 사례
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

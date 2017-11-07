@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/07/2017
+ms.date: 04/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 9797df57e6efcba689e6d2f13fed165ee0cc0755
-ms.openlocfilehash: 2b51cdf8ef55c2ee80e3f660a1073419e353ec3a
-
-
+ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple 가상 배열 업데이트 0.4 릴리스 정보
 
@@ -80,6 +80,8 @@ ms.openlocfilehash: 2b51cdf8ef55c2ee80e3f660a1073419e353ec3a
 | **12.** |CHAP |CHAP 자격 증명은 일단 한 번 만들면 제거할 수 없습니다. 또한 CHAP 자격 증명을 수정하면 볼륨을 오프라인 상태로 만든 다음 온라인 상태로 변경해야 변경사항이 적용됩니다. |이 문제는 이후 릴리스에서 해결됩니다. |
 | **13.** |iSCSI 서버 |iSCSI 볼륨에 대해 표시된 '사용된 저장소'는 StorSimple Manager 서비스 및 iSCSI 호스트에서 다를 수 있습니다. |iSCSI 호스트에는 파일 시스템 보기가 있습니다.<br></br>볼륨이 최대 크기일 때 장치에서는 블록이 할당된 것을 봅니다. |
 | **14.** |파일 서버 |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
+| **15.** |파일 서버 |기호 링크는 지원되지 않습니다. | |
+| **16.** |파일 서버 |Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마세요. 그러면 지원되지 않는 구성이 발생합니다.  | |
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 가상 배열에 [업데이트 0.4를 설치](storsimple-virtual-array-install-update-04.md)합니다.
@@ -90,10 +92,4 @@ StorSimple 가상 배열에 [업데이트 0.4를 설치](storsimple-virtual-arra
 * [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
 * [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

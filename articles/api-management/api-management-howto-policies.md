@@ -3,7 +3,7 @@ title: "Azure API 관리의 정책 | Microsoft Docs"
 description: "API 관리에서 정책을 만들고 편집하고 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 537e5caf-708b-430e-a83f-72b70af28aa9
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: ef4cb447430a613dd519d96dd7732a9349ebba39
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 관리의 정책
 Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 비율 제한 등이 포함됩니다. 다양한 다른 정책도 바로 사용할 수 있습니다.
@@ -161,4 +160,3 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
-

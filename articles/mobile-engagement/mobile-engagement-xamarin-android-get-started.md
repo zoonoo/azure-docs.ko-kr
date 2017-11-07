@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
-
-
+ms.openlocfilehash: 7b3d01b32c2d5a40448fc22861cd45f612238f2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Xamarin.Android 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -26,20 +26,23 @@ ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
 이 토픽에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 Xamarin.Android 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다.
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 해당 시나리오에서 기본 데이터를 수집하고 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다.
 
+> [!NOTE]
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * [Xamarin Studio](http://xamarin.com/studio). Xamarin이 포함된 Visual Studio를 사용할 수도 있지만 이 자습서에서는 Xamarin Studio를 사용합니다. 또한 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)를 참조하세요.
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started)을 참조하세요.
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Android 앱용 Mobile Engagement 설정
+## <a id="setup-azme"></a>Android 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 
 
 여기서는 통합을 시연하기 위해 Xamarin Studio를 사용하여 기본적인 앱을 만듭니다.
@@ -64,10 +67,10 @@ Xamarin Studio가 Mobile Engagement를 통합할 앱을 만듭니다.
 1. 솔루션 창에서 **패키지** 폴더를 마우스 오른쪽 단추로 클릭하고 **패키지 추가...**를 선택합니다.
    
     ![][5]
-2. **Microsoft Azure Mobile Engagement Xamarin SDK** 를 검색하고 이를 솔루션에 추가합니다.  
+2. **Microsoft Azure Mobile Engagement Xamarin SDK**를 검색하고 이를 솔루션에 추가합니다.  
    
     ![][6]
-3. **MainActivity.cs** 를 열고 다음 using 문을 추가합니다.
+3. **MainActivity.cs**를 열고 다음 using 문을 추가합니다.
    
         using Microsoft.Azure.Engagement;
         using Microsoft.Azure.Engagement.Activity;
@@ -115,10 +118,10 @@ Xamarin Studio가 Mobile Engagement를 통합할 앱을 만듭니다.
                 base.OnPause();            
             }
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
@@ -135,9 +138,3 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [4]: ./media/mobile-engagement-xamarin-android-get-started/4.png
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

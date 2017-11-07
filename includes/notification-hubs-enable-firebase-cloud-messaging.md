@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. 프로젝트 설정에서 **클라우드 메시징** 탭을 클릭하고 **서버 키** 및 **보낸 사람 ID**의 값을 복사합니다. 나중에 앱에서 알림 허브 액세스 정책 및 알림 처리기를 구성하는 데 이러한 값을 사용합니다.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

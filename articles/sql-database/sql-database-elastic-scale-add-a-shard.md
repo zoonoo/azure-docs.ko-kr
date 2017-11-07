@@ -8,20 +8,20 @@ author: ddove
 editor: 
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
-ms.custom: multiple databases
-ms.workload: sql-database
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
-
-
+ms.openlocfilehash: 7432bf00aa4d97d8dbc4b92a6a836698ee2b84d7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 분할된 데이터베이스 추가하기
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>새 범위 또는 키에 대해 분할된 데이터베이스를 추가하기
 이미 존재하는 분할된 데이터베이스 맵의 경우 응용 프로그램은 대개 새 키 또는 키 범위에서 예상되는 데이터를 처리할 새로운 분할된 데이터베이스를 추가하기만 하면 됩니다. 예를 들어 테넌트 ID를 기준으로 분할된 응용 프로그램이 새로운 테넌트에 대한 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 또는 월별로 분할된 데이터의 경우 새로운 달이 시작되기 전에 새로운 분할된 데이터베이스를 프로비전해야 할 수 있습니다. 
 
@@ -77,10 +77,4 @@ ms.openlocfilehash: 540ef8379145b764d0926649095db57fddb27329
 **중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요.  위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.  이동하는 범위에 행이 있으면 실제 데이터 분포가 업데이트된 분할된 데이터베이스 맵과 일치하지 않게 됩니다. 이 경우 대신 [분할-합병 도구](sql-database-elastic-scale-overview-split-and-merge.md) 를 사용하여 작업을 수행합니다.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 570011347f2c723f4a828f5f0229c14d6814f839
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Azure에서 실행되는 Linux 가상 컴퓨터 캡처하기
-Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터(VM)을 일반화하고 캡처하려면 이 문서의 단계를 따릅니다. VM을 일반화하는 경우 개인 계정 정보를 제거하고 VM이 이미지로 사용되도록 준비합니다. 그런 다음 OS용 일반화된 VHD(가상 하드 디스크) 이미지, 연결된 데이터 디스크용 VHD, 새 VM 배포용 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)을 캡처합니다. 이 문서에서는 VM에 대해 Azure CLI 1.0으로 관리되지 않는 디스크를 사용하여 VM 이미지를 캡처하는 방법을 자세히 설명합니다. [Azure CLI 2.0으로 Azure Managed Disks를 사용하여 VM을 캡처](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다. 관리되는 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터(VM)을 일반화하고 캡처하려면 이 문서의 단계를 따릅니다. VM을 일반화하는 경우 개인 계정 정보를 제거하고 VM이 이미지로 사용되도록 준비합니다. 그런 다음 OS용 일반화된 VHD(가상 하드 디스크) 이미지, 연결된 데이터 디스크용 VHD, 새 VM 배포용 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)을 캡처합니다. 이 문서에서는 VM에 대해 Azure CLI 1.0으로 관리되지 않는 디스크를 사용하여 VM 이미지를 캡처하는 방법을 자세히 설명합니다. [Azure CLI 2.0으로 Azure Managed Disks를 사용하여 VM을 캡처](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다. 관리되는 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
 이미지를 사용하여 VM을 만들려면, 각각의 새 VM에 대해 네트워크 리소스를 설정하고, 템플릿(JSON(JavaScript Object Notation) 파일)을 사용하여 캡처한 VHD 이미지로부터 VM을 배포합니다. 이러한 방식으로 Azure Marketplace에서 이미지를 사용하는 것과 유사한 방식으로 현재 소프트웨어 구성으로 VM을 복제할 수 있습니다.
 
@@ -39,7 +38,7 @@ Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터(VM)을 일반�
 ## <a name="before-you-begin"></a>시작하기 전에
 다음 필수 조건을 충족하는지 확인합니다.
 
-* **Azure VM이 Resource Manager 배포 모델에 생성됨** - Linux VM을 만들지 않은 경우, [포털](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Resource Manager 템플릿](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용할 수 있습니다. 
+* **Azure VM이 Resource Manager 배포 모델에 생성됨** - Linux VM을 만들지 않은 경우, [포털](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Resource Manager 템플릿](create-ssh-secured-vm-from-template.md)을 사용할 수 있습니다. 
   
     필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
 * **Azure CLI** - 로컬 컴퓨터에 [Azure CLI](../../cli-install-nodejs.md)를 설치합니다.
@@ -205,6 +204,5 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 추가적인 명령 옵션은 `azure help vm create`을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
+CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](create-ssh-secured-vm-from-template.md)를 참조하세요.
 

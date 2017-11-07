@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/08/2017
+ms.date: 10/02/2017
 ms.author: alexwun
-translationtype: Human Translation
-ms.sourcegitcommit: be4275d55410a763d38dcb954df5349db287c015
-ms.openlocfilehash: 5eb8f9489dcc29122892165111f62d63be1766f2
-
-
+ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString 설정 이해
 
@@ -56,9 +56,3 @@ Service Fabric은 다양한 팀에서 내부 Microsoft 사용을 위한 플랫�
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
 [12]: service-fabric-publish-app-remote-cluster.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

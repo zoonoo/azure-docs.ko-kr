@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect: 통과 인증 | Microsoft Docs"
-description: "이 항목은 Azure Active Directory(Azure AD) 및 연결된 서비스에 대한 액세스를 제공하기 위해 Azure AD 통과 인증이 온-프레미스 Active Directory(AD)와 작동하는 방식에 대해 알아야 하는 정보를 제공합니다."
+title: "Azure AD Connect: 통과 인증 | Microsoft 문서"
+description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 및 이 통과 인증을 통해 사용자의 암호를 온-프레미스 Active Directory에 대해 유효성 검사하여 Azure AD 로그인을 허용하는 방법을 설명합니다."
 services: active-directory
-keywords: "Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
+keywords: "Azure AD Connect 통과 인증의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on"
 documentationcenter: 
-author: billmath
+author: swkrish
 manager: femila
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,148 +12,66 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 09/29/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
-ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
-ms.lasthandoff: 01/30/2017
-
+ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
-# <a name="what-is-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증이란?
-동일한 자격 증명(사용자 이름 및 암호)을 사용하여 회사 리소스 및 클라우드 기반 서비스에 액세스하면 사용자가 다른 자격 증명을 기억할 필요가 없습니다. 로그인 방법을 잊어버릴 가능성이 줄어들고 지원 센터가 암호 재설정에 관여하는 경우가 줄어드는 이점이 있습니다.
+## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증이란?
 
-다수의 조직이 Azure AD [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 편리하게 사용하여 온-프레미스 및 클라우드 서비스에 액세스할 수 있는 단일 자격 증명을 제공하는 반면에 일부 조직에서는 암호가(해시된 형태인 경우에도) 내부 조직 경계를 벗어나지 않도록 요구하는 경우도 있습니다.
+Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 이 기능은 하나 적은 기억할 암호로 사용자에게 더 나은 환경을 제공하고 사용자는 로그인하는 방법을 잊을 가능성이 적기 때문에 IT 기술 지원팀 비용을 줄입니다. 사용자가 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다.
 
-Azure AD 통과 인증은 이러한 고객에게 간단한 솔루션을 제공합니다. 온-프레미스 Active Directory에 대해 Azure AD 서비스의 암호 유효성 검사가 수행되도록 합니다. 클라우드에 복잡한 네트워크 인프라 또는 온-프레미스 암호를 어떠한 형태로도 준비하지 않고 암호 유효성 검사를 수행할 수 있습니다.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
 
-[Single Sign on](active-directory-aadconnect-sso.md) 옵션과 결합되면 Azure AD 또는 다른 클라우드 서비스에 로그인하기 위해 사용자가 암호를 입력할 필요가 없습니다. 이러한 기능은 고객의 회사 컴퓨터에 완전히 통합된 환경을 제공합니다.
+이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)에 대한 대안입니다. 하지만 특정 조직에서 보안 및 규정 준수 정책은 이러한 조직이 내부 경계 외부의 해시된 폼에서도 사용자의 암호를 보내는 것을 허용하지 않습니다. 통과 인증은 이러한 조직에 적합한 솔루션입니다.
 
-![통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
+![Azure AD 통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
-통과 인증은 Azure AD Connect를 통해 구성할 수 있으며 암호 유효성 검사 요청을 수신하는 간단한 온-프레미스 에이전트를 활용합니다. 에이전트는 고가용성 및 부하 분산을 제공하도록 여러 컴퓨터에 손쉽게 배포될 수 있습니다. 모든 통신이 아웃바운드이기 때문에 DMZ가 필요하지 않고 DMZ에 커넥터를 설치할 필요가 없습니다. 커넥터에 대한 시스템 요구 사항은 다음과 같습니다.
+통과 인증을 [Seamless Single Sign-On](active-directory-aadconnect-sso.md) 기능에 결합할 수 있습니다. 이러한 방식으로 사용자가 회사 네트워크 내부에서 회사 컴퓨터의 응용 프로그램에 액세스할 때 로그인하기 위해 암호를 입력할 필요가 없습니다.
 
-- Windows Server 2012 R2 이상
-- 사용자의 유효성이 검사되는 포리스트의 도메인에 가입
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 사용의 주요 혜택
 
->[!NOTE]
->포리스트 및 이름 접미사 라우팅이 제대로 구성된 트러스트가 있는 경우 다중 포리스트 환경을 지원할 수 있습니다.
+- *멋진 사용자 환경*
+  - 사용자는 온-프레미스와 클라우드 기반 응용 프로그램에 로그인하는 데 동일한 암호를 사용합니다.
+  - 사용자는 암호 관련 문제를 해결하기 위해 IT 기술 지원팀과 소통하는 데 더 적은 시간을 보냅니다.
+  - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../active-directory-passwords-overview.md) 작업을 완료할 수 있습니다.
+- *손쉬운 배포 및 관리*
+  - 복잡한 온-프레미스 배포 또는 네트워크 구성에 대한 필요가 없습니다.
+  - 온-프레미스에 설치되는 간단한 에이전트만 필요합니다.
+  - 관리 오버헤드 없음 에이전트는 향상된 기능 및 버그 수정을 자동으로 받습니다.
+- *보안*
+  - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
+  - 에이전트는 네트워크 내에서만 아웃바운드 연결을 만듭니다. 따라서 DMZ라고도 하는 경계 네트워크에 에이전트를 설치할 필요가 없습니다.
+  - MFA(Multi-Factor Authentication)를 포함하여 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [무차별 암호 대입 공격을 필터링](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)하여 사용자 계정을 보호합니다.
+- *고가용성*
+  - 로그인 요청의 고가용성을 제공하기 위해 여러 온-프레미스 서버에 에이전트를 추가로 설치할 수 있습니다.
 
-## <a name="supported-clients-in-the-preview"></a>미리 보기에서 지원되는 클라이언트
+## <a name="feature-highlights"></a>주요 기능
 
-통과 인증은 [최신 인증](https://aka.ms/modernauthga)을 지원하는 Office 클라이언트 및 웹 브라우저 기반 클라이언트를 통해 지원됩니다. 레거시 Office 클라이언트, Exchange Active Sync(예: 모바일 장치의 원시 전자 메일 클라이언트)와 같이 지원되는 않는 클라이언트의 경우 최신 인증과 동등한 인증을 사용하는 것이 좋습니다. 이러한 클라이언트는 통과 인증이 가능할 뿐만 아니라 Multi-Factor Authentication과 같은 조건부 액세스를 적용할 수도 있습니다.
+- 모든 웹 브라우저 기반 응용 프로그램 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 응용 프로그램에 사용자 로그인을 지원합니다.
+- 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
+- 기능은 MFA(Multi-Factor Authentication)와 같은 [조건부 액세스](../active-directory-conditional-access.md)를 사용하여 원활하게 작동하여 사용자를 보호합니다.
+- 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../active-directory-passwords-overview.md)와 통합되었습니다.
+- AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
+- 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
+- [Azure AD Connect](active-directory-aadconnect.md)를 통해 사용하도록 설정할 수 있습니다.
+- 암호 유효성 검사 요청을 수신하고 이에 응답하는 간단한 온-프레미스 에이전트를 사용합니다.
+- 여러 에이전트를 설치하면 로그인 요청의 고가용성을 제공합니다.
+- 이렇게 하면 클라우드의 무차별 암호 대입 공격으로부터 온-프레미스 계정이 [보호](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)됩니다.
 
-Azure AD에 가입되어 있는 Windows 10을 사용하는 경우에는 현재 통과 인증이 지원되지 않습니다. 하지만 레거시 클라이언트 및 Windows 10에 대한 자동 대체로 암호 해시 동기화를 활용할 수 있습니다.
+## <a name="next-steps"></a>다음 단계
 
->[!NOTE]
->미리 보기 기간 중에 통과 인증이 Azure AD Connect의 로그인 옵션으로 선택되면 암호 동기화가 기본적으로 설정됩니다. 이 설정은 Azure AD Connect의 옵션 페이지에서 해제할 수 있습니다.
-
-## <a name="how-azure-ad-pass-through-authentication-works"></a>Azure AD 통과 인증 작동 방식
-사용자가 Azure AD 로그인 페이지에 사용자 이름과 암호를 입력하면 Azure AD는 유효성 검사를 위해 적절한 온-프레미스 커넥터 큐에 사용자 이름과 암호를 배치합니다. 사용 가능한 온-프레미스 커넥터 중 하나가 사용자 이름과 암호를 검색하고 Active Directory에 대해 유효성을 검사합니다. 유효성 검사는 Active Directory Federation Service가 암호의 유효성을 검사하는 것과 유사한 방식으로 표준 Windows API를 통해 이루어집니다.
-
-온-프레미스 도메인 컨트롤러가 요청을 평가하고 커넥터에 응답을 반환하면 커넥터는 이 응답을 Azure AD에 반환합니다. Azure AD는 응답을 평가하고 사용자에게 토큰을 발급하거나 다단계 인증을 요청하는 등의 적절한 응답을 보냅니다. 아래 다이어그램은 다양한 단계를 보여줍니다.
-
-![통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
-
-## <a name="azure-ad-pass-through-prerequisites"></a>Azure AD 통과 필수 조건
-Azure AD 통과 인증을 설정하고 사용하려면 다음과 같은 항목이 필요합니다.
-
-- Azure AD Connect
-- 전역 관리자 권한이 있는 Azure AD 테넌트입니다.
-
->[!NOTE]
->온-프레미스 서비스에 장애가 있거나 사용할 없는 경우 테넌트의 구성을 관리할 수 있도록 계정이 클라우드 전용 관리자 계정인 것이 좋습니다.
-
-- Azure AD Connect를 실행할 Windows Server 2012 R2 이상을 실행하는 서버. 이 컴퓨터는 유효성이 검사되는 사용자와 동일한 포리스트의 멤버여야 합니다.
-- Azure AD로 동기화할 사용자를 포함하는 포리스트가 둘 이상인 경우에는 포리스트 간에 트러스트가 있어야 합니다.
-- 온-프레미스 UserPrincipalName은 Azure AD 사용자 이름으로 사용해야 합니다.
-- 고가용성 및 부하 분산을 위해 두 번째 커넥터를 실행할 Windows Server 2012 R2 이상을 실행하는 두 번째 서버. 커넥터를 배포하는 방식은 아래 지침에 포함되어 있습니다.
-- 커넥터와 Azure AD 사이에 방화벽이 있는 경우에는 다음 사항을 확인합니다.
-    - URL 필터링을 사용하는 경우 커넥터가 다음 URL과 통신할 수 있는지 확인합니다.
-        -  \*.msappproxy.net
-        -  \*.servicebus.windows.net.  
-        -  커넥터가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 통해 연결을 생성합니다.
-    - 커넥터가 클라이언트 인증서를 사용하여 Azure AD와 통신하기 때문에 방화벽이 SSL 검사를 수행하지 않는지 확인합니다.
-    - 커넥터가 아래 포트에서 Azure AD에 대해 HTTPS(TCP) 요청을 수행할 수 있는지 확인합니다.
-
-|포트 번호|설명
-| --- | ---
-|80|SSL 인증서 해지 목록과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다.
-|443|    Azure AD에 대해 사용자 인증 사용하도록 설정합니다.
-|8080/443|    커넥터 부트스트랩 시퀀스 및 커넥터 자동 업데이트를 사용하도록 설정합니다.
-|9090|    커넥터 등록(커넥터 등록 프로세스에만 필요)을 사용하도록 설정합니다.
-|9091|    커넥터 신뢰 인증서 자동 갱신을 사용하도록 설정합니다.
-|9352, 5671|    수신 요청에 대해 커넥터와 Azure AD 서비스 간에 통신을 사용하도록 설정합니다.
-|9350|    [선택 사항] 수신 요청에 더 높은 성능을 발휘하도록 설정합니다.
-|10100–10120|    커넥터에서 다시 Azure AD로 응답이 가능하도록 설정합니다.
-
-방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행되는 Windows 서비스에서 오는 트래픽에 대해 이러한 포트를 엽니다. 또한 NT Authority\System에 대해 포트 8080을 사용하도록 설정해야 합니다.
-
-## <a name="enabling-pass-through-authentication"></a>통과 인증 사용 설정
-Azure AD 통과 인증은 Azure AD Connect를 통해 사용하도록 설정됩니다. 통과 인증을 사용하도록 설정하면 첫 번째 커넥터가 Azure AD Connect와 동일한 서버에 배포됩니다. Azure AD Connect 설치 시 사용자 지정 설치를 선택하고 로그인 옵션 페이지에서 통과 인증을 선택합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.
-
-![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso3.png)
-
-기본적으로 첫 번째 통과 인증 커넥터는 Azure AD Connect 서버에 설치됩니다. 인증 요청에 대한 부하 분산 및 고가용성을 보장하기 위해서 두 번째 커넥터는 다른 컴퓨터에 배포해야 합니다.
-
-두 번째 커넥터를 배포하려면 아래 지침을 따르세요.
-
-### <a name="step-1-install-the-connector-without-registration"></a>1단계: 등록 없이 커넥터 설치
-
-1.    최신 [커넥터](https://go.microsoft.com/fwlink/?linkid=837580)를 다운로드합니다.
-2.    관리자 권한으로 명령 프롬프트를 엽니다.
-3.    다음 명령을 실행합니다. 여기서 /q는 자동 설치를 의미하며 설치 시 최종 사용자 사용권 계약에 동의할지 묻는 메시지가 표시되지 않습니다.
-
-```
-AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-```
-
-### <a name="step-2-register-the-connector-with-azure-ad-for-pass-through-authentication"></a>2단계: 통과 인증을 위해 커넥터를 Azure AD에 등록
-
-1.    관리자 권한으로 PowerShell 창을 엽니다.
-2.    **C:\Program Files\Microsoft AAD App Proxy Connector**로 이동하여 스크립트를 실행합니다.  
-`.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.    대화 상자가 표시되면 Azure AD 테넌트 관리자 계정의 자격 증명을 입력합니다.
-
-## <a name="troubleshooting-pass-through-authentication"></a>통과 인증 문제 해결
-통과 인증 문제를 해결하는 경우 발생할 수 있는 문제에는 몇 가지 범주가 있습니다. 문제의 유형에 따라 다른 위치를 살펴봐야 합니다.
-
-커넥터와 관련된 오류는 **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**에서 커넥터 컴퓨터의 이벤트 로그를 확인합니다. 필요한 경우 분석 및 디버깅 로그를 보고 커넥터 세션 로그를 사용하도록 설정하면 더 자세한 로그를 볼 수 있습니다. 기본적으로 이 로그를 사용하도록 설정된 상태로 실행하는 것은 좋지 않습니다. 로그를 사용하지 않도록 설정한 후에만 콘텐츠를 볼 수 있습니다.
-
-추가 정보는 **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**에 있는 커넥터에 대한 추적 로그에서 찾을 수 있습니다. 이 로그는 개인 사용자에 대한 통과 인증이 실패한 이유(예: 오류 코드 1328을 포함하는 아래 항목)를 포함합니다.
-
-```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
-        ThreadId=5
-        DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
-```
-
-명령 프롬프트를 시작하고 다음 명령을 실행하면 오류에 대한 세부 정보를 볼 수 있습니다('1328'을 요청에 있는 오류 번호로 변경).
-
-`Net helpmsg 1328`
-
-결과는 다음 응답과 유사합니다.
-
-![통과 인증](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
-
-감사 로깅이 활성화되어 있는 경우에는 도메인 컨트롤러의 보안 로그에서도 추가 정보를 찾을 수 있습니다. 커넥터의 인증 요청에 대한 간단한 쿼리는 다음과 같습니다.
-
-```
-    <QueryList>
-    <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
-    </Query>
-    </QueryList>
-```
-
-Azure AD 로그인 화면에 보고되는 다른 오류는 적절한 해결 단계와 함께 아래에 자세히 설명되어 있습니다.
-
-|오류|설명|해결 방법
-| --- | --- | ---
-|AADSTS80001|Active Directory에 연결할 수 없음|커넥터 컴퓨터가 도메인에 가입되어 있고 Active Directory에 연결할 수 있는지 확인합니다.  
-|AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 커넥터의 요청에 응답하는지 확인합니다.
-|AADSTS80004|커넥터에 전달된 사용자 이름이 유효하지 않음|사용자가 올바른 사용자 이름을 사용하여 로그인을 시도하는지 확인합니다.
-|AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|이 오류는 일시적인 문제입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
-|AADSTS80007|Active Directory와 통신 중 오류 발생|커넥터 로그에서 자세한 내용을 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
-
+- [**빠른 시작**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Azure AD 통과 인증을 작동하고 실행합니다.
+- [**스마트 잠금**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - 테넌트에서 사용자 계정을 보호하도록 스마트 잠금 기능을 구성합니다.
+- [**현재 제한 사항** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
+- [**기술 심층 분석**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.
+- [**FAQ(질문과 대답)**](active-directory-aadconnect-pass-through-authentication-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**문제 해결**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
+- [**보안 심층 분석**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 해당 기능에 대한 자세한 추가 기술 정보입니다.
+- [**Azure AD 원활한 SSO**](active-directory-aadconnect-sso.md) - 이 보완 기능에 대해 자세히 알아봅니다.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

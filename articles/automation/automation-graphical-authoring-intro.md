@@ -3,8 +3,8 @@ title: "Azure 자동화에서 그래픽 작성 | Microsoft Docs"
 description: "그래픽 작성을 통해 코드 작업 없이 Azure 자동화에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
-manager: jwhit
+author: eslesar
+manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/03/2016
+ms.date: 04/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8d408f6ac49ea376508e025c53b09434c2ea164a
-
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 자동화에서 그래픽 작성
 ## <a name="introduction"></a>소개
@@ -198,7 +198,7 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 시퀀스 링크의 경우 원본 활동의 모든 개체 출력이 포함된 단일 배열이 반환되므로 조건이 한 번만 평가됩니다.  따라서 시퀀스 링크는 파이프라인 링크처럼 필터링에 사용할 수 없으며 다음 활동의 실행 여부만 결정합니다. 시작 VM runbook에서 다음 작업 집합에 예를 들어 보겠습니다.<br> ![시퀀스와 조건부 링크](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
- 값을 확인하는 세 개의 시퀀스 링크는 적절한 조치(단일 VM 시작, 리소스 그룹의 모든 VM 또는 구독의 모든 VM 시작 등)가 무엇인지 결정하기 위해 VM 이름 및 리소스 그룹 이름을 나타내는 두 개의 runbook 입력 매개 변수를 제공했습니다.  Azure에 연결과 단일 VM 가져오기 간의 시퀀스 링크의 경우 조건 논리는 다음과 같습니다.
+값을 확인하는 세 개의 시퀀스 링크는 적절한 조치(단일 VM 시작, 리소스 그룹의 모든 VM 또는 구독의 모든 VM 시작 등)가 무엇인지 결정하기 위해 VM 이름 및 리소스 그룹 이름을 나타내는 두 개의 runbook 입력 매개 변수를 제공했습니다.  Azure에 연결과 단일 VM 가져오기 간의 시퀀스 링크의 경우 조건 논리는 다음과 같습니다.
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -253,13 +253,13 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 검사점은 그래픽 PowerShell 워크플로 runbook에서 사용할 수 있고 그래픽 runbook에서는 사용할 수 없습니다.  Runbook이 Azure cmdlet를 사용하면 다른 작업자의 이 검사점에서 Runbook이 일시 중지되었다가 다시 시작되는 경우 AzureRMAccount를 사용하여 검사점이 지정된 작업을 수행해야 합니다. 
 
 ## <a name="authenticating-to-azure-resources"></a>Azure 리소스 인증
-Azure 리소스를 관리하는 Azure 자동화의 Runbook에는 Azure에 대한 인증이 필요합니다.  새 [실행 계정](automation-sec-configure-azure-runas-account.md) 기능(서비스 사용자라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Azure 리소스를 관리하는 Azure 자동화의 Runbook에는 Azure에 대한 인증이 필요합니다.  [실행 계정](automation-offering-get-started.md#creating-an-automation-account)(서비스 주체라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 실행 연결 가져오기 작업(즉, Get-AutomationConnection)은 AzureRunAsConnection라는 상수 값 데이터 원본으로 구성됩니다.<br>![실행 연결 구성](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 다음 활동인 Add-AzureRmAccount는 runbook에서 사용하기 위해 인증된 실행 계정을 추가합니다.<br>
 ![Add-AzureRmAccount 매개 변수 집합](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 **APPLICATIONID**, **CERTIFICATETHUMBPRINT** 및 **TENANTID** 매개 변수의 경우에는 활동이 여러 속성이 있는 개체를 출력하기 때문에 필드 경로에 대한 속성 이름을 지정해야 합니다.  그렇지 않은 경우 runbook을 실행하면 인증하려는 시도가 실패합니다.  실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
 
-ASM(Azure 서비스 관리) 또는 Azure Resource Manager 리소스를 관리하기 위해 [Azure AD 사용자 계정](automation-sec-configure-aduser-account.md)을 사용하여 자동화 계정을 만든 구독자가 이전 버전과 호환성을 유지하려면 인증하는 방법으로 Azure 계정에 액세스할 수 있는 Active Directory 사용자를 나타내는 [자격 증명 자산](http://msdn.microsoft.com/library/dn940015.aspx)이 있는 Add-AzureAccount cmdlet을 사용합니다.
+Azure 클래식 배포 또는 Azure Resource Manager 리소스를 관리하기 위해 [Azure AD 사용자 계정](automation-create-aduser-account.md)을 사용하여 자동화 계정을 만든 구독자가 이전 버전과 호환성을 유지하려면 인증하는 방법으로 Azure 계정에 액세스할 수 있는 Active Directory 사용자를 나타내는 [자격 증명 자산](automation-credentials.md)이 있는 Add-AzureAccount cmdlet을 사용합니다.
 
 Add-AzureAccount 활동이 따르는 캔버스에 자격 증명 자산을 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다.  Add-AzureAccount는 자격 증명 활동을 해당 입력으로 사용합니다.  다음 예제에 이 내용이 나와 있습니다.
 
@@ -381,10 +381,4 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
 * 자동화 실행 계정을 사용하여 인증하는 방법을 알아보려면 [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

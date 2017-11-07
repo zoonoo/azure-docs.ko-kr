@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
-ms.lasthandoff: 04/11/2017
-
-
+ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 04/11/2017
 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 관리에 대한 자세한 내용은 [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -38,7 +37,7 @@ ms.lasthandoff: 04/11/2017
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
+* **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 ## <a name="open-the-portal"></a>포털 열기
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
@@ -56,12 +55,12 @@ ms.lasthandoff: 04/11/2017
      ![Azure Portal 찾아보기 클러스터 단추](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>클러스터 만들기
-포털을 사용하여 만드는 지침은 [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
+포털을 사용하여 만드는 지침은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 지원되는 구성 요소 목록은 [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)(영문)을 참조하세요. 다음 옵션 중 하나를 사용하여 HDInsight를 사용자 지정할 수 있습니다.
 
 * 스크립트 작업을 사용하여 클러스터 구성을 변경하거나 Giraph 또는 Solr과 같은 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정할 수 있는 사용자 지정 스크립트를 실행합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)(영문)을 참조하세요.
-* 클러스터를 만드는 동안 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
+* 클러스터를 만드는 동안 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
 
   > [!NOTE]
@@ -88,14 +87,14 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
    * **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다. -**보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
    * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
    * **삭제**: 클러스터를 삭제합니다.
-   * **빠른 시작(![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
-   * **사용자(![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Azure 구독의 다른 사용자를 위해 이 클러스터의 *포털 관리* 권한을 설정할 수 있습니다.
+   * **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+   * **사용자: Azure 구독의 다른 사용자를 위해 이 클러스터의 *포털 관리* 권한을 설정할 수 있습니다.
 
      > [!IMPORTANT]
      > 이는 *오직* Azure 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
      >
      >
-   * **태그(![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: 태그를 사용하면 키/값 쌍을 설정하여 클라우드 서비스의 사용자 지정 분류를 정의할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+   * **태그**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
    * **Ambari 보기**: Ambari 웹에 연결합니다.
 
      > [!IMPORTANT]
@@ -187,7 +186,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
@@ -211,7 +210,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
-* 사용자 Azure 데이터 팩터리. 주문형 및 자체 정의 HDInsight 연결된 서비스는 [Azure HDInsight 연결된 서비스](../data-factory/data-factory-compute-linked-services.md) 및 [Azure 데이터 팩터리를 사용한 분석 및 변환](../data-factory/data-factory-data-transformation-activities.md)을 참조하세요.
+* 사용자 Azure 데이터 팩터리. 주문형 및 자체 정의 HDInsight 연결된 서비스는 [Azure HDInsight 연결된 서비스](../data-factory/compute-linked-services.md) 및 [Azure 데이터 팩터리를 사용한 분석 및 변환](../data-factory/transform-data.md)을 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
 * Azure CLI 사용 [Azure CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 * HDInsight .NET SDK 사용 [Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
@@ -320,7 +319,7 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 **Yarn UI** 를 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.
 
 ## <a name="connect-to-clusters-using-rdp"></a>RDP를 사용하여 클러스터에 연결
-생성 시 제공한 클러스터의 자격 증명은 원격 데스크톱을 통해 클러스터 자체가 아니라 클러스터의 서비스에 대한 액세스를 제공합니다. 클러스터를 프로비전할 때 또는 클러스터가 프로비전된 후 원격 데스크톱 액세스를 켤 수 있습니다. 생성 시 원격 데스크톱을 사용하도록 설정하는 방법에 대한 지침은 [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
+생성 시 제공한 클러스터의 자격 증명은 원격 데스크톱을 통해 클러스터 자체가 아니라 클러스터의 서비스에 대한 액세스를 제공합니다. 클러스터를 프로비전할 때 또는 클러스터가 프로비전된 후 원격 데스크톱 액세스를 켤 수 있습니다. 생성 시 원격 데스크톱을 사용하도록 설정하는 방법에 대한 지침은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 **원격 데스크톱을 사용하도록 설정하려면**
 
@@ -371,11 +370,10 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
-* [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)
+* [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
-

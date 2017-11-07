@@ -2,7 +2,7 @@
 title: "Azure Virtual Network 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 가상 네트워크를 사용하는 방법에 대해 알아봅니다. 설명서에서는 VNet을 배포하고 사용하여 리소스를 시작하고 온-프레미스 네트워크와 통합하는 방법을 보여 줍니다."
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 6ae5c9019f292a18bc4ae8afe8d615977e8e6c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-documentation"></a>Virtual Network 설명서
 
@@ -159,6 +159,5 @@ ms.lasthandoff: 03/18/2017
         </div>
     </li>
 </ul>
-
 
 

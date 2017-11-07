@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/10/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: c579c0866387a5eff17b4dbfe25a6cb7d1d47700
-ms.openlocfilehash: 4adf15e4767344d450b7411733a5d2f09cb9f06b
-
-
+ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 응용 프로그램에 대한 액세스 관리
 
-보안을 강조하는 대규모 조직에서는 Office 365와 같은 클라우드 서비스로 이동하려고 하지만 사용자가 승인되지 않은 리소스에 액세스할 수 없다는 사실을 알고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS 앱이 공용 클라우드에서 호스트되고 outlook.office.com 및 login.microsoftonline.com와 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
+보안을 강조하는 대규모 조직에서는 Office 365와 같은 클라우드 서비스로 이동하려고 하지만, 사용자가 승인된 리소스에만 액세스할 수 있다는 사실을 인식하고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS 앱이 공용 클라우드에서 호스트되고 outlook.office.com 및 login.microsoftonline.com와 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
 
 이러한 경우에 대한 Azure Active Directory 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한은 응용 프로그램이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, 조직이 SaaS 클라우드 응용 프로그램에 대한 액세스를 제어할 수 있도록 합니다. 예를 들어 이러한 동일한 응용 프로그램의 다른 조직 인스턴스에 대한 액세스를 차단하면서 조직의 Office 365 응용 프로그램에 대한 액세스를 허용하려고 할 수 있습니다.  
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 4adf15e4767344d450b7411733a5d2f09cb9f06b
 
 이 문서는 Office 365에 대한 테넌트 제한을 중점적으로 설명하지만 Single Sign-On을 위해 Azure AD와 함께 최신 인증 프로토콜을 사용하는 모든 SaaS 클라우드 앱에도 이 기능을 사용할 수 있습니다. Office 365에서 사용되는 테넌트와는 다른 Azure AD 테넌트에서 SaaS 앱을 사용하는 경우 필요한 모든 테넌트가 허용되는지 확인합니다. 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/)를 참조하세요.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 전체 솔루션은 다음 구성 요소로 구성됩니다. 
 
@@ -101,7 +101,7 @@ Restricted-Access-Context 테넌트로 지정된 테넌트의 관리자는 이 �
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 사용자, 응용 프로그램, 클라이언트 또는 시간 간격에 따라 필터링을 수행할 수 있습니다.
 
-## <a name="office-365-support-for-tenant-restrictions"></a>테넌트 제한에 대한 Office 365 지원
+## <a name="office-365-support"></a>Office 365 지원
 
 Office 365 응용 프로그램은 테넌트 제한을 완전히 지원하기 위해 다음과 같은 두 가지 조건을 충족해야 합니다.
 
@@ -112,7 +112,7 @@ Office 365 응용 프로그램은 테넌트 제한을 완전히 지원하기 위
 
 테넌트 제한은 현재, Office 365 브라우저 기반 응용 프로그램(Office 포털, Yammer, SharePoint 사이트, 웹용 Outlook 등)에서 지원됩니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등) 테넌트 제한은 최신 인증을 사용하는 경우에만 적용할 수 있습니다.  
 
-최신 인증을 지원하는 Outlook 및 비즈니스용 Skype 클라이언트는 최신 인증이 사용되도록 설정되지 않은 테넌트에 대해 레거시 프로토콜을 사용하여 테넌트 제한을 효과적으로 우회할 수 있습니다. Windows의 Outlook에서 고객은 최종 사용자가 프로필에 승인되지 않은 메일 계정을 추가하는 것을 방지하는 제한을 구현하도록 선택할 수 있습니다. 예제를 보려면 [비기본 Exchange 계정 추가 금지](http://gpsearch.azurewebsites.net/default.aspx?ref=1) 그룹 정책 설정을 참조하세요. Windows 이외의 플랫폼에 있는 Outlook와 모든 플랫폼의 비즈니스용 Skype에서는 최신 인증이 서비스 전체 기본값으로 설정되어 있을 때 테넌트 제한이 완전히 지원될 수 있습니다.
+최신 인증을 지원하는 Outlook 및 비즈니스용 Skype 클라이언트는 최신 인증이 사용되도록 설정되지 않은 테넌트에 대해 레거시 프로토콜을 사용하여 테넌트 제한을 효과적으로 우회할 수 있습니다. Windows의 Outlook에서 고객은 최종 사용자가 프로필에 승인되지 않은 메일 계정을 추가하는 것을 방지하는 제한을 구현하도록 선택할 수 있습니다. 예제를 보려면 [비기본 Exchange 계정 추가 금지](http://gpsearch.azurewebsites.net/default.aspx?ref=1) 그룹 정책 설정을 참조하세요. Windows가 아닌 플랫폼의 Outlook과 모든 플랫폼의 비즈니스용 Skype에서는 현재 테넌트 제한을 완벽하게 지원하지 않습니다.
 
 ## <a name="testing"></a>테스트
 
@@ -129,13 +129,8 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
   2. 다음 줄은 *OnBeforeRequest* 함수 맨 앞에 추가합니다. \<tenant domain\>을 테넌트에 등록된 도메인(예: contoso.onmicrosoft.com)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.
 
   ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){
-      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
-  }
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
-  >[!NOTE]
-  > 위의 코드 조각은 모두 한 줄에 있어야 합니다. 닫는 괄호 다음까지 캐리지 리턴은 없습니다.
 
   여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예:
 
@@ -161,9 +156,3 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처**�
 - [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) 참조
 
 - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 검토
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

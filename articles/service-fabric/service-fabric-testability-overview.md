@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/01/2017
+ms.date: 06/15/2017
 ms.author: anmola
-translationtype: Human Translation
-ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
-ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>오류 분석 서비스 소개
 오류 분석 서비스는 Microsoft Azure Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/02/2017
 * 장애 조치 시나리오
 
 ## <a name="testing-as-a-service"></a>Testing as a service
-오류 분석 서비스는 서비스 패브릭 클러스터로 자동 시작되는 서비스 패브릭 시스템 서비스입니다. 오류 주입, 테스트 시나리오 실행 및 상태 분석을 위한 호스트 역할을 수행하는 서비스입니다. 
+오류 분석 서비스는 서비스 패브릭 클러스터로 자동 시작되는 서비스 패브릭 시스템 서비스입니다. 이 서비스는 오류 주입, 테스트 시나리오 실행 및 상태 분석을 위한 호스트 역할을 수행합니다. 
 
 ![오류 분석 서비스  ][0]
 
@@ -103,4 +102,3 @@ PowerShell을 사용하려면 서비스 패브릭 SDK를 설치해야 합니다.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
-

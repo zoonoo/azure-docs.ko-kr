@@ -12,30 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 10/05/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: f03b8d192255a3c93284f3c5e898f68a1234644f
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>장치 관리 시작(.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
-## <a name="introduction"></a>소개
-백 엔드 앱은 Azure IoT Hub의 기본 형식, 즉 장치 쌍 및 직접 메서드를 사용하여 장치에서 장치 관리 작업을 원격으로 시작하고 모니터링할 수 있습니다.  이 문서에서는 IoT Hub를 사용하여 원격 장치를 다시 부팅하고 모니터링하기 위해 백 엔드 앱과 장치가 함께 작동하는 방법에 대한 지침과 코드를 제공합니다.
-
-클라우드 기반 백 엔드 앱에서 장치에 대한 장치 관리 작업을 원격으로 시작하고 모니터링하려면 [장치 쌍][lnk-devtwin] 및 [직접 메서드][lnk-c2dmethod]와 같은 IoT Hub 기본 형식을 사용합니다. 이 자습서에서는 백 엔드 앱 및 장치가 함께 작동하여 IoT Hub에서 원격 장치 다시 시작을 시작 및 모니터링하는 방식을 보여 줍니다.
-
-직접 메서드를 사용하여 클라우드의 백 엔드 앱에서 장치 관리 작업(예: 재부팅, 공장 기본 설정으로 복원 및 펌웨어 업데이트)을 시작합니다. 장치는 다음과 같은 역할을 합니다.
-
-* IoT Hub에서 보낸 메서드 요청 처리.
-* 장치에서 해당하는 장치 특정 작업 시작.
-* reported 속성을 통해 IoT Hub에 상태 업데이트 제공
-
-클라우드에서 백 엔드 앱을 사용하여 장치 쌍 쿼리를 실행하고 장치 관리 작업의 진행 상태를 보고할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -52,7 +39,7 @@ ms.lasthandoff: 03/07/2017
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2017.
-* Node.js 버전 0.12.x 이상, <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
+* Node.js 버전 4.0.x 이상 <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -73,14 +60,15 @@ ms.lasthandoff: 03/07/2017
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
         
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브 및 대상 장치의 IoT Hub 연결 문자열로 바꿉니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 "IoT Hub 만들기" 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다. 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 재부팅 장치에 대한 장치 쌍을 가져오고 reported 속성을 출력합니다.
    
@@ -216,22 +204,7 @@ ms.lasthandoff: 03/07/2017
 
 3. 콘솔에서 직접 메서드에 대한 장치 응답을 확인합니다.
 
-## <a name="customize-and-extend-the-device-management-actions"></a>장치 관리 작업 사용자 지정 및 확장
-IoT 솔루션에서 정의된 장치 관리 패턴 집합을 확장하거나 장치 쌍 및 클라우드-장치 메서드 기본 형식을 사용하여 사용자 지정 패턴을 활성화하도록 설정할 수 있습니다. 장치 관리 작업의 다른 예로 공장 재설정, 펌웨어 업데이트, 소프트웨어 업데이트, 전원 관리, 네트워크 및 연결 관리, 데이터 암호화가 있습니다.
-
-## <a name="device-maintenance-windows"></a>장치 유지 관리 기간
-일반적으로 서비스 중단 및 가동 중지 시간을 최소화하면서 작업을 수행하도록 장치를 구성합니다.  장치 유지 관리 기간은 장치에서 해당 구성을 업데이트해야 할 경우 시간을 정의하는 데 널리 사용되는 패턴입니다. 백 엔드 솔루션에서는 장치 쌍의 desired 속성을 사용하여 유지 관리 기간을 사용하는 장치에 대한 정책을 정의하고 활성화할 수 있습니다. 장치에서 유지 관리 기간 정책을 수신하면 장치 쌍의 reported 속성을 사용하여 정책의 상태를 보고할 수 있습니다. 그런 다음 백 엔드 앱은 장치 쌍 쿼리를 사용하여 장치 및 각 정책의 규정 준수를 입증합니다.
-
-## <a name="next-steps"></a>다음 단계
-이 자습서에서는 장치에서 원격 다시 시작을 트리거하는 데 직접 메서드를 사용했습니다. 보고된 속성을 사용하여 장치에서 마지막으로 다시 시작한 시간을 보고하고, 장치 쌍을 쿼리하여 장치가 클라우드에서 마지막으로 다시 시작한 시간을 확인했습니다.
-
-IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 다음을 참조하세요
-
-[자습서: 펌웨어 업데이트를 수행하는 방법][lnk-fwupdate]
-
-IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트][lnk-tutorial-jobs] 자습서를 참조하세요.
-
-IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 참조하세요.
+[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
@@ -242,12 +215,9 @@ IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 �
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

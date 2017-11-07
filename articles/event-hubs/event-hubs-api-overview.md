@@ -3,7 +3,7 @@ title: "Azure Event Hubs API 개요 | Microsoft Docs"
 description: "사용할 수 있는 Azure Event Hubs API의 개요"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="available-event-hubs-apis"></a>사용할 수 있는 Event Hubs API
 
 ## <a name="runtime-apis"></a>런타임 API
 
-다음은 현재 사용 가능한 모든 Event Hubs 런타임 클라이언트의 목록입니다. 이러한 라이브러리 중 일부에는 제한된 관리 기능이 포함되어 있지만 관리 작업에만 사용되는 [특정 라이브러리](#management-apis)도 있습니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 메시지를 주고 받는 것입니다.
+다음은 현재 사용 가능한 모든 Azure Event Hubs 런타임 클라이언트에 대한 설명입니다. 이러한 라이브러리 중 일부에는 제한된 관리 기능이 포함되어 있지만 관리 작업에만 사용되는 [특정 라이브러리](#management-apis)도 있습니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 메시지를 주고 받는 것입니다.
 
 각 런타임 라이브러리의 현재 상태에 대한 자세한 내용은 [추가 정보](#additional-information)를 참조하세요.
 
@@ -59,8 +59,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

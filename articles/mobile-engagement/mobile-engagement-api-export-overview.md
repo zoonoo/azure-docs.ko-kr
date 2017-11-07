@@ -1,4 +1,3 @@
-
 ---
 title: "Mobile Engagement 내보내기 API 개요"
 description: "사용자 고유의 도구에서 활용하기 위해 사용자의 장치에서 생성된 원시 데이터 내보내기에 대한 기본 사항을 알아봅니다."
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
-ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Mobile Engagement 내보내기 API 개요
 ## <a name="introduction"></a>소개
@@ -73,10 +72,4 @@ Mobile Engagement에서 데이터를 내보내려면 일반적으로 다음을 �
 작업이 만들어진 후 해당 상태를 확인하여 여전히 실행 중인지 또는 완료되었는지 볼 수 있습니다.
 
 작업이 성공되면 제공된 저장소 컨테이너에서 결과 데이터 파일을 사용할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

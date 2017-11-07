@@ -1,5 +1,5 @@
 ---
-title: "조건 논리 추가 및 워크플로 시작 - Azure Logic Apps | Microsoft Docs"
+title: "조건 추가 및 워크플로 시작 - Azure Logic Apps | Microsoft Docs"
 description: "조건부 논리, 트리거, 동작 및 매개 변수를 추가하여 Azure Logic Apps에서 워크플로가 실행되는 방식을 제어합니다."
 author: stepsic-microsoft-com
 manager: anneta
@@ -13,56 +13,75 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: stepsic
-translationtype: Human Translation
-ms.sourcegitcommit: 9f7d623ec213de6d46f59547aff9d4417ac95ede
-ms.openlocfilehash: 41aafe94d24f0e22fe2256ab213c7668b670764c
-ms.lasthandoff: 02/15/2017
-
-
+ms.author: LADocs; stepsic
+ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>논리 앱 기능 사용
-[이전 항목](../logic-apps/logic-apps-create-a-logic-app.md)에서는 첫 번째 논리 앱을 만들었습니다. 이제 Azure Logic Apps을 사용하여 전체 프로세스를 빌드합니다. 이 항목에서는 다음과 같은 새 Azure Logic Apps 개념을 소개합니다.
 
-* 조건부 논리 - 특정 조건이 충족될 때만 작업을 실행합니다.
-* 기존 논리 앱을 편집하기 위한 코드 보기.
-* 워크플로 시작 옵션.
+[이전 항목](../logic-apps/logic-apps-create-a-logic-app.md)에서는 첫 번째 논리 앱을 만들었습니다. 논리 앱의 워크플로를 제어하기 위해 실행할 논리 앱에 대한 다른 경로와 배열, 컬렉션 및 일괄 처리의 데이터 처리 방법을 지정할 수 있습니다. 논리 앱 워크플로에 포함될 수 있는 요소는 다음과 같습니다.
 
-이 항목을 완료하기 전에 [새 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)의 단계를 완료해야 합니다. [Azure Portal]에서 논리 앱을 찾은 다음 요약에서 **트리거 및 동작** 을 클릭하여 논리 앱 정의를 편집합니다.
+* 조건 및 [switch 문](../logic-apps/logic-apps-switch-case.md) - 특정 조건이 충족되는지 여부에 따라 논리 앱에서 다른 동작을 실행하도록 합니다.
 
-## <a name="reference-material"></a>참조 자료
-유용한 다음 문서를 볼 수 있습니다.
+* [루프](../logic-apps/logic-apps-loops-and-scopes.md) - 논리 앱에서 단계를 반복적으로 실행하도록 합니다. 예를 들어 **For_each** 루프를 사용할 때 배열에 대해 동작을 반복할 수 있습니다. 또는 **Until** 루프를 사용할 때 조건이 충족될 때까지 동작을 반복할 수 있습니다.
 
-* [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/mt643787.aspx) - 논리 앱을 직접 호출 하는 방법 포함
-* [언어 참조](https://msdn.microsoft.com/library/azure/mt643789.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
-* [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/mt643939.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
-* [앱 서비스의 개요](../app-service/app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
+* [범위](../logic-apps/logic-apps-loops-and-scopes.md) - 예를 들어 예외 처리를 구현하기 위해 일련의 동작을 그룹화하도록 합니다.
 
-## <a name="add-conditional-logic-to-your-logic-app"></a>논리 앱에 조건부 논리 추가
+* [분리](../logic-apps/logic-apps-loops-and-scopes.md) - **SplitOn** 명령을 사용할 때 논리 앱에서 배열의 항목에 대해 별도의 워크플로를 시작하도록 합니다.
 
-논리 앱의 원래 흐름이 작동하더라도 일부 영역을 개선할 수 있습니다.
+이 항목에서는 논리 앱을 빌드하기 위한 다른 개념에 대해 설명합니다.
 
-### <a name="conditional"></a>조건부
+* 기존 논리 앱을 편집하기 위한 코드 보기
+* 워크플로 시작 옵션
 
-첫 번째 논리 앱은 전자 메일을 너무 많이 가져오게 될 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 오는 경우에만 전자 메일을 받도록 조건 논리를 추가합니다.
+## <a name="conditions-run-steps-only-after-meeting-a-condition"></a>조건: 조건 충족 후에만 단계 실행
 
-0. Logic App Designer에서 **새 단계**(+) > **작업 추가**를 선택합니다.
-0.    Twitter에 대한 **사용자 가져오기** 작업을 찾고 추가합니다.
-0. Twitter 사용자에 대한 정보를 가져오기 위해 트리거에서 **트윗 보낸 사람** 필드를 찾고 추가합니다.
+데이터가 특정 기준을 충족하는 경우에만 논리 앱에서 단계를 실행하도록 하려면 워크플로의 데이터와 특정 필드 또는 값을 비교하는 조건을 추가할 수 있습니다.
 
-    ![사용자 가져오기](media/logic-apps-use-logic-app-features/getuser.png)
+예를 들어 웹 사이트의 RSS 피드에 있는 게시물에 대해 너무 많은 전자 메일을 보내는 논리 앱이 있다고 가정해 보겠습니다. 새 게시물이 특정 범주에 속한 경우에만 논리 앱에서 전자 메일을 보내도록 조건을 추가할 수 있습니다.
 
-0. **새 단계**(+) > **조건 추가**를 선택합니다.
-0. 사용자의 팔로워 수를 필터링하려면 **개체 이름**에서 **동적 콘텐츠 추가**를 선택합니다. 
-0.    검색 상자에서 **팔로워 수** 필드를 찾고 추가합니다.
-0. **관계** 아래에서 **다음보다 큼**을 선택합니다.
-0. **값** 상자에서 원하는 사용자의 팔로워 수를 입력합니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
-    ![조건부](media/logic-apps-use-logic-app-features/conditional.png)
+2. 원하는 워크플로 위치에 조건을 추가합니다. 
 
-0. 마지막으로 **전자 메일 보내기** 상자를 **예인 경우** 상자로 끌어 놓습니다. 
+   논리 앱 워크플로의 기존 단계 사이에 조건을 추가하려면 조건을 추가하려는 화살표 위로 포인터를 이동합니다. 
+   **더하기 기호**(**+**)를 선택한 다음 **조건 추가**를 선택합니다. 예:
 
-이제 팔로워 수가 조건을 충족하는 경우에 전자 메일을 받게 됩니다.
+   ![논리 앱에 조건 추가](./media/logic-apps-use-logic-app-features/add-condition.png)
+
+   > [!NOTE]
+   > 현재 워크플로의 끝에 조건을 추가하려면 논리 앱의 아래쪽으로 이동하여 **+ 새 단계**를 선택합니다.
+
+3. 이제 조건을 정의합니다. 평가할 원본 필드, 수행할 작업 및 대상 값 또는 필드를 지정합니다. 현재 필드를 조건에 추가하려면 **동적 콘텐츠 추가 목록**에서 선택합니다.
+
+   예:
+
+   ![기본 모드에서 조건 편집](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
+
+   완성된 조건은 다음과 같습니다.
+
+   ![완성된 조건](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
+
+   > [!TIP]
+   > 코드에서 조건을 정의하려면 **고급 모드에서 편집**을 선택합니다. 예:
+   > 
+   > ![코드에서 조건 편집](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
+
+4. **IF YES** 및 **IF NO** 아래에서 조건이 충족되는지 여부에 따라 수행할 단계를 추가합니다.
+
+   예:
+
+   ![YES 및 NO 경로가 있는 조건](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
+
+   > [!TIP]
+   > 기존 동작을 **IF YES** 및 **IF NO** 경로로 끌 수 있습니다.
+
+5. 완료되면 논리 앱을 저장합니다.
+
+이제 게시물이 조건을 충족할 때만 전자 메일을 받습니다.
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>forEach를 포함한 목록에 작업 반복
 
@@ -83,31 +102,31 @@ Logic App Designer가 있더라도 논리 앱을 정의하는 코드를 직접 �
 
 2. 편집을 저장하려면 **저장**을 선택합니다.
 
-### <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>매개 변수
 
 일부 Logic Apps 기능은 매개 변수와 같은 코드 보기에서만 사용할 수 있습니다. 매개 변수를 통해 논리 앱 전체에서 쉽게 값을 다시 사용할 수 있습니다. 예를 들어 여러 작업에서 사용할 메일 주소가 있는 경우 해당 전자 메일 주소를 매개 변수로 정의해야 합니다.
 
-매개 변수는 자주 변경하는 값을 끌어오는 데 유용합니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법을 알아보려면 [REST API 설명서](https://docs.microsoft.com/rest/api/logic)를 참조하세요.
+매개 변수는 자주 변경하는 값을 끌어오는 데 유용합니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법을 알아보려면 [논리 앱 정의 작성](../logic-apps/logic-apps-author-definitions.md) 및 [REST API 설명서](https://docs.microsoft.com/rest/api/logic)를 참조하세요.
 
 이 예제에서는 쿼리 용어에 대한 매개 변수를 사용할 수 있도록 기존 논리 앱을 업데이트하는 방법을 보여 줍니다.
 
-1. 코드 보기에서 `parameters : {}` 개체를 찾고 항목 개체를 추가합니다.
+1. 코드 보기에서 `parameters : {}` 개체를 찾고 `currentFeedUrl` 개체를 추가합니다.
 
-        "topic" : {
+        "currentFeedUrl" : {
             "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. `twitterconnector` 작업으로 이동하여 쿼리 값을 찾고 해당 값을 `#@{parameters('topic')}`로 바꿉니다. 
+2. `When_a_feed-item_is_published` 동작으로 이동하여 `queries` 섹션을 찾고 쿼리 값을 `"feedUrl": "#@{parameters('currentFeedUrl')}"`로 바꿉니다. 
 
     두 개 이상의 문자열을 조인하기 위해 `concat` 함수를 사용할 수도 있습니다. 
-    예를 들어, `@concat('#',parameters('topic'))`는 앞의 경우와 동일하게 작동합니다.
+    예를 들어 `"@concat('#',parameters('currentFeedUrl'))"`은 위와 동일하게 작동합니다.
 
-3.    완료하면 **저장**을 선택합니다. 
+3.  완료하면 **저장**을 선택합니다. 
 
-    이제 리트윗이&5;개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
+    이제 `currentFeedURL`개 개체를 통해 다른 URL을 전달하여 웹 사이트의 RSS 피드를 변경할 수 있습니다.
 
-논리 앱 정의에 대해 더 알아보려면 [논리 응용 프로그램 정의 작성](../logic-apps/logic-apps-author-definitions.md)을 참조하십시오.
+[논리 앱 정의를 작성하는 방법](../logic-apps/logic-apps-author-definitions.md)에 대해 자세히 알아보세요.
 
 ## <a name="start-logic-app-workflows"></a>논리 앱 워크플로 시작
 
@@ -124,3 +143,8 @@ Logic App Designer가 있더라도 논리 앱을 정의하는 코드를 직접 �
 <!-- Shared links -->
 [Azure Portal]: https://portal.azure.com
 
+## <a name="next-steps"></a>다음 단계
+
+* [Switch 문](../logic-apps/logic-apps-switch-case.md) 
+* [루프, 범위 및 분할](../logic-apps/logic-apps-loops-and-scopes.md)
+* [작성자 논리 앱 정의](../logic-apps/logic-apps-author-definitions.md)

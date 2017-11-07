@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 00ee90b6d264c1aee4b488cd1c2a5447809a1e3c
-ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
-
-
+ms.openlocfilehash: 564e98a4b6b9bd8bf9b58f06cee0027bfdf84458
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Azure Multi-Factor Authentication 및 Active Directory Federation Services 시작
 <center>![클라우드](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
@@ -40,17 +40,10 @@ ms.openlocfilehash: 0981be75b9caffb29b10c70ce528209984986ce2
 * 앱 암호는 클라우드 인증을 사용하여 확인되므로 페더레이션을 바이패스합니다. 앱 암호를 설정할 때 페더레이션이 능동적으로 사용됩니다.
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
 * 앱 암호에 대한 온-프레미스 인증 로깅 기능이 손실됩니다.
-* 계정 사용 안 함/삭제 설정은 디렉터리 동기화 동안 최대&3;시간이 걸리며 클라우드 ID에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
+* 계정 사용 안 함/삭제 설정은 디렉터리 동기화 동안 최대 3시간이 걸리며 클라우드 ID에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
 
-## <a name="next-steps"></a>다음 단계
 Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Authentication 서버 설정 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](multi-factor-authentication-get-started-adfs-w2k12.md)
 * [AD FS 2.0과 함께 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](multi-factor-authentication-get-started-adfs-adfs2.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -10,7 +10,7 @@
 > 
 > 
 
-일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure 데이터 팩터리에서 제공하는 WindowStart 및 WindowEnd 변수를 사용하면 됩니다. [예약 및 실행](../articles/data-factory/data-factory-scheduling-and-execution.md) 문서의 Azure 데이터 팩터리 부분에서 변수 및 함수에 대해 확인해 보세요. 예제: 
+일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure 데이터 팩터리에서 제공하는 WindowStart 및 WindowEnd 변수를 사용하면 됩니다. [예약 및 실행](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) 문서의 Azure 데이터 팩터리 부분에서 변수 및 함수에 대해 확인해 보세요. 예제: 
 
 ```json
 "source": {
@@ -29,8 +29,3 @@
     "sqlReaderQuery": "select * from MyTable"
 },
 ```
-
-
-<!--HONumber=Nov16_HO3-->
-
-

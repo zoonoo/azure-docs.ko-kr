@@ -1,241 +1,284 @@
 ---
 title: "자습서: Salesforce와 Azure Active Directory 통합 | Microsoft 문서"
-description: "Azure Active Directory에서 Salesforce를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
+description: "Azure Active Directory와 Salesforce 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
-documentationcenter: 
-author: asmalser-msft
+documentationCenter: na
+author: jeevansd
 manager: femila
-editor: 
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/16/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 27857431abd965fd4f65c61874f9ecfc1730a7e6
-
-
+ms.date: 05/19/2017
+ms.author: jeedes
+ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
-이 자습서에서는 Salesforce 환경을 Azure Active Directory에 연결하는 방법을 보여줍니다. Single Sign-On을 Salesforce에 구성하는 방법, 자동화된 사용자 프로비저닝을 사용하도록 설정하는 방법 및 사용자에게 Salesforce에 대한 액세스 권한을 할당하는 방법을 알아봅니다.
+
+이 자습서에서는 Azure AD(Azure Active Directory)와 Salesforce를 통합하는 방법에 대해 알아봅니다.
+
+Salesforce를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
+
+- Salesforce에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 Salesforce에 자동으로 로그인(Single Sign-On)하도록 설정할 수 있습니다.
+- 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-1. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
-2. [Salesforce.com](https://www.salesforce.com/)에 유효한 테넌트가 있어야 합니다.
 
-> [!IMPORTANT]
-> Salesforce.com **평가판** 을 사용하는 경우 자동화된 사용자 프로비저닝을 구성할 수 없습니다. 평가판 계정은 구입할 때까지 필요한 API 액세스가 활성화되지 않습니다.
-> 
-> 이 자습서를 완료하기 위해 [무료 개발자 계정](https://developer.salesforce.com/signup) 을 사용하여 이러한 제한을 해결할 수 있습니다.
-> 
-> 
+Salesforce와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 통합 자습서](https://go.microsoft.com/fwLink/?LinkID=521879)를 참조하세요.
+- Azure AD 구독
+- Salesforce Single Sign-On이 설정된 구독
 
-## <a name="video-tutorials"></a>비디오 자습서
-아래 비디오를 사용하여 이 자습서를 따를 수 있습니다.
+> [!NOTE]
+> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
-**비디오 자습서&1;부: Single Sign-on을 사용하도록 설정하는 방법**
+이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
-> 
-> 
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
-**비디오 자습서&2;부: 사용자 프로비저닝을 자동화하는 방법**
+## <a name="scenario-description"></a>시나리오 설명
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22/player]
-> 
-> 
+1. 갤러리에서 Salesforce 추가
+2. Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="step-1-add-salesforce-to-your-directory"></a>1단계: 디렉터리에 Salesforce 추가
-1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
-   
-    ![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
-2. **디렉터리** 목록에서 Salesforce에 추가할 디렉터리를 선택합니다.
-3. 상단 메뉴에서 **응용 프로그램** 을 클릭합니다.
-   
-    ![응용 프로그램을 클릭합니다.][1]
-4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
-   
-    ![추가 클릭하여 새 응용 프로그램을 추가합니다.][2]
-5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
-   
-    ![갤러리에서 응용 프로그램 추가를 클릭합니다.][3]
-6. **검색 상자**에 **Salesforce**를 입력합니다. 그런 다음 결과에서 **Salesforce**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
-   
-    ![Salesforce를 추가합니다.][4]
-7. 이제 Salesforce에 대한 빠른 시작 페이지가 표시됩니다.
-   
-    ![Azure AD의 Salesforce 빠른 시작 페이지][5]
+## <a name="adding-salesforce-from-the-gallery"></a>갤러리에서 Salesforce 추가
+Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-## <a name="step-2-enable-single-sign-on"></a>2단계: Single Sign-On 사용
-1. Single Sign-On을 구성하려면 Salesforce 환경에 대한 사용자 지정 도메인을 설정하고 배포해야 합니다. 그러한 방법에 대한 지침은 [도메인 이름 설정](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US)을 참조하세요.
-2. Azure AD의 Salesforce 빠른 시작 페이지에서 **Single Sign-On 구성** 단추를 클릭합니다.
-   
-    ![Single Sign-On 구성 단추][6]
-3. 대화 상자가 열리고 "Salesforce에 대한 사용자 로그온 방법을 선택하십시오."를 묻는 화면이 표시됩니다. **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
-   
-    ![Azure AD Single Sign-On 선택][7]
-   
-   > [!NOTE]
-   > 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-4. **앱 설정 구성** 페이지에서 다음 형식으로 Salesforce 도메인 URL을 입력하여 **로그온 URL**을 작성합니다.
-   
-   * 엔터프라이즈 계정: `https://<domain>.my.salesforce.com`
-   * 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com` 
-     
-     ![로그온 URL 입력][8]
-5. **Salesforce에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
-   
-    ![인증서 다운로드][9]
-6. 브라우저에서 새 탭을 열고 Salesforce 관리자 계정으로 로그인합니다.
-7. **관리자** 탐색 창에서 **보안 제어**를 클릭하여 관련된 섹션을 확장합니다. 그런 다음 **Single Sign-on 설정**을 클릭합니다.
-   
-    ![보안 컨트롤에서 Single Sign-On 설정 클릭][10]
-8. **Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭합니다.
-   
-    ![편집 단추 클릭][11]
-   
-   > [!NOTE]
-   > Salesforce 계정에 대해 Single Sign-on 설정을 사용하도록 설정할 수 없는 경우 사용자에 기능을 사용하도록 설정하려면 Salesforce의 지원 팀에 문의해야 합니다.
-   > 
-   > 
-9. **SAML 사용**을 선택한 다음 **저장**을 클릭합니다.
-   
-    ![SAML 사용 선택][12]
-10. SAML Single Sign-On 설정을 구성하려면 **새로 만들기**를 클릭합니다.
+**갤러리에서 Salesforce를 추가하려면 다음 단계를 수행합니다.**
+
+1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+
+    ![Active Directory][1]
+
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+
+    ![응용 프로그램][2]
     
-    ![SAML 사용 선택][13]
-11. **SAML Single Sign-on 설정 편집** 페이지에서 다음 구성을 확인합니다.
-    
-    ![만들어야 하는 구성의 스크린샷][14]
-    
-    * **이름** 필드에 이 구성에 대한 이름을 입력합니다. **이름**에 값을 제공하면 **API 이름** 입력란이 자동으로 채워집니다.
-    * Azure AD에서 **발급자 URL** 값을 복사한 다음 Salesforce의 **발급자** 필드에 붙여넣습니다.
-    * **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
+3. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+
+    ![응용 프로그램][3]
+
+4. 검색 상자에 **Salesforce**를 입력합니다.
+
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_search.png)
+
+5. 결과 창에서 **Salesforce**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Salesforce 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Salesforce의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
+
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 Salesforce의 **Username** 값으로 할당하여 설정합니다.
+
+Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Salesforce 테스트 사용자 만들기](#creating-a-salesforce-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Salesforce에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Salesforce 응용 프로그램에서 Single Sign-On을 구성합니다.
+
+**Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
+1. Azure Portal의 **Salesforce** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+
+    ![Single Sign-on 구성][4]
+
+2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+ 
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_samlbase.png)
+
+3. **Salesforce 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_url.png)
+
+    **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. 
+   * 엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
+   * 개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    > [!NOTE] 
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의하세요. 
+ 
+4. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
+
+5. **저장** 단추를 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+
+6. **Salesforce 구성** 섹션에서 **Salesforce 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다. 
+
+    ![Single Sign-On 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_configure.png) 
+<CS>
+7.  브라우저에서 새 탭을 열고 Salesforce 관리자 계정으로 로그인합니다.
+
+8.  **관리자** 탐색 창에서 **보안 제어**를 클릭하여 관련된 섹션을 확장합니다. 그런 다음 **Single Sign-On 설정**을 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
+
+9.  **Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭합니다.
+    ![Single Sign-On 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+
+      > [!NOTE]
+      > Salesforce 계정에 Single Sign-On을 사용하도록 설정할 수 없는 경우 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의해야 합니다. 
+
+10. **SAML 사용**을 선택한 다음 **저장**을 클릭합니다.
+
+      ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
+11. SAML Single Sign-On 설정을 구성하려면 **새로 만들기**를 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
+
+12. **SAML Single Sign-on 설정 편집** 페이지에서 다음 구성을 확인합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
+
+    a. **이름** 필드에 이 구성에 대한 이름을 입력합니다. **이름**에 값을 제공하면 **API 이름** 입력란이 자동으로 채워집니다.
+
+    b. **SMAL 엔터티 ID** 값을 Salesforce의 **발급자** 필드에 붙여넣습니다.
+
+    c. **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
       
-      * 엔터프라이즈 계정: `https://<domain>.my.salesforce.com`
-      * 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com`
-    * **찾아보기** 또는 **파일 선택**을 클릭하여 **업로드할 파일 선택** 대화 상자를 열고, Salesforce 인증서를 선택한 다음, **열기**를 클릭하여 인증서를 업로드합니다.
-    * **SAML ID 형식**에서 **어설션에 사용자의 salesforce.com 사용자 이름 포함**을 선택합니다.
-    * **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
-    * Azure AD에서 **원격 로그인 URL** 값을 복사한 다음 Salesforce의 **ID 공급자 로그인 URL** 필드에 붙여넣습니다.
-    * **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP 리디렉션**을 선택합니다.
-    * 마지막으로 **저장**을 클릭하여 SAML Single Sign-On 설정을 적용합니다.
-12. Salesforce에서 왼쪽 탐색 창에서 **도메인 관리**를 클릭하여 관련된 섹션을 확장한 다음 **내 도메인**을 클릭합니다.
+      * 엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
+      * 개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
+      
+    d. **찾아보기** 또는 **파일 선택**을 클릭하여 **업로드할 파일 선택** 대화 상자를 열고, Salesforce 인증서를 선택한 다음, **열기**를 클릭하여 인증서를 업로드합니다.
+
+    e. **SAML ID 형식**에서 **어설션에 사용자의 salesforce.com 사용자 이름 포함**을 선택합니다.
+
+    f. **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
+
+    g. **Single Sign-On 서비스 URL**을 Salesforce의 **ID 공급자 로그인 URL** 필드에 붙여넣습니다.
     
-    ![내 도메인 클릭][15]
-13. **인증 구성** 섹션으로 스크롤하여 **편집** 단추를 클릭합니다.
+    h. **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP 리디렉션**을 선택합니다.
     
-    ![편집 단추 클릭][16]
-14. **인증 서비스**섹션에서 SAML SSO 구성 이름을 선택한 다음 **저장**을 클릭합니다.
-    
-    ![SSO 구성 선택][17]
-    
+    i. 마지막으로 **저장**을 클릭하여 SAML Single Sign-On 설정을 적용합니다.
+
+13. Salesforce에서 왼쪽 탐색 창에서 **도메인 관리**를 클릭하여 관련된 섹션을 확장한 다음 **내 도메인**을 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
+
+14. **인증 구성** 섹션으로 스크롤하여 **편집** 단추를 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
+
+15. **인증 서비스**섹션에서 SAML SSO 구성 이름을 선택한 다음 **저장**을 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
+
     > [!NOTE]
-    > 둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하려고 하면 로그인하려고 하는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지**해야 합니다.
-    > 
-    > 
-15. Azure AD에서 Salesforce에 업로드한 인증서를 사용하도록 설정하려면 Single Sign-On 구성 확인 확인란을 선택합니다. 그런 후 **다음**을 클릭합니다.
+    > 둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하면 로그인하려는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지**해야 합니다.
+<CE>    
+> [!TIP]
+> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+
+![Azure AD 사용자 만들기][100]
+
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+
+1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/create_aaduser_01.png) 
+
+2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
-    ![확인 확인란 선택][18]
-16. 대화 상자의 마지막 페이지에서 이 Single Sign-On 구성 유지 관리와 관련된 오류 및 경고에 대한 전자 메일 알림을 수신하려는 경우 전자 메일 주소에 입력합니다. 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/create_aaduser_02.png) 
+
+3. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
+ 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/create_aaduser_03.png) 
+
+4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+ 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-salesforce-tutorial/create_aaduser_04.png) 
+
+    a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
+
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+
+    d. **만들기**를 클릭합니다.
+ 
+### <a name="creating-a-salesforce-test-user"></a>Salesforce 테스트 사용자 만들기
+
+이 섹션에서는 Salesforce에서 Britta Simon이라는 사용자를 만듭니다. Salesforce는 기본적으로 설정되는 Just-In-Time 프로비전을 지원합니다.
+이 섹션에 작업 항목이 없습니다. Salesforce에 사용자가 없는 경우 Salesforce에 액세스하려고 시도하면 새 사용자가 만들어집니다.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Salesforce에 대한 액세스 권한을 부여합니다.
+
+![사용자 할당][200] 
+
+**Salesforce에 사용자를 할당하려면 다음 단계를 수행합니다.**
+
+1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+
+    ![사용자 할당][201] 
+
+2. 응용 프로그램 목록에서 **Salesforce**를 선택합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png) 
+
+3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+
+    ![사용자 할당][202] 
+
+4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+
+    ![사용자 할당][203]
+
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+
+6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+
+7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
-    ![전자 메일 주소를 입력합니다.][19]
-17. **완료** 를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Salesforce에 사용자 할당](#step-4-assign-users-to-salesforce)섹션을 참조하세요.
+### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
-## <a name="step-3-enable-automated-user-provisioning"></a>3단계: 자동화된 사용자 프로비저닝 사용
-1. Salesforce의 Azure AD 빠른 시작 페이지에서 **사용자 프로비저닝 구성** 단추를 클릭합니다.
-   
-    ![사용자 프로비저닝 구성 단추 클릭][20]
-2. **사용자 프로비저닝 구성** 대화 상자에 Salesforce 관리자 사용자 이름 및 암호를 입력합니다.
-   
-    ![관리자 사용자 이름 또는 암호 입력][21]
-   
-   > [!NOTE]
-   > 프로덕션 환경을 구성하는 경우 가장 좋은 방법은 이 단계에 대해 구체적으로 Salesforce에서 새 관리자 계정을 만드는 것입니다. 이 계정은 **시스템 관리자** 프로필을 Salesforce에 할당해야 합니다.
-   > 
-   > 
-3. Salesforce 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **내 설정**을 클릭합니다.
-   
-    ![사용자의 이름을 클릭한 다음 내 설정 클릭][22]
-4. 왼쪽 탐색 창에서 **개인**을 클릭하여 관련된 섹션을 확장한 다음 **내 보안 토큰 재설정**을 클릭합니다.
-   
-    ![사용자의 이름을 클릭한 다음 내 설정 클릭][23]
-5. **내 보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
-   
-    ![경고를 읽습니다.][24]
-6. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce.com에서 새 보안 토큰이 포함된 전자 메일을 찾습니다.
-7. 토큰을 복사하고 Azure AD 창으로 이동한 다음 **사용자 보안 토큰** 필드에 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
-   
-    ![보안 토큰에 붙여넣기][25]
-8. 확인 페이지에서 프로비저닝 오류가 발생할 경우에 전자 메일 알림을 받도록 선택할 수 있습니다. **완료**를 클릭하여 대화 상자를 닫습니다.
-   
-    ![알림을 받을 전자 메일 주소 입력][26]
+Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Salesforce**를 클릭합니다.
 
-## <a name="step-4-assign-users-to-salesforce"></a>4단계: Salesforce에 사용자 할당
-1. 구성을 테스트하려면 디렉터리에 새 테스트 계정을 만들어 시작합니다.
-2. Salesforce 빠른 시작 페이지에서 **사용자 할당** 단추를 클릭합니다.
-   
-    ![사용자 할당을 클릭합니다.][27]
-3. 테스트 사용자를 선택하고 화면 아래쪽에 있는 **할당** 단추를 클릭합니다.
-   
-   * 자동화된 사용자 프로비저닝 사용하지 않도록 설정하면 다음을 확인하는 메시지가 표시됩니다.
-     
-        ![할당을 확인합니다.][28]
-   * 자동화된 사용자 프로비저닝 사용하도록 설정하면 사용자가 갖고 있어야 하는 Salesforce 프로파일 유형을 정의하라는 메시지가 표시됩니다. 잠시 후에 새로 프로비저닝된 사용자가 Salesforce 환경에 표시됩니다.
-     
-        ![할당을 확인합니다.][29]
-     
-     > [!IMPORTANT]
-     > Salesforce **개발자** 환경으로 프로비전하는 경우 각 프로필에 매우 제한된 수의 라이선스만 사용할 수 있습니다. 따라서 4,999개 라이선스를 사용할 수 있는 **Chatter Free User** 프로필로 사용자를 프로비전하는 것이 좋습니다.
-     > 
-     > 
-4. Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Salesforce**를 클릭합니다.
+## <a name="additional-resources"></a>추가 리소스
 
-## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-* [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [사용자 프로비저닝 구성](active-directory-saas-salesforce-provisioning-tutorial.md)
 
-[0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
-[1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
-[2]: ./media/active-directory-saas-salesforce-tutorial/add-app.png
-[3]: ./media/active-directory-saas-salesforce-tutorial/add-app-gallery.png
-[4]: ./media/active-directory-saas-salesforce-tutorial/add-salesforce.png
-[5]: ./media/active-directory-saas-salesforce-tutorial/salesforce-added.png
-[6]: ./media/active-directory-saas-salesforce-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-salesforce-tutorial/select-azure-ad-sso.png
-[8]: ./media/active-directory-saas-salesforce-tutorial/config-app-settings.png
-[9]: ./media/active-directory-saas-salesforce-tutorial/download-certificate.png
-[10]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png
-[11]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png
-[12]: ./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png
-[13]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png
-[14]: ./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png
-[15]: ./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png
-[16]: ./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png
-[17]: ./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png
-[18]: ./media/active-directory-saas-salesforce-tutorial/sso-confirm.png
-[19]: ./media/active-directory-saas-salesforce-tutorial/sso-notification.png
-[20]: ./media/active-directory-saas-salesforce-tutorial/config-prov.png
-[21]: ./media/active-directory-saas-salesforce-tutorial/config-prov-dialog.png
-[22]: ./media/active-directory-saas-salesforce-tutorial/sf-my-settings.png
-[23]: ./media/active-directory-saas-salesforce-tutorial/sf-personal-reset.png
-[24]: ./media/active-directory-saas-salesforce-tutorial/sf-reset-token.png
-[25]: ./media/active-directory-saas-salesforce-tutorial/got-the-token.png
-[26]: ./media/active-directory-saas-salesforce-tutorial/prov-confirm.png
-[27]: ./media/active-directory-saas-salesforce-tutorial/assign-users.png
-[28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
-[29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
+<!--Image references-->
 
+[1]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_04.png
 
+[100]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_100.png
 
-<!--HONumber=Dec16_HO2-->
-
+[200]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_203.png
 

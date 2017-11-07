@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
-
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-qos-requirements"></a>Express 경로 QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. Express 경로를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.
@@ -35,7 +35,7 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
 | **트래픽 클래스** | **처리(DSCP 표시)** | **비즈니스 워크로드용 Skype** |
 | --- | --- | --- |
 | **음성** |EF (46) |Skype/Lync 음성 |
-| **대화형** |AF41 (34) |비디오 |
+| **대화형** |AF41 (34) |비디오, VBSS |
 | AF21 (18) |앱 공유 | |
 | **기본값** |AF11 (10) |파일 전송 |
 | CS0 (0) |다른 항목 | |
@@ -50,11 +50,5 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
   
   * [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
   * [라우팅 구성](expressroute-howto-routing-classic.md)
-  * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-classic.md)
 

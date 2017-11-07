@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 08/24/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8b453c7fe85a60791867d1c49fc2350e5f51a489
-ms.openlocfilehash: c18267b62b415015eb1e1b557c5dd60a51df415b
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: d752dd13b138cdae80dac5c0b2f84a19fe0aa670
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-your-iot-deployment"></a>IoT 배포 보안 유지
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
 
@@ -107,7 +105,7 @@ Azure IoT Hub 및 이 솔루션에 속할 수 있는 기타 서비스는 Azure A
 
 Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blob Storage 등과 같은 다양한 서비스에서 사용될 수 있습니다. 이러한 서비스는 관리 액세스를 허용합니다. 아래에서 이러한 서비스 및 사용 가능한 옵션에 대해 읽어보세요.
 
-* [Azure DocumentDB][lnk-docdb]: 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. DocumentDB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+* [Azure Cosmos DB][lnk-docdb]: 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
 * [Azure Stream Analytics][lnk-asa]: 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 * [Azure App Services][lnk-appservices]: 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 * [Logic Apps][lnk-logicapps]: Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. 논리 앱을 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. 논리 앱은 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.

@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Backup Server를 사용하여 Azure에 워크로드 백업 | Microsoft Docs"
 description: "Azure Backup Server를 사용하여 Azure Portal에 작업 부하를 백업하거나 보호합니다."
 services: backup
@@ -14,28 +13,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure 백업 서버를 사용하여 워크로드 백업 준비
 > [!div class="op_single_selector"]
 > * [Azure 백업 서버](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure 백업 서버(클래식)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM(클래식)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
-이 문서는 Azure 백업 서버를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법을 설명합니다. Azure 백업 서버로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 응용 프로그램 워크로드를 보호할 수 있습니다.
+이 문서는 Azure 백업 서버를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법을 설명합니다. Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 응용 프로그램 워크로드를 보호할 수 있습니다.
 
 > [!NOTE]
-> Azure Backup Server는 이제 VMware VM을 보호하고 개선된 보안 기능을 제공할 수 있습니다. 아래 섹션에 설명된 대로 제품을 설치하고 업데이트 1과 최신 Azure 백업 에이전트를 적용해야 합니다. Azure Backup Server를 사용하여 VMware 백업에 대해 자세히 알아보려면 [방법 블로그](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/)를 방문하세요. 보안 기능에 대해 알아보려면 [Azure 백업 보안 기능 설명서](backup-azure-security-feature.md)를 참조하세요.
+> Azure Backup Server는 이제 VMware VM을 보호하고 개선된 보안 기능을 제공할 수 있습니다. 아래 섹션에 설명된 대로 제품을 설치하고 업데이트 1과 최신 Azure 백업 에이전트를 적용합니다. Azure Backup Server를 사용하여 VMware 서버를 백업하는 방법에 대한 자세한 내용은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md) 문서를 참조하세요. 보안 기능에 대해 알아보려면 [Azure Backup 보안 기능 설명서](backup-azure-security-feature.md)를 참조하세요.
 >
 >
 
@@ -69,11 +65,14 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://technet.microsoft.com/library/dn891438.aspx) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 도메인 컨트롤러로 실행하는 컴퓨터에 Azure 백업 서버를 설치할 수 없습니다.
->
->
+> Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
+> - 도메인 컨트롤러로 실행하는 컴퓨터
+> - 응용 프로그램 서버 역할이 설치된 컴퓨터
+> - System Center Operations Manager 관리 서버인 컴퓨터
+> - Exchange Server를 실행하는 컴퓨터
+> - 클러스터의 한 노드인 컴퓨터
 
-Azure Backup Server를 도메인에 가입시켜야 합니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 설치하기 전에 서버를 새 도메인에 가입시키는 것이 좋습니다. 배포 후 기존 Azure 백업 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
+항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 설치하기 전에 서버를 새 도메인에 가입시키는 것이 좋습니다. 배포 후 기존 Azure 백업 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
 ## <a name="2-recovery-services-vault"></a>2. 복구 서비스 자격 증명 모음
 Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없이 소프트웨어는 Azure에 연결되어야 합니다. 더 구체적으로 설명하자면 Azure 백업 서버 컴퓨터를 복구 서비스 자격 증명 모음에 등록해야 합니다.
@@ -81,7 +80,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 복구 서비스 자격 증명 모음을 만들려면:
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **복구 서비스**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
+2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **복구 서비스**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
 
     ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
@@ -101,7 +100,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
    사용자 자격 증명 모음을 만들면 포털에서 열립니다.
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/storage-redundancy.md)를 참조하세요.
+저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 
@@ -180,7 +179,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 1. **Microsoft Azure 백업** 을 클릭하여 설치 마법사를 시작합니다.
 
     ![Microsoft Azure 백업 설정 마법사](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. 시작 화면에서 **다음** 단추를 클릭합니다. 그러면 *필수 구성 요소 확인* 섹션으로 이동합니다. 이 화면에서 **확인** 단추를 클릭하여 Azure 백업 서버에 대한 하드웨어 및 소프트웨어 필수 구성 요소가 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
+2. 시작 화면에서 **다음** 단추를 클릭합니다. 그러면 *필수 구성 요소 확인* 섹션으로 이동합니다. 이 화면에서 **확인**을 클릭하여 Azure Back Server에 대한 하드웨어 및 소프트웨어 필수 구성 요소가 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
 
     ![Azure 백업 서버 - 시작 및 필수 조건 확인](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure 백업 서버에는 SQL Server Standard가 필요하며 Azure 백업 서버 설치 패키지는 필요한 적절한 SQL Server 이진 파일과 함께 제공됩니다. 새 Azure Backup Server 설치를 시작할 때 **이 설치 프로그램으로 새 SQL Server 인스턴스 설치** 옵션을 선택하고 **확인 후 설치** 단추를 클릭해야 합니다. 필수 구성 요소가 성공적으로 설치되면 **다음**을 클릭합니다.
@@ -276,4 +275,3 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 * [SQL Server 백업](backup-azure-backup-sql.md)
 * [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 * [대체 서버 백업](backup-azure-alternate-dpm-server.md)
-

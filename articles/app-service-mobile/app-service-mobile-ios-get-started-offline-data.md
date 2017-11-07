@@ -2,8 +2,8 @@
 title: "iOS 모바일 앱으로 오프라인 동기화 사용 | Microsoft Docs"
 description: "Azure App Service Mobile Apps를 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
-ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
-ms.lasthandoff: 01/31/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -140,7 +139,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 ## <a name="review-core-data"></a>핵심 데이터 모델 검토
 핵심 데이터 오프라인 저장소를 사용하는 경우 데이터 모델에서 특정 테이블 및 필드를 정의해야 합니다. 샘플 앱에는 이미 올바른 형식의 데이터 모델이 포함되어 있습니다. 이 섹션에서는 이러한 테이블을 살펴보고 사용 방법을 알아봅니다.
 
-**QSDataModel.xcdatamodeld**를 엽니다. SDK에 사용되는 테이블&3;개 및 할 일 항목 자체에 사용되는 테이블&1;개 등 테이블&4;개가 정의되어 있습니다.
+**QSDataModel.xcdatamodeld**를 엽니다. SDK에 사용되는 테이블 3개 및 할 일 항목 자체에 사용되는 테이블 1개 등 테이블 4개가 정의되어 있습니다.
   * MS_TableOperations: 서버와 동기화되어야 하는 항목 추적을 추적합니다.
   * MS_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류를 추적합니다.
   * MS_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간을 추적합니다.
@@ -151,7 +150,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 >
 >
 
-오프라인 동기화 기능을 사용하는 경우 시스템 테이블&3;개와 데이터 테이블을 정의합니다.
+오프라인 동기화 기능을 사용하는 경우 시스템 테이블 3개와 데이터 테이블을 정의합니다.
 
 ### <a name="system-tables"></a>시스템 테이블
 
@@ -287,4 +286,3 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 [클라우드 커버: Azure Mobile Services에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-

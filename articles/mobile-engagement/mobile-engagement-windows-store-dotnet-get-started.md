@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Windows 유니버설 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -27,13 +26,16 @@ ms.lasthandoff: 03/01/2017
 이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
 
+> [!NOTE]
+> Azure Mobile Engagement 서비스는 2018년 3월에 사용 중지되며 현재 기존 고객에게만 제공됩니다. 자세한 내용은 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)를 참조하세요.
+
 ## <a name="prerequisites"></a>필수 조건
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Windows 유니버설 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement Windows 유니버설 SDK 통합](mobile-engagement-windows-store-sdk-overview.md)에서 확인할 수 있습니다.
 
 여기서는 통합을 시연하기 위해 Visual Studio를 사용하여 기본적인 앱을 만듭니다.
@@ -50,7 +52,7 @@ ms.lasthandoff: 03/01/2017
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Mobile Engagement 백 엔드에 앱 연결
 1. 프로젝트에서 [MicrosoftAzure.MobileEngagement] Nuget 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. Windows 8.x 및 Windows Phone 8.1에 대해 동일한 Nuget 패키지는 각 프로젝트에 올바른 플랫폼별 이진 파일을 배치합니다.
-2. **Package.appxmanifest** 를 열고 다음 기능이 추가되어 있는지 확인합니다.
+2. **Package.appxmanifest**를 열고 다음 기능이 추가되어 있는지 확인합니다.
 
         Internet (Client)
 
@@ -98,7 +100,7 @@ ms.lasthandoff: 03/01/2017
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
+## <a id="monitor"></a>실시간 모니터링 사용
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면(활동)을 하나 이상 보내야 합니다.
 
 1. **MainPage.xaml.cs**에서 다음 `using` 문을 추가합니다.
@@ -120,10 +122,10 @@ ms.lasthandoff: 03/01/2017
 >
 > **Windows 10 Universal 앱**의 경우 위에서 설명한 방법보다 [Windows 유니버설 앱 Engagement SDK의 고급 보고](mobile-engagement-windows-store-advanced-reporting.md)의 “권장 방법: Page 클래스 오버로드” 섹션에서 권장하는 방법을 사용합니다.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
@@ -144,7 +146,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 알림을 보낼 준비가 되었습니다. 그런 다음 이 기본 통합을 제대로 수행했는지 확인합니다.
 
 ### <a name="grant-access-to-mobile-engagement-to-send-notifications"></a>알림을 보내도록 Mobile Engagement 액세스 권한 부여
-1. 웹 브라우저에서 [Windows 스토어 개발자 센터] 를 열어 로그인하고 필요한 경우 계정을 만드십시오.
+1. 웹 브라우저에서 [Windows 스토어 개발자 센터]를 열어 로그인하고 필요한 경우 계정을 만드십시오.
 2. 오른쪽 위 모서리에 있는 **대시보드**를 클릭한 다음 왼쪽 패널 메뉴에서 **새 앱 만들기**를 클릭합니다.
 
     ![][9]
@@ -163,11 +165,11 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 7. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다. 그런 다음 **편집** 단추를 클릭하여 다음과 같이 **패키지 SID(보안 식별자)** 및 **암호 키**를 입력합니다.
 
     ![][6]
-8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. Visual Studio의 **스토어에 앱 연결** 을 클릭합니다.
+8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. Visual Studio의 **스토어에 앱 연결**을 클릭합니다.
 
     ![][7]
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
+## <a id="send"></a>앱에 알림 보내기
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 앱이 실행 중인 경우 앱 내 알림이 표시됩니다. 그렇지 않고 앱이 닫힌 경우 알림 메시지가 표시됩니다.
@@ -194,4 +196,3 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
-

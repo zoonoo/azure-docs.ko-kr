@@ -3,7 +3,7 @@ title: "Git를 사용하여 API Management 서비스 구성 - Azure | Microsoft 
 description: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
 > 
@@ -306,7 +306,6 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
 
 
 

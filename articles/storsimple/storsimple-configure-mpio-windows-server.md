@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>StorSimple 장치에 대한 다중 경로 I/O 구성
 Microsoft는 Windows Server에서 MPIO(다중 경로 I/O) 기능에 대한 지원을 기본으로 제공하여 항상 사용 가능한 내결함성 SAN 구성 빌드를 돕습니다. MPIO는 중복 실제 경로 구성 요소(어댑터, 케이블 및 스위치)를 사용하여 서버 및 저장소 장치 간의 논리 경로를 만듭니다. 논리 경로에 오류를 일으키는 구성 요소 오류가 발생할 경우 응용 프로그램이 데이터에 계속 액세스할 수 있도록 다중 경로 논리가 I/O에 대한 대체 경로를 사용합니다. 또한 구성에 따라 MPIO가 이러한 모든 경로에서 부하를 다시 분산하여 성능을 향상할 수도 있습니다. 자세한 내용은 [MPIO 개요](https://technet.microsoft.com/library/cc725907.aspx "MPIO 개요 and features")를 참조하세요.  
@@ -54,7 +53,7 @@ Windows Server 호스트에 이 기능을 설치하려면 다음 절차를 완�
    
    * **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
    * **설치 유형 선택** 페이지에서 **역할 기반 또는 기능 기반** 설치의 기본 설정을 수락합니다. **다음**를 참조하세요.![역할 및 기능 추가 마법사 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   * **선택 대상 서버** 페이지에서 **서버 풀에서 서버 선택**을 선택합니다. 호스트 서버가 자동으로 검색됩니다. **다음**을 클릭합니다.
+   * **선택 대상 서버** 페이지에서 **서버 풀에서 서버 선택**을 선택합니다. 호스트 서버가 자동으로 검색됩니다. **다음**을 누릅니다.
    * **서버 역할 선택** 페이지에서 **다음**을 클릭합니다.
    * **기능 선택** 페이지에서 **다중 경로 I/O**를 선택하고 **다음**을 클릭합니다.![역할 및 기능 추가 마법사 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    * **설치 선택 확인** 페이지에서 선택 사항을 확인한 다음 아래 표시된 대로 **필요한 경우 자동으로 대상 서버 다시 시작**을 선택합니다. **설치**를 클릭합니다.![역할 및 기능 추가 마법사 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
@@ -115,8 +114,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 13. 디스크를 초기화하고 새 볼륨을 만듭니다. 포맷 프로세스 동안 64KB의 블록 크기를 선택합니다.
     ![디스크 관리](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. **디스크 관리**에서 **디스크**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO** 탭을 클릭합니다.
-    ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO** 탭을 클릭합니다. ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. **DSM 이름** 섹션에서 **세부 정보**를 클릭하고 해당 매개 변수가 기본 매개 변수로 설정되었는지 확인합니다. 기본 매개 변수는 다음과 같습니다.
     
     * 경로 확인 기간 = 30
@@ -132,7 +130,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4단계: 고가용성 및 부하 분산을 위해 MPIO 구성
 다중 경로 기반 고가용성 및 부하 분산의 경우 사용할 수 있는 다른 경로 선언을 위해 다중 세션이 수동으로 추가되어야 합니다. 예를들어 SAN에 연결된 두 인터페이스가 호스트에 있고 SAN에 연결된 두 인터페이스가 장비에 있는 경우, 적합한 경로 순열로 구성된 네 개의 세션만 필요합니다(각각의 데이터 인터페이스 및 호스트 인터페이스가 다른 IP 주소에 있고 라우팅할 수 없는 경우 두 세션만 필요).
 
-**장치 및 응용 프로그램 호스트 간에 최소 4개의 활성 병렬 세션을 유지하는 것이 좋습니다.** 이를 위해 Windows Server 시스템에서 4개의 네트워크 인터페이스를 사용하도록 설정하면 됩니다. Windows Server 호스트의 하드웨어 또는 운영 체제 수준에서 실제 네트워크 인터페이스 또는 네트워크 가상화 기술을 사용합니다. 장치에 2개의 네트워크 인터페이스가 있으면 이 구성에서는 8개 세션 중 4개가 활성 세션(활성 컨트롤러에 연결됨)이고 4개가 수동 세션이 됩니다(수동 컨트롤러에 연결됨). 이 구성은 장치 및 클라우드 처리량을 최적화하는 데 도움이 됩니다.
+**장치 및 응용 프로그램 호스트 간에 최소 8개의 활성 병렬 세션을 유지하는 것이 좋습니다.** 이를 위해 Windows Server 시스템에서 4개의 네트워크 인터페이스를 사용하도록 설정하면 됩니다. Windows Server 호스트의 하드웨어 또는 운영 체제 수준에서 실제 네트워크 인터페이스 또는 네트워크 가상화 기술을 통한 가상 인터페이스를 사용합니다. 장치에 두 개의 네트워크 인터페이스가 있을 경우 이 구성은 8개의 활성 세션을 제공합니다. 이 구성은 장치 및 클라우드 처리량을 최적화하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
 > **1GbE 및 10GbE 네트워크 인터페이스는 혼용하지 않는 것이 좋습니다. 두 네트워크 인터페이스를 사용하는 경우 두 인터페이스 모두 동일한 유형이어야 합니다.**
@@ -169,5 +167,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
-
 

@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
-
-
+ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Azure CDN과 클라우드 서비스 통합
+# <a name="intro"></a> Azure CDN과 클라우드 서비스 통합
 클라우드 서비스는 Azure CDN과 통합되어 클라우드 서비스의 위치에 있는 모든 콘텐츠를 제공할 수 있습니다. 이 접근 방식을 통해 다음과 같은 장점을 얻을 수 있습니다.
 
 * 클라우드 서비스 프로젝트 디렉터리의 이미지, 스크립트 및 스타일시트를 쉽게 배포 및 업데이트
@@ -157,15 +157,15 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 * 모든 controller/action
 * CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성을 사용하면 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스팅할 수 있습니다. **http://camservice.azureedge.net/**으로 이동하면 Home/Index에서 작업 결과를 가져옵니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-그러나 Azure CDN을 통해 전체 클라우드 서비스를 제공하는 것이 일반적으로 좋은 생각이거나 항상 좋은 생각은 아닐 수도 있습니다. 다음 사항을 주의해야 합니다.
+그러나 Azure CDN을 통해 전체 클라우드 서비스를 제공하는 것이 항상 바람직하지 않을 수도 있습니다. 
 
-* 현재 Azure CDN이 개인 콘텐츠를 제공할 수 없으므로 이 접근 방식에서는 전체 사이트가 공용이어야 합니다.
-* 예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **http://*&lt;serviceName>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다.
-* 사용자 지정 캐시 컨트롤 설정( [클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성](#caching)참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠의 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 클라우드 서비스의 성능이 저하되며 CDN의 목적이 무산됩니다.
+CDN이 새로운 버전의 자산을 원본 서버에서 매우 자주 풀해야 하므로 고정 배달 최적화를 포함한 CDN은 동적 자산의 배달 속도를 반드시 높이지 않으며 따라서 캐시되지 않거나 매우 자주 업데이트됩니다. 이 시나리오에서는 CDN 끝점에서 DSA([동적 사이트 가속](cdn-dynamic-site-acceleration.md)) 최적화를 사용할 수 있습니다. 이 기능은 캐시 불가능한 동적 자산의 배달 속도를 향상시키기 위한 다양한 기술을 사용합니다. 
+
+고정 및 동적 콘텐츠가 혼합된 사이트가 있는 경우 고정 최적화 형식(예: 일반 웹 배달)을 사용하여 CDN에서 고정 콘텐츠를 실행하고 상황에 따라 DSA 최적화를 설정하여 원본 서버에서 직접 또는 CDN 끝점을 통해 들어오는 동적 콘텐츠를 제공할 수 있습니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공에서는 특정 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
 
 대안은 클라우드 서비스의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
 
@@ -600,9 +600,3 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

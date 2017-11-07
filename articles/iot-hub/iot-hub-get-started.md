@@ -1,67 +1,75 @@
 ---
-title: "Azure IoT Hub 시작 | Microsoft Docs"
-description: "IoT Hub 서비스를 시작하는 방법"
+title: "Azure IoT Hub - 클라우드에 IoT 장치 연결 시작 | Microsoft Docs"
+description: "Azure IoT Hub에 IoT 보드 및 시작 키트를 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
+keywords: "Azure IoT Hub 자습서"
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 08/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d7360c3d41a0e4cf0d182e510d6bc2fccd915dd1
-ms.openlocfilehash: 51ac0c0d3a91070fc8f5b3892409af838e91068e
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-iot-hub-or-azure-iot-gateway-sdk"></a>Azure IoT Hub 또는 Azure IoT Gateway SDK 시작
+# <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub 시작 자습서
 
-IoT Hub 서비스 또는 Gateway SDK로 시작하는 여러 자습서 중 하나를 선택할 수 있습니다.
+Azure IoT Hub 및 Azure IoT 장치 SDK를 사용하여 IoT(사물 인터넷) 솔루션을 구축할 수 있습니다.
 
-## <a name="iot-hub"></a>IoT 허브
+* Azure IoT Hub는 IoT 장치를 안전하게 연결하고, 모니터링하고, 관리하는 클라우드의 완전히 관리되는 서비스입니다. Azure IoT 장치 SDK를 사용하여 IoT 장치를 구현합니다.
+* 보다 복잡한 IoT 시나리오에서는 IoT 게이트웨이를 사용합니다. 레거시 장치, 대역폭 비용, 보안 및 개인 정보 보호 정책 또는 Edge 데이터 처리 등의 요소를 고려해야 하는 경우를 예로 들 수 있습니다. 이러한 시나리오에서는 Azure IoT Edge를 사용하여 장치를 IoT Hub에 연결하는 게이트웨이를 구축합니다.
 
-Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다.
+## <a name="what-the-tutorials-cover"></a>자습서에 포함된 내용
 
-IoT Hub 서비스를 시작하기 위해 다음을 수행할 수 있습니다.
+이러한 자습서는 Azure IoT Hub 및 장치 SDK를 소개합니다. 이 자습서에서는 IoT Hub의 기능을 설명하기 위한 일반적인 IoT 시나리오를 다룹니다. 또한 IoT Hub를 다른 Azure 서비스 및 도구와 결합하여 좀 더 강력한 IoT 솔루션을 구축하는 방법도 보여 줍니다. 이 자습서에서는 시뮬레이트된 IoT 장치 또는 실제 IoT 장치를 사용하도록 선택할 수 있습니다. 또한 게이트웨이를 사용하여 장치를 IoT Hub에 연결하는 방법도 알아볼 수 있습니다.
 
-- 개발 컴퓨터에서 실행 중인 시뮬레이션된 장치를 사용하는 자습서를 수행합니다. 기본 프로그래밍 언어([.NET][lnk-dotnet], [Java][lnk-java] 또는 [Node.js][lnk-nodejs])를 사용하는 시작 자습서를 선택합니다.
+## <a name="set-up-your-device"></a>장치 설정
 
-- 물리적 장치를 사용하는 자습서를 수행합니다. 기본 하드웨어 플랫폼([Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison] 또는 [Arduino][lnk-arduino])을 사용하는 시작 자습서를 선택합니다. 이러한 자습서는 하드웨어 장치를 가져오는 방법에 대한 정보를 포함합니다.
+IoT 장치 또는 게이트웨이를 Azure IoT Hub에 연결합니다. 시작하려면 실제 또는 시뮬레이트된 장치를 선택할 수 있습니다.
 
-- [C용 Azure IoT 장치 SDK 소개][lnk-c-intro] 문서에서 C 언어를 사용하여 IoT 장치 개발에 대해 참조하세요.
+| IoT 장치                       | 프로그래밍 언어 |
+|----------------------------------|----------------------|
+| Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
+| IoT DevKit                       | [VSCode의 Arduino][DevKit]     |
+| Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
+| PC의 시뮬레이션된 장치           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
+| 온라인 장치 시뮬레이터         | [Raspberry Pi(Node.js)][Ol_Sim] |
 
-## <a name="gateway-sdk"></a>Gateway SDK
+또한 IoT Edge 게이트웨이를 사용하여 장치를 IoT Hub에 연결할 수 있습니다.
 
-Gateway SDK를 사용하여 사용자 지정 필드 게이트웨이를 만들 수 있습니다. 게이트웨이는 분석을 실행하고 대기 시간을 줄일 수 있는 시간이 중요한 결정을 내리며 장치 관리 서비스를 제공하고 보안 및 개인 정보 제약 조건을 적용하고 프로토콜 변환을 수행하는 것과 같은 작업을 수행합니다.
+| 게이트웨이 장치               | 프로그래밍 언어 | 플랫폼         |
+|------------------------------|----------------------|------------------|
+| Intel NUC(모델 DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
+| 시뮬레이트된 게이트웨이            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-Gateway SDK를 시작하기 위해 다음을 수행할 수 있습니다.
+[!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
-- 개발 컴퓨터에서 실행 중인 시뮬레이션된 게이트웨이를 사용하는 자습서를 수행합니다. [Linux][lnk-linux] 또는 [Windows][lnk-windows]에 대한 시작 자습서를 선택할 수 있습니다.
-
-- 물리적 장치를 사용하는 자습서를 수행합니다. [Intel NUC(Next Unit of Computing)로 시뮬레이션된 장치][lnk-gateway-sim]를 사용하거나 [Intel NUC를 사용하는 SensorTag 장치][lnk-gateway-tag]를 사용하는 시작 자습서를 선택할 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-시작 자습서를 마치면 [개발자 가이드][lnk-devguide] 및 [방법][lnk-howto] 자습서에서 IoT Hub 및 Gateway SDK의 더 많은 기능을 탐색할 수 있습니다.
-
-[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-java]: ./iot-hub-java-java-getstarted.md
-[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
-[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
-[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
-[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
-[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
-[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
-[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-howto]: ./iot-hub-how-to.md
-
+[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
+[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
+[DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
+[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
+[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
+[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
+[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
+[Sim_Jav]: iot-hub-java-java-getstarted.md
+[Sim_Nd]: iot-hub-node-node-getstarted.md
+[Sim_Pyth]: iot-hub-python-getstarted.md
+[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
+[Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md

@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus 토픽 구독 및 규칙 만들기 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 토픽 구독 및 규칙 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,16 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 08/07/2017
 ms.author: sethm;shvija
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 16da81e14b7c4059de61b2dfebe081a9e4f08d5e
-
-
+ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
+
 이 문서에서는 토픽, 구독 및 규칙(필터)이 있는 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알아봅니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 템플릿 만들기에 관한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하십시오.
@@ -42,18 +43,21 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 > 
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
+
 이 템플릿을 사용하여 토픽, 구독 및 규칙(필터)이 있는 Service Bus 네임스페이스를 배포합니다.
 
 [Service Bus 토픽 및 구독](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)은 *게시/구독* 패턴으로 일 대 다 형태의 통신을 제공합니다. 토픽 및 구독을 사용하는 경우, 분산된 응용 프로그램의 구성 요소는 서로 직접 통신하지 않으며 대신 중간 단계로 사용되는 토픽을 통해 메시지를 교환합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 구독에서 필터를 사용하여 토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정할 수 있습니다.
 
 ## <a name="what-are-rules-filters"></a>규칙(필터)란?
-대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 기능을 사용하려면 구독을 구성하여 원하는 속성을 갖는 메시지를 찾은 다음 해당 속성에 특정 수정 작업을 수행할 수 있습니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 구독 필터를 사용하여 수행합니다. 규칙(필터)에 대해 자세히 알아보려면 [Service Bus 큐, 토픽 및 구독][Service Bus queues, topics, and subscriptions]을 참조하세요.
+
+대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 기능을 사용하려면 구독을 구성하여 특정 속성을 갖는 메시지를 찾은 다음 해당 속성에 수정 작업을 수행할 수 있습니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하지만 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 구독 필터를 사용하여 수행합니다. 규칙(필터)에 대한 자세한 내용은 [규칙 및 작업](service-bus-queues-topics-subscriptions.md#rules-and-actions)을 참조하세요.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
 [![Azure에 배포](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>parameters
+
 Azure Resource Manager와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의해야 합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
@@ -161,7 +165,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```cli
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
@@ -170,8 +174,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
-* [Azure 자동화를 사용하여 Azure 서비스 버스 관리](service-bus-automation-manage.md)
-* [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md)
+* [Azure Service Bus 관리](service-bus-management-libraries.md)
+* [PowerShell을 사용하여 서비스 버스 관리](service-bus-manage-with-ps.md)
 * [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
@@ -182,10 +186,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

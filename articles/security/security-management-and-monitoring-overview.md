@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 Azure는 Azure 클라우드 서비스 및 가상 컴퓨터 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
 
 Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파트너십과 공동 책임입니다. 공동 책임은 Microsoft가 Microsoft Azure와 해당 데이터 센터의 물리적 보안에 책임을 진다는 것을 의미합니다(잠금식 배지 출입구, 펜스 및 경비원 등의 보안 보호 조치 사용). 또한 Azure는 까다로운 고객의 보안, 개인 정보 및 규정 준수 요구 사항을 충족하는 소프트웨어 계층에서 강력한 수준의 클라우드 보안을 제공합니다.
 
-사용자는 데이터와 ID를 소유하고 있으며, 이들을 보호하고 온-프레미스 리소스의 보안, 제어할 수 있는 클라우드 구성 요소의 보안에 대한 책임이 있습니다. Microsoft는 사용자에게 사용자의 데이터와 응용 프로그램을 보호하는 데 도움이 되는 보안 제어 및 기능을 제공하고 있습니다. 보안에 대한 사용자의 책임은 클라우드 서비스의 형식에 기반합니다.
+사용자는 데이터와 ID를 소유하고 있으며, 이들을 보호하고 온-프레미스 리소스의 보안, 제어할 수 있는 클라우드 구성 요소의 보안에 대한 책임이 있습니다. Microsoft는 사용자에게 사용자의 데이터와 응용 프로그램을 보호하는 데 도움이 되는 보안 제어 및 기능을 제공하고 있습니다. 보안에 대한 사용자의 책임 정도는 클라우드 서비스의 형식에 기반합니다.
 
 다음 차트에는 Microsoft와 고객 모두에 대한 책임의 균형이 요약되어 있습니다.
 
@@ -80,7 +79,7 @@ Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사
 * [Azure Multi-Factor Authentication 작동 방법](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="expressroute"></a>ExpressRoute
-Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 자세한 정보:
 
@@ -130,4 +129,3 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

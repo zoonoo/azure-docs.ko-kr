@@ -4,7 +4,7 @@ description: "콘텐츠 키에 대한 인증 정책을 구성하는 방법에 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 096d67dc4880f4c0a50e3981485dbe2d8f4c22a7
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -66,17 +65,7 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 ### <a name="playready"></a>PlayReady
 **PlayReady**로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지정해야 하는 항목 중 하나는 PlayReady 라이선스 템플릿을 정의하는 XML 문자열입니다. 기본적으로 설정되는 정책:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-      <LicenseTemplates>
-        <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-          <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-          <LicenseType>Nonpersistent</LicenseType>
-          <PlayRight>
-            <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-          </PlayRight>
-        </PlayReadyLicenseTemplate>
-      </LicenseTemplates>
-    </PlayReadyLicenseResponseTemplate>
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>비영구</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>허용</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
 **정책 xml 가져오기** 단추를 클릭하고, [여기](media-services-playready-license-template-overview.md)에 정의된 XML 스키마를 준수하는 별도의 XML을 제공할 수 있습니다.
 
@@ -90,5 +79,4 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-
 

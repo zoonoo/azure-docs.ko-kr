@@ -11,7 +11,7 @@
    
     ![StorSimple 등록 장치 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
-     5~12단계를 완료하여 장치에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 장치의 활성 컨트롤러에서 수행해야 합니다.**  직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
+     5~12단계를 완료하여 장치에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 장치의 활성 컨트롤러에서 수행해야 합니다.** 직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
 5. 명령 프롬프트에 암호를 입력합니다. 기본 장치 암호는 **Password1**입니다.
 6. 다음 명령을 입력합니다.
    
@@ -73,9 +73,4 @@
 ![동영상 사용 가능](./media/storsimple-configure-and-register-device/Video_icon.png) **동영상 사용 가능**
 
 StorSimple용 Windows PowerShell을 통해 장치를 구성 및 등록하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)를 클릭하세요.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

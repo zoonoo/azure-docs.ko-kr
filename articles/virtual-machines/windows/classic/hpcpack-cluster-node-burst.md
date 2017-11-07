@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 주문형 "버스트" 노드 추가
 Azure에서 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 설정하는 경우 미리 구성된 계산 노드 VM을 유지하지 않고 클러스터 용량을 신속하게 확장 또는 축소할 수 있는 방법을 원할 것입니다. 이 문서에서는 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 
@@ -77,9 +76,8 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 버스트 노드에 계산 집약적 인스턴스 크기를 사용하려는 경우 [H 시리즈 및 계산 집약적 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 고려 사항을 참조하세요.
+* 버스트 노드에 계산 집약적 인스턴스 크기를 사용하려는 경우 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 고려 사항을 참조하세요.
 * Azure 컴퓨팅 리소스를 클러스터 워크로드에 따라 자동으로 증가 또는 축소하려는 경우 [HPC Pack 클러스터에서 Azure 계산 리소스를 자동으로 증가 및 축소](hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
-

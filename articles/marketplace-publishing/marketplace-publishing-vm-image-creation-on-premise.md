@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스를 위해 온-프레미스 가상 컴퓨터 이미지 개발
 원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.  
@@ -149,5 +148,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 ## <a name="see-also"></a>참고 항목
 * [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 * [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
-
 

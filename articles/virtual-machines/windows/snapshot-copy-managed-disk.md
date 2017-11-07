@@ -1,8 +1,8 @@
 ---
-title: "백업용 Azure Managed Disk의 복사본 만들기 | Microsoft Docs"
-description: "백업 또는 디스크 문제 해결에 사용할 수 있는 Azure Managed Disk의 복사본을 만드는 방법을 알아봅니다."
+title: "Azure에서 VHD의 스냅숏 만들기 | Microsoft Docs"
+description: "백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다."
 documentationcenter: 
-author: cwatsonMSFT
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,32 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 2/9/2017
-ms.author: cwatson
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 620c9223106c06cf6ea2b80fce87d81ea44d02ca
-ms.lasthandoff: 03/31/2017
-
-
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>관리 스냅숏을 사용하여 Azure Managed Disk로 저장된 VHD 복사본 만들기
-백업용 Managed Disk의 스냅숏을 만들거나 스냅숏으로 Managed Disk를 만들고 테스트 가상 컴퓨터에 연결하여 문제를 해결합니다. 관리 스냅숏은 VM Managed Disk의 특정 시점 전체 복사본입니다. VHD의 읽기 전용 복사본을 만들어서 기본적으로 표준 Managed Disk로 저장합니다. Managed Disk에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+# <a name="create-a-snapshot"></a>스냅숏 만들기
 
-가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
+백업 또는 VM 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅숏을 만듭니다. 스냅숏은 VHD의 전체 읽기 전용 복사본입니다. 
 
-## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
-
-```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
-
-## <a name="copy-the-vhd-with-a-snapshot"></a>스냅숏을 사용하여 VHD 복사
-Azure Portal 또는 PowerShell을 사용하여 Managed Disk의 스냅숏을 만듭니다.
-
-### <a name="use-azure-portal-to-take-a-snapshot"></a>Azure Portal을 사용하여 스냅숏 만들기 
+## <a name="use-azure-portal-to-take-a-snapshot"></a>Azure Portal을 사용하여 스냅숏 만들기 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 위에서 **새로 만들기**를 클릭하고 **스냅숏**을 검색합니다.
@@ -49,39 +36,43 @@ Azure Portal 또는 PowerShell을 사용하여 Managed Disk의 스냅숏을 만�
 8. 스냅숏 저장에 사용할 **계정 유형**을 선택합니다. 고성능 디스크에 저장할 필요가 없다면 **Standard_LRS**를 권장합니다.
 9. **만들기**를 클릭합니다.
 
-### <a name="use-powershell-to-take-a-snapshot"></a>PowerShell을 사용하여 스냅숏 만들기
-다음 단계에서는 New-AzureRmSnapshot cmdlet<!--Add link to cmdlet when available-->을 사용하여 VHD 디스크를 복사하고, 스냅숏 구성을 만들며 디스크의 스냅숏을 만드는 방법을 보여 줍니다. 
+## <a name="use-powershell-to-take-a-snapshot"></a>PowerShell을 사용하여 스냅숏 만들기
+다음 단계에서는 [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅숏 구성을 만들며 디스크의 스냅숏을 만드는 방법을 보여 줍니다. 
+
+AzureRM.Compute PowerShell 모듈의 최신 버전이 설치되어 있는지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
+
+```
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
+
 
 1. 일부 매개 변수를 설정합니다. 
 
- ```powershell
+ ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
-$location = 'southeastasia' 
-$dataDiskName = 'ContosoMD_datadisk1' 
-$snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+$location = 'eastus' 
+$dataDiskName = 'myDisk' 
+$snapshotName = 'mySnapshot'  
 ```
-  매개 변수 값을 바꿉니다.
-  -  "myResourceGroup"을 VM의 리소스 그룹으로 바꿉니다.
-  -  "southeastasia"를 관리 스냅숏을 저장하려는 지리적 위치로 바꿉니다. <!---How do you look these up? -->
-  -  "ContosoMD_datadisk1"을 복사하려는 VHD 디스크의 이름으로 바꿉니다.
-  -  "ContosoMD_datadisk1_snapshot1"을 새 스냅숏을 사용 하려는 이름으로 바꿉니다.
 
 2. 복사할 VHD 디스크를 가져옵니다.
 
- ```powershell
+ ```azurepowershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. 스냅숏 구성을 만듭니다. 
 
- ```powershell
+ ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. 스냅숏을 만듭니다.
 
- ```powershell
+ ```azurepowershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 스냅숏을 사용하여 Managed Disk를 만들고 고성능이 필요한 VM에 스냅숏을 연결하려는 경우 `-AccountType Premium_LRS` 매개 변수와 New-AzureRmSnapshot 명령을 사용합니다. 매개 변수는 스냅숏을 만들어서 프리미엄 Managed Disk로 저장되도록 합니다. 프리미엄 Managed Disks는 표준 Managed Disks보다 비용이 많이 듭니다. 따라서 해당 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인합니다.
 
+## <a name="next-steps"></a>다음 단계
 
-
+스냅숏에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅숏에서 가상 컴퓨터를 만듭니다. 자세한 내용은 [스냅숏에서 VM 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) 샘플을 참조하세요.

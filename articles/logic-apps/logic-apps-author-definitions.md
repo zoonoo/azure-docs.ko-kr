@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.lasthandoff: 03/01/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>JSON을 사용하여 논리 앱용 워크플로 정의 만들기
 
@@ -276,15 +275,15 @@ ms.lasthandoff: 03/01/2017
 
 경우에 따라 다음을 유의합니다. 
 
-*    [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 해당 범주가 알려진 정의된 범주 중 하나와 일치하는지 여부를 확인합니다.
+*   [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 해당 범주가 알려진 정의된 범주 중 하나와 일치하는지 여부를 확인합니다.
 
-*    범주를 가져온 후에는 대괄호를 사용하여 맵에서 항목을 끌어올 수 있습니다. `parameters[...]`
+*   범주를 가져온 후에는 대괄호를 사용하여 맵에서 항목을 끌어올 수 있습니다. `parameters[...]`
 
 ## <a name="process-strings"></a>문자열 처리
 
 문자열을 조작하기 위해 다양한 함수를 사용할 수 있습니다. 예를 들어 시스템으로 전달하고자 하는 문자열이 있지만 문자 인코딩을 위한 적절한 처리에 자신이 없다고 가정해 보겠습니다. 하나의 옵션은 이 문자열을 base64 인코딩하는 것입니다. 그러나 URL에서 이스케이프를 방지하기 위해 몇 문자를 대체할 것입니다. 
 
-또한 첫&5;자는 사용되지 않으므로 명령 이름의 하위 문자열을 원합니다.
+또한 첫 5자는 사용되지 않으므로 명령 이름의 하위 문자열을 원합니다.
 
 ```
 {
@@ -295,7 +294,7 @@ ms.lasthandoff: 03/01/2017
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }
@@ -387,11 +386,11 @@ ms.lasthandoff: 03/01/2017
 }
 ```
 
-이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그런 다음 현재 시간 가져오고&1;초를 뺍니다.
+이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그런 다음 현재 시간 가져오고 1초를 뺍니다.
 
 [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있습니다. 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째 값보다 작은 경우에는 명령이 처음으로 배치된 후&1;초 이상의 시간이 경과된 것입니다.
+`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있습니다. 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째 값보다 작은 경우에는 명령이 처음으로 배치된 후 1초 이상의 시간이 경과된 것입니다.
 
 날짜에 서식을 지정하려면 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123을 얻으려면 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)를 사용합니다. 날짜 서식 지정에 대해 알아보려면 [워크플로 정의 언어](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)를 참조하세요.
 
@@ -451,4 +450,3 @@ ms.lasthandoff: 03/01/2017
 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 
 
 논리 앱 만들기 및 관리에 대해 포함할 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx)를 참조하세요. 
-

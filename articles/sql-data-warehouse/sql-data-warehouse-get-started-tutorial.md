@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Data Warehouse 시작
 
@@ -62,8 +61,7 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기** > **데이터베이스** > **SQL Data Warehouse**를 차례로 클릭합니다.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. 배포 세부 정보 작성
 
@@ -83,8 +81,7 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 
     **성능 선택**: 표준 400DWU로 시작하는 것이 좋습니다.
 
-4. **대시보드에 고정**
-    ![대시보드에 고정](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)을 선택합니다.
+4. **대시보드에 고정** ![대시보드에 고정](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)을 선택합니다.
 
 5. 데이터 웨어하우스가 배포될 때까지 기다립니다. 일반적으로 이 프로세스는 몇 분 정도 걸립니다. 포털은 데이터 웨어하우스를 사용할 준비가 되면 알려줍니다. 
 
@@ -144,7 +141,6 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. 이제 *SQL Data Warehouse 데이터베이스*를 쿼리하여 데이터베이스에서 액세스하고 작업을 수행하기 위해 만든 로그인을 기반으로 하는 데이터베이스 사용자를 만듭니다.
@@ -507,7 +503,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -568,7 +564,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
     > 크기를 조정하는 동안에는 쿼리를 실행할 수 없습니다. 크기 조정 시 현재 실행 중인 쿼리를 **종료**합니다. 작업이 완료되면 다시 시작할 수 있습니다.
     >
     
-5. 모든 열에 대해 상위&1;백만 개 항목을 선택하여 여행 데이터에서 스캔 작업을 수행합니다. 신속하게 넘어가려면 더 적은 수의 열을 선택합니다. 이 작업을 실행하는 데 걸린 시간을 기록해 둡니다.
+5. 모든 열에 대해 상위 1백만 개 항목을 선택하여 여행 데이터에서 스캔 작업을 수행합니다. 신속하게 넘어가려면 더 적은 수의 열을 선택합니다. 이 작업을 실행하는 데 걸린 시간을 기록해 둡니다.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
@@ -576,6 +572,9 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 6. 데이터 웨어하우스를 400DWU로 다시 조정합니다. 각각의 100DWU는 Azure SQL Data Warehouse에 또 다른 계산 노드를 추가한다는 것을 기억하세요.
 
 7. 쿼리를 다시 실행합니다. 상당한 차이에 주목해야 합니다. 
+
+    > [!NOTE]
+    > 쿼리가 많은 데이터를 반환하기 때문에 SSMS를 실행하는 컴퓨터의 대역폭 가용성에 성능 병목 상태가 발생할 수도 있습니다. 따라서 성능이 하나도 개선되지 않을 수 있습니다.
 
 > [!NOTE]
 > SQL Data Warehouse는 대규모 병렬 처리를 사용하기 때문입니다. 수백만 개의 행에서 검색 또는 분석 기능을 수행하는 쿼리를 통해 Azure SQL Data Warehouse의 진정한 능력을 경험할 수 있습니다.
@@ -653,7 +652,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 
 [Azure SQL Data Warehouse로 데이터 마이그레이션][](영문)
 
-[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Azure SQL 데이터 웨어하우스에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [쿼리 모니터링]: sql-data-warehouse-manage-monitor.md
 [대규모 관계형 데이터 웨어하우스를 구축하기 위한 상위 10가지 모범 사례]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/(영문)
@@ -669,4 +668,3 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/en-us/library/mt238290.aspx
-

@@ -4,20 +4,19 @@ description: "Azure Functions SendGrid 바인딩 참조"
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -34,14 +33,16 @@ Azure Functions는 SendGrid에 대해 출력 바인딩을 제공합니다. SendG
 
 SendGrid 바인딩에서 지원하는 속성은 다음과 같습니다.
 
-- `name`: 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. 
-- `type`: 필수 - "SendGrid"로 설정해야 합니다.
-- `direction`: 필수 - "out"으로 설정해야 합니다.
-- `apiKey`: 필수 - 함수 앱의 앱 설정에 저장된 API 키의 이름으로 설정해야 합니다.
-- `to`: 수신자의 전자 메일 주소입니다.
-- `from`: 발신자의 전자 메일 주소입니다.
-- `subject`: 메일의 제목입니다.
-- `text`: 전자 메일 내용입니다.
+|속성  |설명  |
+|---------|---------|
+|**name**| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
+|**type**| 필수 - `sendGrid`으로 설정해야 합니다.|
+|**direction**| 필수 - `out`으로 설정해야 합니다.|
+|**apiKey**| 필수 - 함수 앱의 앱 설정에 저장된 API 키의 이름으로 설정해야 합니다. |
+|**to**| 수신자의 전자 메일 주소입니다. |
+|**from**| 발신자의 전자 메일 주소입니다. |
+|**subject**| 메일의 제목입니다. |
+|**text**| 전자 메일 내용입니다. |
 
 **function.json**의 예제는 다음과 같습니다.
 
@@ -98,8 +99,8 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-        to: "recipient@contoso.com",
-        from: "sender@contoso.com",        
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+        from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
             type: 'text/plain',

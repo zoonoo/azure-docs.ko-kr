@@ -12,15 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
-ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
-ms.lasthandoff: 02/28/2017
-
-
+ms.custom: 
+ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>StorSimple Snapshot Manager 사용자 인터페이스를 사용하여 백업 작업 및 백업 카탈로그 관리
 
@@ -32,7 +31,7 @@ StorSimple Snapshot Manager는 백업을 가져오고 관리하는 데 사용할
 
 ![StorSimple 스냅숏 관리자 창](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-콘솔 창에는&5;개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
+콘솔 창에는 5개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
 
 * [메뉴 모음](#menu-bar) 
 * [도구 모음](#tool-bar) 
@@ -126,7 +125,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 | 볼륨 다시 검사 |**볼륨** 노드를 마우스 오른쪽 단추로 클릭합니다. |**볼륨 다시 검사**를 클릭하여 **결과** 창에 표시되는 볼륨 목록을 업데이트합니다. |
 | 복원 |**백업 카탈로그**, 볼륨 그룹, **로컬 스냅숏** 또는 **클라우드 스냅숏**을 차례로 확장한 다음 백업을 마우스 오른쪽 단추로 클릭합니다. |**복원** 을 클릭하여 현재 볼륨 그룹 데이터를 선택한 백업의 데이터로 대체합니다. |
 | 백업 수행 |다음 중 하나를 수행합니다.<ul><li>**볼륨 그룹**을 확장한 다음 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li><li>**백업 카탈로그**를 확장한 다음 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**백업** 을 클릭하여 즉시 백업 작업을 시작합니다. |
-| 가져오기 표시 토글 |**범위** 창의 최상위 노드를 마우스 오른쪽 단추로 클릭합니다(예에서는 **StorSimple Snapshot Manager** 노드). |**가져오기 표시 토글** 을 클릭하여 볼륨 그룹과, StorSimple 관리자 서비스 대시보드에서 가져온 연결된 백업을 숨기거나 표시합니다. |
+| 가져오기 표시 토글 |**범위** 창의 최상위 노드를 마우스 오른쪽 단추로 클릭합니다(예에서는 **StorSimple Snapshot Manager** 노드). |**가져오기 표시 토글** 을 클릭하여 볼륨 그룹과, StorSimple 장치 관리자 서비스 대시보드에서 가져온 연결된 백업을 숨기거나 표시합니다. |
 
 ### <a name="view-menu"></a>보기 메뉴
 **보기** 메뉴를 사용하여 **결과** 창 내용의 사용자 지정 보기를 만듭니다. **보기** 메뉴에는 **열 추가/제거** 및 **사용자 지정** 옵션이 있습니다.
@@ -273,8 +272,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 > [!NOTE]
 > 최대 64개의 백업을 유지할 수 있습니다.
-> 
-> 
+
 
 ### <a name="backup-catalog-node"></a>백업 카탈로그 노드
 **백업 카탈로그** 노드에는 Azure StorSimple 볼륨의 온사이트 및 오프사이트 백업 목록이 있습니다. 이 노드는 볼륨 그룹별로 구성되며 각 볼륨 그룹 컨테이너에는 로컬 스냅숏(**로컬 스냅숏** 노드)과 클라우드 스냅숏(**클라우드 스냅숏** 노드)에 대해 별도의 구조가 포함되어 있습니다. 확장하면 각 볼륨 그룹 컨테이너가 대화형으로 또는 구성 정책에 따라 수행한 모든 성공한 백업 목록을 표시합니다.
@@ -429,7 +427,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | V |**보기** 메뉴가 열립니다. |
 | W |**볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다. |
 | F |StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
-| L |**목록 내보내기 **페이지를 엽니다. |
+| L |**목록 내보내기** 페이지를 엽니다. |
 | H |온라인 도움말을 엽니다. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>백업 카탈로그 노드 바로 가기 키
@@ -451,5 +449,4 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 * [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
-
 

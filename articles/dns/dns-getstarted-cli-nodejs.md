@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 75ddb1ff6dde4a83e775b54c15c86b18d2b1cf7a
-ms.lasthandoff: 03/11/2017
-
+ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Azure DNS 시작
 
 > [!div class="op_single_selector"]
@@ -36,6 +35,13 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 
 이 지침에서는 이미 Azure CLI 1.0을 설치했고, 로그인했다고 가정합니다. 도움말은 [Azure CLI 1.0을 사용하여 DNS 영역을 관리하는 방법](dns-operations-dnszones-cli-nodejs.md)을 참조하세요.
 
+## <a name="create-the-resource-group"></a>리소스 그룹 만들기
+
+DNS 영역을 만들기 전에 DNS 영역을 포함할 리소스 그룹이 생성됩니다. 다음은 명령을 표시합니다.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
@@ -98,6 +104,13 @@ info:    network dns zone show command OK
 
 이러한 이름 서버는 사용자가 도메인 이름을 구입한 도메인 이름 등록 기관에서 구성해야 합니다. 등록 기관에서 도메인에 대한 이름 서버를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
+## <a name="delete-all-resources"></a>모든 리소스 삭제
+ 
+이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 수행합니다.
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -106,5 +119,4 @@ Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 �
 Azure DNS에서 DNS 영역 관리에 대한 자세한 내용은 [Azure CLI 1.0을 사용하여 Azure DNS에서 DNS 영역 관리](dns-operations-dnszones-cli-nodejs.md)를 참조하세요.
 
 Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [Azure CLI 1.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli-nodejs.md)를 참조하세요.
-
 

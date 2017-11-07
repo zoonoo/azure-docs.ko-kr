@@ -12,24 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기
 이 문서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 개입 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다. 
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Azure AD Reporting API 사용 
 Azure AD Reporting API은 다음 단계를 완료해야 합니다.
- *    필수 구성 요소 설치
- *    앱에서 인증서 설정
- *    액세스 토큰 가져오기
- *    액세스 토큰을 사용하여 Graph API 호출
+ *  필수 구성 요소 설치
+ *  앱에서 인증서 설정
+ *  액세스 토큰 가져오기
+ *  액세스 토큰을 사용하여 Graph API 호출
 
 원본 코드에 대한 정보는 [보고서 API 모듈 활용](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils)을 참조하세요. 
 
@@ -91,7 +90,6 @@ Azure AD PowerShell V2 및 AzureADUtils 모듈을 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure ID 관리의 기본 항목](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
-
 
 
 

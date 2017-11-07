@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
+ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>워크플로에서 기업 간 규약에 파트너 추가 또는 업데이트
 
@@ -91,5 +90,4 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [규약에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")  
-
 

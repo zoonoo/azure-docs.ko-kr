@@ -3,7 +3,7 @@ title: "리소스 그룹 제거 자동화 | Microsoft Docs"
 description: "구독에서 모든 리소스 그룹을 제거하는 runbook을 포함하는 Azure Automation 시나리오의 PowerShell 워크플로 버전입니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Azure Automation 시나리오 - 리소스 그룹 제거 자동화
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation 시나리오 - 리소스 그룹 제거 자동화
 많은 고객이 하나 이상의 리소스 그룹을 만듭니다. 일부는 프로덕션 응용 프로그램을 관리하는 데 사용하고 일부는 환경을 개발, 테스트 및 스테이징하는 데 사용할 수 있습니다. 이러한 리소스의 배포를 자동화하는 것이 중요하지만 단추를 한 번 클릭하여 리소스 그룹을 해제하는 것도 중요합니다. Azure Automation를 사용하여 이 일반 관리 태스크를 간소화할 수 있습니다. MSDN 또는 Microsoft 파트너 네트워크 Cloud Essentials 프로그램과 같은 구성원 혜택을 통해 지출 한도가 있는 Azure 구독을 사용하는 경우에도 유용합니다.
 
 이 시나리오는 PowerShell Runbook을 기반으로 하고 구독에서 지정하는 하나 이상의 리소스 그룹을 제거하도록 만들어졌습니다. Runbook의 기본 설정은 계속 진행하기 전에 테스트하는 것입니다. 이렇게 하면 이 절차를 완료할 준비가 되기 전에 리소스 그룹을 실수로 삭제하지 않습니다.   
@@ -33,7 +33,7 @@ ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
 | Remove-ResourceGroup |구독에서 하나 이상의 Azure 리소스 그룹 및 연결된 리소스를 제거합니다. |
 
 <br>
- 다음 입력 매개 변수는 이 runbook에 대해 정의됩니다.
+다음 입력 매개 변수는 이 runbook에 대해 정의됩니다.
 
 | 매개 변수 | 설명 |
 | --- | --- |
@@ -67,9 +67,3 @@ Azure Portal에서 **Remove-ResourceGroup** Runbook 작업의 세부 정보를 �
 ## <a name="next-steps"></a>다음 단계
 * 고유한 Runbook을 만들기 시작하려면 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

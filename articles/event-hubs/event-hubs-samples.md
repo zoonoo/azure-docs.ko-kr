@@ -1,9 +1,9 @@
 ---
 title: "Azure Event Hubs 샘플 | Microsoft Docs"
-description: "Event Hubs 샘플"
+description: "Azure Event Hubs 샘플"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
-ms.lasthandoff: 03/09/2017
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-samples"></a>Event Hubs 샘플 
 
-이 Event Hubs 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여 줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
+Azure Event Hubs 샘플 집합은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능에 대해 설명합니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
 이 문서가 작성되었을 때 Event Hubs 샘플은 다음 여러 위치에 배치되었습니다.
 
 - [MSDN 개발자 코드 샘플](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples)
+- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 다른 버전의 .NET Framework에 대한 자세한 내용은 [프레임워크 및 대상](/dotnet/articles/standard/frameworks)을 참조하세요.
 
@@ -38,17 +37,17 @@ ms.lasthandoff: 03/09/2017
 
 다음 샘플은 [.NET Standard 라이브러리](/dotnet/articles/standard/library)에 대해 [Event Hubs 클라이언트](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md)를 사용하여 이벤트를 송수신하는 방법을 보여 줍니다.
 
-### <a name="send-events"></a>이벤트 전송 
+### <a name="send-events"></a>이벤트 보내기 
 
-[전송 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) 샘플은 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다.
+[전송 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) 샘플은 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다.
 
 ### <a name="receive-events"></a>이벤트 수신 
 
-[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 샘플은 `Event Processor Host`를 사용하여 Event Hub에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다.
+[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 샘플은 이벤트 프로세서 호스트를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다.
 
-## <a name="net-framework"></a>.NET Framework    
+## <a name="net-framework"></a>.NET Framework   
 
-이러한 샘플은 [.NET Framework 라이브러리](https://msdn.microsoft.com/library/w0x726c2.aspx)를 대상으로 하는 Azure Event Hubs의 기타 다양한 기능을 보여 줍니다.
+이러한 샘플은 [.NET Framework 라이브러리](/dotnet/framework/index)를 대상으로 하는 Azure Event Hubs의 기타 다양한 기능을 보여 줍니다.
  
 ### <a name="notify-users-of-events-received"></a>수신된 이벤트를 사용자에게 알림
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 03/09/2017
 
 ### <a name="get-started-with-event-hubs"></a>이벤트 허브 시작 
 
-[Event Hubs 시작](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) 샘플은 이벤트 허브 만들기, 이벤트 허브로 이벤트 전송, [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트 소비 등, Event Hubs의 기본 기능을 보여 줍니다.
+[Event Hubs 시작](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) 샘플은 이벤트 허브를 만드는 방법, 이벤트 허브로 이벤트를 전송하는 방법, [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트를 소비하는 방법 등 Event Hubs의 기본 기능을 보여 줍니다.
 
 ### <a name="scale-out-event-processing"></a>이벤트 처리 확장 
 
@@ -68,14 +67,14 @@ ms.lasthandoff: 03/09/2017
 
 ### <a name="pull-web-data-into-an-event-hub"></a>웹 데이터를 이벤트 허브로 끌어오기 
 
-[웹에서 데이터 가져오기](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) 샘플은 공용 피드의 데이터를 끌어와(예: 교통 부서의 트래픽 정보 피드) 이벤트 허브로 푸시하는 방법을 보여 줍니다.
+[웹에서 데이터 가져오기](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) 샘플은 공용 피드의 데이터(예: 교통 부서의 트래픽 정보 피드)를 끌어와 이벤트 허브로 푸시하는 방법을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 링크에서 .NET Framework 버전에 대해 자세히 알아보세요.
 
-- [프레임워크 및 대상](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 및 4.5](https://msdn.microsoft.com/library/w0x726c2.aspx)
+- [Frameworks 및 대상](/dotnet/articles/standard/frameworks)
+- [.NET Framework 4.6 및 4.5](/dotnet/framework/index)
 
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 

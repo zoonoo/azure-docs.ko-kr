@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
-* Visual Studio를 시작하고 새 콘솔 응용 프로그램을 만듭니다.
+
+먼저 Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니다.
 
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
-1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+
+1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
 2. **찾아보기** 탭을 클릭한 다음 "Microsoft Azure 릴레이"를 검색하고 **Microsoft Azure 릴레이** 항목을 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
 
 ### <a name="write-some-code-to-receive-messages"></a>메시지를 수신하는 코드 작성
-1. Program.cs 파일의 위쪽에 있는 기존 `using` 문을 다음 문으로 바꿉니다.
+
+1. Program.cs 파일의 위쪽에 있는 기존 `using` 문을 다음 `using` 문으로 바꿉니다.
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. 상수를 하이브리드 연결 연결 정보에 대한 `Program` 클래스에 추가합니다. 대괄호 안의 자리 표시자를 하이브리드 연결을 만들 때 얻은 적절한 값으로 바꿉니다. 정규화된 네임스페이스 이름을 사용해야 합니다.
+2. 상수를 하이브리드 연결 정보의 `Program` 클래스에 추가합니다. 대괄호 안의 자리 표시자를 하이브리드 연결을 만들 때 얻은 값으로 바꿉니다. 정규화된 네임스페이스 이름을 사용해야 합니다.
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. `Program` 클래스에 `ProcessMessagesOnConnection`이라는 다음 새 메서드를 추가합니다.
+3. `Program` 클래스에 `ProcessMessagesOnConnection`이라는 다음 메서드를 추가합니다.
    
     ```csharp
     // Method is used to initiate connection
@@ -74,7 +77,7 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. 다음과 같이 `RunAsync`라는 다른 새 메서드를 `Program` 클래스에 추가합니다.
+4. 다음과 같이 `RunAsync`라는 다른 메서드를 `Program` 클래스에 추가합니다.
    
     ```csharp
     private static async Task RunAsync()
@@ -125,7 +128,7 @@
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Program.cs는 다음과 같아야 합니다.
+    완성된 Program.cs 파일은 다음과 같아야 합니다.
    
     ```csharp
     namespace Server

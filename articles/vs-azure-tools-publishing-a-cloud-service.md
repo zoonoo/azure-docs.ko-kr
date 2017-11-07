@@ -3,8 +3,8 @@ title: "Azure Tools를 사용하여 클라우드 서비스 게시 | Microsoft Do
 description: "Visual Studio를 사용하여 Azure 클라우드 서비스 프로젝트를 게시하는 방법에 대해 알아보세요."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
-
-
+ms.date: 8/14/2017
+ms.author: kraigb
+ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Azure Tools를 사용하여 클라우드 서비스 게시
 Azure Tools for Microsoft Visual Studio를 사용하여 Visual Studio에서 직접 Azure 응용 프로그램을 게시할 수 있습니다. Visual Studio는 클라우드 서비스의 스테이징 또는 프로덕션 환경에 통합 게시를 지원합니다.
@@ -147,10 +147,4 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

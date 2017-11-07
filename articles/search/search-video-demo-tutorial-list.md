@@ -13,31 +13,31 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/28/2017
+ms.date: 06/06/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 0925318a483d9a5e72015d33ee0868f41ae4bedd
-ms.openlocfilehash: 4d883d96a2a45f27e847c51c973d5ca7d0e267a8
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
 다음 비디오, 데모, 자습서 및 샘플 앱으로 빠르게 기능을 활용해 보세요.
 
 ## <a name="learn"></a>유용한 정보
 
-Azure Search를 처음 사용하는 경우 여기에서 시작합니다. 약&1;시간 동안 이러한 모든 리소스를 검토할 수 있습니다.
+Azure Search를 처음 사용하는 경우 여기에서 시작합니다. 약 1시간 동안 이러한 모든 리소스를 검토할 수 있습니다.
 
 | 제목 | 설명 | Date |
 |-------|-------------|------|
-| [이 소개 비디오 시청](https://channel9.msdn.com/Events/Connect/2016/138) | 기능, 서비스 만들기 및 쿼리에 대한&9;m38s의 소개 내용입니다. | 2016년 11월 |
+| [이 소개 비디오 시청](https://channel9.msdn.com/Events/Connect/2016/138) | 기능, 서비스 만들기 및 쿼리에 대한 9m38s의 소개 내용입니다. | 2016년 11월 |
 | [ 서비스 만들기](search-get-started-portal.md) | 포털에서 Azure Search를 설정하기 위한 단계입니다. | 2017년 2월 |
 | [인덱스 쿼리](search-get-started-portal.md) | 기본 제공 샘플 데이터를 사용하여 만들고 쿼리합니다. 포털의 도구는 쿼리 형식 및 검색 매개 변수에 대해 알아볼 수 있는 빠른 방법입니다. | 2017년 2월 |
 | [다음 단계:<br/> .NET의 코드](search-howto-dotnet-sdk.md) | C# 연습에서는 Azure Search .NET 라이브러리를 사용하여 연결, 인덱싱 및 쿼리하는 방법을 보여 줍니다. | 2016년 11월 |
 | [다음 단계:<br/> REST의 코드](search-create-index-rest-api.md) | 임의 플랫폼 및 프로그래밍 언어에로 Azure Search 인덱스를 만들기 위한 REST 호출 및 JSON 페이로드를 검토합니다. | 2016년 12월 |
+| [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md) | Azure Search 전체 텍스트 검색 워크로드의 아키텍처 및 개요 | 2017년 3월 |
 
-## <a name="practice"></a>연습
+## <a name="code-samples"></a>코드 샘플
 
 샘플 및 연습을 통한 코드 기반 탐색입니다.
 
@@ -45,10 +45,20 @@ Azure Search를 처음 사용하는 경우 여기에서 시작합니다. 약&1;�
 |-------|-------------|
 | [.NET 클라이언트 라이브러리 시작](https://github.com/Azure-Samples/search-dotnet-getting-started) | .NET 클라이언트 라이브러리를 사용하는 ASP.NET MVC 5 응용 프로그램입니다. |
 | [REST API 시작](https://github.com/Azure-Samples/search-rest-api-getting-started) | REST API 코드 샘플입니다. |
-| [데모: NYC 작업 웹 사이트](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | ASP.NET MVC를 사용하는 NYC 작업 데이터에 대해 라이브 데모 Azure Search 사이트의 소스입니다. |
-| [데모: Tate Art Gallery](https://github.com/liamca/azure-search-tate-art-gallery/) | 아트 갤러리 데이터를 통한 라이브 데모 Azure Search 사이트에 대한 소스를 제공하며 컬렉션 데이터 형식 및 중첩된 데이터 구조, 패싯 및 필터, 사용자 이름 및 미리보기 이미지를 보여줍니다.|
+| [소스: NYC 작업 웹 사이트 데모](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | ASP.NET MVC를 사용하는 NYC 작업 데이터에 대해 라이브 데모 Azure Search 사이트의 소스입니다. |
+| [소스: Tate Art Gallery 데모](https://github.com/liamca/azure-search-tate-art-gallery/) | 아트 갤러리 데이터를 통한 라이브 데모 Azure Search 사이트에 대한 소스를 제공하며 컬렉션 데이터 형식 및 중첩된 데이터 구조, 패싯 및 필터, 사용자 이름 및 미리보기 이미지를 보여줍니다.|
 
 특정 기능 조합 및 시나리오에 대한 추가 코드 샘플은 [ **Azure 샘플 > Azure Search**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search)에서 찾을 수 있습니다.
+
+## <a name="online-demos"></a>온라인 데모
+검색 환경에 대한 Azure Search를 사용하는 모든 기능을 갖춘 웹 응용 프로그램입니다. 이러한 링크는 Azure Search를 사용하는 앱을 실제로 사용해볼 수 있는 환경을 제공합니다.
+
+| 링크 | 설명 |
+|-------|-------------|
+|[검색 분석기 데모](http://alice.unearth.ai) | 표준 Lucene 분석기, Lucene 영어 분석기 및 Microsoft의 자연어 프로세서의 쿼리 결과를 보여주는 라이브 데모 웹 사이트입니다. 각 검색 용어 입력에 대해 각 분석기의 출력을 나란히 비교하여 볼 수 있습니다. |
+|[Azure Search에 대한 NYC(뉴욕시) 구직 포털 데모](http://aka.ms/azjobsdemo) | NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure Search 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. 코드를 수정하여 [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용할 수 있습니다. |
+|[Tate Art Gallery 데모](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | Tate Art Gallery의 샘플 데이터를 사용하여 호스트된 ASP.NET 웹 사이트입니다. 먼저 검색어로 "modern", "photo" 및 "portrait" 등을 사용해 보세요.
+|[Azure Search 데모 사이트](https://searchsamples.azurewebsites.net/#/) | Azure Search 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다. |
 
 ## <a name="courseware"></a>교육 과정
 
@@ -58,14 +68,6 @@ Azure Search에 대한 다중 세션 데모 및 실습입니다.
 |------|-------------|------|
 [Xamarin 및 Azure Search를 사용하여 지능형 플랫폼 간 모바일 응용 프로그램 빌드](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | 자동 완성, 전체 텍스트 검색 및 페이징, 필터링, 조회, moreLikeThis, Machine Learning, 점수 매기기 및 튜닝, 분석 | 2016년 12월 |
 [Windows Azure Search 사용](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | 이전 기능이지만 여전히 적절한 크기 조정, 지리 공간 검색, 언어 분석, Cortana 음성 인식에 대한 드릴다운 | 2015년 5월 | 
-
-## <a name="online-demos"></a>온라인 데모
-검색 환경에 대한 Azure 검색을 사용하는 모든 기능을 갖춘 웹 응용 프로그램입니다. 
-
-| 링크 | 설명 |
-|-------|-------------|
-|[Azure Search에 대한 NYC(뉴욕시) 구직 포털 데모](http://aka.ms/azjobsdemo) | NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure Search 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. 코드를 수정하여 [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용할 수 있습니다. |
-|[Azure Search 데모 사이트](https://searchsamples.azurewebsites.net/#/) | Azure Search 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다. |
 
 ## <a name="video-archive"></a>참조용 비디오
 
@@ -98,6 +100,4 @@ Azure Search에 대한 다중 세션 데모 및 실습입니다.
 | [검색 응용 프로그램에 제안을 추가하는 방법](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |일반적으로 자동 완성이라고 하는 제안 기능을 구현하는 방법을 알아봅니다. 이 데모에서는 Azure 검색 제안을 활용하는 MVC4 응용 프로그램 개발, JavaScript에서 Twitter typeahead.js 라이브러리를 사용한 효과적인 자동 제안 구성 요소 개발, 유사 일치 제안을 사용하여 사용자가 단어를 잘못 입력한 경우에도 제안을 표시하도록 하는 방법 등의 다양한 주제를 자세히 설명합니다. |
 | [TechNet 가상 실습: Microsoft Azure 검색 응용 프로그램 구축](http://go.microsoft.com/?linkid=9874663) |개발 환경, 도구, 설명서 및 데이터를 제공 하는 가상 실습입니다. 실습을 완료하려면 평가판 구독 또는 개인 Azure 구독이 있는 Azure 계정이 필요합니다. |
 | [SQL Server 데이터와 Azure 검색 동기화](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Azure 검색 인덱스에 SQL Server 관계형 데이터베이스의 데이터를 로드하는 방법을 설명하는 블로그 게시물입니다. |
-| [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md) |관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다. |
-
 

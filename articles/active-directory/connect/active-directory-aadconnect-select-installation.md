@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
-ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-
-
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect에 사용할 설치 유형 선택
 Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 두 가지 설치 유형을 제공합니다. 이 항목은 설치 중에 사용할 옵션을 결정하는 데 도움이 됩니다.
@@ -41,7 +41,7 @@ Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 �
 
 기본을 계속 사용할 수 있는 경우의 옵션:
 
-- 모든 OU를 동기화하지는 않으려면 기본을 계속 사용하고 마지막 페이지에서 **동기화 프로세스 시작... ***을 선택 취소합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)에서 OU를 변경한 후 예약된 동기화를 사용하도록 설정합니다.
+- 모든 OU를 동기화하지는 않으려면 기본을 계속 사용하고 마지막 페이지에서 **동기화 프로세스 시작...***을 선택 취소합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)에서 OU를 변경한 후 예약된 동기화를 사용하도록 설정합니다.
 - Azure AD Premium에서 비밀번호 쓰기 저장 등의 기능 중 하나를 사용하려고 합니다. 먼저 기본 방법을 진행하여 초기 설치를 완료합니다. 그런 후 설치 마법사를 다시 실행하고 [구성 옵션](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)을 변경합니다.
 
 ## <a name="custom"></a>사용자 지정
@@ -73,9 +73,3 @@ Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 �
 
 ## <a name="next-steps"></a>다음 단계
 사용하도록 선택한 옵션에 따라 왼쪽의 목차에서 자세한 단계를 제공하는 문서를 찾아보세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

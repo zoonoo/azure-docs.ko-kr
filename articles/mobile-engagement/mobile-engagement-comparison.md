@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4503810769d88ea554885f39902349046981ec88
-
-
+ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Azure Mobile Engagement와 기타 유사한 Azure 서비스 비교
 Microsoft Azure에서 제공하는 서비스 목록은 계속 확장되고 있으며 간혹 Azure Mobile Engagement가 최근에 읽거나 소식을 들은 다른 서비스와 어떻게 다른지 궁금할 수 있습니다. 이 문서는 혼동을 명확히 하고 사용자의 용도에 가장 적합할 때 Azure Mobile Engagement를 선택하도록 안내합니다. 
@@ -62,10 +62,4 @@ Azure Mobile Engagement는 특히 **디지털 마케팅 담당자/CMO**를 대�
 정리하자면, Mobile Engagement의 목적은 단지 분석을 수집하는 것이 아니며 "Microsoft의 또 다른 분석 제품"이 아닙니다. 대상 지정된 푸시 알림을 전송하는 것을 포함하며 이 대상 지정을 위해 행동 분석 데이터를 수집하지만 앱 사용자가 스팸으로 지나치지 않도록 가장 이해하기 쉬운 푸시 알림을 보내는 데 초점을 둡니다. 
 
 자세한 내용은 Mobile Engagement에 대해 간단하게 설명하는 이 [짧은 비디오](mobile-engagement-overview.md) 를 살펴보세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

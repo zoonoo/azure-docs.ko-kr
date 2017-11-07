@@ -12,13 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
-
-
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>desired 속성을 사용하여 장치 구성(Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -35,7 +35,7 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 0.10.x 이상
+* Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [장치 쌍 시작][lnk-twin-tutorial] 자습서를 수행했으면 이미 IoT Hub 및 **myDeviceId**라는 장치 ID가 있으므로 [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
@@ -94,7 +94,7 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
    
     **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, desired 속성에서 업데이트를 위한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
    
-    이전 코드에서는 간단히 하기 위해 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
+    간단한 설명을 위해 이전 코드에서는 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
    
    > [!IMPORTANT]
    > Desired 속성 변경 이벤트는 항상 장치 연결시 한 번에 내보내지기 때문에, 모든 작업을 수행하기 전에 Desired 속성에 실제 변경이 있는지 확인해야 합니다.
@@ -168,7 +168,7 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **SetDesiredAndQuery.js** 파일을 만듭니다.
+3. 텍스트 편집기를 사용하여 **setdesiredandqueryapp** 폴더에 새 **SetDesiredAndQuery.js** 파일을 만듭니다.
 4. 다음 코드를 **SetDesiredAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 IoT Hub 연결 문자열을 사용해 **{IoT Hub 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
@@ -207,9 +207,9 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
     **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, 새로운 원격 분석 구성 개체를 사용해 desired 속성을 업데이트합니다. 그러면 10초간 **queryTwins** 함수 이벤트를 호출합니다.
 
     > [!IMPORTANT]
-    > 이 응용 프로그램은 설명 목적으로 10초 마다 IoT Hub를 쿼리합니다. 변경을 감지하기 위해서가 아니라 여러 장치에서 사용자용 보고서를 생성하기 위해 쿼리를 사용합니다. 솔루션에 장치 이벤트의 실시간 알림이 필요한 경우 [장치-클라우드 메시지][lnk-d2c]를 사용합니다.
+    > 이 응용 프로그램은 설명 목적으로 10초 마다 IoT Hub를 쿼리합니다. 변경을 감지하기 위해서가 아니라 여러 장치에서 사용자용 보고서를 생성하기 위해 쿼리를 사용합니다. 솔루션에 장치 이벤트의 실시간 알림이 필요한 경우 [쌍 알림][lnk-twin-notifications]을 사용합니다.
     > 
-    >을 참조하세요.
+    >등 4가지 유형의 클러스터가 제공됩니다.
 
 1. 다음 코드를 **queryTwins** 함수를 구현하기 위해 `registry.getDeviceTwin()` 호출 앞에 추가합니다.
    
@@ -260,7 +260,7 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -268,16 +268,10 @@ ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

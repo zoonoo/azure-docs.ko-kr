@@ -2,7 +2,7 @@
 title: "Azure Event Hubs 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Event Hubs를 사용하여 광범위한 플랫폼에 있는 연결된 IoT 장치 및 응용 프로그램에서 초당 수백만 개의 이벤트를 수집하는 방법에 대해 알아봅니다."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d6ed0042e91c011700022d84b548f90d2610c4ad
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: d24139de04b36044bbb88d0e9b9a1feb6d8edfa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-documentation"></a>Event Hubs 설명서
 
 Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 초당 수백만 개의 이벤트를 수집하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 광범위한 플랫폼에서 이벤트에 대한 확장 가능한 수집을 설정하는 방법을 보여 줍니다.
@@ -119,7 +118,7 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="/dotnet/api/">.NET API 브라우저</a></p>
+                        <p><a href="/dotnet/api/overview/azure/event-hubs/">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -130,9 +129,8 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p><a href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
+                        <h3>자바</h3>
+                        <p><a href="/java/api/overview/azure/eventhub/">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -151,4 +149,3 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
         </div>
     </li>
 </ul>
-

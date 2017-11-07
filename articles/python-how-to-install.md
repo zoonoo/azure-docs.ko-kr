@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-python-and-the-sdk"></a>Python 및 SDK 설치
 Python은 Windows에서 쉽게 설정할 수 있으며 Mac, Linux 및 [Bash for Windows](https://msdn.microsoft.com/commandline/wsl/about)에서는 사전 설치되어 제공됩니다. 이 가이드에서는 설치 및 Azure와 함께 사용할 수 있도록 컴퓨터를 설정하는 작업을 단계별로 안내합니다.
@@ -50,7 +49,7 @@ CPython을 구하는 몇 가지 방법이 있습니다.
 구체적인 요구 사항이 없다면 처음 두 가지 옵션을 사용하는 것이 좋습니다.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Windows, Linux 및 MacOS에 SDK 설치(클라이언트 라이브러리만 해당)
-Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.7 또는 Python 3.3 + 환경에 모든 클라이언트 라이브러리의 번들을 설치할 수 있습니다. 이 경우 PyPI([Python 패키지 인덱스][Python Package Index])에서 패키지를 다운로드합니다.
+Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.7 또는 Python 3.3 + 환경에 모든 클라이언트 라이브러리의 번들을 설치할 수 있습니다. 이 경우 [PyPI(Python 패키지 인덱스)][Python Package Index]에서 패키지를 다운로드합니다.
 
 관리자 권한이 필요할 수 있습니다.
 
@@ -67,7 +66,7 @@ Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.
 미리 보기 패키지는 `--pre` 플래그를 사용하여 설치할 수 있습니다.
 
 ```console
-   $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
+   $ pip install --pre azure-mgmt-compute # installs only the latest Compute Management library
 ```
 
 `azure` 메타패키지를 사용하여 한 줄로 Azure 라이브러리의 집합도 설치할 수 있습니다. 이 메타패키지에서 일부 패키지는 아직 안정적으로 게시되지 않으므로 `azure` 메타패키지는 아직 미리 보기 상태입니다.
@@ -98,9 +97,9 @@ PyPI([Python 패키지 인덱스][Python Package Index])에서 다양한 Python 
 
 PTVS는 선택 사항이지만 Python 및 웹 프로젝트/솔루션 지원, 디버깅, 프로파일링, 대화형 창, 템플릿 편집 및 Intellisense를 제공합니다.
 
-또한 PTVS를 사용하면 [Cloud Services](cloud-services/cloud-services-python-ptvs.md) 및 [Websites](app-service-web/web-sites-python-ptvs-django-mysql.md) 배포 지원과 함께 Microsoft Azure에 쉽게 배포할 수 있습니다.
+또한 PTVS를 사용하면 [Cloud Services](cloud-services/cloud-services-python-ptvs.md) 및 [Websites](app-service/app-service-web-overview.md) 배포 지원과 함께 Microsoft Azure에 쉽게 배포할 수 있습니다.
 
-PTVS는 기존 Visual Studio 2013 또는 2015 설치와 함께 작동합니다.  설명서, 다운로드 및 토론에 대한 자세한 내용은 [Python Tools for Visual Studio]를 참조하세요.  
+PTVS는 기존 Visual Studio 2013, 2015 또는 2017 설치와 작동합니다.  설명서, 다운로드 및 토론에 대한 자세한 내용은 [Python Tools for Visual Studio]를 참조하세요.  
 
 ## <a name="python-azure-scenarios-for-linux-and-macos"></a>Linux 및 MacOS용 Python Azure 시나리오
 Linux 또는 MacOS의 경우 지원되는 주요 Azure 시나리오는 다음과 같습니다.
@@ -109,15 +108,15 @@ Linux 또는 MacOS의 경우 지원되는 주요 Azure 시나리오는 다음과
 2. Linux VM에서 앱 실행
 3. Git를 사용하여 개발 및 Azure 웹 사이트에 게시
 
-첫 번째 시나리오에서는 Azure REST API용 Python 래퍼를 통해 [Blob 저장소](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [큐 저장소](storage/storage-python-how-to-use-queue-storage.md), [테이블 저장소](storage/storage-python-how-to-use-table-storage.md) 등의 Azure PaaS 기능을 활용하는 풍부한 기능의 웹앱을 작성할 수 있습니다. 이 기능은 Windows, Mac 및 Linux에서 동일하게 작동합니다.  또한 로컬 개발 컴퓨터 또는 Azure에서 실행되는 Linux VM에서 이러한 클라이언트 라이브러리를 사용할 수 있습니다.
+첫 번째 시나리오에서는 Azure REST API용 Python 래퍼를 통해 [Blob 저장소](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [큐 저장소](storage/queues/storage-python-how-to-use-queue-storage.md), [테이블 저장소](cosmos-db/table-storage-how-to-use-python.md) 등의 Azure PaaS 기능을 활용하는 풍부한 기능의 웹앱을 작성할 수 있습니다. 이 기능은 Windows, Mac 및 Linux에서 동일하게 작동합니다.  또한 로컬 개발 컴퓨터 또는 Azure에서 실행되는 Linux VM에서 이러한 클라이언트 라이브러리를 사용할 수 있습니다.
 
-VM 시나리오의 경우, 원하는 Linux VM(Ubuntu, CentOS, SUSE)을 시작한 후 원하는 대로 실행하고 관리하면 됩니다.  예를 들어 Windows/Mac/Linux 컴퓨터에서 [IPython][IPython] REPL/notebook을 실행하고 Azure에서 IPython Engine을 실행하는 Linux 또는 Windows 다중 프로세싱 VM으로 브라우저를 가리키면 됩니다. 자세한 내용은 [Azure의 IPython Notebook](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 자습서를 참조하세요.
+VM 시나리오의 경우, 원하는 Linux VM(Ubuntu, CentOS, SUSE)을 시작한 후 원하는 대로 실행하고 관리하면 됩니다.  예를 들어 Windows/Mac/Linux 컴퓨터에서 [IPython][IPython] REPL/notebook을 실행하고 Azure에서 IPython Engine을 실행하는 Linux 또는 Windows 다중 프로세싱 VM으로 브라우저를 가리키면 됩니다.
 
-Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하십시오.
+Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하십시오.
 
 Git 배포를 사용하여 Python 웹 응용 프로그램을 개발하고 모든 운영 체제에서 Azure 웹 사이트에 게시할 수 있습니다.  Azure에 리포지토리를 푸시할 때 가상 환경이 자동으로 만들어지고 PIP가 필요한 패키지를 설치합니다.
 
-Azure Websites 개발 및 게시에 대한 자세한 내용은 [Django를 사용하여 Websites 만들기](app-service-web/web-sites-python-create-deploy-django-app.md), [Bottle을 사용하여 Websites 만들기](app-service-web/web-sites-python-create-deploy-bottle-app.md) 및 [Flask를 사용하여 Websites 만들기](app-service-web/web-sites-python-create-deploy-flask-app.md)에 대한 자습서를 참조하십시오. WSGI 규격 프레임워크 사용에 대한 일반적인 정보는 [Azure Websites를 사용하여 Python 구성](app-service-web/web-sites-python-configure.md)을 참조하세요.
+WSGI 규격 프레임워크 사용에 대한 자세한 내용은 [Azure Websites를 사용하여 Python 구성](app-service/web-sites-python-configure.md)을 참조하세요.
 
 ## <a name="additional-software-and-resources"></a>추가 소프트웨어 및 리소스
 * [Python ReadTheDocs용 Azure SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/)
@@ -130,7 +129,6 @@ Azure Websites 개발 및 게시에 대한 자세한 내용은 [Django를 사용
 * [NumPy - Python의 숫자 라이브러리][NumPy - A numerics library for Python]
 * [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS][Django Project - A mature web framework/CMS]
 * [IPython - Python용 고급 REPL/Notebook][IPython - an advanced REPL/Notebook for Python]
-* [Azure의 IPython Notebook](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [GitHub의 Python Tools for Visual Studio][Python Tools for Visual Studio on GitHub]
 * [Python 개발자 센터](/develop/python/)
 
@@ -146,22 +144,9 @@ Azure Websites 개발 및 게시에 대한 자세한 내용은 [Django를 사용
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
-[Cloud Services]: cloud-services-python-ptvs.md
-[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
-[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
-[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
-[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
-[Configuring Python with Azure Websites]: web-sites-python-configure.md
-[table storage]: storage-python-how-to-use-table-storage.md
-[queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
-
+[blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md

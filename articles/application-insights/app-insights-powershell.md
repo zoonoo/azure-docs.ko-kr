@@ -3,7 +3,7 @@ title: "PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft
 description: "Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성을 자동화합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 04/02/2017
+ms.author: mbullwin
+ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
 이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)를 만들고, [경고](app-insights-alerts.md)를 설정하고, [가격 책정 계층](app-insights-pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
@@ -173,6 +172,16 @@ ms.lasthandoff: 03/29/2017
 
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
 
+## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
+응용 프로그램 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>가격 계획 설정
 
@@ -193,17 +202,11 @@ ms.lasthandoff: 03/29/2017
 |2|Enterprise|
 
 * 기본적인 Basic 가격 계획만 사용하려는 경우 템플릿에서 CurrentBillingFeatures 리소스를 생략해도 됩니다.
+* 구성 요소 리소스를 만든 후에 가격 계획을 변경하려는 경우 "microsoft.insights/components" 리소스를 생략하는 템플릿을 사용할 수 있습니다. 또한 청구 리소스에서 `dependsOn` 노드를 생략합니다. 
+
+업데이트된 가격 계획을 확인하려면 브라우저에서 "기능+가격 책정" 블레이드를 확인합니다. **브라우저 보기를 새로 고쳐** 최신 상태를 표시합니다.
 
 
-## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
-응용 프로그램 리소스를 만든 후 iKey가 필요할 수 있습니다. 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
@@ -447,5 +450,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
 * [GitHub에서 Azure로 배포](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
 

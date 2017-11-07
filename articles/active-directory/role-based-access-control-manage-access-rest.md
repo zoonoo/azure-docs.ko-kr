@@ -3,7 +3,7 @@ title: "REST를 사용한 역할 기반 액세스 제어 - Azure AD | Microsoft 
 description: "REST API를 사용하여 역할 기반 액세스 제어 관리"
 services: active-directory
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
-
-
+ms.date: 05/16/2017
+ms.author: andredm
+ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 액세스 제어 관리
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure Portal 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="list-all-role-assignments"></a>모든 역할 할당 나열
 지정된 범위 및 하위 범위에서 모든 역할 할당을 나열합니다.
@@ -650,9 +650,3 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

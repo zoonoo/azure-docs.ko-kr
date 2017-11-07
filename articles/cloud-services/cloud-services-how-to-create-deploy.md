@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
-
-
+ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Azure 클래식 포털은 클라우드 서비스를 만들고 배포하는 두 �
 이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 클래식 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [!NOTE]
-> VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService]을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 **빠른 생성**을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSTS 게시를 설정합니다.
 > 
 > 
 
@@ -120,17 +120,10 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
    
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)구성
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)구성
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

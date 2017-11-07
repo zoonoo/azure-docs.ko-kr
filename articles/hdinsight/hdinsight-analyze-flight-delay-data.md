@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop을 사용하여 비행 지연 데이터 분석 | Microsoft 문서"
+title: "HDInsight에서 Hadoop을 사용하여 비행 지연 데이터 분석 - Azure | Microsoft Docs"
 description: "하나의 Windows PowerShell 스크립트를 사용하여 HDInsight 클러스터를 만들고, Hive 작업을 실행하고, Sqoop 작업을 실행하고, 클러스터를 삭제하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 0875b40045387a9695c8b86a01a708433016c1ee
-ms.lasthandoff: 04/11/2017
-
-
+ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]*을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 작업은 세 부분으로 구성되어 있습니다.
 
@@ -59,7 +58,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 * **Azure PowerShell이 포함된 워크스테이션**.
 
     > [!IMPORTANT]
-    > Azure 서비스 관리자를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거됩니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
+    > Azure Service Manager를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
 
@@ -74,8 +73,8 @@ PowerShell 스크립트의 일부는 데이터를 공용 blob 컨테이너에서
 
 <table border="1">
 <tr><th>파일</th><th>설명</th></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive 작업에 사용되는 HiveQL 스크립트 파일입니다. 이 스크립트는 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-b">부록 B</a>에는 이 파일을 준비하고 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive 작업의 입력 데이터입니다. 이 데이터는 공용 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-a">부록 A</a>에는 데이터를 가져오기 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive 작업에 사용되는 HiveQL 스크립트 파일입니다. 이 스크립트는 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-b">부록 B</a>에는 이 파일을 준비하고 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive 작업의 입력 데이터입니다. 이 데이터는 공용 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-a">부록 A</a>에는 데이터를 가져오기 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Hive 작업의 출력 경로입니다. 기본 컨테이너를 사용하여 출력 데이터를 저장합니다.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>기본 컨테이너의 Hive 작업 상태 폴더입니다.</td></tr>
 </table>
@@ -204,7 +203,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
     ###########################################
     # Submit the Sqoop job
     ###########################################
-    $exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+    $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
                     -Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -351,7 +350,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 
 다른 메서드를 사용하여 파일을 업로드하도록 선택한 경우에는 파일 경로가 tutorials/flightdelay/data여야 합니다. 파일을 액세스하는 구문은 다음과 같습니다.
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상 폴더입니다. 달마다 하나씩 12개의 파일이 있는지 확인합니다.
 
@@ -501,7 +500,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
         "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
         "LINES TERMINATED BY '\n' " +
         "STORED AS TEXTFILE " +
-        "LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+        "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 
     $hqlDropDelays = "DROP TABLE delays;"
 
@@ -730,7 +729,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -746,4 +745,3 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
-

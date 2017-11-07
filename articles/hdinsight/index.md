@@ -2,7 +2,7 @@
 title: "Azure HDInsight 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "HDInsight의 Hadoop을 알아보세요. 설명서에서는 Hadoop, Spark, HBase, R-Server를 사용하여 빅 데이터를 처리하고 분석하며 정보를 얻는 방법을 보여 줍니다."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 2d07e801ea3375e06c9f66db49219b6c79f97e61
-ms.openlocfilehash: bf303554aa47116cdfce074d87235901b5390769
-
+ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 설명서
 
 HDInsight의 클라우드에서 Hadoop을 사용하여 스트리밍 또는 기록 데이터를 분석하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 Hadoop 에코 시스템의 Hadoop, Spark, HBase, Storm 및 다른 기술을 사용하여 클러스터를 만들고 빅 데이터를 처리 및 분석하며 솔루션을 개발하는 방법을 보여 줍니다.
@@ -131,6 +131,24 @@ HDInsight의 클라우드에서 Hadoop을 사용하여 스트리밍 또는 기�
         </div>
         </a>
     </li>
+<li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>HDInsight 개발자 가이드</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
 </ul>
 
@@ -156,7 +174,7 @@ HDInsight의 클라우드에서 Hadoop을 사용하여 스트리밍 또는 기�
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET(Hadoop)</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET(Hadoop)</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET(HBase)</a></p>
                         <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET(Avro)</a></p>
                     </div>
@@ -178,11 +196,5 @@ HDInsight의 클라우드에서 Hadoop을 사용하여 스트리밍 또는 기�
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

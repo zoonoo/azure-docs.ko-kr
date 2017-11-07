@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure 가상 컴퓨터 암호화
 암호화되지 않은 가상 컴퓨터가 있는 경우 Azure 보안 센터에서 알려줍니다. 이러한 경고는 심각도 높다고 표시되며 이러한 가상 컴퓨터를 암호화하도록 권장합니다.
@@ -48,12 +47,12 @@ Azure 보안 센터에 의해 암호화가 필요하다고 식별된 Azure 가�
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
-Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
+Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure 디스크 암호화 필수 구성 요소 구성 스크립트 가져오기 및 실행
 Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가상 컴퓨터를 암호화하는 데 필요한 모든 필수 구성 요소를 설정합니다.
 
-1. [Azure 디스크 암호화 필수 구성 요소 설치 스크립트](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)가 있는 GitHub 페이지로 이동합니다.
+1. [Azure 디스크 암호화 필수 구성 요소 설치 스크립트](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)가 있는 GitHub 페이지로 이동합니다.
 2. GibHub 페이지에서 **원시** 단추를 클릭합니다.
 3. **CTRL-A**를 사용하여 페이지에서 모든 텍스트를 선택한 다음 **CTRL-C**를 사용하여 페이지의 모든 텍스트를 클립보드에 복사합니다.
 4. **메모장** 을 열고 복사한 텍스트를 메모장에 붙여넣습니다.
@@ -179,4 +178,3 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 * [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
-

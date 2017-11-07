@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
 주어진 리소스에 대해 해당 리소스를 배포하기 전에 존재해야 하는 다른 리소스가 있을 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하려면 SQL Server가 있어야 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다. 
@@ -29,7 +28,7 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 ## <a name="dependson"></a>dependsOn
 템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 값은 리소스 이름의 쉼표로 구분된 목록일 수 있습니다. 
 
-다음 예제에서는 부하 분산 장치, 가상 네트워크 및 여러 저장소 계정을 만드는 루프에 종속된 가상 컴퓨터 크기 집합을 보여 줍니다. 이러한 다른 리소스는 다음 예제에 표시되어 있지 않지만 템플릿 내 다른 곳에 존재해야 합니다.
+다음 예제에서는 부하 분산 장치, 가상 네트워크 및 여러 저장소 계정을 만드는 루프에 종속된 가상 컴퓨터 확장 집합을 보여 줍니다. 이러한 다른 리소스는 다음 예제에 표시되어 있지 않지만 템플릿 내 다른 곳에 존재해야 합니다.
 
 ```json
 {
@@ -63,7 +62,7 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 수 있지만 왜 그렇게 하는지에 대한 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. dependsOn을 사용하면 Resource Manager는 종속성이 있는 두 리소스를 병렬로 배포하지 않으므로 배포 시간에 잠재적으로 영향을 줍니다. 리소스 간의 관계를 문서화하려면 [리소스 연결](/rest/api/resources/resourcelinks)을 대신 사용합니다.
 
 ## <a name="child-resources"></a>자식 리소스
-resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는&5;개 수준 깊이까지만 정의할 있습니다. 자식 리소스 및 부모 리소스 간에 암시적 종속성은 생성되지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다. 
+resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 자식 리소스 및 부모 리소스 간에 암시적 종속성은 생성되지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다. 
 
 각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config**와 **Microsoft.Web/sites/extensions**는 둘 다 **Microsoft.Web/sites**의 자식 리소스입니다.
 
@@ -108,7 +107,7 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 ```
 
 ## <a name="reference-function"></a>reference 함수
-[reference 함수](resource-group-template-functions.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. 참조 식은 한 리소스가 다른 리소스에 종속되어 있음을 암시적으로 선언합니다. 일반적인 형식:
+[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. 참조 식은 한 리소스가 다른 리소스에 종속되어 있음을 암시적으로 선언합니다. 일반적인 형식:
 
 ```json
 reference('resourceName').propertyPath
@@ -133,7 +132,7 @@ reference('resourceName').propertyPath
 
 이 요소 또는 dependsOn 요소를 사용하여 종속성을 지정할 수 있지만 같은 종속 리소스에 대해 두 가지를 모두 사용할 필요는 없습니다. 가능하면 불필요한 종속성을 추가하지 않도록 암시적 참조를 사용합니다.
 
-자세한 내용은 [reference 함수](resource-group-template-functions.md#reference)를 참조하세요.
+자세한 내용은 [reference 함수](resource-group-template-functions-resource.md#reference)를 참조하세요.
 
 ## <a name="recommendations-for-setting-dependencies"></a>종속성 설정 권장 사항
 
@@ -153,11 +152,10 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 3. vm1의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm2에서 얻은 값을 vm1에 설정합니다.
 4. vm2의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm1에서 얻은 값을 vm2에 설정합니다.
 
-배포 순서를 평가하고 종속성 오류를 해결하는 방법에 대한 내용은 [배포 시퀀스 확인](resource-manager-common-deployment-errors.md#check-deployment-sequence)을 참조하세요.
+배포 순서를 평가하고 종속성 오류를 해결하는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 * Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 
 * 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-
 

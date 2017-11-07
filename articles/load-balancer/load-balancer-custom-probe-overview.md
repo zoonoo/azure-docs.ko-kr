@@ -3,7 +3,7 @@ title: "부하 분산 장치 사용자 지정 프로브 및 상태 모니터링 
 description: "Azure 부하 분산 장치에 사용자 지정 프로브를 사용하여 부하 분산 장치 뒤의 인스턴스를 모니터링하는 방법을 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>부하 분산 장치 프로브 이해
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 부하 분산 장치는 프로브를 사용하여 서버 인스턴스의 상태를 모니터링하는 기능을 제공합니다. 프로브가 응답하지 않으면 부하 분산 장치에서 비정상 인스턴스에 대한 새 연결 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 새 연결은 정상 인스턴스로 전송됩니다.
 
@@ -94,9 +96,3 @@ TCP 및 HTTP 프로브는 다음과 같은 경우 정상으로 간주되며 역�
 ## <a name="use-log-analytics-for-load-balancer"></a>부하 분산 장치에 대한 로그 분석
 
 [부하 분산 장치에 대한 로그 분석](load-balancer-monitor-log.md) 을 사용하여 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operation Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
-ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
-
-
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지는 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
@@ -28,7 +28,12 @@ ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
 > 
 > 
 
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>라우터 인터페이스의 MTU 및 TCP MSS 설정
+* ExpressRoute 인터페이스에 대한 MTU는 라우터의 이더넷 인터페이스에 대한 일반적인 기본 MTU인 1500입니다. 라우터에 기본적으로 다른 MTU가 있지 않는 한, 라우터 인터페이스에서 값을 지정할 필요가 없습니다.
+* Azure VPN Gateway와는 달리, ExpressRoute 회로용 TCP MSS를 지정할 필요가 없습니다.
+
 아래의 라우터 구성 샘플은 모든 피어링에 적용됩니다. 라우팅에 대한 자세한 내용은 [ExpressRoute 피어링](expressroute-circuit-peerings.md) 및 [ExpressRoute 라우팅 요구 사항](expressroute-routing.md)을 검토하세요.
+
 
 ## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS-XE 기반 라우터
 이 섹션의 샘플은 IOS-XE OS 제품군을 실행하는 모든 라우터에 적용됩니다.
@@ -206,10 +211,4 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

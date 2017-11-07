@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Windows Phone 도달률 Engagement SDK 통합
 이 가이드의 작업을 수행하기 전에 [Windows Phone Silverlight Engagement SDK 통합](mobile-engagement-windows-phone-integrate-engagement.md) 에 설명된 통합 절차를 수행해야 합니다.
@@ -283,5 +282,4 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 [응용 프로그램 정책]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
 

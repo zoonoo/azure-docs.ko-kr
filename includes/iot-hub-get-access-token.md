@@ -5,7 +5,7 @@ Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에
    
     ```
     var authContext = new AuthenticationContext(string.Format  
-      ("https://login.windows.net/{0}", tenantId));
+      ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;
@@ -36,7 +36,3 @@ Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에
     ```
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-
-<!--HONumber=Nov16_HO3-->
-
-

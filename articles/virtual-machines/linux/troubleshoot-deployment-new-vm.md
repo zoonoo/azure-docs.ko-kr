@@ -12,22 +12,25 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7e8e54aad26ddec8be9f6e13931e42f4cc07843f
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 64db243400fed063d1336c448ed6991877cca72d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Azure에서 새 Linux 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## <a name="collect-activity-logs"></a>활동 로그 수집
+## <a name="top-issues"></a>주요 문제
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+VM 배포 문제 및 질문은 [Azure에서 Linux 가상 컴퓨터 배포 문제 해결](troubleshoot-deploy-vm.md)을 참조하세요.
+## <a name="collect-activity-logs"></a>활동 로그 선택
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
 [배포 작업 보기](../../azure-resource-manager/resource-manager-deployment-operations.md)
@@ -85,5 +88,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>다음 단계
 중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
 

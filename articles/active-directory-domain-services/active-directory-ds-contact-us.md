@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services - 문의
 ## <a name="contact-the-product-team"></a>제품팀에 문의
@@ -29,11 +28,10 @@ ms.lasthandoff: 12/29/2016
 
 문제를 조사할 수 있도록 다음 내용이 포함되어야 합니다.
 
-* Azure AD 디렉터리의 **테넌트 ID** . 테넌트 ID는 사용자 디렉터리에 대해 AAD Domain Services를 활성화하는 페이지로 이동할 때 브라우저의 주소 표시줄에서 볼 수 있는 GUID입니다.
+* Azure AD 디렉터리에 대한 **테넌트 ID/디렉터리 ID**. 테넌트 ID는 [디렉터리에 대한 속성 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)의 디렉터리 ID 필드에 표시되는 GUID입니다.
 * AAD 도메인 서비스 관리되는 도메인에 대해 사용자가 구성한 **DNS 도메인 이름** 입니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/)**을 통한 Azure AD 도메인 서비스에 대한 여러분의 피드백을 환영합니다.
 
 문의하시려면 **'AADDS'**라는 단어로 질문 또는 피드백을 시작해 주세요.
-

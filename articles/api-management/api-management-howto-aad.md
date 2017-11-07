@@ -3,7 +3,7 @@ title: "Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 description: "API 관리에서 Azure Active Directory를 사용하여 권한을 부여하는 방법"
 services: api-management
 documentationcenter: API Management
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
-ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
-ms.lasthandoff: 02/24/2017
-
+ms.openlocfilehash: 2e8bc33ddf38657fe2d0d84a7bf64d4177d51572
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
+> [!WARNING]
+> Azure Active Directory 통합은 [개발자 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.
+
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure Active Directory의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여 줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
 
 > 이 가이드의 단계를 완료하려면 먼저 응용 프로그램을 만들 Azure Active Directory가 있어야 합니다.
-> 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -241,5 +243,4 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
 

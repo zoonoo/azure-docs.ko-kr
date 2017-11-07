@@ -1,5 +1,5 @@
 ---
-title: " Azure에서 실행되는 프로세스 서버 관리(Resource Manager) | Microsoft Docs"
+title: " Azure(Resource Manager)에서 실행되는 프로세스 서버 관리 | Microsoft Docs"
 description: "이 문서에서는 Azure에서 장애 복구 프로세스 서버(Resource Manager)를 설정하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -11,16 +11,15 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 2/2/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
-ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Azure에서 실행되는 프로세스 서버 관리(Resource Manager)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
@@ -78,4 +77,3 @@ ms.lasthandoff: 02/22/2017
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>프로세스 서버(Azure에서 실행)를 구성 서버(온-프레미스에서 실행)에 등록 취소
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-

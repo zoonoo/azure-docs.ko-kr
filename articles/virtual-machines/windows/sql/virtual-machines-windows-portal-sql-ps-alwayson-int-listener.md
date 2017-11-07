@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/28/2016
+ms.date: 05/22/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1430807db46326779866f57bca3982e5f9448951
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -29,13 +28,13 @@ ms.lasthandoff: 03/07/2017
 
 가용성 그룹 수신기는 데이터베이스 액세스를 위해 클라이언트에서 연결하는 가상 네트워크 이름입니다. Azure 가상 컴퓨터에서 부하 분산 장치는 수신기에 대한 IP 주소를 보유합니다. 부하 분산 장치는 프로브 포트에서 수신 대기하는 SQL Server의 인스턴스로 트래픽을 라우팅합니다. 일반적으로 가용성 그룹은 내부 부하 분산 장치를 사용합니다. Azure 내부 부하 분산 장치는 하나 이상의 IP 주소를 호스트할 수 있습니다. 각 IP 주소는 특정 프로브 포트를 사용합니다. 이 문서에서는 PowerShell을 사용하여 부하 분산 장치를 만들거나 SQL Server 가용성 그룹에 대한 기존 부하 분산 장치에 IP 주소를 추가하는 방법을 보여 줍니다. 
 
-내부 부하 분산 장치에 여러 IP 주소를 할당하는 기능은 Azure에 새로 추가되었으며 Resource Manager 모델에서만 사용할 수 있습니다. 이 작업을 완료하려면 Resource Manager 모델의 Azure 가상 컴퓨터에 SQL Server 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 컴퓨터는 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) 을 사용하여 Azure Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 포함하는 가용성 그룹을 자동으로 만듭니다. 원하는 경우 [수동으로 AlwaysOn 가용성 그룹을 구성](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)할 수 있습니다.
+내부 부하 분산 장치에 여러 IP 주소를 할당하는 기능은 Azure에 새로 추가되었으며 Resource Manager 모델에서만 사용할 수 있습니다. 이 작업을 완료하려면 Resource Manager 모델의 Azure 가상 컴퓨터에 SQL Server 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 컴퓨터는 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 사용하여 Azure Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 포함하는 가용성 그룹을 자동으로 만듭니다. 원하는 경우 [수동으로 Always On 가용성 그룹을 구성](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)할 수 있습니다.
 
 이 항목을 수행하려면 가용성 그룹이 이미 구성되어 있어야 합니다.  
 
 관련 항목은 다음과 같습니다.
 
-* [Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Azure VM의 Always On 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -91,7 +90,7 @@ $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigur
 foreach($VMName in $VMNames)
     {
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName 
-        $NICName = ($VM.NetworkInterfaceIDs[0].Split('/') | select -last 1)
+        $NICName = ($vm.NetworkProfile.NetworkInterfaces.Id.split('/') | select -last 1)
         $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools = $BEPool
         Set-AzureRmNetworkInterface -NetworkInterface $NIC
@@ -155,99 +154,6 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-
-<!------------------------------- The content below is duplicated. Pointing to the link. Thinking about an include. 
-
-## Configure the cluster to use the load balancer IP address
-The next step is to configure the listener on the cluster, and bring the listener online. To accomplish this, do the following: 
-
-1. Create the availability group listener on the failover cluster  
-2. Bring the listener online
-
-## Create the availability group listener on the failover cluster
-
-The availability group listener is an IP address and network name that the SQL Server availability group listens on. To create the availability group listener, do the following steps:
-
-1. [Get the name of the cluster network resource](#getnet).
-
-1. [Add the client access point](#addcap).
-
-1. [Configure the IP resource for the availability group](#congroup).
-
-1. [Make the availability group resource dependent on the listener resource name](#listname).
-
-1. [Set the cluster parameters in PowerShell](#setparam).
-
-The following sections provide detailed instructions for each of these steps. 
-
-### <a name="getnet">Get the name of the cluster network resource</a> 
-
-1. Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
-
-1. Open Failover Cluster Manager.
-
-1. Select the **Networks** node, and note the cluster network name. Use this name in the `$ClusterNetworkName` variable in the PowerShell script.
-
-### <a name="addcap">Add the client access point</a>
-
-1. Expand the cluster name, and then click **Roles**.
-
-1. In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
-
-1. In the **Name** box, create a name for this new listener. 
-
-   The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
-   
-   To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
-   
-### <a name="congroup">Configure the IP resource for the availability group</a>
-
-1. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
-
-1. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. 
-
-1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
-
-### <a name="listname">Make the availability group resource dependent on the listener resource</a>
-
-1. In Failover Cluster Manager click **Roles** and click your Availability Group. 
-
-1. On the **Resources** tab, right-click the availability resource group and click **Properties**. 
-
-1. Click the **Dependencies** tab. Set a dependency on the listener resource name. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
-
-1. Right-click the listener name and click **Bring Online**. 
-
-### <a name="setparam">Set the cluster parameters in PowerShell</a>
-
-Set the cluster parameters. To do this, update the following PowerShell script. Set the variables with the values for your environment. Run the PowerShell script on one of the cluster nodes.  
-    
-   ```PowerShell
-   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-   $IPResourceName = "<IPResourceName>" # the IP Address resource name
-   $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <nnnnn>
-
-   Import-Module FailoverClusters
-
-   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   ```
-> [!NOTE]
-> If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name, and the cluster IP resource name are the same. 
-
-## Set the listener port in SQL Server Management Studio
-
-1. Launch SQL Server Management Studio and connect to the primary replica.
-
-1. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
-
-1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
-
-1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
-
-You now have a SQL Server availability group in Azure virtual machines running in Resource Manager mode. 
--------------------------------->
-
 ## <a name="set-the-listener-port-in-sql-server-management-studio"></a>SQL Server Management Studio에서 수신기 포트 설정
 
 1. SQL Server Management Studio를 시작하고 주 복제본에 연결합니다.
@@ -279,7 +185,7 @@ You now have a SQL Server availability group in Azure virtual machines running i
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다. 
 
 > [!NOTE]
-> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](http://technet.microsoft.com/library/cc753558.aspx) 을 참조하세요. 
+> 지정한 포트가 두 SQL Server의 방화벽에서 열려 있는지 확인합니다. 두 서버 모두 사용하는 TCP 포트에 대한 인바운드 규칙이 필요합니다. 자세한 내용은 [방화벽 규칙 추가 또는 편집](http://technet.microsoft.com/library/cc753558.aspx)을 참조하세요. 
 > 
 > 
 
@@ -301,4 +207,3 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.
-

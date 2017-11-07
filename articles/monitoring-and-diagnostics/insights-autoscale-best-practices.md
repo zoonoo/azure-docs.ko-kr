@@ -1,8 +1,8 @@
 ---
 title: "자동 크기 조정에 대한 모범 사례 | Microsoft Docs"
-description: "가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스의 크기를 효과적으로 자동 조정하기 위한 원칙을 알아봅니다."
-author: kamathashwin
-manager: carmonm
+description: "Azure에서 웹앱, 가상 컴퓨터 확장 집합 및 Cloud Services에 대한 자동 크기 조정 패턴"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
-
-
+ms.date: 07/07/2017
+ms.author: ancav
+ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="best-practices-autoscaling-virtual"></a>모범 사례 자동 크기 조정 가상
-이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. 이 내용은 가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스와 관련이 있습니다.  다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
+# <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
+이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
 ## <a name="autoscale-concepts"></a>자동 크기 조정 개념
 * 하나의 리소스에는 *하나의* 자동 크기 조정 설정만 있을 수 있습니다.
@@ -46,7 +46,7 @@ ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 이 조합의 한 부분만 사용하는 경우에는 자동 크기 조정에서 최대값 또는 최소값에 도달할 때까지 해당 부분만 규모를 확장하거나 감축합니다.
 
 ### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>자동 크기 조정을 관리할 때 Azure 포털 및 Azure 클래식 포털 간에 전환 금지
-Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 크기 집합의 경우 PowerShellH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
+Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 확장 집합의 경우 PowerShellH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
 진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.
@@ -117,7 +117,7 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 
 마찬가지로, 자동 크기 조정이 다시 기본 프로필로 전환하는 경우에는 먼저 최소값 및 최대값 조건이 충족되는지 확인합니다. 이때 인스턴스 수가 12인 경우 기본 프로필에 허용되는 최대값인 10으로 규모를 감축합니다.
 
-![자동 크기 조정 설정](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![자동 크기 조정 설정](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>하나의 프로필에 여러 규칙이 구성된 경우 크기 조정에 대한 고려 사항
 하나의 프로필에 여러 규칙을 설정해야 할 수 있는 경우가 있습니다. 여러 규칙이 설정된 경우 다음과 같은 자동 크기 조정 규칙 집합이 서비스에서 사용됩니다.
@@ -149,9 +149,9 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 * 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우
 * 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우
   위 조건 외에 성공적인 크기 조정 동작에 대한 알림을 받도록 메일 또는 webhook 알림을 구성할 수 있습니다.
+  
+또한 활동 로그 경고를 사용하여 자동 크기 조정 엔진의 상태를 모니터링할 수도 있습니다. 다음은 [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) 또는 [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert) 예제입니다.
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-
+## <a name="next-steps"></a>다음 단계
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -230,7 +229,7 @@ Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e8
 
 ```powershell
 
-$ResouceGroup = "chackowestuskv"
+$ResourceGroup = "chackowestuskv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
 $locationRegion = "westus"
@@ -238,7 +237,7 @@ $newCertName = "chackotestcertificate1"
 $dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
 
@@ -345,8 +344,8 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ### <a name="add-certificates"></a>인증서 추가
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 파일에 Key Vault 값을 두는 것이 좋습니다. 이렇게 하면 Resource Manager 템플릿을 계속 재사용할 수 있고 배포에 특정한 값이 없게 됩니다.
 
-#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 크기 집합 osProfile에 모든 인증서 추가
-클러스터에 설치된 모든 인증서는 크기 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
+#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 확장 집합 osProfile에 모든 인증서 추가
+클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
 
 ```json
 {
@@ -381,9 +380,9 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 ```
 
 #### <a name="configure-the-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서 구성
-또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 크기 집합 리소스의 가상 컴퓨터 크기 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
+또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 확장 집합 리소스의 가상 컴퓨터 확장 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
 
-##### <a name="virtual-machine-scale-set-resource"></a>가상 컴퓨터 크기 집합 리소스:
+##### <a name="virtual-machine-scale-set-resource"></a>가상 컴퓨터 확장 집합 리소스:
 ```json
 {
   "apiVersion": "2016-03-30",
@@ -460,7 +459,8 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
+### <a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
+<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
 마지막으로, Key Vault 및 Azure AD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
 ```json
@@ -555,7 +555,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 >
 >
 
- <a name="secure-linux-cluster"></a>
+ <a name="secure-linux-clusters"></a>
+ <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
 ## <a name="create-secure-clusters-on-linux"></a>Linux에서 보안 클러스터 만들기
 작업 편의를 위해 [도우미 스크립트](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux)가 제공됩니다. 이 도우미 스크립트를 사용하기 전에 먼저 Azure CLI(명령줄 인터페이스)를 설치했으며 해당 경로에 있는지 확인합니다. 다운로드한 후 `chmod +x cert_helper.py` 를 실행하여 스크립트에 실행할 권한이 있는지 확인합니다. 첫 번째 단계에서는 `azure login` 명령으로 CLI를 사용하여 Azure 계정에 로그인합니다. Azure 계정에 로그인한 후 다음 명령에 표시된 것처럼 CA 서명된 인증서로 도우미 스크립트를 사용합니다.
@@ -568,7 +569,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 -h 매개 변수는 도움말 텍스트를 인쇄합니다.
 
 
-이 명령은 출력으로 다음&3;개의 문자열을 반환합니다.
+이 명령은 출력으로 다음 3개의 문자열을 반환합니다.
 
 * SourceVaultID - 사용자를 위해 생성된 새로운 KeyVault ResourceGroup의 ID 
 * 인증서에 액세스하기 위한 CertificateUrl
@@ -579,7 +580,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 ```sh
 ./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
 ```
-위의 명령을 실행하면 다음과 같이&3;가지 문자열이 표시됩니다.
+위의 명령을 실행하면 다음과 같이 3가지 문자열이 표시됩니다.
 
 ```sh
 SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
@@ -589,14 +590,14 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 인증서의 주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-이 주체 이름은 [Resource Manager 템플릿 매개 변수 구성](#configure-arm)에 설명된 대로 보안 Service Fabric 클러스터(Azure AD 없음)를 만드는 데 필요한 항목입니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다. Linux 미리 보기 클러스터에서는 Azure AD 인증을 지원하지 않습니다. [사용자에게 역할 할당](#assign-roles) 섹션에 설명된 대로 관리 및 클라이언트 역할을 할당할 수 있습니다. Linux 미리 보기 클러스터에 대해 관리자 및 클라이언트 역할을 지정할 때는 인증에 대한 인증서 지문을 제공해야 합니다. 이 미리 보기 릴리스에서는 체인 유효성 검사나 해지가 수행되지 않으므로 주체 이름은 제공하지 않습니다.
+이 주체 이름은 [Resource Manager 템플릿 매개 변수 구성](#configure-arm)에 설명된 대로 보안 Service Fabric 클러스터(Azure AD 없음)를 만드는 데 필요한 항목입니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다. Linux 클러스터는 Azure AD 인증을 지원하지 않습니다. [사용자에게 역할 할당](#assign-roles) 섹션에 설명된 대로 관리 및 클라이언트 역할을 할당할 수 있습니다. Linux 클러스터에 대해 관리자 및 클라이언트 역할을 지정할 때는 인증에 대한 인증서 지문을 제공해야 합니다. 체인 유효성 검사나 해지가 수행되지 않으므로 주체 이름은 제공하지 않습니다.
 
 자체 서명 인증서를 테스트에 사용하려는 경우 같은 스크립트를 사용하여 생성할 수 있습니다. 그런 다음 인증서 경로와 인증서 이름 대신 `ss` 플래그를 제공하여 Key Vault에 해당 인증서를 업로드할 수 있습니다. 예를 들어 자체 서명된 인증서를 만들고 업로드하는 다음 명령을 참조하세요.
 
 ```sh
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net"
 ```
-이 명령은 동일한&3;개의 문자열 SourceVault, CertificateUrl 및 CertificateThumbprint를 반환합니다. 그런 다음 문자열을 사용하여 보안 Linux 클러스터와, 자체 서명 인증서가 있는 위치를 모두 만들 수 있습니다. 클러스터에 연결하려면 자체 서명 인증서가 필요합니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다.
+이 명령은 동일한 3개의 문자열 SourceVault, CertificateUrl 및 CertificateThumbprint를 반환합니다. 그런 다음 문자열을 사용하여 보안 Linux 클러스터와, 자체 서명 인증서가 있는 위치를 모두 만들 수 있습니다. 클러스터에 연결하려면 자체 서명 인증서가 필요합니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다.
 
 인증서의 주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 

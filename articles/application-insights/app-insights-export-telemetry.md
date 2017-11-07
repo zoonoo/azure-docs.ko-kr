@@ -3,8 +3,8 @@ title: "Application Insights에서 원격 분석 연속 내보내기 | Microsoft
 description: "Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
-ms.lasthandoff: 04/12/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -42,12 +41,12 @@ ms.lasthandoff: 04/12/2017
 
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
-3. 데이터를 저장할 [Azure Storage 계정](../storage/storage-introduction.md)을 만들거나 선택합니다.
+3. 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-introduction.md)을 만들거나 선택합니다.
 
     > [!Warning]
     > 기본적으로 저장소 위치는 Application Insights 리소스와 동일한 지역으로 설정됩니다. 다른 지역에 저장하는 경우 전송 요금이 발생할 수 있습니다.
 
-    ![추가, 내보내기 대상, 저장소 계정을 클릭한 다음 새 저장소를 만들거나 기존 저장소 선택](./media/app-insights-export-telemetry/02-add.png)
+    ![추가, 내보내기 대상, Storage 계정을 클릭한 다음 새 저장소를 만들거나 기존 저장소 선택](./media/app-insights-export-telemetry/02-add.png)
 
 4. 저장소에서 컨테이너를 만들거나 선택합니다.
 
@@ -199,4 +198,3 @@ Where
 
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-

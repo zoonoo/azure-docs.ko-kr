@@ -3,7 +3,7 @@ title: "Azure API 관리로 고급 요청 제한"
 description: "Azure API 관리로 유연한 할당량 및 속도 제한 정책을 만들고 적용하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5078b34f74efd5d394587d8ace7f339ecedb5e
-
-
+ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Azure API 관리로 고급 요청 제한
 들어오는 요청을 제한하는 것은 Azure API 관리의 중요한 역할입니다. Azure API 관리는 요청 속도 또는 전송된 총 요청/데이터를 제어하여 API 공급자가 자신의 API가 남용되지 않도록 보호하고 다양한 API 제품 계층에 대해 가치를 창출할 수 있도록 합니다.
@@ -82,10 +82,4 @@ Azure API 관리에서는 속도 및 할당량 제한을 제공하여 API 서비
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -483,8 +483,3 @@ SetAzureVMLogCollector.ps1
 ## <a name="next-steps"></a>다음 단계
 이제 매우 간단한 위치에서 로그를 검사하거나 복사할 수 있습니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2017
+ms.date: 06/07/2017
 ms.author: motanv
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
-
-
+ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testability-scenarios"></a>테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. Azure 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
 
 비정상 상황 테스트에서는 지정된 기간 동안 오류 및 클러스터 유효성 검사를 여러 차례 반복해서 실행합니다. 클러스터가 안정화되고 유효성 검사가 성공하는 데 걸리는 시간도 구성할 수 있습니다. 클러스터 유효성 검사에서 단일 오류가 발생하면 시나리오가 실패합니다.
 
-예를 들어&1;시간 동안 실행되고 최대 세 가지 오류가 동시에 발생하도록 설정된 테스트를 생각해 보세요. 이 테스트에서는 세 가지 오류를 유도한 후 클러스터 상태를 확인합니다. 클러스터가 비정상 상태가 되거나&1;시간이 지날 때까지 이전 단계가 반복됩니다. 구성된 시간 내에 클러스터가 안정화되지 못한 경우처럼 반복 과정 중에 클러스터가 비정상 상태가 되면 예외와 함께 테스트가 실패합니다. 이 예외는 뭔가가 잘못되었으며 자세한 조사가 필요함을 나타냅니다.
+예를 들어 1시간 동안 실행되고 최대 세 가지 오류가 동시에 발생하도록 설정된 테스트를 생각해 보세요. 이 테스트에서는 세 가지 오류를 유도한 후 클러스터 상태를 확인합니다. 클러스터가 비정상 상태가 되거나 1시간이 지날 때까지 이전 단계가 반복됩니다. 구성된 시간 내에 클러스터가 안정화되지 못한 경우처럼 반복 과정 중에 클러스터가 비정상 상태가 되면 예외와 함께 테스트가 실패합니다. 이 예외는 뭔가가 잘못되었으며 자세한 조사가 필요함을 나타냅니다.
 
 현재 상태에서는 비정상 상황 테스트의 오류 생성 엔진이 안전 오류만 유도합니다. 다시 말해서 외부 오류가 없으면 쿼럼 또는 데이터 손실이 절대 발생하지 않습니다.
 
@@ -253,9 +253,3 @@ Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

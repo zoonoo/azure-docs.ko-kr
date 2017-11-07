@@ -1,54 +1,143 @@
 ---
 title: "Azure Virtual Network(클래식) 구성 - 네트워크 구성 파일 | Microsoft Docs"
-description: "Azure Portal(클래식)을 사용하여 네트워크 구성 파일을 내보내고, 변경하고, 가져와서 가상 네트워크(클래식)를 수정하는 방법을 알아봅니다."
+description: "네트워크 구성 파일을 내보내고, 변경하며, 가져와서 가상 네트워크(클래식)를 만들고 수정하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: 
 author: jimdial
 manager: timlt
-editor: tysonn
+editor: 
+tags: azure-service-management
 ms.assetid: c29b9059-22b0-444e-bbfe-3e35f83cde2f
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 06/23/2017
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 3827dc0958c51fa0c4ecb1a2e8e3b7bbed42a75a
-ms.lasthandoff: 02/28/2017
-
-
+ms.custom: 
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
-Azure Portal(클래식)을 사용하거나 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)를 구성할 수 있습니다. 네트워크 구성 파일을 사용하여 Azure Resource Manager 배포 모델을 통해 가상 네트워크를 만들거나 수정할 수는 없습니다. Azure Portal을 사용하여 가상 네트워크(클래식)를 만들거나 수정할 수도 없습니다.
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
 
-## <a name="creating-and-modifying-a-network-configuration-file"></a>네트워크 구성 파일 만들기 및 수정
-네트워크 구성 파일을 작성하는 가장 간단한 방법은 기존 가상 네트워크(클래식) 구성에서 네트워크 설정을 내보낸 다음 가상 네트워크에 대해 구성할 설정을 포함하도록 파일을 수정하는 것입니다.
+Azure CLI(명령줄 인터페이스) 1.0 또는 Azure PowerShell을 사용하여 네트워크 구성 파일이 있는 가상 네트워크(클래식)를 만들고 구성할 수 있습니다. 네트워크 구성 파일을 사용하여 Azure Resource Manager 배포 모델을 통해 가상 네트워크를 만들거나 수정할 수는 없습니다. 네트워크 구성 파일을 사용하여 가상 네트워크(클래식)를 만들거나 수정하는 데는 Azure Portal을 사용할 수 없지만 네트워크 구성 파일을 사용하지 않고 가상 네트워크(클래식)를 만드는 데는 Azure Portal을 사용할 수 있습니다.
 
-네트워크 구성 파일을 편집하려면 파일을 열고 적절히 변경한 다음 저장하면 됩니다. *xml* 편집기를 사용하여 네트워크 구성 파일을 변경할 수 있습니다. 
+네트워크 구성 파일을 사용하여 가상 네트워크(클래식)을 만들고 구성하려면 파일을 내보내기, 변경 및 가져오기 해야 합니다.
 
-[네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx)에 대한 지침을 엄격히 준수해야 합니다. 
+## <a name="export"></a>네트워크 구성 파일 내보내기
 
-Azure에서는 배포된 항목이 있는 서브넷을 **사용 중**인 것으로 간주합니다. 사용 중인 서브넷은 수정할 수 없습니다. 수정하기 전에 서브넷에 배포한 항목을 수정 중이지 않은 다른 서브넷으로 이동하세요.   [다른 서브넷으로 VM 또는 역할 인스턴스 이동](virtual-networks-move-vm-role-to-subnet.md)을 참조하세요.
+PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보낼 수 있습니다. PowerShell은 XML 파일을 내보내는 반면 Azure CLI는 json 파일을 내보냅니다.
 
-## <a name="export-and-import-virtual-network-settings-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 가상 네트워크 설정 내보내기 및 가져오기
-PowerShell 또는 관리 포털을 사용하여 네트워크 구성 파일에 포함된 내보내기 네트워크 구성 설정을 가져올 수 있습니다. 다음은 관리 포털을 사용하여 내보내고 가져오는 데 유용한 지침입니다. 
+### <a name="powershell"></a>PowerShell
+ 
+1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. 다음 명령에서 디렉터리(있는지 확인) 및 파일 이름을 원하는 대로 변경한 후 명령을 실행하여 네트워크 구성 파일을 내보냅니다.
 
-### <a name="to-export-your-network-settings"></a>네트워크 설정을 내보내려면
-내보내면 구독의 가상 네트워크에 대한 모든 설정이 .xml 파일에 기록됩니다. 
+    ```powershell
+    Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
+    ```
 
-1. [Azure Portal(클래식)](https://manage.windowsazure.com/)에 로그인합니다.
-2. 포털의 **네트워크** 페이지 맨 아래에서 **내보내기**를 클릭합니다. 
-3. **네트워크 구성 내보내기** 창에서 네트워크 설정을 내보낼 구독을 선택했는지 확인합니다. 그런 다음 오른쪽 아래에 있는 확인 표시를 클릭합니다. 
-4. 메시지가 표시되면 *NetworkConfig.xml* 파일을 선택한 위치에 저장합니다.
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 
-### <a name="to-import-your-network-settings"></a>네트워크 설정을 가져오려면
-1. 포털의 왼쪽 아래에 있는 탐색 창에서 **새로 만들기**를 클릭합니다.
-2. **Network Services** -> **Virtual Network** -> **구성 가져오기**를 클릭합니다.
-3. **네트워크 구성 파일 가져오기** 페이지에서 네트워크 구성 파일을 찾은 후 **다음** 화살표를 클릭합니다.
-4. **네트워크 빌드** 페이지의 화면에 변경하거나 만들 네트워크 구성 섹션을 보여 주는 정보가 표시됩니다. 변경 사항이 올바른 경우 확인 표시를 클릭하여 가상 네트워크 업데이트 또는 만들기를 계속 진행합니다. 
+1. [Azure CLI 1.0 설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 명령 프롬프트에서 나머지 단계를 완료 합니다.
+2. `azure login` 명령을 입력하여 Azure에 로그인합니다.
+3. `azure config mode asm` 명령을 입력하여 asm 모드에 있는지 확인합니다.
+4. 다음 명령에서 디렉터리(있는지 확인) 및 파일 이름을 원하는 대로 변경한 후 명령을 실행하여 네트워크 구성 파일을 내보냅니다.
+    
+    ```azurecli
+    azure network export c:\azure\networkconfig.json
+    ```
 
+## <a name="create-or-modify-a-network-configuration-file"></a>네트워크 구성 파일 만들기 또는 수정
 
+네트워크 구성 파일은 XML 파일(PowerShell 사용) 또는 json 파일(Azure CLI 사용)입니다. 모든 텍스트 또는 XML/json 편집기에서 파일을 편집할 수 있습니다. [네트워크 구성 파일 스키마 설정](https://msdn.microsoft.com/library/azure/jj157100.aspx) 문서에는 모든 설정에 대한 세부 정보가 포함됩니다. 설정에 대한 추가 설명은 [가상 네트워크 및 설정 보기](virtual-network-manage-network.md#view-vnet)를 참조하세요. 파일에 대한 변경 내용:
+
+- 스키마를 준수해야 하며 그렇지 않은 경우 네트워크 구성 파일 가져오기가 실패합니다.
+- 구독에 대한 모든 기존 네트워크 설정을 덮어쓰므로 수정할 때는 특히 주의하세요. 예를 들어, 다음에 나오는 네트워크 구성 파일 예를 참조하세요. 원본 파일에 두 **VirtualNetworkSite** 인스턴스가 포함되어 있고 예제와 같이 변경했다고 가정하겠습니다. 파일을 가져올 때 Azure는 파일에서 제거한 **VirtualNetworkSite** 인스턴스에 대한 가상 네트워크를 삭제합니다. 이 단순한 시나리오에서는 가상 네트워크에 리소스가 없다고 가정하고 가상 네트워크를 삭제할 수 없는 것처럼 가져오기가 실패합니다.
+
+> [!IMPORTANT]
+> Azure에서는 배포된 항목이 있는 서브넷을 **사용 중**인 것으로 간주합니다. 사용 중인 서브넷은 수정할 수 없습니다. 네트워크 구성 파일에서 서브넷 정보를 수정하기 전에 서브넷에 배포한 항목을 수정 중이지 않은 다른 서브넷으로 이동하세요. 자세한 내용은 [다른 서브넷으로 VM 또는 역할 인스턴스 이동](virtual-networks-move-vm-role-to-subnet.md)을 참조하세요.
+
+### <a name="example-xml-for-use-with-powershell"></a>PowerShell과 함께 사용할 XML 예제
+
+다음 네트워크 구성 파일 예제는 *미국 동부* Azure 지역에 주소 공간이 *10.0.0.0/16*이고 가상 네트워크 이름이 *myVirtualNetwork*인 가상 네트워크를 만듭니다. 가상 네트워크는 주소 접두사가 *10.0.0.0/24*인 *mySubnet*이라는 하나의 서브넷을 포함합니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+  <VirtualNetworkConfiguration>
+    <Dns />
+    <VirtualNetworkSites>
+      <VirtualNetworkSite name="myVirtualNetwork" Location="East US">
+        <AddressSpace>
+          <AddressPrefix>10.0.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <Subnets>
+          <Subnet name="mySubnet">
+            <AddressPrefix>10.0.0.0/24</AddressPrefix>
+          </Subnet>
+        </Subnets>
+      </VirtualNetworkSite>
+    </VirtualNetworkSites>
+  </VirtualNetworkConfiguration>
+</NetworkConfiguration>
+```
+
+내보낸 네트워크 구성 파일에 내용이 없는 경우 이전 예제에서 XML을 복사하여 새 파일에 붙여넣을 수 있습니다.
+
+### <a name="example-json-for-use-with-the-azure-cli-10"></a>Azure CLI 1.0과 함께 사용할 JSON 예제
+
+다음 네트워크 구성 파일 예제는 *미국 동부* Azure 지역에 주소 공간이 *10.0.0.0/16*이고 가상 네트워크 이름이 *myVirtualNetwork*인 가상 네트워크를 만듭니다. 가상 네트워크는 주소 접두사가 *10.0.0.0/24*인 *mySubnet*이라는 하나의 서브넷을 포함합니다.
+
+```json
+{
+   "VirtualNetworkConfiguration" : {
+      "Dns" : "",
+      "VirtualNetworkSites" : [
+         {
+            "AddressSpace" : [ "10.0.0.0/16" ],
+            "Location" : "East US",
+            "Name" : "myVirtualNetwork",
+            "Subnets" : [
+               {
+                  "AddressPrefix" : "10.0.0.0/24",
+                  "Name" : "mySubnet"
+               }
+            ]
+         }
+      ]
+   }
+}
+```
+
+내보낸 네트워크 구성 파일에 내용이 없는 경우 이전 예제에서 json을 복사하여 새 파일에 붙여넣을 수 있습니다.
+
+## <a name="import"></a>네트워크 구성 파일 가져오기
+
+PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 가져올 수 있습니다. PowerShell은 XML 파일을 가져오는 반면 Azure CLI는 json 파일을 가져옵니다. 가져오기가 실패하는 경우 파일이 [네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 준수하는지 확인합니다. 
+
+### <a name="powershell"></a>PowerShell
+ 
+1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.
+ 
+    ```powershell
+    Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
+    ```
+
+### <a name="azure-cli-10"></a>Azure CLI 1.0
+
+1. [Azure CLI 1.0 설치](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 명령 프롬프트에서 나머지 단계를 완료 합니다.
+2. `azure login` 명령을 입력하여 Azure에 로그인합니다.
+3. `azure config mode asm` 명령을 입력하여 asm 모드에 있는지 확인합니다.
+4. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.
+
+    ```azurecli
+    azure network import c:\azure\networkconfig.json
+    ```

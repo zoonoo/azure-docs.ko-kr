@@ -7,8 +7,3 @@
     ![iSCSI 초기자 속성](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. 이 문자열을 저장합니다.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

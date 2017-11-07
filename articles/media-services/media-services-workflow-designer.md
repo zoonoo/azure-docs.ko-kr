@@ -4,7 +4,7 @@ description: "워크플로 디자이너와 고급 인코딩 워크플로를 만�
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
-
-
+ms.openlocfilehash: ef277710713d342eb9aaaf119e2985e8c1d82d0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 인코딩 워크플로 만들기
 ## <a name="overview"></a>개요
@@ -41,7 +41,7 @@ ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 워크플로 파일을 만든 후 이를 자산으로 업로드한 다음 미디어 파일을 인코딩하는 데 사용할 수 있습니다. **.NET**을 사용하여 **미디어 인코더 Premium 워크플로**에서 인코딩하는 방법에 대한 자세한 내용은 [미디어 인코더 Premium 워크플로 사용하여 고급 인코딩](media-services-encode-with-premium-workflow.md)을 참조하세요.
 
-## <a name="a-idexistingworkflowsamodify-existing-workflows"></a><a id="existing_workflows"></a>기존 워크플로 수정
+## <a id="existing_workflows"></a>기존 워크플로 수정
 디자이너 도구를 사용하여 기본 [게시 워크플로](media-services-workflow-designer.md#existing_workflows) 를 수정할 수 있습니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
 다음 비디오에서는 디자이너를 사용하는 방법을 보여줍니다.
@@ -91,10 +91,4 @@ ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 ## <a name="see-also"></a>참고 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

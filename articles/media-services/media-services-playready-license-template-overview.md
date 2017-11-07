@@ -2,7 +2,7 @@
 title: "Media Services PlayReady 라이선스 템플릿 개요"
 description: "이 토픽에서는 PlayReady 라이선스를 구성하는 데 사용되는 PlayReady 라이선스 템플릿에 대해 간략히 설명합니다."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: be19f616e36916655390cd05e738e93c08dcdf68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
 Azure 미디어 서비스는 현재 Microsoft PlayReady 라이선스를 배달하는 서비스를 제공합니다. 최종 사용자 플레이어(예: Silverlight)가 PlayReady로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용할 수 있는 라이선스가 발급됩니다.
@@ -60,7 +59,7 @@ XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayRe
 
 .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 종단 간 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](media-services-protect-with-drm.md)을 참조하세요.
 
-## <a name="a-idclassesamedia-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 미디어 서비스 .NET 클래스
+## <a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 미디어 서비스 .NET 클래스
 미디어 서비스 PlayReady 라이선스 템플릿을 구성하는 데 사용되는 기본 .NET 클래스는 다음과 같습니다. 이들 클래스는 [PlayReady 라이선스 템플릿 XML 스키마](media-services-playready-license-template-overview.md#schema)에 정의된 유형에 매핑됩니다.
 
 [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 클래스는 미디어 서비스 라이선스 템플릿 XML에 대해 serialize 및 deserialize하는 데 사용됩니다.
@@ -73,7 +72,7 @@ XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayRe
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - 이 클래스는 최종 사용자에게 반환될 PlayReady 라이선스를 만들기 위한 라이선스 템플릿을 나타냅니다. 이 클래스는 라이선스의 콘텐츠 키 데이터 및 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용될 모든 권한이나 제한 사항을 포함합니다.
 
-### <a name="a-idplayreadyplayrightaplayreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 0개 이상의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight에 대한 대부분 정책은 특정 출력을 사용할 때 적용되어야 하는 제한 사항과 콘텐츠가 재생될 수 있는 출력 유형을 제어하는 출력 제한 사항과 관련이 있습니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되면 DRM 런타임에서는 디지털 출력을 통해 비디오가 재생되도록 허용합니다(아날로그 비디오 출력은 콘텐츠를 전달하도록 허용되지 않음).
 
 > [!IMPORTANT]
@@ -83,7 +82,7 @@ XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayRe
 
 Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 Silverlight 지원](http://go.microsoft.com/fwlink/?LinkId=617318)을 참조하세요.
 
-## <a name="a-idschemaaplayready-license-template-xml-schema"></a><a id="schema"></a>PlayReady 라이선스 템플릿 XML 스키마
+## <a id="schema"></a>PlayReady 라이선스 템플릿 XML 스키마
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -312,5 +311,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

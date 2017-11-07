@@ -12,14 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
-ms.lasthandoff: 03/10/2017
-
-
+ms.date: 06/08/2017
+ms.author: LADocs; mandia
+ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>논리 앱과 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -39,9 +38,9 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 ## <a name="create-an-as2-agreement"></a>AS2 규약 만들기
 
-1.    [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다.  
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다.  
 
-2.    왼쪽 메뉴에서 **추가 서비스**를 클릭합니다. 검색 상자에서 필터에 **통합**을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
+2.  왼쪽 메뉴에서 **추가 서비스**를 클릭합니다. 검색 상자에서 필터에 **통합**을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.
 
     > [!TIP]
     > **추가 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
@@ -49,7 +48,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
     ![추가 서비스, "통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
 3. 열린 **통합 계정** 블레이드에서 규약을 만들려는 통합 계정을 선택합니다.
-통합 계정이 표시되지 않으면 (../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보")를 [먼저 만듭니다].  
+통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보") 를.  
 
     ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
@@ -80,7 +79,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **수신 설정**을 선택합니다.
+1.  **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
     !["수신 설정" 구성](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
@@ -89,7 +88,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 3. 들어오는 모든 메시지를 서명하도록 요구하려면 **메시지 서명 필요**를 선택합니다. [인증서](../logic-apps/logic-apps-enterprise-integration-certificates.md) 목록에서 기존 **게스트 파트너 공용 인증서**를 선택하여 메시지에 대한 서명의 유효성을 검사합니다. 또는 인증서가 하나도 없는 경우 인증서를 만듭니다.
 
-4.    들어오는 모든 메시지를 암호화하도록 요구하려면 **메시지 암호화 필요**를 선택합니다. **인증서** 목록에서 기존 [호스트 파트너 개인 인증서](../logic-apps/logic-apps-enterprise-integration-certificates.md)를 선택하여 들어오는 메시지를 암호 해독합니다. 또는 인증서가 하나도 없는 경우 인증서를 만듭니다.
+4.  들어오는 모든 메시지를 암호화하도록 요구하려면 **메시지 암호화 필요**를 선택합니다. **인증서** 목록에서 기존 [호스트 파트너 개인 인증서](../logic-apps/logic-apps-enterprise-integration-certificates.md)를 선택하여 들어오는 메시지를 암호 해독합니다. 또는 인증서가 하나도 없는 경우 인증서를 만듭니다.
 
 5. 메시지를 압축하도록 요구하려면 **메시지 압축 필요**를 선택합니다.
 
@@ -120,10 +119,10 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 이 규약이 규약을 통해 파트너에게 보내는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **송신 설정**을 선택합니다.
+1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    !["설정 보내기" 속성 설정](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+    !["설정 보내기" 속성 설정](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
 
 2. 파트너에게 서명된 메시지를 보내려면 **메시지 서명 사용**을 선택합니다. 메시지에 서명하려면 **MIC Algorithm** 목록에서 *호스트 파트너 개인 인증서 MIC 알고리즘*을 선택합니다. 그리고 **인증서** 목록에서 기존 [호스트 파트너 개인 인증서](../logic-apps/logic-apps-enterprise-integration-certificates.md)를 선택합니다.
 
@@ -140,9 +139,11 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 8. 보낸 메시지에 대한 동기 MDN을 받으려면 **비동기 MDN 요청**을 선택합니다. 이 옵션을 선택하면 MDN을 보낼 URL을 입력합니다.
 
-9. NRR(수신 거부 없음)을 요구하려면 **NRR 사용**을 선택합니다.
+9. NRR(수신 거부 없음)을 요구하려면 **NRR 사용**을 선택합니다.  
 
-10. 작업을 마친 후에 **확인**을 선택하여 설정을 저장해야 합니다.
+10. MIC에서 사용할 알고리즘 형식을 지정하거나 AS2 메시지 또는 MDN의 나가는 헤더에서 서명하려면 **SHA2 알고리즘 형식**을 선택합니다.  
+
+11. 작업을 마친 후에 **확인**을 선택하여 설정을 저장해야 합니다.
 
 이제 규약은 선택한 설정에 맞는 보내는 메시지를 처리할 준비가 되었습니다.
 
@@ -161,17 +162,20 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 | 비동기 MDN 요청 |이 규약으로 비동기 MDN을 보내도록 요구합니다. |
 | URL |MDN을 보낼 URL을 지정합니다. |
 | NRR 사용 |지정된 대로 데이터를 받았다는 증명 정보를 제공하는 통신 특성인 NRR(수신 거부 없음)을 요구합니다. |
+| SHA2 알고리즘 형식 |MIC에서 사용할 알고리즘 형식을 선택하거나 AS2 메시지 또는 MDN의 나가는 헤더에 서명합니다. |
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.    모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.    또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
+2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
 
     ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/as2/)를 참조하세요. 
+
 ## <a name="next-steps"></a>다음 단계
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-

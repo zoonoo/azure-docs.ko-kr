@@ -8,18 +8,18 @@ author: ddove
 editor: 
 ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
-
-
+ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 [Elastic Database 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)는 세 가지 다른 종류의 자격 증명을 사용하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 액세스합니다. 필요에 따라서 가능한 한 액세스 수준이 가장 낮은 자격 증명을 사용합니다.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-"username@server"—instead 형태의 값을 사용하지 말고, "username" 값을 사용합니다.  자격 증명은 분할된 데이터베이스 맵 관리자 데이터베이스와 각기 다른 서버에 있을 수 있는 개별 분할된 데이터베이스에 대해 모두 작동해야 하기 때문입니다.
+username@server 형태의 값을 사용하지 말고, "username" 값을 사용합니다.  자격 증명은 분할된 데이터베이스 맵 관리자 데이터베이스와 각기 다른 서버에 있을 수 있는 개별 분할된 데이터베이스에 대해 모두 작동해야 하기 때문입니다.
 
 ## <a name="access-credentials"></a>액세스 자격 증명
 분할된 데이터베이스 맵을 관리하지 않는 응용 프로그램에 분할된 데이터베이스 맵 관리자를 만드는 경우, 글로벌 분할된 데이터베이스 맵에 대해 읽기 전용 권한이 있는 자격 증명을 사용합니다. 이러한 자격 증명으로 글로벌 분할된 데이터베이스 맵에서 검색한 정보는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 에 사용되며, 클라이언트의 분할된 데이터베이스 맵 캐시를 채우는 데에도 사용됩니다. 자격 증명은 위에 표시된 것처럼 **GetSqlShardMapManager** 에 대한 동일한 호출 패턴을 통해 제공됩니다. 
@@ -66,7 +66,7 @@ ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-관리 자격 증명과 마찬가지로 "username@server" 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다. 
+관리 자격 증명과 마찬가지로 “username@server” 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다. 
 
 ## <a name="see-also"></a>참고 항목
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
@@ -76,10 +76,4 @@ ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

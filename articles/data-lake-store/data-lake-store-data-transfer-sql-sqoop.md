@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7f165111cd089d5f32f309235dcbc24d11fb5d64
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용하여 Data Lake 저장소와 Azure SQL 데이터베이스 간에 데이터 복사
 Apache Sqoop를 사용하여 Azure SQL 데이터베이스와 Data Lake 저장소 간에 데이터를 가져오고 내보내는 방법을 알아봅니다.
@@ -109,7 +108,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    각 **part-m-***파일은**Table1**원본 테이블의 행에 해당합니다. 확인할 part-m-* 파일의 내용을 볼 수 있습니다.
+    각 **part-m-*** 파일은 **Table1** 원본 테이블의 행에 해당합니다. 확인할 part-m-* 파일의 내용을 볼 수 있습니다.
 
 
 ### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Data Lake 저장소에서 Azure SQL 데이터베이스로 데이터 내보내기
@@ -144,4 +143,3 @@ Data Lake 저장소에 데이터를 복사하기 위한 Sqoop 작업을 조정�
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-

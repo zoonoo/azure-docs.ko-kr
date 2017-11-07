@@ -6,6 +6,10 @@
 ## [성능 개선을 위해 캐싱 추가](api-management-howto-cache.md)
 ## [질문과 대답](api-management-faq.md)
 # 방법
+## APIM 서비스 설정
+### [APIM 인스턴스 만들기](get-started-create-service-instance.md)
+### [업그레이드 및 비율 크기 조정](upgrade-and-scale.md)
+### [사용자 지정 도메인 구성](configure-custom-domain.md)
 ## API 개발
 ### [API 제품 추가 및 게시](api-management-howto-add-products.md)
 ### [작업 추가](api-management-howto-add-operations.md)
@@ -46,8 +50,13 @@
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
 ### [Azure Monitor를 사용한 모니터링](api-management-howto-use-azure-monitor.md)
 ### [역할 기반 액세스 제어 사용](api-management-role-based-access-control.md)
+### [관리되는 서비스 ID 사용](api-management-howto-use-managed-service-identity.md)
+### Service Fabric과 통합
+#### [개요](../service-fabric/service-fabric-api-management-overview.md)
+#### [빠른 시작](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST (영문)](/rest/api/apimanagement/)
 ## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [정책](api-management-policies.md)
@@ -72,18 +81,20 @@
 ### [페이지 컨트롤](api-management-page-controls.md)
 ### [템플릿 리소스](api-management-template-resources.md)
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/api-management/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-management)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=api-management)
-## [백서: 클라우드 기반 API Management](http://j.mp/ms-apim-whitepaper)
 ## [API 디자인 지침](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API 구현 지침](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [HTTP를 통해 SOAP WCF 서비스 사용](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-## [API Management에 Event Hubs 연결](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management - 다른 Azure 서비스에서 잘 작동](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-## [REST API를 사용하여 RBAC 유사 액세스 제공](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [API Management API를 호출하는 PostMan 설정](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [SmartBear Ready용 API Management 플러그 인! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [API Management에 Event Hubs 연결](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [HTTP를 통해 SOAP WCF 서비스 사용](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [가격](https://azure.microsoft.com/pricing/details/api-management/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+## [REST API를 사용하여 RBAC 유사 액세스 제공](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=api-management)
+## [API Management API를 호출하는 PostMan 설정](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [백서: 클라우드 기반 API Management](http://j.mp/ms-apim-whitepaper)
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
-ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -74,7 +74,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
   
   * 코어 4개 이상
-  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개의 파일을 지원합니다. 2백-4백만 개의 계획 파일을 지원하려면 16GB RAM이 필요합니다.
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
   * 네트워크 인터페이스 하나
   * 시스템 데이터용 가상 디스크 500GB
 
@@ -143,7 +143,7 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 이 단계는 선택 사항이며 서비스를 사용하여 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 합니다.
 
-다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 
 기존 Microsoft Azure Storage 계정을 추가하려면 StorSimple 장치 관리자 서비스 페이지의 [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 수행합니다.
 
@@ -170,5 +170,4 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 * [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [VMware에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)
-
 

@@ -1,8 +1,9 @@
 
 > [!div class="op_single_selector"]
-> * [DocumentDB](../articles/azure-functions/functions-bindings-documentdb.md)  
+> * [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)  
 > * [이벤트 허브](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
+> * [Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)  
 > * [모바일 앱](../articles/azure-functions/functions-bindings-mobile-apps.md)  
 > * [알림 허브](../articles/azure-functions/functions-bindings-notification-hubs.md)  
 > * [서비스 버스](../articles/azure-functions/functions-bindings-service-bus.md)  
@@ -13,7 +14,3 @@
 > * [Twilio](../articles/azure-functions/functions-bindings-twilio.md)  
 > 
 > 
-
-<!--HONumber=Nov16_HO3-->
-
-

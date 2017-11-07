@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>VM 운영 체제에 IP 주소 추가
+## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
 여러 개인 IP 주소를 사용하여 만든 VM에 연결하고 로그인합니다. VM에 추가한 모든 개인 IP 주소(기본 포함)를 수동으로 추가해야 합니다. VM 운영 체제에 대한 다음 단계를 완료합니다.
 
@@ -32,7 +32,7 @@
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->위에서 사용하는 개인 IP 주소에 연결된 공용 IP 주소가 있으면 인터넷에 ping할 수 있습니다.
+>보조 IP 구성의 경우 구성에 공용 IP 주소가 연결된 경우에만 인터넷에 ping할 수 있습니다. 기본 IP 구성의 경우 공용 IP 주소가 인터넷에 ping되지 않아도 됩니다.
 
 ### <a name="linux-ubuntu"></a>Linux(Ubuntu)
 
@@ -161,7 +161,7 @@ ping -S 10.0.0.5 hotmail.com
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->위에서 사용하는 개인 IP 주소에 연결된 공용 IP 주소가 있으면 인터넷에 ping할 수 있습니다.
+>보조 IP 구성의 경우 구성에 공용 IP 주소가 연결된 경우에만 인터넷에 ping할 수 있습니다. 기본 IP 구성의 경우 공용 IP 주소가 인터넷에 ping되지 않아도 됩니다.
 
 Linux VM의 경우 보조 NIC의 아웃바운드 연결에 대한 유효성 검사를 시도하는 경우 적절한 경로를 추가해야 할 수 있습니다. 이 작업을 수행하는 방법은 많이 있습니다. Linux 배포에 대한 적절한 설명서를 참조하세요. 다음은 이 작업을 수행하는 한 가지 방법입니다.
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
     - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
     - **eth2**를 보조 NIC의 이름으로 대체해야 합니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

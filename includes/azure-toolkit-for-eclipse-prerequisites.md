@@ -1,29 +1,27 @@
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 Eclipse용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필요합니다.
 
-* Eclipse IDE for Java EE Developers, Luna 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
-* JDK(Java Developer Kit) v1.8 이상. 
-* 운영 체제 - Eclipse용 Azure 도구 키트는 다음 운영 체제에서 테스트되었습니다.
+* Eclipse IDE for Java EE Developers, Mars 이상. [Eclipse 웹 사이트](http://www.eclipse.org/downloads/)에서 다운로드할 수 있습니다.
+
+* JDK(Java Developer Kit) 버전 1.8 이상
+
+* 운영 체제 Eclipse용 Azure 도구 키트는 다음 운영 체제에서 테스트되었습니다.
   
-  * Windows 10, Windows 8과 8.1, Windows 7
-  * Windows Server 2012 및 2012 R2, Windows Server 2008 및 2008 R2
-  * [Mac OS X](http://www.apple.com/osx) 버전 "Yosemite" 및 "El Captain"
-  * [Ubuntu Linux](http://www.ubuntu.com) 버전 12, 14 및 15
+  * Windows 10, Windows 8.1, Windows 8 및 Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 및 Windows Server 2008
+  * [Mac OS X](http://www.apple.com/osx) 버전 "Yosemite" 이상
+  * [Ubuntu Linux](http://www.ubuntu.com) 버전 14, 15 및 16
 
-자세한 내용은 Eclipse 마켓플레이스의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
+자세한 내용은 Eclipse Marketplace의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 참조하세요.
 
+<!--
 > [!IMPORTANT]
-> Eclipse용 Azure 도구 키트를 Windows에서 사용하는 경우 도구 키트를 위해 Azure SDK 2.9.1 이상을 설치해야 합니다. Azure SDK 설치하는 옵션은 두 가지입니다.
+> If you are using the Azure Toolkit for Eclipse on Windows, the toolkit requires installing the Azure SDK 2.9.6 or later in order to use the Azure emulator. You have two options for installing the Azure SDK:
 > 
-> * [웹 플랫폼 설치 관리자(WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838)를 사용하여 Azure SDK를 다운로드하고 설치할 수 있습니다.
-> * 첫 번째 Azure 배포 프로젝트를 만들 때 Azure SDK가 설치되어 있지 않으면 Azure SDK 필수 버전을 자동으로 다운로드하고 설치한다는 메시지가 표시됩니다.
+> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
+> * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
-> Azure SDK는 Windows에서만 필요합니다.
+> Note that the Azure SDK is required on Windows only.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+-->

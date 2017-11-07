@@ -3,7 +3,7 @@ title: "Azure Network Watcher 토폴로지 보기 - Azure CLI | Microsoft Docs"
 description: "이 문서에서는 Azure CLI를 사용하여 네트워크 토폴로지를 쿼리하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 5cd279d7-3ab0-4813-aaa4-6a648bf74e7b
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02add070405f3f00d3631362a2b139239d44c34d
-ms.lasthandoff: 03/28/2017
-
+ms.author: jdial
+ms.openlocfilehash: 654c23e567d81bff1cb0c3091ba3d8f96f0a3eda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Azure CLI를 사용하여 Network Watcher 토폴로지 보기
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
 Network Watcher의 토폴로지 기능은 구독에 있는 네트워크 리소스의 시각적 표현을 제공합니다. 포털에서 이 시각화가 자동으로 표시됩니다. PowerShell을 통해 포털에 있는 토폴로지 보기 이외의 정보를 검색할 수 있습니다.
@@ -114,4 +114,3 @@ azure network watcher topology -g resourceGroupName -n networkWatcherName -r top
 ## <a name="next-steps"></a>다음 단계
 
 [보안 그룹 개요 보기](network-watcher-security-group-view-overview.md)를 방문하여 네트워크 리소스에 적용되는 보안 규칙에 대해 자세히 알아봅니다.
-

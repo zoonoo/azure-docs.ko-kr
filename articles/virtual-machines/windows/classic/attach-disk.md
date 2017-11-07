@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 806634bb66ebb538020f1ffa693704433fc43352
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
 <!--
@@ -36,7 +35,7 @@ Refernce article:
 
 * 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 저장소](../premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 * 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
 
@@ -66,7 +65,7 @@ Refernce article:
 ### <a name="initialize-a-new-data-disk"></a>새 데이터 디스크 초기화
 
 1. 가상 컴퓨터에 연결합니다. 지침은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
+2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 Storage 서비스**를 선택합니다.
 
     ![서버 관리자 열기](../media/attach-disk-portal/fileandstorageservices.png)
 
@@ -86,7 +85,7 @@ Refernce article:
 2. **기존 디스크 연결**에서 **위치**를 클릭합니다.
 
    ![기존 디스크 연결](./media/attach-disk/attachexistingdisksettings.png)
-3. **저장소 계정**에서 계정 및 .vhd 파일을 보관하는 컨테이너를 선택합니다.
+3. **Storage 계정**에서 계정 및 .vhd 파일을 보관하는 컨테이너를 선택합니다.
 
    ![VHD 위치 찾기](./media/attach-disk/existdiskstorageaccountandcontainer.png)
 
@@ -114,4 +113,3 @@ fsutil behavior set DisableDeleteNotify 0
 
 ## <a name="additional-resources"></a>추가 리소스
 [가상 컴퓨터용 디스크 및 VHD에 대하여](../../virtual-machines-linux-about-disks-vhds.md)
-

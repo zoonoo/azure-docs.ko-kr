@@ -29,7 +29,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 [IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다][lnk-protocols]. 이러한 각 프로토콜은 IoT 장치에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
 
-* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT Hub 수준 토큰의 경우 ({policyName}@sas.root.{iothubName}, 장치 범위 토큰의 경우 {deviceId}).
+* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT Hub 수준 토큰의 경우 {policyName}@sas.root.{iothubName}, 장치 범위 토큰의 경우 {deviceId})
 * MQTT: CONNECT 패킷은 **사용자 이름** 필드에서는 {deviceId}을(를) {ClientId}, {IoThubhostname}/{deviceId}(으)로 사용하고, **암호** 필드에서는 SAS 토큰을 사용합니다.
 * HTTP: 올바른 토큰은 권한 부여 요청 헤더에 있습니다.
 
@@ -82,7 +82,7 @@ Azure IoT Hub 및 이 솔루션에 속할 수 있는 기타 서비스는 Azure A
 
 Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blob Storage 등과 같은 다양한 서비스에서 사용될 수 있습니다. 이러한 서비스는 관리 액세스를 허용합니다. 아래에서 이러한 서비스 및 사용 가능한 옵션에 대해 읽어보세요.
 
-* [Azure DocumentDB][lnk-docdb]: 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. DocumentDB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+* [Azure Cosmos DB][lnk-cosmosdb]: 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
 * [Azure Stream Analytics][lnk-asa]: 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 * [Azure App Services][lnk-appservices]: 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 * [Logic Apps][lnk-logicapps]: Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. 논리 앱을 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. 논리 앱은 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
@@ -102,13 +102,8 @@ Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blo
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
 [lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
-[lnk-docdb]: https://azure.microsoft.com/services/documentdb/
+[lnk-cosmosdb]: https://azure.microsoft.com/services/cosmos-db/
 [lnk-asa]: https://azure.microsoft.com/services/stream-analytics/
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
-
-
-<!--HONumber=Feb17_HO3-->
-
-

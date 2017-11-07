@@ -3,7 +3,7 @@ title: "Azure API Management 캐싱 정책 | Microsoft Docs"
 description: "Azure API Management에 사용할 수 있는 캐싱 정책에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
-
+ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> 캐싱 정책  
+##  <a name="CachingPolicies"></a> 캐싱 정책  
   
 -   응답 캐싱 정책  
   
@@ -38,7 +39,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
     -   [캐시에서 값을 제거](#RemoveCacheByKey) - 키로 캐시에서 항목을 제거합니다.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> 캐시에서 가져오기  
+##  <a name="GetFromCache"></a> 캐시에서 가져오기  
  `cache-lookup` 정책을 사용하여 캐시 조회를 수행하며 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다. 이 정책은 응답 콘텐츠가 일정 기간 동안 정적 상태인 경우 적용해야 합니다. 응답 캐싱은 백 엔드 웹 서버에 부과된 대역폭 및 처리 요구 사항을 줄이며 API 소비자가 인지하는 대기 시간을 줄여 줍니다.  
   
 > [!NOTE]
@@ -128,7 +129,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **정책 범위:** API, operation, product  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> 캐시에 저장  
+##  <a name="StoreToCache"></a> 캐시에 저장  
  `cache-store` 정책은 지정된 캐시 설정에 따라 응답을 캐시합니다. 이 정책은 응답 콘텐츠가 일정 기간 동안 정적 상태인 경우 적용해야 합니다. 응답 캐싱은 백 엔드 웹 서버에 부과된 대역폭 및 처리 요구 사항을 줄이며 API 소비자가 인지하는 대기 시간을 줄여 줍니다.  
   
 > [!NOTE]
@@ -201,7 +202,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **정책 범위:** API, operation, product  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> 캐시에서 값 가져오기  
+##  <a name="GetFromCacheByKey"></a> 캐시에서 값 가져오기  
  `cache-lookup-value` 정책을 사용하여 키별 캐시 조회를 수행하며 캐시된 값을 반환합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다.  
   
 > [!NOTE]
@@ -246,7 +247,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **정책 범위:** global, API, operation, product  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> 값을 캐시에 저장  
+##  <a name="StoreToCacheByKey"></a> 값을 캐시에 저장  
  `cache-store-value`는 키로 캐시 저장을 수행합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다.  
   
 > [!NOTE]
@@ -289,7 +290,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **정책 범위:** global, API, operation, product  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> 캐시에서 값 제거  
+###  <a name="RemoveCacheByKey"></a> 캐시에서 값 제거  
  `cache-remove-value`는 키로 식별된 캐시 항목을 삭제합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다.  
   
 #### <a name="policy-statement"></a>정책 문:  
@@ -330,8 +331,3 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 09ccdaa18d383569747612c33b63595c06a0131e
-ms.lasthandoff: 03/28/2017
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 0f8c8e2c22310f6de9f5bedff79a87b887bc0fb1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
 워크플로 정의는 논리 앱의 일부로 실행할 실제 논리를 포함합니다. 이 정의는 논리 앱을 실행하는 트리거와 논리 앱에 대해 수행할 작업을 각각 하나 이상 포함합니다.  
@@ -48,7 +47,7 @@ ms.lasthandoff: 03/28/2017
 |$schema|아니요|정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 지정합니다. 정의를 외부에서 참조할 때 이 위치가 필요합니다. 이 문서에서 위치는 다음과 같습니다. <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|아니요|정의 버전을 지정합니다. 정의를 사용하여 워크플로를 배포할 때 이 값을 사용하여 올바른 정의가 사용되는지 확인할 수 있습니다.|  
 |매개 변수|아니요|정의에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다.|  
-|트리거|아니요|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 250개의 트리거를 정의할 수 있습니다.|  
+|트리거|아니요|워크플로를 시작하는 트리거에 대한 정보를 지정합니다. 최대 10개의 트리거를 정의할 수 있습니다.|  
 |actions|아니요|흐름이 실행될 때 수행할 작업을 지정합니다. 최대 250개의 작업을 정의할 수 있습니다.|  
 |outputs|아니요|배포된 리소스에 대한 정보를 지정합니다. 최대 10개의 출력을 정의할 수 있습니다.|  
   
@@ -71,7 +70,7 @@ ms.lasthandoff: 03/28/2017
 
 |요소 이름|필수|설명|  
 |------------------|--------------|-----------------|  
-|type|예|**형식**: string <p> **선언**: `"parameters": {"parameter1": {"type": "string"}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: securestring <p> **선언**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: int <p> **선언**: `"parameters": {"parameter1": {"type": "int"}}` <p> **사양**: `"parameters": {"parameter1": {"value" : 5}}` <p> **형식**: bool <p> **선언**: `"parameters": {"parameter1": {"type": "array"}}` <p> **사양**: `"parameters": {"parameter1": { "value": true }}` <p> **형식**: array <p> **선언**: `"parameters": {"parameter1": {"type": "array"}}` <p> **사양**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **형식**: object <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **형식**: secureobject <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **참고:** `securestring` 및 `secureobject` 형식은 `GET` 작업에서 반환되지 않습니다. 모든 암호, 키 및 비밀은 이 형식을 사용해야 합니다.|  
+|type|예|**형식**: string <p> **선언**: `"parameters": {"parameter1": {"type": "string"}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: securestring <p> **선언**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **사양**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **형식**: int <p> **선언**: `"parameters": {"parameter1": {"type": "int"}}` <p> **사양**: `"parameters": {"parameter1": {"value" : 5}}` <p> **형식**: bool <p> **선언**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **사양**: `"parameters": {"parameter1": { "value": true }}` <p> **형식**: array <p> **선언**: `"parameters": {"parameter1": {"type": "array"}}` <p> **사양**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **형식**: object <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **형식**: secureobject <p> **선언**: `"parameters": {"parameter1": {"type": "object"}}` <p> **사양**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **참고:** `securestring` 및 `secureobject` 형식은 `GET` 작업에서 반환되지 않습니다. 모든 암호, 키 및 비밀은 이 형식을 사용해야 합니다.|  
 |defaultValue|아니요|리소스를 만들 때 값이 지정되지 않으면 매개 변수에 대한 기본값을 지정합니다.|  
 |allowedValues|아니요|매개 변수에 대해 허용된 값 배열을 지정합니다.|  
 |metadata|아니요|Visual Studio 또는 다른 도구에서 사용하는 읽을 수 있는 설명이나 디자인 시간 데이터와 같은 매개 변수에 대한 추가 정보를 지정합니다.|  
@@ -108,7 +107,7 @@ ms.lasthandoff: 03/28/2017
 |------------------|--------------|-----------------|  
 |key1|예|출력에 대한 키 식별자를 지정합니다. **key1**을 출력을 식별하는 데 사용할 이름으로 바꿉니다.|  
 |값|예|출력의 값을 지정합니다.|  
-|type|예|지정된 값 형식을 지정합니다. 가능한 값 형식은 다음과 같습니다. <p>- `string`<br />- `securestring`<br />- `int`<br />- `bool`<br />- `array`<br />- `object`|
+|type|예|지정된 값 형식을 지정합니다. 가능한 값 형식은 다음과 같습니다. <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
   
 ## <a name="expressions"></a>식  
 
@@ -136,7 +135,7 @@ ms.lasthandoff: 03/28/2017
 |"@@"|'@'를 포함하는 1개 문자열이 반환됩니다.|  
 |" @"|' @'를 포함하는 2개 문자열이 반환됩니다.|  
   
-*문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+*문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 결과는 항상 문자열이며 이 기능은 `concat` 함수와 유사합니다. `myNumber`를 `42`로, `myString`을 `sampleString`으로 정의했다고 가정해 보겠습니다.  
   
@@ -168,7 +167,7 @@ ms.lasthandoff: 03/28/2017
 |식|평가|  
 |----------------|----------------|  
 |"@function('Hello')"|첫 번째 매개 변수로 Hello 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
-|"@function('It's Cool!')"|첫 번째 매개 변수로 'It's Cool!' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
+|"@function('It''s Cool!')"|첫 번째 매개 변수로 'It's Cool!' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출합니다.|  
 |"@function().prop1"|정의의 `myfunction` 멤버에서 prop1 속성 값을 반환합니다.|  
 |"@function('Hello').prop1"|첫 번째 매개 변수로 'Hello' 리터럴 문자열이 있는 정의를 포함하는 함수 멤버를 호출하고 개체의 prop1 속성을 반환합니다.|  
 |"@function(parameters('Hello'))"|Hello 매개 변수를 평가하고 값을 함수에 전달합니다.|  
@@ -181,13 +180,13 @@ ms.lasthandoff: 03/28/2017
 |-------------------|-----------------|  
 |매개 변수|정의에 정의된 매개 변수 값을 반환합니다. <p>`parameters('password')` <p> **매개 변수 번호**: 1 <p> **이름**: Parameter <p> **설명**: 필수. 값이 필요한 매개 변수의 이름입니다.|  
 |action|다른 JSON 이름 및 값 쌍 또는 현재 런타임 작업의 출력을 파생시키는 식을 작성할 수 있습니다. 다음 예에서 propertyPath로 표시되는 속성은 선택 사항입니다. propertyPath를 지정하지 않을 경우, 전체 작업 개체에 대한 참조입니다. 이 함수는 작업의 do-until 조건 내부에만 사용할 수 있습니다. <p>`action().outputs.body.propertyPath`|  
-|actions|다른 JSON 이름 및 값 쌍 또는 런타임 작업의 출력을 파생시키는 식을 작성할 수 있습니다. 이러한 식은 한 작업이 다른 작업에 종속되어 있음을 명시적으로 선언합니다. 다음 예에서 propertyPath로 표시되는 속성은 선택 사항입니다. propertyPath를 지정하지 않을 경우, 전체 작업 개체에 대한 참조입니다. 이 요소 또는 conditions 요소를 사용하여 종속성을 지정할 수 있지만 같은 종속 리소스에 대해 두 가지를 모두 사용할 필요는 없습니다. <p>`actions('myAction').outputs.body.propertyPath` <p> **매개 변수 번호**: 1 <p> **이름**: Action name <p> **설명**: 필수. 값이 필요한 작업의 이름입니다.|  
-|trigger|다른 JSON 이름 및 값 쌍 또는 런타임 트리거의 출력을 파생시키는 식을 작성할 수 있습니다. 다음 예에서 propertyPath로 표시되는 속성은 선택 사항입니다. propertyPath를 지정하지 않을 경우, 전체 트리거 개체에 대한 참조입니다. <p>`trigger().outputs.body.propertyPath` <p>트리거의 입력 내부에 사용하면 함수에서 이전 실행의 출력을 반환합니다. 하지만 트리거의 조건 내부에 사용하면 `trigger` 함수에서 현재 실행의 출력을 반환합니다.|  
+|actions|다른 JSON 이름 및 값 쌍 또는 런타임 작업의 출력을 파생시키는 식을 작성할 수 있습니다. 이러한 식은 한 작업이 다른 작업에 종속되어 있음을 명시적으로 선언합니다. 다음 예에서 propertyPath로 표시되는 속성은 선택 사항입니다. propertyPath를 지정하지 않을 경우, 전체 작업 개체에 대한 참조입니다. 이 요소 또는 conditions 요소를 사용하여 종속성을 지정할 수 있지만 같은 종속 리소스에 대해 두 가지를 모두 사용할 필요는 없습니다. <p>`actions('myAction').outputs.body.propertyPath` <p> **매개 변수 번호**: 1 <p> **이름**: Action name <p> **설명**: 필수. 값이 필요한 작업의 이름입니다. <p> 동작 개체에서 사용할 수 있는 속성은 다음과 같습니다. <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>이러한 속성에 대한 자세한 내용은 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646)를 참조하세요.|
+|trigger|다른 JSON 이름 및 값 쌍 또는 런타임 트리거의 출력을 파생시키는 식을 작성할 수 있습니다. 다음 예에서 propertyPath로 표시되는 속성은 선택 사항입니다. propertyPath를 지정하지 않을 경우, 전체 트리거 개체에 대한 참조입니다. <p>`trigger().outputs.body.propertyPath` <p>트리거의 입력 내부에 사용하면 함수에서 이전 실행의 출력을 반환합니다. 하지만 트리거의 조건 내부에 사용하면 `trigger` 함수에서 현재 실행의 출력을 반환합니다. <p> 트리거 개체에서 사용할 수 있는 속성은 다음과 같습니다. <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>이러한 속성에 대한 자세한 내용은 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644)를 참조하세요.|
 |actionOutputs|이 함수는 `actions('actionName').outputs`의 약식입니다. <p> **매개 변수 번호**: 1 <p> **이름**: Action name <p> **설명**: 필수. 값이 필요한 작업의 이름입니다.|  
 |actionBody 및 body|이 함수는 `actions('actionName').outputs.body`의 약식입니다. <p> **매개 변수 번호**: 1 <p> **이름**: Action name <p> **설명**: 필수. 값이 필요한 작업의 이름입니다.|  
 |triggerOutputs|이 함수는 `trigger().outputs`의 약식입니다.|  
 |triggerBody|이 함수는 `trigger().outputs.body`의 약식입니다.|  
-|항목|반복 작업 내부에 사용하면, 이 함수는 작업 반복을 위해 배열 안에 있는 항목을 반환합니다. 예를 들어 메시지 배열의 각 항목에 대해 실행하는 작업이 있는 경우 다음 구문을 사용할 수 있습니다. <p>`"input1" : "@item().subject"`|  
+|항목|반복 작업 내부에 사용하면, 이 함수는 작업 반복을 위해 배열 안에 있는 항목을 반환합니다. 예를 들어 메시지 배열의 각 항목에 대해 실행하는 작업이 있는 경우 다음 구문을 사용할 수 있습니다. <p>`"input1" : "@item().subject"`| 
   
 ### <a name="collection-functions"></a>컬렉션 함수  
 
@@ -262,7 +261,7 @@ ms.lasthandoff: 03/28/2017
 |-------------------|-----------------|  
 |int|매개 변수를 정수로 변환합니다. 예를 들어 이 함수는 문자열이 아닌 숫자로 100을 반환합니다. <p>`int('100')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 정수로 변환할 값입니다.|  
 |string|매개 변수를 문자열로 변환합니다. 예를 들어 이 함수는 `'10'`을 반환합니다. <p>`string(10)` <p>개체를 문자열로 변환할 수도 있습니다. 예를 들어 `myPar` 매개 변수가 한 개의 `abc : xyz` 속성을 포함하는 개체인 경우 이 함수는 `{"abc" : "xyz"}`를 반환합니다. <p>`string(parameters('myPar'))` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 문자열로 변환할 값입니다.|  
-|json :|매개 변수를 JSON 형식 값으로 변환하고 `string()`의 반대입니다. 예를 들어 이 함수는 문자열이 아닌 배열로 `[1,2,3]`을 반환합니다. <p>`parse('[1,2,3]')` <p>마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 이 함수는 `{ "abc" : "xyz" }`를 반환합니다. <p>`json('{"abc" : "xyz"}')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다. <p>`json()` 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은 <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>다음 JSON으로 변환됩니다. <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json :|매개 변수를 JSON 형식 값으로 변환하고 `string()`의 반대입니다. 예를 들어 이 함수는 문자열이 아닌 배열로 `[1,2,3]`을 반환합니다. <p>`json('[1,2,3]')` <p>마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 이 함수는 `{ "abc" : "xyz" }`를 반환합니다. <p>`json('{"abc" : "xyz"}')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다. <p>`json()` 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은 <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>다음 JSON으로 변환됩니다. <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 이 함수는 `10.333`을 반환합니다. <p>`float('10.333')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 이 함수는 `false`를 반환합니다. <p>`bool(0)` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 부울로 변환할 값입니다.|  
 |coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. **참고**: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`을 반환합니다.  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Object*n* <p> **설명**: 필수. null을 검사할 개체입니다.|  
@@ -283,7 +282,7 @@ ms.lasthandoff: 03/28/2017
 |xml|값의 XML 표현을 반환합니다. 예를 들어 이 함수는 `'\<name>Alan\</name>'`으로 표시된 XML 콘텐츠를 반환합니다. <p>`xml('\<name>Alan\</name>')` <p>`xml()` 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠로 변환됩니다. `\<abc>xyz\</abc>` <p> **매개 변수 번호**: 1<p> **이름**: Value<p> **설명**: 필수. XML로 변환할 값입니다.|  
 |xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다. <p> **예 1** <p>매개 변수 `p1` 값이 이 XML의 문자열 표현이라고 가정합니다. <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>다음 코드는 `xpath(xml(parameters('p1'), '/lab/robot/name')` <p>다음을 반환합니다. <p>`[ <name>R1</name>, <name>R2</name> ]` <p>반면에 다음 코드는 <p>`xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')` <p>다음을 반환합니다. <p>`13` <p> <p> **예 2** <p>다음 XML 콘텐츠를 가정한다면: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>또는 다음 코드는 <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>다음을 반환합니다. <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>그리고 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>다음을 반환합니다. <p>``xyz`` <p> **매개 변수 번호**: 1 <p> **이름**: Xml <p> **설명**: 필수. XPath 식을 평가할 XML입니다. <p> **매개 변수 번호**: 2 <p> **이름**: XPath <p> **설명**: 필수. 평가할 XPath 식입니다.|  
 |array|매개 변수를 배열로 변환합니다. 예를 들어 이 함수는 `["abc"]`를 반환합니다. <p>`array('abc')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 배열로 변환할 값입니다.|
-|createArray|매개 변수에서 배열을 만듭니다. 예를 들어 이 함수는 `["a", "c"]`를 반환합니다. <p>`createArray('a', 'c')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Any *n* <p> **설명**: 필수. 배열로 결합할 값입니다.|
+|createArray|매개 변수에서 배열을 만듭니다. 예를 들어 이 함수는 `["a", "c"]`을 반환합니다. <p>`createArray('a', 'c')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Any *n* <p> **설명**: 필수. 배열로 결합할 값입니다.|
 |triggerFormDataValue|form-data 또는 form-encoded 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다.  일치 항목이 여러 개이면 오류입니다.  예를 들어 다음 코드는 `bar`를 반환합니다. `triggerFormDataValue('foo')`<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Key Name<br /><br />**설명**: 필수. 반환할 양식 데이터 값의 키 이름입니다.|
 |triggerFormDataMultiValues|form-data 또는 form-encoded 트리거 출력에서 키 이름과 일치하는 값 배열을 반환합니다.  예를 들어 다음 코드는 `["bar"]`를 반환합니다. `triggerFormDataValue('foo')`<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Key Name<br /><br />**설명**: 필수. 반환할 양식 데이터 값의 키 이름입니다.|
 |triggerMultipartBody|트리거의 다중 부분 출력에서 일부 본문을 반환합니다.<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Index<br /><br />**설명**: 필수. 검색할 부분의 인덱스입니다.|
@@ -305,7 +304,7 @@ ms.lasthandoff: 03/28/2017
 |Min|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. <p>여기서 `min`은 배열을 사용하고 함수는 `0`를 반환합니다. <p>`min([0,1,2])` <p>또는 이 함수는 쉼표로 구분된 값 목록을 사용하고 `0`를 반환할 수도 있습니다. <p>`min(0,1,2)` <p> **참고**: 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다. <p> **매개 변수 번호**: 1 <p> **이름**: Collection 또는 Value <p> **설명**: 필수. 최소값을 찾을 값 배열이거나 집합의 첫 번째 값입니다. <p> **매개 변수 번호**: 2 ... *n* <p> **이름**: Value *n* <p> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최소값이 반환됩니다.|  
 |max|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. <p>여기서 `max`은 배열을 사용하고 함수는 `2`를 반환합니다. <p>`max([0,1,2])` <p>또는 이 함수는 쉼표로 구분된 값 목록을 사용하고 `2`를 반환할 수도 있습니다. <p>`max(0,1,2)` <p> **참고**: 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다. <p> **매개 변수 번호**: 1 <p> **이름**: Collection 또는 Value <p> **설명**: 필수. 최대값을 찾을 값 배열이거나 집합의 첫 번째 값입니다. <p> **매개 변수 번호**: 2 ... *n* <p> **이름**: Value *n* <p> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최대값이 반환됩니다.|  
 |range|특정 숫자부터 시작되는 정수 배열을 생성합니다. 반환된 배열의 길이를 정의합니다. <p>예를 들어 이 함수는 `[3,4,5,6]`을 반환합니다. <p>`range(3,4)` <p> **매개 변수 번호**: 1 <p> **이름**: Start index <p> **설명**: 필수. 배열에서 첫 번째 정수입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Count <p> **설명**: 필수. 이 값은 배열에 있는 정수 개수입니다.|  
-|rand|지정된 범위 내에서 정수를 임의로 생성합니다(양쪽 끝 포함). 예를 들어 이 함수는 `42`를 반환할 수 있습니다. <p>`rand(-1000,1000)` <p> **매개 변수 번호**: 1 <p> **이름**: Minimum <p> **설명**: 필수. 반환 가능한 가장 작은 정수입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Maximum <p> **설명**: 필수. 반환 가능한 가장 큰 정수입니다.|  
+|rand|지정된 범위 내에서 임의의 정수를 생성합니다(첫 번째 끝만 포함). 예를 들어 다음 함수에서는 `0` 또는 '1'을 반환할 수 있습니다. <p>`rand(0,2)` <p> **매개 변수 번호**: 1 <p> **이름**: Minimum <p> **설명**: 필수. 반환 가능한 가장 작은 정수입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Maximum <p> **설명**: 필수. 이 값은 반환될 수 있는 가장 높은 정수 다음의 다음 정수입니다.|  
   
 ### <a name="date-functions"></a>날짜 함수  
   
@@ -315,7 +314,7 @@ ms.lasthandoff: 03/28/2017
 |addseconds|전달된 문자열 타임스탬프에 시간(초)에 대한 정수를 더합니다. 시간(초) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-15T13:27:00Z`: <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Seconds <p> **설명**: 필수. 추가할 시간(초) 수입니다. 시간(초)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |addminutes|전달된 문자열 타임스탬프에 시간(분)에 대한 정수를 더합니다. 시간(분) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-15T14:00:36Z`: <p>`addminutes('2015-03-15T13:27:36Z', 33)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Minutes <p> **설명**: 필수. 더할 시간(분) 수입니다. 시간(분)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |addhours|전달된 문자열 타임스탬프에 시간(시)에 대한 정수를 더합니다. 시간(시) 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-03-16T01:27:36Z`: <p>`addhours('2015-03-15T13:27:36Z', 12)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Hours <p> **설명**: 필수. 더할 시간 수입니다. 시간(시)을 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
-|adddays|전달된 문자열 타임스탬프에 날 수에 대한 정수를 더합니다. 날 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-02-23T13:27:36Z`: <p>`addseconds('2015-03-15T13:27:36Z', -20)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Days <p> **설명**: 필수. 더할 날 수입니다. 날 수를 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
+|adddays|전달된 문자열 타임스탬프에 날 수에 대한 정수를 더합니다. 날 수는 양수 또는 음수일 수 있습니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-02-23T13:27:36Z`: <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **매개 변수 번호**: 1 <p> **이름**: Timestamp <p> **설명**: 필수. 시간을 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Days <p> **설명**: 필수. 더할 날 수입니다. 날 수를 빼기 위한 음수일 수 있습니다. <p> **매개 변수 번호**: 3 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |formatDateTime|날짜 형식으로 문자열을 반환합니다. 기본적으로 결과는 형식 지정자를 제공하지 않은 경우 ISO 8601 형식("o")의 문자열입니다. 예: `2015-02-23T13:27:36Z`: <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **매개 변수 번호**: 1 <p> **이름**: Date <p> **설명**: 필수. 날짜를 포함하는 문자열입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |startOfHour|전달된 문자열 타임스탬프에 그 시간의 시작 시간을 반환합니다. 예 `2017-03-15T13:00:00Z`:<br /><br /> `startOfHour('2017-03-15T13:27:36Z')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Timestamp<br /><br /> **설명**: 필수. 시간을 포함하는 문자열입니다.<br /><br />**매개 변수 번호**: 2<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  
 |startOfDay|전달된 문자열 타임스탬프에 그 날의 시작 시간을 반환합니다. 예 `2017-03-15T00:00:00Z`:<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Timestamp<br /><br /> **설명**: 필수. 시간을 포함하는 문자열입니다.<br /><br />**매개 변수 번호**: 2<br /><br /> **이름**: Format<br /><br /> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.| 
@@ -332,9 +331,8 @@ ms.lasthandoff: 03/28/2017
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |listCallbackUrl|트리거 또는 작업을 호출하기 위한 문자열을 반환합니다. <p> **참고**: 이 함수는 **httpWebhook** 및 **apiConnectionWebhook**에서만 사용할 수 있으며 **manual**, **recurrence**, **http** 또는 **apiConnection**에서는 사용할 수 없습니다. <p>예를 들어 `listCallbackUrl()` 함수는 다음을 반환합니다. <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
-|워크플로|이 함수는 런타임에 워크플로 자체에 대한 모든 정보를 제공합니다. 이름, 위치 및 리소스 ID 등 관리 API에서 사용 가능한 모든 항목을 가져올 수 있습니다. 이러한 속성에 대한 자세한 내용은 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617)를 참조하세요. 예를 들어 이 함수는 `westus`와 같은 위치를 반환합니다. <p>`workflow().location` <p> **참고**: `@workflow`는 현재 트리거 내에서 지원됩니다.|
+|워크플로|이 함수는 런타임에 워크플로 자체에 대한 모든 정보를 제공합니다. <p> 워크플로 개체에서 사용할 수 있는 속성은 다음과 같습니다. <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> `run` 속성의 값은 다음 속성을 포함한 개체입니다. <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>이러한 속성에 대한 자세한 내용은 [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617)를 참조하세요.<p> 예를 들어 현재 실행의 이름을 얻으려면 `"@workflow().run.name"` 식을 사용합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)
-

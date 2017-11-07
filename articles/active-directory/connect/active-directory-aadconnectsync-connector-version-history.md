@@ -3,7 +3,7 @@ title: "커넥터 버전 릴리스 내역 | Microsoft Docs"
 description: "이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)에 대한 커넥터의 모든 버전을 보여 줍니다."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
-ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 09/06/2017
+ms.author: fimguy
+ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
 
 > [!NOTE]
-> 이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 지원되지 않습니다.
+> 이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 설치하도록 지원되지 않습니다. 출시된 커넥터는 지정된 빌드로 업그레이드할 때 AADConnect에 미리 설치됩니다.
 
 이 항목은 출시된 커넥터의 모든 버전을 나열합니다.
 
@@ -38,11 +37,66 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
+
+## <a name="116040-aadconnect-116140"></a>1.1.604.0(AADConnect 1.1.614.0)
+
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* 일반 웹 서비스:
+  * 두 개 이상의 끝점이 있을 때 SOAP 프로젝트가 만들어지지 않도록 방지하는 문제를 해결했습니다.
+* 일반 SQL:
+  * 가져오기 작업에서 커넥터 공간에 저장할 때 GSQL이 시간을 제대로 변환하지 않았습니다. GSQL의 커넥터 공간에 대한 기본 날짜 및 시간 형식이 'yyyy-MM-dd hh:mm:ssZ'에서 'yyyy-MM-dd HH:mm:ssZ'로 변경되었습니다.
+
+## <a name="115510-aadconnect-115530"></a>1.1.551.0(AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* 일반 웹 서비스:
+  * Wsconfig 도구는 REST 서비스 메서드에 대한 "샘플 요청"의 Json 배열을 제대로 변환하지 못했습니다. 이로 인해 REST 요청에 대한 이 Json 배열의 직렬화와 관련된 문제가 발생했습니다.
+  * 웹 서비스 커넥터 구성 도구는 JSON 속성 이름에 공백 기호를 사용하는 것을 지원하지 않습니다. 
+    * WSConfigTool.exe.config 파일에 대체 패턴을 수동으로 추가할 수 있습니다(예: ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```).
+
+* Lotus Notes:
+  * **조직/조직 구성 단위에 대해 사용자 지정 인증자 허용** 옵션이 해제된 경우 내보내기(업데이트) 중 커넥터가 실패합니다. 내보내기 흐름 후에 모든 특성이 Domino로 내보내지지만, 내보내기 시 KeyNotFoundException이 동기화에 반환됩니다. 
+    * 이 문제는 아래 특성 중 하나를 변경하여 DN(UserName 특성) 변경을 시도할 때 이름 바꾸기 작업이 실패하기 때문에 발생합니다.  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
+
+  * **조직/조직 구성 단위에 대한 사용자 지정 인증자 허용** 옵션이 설정되었지만 필수 인증자가 여전히 비어 있으면 KeyNotFoundException이 발생합니다.
+
+### <a name="enhancements"></a>향상된 기능:
+
+* 일반 SQL:
+  * **시나리오: 다시 설계되고 구현됨:** "*" 기능
+  * **솔루션 설명:** [다중 값 참조 특성 처리](active-directory-aadconnectsync-connector-genericsql.md) 접근 방식이 변경되었습니다.
+
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* 일반 웹 서비스:
+  * 웹 서비스 커넥터가 있는 데도 서버 구성을 가져올 수 없습니다.
+  * 웹 서비스 커넥터는 여러 웹 서비스에 작동하지 않습니다.
+
+* 일반 SQL:
+  * 단일 값 참조 특성에 대해 나열되는 개체 형식이 없습니다.
+  * 변경 추적 전략에 대한 델타 가져오기는 다중 값 테이블에서 값이 제거될 때 개체를 삭제합니다.
+  * AS/400의 DB2에서 GSQL 커넥터의 OverflowException
+
+Lotus:
+  * GlobalParameters 페이지를 열기 전에 OU 검색을 설정/해제하는 옵션이 추가되었습니다.
+
 ## <a name="114430"></a>1.1.443.0
 
 출시 날짜: 2017년 3월
 
 ### <a name="enhancements"></a>향상된 기능
+
 * 일반 SQL:</br>
   **시나리오 증상:** 하나의 개체 형식에 대한 참조만 허용하고 멤버와 상호 참조하는 SQL 커넥터의 잘 알려진 제한입니다. </br>
   **솔루션 설명:** "*" 옵션을 선택한 참조를 위한 처리 단계에서 모든 개체 형식 조합은 동기화 엔진으로 다시 반환됩니다.
@@ -73,8 +127,8 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
  * GLDAP 커넥터에서 AD LDS의 모든 특성을 확인할 수 없음
  * LDAP 디렉터리 스키마에서 UPN 특성이 감지되지 않는 경우 마법사 중단
  * "objectclass" 특성이 선택되지 않은 경우 전체 가져오기를 수행하는 동안 검색 오류가 발생하지 않으면 델타 가져오기 실패
- * A "Configure Partitions and Hierarchies” configuration page, doesn’t show any objects which type is equal to the partition for Novel servers in the Generic  
-"파티션 및 계층 구조 구성" 구성 페이지에 일반 LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표시되지 않습니다. RootDSE 파티션의 개체만 표시됩니다.
+ * "파티션 및 계층 구조 구성" 구성 페이지에 일반  
+LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표시되지 않습니다. RootDSE 파티션의 개체만 표시됩니다.
 
 
 * 일반 SQL:
@@ -154,4 +208,3 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

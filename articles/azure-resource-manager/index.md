@@ -2,7 +2,7 @@
 title: "Azure Resource Manager 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "일관적이고 반복 가능한 리소스 배포를 위해 Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포 및 관리하고 템플릿을 만드는 방법에 대해 알아봅니다."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 186bbc75211988f51dc91e2227472f6369b3bfdd
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Azure Resource Manager 설명서
 
@@ -142,7 +142,9 @@ Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포, 모
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">템플릿 형식</a></p>
-                        <p><a href="/resource-group-template-functions.md">템플릿 함수</a></p>
+                        <p><a href="/azure/resource-group-template-functions">템플릿 함수</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI 정의 함수</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI 정의 요소</a></p>
                     </div>
                 </div>
             </div>
@@ -161,4 +163,3 @@ Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포, 모
         </div>
     </li>
 </ul>
-

@@ -29,14 +29,9 @@
 ## <a name="sap-netweaver-on-azure"></a>Azure에서 SAP NetWeaver
 제목: SAP NetWeaver - Azure 기반 재해 복구 솔루션 빌드
 
-요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V에 따라 가상화된 온-프레미스를 실행하고 있는 것을 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 응용 프로그램 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.
+요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V를 기반으로 하여 가상화된 온-프레미스에서 실행되고 있다고 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 응용 프로그램 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.
 
 업데이트 날짜: 2015년 9월
 
 [지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkID=521971)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

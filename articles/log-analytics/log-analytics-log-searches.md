@@ -3,7 +3,7 @@ title: "Azure Log Analytics에서 로그 검색을 사용하여 데이터 찾기
 description: "로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
-ms.lasthandoff: 02/28/2017
-
-
+ms.date: 10/11/2017
+ms.author: bwren
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
-# <a name="find-data-using-log-searches"></a>로그 검색을 사용하여 데이터 찾기
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Log Analytics에서 로그 검색을 사용하여 데이터 찾기
+
+>[!NOTE]
+> 이 문서는 Log Analytics에서 레거시 쿼리 언어를 사용하는 로그 검색에 대해 설명합니다.  작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 [Log Analytics의 로그 검색 이해(신규)](log-analytics-log-search-new.md)를 참조해야 합니다.
+
 
 Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 컴퓨터 데이터를 서로 연결하고 결합할 수 있게 하는 로그 검색 기능입니다. 솔루션도 로그 검색에서 제공되어 특정 문제 영역 주위에 피벗된 메트릭을 가져옵니다.
 
@@ -130,10 +132,28 @@ EventLog=Application OR EventLog=System AND Computer=SERVER1.contoso.com
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
 ```
 
-마찬가지로 다음 쿼리는 선택한 두 컴퓨터에 **CPU 시간 (%)** 을 반환합니다.
+마찬가지로 다음 쿼리는 선택한 두 컴퓨터에 **CPU 시간 (%)**을 반환합니다.
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>필드 형식
+필터를 만들 때 로그 검색에서 반환된 다양한 유형의 필드로 작업할 때의 차이점을 이해해야 합니다.
+
+**검색 가능한 필드**는 검색 결과에 파란색으로 표시됩니다.  검색 조건에서 다음과 같은 필드에 국한되는 검색 가능한 필드를 사용할 수 있습니다.
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**자유 텍스트 검색 가능 필드**는 검색 결과에서 회색으로 표시됩니다.  검색 가능한 필드와 같은 필드에만 해당되는 검색 조건은 이러한 필드에 사용할 수 없습니다.  이러한 필드는 다음과 같은 모든 필드에서 쿼리를 수행할 때만 검색됩니다.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 
@@ -148,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>부울 연산자를 사용하여 검색하려면
-* 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![부울 값을 사용하여 검색](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 시간 간격을 그래픽으로 제어할 수 있지만, 그렇게 하려는 대부분의 시간에 쿼리에 직접 하는 시간 필터를 포함하여 장점이 있습니다. 예를 들어 이 방식은 대시보드 페이지에서 *전역* 시간 선택기와 무관하게 각 타일에 대한 시간을 재정의할 수 있는 경우 대시보드와 잘 작동합니다. 자세한 내용은 [대시보드에서 시간 문제](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/)를 참조하십시오.
@@ -174,7 +194,7 @@ Type=ConfigurationAlert  Severity>=1
 ```
 
 
-범위 쿼리를 사용할 수 있습니다. 즉, 시퀀스에서 값의 시작 및 끝 범위를 제공할 수 있습니다. 예를 들어 EventID가 보다 2100 이상이지만 2199 미만일 때 Operations Manager 이벤트 로그에서 이벤트를 하려는 경우 다음의 쿼리는 이벤트를 반환합니다.
+범위 쿼리를 사용할 수 있습니다. 즉, 시퀀스에서 값의 시작 및 끝 범위를 제공할 수 있습니다. 예를 들어 EventID가 2100 이상이지만 2199 미만일 때 Operations Manager 이벤트 로그에서 이벤트를 하려는 경우 다음의 쿼리는 이벤트를 반환합니다.
 
 ```
 Type=Event EventLog="Operations Manager" EventID:[2100..2199]
@@ -243,8 +263,8 @@ Type=Event EventID=600 | Top 1
 SELECT 명령은 PowerShell에서 Select-Object 처럼 동작합니다. 자신의 원래 속성을 모두 갖지 않는 필터된 결과를 반환합니다. 대신 지정한 속성을 선택합니다.
 
 #### <a name="to-run-a-search-using-the-select-command"></a>선택 명령을 사용하는 검색을 실행하려면
-1. 검색에서 `Type=Event` 을 입력하고 **검색**을 클릭합니다.
-2. 있는 모든 속성을 보려면 결과 중 하나에서 **+자세히 표시** 를 클릭합니다.
+1. 검색에서 `Type=Event`을 입력하고 **검색**을 클릭합니다.
+2. 있는 모든 속성을 보려면 결과 중 하나에서 **+자세히 표시**를 클릭합니다.
 3. 그 중 일부를 명시적으로 선택하고 쿼리가 `Type=Event | Select Computer,EventID,RenderedDescription`로 변경됩니다.  
     ![선택 검색](./media/log-analytics-log-searches/oms-search-select.png)
 
@@ -270,7 +290,7 @@ MEASURE는 Log Analytics 검색에서 가장 용도가 많은 명령 중 하나�
 
 ![측정값 개수 검색](./media/log-analytics-log-searches/oms-search-measure-count-computer.png)
 
-하지만 **컴퓨터**는 각 데이터*에서* 사용되는 필드입니다. 관련된 관계 데이터베이스가 없고 별도의 **컴퓨터** 개체는 없습니다. 데이터에 *있는* 값은 해당 값이 생성된 엔티티, 데이터의 다양한 특성 및 측면(따라서 *패싯*이라고 함)을 설명할 수 있습니다. 그러나 다른 필드에 의해 그룹화할 수 있습니다. 또한 measure 명령으로 파이프되는 거의 739,000개 이벤트의 원래 결과에도 **EventID**라는 필드가 있기 때문에 동일한 기법을 적용하여 해당 필드별로 그룹화하고 EventID별로 이벤트의 개수를 가져올 수 있습니다.
+하지만 **컴퓨터**는 각 데이터*에서* 사용되는 필드입니다. 관련된 관계 데이터베이스가 없고 별도의 **컴퓨터** 개체는 없습니다. 데이터에 *있는* 값은 해당 값이 생성된 엔터티, 데이터의 다양한 특성 및 측면(따라서 *패싯*이라고 함)을 설명할 수 있습니다. 그러나 다른 필드에 의해 그룹화할 수 있습니다. 또한 measure 명령으로 파이프되는 거의 739,000개 이벤트의 원래 결과에도 **EventID**라는 필드가 있기 때문에 동일한 기법을 적용하여 해당 필드별로 그룹화하고 EventID별로 이벤트의 개수를 가져올 수 있습니다.
 
 ```
 Type=Event | Measure count() by EventID
@@ -291,7 +311,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 #### <a name="to-search-using-measure-count"></a>측정값 개수를 사용하여 검색
 * 검색 쿼리 필드에 `Type=Event | Measure count() by EventID`
 * 쿼리의 끝에 `| Select EventID` 를 추가합니다.
-* 마지막으로 쿼리의 끝에 `| Sort EventID asc` 을 추가합니다.
+* 마지막으로 쿼리의 끝에 `| Sort EventID asc`을 추가합니다.
 
 몇가지 중요한 사항 및 강조를 알아봅니다.
 
@@ -373,7 +393,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer
 ```
 
-### <a name="to-search-using-the-avg-function-with-the-measure-command"></a>측정값 명령과 평균 함수 사용를 사용하여 검색하려면
+### <a name="to-search-using-the-avg-function-with-the-measure-command"></a>측정값 명령과 평균 함수 사용을 사용하여 검색하려면
 * 검색 쿼리 박스에 `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`를 입력합니다.
 
 컴퓨터 *간에* 데이터를 집계하고 상호 연결할 수 있습니다. 예를 들어 각 노드가 서로 동일한 종류의 일부 팜에서 호스트 집합이 있고 이들이 모두 같은 유형의 작업을 한다고 가정하면 부하가 대략적으로 분산되어야 합니다. 다음의 쿼리로 이동하는 하나에 모든 카운터를 가져오고 전체 팜에 대한 평균을 가져올 수 있습니다. 다음 예제로 컴퓨터를 선택하여 시작할 수 있습니다.
@@ -382,7 +402,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 Type=Perf AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-컴퓨터가 있으므로 또한&2;개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
+컴퓨터가 있으므로 또한 2개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
 
 ```
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS
@@ -442,7 +462,7 @@ Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(C
 
 Microsoft System Center Operations Manager에 익숙하다면 where 명령을 관리 팩 측면에서 생각할 수 있습니다. 예제가 규칙인 경우 쿼리의 첫번째 부분이 데이터 원본이고 where 명령은 조건 검색입니다.
 
-**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는&0;으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
+**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
 
 ![모바일 대시보드](./media/log-analytics-log-searches/oms-search-mobile.png)
 
@@ -451,7 +471,7 @@ Microsoft System Center Operations Manager에 익숙하다면 where 명령을 �
 
 검색 식에 직접적으로 설명할 수 없는, 하지만 검색을 통해 생성될 수 있는 데이터의 하위 집합에 맞추기 위해 하위 검색을 사용할 수 있습니다. 예를 들어, *보안 업데이트가 없는 컴퓨터*에서 모든 이벤트를 찾는 검색을 사용하려면 해당 호스트에 속하는 이벤트를 찾기 전에 *보안 업데이트가 없는 컴퓨터*를 먼저 식별하는 하위 검색을 디자인해야 합니다.
 
-따라서 다음 쿼리를 통해 *현재 필수 보안 업데이트가 누락된 컴퓨터* 를 나타낼 수 있습니다.
+따라서 다음 쿼리를 통해 *현재 필수 보안 업데이트가 누락된 컴퓨터*를 나타낼 수 있습니다.
 
 ```
 Type:Update UpdateState=Needed Optional=false Classification="Security Updates" TimeGenerated>NOW-24HOURS | measure count() by Computer
@@ -575,6 +595,5 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 ## <a name="next-steps"></a>다음 단계
 로그 검색에 대한 자세한 내용은 다음을 참조하십시오.
 
-* [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
+* [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 로그 검색을 확장합니다.
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
-

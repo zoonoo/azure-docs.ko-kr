@@ -3,8 +3,3 @@
 * [Azure CLI를 사용하여 액세스 관리](../articles/active-directory/role-based-access-control-manage-access-azure-cli.md)
 * [RBAC 기본 제공 역할](../articles/active-directory/role-based-access-built-in-roles.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

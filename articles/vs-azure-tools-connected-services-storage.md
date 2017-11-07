@@ -3,8 +3,8 @@ title: "Visual Studio에서 연결된 서비스를 사용하여 Azure 저장소 
 description: "Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure 저장소를 앱에 추가"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 614f212bb9afb71bb432bec3df7201807083b7f5
-ms.lasthandoff: 03/27/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
 Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서 Azure Storage에 다음을 연결할 수 있습니다.
@@ -69,10 +68,9 @@ Visual Studio를 사용하면 **연결된 서비스 추가** 대화 상자에서
 - ASP.NET 프로젝트 - [변경된 내용 – ASP.NET 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - ASP.NET Core 프로젝트 - [변경된 내용 – ASP.NET 5 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
 - 클라우드 서비스 프로젝트(웹 역할 및 작업자 역할) - [변경된 내용 – 클라우드 서비스 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=516965)
-- WebJob 프로젝트 - [변경된 내용 -WebJob 프로젝트](storage/vs-storage-webjobs-what-happened.md)
+- WebJob 프로젝트 - [변경된 내용 -WebJob 프로젝트](visual-studio/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>다음 단계
 - [MSDN 포럼: Azure 저장소](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Microsoft Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure 저장소 설명서](https://docs.microsoft.com/azure/storage/)
-

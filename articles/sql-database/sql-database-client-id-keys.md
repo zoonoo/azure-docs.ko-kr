@@ -1,5 +1,5 @@
 ---
-title: "코드에서 SQL Database에 액세스하는 응용 프로그램을 인증하기 위한 필수 값 가져오기 | Microsoft Docs"
+title: "앱 인증에 대한 값 가져오기 - Azure SQL Database | Microsoft Docs"
 description: "코드에서 SQL Database에 액세스하기 위한 서비스 사용자를 만듭니다."
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 09/30/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
-
-
+ms.openlocfilehash: e76144bcb65da992c6d723d7333b4db8aa1ca488
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>코드에서 SQL Database에 액세스하는 응용 프로그램을 인증하기 위한 필수 값 가져오기
 코드에서 SQL Database를 만들고 관리하여 Azure 리소스가 생성된 구독의 Azure Active Directory(AAD) 도메인에 앱을 등록해야 합니다.
@@ -73,11 +73,5 @@ ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
 
 ## <a name="see-also"></a>참고 항목
 * [C#으로 SQL 데이터베이스 만들기](sql-database-get-started-csharp.md)
-* [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)
 

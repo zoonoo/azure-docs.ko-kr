@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory B2B 공동 작업 초대 상환 | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업 초대 상환 환경"
 services: active-directory
@@ -14,26 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/13/2017
+ms.date: 05/24/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: a063918766ccff6f5d0ec8a344160b912657d55a
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 공동 작업 초대 상환
 
 ## <a name="azure-ad-and-microsoft-account-users"></a>Azure AD 및 Microsoft 계정 사용자
 기존 Azure AD 계정 또는 Microsoft 계정이 있는 사용자의 경우 상환 환경은 로그인하는 것만큼 쉽습니다.
 
 ## <a name="social-id-user-first-time-redemption"></a>소셜 ID 사용자의 최초 상환
-Azure AD B2B 공동 작업을 사용하면 어떤 전자 메일 주소로도 쉽게 상환을 수행할 수 있습니다. Microsoft 이외 전자 메일 주소를 B2B 공동 작업에 사용하는 상환 환경을 살펴보겠습니다. 이러한 환경은 상환 시에 계정을 만들어야 할 수 있으므로 상환 흐름에 좀 더 적합합니다. 다음 비디오에서 확인해보세요.
+Azure AD B2B 공동 작업을 사용하면 어떤 전자 메일 주소로도 쉽게 상환을 수행할 수 있습니다. Microsoft 이외 전자 메일 주소를 B2B 공동 작업에 사용하는 상환 환경을 살펴보겠습니다. 상환 시에 계정을 만들어야 할 수 있으므로 이러한 상환 흐름이 좀 더 적합합니다. 다음 비디오에서 확인해보세요.
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -50,4 +47,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-

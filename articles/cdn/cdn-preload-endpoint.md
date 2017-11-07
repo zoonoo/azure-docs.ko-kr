@@ -3,7 +3,7 @@ title: "Azure CDN 끝점에 자산 미리 로드 | Microsoft Docs"
 description: "Azure CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
-ms.lasthandoff: 03/04/2017
-
-
+ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 끝점에 자산 미리 로드
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -64,12 +63,11 @@ ms.lasthandoff: 03/04/2017
     ![로드 단추](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> 로드 요청은 CDN 프로필별로 분당 10개로 제한됩니다.
+> 로드 요청은 CDN 프로필별로 분당 10개로 제한됩니다. 요청당 50개의 경로만 허용됩니다. 각 경로의 길이는 1024자로 제한됩니다.
 > 
 > 
 
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 * [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Channel 9의 Azure 보안 동영상
 [Channel 9](https://channel9.msdn.com/) 은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.
@@ -59,7 +59,7 @@ Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose) 에게 가상 
 
 [Azure 앱에 대한 암호 관리](https://channel9.msdn.com/events/Build/2016/P456)
 
-Azure에서 배포하는 모든 중대한 앱에는 중요 암호(연결 문자열, 인증서, 키)가 있습니다. 이러한 암호를 관리하는 데 어리석은 실수는 치명적 결과(누설, 정전, 규정 준수 위반)를 야기시킵니다. 여러 최근 설문 조사에서 지적한 대로, 어리석은 실수는 상대보다&4;배 많은 데이터 위반을 일으킵니다. 이 세션에서는 중요한 앱 암호를 관리하기 위한 몇 가지 모범 사례를 살펴 보겠습니다. 이러한 모범 사례는 지극히 상식적인 것 같지만 많은 개발자가 간과하고 있습니다. 또한 Azure 주요 자격 증명 모음을 사용하여 이러한 모범 사례를 구현하는 방법도 살펴 봅니다. 부가적인 이점으로, 이러한 방법을 따르면 SOC 등의 표준에 대한 준수를 입증하는 데 도움이 됩니다. 세션의 처음 10분은 레벨 100이고 플랫폼에서 개발하는 클라우드 앱에 적용됩니다. 나머지는 레벨 200-300으로, Azure 플랫폼에서 빌드할 앱에 중점을 둡니다.
+Azure에서 배포하는 모든 중대한 앱에는 중요 암호(연결 문자열, 인증서, 키)가 있습니다. 이러한 암호를 관리하는 데 어리석은 실수는 치명적 결과(누설, 정전, 규정 준수 위반)를 야기시킵니다. 여러 최근 설문 조사에서 지적한 대로, 어리석은 실수는 상대보다 4배 많은 데이터 위반을 일으킵니다. 이 세션에서는 중요한 앱 암호를 관리하기 위한 몇 가지 모범 사례를 살펴 보겠습니다. 이러한 모범 사례는 지극히 상식적인 것 같지만 많은 개발자가 간과하고 있습니다. 또한 Azure 주요 자격 증명 모음을 사용하여 이러한 모범 사례를 구현하는 방법도 살펴 봅니다. 부가적인 이점으로, 이러한 방법을 따르면 SOC 등의 표준에 대한 준수를 입증하는 데 도움이 됩니다. 세션의 처음 10분은 레벨 100이고 플랫폼에서 개발하는 클라우드 앱에 적용됩니다. 나머지는 레벨 200-300으로, Azure 플랫폼에서 빌드할 앱에 중점을 둡니다.
 
 [Narayan Annamalai와 함께 네트워크 보안 그룹을 사용하여 Azure 가상 네트워크 보안](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
 
@@ -78,9 +78,3 @@ Azure AD(Active Directory) Privileged Identity Management는 권한 있는 ID �
 [Amit Bapat와 Azure 주요 자격 증명 모음](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat가 Scott에게 Azure 주요 자격 증명 모음을 소개합니다. Azure 주요 자격 증명을 사용하면 HSM(하드웨어 보안 모듈)에 저장된 키를 사용하여 암호와 같은 작은 비밀과 키를 암호화할 수 있습니다. Microsoft Azure에 대한 클라우드 기반, 하드웨어 기반 암호 관리입니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

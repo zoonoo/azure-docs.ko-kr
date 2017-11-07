@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
-
-
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk 서비스: 버전 차트
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk 서비스는 여러 버전을 제공합니다. 이 문서를 사용하여 시나리오 및 비즈니스 요구 사항에 적합한 버전을 확인할 수 있습니다.
 
 ## <a name="compare-the-editions"></a>버전 비교
@@ -58,8 +61,8 @@ Azure BizTalk 서비스는 여러 버전을 제공합니다. 이 문서를 사�
 </tr>
 
 <tr>
-<td><strong>가격</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services 가격 책정</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure 가격 계산기</a></td>
+<td><strong>시작 가격</strong></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services 가격 책정</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Azure 요금 계산기</a></td>
 </tr>
 <tr>
 <td><strong>기본 최소 구성</strong></td>
@@ -70,7 +73,7 @@ Azure BizTalk 서비스는 여러 버전을 제공합니다. 이 문서를 사�
 <td>Premium 장치 1개</td>
 </tr>
 <tr>
-<td><strong>확장</strong></td>
+<td><strong>규모</strong></td>
 <td>확장 안 함</td>
 <td>확장 안 함</td>
 <td>1 Basic 장치씩 확장함</td>
@@ -130,7 +133,7 @@ TPM 계약 포함</td>
 <tr>
 <td align="left"><strong>지원되는 프로토콜/시스템:</strong>
 <ul>
-<li>HTTP</li>
+<li>http</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -251,10 +254,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 * [BizTalk 서비스: 제한](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

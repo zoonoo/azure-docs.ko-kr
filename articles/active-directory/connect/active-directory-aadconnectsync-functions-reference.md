@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0f62c1f4f67bec12d1f71b1b02fd121402b0e25c
-ms.openlocfilehash: 70fe899087effca47b2b537facf1c3ed227657de
-
-
+ms.openlocfilehash: 0f556c786fdfdf775e00e68740351e7630e0e002
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -50,6 +50,13 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 ## <a name="functions-reference"></a>함수 참조
 | 함수 목록 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
+| **인증서** | | | | |
+| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
+| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
+| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
+| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **변환** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -69,7 +76,8 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 | [포함](#contains) |[개수](#count) |[항목](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[분할](#split) | | |
 | **Program Flow** | | | | |
-| [오류](#error) |[IIF](#iif) |[Switch](#switch) | | |
+| [오류](#error) |[IIF](#iif) |[선택](#select) |[Switch](#switch) | |
+| [Where](#where) |[With](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim.](#ltrim) |[Mid](#mid) | |
@@ -121,7 +129,7 @@ CBool 함수는 계산된 식에 따라 부울을 반환합니다.
 `bool CBool(exp Expression)`
 
 **설명**  
-수식이&amp;0;이 아닌 값으로 계산하는 경우 CBool은 True로, 그 외의 경우에는 False로 반환합니다.
+수식이 0이 아닌 값으로 계산하는 경우 CBool은 True로, 그 외의 경우에는 False로 반환합니다.
 
 **예제:**  
 `CBool([attrib1] = [attrib2])`  
@@ -148,6 +156,204 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 `CDate("2013-01-10 4:00 PM -8")`  
 "2013-01-11 12:00 AM"을 나타내는 날짜/시간을 반환합니다.
 
+
+
+
+
+
+
+
+- - -
+### <a name="certextensionoids"></a>CertExtensionOids
+**설명:**  
+인증서 개체의 중요한 모든 확장의 Oid 값을 반환합니다.
+
+**구문:**  
+`mvstr CertExtensionOids(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certformat"></a>CertFormat
+**설명:**  
+이 X.509v3 인증서의 형식 이름을 반환합니다.
+
+**구문:**  
+`str CertFormat(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certfriendlyname"></a>CertFriendlyName
+**설명:**  
+인증서와 관련된 별칭을 반환합니다.
+
+**구문:**  
+`str CertFriendlyName(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certhashstring"></a>CertHashString
+**설명:**  
+X.509v3 인증서의 SHA1 해시 값을 16진수 문자열로 반환합니다.
+
+**구문:**  
+`str CertHashString(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certissuer"></a>CertIssuer
+**설명:**  
+X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
+
+**구문:**  
+`str CertIssuer(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certissuerdn"></a>CertIssuerDN
+**설명:**  
+인증서 발급자의 고유 이름을 반환합니다.
+
+**구문:**  
+`str CertIssuerDN(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certissueroid"></a>CertIssuerOid
+**설명:**  
+인증서 발급자의 Oid를 반환합니다.
+
+**구문:**  
+`str CertIssuerOid(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
+**설명:**  
+이 X.509v3 인증서의 키 알고리즘 정보를 문자열로 반환합니다.
+
+**구문:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
+**설명:**  
+X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반환합니다.
+
+**구문:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certnameinfo"></a>CertNameInfo
+**설명:**  
+인증서의 주체 및 발급자 이름을 반환합니다.
+
+**구문:**  
+`str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+*   X509NameType: 주체에 대한 X509NameType 값입니다.
+*   includesIssuerName: 발급자 이름을 포함하면 true이고, 그렇지 않으면 false입니다.
+
+- - -
+### <a name="certnotafter"></a>CertNotAfter
+**설명:**  
+인증서가 더 이상 유효하지 않은 이후의 현지 시간으로 날짜를 반환합니다.
+
+**구문:**  
+`dt CertNotAfter(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certnotbefore"></a>CertNotBefore
+**설명:**  
+인증서가 유효한 현지 시간으로 날짜를 반환합니다.
+
+**구문:**  
+`dt CertNotBefore(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certpublickeyoid"></a>CertPublicKeyOid
+**설명:**  
+X.509v3 인증서에 대한 공개 키의 Oid를 반환합니다.
+
+**구문:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
+**설명:**  
+X.509v3 인증서에 대한 공개 키 매개 변수의 Oid를 반환합니다.
+
+**구문:**  
+`str CertPublicKeyParametersOid(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certserialnumber"></a>CertSerialNumber
+**설명:**  
+X.509v3 인증서의 일련 번호를 반환합니다.
+
+**구문:**  
+`str CertSerialNumber(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
+**설명:**  
+인증서의 서명을 만드는 데 사용된 알고리즘의 Oid를 반환합니다.
+
+**구문:**  
+`str CertSignatureAlgorithmOid(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certsubject"></a>CertSubject
+**설명:**  
+인증서의 고유한 주체 이름을 가져옵니다.
+
+**구문:**  
+`str CertSubject(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certsubjectnamedn"></a>CertSubjectNameDN
+**설명:**  
+인증서의 고유한 주체 이름을 반환합니다.
+
+**구문:**  
+`str CertSubjectNameDN(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certsubjectnameoid"></a>CertSubjectNameOid
+**설명:**  
+인증서의 주체 이름에 대한 Oid를 반환합니다.
+
+**구문:**  
+`str CertSubjectNameOid(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certthumbprint"></a>CertThumbprint
+**설명:**  
+인증서의 지문을 반환합니다.
+
+**구문:**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
+- - -
+### <a name="certversion"></a>CertVersion
+**설명:**  
+인증서의 X.509 형식 버전을 반환합니다.
+
+**구문:**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
+
 - - -
 ### <a name="cguid"></a>CGuid
 **설명:**  
@@ -172,7 +378,7 @@ Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
 * 검색: 특성에서 찾을 문자열입니다.
 * 대소문자 유형: 대소문자를 구분하거나 구분하지 않습니다.
 
-문자열이 발견된 다중값 특성에 인덱스를 반환합니다. 문자열을 찾을 수 없는 경우&0;이 반환됩니다.
+문자열이 발견된 다중값 특성에 인덱스를 반환합니다. 문자열을 찾을 수 없는 경우 0이 반환됩니다.
 
 **설명**  
 다중값 문자열 특성에 대한 검색 값에서 부분 문자열을 찾습니다.  
@@ -203,7 +409,7 @@ ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열�
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **설명:**  
-ConvertFromUTF8Hex 함수는 지정된 UTF8&amp;16;진수 인코딩 값을 문자열로 변환합니다.
+ConvertFromUTF8Hex 함수는 지정된 UTF8 16진수 인코딩 값을 문자열로 변환합니다.
 
 **구문:**  
 `str ConvertFromUTF8Hex(str source)`
@@ -222,7 +428,7 @@ ConvertFromUTF8Hex 함수는 지정된 UTF8&amp;16;진수 인코딩 값을 문�
 ### <a name="converttobase64"></a>ConvertToBase64
 **설명:**  
 ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환합니다.  
-정수 배열 값을 base&64; 자릿수로 인코딩된 동등한 문자열 표현으로 변환합니다.
+정수 배열 값을 base 64 자릿수로 인코딩된 동등한 문자열 표현으로 변환합니다.
 
 **구문:**  
 `str ConvertToBase64(str source)`
@@ -234,7 +440,7 @@ ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환�
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **설명:**  
-ConvertToUTF8Hex 함수는 문자열을 UTF8&amp;16;진수 인코딩 값으로 변환합니다.
+ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환합니다.
 
 **구문:**  
 `str ConvertToUTF8Hex(str source)`
@@ -492,7 +698,7 @@ IsBitSet 함수는 비트 설정 여부를 테스트합니다.
 
 **예제:**  
 `IsBitSet(&HF,4)`  
-비트 "4"는&amp;16;진수 값 "F" 안에 설정되어 있으므로 True를 반환합니다.
+비트 "4"는 16진수 값 "F" 안에 설정되어 있으므로 True를 반환합니다.
 
 - - -
 ### <a name="isdate"></a>IsDate
@@ -505,6 +711,14 @@ IsBitSet 함수는 비트 설정 여부를 테스트합니다.
 **설명**  
 CDate()가 정상적으로 수행될 수 있는지 결정하는 데 사용됩니다.
 
+- - -
+### <a name="iscert"></a>IsCert
+**설명:**  
+원시 데이터를 .NET X509Certificate2 인증서 개체로 직렬화할 수 있으면 true를 반환합니다.
+
+**구문:**  
+`bool CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열은 DER(이진) 또는 Base64로 인코딩된 X.509 데이터일 수 있습니다.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **설명:**  
@@ -643,14 +857,14 @@ Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정�
 `str Join(mvstr attribute, str Delimiter)`
 
 * attribute: 연결할 문자열을 포함하는 다중값 특성
-* 구분 기호: 반환된 문자열의 부분 문자열을 구분하는데 사용되는 모든 문자열입니다. 생략하면 공백(" ")이 사용됩니다. 구분 기호가 길이가&0;인 문자열(“”)또는 없을 경우 ,목록에서 모든 항목이 구분 기호 없이 연결됩니다.
+* 구분 기호: 반환된 문자열의 부분 문자열을 구분하는데 사용되는 모든 문자열입니다. 생략하면 공백(" ")이 사용됩니다. 구분 기호가 길이가 0인 문자열(“”)또는 없을 경우 ,목록에서 모든 항목이 구분 기호 없이 연결됩니다.
 
 **주의**  
 Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고  구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
 
 **예제:**  
 `Join([proxyAddresses],",")`  
-반환: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
+"SMTP:john.doe@contoso.com,smtp:jd@contoso.com"을 반환할 수 있습니다.
 
 - - -
 ### <a name="lcase"></a>LCase
@@ -954,6 +1168,24 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 "Test"를 반환합니다.
 
 - - -
+### <a name="select"></a>여기서
+**설명:**  
+지정된 함수에 기반하여 다중값 특성(또는 식 출력)의 모든 값을 처리합니다.
+
+**구문:**  
+`mvattr Select(variable item, mvattr attribute, func function)`  
+`mvattr Select(variable item, exp expression, func function)`
+
+* item: 다중값 특성의 요소를 나타냅니다.
+* attribute: 다중값 특성입니다.
+* expression: 값의 컬렉션을 반환하는 식입니다.
+* condition: 특성의 한 항목을 처리할 수 있는 모든 함수입니다.
+
+**예제:**  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
+하이픈(-)을 제거한 후에 otherPhone 다중값 특성의 모든 값을 반환합니다.
+
+- - -
 ### <a name="split"></a>분할
 **설명:**  
 Split 함수는 구분 기호로 구분된 문자열을 다중값 문자열로 만듭니다.
@@ -1043,6 +1275,42 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 "test"를 반환합니다.
 
 - - -
+### <a name="where"></a>Where
+
+**설명:**  
+특정 조건에 기반하여 다중값 특성(또는 식 출력)의 값에 대한 하위 집합을 반환합니다.
+
+**구문:**  
+`mvattr Where(variable item, mvattr attribute, exp condition)`  
+`mvattr Where(variable item, exp expression, exp condition)`  
+* item: 다중값 특성의 요소를 나타냅니다.
+* attribute: 다중값 특성입니다.
+* condition: true 또는 false로 평가될 수 있는 모든 식입니다.
+* expression: 값의 컬렉션을 반환하는 식입니다.
+
+**예제:**  
+`Where($item,[userCertificate],CertNotAfter($item)>Now())`  
+만료되지 않은 userCertificate 다중값 특성의 인증서 값을 반환합니다.
+
+- - -
+### <a name="with"></a>With
+**설명:**  
+With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수로 표현하여 복합 식을 단순화하는 방법을 제공합니다.
+
+**구문:**
+`With(var variable, exp subExpression, exp complexExpression)`  
+* variable: 하위 식을 나타냅니다.
+* subExpression: 변수로 표현되는 하위 식입니다.
+* complexExpression: 복합 식입니다.
+
+**예제:**  
+`With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
+기능적으로 다음과 같습니다.  
+`IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
+userCertificate 특성에서 만료되지 않은 인증서 값만 반환합니다.
+
+
+- - -
 ### <a name="word"></a>Word
 **설명:**  
 Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 문자열 내에 포함된 단어와 반환할 단어 수를 반환합니다.
@@ -1073,9 +1341,3 @@ Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 �
 * [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

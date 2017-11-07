@@ -3,8 +3,8 @@ title: "Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준�
 description: "클라우드 및 저장소 계정 서비스를 설정하고 Azure 응용 프로그램을 구성하는 절차에 대해 알아봅니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
-
-
+ms.author: kraigb
+ms.openlocfilehash: cc4fb87e559f554634ae062a59bee31f0831da64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비
 ## <a name="overview"></a>개요
@@ -116,16 +116,10 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
        * **사용자 지정 끝점 지정** . 그런 다음 특정 서비스에 대한 필드에 이러한 끝점을 입력할 수 있습니다.
 
          > [!NOTE]
-         > 사용자 지정 끝점을 만들면 더 복잡한 연결 문자열을 만들 수 있습니다. 이 문자열 형식을 사용할 때 BLOB 서비스를 통해 저장소 계정에 등록한 사용자 지정 도메인 이름을 포함하는 저장소 서비스 끝점을 지정할 수 있습니다. 또한 공유 액세스 서명을 통해 단일 컨테이너의 BLOB 리소스에만 액세스를 부여할 수 있습니다. 사용자 지정 끝점을 만드는 방법에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](storage/storage-configure-connection-string.md)을 참조하세요.
+         > 사용자 지정 끝점을 만들면 더 복잡한 연결 문자열을 만들 수 있습니다. 이 문자열 형식을 사용할 때 BLOB 서비스를 통해 저장소 계정에 등록한 사용자 지정 도메인 이름을 포함하는 저장소 서비스 끝점을 지정할 수 있습니다. 또한 공유 액세스 서명을 통해 단일 컨테이너의 BLOB 리소스에만 액세스를 부여할 수 있습니다. 사용자 지정 끝점을 만드는 방법에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](storage/common/storage-configure-connection-string.md)을 참조하세요.
          >
          >
 11. 이러한 연결 문자열 변경 사항을 저장하려면 **확인** 단추를 선택한 다음 도구 모음의 **저장** 단추를 선택합니다. 이러한 변경 내용을 저장한 후 [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx)를 사용하여 사용자의 코드의 연결 문자열의 값을 가져올 수 있습니다. Azure에 응용 프로그램을 게시하는 경우 연결 문자열에 대한 Azure 저장소 계정이 포함된 서비스 구성을 선택합니다. 응용 프로그램을 게시한 후, 응용 프로그램이 Azure 저장소 서비스에 대해 예상 대로 작동하는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure에 앱을 게시하는 방법에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

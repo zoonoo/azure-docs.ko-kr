@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>복잡한 솔루션을 배포할 때 Azure Resource Manager 템플릿에 대한 디자인 패턴
 Azure Resource Manager 템플릿을 기반으로 유연한 접근 방식을 사용하면 복잡한 토폴로지를 신속하고 일관되게 배포할 수 있습니다. 코어 제품이 진화함에 따라 또는 이상값 시나리오나 고객에 대한 변화를 수용할 수 있도록 이러한 배포를 쉽게 조정할 수 있습니다.
@@ -33,7 +32,7 @@ Azure Resource Manager 템플릿을 기반으로 유연한 접근 방식을 사�
 * 사용자, 그룹 및 서비스에 적합한 액세스를 허용하도록 역할 기반 액세스 제어(RBAC)를 적용합니다.
 * 태그 지정 연결을 사용하여 청구 롤업과 같은 작업을 간소화합니다.
 
-이 문서는 Azure 고객 자문 팀(AzureCAT) 고객과의 실제 환경 템플릿 구현 및 설계 세션 중에 확인된 소비 시나리오, 아키텍처, 및 구현 패턴에 대해 자세한 내용을 제공합니다. 이러한 접근 방식은 학술적이지는 않았지만 Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis 및 Nagios를 비롯한 상위 Linux 기반 OSS 기술 중 12가지에 대한 템플릿의 개발을 통해 알려진 검증된 작업 방식입니다. 
+이 문서는 Azure 고객 자문 팀(AzureCAT) 고객과의 실제 환경 템플릿 구현 및 설계 세션 중에 확인된 소비 시나리오, 아키텍처, 및 구현 패턴에 대해 자세한 내용을 제공합니다. 이러한 접근 방식은 학술적이지는 않았지만 Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis 및 Nagios를 비롯한 상위 Linux 기반 OSS 기술 중 12가지에 대한 템플릿의 개발을 통해 알려진 검증된 작업 방식입니다. 
 
 이 문서는 최고 수준의 Azure 리소스 관리자 템플릿을 구성하는데 도움을 주기 위하여 검증된 작업 방식을 공유합니다.  
 
@@ -235,7 +234,7 @@ JSON 기반 템플릿을 사용하여 고객에게 고유한 변형을 제공할
 지정된 리소스가 선택적인 리소스가 될지 여부는 템플릿 소비자가 아닌 템플릿 공급자에 기반합니다. 예를 들어 특정한 제품 요구 사항 또는 제품 추가 기능(CSV에 공통적인)을 충족해야 하거나 정책을 적용해야 하는 경우(SI 및 엔터프라이즈 IT 그룹에 일반적인)가 있습니다. 이런 경우 리소스 배포 여부를 확인하는 변수를 사용할 수 있습니다.
 
 ### <a name="known-configuration-resources-template"></a>알려진 구성 리소스 템플릿
-기본 템플릿에서 템플릿 소비자가 배포에 필요한 알려진 구성을 지정하도록 매개 변수를 노출할 수 있습니다. 알려진 구성은 샌드박스, 대, 중, 소와 같은 고정된 구성 크기 집합으로 티셔츠 크기 접근 방식을 자주 사용합니다.
+기본 템플릿에서 템플릿 소비자가 배포에 필요한 알려진 구성을 지정하도록 매개 변수를 노출할 수 있습니다. 알려진 구성은 샌드박스, 대, 중, 소와 같은 고정된 구성 확장 집합으로 티셔츠 크기 접근 방식을 자주 사용합니다.
 
 ![알려진 구성 리소스](./media/best-practices-resource-manager-design-templates/known-config.png)
 
@@ -345,8 +344,6 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 **마켓플레이스에 대해 솔루션 범위 템플릿 조정**
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)
 * 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
 

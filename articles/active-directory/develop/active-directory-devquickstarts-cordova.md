@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
-ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
-
-
+ms.custom: aaddev
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Azure AD를 Apache Cordova 앱에 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -143,7 +144,7 @@ Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. �
 코드에서 먼저 해야 할 작업은 앱 및 대상 리소스를 식별하기 위해 Azure AD에서 사용되는 프로토콜 값을 추가하는 것입니다. 이러한 값은 나중에 토큰 요청을 생성하는 데 사용됩니다. Index.js 파일의 맨 위에 다음 코드 조각을 삽입합니다.
 
 ```javascript
-var authority = "https://login.windows.net/common",
+var authority = "https://login.microsoftonline.com/common",
     redirectUri = "http://MyDirectorySearcherApp",
     resourceUri = "https://graph.windows.net",
     clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",
@@ -290,9 +291,3 @@ var authority = "https://login.windows.net/common",
 이제 좀 더 자세하고 좀 더 흥미로운 시나리오를 진행해 보겠습니다. 다음을 시도해 볼 수 있습니다. [Azure AD를 사용하여 Node.js Web API 보안 유지](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

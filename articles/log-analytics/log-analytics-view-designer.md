@@ -12,22 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기
 [Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터를 여러 방법으로 시각화하는 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
 
 뷰 디자이너에 적용할 수 있는 다른 문서는 다음과 같습니다.
 
-* [타일 참조](log-analytics-view-designer-tiles.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
-* [시각화 요소 참조](log-analytics-view-designer-parts.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조 
+* [타일 참조](log-analytics-view-designer-tiles.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조
+* [시각화 요소 참조](log-analytics-view-designer-parts.md) - 사용자 지정 보기에 사용할 수 있는 타일 각각의 설정에 대한 참조
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 모든 뷰의 쿼리를 [새 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856078)로 써야 합니다.  작업 영역을 업그레이드하기 전에 생성된 모든 뷰는 자동으로 변환됩니다.
 
 ## <a name="concepts"></a>개념
 뷰 디자이너에서 만드는 보기에 포함되는 요소는 다음 표와 같습니다.
@@ -96,5 +98,3 @@ ms.lasthandoff: 03/09/2017
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가
 * 사용자 지정 보기에 [시각화 요소](log-analytics-view-designer-parts.md) 추가
-
-

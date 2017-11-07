@@ -11,20 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 10/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>정규식을 사용하여 Log Analytics에서 로그 검색 필터링
+
+>[!NOTE]
+> 이 문서는 Log Analytics에서 레거시 쿼리 언어를 사용하는 정규식에 대해 설명합니다.  작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 [언어 설명서의 정규식](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax)을 참조해야 합니다.
+
 
 [로그 검색](log-analytics-log-searches.md)을 사용하면 Log Analytics 리포지토리에서 정보를 추출할 수 있습니다.  [필터 식](log-analytics-search-reference.md#filter-expressions)을 사용하면 특정 조건에 따라 검색 결과를 필터링할 수 있습니다.  **RegEx** 키워드를 사용하면 이 필터에 대한 정규식을 지정할 수 있습니다.  
 
 이 문서에서는 Log Analytics에서 사용하는 정규식 구문에 대한 세부 정보를 제공합니다.
+
+> [!NOTE]
+> 검색 가능한 필드가 있는 RegEx만 사용할 수 있습니다.  검색 가능한 필드에 대한 자세한 내용은 [Log Analytics에서 로그 검색을 사용하여 데이터 찾기](log-analytics-log-searches.md#use-additional-filters)에서 **필드 형식**을 참조하세요.
 
 
 ## <a name="regex-keyword"></a>RegEx 키워드
@@ -73,7 +79,7 @@ ms.lasthandoff: 04/12/2017
 |:--|:--|:--|:--|
 | a{n} |  *n*개의 문자를 발견합니다. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  *n*개 이상의 문자를 발견합니다. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
-| a{n,m} |  *n*~ *m*개의 문자를 발견합니다. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
+| a{n,m} |  *n* ~ *m*개의 문자를 발견합니다. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>논리 식
@@ -96,4 +102,3 @@ ms.lasthandoff: 04/12/2017
 ## <a name="next-steps"></a>다음 단계
 
 * [검색 로그](log-analytics-log-searches.md)에 대해 알아보고 Log Analytics 리포지토리에서 데이터를 보고 분석합니다.
-

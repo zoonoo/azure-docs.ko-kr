@@ -4,7 +4,7 @@ description: "이 항목에서는 장애 조치 스트리밍 시나리오를 구
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 장애 조치 스트리밍 구현
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 03/15/2017
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* 신규 또는 기존 Azure 구독의 Media Services 계정&2;개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+* 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 또는 .NET Framework 4
 * Visual Studio 2010 SP1 또는 later version (Professional, Premium, Ultimate, 또는 Express).
@@ -458,7 +457,6 @@ ms.lasthandoff: 03/15/2017
             var targetContainer = targetBlobClient.GetContainerReference(targetContainerName);
             targetContainer.CreateIfNotExists();
 
-
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
                 // Specify the expiration time for the signature.
@@ -466,7 +464,6 @@ ms.lasthandoff: 03/15/2017
                 // Specify the permissions granted by the signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
-
 
             foreach (var sourceBlob in sourceContainer.ListBlobs())
             {
@@ -942,7 +939,6 @@ ms.lasthandoff: 03/15/2017
             return request;
         }
 
-
 ## <a name="next-steps"></a>다음 단계
 이제 두 데이터 센터 간의 경로 요청에 Traffic Manager를 사용하면 중단된 경우 장애 조치할 수 있습니다.
 
@@ -951,5 +947,4 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

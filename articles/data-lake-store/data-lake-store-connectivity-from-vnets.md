@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9bd7a76ef644df3db72ce95a3ef89a04bec1381f
-
-
+ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Azure VNET 내 VM에서 Azure Data Lake Store 액세스
 Azure Data Lake Store는 공용 인터넷 IP 주소에서 실행되는 PaaS 서비스입니다. 공용 인터넷에 연결할 수 있는 서버는 일반적으로 Azure Data Lake Store 끝점에도 연결할 수 있습니다. 기본적으로 Azure VNET에 있는 모든 VM은 인터넷에 액세스할 수 있으므로 Azure Data Lake Store에 액세스할 수 있습니다. 그러나 VNET에서 VM을 인터넷에 액세스하지 못하도록 구성할 수 있습니다. 이러한 VM의 경우 Azure Data Lake Store에 대한 액세스도 제한됩니다. Azure VNET의 VM에 대한 공용 인터넷 액세스를 차단하려면 다음 방법 중 하나를 사용하여 수행할 수 있습니다.
@@ -54,10 +54,4 @@ ExpressRoute 회로가 구성되면 온-프레미스 서버는 공용 피어링�
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store 개요](data-lake-store-overview.md)
 * [Azure Data Lake Store에 저장된 데이터 보호](data-lake-store-security-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

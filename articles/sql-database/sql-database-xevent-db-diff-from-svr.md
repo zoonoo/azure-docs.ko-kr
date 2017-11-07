@@ -9,19 +9,18 @@ editor:
 tags: 
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
-ms.custom: monitor and tune
-ms.workload: data-management
+ms.custom: monitor & tune
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -54,7 +53,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 
 - PowerShell
-    - [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
+    - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
 
 ## <a name="code-samples"></a>코드 샘플
 
@@ -126,7 +125,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름
 
 간단한 SQL **SELECT** 를 실행하여 사용 가능한 이벤트, 작업, 대상의 목록을 가져올 수 있습니다.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
@@ -195,10 +194,10 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 
 ## <a name="related-links"></a>관련 링크
 
-- [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)
+- [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md)
 - [Azure Storage Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Azure Storage와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
-- [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
+- [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION(Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
@@ -216,4 +215,3 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-

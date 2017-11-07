@@ -1,327 +1,224 @@
 ---
-title: ".NET에서 Azure Service Bus 토픽 사용 | Microsoft Docs"
-description: "Azure에서 .NET으로 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
+title: "Azure Service Bus 항목 및 구독 시작 | Microsoft Docs"
+description: "Service Bus 메시징 항목 및 구독을 사용하는 C# 콘솔 응용 프로그램을 작성합니다."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
-ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
+ms.assetid: 
 ms.service: service-bus-messaging
+ms.devlang: tbd
+ms.topic: hero-article
+ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: get-started-article
-ms.date: 03/23/2017
+ms.date: 10/10/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>서비스 버스 토픽 및 구독을 사용하는 방법
+# <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기, 구독에서 메시지 받기, 토픽 및 구독 삭제 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 자습서에서 다루는 단계는 다음과 같습니다.
+
+1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
+2. Azure Portal을 사용하여 Service Bus 항목을 만듭니다.
+3. Azure Portal을 사용하여 해당 항목에 Service Bus 구독을 만듭니다.
+4. 메시지를 항목으로 보내는 콘솔 응용 프로그램을 작성합니다.
+5. 구독으로부터 해당 메시지를 받을 콘솔 응용 프로그램을 작성합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+1. [Visual Studio 2015 이상](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+2. Azure 구독.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure Portal을 사용하여 네임스페이스 만들기
 
-## <a name="configure-the-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
-서비스 버스를 사용하는 응용 프로그램을 만드는 경우 서비스 버스 어셈블리에 대한 참조를 추가하고 해당 네임스페이스를 포함해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 적절한 [NuGet](https://www.nuget.org) 패키지를 다운로드하는 것입니다.
+Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal을 사용하여 큐 만들기](#2-create-a-topic-using-the-azure-portal) 섹션으로 이동합니다.
 
-## <a name="get-the-service-bus-nuget-package"></a>서비스 버스 NuGet 패키지 다운로드
-[Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 모든 필요한 Service Bus 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 프로젝트에서 Service Bus NuGet 패키지를 설치하려면 다음을 수행합니다.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-1. 솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-2. **찾아보기**를 클릭하고 "Azure Service Bus"를 검색한 다음 **Microsoft Azure Service Bus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure Portal을 사용하여 항목 만들기
+
+1. [Azure Portal][azure-portal]에 로그인합니다.
+2. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **추가 서비스** 클릭)를 클릭하거나 **모든 리소스**를 클릭합니다.
+3. 항목을 만들려는 네임스페이스를 클릭합니다. 네임스페이스 개요 블레이드가 나타납니다.
    
-   ![][7]
+    ![토픽 만들기][createtopic1]
+4. **Service Bus 네임스페이스** 블레이드에서 **항목**을 선택한 다음 **항목 추가**를 클릭합니다.
+   
+    ![항목 선택][createtopic2]
+5. 항목의 이름을 입력하고 **분할 사용** 옵션을 선택 취소합니다. 다른 옵션은 기본값 그대로 둡니다.
+   
+    ![새로 만들기 선택][createtopic3]
+6. 블레이드 하단에서 **만들기**를 클릭합니다.
 
-이제 서비스 버스에 대한 코드를 작성할 준비가 되었습니다.
+## <a name="3-create-a-subscription-to-the-topic"></a>3. 항목에 대한 구독 만들기
 
-## <a name="create-a-service-bus-connection-string"></a>Service Bus 연결 문자열 만들기
-서비스 버스는 연결 문자열을 사용하여 끝점과 자격 증명을 저장합니다. 하드 코딩하는 대신 구성 파일에 연결 문자열을 저장할 수 있습니다.
+1. 포털 리소스 창에서 1단계에서 만든 네임스페이스를 클릭한 다음 2단계에서 만든 항목의 이름을 클릭합니다.
+2. 개요 창의 맨 위에서 **구독** 옆에 있는 더하기 기호를 클릭하여 이 항목에 구독을 추가합니다.
 
-* Azure 서비스를 사용하는 경우 Azure 서비스 구성 시스템(.csdef 및 .cscfg 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
-* Azure 웹 사이트나 Azure 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: Web.config 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
+    ![구독 만들기][createtopic4]
 
-두 경우 모두, 이 문서의 뒷부분에 표시된 대로 `CloudConfigurationManager.GetSetting` 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
+3. 구독의 이름을 입력합니다. 다른 옵션은 기본값 그대로 둡니다.
 
-### <a name="configure-your-connection-string"></a>연결 문자열 구성
-서비스 구성 메커니즘을 사용하면 응용 프로그램을 다시 배포하지 않고도 [Azure Portal][Azure portal]에서 구성 설정을 동적으로 변경할 수 있습니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(**.csdef**) 파일에 `Setting` 레이블을 추가합니다.
+## <a name="4-send-messages-to-the-topic"></a>4. 토픽에 메시지 보내기
 
-```xml
-<ServiceDefinition name="Azure1">
-...
-    <WebRole name="MyRole" vmsize="Small">
-        <ConfigurationSettings>
-            <Setting name="Microsoft.ServiceBus.ConnectionString" />
-        </ConfigurationSettings>
-    </WebRole>
-...
-</ServiceDefinition>
-```
+항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
-그런 다음 서비스 구성(.cscfg) 파일에서 값을 지정합니다.
+### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
-```xml
-<ServiceConfiguration serviceName="Azure1">
-...
-    <Role name="MyRole">
-        <ConfigurationSettings>
-            <Setting name="Microsoft.ServiceBus.ConnectionString"
-                     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-        </ConfigurationSettings>
-    </Role>
-...
-</ServiceConfiguration>
-```
+Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니다.
 
-이전에 설명한 대로 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 
-### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>Azure 웹 사이트 또는 Azure 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
-웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: Web.config)을 사용하는 것이 좋습니다. 다음과 같이 `<appSettings>` 요소를 사용하여 연결 문자열을 저장합니다.
+1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+2. **찾아보기** 탭을 클릭하고 **WindowsAzure.ServiceBus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+   
+    ![NuGet 패키지 선택][nuget-pkg]
 
-```xml
-<configuration>
-    <appSettings>
-        <add key="Microsoft.ServiceBus.ConnectionString"
-             value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-    </appSettings>
-</configuration>
-```
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>항목에 메시지를 보내는 코드 작성
 
-이전에 설명한 대로 [Azure Portal][Azure portal]에서 검색한 SAS 이름 및 키 값을 사용합니다.
+1. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
+   
+    ```csharp
+    using Microsoft.ServiceBus.Messaging;
+    ```
+2. `Main` 메서드에 다음 코드를 추가합니다. `connectionString` 변수는 네임스페이스를 만들 때 가져온 연결 문자열에 설정하고, `topicName`은 항목을 만들 때 사용된 이름에 설정합니다.
+   
+    ```csharp
+    var connectionString = "<your connection string>";
+    var topicName = "<your topic name>";
+   
+    var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
+    var message = new BrokeredMessage("This is a test message!");
 
-## <a name="create-a-topic"></a>토픽 만들기
-[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 클래스를 사용해서 Service Bus 토픽과 구독에 대한 관리 작업을 수행할 수 있습니다. 이 클래스는 항목을 만들고 열거하고 삭제하는 메서드를 제공합니다.
+    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+    Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
-다음 예제에서는 Azure `CloudConfigurationManager` 클래스를 사용하여 `NamespaceManager` 개체를 생성합니다. 연결 문자열은 Service Bus 네임스페이스의 기준 주소와 관리 권한이 있는 적절한 SAS 자격 증명으로 구성됩니다. 이 연결 문자열은 다음 형식을 사용합니다.
+    client.Send(message);
 
-```xml
-Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
-```
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.ReadLine();
+    ```
+   
+    Program.cs 파일은 다음과 같아야 합니다.
+   
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.ServiceBus.Messaging;
 
-이전 섹션의 구성 설정이 제공될 경우 다음 예를 사용합니다.
-
-```csharp
-// Create the topic if it does not exist already.
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.TopicExists("TestTopic"))
-{
-    namespaceManager.CreateTopic("TestTopic");
-}
-```
-
-토픽의 속성을 설정할 수 있게 해 주는 [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager) 메서드 오버로드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 TTL(Time-To-Live) 값을 설정할 수 있습니다. 이러한 설정은 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) 클래스를 사용하여 적용됩니다. 다음 예제에서는 최대 크기가 5GB이고 기본 메시지 TTL(Time-To-Live)이 1분인 **TestTopic**이라는 토픽을 만드는 방법을 보여 줍니다.
-
-```csharp
-// Configure Topic Settings.
-TopicDescription td = new TopicDescription("TestTopic");
-td.MaxSizeInMegabytes = 5120;
-td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
-
-// Create a new Topic with custom settings.
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.TopicExists("TestTopic"))
-{
-    namespaceManager.CreateTopic(td);
-}
-```
-
-> [!NOTE]
-> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 개체의 [TopicExists](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) 메서드를 사용하여 네임스페이스 내에 지정된 이름의 토픽이 이미 있는지 확인할 수 있습니다.
-> 
-> 
-
-## <a name="create-a-subscription"></a>구독 만들기
-[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 클래스를 사용하여 토픽 구독을 만들 수도 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
-
-> [!IMPORTANT]
-> 메시지가 구독에서 수신되도록 하려면 토픽에 메시지를 보내기 전에 구독을 만들어야 합니다. 토픽에 대한 구독이 없으면, 토픽은 해당 메시지를 무시합니다.
-> 
-> 
-
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
-새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터가 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "AllMessages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
-{
-    namespaceManager.CreateSubscription("TestTopic", "AllMessages");
-}
-```
-
-### <a name="create-subscriptions-with-filters"></a>필터를 사용하여 구독 만들기
-토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정하는 필터를 설정할 수도 있습니다.
-
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter][SqlFilter] 클래스입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하세요.
-
-다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 [SqlFilter][SqlFilter] 개체를 사용하여 **HighMessages**라는 구독을 만듭니다.
-
-```csharp
-// Create a "HighMessages" filtered subscription.
-SqlFilter highMessagesFilter =
-   new SqlFilter("MessageId > 3");
-
-namespaceManager.CreateSubscription("TestTopic",
-   "HighMessages",
-   highMessagesFilter);
-```
-
-마찬가지로, 다음 예제에서는 **MessageNumber** 속성이 3보다 작거나 같은 메시지만 선택하는 [SqlFilter][SqlFilter]를 사용하여 **LowMessages**라는 구독을 만듭니다.
-
-```csharp
-// Create a "LowMessages" filtered subscription.
-SqlFilter lowMessagesFilter =
-   new SqlFilter("MessageId <= 3");
-
-namespaceManager.CreateSubscription("TestTopic",
-   "LowMessages",
-   lowMessagesFilter);
-```
-
-이제 `TestTopic`으로 메시지를 보내는 경우 **AllMessages** 토픽 구독을 구독하는 수신자에게는 항상 배달되고, **HighMessages** 및 **LowMessages** 토픽 구독을 구독하는 수신자에게는 메시지 콘텐츠에 따라 선택적으로 배달됩니다.
-
-## <a name="send-messages-to-a-topic"></a>토픽에 메시지 보내기
-Service Bus 토픽에 메시지를 보내려면 응용 프로그램은 연결 문자열을 사용하여 [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) 개체를 만듭니다.
-
-다음 코드는 [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_) API를 사용하여 위에서 생성한 **TestTopic** 토픽에 대한 [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) 개체를 만드는 방법을 보여 줍니다.
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-TopicClient Client =
-    TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
-
-Client.Send(new BrokeredMessage());
-```
-
-Service Bus 토픽으로 전송된 메시지는 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 인스턴스입니다. **BrokeredMessage** 개체에는 표준 속성 집합(예: [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) 및 [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 **BrokeredMessage** 개체 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**를 사용하여 개체를 직렬화합니다. 또는 **System.IO.Stream** 개체를 제공할 수 있습니다.
-
-다음 예제는 5개의 테스트 메시지를 앞의 코드 예제에서 얻은 **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) 개체로 보내는 방법을 보여 줍니다. 루프의 반복에 따라 각 메시지의 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
-
-```csharp
-for (int i=0; i<5; i++)
-{
-  // Create message, passing a string message for the body.
-  BrokeredMessage message = new BrokeredMessage("Test message " + i);
-
-  // Set additional custom app-specific property.
-  message.Properties["MessageId"] = i;
-
-  // Send message to the topic.
-  Client.Send(message);
-}
-```
-
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔티티](service-bus-partitioning.md)를 참조하세요.
-
-## <a name="how-to-receive-messages-from-a-subscription"></a>구독에서 메시지를 받는 방법
-구독에서 메시지를 받는 권장 방법은 [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) 개체를 사용하는 것입니다. **SubscriptionClient** 개체는 [*ReceiveAndDelete* 및 *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode)의 두 가지 모드에서 작동할 수 있습니다. **PeekLock**이 기본값입니다.
-
-**ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, Service Bus가 구독에서 메시지에 대한 읽기 요청을 받으면 메시지를 사용하는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지를 다시 사용하기 시작할 때 크래시 전에 사용한 메시지는 누락됩니다.
-
-**PeekLock** 모드(기본 모드)에서는 수신 프로세스가 2단계 작업이므로 누락된 메시지를 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 수신된 메시지에 대해 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. Service Bus가 **Complete** 호출을 확인하면 메시지를 사용되는 것으로 표시하고 구독에서 제거합니다.
-
-다음 예제에서는 기본 **PeekLock** 모드를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 다른 [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode) 값을 지정하기 위해 [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_)에 다른 오버로드를 사용할 수 있습니다. 다음 예제는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) 콜백을 사용하여 **HighMessages** 구독에 도착한 메시지를 처리합니다.
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-SubscriptionClient Client =
-    SubscriptionClient.CreateFromConnectionString
-            (connectionString, "TestTopic", "HighMessages");
-
-// Configure the callback options.
-OnMessageOptions options = new OnMessageOptions();
-options.AutoComplete = false;
-options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
-
-Client.OnMessage((message) =>
-{
-    try
+    namespace tsend
     {
-        // Process message from subscription.
-        Console.WriteLine("\n**High Messages**");
-        Console.WriteLine("Body: " + message.GetBody<string>());
-        Console.WriteLine("MessageID: " + message.MessageId);
-        Console.WriteLine("Message Number: " +
-            message.Properties["MessageNumber"]);
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";
+                var topicName = "<your topic name>";
 
-        // Remove message from subscription.
-        message.Complete();
+                var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
+                var message = new BrokeredMessage("This is a test message!");
+
+                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+                Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
+                client.Send(message);
+
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.ReadLine();
+            }
+        }
     }
-    catch (Exception)
+    ```
+3. 프로그램을 실행하고 Azure Portal을 확인합니다. 네임스페이스 **개요** 블레이드에서 항목 이름을 클릭합니다. 항목 **Essentials** 블레이드가 표시됩니다. 블레이드 맨 아래 가까이 나열된 구독에서 각 구독에 대한 **메시지 수** 값이 이제 1임을 확인합니다. 메시지를 검색하지 않고 보낸 사람 응용 프로그램을 실행할 때마다(다음 섹션에서 설명) 이 값이 1씩 증가합니다. 또한 앱이 항목/구독에 메시지를 추가할 때마다 항목의 현재 크기는 **Essentials** 블레이드에 있는 **현재** 값을 증가시킵니다.
+   
+      ![메시지 크기][topic-message]
+
+## <a name="5-receive-messages-from-the-subscription"></a>5. 구독에서 메시지 받기
+
+1. 방금 보낸 메시지를 받으려면 새 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 Service Bus NuGet 패키지에 참조를 추가합니다.
+2. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
+   
+    ```csharp
+    using Microsoft.ServiceBus.Messaging;
+    ```
+3. `Main` 메서드에 다음 코드를 추가합니다. `connectionString` 변수는 네임스페이스를 만들 때 가져온 연결 문자열에 설정하고, `topicName`은 항목을 만들 때 사용된 이름에 설정합니다. 또한 `<your subscription name>`을 3단계에서 만든 구독의 이름으로 바꿔야 합니다. 
+   
+    ```csharp
+    var connectionString = "<your connection string>";
+    var topicName = "<your topic name>";
+   
+    var client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, "<your subscription name>");
+   
+    client.OnMessage(message =>
     {
-        // Indicates a problem, unlock message in subscription.
-        message.Abandon();
+      Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+      Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+    });
+   
+    Console.WriteLine("Press ENTER to exit program");
+    Console.ReadLine();
+    ```
+   
+    Program.cs 파일은 다음과 같아야 합니다.
+   
+    ```csharp
+    using System;
+    using Microsoft.ServiceBus.Messaging;
+   
+    namespace GettingStartedWithTopics
+    {
+      class Program
+      {
+        static void Main(string[] args)
+        {
+          var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";;
+          var topicName = "<your topic name>";
+   
+          var client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, "<your subscription name>");
+   
+          client.OnMessage(message =>
+          {
+            Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+            Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+          });
+
+          Console.WriteLine("Press ENTER to exit program");   
+          Console.ReadLine();
+        }
+      }
     }
-}, options);
-```
+    ```
+4. 프로그램을 실행하고 포털을 다시 확인합니다. **메시지 수**와 **현재** 값이 이제 0이 됩니다.
+   
+    ![항목 길이][topic-message-receive]
 
-다음 예제에서는 [OnMessageOptions](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions) 개체를 사용하여 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) 콜백을 구성합니다. [AutoComplete](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete)는 받은 메시지에서 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)를 호출할 시점을 수동으로 제어할 수 있도록 **false**로 설정되어 있습니다. [AutoRenewTimeout](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout)이 1분으로 설정되며 자동 갱신 기능이 종료되기 전에 클라이언트가 최대 1분간 대기하고 메시지를 확인하는 새 호출을 만들게 됩니다. 이 속성 값은 클라이언트가 메시지를 검색하지 않는 유료 호출하는 횟수를 줄입니다.
-
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-서비스 버스는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) 메서드 대신 [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__) 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 구독 내 메시지의 잠금을 해제하고 동일한 소비 응용 프로그램이나 다른 소비 응용 프로그램에서 메시지를 다시 받을 수 있습니다.
-
-구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
-
-응용 프로그램이 메시지를 처리한 후 [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) 요청이 실행되기 전에 충돌되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지하는 메시지의 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 속성을 사용합니다.
-
-## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-다음 예제에서는 **HowToSample** 서비스 네임스페이스에서 **TestTopic** 토픽을 삭제하는 방법을 보여 줍니다.
-
-```csharp
-// Delete Topic.
-namespaceManager.DeleteTopic("TestTopic");
-```
-
-토픽을 삭제하면 토픽에 등록된 모든 구독도 삭제됩니다. 구독을 개별적으로 삭제할 수도 있습니다. 다음 코드는 **TestTopic** 토픽에서 **HighMessages**라는 구독을 삭제하는 방법을 보여 줍니다.
-
-```csharp
-namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
-```
+축하합니다. 이제 토픽 및 구독을 만들고, 메시지를 보내고 해당 메시지를 받았습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 서비스 버스 토픽 및 구독의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보십시오.
 
-* [큐, 토픽 및 구독][Queues, topics, and subscriptions]
-* [토픽 필터 샘플][Topic filters sample]
-* [SqlFilter][SqlFilter]에 대한 API 참조
-* Service Bus 큐로 메시지를 보내고 받도록 작동하는 응용 프로그램 빌드: [Service Bus 조정된 메시징 .NET 자습서][Service Bus brokered messaging .NET tutorial]
-* Service Bus 샘플: [Azure 샘플][Azure samples]에서 다운로드하거나 [개요](service-bus-samples.md)를 참조하세요.
+Service Bus 메시징의 많은 고급 기능 중 일부를 보여 주는 [샘플이 있는 GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples)를 확인합니다.
 
-[Azure portal]: https://portal.azure.com
+<!--Image references-->
 
-[7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
-
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
-[Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
-[Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-
+[nuget-pkg]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/nuget-package.png
+[topic-message]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message.png
+[topic-message-receive]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message-receive.png
+[createtopic1]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic1.png
+[createtopic2]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic2.png
+[createtopic3]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic3.png
+[createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
+[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[azure-portal]: https://portal.azure.com

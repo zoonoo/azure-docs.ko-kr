@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/26/2017
 ms.author: femila
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침
 이 문서에서는 Windows Server AD DS(Active Directory 도메인 서비스) 및 AD FS(Active Directory Federation Services) 온-프레미스 배포와 Microsoft Azure 가상 컴퓨터에 배포 간의 중요한 차이점을 설명합니다.
@@ -108,7 +107,7 @@ DC에 영향을 주는 방법에 대한 자세한 내용은 [USN 및 USN 롤백]
 Windows Server 2012부터는 [추가 세이프가드가 AD DS에 기본 제공됩니다](https://technet.microsoft.com/library/hh831734.aspx). 이러한 세이프가드 도움은 기본 하이퍼바이저 플랫폼이 VM-GenerationID를 지원하는 한 앞서 언급한 문제에 대해서 가상화된 도메인 컨트롤러를 보호합니다. Azure는 Azure 가상 컴퓨터에서 Windows Server 2012 이상을 실행하는 도메인 컨트롤러에 추가 세이프가드가 있음을 의미하는 VM-GenerationID를 지원합니다.
 
 > [!NOTE]
-> Azure Portal 또는 클래식 포털에서 **종료** 옵션을 사용하는 대신 게스트 운영 체제 내의 Azure에서 도메인 컨트롤러 역할을 실행하는 VM을 종료하고 다시 시작해야 합니다. 오늘날 포털을 사용하여 VM을 종료하면 VM 할당이 취소됩니다. 할당 취소된 VM은 비용이 발생하지 않는다는 장점이 있지만 DC에 바람직하지 않은 VM-GenerationID를 다시 설정합니다. VM-GenerationID를 다시 설정할 때 AD DS 데이터베이스의 invocationID 또한 다시 설정되며 RID 풀이 삭제되고 SYSVOL이 권한이 없는 것으로 표시됩니다. 자세한 내용은 [AD DS(Active Directory 도메인 서비스) 가상화 소개](https://technet.microsoft.com/library/hh831734.aspx) 및 [안전하게 DFSR 가상화](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx)를 참조하세요.
+> Azure Portal에서 **종료** 옵션을 사용하는 대신 게스트 운영 체제 내의 Azure에서 도메인 컨트롤러 역할을 실행하는 VM을 종료하고 다시 시작해야 합니다. 오늘날 포털을 사용하여 VM을 종료하면 VM 할당이 취소됩니다. 할당 취소된 VM은 비용이 발생하지 않는다는 장점이 있지만 DC에 바람직하지 않은 VM-GenerationID를 다시 설정합니다. VM-GenerationID를 다시 설정할 때 AD DS 데이터베이스의 invocationID 또한 다시 설정되며 RID 풀이 삭제되고 SYSVOL이 권한이 없는 것으로 표시됩니다. 자세한 내용은 [AD DS(Active Directory 도메인 서비스) 가상화 소개](https://technet.microsoft.com/library/hh831734.aspx) 및 [안전하게 DFSR 가상화](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx)를 참조하세요.
 > 
 > 
 
@@ -126,7 +125,7 @@ Azure는 비용이 드는 재해 복구(DR) 사이트에 대한 대체로 적합
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Azure 가상 컴퓨터와 온-프레미스에 Windows Server Active Directory 도메인 컨트롤러 배포 간의 비교
 * 단일 VM을 두 개 이상 포함하는 모든 Windows Server Active Directory 배포 시나리오의 경우 IP 주소 일관성을 위해 Azure 가상 네트워크를 사용해야 합니다. 이 가이드에서는 DC가 Azure 가상 네트워크에서 실행 중임을 가정합니다.
-* 온-프레미스 DC와 마찬가지로 고정 IP 주소를 사용하는 것이 좋습니다. 고정 IP 주소는 Azure PowerShell을 사용하여 구성할 수 있습니다. 자세한 내용은 [VM에 대한 고정 내부 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) 를 참조하세요. 모니터링 시스템 또는 게스트 운영 체제 내에서 고정 IP 주소 구성을 확인하는 다른 솔루션이 있는 경우 VM의 네트워크 어댑터 속성에 동일한 고정 IP 주소를 할당할 수 있습니다. 하지만 VM이 서비스 복구를 받거나 클래식 포털에서 종료되고 해당 주소가 할당 취소되는 경우 네트워크 어댑터가 삭제됩니다. 이 경우 게스트 내의 고정 IP 주소를 다시 설정해야 합니다.
+* 온-프레미스 DC와 마찬가지로 고정 IP 주소를 사용하는 것이 좋습니다. 고정 IP 주소는 Azure PowerShell을 사용하여 구성할 수 있습니다. 자세한 내용은 [VM에 대한 고정 내부 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) 를 참조하세요. 모니터링 시스템 또는 게스트 운영 체제 내에서 고정 IP 주소 구성을 확인하는 다른 솔루션이 있는 경우 VM의 네트워크 어댑터 속성에 동일한 고정 IP 주소를 할당할 수 있습니다. 하지만 VM이 서비스 복구를 받거나 포털에서 종료되고 해당 주소가 할당 취소되는 경우 네트워크 어댑터가 삭제됩니다. 이 경우 게스트 내의 고정 IP 주소를 다시 설정해야 합니다.
 * 가상 네트워크에 VM 배포는 온-프레미스 네트워크에 다시 연결하는 것을 의미(요구)하지 않습니다. 가상 네트워크는 단순히 해당 가능성을 활성화합니다. Azure와 온-프레미스 네트워크 간의 개인 통신에 대한 가상 네트워크를 만들어야 합니다. 온-프레미스 네트워크에 VPN 끝점을 배포해야 합니다. VPN은 Azure에서 온-프레미스 네트워크로 열립니다. 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md) 및 [Azure Portal에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
 
 > [!NOTE]
@@ -282,7 +281,7 @@ SharePoint가 Azure 가상 컴퓨터에 배포되고 응용 프로그램은 회�
 #### <a name="description"></a>설명
 온-프레미스에 성공적으로 배포되고 회사 사용자가 사용하는 클레임 인식 응용 프로그램을 인터넷에서 직접 액세스할 수 있게 해야 합니다. 응용 프로그램은 데이터를 저장하는 SQL 데이터베이스에 웹 프런트 엔드 역할을 합니다. 응용 프로그램에서 사용하는 SQL Server도 회사 네트워크에 있습니다. 두 개의 Windows Server AD FS STS 및 부하 분산 장치는 회사 사용자에 게 액세스를 제공하도록 온-프레미스에 배포되었습니다. 이제 응용 프로그램은 자체 회사 ID를 사용하여 비즈니스 파트너와 기존 회사 사용자가 인터넷을 통해 추가로 직접 액세스할 수 있어야 합니다.
 
-이 새로운 요구 사항의 배포 및 구성 요구를 단순화하고 충족시키기 위해 두 개의 추가 웹 프런트 엔드 및 두 개의 Windows Server AD FS 프록시 서버가 Azure 가상 컴퓨터에 설치되도록 결정되었습니다. 모든&4;개의 VM은 인터넷에 직접 노출되고 Azure 가상 네트워크의 사이트 간 VPN 기능을 사용하여 온-프레미스 네트워크에 대한 연결이 제공됩니다.
+이 새로운 요구 사항의 배포 및 구성 요구를 단순화하고 충족시키기 위해 두 개의 추가 웹 프런트 엔드 및 두 개의 Windows Server AD FS 프록시 서버가 Azure 가상 컴퓨터에 설치되도록 결정되었습니다. 모든 4개의 VM은 인터넷에 직접 노출되고 Azure 가상 네트워크의 사이트 간 VPN 기능을 사용하여 온-프레미스 네트워크에 대한 연결이 제공됩니다.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>시나리오 고려 사항 및 시나리오에 대한 기술 영역 적용 방법
 * [네트워크 토폴로지](#BKMK_NetworkTopology): Azure 가상 네트워크를 만들고 [크로스-프레미스 연결을 구성합니다](../vpn-gateway/vpn-gateway-site-to-site-create.md).
@@ -394,7 +393,7 @@ Azure 가상 컴퓨터는 기본적으로 "DHCP 임대 주소"로 할당됩니�
 
 VM은 시작 시 또는 이름 변경 내용이 있을 때 자동으로 해당 DNS 이름을 등록합니다.
 
-첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azureps-cmdlets-docs) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)을 참조하세요.
+첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azureps-cmdlets-docs) 및 [Azure 관리 Cmdlet](/powershell/module/azurerm.compute/#virtual_machines)을 참조하세요.
 
 ### <a name="BKMK_DistributedDCs"></a>지리적으로 분산된 DC
 Azure는 서로 다른 가상 네트워크에 여러 DC를 호스팅하는 경우 이점을 제공합니다.
@@ -498,5 +497,4 @@ VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응�
 > Windows Server NLB(네트워크 부하 분산)는 Azure에서 지원되지 않습니다.
 > 
 > 
-
 

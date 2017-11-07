@@ -2,7 +2,7 @@
 title: "비디오 플레이어 응용 프로그램 개발"
 description: "이 토픽에서는 Media Services의 스트리밍 미디어를 사용할 수 있는 고유한 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 플레이어 프레임워크 및 플러그 인에 대한 링크를 제공합니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 0e88baed8188890e80d4c2e7ee9d510fdabf6e43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-video-player-applications"></a>비디오 플레이어 응용 프로그램 개발
 ## <a name="overview"></a>개요
@@ -75,5 +74,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
-
 

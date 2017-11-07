@@ -1,9 +1,9 @@
 ---
-title: "상태 저장 Reliable Services 진단 | Microsoft Docs"
-description: "상태 저장 Reliable Services의 진단 기능"
+title: "Azure Service Fabric 상태 저장 Reliable Services 진단 | Microsoft Docs"
+description: "Azure Service Fabric 상태 저장 Reliable Services의 진단 기능"
 services: service-fabric
 documentationcenter: .net
-author: AlanWarwick
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
-ms.author: alanwar
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
-
-
+ms.date: 10/15/2017
+ms.author: dekapur
+ms.openlocfilehash: d7dfb16407aa6e89a6bbf4db303bd5332cf31432
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -44,13 +44,7 @@ StatefulRunAsyncSlowCancellation 및 StatefulRunAsyncFailure 이벤트는 서비
 
 서비스 RunAsync() 작업이 예외를 throw할 때마다 StatefulRunAsyncFailure가 내보내집니다. 일반적으로 throw된 예외는 서비스의 오류 또는 버그를 나타냅니다. 또한 예외로 인해 서비스가 실패하므로 다른 노드로 이동시켜야 합니다. 이 작업은 부담이 큰 작업이며 서비스가 이동하는 동안 들어오는 요청을 지연시킬 수 있습니다. 서비스 작성자는 예외의 원인을 확인하고 가능한 경우 이를 완화해야 합니다.
 
-RunAsync 작업에 대한 취소 요청이&4;초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 줄 수 있습니다. 이 작업은 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
+RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 줄 수 있습니다. 이 작업은 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

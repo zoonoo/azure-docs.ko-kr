@@ -1,6 +1,6 @@
 ---
-title: "Java를 사용하여 Azure SQL Database에 연결 | Microsoft Docs"
-description: "Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다."
+title: "Java를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs"
+description: "이 항목에서는 Java를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다."
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,295 +8,156 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
-ms.workload: drivers
+ms.custom: mvc,develop apps
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 03/27/2017
-ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a047d4cdf869fff0d2afaf11f124370c0eae98e4
-ms.lasthandoff: 03/30/2017
-
-
+ms.topic: quickstart
+ms.date: 07/10/2017
+ms.author: andrela
+ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Azure SQL Database: Java를 사용하여 데이터에 연결 및 쿼리
+# <a name="use-java-to-query-an-azure-sql-database"></a>Java를 사용하여 Azure SQL Database 쿼리
 
-[Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL Database에 연결하고 쿼리합니다. 이 가이드는 Java를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+이 빠른 시작에서는 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.
 
-이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
+## <a name="prerequisites"></a>필수 조건
 
-- [DB 만들기 - 포털](sql-database-get-started-portal.md)
-- [DB 만들기 - CLI](sql-database-get-started-cli.md)
+이 빠른 시작 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
-## <a name="configure-development-environment"></a>개발 환경 구성
+- Azure SQL 데이터베이스입니다. 이 빠른 시작에서는 다음과 같은 빠른 시작 중 하나에서 만든 리소스를 사용합니다. 
 
-다음 섹션에서는 Azure SQL Database 작업을 수행하기 위해 기존 Mac OS, Linux(Ubuntu) 및 Windows 개발 환경을 구성하는 방법을 자세히 설명합니다.
+   - [DB 만들기 - 포털](sql-database-get-started-portal.md)
+   - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+   - [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="mac-os"></a>**Mac OS**
-터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew** 및 **Maven**을 설치합니다. 
+- 이 빠른 시작 자습서에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
 
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
+- 운영 체제에 맞게 설치된 Java 및 관련 소프트웨어
 
-### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
-터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **Maven**을 설치합니다. 
+    - **MacOS**: Homebrew와 Java를 설치한 다음 Maven을 설치합니다. [1.2 및 1.3 단계](https://www.microsoft.com/sql-server/developer-get-started/java/mac/) 참조
+    - **Ubuntu**: Java Development Kit을 설치하고 Maven을 설치합니다. [1.2, 1.3 및 1.4 단계](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/) 참조
+    - **Windows**: Java Development Kit을 설치하고 Maven을 설치합니다. [1.2 및 1.3 단계](https://www.microsoft.com/sql-server/developer-get-started/java/windows/) 참조    
 
-```
-sudo apt-get install maven
-```
+## <a name="sql-server-connection-information"></a>SQL 서버 연결 정보
 
-### <a name="windows"></a>**Windows**
-공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다.  
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
-## <a name="get-connection-information"></a>연결 정보 가져오기
-
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **Essentials** 창에서 정규화된 서버 이름을 검토합니다. 
+3. 데이터베이스의 **개요** 페이지에서 다음 이미지와 같이 정규화된 서버 이름을 검토합니다. 해당 서버 이름을 마우스로 가리키면 **복사하려면 클릭** 옵션이 표시됩니다.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. **연결 문자열 표시**를 클릭합니다.
+4. 서버 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 로그인 이름을 확인합니다.  필요한 경우 암호를 다시 설정합니다.     
 
-5. 전체 **JDBC** 연결 문자열을 검토합니다.
+## <a name="create-maven-project-and-dependencies"></a>**Maven 프로젝트 및 종속성 만들기**
+1. 터미널에서 **sqltest**라는 새 Maven 프로젝트를 만듭니다. 
 
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+   ```bash
+   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+   ```
 
-### <a name="create-maven-project"></a>**Maven 프로젝트 만들기**
-터미널에서 새 Maven 프로젝트를 만듭니다. 
-```
-mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-```
+2. 메시지가 표시되면 **Y**를 입력합니다.
+3. 디렉터리를 **sqltest**로 변경하고 원하는 텍스트 편집기에서 ***pom.xml***을 엽니다.  다음 코드를 사용하여 프로젝트의 종속성에 **SQL Server용 Microsoft JDBC Driver**를 추가합니다.
 
-***pom.xml***에서 종속성에 **Microsoft JDBC Driver for SQL Server**를 추가합니다. 
+   ```xml
+   <dependency>
+       <groupId>com.microsoft.sqlserver</groupId>
+       <artifactId>mssql-jdbc</artifactId>
+       <version>6.2.1.jre8</version>
+   </dependency>
+   ```
 
-```xml
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>6.1.0.jre8</version>
-</dependency>
-```
+4. 또한 ***pom.xml***에서 프로젝트에 다음 속성을 추가합니다.  속성 섹션이 없으면 종속성 뒤에 추가할 수 있습니다.
 
-## <a name="select-data"></a>데이터 선택
+   ```xml
+   <properties>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   ```
 
-[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문과 [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection)을 사용하여 Java로 Azure SQL Database에서 데이터를 쿼리합니다.
+5. ***pom.xml***을 저장하고 닫습니다.
 
-```java
-package com.sqldbsamples;
+## <a name="insert-code-to-query-sql-database"></a>SQL 데이터베이스 쿼리 코드 삽입
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
+1. \sqltest\src\main\java\com\sqlsamples\App.java에 있는 Maven 프로젝트에 이미 ***App.java***라는 파일이 있어야 합니다.
 
-public class App {
+2. 파일을 열어 내용을 다음 코드로 바꾸고, 서버, 데이터베이스, 사용자 및 암호에 대해 적절한 값을 추가합니다.
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+   ```java
+   package com.sqldbsamples;
 
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+   import java.sql.Connection;
+   import java.sql.Statement;
+   import java.sql.PreparedStatement;
+   import java.sql.ResultSet;
+   import java.sql.DriverManager;
 
-                System.out.println("Query data example:");
-                System.out.println("=========================================");
-
-                // Create and execute a SELECT SQL statement.
-                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                    + "FROM [SalesLT].[ProductCategory] pc "  
-                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSql);
-
-                // Print results from select statement
-                System.out.println("Top 20 categories:");
-                while (resultSet.next())
-                {
-                    System.out.println(resultSet.getString(1) + " "
-                        + resultSet.getString(2));
-                }
-            }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-
-## <a name="insert-data"></a>데이터 삽입
-
-[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문과 [Prepared 문](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql)을 사용하여 Azure SQL Database에서 데이터를 삽입합니다.
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
+   public class App {
 
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+           String hostName = "your_server.database.windows.net";
+           String dbName = "your_database";
+           String user = "your_username";
+           String password = "your_password";
+           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+           Connection connection = null;
 
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+           try {
+                   connection = DriverManager.getConnection(url);
+                   String schema = connection.getSchema();
+                   System.out.println("Successful connection - Schema: " + schema);
 
-                System.out.println("Insert data example:");
-                System.out.println("=========================================");
+                   System.out.println("Query data example:");
+                   System.out.println("=========================================");
 
-                // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
-                    + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+                   // Create and execute a SELECT SQL statement.
+                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+                       + "FROM [SalesLT].[ProductCategory] pc "  
+                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+                
+                   try (Statement statement = connection.createStatement();
+                       ResultSet resultSet = statement.executeQuery(selectSql)) {
 
-                java.util.Date date = new java.util.Date();
-                java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
+                           // Print results from select statement
+                           System.out.println("Top 20 categories:");
+                           while (resultSet.next())
+                           {
+                               System.out.println(resultSet.getString(1) + " "
+                                   + resultSet.getString(2));
+                           }
+                    connection.close();
+                   }                   
+           }
+           catch (Exception e) {
+                   e.printStackTrace();
+           }
+       }
+   }
+   ```
 
-                PreparedStatement prep = connection.prepareStatement(insertSql);
-                prep.setString(1, "BrandNewProduct");
-                prep.setInt(2, 200989);
-                prep.setString(3, "Blue");
-                prep.setDouble(4, 75);
-                prep.setDouble(5, 80);
-                prep.setTimestamp(6, sqlTimeStamp);
+## <a name="run-the-code"></a>코드 실행
 
-                int count = prep.executeUpdate();
-                System.out.println("Inserted: " + count + " row(s)");
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-## <a name="update-data"></a>데이터 업데이트
+1. 명령 프롬프트에서 다음 명령을 실행합니다.
 
-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문과 [Prepared 문](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql)을 사용하여 Azure SQL Database에서 데이터를 업데이트합니다.
+   ```bash
+   mvn package
+   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
-```java
-package com.sqldbsamples;
+2. 상위 20개 행이 반환되는지 확인한 다음 응용 프로그램 창을 닫습니다.
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Update data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to update data
-                String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
-
-                PreparedStatement prep = connection.prepareStatement(updateSql);
-                prep.setString(1, "500");
-                prep.setString(2, "BrandNewProduct");
-
-                int count = prep.executeUpdate();
-                System.out.println("Updated: " + count + " row(s)")
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-
-
-
-## <a name="delete-data"></a>데이터 삭제
-
-[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문과 [Prepared 문](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql)을 사용하여 Azure SQL Database에서 데이터를 삭제합니다.
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Delete data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to delete data
-                String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
-
-                PreparedStatement prep = connection.prepareStatement(deleteSql);
-                prep.setString(1, "BrandNewProduct");
-
-                int count = prep.executeUpdate();
-                System.out.println("Deleted: " + count + " row(s)");
-            }        
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
-* [SQL Database 개발 개요](sql-database-develop-overview.md)를 검토합니다.
-* [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)용 Github 리포지토리
-* [문제/질문을 보관](https://github.com/microsoft/mssql-jdbc/issues)합니다.
-* 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
-
+- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)
+- [문제/질문 보고](https://github.com/microsoft/mssql-jdbc/issues)
 

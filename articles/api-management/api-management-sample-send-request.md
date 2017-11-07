@@ -3,7 +3,7 @@ title: "API 관리 서비스를 사용하여 HTTP 요청 생성"
 description: "API 관리에서 요청 및 응답 정책을 사용하여 API에서 외부 서비스를 호출하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5bb92f427a07949d6057553ac8dde309e1a0aa11
-
-
+ms.openlocfilehash: 6b7f1268ea4893307713931e7288f5d38c5ee080
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API 관리 서비스에서 외부 서비스 사용
 Azure API 관리 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API 관리 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -289,10 +289,4 @@ Azure API 관리 서비스는 HTTP 트래픽에 선택적으로 적용할 수 �
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "이 문서에서는 저장소 액세스 키를 롤링한 후 미�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 08/09/2017
 ms.author: milanga;cenkdin;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
-ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: 304e72e0d2d4a7e95df513e6d5481def9eae3f68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트
 
@@ -78,4 +77,3 @@ ms.lasthandoff: 01/27/2017
 
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
-

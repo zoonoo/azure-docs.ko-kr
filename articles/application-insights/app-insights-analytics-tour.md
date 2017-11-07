@@ -3,7 +3,7 @@ title: "Azure Application Insights 내 Analytics 둘러보기 | Microsoft Docs"
 description: "Application Insights의 강력한 검색 도구인 Analytics의 모든 주요 쿼리에 대한 간단한 샘플"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/06/2017
+ms.author: mbullwin
+ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights의 Analytics 둘러보기
-[분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
+[분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
 
 * **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, **[시뮬레이션된 데이터에 대한 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
@@ -34,7 +33,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 ![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takeapp-insights-analytics-referencemdtake-operator-show-me-n-rows"></a>[Take](app-insights-analytics-reference.md#take-operator): n개의 행 표시
+## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): n개의 행 표시
 사용자 작업(일반적으로 웹앱에서 받는 HTTP 요청)을 기록하는 데이터 요소는 `requests`라는 테이블에 저장됩니다. 각 행은 앱의 Application Insights SDK에서 수신된 원격 분석 데이터 요소입니다.
 
 테이블의 몇 가지 샘플 행을 검사하는 것으로 시작해 보겠습니다.
@@ -59,7 +58,17 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 >
 >
 
-## <a name="topapp-insights-analytics-referencemdtop-operator-and-sortapp-insights-analytics-referencemdsort-operator"></a>[Top](app-insights-analytics-reference.md#top-operator) 및 [sort](app-insights-analytics-reference.md#sort-operator)
+## <a name="query-across-applications"></a>응용 프로그램 간 쿼리
+여러 Application Insights 응용 프로그램의 데이터를 결합하려는 경우 **앱** 키워드를 사용하여 테이블 이름과 함께 응용 프로그램을 지정합니다.  이 쿼리는 **union** 명령을 사용하여 두 개의 서로 다른 응용 프로그램의 요청을 결합합니다.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
+
+## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 및 [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` 은(는) 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을(를) 사용합니다.
 
 특정 열을 기준으로 순서가 정해진 처음 n 행 표시:
@@ -85,7 +94,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을(를) 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
 
-## <a name="whereapp-insights-analytics-referencemdwhere-operator-filtering-on-a-condition"></a>[Where](app-insights-analytics-reference.md#where-operator): 조건에 대한 필터링
+## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): 조건에 대한 필터링
 
 특정 결과 코드를 반환하는 요청만 살펴보겠습니다.
 
@@ -104,7 +113,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 * `==`, `<>`, `!=`: 같음 및 같지 않음
 * `=~`, `!~`: 대/소문자 구분 없는 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
-[스칼라 식](app-insights-analytics-reference.md#scalars)에 대한 모든 내용을 읽어보세요.
+<!---Read all about [scalar expressions]().--->
 
 ### <a name="getting-the-right-type"></a>올바른 형식 가져오기
 성공하지 못한 요청 찾기
@@ -114,10 +123,11 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
     requests
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
+<!---
+`resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
+--->
 
-`resultCode` 은(는) 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts) 해야 합니다.
-
-## <a name="time-range"></a>시간 범위
+## <a name="time"></a>Time
 
 기본적으로 쿼리는 마지막 24시간으로 제한됩니다. 그러나 이 값을 변경할 수 있습니다.
 
@@ -159,11 +169,11 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ```
 
-[날짜 및 시간 참조](app-insights-analytics-reference.md#date-and-time)
+[날짜 및 시간 참조](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html)
 
 
-## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>[Project](app-insights-analytics-reference.md#project-operator): 열 선택, 이름 바꾸기 및 계산
-원하는 열만 선택하려면 [`project`](app-insights-analytics-reference.md#project-operator)을(를) 사용합니다.
+## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): 열 선택, 이름 바꾸기 및 계산
+원하는 열만 선택하려면 [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html)을(를) 사용합니다.
 
 ```AIQL
 
@@ -188,15 +198,15 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* [열 이름](app-insights-analytics-reference.md#names)은 `['...']` 또는 `["..."]`와(과) 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
+* 열 이름은 `['...']` 또는 `["..."]`와 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
 * `%` 은(는) 일반적인 모듈로 연산자입니다.
 * `1d` (한 자릿수, 'd' 한 개)은(는) 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
 * `floor`(별칭 `bin`)은(는) 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)` 은(는) 시간을 가장 가까운 초로 반올림합니다.
 
-[식](app-insights-analytics-reference.md#scalars)은 모든 일반적인 연산자(`+`, `-` 등)를 포함할 수 있으며, 유용한 함수가 다양하게 사용됩니다.
+식은 일반적인 연산자(`+`,`-`, ...)를 모두 포함할 수 있으며, 유용한 함수가 다양하게 사용됩니다.
 
-## <a name="extendapp-insights-analytics-referencemdextend-operator-compute-columns"></a>[확장](app-insights-analytics-reference.md#extend-operator): 열 계산
-기존 열에 열을 추가하기만 하려면 [`extend`](app-insights-analytics-reference.md#extend-operator)을(를) 사용합니다.
+## <a name="extend"></a>Extend
+기존 열에 열을 추가하기만 하려면 [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html)을(를) 사용합니다.
 
 ```AIQL
 
@@ -205,7 +215,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-기존 열을 모두 유지하려는 경우 [`extend`](app-insights-analytics-reference.md#extend-operator)을(를) 사용하면 [`project`](app-insights-analytics-reference.md#project-operator)에 비해 표시되는 정보가 상세하지 않습니다.
+기존 열을 모두 유지하려는 경우 [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html)을(를) 사용하면 [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html)에 비해 표시되는 정보가 상세하지 않습니다.
 
 ### <a name="convert-to-local-time"></a>현지 시간으로 변환
 
@@ -219,7 +229,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ```
 
 
-## <a name="summarizeapp-insights-analytics-referencemdsummarize-operator-aggregate-groups-of-rows"></a>[요약](app-insights-analytics-reference.md#summarize-operator): 행 그룹 집계
+## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[요약](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): 행 그룹 집계
 `Summarize` 은(는) 행 그룹에서 지정된 *집계 함수* 를 적용합니다.
 
 예를 들어 웹앱이 요청에 응답하는 데 걸리는 시간은 `duration`필드에 보고됩니다. 모든 요청에 대한 평균 응답 시간을 살펴보겠습니다.
@@ -257,7 +267,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 그룹의 행 수를 계산하려는 경우 `count()` 집계(및 개수 계산 작업)도 있습니다.
 
-[집계 함수](app-insights-analytics-reference.md#aggregations)의 범위가 있습니다.
+[집계 함수](https://docs.loganalytics.io/learn/tutorials/aggregations.html)의 범위가 있습니다.
 
 ## <a name="charting-the-results"></a>결과 차트로 작성
 ```AIQL
@@ -398,7 +408,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentilesapp-insights-analytics-referencemdpercentiles"></a>[백분위수](app-insights-analytics-reference.md#percentiles)
+## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[백분위수](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
 서로 다른 세션 백분위수를 다루는 기간 범위는 무엇입니까?
 
 위의 쿼리를 사용하되 마지막 줄을 다음으로 바꿈:
@@ -459,7 +469,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 조인을 수행하기 전에 `project`을(를) 사용하여 필요한 열만 선택하는 것이 좋습니다.
 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
 
-## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): 변수에 결과 할당
+## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): 변수에 결과 할당
 
 `let`을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
 
@@ -519,7 +529,7 @@ requests
     | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
-적절한 형식에 대한 [캐스트](app-insights-analytics-reference.md#casts) 를 사용해야 합니다.
+결과를 적절한 형식으로 캐스트해야 합니다.
 
 
 ## <a name="custom-properties-and-measurements"></a>사용자 지정 속성 및 측정
@@ -690,12 +700,16 @@ Application Insights 에이전트가 설치되지 않은 경우 서버 쪽 종�
 Tracktrace()를 사용하여 앱에서 보낸 원격 분석 데이터나 [다른 로깅 프레임워크](app-insights-asp-net-trace-logs.md)가 포함됩니다.
 
 ## <a name="video"></a>비디오 
- 
+
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+고급 쿼리:
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
+
 
 ## <a name="next-steps"></a>다음 단계
 * [분석 언어 참조](app-insights-analytics-reference.md)
 * [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-

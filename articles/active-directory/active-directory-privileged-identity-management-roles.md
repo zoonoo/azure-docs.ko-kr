@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/31/2017
 ms.author: billmath
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: be32a7125807905f12699dba92b260d80ac2c4de
-ms.lasthandoff: 02/28/2017
-
+ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
+ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM의 다른 관리자 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 응용 프로그램에서 수행할 수 있는 작업을 제어합니다.  
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 전역 관리자는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)에 설명된 대로 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember` 등의 PowerShell cmdlet을 사용하거나 클래식 포털을 통해 Azure AD에서 역할에 **영구적**으로 할당되는 사용자를 업데이트할 수 있습니다.
 
@@ -89,5 +92,4 @@ Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

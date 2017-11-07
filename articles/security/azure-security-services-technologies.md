@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 보안 서비스 및 기술
 현재 및 미래 Azure 고객들과 이야기를 나눌 때 우리는 이런 질문을 자주 받습니다. “Azure가 제공하는 모든 보안 관련 서비스 및 기술 목록을 구비하고 계십니까?”
@@ -36,12 +35,12 @@ ms.lasthandoff: 02/17/2017
 * [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Azure 저장소 보안
-* [Azure 저장소 서비스 암호화](../storage/storage-service-encryption.md)
+* [Azure 저장소 서비스 암호화](../storage/common/storage-service-encryption.md)
 * [StorSimple 암호화된 하이브리드 저장소](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Azure 클라이언트 쪽 암호화](../storage/storage-client-side-encryption.md)
-* [Azure 저장소 공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Azure 저장소 계정 키](../storage/storage-create-storage-account.md)
-* [3.0 암호화 SMB와 함께 azure 파일 공유](../storage/storage-dotnet-how-to-use-files.md)
+* [Azure 클라이언트 쪽 암호화](../storage/common/storage-client-side-encryption.md)
+* [Azure 저장소 공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Azure 저장소 계정 키](../storage/common/storage-create-storage-account.md)
+* [SMB 3.0 암호화를 사용한 Azure 파일 공유](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Azure 저장소 분석](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Azure 데이터베이스 보안
@@ -73,4 +72,3 @@ ms.lasthandoff: 02/17/2017
 * [Azure express 경로](../expressroute/expressroute-introduction.md)
 * [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
 * [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
-

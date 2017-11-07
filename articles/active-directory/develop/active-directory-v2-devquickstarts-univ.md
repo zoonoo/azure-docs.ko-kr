@@ -3,7 +3,7 @@ title: "Azure AD v2.0 Windows 유니버설 앱 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 Windows 유니버설 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 349633ed039f3af2ee04d10e944eba404bb30950
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>v2.0 끝점을 사용하여 Windows 유니버설 앱에 로그인 추가
   Windows 유니버설 앱에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다. 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.
@@ -31,10 +32,4 @@ ms.openlocfilehash: 349633ed039f3af2ee04d10e944eba404bb30950
     ## Get security updates for our products
 
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

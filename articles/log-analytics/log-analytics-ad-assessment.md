@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 평가 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
-Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션 설치 및 사용을 도와줍니다.
+![AD 평가 기호](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+
+Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고 사용하도록 도와줍니다.
 
 이 솔루션은 배포된 서버 인프라 관련 우선순위가 지정된 권장 사항 목록을 제공합니다. 권장 사항은 신속하게 위험을 이해하고 조치를 취할 수 있도록 네 가지 주요 영역으로 분류되어 있습니다.
 
@@ -51,21 +52,35 @@ Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Active Directory 평가 데이터 수집 정보
-Active Directory 평가는 사용하도록 설정한 에이전트를 통해 WMI 데이터, 레지스트리 데이터 및 성능 데이터를 수집합니다.
+
+Active Directory 평가는 사용자가 사용하도록 설정한 에이전트를 통해 다음과 같은 소스에서 데이터를 수집합니다.
+
+- 레지스트리 수집기
+- LDAP 수집기
+- .NET Framework
+- 이벤트 로그 수집기
+- ADSI(Active Directory 서비스 인터페이스)
+- Windows PowerShell
+- 파일 데이터 수집기
+- WMI(Windows Management Instrumentation)
+- DCDIAG 도구 API
+- NTFRS(파일 복제 서비스) API
+- 사용자 지정 C# 코드
+
 
 다음 표에는 에이전트에 대한 데이터 수집 방법, Operations Manager(SCOM)가 필요한지 여부 및 에이전트에서 데이터가 수집되는 빈도가 나와 있습니다.
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![아니요](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![아니요](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![예](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 일 |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 일 |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>권장 사항 우선 순위 이해
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
-가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
-* 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
+* 식별된 문제로 인해 문제가 발생될 수 있는 *확률*입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 권장 구성을 구현하는 데 필요한 *노력* 입니다. 노력이 높을수록 권장 사항에 대한 전체 점수가 작아집니다.
 
@@ -95,7 +110,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 2. **평가** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 3. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.  
     ![평가 권장 사항의 이미지](./media/log-analytics-ad-assessment/ad-focus.png)
-4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
+4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 OMS에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
@@ -106,6 +121,10 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다.![실패한 권장 사항](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
@@ -118,13 +137,18 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
    * Operations Manager 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
-예약된 다음 평가가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 평가 대시보드에 *무시됨* 으로 표시됩니다.
+예약된 다음 평가가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 평가 대시보드에 *무시됨*으로 표시됩니다.
 
 1. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. 무시된 권장 사항을 나중에 보려면 IgnoreRecommendations.txt 파일을 제거합니다. 또는 파일에서 RecommendationID를 제거할 수도 있습니다.
 
 ## <a name="ad-assessment-solutions-faq"></a>AD 평가 솔루션 FAQ
@@ -152,13 +176,6 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 * 서버에서의 실제 데이터 수집은 약 1시간이 걸립니다. Active Directory 서버가 많은 서버에서는 더 오래 걸릴 수 있습니다.
 
-*어떤 유형의 데이터를 수집하나요?*
-
-* 다음 유형의 데이터를 수집합니다.
-  * WMI
-  * 레지스트리
-  * 성능 카운터
-
 *데이터를 수집하는 경우 구성하는 방법이 있나요?*
 
 * 지금은 없습니다.
@@ -172,5 +189,4 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 AD 평가 데이터 및 권장 사항을 볼 수 있습니다.
-
+* [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 AD 평가 데이터 및 권장 사항을 볼 수 있습니다.

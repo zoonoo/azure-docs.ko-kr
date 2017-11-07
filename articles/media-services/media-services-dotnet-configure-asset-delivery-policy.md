@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services.NET SDK를 사용하여 �
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 0649f36f55696d2c9a9d31a9f87bc3b34373f273
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK를 사용하여 자산 배포 정책 구성
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -196,11 +195,12 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
     }
 
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
-### <a name="a-idassetdeliveryprotocolaassetdeliveryprotocol"></a><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
+
+### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
+
+다음 열거형은 자산 배달 프로토콜에 대해 설정할 수 있는 값을 설명합니다.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -224,16 +224,18 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
     }
 
-### <a name="a-idassetdeliverypolicytypeaassetdeliverypolicytype"></a><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+
+다음 열거형은 자산 배달 정책 유형에 대해 설정할 수 있는 값을 설명합니다.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -261,27 +263,30 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    /// </summary>
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+다음 열거형은 클라이언트로의 콘텐츠 키 배달 방법을 구성하는 데 사용할 수 있는 값을 설명합니다.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
+        ///
+        </summary>
         None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
+        ///
+        </summary>
         PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
+        ///
+        </summary>
         BaselineHttp = 2,
 
         /// <summary>
@@ -292,10 +297,10 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
     }
 
-### <a name="a-idassetdeliverypolicyconfigurationkeyaassetdeliverypolicyconfigurationkey"></a><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+
+다음 열거형은 자산 배달 정책에 대한 특정 구성을 가져오는 데 사용되는 키를 구성하기 위해 설정할 수 있는 값을 설명합니다.
+
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -344,5 +349,4 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

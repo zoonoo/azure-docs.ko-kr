@@ -15,25 +15,24 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
 Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure CLI(명령줄 인터페이스)에서 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다. 배치 계정을 관리하고 풀, 작업, 태스크 등의 배치 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다.
 
-배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)에서 확인하세요.
+배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](/powershell/module/azurerm.batch/#batch)에서 확인하세요.
 
 이 문서는 Azure PowerShell 버전 3.0.0의 cmdlet를 기반으로 합니다. 서비스 업데이트 및 향상을 최대한 활용하기 위해서 Azure PowerShell을 자주 업데이트하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 배치 리소스를 관리하도록 Azure PowerShell을 사용하여 다음 작업을 수행합니다.
 
-* [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell 설치 및 구성](/powershell/azure/overview)
 * **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
   
     `Login-AzureRmAccount`
@@ -43,7 +42,7 @@ Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure C
 
 ## <a name="manage-batch-accounts-and-keys"></a>배치 계정 및 키 관리
 ### <a name="create-a-batch-account"></a>배치 계정 만들기
-**New-AzureRmBatchAccount**는 지정된 리소스 그룹에서 배치 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [새 AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet을 실행하 여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예:
+**New-AzureRmBatchAccount**는 지정된 리소스 그룹에서 배치 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [새 AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet을 실행하 여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -100,7 +99,7 @@ BatchAccountContext 개체를 **BatchContext** 매개 변수를 사용하는 cmd
 이러한 많은 cmdlet을 사용하는 경우 BatchContext 개체를 전달 하는 것 외에도, 다음 예제와 같이 상세한 리소스 설정을 포함하는 개체를 만들거나 전달해야 합니다. 추가 예제를 보려면 각 cmdlet에 대한 자세한 도움말을 참조하세요.
 
 ### <a name="create-a-batch-pool"></a>배치 풀 만들기
-배치 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 컴퓨터 구성을 선택합니다( [배치 기능 개요](batch-api-basics.md#pool)참조). 계산 노드의 이미지를 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나 또는 Azure 마켓플레이스에서 지원되는 Linux 또는 Windows VM 이미지 중 하나를 통해 만들지 여부를 선택합니다.
+Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 컴퓨터 구성을 선택합니다( [배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열된 지원되는 Linux 또는 Windows VM 이미지 중 하나를 지정하거나 미리 준비한 사용자 지정 이미지를 제공할 수 있습니다.
 
 **New-AzureBatchPool**을 실행하는 경우, PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어, 다음 cmdlet는 제품군 3(Windows Server 2012)의 최신 운영 체제 버전을 통해 이미지를 만든 클라우드 서비스 구성에서 소규모 계산 노드로 새 배치 풀을 만듭니다. 여기서 **CloudServiceConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
@@ -201,7 +200,7 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+[Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)에서 응용 프로그램 패키지에 대한 자세한 정보를 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 응용 프로그램 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage) 을 배치 계정에 연결해야 합니다.
@@ -237,7 +236,7 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 cmdlet 구문 및 예제는 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)를 참조하세요.
-* 배치의 응용 프로그램과 응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+* 자세한 cmdlet 구문 및 예제는 [Azure 배치 cmdlet 참조](/powershell/module/azurerm.batch/#batch)를 참조하세요.
+* Batch의 응용 프로그램과 응용 프로그램 패키지에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

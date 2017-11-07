@@ -1,5 +1,7 @@
 
-1. Android Studio의 **프로젝트 탐색기** 에서 ToDoActivity.java 파일을 열고 다음 import 문을 추가합니다.
+1. Android Studio에서 프로젝트를 엽니다.
+
+2. Android Studio의 **프로젝트 탐색기**에서 ToDoActivity.java 파일을 열고 다음 import 문을 추가합니다.
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,16 +12,17 @@
 
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. **ToDoActivity** 클래스에 다음 메서드를 추가합니다.
+
+3. **ToDoActivity** 클래스에 다음 메서드를 추가합니다.
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
- 
+
         private void authenticate() {
             // Login using the Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
-         
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
@@ -40,17 +43,18 @@
             }
         }
 
-    인증 프로세스를 처리하는 새 메서드가 만들어집니다. 사용자는 Google 로그인을 사용하여 인증됩니다. 대화 상자는 인증된 사용자의 ID를 표시합니다. 양성 인증 없이는 진행할 수 없습니다.
+    이 코드는 Google 인증 프로세스를 처리하는 메서드를 만듭니다. 대화 상자는 인증된 사용자의 ID를 표시합니다. 성공적으로 인증을 진행할 수 있습니다.
 
     > [!NOTE]
-    > Google 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. _MicrosoftAccount_, _Facebook_, _Twitter_, 또는 _windowsazureactivedirectory_.
+    > Google 이외의 ID 공급자를 사용하는 경우 **login** 메서드에 전달된 값을 _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _windowsazureactivedirectory_ 중 하나의 값으로 변경합니다.
 
-3. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
+4. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 
         authenticate();
 
     이 호출을 인증 프로세스를 시작합니다.
-4. **OnCreate** 메서드에서 `authenticate();` 뒤에 남은 코드를 새 **CreateTable** 메서드로 이동합니다. 이는 다음과 같습니다.
+
+5. **onCreate** 메서드에서 `authenticate();` 뒤에 남은 코드를 새 **createTable** 메서드로 이동합니다.
 
         private void createTable() {
 
@@ -68,8 +72,8 @@
             refreshItemsFromTable();
         }
 
-5. _RedirectUrlActivity_의 다음 코드 조각을 _AndroidManifest.xml_에 추가하여 리디렉션이 작동되도록 합니다.
- 
+6. 리디렉션이 예상대로 작동되려면 _RedirectUrlActivity_이라는 다음 코드 조각을 _AndroidManifest.xml_에 추가합니다.
+
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -80,8 +84,8 @@
             </intent-filter>
         </activity>
 
-6.  redirectUriScheme을 Android 응용 프로그램의 _build.gradle_에 추가합니다.
- 
+7. redirectUriScheme을 Android 응용 프로그램의 _build.gradle_에 추가합니다.
+
         android {
             buildTypes {
                 release {
@@ -95,10 +99,13 @@
             }
         }
 
-7. build.gradle에서 종속성에 com.android.support:customtabs:23.0.1을 추가합니다.
+8. build.gradle에서 종속성에 com.android.support:customtabs:23.0.1을 추가합니다.
 
       dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
 
-8. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자로 로그인합니다.
+9. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱을 시작하고 원하는 ID 공급자로 로그인합니다.
+
+> [!WARNING]
+> 언급한 URL 구성표는 대/소문자를 구분합니다.  `{url_scheme_of_you_app}`의 모든 항목이 동일한 사례를 사용해야 합니다.
 
 로그인하고 나면 앱이 오류 없이 실행되며 백 엔드 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.

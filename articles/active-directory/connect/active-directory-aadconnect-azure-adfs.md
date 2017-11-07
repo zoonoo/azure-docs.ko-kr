@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -29,7 +29,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 * **고가용성** - Azure 가용성 집합의 기능을 사용하여 인프라를 항상 사용 가능하도록 합니다.
 * **규모 조정 용이** – 더 좋은 성능이 필요한가요? Azure에서 몇 번 클릭하면 더 강력한 컴퓨터로 쉽게 마이그레이션합니다
 * **지역간 중복성** – Azure 지역 중복성을 사용하여 인프라를 전 세계에 걸쳐 항상 사용 가능하도록 보장할 수 있습니다
-* **관리 용이** – Azure 포털의 단순화된 관리 옵션을 사용하여 인프라를 관리하는 작업이 매우 간편하고 깔끔해 집니다. 
+* **관리 용이** – Azure Portal의 단순화된 관리 옵션을 사용하여 인프라를 관리하는 작업이 매우 간편하고 깔끔해 집니다. 
 
 ## <a name="design-principles"></a>디자인 원칙
 ![배포 설계](./media/active-directory-aadconnect-azure-adfs/deployment.png)
@@ -41,7 +41,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 * **DMZ**: 웹 응용 프로그램 프록시 서버는 DMZ에 배치되고 DMZ와 내부 서브넷 간에 TCP/443 액세스만이 허용됩니다.
 * **부하 분산 장치**: AD FS 및 웹 응용 프로그램 프록시 서버의 고가용성을 보장하려면 AD FS 서버용 내부 부하 분산 장치 및 웹 응용 프로그램 프록시 서버용 Azure Load Balancer를 사용하는 것이 좋습니다.
 * **가용성 집합**: AD FS 배포에 대한 중복성을 제공하려면 비슷한 워크로드에 대한 가용성 집합에 두 개 이상의 가상 컴퓨터를 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있습니다.
-* **저장소 계정**: 두 개의 저장소 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
+* **Storage 계정**: 두 개의 저장소 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
 * **네트워크 분리**: 웹 응용 프로그램 프록시 서버를 별도의 DMZ 네트워크에 배포해야 합니다. 하나의 가상 네트워크를 두 개의 서브넷으로 나누고 격리된 서브넷에는 웹 응용 프로그램 프록시 서버를 배포할 수 있습니다. 각 서브넷에 대한 네트워크 보안 그룹 설정을 구성하고 두 개의 서브넷 간에 필요한 통신만을 허용할 수 있습니다. 자세한 내용은 아래 배포 시나리오 별로 지정됩니다.
 
 ## <a name="steps-to-deploy-ad-fs-in-azure"></a>Azure에서 AD FS를 배포하는 단계
@@ -54,7 +54,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 
 ![가상 네트워크 만들기](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
-한 번 클릭하여 Azure 포털에서 가상 네트워크를 선택하고 가상 네트워크와 서브넷 하나를 즉시 배포할 수 있습니다. INT 서브넷을 정의하여 이제 VM을 추가할 준비가 되었습니다.
+한 번 클릭하여 Azure Portal에서 가상 네트워크를 선택하고 가상 네트워크와 서브넷 하나를 즉시 배포할 수 있습니다. INT 서브넷을 정의하여 이제 VM을 추가할 준비가 되었습니다.
 다음 단계는 네트워크에 다른 서브넷, 즉 DMZ 서브넷을 추가하는 작업입니다. DMZ 서브넷을 만들려면
 
 * 새로 만든 네트워크 선택
@@ -68,7 +68,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 
 **1.2. 네트워크 보안 그룹 만들기**
 
-NSG(네트워크 보안 그룹)은 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
+NSG(네트워크 보안 그룹)은 ACL(Access Control 목록)의 Virtual Network에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
 이 지침을 위해 DMZ와 내부 네트워크용으로 각각 하나씩 두 개의 NSG를 만듭니다. 각각 NSG_INT 및 NSG_DMZ라는 레이블이 지정됩니다.
 
 ![NSG 만들기](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
@@ -93,11 +93,11 @@ NSG를 만든 후에 NSG_INT를 서브넷 INT와 연결하고 NSG_DMZ를 서브�
 Azure에서 DC(도메인 컨트롤러)를 배포하기 위해 온-프레미스에 대한 연결이 필요합니다. Azure에서는 Azure 인프라에 온-프레미스 인프라를 연결하는 다양한 연결 옵션을 제공합니다.
 
 * 지점 및 사이트 간
-* 가상 네트워크 사이트 간
-* Express 경로
+* Virtual Network 사이트 간
+* ExpressRoute
 
-Express 경로를 사용하는 것이 좋습니다. Express 경로를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. Express 경로는 일반적인 인터넷을 통한 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
-Express 경로를 사용하는 것이 좋지만 조직에 가장 적합한 연결 방법을 선택할 수 있습니다. Express 경로 및 Express 경로를 사용하는 다양한 연결 옵션에 대해 자세히 알아보려면 [Express 경로 기술 개요](https://aka.ms/Azure/ExpressRoute)를 참고합니다.
+ExpressRoute를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. Express 경로는 일반적인 인터넷을 통한 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+ExpressRoute를 사용하는 것이 좋지만 조직에 가장 적합한 연결 방법을 선택할 수 있습니다. ExpressRoute 및 Express 경로를 사용하는 다양한 연결 옵션에 대해 자세히 알아보려면 [ExpressRoute 기술 개요](https://aka.ms/Azure/ExpressRoute)를 참고합니다.
 
 ### <a name="2-create-storage-accounts"></a>2. 저장소 계정 만들기
 고가용성을 유지하고 단일 저장소 계정에 대한 종속성을 방지하기 위해 두 개의 저장소 계정을 만들 수 있습니다. 각 가용성 집합의 컴퓨터를 두 그룹으로 나누고 각 그룹에 별도 저장소 계정을 지정합니다.
@@ -122,7 +122,7 @@ Express 경로를 사용하는 것이 좋지만 조직에 가장 적합한 연�
 ### <a name="4-deploy-virtual-machines"></a>4. 가상 컴퓨터 배포
 다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 컴퓨터를 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 4개의 가상 컴퓨터를 만듭니다.
 
-| 컴퓨터 | 역할 | 서브넷 | 가용성 집합 | 저장소 계정 | IP 주소 |
+| 컴퓨터 | 역할 | 서브넷 | 가용성 집합 | Storage 계정 | IP 주소 |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |정적 |
 | contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |정적 |
@@ -133,12 +133,12 @@ Express 경로를 사용하는 것이 좋지만 조직에 가장 적합한 연�
 DNS를 관리하는 경우 고정 IP 주소를 사용하는 것이 좋습니다. 도메인에 대한 DNS 레코드 대신 Azure DNS를 사용할 수 있으며 해당 Azure FQDN에 의한 새 컴퓨터를 참조할 수 있습니다.
 가상 컴퓨터 창은 배포가 완료된 후에 다음과 같이 표시됩니다.
 
-![배포된 가상 컴퓨터](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
+![배포된 Virtual Machines](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
 ### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. 도메인 컨트롤러/AD FS 서버 구성
  들어오는 모든 요청을 인증하기 위해 AD FS는 도메인 컨트롤러에 연결해야 합니다. 인증을 위해 Azure에서 온-프레미스 DC까지 비용이 많이 드는 여정을 저장하려면 Azure에서 도메인 컨트롤러의 복제본을 배포하는 것이 좋습니다. 고가용성을 달성하기 위해 최소 2개의 도메인 컨트롤러 가용성 집합을 만드는 것이 좋습니다.
 
-| 도메인 컨트롤러 | 역할 | 저장소 계정 |
+| 도메인 컨트롤러 | 역할 | Storage 계정 |
 |:---:|:---:|:---:|
 | contosodc1 |복제본 |contososac1 |
 | contosodc2 |복제본 |contososac2 |
@@ -149,7 +149,7 @@ DNS를 관리하는 경우 고정 IP 주소를 사용하는 것이 좋습니다.
 ### <a name="6-deploying-internal-load-balancer-ilb"></a>6. ILB(내부 부하 분산 장치) 배포
 **6.1. ILB 만들기**
 
-ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 추가(+)를 클릭합니다.
+ILB를 배포하려면 Azure Portal에서 부하 분산 장치를 선택하고 추가(+)를 클릭합니다.
 
 > [!NOTE]
 > 메뉴에 **부하 분산 장치**가 표시되지 않으면 포털의 왼쪽 아래에서 **찾아보기**를 클릭하고 **부하 분산 장치**가 표시될 때까지 스크롤을 내립니다.  노란색 별표를 클릭하여 메뉴에 추가합니다. 이제 새 부하 분산 장치 아이콘을 선택하여 패널을 열고 부하 분산 장치를 구성하기 시작합니다.
@@ -160,9 +160,9 @@ ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 �
 
 * **이름**: 부하 분산 장치에 적합한 이름을 지정합니다.
 * **구성표**: 이 부하 분산 장치가 AD FS 서버 앞에 배치되고 내부 네트워크 연결에만 사용되기 때문에 "내부"를 선택합니다
-* **가상 네트워크**: AD FS를 배포할 가상 네트워크를 선택합니다.
+* **Virtual Network**: AD FS를 배포할 가상 네트워크를 선택합니다.
 * **서브넷**: 여기서 내부 서브넷을 선택합니다.
-* **IP 주소 할당**: 동적
+* **IP 주소 할당**: 정적
 
 ![내부 부하 분산 장치](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
@@ -220,7 +220,7 @@ WAP를 배포하는 방법에 대한 자세한 내용은 [웹 응용 프로그�
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  인터넷 연결 (공용) 부하 분산 장치 배포
 **8.1.  인터넷 연결 (공용) 부하 분산 장치 만들기**
 
-Azure 포털에서 부하 분산 장치를 선택하고 추가를 클릭합니다. 부하 분산 장치 만들기 패널에 다음 정보를 입력합니다.
+Azure Portal에서 부하 분산 장치를 선택하고 추가를 클릭합니다. 부하 분산 장치 만들기 패널에 다음 정보를 입력합니다.
 
 1. **이름**: 부하 분산 장치의 이름
 2. **구성표**: 공용 – 이 옵션에서는 이 부하 분산 장치에 공용 주소가 필요하다는 것을 Azure에 알립니다.
@@ -316,9 +316,9 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 | 매개 변수 | 설명 |
 |:--- |:--- |
 | 위치 |리소스를 배포하는 영역입니다(예:미국 동부). |
-| StorageAccountType |만든 저장소 계정 유형 |
+| StorageAccountType |만든 Storage 계정 유형 |
 | VirtualNetworkUsage |새 가상 네트워크를 만들지 아니면 기존 가상 네트워크를 사용할지를 나타냅니다. |
-| VirtualNetworkName |기존 또는 새 가상 네트워크 사용에서 필수인 만들 가상 네트워크의 이름입니다. |
+| VirtualNetworkName |기존 또는 새 가상 네트워크 사용에서 필수인 만들 Virtual Network의 이름입니다. |
 | VirtualNetworkResourceGroupName |기존 가상 네트워크가 있는 리소스 그룹의 이름을 지정합니다. 기존 가상 네트워크를 사용하는 경우 필수 매개 변수가 되므로 배포 시 기존 가상 네트워크 ID를 찾을 수 있습니다. |
 | VirtualNetworkAddressRange |새 가상 네트워크를 만드는 경우 필수인 새 VNET 주소 범위입니다. |
 | InternalSubnetName |모든 가상 네트워크(신규 또는 기존) 사용 옵션에서 필수인 내부 서브넷의 이름입니다. |
@@ -346,13 +346,12 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [Azure 부하 분산 장치](https://aka.ms/Azure/ILB)
 * [내부 부하 분산 장치](https://aka.ms/Azure/ILB/Internal)
 * [인터넷 연결 부하 분산 장치](https://aka.ms/Azure/ILB/Internet)
-* [저장소 계정](https://aka.ms/Azure/Storage)
-* [Azure 가상 네트워크](https://aka.ms/Azure/VNet)
+* [Storage 계정](https://aka.ms/Azure/Storage)
+* [Azure Virtual Networks](https://aka.ms/Azure/VNet)
 * [AD FS 및 웹 응용 프로그램 프록시 링크](http://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
 * [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
 

@@ -1,5 +1,5 @@
 ---
-title: "SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Docs"
+title: "Azure에서 SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Docs"
 description: "Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: edc013dee657cbda7c0d9020b6ff4ccda0580dcd
-ms.lasthandoff: 03/25/2017
-
-
+experimental_id: d51f3cc6-753b-4e
+ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/25/2017
 ### <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결 
 인터넷을 통해 SQL Server 데이터베이스 엔진에 연결할 경우 들어오는 TCP 통신에 대해 가상 컴퓨터 끝점을 만들어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
-인터넷을 통해 연결하려면 VM의 DNS 이름 및 VM 끝점 포트 번호(이 문서 뒷부분에서 구성)를 사용해야 합니다. DNS 이름을 찾으려면 Azure Portal로 이동하고 **가상 컴퓨터(클래식)**를 선택합니다. 그런 다음 가상 컴퓨터를 선택합니다. **DNS 이름**이 **개요** 섹션에 표시됩니다.
+인터넷을 통해 연결하려면 VM의 DNS 이름 및 VM 끝점 포트 번호(이 문서 뒷부분에서 구성)를 사용해야 합니다. DNS 이름을 찾으려면 Azure Portal로 이동하고 **가상 컴퓨터(클래식)** 를 선택합니다. 그런 다음 가상 컴퓨터를 선택합니다. **DNS 이름**이 **개요** 섹션에 표시됩니다.
 
 예를 들어 이름이 **mysqlvm**, DNS 이름이 **mysqlvm7777.cloudapp.net**이고 VM 끝점이 **57500**인 클래식 가상 컴퓨터를 고려해보세요. 올바르게 구성된 연결이라고 가정할 경우 다음 연결 문자열을 사용하여 인터넷의 어디에서든지 가상 컴퓨터에 액세스할 수 있습니다.
 
@@ -109,5 +109,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다. 
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

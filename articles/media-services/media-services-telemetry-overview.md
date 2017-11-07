@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure 미디어 서비스 원격 분석에 대
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,15 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
-ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
-
-
+ms.openlocfilehash: 1b26d7925fe5bd39905d9f51d22433b1eea43af6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석
 
 AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 AMS를 사용하면 라이브 **Channel**, **StreamingEndpoint** 및 라이브 **Archive** 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 
@@ -40,7 +39,6 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 [.NET에서 원격 분석 사용](media-services-dotnet-telemetry.md) 
 
 [REST에서 원격 분석 사용](media-services-rest-telemetry.md)
-
 
 ## <a name="consuming-telemetry-information"></a>이
 
@@ -67,16 +65,14 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 - 날짜 범위 내에서 지정된 서비스에 대한 모든 데이터 검색
 - 서비스에 대한 가장 최근 데이터 검색
 
-
 ### <a name="telemetry-table-storage-output-schema"></a>원격 분석 Table Storage 출력 스키마
 
 원격 분석 데이터는 단일 테이블 "TelemetryMetrics20160321"에 집계되어 저장됩니다. 여기서 "20160321"은 생성된 테이블의 날짜입니다. 원격 분석 시스템은 00:00 UTC 기반으로 각 날마다 별도의 테이블을 만듭니다. 이 테이블은 지정된 기간 내의 수집 비트 전송률, 보낸 바이트 수 등의 되풀이 값을 저장하는 데 사용됩니다. 
 
-
 자산|값|예제/참고 사항
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 저장소 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../storage/storage-table-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
 Timestamp|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 형식|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
 이름|원격 분석 이벤트의 이름입니다.|ChannelHeartbeat/StreamingEndpointRequestLog
@@ -84,14 +80,13 @@ ObservedTime|원격 분석 이벤트가 발생한 시간(UTC)|2016-09-09T22:42:3
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 엔터티별 속성|이벤트에 의해 정의|StreamName: stream1, Bitrate 10123, …<br/><br/>나머지 속성은 지정된 이벤트 형식에 대해 정의됩니다. Azure 테이블 콘텐츠는 키/값 쌍입니다.  즉, 테이블 행마다 서로 다른 속성 집합을 갖습니다.
 
-
 ### <a name="entity-specific-schema"></a>엔터티별 스키마
 
 각각이 다음 빈도로 푸시되는 세 가지 유형의 엔터티별 원격 분석 데이터 항목이 있습니다.
 
 - 스트리밍 끝점: 30초 간격
-- 라이브 채널:&1;분 간격
-- 라이브 보관:&1;분 간격
+- 라이브 채널: 1분 간격
+- 라이브 보관: 1분 간격
 
 **스트리밍 끝점**
 
@@ -111,7 +106,6 @@ RequestCount|집계의 총 요청|3
 BytesSent|집계된 보낸 바이트 수|2987358
 ServerLatency|평균 서버 대기 시간(저장소 포함)|129
 E2ELatency|평균 종단 간 대기 시간|250
-
 
 **라이브 채널**
 
@@ -138,7 +132,6 @@ UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조�
 UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True
 Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **라이브 보관**
 
 자산|값|예제/참고 사항
@@ -153,10 +146,9 @@ ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|프로그램 URL|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|트랙의 이름|audio_1
 TrackType|트랙 유형|오디오/비디오
-CustomAttribute|동일한 이름 및 비트 전송률을 갖는 다른 트랙 간을 구분하는&16;진수 문자열(다중 카메라 각도)|
+CustomAttribute|동일한 이름 및 비트 전송률을 갖는 다른 트랙 간을 구분하는 16진수 문자열(다중 카메라 각도)|
 Bitrate|트랙 비트 전송률|785000
 Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경우 True|True(이러한 두 값은 메트릭으로 표시되지 않고 소스 이벤트에 있음)<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## <a name="general-qa"></a>일반 질문과 답변
 
@@ -226,9 +218,3 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 ## <a name="provide-feedback"></a>피드백 제공
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

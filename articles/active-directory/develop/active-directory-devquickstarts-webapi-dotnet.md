@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
-ms.lasthandoff: 03/18/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Azure AD에서 전달자 토큰을 사용하여 Web API 보호
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -153,4 +153,3 @@ To Do List Service가 작동하는 것을 보려면 먼저 Azure AD에서 토큰
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)에 제공됩니다. 이제 더 많은 ID 시나리오로 이동할 수 있습니다.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

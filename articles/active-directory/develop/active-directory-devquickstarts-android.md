@@ -3,7 +3,7 @@ title: "Azure AD Android 시작 | Microsoft Docs"
 description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Android 응용 프로그램 빌드 방법입니다."
 services: active-directory
 documentationcenter: android
-author: xerners
+author: danieldobalian
 manager: mbaldwin
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
@@ -13,18 +13,21 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: dadobali
+ms.custom: aaddev
+ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Android 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/Android)의 미리 보기를 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
+>
+>
 
 데스크톱 응용 프로그램을 개발하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하고 편리하게 온-프레미스 Active Directory 계정을 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
@@ -35,11 +38,6 @@ ms.lasthandoff: 03/18/2017
 * 사용자를 로그아웃합니다.
 
 시작하려면 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](active-directory-howto-tenant.md).
-
-> [!TIP]
-> 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/Android)의 미리 보기를 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
->
->
 
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>1단계: Node.js REST API TODO 샘플 서버 다운로드 및 실행
 Node.js REST API TODO 샘플은 Azure AD용 단일 테넌트 To-Do REST API를 빌드하기 위한 기존 샘플에서도 작동하도록 특수하게 작성되었습니다. 다음은 빠른 시작을 위한 필수 구성 요소입니다.
@@ -174,7 +172,7 @@ maven 리포지토리에서 JAR 파일을 가져와 프로젝트의 **libs** 폴
             ....
         <application/>
 
-4. 기본 활동에서 AuthenticationContext의 인스턴스를 만듭니다. 이 호출의 세부 정보는 이 항목에서 다루지 않지만 [Android 네이티브 클라이언트 샘플](https://github.com/AzureADSamples/NativeClient-Android)에서 유용한 정보를 얻을 수 있습니다. 다음 예제에서 SharedPreferences는 기본 캐시이며 권한은 `https://login.windows.net/yourtenant.onmicrosoft.com` 형태입니다.
+4. 기본 활동에서 AuthenticationContext의 인스턴스를 만듭니다. 이 호출의 세부 정보는 이 항목에서 다루지 않지만 [Android 네이티브 클라이언트 샘플](https://github.com/AzureADSamples/NativeClient-Android)에서 유용한 정보를 얻을 수 있습니다. 다음 예제에서 SharedPreferences는 기본 캐시이며 권한은 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com` 형태입니다.
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -264,7 +262,7 @@ broker 사용을 위해 특수한 RedirectUri를 등록해야 합니다. Redirec
 ### <a name="authority-url-and-ad-fs"></a>기관 URL 및 AD FS
 AD FS(Active Directory Federation Services)는 프로덕션 STS로 인식되지 않으므로 인스턴스 검색을 해제하고 AuthenticationContext 생성자에 false를 전달해야 합니다.
 
-기관 URL에는 STS 인스턴스 및 [테넌트 이름](https://login.windows.net/yourtenant.onmicrosoft.com)이 필요합니다.
+기관 URL에는 STS 인스턴스 및 [테넌트 이름](https://login.microsoftonline.com/yourtenant.onmicrosoft.com)이 필요합니다.
 
 ### <a name="querying-cache-items"></a>캐시 항목 쿼리
 ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPreferences에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다.
@@ -386,4 +384,3 @@ ADAL 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 [ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-android.md)을 알아봅니다.  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

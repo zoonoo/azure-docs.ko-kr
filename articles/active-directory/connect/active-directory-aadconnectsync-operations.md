@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect Sync: 운영 작업 및 고려 사항
 이 항목은 Azure AD Connect Sync에 대한 관리 작업을 설명하는 것을 목표로 합니다.
@@ -109,7 +108,9 @@ ms.lasthandoff: 04/18/2017
 일반적이며 지원되는 메서드는 가상 컴퓨터에서 동기화 엔진을 실행하는 것입니다. 호스트에는 문제가 있는 경우 동기화 엔진 서버로 이미지를 다른 서버에 마이그레이션할 수 있습니다.
 
 ### <a name="sql-high-availability"></a>SQL 고가용성
-Azure AD Connect와 함께 제공되는 SQL Server Express를 사용하지 않는 경우 SQL Server에 대한 고가용성을 고려해야 합니다. 지원된 고가용성 솔루션은 클러스터링된 SQL입니다. 지원되지 않는 솔루션은 미러링 및 Always On을 포함합니다.
+Azure AD Connect와 함께 제공되는 SQL Server Express를 사용하지 않는 경우 SQL Server에 대한 고가용성을 고려해야 합니다. 지원되는 고가용성 솔루션은 SQL 클러스터링 및 AOA(Always On 가용성 그룹)를 포함합니다. 지원되지 않는 솔루션은 미러링을 포함합니다.
+
+버전 1.1.524.0에서는 SQL AOA에 대한 지원이 Azure AD Connect에 추가되었습니다. Azure AD Connect를 설치하기 전에 SQL AOA를 사용하도록 설정해야 합니다. Azure AD Connect는 설치 중에 제공된 SQL 인스턴스에서 SQL AOA를 사용하도록 설정되었는지 여부를 검색합니다. SQL AOA를 사용하도록 설정된 경우 Azure AD Connect는 SQL AOA에서 동기 복제 또는 비동기 복제를 사용하도록 구성되어 있는지 확인합니다. 가용성 그룹 수신기를 설정할 때 RegisterAllProvidersIP 속성을 0으로 설정하는 것이 좋습니다. 이는 Azure AD Connect에서 현재 SQL Native Client를 사용하여 SQL에 연결하고, SQL Native Client에서는 MultiSubNetFailover 속성 사용을 지원하지 않기 때문입니다.
 
 ## <a name="appendix-csanalyzer"></a>Appendix CSAnalyzer
 이 스크립트 사용 방법은 [verity](#verify) 섹션을 참조하세요.
@@ -258,4 +259,3 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)  
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)  
-

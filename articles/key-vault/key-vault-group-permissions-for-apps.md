@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
-
-
+ms.openlocfilehash: 14da9256def60d678ef5cae795fef1c373914b5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>여러 응용 프로그램에 Key Vault 액세스 권한 부여
 
@@ -27,8 +27,8 @@ ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
 Key Vault 액세스 제어 정책은 16개 항목만 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
 
 다음은 필수 조건입니다.
-* [Azure Active Directory V2 PowerShell 모듈 설치](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30)
-* [Azure PowerShell 설치](/powershell/azureps-cmdlets-docs)
+* [Azure Active Directory V2 PowerShell 모듈 설치](https://www.powershellgallery.com/packages/AzureAD)
+* [Azure PowerShell 설치](/powershell/azure/overview)
 * 다음 명령을 실행하려면 Azure Active Directory 테넌트의 그룹 만들기/편집 권한이 필요합니다. 권한이 없는 경우 Azure Active Directory 관리자에게 문의합니다.
 
 이제 PowerShell에서 다음 명령을 실행합니다.
@@ -57,9 +57,3 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 ## <a name="next-steps"></a>다음 단계
 
 [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)에 대해 좀 더 자세히 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

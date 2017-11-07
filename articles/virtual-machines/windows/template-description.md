@@ -13,16 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2038ffd2651be7f8dc3653a58673f33e6f32d3db
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 컴퓨터
 
 이 문서에서는 가상 컴퓨터에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 컴퓨터를 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 저장소 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
@@ -39,7 +37,7 @@ ms.lasthandoff: 04/03/2017
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop", 
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -47,7 +45,7 @@ ms.lasthandoff: 04/03/2017
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -62,10 +60,10 @@ ms.lasthandoff: 04/03/2017
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -79,15 +77,14 @@ ms.lasthandoff: 04/03/2017
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.windows.net"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.windows.net')]"
         }
       } 
     },
@@ -165,8 +162,8 @@ ms.lasthandoff: 04/03/2017
 최신 API 버전을 가져오기 위해 이러한 기회를 사용합니다.
 
 - REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
@@ -223,7 +220,7 @@ ms.lasthandoff: 04/03/2017
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -232,7 +229,7 @@ ms.lasthandoff: 04/03/2017
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -272,7 +269,7 @@ ms.lasthandoff: 04/03/2017
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 컴퓨터의 자식 리소스로 정의됩니다. 가상 컴퓨터가 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 컴퓨터에 따라 표시됩니다.
@@ -282,14 +279,14 @@ ms.lasthandoff: 04/03/2017
 몇 가지 프로필 요소는 가상 컴퓨터 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
 - [크기](sizes.md)
-- [이름](../linux/infrastructure-naming-guidelines.md) 및 자격 증명
+- [이름](/architecture/best-practices/naming-conventions) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
-- [네트워크 인터페이스](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 부트 진단
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
    
-Azure에서 vhd 파일은 [디스크 또는 이미지](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
+Azure에서 vhd 파일은 [디스크 또는 이미지](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>플랫폼 이미지에서 새 가상 컴퓨터 및 새 디스크 만들기
 
@@ -322,7 +319,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>기존 Managed Disks에서 새 가상 컴퓨터 만들기
@@ -337,7 +334,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>관리되는 이미지에서 새 가상 컴퓨터 만들기
@@ -355,7 +352,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### <a name="attach-data-disks"></a>데이터 디스크 연결
@@ -371,7 +368,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## <a name="extensions"></a>확장
@@ -460,4 +457,4 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 - [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](ps-manage.md)를 검토하여 자신이 만든 VM을 관리하는 방법을 알아봅니다.
+- [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.

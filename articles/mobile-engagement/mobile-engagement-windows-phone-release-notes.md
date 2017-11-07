@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK 릴리스 정보
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
@@ -52,10 +52,4 @@ ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
 * Azure Mobile Engagement의 최초 릴리스입니다.
 * appId/sdkKey 구성이 연결 문자열 구성으로 바뀌었습니다.
 * 보안이 개선되었습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

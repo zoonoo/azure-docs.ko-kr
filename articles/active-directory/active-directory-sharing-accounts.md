@@ -3,7 +3,7 @@ title: "Azure AD를 사용한 계정 공유 | Microsoft Docs"
 description: "Azure Active Directory를 통해 조직이 온-프레미스 앱과 소비자 클라우드 서비스에 대해 안전하게 계정을 공유할 수 있는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: msStevenPo
+author: curtand
 manager: femila
 editor: 
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
-ms.author: stevenpo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b689a0033103231d560c9ba4b349e675f304e35c
-
-
+ms.date: 08/28/2017
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: it-pro
+ms.openlocfilehash: b5a6bad6eca3f0262d5cc2ac01fb3a4eb3676e5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -73,10 +75,4 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 * [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

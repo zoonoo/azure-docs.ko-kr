@@ -1,5 +1,4 @@
 ---
-
 title: "Azure CLI 2.0을 사용하여 Linux 문제 해결 VM 사용 | Microsoft Docs"
 description: "Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제를 해결하는 방법 알아보기"
 services: virtual-machines-linux
@@ -14,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 518a21896ddfc34156615907b710b421bcea42c1
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
 Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI 2.0을 사용하는 방법을 자세히 설명합니다. [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
@@ -169,7 +166,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-템플릿은 이전 명령에서 VHD URI를 사용하여 VM을 배포합니다. [az group deployment create](/cli/azure/vm/deployment#create)를 사용하여 템플릿을 배포합니다. 원래 VHD에 URI를 제공하고 OS 형식, VM 크기 및 VM 이름을 다음과 같이 지정합니다.
+템플릿은 이전 명령에서 VHD URI를 사용하여 VM을 배포합니다. [az group deployment create](/cli/azure/group/deployment#create)를 사용하여 템플릿을 배포합니다. 원래 VHD에 URI를 제공하고 OS 형식, VM 크기 및 VM 이름을 다음과 같이 지정합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

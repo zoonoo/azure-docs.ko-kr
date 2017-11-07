@@ -3,7 +3,7 @@ title: "Azure 자동화의 자식 runbook | Microsoft Docs"
 description: "다른 Runbook에서 Azure 자동화의 Runbook을 시작하고 서로 정보를 공유하는 다양한 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 자동화의 자식 runbook
 다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure 자동화의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>인라인 실행을 사용하여 자식 runbook 호출
-다른 runbook에서 runbook 인라인을 호출하려면 runbook의 이름을 사용하고 활동 또는 cmdlet을 사용하는 것처럼 정확하게 해당 매개 변수에 대한 값을 제공합니다.  같은 자동화 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 다음 줄으로 이동하기 전에 자식 runbook이 완료하기를 기다리고 어떤 출력도 직접 부모에게 반환됩니다.
+다른 runbook에서 runbook 인라인을 호출하려면 runbook의 이름을 사용하고 활동 또는 cmdlet을 사용하는 것처럼 정확하게 해당 매개 변수에 대한 값을 제공합니다.  같은 자동화 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 다음 줄로 이동하기 전에 자식 runbook이 완료하기를 기다리고 어떤 출력도 직접 부모에게 반환됩니다.
 
 runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 실행됩니다. 실행된 자식 runbook의 작업 기록에는 표시가 없습니다. 자식 runbook에서 모든 예외 및 출력 스트림을 부모와 연결합니다. 자식 runbook에서 throw된 예외 및 해당 스트림 출력 중 하나가 부모 작업과 연결되므로 이것은 더 적은 작업에서 발생하며 쉽게 추적 및 문제 해결이 가능합니다.
 
@@ -44,9 +43,9 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 * Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
 
-인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다.  PowerShell 자식 runbook을 호출할 때 이름 앞에 *를 두어야 합니다.\\* 를 추가해야 합니다. 
+인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다.  PowerShell 자식 Runbook을 호출할 때 이름 앞에 *를 두어야 합니다.\\* 스크립트가 로컬 디렉터리에 위치하는 것을 지정하기 위해. 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제는 세 매개 변수인 복잡한 개체, 정수 및 부울 값을 허용하는 테스트 자식 runbook을 호출합니다. 자식 runbook의 출력을 변수에 할당합니다.  이 경우 자식 Runbook은 PowerShell 워크플로 Runbook입니다.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
@@ -87,5 +86,4 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 ## <a name="next-steps"></a>다음 단계
 * [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 * [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
-
 

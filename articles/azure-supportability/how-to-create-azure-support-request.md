@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a5da389d4e8120b604cb7a435ab30373bec2376
-
-
+ms.openlocfilehash: 70a4762383d64dc8d568c628cf260ebd8f2d179d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
 ## <a name="summary"></a>요약
@@ -106,10 +106,4 @@ Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사�
 
 ## <a name="learn-more"></a>자세한 정보
 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

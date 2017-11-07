@@ -4,7 +4,7 @@ description: "Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐�
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-translationtype: Human Translation
-ms.sourcegitcommit: dd0c9ce36fcb831b053b75b5fecd6f149b3bbb0e
-ms.openlocfilehash: 33e7cfdb4a2b4cd38e85b6f5e07c09a431a086c4
-ms.lasthandoff: 11/22/2016
-
-
+ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.  
@@ -142,7 +141,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
         return processor;
     }  
 <!-- __ -->
-### <a name="a-idoutputfilesaoutput-files"></a><a id="output_files"></a>출력 파일
+### <a id="output_files"></a>출력 파일
 기본적으로 인덱싱 작업은 다음 출력 파일을 생성합니다. 다음 파일은 첫 번째 출력 자산에 저장됩니다.
 
 하나 이상의 입력 미디어 파일이 있을 때, 인덱서는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 순차적으로 번호가 매겨지고 "별칭"을 사용하여 이름이 지정됩니다.
@@ -239,16 +238,16 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우 AIB, SAMI, TTML, WebVTT 및 키워드 파일이 결과로 생성되지 않습니다.
 
-### <a name="a-idpreseta-task-preset-for-azure-media-indexer"></a><a id="preset"></a> Azure 미디어 인덱서의 태스크 미리 설정
+### <a id="preset"></a> Azure 미디어 인덱서의 태스크 미리 설정
 태스크와 함께 태스크 미리 설정을 제공하여 Azure 미디어 인덱서의 처리를 사용자 지정할 수 있습니다.  다음은 이 구성 xml의 형식을 설명합니다.
 
 | 이름 | 필요 | 설명 |
 | --- | --- | --- |
 | **input** |false |인덱싱할 자산 파일입니다.</p><p>Azure Media Indexer는 MP4, WMV, MP3, M4A, WMA, AAC, WAV의 미디어 파일 형식을 지원합니다.</p><p>아래에서 보여 주듯이 **입력** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 파일을 지정하지 않으면 기본 파일이 선택됩니다. 기본 자산 파일이 설정되지 않은 경우 입력 자산의 첫 번째 파일이 인덱싱됩니다.</p><p>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br/>`<input name="TestFile.wmv">`<br/><br/>한 번에 여러 자산 파일을 인덱싱할 수도 있습니다(최대 10개 파일). 다음을 수행합니다.<br/><br/><ol class="ordered"><li><p>텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다. </p></li><li><p>입력 자산에 있는 모든 자산 파일의 이름 목록을 이 매니페스트 파일에 추가합니다. </p></li><li><p>자산에 매니페스트 파일을 추가(업로드)합니다.  </p></li><li><p>입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br/>`<input list="input.lst">`</li></ol><br/><br/>참고: 매니페스트 파일에 10개 이상의 파일을 추가하는 경우 인덱싱 작업이 2006 오류 코드와 함께 실패합니다. |
 | **metadata** |false |어휘 적응에 사용되는 지정된 자산 파일에 대한 메타데이터입니다.  적절한 명사와 같은 비표준 어휘 단어를 인식하는 인덱서를 준비하는 경우 유용합니다.<br/>`<metadata key="..." value="..."/>` <br/><br/>미리 정의된 **키**에 대해 **값**을 제공할 수 있습니다. 현재 다음 키가 지원됩니다.<br/><br/>"title" 및 "description" - 어휘 적응에서 작업에 대한 언어 모델을 조정하고 음성 인식 정확도를 향상하는 데 사용됩니다.  값 시드 인터넷으로 인덱싱 태스크 기간 동안 내부 디렉터리를 보강할 콘텐츠를 사용하여 문맥적으로 관련된 텍스트 문서를 검색하여 찾습니다.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **features** <br/><br/>  버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>설명</p></th><th><p>예제 값</p></th></tr><tr><td><p>언어</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>AIB 파일이 필요한지 여부를 지정하는 부울 플래그입니다(SQL Server 및 고객 인덱서 IFilter와 함께 사용).  자세한 내용은 <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용</a>(영문)을 참조하세요.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
+| **features** <br/><br/> 버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>설명</p></th><th><p>예제 값</p></th></tr><tr><td><p>언어</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>AIB 파일이 필요한지 여부를 지정하는 부울 플래그입니다(SQL Server 및 고객 인덱서 IFilter와 함께 사용).  자세한 내용은 <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용</a>(영문)을 참조하세요.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a name="a-iderrorcodesaerror-codes"></a><a id="error_codes"></a>오류 코드
+### <a id="error_codes"></a>오류 코드
 오류 발생 시 Azure 미디어 인덱서는 다음 오류 코드 중 하나를 다시 보고해야 합니다.
 
 | 코드 | 이름 | 가능한 이유 |
@@ -264,7 +263,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 | 4000 |인덱싱 일괄 처리 부분적으로 성공 |일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="#output_files">출력 파일</a>을 참조하세요. |
 | 기타 |내부 오류 |지원 팀에 문의하시기 바랍니다. indexer@microsoft.com |
 
-## <a name="a-idsupportedlanguagesasupported-languages"></a><a id="supported_languages"></a>지원되는 언어
+## <a id="supported_languages"></a>지원되는 언어
 현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [v1.2 릴리스 블로그 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
@@ -279,5 +278,4 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용(영문)](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 [Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱](media-services-process-content-with-indexer2.md)
-
 

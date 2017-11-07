@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a967a522ebbdce57fa5b4f938369ddd88253701c
-
-
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Java CA 인증서 저장소에 인증서 추가
 다음 단계는 Java CA 인증서(cacerts) 저장소에 CA(인증 기관) 인증서를 추가하는 방법을 보여 줍니다. 사용된 예제는 Twilio 서비스에 필요한 CA 인증서용입니다. 항목의 뒷부분에 제공된 정보는 Azure 서비스 버스용 CA 인증서를 설치하는 방법을 설명합니다. 
@@ -26,7 +26,7 @@ ms.openlocfilehash: a967a522ebbdce57fa5b4f938369ddd88253701c
 JDK를 압축하고 Azure 프로젝트의 **approot** 폴더에 추가하기 전에 keytool을 사용하여 CA 인증서를 추가하거나 keytool을 사용하여 인증서를 추가하는 Azure 시작 작업을 실행할 수 있습니다. 이 예제에서는 JDK를 압축하기 전에 CA 인증서를 추가한다고 가정합니다. 또한 예제에서는 특정 CA 인증서가 사용되지만 다른 CA 인증서를 얻고 cacerts 저장소로 가져오는 단계도 이와 유사합니다.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>cacerts 저장소에 인증서를 추가하려면
-1. JDK의 **jdk\jre\lib\security** 폴더로 설정된 명령 프롬프트에서 다음을 실행하여 설치된 인증서를 확인합니다.
+1. JDK의 **jdk\jre\lib\security** 폴더로 설정된 관리자 명령 프롬프트에서 다음을 실행하여 설치된 인증서를 확인합니다.
    
     `keytool -list -keystore cacerts`
    
@@ -54,11 +54,5 @@ Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b
 ## <a name="next-steps"></a>다음 단계
 Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Azure 루트 인증서 마이그레이션](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)(영문)을 참조하세요.
 
-Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Java에 대한 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 참조하세요.
 

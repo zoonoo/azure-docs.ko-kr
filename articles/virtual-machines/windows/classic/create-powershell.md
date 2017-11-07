@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d9b713460f98104017ae73ea27f30b0d8d1ca7ee
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 75c6cf17ee269ae169d9f2f748d0985ca07e454e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기
 > [!div class="op_single_selector"]
-> * [Azure 클래식 포털 - Windows](tutorial.md)
+> * [Azure Portal - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -38,7 +37,7 @@ ms.lasthandoff: 03/27/2017
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
 ## <a name="step-1-add-your-account"></a>1단계: 사용자 계정 추가
 1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **Enter**. 
@@ -122,7 +121,7 @@ D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure
     $domacctdomain="<domain of the account that has permission to add the machine to the domain>"
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Windows 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx)에서 **Windows** 및 **WindowsDomain** 매개 변수 집합에 대한 구문을 참조하세요.
+Windows 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-AzureProvisioningConfig](/powershell/module/azure/add-azureprovisioningconfig)에서 **Windows** 및 **WindowsDomain** 매개 변수 집합에 대한 구문을 참조하세요.
 
 선택적으로 가상 컴퓨터에 특정 IP 주소(고정 DIP라고 함)를 할당합니다.
 
@@ -164,7 +163,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-클라우드 서비스의 짧은 이름은 Azure 클래식 포털의 클라우드 서비스 목록에 표시된 이름 또는 Azure 포털의 리소스 그룹 목록에 표시된 이름입니다.
+클라우드 서비스의 짧은 이름은 Azure Portal의 Cloud Services 목록에 표시된 이름 또는 Azure Portal의 리소스 그룹 목록에 표시된 이름입니다.
 
 옵션 2: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
@@ -180,7 +179,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
 * 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-* Azure 클래식 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
+* Azure Portal의 **자동화 계정** 섹션에서 이 명령 집합을 Azure Automation Runbook으로 저장합니다.
 
 ## <a id="examples"></a>예제
 다음은 위 단계를 사용하여 Azure에서 Windows 기반 Azure 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.
@@ -260,5 +259,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 ## <a name="next-steps"></a>다음 단계
 127GB보다 큰 OS 디스크가 필요한 경우 [OS 드라이브를 확장](../../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수 있습니다.
-
 

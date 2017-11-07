@@ -82,8 +82,3 @@ Json 형식의 DNS 영역 샘플:
 
 자세한 내용은 [DNS 레코드 집합에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt130627.aspx) 를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

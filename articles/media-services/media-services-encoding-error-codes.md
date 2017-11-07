@@ -4,7 +4,7 @@ description: "이 항목에는 인코딩 작업을 실행하는 동안 오류가
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services
@@ -12,16 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
-ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: f4fd2212d19f89148dde08c75c5a48cdd322d029
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encoding-error-codes"></a>인코딩 오류 코드
 
 다음 표에서는 인코딩 작업을 실행하는 동안 오류가 발생한 경우 반환될 수 있는 오류 코드를 나열합니다.  .NET 코드에서 오류 세부 정보를 가져오려면 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 클래스를 사용합니다. REST 코드에서 오류 세부 정보를 가져오려면 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API를 사용합니다.
@@ -29,7 +27,7 @@ ms.lasthandoff: 01/27/2017
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
 | 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
-| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가&0;인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
+| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0 인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 저장소 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
 | ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 <see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
 | ErrorExecutingTaskMalformedContent |입력 미디어 파일 내의 문제로 인해 실패가 발생한 작업을 실행하는 동안 발생하는 오류 범주입니다. |
@@ -53,4 +51,3 @@ ms.lasthandoff: 01/27/2017
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-

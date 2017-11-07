@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f48f9dff289c556aea1912ecf7b6415abb902f33
 ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 업데이트 3 설치
 
@@ -119,5 +118,4 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 3 릴리스](storsimple-update3-release-notes.md)에 대해 자세히 알아봅니다.
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
-
-
+ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft 보안 응답 센터
 Microsoft 보안 대응 센터 (MSRC)는 전 세계에게 가장 경험이 풍부한 보안 전문가들이 이끌고 있습니다. 이러한 전문가들은 일년 24시간 내내 보안 인시던트, 온-프레미스, 및 클라우드 취약점을 식별, 모니터링, 대응, 및 해결합니다.
@@ -39,9 +39,3 @@ Microsoft 포상 프로그램은 독창적 악용 기법, 독창적 공격을 �
 [MSRC 버그 포상](https://technet.microsoft.com/security/dn425036) 페이지와 [MSRC 블로그](https://blogs.technet.microsoft.com/msrc/)에서 이들 프로그램에 대해 자세히 알아봅니다.
 
 MSRC에 대해 자세히 알아보려면 [MSRC 홈페이지](https://technet.microsoft.com/library/dn440717.aspx)를 방문하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

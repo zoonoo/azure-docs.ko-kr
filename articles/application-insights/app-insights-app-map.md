@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-map-in-application-insights"></a>Application Insights의 응용 프로그램 맵
 [ Application Insights](app-insights-overview.md)에서 응용 프로그램 맵은 응용 프로그램 구성 요소의 종속성 관계를 시각적으로 레이아웃합니다. 각 구성 요소는 부하, 성능, 오류 및 경고와 같은 KPI를 보여 주어 성능 문제 또는 실패를 유발하는 모든 구성 요소를 발견할 수 있도록 합니다. 구성 요소부터 Application Insights 이벤트와 같은 보다 자세한 진단까지 클릭하면서 살펴볼 수 있습니다. 앱에서 Azure 서비스를 사용하는 경우 SQL Database Advisor 권장 사항과 같은 Azure 진단도 살펴볼 수 있습니다.
@@ -86,26 +85,42 @@ Azure에서 호스팅되는 구성 요소의 경우 옵션은 직접 링크를 �
 
 ![대시보드에 고정](./media/app-insights-app-map/12.png)
 
+## <a name="error-pane"></a>오류 창
+맵에서 노드를 클릭하면 오른쪽에 해당 노드에 대한 오류를 요약해서 보여 주는 오류 창이 표시됩니다. 먼저 오류는 작업 ID별로 그룹화된 후 문제 ID별로 그룹화됩니다.
+
+![오류 창](./media/app-insights-app-map/error-pane.png)
+
+오류를 클릭하면 해당 오류의 가장 최근 인스턴스로 이동됩니다.
+
+## <a name="resource-health"></a>리소스 상태
+일부 리소스 형식의 경우 오류 창 상단에 리소스 상태가 표시됩니다. 예를 들어 SQL 노드를 클릭하면 데이터베이스 상태와 발생한 경고가 표시됩니다.
+
+![리소스 상태](./media/app-insights-app-map/resource-health.png)
+
+리소스 이름을 클릭하여 해당 리소스에 대한 표준 개요 메트릭을 볼 수 있습니다.
+
 ## <a name="end-to-end-system-app-maps"></a>종단 간 시스템 앱 맵
+
+*SDK 버전 2.3 이상 필요합니다.*
 
 응용 프로그램에 여러 구성 요소(예: 백 엔드 서비스 및 웹앱)가 있는 경우 하나의 통합된 앱 맵에 모두 표시할 수 있습니다.
 
 ![필터 설정](./media/app-insights-app-map/multi-component-app-map.png)
 
-앱 맵은 현재 리소스 그룹 내의 모든 Application Insights 리소스를 검색하여 서버 노드를 찾습니다. 또한 현재 리소스 그룹에서 Application Insights 리소스에 의해 추적되는 모든 종속성 호출을 따라가면서 서버 노드를 검색합니다.
+앱은 Application Insights SDK가 설치된 서버 간에 수행된 HTTP 종속성 호출을 따라 서버 노드를 찾습니다. 각 Application Insights 리소스는 하나의 서버를 포함하는 것으로 간주됩니다.
 
+### <a name="multi-role-app-map-preview"></a>다중 역할 앱 맵(미리 보기)
 
-### <a name="setting-up"></a>설치
+미리 보기 다중 역할 앱 맵 기능을 사용하면 여러 서버가 같은 Application Insights 리소스/계측 키에 데이터를 전송하는 앱 맵을 사용할 수 있습니다. 맵의 서버는 원격 분석 항목에 대한 cloud_RoleName 속성별로 분할됩니다. 미리 보기 블레이드에서 *다중 역할 응용 프로그램 맵*을 *설정*으로 지정하여 이 구성을 사용하도록 설정합니다.
 
-> [!NOTE] 
-> 종단 간 시스템 앱 맵은 미리 보기 상태입니다. SDK의 특수 버전으로 구성 요소를 계측해야 하며 특수 URL을 사용하여 앱 맵을 확인해야 합니다. [종단 간 시스템 앱 맵을 설정하는 방법을 알아봅니다](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+이 접근 방법은 마이크로 서비스 응용 프로그램 또는 단일 Application Insights 리소스를 내에서 여러 서버 간에 이벤트의 상관 관계를 파악하려는 기타 시나리오에서 적절할 수 있습니다.
 
 ## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>사용자 의견
-[포털 사용자 의견 옵션을 통해 피드백을 제공](app-insights-get-dev-support.md)해주세요.
+포털 사용자 의견 옵션을 통해 피드백을 제공해주세요.
 
 ![MapLink-1 이미지](./media/app-insights-app-map/13.png)
 

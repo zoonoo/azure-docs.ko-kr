@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse에 연결 - SSMS | Microsoft Docs"
 description: "SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다."
 services: sql-data-warehouse
 documentationcenter: 
-author: hirokib
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
-ms.author: elbutter;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
-
-
+ms.author: anvang;barbkess
+ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSM(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -35,9 +36,9 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* 기존 SQL 데이터 웨어하우스. 만들려면 [SQL 데이터 웨어하우스 만들기][SQL 데이터 웨어하우스 만들기]를 참조하세요.
-* SSMS(SQL Server Management Studio) 설치됨. 아직 없는 경우 무료로 [SSMS 설치][SSMS 설치]합니다.
-* 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][SQL Data Warehouse에 연결]을 참조하세요.
+* 기존 SQL 데이터 웨어하우스. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
+* SSMS(SQL Server Management Studio) 설치됨. 아직 없는 경우 무료로 [SSMS를 설치][Install SSMS]합니다.
+* 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL 데이터 웨어하우스에 연결
 1. SSMS를 엽니다.
@@ -76,19 +77,19 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
     ![쿼리 결과][6]
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][PowerBI로 데이터 시각화]를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
 
-Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][SQL Data Warehouse에 대한 인증]을 참조하세요.
+Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][Authenticate to SQL Data Warehouse]을 참조하세요.
 
 <!--Arcticles-->
-[SQL Data Warehouse에 연결]: sql-data-warehouse-connect-overview.md
-[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
-[SQL Data Warehouse에 대한 인증]: sql-data-warehouse-authentication.md
-[PowerBI로 데이터 시각화]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
-[쉬운 테이블]: https://portal.azure.com
-[SSMS 설치]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Azure portal]: https://portal.azure.com
+[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
 
 
 <!--Image references-->
@@ -99,9 +100,3 @@ Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Ware
 [4]: media/sql-data-warehouse-query-ssms/new-query.png
 [5]: media/sql-data-warehouse-query-ssms/execute-query.png
 [6]: media/sql-data-warehouse-query-ssms/results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

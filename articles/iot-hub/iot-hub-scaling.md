@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>IoT Hub 솔루션 크기 조정
 Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 각 IoT Hub 단위는 특정 개수의 일일 메시지를 허용합니다.
@@ -41,7 +40,7 @@ IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별
 | 계층 | 지속적인 처리량 | 지속적인 전송 속도 |
 | --- | --- | --- |
 | S1 |장치당 최대 1111KB/분<br/>(1.5GB/일/장치) |장치당 평균 278메시지/분<br/>(400,000메시지/일/장치당) |
-| S2 |장치당 최대 16MB/분<br/>(22.8GB/일/장치) |장치당 평균 4167메시지/분<br/>(6백만 개의 메시지/일/장치당) |
+| S2 |장치당 최대 16MB/분<br/>(22.8GB/일/장치) |장치당 평균 4,167개 메시지/분<br/>(6백만 개의 메시지/일/장치당) |
 | S3 |장치당 최대 814MB/분<br/>(1144.4GB/일/장치) |장치당 평균 208,333 메시지/분<br/>(3억 개의 메시지/일/장치당) |
 
 ## <a name="identity-registry-operation-throughput"></a>ID 레지스트리 작업 처리량
@@ -56,11 +55,10 @@ IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

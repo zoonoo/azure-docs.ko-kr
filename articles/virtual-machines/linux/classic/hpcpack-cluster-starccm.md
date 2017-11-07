@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c83d39c87f789397116601e3e775a4f0ed3eac72
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩으로 STAR-CCM+ 실행
 이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 InfiniBand와 상호 연결된 여러 Linux 계산 노드에서 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 작업을 실행하는 방법을 보여 줍니다.
@@ -32,7 +31,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규
 ## <a name="set-up-an-hpc-pack-cluster"></a>HPC 팩 클러스터 설정
 [다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
 
-Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)문서를 참조하세요.
+Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)문서를 참조하세요.
 
 이 문서를 작성할 당시 Azure 마켓플레이스의 Linux 이미지(Azure용 InfiniBand 포함)는 SLES 12, CentOS 6.5, CentOS 7.1용입니다. 이 문서는 SLES 12 사용을 기반으로 합니다. 마켓플레이스에서 HPC를 지원하는 모든 Linux 이미지의 이름을 검색하려면 다음 PowerShell 명령을 실행합니다.
 
@@ -119,7 +118,7 @@ HPC 팩 클러스터 관리자 도구를 엽니다. 몇 분 후에 클러스터 
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Windows 및 Linux 노드에 대한 Azure 파일 공유 설정
 Azure 파일 서비스를 사용하여 스크립트, 응용 프로그램 패키지, 데이터 파일을 저장할 수 있습니다. Azure 파일은 Azure Blob 저장소를 영구 저장소로 사용하면서 CIFS 기능을 제공합니다. 이것이 가장 확장성 있는 솔루션은 아니지만 가장 간단하며 전용 VM이 필요하지 않습니다.
 
-[Windows에서 Azure File storage 시작](../../../storage/storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
+[Windows에서 Azure File storage 시작](../../../storage/files/storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
 
 저장소 계정 이름 **saname**, 파일 공유 이름 **sharename** 및 저장소 계정 키 **sakey**를 유지합니다.
 
@@ -334,4 +333,3 @@ Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니�
 <!--Image references-->
 [hndeploy]:media/hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]:media/hpcpack-cluster-starccm/ClusterManager.png
-

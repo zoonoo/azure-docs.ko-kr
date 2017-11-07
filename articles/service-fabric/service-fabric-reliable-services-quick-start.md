@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
-ms.lasthandoff: 03/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -51,7 +50,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 ![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
-이제 솔루션에는&2;개의 프로젝트가 있습니다.
+이제 솔루션에는 2개의 프로젝트가 있습니다.
 
 * *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
@@ -228,5 +227,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
 

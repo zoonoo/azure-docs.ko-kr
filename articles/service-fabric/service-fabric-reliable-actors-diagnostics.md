@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 10/26/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 5fbef8a3fb32f4bc47856ef6c6b459ae389dd541
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
 Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트 및 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
@@ -117,7 +116,7 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |# 행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
+| 서비스 패브릭 행위자 |행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
 | 서비스 패브릭 행위자 |잠금 대기당 평균 시간(밀리초) |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 소요된 시간(밀리초). |
 | 서비스 패브릭 행위자 |평균 밀리초 행위자 잠금 보유됨 |행위자별 잠금이 보유되는 시간(밀리초) |
 
@@ -163,7 +162,7 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |# 미해결 요청 수 |서비스에서 처리 중인 요청 수 |
+| 서비스 패브릭 행위자 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | 서비스 패브릭 행위자 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 deserialization에 걸린 평균 시간(밀리초) |서비스에서 수신될 때 행위자 요청 메시지를 deserialize하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 행위자 응답 메시지를 serialize하는 데 걸린 시간(밀리초) |
@@ -173,4 +172,3 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
 * [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-

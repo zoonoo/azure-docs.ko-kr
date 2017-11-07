@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Azure 구독을 Azure B2C 테넌트와 연결하여 사용 요금 지불
 
@@ -29,17 +28,17 @@ Azure AD B2C(Azure Active Directory B2C)에 대한 사용 요금은 Azure 구독
 https://azure.microsoft.com/pricing/details/active-directory-b2c/) 페이지에 있습니다.
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>1단계 - Azure AD B2C 테넌트 만들기
-
-먼저 B2C 테넌트 만들기를 완료해야 합니다. 이미 대상 B2C 테넌트를 만든 경우에는 이 단계를 건너뜁니다. [Azure AD B2C 시작](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+먼저 B2C 테넌트 만들기를 완료해야 합니다. 이미 대상 B2C 테넌트를 만든 경우에는 이 단계를 건너뜁니다. [Azure AD B2C 시작](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>2단계 - Azure 구독을 보여 주는 Azure AD 테넌트에서 Azure Portal 열기
-portal.azure.com으로 이동합니다. 사용할 Azure 구독을 보여 주는 Azure AD 테넌트로 전환합니다. 이 Azure AD 테넌트는 B2C 테넌트와 다릅니다. Azure Portal에서 대시보드의 오른쪽 위에 있는 계정 이름을 클릭하여 Azure AD 테넌트를 선택합니다. 계속하려면 Azure 구독이 필요합니다. [Azure 구독 가져오기](https://account.windowsazure.com/signup?showCatalog=True)
+[Azure Portal](https://portal.azure.com)로 이동합니다. 사용할 Azure 구독을 보여 주는 Azure AD 테넌트로 전환합니다. 이 Azure AD 테넌트는 B2C 테넌트와 다릅니다. Azure Portal에서 대시보드의 오른쪽 위에 있는 계정 이름을 클릭하여 Azure AD 테넌트를 선택합니다. 계속하려면 Azure 구독이 필요합니다. [Azure 구독 가져오기](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Azure AD 테넌트로 전환](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>3단계 - Azure Marketplace에서 B2C 테넌트 리소스 만들기
 [마켓플레이스] 아이콘을 클릭하거나 대시보드의 왼쪽 위 모서리에 있는 녹색 "+" 기호를 선택하여 마켓플레이스를 엽니다.  Azure Active Directory B2C를 검색하고 선택합니다. 만들기를 선택합니다.
-![마켓플레이스 선택](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+
+![Marketplace 선택](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![AD B2C 검색](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
 
@@ -75,12 +74,4 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 각 B2C 테넌트에 대해 이러한 단계가 완료되면 Azure 직접 또는 기업 계약 세부 정보에 따라 비용이 Azure 구독에 청구됩니다.
 - Azure 구독을 선택한 상태에서 사용 현황 및 청구 검토
-- [사용 현황 보고 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)를 사용하여 자세한 일일 사용 현황 보고서 검토
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
-
+- [사용 현황 보고 API](active-directory-b2c-reference-usage-reporting-api.md)를 사용하여 자세한 일일 사용 현황 보고서 검토

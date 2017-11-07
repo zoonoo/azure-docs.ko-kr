@@ -1,11 +1,22 @@
 ---
-layout: LandingPage
+title: "Azure Network Watcher 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Network Watcher를 사용하여 네트워크 수준에서 상태를 모니터링하고 진단하는 방법에 대해 알아봅니다."
-translationtype: Human Translation
-ms.sourcegitcommit: 7b51e3df9aa449bb3fdabd28ce80ac9d4fd7a951
-ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
-ms.lasthandoff: 02/22/2017
-
+services: network-watcher
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: network-watcher
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+ms.openlocfilehash: 897f526801dc94f6f370dfa253f321f7b8f765e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Azure Network Watcher 설명서
 
@@ -183,6 +194,5 @@ ms.lasthandoff: 02/22/2017
         </div>
     </li>
 </ul>
-
 
 

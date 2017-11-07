@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-
-
+ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>WIndows PowerShell 커넥터 기술 참조
 이 문서에서는 Windows PowerShell 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -212,7 +212,7 @@ MAData 폴더에서 FIMPowerShellConnectorModule.psm1이라는 모듈을 로드�
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |가져오기 실행(델타 또는 전체), 파티션, 계층, 워터 마크 및 예상된 페이지 크기의 형식에 대한 스크립트를 알립니다. |
 | CloseImportConnectionRunStep |[CloseImportConnectionRunStep][cecrs] |가져오기가 종료된 이유에 대한 스크립트를 알립니다. |
 
-스크립트는 단일 [CloseImportConnectionResults] [ cicres] 개체를 파이프라인으로 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
+스크립트는 단일 [CloseImportConnectionResults][cicres] 개체를 파이프라인으로 반환해야 합니다. 예: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
 #### <a name="export"></a>내보내기
 커넥터의 가져오기 아키텍처와 동일하게 내보내기를 지원하는 커넥터는 세 가지 스크립트 구현해야 합니다.
@@ -342,9 +342,3 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

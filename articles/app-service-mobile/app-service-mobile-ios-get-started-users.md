@@ -3,8 +3,8 @@ title: "Azure 모바일 앱을 사용하여 iOS에서 인증 추가"
 description: "Azure 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter 및 Microsoft를 포함한 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 604c1f84365954ddd3ba2de21fffa90ba5cc274b
-ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
-
-
+ms.author: glenga
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-authentication-to-your-ios-app"></a>iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작 안내서] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서] 를 기반으로 합니다.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-nameredirecturlaadd-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다.  이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다.  이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다.  그러나 선택한 어떤 URL 체계도 사용 가능합니다.  이 체계는 모바일 응용 프로그램에 고유해야 합니다.  서버 쪽에서 리디렉션을 사용하도록 설정하려면
 
@@ -46,12 +46,12 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 
 7. **저장**을 클릭합니다.
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 않은 사용자로 백 엔드에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 예외가 발생합니다.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 **Objective-C**:
 
 1. Mac에서 Xcode를 사용하여 *QSTodoListViewController.m*을 열고 다음 메서드를 추가합니다.
@@ -76,8 +76,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1]
-   .
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
     **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 응용 프로그램으로 다시 전환하는 데 사용됩니다.
 
@@ -163,8 +162,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1]
-   .
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용하는 경우 [앱에서 Facebook 도메인을 허용 목록에 추가해야 합니다][1].
 
     **urlScheme**을 응용 프로그램에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 응용 프로그램으로 다시 전환하는 데 사용됩니다.
 
@@ -221,10 +219,4 @@ App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 �
 [Azure Portal]: https://portal.azure.com
 
 [iOS 빠른 시작 안내서]: app-service-mobile-ios-get-started.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

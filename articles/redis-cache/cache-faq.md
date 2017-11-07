@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache FAQ
 Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -50,7 +49,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 * [Azure Redis Cache 성능](#azure-redis-cache-performance)
 * [어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
 * [Azure Redis Cache에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-redis-cache)
-* [Azure 정부 클라우드 또는 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 수 있나요?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있나요?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>개발 FAQ
 * [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -70,13 +69,12 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 * [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
 * [StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [성능 고려 사항 및 연결](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>모니터링 및 문제 해결 FAQ
 이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Redis Cache 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md) 및 [Azure Redis Cache 문제를 해결하는 방법](cache-how-to-troubleshoot.md)을 참조하세요.
 
 * [내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [왜 시간 초과가 표시되나요?](#why-am-i-seeing-timeouts)
 * [내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -105,7 +103,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 캐시 제품을 선택할 때는 다음을 고려해야 합니다.
 
-* **메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 [요청 시](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)추가적으로 사용 가능한 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+* **메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
 * **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 테이블](#cache-performance)을 참조하세요.
 * **처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
 * **고가용성/SLA**: Azure Redis Cache는 표준/프리미엄 캐시가 최소 99.9% 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
@@ -130,25 +128,25 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 이 테이블에서 다음과 같은 결론을 내릴 수 있습니다.
 
-* 동일한 크기의 캐시 처리량은 표준 계층과 비교할 때 프리미엄 계층에서 더 높습니다. 예를 들어 6GB 캐시를 사용할 경우 C3의 처리량 49K에 비해 P1의 처리량은 140K RPS입니다.
-* Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10개의 분할된 데이터베이스에 P4 클러스터를 만드는 경우 가능한 처리량은 250K * 10 = 초당 250만 요청 수입니다.
+* 동일한 크기의 캐시 처리량은 표준 계층과 비교할 때 프리미엄 계층에서 더 높습니다. 예를 들어 6GB 캐시를 사용할 경우 C3의 처리량은 49,000인 데 비해 P1의 처리량은 180,000 RPS입니다.
+* Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10개의 분할된 데이터베이스에 P4 클러스터를 만드는 경우 가능한 처리량은 400,000 * 10 = 4백만 RPS입니다.
 * 큰 크기의 키에 대한 처리량이 표준 계층에 비해 프리미엄 계층에서 더 높습니다.
 
 | 가격 책정 계층 | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 |
 | --- | --- | --- | --- | --- |
 | **표준 캐시 크기** | | |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**초당 요청 수(RPS)** |
 | C0 |250MB |공유됨 |5/0.625 |600 |
-| C1 |1 GB |1 |100/12.5 |12200 |
-| C2 |2.5GB |2 |200/25 |24000 |
-| C3 |6GB |4 |400/50 |49000 |
-| C4 |13GB |2 |500/62.5 |61000 |
-| C5 |26GB |4 |1000/125 |115000 |
-| C6 |53GB |8 |2000/250 |150000 |
-| **프리미엄 캐시 크기** | |**분할 영역당 CPU 코어** | |**초당 요청 수(RPS), 분할된 데이터베이스당** |
-| P1 |6GB |2 |1000/125 |140000 |
-| P2 |13GB |4 |2000/250 |220000 |
-| P3 |26GB |4 |2000/250 |220000 |
-| P4 |53GB |8 |4000/500 |250000 |
+| C1 |1 GB |1 |100/12.5 |12,200 |
+| C2 |2.5GB |2 |200/25 |24,000 |
+| C3 |6GB |4 |400/50 |49,000 |
+| C4 |13GB |2 |500/62.5 |61,000 |
+| C5 |26GB |4 |1,000 / 125 |115,000 |
+| C6 |53GB |8 |2,000 / 250 |150,000 |
+| **프리미엄 캐시 크기** | |**분할 영역당 CPU 코어** | **Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**초당 요청 수(RPS), 분할된 데이터베이스당** |
+| P1 |6GB |2 |1,500 / 187.5 |180,000 |
+| P2 |13GB |4 |3,000 / 375 |360,000 |
+| P3 |26GB |4 |3,000 / 375 |360,000 |
+| P4 |53GB |8 |6,000 / 750 |400,000 |
 
 `redis-benchmark.exe`와 같은 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
@@ -162,15 +160,28 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 ### <a name="how-am-i-billed-for-azure-redis-cache"></a>Azure Redis Cache에 대한 요금은 어떻게 청구되나요?
 Azure Redis Cache 가격 책정에 대해서는 [여기](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
-## <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud"></a>Azure 정부 클라우드 또는 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 수 있나요?
-예, Azure Redis Cache는 Azure 정부 클라우드와 Azure 중국 클라우드에서 사용할 수 있습니다. Azure 공용 클라우드와 비교해 볼 때 Azure Government 클라우드와 Azure 중국 클라우드에서 Azure Redis Cache에 액세스하고 관리하기 위한 URL은 다릅니다. Azure 정부 클라우드와 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 때의 고려 사항에 대한 자세한 내용은 [Azure 정부 데이터베이스 - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) 및 [Azure 중국 클라우드 - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/)를 참조하세요.
+### <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있나요?
+예, Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있습니다. Azure 공용 클라우드와 비교해 볼 때 이러한 클라우드에서 Azure Redis Cache에 액세스하고 관리하기 위한 URL은 다릅니다. 
 
-Azure 정부 클라우드와 Azure 중국 클라우드에서 PowerShell을 통해 Azure Redis Cache를 사용하는 방법에 대한 자세한 내용은 [Azure 정부 클라우드 또는 Azure 중국 클라우드에 연결하는 방법](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud)을 참조하세요.
+| 클라우드   | Redis에 대한 Dns 접미사            |
+|---------|---------------------------------|
+| 공용  | *.redis.cache.windows.net       |
+| 미국 정부  | *.redis.cache.usgovcloudapi.net |
+| 독일 | *.redis.cache.cloudapi.de       |
+| 중국   | *.redis.cache.chinacloudapi.cn  |
+
+다른 클라우드와 함께 Azure Redis Cache를 사용할 때의 고려 사항에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [Azure Government 데이터베이스 - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Azure 중국 클라우드 - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+
+Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure Germany에서 PowerShell을 통해 Azure Redis Cache를 사용하는 방법에 대한 자세한 내용은 [다른 클라우드에 연결하는 방법 - Azure Redis Cache PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)을 참조하세요.
 
 <a name="cache-configuration"></a>
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?
-StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)을 참조하세요.
+StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://stackexchange.github.io/StackExchange.Redis/Configuration)을 참조하세요.
 
 | ConfigurationOptions | 설명 | 권장 사항 |
 | --- | --- | --- |
@@ -393,6 +404,13 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 * [가비지 수집 기본 사항](https://msdn.microsoft.com/library/ee787088.aspx)
 * [가비지 수집 및 성능](https://msdn.microsoft.com/library/ee851764.aspx)
 
+
+### <a name="performance-considerations-around-connections"></a>연결에 대한 성능 고려 사항
+
+가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 각 캐시 크기는 특정 횟수의 연결*까지* 허용하지만 Redis에 대한 각 연결에는 오버헤드가 연결되어 있습니다. 이러한 오버헤드의 예로 TLS/SSL 암호화의 결과인 CPU 및 메모리 사용량이 있습니다. 특정 캐시 크기에 대한 최대 연결 제한은 부하가 적은 캐시를 가정합니다. 연결 오버헤드의 부하 *그리고* 클라이언트 작업의 부하가 시스템의 용량을 초과하면 현재 캐시 크기에 대한 연결 제한을 초과하지 않은 경우에도 캐시에 용량 문제가 발생할 수 있습니다.
+
+각 계층에 대한 다양한 연결 제한은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. 연결 및 기타 기본 구성에 대한 정보는 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
+
 <a name="cache-monitor"></a>
 
 ### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache"></a>내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
@@ -405,12 +423,6 @@ Redis 캐시 **리소스 메뉴**에도 캐시 문제를 모니터링하고 해�
 * **새 지원 요청** 을 클릭하여 캐시에 대한 지원 요청을 엽니다.
 
 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 자세한 내용은 [Azure Redis Cache를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
-
-### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?
-같은 지역, 같은 구독에 소속된 캐시는 진단 저장소 설정을 공유하며, 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 아닌지를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
-
-### <a name="why-are-diagnostics-enabled-for-some-new-caches-but-not-others"></a>다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?
-동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유합니다. 진단이 사용되도록 설정된 다른 캐시가 있는 동일한 지역 및 구독에 새 캐시를 만드는 경우 동일한 설정을 사용하여 새 캐시에 대해 진단이 사용되도록 설정됩니다.
 
 <a name="cache-timeouts"></a>
 
@@ -431,7 +443,7 @@ Redis 캐시 **리소스 메뉴**에도 캐시 문제를 모니터링하고 해�
   * 대역폭 임계값 제한에 도달했습니다.
   * CPU 바인딩된 작업을 완료하는 데 시간이 너무 오래 걸렸습니다.
 * 서버 쪽 원인
-  * 표준 캐시 제품에서 Azure Redis Cache 서비스가 주 노드에서 보조 노드로 장애 조치(Failover)를 시작했습니다.
+  * 표준 캐시 제품에서 Azure Redis Cache 서비스가 주 노드에서 보조 노드로 장애 조치(failover)를 시작했습니다.
   * Azure에서 캐시가 배포된 인스턴스에 패치를 적용하고 있었습니다.
     * 이 작업은 Redis 서버 업데이트 또는 일반적인 VM 유지 관리를 위한 것일 수 있습니다.
 
@@ -453,10 +465,13 @@ Redis 성공의 또 다른 중요한 측면은 이를 기반으로 구축된 정
 Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md) 및 [Azure Redis Cache 설명서](index.md)를 참조하세요.
 
 ### <a name="managed-cache-service"></a>관리된 캐시 서비스
-[Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
+
+보관된 설명서를 보려면 [보관된 Managed Cache Service 설명서](https://msdn.microsoft.com/library/azure/dn386094.aspx)를 참조하세요.
 
 ### <a name="in-role-cache"></a>In-Role Cache
-[In-Role Cache는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
+
+보관된 설명서를 보려면 [보관된 In-Role Cache 설명서](https://msdn.microsoft.com/library/azure/dn386103.aspx)를 참조하세요.
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
-

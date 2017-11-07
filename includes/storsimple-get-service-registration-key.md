@@ -20,8 +20,3 @@
 
 서비스 등록 키를 가져오는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)를 클릭하세요.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

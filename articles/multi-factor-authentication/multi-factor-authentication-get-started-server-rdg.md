@@ -5,28 +5,28 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d0e35237b412d4c3bcc26c77d124f3ed2fef6403
-ms.lasthandoff: 03/16/2017
-
-
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
-종종 RD(Remote Desktop) 게이트웨이는 로컬 NPS(Network Policy Services)를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다. Azure MFA 및 RD 게이트웨이의 조합은 사용자가 강력한 인증을 요구하여 회사 자산을 제어하도록 유지하면서 어디에서나 자신의 작업 환경에 액세스할 수 있음을 의미합니다. 
+종종 RD(Remote Desktop) 게이트웨이는 로컬 NPS(Network Policy Services)를 사용하여 사용자를 인증합니다. 이 문서에서는 원격 데스크톱 게이트웨이(로컬 NPS를 통해)에서 Multi-Factor Authentication 서버까지 RADIUS 요청을 라우팅하는 방법을 설명합니다. Azure MFA와 RD 게이트웨이를 함께 사용하면 사용자가 강력한 인증을 수행하면서 어디서든 자신의 작업 환경에 액세스할 수 있습니다. 
 
 터미널 서비스에 대한 Windows 인증이 Server 2012 R2에 대해 지원되지 않으므로 MFA 서버와 통합하려면 RD 게이트웨이 및 RADIUS를 사용합니다. 
 
-Multi-Factor Authentication 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시 처리하는 별도 서버에 설치되어야 합니다. NPS는 사용자 이름 및 암호의 유효성을 검사한 후, 결과를 게이트웨이에 반환하기 전에 인증의 두 번째 단계를 수행하는 Multi-Factor Authentication 서버에 대한 응답을 반환합니다.
+별도의 서버에 Multi-Factor Authentication 서버를 설치합니다. 이 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시합니다. NPS에서 사용자 이름과 암호의 유효성을 검사한 후 Multi-Factor Authentication 서버로 응답을 반환합니다. 그런 다음 MFA 서버에서 두 번째 인증 단계를 수행하고 결과를 게이트웨이로 반환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,14 +42,14 @@ Azure Multi-Factor Authentication 서버에 RADIUS 인증을 보내도록 RD 게
 4. 각 서버에 대한 공유 암호를 만듭니다.
 
 ## <a name="configure-nps"></a>NPS 구성
-RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 RADIUS 요청을 보냅니다. NPS를 구성하려면 먼저 RD 게이트웨이가&2;단계 확인이 완료되기 전에 시간 초과되는 것을 방지하도록 시간 제한 설정을 변경합니다. 그런 다음 MFA 서버에서 RADIUS 인증을 받도록 NPS를 업데이트합니다. NPS를 구성하려면 다음 절차를 따르십시오.
+RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 RADIUS 요청을 보냅니다. NPS를 구성하려면 먼저 RD 게이트웨이가 2단계 확인이 완료되기 전에 시간 초과되는 것을 방지하도록 시간 제한 설정을 변경합니다. 그런 다음 MFA 서버에서 RADIUS 인증을 받도록 NPS를 업데이트합니다. NPS를 구성하려면 다음 절차를 따르십시오.
 
 ### <a name="modify-the-timeout-policy"></a>시간 제한 정책 수정
 
 1. NPS의 왼쪽 열에서 **RADIUS 클라이언트 및 서버** 메뉴를 열고 **원격 RADIUS 서버 그룹**을 선택합니다. 
 2. **TS 게이트웨이 서버 그룹**을 선택합니다. 
 3. **부하 분산** 탭으로 이동합니다. 
-4. "응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주" 및 "서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)"을 30-60초 사이로 변경합니다. (인증하는 동안 여전히 서버가 시간 초과되는 경우 여기로 돌아와서 초 수를 늘립니다.)
+4. **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 및 **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)**을 모두 30-60초 사이로 변경합니다. (인증하는 동안 여전히 서버가 시간 초과되는 경우 여기로 돌아와서 초 수를 늘립니다.)
 5. **인증/계정** 탭으로 이동하고 지정된 RADIUS 포트가 Multi-Factor Authentication 서버에서 수신 대기하는 포트와 일치하는지 확인합니다.
 
 ### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>MFA 서버에서 인증을 받도록 NPS 준비
@@ -82,4 +82,3 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 - Azure MFA 및 [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md) 통합
 
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)에서 답변 얻기
-

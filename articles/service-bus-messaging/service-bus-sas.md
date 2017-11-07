@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
-ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
-
-
+ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 인증
 
 *공유 액세스 서명*(SAS)은 Service Bus 메시징의 기본 보안 메커니즘입니다. 이 문서에서는 SAS, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
@@ -44,7 +43,7 @@ SAS 인증은 다음과 같은 요소를 사용합니다.
 
 ## <a name="shared-access-policy"></a>공유 액세스 정책
 
-SAS에 대해 잘 이해하기 위해서는 정책부터 시작하는 것이 중요합니다. 각각의 정책에 대해 **이름**, **범위** 및 **권한** 등,&3;가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우, 범위는 `https://<yournamespace>.servicebus.windows.net/` 등과 같이 정규화된 도메인 이름(FQDN)입니다.
+SAS에 대해 잘 이해하기 위해서는 정책부터 시작하는 것이 중요합니다. 각각의 정책에 대해 **이름**, **범위** 및 **권한** 등, 3가지 정보를 결정합니다. **이름** 은 해당 범위 내에서 고유한 이름입니다. 범위는 아주 쉬운데, 해당 리소스의 URI를 말합니다. Service Bus 네임스페이스의 경우, 범위는 `https://<yournamespace>.servicebus.windows.net/` 등과 같이 정규화된 도메인 이름(FQDN)입니다.
 
 정책에서 사용 가능한 권한은 대부분 설명이 따로 필요 없습니다.
 
@@ -117,7 +116,7 @@ SAS 토큰의 [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessa
 
 다음과 같은 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함합니다.
 
-구성을 설명하고 SAS 권한 부여를 사용하는 서비스 버스 응용 프로그램의 작업 샘플 전체는 [서비스 버스를 사용하여 공유 액세스 서명 인증](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 서비스 버스 구독을 보호하기 위해 네임스페이스 또는 항목에 구성된 SAS 권한 부여 규칙의 사용 방법을 설명하는 관련된 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 사용](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 사용 가능합니다..
+구성을 설명하고 SAS 권한 부여를 사용하는 서비스 버스 응용 프로그램의 작업 샘플 전체는 [서비스 버스를 사용하여 공유 액세스 서명 인증](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 서비스 버스 구독을 보호하기 위해 네임스페이스 또는 항목에 구성된 SAS 권한 부여 규칙의 사용 방법을 설명하는 관련된 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 사용](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 사용 가능합니다.
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>네임스페이스에 대한 공유 액세스 권한 부여 규칙 액세스
 
@@ -305,7 +304,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 > 
 > 
 
-그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한&2;개의 AMQP 링크를 만듭니다.
+그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
 AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 응용 프로그램/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 "servicebus.windows.net:sastoken")인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"**이어야 합니다(전체 엔터티).
 
@@ -368,8 +367,3 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참�
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com
-
-
-<!--HONumber=Feb17_HO3-->
-
-

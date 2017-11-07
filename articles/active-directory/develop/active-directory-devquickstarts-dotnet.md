@@ -3,7 +3,7 @@ title: "Azure AD .NET 시작 | Microsoft Docs"
 description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 응용 프로그램 빌드 방법"
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 70918f2bea789edb2a4000847360e5c7e563951b
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Windows Desktop WPF 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -168,10 +169,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 [Azure AD를 사용하여 .NET Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

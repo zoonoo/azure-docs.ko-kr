@@ -14,15 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 937f20d7c52bef12b7aa9451944515262a099bbe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -60,7 +59,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 > 
 
 ### <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure PowerShell이 포함된 워크스테이션**. 
   
@@ -126,14 +125,14 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         <end name="end"/>
     </workflow-app>
 
-워크플로에&2;가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
+워크플로에 2가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
 
 RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
 
 <table border = "1">
 <tr><th>워크플로 변수</th><th>설명</th></tr>
 <tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 버전 2.1 및 3.0에서 <strong>jobtrackerhost:9010</strong>를 사용하세요.</td></tr>
-<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. 기본 파일 시스템 주소를 사용하세요. 예: <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>과 같은 기본 파일 시스템 주소를 사용합니다.</td></tr>
 <tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본</strong>을 사용하세요.</td></tr>
 </table>
 
@@ -147,7 +146,7 @@ RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사�
 <table border = "1">
 <tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열을 지정합니다.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 SQL 데이터베이스 테이블을 지정합니다.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL Database 테이블을 지정합니다.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더를 지정합니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
 </table>
 
@@ -163,7 +162,7 @@ Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 
 2. **CREATE TABLE 문** 은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하는 데 Hive 외부 테이블이 사용됩니다.
 3. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure 저장소의 blob에 저장합니다.
 
-스크립트에서 사용되는&3;개의 변수가 있습니다.
+스크립트에서 사용되는 3개의 변수가 있습니다.
 
 * ${hiveTableName}
 * ${hiveDataFolder}
@@ -190,9 +189,9 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
    
     두 파일은 공용 Blob 컨테이너에 저장되어 있습니다.
    
-   * HiveQL 스크립트(useoozie.hql)를 Azure Storage wasb:///tutorials/useoozie/useoozie.hql에 복사합니다.
-   * workflow.xml을 wasbs:///tutorials/useoozie/workflow.xml에 복사합니다.
-   * 데이터 파일(/example/data/sample.log)을 wasbs:///tutorials/useoozie/data/sample.log에 복사합니다.
+   * HiveQL 스크립트(useoozie.hql)를 Azure Storage(wasb:///tutorials/useoozie/useoozie.hql)에 복사합니다.
+   * workflow.xml을 wasb:///tutorials/useoozie/workflow.xml에 복사합니다.
+   * 데이터 파일(/example/data/sample.log)을 wasb:///tutorials/useoozie/data/sample.log에 복사합니다.
 6. Oozie 작업을 제출합니다.
    
     Oozie 작업 결과를 검사하려면 Visual Studio 또는 다른 도구를 사용하여 Azure SQL 데이터베이스에 연결합니다.
@@ -447,7 +446,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 
@@ -581,7 +580,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **자습서를 다시 실행하려면**
 
-워크플로를 다시 실행하려면 다음을 삭제해야 합니다:
+워크플로를 다시 실행하려면 다음 항목을 삭제해야 합니다.
 
 * Hive 스크립트 출력 파일
 * log4jLogsCount 테이블의 데이터
@@ -635,7 +634,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
@@ -644,7 +643,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
@@ -658,7 +657,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
@@ -677,4 +676,3 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

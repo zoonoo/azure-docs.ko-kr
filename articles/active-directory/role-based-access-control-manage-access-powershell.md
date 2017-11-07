@@ -3,23 +3,22 @@ title: "Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) �
 description: "Azure PowerShell에서 역할을 나열하고, 역할을 할당하고, 역할 할당을 제거하는 등 RBAC를 관리하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
 > [!div class="op_single_selector"]
@@ -31,8 +30,8 @@ Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure 리소스 관리 
 
 PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-* Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
-* Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx) 을 설치합니다.
+* Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+* Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](/powershell/azure/overview) 을 설치합니다.
 
 ## <a name="list-roles"></a>역할 나열
 ### <a name="list-all-available-roles"></a>사용 가능한 모든 역할 나열
@@ -87,7 +86,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ### <a name="search-for-object-ids"></a>개체 ID 검색
 역할을 할당하려면 개체(사용자, 그룹 또는 응용 프로그램)와 범위 둘 다를 식별해야 합니다.
 
-구독 ID를 모르는 경우 Azure 포털의 **구독** 블레이드에서 확인할 수 있습니다. 구독 ID를 쿼리하는 방법을 알아보려면 MSDN에서 [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) 을 참조하세요.
+구독 ID를 모르는 경우 Azure 포털의 **구독** 블레이드에서 확인할 수 있습니다. 구독 ID를 쿼리하는 방법을 알아보려면 MSDN에서 [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 을 참조하세요.
 
 Azure AD 그룹에 대한 개체 ID를 가져오려면 다음을 사용합니다.
 
@@ -128,7 +127,7 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 사용자 지정 역할을 만들려면 ```New-AzureRmRoleDefinition``` 명령을 사용합니다. 역할을 구조화하는 방법에는 PSRoleDefinitionObject를 사용하거나 JSON 템플릿을 사용하는 두 가지 방법이 있습니다. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>특정 리소스 공급자에서 작업 가져오기
+## <a name="get-actions-for-a-resource-provider"></a>리소스 공급자에 대한 작업 가져오기
 처음부터 사용자 지정 역할을 만드는 경우 리소스 공급자에서 가능한 모든 작업을 알고 있어야 합니다.
 ```Get-AzureRMProviderOperation``` 명령을 사용하여 이 정보를 가져옵니다.
 예를 들어, 가상 컴퓨터에 사용 가능한 모든 작업을 확인하려는 경우 다음 명령을 사용합니다.
@@ -166,7 +165,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>JSON 템플릿을 사용하여 역할 만들기
-JSON 템플릿을 사용자 지정 역할의 원본 정의로 사용할 수 있습니다. 다음 예제에서는 저장소 및 계산 리소스에 대한 읽기 액세스, 지원 액세스를 허용하고 해당 역할을 두 개의 구독에 추가하는 사용자 지정 역할을 만듭니다. 다음 내용이 포함된 새 파일 `C:\CustomRoles\customrole1.json`을 만듭니다. 초기 역할 생성 시 새 ID가 자동 생성되므로 Id를 `null`로 설정해야 합니다. 
+JSON 템플릿을 사용자 지정 역할의 원본 정의로 사용할 수 있습니다. 다음 예제에서는 저장소 및 계산 리소스에 대한 읽기 액세스, 지원 액세스를 허용하고 해당 역할을 두 개의 구독에 추가하는 사용자 지정 역할을 만듭니다. 다음 예제가 포함된 새 파일 `C:\CustomRoles\customrole1.json`을 만듭니다. 초기 역할 생성 시 새 ID가 자동 생성되므로 Id를 `null`로 설정해야 합니다. 
 
 ```
 {
@@ -280,5 +279,4 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ## <a name="see-also"></a>참고 항목
 * [Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

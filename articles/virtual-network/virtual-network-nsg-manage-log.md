@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)에 대한 로그 분석
 
@@ -47,18 +46,18 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure 포털
 
-로깅을 활성화하는 데 포털을 사용하려면 [포털](https://portal.azure.com)에 로그인합니다. **더 많은 서비스**를 클릭한 다음 *네트워크 보안 그룹*을 입력합니다. 로깅을 활성화하려는 NSG를 선택합니다. [포털에서 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal) 문서의 비 계산 리소스에 대한 지침을 따릅니다. **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** 또는 두 범주의 로그를 선택합니다.
+로깅을 활성화하는 데 포털을 사용하려면 [포털](https://portal.azure.com)에 로그인합니다. **더 많은 서비스**를 클릭한 다음 *네트워크 보안 그룹*을 입력합니다. 로깅을 활성화하려는 NSG를 선택합니다. [포털에서 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) 문서의 비 계산 리소스에 대한 지침을 따릅니다. **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** 또는 두 범주의 로그를 선택합니다.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하여 로깅을 활성화하려면 [PowerShell을 통해 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell) 문서의 지침을 따릅니다. 문서에서 명령을 입력하기 전에 다음 정보를 평가합니다.
+PowerShell을 사용하여 로깅을 활성화하려면 [PowerShell을 통해 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) 문서의 지침을 따릅니다. 문서에서 명령을 입력하기 전에 다음 정보를 평가합니다.
 
 - 다음 [텍스트]를 적절하게 대체한 다음 명령 `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`을 입력하여 `-ResourceId` 매개 변수에 사용할 값을 확인할 수 있습니다. 명령의 ID 출력은 */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*과 유사합니다.
 - 로그 범주에서 데이터를 수집하려는 경우 문서에서 명령의 끝에 `-Categories [category]`를 추가합니다. 범주는 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*입니다. `-Categories` 매개 변수를 사용하지 않는 경우 데이터 컬렉션은 두 로그 범주에 대해 활성화됩니다.
 
 ### <a name="azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)
 
-CLI를 사용하여 로깅을 활성화하려면 [CLI를 통해 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli) 문서의 지침을 따릅니다. 문서에서 명령을 입력하기 전에 다음 정보를 평가합니다.
+CLI를 사용하여 로깅을 활성화하려면 [CLI를 통해 진단 로그 사용](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) 문서의 지침을 따릅니다. 문서에서 명령을 입력하기 전에 다음 정보를 평가합니다.
 
 - 다음 [텍스트]를 적절하게 대체한 다음 명령 `azure network nsg show [resource-group-name] [nsg-name]`을 입력하여 `-ResourceId` 매개 변수에 사용할 값을 확인할 수 있습니다. 명령의 ID 출력은 */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*과 유사합니다.
 - 로그 범주에서 데이터를 수집하려는 경우 문서에서 명령의 끝에 `-Categories [category]`를 추가합니다. 범주는 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*입니다. `-Categories` 매개 변수를 사용하지 않는 경우 데이터 컬렉션은 두 로그 범주에 대해 활성화됩니다.
@@ -124,4 +123,3 @@ JSON 형식 데이터는 두 로그에 기록됩니다. 각 로그 형식에 대
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
 활동 로그 데이터를 보는 방법을 알아보려면 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. 진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. Log Analytics에 진단 데이터를 보내는 경우 향상된 통찰력을 위해 [Azure 네트워크 보안 그룹 분석](../log-analytics/log-analytics-azure-networking-analytics.md)(미리 보기) 관리 솔루션을 사용할 수 있습니다. 
-

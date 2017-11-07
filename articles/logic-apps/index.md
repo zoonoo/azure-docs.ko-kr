@@ -2,7 +2,7 @@
 title: "Azure Logic Apps 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 및 클라우드에 비즈니스 워크플로를 자동화하고 간소화하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조입니다."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a942b83d1089667a5a9960bfbba849bd243746ec
-ms.lasthandoff: 03/17/2017
-
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logic-apps-documentation"></a>Logic Apps 설명서
 
 클라우드에서 확장 가능한 워크플로를 단순화하고 통합하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조를 통해 온-프레미스 및 클라우드에 자동화된 비즈니스 워크플로를 디자인하고 배포할 수 있습니다.
@@ -43,7 +42,7 @@ ms.lasthandoff: 03/17/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +52,7 @@ ms.lasthandoff: 03/17/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service 비디오 라이브러리</h3>
+                        <h3>Logic Apps 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -171,6 +170,5 @@ ms.lasthandoff: 03/17/2017
         </div>
     </li>
 </ul>
-
 
 

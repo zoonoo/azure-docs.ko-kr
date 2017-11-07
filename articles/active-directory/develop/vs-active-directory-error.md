@@ -3,8 +3,8 @@ title: "Azure Active Directory 연결 마법사를 사용하여 오류를 진단
 description: "Active Directory 연결 마법사에서 호환되지 않는 인증 유형 검색"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 76a60d16d975efa18da27fda87cf447bd1223acb
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: kraigb
+ms.custom: aaddev
+ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Azure Active Directory 연결 마법사를 사용하여 오류 진단
 이전 인증 코드를 검색하는 동안 마법사에서 호환되지 않는 인증 유형을 검색했습니다.   
@@ -69,7 +69,8 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
     &lt;Project&gt;
         &lt;PropertyGroup&gt;
             <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup> &lt;/Project&gt;
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
 </pre>
 
 개별 사용자 계정 인증을 감지하기 위해 마법사는 사용자의 **Packages.config** 파일에서 패키지 요소를 찾습니다.

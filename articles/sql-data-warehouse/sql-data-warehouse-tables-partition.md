@@ -3,7 +3,7 @@ title: "SQL Data Warehouse의 테이블 분할 | Microsoft Docs"
 description: "Azure SQL 데이터 웨어하우스에서 테이블 분할 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d2ff3ce90c355ba63f3fb66982baa621091ae6e
-ms.lasthandoff: 12/08/2016
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: 3edfd34d368228be32afef48688739639a3b03ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 분할
 > [!div class="op_single_selector"]
@@ -375,4 +374,3 @@ DROP TABLE #partitions;
 
 
 <!-- Other web references -->
-

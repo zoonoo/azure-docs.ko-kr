@@ -2,7 +2,7 @@
 title: "Azure CDN 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "CDN(Content Delivery Network)을 사용하여 글로벌 데이터 센터에서 모든 장치에 콘텐츠를 제공하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
-ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: de858f5d3b9af7a36f2a8deab9105a4a61752cdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cdn-documentation"></a>CDN 설명서
 
@@ -52,7 +52,7 @@ CDN(Content Delivery Network)을 사용하여 Azure 또는 다른 프로그램�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch 비디오 라이브러리</h3>
+                        <h3>Azure CDN 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,6 @@ CDN(Content Delivery Network)을 사용하여 Azure 또는 다른 프로그램�
         </div>
     </li>
 </ul>
-
 
 
 

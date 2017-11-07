@@ -12,52 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
-ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
+
 클라이언트가 Service Fabric 클러스터 노드에 연결하는 경우 클라이언트는 인증서 보안 또는 Azure Active Directory(AAD)를 사용하여 인증을 받고 보안 통신이 설정될 수 있습니다. 이 인증을 통해 권한이 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스할 수 있으며 관리 작업을 수행할 수 있습니다.  인증서 또는 AAD 보안은 클러스터가 만들어지기 전에 클러스터에서 설정되어 있어야 합니다.  클러스터 보안 시나리오에 대한 자세한 내용은 [보안 클러스터](service-fabric-cluster-security.md)를 참조하세요. 인증서로 보호되는 클러스터에 연결하는 경우 클러스터에 연결할 컴퓨터에서 [클라이언트 인증서를 설정](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)하세요. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>Azure CLI를 사용하여 보안 클러스터에 연결
-다음 Azure CLI 명령은 보안 클러스터에 연결하는 방법을 설명합니다. 
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI(sfctl)를 사용하여 보안 클러스터에 연결
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
-인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다. 
+몇 가지 방법으로 Service Fabric CLI(sfctl)를 사용하는 보안 클러스터에 연결할 수 있습니다. 인증에 클라이언트 인증서를 사용하는 경우 인증서 세부 정보는 클러스터 노드에 배포된 인증서와 일치해야 합니다. 인증서에 CA(인증 기관)가 있으면 신뢰할 수 있는 CA를 추가적으로 지정해야 합니다.
 
-인증서에 인증 기관(CA)이 있는 경우 다음 예와 같이 `--ca-cert-path` 매개 변수를 추가해야 합니다. 
+`sfctl cluster select` 명령을 사용하여 클러스터에 연결할 수 있습니다.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-여러 CA가 있는 경우 구분 기호로 쉼표를 사용합니다. 
+클라이언트 인증서는 인증서 및 키 쌍 또는 단일 pem 파일이라는 두 가지 형태로 지정할 수 있습니다. 암호로 보호되는 `pem` 파일의 경우 암호를 입력하라는 메시지가 자동으로 표시됩니다.
 
-인증서에 있는 일반 이름이 연결 끝점과 일치하지 않는 경우 `--strict-ssl-false` 매개 변수를 사용하여 확인을 바이패스할 수 있습니다. 
+클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-CA 확인을 건너뛰려면 다음 명령에 표시된 것처럼 ``--reject-unauthorized-false`` 매개 변수를 추가하면 됩니다.
+명령을 실행하기 전에 암호로 보호되는 pem 파일에 암호를 묻는 메시지가 나타납니다.
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
+인증서, 키 쌍을 지정하려면 `--cert` 및 `--key` 인수를 사용하여 각 파일에 대한 파일 경로를 지정합니다.
 
-자체 서명된 인증서로 보호되는 클러스터에 연결하기 위해서는 CA 확인 및 일반 이름 확인을 제거하는 다음 명령을 사용합니다.
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-연결 후에는 클러스터와 상호 작용하기 위해 [다른 CLI 명령을 실행](service-fabric-azure-cli.md)할 수 있습니다. 
+경우에 따라 테스트 또는 개발 클러스터 보안에 사용된 인증서가 인증서 유효성 검사에 실패하는 경우가 있습니다. 인증서 유효성 검사를 무시하려면 `--no-verify` 옵션을 지정합니다. 예:
+
+> [!WARNING]
+> 프로덕션 Service Fabric 클러스터에 연결할 때 `no-verify` 옵션을 사용하지 마세요.
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+또한 신뢰할 수 있는 CA 인증서 또는 개별 인증서의 디렉터리 경로를 지정할 수 있습니다. 이러한 경로를 지정하려면 `--ca` 인수를 사용합니다. 예:
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+연결 후에는 클러스터와 상호 작용하기 위해 [다른 sfctl 명령을 실행](service-fabric-cli.md)할 수 있습니다.
 
 <a id="connectsecurecluster"></a>
 
@@ -306,6 +312,8 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 전체 URL은 Azure 포털의 클러스터 필수 창에서도 사용 가능합니다.
 
+브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치를 지정해야 합니다.
+
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory를 사용하여 보안 클러스터에 연결
 
 AAD로 보호되는 클러스터에 연결하려면 브라우저를 다음으로 연결합니다.
@@ -343,9 +351,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md).
+* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 * [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
-
-
+* [Service Fabric CLI 시작](service-fabric-cli.md)

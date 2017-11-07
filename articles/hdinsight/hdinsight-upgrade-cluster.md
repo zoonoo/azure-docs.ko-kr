@@ -1,6 +1,6 @@
 ---
-title: "Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 -Azure | Microsoft Docs"
-description: "Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight 클러스터로 마이그레이션하는 방법에 대해 알아봅니다."
+title: "HDInsight 클러스터를 최신 버전으로 업그레이드 -Azure | Microsoft Docs"
+description: "HDInsight 클러스터를 최신 버전으로 업그레이드하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: bhanupr
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 04/04/2017
 ms.author: bhanupr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e249d2859f135bf1a49b152ce206dc66ddebb75f
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight 클러스터를 최신 버전으로 업그레이드
 최신 HDInsight 기능을 활용하려면 HDInsight 클러스터를 최신 버전으로 업그레이드하는 것이 좋습니다. 아래 지침에 따라 HDInsight 클러스터 버전을 업그레이드합니다.
@@ -43,15 +42,14 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 
 예상대로 작동하는 것이 확인되면 마이그레이션을 위해 가동 중지 시간을 예약합니다. 이 가동 중지 시간 동안 다음 작업을 수행합니다.
 
-1.    클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
-2.    기존 클러스터를 삭제합니다.
-3.    이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
-4.    백업한 모든 임시 데이터를 가져옵니다.
-5.    새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
+1.  클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
+2.  기존 클러스터를 삭제합니다.
+3.  이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
+4.  백업한 모든 임시 데이터를 가져옵니다.
+5.  새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-
 

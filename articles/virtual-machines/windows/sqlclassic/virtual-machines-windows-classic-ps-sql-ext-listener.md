@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 > [!div class="op_single_selector"]
@@ -95,7 +94,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점�
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>PowerShell로 클러스터 리소스를 구성합니다.
-1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 클래식 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다.
+1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure Portal에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다.
 2. **공용 VIP(가상 IP) 주소**아래에 표시된 주소를 확인합니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
 3. VM 중 하나에서 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하 고 앞에서 기록한 값으로 변수를 설정합니다.
    
@@ -133,5 +132,4 @@ Always On 복제본이 다른 서브넷에 있는 경우 클라이언트는 연�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

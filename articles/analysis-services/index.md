@@ -2,7 +2,7 @@
 title: "Azure Analysis Services 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터를 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여 줍니다."
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
-ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
-
+ms.openlocfilehash: 3f66f61651aab5f1cf0850cdbbd069b0a9a65543
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 설명서
 
@@ -106,12 +107,19 @@ Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하�
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>기타</h3>
+                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">파워 쿼리 M</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

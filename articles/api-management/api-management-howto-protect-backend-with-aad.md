@@ -3,7 +3,7 @@ title: "Azure Active Directory 및 API Management로 Web API 백 엔드 보호 |
 description: "Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
-ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
 다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API 관리로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
@@ -500,7 +500,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
             <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
@@ -563,4 +563,3 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
-

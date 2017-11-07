@@ -3,7 +3,7 @@ title: "Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mi
 description: "다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/05/2017
+ms.author: mbullwin
+ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
@@ -41,10 +40,10 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 | [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |예 |
 | [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | [시스템 성능 카운터](app-insights-performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 | |
-| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 | |
-| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 | |
-| 코드를 다시 빌드할 필요 없음 |아니요 | |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
+| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 |아니요 |
+| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 |아니요 |
+| 코드를 다시 빌드해야 함 |예 | 아니요 |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>라이브 Azure 웹앱 모니터링
@@ -59,6 +58,20 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
     ![Application Insights를 클릭해 갑니다.](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [클라우드 및 VM 앱 모니터링](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Azure에서 클라이언트 쪽 모니터링 사용
+
+Azure에서 Application Insights를 사용하도록 설정한 경우 페이지 보기 및 사용자 원격 분석을 추가할 수 있습니다.
+
+1. 설정 > 응용 프로그램 설정 선택
+2.  앱 설정 아래에서 새로운 키 값 쌍을 추가합니다. 
+   
+    키: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    값: `true`
+3. 설정을 **저장**하고 앱을 **다시 시작**합니다.
+
+Application Insights JavaScript SDK가 이제 각 웹 페이지에 삽입됩니다.
 
 ## <a name="monitor-a-live-iis-web-app"></a>라이브 IIS 웹앱 모니터링
 
@@ -124,7 +137,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
-## <a name="automation-with-powershell"></a>PowerShell을 사용한 자동화
+## <a name="automation-with-powershell"></a>PowerShell을 사용한 Automation
 IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
 
 먼저 Application Insights 모듈을 가져옵니다.
@@ -184,6 +197,54 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 
 * 서버에 최신 Application Insights SDK를 다운로드합니다.
 
+## <a name="questions"></a>상태 모니터에 대한 질문
+
+### <a name="what-is-status-monitor"></a>상태 모니터란?
+
+IIS 웹 서버에 설치한 데스크톱 응용 프로그램입니다. 웹앱을 계측하고 구성하는 데 도움이 됩니다. 
+
+### <a name="when-do-i-use-status-monitor"></a>언제 상태 모니터를 사용하나요?
+
+* 이미 실행 중인 경우에라도 IIS 서버에서 실행 중인 모든 웹앱을 계측하려는 경우입니다.
+* 컴파일 시 [Application Insights SDK를 사용하여 빌드한](app-insights-asp-net.md) 웹앱에 대한 추가 원격 분석을 사용하도록 설정하려는 경우입니다. 
+
+### <a name="can-i-close-it-after-it-runs"></a>실행한 후에 닫을 수 있나요?
+
+예. 선택한 웹 사이트를 계측한 후에 닫을 수 있습니다.
+
+자체로 원격 분석을 수집하지 않습니다. 웹앱을 구성하고 일부 사용 권한을 설정합니다.
+
+### <a name="what-does-status-monitor-do"></a>상태 모니터의 기능은 무엇인가요?
+
+계측할 상태 모니터에 대한 웹앱을 선택하는 경우:
+
+* 웹앱의 이진 파일 폴더에서 Application Insights 어셈블리 및 .config 파일을 다운로드하고 저장합니다.
+* `web.config`을 수정하여 Application Insights HTTP 추적 모듈을 추가합니다.
+* CLR 프로파일링을 사용하여 종속성 호출을 수집할 수 있습니다.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>앱을 업데이트할 때마다 상태 모니터를 실행해야 하나요?
+
+증분 방식으로 다시 배포하는 경우에는 아닙니다. 
+
+게시 프로세스에서 '기존 파일 삭제' 옵션을 선택하는 경우 상태 모니터를 다시 실행하여 Application Insights를 구성해야 합니다.
+
+### <a name="what-telemetry-is-collected"></a>어떤 원격 분석이 수집되나요?
+
+상태 모니터를 사용하여 런타임 시에만 계측하는 응용 프로그램의 경우:
+
+* HTTP 요청
+* 종속성에 대한 호출
+* 예외
+* 성능 카운터
+
+컴파일 시 이미 계측된 응용 프로그램의 경우:
+
+ * 프로세스 카운터
+ * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
+ * 예외 스택 추적 값
+
+[자세히 알아보기](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +273,4 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
-
+[usage]: app-insights-javascript.md

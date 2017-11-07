@@ -12,33 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 07/03/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 79004e91c9e22b085b04e446999d4efe05426436
-ms.openlocfilehash: 512c4dc5f77d5f730720909628364c5c9d8b3174
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 21229ad7277ce03e5276fe965d73b5e5eba12424
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
-각 IoT Hub에는 서비스의 장치별 리소스(예: 진행 중인 클라우드-장치 메시지를 포함하는 큐)를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
+
+각 IoT Hub에는 서비스에서 장치마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
-## <a name="what-are-jobs"></a>작업은 무엇입니까?
+## <a name="what-are-jobs"></a>작업이란?
+
 ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템을 사용합니다.
 
-* 표준 런타임 작업에 비해 잠재적으로 실행 시간이 깁니다. 또는
+* 표준 런타임 작업에 비해 잠재적으로 실행 시간이 깁니다.
 * 사용자에게 많은 양의 데이터를 반환합니다.
 
-이러한 경우 단일 API 호출을 기다리거나 작업 결과가 있을 때 차단하는 대신에 작업은 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
+단일 API 호출을 기다리거나 작업 결과를 차단하는 대신에 작업은 비동기적으로 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
 
 다음 C# 코드 조각은 작업을 만드는 방법을 보여 줍니다.
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
@@ -46,12 +47,11 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > C# 코드에서 **RegistryManager** 클래스를 사용하려면 프로젝트에 **Microsoft.Azure.Devices** NuGet 패키지를 추가합니다. **RegistryManager** 클래스는 **Microsoft.Azure.Devices** 네임스페이스에 있습니다.
 
+**RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다.
 
-이때 **RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다.
+다음 C# 코드 조각은 매 5초마다 폴링하여 작업이 실행을 마쳤는지 여부를 확인하는 방법을 보여 줍니다.
 
-다음 C# 코드 조각은 매&5;초마다 폴링하여 작업이 실행을 마쳤는지 여부를 확인하는 방법을 보여 줍니다.
-
-```
+```csharp
 // Wait until job is finished
 while(true)
 {
@@ -69,22 +69,24 @@ while(true)
 ```
 
 ## <a name="export-devices"></a>내보내기 장치
-**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](https://msdn.microsoft.com/library/ee395415.aspx)을 사용하는 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
+
+**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/common/storage-security-guide.md#data-plane-security)을 사용하는 [Azure Storage](../storage/index.yml) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
 
 이 메서드를 사용하면 사용자가 제어하는 blob에 장치 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
 **ExportDevicesAsync** 메서드에 매개변수 두 개를 지정해야 합니다.
 
 * Blob 컨테이너의 URI가 포함된 *문자열* . 이 URI는 컨테이너에 대한 쓰기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 작업은 직렬화된 내보내기 장치 데이터를 저장하기 위해 이 컨테이너에 블록 blob를 만듭니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
+
 * 내보내기 데이터에서 인증 키를 제외하려는지 여부를 나타내는 *부울* 값입니다. **false**인 경우 인증 키가 내보내기 출력에 포함됩니다. 그렇지 않으면 키는 **null**로 내보내집니다.
 
 다음 C# 코드 조각은 내보내기 데이터에 장치 인증 키를 포함하고 있는 내보내기 작업을 시작한 다음 완료를 폴링하는 방법을 보여 줍니다.
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 
@@ -108,7 +110,7 @@ while(true)
 
 다음 예제에서는 출력 데이터를 보여줍니다.
 
-```
+```json
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device2","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device3","eTag":"MA==","status":"disabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -116,12 +118,59 @@ while(true)
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
+장치에 쌍으로 된 데이터가 있는 경우 장치 데이터와 함께 내보내집니다. 다음 예제는 이러한 형식을 보여줍니다. "twinETag" 줄의 모든 데이터는 끝까지 쌍으로 된 데이터입니다.
+
+```json
+{
+   "id":"export-6d84f075-0",
+   "eTag":"MQ==",
+   "status":"enabled",
+   "statusReason":"firstUpdate",
+   "authentication":null,
+   "twinETag":"AAAAAAAAAAI=",
+   "tags":{
+      "Location":"LivingRoom"
+   },
+   "properties":{
+      "desired":{
+         "Thermostat":{
+            "Temperature":75.1,
+            "Unit":"F"
+         },
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+            "$lastUpdatedVersion":2,
+            "Thermostat":{
+               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+               "$lastUpdatedVersion":2,
+               "Temperature":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               },
+               "Unit":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               }
+            }
+         },
+         "$version":2
+      },
+      "reported":{
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
+         },
+         "$version":1
+      }
+   }
+}
+```
+
 코드에서 이 데이터에 액세스해야 하는 경우 **ExportImportDevice** 클래스를 사용하여 이 데이터를 쉽게 역직렬화할 수 있습니다. 다음 C# 코드 조각은 이전에 블록 blob에 내보낸 장치 정보를 읽는 방법을 보여 줍니다.
 
-```
+```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
-using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
+using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), null, null), Encoding.UTF8))
 {
   while (streamReader.Peek() != -1)
   {
@@ -134,44 +183,42 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 > [!NOTE]
 > **RegistryManager** 클래스의 **GetDevicesAsync** 메서드를 사용하여 장치의 목록을 가져올 수도 있습니다. 그러나 이 방법은 반환되는 장치 개체의 수에 1000의 하드 캡이 적용됩니다. **GetDevicesAsync** 메서드에 대해 예상되는 사용 사례는 디버깅을 돕는 개발 시나리오에 대한 것이며 생산 워크로드에는 권장되지 않습니다.
-> 
-> 
 
 ## <a name="import-devices"></a>장치 가져오기
+
 **RegistryManager** 클래스의 **ImportDevicesAsync** 메서드를 사용하여 IoT Hub ID 레지스트리에서 대량 가져오기 및 동기화 작업을 수행할 수 있습니다. **ExportDevicesAsync** 메서드와 마찬가지로 **ImportDevicesAsync** 메서드도 **작업** 프레임워크를 사용합니다.
 
 ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장치를 업데이트 및 삭제할 수도 있으므로 **ImportDevicesAsync** 메서드를 사용할 때 주의합니다.
 
 > [!WARNING]
 > 가져오기 작업은 실행 취소할 수 없습니다. ID 레지스트리를 대량 변경하기 전에 항상 **ExportDevicesAsync** 메서드를 사용하여 기존 데이터를 다른 Blob 컨테이너에 백업합니다.
-> 
-> 
 
 **ImportDevicesAsync** 메서드에 매개 변수 두 개를 선택합니다.
 
-* 작업에 대한 *입력*으로 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
-  
-   ```
+* 작업에 대한 *입력*으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+
+   ```csharp
    SharedAccessBlobPermissions.Read
    ```
 * 작업에서 *출력*으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업**에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
 > 두 매개 변수가 같은 blob 컨테이너를 가리킬 수 있습니다. 단순히 별도 매개 변수를 사용하여 출력 컨테이너에 추가 사용 권한이 필요할 때 데이터를 더 강력하게 제어할 수 있습니다.
-> 
-> 
 
 다음 C# 코드 조각은 가져오기 작업을 시작하는 방법을 보여 줍니다.
 
-```
+```csharp
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
+장치 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 데이터 입력의 형식은 **ExportDevicesAsync** 섹션에 나온 형식과 같습니다. 이러한 방식으로 내보낸 데이터를 다시 가져올 수 있습니다. **$metadata**는 선택 사항입니다.
+
 ## <a name="import-behavior"></a>가져오기 동작
+
 **ImportDevicesAsync** 메서드를 사용하여 ID 레지스트리에서 다음 대량 작업을 수행할 수 있습니다.
 
 * 새 장치 대량 등록
@@ -179,40 +226,43 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 * 대량으로 상태 변경(장치를 사용 또는 사용하지 않도록 설정)
 * 새 장치 인증 키의 대량 할당
 * 장치 인증 키의 대량 자동 다시 생성
+* 쌍으로 된 데이터의 대량 업데이트
 
 단일 **ImportDevicesAsync** 호출 내에서 이전 작업의 조합을 수행할 수 있습니다. 예를 들어 새 장치를 등록하는 동시에 기존 장치를 삭제 또는 업데이트할 수 있습니다. **ExportDevicesAsync** 메서드와 함께 사용하는 경우 모든 장치를 한 IoT Hub에서 다른 IoT Hub로 완전히 마이그레이션할 수 있습니다.
+
+가져오기 파일에 쌍으로 된 메타데이터가 있는 경우 이 메타데이터는 쌍의 기존 메타데이터를 덮어씁니다. 가져오기 파일에 쌍 메타데이터가 포함되지 않은 경우 `lastUpdateTime` 메타데이터는 현재 시간을 사용하여 업데이트됩니다.
 
 각 장치에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 장치별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
 | importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. |
-| **create** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **create** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **update** |지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **updateIfMatchETag** |지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **delete** |지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag** 값과 관계 없이 삭제됩니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **deleteIfMatchETag** |지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
 > 직렬화 데이터가 장치에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.
-> 
-> 
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>장치 가져오기 예제 – 대량 장치 프로비저닝
+
 다음 C# 코드 예제에서는 다음과 같은 여러 장치 ID를 생성하는 방법을 보여 줍니다.
 
 * 인증 키를 포함합니다.
 * 블록 Blob에 해당 장치 정보를 씁니다.
 * 장치를 ID 레지스트리로 가져옵니다.
 
-```
+```csharp
 // Provision 1,000 more devices
 var serializedDevices = new List<string>();
 
 for (var i = 0; i < 1000; i++)
 {
-// Create a new ExportImportDevice
+  // Create a new ExportImportDevice
+  // CryptoKeyGenerator is in the Microsoft.Azure.Devices.Common namespace
   var deviceToAdd = new ExportImportDevice()
   {
     Id = Guid.NewGuid().ToString(),
@@ -228,11 +278,11 @@ for (var i = 0; i < 1000; i++)
     ImportMode = ImportMode.Create
   };
 
-  // Add device to existing list
+  // Add device to the list
   serializedDevices.Add(JsonConvert.SerializeObject(deviceToAdd));
 }
 
-// Write this list to the blob
+// Write the list to the blob
 var sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice => sb.AppendLine(serializedDevice));
 await blob.DeleteIfExistsAsync();
@@ -247,8 +297,9 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Call import using the same blob to add new devices!
-// This normally takes 1 minute per 100 devices the normal way
+// Call import using the blob to add new devices
+// Log information related to the job is written to the same container
+// This normally takes 1 minute per 100 devices
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -268,9 +319,10 @@ while(true)
 ```
 
 ## <a name="import-devices-example--bulk-deletion"></a>장치 가져오기 예제 – 대량 삭제
+
 다음 코드 샘플은 이전 코드 샘플을 사용하여 추가한 장치를 삭제하는 방법을 보여 줍니다.
 
-```
+```csharp
 // Step 1: Update each device's ImportMode to be Delete
 sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice =>
@@ -297,7 +349,7 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Step 3: Call import using the same blob to delete all devices!
+// Step 3: Call import using the same blob to delete all devices
 importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -314,13 +366,13 @@ while(true)
 
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
-
 ```
 
-## <a name="getting-the-container-sas-uri"></a>컨테이너 SAS URI 가져오기
-다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md)를 생성하는 방법을 보여 줍니다.
+## <a name="get-the-container-sas-uri"></a>컨테이너 SAS URI 가져오기
 
-```
+다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)를 생성하는 방법을 보여 줍니다.
+
+```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
 {
   // Set the expiry time and permissions for the container.
@@ -341,10 +393,10 @@ static string GetContainerSasUri(CloudBlobContainer container)
   // including the SAS token.
   return container.Uri + sasContainerToken;
 }
-
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT Hub 메트릭][lnk-metrics]
@@ -353,11 +405,10 @@ static string GetContainerSasUri(CloudBlobContainer container)
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

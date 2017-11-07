@@ -1,6 +1,6 @@
 ---
 title: "OMS 솔루션에 저장된 검색 및 경고 | Microsoft Docs"
-description: "OMS의 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 ARM 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다."
+description: "OMS의 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다.  이 문서에서는 관리 솔루션에 포함되도록 리소스 관리 템플릿에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,17 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!NOTE]
@@ -34,7 +32,7 @@ ms.lasthandoff: 03/22/2017
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](operations-management-suite-solutions-creating.md)과 [ARM 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
+이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](operations-management-suite-solutions-creating.md)과 [Resource Manager 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
@@ -44,25 +42,43 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## <a name="log-analytics-api-version"></a>Log Analytics API 버전
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 리소스와는 다릅니다.  
+
+ 다음 표에서는 레거시 및 업그레이드된 작업 영역에 대한 Log Analytics API 버전과 각각에 대해 서로 다른 구문을 지정하는 샘플 쿼리가 나와 있습니다. 
+
+| 작업 영역 버전 | API 버전 | 샘플 쿼리 |
+|:---|:---|:---|
+| v1(레거시)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2(업그레이드된 버전) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+버전마다 지원되는 작업 영역에 대해서는 다음을 참조하세요.
+
+- 레거시 쿼리 언어를 사용하는 템플릿을 레거시 또는 업그레이드된 작업 영역에 설치할 수 있습니다.  업그레이드된 작업 영역에 설치한 경우 사용자가 실행할 때 쿼리가 새 언어로 즉시 변환됩니다.
+- 업그레이드된 쿼리 언어를 사용하는 템플릿은 업그레이드된 작업 영역에만 설치할 수 있습니다.
+
 
 ## <a name="saved-searches"></a>저장된 검색
 솔루션에서 수집한 데이터를 사용자가 쿼리할 수 있도록 솔루션에 [저장된 검색](../log-analytics/log-analytics-log-searches.md)을 포함합니다.  저장된 검색은 OMS 포털의 **즐겨찾기**와 Azure Portal의 **저장된 검색**에 표시됩니다.  각 경고에도 저장된 검색이 필요합니다.   
 
-[Log Analytics 및 저장된 검색](../log-analytics/log-analytics-log-searches.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다. 
+[Log Analytics 및 저장된 검색](../log-analytics/log-analytics-log-searches.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
 
     {
-        "name": "<name-of-savedsearch>"
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": []
-        "tags": {},
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+        ],
+        "tags": { },
         "properties": {
             "etag": "*",
-            "query": "<query-to-run>",
-            "displayName": "<saved-search-display-name>",
-            "category": ""<saved-search-category>"
+            "query": "[variables('SavedSearch').Query]",
+            "displayName": "[variables('SavedSearch').DisplayName]",
+            "category": "[variables('SavedSearch').Category]"
         }
     }
+
+
 
 저장된 검색의 각 속성은 다음 테이블에 설명되어 있습니다. 
 
@@ -90,22 +106,25 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 
 ### <a name="schedule-resource"></a>일정 리소스
 
-저장된 검색은 하나 이상의 일정을 가질 수 있으며 각 일정은 별도의 경고 규칙을 나타냅니다. 일정은 검색이 실행되는 빈도 및 데이터가 검색되는 시간 간격을 정의합니다.  일정 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` 형식을 가지며 구조는 다음과 같습니다. 
+저장된 검색은 하나 이상의 일정을 가질 수 있으며 각 일정은 별도의 경고 규칙을 나타냅니다. 일정은 검색이 실행되는 빈도 및 데이터가 검색되는 시간 간격을 정의합니다.  일정 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` 형식을 가지며 구조는 다음과 같습니다. 여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
+
 
     {
-      "name": "<name-of-schedule-resource>",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-      "apiVersion": "<api-version-of-resource>",
-      "dependsOn": [
-        "<name-of-saved-search>"
-      ],
-      "properties": {  
-        "etag": "*",               
-        "interval": <schedule-interval-in-minutes>,
-        "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-enabled>       
-      }
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name)]"
+        ],
+        "properties": {
+            "etag": "*",
+            "interval": "[variables('Schedule').Interval]",
+            "queryTimeSpan": "[variables('Schedule').TimeSpan]",
+            "enabled": "[variables('Schedule').Enabled]"
+        }
     }
+
+
 
 일정 리소스의 속성은 다음 테이블에 설명되어 있습니다.
 
@@ -127,43 +146,41 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 
 모든 일정은 하나의 **경고** 작업을 갖게 됩니다.  이 경고 작업은 경고의 세부 정보를 정의하고 필요에 따라 알림 및 재구성 작업을 정의합니다.  알림은 하나 이상의 주소에 전자 메일을 보냅니다.  재구성은 Azure Automation에서 runbook을 시작하여 검색된 문제 해결을 시도합니다.
 
-경고 작업의 구조는 다음과 같습니다.
+경고 작업의 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
+
+
 
     {
-        "name": "<name-of-the-action>",
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
         "dependsOn": [
-            <name-of-schedule>
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
         ],
         "properties": {
             "etag": "*",
             "type": "Alert",
-            "name": "<display-name-of-alert>",
-            "description": "<description-of-alert>",
-            "severity": "<severity-of-alert>",
+            "name": "[variables('Alert').Name]",
+            "description": "[variables('Alert').Description]",
+            "severity": "[variables('Alert').Severity]",
             "threshold": {
-                "operator": "<threshold-operator>",
-                "value": "<threshold-value>"
+                "operator": "[variables('Alert').Threshold.Operator]",
+                "value": "[variables('Alert').Threshold.Value]",
                 "metricsTrigger": {
-                    "triggerCondition": "<trigger-condition>",
-                    "operator": "<trigger-operator>",
-                    "value": "<trigger-value>"
+                    "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
+                    "operator": "[variables('Alert').Trigger.Operator]",
+                    "value": "[variables('Alert').Trigger.Value]"
                 },
-            },
-            "throttling": {
-                "durationInMinutes": "<throttling-duration-in-minutes>"
             },
             "emailNotification": {
                 "recipients": [
-                    <mail-recipients>
+                    "[variables('Alert').Recipients]"
                 ],
-                "subject": "<mail-subject>",
-                "attachment": "None"
+                "subject": "[variables('Alert').Subject]"
             },
             "remediation": {
-                "runbookName": "<name-of-runbook>",
-                "webhookUri": "<runbook-uri>"
+                "runbookName": "[variables('Alert').Remedition.RunbookName]",
+                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
             }
         }
     }
@@ -232,23 +249,22 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 경고에서 웹후크를 호출하는 경우 **경고** 작업 리소스 외에도 **웹후크** 형식의 작업 리소스가 필요합니다.  
 
     {
-        "name": "<name-of-the-action>",
-        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": [
-            <name-of-schedule>
-            <name-of-alert-action>
-        ],
-        "properties": {
-            "etag": "*",
-            "type": "Webhook",
-            "name": "<display-name-of-action>",
-            "severity": "<severity-of-alert>",
-            "customPayload": "<payload-to-send>"
-        }
+      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
+      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+      "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
+      ],
+      "properties": {
+        "etag": "*",
+        "type": "[variables('Alert').Webhook.Type]",
+        "name": "[variables('Alert').Webhook.Name]",
+        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
+        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
+      }
     }
 
-경고 작업 리소스의 속성은 다음 테이블에 설명되어 있습니다.
+웹후크 작업 리소스의 속성은 다음 표에 설명되어 있습니다.
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
@@ -507,5 +523,4 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 ## <a name="next-steps"></a>다음 단계
 * 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
 * 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
-
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dee39662472fe54776b591977f2b1ecb39d15b00
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure 자동화를 사용하여 Azure 주요 자격 증명 모음 관리
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure 주요 자격 증명 모음에서 키 및 암호 관리를 간소화하는 방법에 대해 소개합니다.
@@ -52,10 +52,4 @@ Azure 자동화의 기본 사항과 이를 사용하여 Azure 주요 자격 증�
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)를 참조하세요.
 * [Azure 주요 자격 증명 모음 PowerShell 스크립트](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

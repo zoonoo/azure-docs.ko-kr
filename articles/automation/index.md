@@ -2,7 +2,7 @@
 title: "Azure Automation 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "시간을 절약하고 일반적인 관리 작업의 신뢰성을 향상시키기 위해 Automation을 사용하여 프로세스 및 구성 관리를 자동화하는 방법에 대해 알아봅니다."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
-ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
-
+ms.openlocfilehash: ed25b6abaacbdd44b718a1a5febce5a02dacc334
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automation-documentation"></a>Automation 설명서
 
@@ -168,7 +169,7 @@ Automation을 사용하여 시간을 절약하고 클라우드 환경에서 수�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="/rest/api/automation/">REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt163781">클래식 REST API</a></p>
                     </div>
                 </div>
@@ -176,11 +177,5 @@ Automation을 사용하여 시간을 절약하고 클라우드 환경에서 수�
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

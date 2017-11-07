@@ -2,7 +2,7 @@
 title: "Azure Devtest Labs 설명서 - 자습서 | Microsoft Docs"
 description: "다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
-ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
-
+ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="devtest-labs-documentation"></a>DevTest Labs 설명서
 
@@ -114,10 +115,46 @@ ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
     </li>
 </ul>
 
+---
 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+<h2>참조</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>명령줄</h3>
+                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
+                        <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
+                        <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell: 랩 자동 만들기 또는 수정</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>기타</h3>
+                        <p><a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager 템플릿</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

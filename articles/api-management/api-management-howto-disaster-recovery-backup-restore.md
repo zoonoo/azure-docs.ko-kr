@@ -3,7 +3,7 @@ title: "Azure API Management에서 백업 및 복원을 사용하여 재해 복�
 description: "Azure API 관리에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f10be3c-f796-4a6c-bacd-7931b6aa82af
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 51ec88ae2a4f10b68c7d74324c3a3a25d2893891
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 Azure API 관리를 통해 API를 게시 및 관리하면 기존에는 직접 디자인, 구현 및 관리해야 했던 대부분의 내결함성 및 인프라 기능을 활용할 수 있습니다. Azure 플랫폼은 매우 적은 비용으로 상당한 잠재적 오류를 완화합니다.
@@ -49,9 +49,7 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 첫 번째 단계는 Azure Active Directory 응용 프로그램을 만드는 것입니다. API 관리 서비스 인스턴스를 포함하는 구독을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/) 에 로그인하고 기본 Azure Active Directory에 대한 **응용 프로그램** 탭으로 이동합니다.
 
 > [!NOTE]
-> Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요. 기본 디렉토리를 찾는 방법에 대한 자세한 내용은 [Azure Active Directory에서 Windows VM으로 사용할 회사 또는 학교 ID 만들기](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 “Azure 클래식 포털에서 기본 디렉터리 찾기”를 참조하세요.
->
->
+> Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요.
 
 ![Azure Active Directory 응용 프로그램 만들기][api-management-add-aad-application]
 
@@ -65,7 +63,7 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 
 ![권한 추가][api-management-aad-permissions]
 
-새로 추가된 **Windows** **Azure Service Management API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 **Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
+새로 추가된 **Windows****Azure Service Management API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 **Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
 
 ![권한 추가][api-management-aad-delegated-permissions]
 
@@ -81,7 +79,7 @@ namespace GetTokenResourceManagerRequests
     {
         static void Main(string[] args)
         {
-            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
             var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
             if (result == null) {
@@ -211,4 +209,3 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-

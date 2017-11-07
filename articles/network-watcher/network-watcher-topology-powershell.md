@@ -3,7 +3,7 @@ title: "Azure Network Watcher 토폴로지 보기 - PowerShell | Microsoft Docs"
 description: "이 문서에서는 PowerShell을 사용하여 네트워크 토폴로지를 쿼리하는 방법을 설명합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: bd0e882d-8011-45e8-a7ce-de231a69fb85
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c8d5fe6177b36aa73febe308b47b1fc330181924
-ms.lasthandoff: 03/22/2017
-
+ms.author: jdial
+ms.openlocfilehash: 84e925b4461e55e570e9848bf03d3d352bfff898
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-powershell"></a>PowerShell을 사용하여 Network Watcher 토폴로지 보기
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
 Network Watcher의 토폴로지 기능은 구독에 있는 네트워크 리소스의 시각적 표현을 제공합니다. 포털에서 이 시각화가 자동으로 표시됩니다. PowerShell을 통해 포털에 있는 토폴로지 보기 이외의 정보를 검색할 수 있습니다.
@@ -136,6 +136,5 @@ Resources       : [
 ## <a name="next-steps"></a>다음 단계
 
 [PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
-
 
 

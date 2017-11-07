@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b98dcbcf219276bb9a7fd24e7f8c8c8eba806cf0
-
-
+ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 OMS 리포지토리의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
@@ -141,10 +141,4 @@ DPMRA 서비스를 포함하는 레코드로 스크롤하고 동일한 프로세
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * 사용자 지정 필드를 사용하여 구문 분석하는 [사용자 지정 로그 파일](log-analytics-data-sources-custom-logs.md)을 모니터링합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

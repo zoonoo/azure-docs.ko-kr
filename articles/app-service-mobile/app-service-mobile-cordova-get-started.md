@@ -3,8 +3,8 @@ title: "Azure App Service Mobile Apps에서 Cordova 앱 만들기 | Microsoft Do
 description: "이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 Apache Cordova 개발을 시작할 수 있습니다."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: "cordova,javascript,모바일,클라이언트"
@@ -14,14 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -34,7 +33,7 @@ ms.lasthandoff: 12/01/2016
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [Visual Studio Community 2015] 이상이 설치된 PC
+* [Visual Studio Community 2017] 이상이 설치된 PC
 * [Visual Studio Tools for Apache Cordova]
 * [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -74,7 +73,7 @@ SDK 사용 방법을 알아봅니다.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [오프라인 데이터]: app-service-mobile-offline-data-sync.md
 [인증]: app-service-mobile-auth.md
@@ -82,4 +81,3 @@ SDK 사용 방법을 알아봅니다.
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-

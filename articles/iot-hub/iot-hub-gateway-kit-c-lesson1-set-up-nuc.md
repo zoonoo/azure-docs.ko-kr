@@ -4,7 +4,7 @@ description: "Intel NUC를 센서와 Azure IoT Hub 사이의 IoT 게이트웨이
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: "iot 게이트웨이, intel nuc, nuc 컴퓨터, DE3815TYKE"
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 1a3a92ab8d08c6ed6f047208217c46022027157e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Intel NUC를 IoT 게이트웨이로 설정
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## <a name="what-you-will-do"></a>수행할 사항
 
 - Intel NUC를 IoT 게이트웨이로 설정합니다.
-- Intel NUC에 Azure IoT 게이트웨이 SDK 패키지를 설치합니다.
+- Intel NUC에 Azure IoT Edge 패키지를 설치합니다.
 - 게이트웨이 기능을 확인하려면 Intel NUC에서 "hello_world" 샘플 응용 프로그램을 실행합니다.
-    
+
   > 문제가 있으면 [문제 해결 페이지](iot-hub-gateway-kit-c-troubleshooting.md)에서 솔루션을 검색하세요.
 
 ## <a name="what-you-will-learn"></a>알아볼 내용
@@ -88,17 +88,26 @@ Intel NUC 장치의 IP 주소를 얻으려면 키보드와 모니터가 필요�
    호스트 컴퓨터에서 Intel NUC를 작동하는 것이 더 효율적이고 생산적입니다. SSH 클라이언트를 통해 연결하려면 Intel NUC의 IP 주소, 사용자 이름 및 암호가 필요합니다. macOS에서 SSH 클라이언트를 사용하는 예제는 다음과 같습니다.
    ![MacOS에서 실행되는 SSH 클라이언트](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Azure IoT 게이트웨이 SDK 패키지 설치
+## <a name="install-the-azure-iot-edge-package"></a>Azure IoT Edge 패키지 설치
 
-Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT 게이트웨이 SDK, Azure IoT SDK 및 해당하는 도구입니다. 패키지에는 또한 게이트웨이 기능을 확인하는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. SDK는 게이트웨이의 핵심 부분입니다. 
+Azure IoT Edge 패키지는 IoT Edge 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT Edge, Azure IoT SDK 및 해당하는 도구입니다. 패키지에는 또한 게이트웨이 기능을 확인하는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. IoT Edge는 게이트웨이의 핵심 부분입니다. 
 
 다음 단계에 따라 패키지를 설치합니다.
 
 1. 터미널 창에서 다음 명령을 실행하여 IoT 클라우드 저장소를 추가합니다.
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+   smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
+   ```
+
+   > 'Include this channel?' 프롬프트에서 'y'를 입력합니다.
+   
+   `import read failed(-1)` 오류가 수신되면 다음 명령을 사용하여 문제를 해결합니다.
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
    ```
 
    `rpm` 명령은 rpm 키를 가져옵니다. `smart channel` 명령은 rpm 채널을 스마트 패키지 관리자에 추가합니다. `smart update` 명령을 실행하기 전에 다음과 같은 출력이 표시됩니다.
@@ -119,19 +128,19 @@ Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 �
 
    `packagegroup-cloud-azure`는 패키지의 이름입니다. `smart install` 명령은 패키지 설치를 설치하는 데 사용됩니다.
 
-
     > '공개 키를 사용할 수 없음' 오류가 표시되면 다음 명령을 실행합니다.
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
-   
+    > 'util-linux-dev를 제공하는 패키지 없음' 오류가 표시되면 Intel NUC를 다시 부팅합니다.
+
    패키지가 설치된 후에 Intel NUC가 게이트웨이로 작동할 준비가 되었습니다.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Azure IoT 게이트웨이 SDK "hello_world" 샘플 응용 프로그램을 실행합니다.
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Azure IoT Edge "hello_world" 샘플 응용 프로그램을 실행합니다.
 
-다음 샘플 응용 프로그램은 `hello_world.json` 파일에서 게이트웨이를 만들고, Azure IoT 게이트웨이 SDK 아키텍처의 기본 구성 요소를 사용하여 5초마다 hellow world 메시지를 파일(log.txt)에 기록합니다.
+다음 샘플 응용 프로그램은 `hello_world.json` 파일에서 게이트웨이를 만들고, Azure IoT Edge 아키텍처의 기본 구성 요소를 사용하여 5초마다 hellow world 메시지를 파일(log.txt)에 기록합니다.
 
 다음 명령을 실행하여 Hello World 샘플을 실행할 수 있습니다.
 
@@ -163,5 +172,5 @@ vim log.txt
 축하합니다. 게이트웨이로 Intel NUC 설정을 완료했습니다. 이제 다음 단원으로 이동하여 호스트 컴퓨터를 설정하고, Azure IoT Hub를 만들고, Azure IoT Hub 논리적 장치를 등록할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[호스트 컴퓨터 및 Azure IoT Hub 준비](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[IoT 게이트웨이를 사용하여 장치를 Azure IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 

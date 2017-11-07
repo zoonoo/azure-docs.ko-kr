@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
-
-
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
 > [!IMPORTANT]
@@ -39,7 +39,7 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 | Association 요소 |노드, 하위 노드 및 모든 특성 |
 | 확장 속성 |노드, 하위 노드 및 모든 특성 |
 | EntityContainer |*extends* 및 *AssociationSet* 특성만 무시됩니다. |
-| 스키마 | *네임스페이스* |
+| 스키마 |*네임스페이스* |
 | FunctionImport |*Mode* (ln의 기본값으로 가정) 특성만 무시됩니다. |
 | EntityType |*Key* 및 *PropertyRef* 하위 노드만 무시됩니다. |
 
@@ -52,8 +52,7 @@ FunctionImport 노드는 최종 사용자에게 서비스를 노출하는 하나
 
 다음은 FunctionImport 노드에 의해 노출되는 추가 특성(또는 특성에 추가되는 항목)입니다.
 
-**d:BaseUri** -
-마켓플레이스에 노출되는 REST 리소스에 대한 URI 템플릿입니다. 마켓플레이스에서는 이 템플릿을 사용하여 REST 웹 서비스에 대한 쿼리를 생성합니다. URI 템플릿은 매개 변수의 자리 표시자를 {parameterName} 형태로 포함하고 있으며, 여기서 parameterName은 해당 매개 변수의 이름입니다. 예: apiVersion={apiVersion}.
+**d:BaseUri** - Marketplace에 공개되는 REST 리소스에 대한 URI 템플릿입니다. 마켓플레이스에서는 이 템플릿을 사용하여 REST 웹 서비스에 대한 쿼리를 생성합니다. URI 템플릿은 매개 변수의 자리 표시자를 {parameterName} 형태로 포함하고 있으며, 여기서 parameterName은 해당 매개 변수의 이름입니다. 예: apiVersion={apiVersion}.
 매개 변수는 URI 매개 변수 또는 URI 경로의 일부로 표시될 수 있습니다. 경로에 표시되는 경우 매개 변수가 항상 필수입니다(nullable로 표시할 수 없음). *예제:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name** - 가져온 함수의 이름입니다.  CSDL에서 정의된 다른 이름과 같으면 안 됩니다.  예: Name="GetModelUsageFile"
@@ -102,7 +101,7 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** 및 **d:Namespace** - 이 노드는 함수 가져오기(URI 끝점)에 의해 반환되는 XML에 정의된 네임스페이스를 설명합니다. 백 엔드 서비스에서 반환하는 XML은 반환되는 콘텐츠를 구분하기 위해 필요한 만큼 네임스페이스를 포함할 수 있습니다. **이러한 네임스페이스가 d:Map 또는 d:Match XPath 쿼리에 사용될 경우 모든 네임스페이스를 나열해야 합니다.**  d:Namespaces 노드는 d:Namespace 노드 집합/목록을 포함하고 있습니다. 각각은 백 엔드 서비스 응답에 사용되는 하나의 네임스페이스를 나열합니다. 다음은 d:Namespace 노드의 특성입니다.
+**d:Namespaces** 및 **d:Namespace** - 이 노드는 함수 가져오기(URI 끝점)에 의해 반환되는 XML에 정의된 네임스페이스를 설명합니다. 백 엔드 서비스에서 반환하는 XML은 반환되는 콘텐츠를 구분하기 위해 필요한 만큼 네임스페이스를 포함할 수 있습니다. **이러한 네임스페이스가 d:Map 또는 d:Match XPath 쿼리에 사용될 경우 모든 네임스페이스를 나열해야 합니다.** d:Namespaces 노드는 d:Namespace 노드 집합/목록을 포함하고 있습니다. 각각은 백 엔드 서비스 응답에 사용되는 하나의 네임스페이스를 나열합니다. 다음은 d:Namespace 노드의 특성입니다.
 
 * **d:Prefix:** 서비스에서 반환하는 XML 결과에 표시된 것처럼 네임스페이스의 접두사입니다(예: f:FirstName, f:LastName, f는 접두사).
 * **d:Uri:** 결과 문서에 사용된 네임스페이스의 전체 URI입니다. 런타임에 접두사를 확인하는 값을 나타냅니다.
@@ -198,8 +197,7 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 ## <a name="property-node"></a>속성 노드
 이 노드는 레코드의 한 속성을 포함합니다.
 
-이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx)에서 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예:*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx)에서 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예제:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -260,8 +258,8 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 | Null |값이 없음을 나타냅니다. |
 | Boolean |이진 값 논리의 수학적 개념을 나타냅니다. |
 | Byte |부호 없는 8비트 정수 값 |
-| DateTime |1753년 1월 1일 자정 12:00:00부터 9999년 12월 오후 11:59:59 사이의 값을 사용하여  날짜 및 시간을 나타냅니다. |
-| DECIMAL |고정 전체 자릿수와 소수 자릿수를 사용하여 숫자 값을 나타냅니다. 이 유형은 음수 10^255+1부터 양수 10^255-1 사이의 숫자 값을 설명할 수 있습니다. |
+| DateTime |서기 1753년 1월 1일 12:00:00 자정부터 서기 9999년 12월 오후 11:59:59 사이의 값을 사용하여 날짜 및 시간을 나타냅니다. |
+| 10진수 |고정 전체 자릿수와 소수 자릿수를 사용하여 숫자 값을 나타냅니다. 이 유형은 음수 10^255+1부터 양수 10^255-1 사이의 숫자 값을 설명할 수 있습니다. |
 | Double |약 ±2.23e-308부터 ±1.79e+308 사이의 값을 표시할 수 있는 15자리의 부동 소수점 숫자를 나타냅니다. **Exel 내보내기 문제가 있으니 10진수를 사용하세요.** |
 | Single |약 ±1.18e-38부터 ±3.40e+38 사이의 값을 표시할 수 있는 7자리의 부동 소수점 숫자를 나타냅니다. |
 | Guid |16바이트(128비트) 고유 식별자 값을 나타냅니다. |
@@ -274,9 +272,3 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 * 전체 OData 매핑 프로세스와 목적을 이해하려는 경우 문서 [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md) 을 읽고 정의, 구조 및 지침을 검토하세요.
 * 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 * Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

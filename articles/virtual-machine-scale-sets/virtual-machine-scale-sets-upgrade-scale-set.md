@@ -1,6 +1,6 @@
 ---
-title: "가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Docs"
-description: "가상 컴퓨터 크기 집합에 앱 배포"
+title: "Azure 가상 컴퓨터 확장 집합 업그레이드 | Microsoft Docs"
+description: "Azure 가상 컴퓨터 확장 집합 업그레이드"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -13,38 +13,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 05/30/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
-
-
+ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upgrade-a-virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합 업그레이드
+# <a name="upgrade-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합 업그레이드
 이 문서에서는 가동 중단 시간 없이 OS 업데이트를 Azure 가상 컴퓨터 크기 집합에 롤아웃하는 방법을 설명합니다. 이 컨텍스트에서 OS 업데이트는 OS의 버전 또는 SKU를 변경하거나 사용자 지정 이미지의 URI를 변경합니다. 가동 중지 시간 없이 업데이트한다는 것은 가상 컴퓨터를 모두 한꺼번에 업데이트하지 않고 한 번에 하나씩 또는 그룹으로(예" 한 번에 하나의 장애 도메인) 업데이트하는 것을 의미합니다. 이렇게 하면 업그레이드되지 않는 모든 가상 컴퓨터를 계속 실행할 수 있습니다.
 
-모호성을 피하기 위해 수행하려는 세 가지 유형의 OS 업데이트 작업을 구분해 보겠습니다.
+모호성을 피하기 위해 수행하려는 네 가지 유형의 OS 업데이트 작업을 구분해 보겠습니다.
 
 * 플랫폼 이미지의 버전 또는 SKU 변경. 예를 들어 Ubuntu 14.04.2-LTS 버전을 14.04.201506100에서 14.04.201507060으로 변경하거나 Ubuntu 15.10/최신 SKU를 16.04.0-LTS/최신으로 변경할 수 있습니다. 이 시나리오는 이 문서에서 설명합니다.
 * 작성한 새 버전의 사용자 지정 이미지를 가리키는 URI 변경(**속성** > **virtualMachineProfile** > **storageProfile** > **osDisk** > **image** > **uri**). 이 시나리오는 이 문서에서 설명합니다.
+* Azure Managed Disks를 사용하여 만든 확장 집합의 이미지 참조 변경.
 * 가상 컴퓨터 내에서 OS 패치(이 예제에는 보안 패치 설치 및 Windows 업데이트 실행 포함). 이 시나리오는 지원되지만 이 문서에서는 다루지 않습니다.
 
-처음 두 옵션은 이 문서에서 다루는 지원되는 요구 사항입니다. 세 번째 옵션을 실행하려면 새 크기 집합을 만들어야 합니다.
-
-[Azure 서비스 패브릭](https://azure.microsoft.com/services/service-fabric/) 클러스터의 일부로 배포되는 가상 컴퓨터 크기 집합은 여기에서 다루지 않습니다.
+[Azure 서비스 패브릭](https://azure.microsoft.com/services/service-fabric/) 클러스터의 일부로 배포되는 가상 컴퓨터 크기 집합은 여기에서 다루지 않습니다. 서비스 패브릭 패치에 대한 자세한 내용은 [Service Fabric 클러스터에서 Windows OS 패치](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application)를 참조하세요.
 
 플랫폼 이미지의 OS 버전/SKU나 사용자 지정 이미지의 URI를 변경하기 위한 기본 순서는 다음과 같습니다.
 
 1. 가상 컴퓨터 크기 집합 모델을 가져옵니다.
-2. 모델에서 버전, SKU 또는 URI 값을 변경합니다.
+2. 모델에서 버전, SKU, 이미지 참조 또는 URI 값을 변경합니다.
 3. 모델을 업데이트합니다.
 4. 크기 집합의 가상 컴퓨터에 대해 *manualUpgrade* 호출을 수행합니다. 이 단계는 크기 집합의 *upgradePolicy* 속성이 **수동** 으로 설정된 경우만 적합합니다. **자동**으로 설정되면 모든 가상 컴퓨터가 한꺼번에 업그레이드되므로 가동 중지 시간이 발생합니다.
 
-이 배경 정보를 염두에 두고, PowerShell에서 및 REST API를 사용하여 크기 집합의 버전을 업데이트하는 방법을 알아 보겠습니다. 이러한 예제는 플랫폼 이미지의 경우를 포함하지만, 이 문서에서는 이 프로세스를 사용자 지정 이미지에 맞게 조정하기 위한 충분한 정보를 제공합니다.
+이 정보를 염두에 두고 PowerShell에서 또는 REST API를 사용하여 확장 집합의 버전을 업데이트하는 방법을 알아보겠습니다. 이러한 예제는 플랫폼 이미지의 경우를 포함하지만, 이 문서에서는 이 프로세스를 사용자 지정 이미지에 맞게 조정하기 위한 충분한 정보를 제공합니다.
 
 ## <a name="powershell"></a>PowerShell
-이 예제에서는 Windows 가상 컴퓨터 크기 집합을 새 버전인 4.0.20160229로 업데이트합니다. 모델을 업데이트한 후 한 번에 하나의 가상 컴퓨터 인스턴스를 업데이트합니다.
+이 예제에서는 Windows 가상 컴퓨터 확장 집합을 새 버전인 4.0.20160229로 업데이트합니다. 모델을 업데이트한 후 한 번에 하나의 가상 컴퓨터 인스턴스를 업데이트합니다.
 
 ```powershell
 $rgname = "myrg"
@@ -65,13 +64,19 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-플랫폼 이미지 버전을 변경하는 대신, 사용자 지정 이미지에 대한 URI를 업데이트한다면 "새 버전 설정" 줄이 다음과 같이 바뀌어 표시될 것입니다.
+플랫폼 이미지 버전을 변경하는 대신 사용자 지정 이미지의 URI를 업데이트하는 경우 “새 버전 설정” 줄을 원본 이미지 URI을 업데이트하는 명령으로 바꿉니다. 예를 들어 Azure Managed Disks를 사용하지 않고 확장 집합을 만든 경우 업데이트는 다음과 같습니다.
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
+Azure Managed Disks를 사용하여 사용자 지정 이미지 기반 확장 집합을 만든 경우 이미지 참조가 업데이트됩니다. 예:
+
+```powershell
+# set the new version in the model data
+$vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReference
+```
 
 ## <a name="the-rest-api"></a>REST API
 다음은 Azure REST API를 사용하여 OS 버전 업데이트를 롤아웃하는 Python의 몇 가지 예제입니다. 두 가지 모두 Azure REST API 래퍼 함수의 경량 [azurerm](https://pypi.python.org/pypi/azurerm) 라이브러리를 사용하여 크기 집합 모델에 대해 GET을 수행한 다음 업데이트된 모델에 대해 PUT을 수행합니다. 또한 업데이트 도메인으로 가상 컴퓨터를 식별하기 위해 가상 컴퓨터 인스턴스 보기도 확인합니다.
@@ -93,10 +98,4 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 **업그레이드**를 클릭한 후 **세부 정보 보기**를 클릭하면 UD 0의 가상 컴퓨터가 업데이트되기 시작합니다.
 
 ![진행 중인 업데이트를 보여 주는 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

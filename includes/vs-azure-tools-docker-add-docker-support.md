@@ -5,16 +5,4 @@
    
     ![프로젝트에 추가된 Docker 파일](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
 
-> [!NOTE]
-> [Windows용 Docker 베타](https://beta.docker.com)를 사용하는 경우 Properties\Docker.props을 열고 기본값을 제거한 후 값이 적용되도록 Visual Studio를 다시 시작합니다.
-> 
-> ```
-> <DockerMachineName Condition="'$(DockerMachineName)'=='' "></DockerMachineName>
-> ```
-> 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "이 항목에서는 FMLE(Flash Media Live Encoder) 인코더를 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 > [!div class="op_single_selector"]
@@ -72,7 +71,7 @@ ms.lasthandoff: 01/11/2017
 >
 >
 
-## <a name="a-idconfigurefmlertmpaconfigure-the-fmle-encoder"></a><a id=configure_fmle_rtmp></a>FMLE 인코더 구성
+## <a id=configure_fmle_rtmp></a>FMLE 인코더 구성
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
 **비디오**:
@@ -169,4 +168,3 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

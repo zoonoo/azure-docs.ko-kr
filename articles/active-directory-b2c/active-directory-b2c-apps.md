@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2C | Microsoft Docs
+title: "응용 프로그램의 형식 - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C에서 빌드할 수 있는 응용 프로그램의 유형입니다."
 services: active-directory-b2c
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
-
-
+ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: 응용 프로그램 유형
 Azure AD(Azure Active Directory) B2C는 다양한 최신 앱 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 앱 유형에 대해 간략하게 설명합니다. 또한 [응용 프로그램 빌드를 시작](active-directory-b2c-overview.md#get-started)하기 전에 대략적인 시나리오에 대한 이해를 돕습니다
@@ -120,7 +120,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 ![네이티브 앱 스윔 레인 이미지](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>현재 제한 사항
-Azure AD B2C는 다음과 같은 유형의 앱을 현재 지원하지 않지만 지원하는 것이 로드맵입니다. Azure AD B2C와 관련된 추가 제한 사항은 [제한 사항](active-directory-b2c-limitations.md)에서 설명합니다.
+Azure AD B2C는 다음과 같은 유형의 앱을 현재 지원하지 않지만 로드맵에 있습니다. 
 
 ### <a name="daemonsserver-side-apps"></a>디먼/서버 쪽 앱
 장기 실행 프로세스를 포함하거나 사용자 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID를 사용하여 인증하고 토큰을 가져올 수 있습니다.
@@ -131,9 +131,3 @@ Azure AD B2C는 다음과 같은 유형의 앱을 현재 지원하지 않지만 
 많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 Web API 백 엔드를 가지고 있는 네이티브 클라이언트에서 일반적입니다. 그런 다음 Azure AD Graph API와 같은 Microsoft 온라인 서비스를 호출합니다.
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다.  그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
-

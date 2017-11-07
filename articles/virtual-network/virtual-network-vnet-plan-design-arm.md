@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: fef61e6155471a0459957ea0c510698cfa787fdc
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Azure 가상 네트워크 계획 및 디자인
 실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](virtual-networks-create-vnet-arm-pportal.md)을 알아보는 것이 좋습니다.
@@ -31,9 +30,11 @@ ms.lasthandoff: 03/18/2017
 아래 계획 질문에 응답하기 전에 다음을 고려합니다.
 
 * Azure에서 만드는 모든 항목은 하나 이상의 리소스로 구성됩니다. 가상 컴퓨터(VM)는 리소스이며 VM에 사용되는 NIC(네트워크 어댑터 인터페이스)는 리소스이며 NIC에 사용된 공용 IP 주소는 리소스이며 NIC가 연결되는 VNet은 리소스입니다.
-* [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 또한 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 VNet에만 연결할 수 있습니다.
-* Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)를 사용하여 VNet을 서로 연결할 수 있습니다. 이러한 방식으로 VNet을 하위 지역 및 구독 간으로도 연결할 수 있습니다.
-* Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
+* [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 가상 네트워크에만 연결할 수 있습니다.
+* 다음을 사용하여 가상 네트워크를 서로 연결할 수 있습니다.
+    * **[가상 네트워크 피어링](virtual-network-peering-overview.md)**: 피어링된 가상 네트워크는 동일한 Azure 지역에 있어야 합니다. 리소스가 같은 가상 네트워크에 연결된 것처럼 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
+    * **Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: 가상 네트워크는 같은 Azure 지역에 있을 수도 있고 다른 Azure 지역에 있을 수도 있습니다. VPN Gateway를 통해 연결된 가상 네트워크의 리소스 간 대역폭은 VPN Gateway의 대역폭에 의해 제한됩니다.
+* Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
 * [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)에서 다양한 리소스를 함께 그룹화하여 리소스를 단위로 보다 쉽게 관리할 수 있습니다. 리소스 그룹은 해당 리소스가 동일한 구독에 속하기만 하면 여러 하위 지역의 리소스를 포함할 수 있습니다.
 
 ### <a name="define-requirements"></a>요구 사항 정의
@@ -104,7 +105,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * **서로 다른 Azure 위치에 배치되어야 하는 VM**. Azure에서 VNet은 지역적입니다. 여러 위치에 걸쳐 있지 않습니다. 따라서 안에서 VM을 호스트할 각 Azure 위치에 대해 하나 이상의 VNet이 필요합니다.
 * **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다.
 
-위에 나와 있는 제한은 하나의 하위 지역,&1;개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
+위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
 
 ### <a name="subscription-and-vnet-design-patterns"></a>구독 및 VNet 디자인 패턴
 아래 표에서는 구독 및 VNet을 사용하기 위한 몇 가지 일반적인 디자인 패턴을 보여 줍니다.
@@ -112,16 +113,16 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 | 시나리오 | 다이어그램 | 장점 | 단점 |
 | --- | --- | --- | --- |
 | 단일 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure1.png) |관리할 구독이 하나뿐입니다. |Azure 지역당 최대 Vnet 수입니다. 이후에 구독이 더 필요합니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 앱당&1;개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure2.png) |구독당 두 개의 VNet만 사용합니다. |앱이 너무 많은 경우 관리하기 어렵습니다. |
-| 사업부당&1;개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure3.png) |구독 및 VNet 수 간에 균형을 유지합니다. |사업부(구독)당 최대 VNet 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 사업부당&1;개 구독, 앱 그룹당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure4.png) |구독 및 VNet 수 간에 균형을 유지합니다. |서브넷과 NSG를 사용하여 앱을 격리해야 합니다. |
+| 앱당 1개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure2.png) |구독당 두 개의 VNet만 사용합니다. |앱이 너무 많은 경우 관리하기 어렵습니다. |
+| 사업부당 1개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure3.png) |구독 및 VNet 수 간에 균형을 유지합니다. |사업부(구독)당 최대 VNet 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
+| 사업부당 1개 구독, 앱 그룹당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure4.png) |구독 및 VNet 수 간에 균형을 유지합니다. |서브넷과 NSG를 사용하여 앱을 격리해야 합니다. |
 
 ### <a name="number-of-subnets"></a>서브넷 수
 다음과 같은 시나리오에서는 VNet에 여러 서브넷이 있는 것이 좋습니다.
 
 * **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다.
 * **보안**. 서브넷을 사용하여 다중 계층 구조의 워크로드에 대해 VM 그룹을 서로 구분하고 해당 서브넷에 대해 서로 다른 [NSG(네트워크 보안 그룹)](virtual-networks-nsg.md#subnets) 를 적용할 수 있습니다.
-* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
+* **하이브리드 연결**. VPN 게이트웨이 및 ExpressRoute 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) 하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
 * **가상 어플라이언스**. Azure VNet에서 방화벽, WAN 가속기 또는 VPN 게이트웨이 같은 가상 어플라이언스를 사용할 수 있습니다. 이렇게 하려면 해당 어플라이언스로 [트래픽을 라우팅](virtual-networks-udr-overview.md) 하고 자체의 서브넷에서 이를 격리해야 합니다.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>서브넷 및 NSG 디자인 패턴
@@ -130,9 +131,9 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 | 시나리오 | 다이어그램 | 장점 | 단점 |
 | --- | --- | --- | --- |
 | 단일 서브넷, 앱당 응용 프로그램 계층당 여러 NSG |![단일 서브넷](./media/virtual-network-vnet-plan-design-arm/figure5.png) |관리할 서브넷이 하나뿐입니다. |각 응용 프로그램을 격리하는 데 여러 NSG가 필요합니다. |
-| 앱당&1;개 서브넷, 응용 프로그램 계층당 여러 NSG |![앱당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure6.png) |관리할 NSG가 소수입니다. |관리할 서브넷이 여러 개입니다. |
-| 응용 프로그램 계층당&1;개 서브넷, 앱당 여러 NSG |![계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure7.png) |서브넷 및 NSG 수 간에 균형을 유지합니다. |구독당 최대 NSG 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 앱당, 응용 프로그램 계층당&1;개 서브넷, 서브넷당 여러 NSG |![앱당 계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure8.png) |가능하면 NSG 수가 더 적습니다. |관리할 서브넷이 여러 개입니다. |
+| 앱당 1개 서브넷, 응용 프로그램 계층당 여러 NSG |![앱당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure6.png) |관리할 NSG가 소수입니다. |관리할 서브넷이 여러 개입니다. |
+| 응용 프로그램 계층당 1개 서브넷, 앱당 여러 NSG |![계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure7.png) |서브넷 및 NSG 수 간에 균형을 유지합니다. |구독당 최대 NSG 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
+| 앱당, 응용 프로그램 계층당 1개 서브넷, 서브넷당 여러 NSG |![앱당 계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure8.png) |가능하면 NSG 수가 더 적습니다. |관리할 서브넷이 여러 개입니다. |
 
 ## <a name="sample-design"></a>샘플 디자인
 이 문서의 정보가 어떻게 적용되는지를 설명하기 위해 다음 시나리오를 고려합니다.
@@ -174,7 +175,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
     예. 온-프레미스 데이터 센터에 연결된 사용자는 암호화된 터널을 통해 응용 프로그램에 액세스할 수 있어야 합니다.
 4. 솔루션에 IaaS VM이 얼마나 필요합니까?
 
-    200개의 IaaS VM입니다. App1, App2 및 App3에는 각각 5개의 웹 서버, 각각 2개의 응용 프로그램 서버, 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 9개의 IaaS VM 또는 36개의 IaaS VM입니다. App5 및 App6에는 5개의 웹 서버와 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 7개의 IaaS VM 또는 14개의 IaaS VM입니다. 따라서 각 Azure 지역에 있는 모든 응용 프로그램에 대해 50개의 IaaS VM이 필요합니다. 4개의 하위 지역이 필요하므로 200개의 IaaS VM이 됩니다.
+    200개의 IaaS VM입니다. App1, App2, App3 및 App4에는 각각 5개의 웹 서버, 각각 2개의 응용 프로그램 서버, 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 9개의 IaaS VM 또는 36개의 IaaS VM입니다. App5 및 App6에는 5개의 웹 서버와 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 7개의 IaaS VM 또는 14개의 IaaS VM입니다. 따라서 각 Azure 지역에 있는 모든 응용 프로그램에 대해 50개의 IaaS VM이 필요합니다. 4개의 하위 지역이 필요하므로 200개의 IaaS VM이 됩니다.
 
     각 VNet 또는 온-프레미스 데이터 센터에는 Azure IaaS VM 및 온-프레미스 네트워크 간의 이름을 확인하기 위해 DNS 서버를 제공해야 합니다.
 5. VM 그룹을 기반으로 트래픽을 격리해야 합니까(예: 프런트 엔드 웹 서버 및 백 엔드 데이터베이스 서버)?
@@ -199,7 +200,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * 각 사업부에는 모든 응용 프로그램에 사용되는 단일 테스트/개발 VNet이 있어야 합니다.
 * 각 응용 프로그램은 대륙당(북아메리카 및 유럽) 서로 다른 2개의 Azure 데이터 센터에서 호스트됩니다.
 
-이러한 요구에 따라 각 사업부에 대한 구독이 필요합니다. 이런 방식으로 사업부의 리소스 사용량은 다른 사업부에 대한 제한에 포함되지 않습니다. VNet 수를 최소화하려고 하므로 아래처럼 **사업부당&1;개 구독, 앱 그룹당&2;개 VNet** 패턴의 사용을 고려합니다.
+이러한 요구에 따라 각 사업부에 대한 구독이 필요합니다. 이런 방식으로 사업부의 리소스 사용량은 다른 사업부에 대한 제한에 포함되지 않습니다. VNet 수를 최소화하려고 하므로 아래처럼 **사업부당 1개 구독, 앱 그룹당 2개 VNet** 패턴의 사용을 고려합니다.
 
 ![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
@@ -229,9 +230,9 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * 온-프레미스 데이터 센터로의 연결은 기존 VPN 장치를 사용해야 합니다.
 * 각 위치에 있는 데이터베이스는 하루에 한 번의 다른 Azure 위치에 복제됩니다.
 
-이러한 요구 사항에 따라, 응용 프로그램 계층당&1;개의 서브넷을 사용할 수 있으며 응용 프로그램당 트래픽을 필터링하기 위해 여러 NSG를 사용할 수 있습니다. 이런 방식으로 각 VNet에 3개의 서브넷(프런트 엔드, 응용 프로그램 계층 및 데이터 센터) 및 서브넷당 응용 프로그램당 1개 NSG만 포함합니다. 이 경우 **응용 프로그램 계층당 하나의 서브넷, 앱당 여러 NSG** 디자인 패턴의 사용을 고려해야 합니다. 아래 그림은 **ProdBU1US1** VNet을 나타내는 디자인 패턴의 사용을 보여 줍니다.
+이러한 요구 사항에 따라, 응용 프로그램 계층당 1개의 서브넷을 사용할 수 있으며 응용 프로그램당 트래픽을 필터링하기 위해 여러 NSG를 사용할 수 있습니다. 이런 방식으로 각 VNet에 3개의 서브넷(프런트 엔드, 응용 프로그램 계층 및 데이터 센터) 및 서브넷당 응용 프로그램당 1개 NSG만 포함합니다. 이 경우 **응용 프로그램 계층당 하나의 서브넷, 앱당 여러 NSG** 디자인 패턴의 사용을 고려해야 합니다. 아래 그림은 **ProdBU1US1** VNet을 나타내는 디자인 패턴의 사용을 보여 줍니다.
 
-![계층당&1;개 서브넷, 계층당 응용 프로그램당&1;개 NSG](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+![계층당 1개 서브넷, 계층당 응용 프로그램당 1개 NSG](./media/virtual-network-vnet-plan-design-arm/figure11.png)
 
 그러나 VNet 간, 온-프레미스 데이터 센터 간의 VPN 연결을 위한 별도의 서브넷을 만들어야 합니다. 또한 각 서브넷에 대한 주소 공간도 지정해야 합니다. 아래 그림은 **ProdBU1US1** VNet에 대한 샘플 솔루션을 보여 줍니다. 각 VNet에 대해 이 시나리오를 복제합니다. 각 색상은 서로 다른 응용 프로그램을 나타냅니다.
 
@@ -250,5 +251,4 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * [가상 네트워크를 배포](virtual-networks-create-vnet-arm-template-click.md) 합니다.
 * IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
 * [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md) 에 대해 알아봅니다.
-* [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)에 대해 알아봅니다.
-
+* [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)에 대해 알아봅니다.

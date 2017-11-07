@@ -1,28 +1,32 @@
 ---
 title: "Azure에서 복제 Active Directory 도메인 컨트롤러 설치| Microsoft Docs"
 description: "온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다."
-services: virtual-network
+services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
-ms.service: virtual-network
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 10/10/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
-ms.lasthandoff: 03/31/2017
-
-
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치
 이 항목에서는 Azure 가상 네트워크의 Azure VM(가상 컴퓨터)에 온-프레미스 Active Directory 도메인에 대한 추가 도메인 컨트롤러(복제본 DC라고도 함)를 설치하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
@@ -70,7 +74,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
    |  **가상 컴퓨터 구성** |<p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p> |
 2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 3. VM에 처음 로그인한 후 **서버 관리자** > **파일 및 저장소 서비스**를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.
-4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs) 한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
+4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](/powershell/azure/overview) 한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -80,7 +84,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
 VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통해 온-프레미스 네트워크의 리소스에 연결되었는지 확인합니다. Azure VM에 AD DS를 설치합니다. 온-프레미스 네트워크에 추가 DC(UI, Windows PowerShell 또는 응답 파일)를 설치할 때 사용하는 것과 동일한 프로세스를 사용할 수 있습니다. AD DS를 설치할 때 AD 데이터베이스, 로그 및 SYSVOL의 위치에 대해 새 볼륨을 지정해야 합니다. AD DS 설치에 리프레셔가 필요한 경우 [Active Directory Domain Services 설치](https://technet.microsoft.com/library/hh472162.aspx)(수준 100) 또는 [기존 도메인에 복제본 Windows Server 2012 도메인 컨트롤러 설치(수준 200)](https://technet.microsoft.com/library/jj574134.aspx)를 참조하세요.
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 서버 다시 구성
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](../virtual-network/virtual-networks-manage-dns-in-vnet.md)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
+1. [Azure Portal](https://portal.azure.com)의 **리소스 검색** 상자에 *가상 네트워크*를 입력하고 나서 검색 결과에서 **가상 네트워크(클래식)**를 클릭합니다. 가상 네트워크의 이름을 클릭한 다음 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](../virtual-network/virtual-network-manage-network.md#dns-servers)하여 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
 2. 가상 네트워크의 모든 복제 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 **가상 컴퓨터**를 클릭하고 각 VM의 상태 열을 클릭한 후 **다시 시작**을 클릭합니다. VM에 **실행 중** 상태가 표시될 때까지 기다렸다가 로그인을 시도합니다.
 
 ## <a name="create-vms-for-application-servers"></a>응용 프로그램 서버에 대한 VM 만들기
@@ -96,7 +100,7 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 
 UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx) 및 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)를 확인하세요.
+Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](/powershell/azure/overview) 및 [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)를 확인하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -105,9 +109,8 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 * [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Azure 관리 Cmdlet](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
-

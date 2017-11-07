@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획
 
@@ -68,7 +67,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    * **프리미엄 저장소에 대한 총 IOPS** 는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다.  Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
    * **필요한 구성 서버 수**는 배포에 필요한 구성 서버 수를 보여 줍니다.
    * **필요한 추가 프로세스 서버 수**는 기본적으로 구성 서버에서 실행되는 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
-   * **원본의&100;% 추가 저장소** 는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
+   * **원본의 100% 추가 저장소** 는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
 
    ![출력](./media/site-recovery-capacity-planner/output.png)
 
@@ -103,14 +102,14 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 ![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>예
-예를 들어 테이블에 값이 표시된&6;개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
+예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
 
 ![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * 이 예제 출력에서 다음을 확인할 수 있습니다.
 
   * 첫 번째 열은 VM, 디스크 및 이탈에 대한 유효성 검사 열입니다.
-  * VM&5;대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다.
+  * VM 5대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다.
   * VM3은 하나 이상의 디스크가 1TB를 초과하므로 보호하기에 적합하지 않습니다.
   * VM1 및 VM2는 첫 번째 표준 저장소 계정을 사용할 수 있습니다.
   * VM4는 두 번째 표준 저장소 계정을 사용할 수 있습니다.
@@ -127,4 +126,3 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 2. 변경하려면 **Workload Qualification** 워크시트를 수정하고 **플래너 도구에 데이터 전송**을 다시 클릭합니다.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-

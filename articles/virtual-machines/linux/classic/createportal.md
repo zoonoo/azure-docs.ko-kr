@@ -1,6 +1,6 @@
 ---
 title: "사용자 지정 Linux 가상 컴퓨터 만들기 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 Azure 클래식 포털에서 사용자 지정 Linux 가상 컴퓨터를 만드는 방법을 알아봅니다."
+description: "클래식 배포 모델을 사용하여 Azure Portal에서 사용자 지정 Linux 가상 컴퓨터를 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/31/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ba0d95c92a9e5dba507af16b126de484ac7c40e7
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 385102662ef46d7eca51d6e5e10ed7aa77bb1a43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기
 > [!IMPORTANT] 
@@ -29,5 +28,4 @@ ms.lasthandoff: 04/03/2017
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-linuxvm](../../../../includes/virtual-machines-create-linuxvm.md)]
-
 

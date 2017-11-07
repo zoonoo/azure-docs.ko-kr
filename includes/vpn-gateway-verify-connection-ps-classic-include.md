@@ -1,4 +1,4 @@
-`Get-AzureVNetConnection`을 사용하여 클래식 가상 네트워크 게이트웨이의 연결을 확인할 수 있습니다. 
+'Get-AzureVNetConnection' cmdlet을 사용하여 연결이 성공했는지 확인할 수 있습니다.
 
 1. 일치하는 값을 구성하는 데 다음 cmdlet 예제를 사용합니다. 공백이 포함된 가상 네트워크의 이름은 따옴표로 묶어야 합니다.
 

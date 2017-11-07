@@ -3,22 +3,21 @@ title: "Application Insights에서 .NET 추적 로그 탐색"
 description: "추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
-ms.lasthandoff: 03/15/2017
-
-
+ms.date: 05/03/2017
+ms.author: mbullwin
+ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Application Insights에서 .NET 추적 로그 탐색
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
@@ -48,7 +47,6 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
      </system.diagnostics>
    </configuration>
 ```
-
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
 **[프로젝트에 Application Insights를 추가](app-insights-asp-net.md)**하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
@@ -62,11 +60,11 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 3. "Application Insights" 검색
-
-    ![적절한 어댑터의 시험판 버전 가져오기](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. 다음 패키지 중에서 적절한 패키지를 하나 선택합니다.
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
+   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
+   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -81,6 +79,54 @@ Log4net 또는 NLog를 원할 경우
 
     logger.Warn("Slow response - database01");
 
+## <a name="using-eventsource-events"></a>EventSource 이벤트 사용
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 후 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+        <Add Name="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
+ * `Name`은 수집할 EventSource의 이름을 지정합니다.
+ * `Level`은 수집할 로깅 수준을 지정합니다. `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning` 중 하나일 수 있습니다.
+ * `Keywords`(선택 사항)는 사용할 키워드 정수 값 조합을 지정합니다.
+
+## <a name="using-diagnosticsource-events"></a>DiagnosticSource 이벤트 사용
+Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+추적하려는 각 DiagnosticSource에 대해 `Name` 특성 집합이 포함된 항목을 DiagnosticSource 이름에 추가합니다.
+
+## <a name="using-etw-events"></a>ETW 이벤트 사용
+추적으로 Application Insights에 전송될 ETW 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 후 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+> [!NOTE] 
+> ETW 이벤트는 SDK를 호스트하는 프로세스가 "성능 로그 사용자" 또는 관리자의 구성원인 ID에서 실행되는 경우에만 수집할 수 있습니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
+      <Sources>
+        <Add ProviderName="MyCompanyEventSourceName" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
+ * `ProviderName`은 수집할 ETW 공급자의 이름입니다.
+ * `ProviderGuid`는 `ProviderName` 대신 사용할 수 있는 수집할 ETW 공급자의 GUID를 지정합니다.
+ * `Level`은 수집할 로깅 수준을 설정합니다. `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning` 중 하나일 수 있습니다.
+ * `Keywords`(선택 사항)는 사용할 키워드 정수 값 조합을 설정합니다.
 
 ## <a name="using-the-trace-api-directly"></a>직접 추적 API 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.
@@ -99,7 +145,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-이를 통해 [검색][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
+이를 통해 [Search][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 
 ## <a name="explore-your-logs"></a>로그 탐색
 디버그 모드에서 앱을 실행하거나 실시간으로 배포합니다.
@@ -149,7 +195,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 다소 시간이 걸릴 수 있습니다.
 
 ### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
-각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는&7;일 동안 보존됩니다.
+여러 가지 요인이 보관되는 데이터의 양에 영향을 줍니다. 자세한 내용은 고객 이벤트 메트릭 페이지의 [제한](app-insights-api-custom-events-metrics.md#limits) 섹션을 참조하세요. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>예상되는 로그 항목의 일부가 표시되지 않습니다.
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
@@ -166,4 +212,3 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

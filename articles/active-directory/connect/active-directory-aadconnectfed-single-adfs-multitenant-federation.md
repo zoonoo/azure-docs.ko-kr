@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/09/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
 양방향 트러스트가 있는 경우 하나의 고가용성 AD FS 팜에서 여러 포리스트를 페더레이션할 수 있습니다. 이러한 다중 포리스트는 동일한 Azure Active Directory에 해당하거나 그렇지 않을 수 있습니다. 이 문서에서는 단일 AD FS 배포와 다른 Azure AD에서 동기화하는 둘 이상의 포리스트 간에 페더레이션을 구성하는 방법에 대한 지침을 제공합니다.

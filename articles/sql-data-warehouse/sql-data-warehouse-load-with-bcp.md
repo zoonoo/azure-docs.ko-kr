@@ -3,7 +3,7 @@ title: "bcp를 사용하여 SQL Data Warehouse로 데이터 로드 | Microsoft D
 description: "bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: barbkess
 editor: 
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-bcp"></a>bcp를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
@@ -205,4 +203,3 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

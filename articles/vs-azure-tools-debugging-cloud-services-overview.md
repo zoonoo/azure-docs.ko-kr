@@ -3,8 +3,8 @@ title: "Azure Cloud Services 디버깅 옵션 | Microsoft Docs"
 description: "Azure Cloud Services 디버깅"
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: mikejo
+manager: ghogen
 editor: 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
 ms.service: visual-studio-online
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e79aa1db6c89ad1e382c7a70017f868fe186aa74
-ms.lasthandoff: 03/22/2017
-
-
+ms.author: mikejo
+ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Azure 클라우드 서비스를 디버그하는 다양한 방법을 알아봅니다.
 이 문서에서는 Azure 클라우드 서비스를 디버그하는 다양한 방법에 대한 링크를 제공합니다. 
@@ -28,7 +27,7 @@ ms.lasthandoff: 03/22/2017
 Azure 계산 에뮬레이터를 사용하여 로컬 컴퓨터에서 클라우드 서비스 디버그하면 시간과 돈을 절약할 수 있습니다. 배포하기 전에 로컬로 서비스를 디버깅하면, 계산 시간이 소요되지 않고 안정성과 성능을 향상할 수 있습니다. 그러나, Azure에서 클라우드 서비스를 실행하는 경우, 일부 오류가 발생할 수 있습니다. Azure에서 클라우드 서비스를 실행할 때만 발생하는 오류는 서비스를 게시할 때 원격 디버깅을 사용하도록 설정한 다음 역할 인스턴스에 디버거를 연결하여 디버그할 수 있습니다. 자세한 내용은 [로컬 컴퓨터에서 클라우드 서비스 디버그](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer)를 참조하세요.
 
 ## <a name="using-azure-diagnostics"></a>Azure 진단 사용 
-개발 환경 또는 Azure에서 실행되는 역할 내에서 실행되는 코드의 자세한 정보를 기록하는 Azure 진단을 사용할 수 있습니다. 자세한 내용은 [Azure 클라우드 서비스에서 Azure 진단 사용](http://go.microsoft.com/fwlink/p/?LinkId=400450)을 참조하세요.
+개발 환경 또는 Azure에서 실행되는 역할 내에서 실행되는 코드의 자세한 정보를 기록하는 Azure 진단을 사용할 수 있습니다. 자세한 내용은 [Azure Cloud Services에서 Azure 진단 사용](http://go.microsoft.com/fwlink/p/?LinkId=400450)을 참조하세요.
 
 ## <a name="using-intellitrace"></a>IntelliTrace 사용 
 Visual Studio를 사용하여 .NET Framework 4.5를 대상으로 하는 역할을 작성하는 경우, Visual Studio에서 Azure 클라우드 서비스를 배포할 때 IntelliTrace를 사용할 수 있습니다. IntelliTrace는 Azure에서 실행할 때처럼 응용 프로그램을 디버그하는 Visual Studio와 사용 가능한 로그를 제공합니다. 자세한 내용은 [IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/p/?LinkId=623016)을 참조하십시오.

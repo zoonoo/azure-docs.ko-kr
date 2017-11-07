@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: f5865e07df4e1f253079ac1c8b257e2525da5ef3
-
+ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
 DNS 영역 및 레코드는 중요한 리소스입니다. DNS 영역 또는 단일 DNS 레코드만 삭제해도 전체 서비스 중단이 발생할 수 있습니다.  따라서 중요 DNS 영역 및 레코드가 무단 또는 실수로 변경되지 않도록 보호하는 것이 중요합니다.
@@ -221,11 +221,4 @@ DNS 영역 보호에 대한 심층적 방어 접근 방식으로서 리소스 �
 
 * RBAC를 사용하는 방법은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 * 리소스 잠금에 대한 자세한 내용은[ Azure Resource Manager를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
-* Azure 리소스 보호에 대한 자세한 내용은 [Azure Resource Manager의 보안 고려 사항](../best-practices-resource-manager-security.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

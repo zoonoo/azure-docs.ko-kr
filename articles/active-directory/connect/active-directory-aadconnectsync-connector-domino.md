@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
-ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
-ms.lasthandoff: 03/14/2017
-
-
+ms.date: 10/119/2017
+ms.author: barclayn
+ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 커넥터 기술 참조
 이 문서에서는 Lotus Domino 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.
@@ -40,7 +39,7 @@ Lotus Domino 커넥터를 사용하면 IBM Lotus Domino 서버를 통해 동기�
 | 연결된 데이터 원본 |서버:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | 시나리오 |<li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li> |
 | 작업 |<li>전체 및 델타 가져오기</li><li>내보내기</li><li>HTTP 암호에 대한 암호 설정 및 변경</li> |
-| 스키마 |<li>사람(로밍 사용자, 연락처(인증서가 없는 사람))</li><li>그룹</li><li>리소스(리소스, 회의실, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li> |
+| 스키마 |<li>사람(로밍 사용자, 연락처(인증서가 없는 사람))</li><li>그룹</li><li>리소스(리소스, 회의실, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li><li>조직 및 OU(조직 구성 단위)로 최대 250개의 사용자 지정 인증자 지원</li> |
 
 Lotus Domino 커넥터는 Lotus Notes 클라이언트를 사용하여 Lotus Domino 서버와 통신합니다. 이 종속성의 결과로 지원되는 Lotus Notes 클라이언트는 동기화 서버에 설치되어야 합니다. 클라이언트와 서버 간의 통신은 Lotus Notes .NET Interop(Interop.domino.dll) 인터페이스를 통해 구현됩니다. 이 인터페이스는 Microsoft.NET 플랫폼과 Lotus Notes 클라이언트 간의 통신을 용이하게 하고 Lotus Domino 문서 및 뷰에 대한 액세스를 지원합니다. 또한 델타 가져오기의 경우(선택한 델타 가져오기 방법에 따라) c++ 네이티브 인터페이스를 사용할 수 있습니다.
 
@@ -309,7 +308,7 @@ Lotus Domino 커넥터를 구성할 때 이 대화 상자 페이지를 건너뜁
 * 리소스 예약 데이터베이스는 이미 연결된 Domino 서버에 있어야 합니다.
 * 사이트는 리소스에 대해 이미 정의됩니다.
 
-리소스 예약 데이터베이스는 다음과 같은&3;가지 형식의 문서를 포함합니다.
+리소스 예약 데이터베이스는 다음과 같은 3가지 형식의 문서를 포함합니다.
 
 * 사이트 프로필
 * 리소스
@@ -376,11 +375,11 @@ Lotus Domino 디렉터리에 사용자 개체를 프로비전할 때 개체에�
 | --- | --- |
 | \_MMS_AltFullName |사용자의 대체 전체 이름입니다. |
 | \_MMS_AltFullNameLanguage |사용자의 대체 전체 이름을 지정하는 데 사용할 언어입니다. |
-| \_MMS_CertDaysToExpire |인증서가 만료하기 전에 현재 날짜에서 남은 일 수입니다. 지정하지 않으면 기본 날짜는 현재 날짜로부터&2;년입니다. |
+| \_MMS_CertDaysToExpire |인증서가 만료하기 전에 현재 날짜에서 남은 일 수입니다. 지정하지 않으면 기본 날짜는 현재 날짜로부터 2년입니다. |
 | \_MMS_Certifier |인증자의 조직 계층 이름을 포함하는 속성입니다. 예: OU=OrganizationUnit, O=조직, C=국가. |
 | \_MMS_IDPath |속성이 비어 있으면 어떤 사용자 식별 파일도 동기화 서버에 로컬로 만들어지지  않습니다. 속성이 파일 이름을 포함하면 사용자 ID 파일은 madata 폴더에 만들어집니다. 속성은 전체 경로 포함할 수도 있습니다. |
 | \_MMS_IDRegType |개인은 연락처, 미국 사용자 및 국제 사용자로 분류할 수 있습니다. 다음 테이블에서는 가능한 값을 나열합니다. <li>0 - 연락처</li><li>1 - 미국 사용자</li><li>2 - 국제 사용자</li> |
-| \_MMS_IDStoreType |미국 및 국제 사용자에 대한 필수 속성입니다. 속성은 사용자 ID가 Notes 주소록 또는 사용자의 메일 파일에서 첨부 파일로 저장되는지 여부를 지정하는 정수 값을 포함합니다. 사용자 ID 파일이 주소록의 첨부 파일인 경우 필요에 따라 \_MMS_IDPath를 사용하여 파일로 만들 수 있습니다. <li>비어 있음 - ID 자격 증명 모음의 저장소 ID 파일, ID 파일 없음(연락처에 사용됨)</li><li> &1; - Notes 주소록의 첨부 파일입니다. \_MMS_Password 속성은 첨부된 사용자 식별 파일에 대해 설정되어야 합니다.</li><li>2 - 사용자의 메일 파일의 저장소 ID입니다. 개인 등록 시 메일 파일을 만들 수 있도록 \_MMS_UseAdminP는 false로 설정되어야 합니다. \_MMS_Password 속성은 사용자 식별 파일에 대해 설정되어야 합니다.</li> |
+| \_MMS_IDStoreType |미국 및 국제 사용자에 대한 필수 속성입니다. 속성은 사용자 ID가 Notes 주소록 또는 사용자의 메일 파일에서 첨부 파일로 저장되는지 여부를 지정하는 정수 값을 포함합니다. 사용자 ID 파일이 주소록의 첨부 파일인 경우 필요에 따라 \_MMS_IDPath를 사용하여 파일로 만들 수 있습니다. <li>비어 있음 - ID 자격 증명 모음의 저장소 ID 파일, ID 파일 없음(연락처에 사용됨)</li><li> 1 - Notes 주소록의 첨부 파일입니다. \_MMS_Password 속성은 첨부된 사용자 식별 파일에 대해 설정되어야 합니다.</li><li>2 - 사용자의 메일 파일의 저장소 ID입니다. 개인 등록 시 메일 파일을 만들 수 있도록 \_MMS_UseAdminP는 false로 설정되어야 합니다. \_MMS_Password 속성은 사용자 식별 파일에 대해 설정되어야 합니다.</li> |
 | \_MMS_MailQuotaSizeLimit |전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다. |
 | \_MMS_MailQuotaWarningThreshold |경고가 발생하기 전에 전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다. |
 | \_MMS_MailTemplateName |사용자의 전자 메일 파일을 만드는 데 사용되는 전자 메일 템플릿 파일입니다. 템플릿이 지정된 경우 지정된 템플릿을 사용하여 메일 파일이 만들어집니다. 템플릿이 지정되지 않은 경우 기본 템플릿 파일이 파일을 만드는 데 사용됩니다. |
@@ -495,4 +494,3 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-

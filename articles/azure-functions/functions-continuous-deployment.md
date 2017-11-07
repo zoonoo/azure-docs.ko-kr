@@ -4,7 +4,7 @@ description: "Azure 앱 서비스의 연속 배포 기능을 사용하여 Azure 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: dbcee4d57448c6f25de24d5995b85849d6d82f77
-ms.lasthandoff: 04/04/2017
-
-
+ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
-Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 VSTS(Visual Studio Team Services)와의 Azure App Service 통합을 사용하여 Azure에서 이러한 서비스 중 하나에 게시될 때 함수 코드에 업데이트를 가져오는 연속 배포 워크플로를 사용할 수 있도록 합니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
+Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 VSTS(Visual Studio Team Services)와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
 
 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다. 또한 함수 코드에서 소스 제어를 유지 관리할 수 있습니다. 현재 지원되는 배포 원본은 다음과 같습니다.
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
-* [Git 로컬 리포지토리](../app-service-web/app-service-deploy-local-git.md)
-* Git 외부 리포지토리
-* [GitHub]
-* Mercurial 외부 리포지토리
+* 외부 리포지토리(Git 또는 Mercurial)
+* [Git 로컬 리포지토리](../app-service/app-service-deploy-local-git.md)
+* [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
 
@@ -40,25 +38,26 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 
 ## <a name="continuous-deployment-requirements"></a>연속 배포 요구 사항
 
-연속 배포를 설정하기 전에 구성된 배포 원본 및 배포 원본에 함수 코드가 있어야 합니다. 지정된 함수 앱 배포에서 각 함수는 명명된 하위 디렉터리에 있으며, 여기서 디렉터리 이름은 함수의 이름입니다. 이 폴더 구조는 기본적으로 사이트 코드입니다. 
+연속 배포를 설정하기 전에 구성된 배포 원본 및 배포 원본에 함수 코드가 있어야 합니다. 지정된 함수 앱 배포에서 각 함수는 명명된 하위 디렉터리에 있으며, 여기서 디렉터리 이름은 함수의 이름입니다.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 ## <a name="set-up-continuous-deployment"></a>연속 배포 설정
-다음 절차를 사용하여 기존 함수 앱에 대한 연속 배포 구성:
+다음 절차를 사용하여 기존 함수 앱에 대한 연속 배포를 구성합니다. 다음 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만 Visual Studio Team Services 또는 기타 배포 서비스에도 유사한 단계가 적용됩니다.
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **연속 통합 구성** > **설정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** 및 **배포 옵션**을 클릭합니다. 
    
     ![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment.png)
-   
+ 
+2. 그런 다음 **배포** 블레이드에서 **설정**을 클릭합니다.
+ 
     ![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-    **소스 제어에서 시작**을 클릭하여 함수 빠른 시작에서 배포 블레이드로 가져올 수도 있습니다.
 2. **배포 원본** 블레이드에서 **원본 선택**을 클릭한 다음 선택한 배포 원본에 대한 정보를 입력하고 **확인**을 클릭합니다.
    
     ![배포 원본 선택](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-연속 배포가 구성된 후 배포 원본의 모든 변경 파일이 함수 앱으로 복사되고 전체 사이트 배포가 트리거됩니다. 원본의 파일이 업데이트될 때 사이트가 다시 배포됩니다.
+연속 배포가 구성된 후 배포 원본의 모든 파일 변경 내용이 함수 앱으로 복사되고 전체 사이트 배포가 트리거됩니다. 원본의 파일이 업데이트될 때 사이트가 다시 배포됩니다.
 
 ## <a name="deployment-options"></a>배포 옵션
 
@@ -78,15 +77,15 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 
 2. 아직 없는 경우 배포 원본을 만듭니다. 이 예제에서는 [GitHub]를 사용합니다.
 
-3. 프로덕션 함수 앱의 경우 **연속 배포 설정**에서 위의 단계를 완료하고 GitHub 리포지토리의 마스터 분기에 배포 분기를 설정합니다.
+3. 프로덕션 함수 앱의 경우 **연속 배포 설정**에서 앞의 단계를 완료하고 GitHub 리포지토리의 마스터 분기에 배포 분기를 설정합니다.
    
     ![배포 분기 선택](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
 4. 스테이징 함수 앱에 대해 이 단계를 반복하지만 GitHub 리포지토리 대신 스테이징 분기를 선택합니다. 배포 원본이 분기를 지원하지 않는 경우 다른 폴더를 사용합니다.
-
+    
 5. 스테이징 분기 또는 폴더에서 코드를 업데이트한 후 스테이징 배포에 이러한 변경 내용이 반영되었는지 확인합니다.
 
-6. 테스트 후 스테이징 분기의 변경 내용을 마스터 분기로 병합합니다. 이렇게 하면 프로덕션 함수 앱으로 배포가 트리거됩니다. 배포 원본이 분기를 지원하지 않는 경우 스테이징 폴더의 파일로 프로덕션 폴더의 파일을 덮어씁니다.
+6. 테스트 후 스테이징 분기의 변경 내용을 마스터 분기로 병합합니다. 이렇게 병합하면 프로덕션 함수 앱으로 트리거 배포가 트리거됩니다. 배포 원본이 분기를 지원하지 않는 경우 스테이징 폴더의 파일로 프로덕션 폴더의 파일을 덮어씁니다.
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>기존 함수를 연속 배포로 이동
@@ -101,9 +100,9 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>방법: 배포 자격 증명 구성
-FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다운로드하려면 먼저 사이트에 액세스할 수 있도록 자격 증명을 구성해야 합니다. 이는 포털에서 수행할 수 있습니다. 자격 증명은 함수 앱 수준에서 설정됩니다.
+FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다운로드하려면 먼저 사이트에 액세스할 수 있도록 자격 증명을 구성해야 합니다. 자격 증명은 함수 앱 수준에서 설정됩니다. 다음 단계를 사용하여 Azure Portal에서 배포 자격 증명을 설정합니다.
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **App Service 설정으로 이동** > **배포 자격 증명 설정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** 및 **배포 자격 증명**을 클릭합니다.
    
     ![로컬 배포 자격 증명 설정](./media/functions-continuous-deployment/setup-deployment-credentials.png)
 
@@ -112,7 +111,7 @@ FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다�
 <a name="downftp"></a>
 #### <a name="how-to-download-files-using-ftp"></a>방법: FTP를 사용하여 파일 다운로드
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **App Service 설정으로 이동** > **속성**을 클릭하고 **FTP/배포 User**, **FTP 호스트 이름** 및 **FTPS 호스트 이름**에 대한 값을 복사합니다.  
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능**을 클릭하고 **속성**을 클릭한 다음 **FTP/배포 사용자**, **FTP 호스트 이름** 및 **FTPS 호스트 이름** 값을 복사합니다.  
 
     FTP 서버에 적절한 컨텍스트를 제공하기 위해 앱 이름을 포함하여 포털에서 표시한 대로 **FTP/배포 사용자**를 입력해야 합니다.
    
@@ -121,17 +120,23 @@ FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다�
 2. FTP 클라이언트에서 수집한 연결 정보를 사용하여 앱에 연결하고 함수에 대한 원본 파일을 다운로드합니다.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-the-local-git-repository"></a>방법: 로컬 Git 리포지토리를 사용하여 파일 다운로드
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>방법: 로컬 Git 리포지토리를 사용하여 파일 다운로드
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **연속 통합 구성** > **설정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** 및 **배포 옵션**을 클릭합니다. 
+   
+    ![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment.png)
+ 
+2. 그런 다음 **배포** 블레이드에서 **설정**을 클릭합니다.
+ 
+    ![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment-1.png)
+   
+2. **배포 원본** 블레이드에서 **로컬 Git 리포지토리**를 클릭한 다음 **확인**을 클릭합니다.
 
-2. 배포 블레이드에서 **원본 선택**, **로컬 Git 리포지토리**를 클릭한 다음 **확인**을 클릭합니다.
-
-3. **App Service 설정으로 이동** > **속성**을 클릭하고 Git URL의 값을 기록해 둡니다. 
+3. **플랫폼 기능**에서 **속성**을 클릭하고 Git URL의 값을 기록해 둡니다. 
    
     ![연속 배포 설정](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Git 인식 명령줄 또는 즐겨 찾는 Git 도구를 사용하여 로컬 컴퓨터에서 리포지토리를 복제합니다. Git 복제 명령은 다음과 같이 표시됩니다.
+4. Git 인식 명령 프롬프트 또는 즐겨 찾는 Git 도구를 사용하여 로컬 컴퓨터에서 리포지토리를 복제합니다. Git 복제 명령은 다음과 같이 표시됩니다.
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
@@ -139,7 +144,11 @@ FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다�
    
         git pull origin master
    
-    요청된 경우 함수 앱 배포에 대한 사용자 이름 및 암호를 제공합니다.  
+    요청된 경우 [구성된 배포 자격 증명](#credentials)을 제공합니다.  
 
 [GitHub]: https://github.com/
 
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [Azure Functions에 대한 모범 사례](functions-best-practices.md)

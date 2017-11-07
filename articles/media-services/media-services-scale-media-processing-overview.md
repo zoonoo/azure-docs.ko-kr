@@ -4,7 +4,7 @@ description: "이 항목에서는 Azure Media Services를 사용하여 미디어
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 1009d8b87cb3a131909f3ae9ee231f9ebb408c04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -72,5 +71,4 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
-
-
+ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대해 트랜잭션 최적화
 이 문서에서는 긴 롤백에 대한 위험을 최소화하면서 트랜잭션 코드의 성능을 최적화하는 방법을 설명합니다.
@@ -45,7 +46,7 @@ Azure SQL 데이터 웨어하우스는 트랜잭션 로그를 사용하여 데�
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
 다음은 최소한으로 로깅 가능한 작업입니다.
 
-* CREATE TABLE AS SELECT([CTAS][CTAS])
+* [CTAS][CTAS](CREATE TABLE AS SELECT)
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -118,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>업데이트 최적화
-`UPDATE` 는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS][CTAS]처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
+`UPDATE` 는 전체 로깅 작업입니다.  테이블 또는 파티션에서 행을 대량으로 업데이트해야 하는 경우 [CTAS][CTAS] 처럼 최소 로깅 작업을 사용하는 것이 훨씬 효율적일 때가 종종 있습니다.
 
 아래 예에서는 최소 로깅이 가능하도록 전체 테이블 업데이트가 `CTAS` 로 변환되었습니다.
 
@@ -179,12 +180,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> 대규모 테이블을 다시 만들면 SQL 데이터 웨어하우스 워크로드 관리 기능의 이점을 활용할 수 있습니다. 자세한 내용은 [동시성][동시성] 문서의 워크로드 관리 섹션을 참조하세요.
+> 대규모 테이블을 다시 만들면 SQL 데이터 웨어하우스 워크로드 관리 기능의 이점을 활용할 수 있습니다. 자세한 내용은 [동시성][concurrency] 문서의 워크로드 관리 섹션을 참조하세요.
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>파티션 전환을 사용하여 최적화
-[테이블 파티션][테이블 파티션] 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 훨씬 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
+[테이블 파티션][table partition] 내부에서 대규모 수정 작업에 직면하는 경우 파티션 전환 패턴을 사용하는 것이 훨씬 효율적입니다. 데이터 수정 작업이 대규모이고 여러 파티션에 걸쳐 있는 경우 파티션을 반복해도 동일한 결과를 얻습니다.
 
 파티션 전환을 수행하는 단계는 다음과 같습니다.
 
@@ -420,26 +421,20 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스의 트랜잭션][SQL 데이터 웨어하우스의 트랜잭션]을 참조하세요.  기타 모범 사례 개요에 대해 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션][Transactions in SQL Data Warehouse]을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스의 트랜잭션]: ./sql-data-warehouse-develop-transactions.md
-[테이블 파티션]: ./sql-data-warehouse-tables-partition.md
-[동시성]: ./sql-data-warehouse-develop-concurrency.md
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

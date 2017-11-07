@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
-
-
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동
 이 문서에서는 Azure Express 경로 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동하는 것에 대해 간략히 설명합니다.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 단일 Express 경로 회로를 사용하여 클래식 및 리소스 관리자 배포 모델에 배포된 가상 네트워크에 연결할 수 있습니다. 이제 Express 경로 회로 생성 방법에 관계 없이 두 배포 모델 간의 가상 네트워크에 연결할 수 있습니다.
 
@@ -87,11 +85,11 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
 * Express 경로 회로가 리소스 관리자 배포 모델로 이동한 후에는 리소스 관리자 배포 모델만 사용하여 Express 경로의 수명 주기를 관리할 수 있습니다. 즉, 피어링 추가/업데이트/삭제와 같은 작업을 수행하고 회로 속성(예: 대역폭, SKU, 청구서 유형) 업데이트하며 리소스 관리자 배포 모델에서는 회로를 삭제할 수 있습니다.
 * Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 브리지 역할을 합니다. 클래식 배포 모델의 가상 네트워크에 있는 가상 컴퓨터와 리소스 배포 모델의 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽은 두 가상 네트워크가 동일한 Express 경로 회로에 연결된 경우 Express 경로를 통해 이동합니다.
 * 구독 간 연결은 클래식 및 리소스 관리자 배포 모델에서 지원됩니다.
+* ExpressRoute 회로를 클래식 모델에서 Azure Resource Manager 모델로 이동한 후 [ExpressRoute 회로에 연결된 가상 네트워크를 마이그레이션](expressroute-migration-classic-resource-manager.md)할 수 있습니다.
 
 ## <a name="whats-not-supported"></a>지원 되지않는 사항
 이 섹션에서는 Express 경로 회로에 지원되지 않는 내용을 설명합니다.
 
-* 회로 연결, 게이트웨이 및 가상 네트워크를 클래식에서 리소스 관리자 배포 모델로 이동합니다.
 * 클래식 배포 모델에서 Express 경로 회로의 수명 주기를 관리합니다.
 * 클래식 배포 모델에 대한 역할 기반 액세스 제어(RBAC) 지원 클래식 배포 모델에서 회로에 대한 RBAC 제어를 수행할 수 없습니다. 구독의 모든 관리자/공동 관리자는 가상 네트워크를 회로에 연결하거나 연결을 끊을 수 있습니다.
 
@@ -99,16 +97,11 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
 [클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동](expressroute-howto-move-arm.md)에서 설명한 지침을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
+* [ExpressRoute 회로에 연결된 가상 네트워크를 클래식 모델에서 Azure Resource Manager 모델로 마이그레이션](expressroute-migration-classic-resource-manager.md)
 * 워크플로 정보는 [Express 경로 회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
 * Express 경로 연결을 구성하려면:
   
   * [Express 경로 회로 만들기](expressroute-howto-circuit-arm.md)
   * [라우팅 구성](expressroute-howto-routing-arm.md)
   * [가상 네트워크를 Express 경로 회로에 연결합니다.](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

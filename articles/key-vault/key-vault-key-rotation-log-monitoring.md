@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
-ms.lasthandoff: 01/20/2017
-
-
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정
 ## <a name="introduction"></a>소개
@@ -28,7 +27,7 @@ Key Vault를 만든 후에는 키와 비밀을 저장하는 데 Key Vault를 사
 이 문서에서는 Azure Key Vault를 사용하여 비밀(이 예에서는 응용 프로그램에서 액세스하는 Azure Storage 계정 키)을 저장하는 예제를 안내합니다. 또한 해당 저장소 계정 키의 예약된 회전 구현에 대해서도 살펴봅니다. 마지막으로, 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 살펴봅니다.
 
 > [!NOTE]
-> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli.md)를 참조하세요.
+> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
 >
 >
 
@@ -248,7 +247,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 로깅이 활성화되면 감사 로그가 지정된 저장소 계정으로 수집하기 시작합니다. 이러한 로그에는 Key Vault를 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.
 
 > [!NOTE]
-> Key Vault 작업 후 10분 내에 로깅 정보에 액세스할 수 있습니다. 이 시간은 일반적으로&10;분보다 짧습니다.
+> Key Vault 작업 후 10분 내에 로깅 정보에 액세스할 수 있습니다. 이 시간은 일반적으로 10분보다 짧습니다.
 >
 >
 
@@ -406,13 +405,13 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 ```
 **저장** 시 Azure Functions가 필요한 이진 파일을 다운로드합니다.
 
-**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 타이머에 대한 [CRON 식](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번 실행됩니다.
+**통합** 탭으로 전환하고 타이머 매개 변수에 함수 내에서 사용할 의미 있는 이름을 지정합니다. 위의 코드는 타이머가 *myTimer*로 호출될 것으로 예상합니다. 타이머에 대한 [CRON 식](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)을 0 \* \* \* \* \*로 지정하면 함수가 1분에 한 번 실행됩니다.
 
 동일한 **통합** 탭에서 **Azure Blob Storage** 형식의 입력을 추가합니다. 이렇게 하면 함수에서 확인하는 최신 이벤트의 타임스탬프를 포함하는 sync.txt 파일을 가리키게 됩니다. 그러면 함수 내에서 매개 변수 이름으로 사용할 수 있게 됩니다. 위의 코드에서 Azure Blob Storage 입력에 대한 매개 변수 이름은 *inputBlob*으로 예상됩니다. sync.txt 파일이 상주할 저장소 계정을 선택합니다(같은 저장소 계정일 수도 있고 다른 저장소 계정일 수도 있음). 경로 필드에는 파일이 {container-name}/path/to/sync.txt 형식으로 상주하는 경로를 입력합니다.
 
 *Azure Blob Storage* 형식의 출력을 추가합니다. 이렇게 하면 입력에서 방금 정의한 sync.txt 파일을 가리키게 됩니다. 이 파일은 함수에서 확인하는 최신 이벤트의 타임스탬프를 작성하는 데 사용됩니다. 위의 코드에서는 이 매개 변수를 *outputBlob*이라고 합니다.
 
-이제 함수가 준비되었습니다. 다시 **개발** 탭으로 전환하고 코드를 저장합니다. 출력 창에서 컴파일 오류를 확인하고 적절히 수정합니다. 코드가 컴파일되면 해당 코드는 이제&1;분마다 Key Vault 로그를 확인하고 모든 새 이벤트를 정의된 Service Bus 큐에 푸시합니다. 함수가 트리거될 때마다 로깅 정보가 로그 창에 기록되는 것이 보입니다.
+이제 함수가 준비되었습니다. 다시 **개발** 탭으로 전환하고 코드를 저장합니다. 출력 창에서 컴파일 오류를 확인하고 적절히 수정합니다. 코드가 컴파일되면 해당 코드는 이제 1분마다 Key Vault 로그를 확인하고 모든 새 이벤트를 정의된 Service Bus 큐에 푸시합니다. 함수가 트리거될 때마다 로깅 정보가 로그 창에 기록되는 것이 보입니다.
 
 ### <a name="azure-logic-app"></a>Azure 논리 앱
 다음으로 함수가 Service Bus 큐에 푸시하는 이벤트를 선택하고 콘텐츠를 구문 분석한 후 일치하는 조건에 따라 전자 메일을 보내는 Azure 논리 앱을 만들어야 합니다.
@@ -437,5 +436,4 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 
 작업의 경우 **Office 365 - 전자 메일 보내기**를 선택합니다. 정의된 조건에서 **false**를 반환하는 경우 보낼 전자 메일을 작성하도록 필드를 채웁니다. Office 365가 없는 경우 같은 결과를 얻을 수 있는 대안을 살펴볼 수 있습니다.
 
-현재는&1;분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
-
+현재는 1분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.

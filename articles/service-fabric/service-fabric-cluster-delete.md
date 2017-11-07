@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/24/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Azure의 서비스 패브릭 클러스터와 사용하는 리소스 삭제
 서비스 패브릭 클러스터는 클러스터 리소스 자체 외에도 다른 많은 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다.
@@ -34,7 +33,7 @@ ms.lasthandoff: 12/06/2016
 리소스 그룹을 포함해 클러스터와 연결된 모든 리소스를 삭제하는 가장 쉬운 방법입니다. PowerShell을 사용하거나 Azure 포털을 통해 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹에 서비스 패브릭 클러스터와 관련되지 않은 리소스가 있다면 특정 리소스를 삭제할 수 있습니다.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 그룹 삭제
-또한 다음 Azure PowerShell cmdlets를 실행하여 리소스 그룹을 삭제할 수도 있습니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
+또한 다음 Azure PowerShell cmdlets를 실행하여 리소스 그룹을 삭제할 수도 있습니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
 
 PowerShell 창을 열고 다음 PS cmdlets를 실행합니다.
 
@@ -78,7 +77,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
     ![태그가 지정된 리소스][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 삭제
-다음 Azure PowerShell cmdlets를 실행하여 리소스를 단계별로 삭제할 수 있습니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
+다음 Azure PowerShell cmdlets를 실행하여 리소스를 단계별로 삭제할 수 있습니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
 
 PowerShell 창을 열고 다음 PS cmdlets를 실행합니다.
 
@@ -109,4 +108,3 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
-
-
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 네트워크 보안 모범 사례
 Microsoft Azure는 가상 컴퓨터 및 어플라이언스를 Azure 가상 네트워크에 배치하여 네트워크에 연결된 기타 장치에 연결할 수 있습니다. Azure 가상 네트워크는 가상 네트워크 인터페이스 카드를 가상 네트워크에 연결하여 네트워크 지원 장치 간에 TCP/IP 통신을 허용하는 가상 네트워크 구조입니다. Azure 가상 네트워크에 연결된 Azure 가상 컴퓨터는 동일한 Azure 가상 네트워크, 다른 Azure 가상 네트워크, 인터넷 또는 고객 고유의 온-프레미스 네트워크에 있는 장치에 연결할 수 있습니다.
@@ -134,7 +134,7 @@ DMZ 및 Azure에서 DMZ를 배포하는 방법에 대한 자세한 내용은 [Mi
 
 사이트 간 VPN이 신뢰할 수 있고 안정적이며 인정받은 기술이지만 터널 내부 트래픽은 인터넷을 트래버스합니다. 뿐만 아니라 대역폭이 약 200Mbps로 제한됩니다.
 
-크로스-프레미스 연결에 강력한 보안 또는 성능 수준이 필요한 경우 크로스-프레미스 연결에 Azure Express 경로를 사용하는 것이 좋습니다. Express 경로는 온-프레미스 위치 또는 Exchange 호스팅 공급자 사이의 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않고, 따라서 인터넷 통신의 본질적인 잠재적 위험에 노출되지 않습니다.
+크로스-프레미스 연결에 강력한 보안 또는 성능 수준이 필요한 경우 크로스-프레미스 연결에 Azure Express 경로를 사용하는 것이 좋습니다. ExpressRoute는 온-프레미스 위치 또는 Exchange 호스팅 공급자 사이의 WAN 링크입니다. 이 연결은 telco 연결이기 때문에 데이터가 인터넷을 통해 전달되지 않고, 따라서 인터넷 통신의 본질적인 잠재적 위험에 노출되지 않습니다.
 
 Azure Express 경로의 작동 원리 및 배포 방법에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md) 문서를 참조하세요.
 
@@ -235,9 +235,3 @@ Azure 보안 센터 및 배포 가능하도록 활성화하는 방법에 대한 
 Microsoft에서는 데이터 센터 확장이 어떤 형태로 이루어지는지 이해하는 데 도움을 주기 위해 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content)과 지원 자료를 만들었습니다. 이 자료에는 클라우드로의 안전한 엔터프라이즈 데이터 센터 확장을 계획 및 설계하는 데 사용할 수 있는 예제 참조 구현이 포함되어 있습니다. 이 문서를 살펴보고 안전한 솔루션의 주요 구성 요소에 대해 알아두는 것이 좋습니다.
 
 데이터 센터를 Azure로 안전하게 확장하는 방법에 대한 자세한 내용은 [데이터 센터를 Microsoft Azure로 확장](https://www.youtube.com/watch?v=Th1oQQCb2KA) 비디오를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -3,7 +3,7 @@ title: "SQL Data Warehouse 용량 한도 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
-translationtype: Human Translation
-ms.sourcegitcommit: 3a9ea64c464a74c70e75634a3e5c1e49862a74e7
-ms.openlocfilehash: c6b44392c0b3a241d41ae55bd6bb3f544d867e9e
-ms.lasthandoff: 02/22/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 데이터 웨어하우스 용량 제한
 아래 표에는 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최대값이 나와 있습니다.
@@ -29,17 +28,17 @@ ms.lasthandoff: 02/22/2017
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL 데이터 웨어하우스에 대한 최대 DWU |6000 |
-| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Server에 대한 최대 DWU |기본값&6000;<br/><br/> 기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 45,000이 있으며 최대 6000DWU가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Server에 대한 최대 DWU |기본값 6000<br/><br/> 기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 45,000이 있으며 최대 6000DWU가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
 | 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>최대 1,024개의 활성 연결을 지원하며 각각에서 동시에 요청을 SQL 데이터 웨어하우스 데이터베이스에 제출할 수 있습니다. 실제로 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리][Workload management] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 보다 상위의 리소스 클래스에 할당되었거나 SQL Data Warehouse가 낮은 DWU로 구성된 경우 동시성 수준을 줄일 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |
-| [Tempdb][Tempdb] |Tempdb의 최대 크기 |DW100당&399;GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
+| [Tempdb][Tempdb] |Tempdb의 최대 크기 |DW100당 399GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
 
 ## <a name="database-objects"></a>데이터베이스 개체
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| 데이터베이스 |최대 크기 |디스크에서 압축된&240;TB<br/><br/>이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. |
-| 테이블 |최대 크기 |디스크에서 압축된&60;TB |
+| 데이터베이스 |최대 크기 |디스크에서 압축된 240TB<br/><br/>이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. |
+| 테이블 |최대 크기 |디스크에서 압축된 60TB |
 | 테이블 |데이터베이스 당 테이블 |20억 |
 | 테이블 |테이블 당 열 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식][data type]에 따라 다릅니다.  char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
@@ -105,4 +104,3 @@ ms.lasthandoff: 02/22/2017
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
-

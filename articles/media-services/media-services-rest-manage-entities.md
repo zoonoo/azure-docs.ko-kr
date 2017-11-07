@@ -2,7 +2,7 @@
 title: "REST를 사용하여 Media Services 엔터티 관리 | Microsoft Docs"
 description: "REST API를 사용하여 미디어 서비스 엔터티를 관리하는 방법을 알아봅니다."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
-ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
-ms.lasthandoff: 02/10/2017
-
-
+ms.openlocfilehash: a336907b605da962f835b8057ac6071f480cd85e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리 
 > [!div class="op_single_selector"]
@@ -28,24 +27,23 @@ ms.lasthandoff: 02/10/2017
 > 
 > 
 
-Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비스입니다. 이 때문에 다른 OData 서비스에서와 거의 같은 방법으로 엔터티를 추가, 쿼리, 업데이트 및 삭제할 수 있습니다. 예외는 해당하는 경우 호출됩니다. OData에 대한 자세한 내용은 [개방형 데이터 프로토콜 설명서](http://www.odata.org/documentation/)를 참조하세요.
+Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비스입니다. 다른 OData 서비스에서와 거의 같은 방법으로 엔터티를 추가, 쿼리, 업데이트 및 삭제할 수 있습니다. 예외는 해당하는 경우 호출됩니다. OData에 대한 자세한 내용은 [개방형 데이터 프로토콜 설명서](http://www.odata.org/documentation/)를 참조하세요.
 
 이 항목에서는 REST를 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다.
-
 
 >[!NOTE]
 > 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
 
-## <a name="considerations-when-working-with-ams-rest"></a>AMS REST 사용 시 고려 사항
+## <a name="considerations"></a>고려 사항  
 
-미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
+미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
-> [!NOTE]
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="adding-entities"></a>엔터티 추가
 미디어 서비스의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같은 엔터티 집합에 추가됩니다.
@@ -64,7 +62,6 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
     Expect: 100-continue
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
-
 
 ## <a name="querying-entities"></a>엔터티 쿼리
 엔터티 쿼리 및 나열은 간단하고 GET HTTP 요청과 선택적 OData 작업만 관련됩니다.
@@ -173,12 +170,9 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
     Host: media.windows.net
     Content-Length: 0
 
-
-
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a1470234489d67e0dd90237029ce454437f9bfee
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
 이 문서에서는 일반 웹 서버 시나리오에 대해 Azure Resource Manager 템플릿을 통해 FreeBSD 패킷 필터를 사용하여 NAT 방화벽을 배포하는 방법을 소개합니다.
 
@@ -59,7 +57,6 @@ az network public-ip list --resource-group myResourceGroup
 ## <a name="next-steps"></a>다음 단계
 Azure에서 자체 NAT을 설정하려고 하나요? 무료 오픈 소스면서 강력한 기능을 원하시나요? 그렇다면 PF가 적격입니다. [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 템플릿을 사용하면 일반적인 웹 서버 시나리오에 대해 Azure에서 FreeBSD PF를 사용하여 라운드 로빈 부하 분산 방식으로 NAT 방화벽을 설정하는 데 5분이면 충분합니다. 
 
-Azure의 FreeBSD 제품에 대해 알아보려면 [Azure의 FreeBSD 소개](./../virtual-machines-freebsd-intro-on-azure.md)를 참조하세요.
+Azure의 FreeBSD 제품에 대해 알아보려면 [Azure의 FreeBSD 소개](freebsd-intro-on-azure.md)를 참조하세요.
 
 PF에 대한 자세한 내용은 [FreeBSD 핸드북](https://www.freebsd.org/doc/handbook/firewalls-pf.html) 또는 [PF-사용자 가이드](https://www.freebsd.org/doc/handbook/firewalls-pf.html)를 참조하세요.
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 09/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 417ca4b6ecc39cbdafd8e12b5360b370d0ce79fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -34,7 +33,7 @@ Azure IoT Hub는 솔루션 백 엔드와 수백 만개의 장치 간에 안정�
 
 사용자 고유의 솔루션 백 엔드를 구현하기 위해 IoT Hub를 사용할 수 있습니다. 또한 IoT Hub에는 장치, 보안 자격 증명, IoT Hub에 연결하는 권한을 프로비전하는 데 사용된 장치 ID 레지스트리가 포함되어 있습니다. IoT Hub에 대해 자세히 알아보려면 [IoT Hub란?][lnk-iot-hub]을 참조하세요.
 
-Azure IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장치를 관리, 구성, 업데이트할 수 있는 방법을 알아보려면 [IoT Hub를 사용한 장치 관리의 개요][lnk-device-management]를 참조하세요.
+Azure IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장치를 관리하는 방법을 알아보려면 [IoT Hub를 사용한 장치 관리의 개요][lnk-device-management]를 참조하세요.
 
 다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 Azure IoT 장치 SDK를 제공할 수 있습니다. 장치 SDK에는 IoT Hub에 대한 원격 분석 전송 및 클라우드-장치 메시지 수신을 용이하게 하는 라이브러리가 있습니다. 장치 SDK를 사용하면 몇 가지 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
 
@@ -48,4 +47,3 @@ Azure IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-

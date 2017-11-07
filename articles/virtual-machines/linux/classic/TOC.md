@@ -4,23 +4,25 @@
 ## [가용성](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [시작](../opensource-links.md)
-## [포털을 사용하여 Linux VM 만들기](createportal.md)
+# 시작
+## [Azure Portal을 사용하여 Linux VM 만들기](createportal.md)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
 ## [SSH 키 만들기](../mac-create-ssh-keys.md)
 
 # 방법
-## [계산](../intro-on-azure.md)
+## Compute
 ### [사용자 지정 VM 만들기](create-custom.md)
 ### [VM 캡처](capture-image.md)
 ### [Linux VM으로 원격 데스크톱 사용](remote-desktop.md)
 ### [VM 확장 관리](manage-extensions.md)
 ### [Visual Studio를 사용하여 VM 관리](manage-visual-studio.md)
-### [진단 VM 확장을 사용하여 VM 모니터링](diagnostic-extension.md)
+### [진단 VM 확장을 사용하여 VM 모니터링](../diagnostic-extension.md)
+### [진단 VM 확장의 v2.x를 사용하여 VM 모니터링](diagnostic-extension-v2.md)
 ### [사용자 지정 데이터 삽입](inject-custom-data.md)
 ### [Linux 암호 또는 키 다시 설정, SSH 수정, 디스크 확인](reset-access.md)
+### [유지 관리](planned-maintenance-schedule.md)
 ### [CLI를 사용하여 Docker 호스트 만들기](cli-use-docker.md)
-### [포털을 사용하여 Docker 호스트 만들기](portal-use-docker.md)
+### [Azure Portal을 사용하여 Docker 호스트 만들기](portal-use-docker.md)
 ### [Docker 및 Swarm을 사용하는 방법](../../virtual-machines-linux-docker-swarm.md)
 
 ## 저장소 사용
@@ -52,32 +54,33 @@
 ### [Visual Studio를 사용한 웹 응용 프로그램](web-app-visual-studio.md)
 ### [MPI 응용 프로그램을 실행하는 RDMA 클러스터](rdma-cluster.md)
 ### [Hudson Continuous CI와 함께 Azure 슬레이브 플러그인을 사용하는 방법](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC 팩
-### [MPI 앱을 실행하는 Windows RDMA 클러스터](hpcpack-cluster.md)
-### [HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터](hpcpack-cluster-starccm.md)
-### [계산 노드의 수 및 가용성 관리](hpcpack-cluster-powershell-script.md)
-### [주문형 노드 추가](hpcpack-cluster-openfoam.md)
-### [리소스 자동 확장](hpcpack-cluster-namd.md)
+### HPC 팩
+#### [Linux 작업에 대한 클러스터 만들기](hpcpack-cluster-powershell-script.md)
+#### [Linux 노드가 포함된 클러스터 관리](hpcpack-cluster.md)
+#### [STAR-CCM+ 실행](hpcpack-cluster-starccm.md)
+#### [OpenFOAM 실행](hpcpack-cluster-openfoam.md)
+#### [NAMD 실행](hpcpack-cluster-namd.md)
 
 ## 문제 해결
 ### [VM 배포](troubleshoot-deployment-new-vm.md)
 ### [VM 다시 시작 또는 크기 조정](restart-resize-error-troubleshooting.md)
+### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager 템플릿 작성](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/documentation/templates)
-## [계산 REST](/rest/api/compute)
-## [네트워크 REST](/rest/api)
-## [저장소 REST](/rest/api/storageservices)
+## [계산 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [네트워크 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [저장소 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

@@ -3,8 +3,8 @@ title: "OMS Log Analytics에 Azure Automation 작업 데이터 전달 | Microsof
 description: "이 문서에서는 작업 상태 및 runbook 작업 스트림을 Microsoft Operations Management Suite Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
-manager: jwhit
+author: eslesar
+manager: carmonm
 editor: tysonn
 ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
 ms.service: automation
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 08/31/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 5cfbd39d2f66fb6632495eb7cd789ed39b0cc309
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 21923adaa8f8118995799319c1fd496a6e449faa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>자동화에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)
 자동화에서 Microsoft Operations Management Suite(OMS) Log Analytics 작업 영역으로 runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다.  개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Log Anaytics를 사용하여 다음을 수행할 수 있습니다.
@@ -34,7 +33,7 @@ ms.lasthandoff: 03/29/2017
 Automation 로그를 Log Analytics로 보내려면 다음이 필요합니다.
 
 1. [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)의 2016년 11월(v2.3.0) 이후 릴리스
-2. Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요.
+2. Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요. 
 3. Azure Automation 계정에 대한 ResourceId
 
 Azure Automation 계정 및 Log Analytics 작업 영역에 대한 ResourceId를 찾으려면 다음 PowerShell을 실행합니다.
@@ -68,13 +67,13 @@ Automation 계정의 *Name*을 찾으려면 Azure Portal의 **Automation 계정*
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca67-1234-421e-5678-c25/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
@@ -82,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 
 이 스크립트를 실행한 후 새 JobLogs 또는 쓰고 있는 JobStreams의 10분 이내에 Log Analytics에 레코드가 표시됩니다.
 
-로그를 보려면 다음 쿼리를 실행합니다. `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+로그를 보려면 Log Analytics 로그 검색에서 다음 쿼리를 실행합니다. `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>구성 확인
 Automation 계정이 Log Analytics 작업 영역으로 로그를 보내는지 확인하려면 다음 PowerShell을 사용하여 Automation 계정에 대해 진단이 올바르게 설정되어 있는지 확인합니다.
@@ -100,12 +99,12 @@ Automation 계정이 Log Analytics 작업 영역으로 로그를 보내는지 �
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca67-1234-421e-5678-c25/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
@@ -116,7 +115,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-Azure Automation의 진단은 Log Analytics에 두 가지 유형이 레코드를 만듭니다.
+Azure Automation의 진단은 Log Analytics에 두 가지 유형의 레코드를 만들고 **Type=AzureDiagnostic**로 태그가 지정됩니다.
 
 ### <a name="job-logs"></a>작업 로그
 | 속성 | 설명 |
@@ -126,7 +125,7 @@ Azure Automation의 진단은 Log Analytics에 두 가지 유형이 레코드를
 | Caller_s |작업을 시작한 사람입니다.  가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
-| ResultType |runbook 작업의 상태입니다.  가능한 값은 다음과 같습니다.<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
+| ResultType |runbook 작업의 상태입니다.  가능한 값은 다음과 같습니다.<br>- 신규<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
 | Category | 데이터 유형의 분류입니다.  Automation의 경우 값은 JobLogs입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다.  Automation의 경우 이 값은 Job입니다. |
 | 리소스 | Automation 계정의 이름입니다. |
@@ -207,4 +206,3 @@ Log Analytics는 Automation 작업의 작동을 보다 정확히 이해하도록
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법은 [Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)
 * OMS Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)
-

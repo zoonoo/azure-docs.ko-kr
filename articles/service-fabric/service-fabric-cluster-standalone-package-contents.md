@@ -11,17 +11,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="package-contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 패키지 내용
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
 [다운로드된](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
 
 | **파일 이름** | **간단한 설명** |
@@ -37,6 +35,8 @@ ms.lasthandoff: 03/29/2017
 | EULA_ENU.txt |Microsoft Azure Service Fabric 독립 실행형 Windows Server 패키지를 사용하기 위한 사용 조건입니다. 현재 [EULA 사본을 다운로드](http://go.microsoft.com/fwlink/?LinkID=733084)할 수 있습니다. |
 | Readme.txt |릴리스 정보 및 기본 설치 지침에 연결합니다. 이 문서에 포함된 지침의 일부입니다. |
 | ThirdPartyNotice.rtf |패키지에 있는 타사 소프트웨어에 대한 고지입니다. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |지원을 위해 Microsoft에 추적 로그를 수집한 후 Microsoft에 업로드하기 위해 요청 시 실행되는 StandaloneLogCollector.exe입니다. |
+| Tools\ServiceFabricUpdateService.zip |인터넷에 접속되지 않는 클러스터에 대한 자동 코드 업그레이드를 사용하도록 설정하는 데 사용되는 도구입니다. 자세한 내용은 [여기](service-fabric-cluster-upgrade-windows-server.md)|
 
 **템플릿** 
 | **파일 이름** | **간단한 설명** |
@@ -49,10 +49,12 @@ ms.lasthandoff: 03/29/2017
 | ClusterConfig.x509.MultiMachine.json |보안 클러스터의 각 노드에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 x509 인증서를 사용하여 보안이 유지됩니다. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |보안 클러스터의 각 노드에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [그룹 관리 서비스 계정](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)을 사용하여 보안됩니다. |
 
-# <a name="cluster-configuration-samples"></a>클러스터 구성 샘플
+## <a name="cluster-configuration-samples"></a>클러스터 구성 샘플
 최신 버전의 클러스터 구성 템플릿은 [독립 실행형 클러스터 구성 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) GitHub 페이지에서 찾을 수 있습니다.
+
+## <a name="independent-runtime-package"></a>독립 런타임 패키지
+클러스터 배포 시 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 최신 런타임 패키지를 자동으로 다운로드합니다.
 
 ## <a name="related"></a>관련 항목
 * [독립 실행형 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 * [Service Fabric 클러스터 보안 시나리오](service-fabric-windows-cluster-windows-security.md)
-

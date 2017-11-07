@@ -3,7 +3,7 @@ title: "Windows 보안을 사용하여 Windows에서 실행되는 클러스터 �
 description: "Windows 보안을 사용하여 Windows에서 실행되는 독립 실행형 클러스터에서 노드 간 및 클라이언트-노드 보안을 구성하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2017
-ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: b8842047351da6fdb547e0b09492b89fad962bee
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 08/24/2017
+ms.author: dekapur
+ms.openlocfilehash: e093a631b0cf81195981a8e3d345504ebce02723
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호
 Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러스터를 보호해야 합니다. 클러스터에서 프로덕션 작업을 실행하는 경우 특히 보안이 중요합니다. 이 문서에서는 *ClusterConfig.JSON* 파일에서 Windows 보안을 사용하여 노드 간 및 클라이언트-노드 간 보안을 구성하는 방법을 설명합니다.  이 프로세스는 보안[Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 보안 단계 구성에 해당합니다. Service Fabric에서 Windows 보안을 사용하는 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
@@ -30,12 +29,10 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>gMSA를 사용하여 Windows 보안 구성  
-<seg>
-  [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 구성 파일은 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx)를 사용하여 Windows 보안 구성을 위한 템플릿을 포함합니다.</seg>  
+[Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 구성 파일은 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx)를 사용하여 Windows 보안 구성을 위한 템플릿을 포함합니다.  
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  
@@ -79,8 +76,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 ```  
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>컴퓨터 그룹을 사용하여 Windows 보안 구성  
-<seg>
-  [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.Windows.MultiMachine.JSON* 구성 파일은 Windows 보안 구성을 위한 템플릿을 포함합니다.</seg>  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
+[Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) 독립 실행형 클러스터 패키지와 함께 다운로드된 샘플 *ClusterConfig.Windows.MultiMachine.JSON* 구성 파일은 Windows 보안 구성을 위한 템플릿을 포함합니다.  **Properties** 섹션에서 다음과 같이 Windows 보안을 구성합니다. 
 
 ```
 "security": {
@@ -142,4 +138,3 @@ Active Directory 도메인 내에서 컴퓨터 그룹을 사용하려는 경우 
 노드 간 보안, 클라이언트 및 노드 간 보안 및 역할 기반 액세스 제어 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
 
 PowerShell 또는 FabricClient를 사용한 연결에 대한 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md) 을 참조하세요.
-

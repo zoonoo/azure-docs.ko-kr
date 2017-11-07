@@ -3,8 +3,8 @@ title: "Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법"
 description: "Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
-ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
-ms.lasthandoff: 02/07/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: ebf0e911eeada0e529f908dd3e3430c94edae763
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -182,4 +181,3 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-

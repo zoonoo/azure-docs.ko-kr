@@ -3,7 +3,7 @@ title: "Service Fabric Explorer를 사용하여 클러스터 시각화 | Microso
 description: "서비스 패브릭 탐색기는 Microsoft Azure 서비스 패브릭 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
-ms.lasthandoff: 03/10/2017
-
-
+ms.date: 09/28/2017
+ms.author: ryanwi
+ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 서비스 패브릭 탐색기는 Azure 서비스 패브릭 클러스터에서 응용 프로그램 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 클러스터의 실행 여부와 관계없이 항상 사용할 수 있도록 서비스 패브릭 탐색기가 클러스터 내에서 직접 호스트됩니다.
@@ -33,18 +32,13 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ## <a name="connect-to-service-fabric-explorer"></a>서비스 패브릭 탐색기에 연결
 [개발 환경 준비](service-fabric-get-started.md)에 대한 지침을 따른 경우 http://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다.
 
-> [!NOTE]
-> 서비스 패브릭 탐색기에서 Internet Explorer를 사용하여 원격 클러스터를 관리하는 경우 일부 Internet Explorer 설정을 구성해야 합니다. 모든 정보가 올바르게 로드되도록 하려면 **도구** > **호환성 보기 설정**으로 이동하고 **호환성 보기에서 인트라넷 사이트 표시**를 선택 취소합니다.
->
->
-
 ## <a name="understand-the-service-fabric-explorer-layout"></a>서비스 패브릭 탐색기 레이아웃 이해
 왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.
 
 ![서비스 패브릭 탐색기 클러스터 대시보드][sfx-cluster-dashboard]
 
 ### <a name="view-the-clusters-layout"></a>클러스터의 레이아웃 보기
-서비스 패브릭 클러스터의 노드는 장애 도메인 및 업그레이드 도메인의&2;차원 그리드에 배치됩니다. 이렇게 배치하면 하드웨어 오류와 응용 프로그램 업그레이드가 있는 상태에서 응용 프로그램을 계속 사용할 수 있습니다. 클러스터 맵을 사용하여 현재 클러스터의 레이아웃 방식을 볼 수 있습니다.
+서비스 패브릭 클러스터의 노드는 장애 도메인 및 업그레이드 도메인의 2차원 그리드에 배치됩니다. 이렇게 배치하면 하드웨어 오류와 응용 프로그램 업그레이드가 있는 상태에서 응용 프로그램을 계속 사용할 수 있습니다. 클러스터 맵을 사용하여 현재 클러스터의 레이아웃 방식을 볼 수 있습니다.
 
 ![서비스 패브릭 탐색기 클러스터 맵][sfx-cluster-map]
 
@@ -88,7 +82,7 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 | 노드 | 비활성화(다시 시작) | 안전하게 노드에서 모든 메모리 내 서비스를 이동하고 영구 서비스를 닫습니다. 호스트 프로세스 또는 컴퓨터를 다시 시작해야 할 때 일반적으로 사용됩니다. | |
 | 노드 | 비활성화(데이터 제거) | 안전하게 충분한 예비 복제본을 작성한 후에 노드에 실행하는 모든 서비스를 닫습니다. 노드(또는 최소한 저장소)가 위원회에서 영구적으로 제거될 때 일반적으로 사용됩니다. | |
 | 노드 | 노드 상태 제거 | 클러스터에서 노드의 복제본에 대한 정보를 제거합니다. 이미 실패한 노드를 복구할 수 없다고 간주하는 경우 일반적으로 사용됩니다. | |
-| 노드 | 다시 시작 | 노드를 다시 시작하여 노드 오류를 시뮬레이션합니다. 자세한 내용은 [여기](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode)를 참조하세요. | |
+| 노드 | 다시 시작 | 노드를 다시 시작하여 노드 오류를 시뮬레이션합니다. 자세한 내용은 [여기](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps)를 참조하세요. | |
 
 많은 작업이 안전하지 않으므로 작업이 완료되기 전에 실행할 것인지 묻는 메시지가 나타납니다.
 
@@ -133,4 +127,3 @@ Azure 클러스터의 경우 Azure Portal의 클러스터 필수 창에서도 �
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-

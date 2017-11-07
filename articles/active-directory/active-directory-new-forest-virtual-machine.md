@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 46e248112985b2e8f58f90e15cf885839d3cfcc8
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Azure 가상 네트워크에 새 Active Directory 포리스트 설치
 이 토픽에서는 Azure 가상 네트워크 또는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)의 VM(가상 컴퓨터)에 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다.
@@ -70,7 +69,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
    |  **가상 컴퓨터 구성** |<p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p> |
 2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 3. VM에 처음 로그인한 후 **서버 관리자** > **파일 및 저장소 서비스**를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.
-4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](/powershell/azureps-cmdlets-docs) 한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
+4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](/powershell/azure/overview) 한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -104,7 +103,7 @@ DC 설치가 완료된 후 VM에 다시 연결하고 DC에 로그온합니다. �
 
 UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx) 및 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)를 확인하세요.
+Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](/powershell/azure/overview) 및 [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)를 확인하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure 가상 네트워크에 새 Active Directory 포리스트를 설치하는 방법](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -114,9 +113,9 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 * [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
-* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
 * [Azure VM 고정 IP 주소 설정](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 * [Azure VM에 고정 IP를 할당하는 방법](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 * [새 Active Directory 포리스트 설치](https://technet.microsoft.com/library/jj574166.aspx)
@@ -124,4 +123,3 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
-

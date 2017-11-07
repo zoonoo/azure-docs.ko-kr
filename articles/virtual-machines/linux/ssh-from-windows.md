@@ -3,7 +3,7 @@ title: "Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs"
 description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 컴퓨터에 연결하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59dc5340ca8ac02b1d99205ad8f1d44fa60148c0
-ms.lasthandoff: 04/03/2017
-
-
+ms.author: danlep
+ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 > [!div class="op_single_selector"]
@@ -44,17 +43,15 @@ SSH는 안전하지 않은 연결에서 안전하게 로그인할 수 있도록 
 SSH 키를 사용하지 않지 않더라도 여전히 암호를 사용하여 Linux VM에 로그인할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. SSH 키를 사용하면 여러 VM에 대한 개별적인 자격 증명 관리의 복잡성을 줄입니다.
 
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 패키지 및 SSH 클라이언트
-Azure에서 **SSH 클라이언트**를 통해 Linux VM에 연결하고 관리합니다. 일반적으로 Windows 컴퓨터에는 SSH 클라이언트를 설치하지 않습니다. 설치할 수 있는 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
+Azure에서 **SSH 클라이언트**를 통해 Linux VM에 연결하고 관리합니다. 일반적으로 Windows 컴퓨터에는 SSH 클라이언트를 설치하지 않습니다. Windows 10 1주년 업데이트에 Windows용 Bash가 추가되었으며 최신 Windows 10 크리에이터 업데이트에는 추가 업데이트가 제공됩니다. Linux용 Windows 하위 시스템에서는 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스할 수 있습니다. 그런 다음 [Linux용 SSH 키 쌍을 생성하는 방법](mac-create-ssh-keys.md)과 같은 Linux 문서를 참조할 수 있습니다. Windows용 Bash는 아직 개발 중이며 베타 릴리스 버전으로 간주됩니다. Windows용 Bash에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
+
+Windows용 Bash 이외의 것을 사용하려는 경우 설치할 수 있는 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
 
 * [Windows 용 Git](https://git-for-windows.github.io/)
 * [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-> [!NOTE]
-> 최신 Windows 10주년 업데이트에는 Windows용 Bash가 포함되어 있습니다. 이 기능을 사용하면 Linux용 Windows 하위 시스템 및 액세스 유틸리티(예: SSH 클라이언트)를 실행할 수 있습니다. Windows용 Bash는 아직 개발 중이며 베타 릴리스 버전으로 간주됩니다. Windows용 Bash에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
->
->
 
 ## <a name="which-key-files-do-you-need-to-create"></a>어떤 키 파일을 만들어야 하나요?
 Azure는 최소한 2048비트, **ssh-rsa** 형식 공개 및 개인 키 서식이 필요합니다. 클래식 배포 모델을 사용하여 Azure 리소스를 관리하는 경우 PEM(`.pem` 파일)도 생성해야 합니다.
@@ -186,4 +183,3 @@ PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이
 Windows용 Bash 및 Windows 컴퓨터에서 쉽게 사용할 수 있는 OSS 도구의 이점에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
 
 SSH를 사용하여 Linux VM을 연결하는 데 문제가 있으면 [Azure Linux VM에 대한 SSH 연결 문제 해결](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-

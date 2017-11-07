@@ -9,19 +9,18 @@ editor:
 tags: 
 ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
-ms.custom: monitor and tune
-ms.workload: data-management
+ms.custom: monitor & tune
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: dcd7aef734da26a4357d11ff3da9501f55963a00
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 61251eb9b125209ffd15adafdb0bace495e7cadd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 04/15/2017
    * 링 버퍼 유형의 대상 즉, **package0.ring_buffer**로 이벤트 출력을 보내도록 선택합니다.
 3. 이벤트 세션을 시작합니다.
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.
-5. SQL SELECT를 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
+5. SQL SELECT 문을 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
    
    * **sys.dm_xe_database_session_targets** 및 다른 DMV(동적 관리 뷰)가 조인됩니다.
 6. 이벤트 세션을 중지합니다.
@@ -50,7 +49,7 @@ ms.lasthandoff: 04/15/2017
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
   
-  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started-portal.md) 수 있습니다.
+  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
@@ -66,7 +65,7 @@ ms.lasthandoff: 04/15/2017
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -323,7 +322,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 링 버퍼 사용을 마쳤으면 링 버퍼를 제거하고 다음과 같은 **ALTER** 를 실행하여 링 버퍼의 리소스를 해제할 수 있습니다.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -333,7 +332,7 @@ GO
 
 이벤트 세션의 정의는 삭제되지 않고 업데이트됩니다. 나중에 이벤트 세션에 링 버퍼의 다른 인스턴스를 추가할 수 있습니다.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -360,4 +359,3 @@ Azure SQL Database의 확장 이벤트에 대한 기본 항목은 다음과 같�
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-

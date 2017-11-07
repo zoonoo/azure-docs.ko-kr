@@ -3,7 +3,7 @@ title: "Azure Active Directory 감사 API 참조 | Microsoft Docs"
 description: "Azure Active Directory 감사 API를 시작하는 방법"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 242fa094010694d7060b05e5892ce738d5b37a32
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 감사 API 참조
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
@@ -27,10 +28,17 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 다음을 참조하세요.
 
-* 자세한 개념 정보는 [감사 로그](active-directory-reporting-azure-portal.md#audit-logs)를 참조하세요.
+* 자세한 개념 정보는 [감사 로그](active-directory-reporting-azure-portal.md#activity-reports)를 참조하세요.
+
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
-질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
+
+관련 작업:
+
+- 질문과 대답(FAQ)은 [FAQ](active-directory-reporting-faq.md)를 읽어보세요. 
+
+- 문제는 [지원 티켓을 파일로 저장하세요](active-directory-troubleshooting-support-howto.md). 
+
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리 또는 보안 판독기 역할의 사용자
@@ -75,6 +83,8 @@ Azure AD 감사 API에서 (OData 페이지 매김을 사용하여) 반환되는 
 원하는 레코드의 종류를 지정하려면 다음 필터 필드 중 하나 또는 조합을 포함할 수 있는 필터 문을 빌드할 수 있습니다.
 
 * [activityDate](#activitydate) - 날짜 또는 날짜 범위를 정의합니다.
+* [범주](#category) - 필터링 기준으로 사용할 범주를 정의합니다.
+* [activityStatus](#activitystatus) - 활동의 상태를 정의합니다.
 * [activityType](#activitytype) - 동작의 종류를 정의합니다.
 * [활동](#activity) - 활동을 문자열로 정의합니다.  
 * [행위자/이름](#actorname) - 행위자 이름의 형태로 행위자를 정의합니다.
@@ -97,6 +107,45 @@ Azure AD 감사 API에서 (OData 페이지 매김을 사용하여) 반환되는 
 datetime는 UTC 형식이어야 합니다.
 
 - - -
+### <a name="category"></a>카테고리
+
+**지원되는 값**:
+
+| Category                         | 값     |
+| :--                              | ---       |
+| 핵심 디렉터리                   | 디렉터리 |
+| 셀프 서비스 암호 관리 | SSPR      |
+| 셀프 서비스 그룹 관리    | SSGM      |
+| 계정 프로비전             | 동기화      |
+| 자동화된 암호 롤오버      | 자동화된 암호 롤오버 |
+| ID 보호              | IdentityProtection |
+| 사용자 초대                    | 사용자 초대 |
+| MIM 서비스                      | MIM 서비스 |
+
+
+
+**지원되는 연산자**: eq
+
+**예제**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**지원되는 값**:
+
+| 활동 상태 | 값 |
+| :--             | ---   |
+| 성공         | 0     |
+| 실패         | - 1   |
+
+**지원되는 연산자**: eq
+
+**예제**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **지원되는 연산자**: eq
 
@@ -139,6 +188,7 @@ datetime는 UTC 형식이어야 합니다.
 **예제**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>대상/이름
@@ -190,10 +240,4 @@ datetime는 UTC 형식이어야 합니다.
 ## <a name="next-steps"></a>다음 단계
 * 필터링된 시스템 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 감사 API 샘플](active-directory-reporting-api-audit-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

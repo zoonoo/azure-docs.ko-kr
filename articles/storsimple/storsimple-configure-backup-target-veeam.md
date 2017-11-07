@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
-ms.lasthandoff: 01/26/2017
-
+ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
 
 ## <a name="overview"></a>개요
@@ -244,15 +243,15 @@ Veeam 설치 모범 사례는 [Veeam 백업 및 복제 모범 사례](https://bp
 
 ## <a name="retention-policies"></a>보존 정책
 
-가장 일반적인 백업 보존 정책 유형 중 하나는 GFS(Grandfather, Father, and Son) 정책입니다. GFS 정책에서는 증분 백업이 매일 수행되고, 전체 백업은 매주 및 매월 수행됩니다. 이 정책을 적용하면&6;개의 계층화된 StorSimple 볼륨이 만들어집니다. 하나의 볼륨에는 매주, 매월 및 매년 전체 백업이 포함됩니다. 나머지&5;개의 볼륨에는 매일 증분 백업이 저장됩니다.
+가장 일반적인 백업 보존 정책 유형 중 하나는 GFS(Grandfather, Father, and Son) 정책입니다. GFS 정책에서는 증분 백업이 매일 수행되고, 전체 백업은 매주 및 매월 수행됩니다. 이 정책을 적용하면 6개의 계층화된 StorSimple 볼륨이 만들어집니다. 하나의 볼륨에는 매주, 매월 및 매년 전체 백업이 포함됩니다. 나머지 5개의 볼륨에는 매일 증분 백업이 저장됩니다.
 
 다음 예제에서는 GFS 회전을 사용합니다. 이 예제에서는 다음을 가정합니다.
 
 -   중복 제거되지 않거나 압축되지 않은 데이터를 사용합니다.
 -   전체 백업은 각각 1TiB입니다.
 -   매일 증분 백업은 각각 500GiB입니다.
--   4개의 매주 백업이&1;개월 동안 보관됩니다.
--   12개의 매월 백업이&1;년 동안 보관됩니다.
+-   4개의 매주 백업이 1개월 동안 보관됩니다.
+-   12개의 매월 백업이 1년 동안 보관됩니다.
 -   1개의 매년 백업이 10년 동안 보관됩니다.
 
 앞서의 가정에 따라 매월 및 매년 전체 백업에 대해 26TiB의 계층화된 StorSimple 볼륨을 만듭니다. 매일 증분 백업 각각에 대해 5TiB의 계층화된 StorSimple 볼륨을 만듭니다.
@@ -260,7 +259,7 @@ Veeam 설치 모범 사례는 [Veeam 백업 및 복제 모범 사례](https://bp
 | 백업 유형 보존 | 크기(TiB) | GFS 승수\* | 총 용량(TiB)  |
 |---|---|---|---|
 | 매주 전체 | 1 | 4  | 4 |
-| 매일 증분 | 0.5 | 20(주기는 월별 주 수와 동일함) | 12(추가 할당량의 경우&2;) |
+| 매일 증분 | 0.5 | 20(주기는 월별 주 수와 동일함) | 12(추가 할당량의 경우 2) |
 | 매월 전체 | 1 | 12 | 12 |
 | 매년 전체 | 1  | 10 | 10 |
 | GFS 요구 사항 |   | 38 |   |
@@ -283,7 +282,7 @@ Veeam 설치 모범 사례는 [Veeam 백업 및 복제 모범 사례](https://bp
 
     ![Veeam 관리 콘솔 - 백업 리포지토리의 유형 선택](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
-4.  **위치**를 지정하려면 볼륨을 찾아보고 선택합니다. **최대 동시 작업 수 제한:** 확인란을 선택하고 값을 **4**로 설정합니다. 이렇게 하면 각 VM(가상 컴퓨터)이 처리되는 동안&4;개의 가상 디스크만 동시에 처리됩니다. **고급** 단추를 선택합니다.
+4.  **위치**를 지정하려면 볼륨을 찾아보고 선택합니다. **최대 동시 작업 수 제한:** 확인란을 선택하고 값을 **4**로 설정합니다. 이렇게 하면 각 VM(가상 컴퓨터)이 처리되는 동안 4개의 가상 디스크만 동시에 처리됩니다. **고급** 단추를 선택합니다.
 
     ![Veeam 관리 콘솔 - 볼륨 선택](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
@@ -466,48 +465,13 @@ StorSimple 클라우드 스냅숏은 StorSimple 장치에 있는 데이터를 �
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅숏을 시작하거나 삭제하려면
 
-1. [Azure PowerShell 설치](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
-2. [게시 설정 및 구독 정보를 다운로드하여 가져옵니다](https://msdn.microsoft.com/library/dn385850.aspx).
-3. Azure 클래식 포털에서 리소스 이름 및 [StorSimple Manager 서비스의 등록 키](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)를 가져옵니다.
-4. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. 다음 명령을 입력합니다.
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    백업 정책 ID를 적어둡니다.
-5. [메모장]에서 다음 코드를 사용하여 새 PowerShell 스크립트를 만듭니다.
-
-    다음 코드 조각을 복사하여 붙여넣습니다.
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-6. 백업 작업에 스크립트를 추가하려면 Veeam 작업 고급 옵션을 편집합니다.
+1. [Azure PowerShell 설치](/powershell/azure/overview)
+2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
+3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4. 백업 작업에 스크립트를 추가하려면 Veeam 작업 고급 옵션을 편집합니다.
 
     ![Veeam 백업 고급 설정 스크립트 탭](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
@@ -553,4 +517,3 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 
 - [백업 세트에서 복원](storsimple-restore-from-backup-set-u2.md)하는 방법에 대해 자세히 알아보세요.
 - [장치 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.
-

@@ -1,5 +1,5 @@
 ## <a name="overview"></a>개요
-[Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)의 이미지를 배포하여 리소스 그룹에 새 가상 컴퓨터(VM)를 만드는 경우 기본 OS 드라이브는 127GB입니다. VM에 데이터 디스크를 추가할 수 있고(선택한 SKU에 따라 추가할 수 있는 양이 달라짐) 응용 프로그램 및 CPU 사용량이 많은 워크로드는 이러한 추가 디스크에 설치하는 것이 좋지만, 고객이 다음과 같은 특정 시나리오를 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 자주 있습니다.
+[Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 이미지를 배포하여 리소스 그룹에 새 VM(가상 컴퓨터)을 만드는 경우 기본 OS 드라이브는 종종 127GB입니다(일부 이미지의 경우 OS 디스크 크기가 기본적으로 더 작음). VM에 데이터 디스크를 추가할 수 있고(선택한 SKU에 따라 추가할 수 있는 양이 달라짐) 응용 프로그램 및 CPU 사용량이 많은 워크로드는 이러한 추가 디스크에 설치하는 것이 좋지만, 고객이 다음과 같은 특정 시나리오를 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 자주 있습니다.
 
 1. OS 드라이브에 구성 요소를 설치하는 기존 응용 프로그램을 지원하려 합니다.
 2. OS 드라이브가 더 큰 온-프레미스로 실제 PC 또는 가상 컴퓨터를 마이그레이션하려 합니다.
@@ -42,7 +42,7 @@
    ```
    
    > [!WARNING]
-   > 새 크기가 기존 디스크 크기보다 커야 합니다. 허용되는 최대 크기는 1023GB입니다.
+   > 새 크기가 기존 디스크 크기보다 커야 합니다. 허용되는 최대 크기는 2,048GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 2,048GB의 공간에서만 작동할 수 있습니다.)
    > 
    > 
 6. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 다음과 같이 VM을 다시 시작합니다.
@@ -80,5 +80,5 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Azure Resource Manager VM에 디스크를 연결하는 방법은 이 [문서](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure Resource Manager VM에 디스크를 연결하는 방법은 이 [문서](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 

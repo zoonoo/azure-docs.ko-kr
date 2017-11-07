@@ -12,18 +12,18 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 03/30/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
-
-
+ms.openlocfilehash: 8f9626fc47e7d32cb104b960bea9b7de9efa6f3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>desired 속성을 사용하여 장치 구성
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 앱이 제공됩니다.
+이 자습서의 끝 부분에 다음 두 개의 콘솔 앱이 제공됩니다.
 
 * **SimulateDeviceConfiguration.js** - 원하는 구성 업데이트를 기다리고 시뮬레이션된 구성 업데이트 프로세스의 상태를 보고하는 시뮬레이션된 장치 앱.
 * **SetDesiredConfigurationAndQuery**, 장치에 원하는 구성을 설정하고 구성 업데이트 프로세스를 쿼리하는 Node.js 백 엔드 앱입니다.
@@ -35,16 +35,17 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
-* Node.js 버전 0.10.x 이상
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* Visual Studio 2015 또는 Visual Studio 2017.
+* Node.js 버전 4.0.x 이상
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
 
-[장치 쌍 시작][lnk-twin-tutorial] 자습서를 수행했으면 이미 IoT Hub 및 **myDeviceId**라는 장치 ID가 있으므로 [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
+[장치 쌍 시작][lnk-twin-tutorial] 자습서를 수행했으면 이미 IoT Hub 및 **myDeviceId**라는 장치 ID가 있습니다. 이 경우 [시뮬레이션된 장치 앱 만들기][lnk-how-to-configure-createapp] 섹션으로 건너뛸 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
+<a id="#create-the-simulated-device-app"></a>
 ## <a name="create-the-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고, 원하는 구성 업데이트를 기다린 다음, 시뮬레이션된 구성 업데이트 프로세스의 업데이트를 보고합니다.
 
@@ -53,13 +54,13 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
     ```
     npm init
     ```
-2. **simulatedeviceconfiguration** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+1. **simulatedeviceconfiguration** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. 텍스트 편집기를 사용하여 **simulatedeviceconfiguration** 폴더에 새 **SimulateDeviceConfiguration.js** 파일을 만듭니다.
-4. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+1. 텍스트 편집기를 사용하여 **simulatedeviceconfiguration** 폴더에 새 **SimulateDeviceConfiguration.js** 파일을 만듭니다.
+1. 다음 코드를 **SimulateDeviceConfiguration.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -93,15 +94,15 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
             }
         });
    
-    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, desired 속성에서 업데이트를 위한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
+    **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이 코드는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, *원하는 속성*에서 업데이트를 위한 처리기를 연결합니다. 처리기는 configId를 비교하여 실제 구성 변경 요청이 있는지 확인한 후 구성 변경을 시작하는 메서드를 호출합니다.
    
-    이전 코드에서는 간단히 하기 위해 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
+    이 코드에서는 간단히 하기 위해 초기 구성에 대한 하드 코드된 기본값을 사용합니다. 실제 앱은 아마도 로컬 저장소로부터 그 구성을 로드할 것입니다.
    
    > [!IMPORTANT]
-   > Desired 속성 변경 이벤트는 항상 장치 연결시 한 번에 내보내지기 때문에, 모든 작업을 수행하기 전에 Desired 속성에 실제 변경이 있는지 확인해야 합니다.
+   > 원하는 속성 변경 이벤트는 장치 연결 시 한 번만 내보내집니다. 작업을 수행하기 전에 원하는 속성이 실제로 변경되었는지 확인해야 합니다.
    > 
    > 
-5. `client.open()` 호출 전에 다음 메서드를 추가합니다.
+1. `client.open()` 호출 전에 다음 메서드를 추가합니다.
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -147,10 +148,10 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
     대역폭을 절약하기 위해 보고된 속성은 문서 전체를 교체하는 대신에 수정할 속성(위의 코드에서 **patch**라고 명명됨)만 지정하여 업데이트합니다.
    
    > [!NOTE]
-   > 이 자습서는 동시 구성 업데이트에 대해 어떤 동작도 시뮬레이션하지 않습니다. 일부 구성 업데이트 프로세스는 업데이트가 실행되는 중에 대상 구성의 변경을 수용할 수 있는 반면에 다른 프로세스는 대기해야 하거나 오류 조건을 사용해 거부할 수 있습니다. 특정 구성 프로세스에 대해 원하는 동작을 고려하여 구성 변경을 시작하기 전에 적절한 논리를 추가해야 합니다.
+   > 이 자습서는 동시 구성 업데이트에 대해 어떤 동작도 시뮬레이션하지 않습니다. 어떤 구성 업데이트 프로세스는 업데이트가 실행되는 중에 대상 구성의 변경을 수용할 수 있는 반면에 어떤 프로세스는 대기해야 하거나 오류 조건을 사용해 거부할 수 있습니다. 특정 구성 프로세스에 대해 원하는 동작을 고려하여 구성 변경을 시작하기 전에 적절한 논리를 추가해야 합니다.
    > 
    > 
-6. 장치 앱 실행.
+1. 장치 앱 실행.
    
         node SimulateDeviceConfiguration.js
    
@@ -162,20 +163,20 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SetDesiredConfigurationAndQuery**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][img-createapp]
-2. 솔루션 Explorer에서 **SetDesiredConfigurationAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
-3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
+1. 솔루션 탐색기에서 **SetDesiredConfigurationAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리...**를 클릭합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
     ![NuGet 패키지 관리자 창][img-servicenuget]
-4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. **Program** 클래스에 다음 메서드를 추가합니다.
+1. **Program** 클래스에 다음 메서드를 추가합니다.
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -194,35 +195,45 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
             Console.WriteLine("Updated desired configuration");
    
-            while (true)
+            try
             {
-                var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
-                var results = await query.GetNextAsTwinAsync();
-                foreach (var result in results)
+                while (true)
                 {
-                    Console.WriteLine("Config report for: {0}", result.DeviceId);
-                    Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine();
+                    var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
+                    var results = await query.GetNextAsTwinAsync();
+                    foreach (var result in results)
+                    {
+                        Console.WriteLine("Config report for: {0}", result.DeviceId);
+                        Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine();
+                    }
+                    Thread.Sleep(10000);
                 }
-                Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
             }
         }
    
-    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Registry** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, 새로운 원격 분석 구성 개체를 사용하여 desired 속성을 업데이트합니다.
-    그런 다음 10초마다 IoT Hub에 저장된 장치 쌍을 쿼리하고, desired 및 reported 원격 분석 구성을 출력합니다. 모든 장치에서 다양한 보고서를 생성하는 방법을 알아보려면 [IoT Hub 쿼리 언어][lnk-query]를 참조하세요.
+    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이 코드에서는 **Registry** 개체를 초기화한 후 **myDeviceId**에 대한 장치 쌍을 검색하고, 새로운 원격 분석 구성 개체를 사용하여 desired 속성을 업데이트합니다.
+    그런 다음 10초마다 IoT Hub에 저장된 장치 쌍을 쿼리하고, 원하는 보고된 원격 분석 구성을 출력합니다. 모든 장치에서 다양한 보고서를 생성하는 방법을 알아보려면 [IoT Hub 쿼리 언어][lnk-query]를 참조하세요.
    
    > [!IMPORTANT]
-   > 이 응용 프로그램은 설명 목적으로 10초 마다 IoT Hub를 쿼리합니다. 변경을 감지하기 위해서가 아니라 여러 장치에서 사용자용 보고서를 생성하기 위해 쿼리를 사용합니다. 솔루션에 장치 이벤트의 실시간 알림이 필요한 경우 [장치-클라우드 메시지][lnk-d2c]를 사용합니다.
+   > 이 응용 프로그램은 설명 목적으로 10초 마다 IoT Hub를 쿼리합니다. 변경을 감지하기 위해서가 아니라 여러 장치에서 사용자용 보고서를 생성하기 위해 쿼리를 사용합니다. 솔루션에 장치 이벤트의 실시간 알림이 필요한 경우 [쌍 알림][lnk-twin-notifications]을 사용합니다.
    > 
    > 
-7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-        SetDesiredConfigurationAndQuery();
+        SetDesiredConfigurationAndQuery().Wait();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-8. **SimulateDeviceConfiguration.js**가 실행 중일 때 **F5** 키를 사용하여 Visual Studio에서 .NET 응용 프로그램을 실행하고 24시간이 아니라 5분이란 새로운 액티브 보내기 빈도 사용해 보고된 구성이 **Success**에서 **Pending**으로 그리고 다시 **Success**로 변경 표시되어야 합니다.
+1. 솔루션 탐색기에서 **시작 프로젝트 설정...**을 열고 **SetDesiredConfigurationAndQuery** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드하십시오.
+1. **SimulateDeviceConfiguration.js**가 실행 중일 때 **F5** 키를 사용하여 Visual Studio에서 .NET 응용 프로그램을 실행하고 24시간이 아니라 5분이란 새로운 액티브 보내기 빈도 사용해 보고된 구성이 **Success**에서 **Pending**으로 그리고 다시 **Success**로 변경 표시되어야 합니다.
+
+ ![장치가 성공적으로 구성됨][img-deviceconfigured]
    
    > [!IMPORTANT]
    > 장치 보고서 작업 및 쿼리 결과 사이에 최대 1분간 지연됩니다. 이는 쿼리 인프라를 매우 높은 규모에서 작업하도록 하기 위해서입니다. 단일 장치 쌍의 일관된 보기를 검색하려면 **Registry** 클래스의 **getDeviceTwin** 메서드를 사용합니다.
@@ -239,8 +250,9 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 * [직접 메서드 사용][lnk-methods-tutorial] 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-node-twin-how-to-configure/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-twin-how-to-configure/createnetapp.png
+[img-deviceconfigured]: media/iot-hub-csharp-node-twin-how-to-configure/deviceconfigured.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -249,7 +261,7 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -257,16 +269,9 @@ ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app

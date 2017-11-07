@@ -11,18 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 09/22/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: c86004a14983e9eea543fbd3aa09f2a447414291
-
+ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
-> * [Azure CLI](dns-operations-dnszones-cli.md)
+> * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
 
@@ -46,6 +49,8 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS는 이제 사설 DNS 영역(현재는 미리 보기 기능)도 지원합니다.  사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
 
 ## <a name="get-a-dns-zone"></a>DNS 영역 가져오기
 
@@ -166,11 +171,5 @@ DNS 영역에서 [레코드 집합 및 레코드 관리](dns-operations-recordse
 <br>
 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)하는 방법을 알아봅니다.
 <br>
-[Azure DNS PowerShell 참조 설명서](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)를 검토합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[Azure DNS PowerShell 참조 설명서](/powershell/module/azurerm.dns)를 검토합니다.
 

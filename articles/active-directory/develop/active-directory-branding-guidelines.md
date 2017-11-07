@@ -3,7 +3,7 @@ title: "응용 프로그램에 대한 브랜딩 지침 | Microsoft Docs"
 description: "Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드"
 services: active-directory
 documentationcenter: dev-center-name
-author: msmbaldwin
+author: skwan
 manager: mbaldwin
 editor: 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 316f073019abef03227b741d9349d0ca75dda6bd
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 04/27/2017
+ms.author: skwan
+ms.custom: aaddev
+ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>응용 프로그램에 대한 브랜딩 지침
 이 항목에서는 Azure Active Directory(Azure AD)를 사용해 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 설명합니다. 이 지침은 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램을 등록하고 로그인하는 데 사용하려는 고객을 안내하는 데 도움이 됩니다.
@@ -88,5 +88,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 ## <a name="navigation-dos-and-donts"></a>탐색 관련 할 일과 하지 말아야 할 일
 **권장** 사용자가 로그아웃한 후 다른 사용자 계정으로 전환하는 방법을 제공합니다. 대부분의 사람들은 Microsoft/Facebook/Google/Twitter의 단일 개인 계정을 가지고 있지만, 사람들은 종종 여러 조직과 연결됩니다. 여러 명의 로그인한 사용자에 대한 지원이 곧 제공됩니다.
-
 

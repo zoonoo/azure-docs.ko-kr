@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
-
-
+ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>클라우드 서비스를 관리하는 방법
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 >
 >
 
-클라우드 서비스는 Azure 포털의 **클라우드 서비스(클래식)** 영역에서 관리됩니다. 이 문서에서는 클라우드 서비스를 관리하는 동안 수행하는 몇 가지 일반적인 동작을 설명합니다. 여기에는 업데이트, 삭제, 크기 조정 및 스테이징된 배포를 프로덕션으로 승격하는 동작이 포함됩니다.
+Azure Portal **Cloud Services(클래식)** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
 
 클라우드 서비스 크기를 조정하는 방법에 대한 자세한 내용은 [여기](cloud-services-how-to-scale-portal.md)를 참조하세요.
 
@@ -75,17 +75,17 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 
 **배포 교환을 위한 필수 조건**
 
-성공적인 배포 교환을 위한&2;가지 핵심 필수 조건은 다음과 같습니다.
+성공적인 배포 교환을 위한 2가지 핵심 필수 조건은 다음과 같습니다.
 
 - 프로덕션 슬롯에 정적 IP 주소를 사용하려는 경우에는 스테이징 슬롯을 위해서도 하나를 예비해 두어야 합니다. 그러지 않으면 교체가 실패합니다.
 
-- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 개요 블레이드 또는 [Windows PowerShell의 Get-AzureRole 명령](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole)을 사용하여 인스턴스 상태를 확인할 수 있습니다.
+- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 개요 블레이드에서 인스턴스의 상태를 확인할 수 있습니다. 또는 Windows PowerShell에서 [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) 명령을 사용할 수 있습니다.
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교체가 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 
 **교체 시 응용 프로그램 가동 중지가 발생할 수 있습니까? 어떻게 처리해야 합니까?**
 
-마지막 섹션에서 설명한 대로 배포 교체는 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 매우 빠릅니다. 그러나 경우에 따라&10;초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
+마지막 섹션에서 설명한 대로 배포 교체는 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 그러나 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>방법: 클라우드 서비스에 리소스 연결
 Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를 함께 연결하지 않습니다. 대신, 클라우드 서비스에서 사용 중인 동일한 리소스 그룹에 추가 리소스를 배포합니다.
@@ -111,8 +111,14 @@ Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를
 
 > [!NOTE]
 > 클라우드 서비스를 삭제할 때 자세한 정보 표시 모니터링이 구성된 경우에는 저장소 계정에서 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내 [이](cloud-services-how-to-monitor.md) 문서를 참조하십시오.
->
->
+
+
+## <a name="how-to-find-more-information-about-failed-deployments"></a>방법: 실패한 배포에 대한 자세한 정보 보기
+**개요** 블레이드의 위쪽에는 상태 표시줄이 있습니다. 이 표시줄을 클릭하면 새 블레이드가 열리고 오류 정보가 표시됩니다. 배포에 오류가 없으면 정보 블레이드는 비어 있습니다.
+
+![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 
@@ -121,9 +127,3 @@ Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5771c7d1716f126570759cd4a3c53ebd3d30adf4
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)
 > [!div class="op_single_selector"]
@@ -41,6 +40,7 @@ ms.lasthandoff: 03/25/2017
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server 버전**:
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/25/2017
 
 **Azure PowerShell**:
 
-* [최신 Azure PowerShell cmdlet을 설치합니다](/powershell/azureps-cmdlets-docs).
+* [최신 Azure PowerShell cmdlet을 설치합니다](/powershell/azure/overview).
 
 **SQL Server IaaS 확장**:
 
@@ -114,5 +114,4 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

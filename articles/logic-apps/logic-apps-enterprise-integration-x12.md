@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2c20d4c764129004b4e757854bcd1ecb106cecff
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>엔터프라이즈 통합용 X12 메시지를 논리 앱과 교환
 
@@ -40,14 +39,14 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="create-an-x12-agreement"></a>X12 규약 만들기
 
-1.    [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다. 
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다. 
 
     > [!TIP]
     > **추가 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
 
     ![왼쪽 메뉴에서 "추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.    검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.  
+2.  검색 상자에서 필터에 "통합"을 입력합니다. 결과 목록에서 **통합 계정**을 선택합니다.  
 
     !["통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
@@ -86,7 +85,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **수신 설정**을 선택합니다.
+1.  **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
     **수신 설정**은 식별자, 승인, 스키마, 봉투, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
@@ -182,7 +181,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 이 규약이 규약을 통해 파트너에게 보내는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
-1.    **추가** 아래에서 **송신 설정**을 선택합니다.
+1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
     **송신 설정**은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
@@ -272,6 +271,9 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 | Segment Terminator |EDI 세그먼트의 끝을 나타내려면 단일 문자를 입력합니다. |
 | 접미사 |세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다. |
 
+> [!TIP]
+> 특수 문자 값을 제공하려면 JSON으로 계약을 편집하고 특수 문자에 대한 ASCII 값을 제공합니다.
+
 ### <a name="validation"></a>유효성 검사
 
 ![보낸 메시지의 유효성 검사 속성 설정](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
@@ -289,15 +291,17 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
 ## <a name="find-your-created-agreement"></a>생성된 규약 찾기
 
-1.    모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
+1.  모든 규약 속성 설정을 완료한 후에 **추가** 블레이드에서 **확인**을 선택하여 규약 만들기를 완료하고 사용자 통합 계정 블레이드로 돌아갑니다.
 
     이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
 
-2.    또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다.
+2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다.
 
     ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/x12/)를 참조하세요. 
+
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-
 

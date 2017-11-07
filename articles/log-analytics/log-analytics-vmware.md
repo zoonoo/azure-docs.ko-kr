@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/11/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
+
+![VMware 기호](./media/log-analytics-vmware/vmware-symbol.png)
+
 Log Analytics VMware 모니터링 솔루션은 대규모 VMware 로그에 적합한 중앙 집중식 로깅 및 모니터링 접근 방식을 만들 수 있는 솔루션입니다. 이 문서에서는 단일 위치에서 이 솔루션을 사용하여 ESXi 호스트의 문제를 해결, 캡처 및 관리하는 방법을 설명합니다. 솔루션을 사용하면 단일 위치에서 모든 ESXi 호스트에 대한 데이터를 자세히 볼 수 있습니다. ESXi 호스트 로그를 통해 제공되는 상위 이벤트 수, 상태, VM 및 ESXi 호스트의 추세를 볼 수 있습니다. 중앙 집중식 ESXi 호스트 로그를 보고 검색하여 문제를 해결할 수 있습니다. 그리고 로그 검색 쿼리에 기반한 경고를 만들 수 있습니다.
 
 이 솔루션은 ESXi 호스트의 기본 syslog 기능을 사용하여 OMS 에이전트가 있는 대상 VM에 데이터를 푸시합니다. 그러나 대상 VM 내의 syslog에 파일을 작성하지는 않습니다. OM 에이전트는 포트 1514를 열고 수신 대기합니다. 데이터를 받으면 이를 OMS로 푸시합니다.
@@ -77,7 +79,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 OMS 에이전�
 
 | 플랫폼 | Linux 용 OMS 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![예](./media/log-analytics-vmware/oms-bullet-green.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |매 3분 |
+| Linux |&#8226; |  |  |  |  |매 3분 |
 
 다음 표에서는 VMware 모니터링 솔루션에서 수집한 데이터 형식의 예를 보여 줍니다.
 
@@ -147,7 +149,10 @@ ESXi 호스트마다 가상 컴퓨터를 만들고 삭제할 수 있습니다. �
 #### <a name="common-search-queries"></a>일반적 검색 쿼리
 솔루션에는 대규모 저장소 공간, 저장소 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![쿼리](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>쿼리 저장
 OMS 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼리를 유지하는 데 도움이 됩니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](log-analytics-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
@@ -171,7 +176,7 @@ OMS 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼�
 Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자세한 내용은 [VMware 기술 자료](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202)를 참조하세요. 해결 방법을 적용하면 호스트가 정상적으로 작동할 것입니다.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 syslog 데이터를 전달하도록 할 수 있습니까?
- 예. 여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 전달하도록 할 수 있습니다.
+예. 여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 전달하도록 할 수 있습니다.
 
 ### <a name="why-dont-i-see-data-flowing-into-oms"></a>OMS로 이동하는 데이터가 보이지 않는 이유는 무엇입니까?
 여러 가지 이유가 있을 수 있습니다.
@@ -198,4 +203,3 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 * Log Analytics의 [로그 검색](log-analytics-log-searches.md)을 통한 자세한 VMware 호스트 데이터 보기
 * VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](log-analytics-dashboards.md)
 * 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](log-analytics-alerts.md)
-

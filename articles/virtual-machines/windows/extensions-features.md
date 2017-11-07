@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 컴퓨터 확장 및 기능
 
@@ -40,7 +39,6 @@ Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 이 확장은 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](extensions-customscript.md)을 참조하세요.
 
-VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](dotnet-core-1-landing.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -159,7 +157,7 @@ Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포�
 }
 ```
 
-자세한 내용은 [Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](extensions-authoring-templates.md)을 참조하세요.
+자세한 내용은 [Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](template-description.md#extensions)을 참조하세요.
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 
@@ -287,4 +285,3 @@ Azure Portal을 사용하여 확장을 제거할 수도 있습니다. 이렇게 
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-

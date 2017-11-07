@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 장치에서 장치 모드 변경
 이 문서에서는 StorSimple 장치에서 작동할 수 있는 다양한 모드에 대한 간략한 설명을 제공합니다. StorSimple 장치는 표준, 유지 관리 및 복구의 세 가지 모드로 작동할 수 있습니다. 
@@ -90,10 +90,4 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 ## <a name="next-steps"></a>다음 단계
 StorSimple 장치에서 [표준 및 유지 관리 모드 업데이트를 적용](storsimple-update-device.md) 하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

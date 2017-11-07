@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse의 데이터베이스 관리 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스 데이터베이스 관리 개요. 관리 도구, DWU 및 성능 확장, 쿼리 성능 문제 해결, 보안 정책 설정, 데이터 손상 또는 지역적 중단으로부터 데이터베이스 복원 등이 포함되어 있습니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 0056c458cc002cbdb1b8dabefe0d11a8abd61179
-ms.lasthandoff: 03/29/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 데이터베이스 관리
 SQL 데이터 웨어하우스는 데이터베이스 관리의 여러 측면을 자동화합니다. 예를 들어 성능을 조정하려는 경우 적정 수준의 계산 리소스를 조정하고 해당 비용만 지불하기만 하면 SQL 데이터 웨어하우스에서 모든 확장 및 축소 작업을 수행합니다.
@@ -114,4 +113,3 @@ DWU 확장에 대한 자세한 내용은 [성능 조정]을 참조하세요.
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.com/
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>PowerShell을 사용하여 고정 내부 개인 IP를 설정하는 방법(기본)
 대부분의 경우 가상 컴퓨터에 고정 내부 IP 주소를 지정할 필요가 없습니다. 가상 네트워크의 VM은 사용자가 지정한 범위의 내부 IP 주소를 자동으로 받습니다. 그러나 특정한 상황에서는 특정 VM에 고정 IP 주소를 지정하는 것이 적합한 경우도 있습니다. 예를 들어 VM에서 DNS를 실행하거나 VM을 도메인 컨트롤러로 구성하는 경우입니다. 고정 내부 IP 주소는 중지 상태 및 프로비전 해제 상태에서도 VM에 유지됩니다. 
@@ -41,7 +40,7 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> 안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기](virtual-networks-create-vnet-classic-portal.md)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
+> 안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기(클래식)](virtual-networks-create-vnet-classic-pportal.md)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
 > 
 > 
 
@@ -108,5 +107,4 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 [인스턴스 수준 공용 IP(ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
 

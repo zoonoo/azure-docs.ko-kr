@@ -2,27 +2,25 @@ Azure VM(가상 컴퓨터)에서 실행되는 응용 프로그램을 시작 또�
 
 RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 먼저 다음 문서 중 하나를 참조하세요.
 
-* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../articles/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 두 모델을 모두 사용하여 설명하지만 대부분의 새로운 배포에는 리소스 관리자 모델을 사용하는 것이 좋습니다.
-> 
-> 
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
 
-## <a name="quick-start-troubleshooting-endpoint-connectivity-problems"></a>끝점 연결 문제 해결 빠른 시작
+## <a name="quick-start-troubleshooting-steps"></a>빠른 시작 문제 해결 단계
 응용 프로그램에 연결하는 데 문제가 있는 경우 다음과 같은 일반적인 문제 해결 단계를 시도하세요. 각 단계 후 응용 프로그램을 다시 연결해 보세요.
 
 * 가상 컴퓨터 다시 시작
 * 끝점 / 방화벽 규칙 / NSG(네트워크 보안 그룹) 규칙 다시 만들기
-  * [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * 다른 Azure 가상 네트워크 등 다른 위치에서 연결
 * 가상 컴퓨터 다시 배포
-  * [Windows VM 다시 배포](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Linux VM 다시 배포](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Windows VM 다시 배포](../articles/virtual-machines/windows/redeploy-to-new-node.md)
+  * [Linux VM 다시 배포](../articles/virtual-machines/linux/redeploy-to-new-node.md)
 * 가상 컴퓨터 다시 만들기
 
 자세한 내용은 [끝점 연결 문제 해결(RDP/SSH/HTTP 등의 오류)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)를 참조하세요.
@@ -44,6 +42,7 @@ Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문�
    * 트래픽 흐름을 방지하도록 방화벽 규칙이 제대로 적용되고 있나요?
 
 사이트-사이트 VPN 또는 ExpressRoute 연결을 통해 응용 프로그램에 액세스하는 클라이언트 컴퓨터에 대해, 문제를 일으키는 주요 영역은 응용 프로그램 및 Azure 가상 컴퓨터입니다.
+
 문제 및 해당 보정의 원인을 확인하려면 다음 단계를 수행합니다.
 
 ## <a name="step-1-access-application-from-target-vm"></a>1단계: 대상 VM에서 응용 프로그램에 액세스
@@ -114,8 +113,12 @@ VM에서 응용 프로그램이 실행되고 있는 경우 가상 네트워크 �
 * 아웃 바운드 응용 프로그램이 클라이언트 컴퓨터에서 부터 Azure 가상 컴퓨터에 도달하는 트래픽 요청
 * Azure 가상 컴퓨터에서 발생하는 인바운드 응용 프로그램 응답 트래픽
 
-## <a name="additional-resources"></a>추가 리소스
-[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>4단계: 응용 프로그램에 액세스할 수 없는 경우 IP 확인을 사용하여 설정을 확인합니다. 
 
-[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+
+## <a name="additional-resources"></a>추가 리소스
+[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+
+[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

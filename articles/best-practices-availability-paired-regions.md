@@ -12,20 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 09/27/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
-
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
 ## <a name="what-are-paired-regions"></a>쌍을 이루는 지역이란?
 
-Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내 영역입니다.
+Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내의 영역입니다.
 
 각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. 예외는 브라질 남부이며, 지리적 위치 외부에 있는 지역과 쌍을 이루고 있습니다.
 
@@ -35,20 +34,25 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 
 | Geography | 쌍을 이루는 지역 |  |
 |:--- |:--- |:--- |
+| 아시아 |동아시아 |동남아시아 |
+| 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
+| 캐나다 |캐나다 중부 |캐나다 동부 |
+| 중국 |중국 북부 |중국 동부|
+| 인도 |인도 중부 |인도 남부 |
+| 일본 |일본 동부 |일본 서부 |
+| 한국 |한국 중부 |한국 남부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 동부 |미국 서부 |
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 |
 | 유럽 |북유럽 |서유럽 |
-| 아시아 |동남아시아 |동아시아 |
-| 중국 |중국 동부 |중국 북부 |
 | 일본 |일본 동부 |일본 서부 |
 | 브라질 |브라질 남부(1) |미국 중남부 |
-| 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
 | 미국 정부 |미국 정부 아이오와 |미국 정부 버지니아 |
-| 인도 |인도 중부 |인도 남부 |
-| 캐나다 |캐나다 중부 |캐나다 동부 |
+| 미국 정부 |미국 정부 애리조나 |미국 정부 텍사스 |
+| 미국 국방부 |미국 국방부 동부 |미국 국방부 중부 |
 | 영국 |영국 서부 |영국 남부 |
+| 독일 |독일 중부 |독일 북동부 |
 
 표 1 - Azure 지역 쌍 매핑
 
@@ -69,7 +73,7 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute(PaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로비전해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](resiliency/resiliency-technical-guidance.md)을 참조하세요.
 
-![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - GRS(지역 중복 저장소)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage/storage-redundancy.md)을 참조하세요.
+![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - GRS(지역 중복 저장소)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – Azure SQL 표준 지리적 복제를 사용하면 쌍을 이루는 지역으로의 비동기 트랜잭션 복제를 구성할 수 있습니다. Premium 지리적 복제를 사용하면 전 세계 모든 지역으로의 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에서 이러한 리소스를 쌍을 이루는 지역에 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 
@@ -92,4 +96,3 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![데이터](./media/best-practices-availability-paired-regions/9Orange.png)
 **데이터 상주** – 지역은 세금 및 법률 집행 관할 구역의 데이터 상주 요구 사항을 충족하기 위해 동일한 지리적 위치 내에 쌍으로 상주합니다(브라질 남부 제외).
-

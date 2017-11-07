@@ -3,7 +3,7 @@ title: "API 검사기를 사용하여 호출 추적 - Azure API Management | Mic
 description: "API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-ms.lasthandoff: 01/31/2017
-
+ms.openlocfilehash: 8090b22b63dda6f67e321867977d5dece3d72132
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
 API 관리는 API 디버깅 및 문제 해결로 사용자를 돕는 API 검사기 도구를 제공합니다. API 검사기를 프로그래밍 방식으로 사용할 수 있으며 개발자 포털에서 직접 사용할 수도 있습니다. 
@@ -262,7 +262,6 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 [api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
 [api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
-
 
 
 

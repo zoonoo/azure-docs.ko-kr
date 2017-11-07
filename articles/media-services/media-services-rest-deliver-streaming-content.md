@@ -2,7 +2,7 @@
 title: "REST를 사용하여 Azure Media Services 콘텐츠 게시"
 description: "스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. REST API를 사용하는 코드입니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
 > [!div class="op_single_selector"]
@@ -37,6 +36,17 @@ ms.lasthandoff: 03/14/2017
 이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 작성하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다.
 
 [다음](#types) 섹션에서는 REST 호출에 사용되는 값을 가진 열거형 유형을 보여 줍니다.   
+
+> [!NOTE]
+> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> 
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>주문형 스트리밍 로케이터 만들기
 주문형 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
@@ -184,6 +194,7 @@ URL: **경로** + 자산 파일 mp4 이름
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목
-[자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
+[Media Services Operations REST API 개요](media-services-rest-how-to-use.md)
 
+[자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
 

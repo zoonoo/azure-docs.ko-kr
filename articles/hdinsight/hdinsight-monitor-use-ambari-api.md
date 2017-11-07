@@ -1,5 +1,5 @@
 ---
-title: "Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링 | Microsoft Docs"
+title: "Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링 - Azure | Microsoft Docs"
 description: "Hadoop 클러스터를 생성, 관리 및 모니터링하는 데 Apache Ambari API를 사용합니다. 직관적 운영자 도구와 API를 사용하면 Hadoop의 복잡한 작업을 간편하게 수행할 수 있습니다."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
 Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.
@@ -63,14 +62,14 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **Azure PowerShell 사용**
 
-다음 Azure PowerShell 스크립트는 *HDInsight 3.1 클러스터*에서 MapReduce 작업 추적기 정보를 가져옵니다.  가장 큰 차이점은 MapReduce가 아니라 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
+다음 Azure PowerShell 스크립트는 *HDInsight 3.5 클러스터*에서 MapReduce 작업 추적기 정보를 가져옵니다.  가장 큰 차이점은 MapReduce가 아니라 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
     $clusterPassword = "<HDInsightClusterPassword>"
 
-    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName/services/YARN/components/RESOURCEMANAGER"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
     $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
@@ -167,9 +166,8 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-documentation]: /documentation/services/hdinsight/
+[hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-

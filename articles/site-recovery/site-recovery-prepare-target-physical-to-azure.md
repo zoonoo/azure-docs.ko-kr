@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/11/2017
+ms.date: 5/31/2017
 ms.author: bsiva
-translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 9dd4e9007da6cf276f976e2f3f25305286830544
-
+ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 > [!div class="op_single_selector"]
-> * [VMware 가상 컴퓨터](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [물리적 서버](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware에서 Azure로](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [물리적 서버에서 Azure로](./site-recovery-prepare-target-physical-to-azure.md)
 
 이 문서에서는 Azure 환경을 준비하여 Windows 또는 Linux를 실행 중인 물리적 서버(x64)를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
@@ -50,9 +50,3 @@ ms.openlocfilehash: 9dd4e9007da6cf276f976e2f3f25305286830544
 
 ## <a name="next-steps"></a>다음 단계
 [복제 설정 구성](./site-recovery-setup-replication-settings-vmware.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

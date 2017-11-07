@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 07/14/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
-ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
-
-
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
@@ -29,9 +30,7 @@ ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램을 인터넷에 액세스되도록 게시하여 원격 작업자를 지원할 수 있습니다. 이제 [Azure 클래식 포털에서 응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다. 이 문서에서는 로컬 네트워크에 실행 중인 응용 프로그램을 게시하는 단계를 안내하고 네트워크 외부에서 안전한 원격 액세스를 제공합니다. 이 문서를 완료하면 응용 프로그램에 개인 설정된 정보 또는 보안 요구 사항을 구성할 준비가 됩니다.
 
 > [!NOTE]
-> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-> 
-> 
+> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요. 응용 프로그램 프록시를 사용하려는 경우 [Azure Portal에서 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)할 수 있습니다.
 
 ## <a name="publish-an-app-using-the-wizard"></a>마법사를 사용하여 앱 게시
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 관리자로 로그인합니다.
@@ -62,9 +61,9 @@ Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로�
 6. 마법사를 마치려면 화면 아래쪽에 있는 확인 표시를 클릭합니다. 이제 응용 프로그램이 Azure AD에 정의되었습니다.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>응용 프로그램에 사용자 및 그룹 할당
-사용자가 게시된 응용 프로그램에 액세스하기 위해서는 개별적으로 또는 그룹에 할당되어야 합니다. (자신에게도 액세스 권한을 할당합니다.) 각 사용자가 Azure Basic 이상에 대한 라이선스를 가지고 있어야 합니다. 개별적으로 또는 그룹에 라이선스를 할당할 수 있습니다. 세부 내용은 [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)을 참조하세요. 
+사용자가 게시된 응용 프로그램에 액세스하기 위해서는 개별적으로 또는 그룹에 할당되어야 합니다. (자신에게도 액세스 권한을 할당합니다.) 할당되는 사용자마다 Azure Basic 이상의 라이선스가 필요합니다. 개별적으로 또는 그룹에 라이선스를 할당할 수 있습니다. 자세한 내용은 [응용 프로그램에 사용자 할당](active-directory-applications-guiding-developers-assigning-users.md)을 참조하세요. 
 
-사전 인증을 필요로 하는 앱의 경우 이렇게 하면 앱을 사용할 권한이 부여됩니다. 사전 인증을 요구하지 않는 앱의 경우 MyApps과 같이 해당 응용 프로그램 목록에 표시되도록 사용자를 앱에 할당할 수 있습니다.
+사전 인증이 필요한 앱의 경우 사용자를 할당하면 응용 프로그램을 사용할 권한이 부여됩니다. 사전 인증이 필요 없는 앱의 경우 사용자를 할당하면 사용자가 액세스 패널을 통해 응용 프로그램에 액세스할 수 있습니다.
 
 1. 앱 추가 마법사를 마친 후에 응용 프로그램에 대한 빠른 시작 페이지를 확인합니다. 앱에 대한 액세스 권한이 있는 사용자를 관리하려면 **사용자 및 그룹**을 선택합니다.
    
@@ -89,7 +88,7 @@ Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로�
 
 Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시하면 Azure AD의 응용 프로그램 목록에 표시되므로 해당 위치에서 관리할 수 있습니다.
 
-응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 개인 네트워크 외부에서 액세스할 수 없습니다. 응용 프로그램을 삭제하지 않습니다.
+응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 개인 네트워크 외부에서 더 이상 응용 프로그램에 액세스할 수 없습니다. 사용자는 계속해서 평소처럼 응용 프로그램 온-프레미스에 액세스할 수 있습니다.
 
 응용 프로그램을 확인하고 액세스할 수 있는지 확인하려면 응용 프로그램의 이름을 두 번 클릭합니다. 응용 프로그램 프록시 서비스를 사용할 수 없고 응용 프로그램을 사용할 수 없는 경우 화면 위쪽에 경고 메시지가 나타납니다.
 
@@ -102,10 +101,4 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 * [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

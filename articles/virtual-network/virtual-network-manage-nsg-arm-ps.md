@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: edb23ae41e175061607d3a191c839e1194fa862b
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: ca7f4926ca4edf9d20612aca74f6ae5f0ed847b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-network-security-groups-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 관리
 
@@ -262,8 +261,8 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     -Protocol Tcp `
     -Direction Inbound `
     -Priority 102 `
-    -SourceAddressPrefix * `
-    -SourcePortRange Internet `
+    -SourceAddressPrefix Internet `
+    -SourcePortRange * `
     -DestinationAddressPrefix * `
     -DestinationPortRange 443
     ```
@@ -515,5 +514,4 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 ## <a name="next-steps"></a>다음 단계
 * [로깅을 사용합니다](virtual-network-nsg-manage-log.md) .
-
 

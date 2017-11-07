@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
-ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
-ms.lasthandoff: 01/12/2017
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: ff75a7e50142888e4cff4acd40bbdbee31c0e29d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호 활성화
 Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재적인 취약성에 대한 통합된 보기를 제공하고 알림, 수정 권장 사항 및 위험 기반 정책을 통해 비즈니스를 보호하도록 도움을 주는 새로운 기능입니다. 
@@ -45,5 +45,4 @@ Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
 

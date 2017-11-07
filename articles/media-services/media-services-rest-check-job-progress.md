@@ -4,7 +4,7 @@ description: "작업 진행률을 추적하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
-
-
+ms.openlocfilehash: fea4383e81f3ca21955252cf1d573f1b347b5a38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 > [!div class="op_single_selector"]
@@ -29,6 +29,15 @@ ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
 > 
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 작업의 상태 속성을 사용하여 작업 상태를 찾을 수 있습니다. 상태 속성에 대한 자세한 내용은 [Job 엔터티 속성](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)을 참조하세요.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+
+## <a name="check-job-progress"></a>작업 진행 상태 확인
 
 요청:
 
@@ -66,9 +75,6 @@ ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="see-also"></a>참고 항목
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+[Media Services Operations REST API 개요](media-services-rest-how-to-use.md)

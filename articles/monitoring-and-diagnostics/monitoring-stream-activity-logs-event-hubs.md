@@ -2,7 +2,7 @@
 title: "Azure 활동 로그를 이벤트 허브로 스트림 | Microsoft Docs"
 description: "Azure 활동 로그를 이벤트 허브로 스트림하는 방법에 대해 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 이벤트 허브로 스트림
 포털에서 기본 제공 "내보내기" 옵션을 사용하거나 Azure PowerShell Cmdlet 또는 Azure CLI를 통해 로그 프로필에서 Service Bus 규칙 ID를 사용하도록 설정하여 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 거의 실시간으로 응용 프로그램에 스트림할 수 있습니다.
@@ -44,7 +44,7 @@ ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 3. 표시되는 블레이드에서 이벤트를 스트림할 지역, 이러한 이벤트를 스트리밍하기 위해 이벤트 허브를 생성할 서비스 버스 네임스페이스를 선택할 수 있습니다.
    
     ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. **저장** 을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
+4. **저장**을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
 로그 프로필이 이미 있는 경우 먼저 해당 프로필을 제거해야 합니다.
@@ -54,7 +54,7 @@ ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 3. `Set-AzureRmLogProfile` 을 사용하여 프로필을 만듭니다.
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 서비스 버스 규칙 ID는 예를 들어, {service bus resource ID}/authorizationrules/{key name} 형식의 문자열입니다. 
@@ -79,10 +79,4 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 * [저장소 계정에 활동 로그 보관](monitoring-archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](monitoring-overview-activity-logs.md)
 * [활동 로그 이벤트를 기반으로 경고 설정](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

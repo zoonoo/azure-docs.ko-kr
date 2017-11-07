@@ -29,8 +29,3 @@
     ![연결된 서비스 대화 상자](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. **Azure Storage** 대화 상자에서 작업하려는 Azure 저장소 계정을 선택하고 **추가**를 선택합니다.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

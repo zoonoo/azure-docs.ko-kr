@@ -13,15 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d7d68cfd4c3fa54c889651a43b2252ffaf181495
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM에 대한 Azure 인프라 연습 예제
 
@@ -118,8 +117,3 @@ Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다
 * 인터넷에서 웹 서버 간 HTTPS 기반 웹 트래픽에 대한 외부 부하 분산 집합
 * 웹 서버에서 응용 프로그램 서버 간 암호화되지 않은 웹 트래픽에 대한 내부 부하 분산 집합
 * 단일 리소스 그룹
-
-## <a name="next-steps"></a>다음 단계
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-

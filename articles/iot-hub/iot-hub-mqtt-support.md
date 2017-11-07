@@ -3,7 +3,7 @@ title: "Azure IoT Hub MQTT 지원 이해 | Microsoft Docs"
 description: "개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 끝점에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다."
 services: iot-hub
 documentationcenter: .net
-author: kdotchkoff
+author: fsautomata
 manager: timlt
 editor: 
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
@@ -12,23 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: kdotchko
+ms.date: 07/11/2017
+ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c09caf68b4acf90b5a76d2d715e07fc3a522f18c
-ms.openlocfilehash: 7b9b7e558a95de88dedcb744e2a4b3c18cde35cc
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: f1a3ce746601dc42f04f021f3ba142688abdb7e7
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
+
 IoT Hub를 사용하면 장치는 포트 8883의 [MQTT v3.1.1][lnk-mqtt-org] 프로토콜을 사용하거나 포트 443의 WebSocket을 통한 MQTT v3.1.1 프로토콜을 사용하여 IoT Hub 장치 끝점과 통신할 수 있습니다. IoT Hub는 TLS/SSL을 사용하여 모든 장치 통신이 보호되어야 합니다. 따라서 IoT Hub는 포트 1883을 통한 비보안 연결을 지원하지 않습니다.
 
 ## <a name="connecting-to-iot-hub"></a>IoT Hub에 연결
+
 장치는 [Azure IoT SDK][lnk-device-sdks]의 라이브러리를 사용하거나 MQTT 프로토콜을 직접 사용하여 MQTT 프로토콜을 사용하는 IoT Hub에 연결할 수 있습니다.
 
 ## <a name="using-the-device-sdks"></a>장치 SDK 사용
+
 MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 장치 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 장치 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
 
 장치가 IoT Hub에 연결된 경우 장치 SDK는 IoT Hub와 메시지를 주고 받는 장치를 사용할 수 있는 메서드를 제공합니다.
@@ -44,7 +46,8 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 | [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>장치 앱을 AMQP에서 MQTT로 마이그레이션
-[장치 SDK][lnk-device-sdks]를 사용하는 경우 위에서 말한 대로 AMQP 사용에서 MQTT 로 전환하려면 클라이언트 초기화에서 프로토콜 매개 변수를 변경해야 합니다.
+
+[장치 SDK][lnk-device-sdks]를 사용하는 경우 이전에 언급한 대로 AMQP 사용에서 MQTT로 전환하려면 클라이언트 초기화에서 프로토콜 매개 변수를 변경해야 합니다.
 
 이렇게 할 경우 다음 항목을 확인해야 합니다.
 
@@ -52,13 +55,13 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 * MQTT는 [클라우드-장치 메시지][lnk-messaging]를 수신할 때 *reject* 작업을 지원하지 않습니다. 백 엔드 앱이 장치 앱에서 응답을 수신해야 할 경우 [직접 메서드][lnk-methods] 사용을 고려합니다.
 
 ## <a name="using-the-mqtt-protocol-directly"></a>MQTT 프로토콜 직접 사용
-장치가 장치 SDK를 사용할 수 없는 경우라도 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
+장치가 장치 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 * **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2016-11-14`를 사용합니다. 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다.
 
     예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`이 포함되어야 합니다.
-* **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTP 및 AMQP 프로토콜에 대해 동일합니다.<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+* **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
     SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 장치 섹션을 참조하세요.
 
@@ -75,7 +78,44 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 연결 문제 해결에 도움이 될 수 있는 추가 정보와 함께 **작업 모니터링** 채널의 이벤트를 발행합니다.
 
+### <a name="tlsssl-configuration"></a>TLS/SSL 구성
+
+MQTT 프로토콜을 직접 사용하려면 클라이언트가 *반드시* TLS/SSL를 통해 연결되어야 합니다. 이 단계를 건너뛰려고 하면 연결 오류가 발생하여 실패합니다.
+
+TLS 연결을 설정하려면 DigiCert Baltimore 루트 인증서를 다운로드하여 참조해야 할 수 있습니다. 이것은 Azure가 연결 보안에 사용하는 인증서이며 [Azure-iot-sdk-c repository][lnk-sdk-c-certs]에서 찾을 수 있습니다. 이 인증서에 대한 자세한 내용은 [Digicert의 웹 사이트][lnk-digicert-root-certs]에 있습니다.
+
+Eclipse Foundation에서 Python 버전의 [Paho MQTT 라이브러리][lnk-paho]를 사용하여 이것을 구현하는 방법의 예는 다음과 유사합니다.
+
+먼저, 명령줄 환경에서 Paho 라이브러리를 설치합니다.
+
+```
+>pip install paho-mqtt
+```
+
+그런 다음 Python 스크립트로 클라이언트를 구현합니다.
+
+```
+from paho.mqtt import client as mqtt
+import ssl
+  
+path_to_root_cer = "...local\\path\\to\\digicert.cer"
+device_id = "<device id from device registry>"
+sas_token = "<generated SAS token>"
+subdomain = "<iothub subdomain>"
+
+client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
+
+client.username_pw_set(username=subdomain+".azure-devices.net/" + device_id, password=sas_token)
+
+client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+client.tls_insecure_set(False)
+
+client.connect(subdomain+".azure-devices.net", port=8883)
+```
+
+
 ### <a name="sending-device-to-cloud-messages"></a>장치-클라우드 메시지 보내기
+
 성공적인 연결을 구축한 후 장치는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예:
 
 ```
@@ -83,7 +123,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> 이 `{property_bag}` 요소는 HTTP 프로토콜의 쿼리 문자열과 동일한 인코딩을 사용합니다.
+> 이 `{property_bag}` 요소는 HTTPS 프로토콜의 쿼리 문자열과 동일한 인코딩을 사용합니다.
 >
 >
 
@@ -96,9 +136,10 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 자세한 내용은 [메시징 개발자 가이드][lnk-messaging]를 참조하세요.
 
 ### <a name="receiving-cloud-to-device-messages"></a>클라우드-장치 메시지 수신
+
 IoT Hub에서 메시지를 수신하려면 장치는 `devices/{device_id}/messages/devicebound/#` 을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 **#**는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub에서는 **#** 또는 **?**의 사용을 허용하지 않습니다. 하위 토픽의 필터링을 위한 와일드카드 IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
-장치는 `devices/{device_id}/messages/devicebound/#` 토픽 필터로 표시되는 장치 특정 끝점을 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 성공적으로 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지만 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 **CleanSession 0**으로 다음에 연결될 때 장치가 연결이 해제된 동안 전송되었던 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치 끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
+장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 끝점을 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 성공적으로 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지만 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 **CleanSession 0**으로 다음에 연결될 때 장치가 연결이 해제된 동안 전송되었던 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
 IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_id}/messages/devicebound/`, 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 응용 프로그램 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$**가 있고, 응용 프로그램 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 
@@ -192,10 +233,10 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 자세한 내용은 [직접 메서드 개발자 가이드][lnk-methods]를 참조하세요.
 
 ### <a name="additional-considerations"></a>추가 고려 사항
+
 최종 고려 사항으로 클라우드 측에서 MQTT 프로토콜 동작을 사용자 지정해야 하는 경우 IoT Hub와 직접 접속하는 고성능 사용자 지정 프로토콜 게이트웨이를 배포할 수 있도록 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]를 검토해야 합니다. Azure IoT 프로토콜 게이트웨이를 사용하면 brownfield MQTT 배포를 수용하는 장치 프로토콜 또는 기타 사용자 지정 프로토콜을 사용자 지정할 수 있습니다. 그렇지만 이 방법을 사용하는 경우 사용자 지정 프로토콜 게이트웨이를 실행하고 작동해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 IoT Hub 개발자 가이드에서 [MQTT 지원에 대한 참고 사항][lnk-mqtt-devguide]을 참조하세요.
 
 MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]를 참조하세요.
 
@@ -209,19 +250,18 @@ IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 �
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
-[lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-devices]: https://catalog.azureiotsuite.com/
@@ -229,7 +269,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md
@@ -237,4 +277,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-
+[lnk-sdk-c-certs]: https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c
+[lnk-digicert-root-certs]: https://www.digicert.com/digicert-root-certificates.htm
+[lnk-paho]: https://pypi.python.org/pypi/paho-mqtt

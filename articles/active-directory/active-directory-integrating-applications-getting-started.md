@@ -3,7 +3,7 @@ title: "앱과 Azure AD 통합 시작 | Microsoft Docs"
 description: "이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다."
 services: active-directory
 documentationcenter: 
-author: ihenkel
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
-ms.author: inhenk
-translationtype: Human Translation
-ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
-ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
-ms.lasthandoff: 02/03/2017
-
-
+ms.date: 10/21/2017
+ms.author: markvi
+ms.reviewer: asteen
+ms.openlocfilehash: 98468e430902ae0ad02ff7b4db6350bf70e3cb27
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -92,5 +92,4 @@ Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 �
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
 

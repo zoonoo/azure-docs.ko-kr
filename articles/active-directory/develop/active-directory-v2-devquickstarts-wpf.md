@@ -3,7 +3,7 @@ title: "Azure Active Directory v2.0 .NET 네이티브 앱 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET 네이티브 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Windows 데스크톱 앱에 로그인 추가
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 데스크톱 앱에 빠르게 추가할 수 있습니다.  또한 앱이 백 엔드 웹 API 그리고 [Microsoft Graph](https://graph.microsoft.io) 및 [Office 365 통합 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 중 일부와 안전하게 통신할 수 있도록 합니다.
@@ -259,10 +260,4 @@ MSAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

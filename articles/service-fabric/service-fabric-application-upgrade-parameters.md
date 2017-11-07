@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-upgrade-parameters"></a>응용 프로그램 업그레이드 매개 변수
 이 문서에서는 Azure 서비스 패브릭 응용 프로그램을 업그레이드하는 동안 적용되는 다양한 매개 변수를 설명합니다. 이 매개 변수는 응용 프로그램의 이름 및 버전을 포함합니다. 업그레이드하는 동안 적용되고 업그레이드에 실패하면 반드시 적용해야 하는 정책을 지정하는 시간 제한 및 상태 확인을 제어하는 노브입니다.
@@ -65,7 +64,7 @@ MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService 및 MaxPerc
 
 [Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[Linux에서 Azure CLI를 사용하여 응용 프로그램 업그레이드](service-fabric-azure-cli.md#upgrading-your-application)에서는 Azure CLI를 사용하여 응용 프로그램 업그레이드를 진행하는 과정을 안내합니다.
+[Linux에서 Service Fabric CLI를 사용하여 응용 프로그램 업그레이드](service-fabric-application-lifecycle-sfctl.md#upgrade-application)에서는 Service Fabric CLI를 사용하여 응용 프로그램 업그레이드를 진행하는 과정을 안내합니다.
 
 [Service Fabric Eclipse 플러그 인을 사용하여 응용 프로그램 업그레이드](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
@@ -74,4 +73,3 @@ MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService 및 MaxPerc
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-

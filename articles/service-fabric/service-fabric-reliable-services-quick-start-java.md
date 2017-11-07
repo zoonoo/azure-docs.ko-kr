@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -158,15 +157,23 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
-Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 배포 취소하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
+
+Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 제거하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
 
 ```bash
 $ gradle
 ```
 
-그러면 Service Fabric Azure CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다. install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Azure CLI 명령을 포함합니다. 다음과 같이 배포할 install.sh 스크립트를 실행합니다.
+그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
+
+### <a name="deploy-with-service-fabric-cli"></a>Service Fabric CLI를 사용하여 배포
+
+install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Service Fabric CLI 명령을 포함합니다. install.sh 스크립트를 실행하여 응용 프로그램을 배포합니다.
 
 ```bash
 $ ./install.sh
 ```
 
+## <a name="next-steps"></a>다음 단계
+
+* [Service Fabric CLI 시작](service-fabric-cli.md)

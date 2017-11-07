@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
-
-
+ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk 서비스: 백업 및 복원
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 토픽에서는 Azure 클래식 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
 
 [BizTalk 서비스 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584)를 사용하여 BizTalk 서비스를 백업할 수도 있습니다. 
 
 > [!NOTE]
 > 하이브리드 연결은 버전에 상관없이 백업되지 않습니다. 하이브리드 연결을 다시 만들어야 합니다.
-> 
-> 
+
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * 일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
@@ -50,7 +52,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 [백업 예약](#backupschedule)
 
-#### <a name="a-namebackupnowaon-demand-backup"></a><a name="backupnow"></a>주문형 백업
+#### <a name="backupnow"></a>주문형 백업
 1. Azure 클래식 포털에서 **BizTalk 서비스**를 선택한 후 백업할 BizTalk 서비스를 선택합니다.
 2. **대시보드** 탭에서 페이지 맨 아래에 있는 **백업**을 선택합니다.
 3. 백업 이름을 입력합니다. 예를 들어 *myBizTalkService*BU*날짜*를 입력합니다.
@@ -58,7 +60,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 백업이 완료되면 입력한 백업 이름의 컨테이너가 저장소 계정에 만들어집니다. 이 컨테이너에는 BizTalk 서비스 백업 구성이 포함됩니다.
 
-#### <a name="a-namebackupscheduleaschedule-a-backup"></a><a name="backupschedule"></a>백업 예약
+#### <a name="backupschedule"></a>백업 예약
 1. Azure 클래식 포털에서 **BizTalk Services**를 선택하고 백업을 예약할 BizTalk 서비스 이름을 선택한 후 **구성** 탭을 선택합니다.
 2. **백업 상태**를 **자동**으로 설정합니다. 
 3. 백업을 저장할 **저장소 계정**을 선택하고 백업을 만들 **빈도** 및 백업을 유지할 기간(**보존 기간(일)**)를 입력합니다.
@@ -109,7 +111,7 @@ Azure 클래식 포털 또는 [BizTalk 서비스 REST API 복원](http://go.micr
 
 복원이 완료되면 Azure 클래식 포털의 BizTalk 서비스 페이지에서 새로운 BizTalk 서비스가 일시 중단 상태로 나열됩니다.
 
-### <a name="a-namepostrestoreaafter-restoring-a-backup"></a><a name="postrestore"></a>백업을 복원한 후
+### <a name="postrestore"></a>백업을 복원한 후
 BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상태에서는 새 환경을 작동하기 전에 다음을 비롯한 구성 변경을 적용할 수 있습니다.
 
 * Azure BizTalk 서비스 SDK를 사용하여 BizTalk 서비스 응용 프로그램을 만든 경우 복원된 환경에서 작동할 응용 프로그램에서 ACS(액세스 제어) 자격 증명을 업데이트해야 할 수도 있습니다.
@@ -129,7 +131,7 @@ Azure 클래식 포털에서 BizTalk 서비스를 시작하려면 복원된 BizT
 </tr> 
 <tr>
 <td colspan="2">
- <strong>Azure BizTalk 서비스 포털</strong></td>
+ <strong>Azure BizTalk Services 포털</strong></td>
 </tr> 
 <tr>
 <td>구성 및 런타임</td> 
@@ -209,10 +211,4 @@ Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk �
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

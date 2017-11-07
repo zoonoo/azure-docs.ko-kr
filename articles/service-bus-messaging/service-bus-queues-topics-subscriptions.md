@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 0c727a47d6b947484f9a5cd678fef14d6fe2b4ab
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
+
 Microsoft Azure Service Bus는 신뢰할 수 있는 메시지 큐 및 지속형 게시/구독 메시징을 포함하여 클라우드 기반, 메시지 지향 미들웨어 기술 집합을 지원합니다. 이러한 "조정된" 메시지 기능은 Service Bus 메시지 패브릭을 사용하여 분리된 메시지 기능 게시-구독, 임시 분리 및 부하 분산 시나리오로 여겨질 수 있습니다. 분리된 통신에는 많은 장점이 있습니다. 예를 들어 필요하면 클라이언트와 서버가 연결되고 비동기 방식으로 작업을 수행할 수 있습니다.
 
 Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 큐, 토픽 및 구독, 규칙/동작입니다.
 
 ## <a name="queues"></a>큐
+
 큐는 하나 이상의 경쟁 소비자에게 *FIFO(선입선출)* 메시지 배달을 제공합니다. 즉, 일반적으로 메시지가 큐에 추가된 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리될 예정입니다. 큐를 사용하는 주요 이점은 응용 프로그램 구성 요소를 "임시로 분리"할 수 있다는 점입니다. 즉, 메시지가 큐에서 영구적으로 저장되기 때문에 생산자(발신자) 및 소비자(수신자)가 동시에 메시지를 보내고 받을 필요가 없습니다. 또한 생산자는 계속해서 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다.
 
 관련된 이점은 “부하 평준화”로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다. 많은 응용 프로그램에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하 대신 평균 부하를 다룰 수 있으려면 소비 응용 프로그램만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 제공하는 데 필요한 인프라의 크기와 관련하여 비용이 직접적으로 절약됩니다. 부하가 증가하면 큐에서 읽을 작업자 프로세스가 더 추가될 수 있습니다. 각 메시지는 하나의 작업자 프로세스를 통해서만 처리됩니다. 또한 이 가져오기 기반 부하 분산에서는 작업자 컴퓨터가 최대 속도로 메시지를 가져올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 최적 사용률을 허용합니다. 이 패턴을 종종 “경쟁 소비자” 패턴이라고 부릅니다.
@@ -162,7 +163,6 @@ Service Bus 메시지 사용에 대한 자세한 내용 및 예제는 다음 고
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 * [Service Bus 조정된 메시징 .NET 자습서](service-bus-brokered-tutorial-dotnet.md)
 * [Service Bus 조정된 메시징 REST 자습서](service-bus-brokered-tutorial-rest.md)
-* [토픽 필터 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+* [토픽 필터 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [조정된 메시징: 고급 필터 샘플](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-
 

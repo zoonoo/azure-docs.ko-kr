@@ -3,8 +3,8 @@ title: "Azure에서 Linux로 Cassandra 실행 | Microsoft Docs"
 description: "Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
-manager: erikre
+author: tomarcher
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스
 > [!IMPORTANT] 
@@ -86,7 +85,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관에 대한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스를 제공합니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
 
-**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다.  단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) *(1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위의 문서를 참조하세요.
+**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다.  단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위 문서를 참조하세요.
 
 **재해 복구:** 제대로 설계된 경우 다중 지역 Cassandra 클러스터는 치명적인 데이터 센터 중단을 견딜 수 있습니다. 한 지역이 다운된 경우, 다른 지역에 배포된 응용 프로그램이 최종 사용자를 제공하기 시작할 수 있습니다. 다른 모든 비즈니스 연속성 구현과 마찬가지로, 응용 프로그램은 비동기 파이프라인의 데이터에서 일부 데이터 손실을 허용해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에서 소요된 시간 보다 훨씬 빠르게 복구를 작성합니다. 그림 2는 각 지역에 8개의 노드가 있는 일반적인 다중 지역 배포 모델을 보여줍니다. 두 지역은 같은 대칭에 대한 서로 다른 미러 이미지입니다. 실제는 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 디자인됩니다.
 
@@ -303,15 +302,13 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다. 
 
 ## <a name="single-region-deployment-process"></a>단일 지역 배포 프로세스
-**1단계: 가상 네트워크 만들기** Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) 을 참조하세요.      
+**1단계: 가상 네트워크 만들기** Azure Portal에 로그인한 후 다음 표에 나열된 특성을 사용하여 가상 네트워크(클래식)를 만듭니다. 프로세스의 자세한 단계는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.      
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
 <tr><td>이름</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>지역</td><td>미국 서부</td><td></td></tr>
-<tr><td>DNS 서버    </td><td>없음</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
-<tr><td>지점 및 사이트 간 VPN 구성</td><td>없음</td><td> 이 특성을 무시합니다.</td></tr>
-<tr><td>사이트 간 VPN 구성</td><td>없음</td><td> 이 특성을 무시합니다.</td></tr>
+<tr><td>DNS 서버</td><td>없음</td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
 <tr><td>주소 공간</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>시작 IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -685,5 +682,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
-
 

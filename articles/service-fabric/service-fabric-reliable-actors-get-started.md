@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 3f447e049ccd33c77f422e8aa703ad6646f9ffa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -67,7 +66,7 @@ HelloWorld 프로젝트의 경우 서비스 패브릭 Reliable Actors 서비스�
 ![서비스 패브릭 프로젝트 구조][2]
 
 ## <a name="reliable-actors-basic-building-blocks"></a>신뢰할 수 있는 행위자 기본 구성 요소
-일반적으로 Reliable Actors 솔루션은 다음&3;개 프로젝트로 구성됩니다.
+일반적으로 Reliable Actors 솔루션은 다음 3개 프로젝트로 구성됩니다.
 
 * **응용 프로그램 프로젝트(MyActorApplication)**. 배포를 위해 모든 서비스를 함께 패키지하는 프로젝트입니다. 응용 프로그램을 관리하기 위한 *ApplicationManifest.xml* 및 PowerShell 스크립트가 포함되어 있습니다.
 * **인터페이스 프로젝트(MyActor.Interfaces)**. 행위자에 대한 인터페이스 정의가 포함된 프로젝트입니다. MyActor.Interfaces 프로젝트에서 솔루션의 행위자에 의해 사용될 인터페이스를 정의할 수 있습니다. 행위자 인터페이스는 모든 프로젝트에서 어떤 이름으로든 정의될 수 있지만 인터페이스는 행위자 구현과 행위자를 호출하는 클라이언트에서 공유되는 행위자 계약을 정의하므로 일반적으로 행위자 구현과 별개이고 다른 여러 프로젝트에서 공유될 수 있는 어셈블리에서 정의하는 것이 좋습니다.
@@ -141,11 +140,7 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 ![서비스 패브릭 디버깅 출력 창][3]
 
 ## <a name="next-steps"></a>다음 단계
-* [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
-* [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
-* [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [샘플 코드](https://github.com/Azure/servicefabric-samples)
+[Reliable Actors가 Service Fabric 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)에 대해 자세히 알아봅니다.
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
@@ -153,4 +148,3 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
-

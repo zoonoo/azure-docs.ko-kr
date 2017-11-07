@@ -15,22 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
-> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
-> * [클래식- PowerShell](expressroute-howto-routing-classic.md)
+> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure CLI](howto-routing-cli.md)
 > * [비디오 - 개인 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - 공용 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> 
+> * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
 이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
@@ -41,8 +40,9 @@ ms.lasthandoff: 03/24/2017
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
-* 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet이 필요합니다. 자세한 내용은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)을 참조하세요.  
+* 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet이 필요합니다. 자세한 내용은 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)을 참조하세요.  
 * 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 * 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
@@ -116,11 +116,11 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
      
     다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
      
-          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
     MD5 해시를 사용하기로 선택한 경우 아래 cmdlet를 사용할 수 있습니다.
      
-          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > 고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
@@ -206,11 +206,11 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
      
     다음 cmdlet을 실행하여 회로에 Azure 공용 피어링을 구성할 수 있습니다.
      
-          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
     MD5 해시를 사용하기로 선택한 경우 아래 cmdlet를 사용할 수 있습니다.
      
-          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > 고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
@@ -295,7 +295,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
      
     다음 cmdlet을 실행하여 회로에 Microsoft 피어링을 구성할 수 있습니다.
      
-          New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+        New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Microsoft 피어링 세부 정보를 보려면
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
@@ -331,5 +331,4 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 * 워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 * 회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
-
 

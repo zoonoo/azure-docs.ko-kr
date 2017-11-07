@@ -1,6 +1,6 @@
 ---
 title: "클래식 Azure VM에 로그온 | Microsoft Docs"
-description: "Azure 클래식 포털을 사용하여 클래식 배포 모델로 만든 Windows 가상 컴퓨터에 로그온할 수 있습니다."
+description: "Azure Portal을 사용하여 클래식 배포 모델로 만든 Windows 가상 컴퓨터에 로그온할 수 있습니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 08a75e9ccf952097416e82ed42fb26a43d0f39f0
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온
 Azure 포털에서 **연결** 단추를 사용하여 원격 데스크톱 세션을 시작하고 Windows VM에 로그온합니다.
@@ -66,4 +65,3 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
     ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 이러한 팁이 작동하지 않거나 필요한 정보가 아닌 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
-

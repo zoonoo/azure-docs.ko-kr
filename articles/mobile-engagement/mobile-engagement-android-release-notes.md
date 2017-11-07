@@ -12,16 +12,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* `EngagementApplication` 클래스에서도 `EngagementAgentUtils.isInDedicatedEngagementProcess`를 호출할 때 드물게 발생할 수 있는 충돌을 해결합니다.
+
+## <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Android 8 지원(이전 버전의 SDK는 Android 8에서 작동하지 않음)
+* 지원 라이브러리에 대한 종속성이 더 이상 없습니다.
+* `EngagementFragmentActivity` 클래스를 제거합니다.
+* Android 8의 [백그라운드 실행 제한](https://developer.android.com/preview/features/background.html)으로 인해 사용자가 장치를 조작할 때까지 백그라운드의 로그가 지연될 수 있습니다. 장치가 절전 모드인 경우 이로 인해 푸시 캠페인 **배달됨** 및 **시스템 알림 표시됨** 통계가 지연될 수 있습니다(알림은 계속 표시되며, 문제없이 실시간으로 울리고 진동함).
+* [백그라운드 위치 제한](https://developer.android.com/preview/features/background-location-limits.html)으로 인해 Android 8에서는 백그라운드의 실시간 위치가 자주 업데이트되지 않습니다.
+
+## <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Android 7의 앱 내 알림 텍스트 색을 이전 Android 버전과 동일하게 수정합니다.
+
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * 더 이상 WIFI 잠금은 없습니다.
 * Init 이전에 getDeviceId를 호출할 경우 교착 상태를 해결합니다.(4.2.0에 유입된 버그)
@@ -75,5 +88,4 @@ ms.lasthandoff: 11/17/2016
 * 장치 간에 메시지를 보내고 받기 위한 API가 제거되었습니다.
 * 보안이 개선되었습니다.
 * Google Play 및 SmartAd 추적을 제거했습니다.
-
 

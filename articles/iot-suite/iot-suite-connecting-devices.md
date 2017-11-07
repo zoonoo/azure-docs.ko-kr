@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3536777690a9b00ded7c7fdf4d5f39638dad71b0
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: d222bcbd64f288d4091acb0ecd2922b9ceee57e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Windows)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -59,7 +58,7 @@ Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 
 
 1. Visual Studio에서 RMDevice.c 파일을 엽니다. 기존 `#include` 문을 다음 코드로 바꿉니다.
    
-    ```
+    ```c
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
     #include "iothub_client.h"
@@ -81,7 +80,7 @@ Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 
 
 1. **remote\_monitoring\_run** 함수를 호출하려면 **main** 함수를 다음 코드로 바꿉니다.
    
-    ```
+    ```c
     int main()
     {
       remote_monitoring_run();
@@ -96,4 +95,3 @@ Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
-

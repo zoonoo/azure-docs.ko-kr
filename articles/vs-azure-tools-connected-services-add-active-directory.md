@@ -3,8 +3,8 @@ title: "Visual Studio에서 연결된 서비스를 사용하여 Azure Active Dir
 description: "Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
-ms.lasthandoff: 03/27/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: a767c93fb271f3aa33d9556c69c511bcac7cb0d5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로그램 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure Active Directory 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 응용 프로그램에 연결할 수 있습니다. Azure Active Directory 인증의 장점으로 웹 응용 프로그램에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
@@ -59,5 +58,4 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 * [Azure Active Directory에 대한 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 * [Azure Active Directory 설명서](https://azure.microsoft.com/documentation/services/active-directory/)
 * [블로그 게시물: Azure Active Directory에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
 

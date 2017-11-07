@@ -11,19 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: a59e9805bd4b694a44a6c83382cce2872530cde3
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="account-provisioning-notifications"></a>계정 프로비전 알림
 사용자 프로비전으로 타사 SaaS 응용 프로그램에서 사용자 관리 프로세스를 자동화할 수 있습니다. <br>
- 자동화 프로세스이지만 때때로 조작이 필요합니다. <br>
- 예를 들어 이 경우는 타사 SaaS 응용 프로그램과 데이터를 교환하기 위해 구성된 계정의 암호가 만료되었습니다. 
+자동화 프로세스이지만 때때로 조작이 필요합니다. <br>
+예를 들어 이 경우는 타사 SaaS 응용 프로그램과 데이터를 교환하기 위해 구성된 계정의 암호가 만료되었습니다. 
 
 계정 프로비전 알림을 활성화하면 주의가 필요한 사용자 프로비전 관련 문제에 대해 알림을 받을 수 있습니다.
 
@@ -51,4 +50,3 @@ ms.lasthandoff: 12/29/2016
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
-

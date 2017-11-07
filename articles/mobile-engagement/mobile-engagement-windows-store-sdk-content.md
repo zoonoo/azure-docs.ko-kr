@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Windows 유니버설 앱 SDK 콘텐츠
 이 문서는 응용 프로그램에서 SDK가 배포한 콘텐츠를 나열하고 설명합니다.
@@ -41,5 +40,4 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="overlay-folder"></a>/overlay 폴더
 * `EngagementPageOverlay.cs` : 오버레이 페이지는 자식에 Engagement 도달률 앱 내 UI를 추가합니다.
-
 

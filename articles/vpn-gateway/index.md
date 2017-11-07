@@ -2,7 +2,7 @@
 title: "Azure VPN Gateway 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드 가상 네트워크와 온-프레미스 또는 클라우드 VNet간에 트래픽을 관리하도록 VPN(가상 사설망) Gateway를 구성하는 방법에 대해 알아봅니다."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
-ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
-
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway 설명서
 
@@ -142,8 +143,9 @@ ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell(리소스 관리자)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell(클래식)</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell(리소스 관리자)</a></p>
+                        <p><a href="/powershell/module/azure/#networking">PowerShell(클래식)</a></p> 
+                        <p><a href="/cli/azure/network/vnet-gateway">Azure CLI</a></p> 
                     </div>
                 </div>
             </div>
@@ -155,7 +157,7 @@ ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST(리소스 관리자)</a></p>
+                        <p><a href="/rest/api/network/virtualnetworkgateways">REST(리소스 관리자)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/jj154113">REST(클래식)</a></p>
                     </div>
                 </div>
@@ -163,11 +165,5 @@ ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

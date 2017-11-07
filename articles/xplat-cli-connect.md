@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Azure CLI에서 Azure에 로그인
 Azure CLI는 Azure 리소스 작업을 위한 플랫폼 간 공개 소스 명령 집합입니다. 이 문서에서는 Azure 계정 자격 증명을 제공하여 Azure CLI를 Azure 구독에 연결하는 다양한 방법을 설명합니다.
@@ -166,4 +165,3 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 Azure 리�
 * CLI 명령을 사용하려면 [Resource Manager 모드의 Azure CLI 명령](virtual-machines/azure-cli-arm-commands.md) 및 [서비스 관리 모드의 Azure CLI 명령](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 * Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)을 방문하세요.
-

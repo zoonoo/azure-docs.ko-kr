@@ -1,7 +1,6 @@
 ---
-
 title: "Azure Active Directory의 그룹 기반 라이선스란? | Microsoft Docs"
-description: "Azure Active Directory 그룹 기반 라이선스, 작동 방법, 시작하는 방법 및 모범 사례에 대한 설명"
+description: "Azure Active Directory 그룹 기반 라이선스, 작동 방법 및 모범 사례에 대한 설명"
 services: active-directory
 keywords: "Azure AD 라이선스"
 documentationcenter: 
@@ -14,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 06/29/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
-ms.lasthandoff: 03/09/2017
-
-
+ms.reviewer: piotrci
+ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: d6c76af713a73b965e87a2f470125f2e65565975
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory에서 그룹 기반 라이선스 기본
 
-Office 365, Enterprise Mobility + Security, Dynamics CRM 및 기타 유사한 제품과 같은 Microsoft 클라우드 서비스에는 라이선스가 필요합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
+Office 365, Enterprise Mobility + Security, Dynamics CRM 및 기타 유사한 제품과 같은 Microsoft 유료 클라우드 서비스를 사용하려면 라이선스가 필요합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
 
 지금까지 개별 사용자 수준에서만 라이선스를 할당할 수 있었기 때문에 대규모 관리가 어려워질 수 있습니다. 예를 들어 조직이나 부서에 가입하거나 탈퇴하는 사용자와 같이 조직의 변경 내용에 따라 사용자 라이선스를 추가하거나 제거하려면 관리자는 종종 복잡한 PowerShell 스크립트를 작성해야 합니다. 이 스크립트는 클라우드 서비스를 개별적으로 호출합니다.
 
@@ -51,14 +49,18 @@ Office 365, Enterprise Mobility + Security, Dynamics CRM 및 기타 유사한 �
 
 - 어떤 경우에는 사용자에게 라이선스를 할당할 수 없습니다. 예를 들어 테넌트에서 사용할 수 있는 라이선스가 충분하지 않거나 충돌하는 서비스를 동시에 할당했을 수 있습니다. 관리자는 Azure AD가 그룹 라이선스를 완전하게 처리할 수 없는 사용자에 대한 정보에 액세스할 수 있습니다. 그런 다음 해당 정보에 따라 수정 작업을 수행할 수 있습니다.
 
-- 공개 미리 보기 동안 그룹 기반 라이선스 관리를 사용하려면 Azure AD 기본 또는 프리미엄 버전에 대한 유료 또는 평가판 구독이 테넌트에 필요합니다. 또한 그룹에서 라이선스를 상속받는 모든 사용자는 할당된 유료 Azure AD 버전 라이선스를 가지고 있어야 합니다.
+- 공개 미리 보기 동안 그룹 기반 라이선스 관리를 사용하려면 Azure AD Basic 또는 Premium Edition에 대한 유료 또는 평가판 구독이 테넌트에 필요합니다.
+
+## <a name="your-feedback-is-welcome"></a>피드백이 있으시면 언제든지 보내주세요.
+
+피드백 또는 기능 요청이 있는 경우 [이 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing)을 사용하여 공유해주세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 그룹 기반 라이선스를 통한 라이선스 관리에 대한 기타 시나리오에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
+* [Azure Active Directory에서 라이선스 시작](active-directory-licensing-get-started-azure-portal.md)
 * [Azure Active Directory에서 그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](active-directory-licensing-group-advanced.md)
-

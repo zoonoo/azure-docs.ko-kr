@@ -1,7 +1,7 @@
 <!--author=v-sharos last changed: 11/06/15-->
 
 #### <a name="to-add-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 추가하려면
-1. 장치 **빠른 시작** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
+1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
 2. 페이지의 아래쪽에서 **추가** 를 클릭하여 백업 정책 추가 마법사를 시작합니다.
    
     ![백업 정책 1 추가](./media/storsimple-add-backup-policy-u2/AddBackupPolicy1.png)
@@ -21,9 +21,4 @@
    5. 확인 아이콘  ![확인 아이콘](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) 을 클릭하여 정책을 저장합니다.
 
 새로 추가된 정책은 **백업 정책** 페이지입에서 테이블 형식 뷰로 표시됩니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

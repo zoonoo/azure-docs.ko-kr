@@ -12,13 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
-
-
+ms.openlocfilehash: 4cf607e8e0ccd3aab06be54d715c2bf3777caeb0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-device-twins-netnode"></a>장치 쌍(.NET/노드) 시작
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -35,8 +35,8 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
-* Node.js 버전 0.10.x 이상
+* Visual Studio 2015 또는 Visual Studio 2017.
+* Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -44,23 +44,23 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
-이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하여 미국에 있는 장치를 선택한 다음 셀룰러 연결을 보고하는 장치를 선택합니다.
+이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하여 미국에 있는 장치를 선택한 다음 셀룰러 연결을 보고하는 장치를 선택합니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트의 이름을 **AddTagsAndQuery**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][img-createapp]
-2. 솔루션 Explorer에서 **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
-3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
+1. 솔루션 탐색기에서 **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색합니다. **설치**를 설치하여 **Microsoft.Azure.Devices** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
     ![NuGet 패키지 관리자 창][img-servicenuget]
-4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. **Program** 클래스에 다음 메서드를 추가합니다.
+1. **Program** 클래스에 다음 메서드를 추가합니다.
    
         public static async Task AddTagsAndQuery()
         {
@@ -90,13 +90,15 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
     업데이트한 후 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 장치의 장치 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 장치만을 선택하기 위해 쿼리를 구체화합니다.
    
     이전 코드는 **쿼리** 개체를 만들 때 반환되는 최대 문서 수를 지정한다는 점에 유의합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러 번 **GetNextAsTwinAsync** 메서드를 호출하는 데 사용할 수 있는 **HasMoreResults** 부울 속성이 들어 있습니다. **GetNextAsJson**이라는 메서드는 장치 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
-7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddTagsAndQuery().Wait();
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
-8. 이 응용 프로그램을 실행하고 **Redmond43**에 위치한 모든 장치를 요청하는 쿼리에 대한 결과로는 하나의 장치를 보고, 셀룰러 네트워크를 사용하는 장치에 대해서는 결과를 제한하는 쿼리에 대한 결과로 아무 장치도 볼 수 없어야 합니다.
+
+1. 솔루션 탐색기에서 **시작 프로젝트 설정...**을 열고 **AddTagsAndQuery** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드하십시오.
+1. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 후 **새 인스턴스 시작**을 선택하여 이 응용 프로그램을 실행합니다. **Redmond43**에 위치한 모든 장치를 요청하는 쿼리에 대한 결과로는 하나의 장치를 보고 셀룰러 네트워크를 사용하는 장치에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 장치도 볼 수 없어야 합니다.
    
     ![창에서 쿼리 결과][img-addtagapp]
 
@@ -110,13 +112,13 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
     ```
     npm init
     ```
-2. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+1. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
-4. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+1. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
+1. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 자리 표시자에 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 입력합니다.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -155,12 +157,12 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
         });
    
     **Client** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
-5. 장치 앱 실행
+1. 장치 앱 실행
    
         node ReportConnectivity.js
    
     메시지 `twin state reported`이 표시되어야 합니다.
-6. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. .NET **AddTagsAndQuery** 앱을 실행하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
+1. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. .NET **AddTagsAndQuery** 앱을 실행하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
    
     ![][img-addtagapp2]
 
@@ -195,10 +197,4 @@ ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

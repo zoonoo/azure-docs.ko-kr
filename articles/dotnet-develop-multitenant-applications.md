@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
-
-
+ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure의 다중 테넌트 응용 프로그램
 다중 테넌트 응용 프로그램은 개별 사용자, 즉 "테넌트"가 자신의 고유 항목처럼 응용 프로그램을 볼 수 있게 하는 공유 리소스입니다. 다중 테넌트 응용 프로그램이 적합한 일반적인 시나리오는 모든 응용 프로그램 사용자가 사용자 환경을 사용자 지정하려고 하지만 기본적인 비즈니스 요구 사항을 동일하게 준수해야 하는 상황입니다. 대규모 다중 테넌트 응용 프로그램의 예로는 Office 365, Outlook.com 및 visualstudio.com이 있습니다.
@@ -41,7 +41,7 @@ ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
 
 다시 말해서, 확장성이 뛰어난 서비스를 제공하기 위해 고려해야 할 점이 많이 있지만 다수의 다중 테넌트 응용 프로그램에 공통적인 목표와 요구 사항도 많습니다. 일부는 특정 시나리오에서 적절하지 않을 수 있으며, 개별 목표와 요구 사항의 중요성은 시나리오별로 다릅니다. 다중 테넌트 응용 프로그램 공급자에게는 테넌트의 목표와 요구 사항 충족, 수익성, 청구, 여러 서비스 수준, 프로비전, 유지 관리 모니터링, 자동화와 같은 목표와 요구 사항도 있습니다.
 
-다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스팅][Azure에서 다중 테넌트 응용 프로그램 호스팅](영문)를 참조하세요. 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요. 
+다중 테넌트 응용 프로그램 설계와 관련된 추가 고려 사항에 대한 자세한 내용은 [Azure에서 다중 테넌트 응용 프로그램 호스트][Hosting a Multi-Tenant Application on Azure]를 참조하세요. 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요. 
 
 Azure에는 다중 테넌트 시스템을 설계할 때 발생하는 주요 문제를 해결할 수 있는 많은 기능이 있습니다.
 
@@ -90,11 +90,5 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 
 <!--links-->
 
-[Azure에서 다중 테넌트 응용 프로그램 호스팅]: http://msdn.microsoft.com/library/hh534480.aspx
-[Azure에서 다중 테넌트 응용 프로그램 설계]: http://msdn.microsoft.com/library/windowsazure/hh689716
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716

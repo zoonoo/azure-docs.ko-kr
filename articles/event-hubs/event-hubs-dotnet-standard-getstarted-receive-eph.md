@@ -3,7 +3,7 @@ title: ".NET Standard를 사용하여 Azure Event Hubs에서 이벤트 수신 | 
 description: ".NET Standard에서 EventProcessorHost를 사용하여 메시지 수신 시작"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
-ms.lasthandoff: 03/28/2017
-
+ms.date: 06/27/2017
+ms.author: sethm
+ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 
 > [!NOTE]
-> 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver)에서 사용할 수 있습니다.
+> 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)에서 사용할 수 있습니다.
 
-이 자습서에서는 **EventProcessorHost**를 사용하여 Event Hub의 메시지를 수신하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. 문자열을 Event Hub 및 저장소 계정 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 솔루션을 있는 그대로 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
+이 자습서는 **EventProcessorHost**를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여줍니다. 문자열을 사용자의 이벤트 허브 및 저장소 계정 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 솔루션을 있는 그대로 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,9 +35,9 @@ ms.lasthandoff: 03/28/2017
 * Azure Event Hubs 네임스페이스.
 * Azure 저장소 계정.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기  
 
-첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 Event Hub를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.  
+1단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램이 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.  
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기  
 
@@ -59,9 +58,11 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-다음 NuGet 패키지를 프로젝트에 추가합니다.
-* [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
-* [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
+다음 단계에 따라 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 및 [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET 표준 라이브러리 NuGet 패키지를 프로젝트에 추가합니다. 
+
+1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+2. **찾아보기** 탭을 클릭한 다음 "Microsoft.Azure.EventHubs"를 검색하고 **Microsoft.Azure.EventHubs** 패키지를 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+3. 1단계와 2단계를 반복하고 **Microsoft.Azure.EventHubs.Processor** 패키지를 설치합니다.
 
 ## <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor 인터페이스 구현
 
@@ -121,7 +122,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
     using System.Threading.Tasks;
     ```
 
-2. Event Hubs 연결 문자열, Event Hub 이름, 저장소 계정 컨테이너 이름, 저장소 계정 이름 및 저장소 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
+2. 이벤트 허브 연결 문자열, 이벤트 허브 이름, 저장소 계정 컨테이너 이름, 저장소 계정 이름, 저장소 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -211,7 +212,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 
 4. 프로그램을 실행하고 오류가 없는지 확인합니다.
 
-축하합니다. 이제 이벤트 프로세서 호스트를 사용하여 Event Hub에서 메시지를 받았습니다.
+축하합니다. 이제 이벤트 프로세서 호스트를 사용하여 이벤트 허브에서 메시지를 수신했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
@@ -222,4 +223,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
-

@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 B2B 공동 작업과 B2C 비교 | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차이는 무엇인가요?"
 services: active-directory
@@ -16,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
 Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 사용하여 Azure AD에서 외부 사용자와 함께 작업할 수 있습니다. 하지만 어떻게 비교할 수 있나요?
@@ -56,4 +53,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
 * [B2B 공동 작업에 대한 지원 받기](active-directory-b2b-support.md)
-

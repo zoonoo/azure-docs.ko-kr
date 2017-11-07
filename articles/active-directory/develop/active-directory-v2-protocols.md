@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v&2;.0에서 지원되는 인증 프로토콜에 대해 알아보기 | Microsoft Docs"
+title: "Azure AD v 2.0에서 지원되는 인증 프로토콜에 대해 알아보기 | Microsoft Docs"
 description: "Azure AD v2.0 끝점에서 지원하는 프로토콜에 대한 가이드입니다."
 services: active-directory
 documentationcenter: 
@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
+# v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
 v2.0 끝점은 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0으로 IaaS(identity-as-a-service)에 Azure AD를 사용할 수 있습니다.  서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다.  오픈 소스 라이브러리 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우 여기에 포함된 정보가 유용합니다.
 <!-- TODO: Need link to libraries above -->
 
 > [!NOTE]
 > 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다.  v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
-> 
-> 
+>
+>
 
-## <a name="the-basics"></a>기본 사항
+## 기본 사항
 거의 모든 OAuth 및 OpenID Connect 흐름에서 교환에 참여하는 다음 네 가지 요소가 있습니다.
 
 ![OAuth 2.0 역할](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -39,7 +40,7 @@ v2.0 끝점은 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0으로 Ia
 * **OAuth 클라이언트** 는 해당 응용 프로그램 ID로 식별되는 앱입니다.  일반적으로 최종 사용자가 상호 작용하는 요소이며 권한 부여 서버의 토큰을 요청합니다.  리소스 소유자가 리소스에 액세스할 수 있는 권한을 클라이언트에 부여해야 합니다.
 * **리소스 서버** 는 리소스 또는 데이터가 있는 곳입니다.  OAuth 클라이언트를 안전하게 인증하고 권한을 부여할 수 있도록 권한 부여 서버를 신뢰하고 전달자 access_token을 사용하여 리소스에 대한 액세스 권한을 부여할 수 있도록 합니다.
 
-## <a name="app-registration"></a>앱 등록
+## 앱 등록
 v2.0 끝점을 사용하는 각 앱을 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에 등록해야 OAuth 또는 OpenID Connect를 사용하여 상호 작용할 수 있습니다.  앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
 * 앱을 고유하게 식별하는 **응용 프로그램 ID**
@@ -48,7 +49,7 @@ v2.0 끝점을 사용하는 각 앱을 [apps.dev.microsoft.com](https://apps.dev
 
 자세한 내용은 [앱 등록](active-directory-v2-app-registration.md)방법을 참조하세요.
 
-## <a name="endpoints"></a>끝점
+## 끝점
 등록되면 앱이 v2.0 끝점에 요청을 보내기 위해 Azure AD와 통신합니다.
 
 ```
@@ -67,24 +68,16 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 이러한 끝점과 상호 작용하는 방법에 대한 자세한 내용을 보려면 아래의 특정 앱 종류를 선택합니다.
 
-## <a name="tokens"></a>토큰
+## 토큰
 OAuth 2.0 및 OpenID Connect의 v2.0구현은 JWT로 표현되는 전달자 토큰을 포함하여 전달자 토큰을 광범위하게 활용합니다. 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 이 당사자는 전달자 토큰을 수신하려면 먼저 Azure AD를 사용하여 인증해야 합니다. 하지만 전송 및 저장 시 토큰 보안을 유지하는 데 필요한 단계를 취하지 않는 경우 의도하지 않은 당사자가 토큰을 가로채서 사용할 수 있습니다. 일부 보안 토큰에는 권한 없는 당사자가 사용하는 것을 방지하는 기본 제공 메커니즘이 있지만, 전달자 토큰에는 이러한 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 일반 텍스트 상태로 전송되는 경우 악의적인 사용자가 메시지 가로채기(man-in-the-middle) 공격을 사용해서 토큰을 획득하고 보호된 리소스에 무단으로 액세스하는 데 이 토큰을 사용할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
 
 v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)를 참조하세요.
 
-## <a name="protocols"></a>프로토콜
+## 프로토콜
 일부 예제 요청을 확인할 준비가 되었다면 아래 자습서 중 하나를 시작합니다.  각각 특정 인증 시나리오에 해당합니다.  사용자에게 맞는 흐름을 결정하는 데 도움이 필요하면 [v2.0으로 빌드할 수 있는 앱 형식](active-directory-v2-flows.md)을 확인합니다.
 
 * [OAuth 2.0를 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-v2-protocols-oauth-code.md)
 * [Open ID Connect를 사용하는 웹앱 빌드](active-directory-v2-protocols-oidc.md)
 * [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](active-directory-v2-protocols-implicit.md)
 * [OAuth 2.0 클라이언트 자격 증명 흐름으로 디먼 또는 서버 쪽 프로세스 빌드](active-directory-v2-protocols-oauth-client-creds.md)
-* 흐름 대신 OAuth 2.0으로 웹 API에서 토큰 가져오기(출시 예정)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+* [OAuth 2.0 On Behalf Of 흐름으로 웹 API에서 토큰 가져오기](active-directory-v2-protocols-oauth-on-behalf-of.md)

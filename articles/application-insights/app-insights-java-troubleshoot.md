@@ -3,8 +3,8 @@ title: "Java 웹 프로젝트에서 Application Insights 문제 해결"
 description: "문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
-ms.lasthandoff: 12/17/2016
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -96,13 +95,13 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-`%temp%\javasdklogs` 아래에서 파일을 찾을 수 있습니다.
+Tomcat 서버의 경우 `%temp%\javasdklogs` 또는 `java.io.tmpdir` 아래에서 파일을 찾을 수 있습니다.
 
 
 ## <a name="the-azure-start-screen"></a>Azure 시작 화면
@@ -147,5 +146,4 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 [platforms]: app-insights-platforms.md
 [track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-javascript.md
-
 

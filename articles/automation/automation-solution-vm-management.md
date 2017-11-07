@@ -3,7 +3,7 @@ title: "업무 시간 외 VM 시작/중지 [미리 보기] 솔루션 | Microsoft
 description: "VM 관리 솔루션은 Azure Resource Manager Virtual Machines을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -12,24 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 06/01/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Automation의 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션
 
 업무 시간 외 VM 시작/중지[미리 보기] 솔루션은 사용자가 정의한 일정에 따라 Azure Resource Manager 가상 컴퓨터를 시작하고 중지하며 OMS Log Analytics를 통해 가상 컴퓨터를 시작하고 중지하는 성공적인 Automation 작업에 대한 정보를 제공합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Runbook이 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)으로 작동됩니다.  실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.  
+- Runbook이 [Azure 실행 계정](automation-offering-get-started.md#authentication-methods)으로 작동됩니다.  실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.  
 
-- 이 솔루션은 Automation 계정이 상주하는 리소스 그룹 및 구독과 같은 곳에 있는 VM만 관리할 수 있습니다.  
+- 이 솔루션은 Automation 계정이 상주하는 위치와 동일한 구독에 있는 VM만 관리할 수 있습니다.  
 
 - 이 솔루션은 오스트레일리아 남동부, 미국 동부, 동남 아시아 및 유럽 서부의 Azure 지역에만 배포됩니다.  VM 일정을 관리하는 Runbook은 모든 지역의 VM을 대상으로 할 수 있습니다.  
 
@@ -56,23 +55,23 @@ StopByResourceGroup-MS-Mgmt-VM | 이 Runbook은 주어진 목록의 Azure 리소
 **SendMailO365-MS-Mgmt** Runbook ||
 SendMailO365-IsSendEmail-MS-Mgmt | StartByResourceGroup-MS-Mgmt-VM 및 StopByResourceGroup-MS-Mgmt-VM Runbook이 완료 시 전자 메일 알림을 보낼 수 있는지를 지정합니다.  전자 메일 경고를 사용하려면 **True**를 사용하지 않으려면 **False**를 선택합니다. 기본값은 **False**입니다.| 
 **StartByResourceGroup-MS-Mgmt-VM** Runbook ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | 전자 메일 메시지 본문의 시작 부분에 추가될 수 있는 텍스트입니다.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | 전자 메일 Runbook을 포함하는 Automation 계정의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | 전자 메일 Runbook의 이름을 지정합니다.  StartByResourceGroup-MS-Mgmt-VM 및 StopByResourceGroup-MS-Mgmt-VM Runbook이 전자 메일을 보내는 데 사용됩니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | 전자 메일 Runbook을 포함하는 리소스 그룹의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | 전자 메일의 제목 줄에 대한 텍스트를 지정합니다.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  이름을 세미콜론(;)으로 구분하여 입력합니다.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  공백 없이 세미콜론(;)을 사용하여 구분한 이름을 입력합니다.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | 이 솔루션으로 관리될 VM을 포함하는 구독을 지정합니다.  이 솔루션의 Automation 계정이 상주하는 구독과 같은 구독이어야 합니다.|
 **StopByResourceGroup-MS-Mgmt-VM** Runbook ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | 전자 메일 메시지 본문의 시작 부분에 추가될 수 있는 텍스트입니다.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | 전자 메일 Runbook을 포함하는 Automation 계정의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | 전자 메일 Runbook을 포함하는 리소스 그룹의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | 전자 메일의 제목 줄에 대한 텍스트를 지정합니다.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  이름을 세미콜론(;)으로 구분하여 입력합니다.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  공백 없이 세미콜론(;)을 사용하여 구분한 이름을 입력합니다.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | 이 솔루션으로 관리될 VM을 포함하는 구독을 지정합니다.  이 솔루션의 Automation 계정이 상주하는 구독과 같은 구독이어야 합니다.|  
 <br>
 
@@ -123,7 +122,7 @@ O365Credential | 전자 메일을 보낼 유효한 Office 365 사용자 계정�
 
 ## <a name="collection-frequency"></a>수집 빈도
 
-Automation 작업 로그 및 작업 스트림 데이터가&5;분마다 OMS 리포지토리로 수집됩니다.  
+Automation 작업 로그 및 작업 스트림 데이터가 5분마다 OMS 리포지토리로 수집됩니다.  
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -244,5 +243,4 @@ StartVM 및 StopVM Runbook의 시간에 따른 작업 상태를 보여줍니다.
 
 
    
-
 

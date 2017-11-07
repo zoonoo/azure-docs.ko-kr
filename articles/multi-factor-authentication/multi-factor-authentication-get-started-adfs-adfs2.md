@@ -5,24 +5,24 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.lasthandoff: 02/28/2017
-
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017, it-pro
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
-이 문서는 Azure Active Directory와 페더레이션되는 조직에 대해 온-프레미스 또는 클라우드에서 리소스의 보안을 유지하려고 작성되었습니다. 중요한 끝점에 대해&2;단계 확인을 트리거할 수 있도록 Azure Multi-factor Authentication 서버를 사용하고 AD FS를 사용하도록 구성하여 리소스를 보호합니다.
+이 문서는 Azure Active Directory와 페더레이션되는 조직에 대해 온-프레미스 또는 클라우드에서 리소스의 보안을 유지하려고 작성되었습니다. 중요한 끝점에 대해 2단계 확인을 트리거할 수 있도록 Azure Multi-factor Authentication 서버를 사용하고 AD FS를 사용하도록 구성하여 리소스를 보호합니다.
 
 이 문서에서는 AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 소개합니다. AD FS에 대한 자세한 내용은 [Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](multi-factor-authentication-get-started-adfs-w2k12.md)를 참조하세요.
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 02/28/2017
    <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 **확인**을 클릭합니다.
-5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고&2;단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나&2;단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다. 
+5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 **수동으로 지정...**을 클릭합니다. 양식 기반 웹 사이트 자동 구성 대화 상자의 단추.
-7. 양식 기반 웹 사이트 추가 대화 상자에서 URL 제출 필드에 AD FS 로그인 페이지의 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다. 
+7. 양식 기반 웹 사이트 추가 대화 상자에서 URL 제출 필드에 AD FS 로그인 페이지의 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 8. 요청 형식을 **POST 또는 GET**으로 설정합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 로그인 페이지에서 입력 상자의 이름을 찾으려면 웹 브라우저에서 로그인 페이지로 이동하고 해당 페이지를 마우스 오른쪽 단추로 클릭하여 **소스 보기**를 선택합니다.
-10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고&2;단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나&2;단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
+10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
     <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
 11. **고급...**을 클릭하여 고급 설정을 확인합니다. 구성할 수 있는 설정은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/28/2017
     - 기본 자격 증명을 인증하는 방법 선택
 
 12. AD FS 프록시 서버는 도메인에 연결될 가능성이 낮으므로 LDAP를 사용하여 사용자 가져오기 및 사전 인증을 위해 도메인 컨트롤러에 연결할 수 있습니다. 고급 양식 기반 웹 사이트 대화 상자에서 **기본 인증** 탭을 클릭하고 사전 인증 인증 유형에 대해 **LDAP 바인딩**을 선택합니다.
-13. 작업을 완료하면 **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다. 
+13. 작업을 완료하면 **확인**을 클릭하여 양식 기반 웹 사이트 추가 대화 상자로 돌아갑니다.
 14. **확인**을 클릭하여 대화 상자를 닫습니다.
 15. URL 및 페이지 변수가 검색되거나 입력되면 양식 기반 패널에 웹 사이트 데이터가 표시됩니다.
 16. **네이티브 모듈** 탭을 클릭하고 서버, AD FS 프록시가 실행 중인 웹 사이트(예: "기본 웹 사이트") 또는 원하는 수준에서 IIS 플러그 인을 사용하도록 설정하기 위한 AD FS 프록시 응용 프로그램(예: "adfs" 아래의 "ls")을 선택합니다.
@@ -81,7 +81,7 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 3. 사용자가 "domain\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
 4. 64비트 서버에서 레지스트리 편집기를 열고 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버에서는 경로에 "Wow6432Node"를 지정합니다. "UsernameCxz_stripPrefixDomain"이라는 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 AD FS 프록시 보안이 유지됩니다.
 
-Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때&2;단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP 섹션](#trusted-ips)을 참조하세요.
+Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP 섹션](#trusted-ips)을 참조하세요.
 
 <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,21 +93,21 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 3. **추가**를 클릭합니다.
 4. 기준 URL 추가 대화 상자에서 기준 URL 필드에 HTTP 인증이 수행되는 AD FS 웹 사이트의 URL(예: https://sso.domain.com/adfs/ls/auth/integrated)을 입력합니다. 그런 다음 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 원하는 경우 유휴 시간 제한 및 최대 세션 시간을 조정합니다.
-6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고&2;단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나&2;단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다. 
+6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 쿠키 캐시 상자를 선택합니다.
 
    <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
 8. **확인**을 클릭합니다.
 9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 응용 프로그램(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
-10. 화면 위쪽에서 **IIS 인증 사용** 상자를 클릭합니다. 
+10. 화면 위쪽에서 **IIS 인증 사용** 상자를 클릭합니다.
 
 이제 Azure Multi-Factor Authentication을 통해 AD FS 보안이 유지됩니다.
 
-Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때&2;단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP] 섹션을 참조하세요.
+Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP] 섹션을 참조하세요.
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
-신뢰할 수 있는 IP를 사용하면 특정 IP 주소 또는 서브넷에서 시작된 웹 사이트 요청에 대한 Azure Multi-Factor Authentication을 바이패스할 수 있습니다. 예를 들어 사용자가 사무실에서 로그인할 경우&2;단계 인증에서 제외하려고 합니다. 이를 위해 사무실 서브넷을 신뢰할 수 있는 IP 항목으로 지정할 수 있습니다.
+신뢰할 수 있는 IP를 사용하면 특정 IP 주소 또는 서브넷에서 시작된 웹 사이트 요청에 대한 Azure Multi-Factor Authentication을 바이패스할 수 있습니다. 예를 들어 사용자가 사무실에서 로그인할 경우 2단계 인증에서 제외하려고 합니다. 이를 위해 사무실 서브넷을 신뢰할 수 있는 IP 항목으로 지정할 수 있습니다.
 
 ### <a name="to-configure-trusted-ips"></a>신뢰할 수 있는 IP를 구성하려면
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.
@@ -116,4 +116,3 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
 
 <center>![설정](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 12c14222be76ad6d31d968f0704159068c85b21c
-
-
+ms.openlocfilehash: 6c990a184d44771c78330f54f518bb4c35a36a35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
@@ -60,7 +60,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="november-2015"></a>2015년 11월
 **새로운 기능:**
 
-*  [역할 기반 액세스 제어](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)
+* [역할 기반 액세스 제어](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)
 
 **새로운 미리 보기 기능:**
 
@@ -96,10 +96,4 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 ## <a name="next-steps"></a>다음 단계
 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](active-directory-aadconnect-health.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

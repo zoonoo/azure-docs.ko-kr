@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="nested-traffic-manager-profiles"></a>중첩 트래픽 관리자 프로필
 
 Traffic Manager에는 Traffic Manager가 각 최종 사용자의 트래픽을 수신할 끝점을 선택하는 방법을 제어할 수 있는 다양한 트래픽 라우팅 방법이 포함되어 있습니다. 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법](traffic-manager-routing-methods.md)을 참조하세요.
@@ -45,7 +44,7 @@ Traffic Manager에는 Traffic Manager가 각 최종 사용자의 트래픽을 �
 
 이 구성에서 상위 프로필을 통해 전송된 트래픽은 트래픽을 지역에 정상적으로 분산합니다. 유럽 서부 내에서 중첩 프로필은 할당된 가중치에 따라 프로덕션 및 테스트 끝점에 트래픽을 분산시킵니다.
 
-상위 프로필에서 '성능' 트래픽 라우팅 메서드를 사용하는 경우 각 끝점은 할당된 위치여야 합니다. 위치는 끝점을 구성할 때 할당됩니다. 배포에 가장 가까운 Azure 지역을 선택합니다. Azure 지역은 인터넷 대기 시간 테이블에서 지원되는 위치 값입니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#performance-traffic-routing-method)를 참조하세요.
+상위 프로필에서 '성능' 트래픽 라우팅 메서드를 사용하는 경우 각 끝점은 할당된 위치여야 합니다. 위치는 끝점을 구성할 때 할당됩니다. 배포에 가장 가까운 Azure 지역을 선택합니다. Azure 지역은 인터넷 대기 시간 테이블에서 지원되는 위치 값입니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#performance)를 참조하세요.
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>예제 2: 중첩 프로필의 끝점 모니터링
 
@@ -115,4 +114,3 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
-

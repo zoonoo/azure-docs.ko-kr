@@ -3,7 +3,7 @@ title: "Application Insights를 사용하여 웹앱의 실패 및 예외 진단 
 description: "요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
-
-
+ms.date: 09/19/2017
+ms.author: mbullwin
+ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -28,12 +27,13 @@ ms.lasthandoff: 03/18/2017
   * 앱 코드에서 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다.
   * IIS 웹 서버: [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)를 실행합니다.
   * Azure 웹앱: [Application Insights 확장](app-insights-azure-web-apps.md)을 추가합니다.
+  * Java 웹앱: [Java 에이전트](app-insights-java-agent.md) 설치
 * 웹 페이지에 [JavaScript 조각](app-insights-javascript.md)을 설치하여 브라우저 예외를 catch합니다.
 * 일부 응용 프로그램 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
   * [웹 양식](#web-forms)
   * [MVC](#mvc)
-  * [Web API 1.*](#web-api-1)
-  * [Web API 2.*](#web-api-2)
+  * [Web API 1.*](#web-api-1x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Visual Studio를 사용하여 예외 진단
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/18/2017
 
 F5 키를 사용하여 서버 또는 개발 컴퓨터에서 앱을 실행합니다.
 
-Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤트를 표시하도록 설정합니다. 디버깅하는 동안 Application Insights 단추를 클릭하여 이를 수행할 수 있습니다.
+Visual Studio에서 Application Insights Search 창을 열고 앱에서 이벤트를 표시하도록 설정합니다. 디버깅하는 동안 Application Insights 단추를 클릭하여 이를 수행할 수 있습니다.
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 열기를 선택합니다.](./media/app-insights-asp-net-exceptions/34.png)
 
@@ -57,15 +57,19 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 ![CodeLens 예외 알림.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure 포털을 사용하여 오류 진단
-앱의 Application Insights 개요에서 실패 타일은 가장 많은 실패를 유발하는 요청 URL 목록과 함께 예외 및 실패한 HTTP 요청에 대한 차트를 보여 줍니다.
+Application Insights는 APM 환경과 함께 제공되어 모니터링된 응용 프로그램에서 실패를 진단하는 데 도움이 됩니다. 시작하려면 조사 섹션에 있는 Application Insights 리소스 메뉴에서 오류 옵션을 클릭합니다. 사용자의 요청, 실패하는 횟수 및 사용자가 영향을 받는 횟수에 대한 오류 속도 추세를 표시하는 전체 화면 보기에 표시됩니다. 상위 3개 응답 코드, 상위 3개 예외 형식 및 상위 3개 실패 종속성 형식을 비롯한 선택한 실패 작업에 관한 몇 가지 가장 유용한 분포가 오른쪽에 표시됩니다. 
 
-![설정 선택, 오류](./media/app-insights-asp-net-exceptions/012-start.png)
+![오류 심사 보기(작업 탭)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-목록에서 실패한 예외 형식 중 하나를 클릭하여 개별 예외 항목으로 이동합니다. 여기서 세부 정보 및 스택 추적을 볼 수 있습니다.
+한 번 클릭하면 작업의 이러한 각 하위 집합에 대한 대표 샘플을 검토할 수 있습니다. 특히, 예외를 진단하려면 다음과 같이 예외 세부 정보 블레이드에 표시되는 특정 예외 수를 클릭할 수 있습니다.
 
-![실패한 요청 인스턴트를 선택하고, 예외 세부 정보 아래에서 예외 인스턴스로 이동합니다.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![예외 세부 정보 블레이드](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**또는** 요청 목록에서 시작하여 관련 예외를 찾을 수 있습니다.
+**또는** 특정 실패 작업의 예외를 살펴보는 대신 예외 탭으로 전환하여 전체적인 예외 보기로 시작할 수 있습니다.
+
+![오류 심사 보기(예외 탭)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+여기서 모니터링한 앱에 대해 수집된 모든 예외를 확인할 수 있습니다.
 
 *예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
 
@@ -430,7 +434,7 @@ WebApiConfig에서 서비스에 추가합니다.
 
 .NET Framework는 간격의 예외 수를 계산하고 간격의 길이로 나누어 속도를 계산합니다.
 
-TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 '예외' 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
+TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 ‘예외’ 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
 ## <a name="video"></a>비디오
 
@@ -440,4 +444,3 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 * [REST, SQL 및 기타 종속성 호출 모니터링](app-insights-asp-net-dependencies.md)
 * [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](app-insights-javascript.md)
 * [성능 카운터 모니터링](app-insights-performance-counters.md)
-

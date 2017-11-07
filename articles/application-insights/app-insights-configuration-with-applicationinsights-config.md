@@ -4,22 +4,21 @@ description: "데이터 수집 모듈을 사용하거나 사용하지 않도록 
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
-editor: alancameronwills
-manager: douge
+editor: mrbullwinkle
+manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
-ms.lasthandoff: 02/02/2017
-
-
+ms.date: 05/03/2017
+ms.author: mbullwin
+ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -76,6 +75,18 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-asp-net.md) 를 �
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 작업자 역할, Windows 서비스 및 콘솔 응용 프로그램에 대한 처리되지 않은 예외를 추적합니다.
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 
+### <a name="eventsource-tracking"></a>EventSource 추적
+`EventSourceTelemetryModule`을 사용하여 Application Insights에 전송될 EventSource 이벤트를 구성할 수 있습니다. EventSource 이벤트 추적에 대한 자세한 내용은 [EventSource 이벤트 사용](app-insights-asp-net-trace-logs.md#using-eventsource-events)을 참조하세요.
+
+* `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
+* [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+
+### <a name="etw-event-tracking"></a>ETW 이벤트 추적
+`EtwCollectorTelemetryModule`을 사용하여 Application Insights에 추적으로 전송할 ETW 공급자의 이벤트를 구성할 수 있습니다. ETW 이벤트 추적에 대한 자세한 내용은 [ETW 이벤트 사용](app-insights-asp-net-trace-logs.md#using-etw-events)을 참조하세요.
+
+* `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
+* [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx) 를 제공합니다. 다른 원격 분석 모듈은 이를 사용하고 사용자 또한 [사용자 고유의 원격 분석을 정의하는 데 사용](app-insights-api-custom-events-metrics.md)할 수 있습니다.
 
@@ -118,6 +129,8 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
 * `WebTestTelemetryInitializer` 는 [가용성 테스트](app-insights-monitor-web-app-availability.md)의 HTTP 요청에 대한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
+
+Service Fabric에서 실행되는 .NET 응용 프로그램에 대해 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 패키지를 포함할 수 있습니다. 이 패키지에는 Service Fabric 속성을 원격 분석 항목에 추가하는 `FabricTelemetryInitializer`가 포함되어 있습니다. 자세한 내용은 이 NuGet 패키지에 의해 추가된 속성에 대한 [GitHub 페이지](https://go.microsoft.com/fwlink/?linkid=848457)를 참조하세요.
 
 ## <a name="telemetry-processors-aspnet"></a>원격 분석 프로세서(ASP.NET)
 원격 분석 프로세서는 각 원격 분석 항목을 SDK에서 포털에 보내기 전에 필터링하고 수정할 수 있습니다.
@@ -262,4 +275,3 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-

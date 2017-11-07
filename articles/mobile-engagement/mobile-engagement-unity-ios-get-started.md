@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Unity iOS 배포용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -33,14 +33,14 @@ ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
 * XCode 편집기
 
 > [!NOTE]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started)을 참조하세요.
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
+## <a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 ### <a name="import-the-unity-package"></a>Unity 패키지 가져오기
 1. [Mobile Engagement Unity 패키지](https://aka.ms/azmeunitysdk) 를 다운로드하고 이를 로컬 컴퓨터에 저장합니다. 
 2. **자산 -> 패키지 가져오기 -> 사용자 지정 패키지**로 이동하고 위의 단계에서 다운로드한 패키지를 선택합니다. 
@@ -94,10 +94,10 @@ ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
     ![][75]
 9. 이제 패키지가 연결된 장치에 배포되도록 XCode에서 앱을 실행하면 Unity 게임이 휴대폰에 표시됩니다. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자 및 도달률과 상호 작용할 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 이미 설정되어 있으므로 알림을 받도록 앱에서 추가 구성을 하지 않아도 됩니다.
 
@@ -116,9 +116,3 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [73]: ./media/mobile-engagement-unity-ios-get-started/73.png
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

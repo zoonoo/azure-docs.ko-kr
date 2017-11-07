@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>서비스 문제에 대한 문제 해결 가이드
 다음은 Azure Mobile Engagement 실행 방법과 관련해서 발생할 수 있는 문제입니다.
@@ -89,5 +88,4 @@ ms.lasthandoff: 11/17/2016
   * 쉼표(",")를 구분 기호 문자로 사용합니다. .csv 구문 기호 문자를 쉼표(",")에서 세미콜론(";") 등의 다른 문자로 변경하도록 요청하는 서비스 요청을 개설할 수 있습니다.
   * 부울 값 "true"와 "false"에 소문자만 사용합니다.
   * 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
-
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.lasthandoff: 03/18/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Azure AD에서 ASP.NET 웹앱 로그인 및 로그아웃
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -88,6 +88,15 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
                  ClientId = clientId,
                  Authority = authority,
                  PostLogoutRedirectUri = postLogoutRedirectUri,
+                 Notifications = new OpenIdConnectAuthenticationNotifications
+                    {
+                        AuthenticationFailed = context =>
+                        {
+                            context.HandleResponse();
+                            context.Response.Redirect("/Error?message=" + context.Exception.Message);
+                            return Task.FromResult(0);
+                        }
+                    }
              });
      }
      ```
@@ -100,7 +109,7 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>3단계: OWIN을 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 이제 앱은 OpenID Connect 인증 프로토콜을 사용하여 Azure AD와 통신하도록 올바르게 구성되었습니다. OWIN이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인하고 로그아웃하는 방법을 알려주기만 하면 됩니다.
 
-1. 컨트롤러에서 권한 부여 태그를 사용하여 사용자가 특정 페이지에 액세스하기 전에 로그인하도록 요구할 수 있습니다. 이렇게 하려면 controllers\ homecontroller.cs를 연 다음 About 컨트롤러에는 `[Authorize]` 태그를 추가합니다.
+1. 컨트롤러에서 권한 부여 태그를 사용하여 사용자가 특정 페이지에 액세스하기 전에 로그인하도록 요구할 수 있습니다. 이렇게 하려면 Controllers\HomeController.cs를 연 다음 About 작업에 `[Authorize]` 태그를 추가합니다.
 
      ```C#
      [Authorize]
@@ -184,4 +193,3 @@ OpenID Connect로 사용자를 인증할 때 Azure AD는 “클레임” 또는 
 이제 좀 더 고급 항목으로 이동할 수 있습니다. 예를 들어 [Azure AD를 사용하여 Web API 보안 유지](active-directory-devquickstarts-webapi-dotnet.md)를 시도해 보세요.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

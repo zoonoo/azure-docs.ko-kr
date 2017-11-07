@@ -2,7 +2,7 @@
 title: "Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 포괄적인 소비자 ID 관리를 배포하는 방법에 대해 알아봅니다. 설명서에서는 소비자 지향 웹 및 모바일 앱을 보호하는 방법을 보여 줍니다."
 services: active-directory-b2c
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: e36baddffd634cb7d601d09ccebaf40b27798c7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="active-directory-b2c-documentation"></a>Active Directory B2C 설명서
 
 Active Directory B2C를 사용하여 클라우드에서 포괄적인 소비자 ID 관리를 설정하고 관리하는 방법에 대해 알아봅니다. 자습서, 참조 및 기타 설명서에서는 보안 로그인을 사용하여 소비자 지향 웹 및 모바일 응용 프로그램을 보호하는 방법을 보여 줍니다.
@@ -187,5 +186,4 @@ Active Directory B2C를 사용하여 클라우드에서 포괄적인 소비자 I
         </a>
     </li>
 </ul>
-
 

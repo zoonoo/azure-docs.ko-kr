@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 02ec1b7a58aff6ae0788e341e8987b9d32cb5a7b
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
 
@@ -36,9 +35,9 @@ Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에
 
 1. [Azure AD B2C 테넌트를 만듭니다](active-directory-b2c-get-started.md).
 2. [웹 API를 등록합니다](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [정책을 설정합니다](active-directory-b2c-reference-policies.md).
-5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > 클라이언트 응용 프로그램 및 웹 API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.
@@ -46,10 +45,10 @@ Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에
 
 ## <a name="download-the-code"></a>코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi)에서 유지 관리됩니다. 다음을 실행하여 샘플을 복제할 수 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)에서 유지 관리됩니다. 다음을 실행하여 샘플을 복제할 수 있습니다.
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. 이제 솔루션에는 `TaskWebApp`과 `TaskService`, 2개의 프로젝트가 있습니다. `TaskWebApp`은 사용자와 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService` 는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다. 이 문서에서는 `TaskWebApp` 웹앱 또는 `TaskService` 웹 API를 구축하는 방법을 다루지 않습니다. Azure AD B2C를 사용하여 .NET 웹앱을 구축하는 방법을 알아보려면 [.NET 웹앱 자습서](active-directory-b2c-devquickstarts-web-dotnet-susi.md)를 참조하세요. Azure AD B2C를 사용하여 보안된 .NET 웹 API를 구축하는 방법을 알아보려면 [.NET 웹 API 자습서](active-directory-b2c-devquickstarts-api-dotnet.md)를 참조하세요.
@@ -187,5 +186,4 @@ public async Task<ActionResult> Index()
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
 마지막으로 두 앱을 빌드 및 실행합니다. 등록하고 로그인하여, 로그인된 사용자에 대한 작업을 만듭니다. 로그아웃했다가 다른 사용자로 로그인합니다. 해당 사용자에 대한 작업을 만듭니다. API 가 받는 토큰에서 사용자의 ID를 추출하므로 API에 사용자별 작업이 저장됩니다. 또한 범위 다루기를 시도해 볼 수도 있습니다. "쓰기"에 대한 권한을 제거한 다음 작업을 추가합니다. 범위를 변경할 때마다 로그아웃해야 합니다.
-
 

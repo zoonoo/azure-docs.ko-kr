@@ -3,7 +3,7 @@ title: "Azure Active Directory 로그인 활동 보고서 API 참조 | Microsoft
 description: "Azure Active Directory 로그인 활동 보고서 API에 대한 참조"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
-ms.lasthandoff: 03/24/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 5c407727fbc3adf7a089a13bfe09af959be9d2b9
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory 로그인 활동 보고서 API 참조
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
@@ -28,15 +28,23 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 
 다음을 참조하세요.
 
-* [로그인 활동](active-directory-reporting-azure-portal.md#sign-in-activities) 을 참조하세요.
+* [로그인 활동](active-directory-reporting-azure-portal.md#activity-reports) 을 참조하세요.
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
-질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
 
 ## <a name="who-can-access-the-api-data"></a>API 데이터에 액세스할 수 있는 사용자는 누구인가요?
-* 보안 관리 또는 보안 판독기 역할의 사용자
+* 보안 관리자 또는 보안 읽기 권한자 역할의 사용자 및 서비스 주체
 * 전역 관리자
 * API에 액세스하는 인증이 있는 모든 앱(전역 관리자의 사용 권한에 따라 앱 권한 부여를 설정할 수 있음).
+
+서명 이벤트와 같이 보안 API에 액세스하기 위해 응용 프로그램에 대한 액세스를 구성하려면 다음 PowerShell을 사용하여 응용 프로그램 서비스 주체를 보안 읽기 권한자 역할에 추가합니다.
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## <a name="prerequisites"></a>필수 조건
 Reporting API를 통해 이 보고서에 액세스하려면 다음이 있어야 합니다.
@@ -181,5 +189,4 @@ loginStatus에는 0 - 성공, 1 - 오류라는 두 개의 옵션이 있습니다
 ## <a name="next-steps"></a>다음 단계
 * 필터링된 로그인 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 로그인 활동 보고서 API 샘플](active-directory-reporting-api-sign-in-activity-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
 

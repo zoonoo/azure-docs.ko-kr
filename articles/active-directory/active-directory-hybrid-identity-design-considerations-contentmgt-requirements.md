@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58f4227fc6ac6ca1bd76c440d3d4441786693b3b
-
-
+ms.openlocfilehash: 840de1e1fcba74285788d51d8f544375f0affa77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
 비즈니스의 콘텐츠 관리 요구 사항에 대한 이해는 어떤 하이브리드 ID 솔루션을 사용할지 결정하는 데 직접적인 영향을 미칠 수 있습니다. 여러 장치 및 사용자가 자신의 장치를 가져오는 기능([BYOD](http://aka.ms/byodcg))이 확산됨에 따라 회사는 회사만의 데이터도 보호해야 하지만 사용자의 개인 정보도 보호해야 합니다. 일반적으로 사용자에게 자신만의 장치가 있는 경우 사용하는 응용 프로그램에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다. 
@@ -66,10 +66,4 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2240678fed44db748ae062bdf91e457159b4a2
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
 
@@ -68,8 +68,29 @@ ms.lasthandoff: 03/04/2017
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 이 표에서 개체를 선택하고, **속성**을 선택한 다음 원본 커넥터 공간의 메타버스, 대상 커넥터 공간으로 이어지는 [흐름을 따릅니다](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
+### <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
+계정 암호를 변경하는 경우 동기화 서비스가 더 이상 온-프레미스 AD에 대한 변경 내용을 가져오거나 내보낼 수 없습니다.   다음이 표시될 수 있습니다.
+
+- AD 커넥터에 대한 가져오기/내보내기 단계가 "no-start-credentials" 오류를 나타내며 실패합니다.
+- Windows 이벤트 뷰어에서 응용 프로그램 이벤트 로그에는 이벤트 ID 6000 오류 및 메시지 “자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.”가 포함됩니다.
+
+이 문제를 해결하려면 다음을 사용하여 AD DS 사용자 계정을 업데이트합니다.
+
+
+1. Synchronization Service Manager를 시작합니다(시작 → 동기화 서비스).
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+2. **커넥터** 탭으로 이동합니다.
+3. AD DS 계정을 사용하도록 구성된 AD 커넥터를 선택합니다.
+4. 작업 아래에서 **속성**을 선택합니다.
+5. 팝업 대화 상자에서 Active Directory 포리스트에 연결을 선택합니다.
+6. 포리스트 이름은 해당 온-프레미스 AD를 나타냅니다.
+7. 사용자 이름은 동기화에 사용되는 AD DS 계정을 나타냅니다.
+8. 암호 텍스트 상자에 AD DS 계정의 새 암호를 입력합니다. ![Azure AD Connect 동기화 암호화 키 유틸리티](media/active-directory-aadconnectsync-encryption-key/key6.png)
+9. 확인을 클릭하여 새 암호를 저장하고 동기화 서비스를 다시 시작하여 메모리 캐시에서 이전 암호를 제거합니다.
+
+
+
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-

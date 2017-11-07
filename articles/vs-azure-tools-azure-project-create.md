@@ -3,8 +3,8 @@ title: "Visual Studio에서 Azure 클라우드 서비스 프로젝트 만들기 
 description: "Visual Studio에서 Azure 클라우드 서비스 프로젝트를 만드는 방법을 알아봅니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: b1870b5db6e194f61d2f8b526e0c81b4d46699e4
-ms.lasthandoff: 03/22/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: 1f6ded87b551f660853ea4eb0548f3d942e28fa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Visual Studio에서 Azure 클라우드 서비스 프로젝트 만들기
 Azure Tools for Visual Studio는 Azure에 대한 클라우드 서비스를 만들 수 있는 프로젝트 템플릿을 제공합니다. 프로젝트를 만든 후 Visual Studio에서 클라우드 서비스를 구성 및 디버그하고 Azure에 배포할 수 있습니다.
@@ -58,4 +57,3 @@ Visual Studio Azure 프로젝트에는 솔루션의 역할 프로젝트에 대�
 
 ## <a name="next-steps"></a>다음 단계
 - [Visual Studio에서 Azure 클라우드 서비스 프로젝트의 역할 관리](./vs-azure-tools-cloud-service-project-managing-roles.md)
-

@@ -4,7 +4,7 @@ description: "Azure의 Analysis Services 서버에서 데이터에 연결하고 
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,37 +13,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 11/01/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
-ms.openlocfilehash: 90a0cfb7c7cd7d3364ff42559dd7fdc7b2951abf
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 128a25a3d68c036a0fc165899a53d975e7a774d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="create-an-office-data-connection-odc-file"></a>Office 데이터 연결(.odc) 파일 만들기
+# <a name="create-an-office-data-connection-file"></a>Office 데이터 연결 파일 만들기
 
-이 문서의 정보는 Excel 2016 버전 번호 16.0.7369.2117 이하 또는 Excel 2013에서 Azure Analysis Services 서버에 연결하기 위한 .odc 파일을 만드는 방법을 보여 줍니다. 업데이트된 [MSOLAP.7 공급자](analysis-services-data-providers.md)도 필요합니다.
+이 문서의 정보는 Excel 2016 버전 번호 16.0.7369.2117 이하 또는 Excel 2013에서 Azure Analysis Services 서버에 연결하기 위한 Office 데이터 연결 파일을 만드는 방법을 보여 줍니다. 업데이트된 [MSOLAP.7 공급자](analysis-services-data-providers.md)도 필요합니다.
 
 
-1. 아래 샘플 .odc 연결 파일을 복사하여 텍스트 편집기에 붙여넣습니다. 
+1. 아래 샘플 연결 파일을 복사하여 텍스트 편집기에 붙여 넣습니다. 
 
-2. **odc:ConnectionString**에서 다음 속성을 변경합니다.
+2. `odc:ConnectionString`에서 다음 속성을 변경합니다.
 
-    *   **Data Source=asazure://*region*.asazure.windows.net/*servername*;**에서 *region*을 Analysis Services 서버의 지역으로, *servername*을 서버 이름으로 변경합니다.
+    *   `Data Source=asazure://<region>.asazure.windows.net/<servername>;`에서 `<region>`을 Analysis Services 서버의 지역으로, `<servername>`을 서버의 이름으로 변경합니다.
 
-    *   **Initial Catalog=*database*;**에서 *database*를 데이터베이스의 이름으로 변경합니다.
+    *   `Initial Catalog=<database>;`에서 `<database>`를 데이터베이스의 이름으로 변경합니다.
 
-3. **&lt;odc:CommandText>*Model*&lt;/odc:CommandText>**에서 *Model*을 모델 또는 관점 이름으로 변경합니다. 
+3. `<odc:CommandText>Model</odc:CommandText>`에서 `Model`을 모델 또는 큐브 뷰의 이름으로 변경합니다. 
 
-4. **.odc** 확장명의 파일을 C:\Users\\*username*\Documents\My Data Sources 폴더에 저장합니다.
+4. `.odc` 확장명의 파일을 C:\Users\\*username*\Documents\My Data Sources 폴더에 저장합니다.
 
 5. 파일을 마우스 오른쪽 단추로 클릭한 후 **Excel에서 열기**를 클릭합니다. 또는 Excel의 **데이터** 리본 메뉴에서 **기존 연결**을 클릭하고 파일을 선택한 후 **열기**를 클릭합니다.
 
 
 
-**샘플 .odc 연결 파일**
+**샘플 연결 파일**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="http://www.w3.org/TR/REC-html40">
@@ -152,7 +151,6 @@ function init() {
 </html>
 
 ```
-
 
 
 

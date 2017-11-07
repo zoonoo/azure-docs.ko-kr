@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>응용 프로그램의 전역 설정을 관리하는 방법
 응용 프로그램에서 제공하는 **설정** 메뉴 옵션은 응용 프로그램의 플랫폼과 응용 프로그램에 대해 부여한 권한에 따라 달라집니다. 설정에는 세부 정보, 프로젝트, 네이티브 푸시, 푸시 속도, 태그(앱 정보) 및 상업적 압력 등이 있습니다. 설정 섹션의 태그(앱 정보) 메뉴 옵션은 응용 프로그램(SDK 사용) 또는 백 엔드(장치 API 사용)에서 관리할 수 있습니다. 
@@ -189,5 +188,4 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a68cdf246559fa5261aa4744a3f3839c4d8052d8
-
-
+ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
-Azure DevTest Labs는 개발/테스트 외에도 여러 주요 시나리오를 구현하는 데 사용할 수 있습니다. 이러한 시나리오 중 하나는 학습용 랩을 설정하는 것입니다. Azure DevTest Labs를 통해 각 실습생이 동일하고 격리된 학습용 환경을 만드는 데 사용할 수 있는 사용자 지정 템플릿을 제공할 수 있는 랩을 만들 수 있습니다. 각 실습생이 필요로 하고 학습에 필요한 충분한 리소스(예: 가상 컴퓨터)가 있을 경우에만 학습 환경을 사용하도록 할 수 있습니다. 마지막으로 실습생과 랩을 쉽게 공유할 수 있고 실습생은 한 번의 클릭으로 액세스할 수 있습니다.   
+Azure DevTest Labs는 개발/테스트 외에도 여러 주요 시나리오를 구현하는 데 사용할 수 있습니다. 이러한 시나리오 중 하나는 학습용 랩을 설정하는 것입니다. Azure DevTest Labs를 통해 각 실습생이 동일하고 격리된 학습용 환경을 만드는 데 사용할 수 있는 사용자 지정 템플릿을 제공할 수 있는 랩을 만들 수 있습니다. 각 실습생이 필요할 때에만 교육 환경을 이용할 수 있도록 하고 교육에 필요한 리소스(예: 가상 컴퓨터)를 충분히 포함하는 정책을 적용할 수 있습니다. 마지막으로 실습생과 랩을 쉽게 공유할 수 있고 실습생은 한 번의 클릭으로 액세스할 수 있습니다.
 
 ![학습에 DevTest Labs 사용](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
@@ -78,7 +78,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | 작업 | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
-   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
+   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
 5. **각 실습생과 랩 공유**
    
     실습생과 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](devtest-lab-faq.md#what-is-a-microsoft-account)이 있는 실습생은 Azure 계정이 없어도 됩니다. 실습생은 다른 실습생이 만든 VM을 볼 수 없습니다.  
@@ -98,13 +98,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
    | 작업 | 학습 내용 |
    | --- | --- |
-   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
+   | [Resource Manager 템플릿을 사용하여 랩 만들기](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,10 +1,10 @@
 ---
-title: "Application Insights 데이터 모델"
+title: "Azure Application Insights 데이터 모델 | Microsoft Docs"
 description: "JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -30,9 +30,8 @@ ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 * 기간의 단위는 10분의 1 마이크로초이므로 10000000은 1초입니다.
 * 날짜와 시간은 UTC이며 ISO 형식 `yyyy-MM-DDThh:mm:ss.sssZ`
 
-사용하는 방법을 설명하는 몇 가지 [샘플](app-insights-export-telemetry.md#code-samples) 이 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
     // A server report about an HTTP request
     {
     "request": [
@@ -351,9 +350,3 @@ TrackMetric()에서 생성합니다.
 * [Application Insights](app-insights-overview.md)
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

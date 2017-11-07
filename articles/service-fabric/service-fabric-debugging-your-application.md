@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 06/29/2017
 ms.author: vturecek;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 2459025899a7f5ffebf44fa104ed112c0eb99dfa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그
 > [!div class="op_single_selector"]
@@ -56,7 +55,7 @@ ms.lasthandoff: 03/09/2017
     ```
 7. **진단 이벤트** 창은 필터링, 일시 중지 및 실시간 이벤트 검사를 지원합니다.  필터는 해당 콘텐츠를 포함하는 이벤트 메시지의 단순 문자열 검색입니다.
    
-    ![필터링, 일시 중지, 다시 시작 또는 실시간으로 이벤트 검사][diagnosticeventsactions]
+    ![실시간으로 이벤트를 필터링, 일시 중지, 다시 시작 또는 검사합니다.][diagnosticeventsactions]
 8. 서비스 디버깅은 다른 모든 응용 프로그램의 디버깅과 같습니다. 손쉬운 디버깅을 위해 일반적으로 Visual Studio를 통해 중단점을 설정할 수 있습니다. 신뢰할 수 있는 컬렉션은 여러 노드에 걸쳐 복제하더라도 여전히 IEnumerable을 구현합니다. 따라서 디버그하는 동안 Visual Studio에서 결과 뷰를 사용하여 내부에 저장한 내용을 볼 수 있습니다. 코드의 아무 곳에나 중단점을 설정하기만 하면 됩니다.
    
     ![응용 프로그램 디버깅 시작][breakpoint]
@@ -160,4 +159,3 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
-

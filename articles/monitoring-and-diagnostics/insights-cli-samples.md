@@ -1,8 +1,8 @@
 ---
-title: "Azure Monitor CLI 빠른 시작 샘플. | Microsoft Docs"
-description: "Azure Monitor 기능에 대한 샘플 CLI 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다."
+title: "Azure Monitor CLI 1.0 빠른 시작 샘플 | Microsoft Docs"
+description: "Azure Monitor 기능에 대한 샘플 CLI 1.0 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 08/09/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플
+# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 1.0 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 > [!NOTE]
@@ -124,11 +123,6 @@ azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
 ```
 
-### <a name="create-a-log-alert-rule"></a>로그 경고 규칙 만들기
-```console
-azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
-```
-
 ### <a name="create-webtest-alert-rule"></a>웹 테스트 경고 규칙 만들기
 ```console
 azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
@@ -207,4 +201,3 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-

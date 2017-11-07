@@ -2,7 +2,7 @@
 title: "Azure IoT Hub 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API, 참조, 비디오 및 기타 설명서입니다."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e54c45164037fb2817573817e271846a22aa886b
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: afe5dcab2beca2c6bf3d116adf249fc9717eeb09
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/04/2017
 ---
-
-# <a name="iot-hub-documentation"></a>IoT Hub 설명서
+# <a name="iot-hub-documentation"></a>IoT Hub 설명서 
 
 IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API 참조, 비디오 및 기타 설명서를 통해 IoT 장치와 솔루션 백 엔드 간의 안정적인 양방향 통신을 배포할 수 있습니다. 
 
@@ -42,14 +41,14 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -61,17 +60,17 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET을 사용하여 IoT Hub 시작</h3>
+                        <h3>시뮬레이트된 장치로 시작하기</h3>
                     </div>
                 </div>
             </div>
@@ -79,17 +78,17 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java를 사용하여 IoT Hub 시작</h3>
+                        <h3>물리적 장치로 시작</h3>
                     </div>
                 </div>
             </div>
@@ -97,17 +96,17 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-devguide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js를 사용하여 IoT Hub 시작</h3>
+                        <h3>개발자 가이드 읽어보기</h3>
                     </div>
                 </div>
             </div>
@@ -137,15 +136,27 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>코드 샘플</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">코드 샘플</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET(서비스)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET(장치)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C 장치 SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">.NET(서비스)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java(장치)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">노드(서비스)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">노드(장치)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js(장치)</a></p>
+                        <p><a href="/javascript/api/azure-iothub">Node.js(서비스)</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>
@@ -159,6 +170,7 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
                         <h3>REST (영문)</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST(리소스 공급자)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST(장치 ID)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST(장치 쌍)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST(장치 메시징)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST(작업)</a></p>
                     </div>
@@ -167,6 +179,3 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
         </div>
     </li>
 </ul>
-
-
-

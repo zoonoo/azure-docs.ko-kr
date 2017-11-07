@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>조직에서 비즈니스용 Microsoft Windows Hello 사용
 [Windows 10 도메인에 가입된 장치와 Azure Active Directory를 연결한](active-directory-azureadjoin-devices-group-policy.md) 후에 조직에서 비즈니스용 Microsoft Windows Hello를 사용하도록 설정하려면 다음을 수행합니다.
@@ -77,7 +76,7 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
    
     a. **이름** 텍스트 상자에 프로필의 이름을 입력합니다(예: **내 WHfB 프로필**).
    
-    b. **다음**을 클릭합니다.
+    b. **다음**을 누릅니다.
 4. **지원되는 플랫폼** 대화 상자에서 이 비즈니스용 Windows Hello 프로필로 프로비전된 플랫폼을 선택하고 **다음**을 클릭합니다.
    
     ![비즈니스용 Windows Hello 구성](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -91,7 +90,7 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
    
     c. **인증 방법**에서 **인증서 기반**을 선택합니다.
    
-    d. **다음**을 클릭합니다.
+    d. **다음**을 누릅니다.
 6. **요약** 대화 상자에서 **다음**을 클릭합니다.
 7. **완료** 대화 상자에서 **닫기**를 클릭합니다.
 8. 위쪽의 도구 모음에서 **배포**를 클릭합니다.
@@ -109,9 +108,8 @@ System Center Configuration Manager 사용은 인증서를 배포하기 위해 �
 ## <a name="next-steps"></a>다음 단계
 * [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
-* [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
+* [암호 없이 인증](active-directory-azureadjoin-passport.md)
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
-
 

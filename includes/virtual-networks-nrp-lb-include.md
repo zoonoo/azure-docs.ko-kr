@@ -189,8 +189,3 @@ Json 형식의 부하 분산 장치 템플릿 예:
 ### <a name="additional-resources"></a>추가 리소스
 자세한 내용은 [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) 를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

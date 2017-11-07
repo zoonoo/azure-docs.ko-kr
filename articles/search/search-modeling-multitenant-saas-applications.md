@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure 검색에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure 검색을 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
@@ -134,10 +134,4 @@ Azure 검색에서 다중 테넌트 시나리오를 모델링하기 위한 위�
 Azure Search는 대부분의 응용 프로그램에 적합한 방법입니다. [이 서비스의 강력한 기능을 자세히 읽어 보세요](http://aka.ms/whatisazsearch). 다중 테넌트 응용 프로그램에 대한 다양한 디자인 패턴을 평가할 때 [다양한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한](search-limits-quotas-capacity.md)을 고려하여 모든 규모의 응용 프로그램 워크로드 및 아키텍처에 가장 잘 맞게 Azure Search를 조정할 수 있습니다.
 
 Azure Search 및 다중 테넌트 시나리오에 대한 질문은 azuresearch_contact@microsoft.com으로 보내 주세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

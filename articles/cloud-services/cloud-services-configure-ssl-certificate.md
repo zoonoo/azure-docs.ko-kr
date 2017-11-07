@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
-ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
-
-
+ms.openlocfilehash: 7df2371f64f0d8a9fabc0df37c17d4dfbc47cd7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
 > [!div class="op_single_selector"]
@@ -30,15 +30,13 @@ ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이](../app-service-web/web-sites-configure-ssl-certificate.md) 문서를 참조하세요.
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이](../app-service/app-service-web-tutorial-custom-ssl.md) 문서를 참조하세요.
 > 
 > 
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 정보는 이 항목의 끝에 제공됩니다.
 
 클라우드 서비스를 아직 만들지 않은 경우 먼저 [이](cloud-services-how-to-create-deploy.md) 문서를 읽어보세요.
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>1단계: SSL 인증서 다운로드
 응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
@@ -187,9 +185,3 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
 [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
 [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: af8137de4be532465930524aab8db6bf1cf57dff
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
-이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다.  
+이 문서에서는 Azure Traffic Manager의 **지리적** 트래픽 라우팅 메서드에서 사용하는 국가 및 지역을 나열합니다. [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 호출하여 이 정보를 프로그래밍 방식으로 가져올 수도 있습니다. 
 
 - WORLD(전 세계)
 
@@ -701,8 +700,4 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Traffic Manager에서 지리적 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#geographic-traffic-routing-method)에 대해 자세히 알아봅니다.
-
-
-
-
+- [Azure Traffic Manager에서 지리적 트래픽 라우팅 메서드](traffic-manager-routing-methods.md#geographic)에 대해 자세히 알아봅니다.

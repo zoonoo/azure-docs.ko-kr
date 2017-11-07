@@ -3,7 +3,7 @@ title: "Azure AD Java 웹앱 시작 | Microsoft Docs"
 description: "회사 또는 학교 계정을 사용하여 사용자가 로그인하는 Java 웹앱을 빌드할 수 있습니다."
 services: active-directory
 documentationcenter: java
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: xerners
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: nacanuma
+ms.custom: aaddev
+ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Azure AD에서 Java 웹앱 로그인 및 로그아웃
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -184,7 +184,7 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>
@@ -1722,4 +1722,3 @@ public class BasicFilter implements Filter {
 * 다음 명령을 입력하여 GitHub에서 파일을 복제합니다.
 
  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-

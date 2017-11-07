@@ -1,6 +1,6 @@
 ---
-title: "Ambari REST API를 사용하여 Azure HDInsight 모니터링 및 관리 | Microsoft Docs"
-description: "Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다."
+title: "Ambari REST API를 사용하여 Hadoop 모니터링 및 관리 - Azure HDInsight | Microsoft Docs"
+description: "Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
-ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 운영 체제를 사용하는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다. 이 문서에서는 Ambari REST API를 사용하는 기본 사항을 알아봅니다.
+Ambari REST API를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
+
+Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 운영 체제를 사용하는 HDInsight 클러스터에 포함됩니다. Ambari를 사용하여 클러스터를 모니터링하고 구성을 변경할 수 있습니다.
 
 ## <a id="whatis"></a>Ambari 정의
 
-[Apache Ambari](http://ambari.apache.org)에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
+[Apache Ambari](http://ambari.apache.org)는 Hadoop 클러스터를 프로비저닝, 관리 및 모니터링하는 데 사용되는 웹 UI를 제공합니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
 Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
@@ -67,7 +68,7 @@ HDInsight에서 Ambari REST API의 기본 URI는 https://CLUSTERNAME.azurehdinsi
 
 ### <a name="authentication"></a>인증
 
-HTTPS를 요구하는 HDInsight에서 Ambari로 연결 연결을 인증할 때는 클러스터를 만들 때 제공한 관리자 계정 이름(기본값: **admin**)과 암호를 사용해야 합니다.
+HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin**) 및 암호를 사용합니다.
 
 ## <a name="examples-authentication-and-parsing-json"></a>예제: 인증 및 JSON 구문 분석
 
@@ -176,7 +177,7 @@ HDInsight에서 작업할 때 클러스터 노드의 정규화된 도메인 이�
 * **작업자 노드**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -190,7 +191,7 @@ HDInsight에서 작업할 때 클러스터 노드의 정규화된 도메인 이�
 * **Zookeeper 노드**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -208,7 +209,7 @@ HDInsight에서 작업할 때 클러스터 노드의 정규화된 도메인 이�
 >
 > HDInsight 및 가상 네트워크 작업에 대한 자세한 내용은 [사용자 지정 Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
-IP 주소를 획득하려면 호스트에 대한 FQDN을 알고 있어야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제에서는 먼저 Ambari를 쿼리하여 모든 호스트 노드의 FQDN을 알아낸 다음 다시 Ambari를 쿼리하여 각 호스트의 IP 주소를 알아냅니다.
+IP 주소를 찾으려면 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 알아야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제에서는 먼저 Ambari를 쿼리하여 모든 호스트 노드의 FQDN을 알아낸 다음 다시 Ambari를 쿼리하여 각 호스트의 IP 주소를 알아냅니다.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -255,7 +256,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 반환 값은 다음 예제 중 하나와 유사합니다.
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - 이 값은 클러스터에서 기본 저장소에 Azure Storage 계정을 사용하고 있음을 나타냅니다. `ACCOUNTNAME` 값은 저장소 계정의 이름입니다. `CONTAINER` 부분은 저장소 계정에서 blob 컨테이너의 이름입니다. 이 컨테이너는 클러스터에 대한 HDFS 호환 저장소의 루트입니다.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - 이 값은 클러스터에서 기본 저장소에 Azure Storage 계정을 사용하고 있음을 나타냅니다. `ACCOUNTNAME` 값은 저장소 계정의 이름입니다. `CONTAINER` 부분은 저장소 계정에서 blob 컨테이너의 이름입니다. 이 컨테이너는 클러스터에 대한 HDFS 호환 저장소의 루트입니다.
 
 * `adl://home` - 이 값은 클러스터가 기본 저장소에 Azure Data Lake Store를 사용하고 있음을 나타냅니다.
 
@@ -292,7 +293,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     반환 값은 `/clusters/CLUSTERNAME/`과 비슷합니다. 이 값은 Data Lake Store 계정 내의 경로입니다. 이 경로는 클러스터에 대한 HDFS 호환 파일 시스템의 루트입니다. 
 
 > [!NOTE]
-> [Azure PowerShell](https://docs.microsoft.com/powershell/)에서 제공하는 `Get-AzureRmHDInsightCluster` cmdlet 또한 클러스터에 대한 저장소 정보를 반환합니다.
+> [Azure PowerShell](/powershell/azure/overview)에서 제공하는 `Get-AzureRmHDInsightCluster` cmdlet 또한 클러스터에 대한 저장소 정보를 반환합니다.
 
 
 ## <a name="example-get-configuration"></a>예제: 구성 가져오기
@@ -304,8 +305,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```
 
     ```powershell
-    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+    $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
         -Credential $creds
+    $respObj.Content
     ```
 
     이 예제는 클러스터에 설치된 구성 요소에 대한 현재 구성이 포함된 JSON 문서(*tag* 값으로 식별됨)를 반환합니다. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
@@ -377,7 +379,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
    
     이 목록에서 구성 요소의 이름(예: **spark\_thrift\_sparkconf** 및 **tag** 값을 복사해야 합니다.
 
-2. 다음 명령을 사용하여 구성 요소 및 태그의 구성을 검색합니다. **spark-thrift-sparkconf** 및 **INITIAL**을 검색할 구성 요소 및 태그로 바꿉니다.
+2. 다음 명령을 사용하여 구성 요소 및 태그의 구성을 검색합니다.
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -392,6 +394,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Credential $creds
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
+
+    > [!NOTE]
+    > **spark-thrift-sparkconf** 및 **INITIAL**을 검색할 구성 요소 및 태그로 바꿉니다.
    
     Jq는 HDInsight에서 검색한 데이터를 새 구성 템플릿으로 반환하는 데 사용됩니다. 특히, 이러한 예제에서는 다음 작업을 수행합니다.
    
@@ -571,5 +576,4 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ## <a name="next-steps"></a>다음 단계
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
-
 

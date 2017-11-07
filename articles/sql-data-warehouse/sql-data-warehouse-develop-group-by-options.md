@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
-
-
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 GROUP BY 옵션
 [GROUP BY][GROUP BY] 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. 또한 Azure SQL 데이터 웨어하우스에서 직접 지원하지 않기 때문에 해결해야 하는 기능을 확장하는 몇 가지 옵션이 있습니다.
@@ -181,22 +182,16 @@ ORDER BY 1,2,3
 코드를 섹션으로 분할하고 반복 구성을 생성하면 코드의 관리 및 유지 관리가 더 쉬워집니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 08/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
-ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
-
-
+ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure 데이터 카탈로그 시작
 Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 자세한 개요는 [Azure Data Catalog란](data-catalog-what-is-data-catalog.md)을 참조하세요.
@@ -362,10 +362,4 @@ Azure Data Catalog에서 개별 자산을 삭제하거나 여러 자산을 삭�
 * [데이터 자산을 문서화하는 방법](data-catalog-how-to-documentation.md)
 * [데이터 자산에 연결하는 방법](data-catalog-how-to-connect.md)
 * [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

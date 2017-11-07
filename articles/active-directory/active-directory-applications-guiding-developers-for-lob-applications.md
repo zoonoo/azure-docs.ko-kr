@@ -1,5 +1,5 @@
 ---
-title: "Azure AD용 앱 개발 | Microsoft Docs&quot;"
+title: "Azure AD용 앱 개발 | Microsoft Docs'"
 description: "IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure Active Directory(AD)에 대한 LoB(기간 업무) 응용 프로그램 개발의 개요를 제공하며, Active Directory/Office 365 전역 관리자용으로 작성되었습니다.
@@ -81,4 +81,3 @@ Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active
 * [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-

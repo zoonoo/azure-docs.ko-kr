@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/29/2016
+ms.date: 07/19/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2dfc682fa54577ec5ab9d8a1e21ea82f035cc41e
-
-
+ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 ## <a name="overview"></a>개요
@@ -33,6 +33,9 @@ Azure 클래식 포털 **구성** 페이지에는 StorSimple 관리자 서비스
 ## <a name="modify-device-settings"></a>장치 설정 수정
 장치 설정에는 장치 이름 및 장치 설명이 포함됩니다.
 
+> [!NOTE] 
+> Azure 클래식 포털에서는 장치 이름을 수정할 수 없습니다. 장치 이름 바꾸기는 지원되지 않습니다.
+
 StorSimple 관리자 서비스에 연결된 StorSimple 장치에는 기본 이름이 할당됩니다. 기본 이름에는 일반적으로 장치의 일련 번호가 반영됩니다. 예를 들어, 기본 장치 이름은 8600-SHX0991003G44HT와 같이 다음을 나타내는 15자 길이의 문자입니다.
 
 * **8600** – 장치 모델을 나타냅니다.
@@ -40,9 +43,7 @@ StorSimple 관리자 서비스에 연결된 StorSimple 장치에는 기본 이�
 * **0991003** - 특정 제품을 나타냅니다.
 * **G44HT**- 마지막 5자리 숫자는 고유한 일련 번호를 만들도록 증가됩니다. 순차적인 집합이 아닐 수 있습니다.
 
-Azure 클래식 포털을 사용하여 장치 이름을 변경하거나 사용자가 원하는 고유한 이름을 할당할 수 있습니다. 이름은 모든 문자를 사용할 수 있으며 최대 64자 길이로 만들 수 있습니다.
-
-장치 설명을 지정할 수도 있습니다. 일반적으로 장치 설명은 장치의 소유자 및 물리적 위치를 식별하는 데 도움이 됩니다. 설명 필드에는 256자 미만의 문자가 포함되어야 합니다.
+장치 설명을 지정할 수 있습니다. 일반적으로 장치 설명은 장치의 소유자 및 물리적 위치를 식별하는 데 도움이 됩니다. 설명 필드에는 256자 미만의 문자가 포함되어야 합니다.
 
 ## <a name="modify-time-settings"></a>시간 설정 수정
 장치는 클라우드 저장소 서비스 공급자를 사용하여 인증하기 위해 시간을 동기화해야 합니다. 드롭다운 목록에서 표준 시간대를 선택하고 최대 두 시간 NTP(Network Time Protocol) 서버를 지정합니다. 기본 NTP 서버는 필수 항목이며 장치를 구성하기 위해 StorSimple용 Windows PowerShell을 사용할 때 지정됩니다. 기본 Windows 서버 **time.windows.com** 을 NTP 서버로 지정할 수 있습니다. Azure 클래식 포털을 통해 기본 NTP 서버 구성을 볼 수 있지만, 변경하려면 Windows PowerShell 인터페이스를 사용해야 합니다.
@@ -117,10 +118,4 @@ Azure 클래식 포털을 통해 컨트롤러 0과 컨트롤러 1을 다시 구�
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 장치에 대해 MPIO를 구성](storsimple-configure-mpio-windows-server.md)하는 방법을 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 09/25/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: f332fe51a9de8e83d17805e1279e69dee59ed791
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-quotas"></a>이벤트 허브 할당량
-이 섹션에는 Microsoft Azure 이벤트 허브의 기본 할당량과 제한 목록이 있습니다.
+이 섹션에는 Azure Event Hubs의 기본 할당량과 제한 목록이 나와 있습니다.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
@@ -30,6 +29,5 @@ ms.lasthandoff: 02/02/2017
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
-* [이벤트 허브 만들기](event-hubs-create.md)
+* [Event Hubs 자동 확장](event-hubs-auto-inflate.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-

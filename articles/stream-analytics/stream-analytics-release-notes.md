@@ -3,7 +3,7 @@ title: "Stream Analytics 릴리스 정보 | Microsoft Docs"
 description: "Stream Analytics 릴리스 정보"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
@@ -12,16 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
-ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
-ms.lasthandoff: 02/01/2017
-
-
+ms.date: 05/03/2017
+ms.author: samacha
+ms.openlocfilehash: 3251cd47bb917912d63330345dbf392e724448ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics 릴리스 정보
+
+## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics Tools for Visual Studio 06/14/2017 업데이트 정보
+이 업데이트는 Visual Studio Tools에 대한 내용입니다. 이 릴리스에는 다음과 같은 새로운 기능이 포함되어 있습니다.
+
+| 제목 | 설명 |
+| --- | --- |
+| Java 스크립트 편집기 지원 |java 스크립트 함수를 만든 후 원시 java 스크립트 편집기 환경을 즐길 수 있습니다.|
+| 작업 실행 시간 오류 메시지 보기 | 작업 실행 중에 런타임 오류가 있는 경우 표시 시간 창을 조정하여 오류 탭에서 이를 확인할 수 있습니다. 기본적으로 마지막 30분 동안의 오류 메시지를 보여 줍니다. |
+| 로컬 테스트 입력에 대한 CSV 및 Avro 지원 | JSON,외에도 이제 로컬 테스트 입력에 CSV 및 Avro 파일 형식을 사용할 수 있습니다.|
+
+## <a name="notes-for-05032017-update-of-stream-analytics"></a>Stream Analytics의 2017/05/03 업데이트에 대한 정보
+이 업데이트는 문제 해결 설명서 릴리스용입니다.
+
+[문제 해결 가이드](stream-analytics-troubleshooting-guide.md) 및 다른 문서가 릴리스되었습니다. 검토해 보시고 의견을 보내 주세요.
+
+## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics Tools for Visual Studio 04/24/2017 업데이트 정보
+이 업데이트는 Visual Studio Tools에 대한 내용입니다. 이 릴리스에는 다음과 같은 새로운 기능이 포함되어 있습니다.
+
+| 제목 | 설명 |
+| --- | --- |
+| Visual Studio에서 로컬 테스트 결과 보기 | 로컬 테스트의 출력 결과를 보려면 출력 콘솔 창에서 ENTER 키를 누르거나 창을 닫습니다. 결과는 Visual Studio의 창에 테이블 형식으로 표시됩니다. |
+| JSON 형식의 출력 로컬 결과 | 로컬 테스트를 실행하는 경우 JSON 및 CSV 파일 형식으로 출력 결과가 생성됩니다. |
+| Blob/Table Storage 입/출력 데이터 미리 보기 | 작업 보기에서 Blob 또는 Table Storage 입/출력을 두 번 클릭하면 Visual Studio 내에서 데이터를 매우 쉽게 미리 볼 수 있습니다. |
+| 입/출력에 대한 오류 메시지 보기 | 작업의 입력 또는 출력과 관련된 몇 가지 런타임 오류가 있는 경우 오류가 작업 다이어그램에 표시되며 마우스로 오류를 가리키면 자세한 오류 메시지가 표시됩니다.|
+
+
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Stream Analytics 2017/02/01 릴리스 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -52,14 +77,14 @@ ms.lasthandoff: 02/01/2017
 | 제목 | 설명 |
 | --- | --- |
 | REST API 버전 업데이트 |REST API 버전은 2015-10-01에 업데이트되었습니다. 자세한 내용은 MSDN의 [Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx) 및 [Stream Analytics에서 기계 학습 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)에서 확인할 수 있습니다. |
-| Azure 기계 학습 통합 |이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 추가 정보는 [자습서](stream-analytics-machine-learning-integration-tutorial.md) 및 [일반 블로그 알림](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)을 참조합니다. |
+| Azure 기계 학습 통합 |이 릴리스에서는 Azure Machine Learning 사용자 정의 함수에 대해 지원합니다. 추가 정보는 [자습서](stream-analytics-machine-learning-integration-tutorial.md) 및 [일반 블로그 알림](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)을 참조합니다. |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Stream Analytics의 2015/11/12 릴리스에 대한 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
 | 제목 | 설명 |
 | --- | --- |
-| SELECT의 새 동작 |Stream Analytics의 SELECT가 중첩된 레코드의 속성 접근자로 *를 허용하도록 확장되었습니다. 추가 정보는 [http://msdn가 있습니다.microsoft가 있습니다.com/library/mt622759가 있습니다.aspx](http://msdn.microsoft.com/library/mt622759.aspx "복합 데이터 형식")가 있습니다. |
+| SELECT의 새 동작 |Stream Analytics의 SELECT가 중첩된 레코드의 속성 접근자로 *를 허용하도록 확장되었습니다. 자세한 내용은 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "복합 데이터 형식")을 참조하세요. |
 
 ## <a name="notes-for-10222015-release-of-stream-analytics"></a>Stream Analytics의 2015/10/22 릴리스에 대한 정보
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
@@ -77,8 +102,8 @@ ms.lasthandoff: 02/01/2017
 | 제목 | 설명 |
 | --- | --- |
 | Azure IoT Suite 공개 미리 보기 |Stream Analytics이 Azure IoT Suite의 공개 미리 보기에 포함되어 있습니다. |
-| Azure 포털 통합 |Azure 관리 포털에서 지속적으로 존재할 뿐만 아니라 이제 Stream Analytics은 [Azure 포털](https://azure.microsoft.com/overview/preview-portal/)에 통합되었습니다. Preview 포털의 Stream Analytics 기능은 현재 Azure 관리 포털에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다. |
-| DocumentDB 출력에 대한 지원 |이제 Stream Analytics 작업은 [DocumentDB](https://azure.microsoft.com/services/documentdb/)로 출력할 수 있습니다. |
+| Azure Portal 통합 |Azure Portal에서 지속적으로 존재할 뿐만 아니라 이제 Stream Analytics은 [Azure Portal](https://azure.microsoft.com/overview/preview-portal/)에 통합되었습니다. Preview 포털의 Stream Analytics 기능은 현재 Azure Portal에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다. |
+| Cosmos DB 출력 지원 |이제 Stream Analytics 작업이 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)에 출력할 수 있습니다. |
 | IoT Hub 입력에 대한 지원 |이제 Stream Analytics 작업이 IoT Hub에서 데이터를 수집할 수 있습니다. |
 | 다른 유형의 이벤트를 위한 TIMESTAMP BY |단일 데이터 스트림에 서로 다른 필드의 타임스탬프를 가진 여러 이벤트 형식이 포함된 경우 이제 식에서 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 를 사용하여 각 사례에 대해 서로 다른 타임스탬프 필드를 지정할 수 있습니다. |
 
@@ -103,7 +128,7 @@ ms.lasthandoff: 02/01/2017
 
 | 제목 | 설명 |
 | --- | --- |
-| Azure ID에서 분리된 Power BI 조직 ID |이 기능을 통해 모든 Azure 계정 형식의 ASA 작업에 대한 [Power BI 출력](stream-analytics-power-bi-dashboard.md) 을 사용할 수 있습니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다. |
+| Azure ID에서 분리된 Power BI 조직 ID |이 기능을 통해 모든 Azure 계정 형식의 ASA 작업에 대한 [Power BI 출력](stream-analytics-power-bi-dashboard.md)을 사용할 수 있습니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다. |
 | 서비스 버스 큐 출력에 대한 지원 |이제 Stream Analytics 작업에서 [Service Bus 큐](stream-analytics-define-outputs.md#service-bus-queues) 출력을 사용할 수 있습니다. |
 | 서비스 버스 토픽 출력에 대한 지원 |이제 Stream Analytics 작업에서 [Service Bus 토픽](stream-analytics-define-outputs.md#service-bus-topics) 출력을 사용할 수 있습니다. |
 
@@ -140,8 +165,7 @@ ms.lasthandoff: 02/01/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

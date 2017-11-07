@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>포털을 사용하여 NSG 관리
 
@@ -199,9 +199,3 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 ## <a name="next-steps"></a>다음 단계
 * [로깅을 사용합니다](virtual-network-nsg-manage-log.md) .
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

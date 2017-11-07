@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse에 연결 | Microsoft Azure"
 description: "Azure SQL Data Warehouse의 서버 이름 및 연결 문자열을 찾는 방법"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
-ms.lasthandoff: 04/03/2017
-
-
+ms.author: anvang;barbkess
+ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 연결
 이 문서를 사용하면 처음으로 SQL Data Warehouse에 연결할 수 있습니다.
@@ -95,6 +94,5 @@ Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
-
 
 

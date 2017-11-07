@@ -3,8 +3,8 @@ title: "Application Insights의 성능 카운터 | Microsoft Docs"
 description: "Application Insights에서 시스템 및 사용자 지정 .NET 성능 카운터를 모니터링합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 또한 직접 정의할 수도 있습니다. [Application Insights](app-insights-overview.md)는 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 컴퓨터의 IIS에서 응용 프로그램이 실행되는 경우 이러한 성능 카운터를 표시할 수 있습니다. 차트에서는 라이브 응용 프로그램에 사용할 수 있는 리소스를 나타내고 서버 인스턴스 간의 불균형 부하를 확인할 수 있습니다.
@@ -27,15 +27,6 @@ Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8
 ![Application Insights에서 보고하는 시스템 성능 카운터](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (성능 카운터는 Azure Web Apps에서 사용할 수 없습니다. 하지만 [Azure 진단을 Application Insights에 보낼 수 있습니다](app-insights-azure-diagnostics.md).)
-
-## <a name="configure"></a>구성
-Application Insights 상태 모니터가 아직 서버 컴퓨터에 설치되지 않은 경우에는 이 모니터를 설치하여 성능 카운터를 확인해야 합니다.
-
-각 서버 인스턴스에서 [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다. Application Insights 상태 모니터가 이미 설치되어 있으면 다시 설치할 필요가 없습니다.
-
-* *개발 중인 [Application Insights SDK를 내 앱에 설치](app-insights-asp-net.md)했습니다. 그래도 상태 모니터가 필요합니까?*
-  
-    예, ASP.NET 웹앱에 대한 성능 카운터도 수집하므로 상태 모니터가 필요합니다. 이미 알고 있듯이 상태 모니터는 개발 중인 SDK를 설치하지 않고도 [이미 라이브 상태인 웹앱을 모니터링](app-insights-monitor-performance-live-website-now.md)하는 데 사용할 수 있습니다.
 
 ## <a name="view-counters"></a>카운터 보기
 서버 블레이드에서 성능 카운터의 기본 집합을 보여 줍니다. 
@@ -128,13 +119,7 @@ Application Insights 상태 모니터가 아직 서버 컴퓨터에 설치되지
 ## <a name="alerts"></a>경고
 다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](app-insights-alerts.md)할 수 있습니다. 경고 블레이드를 열고 경고 추가를 클릭합니다.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
+## <a name="next"></a>다음 단계
 * [종속성 추적](app-insights-asp-net-dependencies.md)
 * [예외 추적](app-insights-asp-net-exceptions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

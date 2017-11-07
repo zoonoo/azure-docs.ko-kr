@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 993404815b557452898d045910a80fe1e87a4924
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 컴퓨터에 대한 주요 자격 증명 모음 설정
 
@@ -31,8 +30,8 @@ Azure Resource Manager 스택에서 비밀/인증서는 주요 자격 증명 모
 > [!NOTE]
 > 1. 주요 자격 증명 모음을 Azure Resource Manager 가상 컴퓨터에서 사용하려면 주요 자격 증명에 대한 **EnabledForDeployment** 속성을 true로 설정해야 합니다. 다양한 클라이언트에서 이 작업을 수행할 수 있습니다.
 > 2. 주요 자격 증명 모음은 가상 컴퓨터와 동일한 구독 및 위치에 만들어야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>PowerShell을 사용하여 주요 자격 증명 모음 설정
 PowerShell을 사용하여 주요 자격 증명 모음을 만들려면 [Azure 주요 자격 증명 모음 시작](../../key-vault/key-vault-get-started.md#vault)을 참조하세요.
@@ -46,7 +45,7 @@ PowerShell을 사용하여 주요 자격 증명 모음을 만들려면 [Azure �
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="us-cli-to-set-up-key-vault"></a>CLI를 사용하여 주요 자격 증명 모음 설정
-CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 주요 자격 증명 모음 관리](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault)를 참조하세요.
+CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 주요 자격 증명 모음 관리](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault)를 참조하세요.
 
 CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책을 할당해야 합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -68,5 +67,3 @@ CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책�
     }
 
 템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.
-
-

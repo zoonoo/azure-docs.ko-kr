@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/23/2017
+ms.date: 8/15/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>먼저 보기: Resource Manager 배포에서 파일 및 폴더 백업
 이 문서는 Resource Manager 배포를 사용하여 Windows Server(또는 Windows 컴퓨터) 파일 및 폴더를 Azure에 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure 백업을 시작하려는 분들은 여기서 시작하시면 됩니다.
@@ -88,7 +87,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 이제 자격 증명 모음을 만들었으므로 파일과 폴더를 백업하도록 자격 증명 모음을 구성합니다.
 
@@ -164,6 +163,15 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
 이제 에이전트가 설치되었고 컴퓨터가 자격 증명 모음에 등록되었습니다. 백업을 구성하고 일정을 예약할 준비가 완료되었습니다.
 
+## <a name="network-and-connectivity-requirements"></a>네트워크 및 연결 요구 사항
+
+컴퓨터/프록시의 인터넷 액세스가 제한되어 있으면 컴퓨터/프록시의 방화벽 설정에서 다음 URL을 허용하도록 구성되었는지 확인합니다. <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.net
+
 ## <a name="back-up-your-files-and-folders"></a>파일 및 폴더 백업
 초기 백업에는 두 가지 주요 작업이 포함됩니다.
 
@@ -185,7 +193,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
-    매일(하루에 최대 속도로&3;회) 또는 매주 백업을 예약할 수 있습니다.
+    매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
 
     ![Windows Server 백업 항목](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
@@ -220,4 +228,3 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 * [Windows 컴퓨터 백업](backup-configure-vault.md)에 대해 자세히 알아보세요.
 * 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 * 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
-

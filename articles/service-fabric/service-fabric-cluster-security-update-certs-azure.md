@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.lasthandoff: 03/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -27,7 +26,7 @@ Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러
 클러스터를 만드는 동안 클라이언트 인증서 외에도 인증서 보안을 구성할 때 Service Fabric을 사용하여 기본 인증서와 보조 인증서의 두 클러스터 인증서를 지정할 수 있습니다. 만드는 시점에서의 설정에 관한 자세한 내용은 [포털을 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-portal.md) 또는 [Azure Resource Manager를 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 만드는 시점에 클러스터 인증서를 하나만 지정하는 경우 해당 인증서가 기본 인증서로 사용됩니다. 클러스터를 만든 후 새 인증서를 보조 인증서로 추가할 수 있습니다.
 
 > [!NOTE]
-> 보안 클러스터의 경우 항상 하나 이상의 유효한(취소되지 않거나 만료되지 않은) 클러스터 인증서(기본 또는 보조)를 배포해야 하며 그러지 않으면 클러스터가 작동을 중지합니다. 모든 유효한 인증서가 만료되기&90;일 전에 시스템은 해당 노드에 대해 경고 추적 및 경고 상태 이벤트를 생성합니다. 현재, 서비스 패브릭이 이 항목에 대해 전송하는 전자 메일 또는 기타 알림은 없습니다. 
+> 보안 클러스터의 경우 항상 하나 이상의 유효한(취소되지 않거나 만료되지 않은) 클러스터 인증서(기본 또는 보조)를 배포해야 하며 그러지 않으면 클러스터가 작동을 중지합니다. 모든 유효한 인증서가 만료되기 90일 전에 시스템은 해당 노드에 대해 경고 추적 및 경고 상태 이벤트를 생성합니다. 현재, 서비스 패브릭이 이 항목에 대해 전송하는 전자 메일 또는 기타 알림은 없습니다. 
 > 
 > 
 
@@ -66,7 +65,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 **1단계:** 클러스터를 배포하는 데 사용한 Resource Manager 템플릿을 엽니다. 위의 리포지토리에서 샘플을 다운로드한 경우 5-VM-1-NodeTypes-Secure_Step1.JSON을 사용하여 보안 클러스터를 배포한 다음 해당 템플릿을 엽니다.
 
-**2단계:** **유형이 "string"인 두 매개 변수** "secCertificateThumbprint"와 "secCertificateUrlValue"를 템플릿의 매개 변수 섹션에 추가합니다. 다음 코드 조각을 복사하여 템플릿에 추가할 수 있습니다. 템플릿 원본에 따라 이미 이 항목을 정의했을 수 있습니다. 이 경우 다음 단계를 진행합니다. 
+**2단계:** **유형이 "string"인 두 매개 변수**  "secCertificateThumbprint"와 "secCertificateUrlValue"를 템플릿의 매개 변수 섹션에 추가합니다. 다음 코드 조각을 복사하여 템플릿에 추가할 수 있습니다. 템플릿 원본에 따라 이미 이 항목을 정의했을 수 있습니다. 이 경우 다음 단계를 진행합니다. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -312,6 +311,5 @@ Get-ServiceFabricClusterHealth
 [Json_Pub_Setting3]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_16.PNG
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
-
 
 

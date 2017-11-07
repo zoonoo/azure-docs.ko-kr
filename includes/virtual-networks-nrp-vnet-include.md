@@ -77,8 +77,3 @@ JSON 형식의 샘플 VNet:
 * VNet에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt163650.aspx) 를 읽어보세요.
 * 서브넷에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt163618.aspx) 를 읽어보세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

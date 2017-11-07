@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
-ms.lasthandoff: 03/06/2017
-
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -158,7 +158,7 @@ ms.lasthandoff: 03/06/2017
 |이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |from|검색할 문자열|예|해당 없음|  
-|to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가&0;인 대체 문자열을 지정합니다.|예|해당 없음|  
+|to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -227,15 +227,28 @@ ms.lasthandoff: 03/06/2017
     </outbound>  
 </policies>  
 ```  
+이 예제에서 백 엔드 서비스 설정 정책은 쿼리 문자열에 전달된 버전 값에 기반한 요청을 API에 지정된 것과 다른 백 엔드 서비스로 라우팅합니다.
   
- 이 예제에서 백 엔드 서비스 설정 정책은 쿼리 문자열에 전달된 버전 값에 기반한 요청을 API에 지정된 것과 다른 백 엔드 서비스로 라우팅합니다.  
+처음에는 백 엔드 서비스 기준 URL이 API 설정에서 파생되었습니다. 따라서 `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` 요청 URL은 `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`가 되고, 여기서 `http://contoso.com/api/10.4/`는 API 설정에 지정된 백 엔드 서비스 URL입니다.  
   
- 처음에는 백 엔드 서비스 기준 URL이 API 설정에서 파생되었습니다. 따라서 `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` 요청 URL은 `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`가 되고, 여기서 `http://contoso.com/api/10.4/`는 API 설정에 지정된 백 엔드 서비스 URL입니다.  
+[<choose\>](api-management-advanced-policies.md#choose) 정책 문을 적용하면 백 엔드 서비스 기준 URL은 버전 요청 쿼리 매개 변수의 값에 따라 `http://contoso.com/api/8.2` 또는 `http://contoso.com/api/9.1`로 다시 변경될 수 있습니다. 예를 들어 값이 `"2013-15"`이면 최종 요청 URL은 `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`가 됩니다.  
   
- [<choose\>](api-management-advanced-policies.md#choose) 정책 문을 적용하면 백 엔드 서비스 기준 URL은 버전 요청 쿼리 매개 변수의 값에 따라 `http://contoso.com/api/8.2` 또는 `http://contoso.com/api/9.1`로 다시 변경될 수 있습니다. 예를 들어 값이 `"2013-15"`이면 최종 요청 URL은 `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`가 됩니다.  
+추가 변환 요청이 필요한 경우 다른 [변환 정책](api-management-transformation-policies.md#TransformationPolicies)을 사용할 수 있습니다. 예를 들어 요청이 버전 특정 백 엔드로 라우팅되고 있어 버전 쿼리 매개 변수를 제거하려면 [쿼리 문자열 설정 매개 변수](api-management-transformation-policies.md#SetQueryStringParameter) 정책을 사용하여 현재의 중복 버전 특성을 제거할 수 있습니다.  
   
- 추가 변환 요청이 필요한 경우 다른 [변환 정책](api-management-transformation-policies.md#TransformationPolicies)을 사용할 수 있습니다. 예를 들어 요청이 버전 특정 백 엔드로 라우팅되고 있어 버전 쿼리 매개 변수를 제거하려면 [쿼리 문자열 설정 매개 변수](api-management-transformation-policies.md#SetQueryStringParameter) 정책을 사용하여 현재의 중복 버전 특성을 제거할 수 있습니다.  
+### <a name="example"></a>예제  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+이 예제에서 정책은 userId 쿼리 문자열을 파티션 키로 사용하고 파티션의 주 복제본을 사용하여 서비스 패브릭 백 엔드로 요청을 라우팅합니다.  
+
 ### <a name="elements"></a>요소  
   
 |이름|설명|필수|  
@@ -246,8 +259,13 @@ ms.lasthandoff: 03/06/2017
   
 |이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|base-url|새 백 엔드 서비스 기준 URL입니다.|예|해당 없음|  
-  
+|base-url|새 백 엔드 서비스 기준 URL입니다.|아니요|해당 없음|  
+|backend-id|라우팅할 백 엔드의 식별자입니다.|아니요|해당 없음|  
+|sf-partition-key|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 이름 확인 서비스에서 특정 파티션을 확인하는 데 사용됩니다.|아니요|해당 없음|  
+|sf-replica-type|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 요청이 파티션의 주 복제본으로 이동되는지, 보조 복제본으로 이동되는지를 제어합니다. |아니요|해당 없음|    
+|sf-resolve-condition|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 새로 확인할 때마다 Service Fabric 백 엔드에 대한 호출을 반복해야 하는지를 식별하는 조건입니다.|아니요|해당 없음|    
+|sf-service-instance-name|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 런타임에 서비스 인스턴스를 변경할 수 있습니다. |아니요|해당 없음|    
+
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
@@ -284,7 +302,7 @@ ms.lasthandoff: 03/06/2017
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string"></a>문자열로 액세스하는 예제  
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>문자열로 액세스하는 예제 파이프라인에서 나중에 액세스할 수 있도록 원래 요청 본문을 유지합니다.
   
 ```xml  
 <set-body>  
@@ -298,7 +316,7 @@ ms.lasthandoff: 03/06/2017
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject"></a>JObject로 본문을 액세스하는 예  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>JObject로 본문에 액세스하는 예제 원래 요청 본문을 보존하지 않으므로 파이프라인에서 나중에 액세스하면 예외가 발생합니다.  
   
 ```xml  
 <set-body>   
@@ -379,24 +397,46 @@ ms.lasthandoff: 03/06/2017
 |template|본문 설정 정책이 실행될 템플릿 모드를 변경하는 데 사용됩니다. 현재 지원되는 유일한 값:<br /><br />- liquid - 본문 설정 정책은 liquid 템플릿 엔진을 사용합니다. |아니요|liquid|  
 
 요청 및 응답에 대한 정보에 액세스할 수 있도록 Liquid 템플릿은 다음 속성을 갖는 컨텍스트 개체에 바인딩할 수 있습니다. <br />
-<pre>context
-Request
-Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+<pre>context.
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
 
     Response.
         StatusCode
         Method
         Headers
 Url.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 
-OriginalUrl
-Scheme Host Port Path Query QueryString ToUri ToString
+OriginalUrl.
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 </pre>
 
 
 
-### <a name="usage"></a>사용 현황  
+### <a name="usage"></a>사용  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend  
@@ -633,7 +673,7 @@ Scheme Host Port Path Query QueryString ToUri ToString
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -641,7 +681,7 @@ Scheme Host Port Path Query QueryString ToUri ToString
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -664,4 +704,3 @@ Scheme Host Port Path Query QueryString ToUri ToString
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-

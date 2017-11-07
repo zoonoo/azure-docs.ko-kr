@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
@@ -118,7 +117,7 @@ ms.lasthandoff: 03/22/2017
 
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 사용한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료합니다.
+1. Azure PowerShell을 사용한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서에 나오는 단계를 완료합니다.
 2. 필요한 경우 PowerShell 콘솔에서 `New-AzureRmResourceGroup` cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 리소스 그룹을 이미 만든 경우 3단계로 이동합니다.
 
     ```powershell
@@ -205,5 +204,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 다음 단계를 완료�
         data:    Tags: null
         data:
         info:    group create command OK
-
 

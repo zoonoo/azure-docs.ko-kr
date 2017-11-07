@@ -2,22 +2,22 @@
 title: "Azure Application Insights의 Analytics로 데이터 가져오기 | Microsoft Docs"
 description: "앱 원격 분석에 연결할 정적 데이터를 가져오거나 Analytics로 쿼리할 별도 데이터 스트림을 가져옵니다."
 services: application-insights
+keywords: "개방형 스키마, 데이터 가져오기"
 documentationcenter: 
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 10/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: f124748434be1b8f0c4704fe6ffba70414c47916
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -58,19 +58,13 @@ JSON 또는 DSV(구분 기호 쉼표, 세미콜론 또는 탭으로 구분된 �
 
  * Blob에 대한 전용 저장소 계정을 만드는 것이 좋습니다. Blob이 다른 프로세스와 공유되면 프로세스에서 blob을 읽는 데 더 오래 걸립니다.
 
-2. 이 기능이 미리 보기 상태인 경우 액세스 권한을 요청해야 합니다.
-
- * [Azure Portal](https://portal.azure.com)의 Application Insights 리소스에서 Analytics를 엽니다. 
- * 스키마 창 아래쪽에서 **기타 데이터 원본** 아래의 '문의처' 링크를 클릭합니다. 
- * '데이터 원본 추가'가 표시되면 이미 액세스 권한이 있는 것입니다.
-
 
 ## <a name="define-your-schema"></a>스키마 정의
 
 데이터를 가져오려면 데이터 스키마를 지정하는 *데이터 원본*를 정의해야 합니다.
 단일 Application Insights 리소스에 최대 50개의 데이터 원본을 유지할 수 있습니다.
 
-1. 데이터 원본 마법사를 시작합니다.
+1. 데이터 원본 마법사를 시작합니다. "새 데이터 원본 추가" 버튼을 사용합니다. 또는 오른쪽 위 모서리에서 설정 단추를 클릭하고 드롭다운 메뉴에서 "데이터 원본"을 선택합니다.
 
     ![새 데이터 원본 추가](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -139,7 +133,7 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 
 다음 프로세스를 수동으로 수행하거나 정기적으로 수행하도록 자동화 시스템을 설정할 수 있습니다. 가져올 데이터의 각 블록에 대해 이러한 단계를 수행해야 합니다.
 
-1. [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md)에 데이터를 업로드합니다. 
+1. [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md)에 데이터를 업로드합니다. 
 
  * Blob은 압축하지 않은 상태로 최대 1GB 크기일 수 있습니다. 성능 측면에서는 수백 MB 단위의 큰 blob이 이상적입니다.
  * 데이터를 쿼리에 사용하기 위해 Gzip으로 압축하여 업로드 시간 및 대기 시간을 향상시킬 수 있습니다. `.gz` 파일 이름 확장명을 사용합니다.
@@ -147,7 +141,7 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
  * 데이터를 몇 초 단위로 매우 자주 전송할 때는 성능상의 이유로 둘 이상의 저장소 계정을 사용하는 것이 좋습니다.
 
  
-2. [Blob에 대한 공유 액세스 서명 키를 생성합니다](../storage/storage-dotnet-shared-access-signature-part-2.md). 이 키는 만료 기간이 1일이고 읽기 액세스 권한을 부여해야 합니다.
+2. [Blob에 대한 공유 액세스 서명 키를 생성합니다](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). 이 키는 만료 기간이 1일이고 읽기 액세스 권한을 부여해야 합니다.
 3. 데이터가 대기 중임을 Application Insights에 알리기 위해 REST 호출을 수행합니다.
 
  * 끝점: `https://dc.services.visualstudio.com/v2/track`
@@ -187,11 +181,11 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 * **400 잘못된 요청**: 요청 페이로드가 잘못되었음을 나타냅니다. 다음을 확인하세요.
  * 올바른 계측 키
  * 유효한 시간 값. 현재 시간(UTC)이어야 합니다.
- * 데이터는 스키마를 준수합니다.
+ * 이벤트의 JSON이 스키마를 준수합니다.
 * **403 사용 권한 없음**: 전송한 Blob에 액세스할 수 없습니다. 공유 액세스 키가 유효한지와 만료되지 않았는지 확인합니다.
 * **404 찾을 수 없음**:
  * Blob이 존재하지 않습니다.
- * 데이터 원본 이름이 잘못되었습니다.
+ * SourceId가 잘못되었습니다.
 
 응답 오류 메시지에서 좀 더 자세한 정보를 사용할 수 있습니다.
 
@@ -203,8 +197,6 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 ### <a name="classes"></a>클래스
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -357,7 +349,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### <a name="ingest-data"></a>데이터 수집
@@ -365,18 +356,14 @@ namespace IngestionClient
 각 blob에 대한 이 코드를 사용합니다. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Analytics 쿼리 언어 둘러보기](app-insights-analytics-tour.md)
-* [*Logstash*를 사용하여 Application Insights에 데이터 전송](https://github.com/Microsoft/logstash-output-application-insights)
-
+* [Log Analytics 쿼리 언어 둘러보기](app-insights-analytics-tour.md)
+* Logstash를 사용 중인 경우 [Logstash 플러그 인을 사용하여 Application Insights로 데이터를 보냅니다](https://github.com/Microsoft/logstash-output-application-insights).

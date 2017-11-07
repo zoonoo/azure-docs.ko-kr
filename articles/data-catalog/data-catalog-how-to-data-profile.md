@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 08/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d825277b63e00d93136161d50d780daa95ea8a7
-
-
+ms.openlocfilehash: 8f4174f0ed74706b8275c8b1f0a62753f2834fa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-profile-data-sources"></a>데이터 원본 데이터 프로파일링
 ## <a name="introduction"></a>소개
@@ -92,9 +92,3 @@ ms.openlocfilehash: 1d825277b63e00d93136161d50d780daa95ea8a7
 ## <a name="see-also"></a>참고 항목
 * [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

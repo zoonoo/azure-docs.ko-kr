@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: d421cee0becabdf81d865036d0c98b12b077152b
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-images-for-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 이미지 정보
 > [!IMPORTANT]
@@ -48,4 +47,3 @@ Azure PowerShell 모듈을 사용하는 몇 가지 예는 다음과 같습니다
 
 ## <a name="next-steps"></a>다음 단계
 또한 [Azure Portal을 사용하여 Windows 컴퓨터를 만들](tutorial.md) 수도 있습니다.
-

@@ -12,26 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/13/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af4aa0c69587b6a0448c470892e566b7efec4858
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 컴퓨터 용량 계획(미리 보기)
 
-![용량 및 성능 솔루션](./media/log-analytics-capacity/capacity-solution.png) Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
+![용량 및 성능 기호](./media/log-analytics-capacity/capacity-solution.png)
+
+Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 
 솔루션:
 
--    최고 및 최저 CPU 및 메모리 사용률을 가진 호스트를 보여 줍니다.
--    최고 및 최저 CPU 및 메모리 사용률을 가진 VM을 보여 줍니다.
--    최고 및 최저 IOPS 및 처리량 사용률을 가진 VM을 보여 줍니다.
--    어떤 호스트에서 어떤 VM이 실행되고 있는지 보여 줍니다.
--    클러스터된 공유 볼륨에서 높은 처리량, IOPS 및 대기 시간을 가진 상위 디스크를 보여 줍니다.
+-   최고 및 최저 CPU 및 메모리 사용률을 가진 호스트를 보여 줍니다.
+-   최고 및 최저 CPU 및 메모리 사용률을 가진 VM을 보여 줍니다.
+-   최고 및 최저 IOPS 및 처리량 사용률을 가진 VM을 보여 줍니다.
+-   어떤 호스트에서 어떤 VM이 실행되고 있는지 보여 줍니다.
+-   클러스터된 공유 볼륨에서 높은 처리량, IOPS 및 대기 시간을 가진 상위 디스크를 보여 줍니다.
 - 그룹별로 사용자 지정 및 필터링할 수 있습니다.
 
 > [!NOTE]
@@ -64,7 +65,7 @@ ms.lasthandoff: 03/30/2017
 
 SCOM 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 SCOM에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
 
-- Microsoft.IntelligencePacks.CapacityPerformance(Microsoft.IntelligencePacks.UpdateAssessment)
+- Microsoft.IntelligencePacks.CapacityPerformance
 
 1201 이벤트는 다음과 유사합니다.
 
@@ -129,9 +130,19 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 | 모든 CSV의 총 처리량 분석 | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 | 모든 CSV의 총 대기 시간 분석 | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위의 쿼리가 다음과 같이 변경됩니다.
 
+> | 쿼리 | 설명 |
+|:--- |:--- |
+| 모든 호스트 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+| 모든 VM 메모리 구성 | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+| 모든 VM의 총 디스크 IOPS 분석 | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Reads/s" or CounterName == "VHD Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| 모든 VM의 총 디스크 처리량 분석 | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Read MB/s" or CounterName == "VHD Write MB/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| 모든 CSV의 총 IOPS 분석 | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| 모든 CSV의 총 처리량 분석 | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| 모든 CSV의 총 대기 시간 분석 | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
-

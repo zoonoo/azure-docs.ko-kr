@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
-
-
+ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
@@ -32,7 +32,7 @@ ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자를 사용하는 것이 좋습니다. [IP 주소](virtual-network-ip-addresses-overview-arm.md) 문서에서 Resource Manager의 IP 주소에 관해 알아봅니다.
 
 ## <a name="public-ip-addresses"></a>공용 IP 주소
-공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) 및 [Azure Storage](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) 및 [Azure Storage](../storage/common/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
 
 공용 IP 주소는 다음 리소스 유형과 연결됩니다.
 
@@ -167,21 +167,15 @@ Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits
 
 |  | 리소스 | 클래식 | 리소스 관리자 |
 | --- | --- | --- | --- |
-| **공용 IP 주소** |VM |ILPIP(동적 전용)로 참조 |공용 IP(동적 또는 정적)로 참조 |
-|  |IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 | |
-| 인터넷 연결 부하 분산 장치 |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 | |
-|  |클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 | |
+| **공용 IP 주소** |***VM*** |ILPIP(동적 전용)로 참조 |공용 IP(동적 또는 정적)로 참조 |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 | |
+|  |***인터넷 연결 부하 분산 장치*** |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 | |
+|  ||클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 | |
 |  | | | |
-| **개인 IP 주소** |VM |DIP로 참조 |개인 IP 주소로 참조 |
-|  |IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 | |
-| ILB(내부 부하 분산 장치) |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 | |
+| **개인 IP 주소** |***VM*** |DIP로 참조 |개인 IP 주소로 참조 |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 | |
+|  |***ILB(내부 부하 분산 장치)*** |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 | |
 
 ## <a name="next-steps"></a>다음 단계
-* [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md) 합니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+* Azure Portal을 사용하여 [고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-classic-pportal.md)
 

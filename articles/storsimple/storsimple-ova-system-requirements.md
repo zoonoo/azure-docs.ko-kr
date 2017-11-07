@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/07/2017
 | **하이퍼바이저** | **버전** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 이상 |
-| VMware ESXi |5.5 이상 |
+| VMware ESXi |5.5 및 6.0 |
 
 ### <a name="virtual-device-requirements"></a>가상 장치 요구 사항
 | **구성 요소** | **요구 사항** |
@@ -81,7 +81,9 @@ ms.lasthandoff: 02/07/2017
 > [!IMPORTANT]
 > Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마십시오. 그러면 지원되지 않는 구성이 발생합니다. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>지원되는 저장소 형식
+Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않습니다. [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
@@ -117,7 +119,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 | URL 패턴 | 구성 요소/기능 |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스|
 | `http://*.backup.windowsazure.com` |장치 등록 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
@@ -128,5 +130,4 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 ## <a name="next-step"></a>다음 단계
 * [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)
-
 

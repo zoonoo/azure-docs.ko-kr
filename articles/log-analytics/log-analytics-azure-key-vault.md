@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
+
+![Key Vault 기호](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
 
 Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다.
 
@@ -35,8 +36,8 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 지침을 사용하여 Azure Key Vault 솔루션을 설치 및 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다. 
-2. [포털](#enable-key-vault-diagnostics-in-the-portal) 또는 [PowerShell](#enable-key-vault-diagnostics-using-powershell)을 사용하여 모니터링할 Key Vault 리소스에 대한 진단 로깅을 사용하도록 설정합니다. 
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다.
+2. [포털](#enable-key-vault-diagnostics-in-the-portal) 또는 [PowerShell](#enable-key-vault-diagnostics-using-powershell)을 사용하여 모니터링할 Key Vault 리소스에 대한 진단 로깅을 사용하도록 설정합니다.
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>포털에서 Key Vault 진단 사용 설정
 
@@ -62,8 +63,8 @@ $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
- 
- 
+
+
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Azure Key Vault 데이터 수집 상세 정보를 검토합니다.
 Azure Key Vault 솔루션은 Key Vault에서 직접 진단 로그를 수집합니다.
@@ -73,7 +74,7 @@ Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수�
 
 | 플랫폼 | 직접 에이전트 | Systems Center Operations Manager 에이전트 | Azure | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![예](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | 도착 시 |
+| Azure |  |  |&#8226; |  |  | 도착 시 |
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
 [솔루션을 설치](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)한 후 Log Analytics의 **개요** 페이지에서 **Azure Key Vault** 타일을 클릭하여 Key Vault 데이터를 봅니다.
@@ -94,7 +95,7 @@ Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수�
 ### <a name="to-view-details-for-any-operation"></a>모든 작업에 대한 세부 사항을 보려면
 1. **개요** 페이지에서 **Azure Key Vault** 타일을 클릭합니다.
 2. **Azure Key Vault** 대시보드에서 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 항목에 대한 세부 정보를 봅니다.
-   
+
     로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
@@ -142,7 +143,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../key-va
   - 이름에 \_o 접미사가 있는 모든 필드의 경우 데이터는 중첩된 필드 이름에 기반하여 개별 필드로 분할합니다. 예를 들어 호출자의 UPN은 `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` 필드에 저장됩니다.
    - CallerIpAddress 필드를 CallerIPAddress로 변경합니다.
    - RemoteIPCountry 필드는 더 이상 존재하지 않습니다.
-4. *Key Vault 분석(사용되지 않음)* 솔루션을 제거합니다. PowerShell을 사용하는 경우 `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`를 사용합니다. 
+4. *Key Vault 분석(사용되지 않음)* 솔루션을 제거합니다. PowerShell을 사용하는 경우 `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`를 사용합니다.
 
 변경 전에 수집된 데이터는 새 솔루션에서 볼 수 없습니다. 이전 형식 및 필드 이름을 사용하여 이 데이터를 계속 쿼리할 수 있습니다.
 
@@ -151,5 +152,3 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../key-va
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure Key Vault 데이터를 확인합니다.
-
-

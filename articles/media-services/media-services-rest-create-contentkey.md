@@ -1,10 +1,10 @@
 ---
-title: "REST를 사용하여 Contentkey 만들기 | Microsoft 문서"
+title: "REST를 사용하여 콘텐츠 키 만들기 | Microsoft Docs"
 description: "자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법에 대해 알아봅니다."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
@@ -12,16 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: ffe17f50db9afe7c562b0890e8ea24d517e31bf7
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-contentkeys-with-rest"></a>REST를 사용하여 Contentkey 만들기
+# <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
 > * [REST (영문)](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -47,37 +46,40 @@ ms.lasthandoff: 01/13/2017
    Media Services.NET SDK는 암호화 시 OAEP가 포함된 RSA를 사용합니다.  [EncryptSymmetricKeyData 함수](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)에서 예를 확인할 수 있습니다.
 4. 키 식별자 및 콘텐츠 키를 사용하여 계산된 체크섬 값(PlayReady AES 키 체크섬 알고리즘에 기반)을 만듭니다. 자세한 내용은 [여기](http://www.microsoft.com/playready/documents/)에 있는 PlayReady 헤더 개체 문서의 "PlayReady AES 키 체크섬 알고리즘" 섹션을 참조하세요.
    
-   다음.NET 예제에서는 키 식별자와 암호화되지 않은 콘텐츠 키의 GUID 부분을 사용하여 체크섬을 계산합니다.
-   
-     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
-   
-         byte[] array = null;
-         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+   다음은 키 식별자와 암호화되지 않은 콘텐츠 키의 GUID 부분을 사용하여 체크섬을 계산하는 .NET 예제입니다.
+
+         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-             aesCryptoServiceProvider.Mode = CipherMode.ECB;
-             aesCryptoServiceProvider.Key = contentKey;
-             aesCryptoServiceProvider.Padding = PaddingMode.None;
-             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-             array = new byte[16];
-             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+
+            byte[] array = null;
+            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+            {
+                aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                aesCryptoServiceProvider.Key = contentKey;
+                aesCryptoServiceProvider.Padding = PaddingMode.None;
+                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                array = new byte[16];
+                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+            }
+            byte[] array2 = new byte[8];
+            Array.Copy(array, array2, 8);
+            return Convert.ToBase64String(array2);
          }
-         byte[] array2 = new byte[8];
-         Array.Copy(array, array2, 8);
-         return Convert.ToBase64String(array2);
-     }
 5. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 6. $links 작업을 통해 **ContentKey** 엔터티와 **Asset** 엔터티를 연결합니다.
 
-AES 키 생성, 키 암호화 및 체크섬을 계산하는 예제는 이 토픽에서 생략되었습니다. 미디어 서비스와 상호 작용하는 방법을 보여주는 예제만 제공됩니다.
+이 토픽은 AES 키 생성, 키 암호화 및 체크섬을 계산하는 방법을 표시하지 않습니다. 
 
-> [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다. 
-> 
-> 
+>[!NOTE]
+
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId 검색
 다음 예제에서는 콘텐츠 키를 암호화할 때 사용해야 하는 인증서의 ProtectionKeyId(인증서 지문)를 검색하는 방법을 보여 줍니다. 컴퓨터에 적절한 인증서가 이미 있는지 확인하려면 이 단계를 수행합니다.
@@ -255,5 +257,4 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

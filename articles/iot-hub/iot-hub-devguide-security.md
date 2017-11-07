@@ -12,18 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 10/19/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 444b01ffc7cccf0951ecb4d032d42667a99f639c
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
-
-## <a name="overview"></a>개요
 
 이 섹션에서는 IoT Hub를 보호하는 옵션을 설명합니다. IoT Hub는 *권한*을 사용하여 각 IoT Hub의 끝점에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
 
@@ -34,8 +31,6 @@ ms.lasthandoff: 03/24/2017
 * 자격 증명을 통해 특정 리소스에 대한 액세스를 제한하는 방법.
 * X.509 인증서에 대한 IoT Hub 지원.
 * 기존 장치 ID 레지스트리 또는 인증 체계를 사용하는 사용자 지정 장치 인증 메커니즘.
-
-### <a name="when-to-use"></a>사용하는 경우
 
 IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 IoT Hub에 보내는 모든 메시지에는 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
@@ -75,7 +70,7 @@ Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 �
 
 ### <a name="protocol-specifics"></a>프로토콜 세부 사항
 
-지원되는 각 프로토콜(예: MQTT, AMQP 및 HTTP)은 다양한 방식으로 토큰을 전송합니다.
+지원되는 각 프로토콜(예: MQTT, AMQP 및 HTTPS)은 다양한 방식으로 토큰을 전송합니다.
 
 MQTT를 사용하는 경우 CONNECT 패킷에는 사용자 이름 필드의 ClientId, {iothubhostname}/{deviceId}에 deviceId, 암호 필드에 SAS 토큰이 있습니다. {iothubhostname}은 IoT Hub의 전체 CName이어야 합니다(예: contoso.azure devices.net).
 
@@ -90,9 +85,9 @@ SASL PLAIN의 경우 **사용자 이름** 은 다음이 될 수 있습니다.
 
 두 가지 경우 모두 암호 필드는 [IoT Hub 보안 토큰][lnk-sas-tokens] 문서에 설명된 토큰을 포함합니다.
 
-HTTP는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
+HTTPS는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 사용자 이름(DeviceId는 대/소문자 구분): `iothubname.azure-devices.net/DeviceId`
 
@@ -116,15 +111,18 @@ AMQP와 SASL PLAIN을 사용할 때 IoT Hub에 연결한 클라이언트는 각 
 
 ## <a name="security-tokens"></a>보안 토큰
 
-IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보안 토큰을 사용하여 장치 및 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT SDK][lnk-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 그러나 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이러한 시나리오에는 [사용자 지정 장치 인증][lnk-custom-auth]에 설명된 대로 MQTT, AMQP 또는 HTTP 표면의 직접 사용 또는 토큰 서비스 패턴의 구현이 포함됩니다.
+IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보안 토큰을 사용하여 장치 및 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT SDK][lnk-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이 시나리오에는 다음이 포함됩니다.
 
-또한 IoT Hub를 사용하면 장치가 [X.509 인증서][lnk-x509]를 통해 IoT Hub에서 인증될 수 있습니다. 
+* MQTT, AMQP 또는 HTTPS 표면을 직접 사용합니다.
+* [사용자 지정 장치 인증][lnk-custom-auth]에 설명된 대로 토큰 서비스 패턴을 구현합니다.
+
+또한 IoT Hub를 사용하면 장치가 [X.509 인증서][lnk-x509]를 통해 IoT Hub에서 인증될 수 있습니다.
 
 ### <a name="security-token-structure"></a>보안 토큰 구조
 
-보안 토큰을 사용하여 장치 및 서비스에서 IoT Hub의 특정 기능에 대한 시간 제한 액세스 권한을 부여합니다. 승인된 장치 및 서비스만 연결할 수 있도록 하려면 보안 토큰을 공유 액세스 키 또는 대칭 키로 서명해야 합니다. 이러한 키는 ID 레지스트리에 장치 ID로 저장됩니다.
+보안 토큰을 사용하여 장치 및 서비스에서 IoT Hub의 특정 기능에 대한 시간 제한 액세스 권한을 부여합니다. 권한 부여를 얻어 IoT Hub에 연결하려면 장치 및 서비스는 공유 액세스 또는 대칭 키 중 하나로 서명된 보안 토큰을 전송해야 합니다. 이러한 키는 ID 레지스트리에 장치 ID로 저장됩니다.
 
-공유 액세스 키로 서명된 토큰은 공유 액세스 정책 권한과 관련된 모든 기능에 대한 액세스를 부여합니다. 한편, 장치 ID의 대칭 키로만 서명된 토큰은 관련된 장치 ID에 대해 **DeviceConnect** 권한을 부여합니다.
+공유 액세스 키로 서명된 토큰은 공유 액세스 정책 권한과 관련된 모든 기능에 대한 액세스를 부여합니다. 장치 ID의 대칭 키로만 서명된 토큰은 관련된 장치 ID에 대한 **DeviceConnect** 권한만을 부여합니다.
 
 보안 토큰의 형식은 다음과 같습니다.
 
@@ -193,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+보안 토큰을 생성하는 C#의 기능은 다음과 같습니다.
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > IoT Hub 컴퓨터에서 토큰의 유효 기간이 확인되므로 토큰을 생성하는 컴퓨터의 시계에서 편차가 최소여야 합니다.
 
@@ -210,7 +241,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | 끝점 | 기능 |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |장치-클라우드 메시지를 보냅니다. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |클라우드-장치 메시지를 받습니다. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |클라우드-장치 메시지를 받습니다. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>ID 레지스트리에서 대칭 키 사용
 
@@ -241,14 +272,14 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
 ### <a name="use-a-shared-access-policy"></a>공유 액세스 정책 사용
 
-공유 액세스 정책에서 토큰을 만들 때 정책 이름 필드 `skn` 이 사용된 정책 이름으로 설정되어야 합니다. 또한 정책에서 **DeviceConnect** 권한을 부여해야 합니다.
+공유 액세스 정책에서 토큰을 만들 때 `skn` 필드를 정책의 이름으로 설정합니다. 이 정책은 **DeviceConnect** 권한을 부여해야 합니다.
 
 장치 기능에 액세스하는 데 공유 액세스 정책을 사용하는 두 가지 주요 시나리오는 다음과 같습니다.
 
 * [클라우드 프로토콜 게이트웨이][lnk-endpoints]
 * 사용자 지정 인증 체계를 구현하는 데 사용된 [토큰 서비스][lnk-custom-auth]
 
-공유 액세스 정책은 모든 장치로 연결하기 위해 잠재적으로 액세스 권한을 부여할 수 있으므로 보안 토큰을 만들 때 올바른 리소스 URI를 사용하는 것이 중요합니다. 리소스 URI를 사용하여 토큰을 특정 장치로 범위를 제한해야 하는 토큰 서비스에서 특히 중요합니다. 프로토콜 게이트웨이는 모든 장치에 대한 트래픽을 이미 조정하므로 관련성이 떨어집니다.
+공유 액세스 정책은 모든 장치로 연결하기 위해 잠재적으로 액세스 권한을 부여할 수 있으므로 보안 토큰을 만들 때 올바른 리소스 URI를 사용하는 것이 중요합니다. 이 설정은 리소스 URI를 사용하여 토큰을 특정 장치로 범위를 제한해야 하는 토큰 서비스에서 특히 중요합니다. 프로토콜 게이트웨이는 모든 장치에 대한 트래픽을 이미 조정하므로 관련성이 떨어집니다.
 
 예를 들어 **장치** 라는 미리 생성된 공유 액세스 정책을 사용하는 토큰 서비스는 다음 매개 변수로 토큰을 만듭니다.
 
@@ -311,7 +342,7 @@ X.509 인증서를 사용하여 IoT Hub에서 장치를 인증할 수 있습니�
 
 * **기존 X.509 인증서**. 장치에 X.509 인증서가 이미 연결되어 있을 수 있습니다. 장치는 이 인증서를 사용하여 IoT Hub에서 인증을 받을 수 있습니다.
 * **자체 생성 및 자체 서명 X-509 인증서**. 장치 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 장치에 해당 개인 키(및 인증서)를 저장할 수 있습니다. 이 목적을 위해 [OpenSSL][lnk-openssl] 및 [Windows SelfSignedCertificate][lnk-selfsigned] 유틸리티와 같은 도구를 사용할 수 있습니다.
-* **CA 서명 X.509 인증서**. 또한 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용하여 장치를 식별하고 IoT Hub에서 장치 인증을 받을 수도 있습니다. IoTHub는 표시된 지문이 구성된 지문과 일치하는지만 확인합니다. IotHub는 인증서 체인을 확인하지 않습니다.
+* **CA 서명 X.509 인증서**. 장치를 식별하고 IoT Hub에서 장치 인증을 받으려면 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용할 수 있습니다. IoT Hub는 표시된 지문이 구성된 지문과 일치하는지만 확인합니다. IotHub는 인증서 체인을 확인하지 않습니다.
 
 장치는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
@@ -349,7 +380,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="c-support"></a>C\# 지원
 
-클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여  **DeviceClient** 인스턴스를 만들도록 지원합니다. X.509 인증서는 개인 키를 포함하는 PFX(PKCS #12라고도 함) 형식이어야 합니다.
+클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여 **DeviceClient** 인스턴스를 만들도록 지원합니다. X.509 인증서는 개인 키를 포함하는 PFX(PKCS #12라고도 함) 형식이어야 합니다.
 
 다음은 샘플 코드 조각입니다.
 
@@ -361,7 +392,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-authentication"></a>사용자 지정 장치 인증
 
-[토큰][lnk-sas-tokens]을 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성하도록 IoT Hub [ID 레지스트리][lnk-identity-registry]를 사용할 수 있습니다. 그러나 사용자 지정 ID 레지스트리 및/또는 인증 체계에 이미 상당한 투자를 한 IoT 솔루션의 경우 *토큰 서비스*를 만들어 이 기존 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
+[토큰][lnk-sas-tokens]을 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성하도록 IoT Hub [ID 레지스트리][lnk-identity-registry]를 사용할 수 있습니다. IoT 솔루션에 이미 사용자 지정 ID 레지스트리 및/또는 인증 체계가 있는 경우 *토큰 서비스*를 만들어 이 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
 
 토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 권한으로 IoT Hub *공유 액세스 정책*을 사용하여 *device-scoped* 토큰을 만듭니다. 이러한 토큰은 장치에서 IoT Hub에 연결할 수 있게 해줍니다.
 
@@ -379,11 +410,11 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 토큰이 만료되면 IoT Hub가 장치 연결을 끊습니다. 이렇게 되면 장치가 토큰 서비스에 새 토큰을 요청해야 합니다. 만료 시간이 짧으면 장치 및 토큰 서비스에 대한 부하가 증가합니다.
 
-허브에 연결하는 장치의 경우, 장치가 연결에 장치 키가 아니라 토큰을 사용하더라도 IoT Hub ID 레지스트리에 장치를 추가해야 합니다. 따라서 장치가 토큰으로 인증하는 경우 [IoT Hub ID 레지스트리][lnk-identity-registry]에서 장치 ID를 활성화 또는 비활성화하여 장치별 액세스 제어를 계속 사용할 수 있습니다. 이 방법은 긴 만료 시간으로 토큰을 사용하는 위험을 완화합니다.
+허브에 연결하는 장치의 경우, 장치가 연결에 장치 키가 아니라 토큰을 사용하더라도 IoT Hub ID 레지스트리에 장치를 추가해야 합니다. 따라서 [ID 레지스트리][lnk-identity-registry]에서 장치 ID를 활성화 또는 비활성화하여 장치별 액세스 제어를 계속 사용할 수 있습니다. 이 방법은 긴 만료 시간으로 토큰을 사용하는 위험을 완화합니다.
 
 ### <a name="comparison-with-a-custom-gateway"></a>사용자 지정 게이트웨이와 비교
 
-IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 데는 토큰 서비스 패턴을 사용하는 것이 좋습니다. IoT Hub에서 대부분의 솔루션 트래픽을 처리할 수 있기 때문입니다. 그러나 여기서는 사용자 지정 인증 체계가 프로토콜과 복잡하게 얽혀 있어 서비스에서 모든 트래픽(*사용자 지정 게이트웨이*)을 처리해야 합니다. 이러한 시나리오의 예는 [TLS(전송 계층 보안) 및 PSK(미리 공유한 키)][lnk-tls-psk]를 사용합니다. 자세한 내용은 [프로토콜 게이트웨이][lnk-protocols] 항목을 참조하세요.
+IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 데는 토큰 서비스 패턴을 사용하는 것이 좋습니다. 이 패턴은 IoT Hub에서 대부분의 솔루션 트래픽을 처리할 수 있어 권장됩니다. 그러나 사용자 지정 인증 체계가 프로토콜과 얽혀있는 경우, 모든 트래픽을 처리하기 위해 *사용자 지정 게이트웨이*가 필요할 수 있습니다. 이러한 시나리오의 예는 [TLS(전송 계층 보안) 및 PSK(미리 공유한 키)][lnk-tls-psk]를 사용합니다. 자세한 내용은 [프로토콜 게이트웨이][lnk-protocols] 문서를 참조하세요.
 
 ## <a name="reference-topics"></a>참조 항목:
 
@@ -405,9 +436,9 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
-* [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
+* [제한 및 할당량][lnk-quotas]은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
-* [장치 쌍 및 작업을 위한 IoT Hub 쿼리 언어][lnk-query] - IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [IoT Hub 쿼리 언어][lnk-query]는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -418,7 +449,7 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 * [장치에서 직접 메서드 호출][lnk-devguide-directmethods]
 * [여러 장치에서 jobs 예약][lnk-devguide-jobs]
 
-이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
+이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [Azure IoT Hub 시작][lnk-getstarted-tutorial]
 * [IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법][lnk-c2d-tutorial]
@@ -435,7 +466,7 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 [lnk-openssl]: https://www.openssl.org/
 [lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
@@ -461,4 +492,3 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-

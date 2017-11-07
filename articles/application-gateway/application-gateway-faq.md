@@ -3,7 +3,7 @@ title: "Azure Application Gateway에 대한 질문과 대답 | Microsoft Docs"
 description: "이 페이지에서는 Azure Application Gateway에 대한 질문과 대답을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
-
-
+ms.date: 07/19/2017
+ms.author: davidmu
+ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
 ## <a name="general"></a>일반
@@ -32,11 +30,11 @@ Azure Application Gateway는 서비스 형태의 ADC(응용 프로그램 전달 
 
 **Q. Application Gateway에서 지원하는 기능은 어떤 것이 있나요?**
 
-Application Gateway에서는 SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽(미리 보기), 쿠키 기반 세션 선호도, url 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에서는 SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 **Q. Application Gateway와 Azure Load Balancer 간의 차이는 무엇인가요?**
 
-Application Gateway는 계층 7 부하 분산 장치입니다. 따라서 Application Gateway는 웹 트래픽(HTTP/HTTPS/WebSocket)만 처리합니다. SSL 종료, 쿠키 기반 세션 선호도, 트래픽 부하 분산을 위한 라운드 로빈과 같은 응용 프로그램 부하 분산 기능을 지원합니다. 부하 분산 장치, 계층 4(TCP/UDP)에서 트래픽 부하 분산.
+Application Gateway는 웹 트래픽(HTTP/HTTPS/WebSocket)에서만 작동하는 7계층 부하 분산 장치로서 합니다. SSL 종료, 쿠키 기반 세션 선호도, 트래픽 부하 분산을 위한 라운드 로빈과 같은 기능을 지원합니다. 부하 분산 장치, 계층 4(TCP/UDP)에서 트래픽 부하 분산.
 
 **Q. Application Gateway에서 지원하는 프로토콜은 무엇인가요?**
 
@@ -44,11 +42,11 @@ Application Gateway는 HTTP, HTTPS 및 WebSocket을 지원합니다.
 
 **Q. 현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?**
 
-백 엔드 풀은 NIC, 가상 컴퓨터 크기 집합, 공용 IP, 내부 IP 및 FQDN(정규화된 도메인 이름)으로 구성될 수 있습니다. Azure Web Apps에 대한 지원은 현재 제공되지 않습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
+백 엔드 풀은 NIC, 가상 컴퓨터 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure Web Apps)로 구성될 수 있습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
 
 **Q. 어떤 지역에서 서비스를 사용할 수 있습니까?**
 
-Application Gateway는 모든 공용 Azure 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)에서도 사용할 수 있습니다.
+Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)에서도 사용할 수 있습니다.
 
 **Q. 내 구독에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?**
 
@@ -56,7 +54,11 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 **Q. HTTP->HTTPS 리디렉션이 지원되나요?**
 
-현재는 지원되지 않습니다.
+리디렉션은 지원됩니다. 자세한 내용은 [Application Gateway 리디렉션 개요](application-gateway-redirect-overview.md)를 참조하세요.
+
+**Q. 수신기는 어떤 순서로 처리되나요?**
+
+수신기는 표시된 순서대로 처리됩니다. 이러한 이유로 기본 수신기에서 들어오는 요청과 일치하는 경우 이 요청을 먼저 처리합니다.  트래픽이 올바른 백 엔드로 라우팅되려면 다중 사이트 수신기를 기본 수신기보다 먼저 구성해야 합니다.
 
 **Q. Application Gateway의 IP 및 DNS는 어디에서 확인하나요?**
 
@@ -78,6 +80,10 @@ Application Gateway에서는 하나의 공용 IP 주소만 지원됩니다.
 
 예, Application Gateway는 백 엔드로 전달되는 요청에 x-forwarded-for, x-forwarded-proto 및 x-forwarded-port 헤더를 삽입합니다. x-forwarded-for 헤더의 형식은 쉼표로 구분된 IP:Port 목록입니다. x-forwarded-proto 에 대해 유효한 값은 http 또는 https입니다. X-forwarded-port는 Application Gateway에서 요청이 도달한 포트를 지정합니다.
 
+**Q. Application Gateway를 배포하는 데 얼마의 시간이 걸리나요? Application Gateway가 업데이트되어도 여전히 작동하나요?**
+
+새 Application Gateway 배포 시 프로비전하는 데 최대 20분이 걸릴 수 있습니다. 인스턴스 크기/수가 변경되어도 중단되지 않으며, 게이트웨이는 이 시간 동안 활성 상태를 유지합니다.
+
 ## <a name="configuration"></a>구성
 
 **Q. Application Gateway가 가상 네트워크에서 항상 배포되나요?**
@@ -90,11 +96,17 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 **Q. Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?**
 
-아니요, 하지만 다른 응용 프로그램 게이트웨이는 서브넷에 배포할 수 있습니다.
+아니요, 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
 
 **Q. Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되나요?**
 
-Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지만 백 엔드 상태가 적절히 작동하려면 포트 65503-65534에 대해 예외가 적용되어야 합니다. 아웃바운드 인터넷 연결이 차단되지 않아야 합니다.
+네트워크 보안 그룹은 Application Gateway 서브넷에서 지원되지만, 다음과 같은 제한 사항이 있습니다.
+
+* 백 엔드 상태가 올바르게 작동하도록 포트 65503-65534에 들어오는 트래픽에 대한 예외를 구현해야 합니다.
+
+* 아웃바운드 인터넷 연결은 차단할 수 없습니다.
+
+* AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
 **Q. Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?**
 
@@ -108,7 +120,7 @@ Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지�
 
 예, VNet 피어링이 지원되며 다른 가상 네트워크에서 트래픽을 부하 분산시키는 데 도움이 됩니다.
 
-**Q. ExpressRoute 또는 VPN 터널과 연결된 경우 온-프레미스 서버와 통신할 수 있나요?**
+**Q. 온-프레미스 서버가 ExpressRoute 또는 VPN 터널과 연결되어 있으면 이 서버와 통신할 수 있나요?**
 
 예, 트래픽이 허용되기만 한다면 가능합니다.
 
@@ -118,17 +130,39 @@ Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지�
 
 **Q. 사용자 지정 프로브가 응답 데이터에 와일드 카드/regex를 지원하나요?**
 
-사용자 지정 프로브는 응답 데이터에 와일드 카드 또는 regex를 지원하지 않습니다.
+사용자 지정 프로브는 응답 데이터에 와일드 카드 또는 regex를 지원하지 않습니다. 
+
+**Q. 규칙은 어떻게 처리되나요?**
+
+규칙은 구성된 순서대로 처리됩니다. 기본 규칙은 다중 사이트 규칙보다 먼저 포트를 기준으로 트래픽과 일치하는지 평가되므로 트래픽이 잘못된 백 엔드로 라우팅될 가능성을 줄이려면 기본 규칙보다 먼저 다중 사이트 규칙을 구성하는 것이 좋습니다.
+
+**Q. 규칙은 어떻게 처리되나요?**
+
+규칙은 만들어진 순서대로 처리됩니다. 다중 사이트 규칙이 기본 규칙보다 먼저 구성되는 것이 좋습니다. 다중 사이트 수신기를 먼저 구성하면 트래픽이 부적절한 백 엔드로 라우팅될 가능성이 줄어듭니다. 이 라우팅 문제는 다중 사이트 규칙을 평가하기 전에 먼저 기본 규칙이 포트 기반 트래픽과 일치함으로써 발생할 수 있습니다.
 
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 
-호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다. 
+호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다.
+
+**Q. 몇 가지 원본 IP에 대한 Application Gateway 액세스를 허용 목록에 추가할 수 있나요?**
+
+이 시나리오는 Application Gateway 서브넷에서 NSG를 사용하여 수행할 수 있습니다. 우선 순위에 따라 나열된 다음 제한 사항을 서브넷에 적용해야 합니다.
+
+* 원본 IP/IP 범위에서 들어오는 트래픽을 허용합니다.
+
+* [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다.
+
+* [NSG](../virtual-network/virtual-networks-nsg.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
+
+* 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
+
+* 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
 
 ## <a name="performance"></a>성능
 
 **Q. Application Gateway는 고가용성과 확장성을 어떤 방식으로 지원하나요?**
 
-Application Gateway는 2개 이상의 인스턴스가 배포된 경우 고가용성 시나리오를 지원합니다. Azure에서는 이러한 인스턴스를 업데이트 및 장애 도메인 간에 배포하여 모든 인스턴스가 동시에 실패하는 일이 없도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 확장성을 지원합니다.
+둘 이상의 인스턴스가 배포된 경우에 Application Gateway에서 고가용성 시나리오를 지원합니다. Azure에서는 이러한 인스턴스를 업데이트 및 장애 도메인 간에 배포하여 모든 인스턴스가 동시에 실패하는 일이 없도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 확장성을 지원합니다.
 
 **Q. Application Gateway에서 데이터 센터 간 DR 시나리오를 어떻게 달성할 수 있나요?**
 
@@ -136,7 +170,7 @@ Application Gateway는 2개 이상의 인스턴스가 배포된 경우 고가용
 
 **Q. 자동 크기 조정이 지원되나요?**
 
-아니요, 하지만 Application Gateway는 임계값에 도달할 때 경고하는 데 사용할 수 있는 처리량 메트릭을 포함합니다. 인스턴스를 수동으로 추가하거나 크기를 변경해도 게이트웨이가 다시 시작되지 않으며 기존 트래픽에 영향을 주지 않습니다.
+아니요, 하지만 Application Gateway에는 임계값에 도달했을 때 경고하는 데 사용할 수 있는 처리량 메트릭이 있습니다. 인스턴스를 수동으로 추가하거나 크기를 변경해도 게이트웨이가 다시 시작되지 않으며 기존 트래픽에 영향을 주지 않습니다.
 
 **Q. 수동 강화/규모 축소 시 가동 중지 시간이 발생하나요?**
 
@@ -144,7 +178,7 @@ Application Gateway는 2개 이상의 인스턴스가 배포된 경우 고가용
 
 **Q. 중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?**
 
-예, Azure에서는 인스턴스를 업데이트 및 장애 도메인 간에 배포하여 모든 인스턴스가 동시에 실패하는 일이 없도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 확장성을 지원합니다.
+예, Azure에서는 인스턴스를 업데이트 및 장애 도메인 간에 배포하여 모든 인스턴스가 동시에 실패하는 일이 없도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 크기 조정을 지원합니다.
 
 ## <a name="ssl-configuration"></a>SSL 구성
 
@@ -154,45 +188,55 @@ Application Gateway는 2개 이상의 인스턴스가 배포된 경우 고가용
 
 **Q. Application Gateway에서 지원되는 현재 암호 그룹은 무엇인가요?**
 
-다음은 현재 지원되는 암호 그룹을 우선 순위에 따라 나열한 것입니다.
+Application Gateway에서 지원되는 현재 암호 그룹은 다음과 같습니다. [Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성](application-gateway-configure-ssl-policy-powershell.md)을 방문하여 SSL 옵션을 사용자 지정하는 방법에 대해 알아봅니다.
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **Q. Application Gateway에서 백 엔드에 대해 트래픽의 재암호화를 지원하나요?**
 
-예, Applicated Gateway는 SSL 오프로드와 백 엔드에 대한 트래픽을 재암호화하는 종단 간 SSL을 지원합니다.
+예, Application Gateway는 SSL 오프로드와 백 엔드에 대한 트래픽을 다시 암호화하는 종단 간 SSL을 지원합니다.
 
 **Q. SSL 프로토콜 버전을 제어하는 SSL 정책을 구성할 수 있나요?**
 
 예, TLS1.0, TLS1.1 및 TLS1.2를 거부하도록 Application Gateway를 구성할 수 있습니다. SSL 2.0 및 3.0은 기본적으로 비활성화되며 구성할 수 없습니다.
 
-**Q. 암호 그룹을 제어하는 SSL 정책을 구성할 수 있나요?**
+**Q. 암호 그룹 및 정책 순서를 구성할 수 있나요?**
 
-아니요, 현재는 아닙니다.
+예, [암호 그룹을 구성](application-gateway-ssl-policy-overview.md)하도록 지원됩니다. 사용자 지정 정책을 정의할 때 다음 암호 그룹 중 하나 이상을 사용해야 합니다. Application Gateway는 백 엔드 관리를 위해 SHA256을 사용합니다.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **Q. 몇 개의 SSL 인증서가 지원되나요?**
 
@@ -244,7 +288,7 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 * 보트, 크롤러 및 스캐너 방지
 
-* 일반적인 응용 프로그램 구성 오류(예: Apache, IIS 등) 검색
+* 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
 
 **Q. WAF에서 DDoS 방지도 지원하나요?**
 
@@ -256,9 +300,9 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 Application Gateway에서는 3가지 로그를 사용할 수 있습니다. 이러한 로그 및 기타 진단 기능에 대한 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
-- **ApplicationGatewayAccessLog** - 이 로그는 Application Gateway 프런트 엔드에 제출된 각 요청을 포함합니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 응용 프로그램 게이트웨이 인스턴스당 하나의 레코드가 포함됩니다.
-- **ApplicationGatewayPerformanceLog** - 이 로그는 인스턴스 단위로 처리된 총 요청, 처리량(바이트), 실패한 총 요청, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다.
-- **ApplicationGatewayFirewallLog** - 이 로그는 웹 응용 프로그램 방화벽으로 구성된 Application Gateway의 검색 모드 또는 방지 모드를 통해 로깅된 요청을 포함합니다.
+- **ApplicationGatewayAccessLog** - 이 액세스 로그에는 Application Gateway 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다.
+- **ApplicationGatewayPerformanceLog** - 이 성능 로그는 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등을 포함한 인스턴스별 성능 정보를 캡처합니다.
+- **ApplicationGatewayFirewallLog** - 이 방화벽 로그에는 웹 응용 프로그램 방화벽으로 구성된 응용 프로그램 게이트웨이의 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함되어 있습니다.
 
 **Q. 내 백 엔드 풀 멤버가 정상인지 어떻게 알 수 있나요?**
 
@@ -276,7 +320,7 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 예, Application Gateway는 경고를 지원하며 메트릭에 따라 경고를 해제하도록 구성합니다.  Application Gateway에서는 현재 경고를 구성할 수 있는 "처리량" 메트릭을 포함합니다. 경고에 대한 자세한 내용을 보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 방문하세요.
 
-**Q. 백 엔드 상태에서 알 수 없는 상태를 반환할 경우 원인은 무엇인가요?**
+**Q. 백 엔드 상태에서 알 수 없는 상태를 반환할 경우 이 상태의 원인은 무엇인가요?**
 
 백 엔드에 액세스하는 가장 일반적인 이유는 NSG 또는 사용자 지정 DNS로 차단되는 경우입니다. 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 

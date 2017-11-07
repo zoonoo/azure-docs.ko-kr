@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/21/2017
+ms.date: 5/21/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
@@ -35,9 +34,9 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 1. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 "osFamily ="1"의 값이 있습니다.
 2. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 osFamily의 값이 없습니다. 현재, 이 경우 시스템은 "1"의 기본값을 사용합니다.
-3. Azure 클래식 포털은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
+3. Azure Portal은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
 
-어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 아래 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azureps-cmdlets-docs) 합니다. 스크립트에 대한 추가 세부 정보는 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하십시오. 
+어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azureps-cmdlets-docs) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)을 참조하세요.
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -70,9 +69,7 @@ foreach($subscription in Get-AzureSubscription) {
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "2"로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.
-게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하십시오.  
+게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
-
-

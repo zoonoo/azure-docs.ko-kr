@@ -4,7 +4,7 @@ description: "이 항목에서는 Elemental 라이브 인코더를 구성하여 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 668a3ab46a70c0ee25fa87031d27c0f4333ec89c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Elemental 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 > [!div class="op_single_selector"]
@@ -75,7 +74,7 @@ ms.lasthandoff: 01/11/2017
 >
 >
 
-### <a name="a-idconfigureelementalrtpaconfigure-the-elemental-live-encoder"></a><a id=configure_elemental_rtp></a>Elemental 라이브 인코더 구성
+### <a id=configure_elemental_rtp></a>Elemental 라이브 인코더 구성
 이 자습서에서는 다음 출력 설정이 사용됩니다. 이 섹션의 나머지 부분에서 구성 단계를 더 자세히 설명합니다.
 
 **비디오**:
@@ -174,4 +173,3 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

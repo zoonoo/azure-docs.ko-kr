@@ -3,7 +3,7 @@ title: "Azure Network Watcher의 리소스 문제 해결 소개 | Microsoft Docs
 description: "이 페이지는 Network Watcher 리소스 문제 해결 기능에 대한 개요를 제공합니다."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcf8a88ebd66f5e4a5a06538532fbfbae7ce852e
-ms.lasthandoff: 03/04/2017
-
+ms.date: 06/19/2017
+ms.author: jdial
+ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
-Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 이러한 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이 기능은 PowerShell, CLI 또는 REST API로 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 진단하거나 해당 결과를 반환합니다. 이 요청은 장기 실행 트랜잭션이며 진단이 완료되면 결과가 반환됩니다.
+Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 이러한 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이것은 포털, PowerShell, CLI 또는 REST API를 통해 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 진단하거나 해당 결과를 반환합니다. 이 요청은 장기 실행 트랜잭션이며 진단이 완료되면 결과가 반환됩니다.
+
+![portal][2]
 
 ## <a name="results"></a>결과
 
@@ -78,6 +79,24 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
 | WfpParse 오류 | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
 
+## <a name="supported-gateway-types"></a>지원되는 게이트웨이 유형
+
+다음 목록은 Network Watcher 문제 해결로 지원되는 게이트웨이 및 연결을 보여줍니다.
+|  |  |
+|---------|---------|
+|**게이트웨이 유형**   |         |
+|VPN      | 지원됨        |
+|ExpressRoute | 지원되지 않음 |
+|HyperNet | 지원되지 않음|
+|**VPN 유형** | |
+|경로 기반 | 지원됨|
+|정책 기반 | 지원되지 않음|
+|**연결 유형**||
+|IPSec| 지원됨|
+|VNet2Vnet| 지원됨|
+|ExpressRoute| 지원되지 않음|
+|HyperNet| 지원되지 않음|
+|VPNClient| 지원되지 않음|
 
 ## <a name="log-files"></a>로그 파일
 
@@ -88,7 +107,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 > [!NOTE]
 > 일부 경우에는 로그 파일의 하위 집합만 저장소에 기록됩니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 저장소 탐색기입니다. 저장소 탐색기에 대한 자세한 내용은 여기에 있는 [저장소 탐색기](http://storageexplorer.com/) 링크에서 찾을 수 있습니다.
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 저장소 탐색기입니다. 저장소 탐색기에 대한 자세한 내용은 여기에 있는 [저장소 탐색기](http://storageexplorer.com/) 링크에서 찾을 수 있습니다.
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -193,8 +212,8 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>다음 단계
 
-[게이트웨이 문제 해결 - PowerShell](network-watcher-troubleshoot-manage-powershell.md)을 방문하여 PowerShell을 사용한 VPN Gateway 및 연결 진단 방법을 알아봅니다.
+[게이트웨이 문제 해결 - Azure Portal](network-watcher-troubleshoot-manage-portal.md)을 방문하여 포털을 통해 VPN Gateway 및 연결을 진단하는 방법을 알아봅니다.
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
-
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png

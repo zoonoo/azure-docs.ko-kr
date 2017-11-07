@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹 만들기
 
@@ -104,7 +103,7 @@ ms.lasthandoff: 03/21/2017
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>PowerShell을 사용하여 ARM 템플릿 배포
 PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)의 지침을 따라 설치 및 구성을 합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)의 지침을 따라 설치 및 구성을 합니다.
 2. **`New-AzureRmResourceGroup`** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 
     ```powershell
@@ -190,5 +189,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
    * **-l (or --location)**. 리소스 그룹이 생성되는 Azure 지역입니다.
    * **-f (or --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
    * **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
-
 

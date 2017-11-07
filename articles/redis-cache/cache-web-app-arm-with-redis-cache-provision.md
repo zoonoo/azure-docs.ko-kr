@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
-
-
+ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>템플릿을 사용하여 Redis Cache가 포함된 웹앱 만들기
 이 항목에서는 Redis Cache가 포함된 Azure 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 만드는 방법을 배웁니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>이름에 대한 변수
-이 템플릿은 리소스 이름을 생성하기 위해 변수를 사용합니다. [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) 함수를 사용하여 리소스 그룹 ID에 기반한 값을 생성합니다.
+이 템플릿은 리소스 이름을 생성하기 위해 변수를 사용합니다. [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 리소스 그룹 ID에 기반한 값을 생성합니다.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -125,9 +125,3 @@ ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

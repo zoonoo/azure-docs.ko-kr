@@ -13,20 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/31/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
-ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
-
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory에서 앱, 사용 권한 및 동의
 Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  클래식 포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 ## <a name="types-of-apps"></a>앱 형식
 
@@ -215,10 +218,4 @@ FabrikamMail의 경우 다음과 같이 나타납니다.
 (**ClientId**는 FabrikamMail의 서비스 주체 개체 ID(방금 생성)이고, **PrincipalId**는 사용자 개체 ID(동의한 사용자의)이며, **ResourceId**는 Exchange의 서비스 주체 개체 ID입니다. 범위는 동의한 Exchange에서의 권한입니다.)
 
 사용자가 동의할 수 없는 경우 권한이 필요하다는 화면이 표시됩니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

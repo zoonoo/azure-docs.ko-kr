@@ -3,7 +3,7 @@ title: "Azure API 관리 정책에 속성을 사용하는 방법"
 description: "Azure API 관리 정책에 속성을 사용하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
-
-
+ms.openlocfilehash: 517f434c8f7fabc1402fb938d5ff5c733b86f2fd
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Azure API 관리 정책에 속성을 사용하는 방법
 API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 속성을 사용하여 생성할 수 있습니다. 
@@ -151,10 +151,4 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

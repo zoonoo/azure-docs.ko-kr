@@ -4,7 +4,7 @@ description: "이 항목에서는 미디어 서비스 REST API를 사용하여 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 7ffbde11b943961dd3a3b5edebd0cfd52429e845
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>자산 배달 정책 구성
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -62,17 +61,19 @@ MPEG DASH
 * 단일 자산과 여러 자산 배달 정책을 연결하여 사용할 수 있지만 지정된 AssetDeliveryProtocol을 처리하는 방법은 하나만 지정할 수 있습니다.  즉, AssetDeliveryProtocol.SmoothStreaming 프로토콜을 지정하는 두 가지 배달 정책을 연결하려는 경우 클라이언트가 부드러운 스트리밍을 요청할 때 시스템이 어떤 정책을 적용할지 모르기 때문에 오류가 발생합니다.
 * 기존 스트리밍 로케이터를 사용하는 자산이 있는 경우 해당 자산에 새 정책을 연결, 자산에서 기존 정책의 연결 해제 또는 자산과 연결된 배달 정책을 업데이트할 수 없습니다.  먼저 스트리밍 로케이터를 제거하고, 정책을 조정한 다음, 스트리밍 로케이터를 다시 만들어야 합니다.  스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN이 콘텐츠를 캐시할 수 있으므로 클라이언트에 문제가 발생하지 않는지 확인해야 합니다.
 
-> [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
-> 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
-> 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect-programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다.
-> 
-> 
+>[!NOTE]
+
+>미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
+
+>[!NOTE]
+>https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="clear-asset-delivery-policy"></a>자산 배달 정책 지우기
-### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>자산 배달 정책 만들기
+### <a id="create_asset_delivery_policy"></a>자산 배달 정책 만들기
 다음 HTTP 요청은 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정하는 자산 배달 정책을 만듭니다. 
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.   
@@ -121,7 +122,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>자산을 자산 배달 정책과 연결
+### <a id="link_asset_with_asset_delivery_policy"></a>자산을 자산 배달 정책과 연결
 다음 HTTP 요청은 지정된 자산을 자산 배달 정책에 연결합니다.
 
 요청:
@@ -148,7 +149,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
 DynamicEnvelopeEncryption 배달 정책을 지정할 때 EnvelopeEncryption 형식의 콘텐츠 키에 자산을 연결해야 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-rest-create-contentkey.md)를 참조하세요.
 
-### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>배달 URL 가져오기
+### <a id="get_delivery_url"></a>배달 URL 가져오기
 이전 단계에서 만든 콘텐츠 키의 지정된 배달 방법에 대한 배달 URL을 가져옵니다. 클라이언트는 보호된 콘텐츠를 재생하기 위해 AES 키 또는 PlayReady 라이선스를 요청하여 반환된 URL을 사용합니다.
 
 HTTP 요청의 본문을 가져오려면 URL의 유형을 지정 합니다. PlayReady 사용하여 콘텐츠를 보호하는 경우 keyDeliveryType에 1을 사용({"keyDeliveryType":1})하여 미디어 서비스 PlayReady 라이선스 취득 URL을 요청합니다. 봉투 암호화를 사용하여 콘텐츠를 보호하는 경우 keyDeliveryType에 대해 2를 지정({"keyDeliveryType":2})하여 키 획득 URL 요청합니다.
@@ -273,11 +274,12 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
 [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
+## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
+
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+다음 열거형은 자산 배달 프로토콜에 대해 설정할 수 있는 값을 설명합니다.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -301,6 +303,8 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -308,9 +312,9 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
     }
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+다음 열거형은 자산 배달 정책 유형에 대해 설정할 수 있는 값을 설명합니다.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -341,10 +345,9 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         }
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+다음 열거형은 클라이언트로의 콘텐츠 키 배달 방법을 구성하는 데 사용할 수 있는 값을 설명합니다.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -375,9 +378,8 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+다음 열거형은 자산 배달 정책에 대한 특정 구성을 가져오는 데 사용되는 키를 구성하기 위해 설정할 수 있는 값을 설명합니다.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -422,11 +424,9 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         WidevineLicenseAcquisitionUrl
     }
 
-
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

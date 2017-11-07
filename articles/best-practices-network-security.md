@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: bdde0988bbaa3868c4acadfec0b81a2413e8a14b
-ms.openlocfilehash: f9a687ce5dd381e27ed9b784c3644528f000de2d
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft Cloud Services 및 네트워크 보안
 Microsoft 클라우드 서비스는 대규모 서비스와 인프라, 엔터프라이즈급 기능 및 여러 하이브리드 연결 옵션을 제공합니다. 고객은 인터넷이나, 사설 네트워크 연결을 제공하는 Azure Express 경로를 통해 이러한 서비스에 액세스할 수 있습니다. 고객은 Microsoft Azure 플랫폼을 통해 인프라를 클라우드로 자연스럽게 확장하고 다중 계층 아키텍처를 빌드할 수 있습니다. 또한 타사 보안 서비스 및 가상 어플라이언스를 통해 향상된 기능을 구현할 수 있습니다. 이 백서에서는 Express 경로를 통해 액세스하는 Microsoft 클라우드 서비스 사용할 때 고객이 고려해야 하는 보안 및 아키텍처 문제에 대해 개괄적으로 설명합니다 또한 Azure Virtual Network에서 더 안전한 서비스를 만드는 과정을 다룹니다.
 
@@ -146,7 +145,7 @@ Microsoft에서는 클라우드 인프라 보호를 위해 상당한 투자를 �
 
 또한 Azure Virtual Network는 기존 온-프레미스 네트워크를 확장하는 데도 종종 사용됩니다. 사이트 간 또는 Express 경로 하이브리드 네트워킹 솔루션을 경계 네트워크 아키텍처에 통합할 수 있습니다. 이 하이브리드 링크는 네트워크 보안 경계를 구성할 때 고려해야 하는 중요한 요소입니다.
 
-경계 네트워크 및 다중 보안 경계와의 네트워크를 빌드할 때는 다음&3;가지 중요한 질문을 고려해야 합니다.
+경계 네트워크 및 다중 보안 경계와의 네트워크를 빌드할 때는 다음 3가지 중요한 질문을 고려해야 합니다.
 
 #### <a name="1-how-many-boundaries-are-needed"></a>1) 필요한 경계 수는?
 첫 번째 의사 결정 포인트는 주어진 시나리오에서 필요한 보안 경계 수를 결정하는 것입니다.
@@ -168,7 +167,7 @@ Microsoft에서는 클라우드 인프라 보호를 위해 상당한 투자를 �
 위의 그림에서는 상위 레벨 보기의 세 보안 경계 네트워크를 보여 줍니다. 경계는 경계 네트워크와 인터넷, Azure 프런트 엔드와 백 엔드 사설 서브넷, Azure 백 엔드 서브넷과 온-프레미스 기업 네트워크 사이에 있습니다.
 
 #### <a name="2-where-are-the-boundaries-located"></a>2) 경계의 위치는?
-경계 수를 결정한 뒤에는 경계의 구현 위치를 결정해야 합니다. 일반적으로&3;가지 선택 사항이 있습니다.
+경계 수를 결정한 뒤에는 경계의 구현 위치를 결정해야 합니다. 일반적으로 3가지 선택 사항이 있습니다.
 
 * 인터넷 기반 중개 서비스 사용(예: 클라우드 기반 웹 응용 프로그램 방화벽, 이 문서에서 논의하지 않음)
 * Azure에서 기본 기능 및/또는 네트워크 가상 어플라이언스 사용
@@ -211,7 +210,7 @@ Azure와 온-프레미스 네트워크 간에 경계가 필요할 경우 보안 
 스크립트 및 Azure Resource Manager 템플릿은 [상세 빌드 지침][Example1]을 참조하세요.
 
 #### <a name="nsg-description"></a>NSG 설명
-이 예제에서는 NSG 그룹을 빌드한 후&6;개의 규칙을 로드합니다.
+이 예제에서는 NSG 그룹을 빌드한 후 6개의 규칙을 로드합니다.
 
 > [!TIP]
 > 일반적으로 특정 "허용" 규칙을 먼저 만든 후 보다 일반적인 "거부" 규칙을 만들어야 합니다. 주어진 우선 순위에 따라 먼저 평가할 규칙이 결정됩니다. 특정 규칙에 적용할 트래픽이 발견되면 규칙을 더 이상 평가하지 않습니다. NSG 규칙은 인바운드 또는 아웃바운드 방향으로 적용할 수 있습니다(서브넷 관점에서).
@@ -259,7 +258,7 @@ Azure와 온-프레미스 네트워크 간에 경계가 필요할 경우 보안 
 스크립트 및 Azure Resource Manager 템플릿은 [상세 빌드 지침][Example2]을 참조하세요.
 
 #### <a name="nsg-description"></a>NSG 설명
-이 예제에서는 NSG 그룹을 빌드한 후&6;개의 규칙을 로드합니다.
+이 예제에서는 NSG 그룹을 빌드한 후 6개의 규칙을 로드합니다.
 
 > [!TIP]
 > 일반적으로 특정 "허용" 규칙을 먼저 만든 후 보다 일반적인 "거부" 규칙을 만들어야 합니다. 주어진 우선 순위에 따라 먼저 평가할 규칙이 결정됩니다. 특정 규칙에 적용할 트래픽이 발견되면 규칙을 더 이상 평가하지 않습니다. NSG 규칙은 인바운드 또는 아웃바운드 방향으로 적용할 수 있습니다(서브넷 관점에서).
@@ -324,7 +323,7 @@ Azure와 온-프레미스 네트워크 간에 경계가 필요할 경우 보안 
 
 VNETLocal은 항상 특정 네트워크의 가상 네트워크를 구성하는 하나 이상의 정의된 주소 접두사입니다(즉, 각각의 특정 가상 네트워크가 정의된 방식에 따라 가상 네트워크 간에 변경됨). 나머지 시스템 경로는 정적이며 기본값은 테이블과 같습니다.
 
-이 예제에서는 프런트 엔드 및 백 엔드 서브넷당 하나씩, 두 개의 라우팅 테이블을 만듭니다. 각 테이블에는 지정된 서브넷에 적절한 정적 경로가 로드되어 있습니다. 이 예에서는 각 테이블에 방화벽을 통해 모든 트래픽(0.0.0.0/0)을 지시하는&3;개의 경로가 있습니다(다음 홉 = 가상 어플라이언스 IP 주소).
+이 예제에서는 프런트 엔드 및 백 엔드 서브넷당 하나씩, 두 개의 라우팅 테이블을 만듭니다. 각 테이블에는 지정된 서브넷에 적절한 정적 경로가 로드되어 있습니다. 이 예에서는 각 테이블에 방화벽을 통해 모든 트래픽(0.0.0.0/0)을 지시하는 3개의 경로가 있습니다(다음 홉 = 가상 어플라이언스 IP 주소).
 
 1. 로컬 서브넷 트래픽이 방화벽을 우회하도록 다음 홉이 정의되지 않은 로컬 서브넷 트래픽입니다.
 2. 다음 홉이 방화벽으로 정의된 가상 네트워크 트래픽입니다. 다음 홉은 로컬 가상 네트워크 트래픽이 직접 라우팅되도록 하는 기본 규칙을 재정의합니다.
@@ -385,11 +384,11 @@ IP 전달은 UDR의 도우미 기능입니다. IP 전달은 어플라이언스�
 #### <a name="firewall-rules-description"></a>방화벽 규칙 설명
 위의 논리적 다이어그램에는 방화벽이 해당 서브넷에서 유일한 리소스이므로 보안 서브넷이 표시되어 있지 않습니다. 이 다이어그램은 방화벽 규칙과 이러한 방화벽 규칙이 실제 라우팅된 경로가 아닌 트래픽 흐름을 논리적으로 허용 또는 거부하는 방식을 보여 줍니다. 또한 RDP 트래픽에 선택된 외부 포트는 높은 범위의 포트(8014 – 8026)이며 쉽게 판독할 수 있도록 로컬 IP 주소의 마지막 두 옥텟과 느슨하게 정렬하기 위해 선택된 것입니다(예: 로컬 서버 주소 10.0.1.4는 외부 포트 8014와 연결됨). 하지만 이보다 높으면서 충돌하지 않는 포트도 사용할 수 있습니다.
 
-이 예제에서는&7;가지 유형의 규칙이 필요합니다.
+이 예제에서는 7가지 유형의 규칙이 필요합니다.
 
 * 외부 규칙(인바운드 트래픽용):
   1. 방화벽 관리 규칙: 이 앱 리디렉션 규칙은 트래픽이 네트워크 가상 어플라이언스의 관리 포트로 전달되도록 허용합니다.
-  2. RDP 규칙(각 Windows Server용): 이&4;가지 규칙(각 서버당 하나)은 RDP를 통한 개별 서버의 관리를 허용합니다. 4개의 RDP 규칙은 사용하는 네트워크 가상 어플라이언스의 기능에 따라 하나의 규칙으로 축소할 수도 있습니다.
+  2. RDP 규칙(각 Windows Server용): 이 4가지 규칙(각 서버당 하나)은 RDP를 통한 개별 서버의 관리를 허용합니다. 4개의 RDP 규칙은 사용하는 네트워크 가상 어플라이언스의 기능에 따라 하나의 규칙으로 축소할 수도 있습니다.
   3. 응용 프로그램 트래픽 규칙: 이러한 규칙에는 프런트 엔드 웹 트래픽용 규칙과 백 엔드 트래픽(예: 웹 서버에서 데이터 계층으로)용 규칙의 두 가지가 있습니다. 이러한 규칙은 서버를 배치하는 네트워크 아키텍처 및 트래픽 흐름(트래픽이 흐르는 방향, 사용하는 포트)에 따라 다르게 구성합니다.
      * 첫 번째 규칙은 실제 응용 프로그램 트래픽이 응용 프로그램 서버에 도달하도록 허용합니다. 다른 규칙은 보안, 관리 등을 허용하지만 응용 프로그램 규칙은 외부 사용자 또는 서비스가 응용 프로그램에 액세스하도록 허용하는 규칙입니다. 이 예제에서는 포트 80에 단일 웹 서버가 있습니다. 단일 방화벽 응용 프로그램 규칙이 인바운드 트래픽을 외부 IP로 리디렉션한 다음 웹 서버의 내부 IP 주소로 리디렉션합니다. 리디렉션된 트래픽 세션은 NAT를 통해 내부 서버로 변환됩니다.
      * 두 번째 규칙은 웹 서버가 임의 포트를 통해 AppVM01 서버(AppVM02 제외)와 통신하도록 하는 백 엔드 규칙입니다.
@@ -440,7 +439,7 @@ VPN이 배치된 후에는 NVA가 모든 네트워크와 서브넷의 중앙 허
 
 온-프레미스 라우터 또는 기타 VPN용 NVA와 호환되는 네트워크 장치는 VPN 클라이언트입니다. 이 물리적 장치는 NVA와의 VPN 연결 시작 및 유지 관리를 담당합니다.
 
-논리적으로 NVA에 대해, 네트워크는 영역 간 트래픽의 주 지시자 역할을 하는 NVA에 대한 규칙이 있는&4;개의 개별 "보안 영역"처럼 보입니다.
+논리적으로 NVA에 대해, 네트워크는 영역 간 트래픽의 주 지시자 역할을 하는 NVA에 대한 규칙이 있는 4개의 개별 "보안 영역"처럼 보입니다.
 
 ![13]
 
@@ -514,7 +513,7 @@ ExpressRoute 사설 피어링 네트워크 연결을 추가하면 안전하며 �
 ## <a name="references"></a>참조
 ### <a name="helpful-websites-and-documentation"></a>유용한 웹 사이트 및 설명서
 * Azure Resource Manager를 사용한 Azure 액세스:
-* PowerShell을 통한 Azure 액세스: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azureps-cmdlets-docs)
+* PowerShell을 통한 Azure 액세스: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * 가상 네트워킹 설명서: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
 * 네트워크 보안 그룹 설명서: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
 * 사용자 정의 라우팅 설명서: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
@@ -538,8 +537,8 @@ ExpressRoute 사설 피어링 네트워크 연결을 추가하면 안전하며 �
 [13]: ./media/best-practices-network-security/example4networklogical.png "NVA 관점에서의 논리적 네트워크"
 [14]: ./media/best-practices-network-security/example5designoptions.png "사이트 간 하이브리드 네트워크를 통해 Azure 게이트웨이에 연결된 DMZ"
 [15]: ./media/best-practices-network-security/example5designs2s.png "사이트 간 VPN을 사용하는 Azure 게이트웨이가 있는 DMZ"
-[16]: ./media/best-practices-network-security/example6designoptions.png "Azure 게이트웨이 연결 Express 경로 하이브리드 네트워크가 있는 DMZ"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "Express 경로 연결을 사용하는 Azure 게이트웨이가 있는 DMZ"
+[16]: ./media/best-practices-network-security/example6designoptions.png "Azure 게이트웨이 연결 ExpressRoute 하이브리드 네트워크가 있는 DMZ"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "ExpressRoute 연결을 사용하는 Azure 게이트웨이가 있는 DMZ"
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/
@@ -551,9 +550,3 @@ ExpressRoute 사설 피어링 네트워크 연결을 추가하면 안전하며 �
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
-
-
+ms.openlocfilehash: b61f6aad7cf974ce25baf944e342284b02ea0048
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너
 <p/>
 
 > [!NOTE]
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스의 경우 [이것](../app-service-web/web-sites-custom-domain-name.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/storage-custom-domain-name.md)을 참조하세요.
+> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스의 경우 [이것](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
 > 
 > 
 
@@ -76,7 +76,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
        ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
      
        **또는**  
-   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
        ![VIP를 표시하는 한눈에 보기 섹션][vip]
      
        **또는**  
-   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -156,9 +156,3 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

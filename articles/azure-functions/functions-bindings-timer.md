@@ -4,10 +4,10 @@ description: "Azure Functions에서 타이머 트리거를 사용하는 방법�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
+keywords: "Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -15,16 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
-
-
+ms.author: glenga
+ms.custom: 
+ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Azure Functions를 사용하여 코드 실행 예약
+# <a name="azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 타이머 트리거를 구성하고 코딩하는 방법을 설명합니다. Azure Functions에는 정의된 일정에 따라 함수 코드를 실행할 수 있는 타이머 트리거 바인딩이 있습니다. 
@@ -47,26 +47,26 @@ ms.lasthandoff: 03/01/2017
 }
 ```
 
-`schedule`의 값은 이러한&6;개 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 
+`schedule`의 값은 이러한 6개 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
 >온라인에서 볼 수 있는 많은 cron 식은 `{second}` 필드를 생략합니다. 그 중 하나를 복사하는 경우 추가 `{second}` 필드에 대해 조정해야 합니다. 특정 예제를 보려면 아래에 있는 [일정 예제](#examples)를 참조하세요.
 
-CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려면 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://msdn.microsoft.com/library/ms912391.aspx)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
+CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)입니다. 다른 표준 시간대를 기반으로 하는 CRON 식을 사용하려면 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 만듭니다. [Microsoft 표준 시간대 색인](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx)에 나온 대로 값을 원하는 표준 시간대의 이름으로 설정합니다. 
 
 예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용합니다.
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 대한 새 앱 설정을 추가하고 값을 **동부 표준시**로 설정할 수도 있습니다.  그런 다음 오전 10시 EST에 대해 다음과 같은 CRON 식을 사용할 수 있습니다. 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>
@@ -149,7 +149,7 @@ function.json의 `bindings` 배열에 다음과 같은 타이머 트리거가 �
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-sample-in-c"></a>C에서 트리거 샘플# #
+### <a name="trigger-sample-in-c"></a>C#에서 트리거 샘플 #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -163,7 +163,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### <a name="trigger-sample-in-f"></a>F에서 트리거 샘플# #
+### <a name="trigger-sample-in-f"></a>F#에서 트리거 샘플 #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then
@@ -191,5 +191,4 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

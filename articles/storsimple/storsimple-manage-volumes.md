@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
-
-
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>StorSimple 관리자 서비스를 사용하여 볼륨 관리
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -118,7 +118,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
    
    1. **컴퓨터 관리** ->**디스크 관리**로 이동합니다.
    2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
-   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
+   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 누릅니다.
    4. 기본값을 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
 
 ![동영상 사용 가능](./media/storsimple-manage-volumes/Video_icon.png) **동영상 사용 가능**
@@ -177,10 +177,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 복제](storsimple-clone-volume.md)방법에 대해 배웁니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

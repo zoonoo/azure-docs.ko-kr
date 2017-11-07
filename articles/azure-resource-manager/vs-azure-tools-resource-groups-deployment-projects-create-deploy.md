@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 07/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 Visual Studio 및 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. 또는 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 정의하고 가상 컴퓨터에서 실행되는 스크립트와 함께 해당 인프라를 배포할 수 있습니다. **Azure 리소스 그룹** 배포 프로젝트는 하나의 반복 작업에 필요한 모든 리소스를 배포할 수 있습니다. 리소스 배포 및 관리에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
@@ -89,16 +88,18 @@ JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거
 
 **storageType** 매개 변수는 허용되는 형식 및 기본 형식을 사용하여 미리 정의됩니다. 이러한 값을 유지하거나 시나리오에 대해 편집할 수 있습니다. 이 템플릿을 통해 **Premium_LRS** 저장소 계정을 배포하지 않으려는 경우 허용된 형식에서 제거합니다. 
 
-    "storageType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ]
-    }
+```json
+"storageType": {
+  "type": "string",
+  "defaultValue": "Standard_LRS",
+  "allowedValues": [
+    "Standard_LRS",
+    "Standard_ZRS",
+    "Standard_GRS",
+    "Standard_RAGRS"
+  ]
+}
+```
 
 Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성을 이해할 수 있도록 intellisense를 제공합니다. 예를 들어 App Service 계획에 대한 속성을 편집하려면 **HostingPlan** 리소스로 이동하고 **속성**에 대한 값을 추가합니다. intellisense는 사용 가능한 값을 표시하고 해당 값에 대한 설명을 제공합니다.
 
@@ -106,10 +107,12 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
 **numberOfWorkers** 를 1로 설정할 수 있습니다.
 
-    "properties": {
-      "name": "[parameters('hostingPlanName')]",
-      "numberOfWorkers": 1
-    }
+```json
+"properties": {
+  "name": "[parameters('hostingPlanName')]",
+  "numberOfWorkers": 1
+}
+```
 
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Azure에 리소스 그룹 프로젝트 배포
 이제 프로젝트를 배포할 준비가 되었습니다. Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 배포합니다. 리소스 그룹은 공통 수명 주기를 공유하는 리소스의 논리적 그룹화입니다.
@@ -216,5 +219,4 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 ## <a name="next-steps"></a>다음 단계
 * 포털을 통한 리소스 관리에 대한 내용은 [Azure Portal을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 * 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-
 

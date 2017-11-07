@@ -1,5 +1,5 @@
 ---
-title: "Azure 크기 집합 템플릿에서 가상 네트워크 참조 | Microsoft Docs"
+title: "Azure 확장 집합 템플릿에서 기존 가상 네트워크 참조 | Microsoft Docs"
 description: "기존 Azure Virtual Machine Scale Set 템플릿에 가상 네트워크를 추가하는 방법 알아보기"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -13,22 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/06/2017
+ms.date: 06/27/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
-ms.lasthandoff: 03/24/2017
-
+ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Azure 크기 집합 템플릿에 가상 네트워크에 대한 참조 추가 | Microsoft Docs
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 기존 가상 네트워크에 대한 참조 추가
 
 이 문서에서는 [실행 가능한 최소 크기 집합 템플릿](./virtual-machine-scale-sets-mvss-start.md)을 수정하여 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포하는 방법을 보여 줍니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
-실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 기존 가상 네트워크에 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)에 있습니다. 이 템플릿(`git diff master minimum-viable-scale-set`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
+실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 기존 가상 네트워크에 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set existing-vnet`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
 
 먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 크기 집합 구성에 전달되어 크기 집합에서 미리 만든 서브넷을 식별하여 가상 컴퓨터를 배포할 수 있게 합니다. 이 문자열의 형식은 `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`이어야 합니다. 예를 들어 `myvnet` 이름, `mysubnet` 서브넷, `myrg` 리소스 그룹 및 `00000000-0000-0000-0000-000000000000` 구독을 사용하여 기존 가상 네트워크에 크기 집합을 배포하려면 subnetId가 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`이 됩니다.
 
@@ -106,4 +105,3 @@ ms.lasthandoff: 03/24/2017
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

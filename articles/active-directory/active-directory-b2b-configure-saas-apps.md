@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 공동 작업을 위한 SaaS 앱 구성
 
 Azure AD(Azure Active Directory) B2B 공동 작업은 Azure AD와 통합되는 대부분의 앱에서 작동합니다. 이 섹션에서는 Azure AD B2B와 함께 사용되는 일부 인기 있는 SaaS 앱을 구성하는 지침을 안내합니다.
@@ -81,7 +79,7 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
 1. 엔터프라이즈 앱에서 Box 앱을 추가합니다.
 
-2. 다음을 수행하여 Single Sign-On을 구성합니다.
+2. 다음 순서로 Single Sign-On을 구성합니다.
 
   ![Box Single Sign-On 구성](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -116,4 +114,3 @@ Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
-

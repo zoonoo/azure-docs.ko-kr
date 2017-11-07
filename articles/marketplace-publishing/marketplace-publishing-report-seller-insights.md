@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2017
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>판매자 통찰력 보고서 이해
 **판매자 통찰력이란 무엇인가요?**
@@ -85,8 +84,7 @@ ms.lasthandoff: 12/08/2016
 https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증명으로 로그인합니다.
 ![passwordreminder][7]
 
-**게시자** 탭을 선택합니다.
-![selectpublisherstab][8]
+**게시자** 탭을 선택합니다. ![selectpublisherstab][8]
 
 URL에서 게시자 ID를 찾습니다.
 
@@ -115,4 +113,3 @@ URL에서 게시자 ID를 찾습니다.
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
-

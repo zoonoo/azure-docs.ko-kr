@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: b159d3583c24e36c2803d7d02deca1415669d054
-ms.openlocfilehash: ebc5461177df5b5a16ab9b5668f5fda890ee11a4
-
-
+ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
-## <a name="overview"></a>개요
-10,000피트에서 해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 계산 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
+
+해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 계산 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 
 ## <a name="update-an-azure-service"></a>Azure 서비스 업데이트
 Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다.  Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
@@ -66,9 +66,9 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 | 기존 인증서 변경 |예 |예 |예 |
 | 새 코드 배포 |예 |예 |예 |
 
-<sup>1</sup>크기 변경이 클라우드 서비스에 대해 사용할 수 있는 크기의 일부로 제한되었습니다.
+<sup>1</sup> 크기 변경이 클라우드 서비스에 대해 사용할 수 있는 크기의 일부로 제한되었습니다.
 
-<sup>2</sup>Azure SDK 1.5 이상 버전이 필요합니다.
+<sup>2</sup> Azure SDK 1.5 이상 버전이 필요합니다.
 
 > [!WARNING]
 > 가상 컴퓨터 크기를 변경하면 로컬 데이터가 소멸됩니다.
@@ -90,11 +90,11 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 
 다음 다이어그램에서는 서비스에서 모든 역할을 업그레이드하는 경우 업그레이드 진행 방법을 보여 줍니다.
 
-![서비스 업그레이드](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![서비스 업그레이드](media/cloud-services-update-azure-service/IC345879.png "서비스 업그레이드")
 
 다음 다이어그램에서는 단일 역할만 업그레이드하는 경우 업데이트 진행 방법을 보여 줍니다.
 
-![역할 업그레이드](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![역할 업그레이드](media/cloud-services-update-azure-service/IC345880.png "역할 업그레이드")  
 
 자동 업데이트 중 Azure 패브릭 컨트롤러는 다음 UD로 이동하는 안전한 시기를 결정하도록 클라우드 서비스의 상태를 주기적으로 평가합니다. 이 상태 평가는 역할별로 수행되며 최신 버전의 인스턴스만 고려합니다(즉, 이미 이동된 UD에서 인스턴스). 각 역할에 대해 최소 수의 역할 인스턴스가 만족스러운 터미널 상태로 수행됐는지 확인합니다.
 
@@ -178,7 +178,7 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 
 다음 다이어그램에서는 서비스가 두 개의 업그레이드 도메인을 정의하는 경우 두 개의 역할을 포함하는 서비스가 배포되는 방법을 보여 줍니다. 서비스는 8개의 웹 역할 인스턴스 및 9개의 작업자 역할 인스턴스를 실행하고 있습니다.
 
-![업그레이드 도메인 배포](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![업그레이드 도메인 배포](media/cloud-services-update-azure-service/IC345533.png "업그레이드 도메인 배포")
 
 > [!NOTE]
 > Azure는 업그레이드 도메인에 인스턴스가 할당되는 방식을 제어합니다. 어떤 도메인에 어떤 인스턴스를 할당할지를 지정하는 것은 불가능합니다.
@@ -189,9 +189,3 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)  
 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)  
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

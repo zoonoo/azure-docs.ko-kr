@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 08/02/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -35,6 +34,7 @@ ms.lasthandoff: 03/27/2017
 | Kerberos |88(TCP/UDP) |AD 포리스트에 대한 Kerberos 인증. |
 | MS-RPC |135(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect 마법사의 초기 구성 중 및 암호 동기화 중에도 사용합니다. |
 | LDAP |389(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터가 Kerberos 서명 및 봉인으로 암호화됩니다. |
+| RPC | 445(TCP/UDP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
 | LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. SSL을 사용하는 경우에만 사용합니다. |
 | RPC |49152- 65535(임의의 높은 RPC 포트)(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
 
@@ -78,20 +78,18 @@ ms.lasthandoff: 03/27/2017
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>테이블 6a - SSO로 통과 인증
 |프로토콜|포트 번호|설명
 | --- | --- | ---
-|HTTP|80|SSL과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다.
-|HTTPS|443|    Azure AD에 대해 사용자 인증 사용하도록 설정
-|HTTPS|10100–10120|    커넥터에서 다시 Azure AD로 응답 사용하도록 설정 
-|Azure Service Bus|9352, 5671|    수신 요청에 대한 Azure 서비스와 커넥터 간에 통신을 사용하도록 설정합니다.
-|HTTPS|9350|    선택적으로 수신 요청에 더 높은 성능을 발휘하도록 설정합니다.
-|HTTPS|8080/443|    커넥터 부트스트랩 시퀀스 및 커넥터 자동 업데이트를 사용하도록 설정합니다.
-|HTTPS|9090|    커넥터 등록(커넥터 등록 프로세스에만 필요)을 사용하도록 설정합니다.
-|HTTPS|9091|    커넥터 신뢰 인증서 자동 갱신을 사용하도록 설정합니다.
+|HTTP|80|SSL과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다. 커넥터 자동 업데이트 기능이 제대로 작동하는 데도 필요합니다.
+|HTTPS|443| 기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 작업을 위해 아웃바운드 HTTPS 트래픽을 사용합니다.
+
+또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다.
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>테이블 6b - SSO와 암호 해시 동기화
 
 |프로토콜|포트 번호|설명
 | --- | --- | ---
-|HTTPS|9090|    SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
+|HTTPS|443| SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
+
+또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다. 다시, SSO 등록 프로세스에만 필요합니다.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>테이블 7a & 7b - (AD FS/동기화)와 Azure AD에 대한 Azure AD Connect Health 에이전트
 다음 테이블은 Azure AD Connect Health 에이전트와 Azure AD 간의 통신에 필요한 끝점, 포트 및 프로토콜에 대해 설명합니다.
@@ -102,9 +100,8 @@ ms.lasthandoff: 03/27/2017
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |아웃바운드 |
-| Azure 서비스 버스 |5671(TCP/UDP) |아웃바운드 |
+| Azure Service Bus |5671(TCP/UDP) |아웃바운드 |
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
-
 

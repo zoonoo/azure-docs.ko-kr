@@ -1,11 +1,22 @@
 ---
-layout: LandingPage
 title: "Service Bus 메시징 설명서"
 description: "온-프레미스 및 클라우드 환경에서 응용 프로그램 및 서비스를 연결하는 메시징을 설정하는 방법에 대해 알아봅니다."
-translationtype: Human Translation
-ms.sourcegitcommit: 5b76339cc3ca28b523ecf825d7bccc18587aafc8
-ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
-
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Service Bus 메시징 설명서
 메시징 서비스는 조정되거나 타사 통신 메커니즘으로서 신뢰할 수 있는 정보 배달을 제공합니다.
@@ -30,7 +41,7 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,9 +87,8 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>명령줄</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -90,14 +100,27 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST (영문)</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/servicebus/">REST API 참조</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -113,9 +136,3 @@ ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

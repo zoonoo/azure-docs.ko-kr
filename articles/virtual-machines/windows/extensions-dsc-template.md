@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e85d5563a314964ad1ed43c693cdebe7a30297de
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 4292f9d8cd181073fdf0adff99fcb9624e0e9f55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Windows VMSS 및 원하는 상태 구성
 이 문서에서는 [필요한 상태 구성 확장 처리기](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 위한 Resource Manager 템플릿에 대해 설명합니다. 
@@ -56,6 +55,7 @@ ms.lasthandoff: 03/31/2017
                   "protectedSettings": {
                       "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
+              }
 
 ```
 
@@ -89,6 +89,7 @@ VMSS 노드에는 "VirtualMachineProfile", "extensionProfile" 특성을 포함�
                     }
                 }
             ]
+        }
 ```
 
 ## <a name="detailed-settings-information"></a>자세한 설정 정보
@@ -292,12 +293,11 @@ Azure Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일�
 * 누락된 속성을 요구하는 속성을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure DSC 확장에 가상 컴퓨터 크기 집합 사용](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)에서 DSC 및 가상 컴퓨터 크기 집합에 대한 자세한 정보
+[Azure DSC 확장에 가상 컴퓨터 확장 집합 사용](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)에서 DSC 및 가상 컴퓨터 확장 집합에 대한 자세한 정보
 
 [DSC의 보안 자격 증명 관리](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 자세한 내용을 참조하세요. 
 
 Azure DSC 확장 처리기에 대한 자세한 내용은 [Azure 필요한 상태 구성 확장 처리기 소개](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview). 
-
 

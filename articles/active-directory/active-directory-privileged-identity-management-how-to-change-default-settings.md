@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 06/06/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5108b83d3291d3b934a402a0a7978c68bda0cf1b
-
-
+ms.custom: pim
+ms.openlocfilehash: 23605e89cd1846d2e06e48cb5d3e0191cb9e9b4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management에서 역할 활성화 설정을 관리하는 방법
 권한 있는 역할 관리자는 적격 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 조직에서 Azure AD PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다.
@@ -38,7 +39,7 @@ ms.openlocfilehash: 5108b83d3291d3b934a402a0a7978c68bda0cf1b
 
 **Multi-Factor Authentication**: 사용자에게 역할을 활성화하기 전에 MFA로 id를 확인하도록 할지 여부를 선택할 수 있습니다. 이 작업은 매번 역할을 활성화할 때마다가 아니라 세션당 한 번만 수행해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 
-* 전자 메일 주소로 Microsoft 계정을 이용하는 사용자(일반적으로 @outlook.com,이지만 항상 그렇지는 않음)는 Azure MFA에 등록할 수 없습니다. Microsoft 계정 가진 사용자에게 역할을 할당하려는 경우, 영구 관리자가 되도록 하거나 해당 역할에 대해 MFA를 사용하지 않도록 설정해야 합니다.
+* 전자 메일 주소로 Microsoft 계정을 이용하는 사용자(일반적으로 @outlook.com이지만 항상 그렇지는 않음)는 Azure MFA에 등록할 수 없습니다. Microsoft 계정 가진 사용자에게 역할을 할당하려는 경우, 영구 관리자가 되도록 하거나 해당 역할에 대해 MFA를 사용하지 않도록 설정해야 합니다.
 * Azure AD 및 Office365에 대해 높은 권한이 있는 역할에 대한 MFA를 사용하지 않도록 설정할 수 없습니다. 이런 안전 기능을 둔 것은 이러한 역할을 신중하게 보호해야 하기 때문입니다.  
   
   * 응용 프로그램 관리자
@@ -67,10 +68,4 @@ PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

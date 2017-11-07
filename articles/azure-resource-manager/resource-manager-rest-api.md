@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
-
-
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>리소스 관리자 REST API
 > [!div class="op_single_selector"]
@@ -75,7 +74,7 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 **Bash를 사용하여 액세스 토큰 생성하기:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net/&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Powershell을 사용하여 액세스 토큰 생성:**
@@ -253,4 +252,3 @@ Content-Type: application/json
 ## <a name="next-steps"></a>다음 단계
 
 - 비동기 REST 작업 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.
-

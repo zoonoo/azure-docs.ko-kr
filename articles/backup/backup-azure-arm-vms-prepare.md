@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 컴퓨터를 백업하기 위한 환경 준비
 > [!div class="op_single_selector"]
@@ -56,9 +55,10 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 환경을 준비하기 전에, 제한 사항을 이해해 주시기 바랍니다.
 
 * 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
+* 데이터 디스크 크기가 1023GB보다 큰 가상 컴퓨터를 백업하는 것은 지원되지 않습니다.
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 컴퓨터의 백업은 지원되지 않습니다.
 * 방금 BEK를 사용하여 암호화된 VM의 백업을 지원하지 않습니다. LUKS를 사용하여 암호화된 Linux VM의 백업을 지원하지 않습니다.
-* Docker 확장을 포함한 Linux 가상 컴퓨터의 백업이 지원되지 않습니다.
+* CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM의 백업은 스냅숏 작업 중 클러스터 구성에 포함된 모든 VM을 포함해야 하므로 권장되지 않습니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다. 
 * 백업 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 컴퓨터의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
@@ -117,7 +117,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-     Azure를 기본 백업 저장소 끝점으로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 주가 아닌 백업 저장소 끝점으로 사용하는 경우 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/storage-redundancy.md)를 참조하세요.
+     Azure를 기본 백업 저장소 끝점으로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 주가 아닌 백업 저장소 끝점으로 사용하는 경우 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
     자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 컴퓨터를 검색하고 등록해야 합니다.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
@@ -204,7 +204,13 @@ VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대�
 | HTTP 프록시 |허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어<br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음 |프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용 목록
-Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
+* Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
+* 서비스 태그를 사용하여 [Service Tags](../virtual-network/security-overview.md#service-tags)를 사용하는 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 저장소 계정에 대한 액세스를 허용하는 규칙이 인터넷 액세스를 차단하는 규칙보다 우선 순위가 높아야 합니다. 
+
+  ![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> 저장소 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소에 대한 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
 VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저장소에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이므로, HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
@@ -314,4 +320,3 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-

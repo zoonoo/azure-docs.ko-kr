@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 05/31/2017
 ms.author: ningk
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Azure Linux VM에서 MySQL 성능 최적화
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
@@ -42,27 +41,22 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 향상�
 이 문서에서는 Linux 가상 컴퓨터를 이미 만들고 MYSQL을 설치 및 구성하는 것으로 가정합니다. 시작하는 방법에 대한 자세한 내용은 Azure에서 MySQL을 설치하는 방법을 참조하세요.  
 
 ### <a name="set-up-raid-on-azure"></a>Azure에서 RAID 설치
-다음 단계에서는 Azure 클래식 포털을 사용하여 Azure에서 RAID를 만드는 방법을 보여 줍니다. 또한 Windows PowerShell 스크립트를 사용하여 RAID를 설치할 수도 있습니다.
+다음 단계에서는 Azure Portal을 사용하여 Azure에서 RAID를 만드는 방법을 보여 줍니다. 또한 Windows PowerShell 스크립트를 사용하여 RAID를 설치할 수도 있습니다.
 이 예제에서는 디스크 4개를 사용하여 RAID 0을 구성합니다.  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>가상 컴퓨터에 데이터 디스크 추가
-Azure 클래식 포털의 가상 컴퓨터 페이지에서 데이터 디스크를 추가할 가상 컴퓨터를 클릭합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.  
+Azure Portal에서 대시보드로 이동하고 데이터 디스크를 추가할 가상 컴퓨터를 선택합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.  
 
-![가상 컴퓨터][1]
+<!--![Virtual machines][1]-->
 
-가상 컴퓨터에 대한 페이지에서 **대시보드**를 클릭합니다.  
+**디스크**를 클릭한 다음 **새로 연결**을 클릭합니다.
 
-![가상 컴퓨터 대시보드][2]
+![가상 컴퓨터에서 디스크 추가](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
-작업 표시줄에서 **연결**을 클릭합니다.
+새 500GB 디스크를 만듭니다. **호스트 캐시 기본 설정**이 **None**으로 설정되었는지 확인합니다.  작업을 완료하면 **확인**을 클릭합니다.
 
-![가상 컴퓨터 작업 표시줄][3]
+![빈 디스크 연결](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-그런 다음 **빈 디스크 연결**을 클릭합니다.  
-
-![빈 디스크 연결][4]
-
-데이터 디스크의 경우 **호스트 캐시 기본 설정**을 **없음**으로 설정해야 합니다.  
 
 그러면 가상 컴퓨터에 빈 디스크 하나가 추가됩니다. RAID의 데이터 디스크가 4개가 되도록 이 단계를 세 번 더 반복합니다.  
 
@@ -115,7 +109,7 @@ Linux에서는 다음 네 가지 유형의 I/O 일정 알고리즘을 구현합�
 
 SSD 및 기타 장비의 경우 NOOP 또는 Deadline을 사용하면 기본 스케줄러보다 성능이 더 향상될 수 있습니다.   
 
-커널 2.5 이전에는 Deadline이었지만, 커널 2.6.18부터 CFQ가 기본 I/O 스케줄링 알고리즘이 되었습니다.  커널 부팅시 이 설정을 지정하거나 시스템이 실행 중일 때 이 설정을 동적으로 수정할 수 있습니다.  
+커널 2.5 이전에는 Deadline이었지만, 커널 2.6.18부터 CFQ가 기본 I/O 스케줄링 알고리즘이 되었습니다.  커널 부팅 시 이 설정을 지정하거나 시스템이 실행 중일 때 이 설정을 동적으로 수정할 수 있습니다.  
 
 다음 예제에서는 기본 스케줄러를 확인하여 Debian 배포판 제품군의 NOOP 알고리즘으로 설정하는 방법을 보여 줍니다.  
 

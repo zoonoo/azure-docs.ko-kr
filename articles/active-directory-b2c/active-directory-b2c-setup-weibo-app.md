@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b7283da1a3774b06d782fbac204b18cc074d413f
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: 고객에게 Weibo 계정으로 등록 및 로그인 제공
 
 > [!NOTE]
-> 이 기능은 아직 미리 보기 버전입니다.
+> 이 기능은 미리 보기 상태입니다. 프로덕션 환경에서는 이 ID 공급자를 사용하지 마세요.
 > 
 
 ## <a name="create-a-weibo-application"></a>Weibo 응용 프로그램 만들기
@@ -55,7 +54,7 @@ Azure AD(Azure Active Directory) B2C에서 Weibo를 ID 공급자로 사용하려
 10. **提交**(제출)을 클릭합니다.  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Weibo를 ID 공급자로 구성
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
+1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "Weibo"를 입력합니다.
@@ -64,5 +63,4 @@ Azure AD(Azure Active Directory) B2C에서 Weibo를 ID 공급자로 사용하려
 7. **클라이언트 ID**로 앞에서 복사한 **앱 키**를 입력합니다.
 8. **클라이언트 암호**로 앞에서 복사한 **앱 암호**를 입력합니다.
 9. **확인**을 클릭한 다음 **만들기**를 클릭하여 Weibo 구성을 저장합니다.
-
 

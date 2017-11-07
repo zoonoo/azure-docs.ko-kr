@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
-ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 4117b6020d2d75a953fd5f032b378e49d2c752ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -32,11 +31,11 @@ ms.lasthandoff: 02/23/2017
 
 ### <a name="operating-system"></a>운영 체제
 
-Windows용 사용자 지정 스크립트 확장은 Windows Server 2008 R2, 2012, 2012 R2 및 2016 릴리스에 대해 실행할 수 있습니다.
+Windows용 사용자 지정 스크립트 확장은 Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2 및 2016 릴리스에 대해 실행할 수 있습니다.
 
 ### <a name="script-location"></a>스크립트 위치
 
-이 스크립트는 Azure Storage 또는 유효한 URL을 통해 액세스 가능한 기타 위치에 보관해야 합니다.
+이 스크립트는 Azure Blob Storage 또는 유효한 URL을 통해 액세스 가능한 기타 위치에 보관해야 합니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -49,7 +48,7 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 컴퓨터가 �
 ```json
 {
     "apiVersion": "2015-06-15",
-    "type": "extensions",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -62,7 +61,7 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 컴퓨터가 �
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -85,11 +84,13 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 컴퓨터가 �
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | 확장 |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName(예) | examplestorageacct |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+**참고** - 이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 위와 같이 이름을 사용합니다.
 
 ## <a name="template-deployment"></a>템플릿 배포
 
@@ -126,7 +127,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-여기서 `<n>`은 확장의 실행 간에 변경될 수 있는&10;진수 정수입니다.  `1.*` 값은 확장의 현재 실제 `typeHandlerVersion` 값과 일치합니다.  예를 들어, 실제 디렉터리는 `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`일 수 있습니다.  
+여기서 `<n>`은 확장의 실행 간에 변경될 수 있는 10진수 정수입니다.  `1.*` 값은 확장의 현재 실제 `typeHandlerVersion` 값과 일치합니다.  예를 들어, 실제 디렉터리는 `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`일 수 있습니다.  
 
 `commandToExecute` 명령을 실행할 경우 확장은 현재 작업 디렉터리처럼 이 디렉터리를 설정합니다(예: `...\Downloads\2`). 그러면 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 
@@ -149,4 +150,3 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/en-us/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/en-us/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/en-us/support/faq/)를 참조하세요.
-

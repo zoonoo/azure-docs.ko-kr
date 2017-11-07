@@ -1,12 +1,11 @@
 ---
-
 title: "Azure Portal을 통해 스트리밍 끝점 관리 | Microsoft 문서"
 description: "이 항목에서는 Azure 포털을 사용하여 스트리밍 끝점을 관리하는 방법을 설명합니다."
 services: media-services
 documentationcenter: 
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
 ms.service: media-services
@@ -14,17 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
-ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Azure 포털을 통해 스트리밍 끝점 관리
 
 이 항목은 Azure Portal을 사용하여 스트리밍 끝점을 관리하는 방법을 보여 줍니다. 
@@ -63,7 +59,7 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
     ![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
+## <a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
 스트리밍 끝점을 사용하면 다음 속성을 구성할 수 있습니다.
 
 * 액세스 제어
@@ -71,6 +67,9 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
 * 교차 사이트 액세스 정책
 
 이러한 속성에 대한 자세한 정보는 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)를 참조하세요.
+
+>[!NOTE]
+>CDN을 사용하는 경우 IP 액세스에 액세스할 수 없습니다. IP 액세스는 CDN이 없을 때만 적용됩니다.
 
 다음을 수행하여 스트리밍 끝점을 구성할 수 있습니다.
 
@@ -89,7 +88,7 @@ Azure 포털을 사용하여 스트리밍 끝점을 추가/삭제하려면 다�
 
 자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md) 을 참조하세요.
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Azure CDN 통합 사용
+## <a id="enable_cdn"></a>Azure CDN 통합 사용
 
 새 계정을 만들면 기본 스트리밍 끝점 Azure CDN 통합이 기본적으로 설정됩니다.
 
@@ -116,11 +115,10 @@ CDN 통합이 설정되면 **액세스 제어**, **사용자 지정 호스트 �
 ![스트리밍 끝점](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

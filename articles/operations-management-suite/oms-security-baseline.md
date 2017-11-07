@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션의 기준 평가
 이 문서를 통해 [OMS(Operations Management Suite) 보안 및 감사 솔루션](operations-management-suite-overview.md) 기준 평가 기능을 사용하여 모니터링된 리소스의 보안 상태에 액세스할 수 있습니다.
@@ -40,7 +39,7 @@ ms.lasthandoff: 12/06/2016
 > 
 
 ## <a name="security-baseline-assessment"></a>보안 기준 평가
-대시보드를 사용하여 OMS 보안 및 감사에서 모니터링되는 모든 컴퓨터에 대한 현재 보안 기준 평가를 검토할 수 있습니다.  보안 기준 평가 대시보드에 액세스하려면 다음 단계를 실행합니다.
+대시보드를 사용하여 OMS 보안 및 감사에서 모니터링되는 모든 컴퓨터에 대한 현재 보안 기준 평가를 검토할 수 있습니다. 보안 기준 평가 대시보드에 액세스하려면 다음 단계를 실행합니다.
 
 1. **Microsoft Operations Management Suite** 기본 대시보드에서 **보안 및 감사** 타일을 클릭합니다.
 2. **보안 및 감사** 대시보드에서 **보안 도메인**의 **기준 평가**를 클릭합니다. 다음 이미지처럼 **보안 기준 평가** 대시보드가 나타납니다.
@@ -85,5 +84,4 @@ OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구�
 * [OMS(Operations Management Suite) 개요](operations-management-suite-overview.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
-
 

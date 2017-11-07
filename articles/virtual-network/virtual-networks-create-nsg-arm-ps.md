@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 6215abf064227f0d75a50e866b09ca2083a269d6
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 만들기
 
@@ -38,7 +37,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>프런트 엔드 서브넷에 대한 NSG를 만드는 방법
 시나리오에 따라 *NSG-FrontEnd*라는 NSG를 만들려면 다음 단계를 완료하세요.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 인터넷에서 포트 3389에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
     ```powershell
@@ -218,5 +217,4 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
 ```
-
 

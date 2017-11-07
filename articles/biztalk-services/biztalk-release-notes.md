@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 84ad965ed6ef1711fda983220cf004fdd48d290d
-
-
+ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 서비스에 대한 릴리스 정보
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Microsoft Azure BizTalk 서비스에 대한 릴리스 정보는 이 릴리스의 알려진 문제를 포함합니다.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>BizTalk 서비스 11월 업데이트의 새로운 기능
@@ -29,8 +32,8 @@ Microsoft Azure BizTalk 서비스에 대한 릴리스 정보는 이 릴리스의
 ## <a name="update-history"></a>업데이트 내역
 ### <a name="october-update"></a>10월 업데이트
 * 조직 계정이 지원됩니다.  
-  * **시나리오**: Microsoft 계정을 사용하여 BizTalk 서비스 배포를 등록했습니다(예: user@live.com). 이 시나리오에서는 Microsoft 계정 사용자만 BizTalk 서비스 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. 조직 계정을 사용할 수 없습니다.  
-  * **시나리오**: Azure Active Directory에서 조직 계정을 사용하여 BizTalk 서비스 배포를 등록했습니다(예: user@fabrikam.com 또는 user@contoso.com). 이 시나리오에서는 동일한 조직 내의 Azure Active Directory 사용자만 BizTalk 서비스 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. Microsoft 계정을 사용할 수 없습니다.  
+  * **시나리오**: Microsoft 계정(예: user@live.com)을 사용하여 BizTalk 서비스 배포를 등록했습니다. 이 시나리오에서는 Microsoft 계정 사용자만 BizTalk Services 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. 조직 계정을 사용할 수 없습니다.  
+  * **시나리오**: Azure Active Directory의 조직 계정(예: user@fabrikam.com 또는 user@contoso.com)을 사용하여 BizTalk 서비스 배포를 등록했습니다. 이 시나리오에서는 동일한 조직 내의 Azure Active Directory 사용자만 BizTalk Services 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. Microsoft 계정을 사용할 수 없습니다.  
 * Azure 클래식 포털에서 BizTalk 서비스를 만들 때 BizTalk 서비스 포털에 자동으로 등록됩니다.
   * **시나리오**: Azure 클래식 포털에 로그인하고 BizTalk 서비스를 만든 후 처음으로 **관리**를 선택합니다. BizTalk 서비스 포털이 열리면 BizTalk 서비스가 자동으로 등록되고 배포할 준비가 됩니다.  
     [BizTalk 서비스 포털에서 BizTalk 서비스 배포 등록 및 업데이트](https://msdn.microsoft.com/library/azure/hh689837.aspx)를 참조하세요.  
@@ -170,7 +173,7 @@ DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 
 다음과 같은 시나리오를 고려해 보세요.  
 
 **시나리오 1: 브리지에서 서비스 끝점으로 전송되는 메시지를 보호하기 위해 지문 기반 인증서 사용**  
- BizTalk 서비스 프로젝트에서 지문 기반 인증서를 사용하는 시나리오를 고려해 보세요. BizTalk 서비스 포털에서 이름은 같지만 다른 지문으로 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
+BizTalk 서비스 프로젝트에서 지문 기반 인증서를 사용하는 시나리오를 고려해 보세요. BizTalk 서비스 포털에서 이름은 같지만 다른 지문으로 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
 
 **해결 방법**: BizTalk 서비스 프로젝트에서 인증서를 업데이트하고 프로젝트를 다시 배포합니다.  
 
@@ -218,10 +221,4 @@ BizTalk 서비스 미리 보기 구독에 배포된 XML 브리지가 있는 시�
 
 ### <a name="concepts"></a>개념
 [BizTalk 서비스](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>클래식 포털을 사용하여 Azure에 Windows Server 또는 워크스테이션 백업
 > [!div class="op_single_selector"]
@@ -31,11 +30,7 @@ ms.lasthandoff: 03/14/2017
 
 이 문서에서는 환경을 준비하고 Windows Server(또는 워크스테이션)를 Azure에 백업하기 위해 따라야 할 절차를 다룹니다. 또한 백업 솔루션 배포 시 고려 사항에 대해서도 설명합니다. Azure 백업을 처음으로 시도하려는 경우 이 문서를 보면 해당 프로세스에 대한 간단한 지침을 볼 수 있습니다.
 
-
-> [!IMPORTANT]
-> Azure는 리소스를 만들고 작업하기 위한 두 가지 배포 모델로 리소스 관리자와 클래식을 제공합니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
->
->
+Azure는 리소스를 만들고 작업하기 위한 두 가지 배포 모델로 리소스 관리자와 클래식을 제공합니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 서버 또는 클라이언트를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
@@ -44,13 +39,16 @@ ms.lasthandoff: 03/14/2017
 서버 또는 클라이언트의 파일과 폴더를 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다.
 
 > [!IMPORTANT]
-> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다. 기존 백업 자격 증명 모음은 계속 지원되고 [Azure PowerShell을 사용하여 백업 자격 증명 모음을 만들](./backup-client-automation-classic.md#create-a-backup-vault) 수 있습니다. 하지만 향후 향상되는 기능이 Recovery Services 자격 증명 모음에만 적용되므로 Microsoft에서는 모든 배포에 Recovery Services 자격 증명 모음을 만들도록 권장합니다.
+> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다.
+>
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 10월 15일**부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. <br/> **2017년 11월 1일 시작**:
+>- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+>- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
+>
 
 
 ## <a name="download-the-vault-credential-file"></a>자격 증명 모음 자격 증명 파일 다운로드
 온-프레미스 컴퓨터는 백업 자격 증명 모음을 인증해야 Azure에 데이터를 백업할 수 있습니다. 인증은 *보관 자격 증명*을 통해 수행됩니다. 보관 자격 증명 파일은 클래식 포털에서 보안 채널을 통해 다운로드됩니다. 인증서 개인 키는 포털 또는 서비스에 유지되지 않습니다.
-
-[보관 자격 증명을 사용하여 백업 서비스 인증](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)에 대한 자세한 내용을 알아보세요.
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면
 1. 왼쪽 탐색 창에서 **복구 서비스**를 클릭한 다음 생성된 백업 자격 증명 모음을 선택합니다.
@@ -119,7 +117,7 @@ ms.lasthandoff: 03/14/2017
 6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
-    매일(하루에 최대 속도로&3;회) 또는 매주 백업을 예약할 수 있습니다.
+    매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
 
     ![Windows Server 백업에 대한 항목](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
@@ -172,4 +170,3 @@ VM 또는 다른 워크로드를 백업하는 방법에 대한 자세한 내용�
 * [IaaS VM 백업](backup-azure-vms-prepare.md)
 * [Microsoft Azure 백업 서버를 통해 Azure에 워크로드 백업](backup-azure-microsoft-azure-backup.md)
 * [DPM을 통해 Azure에 워크로드 백업](backup-azure-dpm-introduction.md)
-

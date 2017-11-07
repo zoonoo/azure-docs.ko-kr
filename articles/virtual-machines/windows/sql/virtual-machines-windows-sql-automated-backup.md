@@ -13,27 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/30/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1b9401d7c2f756081d585b9432ceef412ab1f807
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 91aab896dd5f06c950ee0ed8f36cc6a953d91611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 백업(Resource Manager)
+
 > [!div class="op_single_selector"]
-> * [리소스 관리자](virtual-machines-windows-sql-automated-backup.md)
-> * [클래식](../classic/sql-automated-backup.md)
-> 
-> 
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 자동화된 백업에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx) 을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
-
-이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)](../classic/sql-automated-backup.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 자동화된 백업을 사용하려면 다음 필수 조건을 고려하세요.
@@ -42,6 +38,7 @@ ms.lasthandoff: 03/25/2017
 
 - Windows Server 2012
 - Windows Server 2012 R2
+- Windows Server 2016
 
 **SQL Server 버전**:
 
@@ -53,9 +50,8 @@ ms.lasthandoff: 03/25/2017
 
 **데이터베이스 구성**:
 
-- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다.
-
-전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
+- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
+- 대상 데이터베이스는 기본 SQL Server 인스턴스에 있어야 합니다. SQL Server IaaS 확장은 명명된 인스턴스를 지원하지 않습니다.
 
 **Azure 배포 모델**:
 
@@ -63,12 +59,13 @@ ms.lasthandoff: 03/25/2017
 
 **Azure PowerShell**:
 
-- [최신 Azure PowerShell 명령을 설치합니다](/powershell/azureps-cmdlets-docs) .
+- [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
 
 > [!NOTE]
 > 자동화된 백업은 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 컴퓨터 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 ## <a name="settings"></a>설정
+
 다음 표에서는 자동화된 백업에 대해 구성할 수 있는 옵션을 설명합니다. 실제 구성 단계는 Azure 포털 또는 Azure Windows PowerShell 명령 사용 여부에 따라 달라집니다.
 
 | 설정 | 범위(기본값) | 설명 |
@@ -80,9 +77,11 @@ ms.lasthandoff: 03/25/2017
 | **암호** | 암호 텍스트 | 암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
 ## <a name="configuration-in-the-portal"></a>포털에서 구성
+
 Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2014 VMs에 대해 자동화된 백업을 구성할 수 있습니다.
 
 ### <a name="new-vms"></a>새 VM
+
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 2014 Virtual Machine을 만들 때 자동화된 백업을 구성합니다.
 
 **SQL Server 설정** 블레이드에서 **자동화된 백업**을 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 백업** 블레이드를 보여 줍니다.
@@ -92,6 +91,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
 ### <a name="existing-vms"></a>기존 VM
+
 기존 SQL Server 가상 컴퓨터에 대한 해당 SQL Server 가상 컴퓨터를 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
 
 ![기존 VM에 대한 SQL 자동화된 백업](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
@@ -106,43 +106,168 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 > [!NOTE]
 > 또한 템플릿을 사용하여 자동화된 백업을 구성할 수 있습니다. 자세한 내용은 [자동화된 백업에 대한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)을 참조하세요.
-> 
-> 
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
-SQL VM을 프로비전한 후 자동화된 백업을 구성하려면 PowerShell을 사용합니다. 시작하기 전에 다음을 수행해야 합니다.
+
+PowerShell을 사용하여 자동화된 백업을 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
 - [최신 Azure PowerShell을 다운로드하여 설치합니다](http://aka.ms/webpi-azps).
 - Windows PowerShell을 열고 계정에 연결합니다. 이렇게 하려면 프로비전 관련 문서의 [구독 구성](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) 섹션에서 설명하는 단계를 수행하면 됩니다.
 
-다음 PowerShell 예제에서는 기존 SQL Server 2014 VM에 대해 자동화된 백업이 구성됩니다. **AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig** 명령은 가상 컴퓨터와 연결된 Azure 저장소 계정에 백업을 저장하도록 자동화된 백업 설정을 구성합니다. 이러한 백업은 10일 동안 보존됩니다. **Set-AzureRmVMSqlServerExtension** 명령은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
+### <a name="install-the-sql-iaas-extension"></a>SQL IaaS 확장 설치
+Azure Portal에서 SQL Server 가상 컴퓨터를 프로비전한 경우 SQL Server IaaS 확장이 이미 설치되어 있을 것입니다. **Get-AzureRmVM** 명령을 실행하고 **Extensions** 속성을 검사하여 VM에 대해 해당 확장이 설치되어 있는지 확인할 수 있습니다.
 
-    $vmname = "vmname"
-    $resourcegroupname = "resourcegroupname"
-    $autobackupconfig = AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig -Enable -RetentionPeriodInDays 10 -ResourceGroupName $resourcegroupname
+```powershell
+$vmname = "vmname"
+$resourcegroupname = "resourcegroupname"
 
-    Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig -VMName $vmname -ResourceGroupName $resourcegroupname
+(Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
+```
+
+SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState**가 "Succeeded"로 표시되어야 합니다.
+
+설치되지 않았거나 프로비전되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역(**$region**)도 지정해야 합니다.
+
+```powershell
+$region = “EASTUS2”
+Set-AzureRmVMSqlServerExtension -VMName $vmname `
+    -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
+    -Version "1.2" -Location $region
+```
+
+### <a id="verifysettings"></a> 현재 설정 확인
+
+프로비전 동안 자동화된 백업을 사용하도록 설정한 경우 PowerShell을 사용하여 현재 구성을 확인할 수 있습니다. **Get-AzureRmVMSqlServerExtension** 명령을 실행하고 **AutoBackupSettings** 속성을 검사합니다.
+
+```powershell
+(Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
+```
+
+다음과 유사한 결과가 표시됩니다.
+
+```
+Enable                      : False
+EnableEncryption            : False
+RetentionPeriod             : -1
+StorageUrl                  : NOTSET
+StorageAccessKey            : 
+Password                    : 
+BackupSystemDbs             : False
+BackupScheduleType          : 
+FullBackupFrequency         : 
+FullBackupStartTime         : 
+FullBackupWindowHours       : 
+LogBackupFrequency          : 
+```
+
+출력에 **Enable**이 **False**로 설정되어 표시되면 자동화된 백업을 사용하도록 설정해야 합니다. 다행히도 자동화된 백업도 같은 방식으로 사용하도록 설정하고 구성할 수 있습니다. 이 정보에 대해서는 다음 섹션을 참조하세요.
+
+> [!NOTE] 
+> 변경을 수행한 후에 설정을 바로 확인하면 이전 구성 값을 다시 가져올 수 있습니다. 몇 분 정도 기다렸다가 설정을 다시 확인하여 변경 내용이 적용되었는지 알아봅니다.
+
+### <a name="configure-automated-backup"></a>자동화된 백업 구성
+언제든지 PowerShell을 사용하여 자동화된 백업을 사용하도록 설정하고 해당 구성 및 동작을 수정할 수 있습니다.
+
+먼저 백업 파일에 대한 저장소 계정을 선택하거나 만듭니다. 다음 스크립트는 저장소 계정을 선택하거나 없으면 새로 만듭니다.
+
+```powershell
+$storage_accountname = “yourstorageaccount”
+$storage_resourcegroupname = $resourcegroupname
+
+$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+    -Name $storage_accountname -ErrorAction SilentlyContinue
+If (-Not $storage)
+    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    -Name $storage_accountname -SkuName Standard_GRS -Location $region }
+```
+
+> [!NOTE]
+> 자동화된 백업을 사용할 경우 프리미엄 저장소에 백업을 저장할 수 없지만 프리미엄 저장소를 사용하는 VM 디스크에서 백업을 가져올 수 있습니다.
+
+그런 후 **New-AzureRmVMSqlServerAutoBackupConfig** 명령을 통해 자동화된 백업 설정을 사용하도록 지정하고 Azure Storage 계정에 백업을 저장합니다. 이 예제에서는 백업이 10일 동안 보관되도록 설정되어 있습니다. 두 번째 명령인 **Set-AzureRmVMSqlServerExtension**은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
+
+```powershell
+$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+    -RetentionPeriodInDays 10 -StorageContext $storage.Context `
+    -ResourceGroupName $storage_resourcegroupname
+
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
+```
 
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
+> [!NOTE]
+> SQL Server 2016 및 자동화된 백업 v2에만 적용되는 **New-AzureRmVMSqlServerAutoBackupConfig**에 대한 다른 설정이 있습니다. SQL Server 2014에서는 **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours** 및 **LogBackupFrequencyInMinutes** 설정을 지원하지 않습니다. SQL Server 2014 가상 컴퓨터에서 이러한 설정을 구성하려고 하면 오류는 발생하지 않지만 설정이 적용되지 않습니다. SQL Server 2016 가상 컴퓨터에서 이러한 설정을 사용하려면 [SQL Server 2016 Azure Virtual Machines용 자동화된 백업 v2](virtual-machines-windows-sql-automated-backup-v2.md)을 참조하세요.
+
 암호화를 사용하려면 **CertificatePassword** 매개 변수에 대 한 암호(보안 문자열)와 함께 **EnableEncryption** 매개 변수를 전달 하도록 이전 스크립트를 수정합니다. 다음 스크립트를 사용하면 이전 예제의 자동화된 백업 설정을 사용하고 암호화를 추가할 수 있습니다.
 
-    $vmname = "vmname"
-    $resourcegroupname = "resourcegroupname"
-    $password = "P@ssw0rd"
-    $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
-    $autobackupconfig = AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig -Enable -RetentionPeriod 10 -EnableEncryption -CertificatePassword $encryptionpassword -ResourceGroupName $resourcegroupname
+```powershell
+$password = "P@ssw0rd"
+$encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force
 
-    Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig -VMName $vmname -ResourceGroupName $resourcegroupname
+$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+    -EnableEncryption -CertificatePassword $encryptionpassword `
+    -RetentionPeriodInDays 10 -StorageContext $storage.Context `
+    -ResourceGroupName $storage_resourcegroupname
 
-자동 백업을 사용하지 않으려면 동일한 스크립트를 **AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig** 명령에 대해 **-Enable** 매개 변수 없이 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다. 설치와 마찬가지로 자동화된 백업을 사용하지 않도록 설정하는 데도 몇 분 정도 걸릴 수 있습니다.
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
+```
 
-> [!NOTE]
-> SQL Server IaaS 에이전트를 제거해도 이전에 구성한 자동화된 백업 설정은 제거되지 않습니다. SQL Server IaaS 에이전트를 비활성화 또는 제거하기 전에 자동화된 백업을 사용하지 않도록 설정해야 합니다.
-> 
-> 
+설정이 적용되었는지 확인하려면 [자동화된 백업 구성을 확인](#verifysettings)합니다.
+
+### <a name="disable-automated-backup"></a>자동화된 백업 사용 안 함
+
+자동화된 백업을 사용하지 않도록 설정하려면 동일한 스크립트를 **-Enable** 매개 변수 없이 **New-AzureRmVMSqlServerAutoBackupConfig** 명령에 대해 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다. 설치와 마찬가지로 자동화된 백업을 사용하지 않도록 설정하는 데도 몇 분 정도 걸릴 수 있습니다.
+
+```powershell
+$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
+
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
+```
+
+### <a name="example-script"></a>예제 스크립트
+
+다음 스크립트는 VM에 대해 자동화된 백업을 사용하도록 설정하고 구성하기 위해 사용자 지정할 수 있는 변수 집합을 제공합니다. 사용자의 경우 요구 사항에 따라 스크립트를 사용자 지정해야 할 수 있습니다. 예를 들어 시스템 데이터베이스의 백업을 사용하지 않도록 설정하거나 암호화를 사용하도록 설정하려는 경우 변경해야 할 수 있습니다.
+
+```powershell
+$vmname = "yourvmname"
+$resourcegroupname = "vmresourcegroupname"
+$region = “Azure region name such as EASTUS2”
+$storage_accountname = “storageaccountname”
+$storage_resourcegroupname = $resourcegroupname
+$retentionperiod = 10
+
+# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension
+
+Set-AzureRmVMSqlServerExtension -VMName $vmname `
+    -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
+    -Version "1.2" -Location $region
+
+# Creates/use a storage account to store the backups
+
+$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+    -Name $storage_accountname -ErrorAction SilentlyContinue
+If (-Not $storage)
+    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    -Name $storage_accountname -SkuName Standard_GRS -Location $region }
+
+# Configure Automated Backup settings
+
+$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+    -RetentionPeriodInDays $retentionperiod -StorageContext $storage.Context `
+    -ResourceGroupName $storage_resourcegroupname
+
+# Apply the Automated Backup settings to the VM
+
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
+```
 
 ## <a name="next-steps"></a>다음 단계
+
 자동화된 백업은 Azure VM에서 관리되는 백업을 구성합니다. 따라서 [관리되는 백업 설명서를 검토](https://msdn.microsoft.com/library/dn449496.aspx) 하여 동작 및 의미를 이해해야 합니다.
 
 Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure 가상 컴퓨터의 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)항목을 참조하세요.
@@ -150,5 +275,4 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
 

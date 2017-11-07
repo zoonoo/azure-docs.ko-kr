@@ -1,7 +1,7 @@
 ## <a name="download-install-and-register-the-azure-backup-agent"></a>Azure 백업 에이전트 다운로드, 설치 및 등록
 Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Windows Server, Windows 클라이언트, 시스템 센터, Data Protection Manager 서버 또는 Azure 백업 서버 컴퓨터)에 Azure에 데이터 및 응용 프로그램을 백업할 수 있게 해주는 에이전트가 설치되어야 합니다.
 
-1.  [관리 포털](https://manage.windowsazure.com/)
+1. [관리 포털](https://manage.windowsazure.com/)
 2. **복구 서비스**를 클릭한 후 서버에 등록하려는 백업 저장소를 선택합니다. 그러면 이 백업 자격 증명 모음의 빠른 시작 페이지가 나타납니다.
    
     ![빠른 시작](./media/backup-install-agent/quickstart.png)
@@ -39,9 +39,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
     또는 Data Protection Manager를 사용하는 경우 **관리** 탭에서 **구성**옵션을 클릭하고 **온라인**을 선택하여 등록 워크플로 중에 지정된 설정을 수정할 수 있습니다.
     
     ![Azure 백업 구성](./media/backup-install-agent/configure.png)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

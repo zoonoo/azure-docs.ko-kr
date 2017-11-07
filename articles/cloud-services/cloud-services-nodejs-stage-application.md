@@ -3,8 +3,8 @@ title: "클라우드 서비스 배포 준비(Node.js) | Microsoft Docs"
 description: "Azure 응용 프로그램을 스테이징 환경에 배포한 다음 VIP(가상 IP) 교환을 사용하여 프로덕션 환경에 배포하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Azure에서 응용 프로그램 준비
 패키지 응용 프로그램을 먼저 Azure의 스테이징 환경에 배포하여 테스트한 후 해당 응용 프로그램을 인터넷에서 액세스할 수 있는 프로덕션 환경으로 이동할 수 있습니다. 스테이징 환경은 Azure에서 생성하는 숨겨진 URL로 미리 구성된 응용 프로그램에만 액세스할 수 있다는 점을 제외하면 프로덕션 환경과 똑같습니다. 응용 프로그램이 올바르게 작동되는지 확인한 후 VIP(가상 IP) 교환을 수행하여 해당 응용 프로그램을 프로덕션 환경으로 배포할 수 있습니다.
@@ -73,9 +73,3 @@ ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 05/02/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 32ca2e4b1dcf5715602b8e1e1f3026cb785fbe0c
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Resource Manager 마이그레이션에 대한 VPN Gateway 클래식
 이제 VPN Gateway을 클래식에서 Resource Manager 배포 모델로 마이그레이션할 수 있습니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 클래식 배포에서 새로운 Resource Manager 기반 모델로 마이그레이션하는 방법을 자세히 설명합니다. 
@@ -40,7 +39,7 @@ Resource Manager에 있는 모델은 클래식 모델과 다르며 가상 네트
 
 지원되지 않는 시나리오 -  
 
-* 현재 ExpressRoute 게이트웨이 포함하는 VNet은 마이그레이션을 지원하지 않습니다. 따라서 동일한 VNet에 ExpressRoute 게이트웨이와의 공존은 현재 지원되지 않습니다.
+* ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 VNet은 현재 지원되지 않습니다.
 * VM 확장이 온-프레미스 서버에 연결된 시나리오를 전송합니다. 전송 시 VPN 연결 제한은 아래에 자세히 설명됩니다.
 
 > [!NOTE]
@@ -67,5 +66,4 @@ VNet에 대한 온-프레미스 연결이 온-프레미스에 직접 연결된 �
 
 ## <a name="next-steps"></a>다음 단계
 VPN 게이트웨이 마이그레이션 지원에 대해 학습한 후에 시작하려면 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md)으로 이동합니다.
-
 

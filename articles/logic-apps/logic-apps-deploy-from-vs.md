@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
-ms.lasthandoff: 03/14/2017
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 디자인, 빌드 및 배포
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Logic Apps을 만들고 관리할 수 있는 좋은 방법을 제공하지만 Logic Apps을 디자인, 빌드 및 배포하기 위해 Visual Studio를 사용할 수도 있습니다. Visual Studio는 Logic Apps Designer와 같이 논리 앱을 빌드하는 풍부한 도구를 제공하고, 배포 및 자동화 템플릿을 구성하고, 모든 환경에 배포합니다. 
+[Azure Portal](https://portal.azure.com/)에서 Azure Logic Apps를 만들고 관리할 수 있는 좋은 방법을 제공하지만 Logic Apps를 디자인, 빌드 및 배포하기 위해 Visual Studio를 사용할 수도 있습니다. Visual Studio는 Logic Apps Designer와 같이 논리 앱을 빌드하는 풍부한 도구를 제공하고, 배포 및 자동화 템플릿을 구성하고, 모든 환경에 배포합니다. 
 
 Azure Logic Apps을 시작하려면 [Azure Portal에서 첫 번째 논리 앱을 만드는 방법](logic-apps-create-a-logic-app.md)을 알아보세요.
 
@@ -34,7 +33,7 @@ Azure Logic Apps용 Visual Studio 도구를 설치하고 구성하려면 다음 
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 또는 Visual Studio 2015
 * [최신 Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 이상)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * 포함된 디자이너를 사용하는 경우 웹에 대한 액세스
@@ -50,7 +49,7 @@ Azure Logic Apps용 Visual Studio 도구를 설치하고 구성하려면 다음 
 5. 설치 후 Visual Studio를 다시 시작합니다.
 
 > [!NOTE]
-> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)에서 직접 Visual studio용 Azure Logic Apps 도구를 다운로드할 수도 있습니다.
+> Visual Studio Marketplace에서 직접 [Visual Studio 2017용 Azure Logic Apps 도구](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) 및 [Visual Studio 2015용 Azure Logic Apps 도구](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)를 다운로드할 수도 있습니다.
 
 설치를 완료한 후에 Logic App Designer에서 Azure 리소스 그룹을 사용할 수 있습니다.
 
@@ -105,7 +104,7 @@ Visual Studio는 논리 앱이 작동하는 데 필요한 연결을 설정하기
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Visual Studio 배포 템플릿에 종속 리소스에 대한 참조 추가
 
-논리 앱에서 종속 리소스를 참조하려는 경우 논리 앱 배포 템플릿에서 매개 변수처럼 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 사용할 수 있습니다. 예를 들어, 논리 앱에서 논리 앱과 함께 배포하려는 Azure Function 또는 통합 계정을 참조하려고 합니다. Logic App Designer가 올바르게 렌더링하도록 배포 템플릿에서 매개 변수를 사용하는 방법에 대한 다음 지침을 따르세요. 
+논리 앱에서 종속 리소스를 참조하려는 경우 논리 앱 배포 템플릿에서 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 사용할 수 있습니다. 예를 들어, 논리 앱에서 논리 앱과 함께 배포하려는 Azure Function 또는 통합 계정을 참조하려고 합니다. Logic App Designer가 올바르게 렌더링하도록 배포 템플릿에서 매개 변수를 사용하는 방법에 대한 다음 지침을 따르세요. 
 
 이러한 종류의 트리거 및 작업에서 논리 앱 매개 변수를 사용할 수 있습니다.
 
@@ -113,15 +112,16 @@ Visual Studio는 논리 앱이 작동하는 데 필요한 연결을 설정하기
 *   함수 앱
 *   APIM 호출
 *   API 연결 런타임 URL
+*   API 연결 경로
 
 parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사용할 수 있습니다. 예를 들어, Azure Function 리소스 ID를 대체하는 방법은 다음과 같습니다.
 
 ```
 "parameters":{
     "functionName": {
-    "type":"string",
-    "minLength":1,
-    "defaultValue":"<FunctionName>"
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
     }
 },
 ```
@@ -130,16 +130,43 @@ parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사�
 
 ```
 "MyFunction": {
-        "type": "Function",
-        "inputs": {
+    "type": "Function",
+    "inputs": {
         "body":{},
         "function":{
-        "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
         }
     },
     "runAfter":{}
 }
 ```
+또 다른 예로, Service Bus 메시지 전송 작업을 매개 변수화할 수 있습니다.
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl은 선택 사항이며 있는 경우 템플릿에서 제거할 수 있습니다.
+> 
+
 
 > [!NOTE] 
 > 매개 변수를 사용할 때 Logic App Designer를 작동시키려면 다음과 같은 기본값을 제공해야 합니다.
@@ -209,4 +236,3 @@ parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사�
 * [일반적인 예제 및 시나리오 보기](logic-apps-examples-and-scenarios.md)
 * [Azure Logic Apps을 사용하여 비즈니스 프로세스를 자동화하는 방법 알아보기](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Azure Logic Apps과 시스템을 통합하는 방법 알아보기](http://channel9.msdn.com/Events/Build/2016/P462)
-

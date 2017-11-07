@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/09/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache를 사용하여 웹앱을 만드는 방법
 > [!div class="op_single_selector"]
@@ -70,7 +69,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     **인증** 설정에 **인증 없음**을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본값을 설정할 수 있습니다. 변경하려면 **인증 변경**을 클릭하고 **인증 없음**을 선택합니다.
 
-    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/app-service-web-get-started-dotnet.md)를 참조하세요.
+    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service/app-service-web-get-started-dotnet.md)를 참조하세요.
    
     ![프로젝트 템플릿 선택][cache-select-template]
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
@@ -190,7 +189,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
@@ -203,10 +202,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
         <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
       </configSections>
       <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
       </connectionStrings>
       ...
       ```
+
+    > [!NOTE]
+    > 연결 문자열은 자습서를 작성하는 데 사용된 Visual Studio 및 SQL Server Express 버전에 따라 다를 수 있습니다. 설치에 맞게 Web.config 템플릿을 구성해야 하며 `(LocalDB)\v11.0`(SQL Server Express 2012에서) 또는 `Data Source=(LocalDB)\MSSQLLocalDB`(SQL Server Express 2014 이상에서)와 같은 `Data Source` 항목이 포함될 수 있습니다. 연결 문자열 및 SQL Express 버전에 대한 자세한 내용은 [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb)를 참조하세요.
 
 ### <a name="add-the-controller"></a>컨트롤러 추가
 1. **F6** 을 눌러 프로젝트를 빌드합니다. 
@@ -823,7 +825,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 * 앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)에서 [Azure App Service에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)를 참조하세요.
   * HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 * 이 자습서에 사용되는 Entity Framework에 대한 [새 데이터베이스에 Code First](https://msdn.microsoft.com/data/jj193542) 접근방식에 대해 더 자세히 알아봅니다.
-* [Azure 앱 서비스의 웹앱](../app-service-web/app-service-web-overview.md)에 더 자세히 알아봅니다.
+* [Azure 앱 서비스의 웹앱](../app-service/app-service-web-overview.md)에 더 자세히 알아봅니다.
 * Azure 포털에서 캐시를 [모니터링](cache-how-to-monitor.md) 하는 방법을 알아봅니다.
 * Azure Redis Cache 프리미엄 계층 탐색
   
@@ -864,5 +866,4 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

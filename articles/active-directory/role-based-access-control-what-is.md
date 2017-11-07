@@ -1,27 +1,27 @@
 ---
-title: "역할을 통한 액세스 및 사용 권한 관리 - Azure RBAC | Microsoft Docs"
+title: "RBAC를 통한 액세스 및 사용 권한 관리 - Azure RBAC | Microsoft Docs"
 description: "Azure 포털에서 Azure 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 디렉터리에서 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
-
-
+ms.date: 07/13/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-access-management-in-the-azure-portal"></a>Azure 포털에서 액세스 관리 시작
-보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출되고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure RBAC(역할 기반 액세스 제어)는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
+# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure Portal에서 역할 기반 액세스 제어 시작
+보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. Azure RBAC(역할 기반 액세스 제어)는 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
 
 RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. 예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 컴퓨터를 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
 
@@ -35,18 +35,18 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 할당하는 RBAC 역할에 따라 해당 범위 내에서 사용자, 그룹 또는 응용 프로그램이 관리할 수 있는 리소스가 결정됩니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
-Azure RBAC에는 모든 리소스 유형에 적용되는&3;가지 기본 역할이 있습니다.
+Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
 * **소유자** 는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다.
 * **참여자** 는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.
 * **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
 
-Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 가상 컴퓨터 참여자 역할을 사용하면 사용자가 가상 컴퓨터를 만들고 관리할 수 있습니다. 가상 컴퓨터가 연결된 가상 네트워크 또는 서브넷에 액세스할 권한을 부여하지 않습니다.
+Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 가상 컴퓨터 참여자 역할을 사용하면 사용자가 가상 컴퓨터를 만들고 관리할 수 있습니다. 가상 컴퓨터가 연결된 가상 네트워크 또는 서브넷에 액세스할 권한을 부여하지 않습니다. 
 
 [RBAC 기본 제공 역할](role-based-access-built-in-roles.md) 은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)을 빌드하는 방법을 참조하세요.
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>리소스 계층 구조 및 액세스 상속
-* Azure에서 각 **구독** 은 하나의 디렉터리에만 속해 있습니다.
+* Azure에서 각 **구독** 은 하나의 디렉터리에만 속해 있습니다. 그러나 각 디렉터리는 하나 이상의 구독을 가질 수 있습니다.
 * 각 **리소스 그룹** 은 하나의 구독에만 속해 있습니다.
 * 각 **리소스** 는 하나의 리소스 그룹에만 속해 있습니다.
 
@@ -67,9 +67,3 @@ Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스�
 * [Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 통해 시작합니다.
 * [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

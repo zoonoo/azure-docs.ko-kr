@@ -12,8 +12,3 @@
 |**09:20:06**: InnerException.Type: SrsRestApiClientLib.AcsException,InnerException.<br>메시지: ACS50008: SAML 토큰이 잘못되었습니다.<br>추적 ID: 1921ea5b-4723-4be7-8087-a75d3f9e1072<br>상관 관계 ID: 62fea7e6-2197-4be4-a2c0-71ceb7aa2d97><br>타임스탬프: **2016-12-12 14:50:08Z<br>** | 시스템 시계 시간이 현지 시간보다 15분 이상 늦지 않도록 합니다. 설치 관리자를 다시 실행하여 등록을 완료합니다.|
 |**09:35:27**: 선택한 인증서에 대한 모든 재해 복구 자격 증명 모음을 가져오려고 시도하는 동안 DRRegistrationException이 발생했습니다: : Exception.Type:Microsoft.DisasterRecovery.Registration.DRRegistrationException, Exception.Message를 합니다: ACS50008: SAML 토큰이 잘못되었습니다.<br>추적 ID: e5ad1af1-2d39-4970-8eef-096e325c9950<br>상관 관계 ID: abe9deb8-3e64-464d-8375-36db9816427a<br>타임스탬프: **2016-05-19 01:35:39Z**<br> | 시스템 시계 시간이 현지 시간보다 15분 이상 늦지 않도록 합니다. 설치 관리자를 다시 실행하여 등록을 완료합니다.|
 |06:28:45: 인증서를 만들지 못했습니다.<br>06:28:45: 설치를 진행할 수 없습니다. Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다. 설치를 다시 실행합니다. | 로컬 관리자로 설치 프로그램을 실행하고 있는지 확인합니다. |
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/01/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: c6aea0b7280ad8f1365c04203c78a1499ba0aa58
-
-
+ms.custom: pim
+ms.openlocfilehash: 62d8f80fa1bec3a1b75e316f0b0ee7be8cbefbff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 구독 요구 사항
 
 Azure AD Privileged Identity Management는 Azure AD의 Premium P2 버전의 일부로 사용할 수 있습니다. P2의 다른 기능과 Premium P1과 비교한 결과에 대한 자세한 내용은 [Azure Active Directory 버전](../active-directory-editions.md)을 참조하세요.
@@ -61,9 +61,3 @@ Azure AD Premium P2 구독 또는 EMS E5 구독이 만료되거나 미리 보기
 
 - [Azure AD Privileged Identity Management 시작](../active-directory-privileged-identity-management-getting-started.md)
 - [Azure AD Privileged Identity Management의 역할](../active-directory-privileged-identity-management-roles.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

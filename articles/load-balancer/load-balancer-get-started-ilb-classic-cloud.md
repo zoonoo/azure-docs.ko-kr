@@ -3,7 +3,7 @@ title: "Azure Cloud Services에 대한 내부 부하 분산 장치 만들기 | M
 description: "클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
-
+ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>클라우드 서비스를 위한 내부 부하 분산 장치(클래식) 만들기 시작
 
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 </NetworkConfiguration>
 ```
 
-어떻게 표시되는지 나타내기 위해 네트워크 구성 파일에 대한 값을 추가하겠습니다. 예제에서는 test_subnet이라는 서브넷 10.0.0.0/24와 고정 IP 10.0.0.4를 사용하는 "test_vnet"이라는 서브넷을 만들었다고 가정합니다. 부하 분산 장치의 이름은 testLB입니다.
+어떻게 표시되는지 나타내기 위해 네트워크 구성 파일에 대한 값을 추가하겠습니다. 예제에서는 test_subnet이라는 10.0.0.0/24 서브넷과 10.0.0.4 고정 IP를 사용하는 "test_vnet"이라는 VNet을 만들었다고 가정합니다. 부하 분산 장치의 이름은 testLB입니다.
 
 ```xml
 <NetworkConfiguration>
@@ -96,10 +96,4 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 [원본 IP 선호도를 사용하여 부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

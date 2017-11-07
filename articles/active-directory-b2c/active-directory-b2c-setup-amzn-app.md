@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: f3154968710384e3f6186b277c4cae33b25c77d2
-
-
+ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: 고객에게 Amazon 계정으로 등록 및 로그인 제공
 ## <a name="create-an-amazon-application"></a>Amazon 응용 프로그램 만들기
@@ -40,17 +40,11 @@ Azure Active Directory(Azure AD) B2C에서 Amazon을 ID 공급자로 사용하�
     ![Amazon에 새 응용 프로그램에 대한 JavaScript 원본 및 반환 URL 제공](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## <a name="configure-amazon-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Amazon을 ID 공급자로 구성
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
+1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "Amzn"을 입력합니다.
 5. **ID 공급자 형식**을 클릭하고 **Amazon**을 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Amazon 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
 7. **확인**, **만들기**를 차례로 클릭하여 Amazon 구성을 저장합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

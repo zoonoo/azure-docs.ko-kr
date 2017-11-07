@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2015
+ms.date: 05/30/2017
 ms.author: diviso
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: aed46cbf5a57d73f4ce5bab42fdd20ae11d86373
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -59,7 +58,8 @@ Chef Workstation은 정책을 만들고 관리 명령을 실행하는 관리 워
 
 이제 Chef가 Azure 구독과 통신할 수 있도록 Azure 설정 파일을 다운로드해야 합니다.
 
-[여기](https://manage.windowsazure.com/publishsettings/)에서 게시 설정을 다운로드합니다.
+<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
+PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) 명령을 사용하여 게시 설정을 다운로드합니다. 
 
 게시 설정 파일을 C:\chef에 저장합니다.
 
@@ -221,7 +221,7 @@ C:\chef\cookbooks\webserver\recipes\default.rb를 수정하고 다음 줄을 추
 
 보시는 바와 같이 HTML 코드를 독창적으로 수정했습니다.
 
-포트 3389에서도 Azure 클래식 포털에서 RDP 세션을 통해 연결할 수 있다는 점을 기억하세요.
+포트 3389에서도 Azure Portal에서 RDP 세션을 통해 연결할 수 있다는 점을 기억하세요.
 
 유익한 정보가 되셨기 바랍니다. 이제 Azure의 Infrastructure as Code 과정을 시작해 보세요.
 
@@ -240,4 +240,3 @@ C:\chef\cookbooks\webserver\recipes\default.rb를 수정하고 다음 줄을 추
 
 
 <!--Link references-->
-

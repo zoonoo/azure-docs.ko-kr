@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 09/26/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: b5df0883f20cd484970587b17d5df646022ba84f
-ms.lasthandoff: 04/13/2017
-
-
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 장치 쓰기 저장 사용
 > [!NOTE]
@@ -31,7 +30,7 @@ ms.lasthandoff: 04/13/2017
 
 * 장치에 따라 ADFS(2012 R2 이상) 보호된 응용 프로그램에 조건부 액세스를 사용하도록 설정합니다.(신뢰 당사자 트러스트)
 
-응용 프로그램에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](https://msdn.microsoft.com/library/azure/dn788908.aspx)을 참조하세요.
+응용 프로그램에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
 > [!IMPORTANT]
 > <li>장치는 사용자와 동일한 포리스트에 있어야 합니다. 장치가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -44,19 +43,27 @@ ms.lasthandoff: 04/13/2017
 쓰기 저장 장치를 사용하기 위한 준비는 다음 단계를 따릅니다.
 
 1. Azure AD Connect를 설치한 컴퓨터에서 관리자 모드로 PowerShell을 시작합니다.
-2. Active Directory PowerShell 모듈이 설치되지 않은 경우 다음 명령을 사용하여 설치합니다.
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Azure Active Directory PowerShell 모듈이 설치되지 않은 경우 [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다. 이 구성 요소는 Azure AD Connect 설치된 로그인 도우미에서 종속성을 갖습니다.
+2. Active Directory PowerShell 모듈이 설치되어 있지 않으면 AD PowerShell 모듈이 들어있는 원격 서버 관리 도구를 설치하고 스크립트를 실행하는 데 필요한 dsacls.exe를 설치합니다.  다음 명령을 실행합니다.
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Azure Active Directory PowerShell 모듈이 설치되지 않은 경우 [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다. 이 구성 요소는 Azure AD Connect 설치된 로그인 도우미에서 종속성을 갖습니다.  
 4. 엔터프라이즈 관리자 자격 증명으로 다음 명령을 실행하고 PowerShell을 끝냅니다.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 구성 네임스페이스를 변경해야 하므로 엔터프라이즈 관리자 자격 증명이 필요합니다. 도메인 관리자의 사용 권한으로는 부족합니다.
 
 ![장치 쓰기 저장 사용을 위한 Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 설명:
 
@@ -82,7 +89,7 @@ ms.lasthandoff: 04/13/2017
 4. 추가로 구성을 변경하지 않고 마법사의 설치를 완료합니다. 필요한 경우 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.
 
 ## <a name="enable-conditional-access"></a>조건부 액세스 사용
-이 시나리오를 사용하기 위한 자세한 지침은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](https://msdn.microsoft.com/library/azure/dn788908.aspx)내에서 사용할 수 있습니다.
+이 시나리오를 사용하기 위한 자세한 지침은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-conditional-access-automatic-device-registration-setup.md)내에서 사용할 수 있습니다.
 
 ## <a name="verify-devices-are-synchronized-to-active-directory"></a>장치의 Active Directory에 동기화 여부 확인
 장치 쓰기 저장은 이제 제대로 작동해야 합니다. AD에 장치 개체를 다시 쓰기 저장하는 데 최대 3시간이 걸릴 수 있습니다.  장치가 제대로 동기화되었는지 확인하려면 동기화 규칙을 완료한 후에 다음을 수행합니다.
@@ -139,5 +146,4 @@ Active Directory의 구성 확인:
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
 

@@ -1,6 +1,6 @@
 ---
-title: "문제 해결: 다운로드한 Azure Active Directory 활동 로그의 누락된 데이터 - 미리 보기 | Microsoft Docs"
-description: "다운로드한 Azure Active Directory 활동 로그 미리 보기에서 누락된 데이터에 대한 해결 방법을 제공합니다."
+title: "문제 해결: 다운로드한 Azure Active Directory 활동 로그의 누락된 데이터 | Microsoft Docs"
+description: "다운로드한 Azure Active Directory 활동 로그에서 누락된 데이터에 대한 해결 방법을 제공합니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2017
+ms.date: 10/21/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e0d65edcb7c14114565402038b0958c3a2ffb477
-ms.lasthandoff: 03/10/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 28bf4eb46f18bf0a9b2cd8b1e7058eccfa12a88f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-
 # <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>다운로드한 Azure Active Directory 활동 로그에서 데이터를 찾을 수 없습니다.
 
 
@@ -42,5 +41,4 @@ Azure Portal에서 활동 로그를 다운로드할 때 크기를 가장 최근�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 보고 FAQ](active-directory-reporting-faq.md)를 참조하세요.
-
 

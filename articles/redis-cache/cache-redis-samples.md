@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
-
-
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-samples"></a>Azure Redis Cache 샘플
 이 항목에서는 캐시에 연결, 캐시에서 데이터 읽기 및 쓰기, ASP.NET Redis Cache 공급자 사용과 같은 시나리오를 다루는 Azure Redis Cache 샘플 목록을 제공합니다. 일부 샘플은 다운로드 가능한 프로젝트이고, 일부 샘플은 단계별 지침을 제공하며 코드 조각을 포함하지만 다운로드 가능한 프로젝트에 연결되지 않습니다.
@@ -68,10 +68,4 @@ ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
 
 ## <a name="bandwidth-monitor"></a>대역폭 모니터
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

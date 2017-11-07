@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Portal에서 Service Fabric 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure 포털 및 Azure 주요 자격 증명 모음을 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다."
@@ -13,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2017
+ms.date: 06/21/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: c413f415cb056f079ed30cf444af4edbe20364ea
-ms.lasthandoff: 01/25/2017
-
-
+ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -42,9 +40,10 @@ Azure 포털을 사용하여 Azure에 보안 서비스 패브릭 클러스터를
 
 보안 클러스터란 응용 프로그램, 서비스 및 포함된 데이터를 배포, 업그레이드 및 삭제하는 관리 작업에 무단 액세스하는 것을 방지하는 클러스터입니다. 비보안 클러스터란 언제라도 누구든지 연결하여 관리 작업을 수행할 수 있는 클러스터입니다. 비보안 클러스터를 만드는 것이 가능하지만 **보안 클러스터를 만드는 것이 좋습니다**. 비보안 클러스터는 **나중를 보안될 수 없습니다** -새 클러스터를 만들어야 합니다.
 
-Linux 또는 Windows 클러스터인지 여부에 관계없이 보안 클러스터 만들기에 대한 개념은 같습니다. 자세한 내용 및 보안 Linux 클러스터 만들기를 위한 도우미 스크립트는 [Linux에서 보안 클러스터 만들기](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster)를 참조하세요. 제공된 도우미 스크립트에서 얻은 매개 변수는 [Azure 포털에서 클러스터 만들기](#create-cluster-portal)섹션에 설명된 대로 포털에 직접 입력할 수 있습니다.
+Linux 또는 Windows 클러스터인지 여부에 관계없이 보안 클러스터 만들기에 대한 개념은 같습니다. 자세한 내용 및 보안 Linux 클러스터 만들기를 위한 도우미 스크립트는 [Linux에서 보안 클러스터 만들기](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters)를 참조하세요. 제공된 도우미 스크립트에서 얻은 매개 변수는 [Azure 포털에서 클러스터 만들기](#create-cluster-portal)섹션에 설명된 대로 포털에 직접 입력할 수 있습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="configure-key-vault"></a>Key Vault 구성 
+### <a name="log-in-to-azure"></a>Azure에 로그인
 이 가이드에서는 [Azure PowerShell][azure-powershell]을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
 
 Azure 계정에 로그인합니다.
@@ -60,7 +59,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
+### <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
 가이드의 이 부분에서는 Azure에서 서비스 패브릭 클러스터에 대해서와 서비스 패브릭 응용 프로그램에 대해서 주요 자격 증명 모음을 만드는 단계를 안내합니다. Key Vault에 대한 완전한 가이드는 [Key Vault 시작 가이드][key-vault-get-started]를 참조하세요.
 
 서비스 패브릭은 X.509 인증서를 사용하여 클러스터에 보안을 적용합니다. Azure 주요 자격 증명 모음은 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
@@ -69,7 +68,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ![인증서 설치][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+#### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 첫 번째 단계는 특히 주요 자격 증명 모음에 대한 새로운 리소스 그룹을 생성하는 것입니다. 주요 자격 증명 모음을 자체 리소스 그룹에 두어 키 및 암호는 유실하지 않고 서비스 패브릭 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거하도록 하는 것이 좋습니다. 사용자의 주요 자격 증명 모음을 가진 리소스 그룹은 그것을 사용 중인 클러스터와 동일한 지역에 있어야 합니다.
 
 ```powershell
@@ -85,7 +84,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ```
 
-### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
+#### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 새 리소스 그룹에 주요 자격 증명 모음을 만듭니다. 서비스 패브릭 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치하도록 허용하기 위해 주요 자격 증명 모음을 **배포에 대해 사용하도록 설정해야 합니다** .
 
 ```powershell
@@ -126,10 +125,10 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 
-## <a name="add-certificates-to-key-vault"></a>주요 자격 증명 모음에 인증서 추가
+### <a name="add-certificates-to-key-vault"></a>주요 자격 증명 모음에 인증서 추가
 인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
-### <a name="cluster-and-server-certificate-required"></a>클러스터 및 서버 인증서(필수)
+#### <a name="cluster-and-server-certificate-required"></a>클러스터 및 서버 인증서(필수)
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
 
 * **클러스터 인증:** 클러스터 페더레이션에 대한 노드 간 통신을 인증합니다. 이 인증서로 자신의 신분을 증명할 수 있는 노드만 클러스터에 가입할 수 있습니다.
@@ -141,7 +140,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
 * 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-### <a name="client-authentication-certificates"></a>클라이언트 인증 인증서
+#### <a name="client-authentication-certificates"></a>클라이언트 인증 인증서
 추가 클라이언트 인증서가 클러스터 관리 작업을 위해 관리자를 인증합니다. 서비스 패브릭은 **관리자** 및 **읽기 전용 사용자**의 두 가지 액세스 수준을 제공합니다. 최소한 관리 액세스에 대해 단일 인증서를 사용해야 합니다. 추가 사용자 수준 액세스를 위해서는 별도 인증서를 제공해야 합니다. 액세스 역할에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어][service-fabric-cluster-security-roles]를 참조하세요.
 
 Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Vault에 업로드할 필요는 없습니다. 이러한 인증서는 클러스터 관리 권한이 있는 사용자에게 제공하기만 하면 됩니다. 
@@ -151,7 +150,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 > 
 > 
 
-### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
+#### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
 응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
 
 * 응용 프로그램 구성 값의 암호화 및 암호 해독
@@ -159,7 +158,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 응용 프로그램 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 응용 프로그램 인증서를 추가할 수도 있습니다.
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Azure 리소스 공급자 사용을 위한 인증서 서식 지정
+#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Azure 리소스 공급자 사용을 위한 인증서 서식 지정
 개인 키 파일(.pfx)을 추가하고 주요 자격 증명 모음을 통해 직접 사용할 수 있습니다. 그렇지만 Azure 리소스 공급자에서는 .pfx를 base-64로 인코딩된 문자열 상태로 포함하고 개인 키 암호를 포함하는 특수한 JSON 형식으로 키를 저장해야 합니다. 이러한 요구를 수용하기 위해 키를 JSON 문자열에 배치한 후 주요 자격 증명 모음에 *암호* 로 저장해야 합니다.
 
 이 프로세스를 보다 쉽게 수행할 수 있도록 하기 위해 PowerShell 모듈이 [GitHub에서 사용할 수 있게 제공됩니다][service-fabric-rp-helpers]. 모듈을 사용하려면 다음 단계를 수행합니다.
@@ -211,7 +210,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 2. **새로 만들기** 를 클릭하여 새 리소스 템플릿을 추가합니다. **마켓플레이스**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 3. 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 4. **Service Fabric 클러스터** 블레이드로 이동하여 **만들기**를 클릭합니다.
-5. **Service Fabric 클러스터 만들기** 블레이드는 다음&4;단계를 포함합니다.
+5. **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
 
 #### <a name="1-basics"></a>1. 기본 사항
 ![새 리소스 그룹 만들기 스크린샷][CreateRG]
@@ -232,7 +231,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 #### <a name="2-cluster-configuration"></a>2. 클러스터 구성
 ![노드 형식 만들기][CreateNodeType]
 
-클러스터 노드를 구성합니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 클러스터는 둘 이상의 노드 형식을 가질 수 있지만 주 노드 형식(포털에서 정의하는 첫 번째 노드)에는 최소한&5;개의 VM이 있어야 하며, 서비스 패브릭 시스템 서비스가 배치된 노드 형식입니다. "NodeTypeName"의 기본 배치 속성은 자동으로 추가되므로 **배치 속성** 을 구성하지 마세요.
+클러스터 노드를 구성합니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. 클러스터는 둘 이상의 노드 형식을 가질 수 있지만 주 노드 형식(포털에서 정의하는 첫 번째 노드)에는 최소한 5개의 VM이 있어야 하며, 서비스 패브릭 시스템 서비스가 배치된 노드 형식입니다. "NodeTypeName"의 기본 배치 속성은 자동으로 추가되므로 **배치 속성** 을 구성하지 마세요.
 
 > [!NOTE]
 > 여러 노드 형식 사용에 대한 일반적인 시나리오는 프런트 엔드 서비스 및 백 엔드 서비스를 포함하는 응용 프로그램입니다. 인터넷에 열려 있는 포트를 포함하고 비교적 작은 VM(D2 같은 VM 크기)에 프런트 엔드 서비스를 배치하고, 열려 있는 인터넷 연결 포트가 없고 비교적 큰 VM(D4, D6, D15 등과 같은 VM 크기)에 백 엔드 서비스를 배치하려고 합니다.
@@ -274,7 +273,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * **고급 설정 구성** 확인란을 선택하여 **관리 클라이언트** 및 **읽기 전용 클라이언트**에 대한 클라이언트 인증서를 입력합니다. 이러한 필드에는 관리 클라이언트 인증서의 지문과 읽기 전용 사용자 클라이언트 인증서의 지문을 입력하면 됩니다(해당하는 경우). 관리자가 클러스터에 연결하려고 할 경우, 여기에 입력한 지문 값과 일치하는 지문을 포함하는 인증서가 있어야만 액세스 권한이 부여됩니다.  
 
 #### <a name="4-summary"></a>4. 요약
-![“배포 서비스 패브릭 클러스터”를 표시하는 시작 보드 스크린샷 ][Notifications]
 
 클러스터 만들기를 완료하려면 **요약** 을 클릭하여 제공된 구성을 참조하거나 클러스터를 배포하는 데 사용할 Azure Resource Manager 템플릿을 다운로드합니다. 필수 설정을 입력하면 **확인** 단추가 녹색이 되고 이를 클릭하여 클러스터 만들기 프로세스를 시작할 수 있습니다.
 
@@ -296,8 +294,8 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 > 
 > 
 
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결
-클러스터에서 지정한 각 NodeType에 따라 VM 크기 집합이 설정됩니다. 자세한 내용은 [VM 크기 집합 인스턴스에 원격 연결][remote-connect-to-a-vm-scale-set]을 참조하세요.
+## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 컴퓨터 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
+클러스터에서 지정한 각 NodeType에 따라 가상 컴퓨터 확장 집합이 설정됩니다. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>다음 단계
 이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
@@ -314,7 +312,8 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
 [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
@@ -325,4 +324,3 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-

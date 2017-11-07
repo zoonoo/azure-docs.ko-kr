@@ -3,8 +3,8 @@ title: "Application Insights 리소스를 만들기 위한 PowerShell 스크립�
 description: "Application Insights 리소스의 생성을 자동화합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
-ms.lasthandoff: 11/17/2016
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 376bcb542e4e83c2464d9f3f53ea71965ce79c33
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights 리소스를 만들기 위한 PowerShell 스크립트
 
@@ -52,7 +51,7 @@ PowerShell을 사용하여 새 리소스의 생성을 자동화할 수 있습니
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Add-AzureRmAccount
+# Add-AzureRmAccount / Login-AzureRmAccount
 
 # Set the name of the Application Insights Resource
 
@@ -78,10 +77,10 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
-  -ResourceGroupName Fabrikam `
-  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceGroupName $resourceGroupName `
+  -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
   -ResourceType "Microsoft.Insights/components" `
-  -Location "East US" `  // or North Europe, West Europe, South Central US
+  -Location "East US" `  # or North Europe, West Europe, South Central US
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
@@ -114,5 +113,4 @@ SDK에 사용할 수 있는 iKey에는 두 가지가 있습니다:
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
 * [PowerShell 사용한 Azure 진단의 모니터링 설정](app-insights-powershell-azure-diagnostics.md) 
 * [PowerShell을 사용하여 경고 설정](app-insights-powershell-alerts.md)
-
 

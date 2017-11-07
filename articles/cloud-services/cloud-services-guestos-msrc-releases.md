@@ -12,24 +12,153 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/10/2017
+ms.date: 10/6/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
-ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
-## <a name="january-guest-os"></a>게스트 OS&1;월
+## <a name="september-guest-os"></a>게스트 OS 9월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-09 | [4038782] |Windows 10 업데이트 |5.11 |2017년 9월 12일 |
+| Rel 17-09 | [4038779], [4038786], [4038793] |Windows 보안 전용 |2.66, 3.53, 4.46 |2017년 9월 12일 |
+| Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|9월 .NET 업데이트 |2.66, 3.53, 4.46 |2017년 9월 12일 |
+| Rel 17-09 | [4036586] |Internet Explorer |2.66, 3.53, 4.46 |2017년 9월 12일 |
+| CVE-2017-8704 | [4038782] |서비스 거부 |5.11 |2017년 9월 12일 |
+| 해당 없음 | [4034664] |8월 비보안 롤업  |2.66 |2017년 8월 8일 |
+| 해당 없음 | [4034665] |8월 비보안 롤업 |5.11 |2017년 8월 8일 |
+| 해당 없음 | [4034681] |8월 비보안 롤업 |4.46 |2017년 8월 8일 |
+
+## <a name="august-guest-os"></a>게스트 OS 8월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4034658] |Windows 10 업데이트 |5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4034679] |Windows 보안 전용 |2.65 |2017년 8월 8일 |
+| Rel 17-07 | [4034672] |Windows 보안 전용 |4.45 |2017년 8월 8일 |
+| Rel 17-07 | [4034666] |Windows 보안 전용 |3.52 |2017년 8월 8일 |
+| Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4034664], [4034665], [4034681] |Windows 월별 롤업 |2.65, 3.52, 4.45 |2017년 8월 8일 |
+| Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |CVE-2017-0071 다시 릴리스, CVE-2017-0228 다시 릴리스 |5.10 |2017년 8월 8일 |
+| Rel 17-07 | [4025341] |7월 비보안 롤업 |2.65 |2017년 7월 11일 |
+| Rel 17-07 | [4025331] |7월 비보안 롤업 |3.52 |2017년 7월 11일 |
+| Rel 17-07 | [4025336] |7월 비보안 롤업 |4.45 |2017년 7월 11일 |
+
+## <a name="july-guest-os"></a>게스트 OS 7월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Windows 10 업데이트 |5.9 |2017년 7월 11일 |
+| Rel 17-07 | [4025337] |Windows 보안 전용 |2.64 |2017년 7월 11일 |
+| Rel 17-07 | [4025333] |Windows 보안 전용 |4.44 |2017년 7월 11일 |
+| Rel 17-07 | [4025343] |Windows 보안 전용 |3.51 |2017년 7월 11일 |
+| Rel 17-07 | [4025376] |깜박임 |3.51, 4.44, 5.9 |2017년 7월 11일 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |2017년 7월 11일 |
+| 해당 없음 | [4020322] |표준 시간대 업데이트 |2.64, 3.51, 4.44 |2017년 7월 11일 |
+| 해당 없음 | [4022719] |6월 비보안 롤업 |2.64 |2017년 6월 13일 |
+| 해당 없음 | [4022724] |6월 비보안 롤업 |3.51 |2017년 6월 13일 |
+| 해당 없음 | [4022726] |6월 비보안 롤업 |4.44 |2017년 6월 13일 |
+
+## <a name="june-guest-os"></a>게스트 OS 6월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-06 | [4019472] |WS 2016 OS 품질 향상 |5.8 |2017년 5월 9일 |
+| Rel 17-06 | [4022722] |Windows 보안 전용 |2.63 |2017년 6월 13일 |
+| Rel 17-06 | [4022717] |Windows 보안 전용 |4.43 |2017년 6월 13일 |
+| Rel 17-06 | [4022718] |Windows 보안 전용 |3.50 |2017년 6월 13일 |
+| Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |2017년 6월 13일 |
+| Rel 17-06 | [4022719], [4022724], [4022726] |Windows 월별 롤업 |2.63, 3.50, 4.43 |2017년 6월 13일 |
+| Rel 17-06 | [4022730] |Adobe Flash Player용 보안 업데이트 |3.50, 4.43, 5.8 |2017년 6월 13일 |
+| Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |CVE-2017-0167 다시 릴리스 |4.43, 5.8 |2017년 4월 11 |
+| 해당 없음 | [4023136] |표준 시간대 업데이트  |2.63, 3.50, 4.43 |2017년 6월 13일 |
+| 해당 없음 | [4019264] |5월 비보안 롤업 |2.63 |2017년 6월 13일 |
+| 해당 없음 | [4014545] |5월 .NET 비보안 롤업 |2.63 |2017년 4월 11 |
+| 해당 없음 | [4014508] |5월 .NET 비보안 롤업 |2.63 |2017년 5월 9일 |
+| 해당 없음 | [4014511] |5월 .NET 비보안 롤업 |2.63 |2017년 5월 9일 |
+| 해당 없음 | [4014514] |5월 .NET 비보안 롤업 |2.63 |2017년 5월 9일 |
+| 해당 없음 | [4019216] |5월 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | [4014503] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | [4014506] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | [4014509] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | [4014513] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | [4019215] |5월 비보안 롤업 |4.43 |2017년 5월 9일 |
+| 해당 없음 | [4014505] |5월 .NET 비보안 롤업 |4.43 |2017년 5월 9일 |
+| 해당 없음 | [4014507] |5월 .NET 비보안 롤업 |4.43 |2017년 5월 9일 |
+| 해당 없음 | [4014510] |5월 .NET 비보안 롤업 |4.43 |2017년 5월 9일 |
+| 해당 없음 | [4014512] |5월 .NET 비보안 롤업 |4.43 |2017년 5월 9일 |
+
+## <a name="may-guest-os"></a>게스트 OS 5월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-05 | [4019472] |WS 2016 OS 품질 향상 |5.7 | 2017년 5월 9일 |
+| Rel 17-05 | [4019263] |Windows 보안 전용 |2.62 | 2017년 5월 9일 |
+| Rel 17-05 | [4019213] |Windows 보안 전용 |4.42 | 2017년 5월 9일 |
+| Rel 17-05 | [4019214] |Windows 보안 전용 |3.49 | 2017년 5월 9일 |
+| Rel 17-05 | [4018271] |Internet Explorer용 누적 보안 업데이트 |3.49 | 2017년 5월 9일 |
+| Rel 17-05 | [4010323] |SHA1 권고 |2.62, 4.42, 5.7 | 2017년 5월 9일 |
+| Rel 17-05 | [4022344] |Microsoft 보안 권고 |5.7 | 2017년 5월 9일 |
+| Rel 17-05 | [4022345] |Microsoft 보안 권고 |5.7 | 2017년 5월 9일 |
+| Rel 17-05 | [4021279] |.NET/ASP.Net Core 권고 |2.62, 3.49, 4.42, 5.7 | 2017년 5월 9일 |
+| 해당 없음 | [4012864] |표준 시간대 업데이트 |2.62, 3.49, 4.42 | 2017년 5월 9일 |
+| 해당 없음 | [4014565] |4월 .NET 비보안 롤업 |2.62 | 2017년 4월 11 |
+| 해당 없음 | [4014559] |4월 .NET 비보안 롤업 |2.62 | 2017년 4월 11 |
+| 해당 없음 | [4015549] |4월 비보안 롤업 |2.62 | 2017년 4월 11 |
+| 해당 없음 | [4019990] |D3DCompiler 업데이트 - .NET 4.7 요구 사항 |3.49 | 2017년 5월 9일 |
+| 해당 없음 | [4014563] |4월 .NET 비보안 롤업 |3.49 | 2017년 4월 11 |
+| 해당 없음 | [4014557] |4월 .NET 비보안 롤업 |3.49 | 2017년 4월 11 |
+| 해당 없음 | [4014545] |4월 .NET 비보안 롤업 |3.49 | 2017년 4월 11 |
+| 해당 없음 | [4014548] |4월 .NET 비보안 롤업 |3.49 | 2017년 4월 11 |
+| 해당 없음 | [4015551] |4월 비보안 롤업 |3.49 | 2017년 4월 11 |
+| 해당 없음 | [3173424] |서비스 스택 업데이트  |4.42 | 2016년 7월 12일 |
+| 해당 없음 | [4014555] |4월 .NET 비보안 롤업  |4.42 | 2017년 4월 11 |
+| 해당 없음 | [4014567] |4월 .NET 비보안 롤업 |4.42 | 2017년 4월 11 |
+| 해당 없음 | [4015550] |4월 비보안 롤업 |4.42 | 2017년 4월 11 |
+| 해당 없음 | [4013418] |서비스 스택 업데이트 |5.7 | 2017년 3월 14일 |
+
+## <a name="april-guest-os"></a>게스트 OS 4월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |WS 2016 OS 품질 향상 | 5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]  |Windows 보안 전용 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4015547]  |Windows 보안 전용 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015548]  |Windows 보안 전용 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET 보안 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET 보안 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET 보안 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015193]  |Magallanes(칠레)의 Windows에서 DST 변경 사항 |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4012215]  |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2017년 3월 보안 월별 품질 롤업 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4012217]  |Windows Server 2012용 2017년 3월 보안 월별 품질 롤업 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4012216]  |Windows 8.1 및 Windows Server 2012 R2용 2017년 3월 보안 월별 품질 롤업 |4.41 | 2017년 4월 11 |
+
+## <a name="march-guest-os"></a>게스트 OS 3월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-03 |  [4013429] |향상된 기능 및 수정 프로그램 | 5.5 | 2017년 3월 14일 |
+| Rel 17-03 |  [4012212] |2017년 3월 Windows 7 SP1 및 Windows Server 2008 R2 SP1용 보안 전용 품질 업데이트 |2.60 |2017년 3월 14일 |
+| Rel 17-03 |  [4012213] |2017년 3월 Windows 8.1 및 Windows Server 2012 R2용 보안 전용 품질 업데이트 |4.40 |2017년 3월 14일 |
+| Rel 17-03 |  [4012214] |2017년 3월 Windows Server 2012용 보안 전용 품질 업데이트|3.47 |2017년 3월 14일 |
+| Rel 17-03 |  [4012204] |Internet Explorer용 보안 업데이트 |2.60, 3.47, 4.40, 5.5 |2017년 3월 14일 |
+| 해당 없음 |  [4012864] |북부 사이프러스, 몽골 및 러시아 사라토브 지역에 대한 Windows DST 변경 |2.60, 3.47, 4.40 |2017년 3월 14일 |
+| 해당 없음 |  [3212646] |2017년 1월 Windows 7 SP1 및 Windows Server 2008 R2 SP1용 보안 월별 품질 롤업 |2.60 |2017년 3월 14일 |
+| 해당 없음 |  [3205409] |2016년 12월 Windows Server 2012용 보안 월별 품질 롤업 |3.47 |2017년 3월 14일 |
+| 해당 없음 |  [3205401] |2016년 12월 Windows 8.1 및 Windows Server 2012 R2용 보안 월별 품질 롤업 |4.40 |2017년 3월 14일 |
+| 해당 없음 |  [3211320] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트 제공: 2017년 1월 24일 |5.5 |2017년 3월 14일 |
+
+## <a name="january-guest-os"></a>게스트 OS 1월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Local Security Authority Subsystem Service용 보안 업데이트 |2.59 |2017년 1월 10일 |
 
-## <a name="december-guest-os"></a>게스트 OS&12;월
+## <a name="december-guest-os"></a>게스트 OS 12월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Internet Explorer용 누적 보안 업데이트 |2.58, 3.46, 4.39 |2016년 12월 13일 |
@@ -46,7 +175,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3197877] |Windows Server 2012용 2016년 11월 보안 월별 품질 롤업 |3.46 |2016년 12월 13일 |
 | 해당 없음 |[3197874] |Windows 8.1 및 Windows Server 2012 R2용 2016년 11월 보안 월별 품질 롤업 |4.39 |2016년 12월 13일 |
 
-## <a name="november-guest-os"></a>게스트 OS&11;월
+## <a name="november-guest-os"></a>게스트 OS 11월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Microsoft Edge용 누적 보안 업데이트 |5.3 |2016년 11월 8일 |
@@ -71,7 +200,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3199986] |Windows 10 버전 1607용 서비스 스택 업데이트: 2016년 10월 27일 |5.3 |2016년 11월 8일 |
 | 해당 없음 |[3197954] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트: 2016년 10월 27일 |5.3 |2016년 11월 8일 |
 
-## <a name="october-guest-os"></a>게스트 OS&10;월
+## <a name="october-guest-os"></a>게스트 OS 10월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Internet Explorer용 누적 보안 업데이트 |4.37, 3.44, 2.56 |2016년 10월 11일 |
@@ -86,7 +215,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3185279] |Windows 8.1 및 Windows Server 2012 R2용 2016년 9월 업데이트 롤업 |4.37 |2016년 10월 11일 |
 | 해당 없음 |[3194798] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트 |5.2 |2016년 10월 11일 |
 
-## <a name="september-guest-os"></a>게스트 OS&9;월
+## <a name="september-guest-os"></a>게스트 OS 9월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Internet Explorer용 누적 보안 업데이트 |4.36, 3.43, 2.55 |2016년 9월 13일 |
@@ -103,7 +232,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3179575] |Windows Server 2012용 2016년 8월 업데이트 롤업 |3.43 |2016년 9월 13일 |
 | 해당 없음 |[3179574] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 8월 업데이트 롤업 |4.36 |2016년 9월 13일 |
 
-## <a name="august-guest-os"></a>게스트 OS&8;월
+## <a name="august-guest-os"></a>게스트 OS 8월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Internet Explorer용 누적 보안 업데이트 |4.35, 3.42, 2.54 |2016년 8월 9일 |
@@ -117,7 +246,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3172615] |Windows Server 2012용 2016년 7월 업데이트 롤업 |3.42 |2016년 8월 9일 |
 | 해당 없음 |[3172614] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 7월 업데이트 롤업 |4.35 |2016년 8월 9일 |
 
-## <a name="july-guest-os"></a>게스트 OS&7;월
+## <a name="july-guest-os"></a>게스트 OS 7월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Internet Explorer용 누적 보안 업데이트 |4.34, 3.41, 2.53 |2016년 7월 12일 |
@@ -133,7 +262,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3161606] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 6월 업데이트 롤업 |4.34 |2016년 7월 12일 |
 | 해당 없음 |[3139923] |Windows의 HTTP 공유에 MSI 패키지를 설치하면 Windows 설치 관리자(MSI) 복구가 작동하지 않음 |4.34 |2016년 7월 12일 |
 
-## <a name="june-guest-os"></a>게스트 OS&6;월
+## <a name="june-guest-os"></a>게스트 OS 6월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |보안 기능 우회 문제를 해결하기 위한 .NET Framework용 보안 업데이트 |4.33, 3.40, 2.52 |2016년 6월 14일 |
@@ -160,7 +289,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3156418] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 5월 업데이트 롤업 |4.33 |2016년 6월 14일 |
 | 해당 없음 |[3153731] |Windows에서 아제르바이잔, 칠레, 아이티 및 모로코에 대한 2016년 5월 DST 업데이트 |4.33, 3.40, 2.52 |2016년 6월 14일 |
 
-## <a name="may-guest-os"></a>게스트 OS&5;월
+## <a name="may-guest-os"></a>게스트 OS 5월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Internet Explorer용 누적 보안 업데이트 |4.32, 3.39, 2.51 |2016년 5월 10일 |
@@ -178,7 +307,7 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3123245] |업데이트는 Windows Server 2012 R2의 포트 소진 식별을 향상시킵니다.  |4.32 |2016년 5월 10일 |
 | 해당 없음 |[RC4 비활성화] | Microsoft 보안 공지: RC4 비활성화를 위한 업데이트  |4.32, 3.39, 2.51 |2016년 5월 10일 |
 
-## <a name="april-guest-os"></a>게스트 OS&4;월
+## <a name="april-guest-os"></a>게스트 OS 4월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Internet Explorer용 누적 보안 업데이트 |4.31, 3.38, 2.50 |2016년 4월 12일 |
@@ -189,7 +318,7 @@ ms.lasthandoff: 01/11/2017
 | MS16-047 |[3148527] |보안 계정 관리자 원격 프로토콜용 보안 업데이트 |4.31, 3.38, 2.50 |2016년 4월 12일 |
 | MS16-048 |[3148528] |CSRSS용 보안 업데이트 |4.31, 3.38 |2016년 4월 12일 |
 
-## <a name="march-guest-os"></a>게스트 OS&3;월
+## <a name="march-guest-os"></a>게스트 OS 3월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Internet Explorer용 누적 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
@@ -202,7 +331,7 @@ ms.lasthandoff: 01/11/2017
 | MS16-033 |[3143142] |권한 상승 문제를 해결하기 위한 USB 대량 저장소 클래스 드라이버 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
 | MS16-034 |[3143145] |권한 상승 문제를 해결하기 위한 커널 모드 드라이버용 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
 
-## <a name="february-guest-os"></a>게스트 OS&2;월
+## <a name="february-guest-os"></a>게스트 OS 2월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Internet Explorer용 누적 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
@@ -217,7 +346,7 @@ ms.lasthandoff: 01/11/2017
 | 다시 릴리스 - MS15-118 |[3104507] |권한 상승 문제점을 해결하기 위한 .NET Framework용 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
 | 다시 릴리스 - MS15-128 |[3104503] |원격 코드 실행 문제를 해결하기 위한 Microsoft 그래픽 구성 요소용 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
 
-## <a name="january-guest-os"></a>게스트 OS&1;월
+## <a name="january-guest-os"></a>게스트 OS 1월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Internet Explorer용 누적 보안 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
@@ -230,7 +359,7 @@ ms.lasthandoff: 01/11/2017
 | Microsoft 보안 권고 |[3123479] |Microsoft 루트 인증서 프로그램용 SHA-1 해시 알고리즘의 사용 중단 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 | Microsoft 보안 권고 |[2736233] |ActiveX 킬 비트에 대한 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 
-## <a name="december-guest-os"></a>게스트 OS&12;월
+## <a name="december-guest-os"></a>게스트 OS 12월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Internet Explorer용 누적 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
@@ -242,7 +371,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-134 |[3108669] |원격 코드 실행 문제를 해결하기 위한 Windows Media Center용 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
 | MS15-135 |[3119075] |권한 상승 문제를 해결하기 위한 Windows 커널 모드 드라이버용 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
 
-## <a name="november-guest-os"></a>게스트 OS&11;월
+## <a name="november-guest-os"></a>게스트 OS 11월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Internet Explorer용 누적 보안 업데이트 |4.26, 3.33, 2.45 |2015년 11월 10일 |
@@ -256,7 +385,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-122 |[3105256] |보안 기능 우회 문제점을 해결하기 위한 Kerberos용 보안 업데이트 |4.26, 3.33, 2.45 |2015년 11월 10일 |
 | Microsoft 보안 권고 |[3097966] |실수로 공개된 디지털 인증서로 인한 스푸핑 |4.26, 3.33, 2.45 |2015년 11월 10일 |
 
-## <a name="october-guest-os"></a>게스트 OS&10;월
+## <a name="october-guest-os"></a>게스트 OS 10월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Internet Explorer용 누적 보안 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
@@ -265,7 +394,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-111 |[3096447] |권한 상승 문제점을 해결하기 위한 Windows 커널용 보안 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
 | Microsoft 보안 권고 |[3092627] |3076895 보안 업데이트를 설치한 후에 Windows 또는 응용 프로그램 중지를 해결하기 위한 2015년 9월 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
 
-## <a name="september-guest-os"></a>게스트 OS&9;월
+## <a name="september-guest-os"></a>게스트 OS 9월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Internet Explorer용 보안 업데이트 |4.24, 3.31, 2.43 |2015년 9월 8일 |
@@ -277,7 +406,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-102 |[3089657] |Windows 작업 관리의 취약성으로 인한 권한 상승 |4.24, 3.31, 2.43 |2015년 9월 8일 |
 | MS15-105 |[3091287] |Windows Hyper-V의 취약성으로 인한 보안 기능 우회 |4.24 |2015년 9월 8일 |
 
-## <a name="august-guest-os"></a>게스트 OS&8;월
+## <a name="august-guest-os"></a>게스트 OS 8월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Internet Explorer용 누적 보안 업데이트 |4.23, 3.30, 2.42 |2015년 8월 11일 |
@@ -289,7 +418,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-089 |[3060716] |Microsoft Windows의 취약성으로 인한 권한 상승 |4.23, 3.30, 2.42 |2015년 8월 11일 |
 | MS15-090 |[3076949] |WebDAV의 취약성으로 인한 정보 공개 |4.23, 3.30, 2.42 |2015년 8월 11일 |
 
-## <a name="july-guest-os"></a>게스트 OS&7;월
+## <a name="july-guest-os"></a>게스트 OS 7월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Internet Explorer용 누적 보안 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
@@ -306,17 +435,17 @@ ms.lasthandoff: 01/11/2017
 | MS15-077 |[3077657] |ATM Font Driver의 취약성으로 인한 권한 상승 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 | 해당 없음 |[3057154] |DES 암호화 사용을 제한하는 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 
-## <a name="june-guest-os"></a>게스트 OS&6;월
+## <a name="june-guest-os"></a>게스트 OS 6월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Internet Explorer용 누적 보안 업데이트 |4.21, 3.28, 2.40 |2015년 6월 9일 |
-| MS15-057 |[3033890] |Windows 미디어 플레이어의 취약성으로 인한 원격 코드 실행 |4.21, 3.28, 2.40 |2015년 6월 9일 |
+| MS15-057 |[3033890] |Windows Media Player의 취약성으로 인한 원격 코드 실행 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-060 |[3059317] |Microsoft Common Controls의 취약성으로 인한 원격 코드 실행 허용 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-061 |[3057839] |Windows 커널 모드 드라이버의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-062 |[3062577] |Active Directory 페더레이션 서비스의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-063 |[3063858] |Windows 커널의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 
-## <a name="may-guest-os"></a>게스트 OS&5;월
+## <a name="may-guest-os"></a>게스트 OS 5월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Internet Explorer용 누적 보안 업데이트 |4.20, 3.27, 2.39 |2015년 5월 12일 |
@@ -339,12 +468,12 @@ ms.lasthandoff: 01/11/2017
 | MS15-042 |[3047234] |Windows Hyper-V에서 취약성으로 인한 서비스 거부 문제점 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 | 해당 없음 |[3045755] |PKU2U 인증을 향상시키는 업데이트 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 
-## <a name="april-guest-os"></a>게스트 OS&4;월
+## <a name="april-guest-os"></a>게스트 OS 4월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |HTTP.sys의 취약성으로 인한 원격 코드 실행 |4.19, 3.26, 2.38 |2015년 4월 17일 |
 
-## <a name="march-guest-os"></a>게스트 OS&3;월
+## <a name="march-guest-os"></a>게스트 OS 3월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Internet Explorer용 누적 보안 업데이트 |4.18, 3.25, 2.37 |해당 없음 |
@@ -364,7 +493,7 @@ ms.lasthandoff: 01/11/2017
 >
 >
 
-## <a name="february-guest-os"></a>게스트 OS&2;월
+## <a name="february-guest-os"></a>게스트 OS 2월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Internet Explorer용 보안 업데이트 |4.17, 3.24, 2.36 |해당 없음 |
@@ -375,7 +504,7 @@ ms.lasthandoff: 01/11/2017
 | MS15-016 |[3029944] |Microsoft 그래픽 구성의 취약성으로 인한 정보 공개 |4.17, 3.24, 2.36 |해당 없음 |
 | 해당 없음 |[3004375] |Windows 명령줄 감사 개선 업데이트<p/>**참고**: 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있음 |4.17, 3.24, 2.36 |해당 없음 |
 
-## <a name="january-guest-os"></a>게스트 OS&1;월
+## <a name="january-guest-os"></a>게스트 OS 1월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Windows AppCompatCache의 취약성으로 인한 권한 상승 |4.16, 3.23, 2.35 |2015년 1월 19일 |
@@ -390,7 +519,8 @@ ms.lasthandoff: 01/11/2017
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 
-## <a name="december-guest-os"></a>게스트 OS&12;월
+
+## <a name="december-guest-os"></a>게스트 OS 12월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | 해당 없음 |[3013776] |도메인 계정을 사용하여 응용 프로그램을 시작하는 경우 시스템 중지 |4.15, 3.22, 2.34 |2015년 1월 13일 |
@@ -404,6 +534,141 @@ ms.lasthandoff: 01/11/2017
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+
+[4038782]: http://support.microsoft.com/kb/4038782
+[4038779]: http://support.microsoft.com/kb/4038779
+[4038786]: http://support.microsoft.com/kb/4038786
+[4038793]: http://support.microsoft.com/kb/4038793
+[4040966]: http://support.microsoft.com/kb/4040966
+[4040960]: http://support.microsoft.com/kb/4040960
+[4040965]: http://support.microsoft.com/kb/4040965
+[4040959]: http://support.microsoft.com/kb/4040959
+[4033988]: http://support.microsoft.com/kb/4033988
+[4040955]: http://support.microsoft.com/kb/4040955
+[4040967]: http://support.microsoft.com/kb/4040967
+[4040958]: http://support.microsoft.com/kb/4040958
+[4036586]: http://support.microsoft.com/kb/4036586
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034679]: http://support.microsoft.com/kb/4034679
+[4034672]: http://support.microsoft.com/kb/4034672
+[4034666]: http://support.microsoft.com/kb/4034666
+[4034733]: http://support.microsoft.com/kb/4034733
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+[4034668]: http://support.microsoft.com/kb/4034668
+[4034660]: http://support.microsoft.com/kb/4034660
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034674]: http://support.microsoft.com/kb/4034674
+[4025341]: http://support.microsoft.com/kb/4025341
+[4025331]: http://support.microsoft.com/kb/4025331
+[4025336]: http://support.microsoft.com/kb/4025336
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+
+[4022722]: http://support.microsoft.com/kb/4022722
+[4022717]: http://support.microsoft.com/kb/4022717
+[4022718]: http://support.microsoft.com/kb/4022718
+[4021558]: http://support.microsoft.com/kb/4021558
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+[4022730]: http://support.microsoft.com/kb/4022730
+[4015221]: http://support.microsoft.com/kb/4015221
+[4015583]: http://support.microsoft.com/kb/4015583
+[4015219]: http://support.microsoft.com/kb/4015219
+[4023136]: http://support.microsoft.com/kb/4023136
+[4019264]: http://support.microsoft.com/kb/4019264
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014508]: http://support.microsoft.com/kb/4014508
+[4014511]: http://support.microsoft.com/kb/4014511
+[4014514]: http://support.microsoft.com/kb/4014514
+[4019216]: http://support.microsoft.com/kb/4019216
+[4014503]: http://support.microsoft.com/kb/4014503
+[4014506]: http://support.microsoft.com/kb/4014506
+[4014509]: http://support.microsoft.com/kb/4014509
+[4014513]: http://support.microsoft.com/kb/4014513
+[4019215]: http://support.microsoft.com/kb/4019215
+[4014505]: http://support.microsoft.com/kb/4014505
+[4014507]: http://support.microsoft.com/kb/4014507
+[4014510]: http://support.microsoft.com/kb/4014510
+[4014512]: http://support.microsoft.com/kb/4014512
+
+[4019472]: http://support.microsoft.com/kb/4019472
+[4019263]: http://support.microsoft.com/kb/4019263
+[4019213]: http://support.microsoft.com/kb/4019213
+[4019214]: http://support.microsoft.com/kb/4019214
+[4018271]: http://support.microsoft.com/kb/4018271
+[4010323]: http://support.microsoft.com/kb/4010323
+[4012864]: http://support.microsoft.com/kb/4012864
+[4014565]: http://support.microsoft.com/kb/4014565
+[4014559]: http://support.microsoft.com/kb/4014559
+[4015549]: http://support.microsoft.com/kb/4015549
+[4019990]: http://support.microsoft.com/kb/4019990
+[4014563]: http://support.microsoft.com/kb/4014563
+[4014557]: http://support.microsoft.com/kb/4014557
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014548]: http://support.microsoft.com/kb/4014548
+[4015551]: http://support.microsoft.com/kb/4015551
+[3173424]: http://support.microsoft.com/kb/3173424
+[4014555]: http://support.microsoft.com/kb/4014555
+[4014567]: http://support.microsoft.com/kb/4014567
+[4015550]: http://support.microsoft.com/kb/4015550
+[4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
+
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
+
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 
@@ -719,4 +984,3 @@ ms.lasthandoff: 01/11/2017
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
-

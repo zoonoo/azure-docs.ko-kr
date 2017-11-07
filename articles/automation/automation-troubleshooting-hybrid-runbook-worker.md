@@ -3,7 +3,7 @@ title: "Azure Automation Hybrid Runbook Worker 문제 해결 | Microsoft Docs"
 description: "Azure Automation에서 나타나는 일반적인 Hybrid Runbook Worker 문제에 대한 증상, 원인 및 해결 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 07/25/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: d4a1259e04c3e37d66581185015935eb962fc59a
-ms.openlocfilehash: 666395edb3d1d579b1c69d1b78840b2a381b5b2b
-
+ms.openlocfilehash: 1a72fcf2493396b4744a49b01f3c6da8eed0de40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대한 문제 해결 팁
 
 이 문서에서는 Automation Hybrid Runbook Worker에서 발생할 수 있는 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
 
-## <a name="hybrid-runbook-worker-a-runbook-job-terminates-with-a-status-of-suspended"></a>Hybrid Runbook Worker: Runbook 작업이 일시 중단됨 상태로 종료됨
+## <a name="a-runbook-job-terminates-with-a-status-of-suspended"></a>Runbook 작업이 일시 중단됨 상태로 종료됨
 
-Runbook이&3;회 실행 시도 직후 일시 중단됩니다. Runbook이 성공적으로 완료되는 것을 막는 조건이 있으며 관련된 오류 메시지에 이유를 알리는 정보가 포함되어 있지 않습니다. 이 문서는 Hybrid Runbook Worker Runbook 실행 실패와 관련된 문제를 해결하는 단계를 제공합니다.
+Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 성공적으로 완료되는 것을 막는 조건이 있으며 관련된 오류 메시지에 이유를 알리는 정보가 포함되어 있지 않습니다. 이 문서는 Hybrid Runbook Worker Runbook 실행 실패와 관련된 문제를 해결하는 단계를 제공합니다.
 
 Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow](https://azure.microsoft.com/support/forums/)에서 Azure 포럼을 방문하세요. 이러한 포럼이나 [@AzureSupportTwitter의](https://twitter.com/AzureSupport) 문제를 게시할 수 있습니다. 또한 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options/) 를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
 
@@ -36,14 +36,14 @@ Runbook 실행에 실패하고 “프로세스가 예기치 않게 중지되어�
 오류의 잠재적 원인에는 몇 가지가 있습니다. 
 
 1. Hybrid Worker가 프록시 또는 방화벽 뒤에 있습니다.
-2. Hybrid Worker가 실행되는 컴퓨터가 최소 하드웨어 [요구 사항](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) 
+2. 하이브리드 작업자가 실행되는 컴퓨터가 최소 [하드웨어 요구 사항](automation-offering-get-started.md#hybrid-runbook-worker)보다 적습니다.  
 3. 로컬 리소스를 사용하여 Runbook을 인증할 수 없습니다.
 
 #### <a name="cause-1-hybrid-runbook-worker-is-behind-proxy-or-firewall"></a>원인 1: Hybrid Runbook Worker가 프록시 또는 방화벽 뒤에 있습니다.
 Hybrid Runbook Worker가 실행되는 컴퓨터가 프록시 또는 방화벽 뒤에 있고, 아웃바운드 네트워크 액세스가 허용되지 않았거나 제대로 구성되지 않았습니다.
 
 #### <a name="solution"></a>해결 방법
-컴퓨터가 포트 443, 9354, 및 30000-30199의 *.cloudapp.net에 대한 아웃바운드 액세스가 있는지 확인합니다. 
+*.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다. 
 
 #### <a name="cause-2-computer-has-less-than-minimum-hardware-requirements"></a>원인 2: 컴퓨터가 최소 하드웨어 요구 사항을 충족하지 못합니다.
 Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도록 지정하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. 그렇지 않으면, 실행 중 Runbook에 의해 유발되는 다른 백그라운드 프로세스 및 경합의 리소스 사용률에 따라, 컴퓨터가 과도하게 사용되거나 Runbook 작업이 지연되거나 시간이 초과되는 원인이 될 수 있습니다. 
@@ -54,13 +54,8 @@ Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도
 #### <a name="cause-3-runbooks-cannot-authenticate-with-local-resources"></a>원인 3: 로컬 리소스를 사용하여 Runbook을 인증할 수 없습니다.
 
 #### <a name="solution"></a>해결 방법
-**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.*라고 설명하는 이벤트가 있는지 확인합니다.  이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다.  [Runbook 권한](automation-hybrid-runbook-worker.md#runbook-permissions) 을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.  
+**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.*라고 설명하는 이벤트가 있는지 확인합니다.  이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다.  [Runbook 권한](automation-hrw-run-runbooks.md#runbook-permissions) 을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 Automation의 다른 문제 해결에 대해 도움이 필요한 경우 [일반적인 Azure Automation 문제 해결](automation-troubleshooting-automation-errors.md)을 참조하세요. 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

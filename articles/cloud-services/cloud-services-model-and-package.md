@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 40add25104b2d86a5d68d297ad7a52cc111002f4
-ms.openlocfilehash: e0c03a4aff4f84d0f4f2d79220e34e8c86791bff
-
-
+ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의*(.csdef)*, 서비스 구성*(.cscfg)*, 서비스 패키지*(.cspkg)*의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -295,9 +295,3 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

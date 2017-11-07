@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 24a1e13b7865d25d56cb5a6f44ba3c9c097174a7
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: 파일 지원 요청
 다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
 
-1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. B2C 테넌트를, 연결된 Azure 구독이 있는 다른 테넌트로 전환합니다. 일반적으로 후자는 직원 테넌트 또는 Azure 구독에 등록할 경우 만들어진 기본 테넌트입니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](../active-directory/active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad)를 참조하세요.
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+2. B2C 테넌트를, 연결된 Azure 구독이 있는 다른 테넌트로 전환합니다. 일반적으로 후자는 직원 테넌트 또는 Azure 구독에 등록할 경우 만들어진 기본 테넌트입니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](../active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
    
     ![지원 - 테넌트 전환](./media/active-directory-b2c-support/support-switch-dir.png)
 3. 테넌트를 전환한 후 **도움말 + 지원**을 클릭합니다.
@@ -66,5 +65,4 @@ ms.lasthandoff: 12/29/2016
 > 
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
-
 

@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 359677972c7e1fa3f7435052021ddfae5b1ed85e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
 Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하고 로컬 클러스터에서 응용 프로그램을 배포 및 관리하는 작업을 빠르게 시작하는 데 사용할 수 있습니다. 이 문서에서는 Windows PowerShell에서 로컬 클러스터를 만들고 기존 응용 프로그램을 거기에 배포한 다음 새 버전으로 해당 응용 프로그램을 업그레이드합니다.
@@ -114,7 +113,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     ![PowerShell에서 응용 프로그램에 대한 서비스 목록][ps-getsfsvc]
    
-    응용 프로그램은 단어를 관리하는 웹 프런트 엔드 및 상태 저장 서비스라는 두 서비스로 구성됩니다.
+    응용 프로그램은 두 서비스, 즉 웹 프런트 엔드 및 단어를 관리하는 상태 저장 서비스로 구성됩니다.
 3. 마지막으로 WordCountService에 대한 파티션의 목록을 살펴봅니다.
    
     ```powershell
@@ -241,4 +240,3 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
-

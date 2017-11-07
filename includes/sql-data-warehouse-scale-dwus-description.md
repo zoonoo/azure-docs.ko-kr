@@ -14,8 +14,3 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 
 현재 DWU 설정 목록은 [서비스 용량 제한](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)의 서비스 수준 목표를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

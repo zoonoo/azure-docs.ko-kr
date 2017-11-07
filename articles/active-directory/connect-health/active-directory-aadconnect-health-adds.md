@@ -4,7 +4,7 @@ description: "AD DS를 모니터링하는 방법을 설명하는 Azure AD Connec
 services: active-directory
 documentationcenter: 
 author: arluca
-manager: samueld
+manager: femila
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
-ms.openlocfilehash: 26ebdbc6f568dd3d9bbcaa3250aae70d80af2d35
-
-
+ms.openlocfilehash: 9e5b45d71b978c383932409f0037a4f6f32d0cb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.
@@ -61,10 +61,4 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

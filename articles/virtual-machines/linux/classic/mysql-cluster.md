@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 > [!IMPORTANT]
@@ -339,4 +338,3 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 * 부하 분산 장치는 응답하는 데 5초 이상 필요하므로 응용 프로그램에서 클러스터를 인식하고 시간 제한을 더 늘려야 합니다. 앱 내 큐 및 쿼리 미들웨어와 같은 다른 아키텍처도 도움이 될 수 있습니다.
 * MySQL 튜닝을 통해 쓰기가 관리 가능한 속도로 수행되고 캐시가 가능한 한 자주 디스크로 플러시되어 메모리 손실을 최소화하도록 보장해야 합니다.
 * 쓰기 성능은 가상 스위치의 VM 상호 연결에 따라 달라집니다. 이는 DRBD에서 장치를 복제하는 데 사용하는 메커니즘이기 때문입니다.
-

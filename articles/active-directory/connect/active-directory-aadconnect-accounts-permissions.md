@@ -6,25 +6,26 @@ documentationcenter:
 author: billmath
 manager: femila
 editor: 
+ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 10/03/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
-
-
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
 
-* Express 설정에서 마법사는 사용자를 만들거나 사용 권한을 별도로 구성하지 않고도 구성을 쉽게 설정할 수 있도록 더 많은 권한이 필요합니다.
-* 사용자 지정 설정에서 마법사는 더 많은 선택과 옵션을 제공하지만, 사용자가 올바른 사용 권한이 있는지 확인해야 하는 경우도 있습니다.
+* Express 설정에서, 마법사에는 더 많은 권한이 필요합니다.  이렇게 하면 사용자를 만들거나 사용 권한을 구성할 필요 없이 구성을 쉽게 설정할 수 있습니다.
+* 사용자 지정 설정에서, 마법사는 더 많은 선택 사항 및 옵션을 제공합니다. 그러나 자신이 올바른 권한을 가지고 있는지 확인해야 하는 경우가 있습니다.
 
 ## <a name="related-documentation"></a>관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다.
@@ -38,7 +39,7 @@ Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다
 |설치 후 | [설치 확인 및 라이선스 할당 ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Express 설정 설치
-Express 설정에서는 온-프레미스 Active Directory를 Azure AD Connect에 필요한 사용 권한으로 구성하도록 AD DS 설치 마법사가 엔터프라이즈 관리자 자격 증명을 요청합니다. DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증명은 DirSync에서 사용되는 계정의 암호를 다시 설정하는 데 사용됩니다. 또한 Azure AD 전역 관리자 자격 증명이 필요합니다.
+Express 설정에서는, 설치 마법사가 AD DS Enterprise 관리자 자격 증명을 묻는 메시지를 표시합니다.  따라서 Azure AD Connect에 필요한 권한으로 온-프레미스 Active Directory를 구성할 수 있습니다. DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증명은 DirSync에서 사용되는 계정의 암호를 다시 설정하는 데 사용됩니다. 또한 Azure AD 전역 관리자 자격 증명이 필요합니다.
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -65,7 +66,7 @@ AD DS에 대해 읽고 쓰도록 만들어진 [계정](#active-directory-account
 | 암호 재설정 |비밀번호 쓰기 저장을 사용하기 위한 준비 |
 
 ## <a name="custom-settings-installation"></a>사용자 지정 설정 설치
-사용자 지정 설정을 사용하는 경우 Active Directory에 연결하는 데 사용된 계정은 설치하기 전에 만들어야 합니다. 이 계정에 부여해야 하는 권한은 [AD DS 계정 만들기](#create-the-ad-ds-account)에서 찾을 수 있습니다.
+Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사가 Active Directory에 연결하는 데 사용되는 계정을 만들 수 있는 옵션이 제공됩니다.  이전 버전을 사용할 경우 설치하기 전에 계정을 만들어야 합니다. 이 계정에 부여해야 하는 권한은 [AD DS 계정 만들기](#create-the-ad-ds-account)에서 찾을 수 있습니다. 
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -79,20 +80,26 @@ AD DS에 대해 읽고 쓰도록 만들어진 [계정](#active-directory-account
 | AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |해당 자격 증명을 제공하는 AD 사용자 계정이 AD FS 서비스의 로그온 계정으로 사용됩니다. |
 
 ### <a name="create-the-ad-ds-account"></a>AD DS 계정 만들기
-Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한 계정은 Active Directory에 있어야 하고 필요한 권한이 부여되어야 합니다. 설치 마법사는 사용 권한을 확인하지 않고 문제는 동기화 중에 발견됩니다.
+**디렉터리에 연결** 페이지에서 지정할 계정은 설치 전에 Active Directory에 있어야 합니다.  필요한 권한도 부여되어 있어야 합니다. 설치 마법사는 사용 권한을 확인하지 않고 문제는 동기화 중에 발견됩니다.
 
 어떤 사용 권한이 필요한지는 사용하도록 설정할 선택적 기능에 따라 달라집니다. 여러 도메인이 있는 경우 포리스트의 모든 도메인에 대한 사용 권한이 부여되어야 합니다. 이러한 기능을 사용하지 않는 경우 기본 **도메인 사용자** 사용 권한만으로도 충분합니다.
 
 | 기능 | 권한 |
 | --- | --- |
+| msDS-ConsistencyGuid 기능 |[디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)에서 설명하는 msDS-ConsistencyGuid 특성에 대한 쓰기 권한 | 
 | 암호 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
-| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)에 설명된 특성에 사용 권한을 작성합니다. |
+| Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
+| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
 | 장치 쓰기 저장 |[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
-| 그룹 쓰기 저장 |배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다. |
+| 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="upgrade"></a>업그레이드
 Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
+
+>[!IMPORTANT]
+>Azure AD Connect에서는 빌드 1.1.484부터 SQL Database를 업그레이드하기 위해 sysadmin 권한이 필요한 회귀 버그를 도입했습니다.  이 버그는 최신 빌드 1.1.614에도 발생합니다.  이 빌드로 업그레이드하는 경우 sysadmin 권한이 필요합니다.  Dbo 권한은 충분하지 않습니다.  sysadmin 권한 없이 Azure AD Connect를 업그레이드하려고 하면 업그레이드에 실패하고 이후로 Azure AD Connect가 더 이상 올바르게 작동하지 않습니다.  Microsoft는 이를 알고 해결하기 위해 노력하고 있습니다.
+
 
 | 주체 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- |
@@ -106,14 +113,70 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### <a name="azure-ad-connect-sync-service-accounts"></a>Azure AD Connect 동기화 서비스 계정
-로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. SQL Server를 실행하는 원격 서버를 사용하거나 인증이 필요한 프록시를 사용하는 경우 **AAD_** 서비스 계정이 도메인에 있어야 합니다.
+사용자 지정 설정을 사용하는 경우에는 설치를 시작하기 전에 계정을 만들 책임이 있습니다.
+
+### <a name="azure-ad-connect-sync-service-account"></a>Azure AD Connect 동기화 서비스 계정
+동기화 서비스는 다양한 계정으로 실행할 수 있습니다. **가상 서비스 계정**(VSA), **그룹 관리 서비스 계정**(gMSA/sMSA) 또는 일반 사용자 계정으로 실행할 수 있습니다. 지원되는 옵션은 새로 설치 시 Connect의 2017년 4월 릴리스에서 변경되었습니다. Azure AD Connect의 이전 버전을 업그레이드하는 경우 이러한 추가 옵션을 사용할 수 없습니다.
+
+| 계정 유형 | 설치 옵션 | 설명 |
+| --- | --- | --- |
+| [가상 서비스 계정](#virtual-service-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | 도메인 컨트롤러에서 설치를 제외한 모든 빠른 설치에 사용되는 옵션입니다. 다른 옵션이 사용되지 않는 한 사용자 지정 설치에 대해 기본 옵션입니다. |
+| [그룹 관리 서비스 계정](#group-managed-service-account) | 사용자 지정, 2017년 4월 이후 | 원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. |
+| [사용자 계정](#user-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | AAD_가 접두사로 추가되는 사용자 계정은 Windows Server 2008에 설치되는 경우 및 도메인 컨트롤러에 설치되는 경우 설치 중에만 만들어집니다. |
+| [사용자 계정](#user-account) | 빠른 및 사용자 지정, 2017 3월 이전 | AAD_가 접두사로 추가되는 사용자 계정은 설치 중에 만들어집니다. 사용자 지정 설치를 사용하는 경우 다른 계정을 지정할 수 있습니다. |
+
+Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계정의 암호를 재설정하지 말아야 합니다. 보안상의 이유로 Windows에서 암호화 키를 제거하기 때문입니다. Azure AD Connect를 다시 설치하지 않고는 계정을 다른 계정으로 변경할 수 없습니다. 2017년 4월 이후의 빌드를 업그레이드하는 경우에는 서비스 계정의 암호를 변경하는 것이 지원되지만 사용된 계정은 변경할 수 없습니다.
+
+> [!Important]
+> 서비스 계정은 처음 설치할 때만 설정할 수 있습니다. 설치가 완료된 후에는 서비스 계정을 변경하는 것이 지원되지 않습니다.
+
+다음은 동기화 서비스 계정에 대한 기본, 권장 및 지원 옵션 테이블입니다.
+
+범례:
+
+- **굵은 글꼴**은 기본 옵션 및 대부분의 경우 권장 옵션을 나타냅니다.
+- *기울임꼴*은 기본 옵션이 아닌 경우 권장 옵션을 나타냅니다.
+- 2008 - Windows Server 2008에 설치하는 경우 기본 옵션
+- 굵지 않은 글꼴 - 지원되는 옵션
+- 로컬 계정 - 서버의 로컬 사용자 계정
+- 도메인 계정 - 도메인 사용자 계정
+- sMSA - [독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA - [그룹 관리 서비스 계정](https://technet.microsoft.com/library/hh831782.aspx)
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>사용자 지정 | 원격 SQL</br>사용자 지정 |
+| --- | --- | --- | --- |
+| **독립 실행형/작업 그룹 컴퓨터** | 지원되지 않음 | **VSA**</br>로컬 계정(2008)</br>로컬 계정 |  지원되지 않음 |
+| **도메인에 가입된 컴퓨터** | **VSA**</br>로컬 계정(2008) | **VSA**</br>로컬 계정(2008)</br>로컬 계정</br>도메인 계정</br>sMSA,gMSA | **gMSA**</br>도메인 계정 |
+| **도메인 컨트롤러** | **도메인 계정** | *gMSA*</br>**도메인 계정**</br>sMSA| *gMSA*</br>**도메인 계정**|
+
+#### <a name="virtual-service-account"></a>가상 서비스 계정
+가상 서비스 계정은 암호가 없고 Windows에 의해 관리되는 특수한 유형의 계정입니다.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우에는 [그룹 관리 서비스 계정](#managed-service-account)을 대신 사용하는 것이 좋습니다.
+
+이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
+
+#### <a name="group-managed-service-account"></a>그룹 관리 서비스 계정
+원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정**을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](https://technet.microsoft.com/library/hh831782.aspx)를 참조하세요.
+
+이 옵션을 사용하려면 [필수 구성 요소 설치](active-directory-aadconnect-get-started-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용**을 선택하고 **관리 서비스 계정**을 선택합니다.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+[독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
+
+이 기능을 사용하려면 Windows Server 2012 이상이 필요합니다. 이전 운영 체제를 사용해야 하고 원격 SQL을 사용하는 경우에는 [사용자 계정](#user-account)을 사용해야 합니다.
+
+#### <a name="user-account"></a>사용자 계정
+로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. 다음과 같은 경우 **AAD_** 서비스 계정이 도메인에 있어야 합니다.
+   - SQL Server를 실행하는 원격 서버를 사용합니다.
+   - 인증이 필요한 프록시를 사용합니다.
 
 ![서비스 계정 동기화](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다.
 
-이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 개인 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다. 보안상의 이유로 Windows에서 암호화 키를 삭제할 수 있으므로 서비스 계정에서 암호를 다시 설정하면 안 됩니다.
+이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 개인 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다.
 
 전체 SQL Server를 사용하는 경우 서비스 계정은 동기화 엔진에 대해 만든 데이터베이스의 DBO입니다. 서비스는 다른 사용 권한이 의도한 대로 작동하지 않습니다. SQL 로그인도 생성됩니다.
 
@@ -124,18 +187,13 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다. Azure AD에서 동기화 서비스 계정은 10개로 제한됩니다.
+계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 
-서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 또한 디렉터리 동기화 작업을 수행할 수 있는 유일한 권한이 있는 특별한 역할인 **디렉터리 동기화 계정** 이 부여됩니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여할 수 없으며, Azure 포털은 **사용자**역할에서만 이 계정을 표시합니다.
+서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 또한 디렉터리 동기화 작업을 수행할 수 있는 유일한 권한이 있는 특별한 역할인 **디렉터리 동기화 계정** 이 부여됩니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여할 수 없습니다. Azure Portal은 **사용자** 역할에서만 이 계정을 표시합니다.
 
-![AD 계정 역할](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD에서 기존 Azure AD 서비스 계정의 목록을 가져오려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

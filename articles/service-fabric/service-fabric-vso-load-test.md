@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트
 이 문서는 Microsoft Visual Studio 부하 테스트 기능을 사용하여 응용 프로그램에 스트레스 테스트를 실행하는 방법을 보여 줍니다. Azure 서비스 패브릭 상태 저장 서비스 백 엔드 및 상태 비저장 서비스 웹 프런트 엔드가 사용됩니다. 여기에 사용되는 예제 응용 프로그램은 항공기 위치 시뮬레이터입니다. 사용자는 항공기 ID, 출발 시간 및 도착 위치를 제공합니다. 응용 프로그램의 백 엔드는 요청을 처리하고 프런트 엔드는 지도에 조건에 일치하는 항공기를 표시합니다.
@@ -125,9 +125,3 @@ Visual Studio Team Services 부하 테스트에는 Team Services 계정으로 �
 [7]: ./media/service-fabric-vso-load-test/RunTest.png
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

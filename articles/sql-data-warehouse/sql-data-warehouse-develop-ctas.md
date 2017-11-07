@@ -3,7 +3,7 @@ title: "SQL Data Warehouse의 CTAS(Create Table As Select) | Microsoft Docs"
 description: "솔루션 개발을 위해 Azure SQL 데이터 웨어하우스의 CTAS(Create Table As Select) 문으로 코딩에 대한 팁."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
 ms.date: 01/30/2017
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 68655fff239bfd76f93ab9177d161d9534cbb901
-ms.openlocfilehash: 150113dda95ab021dd7ad8696b5886373ba982b8
-ms.lasthandoff: 01/31/2017
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
 `CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. `CTAS`는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
@@ -47,7 +46,7 @@ CREATE TABLE [dbo].[FactInternetSales_new]
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,    CLUSTERED COLUMNSTORE INDEX
+,   CLUSTERED COLUMNSTORE INDEX
 )
 AS
 SELECT  *
@@ -452,4 +451,3 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
-

@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 10/05/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 783e797ad318fe926ba9e72e2eea027beb4a5994
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 875f00064f94b37ab5efdde54ca3e6cbda779654
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
 
-다음 테이블에서는 Azure Relay를 위한 포트 값에 필요한 구성을 설명합니다.
+다음 표에서는 Azure Relay의 포트 값에 필요한 구성을 설명합니다.
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 하이브리드 연결은 기본 전송 메커니즘으로 **HTTPS**만 사용하는 WebSockets을 사용합니다. 

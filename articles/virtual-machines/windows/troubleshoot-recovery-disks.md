@@ -1,10 +1,9 @@
 ---
-
 title: "Azure PowerShell에서 Windows 문제 해결 VM 사용 | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Azure에서 Windows VM 문제를 해결하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationCenter: 
-authors: iainfoulds
+authors: genlin
 manager: timlt
 editor: 
 ms.service: virtual-machines-windows
@@ -12,16 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2016
-ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 50e9982fbf33a39b69effed193a4bd137c07a14d
-ms.lasthandoff: 03/31/2017
-
-
+ms.date: 05/26/2017
+ms.author: genli
+ms.openlocfilehash: 8b7821b4285e73d461af426bfdfb3fdcc4454517
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 컴퓨터)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다.
 
@@ -35,7 +32,7 @@ Azure에서 Windows VM(가상 컴퓨터)에 부팅 또는 디스크 오류가 �
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
 
-먼저 [최신 Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치하고 구독에 로그인했는지 확인합니다.
+먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구독에 로그인했는지 확인합니다.
 
 ```powershell
 Login-AzureRMAccount

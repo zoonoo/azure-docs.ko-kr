@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 7bd71144cd2c96fcfb6636ca8d24fc354f86584d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 8656607611e7518e42b51b91774f55abec15c228
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Azure SQL 데이터 웨어하우스 복원(REST API)
 > [!div class="op_single_selector"]
@@ -86,4 +85,3 @@ Azure SQL Database 버전의 무중단 업무 방식 기능에 대해 알아보�
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-

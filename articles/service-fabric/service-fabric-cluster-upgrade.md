@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드
 > [!div class="op_single_selector"]
@@ -31,7 +30,7 @@ ms.lasthandoff: 02/16/2017
 최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에서 부분적으로 관리하는 리소스입니다. 이 문서는 자동으로 관리되는 것과 스스로 구성할 수 있는 것을 설명합니다.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
-Microsoft에서 새로운 버전을 릴리스하거나 클러스터에 대해 지원되는 패브릭 버전을 선택하도록 한 경우 클러스터가 자동 패브릭 업그레이드를 수신하도록 설정할 수 있습니다.
+Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터가 수신하도록 설정할 수 있습니다. 또는 클러스터를 배치하려는 지원되는 패브릭 버전을 선택할 수 있습니다.
 
 포털에서 "upgradeMode" 클러스터를 설정하거나 라이브 클러스터 생성 시 또는 나중에 Resource Manager를 사용하여 이 작업을 수행합니다. 
 
@@ -163,7 +162,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 클러스터 업그레이드 모드를 설정하는 기능 외에도 라이브 클러스터에서 변경할 수 있는 구성은 다음과 같습니다.
 
 ### <a name="certificates"></a>인증서
-포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다.  [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
+포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다. [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
 
 ![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
@@ -206,15 +205,15 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 을 참조하세요.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 패치
-이 기능은 향후 자동화된 기능으로 제공될 예정입니다. 하지만 지금은 사용자가 VM에 패치를 적용해야 합니다. 한 번에 하나의 VM에 이를 수행하여 한 번에 둘 이상의 VM이 작동 중지되지 않도록 해야 합니다.
+[패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows 업데이트에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 업그레이드
 클러스터의 가상 컴퓨터의 OS 이미지를 업그레이드해야 하는 경우 한 번에 하나의 VM에 이 작업을 수행하고 이 업그레이드에 대한 책임을 져야 합니다. 현재 자동화 기능은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
@@ -224,4 +223,3 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
-

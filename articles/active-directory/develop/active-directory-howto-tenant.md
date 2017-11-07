@@ -3,7 +3,7 @@ title: "Azure AD 테넌트를 얻는 방법 | Microsoft Docs"
 description: "응용 프로그램 등록 및 구축을 위해 Azure Active Directory 테넌트를 얻는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/28/2015
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.lasthandoff: 04/14/2017
-
-
+ms.date: 07/19/2017
+ms.author: bryanla
+ms.custom: aaddev
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트를 얻는 방법
 Azure Active Directory (Azure AD)에서 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) 는 조직을 나타냅니다.  조직이 Azure, Microsoft InTune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 받아서 소유하는 Azure AD 서비스의 전용 인스턴스입니다.  각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다.  
@@ -64,4 +64,3 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 위의 모든 항목을 이해할 수 없어도 걱정하지 마세요.  새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) 을 방문하기만 하면 됩니다.  프로세스를 완료하면 등록할 때 선택한 도메인 이름을 가진 자신만의 Azure AD 테넌트가 생깁니다.  [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 "Azure Active Directory"로 이동하여 테넌트를 찾을 수 있습니다.
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다.  믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
-

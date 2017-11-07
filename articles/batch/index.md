@@ -2,7 +2,7 @@
 title: "Azure Batch 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Batch를 사용하여 대규모 병렬 및 고성능 컴퓨팅 응용 프로그램을 효율적으로 실행하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: e36c82b7fb93659ad2fb3b7af5b6660438293bc9
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 2c5d43338ca5a672e33dc9474a7874eb9d113377
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2017
 ---
 #<a name="batch-documentation"></a>Batch 설명서
 
@@ -113,6 +113,24 @@ ms.lasthandoff: 03/18/2017
         </div>
         </a>
     </li>
+     <li>
+        <a href="/azure/batch/batch-nodejs-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_nodejs.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Node.js를 사용하여 Batch 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -140,7 +158,7 @@ ms.lasthandoff: 03/18/2017
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.JS</a></p>
+                        <p><a href="/nodejs/api/overview/azure/batch">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
@@ -159,7 +177,23 @@ ms.lasthandoff: 03/18/2017
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Batch</h3>
+                        <p>
+            <a href="/azure/batch/batch-diagnostics">Batch 진단 로그</a></p>
+                        <p>
+            <a href="/azure/batch/batch-analytics">Batch 분석</a></p>
+                        <p>
+            <a href="/azure/batch/batch-compute-node-environment-variables">Batch 계산 노드 환경 변수</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
 
 

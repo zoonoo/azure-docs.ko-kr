@@ -3,7 +3,7 @@ title: "SQL Data Warehouse Transact-SQL 언어 요소 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스에 사용되는 TRANSACT-SQL 언어 요소에 대한 참조 내용에 대한 링크 목록입니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 126aac98dd9b4b9b3ab3cc4778b75cec7413a7fe
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="language-elements"></a>언어 요소
 ## <a name="core-elements"></a>핵심 요소
@@ -278,17 +279,11 @@ ms.openlocfilehash: 126aac98dd9b4b9b3ab3cc4778b75cec7413a7fe
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL 데이터 웨어하우스 참조 개요][SQL 데이터 웨어하우스 참조 개요]를 참조하세요.
+자세한 참조 정보는 [SQL Data Warehouse 참조 개요][SQL Data Warehouse reference overview]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 참조 개요]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

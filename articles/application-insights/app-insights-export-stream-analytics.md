@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c1a76f521cbee673eb473d40bb15badd40cead5f
-ms.lasthandoff: 04/12/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -33,11 +32,11 @@ ms.lasthandoff: 04/12/2017
 ![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/app-insights-export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Azure에서 저장소 만들기
-연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
+연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
    
-   ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-stream-analytics/030.png)
+   ![Azure Portal에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-stream-analytics/030.png)
 2. 컨테이너 만들기
    
     ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-export-stream-analytics/040.png)
@@ -74,10 +73,10 @@ ms.lasthandoff: 04/12/2017
    
     응용 프로그램 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다. 
 
-이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 스트림 분석을 사용하여 데이터를 Power BI로 파이프하려고 합니다.
+이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 Stream Analytics를 사용하여 데이터를 Power BI로 파이프하려고 합니다.
 
-## <a name="create-an-azure-stream-analytics-instance"></a>Azure 스트림 분석 인스턴스 만들기
-[클래식 Azure 포털](https://manage.windowsazure.com/)에서 Azure 스트림 분석 서비스를 선택하고 새 스트림 분석 작업을 만듭니다.
+## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
+[클래식 Azure Portal](https://manage.windowsazure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
 ![](./media/app-insights-export-stream-analytics/090.png)
 
@@ -92,7 +91,7 @@ ms.lasthandoff: 04/12/2017
 
 ![](./media/app-insights-export-stream-analytics/120.png)
 
-이제 앞에서 기록해 둔 저장소 계정의 기본 액세스 키가 필요합니다. 이 키를 저장소 계정 키로 설정합니다.
+이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
 ![](./media/app-insights-export-stream-analytics/130.png)
 
@@ -101,7 +100,7 @@ ms.lasthandoff: 04/12/2017
 
 **날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
-전위 패턴은 스트림 분석이 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
+전위 패턴은 Stream Analytics가 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
@@ -134,7 +133,7 @@ ms.lasthandoff: 04/12/2017
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/app-insights-export-stream-analytics/160.png)
 
-**회사 또는 학교 계정** 을 제공하여 스트림 분석에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
+**회사 또는 학교 계정** 을 제공하여 Stream Analytics에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
 
 ![이름 3개를 생성합니다.](./media/app-insights-export-stream-analytics/170.png)
 
@@ -217,7 +216,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 > 
 > 
 
-회사 또는 학교 계정을 사용하여 Power BI를 열고 스트림 분석 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
+회사 또는 학교 계정을 사용하여 Power BI를 열고 Stream Analytics 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
 
 ![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-stream-analytics/200.png)
 
@@ -239,5 +238,4 @@ Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 �
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-
 

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
-ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-scale-out-process-server"></a>확장 프로세스 서버 관리
 
 확장 프로세스 서버는 Site Recovery 서비스와 온-프레미스 인프라 간의 데이터 전송에 대한 코디네이터로 작동합니다. 이 문서에서는 확장 프로세스 서버를 설정, 구성 및 관리하는 방법을 설명합니다.
@@ -95,7 +94,7 @@ ProxySettingsFilePath 매개 변수는 입력으로 파일을 사용합니다. �
   ```
   cmd
   cdpcli.exe --registermt
-  
+
   net stop obengine
 
   net start obengine
@@ -147,4 +146,3 @@ net start obengine
 |4개 vCPU(2개 소켓 * 2코어 @ 2.5GHz), 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
 |8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
 |12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz), 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
-

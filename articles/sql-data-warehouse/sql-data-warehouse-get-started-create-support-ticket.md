@@ -3,7 +3,7 @@ title: "SQL Data Warehouse에 대한 지원 티켓을 만드는 방법 | Microso
 description: "Azure SQL 데이터 웨어하우스에서 지원 티켓을 만드는 방법"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
-ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
-ms.lasthandoff: 02/17/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법
 SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 팀이 도움을 줄 수 있도록 지원 티켓을 만드세요.
@@ -99,5 +98,4 @@ SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 팀이 도움�
 [Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 미리 보기에서 관리할 수 있는 모든 엔터프라이즈 앱 보기 | Microsoft Docs"
+title: "Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기 | Microsoft Docs"
 description: "Azure Active Directory에서 관리하는 권한이 있는 엔터프라이즈 앱의 목록을 표시하는 방법"
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
-ms.lasthandoff: 11/17/2016
-
-
+ms.reviewer: asteen
+ms.custom: it-pro
+ms.openlocfilehash: 13a45733b3b8d9ea0593e3b546b6ea58aa5f1a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 관리할 수 있는 모든 엔터프라이즈 앱 보기
-Azure Active Directory(Azure AD) 미리 보기에서 엔터프라이즈 응용 프로그램을 관리할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)  관리할 수 있는 앱 보기, 앱에 사용자 또는 그룹 할당, 응용 프로그램 이름/로고와 같은 앱에 대한 속성 유지 및 사용자가 로그인할 수 없도록 응용 프로그램 비활성화를 포함합니다.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기
+Azure AD(Azure Active Directory)에서 엔터프라이즈 응용 프로그램을 관리할 수 있습니다. 관리할 수 있는 앱 보기, 앱에 사용자 또는 그룹 할당, 응용 프로그램 이름/로고와 같은 앱에 대한 속성 유지 및 사용자가 로그인할 수 없도록 응용 프로그램 비활성화를 포함합니다.
 
 ## <a name="how-do-i-view-all-my-apps"></a>모든 앱을 보려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -37,4 +38,3 @@ Azure Active Directory(Azure AD) 미리 보기에서 엔터프라이즈 응용 �
 * [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [엔터프라이즈 앱에 대한 사용자 로그인 비활성화](active-directory-coreapps-disable-app-azure-portal.md)
 * [엔터프라이즈 앱의 이름 또는 로고 변경](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-

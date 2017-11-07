@@ -3,8 +3,8 @@ title: "Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석 | 
 description: "데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
@@ -13,39 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
-
-
+ms.author: saveenr
+ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-analyze-website-logs-using-azure-data-lake-analytics"></a>자습서: Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석
+# <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
 
-> [!NOTE]
-> 응용 프로그램 작업을 참조하려면 [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)을 통해 시간을 절약합니다. 이 자습서는 동일한 시나리오와 동일한 코드를 기반으로 합니다. 이 자습서는 개발자들에게 데이터 레이크 분석 응용 프로그램을 끝까지 만들고 실행하는 환경을 제공하기 위해 만들었습니다.
->
->
-
-## <a name="prerequisites"></a>필수 조건:
-* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
-* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+## <a name="prerequisites"></a>필수 조건
+* **Visual Studio 2015 또는 Visual Studio 2013**.
 * **[Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)**.
 
-    Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio에서 **데이터 레이크** 메뉴를 볼 수 있습니다.
+    Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio의 **도구** 메뉴에서 **Data Lake** 항목을 볼 수 있습니다.
 
     ![U-SQL Visual Studio 메뉴](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 * **데이터 레이크 분석 및 Visual Studio용 데이터 레이크 도구에 대한 기본 지식**. 시작하려면 다음을 참조하십시오.
 
-  * [Azure 포털을 사용하여 Azure 데이터 레이크 분석을 시작합니다](data-lake-analytics-get-started-portal.md).
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md).
-* **데이터 레이크 분석 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)를 참조하세요.
-
-    데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다.  따라서 Azure 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다.
-* **데이터 레이크 분석 계정에 샘플 데이터를 업로드합니다.** [샘플 데이터 파일 복사하기](data-lake-analytics-get-started-portal.md#prepare-source-data)를 참조하세요.
-
-    데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
+* **데이터 레이크 분석 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md)를 참조하세요.
+* **샘플 데이터 설치.** Azure Portal에서 Data Lake Analytics를 열고 왼쪽 메뉴에서 **샘플 스크립트**를 클릭한 후에 **샘플 데이터 복사**를 클릭합니다. 
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 모든 U-SQL 스크립트를 빌드하거나 테스트하기 전에 먼저 Azure에 연결해야 합니다.
@@ -53,7 +42,7 @@ ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
 **데이터 레이크 분석에 연결하려면**
 
 1. Visual Studio를 엽니다.
-2. **Data Lake** 메뉴에서 **옵션 및 설정**을 클릭합니다.
+2. **Data Lake > 옵션 및 설정**을 클릭합니다.
 3. **로그인** 또는 **사용자 변경**을 클릭하거나, 특정 사용자가 로그인한 경우 다음 지침을 따르십시오.
 4. **확인** 을 클릭하여 해당 옵션 및 설정 대화 상자를 닫습니다.
 
@@ -69,7 +58,7 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
 
 **데이터 레이크 분석 작업 만들기 및 제출하기**
 
-1. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
+1. **파일 > 새로 만들기 > 프로젝트**를 클릭합니다.
 2. U-SQL 프로젝트 형식을 선택합니다.
 
     ![새 U-SQL Visual Studio 프로젝트](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
@@ -139,7 +128,7 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
         (
             INDEX idx1
             CLUSTERED(Year ASC)
-            PARTITIONED BY HASH(Year)
+            DISTRIBUTED BY HASH(Year)
         ) AS
 
         SELECT s_date.Year AS Year,
@@ -176,11 +165,6 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
     ![데이터 레이크 분석은 웹 로그와 웹 사이트 로그를 분석합니다.](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. **Script1.usql**에 대해 7-10단계를 반복합니다.
 
-> [!NOTE]
-> 동일한 스크립트에서 생성 또는 수정된 U-SQL 테이블을 읽거나 쓸 수 없습니다.  바로 이러한 이유로 이 예제에 두 스크립트를 사용합니다.
->
->
-
 **작업 출력 보기**
 
 1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **저장소 계정**을 차례로 확장하고 기본 Data Lake 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
@@ -194,15 +178,3 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
 * [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 * [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
-
-더 많은 개발 항목을 보려면:
-
-* [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-* [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
-description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+description: "디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 설명서에서는 전체 ID 관리 기능을 통합하는 방법을 보여 줍니다."
 title: "Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs"
 services: active-directory
-author: carolz
+author: czeumault
 manager: carolz
 ms.assetid: 
 ms.service: active-directory
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 8933c77013d7b0d886d3e309dc0b1a72026eb677
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
 Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Multi-Factor Authentication, 장치 등록, 역할 기반 액세스 제어 및 보안 모니터링과 경고를 포함하여 ID 관리 기능을 통합하는 방법을 보여 줍니다.
@@ -140,4 +139,3 @@ Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고
         </div>
     </li>
 </ul>
-

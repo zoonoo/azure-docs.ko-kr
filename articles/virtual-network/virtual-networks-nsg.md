@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
 
-NSG(네트워크 보안 그룹)에는 VNet(Azure 가상 네트워크)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다. 또한 NSG를 VM 또는 NIC에 연결하여 트래픽을 더욱 제한할 수 있습니다.
+NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다. 또한 NSG를 VM 또는 NIC에 연결하여 트래픽을 더욱 제한할 수 있습니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 두 모델을 모두 사용하여 설명하지만 대부분의 새로운 배포에는 리소스 관리자 모델을 사용하는 것이 좋습니다.
@@ -39,7 +38,7 @@ NSG에는 다음과 속성이 포함됩니다.
 | 규칙 |허용되거나 거부되는 트래픽을 정의하는 인바운드 또는 아웃바운드 규칙 | |이 문서의 [NSG 규칙](#Nsg-rules) 섹션을 참조하세요. |
 
 > [!NOTE]
-> 끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. ACL을 제거하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md) 문서를 참조하세요.
+> 끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. ACL을 제거하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(Access Control 목록) 관리](virtual-networks-acl-powershell.md) 문서를 참조하세요.
 > 
 
 ### <a name="nsg-rules"></a>NSG 규칙
@@ -49,7 +48,7 @@ NSG 규칙은 다음 속성을 포함합니다.
 | --- | --- | --- | --- |
 | **Name** |규칙의 이름 |지역 내에서 고유해야 합니다.<br/>문자, 숫자, 밑줄, 마침표 및 하이픈을 포함할 수 있습니다.<br/>문자 또는 숫자로 시작해야 합니다.<br/>문자, 숫자 또는 밑줄로 끝나야 합니다.<br/>80자를 초과할 수 없습니다. |NSG에는 여러 규칙이 있을 수 있으므로 규칙의 기능을 식별할 수 있는 명명 규칙을 따라야 합니다. |
 | **프로토콜** |규칙과 일치하는 프로토콜 |TCP, UDP, 또는 * |프로토콜로 *(별표)를 사용하면 UDP와 TCP뿐만 아니라 ICMP(동부 및 서부 트래픽만)도 포함되며, 필요한 규칙의 수를 줄일 수 있습니다.<br/>동시에 *를 사용하면 너무 광범위할 수 있으므로 필요한 경우에만 사용하는 것이 좋습니다. |
-| **원본 포트 범위** |규칙과 일치하는 원본 포트 범위 |1-65535의 단일 포트 번호, 포트 범위(예: 1-65635) 또는 *(모든 포트의 경우) |원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램에서 특정 포트를 사용하지 않는 한 대부분의 경우 "*"를 사용합니다.<br/>여러 규칙이 필요하지 않도록 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화할 수 없습니다. |
+| **원본 포트 범위** |규칙과 일치하는 원본 포트 범위 |1-65535의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 *(모든 포트의 경우) |원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램에서 특정 포트를 사용하지 않는 한 대부분의 경우 "*"를 사용합니다.<br/>여러 규칙이 필요하지 않도록 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화할 수 없습니다. |
 | **대상 포트 범위** |규칙과 일치하는 대상 포트 범위 |1-65535의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 \*(모든 포트의 경우) |여러 규칙이 필요하지 않도록 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화할 수 없습니다. |
 | **원본 주소 접두사** |규칙과 일치하는 원본 주소 접두사 또는 태그 |단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소의 경우) |범위, 기본 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
 | **대상 주소 접두사** |규칙과 일치하는 대상 주소 접두사 또는 태그 | 단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소의 경우) |범위, 기본 태그, *를 사용하여 규칙의 수를 줄이는 것이 좋습니다. |
@@ -124,7 +123,7 @@ NSG에는 두 가지 규칙 집합, 즉 인바운드 및 아웃바운드가 포�
 
 | 배포 도구 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
-| Azure 포털   | 예 | [예](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure Portal   | 예 | [예](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [예](virtual-networks-create-nsg-classic-ps.md) | [예](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [예](virtual-networks-create-nsg-classic-cli.md) | [예](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | 아니요 | [예](virtual-networks-create-nsg-arm-cli.md) |
@@ -182,7 +181,7 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 1. WEB과 DB 서버 간의 트래픽을 분리합니다.
 2. 부하 분산 규칙은 트래픽을 부하 분산 장치에서 80 포트의 모든 웹 서버로 전달합니다.
 3. 부하 분산 장치 NAT 규칙은 50001 포트의 부하 분산 장치로 들어오는 트래픽을 WEB1 VM의 3389 포트로 전달합니다.
-4. 요구 사항 1과 3을 제외하고는 인터넷에서 프런트 엔드 또는 백 엔드 VM에 액세스할 수 없습니다.
+4. 요구 사항 2와 3을 제외하고는 인터넷에서 프런트 엔드 또는 백 엔드 VM에 액세스할 수 없습니다.
 5. WEB 또는 DB 서버에서 아웃바운드로 인터넷에 액세스할 수 없습니다.
 6. FrontEnd 서브넷에서의 액세스는 모든 웹 서버의 3389 포트에 허용됩니다.
 7. FrontEnd 서브넷에서의 액세스는 모든 DB 서버의 3389 포트에 허용됩니다.
@@ -263,4 +262,3 @@ NSG 중 일부는 개별 NIC와 연결되므로 Resource Manager를 통해 배�
 * [NSG 배포(클래식)](virtual-networks-create-nsg-classic-ps.md).
 * [NSG 로그를 관리](virtual-network-nsg-manage-log.md)합니다.
 * [NSG 문제 해결](virtual-network-nsg-troubleshoot-portal.md)
-

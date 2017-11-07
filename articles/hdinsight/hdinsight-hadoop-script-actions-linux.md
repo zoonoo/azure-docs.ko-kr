@@ -1,6 +1,6 @@
 ---
-title: "Linux 기반 HDInsight를 사용하여 스크립트 동작 개발 | Microsoft 문서"
-description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. "
+title: "Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
+description: "Bash 스크립트를 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. HDInsight의 스크립트 작업 기능을 사용하면 클러스터를 생성하는 동안 또는 생성한 후에 스크립트를 실행할 수 있습니다. 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치하는 데 스크립트를 사용할 수 있습니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 10/23/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9068e0e92e15491d3377a1b8f42071b56373396e
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
-스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. 클러스터를 생성하는 동안 또는 실행 중인 클러스터에 대해 스크립트 작업을 사용할 수 있습니다.
+Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트 작업은 클러스터를 만드는 동안 또는 만든 후에 HDInsight를 사용자 지정하는 방법입니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="what-are-script-actions"></a>스크립트 작업 정의
 
@@ -61,19 +60,19 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
 
 > [!IMPORTANT]
-> 스크립트 작업은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
+> 스크립트 작업은 60분 이내에 완료하지 않으면 프로세스에 실패합니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
 ### <a name="bPS1"></a>Hadoop 버전 대상
 
-HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 요소의 서로 다른 버전이 있습니다. 스크립트가 특정 버전의 서비스 또는 구성 요소를 기대하는 경우 필수 구성 요소를 포함하는 HDInsight의 버전으로 스크립트를 사용해야 합니다. [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 문서를 사용하여 HDInsight돠 포함된 구성 요소 버전에 대한 정보를 찾을 수 있습니다.
+HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 요소의 서로 다른 버전이 있습니다. 스크립트가 특정 버전의 서비스 또는 구성 요소를 기대하는 경우 필수 구성 요소를 포함하는 HDInsight의 버전으로 스크립트를 사용해야 합니다. [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 문서를 사용하여 HDInsight가 포함된 구성 요소 버전에 대한 정보를 찾을 수 있습니다.
 
 ### <a name="bps10"></a> OS 버전 대상
 
-Linux 기반 HDInsight는 Ubuntu Linux 배포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변화시킬 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5는 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
+Linux 기반 HDInsight는 Ubuntu Linux 배포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
 
 HDInsight 3.4와 3.5 간의 또 다른 중요한 차이는 현재 `JAVA_HOME`이 Java 8을 가리킨다는 것입니다.
 
-`lsb_release`를 사용하여 OS 버전을 확인할 수 있습니다. Hue 설치 스크립트의 다음 코드 조각은 Ubuntu 14 또는 16에서 스크립트가 실행되고 있는지 확인하는 방법을 보여 줍니다.
+`lsb_release`를 사용하여 OS 버전을 확인할 수 있습니다. 다음 코드는 Ubuntu 14 또는 16에서 스크립트가 실행되고 있는지 확인하는 방법을 보여 줍니다.
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -112,68 +111,70 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 
 ### <a name="bPS2"></a>스크립트 리소스에 대한 안정적인 링크 제공
 
-사용자는 스크립트에서 사용되는 모든 스크립트와 리소스가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 이러한 리소스는 크기 조정 작업 중 새 노드가 클러스터에 추가되는 경우에 필요합니다.
+스크립트 및 연결된 리소스는 클러스터의 수명 내내 사용할 수 있어야 합니다. 이러한 리소스는 크기 조정 작업 중 새 노드가 클러스터에 추가되는 경우에 필요합니다.
 
 구독의 Azure Storage 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
 > [!IMPORTANT]
 > 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
-예를 들어 Microsoft에서 제공하는 샘플은 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너를 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 에 저장됩니다.
+예를 들어 Microsoft에서 제공하는 샘플은 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 에 저장됩니다. HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너입니다.
 
 ### <a name="bPS4"></a>사전 컴파일한 리소스 사용
 
-스크립트 실행 시간을 줄이려면 소스 코드로부터 리소스를 컴파일하는 작업은 실행하지 않습니다. 대신 리소스를 사전에 컴파일하여 Azure Blob 저장소에 이진으로 저장하면 스크립트로부터 신속하게 클러스터에 다운로드할 수 있습니다.
+스크립트 실행 시간을 줄이려면 소스 코드로부터 리소스를 컴파일하는 작업은 실행하지 않습니다. 예를 들어 리소스를 미리 컴파일하고 HDInsight와 동일한 데이터 센터에서 Azure Storage 계정 Blob에 저장합니다.
 
 ### <a name="bPS3"></a>클러스터 사용자 지정 스크립트가 멱등원인지 확인
 
-스크립트는 idempotent 상태가 되도록 설계해야 합니다. 즉, 스크립트가 여러 번 실행될 경우 클러스터가 매번 실행될 때와 동일한 상태로 돌아가는지 확인해야 합니다.
+스크립트는 idempotent여야 합니다. 스크립트를 여러 번 실행하는 경우 매번 동일한 상태로 클러스터를 반환해야 합니다.
 
-예를 들어 사용자 지정 스크립트가 처음 실행될 때와 이후 실행될 때마다 응용 프로그램을 /usr/local/bin에 설치 설치한 경우 스크립트에서는 응용 프로그램이 이미 /usr/local/bin 위치에 있는지 확인한 이후에 스크립트의 다른 단계를 진행해야 합니다.
+예를 들어 구성 파일을 수정하는 스크립트는 여러 번 실행하는 경우 중복 항목을 추가해서는 안됩니다.
 
 ### <a name="bPS5"></a>클러스터 아키텍처의 고가용성 확인
 
-Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 노드를 제공하며 스크립트 동작은 두 노드에서 실행됩니다. 설치할 구성 요소가 헤드 노드를 하나라고 예상하는 경우 클러스터의 두 헤드 노드 중 하나에만 구성 요소를 설치하는 스크립트를 디자인해야 합니다.
+Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치하는 구성 요소가 하나의 헤드 노드만 예상하는 경우 두 헤드 노드에 구성 요소를 설치하지 마십시오.
 
 > [!IMPORTANT]
-> HDInsight의 일부로 설치된 기본 서비스는 필요에 따라 두 헤드 노드 간에 장애 조치를 하도록 설계되지만 이 기능이 확장되어 스크립트 동작을 통해 설치된 구성 요소를 사용자지정하지 않습니다. 스크립트 동작을 통해 설치된 구성 요소가 가용성이 높아야 하는 경우 사용 가능한 두 헤드 노드를 사용하는 장애 조치 메커니즘을 구현해야 합니다.
+> HDInsight의 일부로 제공되는 서비스는 두 헤드 노드 간에 필요에 따라 장애 조치하도록 설계되었습니다. 이 기능은 스크립트 작업을 통해 설치된 구성 요소를 사용자 지정하도록 확장되지 않습니다. 사용자 지정 구성 요소에 대한 고가용성이 필요한 경우 사용자 고유의 장애 조치 메커니즘을 구현해야 합니다.
 
 ### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
-클러스터에 설치하는 구성 요소에는 HDFS(Hadoop 분산 파일 시스템) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 WASB(Azure Blob 저장소)를 기본 저장소로 사용합니다. 이를 통해 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB를 사용하도록 구성해야 합니다.
+클러스터에 설치하는 구성 요소에는 HDFS(Hadoop 분산 파일 시스템) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Store를 기본 저장소로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
-예를 들어 다음은 giraph examples.jar 파일을 로컬 파일 시스템에서 WASB로 복사합니다.
+대부분의 작업의 경우 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음은 giraph-examples.jar 파일을 로컬 파일 시스템에서 클러스터 저장소로 복사합니다.
 
 ```bash
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
+이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Data Lake Store에 대해 `adl:///example/jars`를 또는 Azure Storage에 대해 `wasb:///example/jars`를 지정합니다.
+
 ### <a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 
-스크립트 실행 동안 STDOUT 및 STDERR에 기록된 정보는 로깅되고 Ambari 웹 UI를 사용하여 볼 수 있습니다.
+HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니다. Ambari 웹 UI를 사용하여 이 정보를 볼 수 있습니다.
 
 > [!NOTE]
 > Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓸 수 있지만 추가 로깅을 추가하려 할 수도 있습니다. 사용할 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo` 은 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-STDERR(2), STDOUT(1, 여기에 나와있지 않은 기본 형식임)로 전송된 정보를 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)를 참조하세요.
+이는 STDOUT에 작성된 정보를 STDERR(2)로 대신 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)를 참조하세요.
 
 스크립트 동작에서 기록된 정보 보기에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ### <a name="bps8"></a> 줄 끝을 LF인 파일을 ASCII로 저장
 
-Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 저장되어야 합니다. 파일이 파일의 시작 부분에 바이트 순서 표시를 포함할 수 있는 UTF-8로 저장된 경우 또는 줄 끝이 Windows 편집기에 공통되는 CRLF인 경우 스크립트는 다음과 유사한 오류로 실패합니다.
+Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 저장되어야 합니다. UTF-8로 저장되거나 줄 끝으로 CRLF를 사용하는 파일은 다음 오류와 함께 실패할 수 있습니다.
 
 ```
 $'\r': command not found
@@ -184,7 +185,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 파일을 다운로드할 때 apt-get 또는 인터넷을 통해 데이터를 전송하는 기타 작업을 사용하여 패키지를 설치하면 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로의 장애 조치(failover) 중일 수 있습니다.
 
-스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대 3번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는 2초 동안 대기됩니다.
+스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음 함수는 재시도 논리를 구현하는 방법을 보여 줍니다. 실패하기 전에 작업을 세 번 다시 시도합니다.
 
 ```bash
 #retry
@@ -210,7 +211,7 @@ retry() {
 }
 ```
 
-다음은 이 함수 사용 예제입니다.
+다음 예제에서는 이 함수를 사용하는 방법을 보여 줍니다.
 
 ```bash
 retry ls -ltr foo
@@ -220,22 +221,22 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>사용자 지정 스크립트에 대한 도우미 메서드
 
-스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이 메서드는 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh)에 정의되어 있으며 다음을 사용하여 스크립트에 포함할 수 있습니다.
+스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 스크립트에 포함되어 있습니다. 다음을 사용하여 다운로드하고 스크립트의 일부로 사용합니다.
 
 ```bash
 # Import the helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-이렇게 하면 스크립트에서 사용하기 위해 도우미를 사용할 수 있게 됩니다.
+스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
 | 도우미 사용 | 설명 |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
-| `untar_file TARFILE DESTDIR` |( `-xf`을 사용하여)대상 디렉터리에 Tar 파일을 추출합니다. |
-| `test_is_headnode` |클러스터 헤드 노드에서 실행되는 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
-| `test_is_datanode` |현재 노드가 데이터(작업자) 노드인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
-| `test_is_first_datanode` |현재 노드가 첫 번째 데이터(작업자) 노드(workernode0라는 이름)인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
+| `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
+| `test_is_headnode` |클러스터 헤드 노드에서 실행한 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
+| `test_is_datanode` |현재 노드가 데이터(작업자) 노드인 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
+| `test_is_first_datanode` |현재 노드가 첫 번째 데이터(작업자) 노드(workernode0이라는 이름)인 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
 | `get_headnodes` |클러스터에서 헤드 노드의 정규화된 도메인 이름을 반환합니다. 이름은 쉼표로 구분됩니다. 빈 문자열이 오류에 반환됩니다. |
 | `get_primary_headnode` |기본 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
 | `get_secondary_headnode` |보조 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
@@ -248,25 +249,25 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 ### <a name="passing-parameters-to-a-script"></a>스크립트에 매개 변수 전달
 
-경우에 따라 스크립트에 매개 변수가 필요할 수 있습니다. 예를 들어 Ambari REST API에서 정보를 검색하기 위해 클러스터에 대한 관리자 암호가 필요할 수 있습니다.
+경우에 따라 스크립트에 매개 변수가 필요할 수 있습니다. 예를 들어 Ambari REST API를 사용하는 경우 클러스터에 대한 관리자 암호가 필요할 수 있습니다.
 
 스크립트에 전달된 매개 변수는 *위치 매개 변수*로 알려져 있으며 첫 번째 매개 변수의 경우 `$1`, 두 번째는 `$2` 등에 할당됩니다. `$0` 는 스크립트 자체의 이름을 포함합니다.
 
-스크립트에 매개 변수로 전달된 값은 작은 따옴표(')로 묶어야 하므로 전달된 값은 리터럴로 처리되고 특별한 처리는 '!'와 같은 문자를 포함하도록 지정되지 않습니다.
+매개 변수로 스크립트에 전달되는 값은 작은따옴표(')로 묶여야 합니다. 이렇게 하면 전달된 값이 리터럴로 처리됩니다.
 
 ### <a name="setting-environment-variables"></a>환경 변수 설정
 
-환경 변수의 설정은 다음으로 수행됩니다.
+환경 변수의 설정은 다음 문으로 수행됩니다.
 
     VARIABLENAME=value
 
-여기서 VARIABLENAME은 변수의 이름입니다. 이 변수에 액세스하려면 `$VARIABLENAME`를 사용합니다. 예를 들어 위치 매개 변수에서 제공하는 값을 PASSWORD라는 환경 변수로 할당하려면 다음을 사용합니다.
+여기서 VARIABLENAME은 변수의 이름입니다. 변수에 액세스하려면 `$VARIABLENAME`을 사용합니다. 예를 들어 위치 매개 변수에서 제공하는 값을 PASSWORD라는 환경 변수로 할당하려면 다음 문을 사용합니다.
 
     PASSWORD=$1
 
 이후 정보에 액세스하려면 `$PASSWORD`를 사용합니다.
 
-스크립트 내에서 설정된 환경 변수는 스크립트의 범위 내에만 존재합니다. 경우에 따라 스크립트가 완료된 후에 유지되는 시스템 전체 범위의 환경 변수를 추가해야 할 수 있습니다. 그래서 일반적으로 SSH 통해 클러스터에 연결된 사용자는 스크립트에서 설치한 구성 요소를 사용할 수 있습니다. 환경 변수를 `/etc/environment`에 추가하여 이를 수행할 수 있습니다. 예를 들어 다음은 **HADOOP\_CONF\_DIR**을 추가합니다.
+스크립트 내에서 설정된 환경 변수는 스크립트의 범위 내에만 존재합니다. 경우에 따라 스크립트가 완료된 후에 유지되는 시스템 수준 환경 변수를 추가해야 할 수 있습니다. 시스템 수준 환경 변수를 추가하려면 `/etc/environment`에 변수를 추가합니다. 예를 들어 다음 문은 `HADOOP_CONF_DIR`을 추가합니다.
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
@@ -276,20 +277,20 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 클러스터를 사용자 지정하는 데 사용되는 스크립트는 다음 위치 중 하나에 저장해야 합니다.
 
-* 클러스터의 __기본 저장소 계정__
+* 클러스터와 연결된 __Azure Storage 계정__
 
 * 클러스터와 연결된 __추가 저장소 계정__
 
-* __공개적으로 읽을 수 있는 URI__(예: OneDrive, Dropbox 등)
+* __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
 * HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight와 함께 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Data Lake Store를 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
     > [!NOTE]
     > HDInsight에서 Data Lake Store에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
 
-또한 스크립트에서 다른 곳에 있는 리소스에 액세스할 경우 이러한 리소스는 공개적으로 액세스 가능(최소한 공용 읽기 전용)해야 합니다. 예를 들어 `download_file`을 사용하여 클러스터에 파일을 다운로드하려고 할 수 있습니다.
+스크립트에서 사용되는 리소스는 공개적으로도 사용할 수 있어야 합니다.
 
-클러스터(예: 기본 저장소 계정)에서 액세스할 수 있는 Azure 저장소 계정에 파일을 저장하면 이 저장소가 Azure 네트워크 내에 있기 때문에 빠른 액세스를 제공합니다.
+Azure Storage 계정 또는 Azure Data Lake Store에서 파일을 저장하면 Azure 네트워크 내에서 두 가지 모두 빠른 액세스를 제공합니다.
 
 > [!NOTE]
 > 스크립트를 참조하는 데 사용되는 URI 형식은 사용 중인 서비스에 따라 다릅니다. HDInsight 클러스터와 연결된 저장소 계정의 경우 `wasb://` 또는 `wasbs://`를 사용합니다. 공개적으로 읽을 수 있는 URI의 경우 `http://` 또는 `https://`를 사용합니다. Data Lake Store의 경우 `adl://`을 사용합니다.
@@ -298,7 +299,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 HDInsight의 다른 버전들은 Ubuntu의 특정 버전에 의존합니다. 스크립트에서 확인해야 하는 OS 버전 간의 차이가 있을 수 있습니다. 예를 들어 Ubuntu의 버전에 연결된 이진 파일을 설치해야 할 수 있습니다.
 
-OS 버전을 확인하려면 `lsb_release`을 사용합니다. 예를 들어, 다음에서 OS 버전에 따라 다른 tar 파일을 참조하는 방법을 보여 줍니다.
+OS 버전을 확인하려면 `lsb_release`을 사용합니다. 예를 들어, 다음 스크립트에서 OS 버전에 따라 특정 tar 파일을 참조하는 방법을 보여 줍니다.
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -315,26 +316,30 @@ fi
 
 이러한 스크립트 배포를 준비할 때 수행하는 단계는 다음과 같습니다.
 
-* 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 기본 또는 클러스터 배포 시 지정된 추가 저장소 계정, 또는 공개적으로 액세스할 수 있는 저장소 컨테이너가 될 수 있습니다.
-* 스크립트가 동일한 노드에서 여러 번 실행될 수 있도록 멱등원으로 실행되는지 확인하는 검사를 스크립트에 추가합니다.
+* 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 예를 들어 클러스터의 기본 저장소입니다. 공개적으로 읽을 수 있는 호스팅 서비스에 파일을 저장할 수도 있습니다.
+* 스크립트가 멱등원인지 확인합니다. 이렇게 하면 스크립트가 동일한 노드에서 여러 번 실행될 수 있습니다.
 * 임시 파일 디렉터리 /tmp를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
-* OS 수준 설정이나 Hadoop 서비스 구성 파일이 변경된 경우에는 HDInsight 서비스에서 스크립트에 설정된 환경 변수와 같은 OS 수준 설정을 선택할 수 있도록 해당 서비스를 다시 시작할 수 있습니다.
+* OS 수준 설정 또는 Hadoop 서비스 구성 파일이 변경되면 HDInsight 서비스를 다시 시작할 수 있습니다.
 
 ## <a name="runScriptAction"></a>스크립트 작업을 실행하는 방법
 
-스크립트 동작을 사용하여 Azure Portal, Azure PowerShell, Azure Resource Manager 템플릿 또는 HDInsight .NET SDK를 통해 HDInsight 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업 사용 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+스크립트 작업을 사용하여 다음 메서드를 사용하여 HDInsight 클러스터를 사용자 지정할 수 있습니다.
+
+* Azure 포털
+* Azure PowerShell
+* Azure 리소스 관리자 템플릿
+* HDInsight .NET SDK
+
+각 메서드 사용에 대한 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ## <a name="sampleScripts"></a>사용자 지정 스크립트 샘플
 
-Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 예제 스크립트 및 사용하는 방법에 대한 지침은 다음 링크에서 찾을 수 있습니다.
+Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 더 많은 예제 스크립트 작업은 다음 링크를 참조하세요.
 
 * [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
-* [HDInsight Hadoop 클러스터에 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
-* [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)  
-
-> [!NOTE]
-> 위에 링크된 문서는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 HDInsight로 작동하는 스크립트는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md) 을 참조하거나 각 문서의 위쪽에 사용할 수 있는 링크를 사용합니다.
+* [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
+* [HDInsight 클러스터에 Mono 설치 또는 업그레이드](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -353,24 +358,23 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 | 명령 | 참고 사항 |
 | --- | --- |
-| `unix2dos -b INFILE` |원본 파일이 BAK 확장으로 백업됩니다. |
-| `tr -d '\r' < INFILE > OUTFILE` |OUTFILE는 끝이 LF인 버전만 포함합니다. |
-| `perl -pi -e 's/\r\n/\n/g' INFILE` |새 파일을 만들지 않고 직접 파일을 수정합니다. |
-| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE는 끝이 LF인 버전만 포함합니다. |
+| `unix2dos -b INFILE` |원본 파일이 .BAK 확장으로 백업됩니다. |
+| `tr -d '\r' < INFILE > OUTFILE` |OUTFILE은 끝이 LF인 버전만 포함합니다. |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | 파일을 직접 수정 |
+| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE은 끝이 LF인 버전만 포함합니다. |
 
 **오류**: `line 1: #!/usr/bin/env: No such file or directory`.
 
 *원인*: 스크립트가 바이트 순서 표시(BOM)를 사용하여 UTF-8로 저장될 때 이 오류가 발생합니다.
 
-*해상도*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 새 파일을 만들 수 있습니다.
+*해상도*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-위의 명령의 경우 BOM을 포함하는 파일로 **INFILE** 을 대체합니다. **OUTFILE** 은 BOM을 사용하지 않고 스크립트를 포함하는 새 파일 이름이어야 합니다.
+`INFILE`을 BOM을 포함하는 파일로 대체합니다. `OUTFILE`은 BOM을 사용하지 않고 스크립트를 포함하는 새 파일 이름이어야 합니다.
 
 ## <a name="seeAlso"></a>다음 단계
 
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
-

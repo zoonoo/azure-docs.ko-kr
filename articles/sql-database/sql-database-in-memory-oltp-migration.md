@@ -8,30 +8,30 @@ manager: jhubbard
 editor: MightyPen
 ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
-ms.custom: development
-ms.workload: data-management
+ms.custom: develop databases
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
-
-
+ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
-[메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 응용 프로그램의 성능 향상
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [Premium](sql-database-service-tiers.md) Azure SQL Database에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
 
 > [!NOTE] 
-> [쿼럼이 SQL Database를 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)에 대해 알아보기
+> [쿼럼이 SQL Database를 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)에 대해 알아보기
 
 
 기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>1단계: 프리미엄 데이터베이스 사용 확인
-메모리 내 OLTP는 v12 프리미엄 데이터베이스에서만 지원됩니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
+메모리 내 OLTP는 프리미엄 데이터베이스에서만 지원됩니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -167,16 +167,10 @@ CREATE PROCEDURE schemaname.procedurename
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
 * [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
-* [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)
+* [동적 관리 뷰를 사용하여 Azure SQL Database 모니터링](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크
 * [메모리 내 OLTP(메모리 내 최적화)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [고유하게 컴파일된 저장 프로시저의 소개](http://msdn.microsoft.com/library/dn133184.aspx)
 * [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

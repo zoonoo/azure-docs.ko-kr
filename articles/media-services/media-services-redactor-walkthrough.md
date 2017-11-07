@@ -4,7 +4,7 @@ description: "이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 09/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
-
-
+ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -29,8 +29,6 @@ ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 **Azure Media Redactor**에 대한 자세한 내용은 [얼굴 교정 개요](media-services-face-redaction.md) 항목을 참조하세요.
 
 이 항목에서는 AMSE(Azure Media Services 탐색기) 및 Azure Media Redactor Visualizer(오픈 소스 도구)를 사용하여 전체 교정 워크플로를 실행하는 방법에 대한 단계별 지침을 보여줍니다.
-
-**Azure Media Redactor** MP는 현재 미리 보기 상태입니다. 이 기능은 모든 공용 Azure 지역과 미국 정부 및 중국 데이터 센터에서 사용할 수 있습니다. 이 미리 보기는 현재 무료입니다. 현재 릴리스에서 처리되는 비디오 길이는 10분으로 제한됩니다.
 
 자세한 내용은 [이 블로그](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) 를 참조하세요.
 
@@ -90,12 +88,12 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 ### <a name="set-up-the-tool"></a>도구 설정
 
-1.    전체 솔루션을 다운로드하고 빌드합니다. 
+1.  전체 솔루션을 다운로드하고 빌드합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.    [여기](https://ffmpeg.org/download.html)에서 FFMPEG를 다운로드합니다. 이 프로젝트는 정적 링크가 있는 be1d324(2016-10-04)를 사용하여 개발되었습니다. 
-3.    ffmpeg.exe 및 ffprobe.exe를 AzureMediaRedactor.exe와 동일한 출력 폴더에 복사합니다. 
+2.  [여기](https://ffmpeg.org/download.html)에서 FFMPEG를 다운로드합니다. 이 프로젝트는 정적 링크가 있는 be1d324(2016-10-04)를 사용하여 개발되었습니다. 
+3.  ffmpeg.exe 및 ffprobe.exe를 AzureMediaRedactor.exe와 동일한 출력 폴더에 복사합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +111,13 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
     
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.    아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
-6.    1단계의 출력 자산에 이 파일을 업로드합니다. 이 자산에도 원본 비디오를 업로드하고 기본 자산으로 설정합니다. 
-7.    "Redact" 모드를 사용하여 이 자산에 대해 교정 작업을 실행하여 교정된 최종 비디오를 얻습니다. 
+5.  아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
+
+    >[!NOTE]
+    > idlist.txt는 ANSI로 저장해야 합니다. ANSI로 저장하려면 메모장을 사용할 수 있습니다.
+    
+6.  1단계의 출력 자산에 이 파일을 업로드합니다. 이 자산에도 원본 비디오를 업로드하고 기본 자산으로 설정합니다. 
+7.  "Redact" 모드를 사용하여 이 자산에 대해 교정 작업을 실행하여 교정된 최종 비디오를 얻습니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 
@@ -125,13 +127,8 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+[Azure Media Analytics의 얼굴 편집 발표](https://azure.microsoft.com/blog/azure-media-redactor/)

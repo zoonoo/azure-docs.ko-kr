@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
-
-
+ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -40,9 +40,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="append"></a>추가
-**함수:**<br>  Append(source, suffix)
+**함수:**<br> Append(source, suffix)
 
-**설명:**<br>  원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.
+**설명:**<br> 원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.
 
 **매개 변수:**<br> 
 
@@ -53,9 +53,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**함수:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**함수:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**설명:**<br>  한 형식의 날짜 문자열을 다른 형식으로 변환합니다.
+**설명:**<br> 한 형식의 날짜 문자열을 다른 형식으로 변환합니다.
 
 **매개 변수:**<br> 
 
@@ -67,7 +67,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="join"></a>Join
-**함수:**<br>  Join(separator, source1, source2, …)
+**함수:**<br> Join(separator, source1, source2, …)
 
 **설명:**<br> 다중 **source** 문자열 값을 단일 문자열로 결합할 수 있다는 점을 제외하고 Join()은 Append()와 유사하며, 각 값은 **separator** 문자열로 구분됩니다.
 
@@ -78,13 +78,13 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
 | **구분 기호** |필수 |String |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1 … sourceN ** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
+| **source1  … sourceN ** |필수, 시간 변수 |String |값이 함께 조인될 문자열입니다. |
 
 - - -
 ### <a name="mid"></a>Mid
-**함수:**<br>  Mid(source, start, length)
+**함수:**<br> Mid(source, start, length)
 
-**설명:**<br>  원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.
+**설명:**<br> 원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.
 
 **매개 변수:**<br> 
 
@@ -96,7 +96,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="not"></a>not
-**함수:**<br>  Not(source)
+**함수:**<br> Not(source)
 
 **설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
 
@@ -108,10 +108,10 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="replace"></a>Replace
-**함수:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**함수:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **설명:**<br>
- 문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
+문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
 
 * **oldValue** 및 **replacementValue**가 제공되는 경우:
   
@@ -141,9 +141,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**함수:**<br>  StripSpaces(source)
+**함수:**<br> StripSpaces(source)
 
-**설명:**<br>  원본 문자열에서 모든 공백(" ")을 제거합니다.
+**설명:**<br> 원본 문자열에서 모든 공백(" ")을 제거합니다.
 
 **매개 변수:**<br> 
 
@@ -153,7 +153,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="switch"></a>Switch
-**함수:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue**를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
 
@@ -169,14 +169,14 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 ## <a name="examples"></a>예
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
 사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다. <br>
- 예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
+예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
 
 **식:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **샘플 입출력:** <br>
 
-* **입력**(메일): "john.doe@contoso.com"
+* **입력**(메일): “john.doe@contoso.com”
 * **출력**: "john.doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>사용자 이름에 상수 접미사 추가
@@ -187,8 +187,8 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **샘플 입/출력:** <br>
 
-* **입력**: (userPrincipalName): "John.Doe@contoso.com"
-* **출력**: "John.Doe@contoso.com.test"
+* **입력**: (userPrincipalName): “John.Doe@contoso.com”
+* **출력**:  “John.Doe@contoso.com.test”
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>이름과 성의 부분을 연결하여 사용자 별칭을 생성합니다.
 사용자의 이름 중 처음 3개 문자 및 사용자 성의 처음 5개 문자를 사용하여 사용자 별칭을 생성해야 합니다.
@@ -204,7 +204,7 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br>
- 예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
+예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
 
 **식:** <br>
 
@@ -217,7 +217,7 @@ SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
 Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 정의해야 합니다. <br>
- 상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
+상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
 
 **식:** <br>
 
@@ -236,10 +236,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

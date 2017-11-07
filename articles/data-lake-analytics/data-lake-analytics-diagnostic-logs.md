@@ -12,35 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
-
-
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
-Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
-
-조직에서는 Azure Data Lake Analytics 계정에 대한 진단 로깅을 활성화하여 데이터 액세스 감사 추적을 수집할 수 있습니다. 이러한 로그는 다음과 같은 정보를 제공합니다.
+진단 로깅을 사용하면 데이터 액세스 감사 내역을 수집할 수 있습니다. 이러한 로그는 다음과 같은 정보를 제공합니다.
 
 * 데이터에 액세스하는 사용자의 목록.
 * 데이터가 액세스되는 빈도.
 * 계정에 저장된 데이터의 양.
 
-## <a name="prerequisites"></a>필수 조건
-
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-
-* **Azure 구독을 사용하도록 설정합니다** . [지침](data-lake-analytics-get-started-portal.md)을 참조하세요.
-
-* **Azure Data Lake Analytics 계정**. [Azure 포털을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 지침을 따릅니다.
-
 ## <a name="enable-logging"></a>로깅 사용
 
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Data Lake Analytics 계정을 열고 __모니터링__ 섹션에서 **진단 로그**를 선택합니다. 다음으로, __진단 상태 켜기__를 선택합니다.
 
@@ -52,34 +42,29 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 
    * 진단 로깅을 사용하려면 **상태**를 **켜기**로 설정합니다.
 
-   * 두 가지 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
+   * 세 가지 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
 
      * Azure Storage 계정에 로그를 저장하려면 __저장소 계정에 보관__을 선택합니다. 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure Storage 계정을 제공하여 로그를 저장해야 합니다.
 
      * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍**을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
      * __Log Analytics로 보내기__를 선택하여 데이터를 Log Analytics 서비스로 보냅니다. Log Analytics를 사용하여 로그를 수집하고 분석하려는 경우 이 옵션을 사용합니다.
-   * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
+   * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.  요청 로그는 모든 API 요청을 캡처합니다. 감사 로그는 해당 API 요청에 의해 트리거되는 모든 작업을 기록합니다.
 
-   * 데이터를 유지해야 하는 일 수를 지정합니다.
+   * __저장소 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
 
-   * **Save**를 클릭합니다.
+   * __저장__을 클릭합니다.
 
         > [!NOTE]
-        > __저장__ 단추를 사용하기 전에 __저장소 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.
+        > __저장__ 단추를 클릭하기 전에 __저장소 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.
 
 진단 설정을 사용하도록 설정했으면 __진단 로그__ 블레이드로 돌아가서 로그를 볼 수 있습니다.
 
 ## <a name="view-logs"></a>로그 보기
 
-두 가지 방법으로 Data Lake Analytics 계정에 대한 로그 데이터를 볼 수 있습니다.
+### <a name="use-the-data-lake-analytics-view"></a>Data Lake Analytics 보기 사용
 
-* Data Lake Analytics 계정 설정에서
-* 데이터가 저장된 Azure 저장소 계정에서
-
-### <a name="using-the-data-lake-analytics-settings-view"></a>Data Lake Analytics 설정 보기 사용
-
-1. Data Lake Analytics 계정 블레이드에서 **진단 로그**를 선택한 다음 로그를 표시할 항목을 선택합니다.
+1. Data Lake Analytics 계정 블레이드의 **모니터링** 아래에서 **진단 로그**를 선택한 다음 로그를 표시할 항목을 선택합니다.
 
     ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "진단 로그 보기")
 
@@ -88,13 +73,13 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
     ![로그 항목](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * 요청 로그는 Data Lake Analytics 계정에 대한 모든 API 요청을 캡처합니다.
-   * 감사 로그는 요청 로그와 비슷하지만 Data Lake Analytics 계정에 수행된 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
+   * 감사 로그는 요청 로그와 비슷하지만 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
 
-3. 로그 항목에 대한 **다운로드** 링크를 클릭하여 로그를 다운로드합니다.
+3. 로그 항목에 대한 **다운로드** 링크를 클릭하여 해당 로그를 다운로드합니다.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure 저장소 계정에서
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Storage 계정 사용
 
-1. 로깅을 위한 Data Lake Analytics와 연결된 Azure 저장소 계정 블레이드를 열고 Blob을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
+1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Storage 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
 
     ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
 
@@ -119,7 +104,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
                                     PT1H.json
 
    > [!NOTE]
-   > `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는&1;시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
+   > `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는 1시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
 
     예를 들어, 감사 로그에 대한 전체 경로는 다음과 같을 수 있습니다.
 
@@ -131,7 +116,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 
 ## <a name="log-structure"></a>로그 구조
 
-감사 로그 및 요청 로그는 JSON 형식입니다. 이 섹션에서는 요청 로그 및 감사 로그에 대한 JSON의 구조를 살펴봅니다.
+감사 로그 및 요청 로그는 구조화된 JSON 형식입니다.
 
 ### <a name="request-logs"></a>요청 로그
 
@@ -170,12 +155,12 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 | Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 ID |
+| resourceId |문자열 |작업이 수행되는 리소스의 식별자 |
 | 카테고리 |문자열 |로그 범주 예: **Requests** |
 | operationName |String |기록된 작업의 이름 예를 들어 GetAggregatedJobHistory |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | callerIpAddress |문자열 |요청한 클라이언트의 IP 주소 |
-| CorrelationId |문자열 |로그의 ID입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
+| CorrelationId |문자열 |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음 섹션(요청 로그 속성 스키마)을 참조하세요. |
 
@@ -186,7 +171,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | Path |문자열 |작업이 수행된 경로 |
 | RequestContentLength |int |HTTP 요청의 콘텐츠 길이 |
-| ClientRequestId |문자열 |이 요청을 고유하게 식별하는 ID |
+| ClientRequestId |문자열 |이 요청을 고유하게 식별하는 식별자 |
 | StartTime |문자열 |서버가 요청을 받은 시간 |
 | EndTime |문자열 |서버가 응답을 전송한 시간 |
 
@@ -222,7 +207,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 | Name | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
-| resourceId |문자열 |작업이 수행되는 리소스의 ID |
+| resourceId |문자열 |작업이 수행되는 리소스의 식별자 |
 | 카테고리 |문자열 |로그 범주 예: **Audit**. |
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |문자열 |작업 상태(operationName)에 대한 하위 상태입니다. |
@@ -243,12 +228,12 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 | JobName |문자열 |작업에 대해 제공된 이름 |
 | JobRunTime |문자열 |작업을 처리하는 데 사용된 런타임 |
 | SubmitTime |문자열 |작업이 제출된 시간(UTC) |
-| StartTime |문자열 |제출 후(UTC) 작업이 실행을 시작한 시간. |
-| EndTime |문자열 |작업이 종료된 시간. |
-| 병렬 처리 |문자열 |제출하는 동안 이 작업에 대해 요청된 Data Lake Analytics 단위의 수. |
+| StartTime |문자열 |제출 후(UTC) 작업이 실행을 시작한 시간 |
+| EndTime |문자열 |작업이 종료된 시간 |
+| 병렬 처리 |문자열 |제출하는 동안 이 작업에 대해 요청된 Data Lake Analytics 단위의 수 |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** 및 **Parallelism**은 작업에 대한 정보를 제공하고 작업이 시작 또는 완료된 경우에 값을 포함합니다. 예를 들어 **operationName**이 **JobSubmitted**를 표시한 후 **SubmitTime**은 값을 포함합니다.
+> **SubmitTime**, **StartTime**, **EndTime** 및 **Parallelism**은 작업에 대한 정보를 제공합니다. 해당 작업이 시작 또는 완료되는 경우 이러한 항목만 값을 포함합니다. 예를 들어 **operationName**이 **JobSubmitted** 값을 가진 후 **SubmitTime**은 값을 포함합니다.
 
 ## <a name="process-the-log-data"></a>로그 데이터 처리
 
@@ -256,9 +241,3 @@ Azure Data Lake Analytics에서는 로그 데이터를 처리하고 분석하는
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

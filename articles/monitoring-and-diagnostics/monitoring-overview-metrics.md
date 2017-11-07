@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Azure의 메트릭 개요 | Microsoft Docs"
 description: "Microsoft Azure의 메트릭 개요 및 사용"
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
-ms.lasthandoff: 03/09/2017
-
+ms.date: 09/25/2017
+ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
 
@@ -39,9 +38,10 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 ## <a name="what-are-the-characteristics-of-metrics"></a>메트릭의 특징은 무엇인가요?
 메트릭에는 다음과 같은 특성이 있습니다.
 
-* 모든 메트릭은 **1분 빈도**입니다. 리소스로부터&1;분마다 메트릭 값을 받으므로 거의 실시간으로 리소스의 상태를 확인할 수 있습니다.
+* 모든 메트릭은 **1분 빈도**입니다. 리소스로부터 1분마다 메트릭 값을 받으므로 거의 실시간으로 리소스의 상태를 확인할 수 있습니다.
 * 메트릭은 **즉시 사용할 수 있습니다**. 옵트인하거나 추가 진단을 설정하지 않아도 됩니다.
 * 각 메트릭에 대해 **30일 동안의 기록** 에 액세스할 수 있습니다. 리소스의 성능이나 상태에서 최근 및 월별 추세를 신속하게 살펴볼 수 있습니다.
+* 일부 메트릭은 **차원**이라는 이름-값 쌍 특성을 가질 수합니다. 그러면 메트릭을 더 분할하고 보다 의미 있는 방식으로 탐색할 수 있습니다.
 
 또한 다음을 수행할 수 있습니다.
 
@@ -80,18 +80,20 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
    ![Azure Monitor에서 모든 메트릭을 한 곳에서 액세스](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
-> 추가적인 진단 설정 없이 VM(Azure Resource Manager 기반) 및 가상 컴퓨터 크기 집합에서 호스트 설정 메트릭에 액세스할 수 있습니다. 이러한 호스트 수준 메트릭은 Windows 및 Linux 인스턴스에서 사용할 수 있습니다. 이러한 메트릭을 VM 또는 가상 컴퓨터 크기 집합에서 Azure Diagnostics를 사용할 때 액세스할 수 있는 게스트 OS 수준 메트릭과 혼동해서는 안 됩니다. Diagnostics 구성에 대한 자세한 내용은 [Microsoft Azure 진단이란?](../azure-diagnostics.md)을 참조하세요.
+> 추가적인 진단 설정 없이 VM(Azure Resource Manager 기반) 및 가상 컴퓨터 확장 집합에서 호스트 설정 메트릭에 액세스할 수 있습니다. 이러한 호스트 수준 메트릭은 Windows 및 Linux 인스턴스에서 사용할 수 있습니다. 이러한 메트릭을 VM 또는 가상 컴퓨터 확장 집합에서 Azure Diagnostics를 사용할 때 액세스할 수 있는 게스트 OS 수준 메트릭과 혼동해서는 안 됩니다. Diagnostics 구성에 대한 자세한 내용은 [Microsoft Azure 진단이란?](../azure-diagnostics.md)을 참조하세요.
 >
 >
+
+Azure Monitor에서는 미리 보기 상태로 사용할 수 있는 새 메트릭 차트 환경도 제공합니다. 이 환경을 사용하면 사용자가 하나의 차트에서 여러 리소스의 메트릭을 오버레이할 수 있습니다. 사용자는 새 메트릭 차트 환경을 사용하여 다차원 메트릭을 그리고, 분할하고, 필터링할 수 있습니다. 자세히 알아보려면 [여기를 클릭](https://aka.ms/azuremonitor/new-metrics-charts)하세요.
 
 ## <a name="access-metrics-via-the-rest-api"></a>REST API를 통해 메트릭 액세스
-Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는&2;가지 API가 있습니다.
+Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는 2가지 API가 있습니다.
 
-* [Azure Monitor 메트릭 정의 REST API](https://msdn.microsoft.com/library/mt743621.aspx)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
-* [Azure Monitor 메트릭 REST API](https://msdn.microsoft.com/library/mt743622.aspx)를 사용하여 실제 메트릭 데이터에 액세스합니다.
+* [Azure Monitor 메트릭 정의 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록 및 차원에 액세스합니다.
+* [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics)를 사용하여 실제 메트릭 데이터를 분할하고, 필터링하고, 액세스합니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://msdn.microsoft.com/library/dn931930.aspx) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전은 2016-03-01이며 메트릭 API에 대한 버전은 2016-09-01입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
+> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://docs.microsoft.com/en-us/rest/api/monitor/) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전 및 메트릭 API는 2017-05-01-preview입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
 >
 >
 
@@ -108,33 +110,21 @@ Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure
 메트릭 데이터에 대해 알림을 받거나 자동 작업을 수행하려면 자동 크기 조정 설정에서 알림 규칙을 구성하면 됩니다.
 
 ### <a name="configure-alert-rules"></a>경고 규칙 구성
-메트릭에 대해 경고 규칙을 구성할 수 있습니다. 이러한 경고 규칙으로 메트릭이 특정 임계값을 초과했는지를 확인할 수 있습니다. 그런 다음 전자 메일을 통해 알리거나 사용자 지정 스크립트를 실행하는 데 사용할 수 있는 webhook를 실행할 수 있습니다. webhook를 사용하여 타사 제품 통합을 구성할 수도 있습니다.
+메트릭에 대해 경고 규칙을 구성할 수 있습니다. 이러한 경고 규칙으로 메트릭이 특정 임계값을 초과했는지를 확인할 수 있습니다. Azure Monitor에서 제공되는 두 가지 메트릭 경고 기능이 있습니다.
+
+메트릭 경고: 그런 다음 전자 메일을 통해 알리거나 사용자 지정 스크립트를 실행하는 데 사용할 수 있는 webhook를 실행할 수 있습니다. webhook를 사용하여 타사 제품 통합을 구성할 수도 있습니다.
 
  ![Azure Monitor의 메트릭 및 경고 규칙](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
+근 실시간 경고(미리 보기): 리소스에 대한 여러 메트릭 및 임계값을 모니터링하고 [작업 그룹](/monitoring-action-groups.md)을 통해 알려주는 기능이 있습니다. [여기에서 근 실시간 메트릭 경고](https://aka.ms/azuremonitor/near-real-time-alerts)에 대해 자세히 알아봅니다.
+
+
 ### <a name="autoscale-your-azure-resources"></a>Azure 리소스에서 자동 크기 조정
-일부 Azure 리소스에서는 워크로드 처리를 위해 여러 인스턴스의 확대 또는 축소를 지원합니다. 자동 크기 조정은 App Service(Web Apps), 가상 컴퓨터 크기 집합 및 기존 Azure Cloud Services에 적용됩니다. 특정 메트릭이 지정한 임계값을 초과할 때 규모를 확대하거나 축소하도록 자동 크기 조정 규칙을 구성할 수 있습니다. 자세한 내용은 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 참조하세요.
+일부 Azure 리소스에서는 워크로드 처리를 위해 여러 인스턴스의 확대 또는 축소를 지원합니다. 자동 크기 조정은 App Service(Web Apps), 가상 컴퓨터 확장 집합 및 기존 Azure Cloud Services에 적용됩니다. 특정 메트릭이 지정한 임계값을 초과할 때 규모를 확대하거나 축소하도록 자동 크기 조정 규칙을 구성할 수 있습니다. 자세한 내용은 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 참조하세요.
 
  ![Azure Monitor의 메트릭 및 자동 크기 조정](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>지원되는 서비스 및 메트릭에 대해 알아보기
-Azure Monitor는 새로운 메트릭 인프라입니다. 다음과 같은 Azure Portal의 Azure 서비스 및 새 버전의 Azure Monitor API을 지원합니다.
-
-* VM(Azure Resource Manager 기반)
-* 가상 컴퓨터 크기 집합
-* Batch
-* Event Hubs 네임스페이스
-* 서비스 버스 네임스페이스(프리미엄 SKU에만 해당)
-* SQL Database(버전 12)
-* 탄력적인 SQL 풀
-* 웹 사이트
-* 웹 서버 팜
-* Logic Apps
-* IoT Hub
-* Redis 캐시
-* 네트워킹: 응용 프로그램 게이트웨이
-* Search
-
 모든 지원되는 서비스 및 메트릭의 상세 목록은 [Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭](monitoring-supported-metrics.md)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -143,4 +133,3 @@ Azure Monitor는 새로운 메트릭 인프라입니다. 다음과 같은 Azure 
 * [자동 크기 조정에 대한 공통 메트릭](insights-autoscale-common-metrics.md)
 * [경고 규칙을 만드는 방법](insights-alerts-portal.md)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
-

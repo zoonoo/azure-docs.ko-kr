@@ -20,22 +20,22 @@
 ## [데이터 자산 관리](data-catalog-how-to-manage.md)
 ## [검색 및 pin 데이터 자산 저장](data-catalog-how-to-save-pin.md)
 ## [비즈니스 용어집 설정](data-catalog-how-to-business-glossary.md)
+## [데이터 카탈로그에 안전하게 액세스](data-catalog-how-to-secure-catalog.md)
+## [관련된 데이터 자산 보기](data-catalog-how-to-view-related-data-assets.md) 
 
 # 참조
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
 ## [REST (영문)](/rest/api/datacatalog/)
+## [검색 구문 참조](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [개발자 개념](data-catalog-developer-concepts.md)
-## [개발자 샘플](data-catalog-samples.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
-## [용어](data-catalog-terminology.md)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [가격](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](data-catalog-whats-new.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-catalog)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [용어](data-catalog-terminology.md)

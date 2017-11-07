@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>템플릿을 사용하여 다중 NIC이 있는 VM 만들기
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -247,7 +246,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 ![백 엔드 리소스 그룹](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>PowerShell을 사용하여 템플릿 배포
-PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 [PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료한 후 다음 단계를 완료하여 PowerShell을 설치 및 구성합니다.
+PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 [PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계를 완료한 후 다음 단계를 완료하여 PowerShell을 설치 및 구성합니다.
 
 **`New-AzureRmResourceGroup`** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 
@@ -317,5 +316,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
         data:    Tags: null
         data:
         info:    group create command OK
-
 

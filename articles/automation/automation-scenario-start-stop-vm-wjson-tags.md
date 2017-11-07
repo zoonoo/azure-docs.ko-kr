@@ -3,7 +3,7 @@ title: "JSON 형식 태그를 사용하여 Azure VM 상태 예약 | Microsoft Do
 description: "이 문서에서는 태그에 JSON 문자열을 사용하여 VM 시작 및 종료 예약을 자동화하는 방법을 보여 줍니다."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
-
-
+ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure 자동화 시나리오: JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기
 고객은 종종 가상 컴퓨터의 시작 및 종료를 예약하여 구독 비용을 절감하거나 비즈니스 및 기술 요구 사항을 지원하는 데 도움을 주려고 합니다.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 이러한 Runbook은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 사용하여 인증합니다.
 
 ## <a name="download-the-runbooks-for-the-scenario"></a>시나리오에 대한 Runbook 다운로드
-이 시나리오는 이 프로젝트에 대한 [TechNet 갤러리](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) 또는 [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) 저장소에서 다운로드할 수 있는&4;개의 PowerShell 워크플로 Runbook으로 구성되어 있습니다.
+이 시나리오는 이 프로젝트에 대한 [TechNet 갤러리](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) 또는 [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) 저장소에서 다운로드할 수 있는 4개의 PowerShell 워크플로 Runbook으로 구성되어 있습니다.
 
 | Runbook | 설명 |
 | --- | --- |
@@ -103,11 +103,11 @@ Runbook은 일정이 연결된 가상 컴퓨터를 반복하고 어떤 조치를
 
    ![PowerShell의 GetSystemTimeZones](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * 요일은&0;에서&6;의 숫자 값으로 표시됩니다. 값&0;은 일요일입니다.
+   * 요일은 0에서 6의 숫자 값으로 표시됩니다. 값 0은 일요일입니다.
    * 시작 시간은 **S** 특성으로 표시되고 해당 값은 24시간 형식입니다.
    * 끝 또는 종료 시간은 **E** 특성으로 표시되고 해당 값은 24시간 형식입니다.
 
-     **S** 및 **E** 특성 값이 각각&0;인 경우 가상 컴퓨터는 평가 시의 현재 상태를 유지합니다.
+     **S** 및 **E** 특성 값이 각각 0인 경우 가상 컴퓨터는 평가 시의 현재 상태를 유지합니다.
 3. 특정 요일에 대한 평가를 생략하려면 해당 요일의 섹션을 추가하지 마세요. 다음 예제에서는 월요일만 평가되고 다른 요일은 무시됩니다.
 
     ```json
@@ -145,7 +145,7 @@ VM을 종료하려면 VM 또는 리소스 그룹이 위치한 곳에서 해당 �
 ### <a name="tag-from-powershell"></a>PowerShell에서 태그 지정
 가져온 모든 Runbook은 스크립트 맨 처음에 PowerShell에서 직접 Runbook을 실행하는 방법을 설명하는 도움말 정보를 포함합니다. PowerShell에서 Add-ScheduleResource 및 Update-ScheduleResource Runbook을 호출할 수 있습니다. 포털 외부에서 VM 또는 리소스 그룹에 Schedule 태그를 만들거나 업데이트할 수 있도록 하는 필수 매개 변수를 전달하여 이 작업을 수행합니다.
 
-PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azure에 맞게 PowerShell 환경](/powershell/azureps-cmdlets-docs)을 설정해야 합니다. 설정을 완료한 후에 다음 단계를 진행할 수 있습니다.
+PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azure에 맞게 PowerShell 환경](/powershell/azure/overview)을 설정해야 합니다. 설정을 완료한 후에 다음 단계를 진행할 수 있습니다.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>PowerShell을 사용하여 Schedule 태그 만들기
 1. PowerShell 세션을 엽니다. 다음 예제를 사용하여 실행 계정으로 인증하고 구독을 지정합니다.
@@ -241,9 +241,3 @@ Azure 포털에서 Test-ResourceSchedule Runbook 작업의 세부 정보를 보�
 * PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 * Runbook 로깅 및 출력에 대한 자세한 내용은 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
 * Azure 실행 계정 및 이 계정을 사용하여 Runbook을 인증하는 방법에 대한 자세한 내용은 [Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

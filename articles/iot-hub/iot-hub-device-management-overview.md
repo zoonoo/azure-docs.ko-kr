@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 장치 관리 개요
 ## <a name="introduction"></a>소개
@@ -47,7 +46,7 @@ IoT는 특유의 장치 관리 과제를 수반하며 모든 기업 수준의 �
 * **많은 역할 서비스**: IoT 운영 역할 특유의 워크플로와 프로세스에 대한 지원이 중요합니다. 운영 담당자는 내부 IT 부서에 주어진 제약 조건에 맞도록 작업을 진행해야 합니다.  또한 실시간 장치 운영 정보를 감독자 및 기타 관리 역할 담당자에게 표면화시키는 지속 가능한 방법을 찾아내야 합니다.
 
 ## <a name="device-lifecycle"></a>장치 수명 주기
-모든 기업 IoT 프로젝트에 공통된 일련의 일반 장치 관리 단계가 있습니다. Azure IoT의 장치 수명 주기 내에는&5;단계가 있습니다.
+모든 기업 IoT 프로젝트에 공통된 일련의 일반 장치 관리 단계가 있습니다. Azure IoT의 장치 수명 주기 내에는 5단계가 있습니다.
 
 ![5개의 Azure IoT 장치 수명 주기 단계는 계획, 구축, 구성, 모니터링, 사용 중지입니다.][img-device_lifecycle]
 
@@ -64,7 +63,7 @@ IoT는 특유의 장치 관리 과제를 수반하며 모든 기업 수준의 �
     *추가 정보*:  [직접 메서드 사용][lnk-c2d-methods], [장치에서 직접 메서드 호출][lnk-methods-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties], [작업 예약 및 브로드캐스트][lnk-jobs], [여러 장치에서 작업 예약][lnk-jobs-devguide]
 * **모니터링**: 전반적인 다수의 장치 상태와 현재 작업 상태를 모니터링하고 주의가 필요한 문제를 운영자에게 알립니다.  장치 쌍을 적용하여 장치 업데이트 작업의 상태를 실시간 운영 상태를 보고할 수 있도록 허용합니다. 장치 쌍 쿼리를 사용하여 즉각적인 문제를 노출하는 강력한 대시보드 보고서를 작성합니다.
   
-    *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 쌍 및 작업의 IoT Hub 쿼리 언어][lnk-query-language]
+    *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 쌍, 작업 및 메시지 라우팅의 IoT Hub 쿼리 언어][lnk-query-language]
 * **사용 중지**: 오류가 발생하거나, 업그레이드 주기 후에 또는 서비스 수명 주기가 끝나면 장치를 교체하거나 서비스를 해제합니다.  장치 쌍을 사용하여 물리적 장치를 바꾸는 경우 장치 정보를 유지하거나 사용이 중지될 경우 보관합니다. IoT Hub ID 레지스트리를 사용하여 장치 ID 및 자격 증명을 안전하게 해지합니다.
   
     *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 ID 관리][lnk-identity-registry]
@@ -89,7 +88,7 @@ IoT Hub는 다음과 같은 장치 관리 패턴을 가능하게 합니다.  [�
     ![장치 관리 보고 진행률 및 상태 패턴 그래픽][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>다음 단계
-IoT Hub에서 장치 관리를 위해 제공하는 기능, 패턴 및 코드 라이브러리를 사용하여 각 장치 수명 주기 단계에서 기업 IoT 운영자 요구 사항을 충족하는 IoT 응용 프로그램을 만들 수 있습니다.
+IoT Hub에서 장치 관리를 위해 제공하는 기능, 패턴 및 코드 라이브러리를 사용하면 각 장치 수명 주기 단계에서 기업 IoT 운영자 요구 사항을 충족하는 IoT 응용 프로그램을 만들 수 있습니다.
 
 IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시작][lnk-get-started] 자습서를 참조하세요.
 
@@ -114,4 +113,3 @@ IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-

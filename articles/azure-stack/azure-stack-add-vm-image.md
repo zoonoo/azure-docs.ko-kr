@@ -1,6 +1,6 @@
 ---
-title: Adding a VM image to Azure Stack | Microsoft Docs
-description: Add your organization&quot;s custom Windows or Linux VM image for tenants to use
+title: "VM 이미지를 Azure 스택에 추가 | Microsoft Docs"
+description: "조직의 사용자 지정 Windows 또는 Linux VM 이미지를 사용 하도록 테 넌 트를 추가 합니다."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,127 +12,186 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 09/25/2017
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f9f68644f5a53f8ddb76a51785d0641211b8288a
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Make a custom virtual machine image available in Azure Stack
-Azure Stack enables administrators to make VM images, such as their organization’s custom VHD, available to their tenants. Images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI with the creation of a Marketplace item. A Windows Server 2012 R2 image is included by default in the Azure Stack Technical Preview.
+# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>이미지를 사용자 지정 가상 컴퓨터에서에서 사용할 수 있도록 Azure 스택
 
-> [!NOTE]
-> VM images with Marketplace items can be deployed by selecting **New** in the UI, and then selecting the **Virtual Machines** category. The VM image items are listed.
-> 
-> 
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-## <a name="add-a-vm-image-to-marketplace-with-powershell"></a>Add a VM image to Marketplace with PowerShell
-If the VM image VHD is available locally on the console VM (or another externally connected device), use the following steps:
+에서는 Azure 스택 연산자 수의 사용자 지정 가상 컴퓨터 이미지 사용할 수 있도록 사용자에 게 있습니다. Azure 리소스 관리자 템플릿을 이러한 이미지를 참조할 수 있습니다 또는 마켓플레이스 항목으로 Azure 마켓플레이스 UI에 추가할 수 있습니다. 
 
-1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 마켓플레이스 VM 이미지 추가
+
+다음과 같은 사항을 실행는 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 또는 Windows 기반 외부 클라이언트에서 있다면 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+
+1. [Azure 스택에 대 한 PowerShell을 설치](azure-stack-powershell-install.md)합니다.  
+
+2. 다운로드는 [Azure 스택을 사용 하는 데 필요한 도구](azure-stack-powershell-download.md)합니다.  
+
+3. Windows 또는 Linux 운영 체제 가상 하드 디스크 이미지 준비 VHD 형식에서 (VHDX 형식을 사용 하지 않는).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contains image preparation instructions in the **Prepare the VHD for upload** section.
-   * For Linux images, follow the steps to prepare the image or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).
-2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
+   * 준비 이미지에 대 한 지침은 Windows 이미지 참조 [리소스 관리자 배포에 대 한 Windows VM 이미지를 Azure에 업로드](../virtual-machines/windows/upload-generalized-managed.md)합니다.
+   * Linux 이미지를 참조 하십시오. [배포 Linux 가상 컴퓨터 Azure 스택에](azure-stack-linux.md)합니다. 이미지를 준비 하거나 문서에 설명 된 대로 기존 Azure 스택 Linux 이미지를 사용 하는 단계를 완료 합니다.  
+
+Azure 스택 마켓플레이스 이미지를 추가 하려면 다음 단계를 수행 합니다.
+
+1. 연결 및 ComputeAdmin 모듈을 가져옵니다.
    
    ```powershell
+   Set-ExecutionPolicy RemoteSigned
+
+   # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
-   ```powershell
-   Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
-   ```
+2. Azure 스택 환경에 로그인 합니다. Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)을 사용 하 여 Azure 스택 환경 배포 여부에 따라 다음 스크립트 중 하나를 실행 합니다. (Azure AD를 대체 `tenantName`, `GraphAudience` 끝점 및 `ArmEndpoint` 환경 구성을 반영 하도록 값입니다.)
 
-4. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+    * **Azure Active Directory**합니다. 다음 cmdlet을 사용 합니다.
 
-    a. **Azure Active Directory**, use the following cmdlet:
+      ```PowerShell
+      # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+      $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+      # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+      $GraphAudience = "<GraphAuidence endpoint for your environment>"
+      
+      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+      Add-AzureRMEnvironment `
+        -Name "AzureStackAdmin" `
+        -ArmEndpoint $ArmEndpoint
+
+      Set-AzureRmEnvironment `
+        -Name "AzureStackAdmin" `
+        -GraphAudience $GraphAudience
+
+      $TenantID = Get-AzsDirectoryTenantId `
+        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+        -EnvironmentName AzureStackAdmin
+
+      Login-AzureRmAccount `
+        -EnvironmentName "AzureStackAdmin" `
+        -TenantId $TenantID 
+      ```
+
+   * **Active Directory Federation Services**합니다. 다음 cmdlet을 사용 합니다.
     
-    ```PowerShell
-       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
-    ```
-    b. **Active Directory Federation Services**, use the following cmdlet:
-    
-    ```PowerShell
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
-    ```
+        ```PowerShell
+        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
+        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+        $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+        Add-AzureRMEnvironment `
+          -Name "AzureStackAdmin" `
+          -ArmEndpoint $ArmEndpoint
+
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience $GraphAudience `
+          -EnableAdfsAuthentication:$true
+
+        $TenantID = Get-AzsDirectoryTenantId `
+          -ADFS 
+          -EnvironmentName AzureStackAdmin 
+
+        Login-AzureRmAccount `
+          -EnvironmentName "AzureStackAdmin" `
+          -TenantId $TenantID 
+        ```
+    
+3. VM 이미지를 호출 하 여 추가 된 `Add-AzsVMImage` cmdlet. 에 `Add-AzsVMImage` cmdlet 지정 `osType` Windows 또는 Linux. 게시자, 제품, SKU 및 VM 이미지에 대 한 버전을 포함 합니다. 허용 된 매개 변수에 대 한 정보를 참조 하십시오. [매개 변수](#parameters)합니다. 매개 변수는 VM 이미지를 참조 하 여 Azure 리소스 관리자 템플릿을 사용 됩니다. 다음 예제에서는 스크립트를 호출합니다.
      
-     ```powershell
-     # Store the AAD service administrator account credentials in a variable 
-     $UserName='<Username of the service administrator account>'
-     $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
-     $Credential=New-Object PSCredential($UserName,$Password)
+  ```powershell
+  Add-AzsVMImage `
+    -publisher "Canonical" `
+    -offer "UbuntuServer" `
+    -sku "14.04.3-LTS" `
+    -version "1.0.0" `
+    -osType Linux `
+    -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+  ```
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
-     ```
+이 명령은 다음 작업을 수행 합니다.
 
-The command does the following:
+* Azure 스택 환경으로 인증합니다.
+* 새로 만든된 임시 저장소 계정에 로컬 VHD를 업로드합니다.
+* VM 이미지 리포지토리에 VM 이미지를 추가합니다.
+* 마켓플레이스 항목을 만듭니다.
 
-* Authenticates to the Azure Stack environment
-* Uploads the local VHD to a newly created temporary storage account
-* Adds the VM image to the VM image repository
-* Creates a Marketplace item
+포털에서이 명령은 성공적으로 실행 했는지 확인 하려면는 마켓플레이스로 이동 합니다. VM 이미지에서 사용할 수 있는지 확인은 **가상 컴퓨터** 범주입니다.
 
-To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
+![성공적으로 추가 하는 VM 이미지](./media/azure-stack-add-vm-image/image5.PNG) 
 
-> ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG)
-> 
-> 
+## <a name="remove-a-vm-image-by-using-powershell"></a>PowerShell을 사용 하 여 VM 이미지를 제거 합니다.
 
-Following is a description of the command parameters.
+가상 컴퓨터 이미지 업로드 필요 없는 경우 다음 cmdlet을 사용 하 여 시장에서 삭제할 수 없습니다.
 
-| Parameter | Description |
+```powershell
+Remove-AzsVMImage `
+  -publisher "Canonical" `
+  -offer "UbuntuServer" `
+  -sku "14.04.3-LTS" `
+  -version "1.0.0" `
+```
+
+## <a name="parameters"></a>매개 변수
+
+| 매개 변수 | 설명 |
 | --- | --- |
-| **tenantID** |Your Azure Active Directory tenant ID in the form *&lt;AADTenantID*.onmicrosoft.com&gt;. |
-| **publisher** |The publisher name segment of the VM Image that tenants use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
-| **offer** |The offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
-| **sku** |The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
-| **version** |The version of the VM Image that tenants use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
-| **osType** |The osType of the image must be either ‘Windows’ or ‘Linux’. |
-| **osDiskLocalPath** |The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
-| **dataDiskLocalPaths** |An optional array of the local paths for data disks that can be uploaded as part of the VM image. |
-| **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. The default is set to true. |
-| **title** |The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. |
-| **description** |The description of the Marketplace item. |
-| **EnvironmentName** |The Azure Stack administrtor's PowerShell environment name. |
-| **azureStackCredentials** |The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
-| **location** |The location to which the VM image should be published. By default, this value is set to local.|
-| **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
-| **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
+| **게시자** |사용자가 이미지를 배포할 때 사용 되는 VM 이미지의 게시자 이름 세그먼트입니다. 예로 **Microsoft**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오. |
+| **제공** |사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 제안 이름 세그먼트입니다. 예로 **windows Server**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오. |
+| **sku** |사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 SKU 이름 세그먼트입니다. 예로 **Datacenter2016**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오. |
+| **version** |사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 버전입니다. 이 버전은 형식에서  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오. |
+| **osType** |이미지의 osType 납입이 되어야 **Windows** 또는 **Linux**합니다. |
+| **osDiskLocalPath** |OS 디스크 VHD 스택에 Azure VM 이미지로 업로드 하는 로컬 경로입니다. |
+| **dataDiskLocalPaths** |선택적 배열 VM 이미지의 일환으로 업로드할 수 있는 데이터 디스크에 대 한 로컬 경로입니다. |
+| **CreateGalleryItem** |Marketplace에서 항목을 만들 것인지를 결정 하는 부울 플래그입니다. 기본적으로 설정은 **true**합니다. |
+| **제목** |마켓플레이스 항목의 표시 이름입니다. 기본적으로 설정은 `Publisher-Offer-Sku` VM 이미지의 값입니다. |
+| **description** |마켓플레이스 항목의 설명입니다. |
+| **위치** |VM 이미지를 게시할 위치입니다. 기본적으로이 값 설정 **로컬**합니다.|
+| **osDiskBlobURI** |(선택 사항) 이 스크립트를 받기도 Blob 저장소 URI에 대 한 `osDisk`합니다. |
+| **dataDiskBlobURIs** |(선택 사항) 이 스크립트는 또한 이미지에 데이터 디스크를 추가 하기 위한 Blob 저장소 Uri의 배열을 허용 합니다. |
 
-## <a name="add-a-vm-image-through-the-portal"></a>Add a VM image through the portal
+## <a name="add-a-vm-image-through-the-portal"></a>포털을 통해 VM 이미지를 추가 합니다.
+
 > [!NOTE]
-> This method requires creating the Marketplace item separately.
-> 
-> 
+> 이 메서드를 별도로 마켓플레이스 항목을 만들 해야 합니다.
 
-One requirement of images is that they can be referenced by a Blob storage URI. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX), and then upload the image to a storage account in Azure or in Azure Stack. If your image is already uploaded to Blob storage in Azure or Azure Stack, you can skip this step.
+이미지를 Blob 저장소 URI에서 참조할 수 있어야 합니다. VHD 형식 (하지 VHDX) Windows 또는 Linux 운영 체제 이미지를 준비 하 고 이미지를 Azure 또는 Azure 스택의 저장소 계정에 업로드 합니다. 이미지에 이미 Azure 또는 Azure 스택에서 Blob 저장소에 업로드, 1 단계를 건너뛸 수 있습니다.
 
-Follow the steps from [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) article through the step **Upload the VM image to your storage account**. Keep in mind the following:
+1. [리소스 관리자 배포에 대 한 Windows VM 이미지를 Azure에 업로드](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) 또는 Linux 이미지에 대 한에 설명 된 지침에 따라 [배포 Linux 가상 컴퓨터 Azure 스택에](azure-stack-linux.md)합니다. 이미지를 업로드 하기 전에 다음 사항을 고려해 야 할 주요은:
 
-* For a Linux image, follow the instructions to prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).
-* It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure Stack](azure-stack-deploy-template-powershell.md) step for the ‘Login to Azure’ step.
-* Make a note of the Blob storage URI where you upload the image. It has the following format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
-
-To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
-
-![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
-
-![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
-
-1. Sign in to Azure Stack as an administrator. Go to **Region Management**. Then, under **RPs**, select  **Compute Resource Provider** > **VM Images** > **Add.**
+   * 더 적은 시간이 이미지 스택 Azure 이미지 리포지토리에 푸시를 사용 하기 때문에 Azure Blob 저장소에 보다 Azure 스택 Blob 저장소에 이미지를 업로드 하려면 더 효율적입니다. 
    
-   ![Start to add an image](./media/azure-stack-add-vm-image/image3.png)
-2. On the following blade, enter the publisher, offer, SKU, and version of the VM image. These name segments refer to the VM image in Azure Resource Manager templates. Make sure to select the **osType** correctly. For **osDiskBlobURI**, enter the URI where the image was uploaded in step 1. Click **Create** to begin creating the VM Image.
+   * 업로드 하는 경우는 [Windows VM 이미지](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), 대체 해야는 **Azure에 로그인** 단계와 함께 [Azure 스택 운영자의 PowerShell 환경을 구성](azure-stack-powershell-configure-admin.md) 단계입니다.  
+
+   * Blob 저장소 URI 이미지를 업로드 하기를 기록해 둡니다. Blob 저장소 URI 형식은 다음과 같습니다:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd 합니다.
+
+   * Blob를 익명으로 액세스할 수 있도록로 저장소 계정 blob 컨테이너는 VM 이미지의 VHD 업로드 되었습니다. 선택 **Blob**를 선택한 후 **액세스 정책**합니다. 필요에 따라 대신는 컨테이너에 대 한 공유 액세스 서명 생성 및 blob URI의 일부분으로 포함 수 있습니다.
+
+   ![저장소 계정 blob로 이동](./media/azure-stack-add-vm-image/image1.png)
+
+   ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
+
+2. 연산자와 Azure 스택에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스** > **리소스 공급자**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
+
+3. 아래 **VM 이미지를 추가할**, 게시자, 제품, SKU, 가상 컴퓨터 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트는 리소스 관리자 템플릿에서 VM 이미지를 참조 하십시오. 선택 하는 **osType** 올바르게 값입니다. 에 대 한 **OD 디스크 Blob URI**를 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지 만들기를 시작할 수 있습니다.
    
-   ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
-3. The VM Image status changes to ‘Succeeded’ when the image is successfully added.
-4. Tenants can deploy the VM Image by specifying the publisher, offer, SKU, and version of the VM image in an Azure Resource Manager template. To make the VM image more readily available for tenant consumption in the UI, it is best to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+   ![이미지를 만들기 시작 합니다.](./media/azure-stack-add-vm-image/image4.png)
 
+   이미지는 성공적으로 만들어지면로 VM 이미지 상태 변경 **Succeeded**합니다.
 
+4. 가상 컴퓨터 이미지 보다 쉽게를 사용 하려면 사용자가 사용할 수 있도록 UI에는 것이 좋습니다를 [마켓플레이스 항목을 만듭니다.](azure-stack-create-and-publish-marketplace-item.md)합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[가상 컴퓨터 프로비전](azure-stack-provision-vm.md)

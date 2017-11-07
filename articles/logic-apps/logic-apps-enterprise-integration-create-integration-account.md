@@ -13,22 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; mandia
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>통합 계정이란?
 
 통합 계정을 사용하면 엔터프라이즈 통합 앱에서 스키마, 맵, 인증서, 파트너 및 규약을 포함한 아티팩트를 관리할 수 있습니다. 만든 통합 앱은 모두 통합 계정을 사용하여 이러한 스키마, 맵, 인증 등에 액세스합니다.
 
 ## <a name="create-an-integration-account"></a>통합 계정 만들기
 
-1.    [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다.
+1.  [Azure Portal](http://portal.azure.com "Azure Portal")에 로그인합니다. 왼쪽 메뉴에서 **추가 서비스**를 클릭합니다.
 
     !["추가 서비스"를 선택합니다.](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -130,5 +128,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [규약에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")  
-
 

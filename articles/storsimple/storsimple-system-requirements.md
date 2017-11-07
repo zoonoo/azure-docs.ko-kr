@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/05/2017
+ms.date: 06/06/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
-ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 ## <a name="overview"></a>개요
@@ -36,7 +35,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. |
+| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>운영 체제에 기본적으로 있는 소프트웨어 iSCSI 초기자만 지원됩니다. 하드웨어 iSCSI 초기자는 지원되지 않습니다.<br></br>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. |
 | VMWare ESX |5.5 및 6.0 |iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. |
 | Linux RHEL/CentOS |5, 6 및 7 |Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux |SUSE Linux 11 | |
@@ -57,7 +56,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 ## <a name="networking-requirements-for-your-storsimple-device"></a>StorSimple 장치에 대한 네트워킹 요구 사항
 StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
 
-| 포트 번호 <sup>1,&2;</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 사항 |
+| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 사항 |
 | --- | --- | --- | --- | --- |
 | TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |아니요 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
 | TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |예 |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
@@ -92,7 +91,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 #### <a name="url-patterns-for-azure-portal"></a>Azure 포털의 URL 패턴
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.com` |장치 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
@@ -103,7 +102,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 #### <a name="url-patterns-for-azure-government-portal"></a>Azure Government 포털의 URL 패턴
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |StorSimple 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.us` |장치 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
@@ -204,7 +203,7 @@ StorSimple 장치에는 운영 중 스왑 가능한 중복 컨트롤러 모듈�
 * 두 컨트롤러 모듈에 대한 네트워크 연결이 동일해야 하며 연결된 네트워크 인터페이스에 동일한 네트워크 구성이 있어야 합니다.
 * 한 컨트롤러 모듈에 장애가 발생하거나 교체가 필요한 경우, 장애가 발생한 컨트롤러 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인해야 합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 * 두 컨트롤러 모듈을 동시에 제거하지 마십시오. 컨트롤러 장애 조치가 진행 중이면 대기 컨트롤러 모듈을 종료하거나 섀시에서 제거하지 마십시오.
-* 컨트롤러 장애 조치 후 컨트롤러 모듈을 제거하기 전에&5;분 이상 기다립니다.
+* 컨트롤러 장애 조치 후 컨트롤러 모듈을 제거하기 전에 5분 이상 기다립니다.
 
 #### <a name="network-interfaces"></a>네트워크 인터페이스
 StorSimple 장치 컨트롤러 모듈마다 1기가비트 4개 및 10기가비트 2개의 이더넷 네트워크 인터페이스가 있습니다.
@@ -251,4 +250,3 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: a36231d9326158068e9460ed4594a79c744d3087
-
-
+ms.custom: pim
+ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-audit-log-in-pim"></a>PIM에서 감사 로그 사용
 Azure Privileged Identity Management(PIM) 감사 로그를 사용하여 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](active-directory-view-access-usage-reports.md)
@@ -58,10 +59,4 @@ Azure Privileged Identity Management(PIM) 감사 로그를 사용하여 지정�
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

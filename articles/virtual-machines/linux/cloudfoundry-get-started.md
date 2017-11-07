@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
-
+ms.openlocfilehash: 94fbde7707ea9a91076780fdefc3f5a827e0e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
 Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요소(12-factor) 응용 프로그램을 빌드하고, 배포하고, 운영하기 위한 오픈 소스 PaaS(Platform-as-a-Service)입니다. 이 문서는 Azure에서 Cloud Foundry를 실행할 수 있는 옵션과 시작하는 방법을 설명합니다.
@@ -66,9 +66,4 @@ Cloud Foundry는 연속 통합(CI) 및 지속적인 업데이트(CD) 사용을 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Marketplace에서 Pivotal Cloud Foundry 배포](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Azure에서 Cloud Foundry에 앱 배포](./cloudfoundry-deploy-your-first-app.md)

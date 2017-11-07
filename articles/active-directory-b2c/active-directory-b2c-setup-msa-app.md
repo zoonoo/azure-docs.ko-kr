@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 866d2b54b0b517cb9984fd5e98840fe3a6c69965
-
-
+ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: 고객에게 Microsoft 계정으로 등록 및 로그인 제공
 ## <a name="create-a-microsoft-account-application"></a>Microsoft 계정 응용 프로그램 만들기
@@ -52,17 +52,11 @@ Azure AD(Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 사용�
     ![Microsoft 계정-Live SDK 지원](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 
 ## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Microsoft 계정을 ID 공급자로 구성
-1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) .
+1. 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) .
 2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름** 을 제공합니다. 예를 들어 "MSA"를 입력합니다.
 5. **ID 공급자 형식**을 클릭하고 **Microsoft 계정**을 선택하고 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정** 을 클릭하고 이전에 만든 Microsoft 계정 응용 프로그램의 응용 프로그램 ID 및 암호를 입력합니다.
 7. **확인**을 클릭한 다음 **만들기**를 클릭하여 Microsoft 계정 구성을 저장합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -3,7 +3,7 @@ title: Azure Active Directory Graph API | Microsoft Docs
 description: "REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있도록 해주는 Graph API에 대한 개요 및 빠른 시작 가이드입니다."
 services: active-directory
 documentationcenter: 
-author: PatAltimore
+author: viv-liu
 manager: mbaldwin
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 04/27/2017
+ms.author: viviali
+ms.custom: aaddev
+ms.openlocfilehash: 79bb96171c00fa62f24113800c3824856febe728
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -66,5 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 [AD Graph REST 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
-
 

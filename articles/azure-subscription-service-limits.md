@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 09/29/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -28,9 +27,9 @@ ms.lasthandoff: 04/03/2017
 Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조하세요. 여기에서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하거나 서비스에 대한 가격 정보 페이지를 방문하여 비용을 예측할 수 있습니다(예: [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing/billing-getting-started.md)를 참조하세요.
 
 > [!NOTE]
-> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 
+> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](azure-supportability/resource-manager-core-quotas-request.md)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 
 > 
-> 무료 평가판 구독을 제한하거나 할당량을 증가할 수 없습니다. 무료 평가판을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판에서 종량제로 업그레이드](billing-upgrade-azure-subscription.md)를 참조하세요.
+> 무료 평가판 구독을 제한하거나 할당량을 증가할 수 없습니다. 무료 평가판을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판에서 종량제로 업그레이드](billing/billing-upgrade-azure-subscription.md)를 참조하세요.
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>제한 및 Azure 리소스 관리자
@@ -52,28 +51,31 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [응용 프로그램 게이트웨이](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [자동화](#automation-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [백업](#backup-limits)
 * [배치](#batch-limits)
 * [BizTalk 서비스](#biztalk-services-limits)
 * [CDN](#cdn-limits)
-* [클라우드 서비스](#cloud-services-limits)
+* [Cloud Services](#cloud-services-limits)
+* [Container Instances](#container-instances-limits)
 * [데이터 팩터리](#data-factory-limits)
 * [데이터 레이크 분석](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [DocumentDB](#documentdb-limits)
 * [이벤트 허브](#event-hubs-limits)
 * [IoT 허브](#iot-hub-limits)
+* [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [키 자격 증명 모음](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [미디어 서비스](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [모바일 서비스](#mobile-services-limits)
-* [모니터링](#monitoring-limits)
+* [모니터](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [네트워킹](#networking-limits)
+* [Network Watcher](#network-watcher-limits)
 * [알림 허브 서비스](#notification-hub-service-limits)
 * [리소스 그룹](#resource-group-limits)
 * [스케줄러](#scheduler-limits)
@@ -115,6 +117,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 ### <a name="virtual-machine-scale-sets-limits"></a>가상 컴퓨터 크기 집합 제한
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
+### <a name="container-instances-limits"></a>Container Instances 제한
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
+
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -124,6 +129,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="application-gateway-limits"></a>Application Gateway 제한
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
+#### <a name="network-watcher-limits"></a>Network Watcher 제한
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
 #### <a name="traffic-manager-limits"></a>트래픽 관리자 제한
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
@@ -131,10 +139,29 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>저장소 제한
-저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage/storage-scalability-targets.md)를 참조하세요.
+저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>저장소 서비스 제한
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### <a name="azure-blob-storage-limits"></a>Azure Blob 저장소 용량 한도
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### <a name="azure-files-limits"></a>Azure Files 한도
+Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage/files/storage-files-scale-targets.md)를 참조하세요.
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### <a name="azure-file-sync-limits"></a>Azure File Sync 한도
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### <a name="azure-table-storage-limits"></a>Azure Table 저장소 용량 한도
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한 
@@ -151,9 +178,6 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### <a name="storage-resource-provider-limits"></a>저장소 리소스 공급자 제한
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### <a name="cloud-services-limits"></a>클라우드 서비스 제한
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -174,8 +198,8 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>DocumentDB 제한
-DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크기를 조정하여 처리할 수 있는 뛰어난 확장성의 데이터베이스입니다. DocumentDB가 제공하는 크기에 대한 질문이 있는 경우 askdocdb@microsoft.com으로 전자 메일을 보내주세요.
+### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
+Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB가 제공하는 규모에 대한 궁금한 사항은 askcosmosdb@microsoft.com에 메일을 보내 주세요.
 
 ### <a name="mobile-engagement-limits"></a>모바일 참여 제한
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -206,7 +230,7 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 ### <a name="mobile-services-limits"></a>모바일 서비스 제한
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitoring-limits"></a>모니터링 제한
+### <a name="monitor-limits"></a>모니터 제한
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>알림 허브 서비스 제한
@@ -220,6 +244,9 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 
 ### <a name="iot-hub-limits"></a>IoT Hub 제한
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+
+### <a name="iot-hub-device-provisioning-service-limits"></a>IoT Hub Device Provisioning 서비스 제한
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### <a name="data-factory-limits"></a>데이터 팩터리 제한
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
@@ -236,8 +263,8 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 ### <a name="active-directory-limits"></a>Active Directory 제한
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="azure-remoteapp-limits"></a>Azure RemoteApp 제한
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
+### <a name="azure-event-grid-limits"></a>Azure Event Grid 제한
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
@@ -278,5 +305,3 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
-
-

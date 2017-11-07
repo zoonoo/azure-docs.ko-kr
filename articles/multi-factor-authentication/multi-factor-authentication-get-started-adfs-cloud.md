@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
-
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 조직이 Azure Active Directory와 페더레이션되어 있는 경우 Azure Multi-Factor Authentication 또는 AD FS(Active Directory Federation Services)를 사용하여 Azure AD에서 액세스하는 리소스를 보호합니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 다음 절차를 따르세요.
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 1. AD FS 관리를 엽니다.
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
-3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...**을 선택합니다.
+3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집**을 선택합니다.
 
    ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -48,7 +48,7 @@ ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 9. **Finish**를 클릭합니다. AD FS 관리 콘솔을 닫습니다.
 
 ## <a name="trusted-ips-for-federated-users"></a>페더레이션 사용자를 위한 신뢰할 수 있는 IP
-신뢰할 수 있는 IP를 사용하면 관리자가 특정 IP 주소 또는 자신의 인트라넷 내에서 시작된 요청을 가진 페더레이션 사용자에 대한&2;단계 확인을 바이패스할 수 있습니다. 다음 섹션에서는 페더레이션 사용자 인트라넷에서 요청이 시작되는 경우 페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP를 구성하고&2;단계 확인을 바이패스하는 방법을 설명합니다. 이 작업은 들어오는 클레임(회사 네트워크 내부 클레임 형식 사용) 통과 또는 필터링 템플릿을 사용하도록 AD FS를 구성하여 수행합니다.
+신뢰할 수 있는 IP를 사용하면 관리자가 특정 IP 주소 또는 자신의 인트라넷 내에서 시작된 요청을 가진 페더레이션 사용자에 대한 2단계 확인을 바이패스할 수 있습니다. 다음 섹션에서는 페더레이션 사용자 인트라넷에서 요청이 시작되는 경우 페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP를 구성하고 2단계 확인을 바이패스하는 방법을 설명합니다. 이 작업은 들어오는 클레임(회사 네트워크 내부 클레임 형식 사용) 통과 또는 필터링 템플릿을 사용하도록 AD FS를 구성하여 수행합니다.
 
 이 예제는 신뢰 당사자 트러스트에 대해 Office 365를 사용합니다.
 
@@ -88,15 +88,11 @@ ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 3. 디렉터리에서 신뢰할 수 있는 IP를 설정하려는 디렉터리를 선택합니다.
 4. 선택한 디렉터리에서 **구성**을 클릭합니다.
 5. Multi-Factor Authentication 섹션에서 **서비스 설정 관리**를 클릭합니다.
-6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 **내 인트라넷에서 페더레이션 사용자의 요청에 대한 Multi-Factor Authentication 건너뛰기**를 선택합니다.
+6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 **내 인트라넷에서 페더레이션 사용자의 요청에 대한 Multi-Factor Authentication 건너뛰기**를 선택합니다.  
+
    ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. **저장**을 클릭합니다.
 8. 업데이트를 적용하면 **닫기**를 클릭합니다.
 
 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

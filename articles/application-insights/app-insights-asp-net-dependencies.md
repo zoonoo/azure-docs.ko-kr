@@ -3,7 +3,7 @@ title: "Azure Application Insights의 종속성 추적 | Microsoft Docs"
 description: "Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/04/2017
+ms.author: mbullwin
+ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](app-insights-overview.md)는 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -31,7 +30,7 @@ ms.lasthandoff: 03/16/2017
   * SQL 데이터베이스
   * ASP.NET 웹 및 HTTP 기반 바인딩을 사용하는 WCF 서비스
   * 로컬 또는 원격 HTTP 호출
-  * Azure DocumentDb, 테이블, Blob 저장소 및 큐
+  * Azure Cosmos DB, 테이블, Blob Storage 및 큐
 * 웹 페이지
   * AJAX 호출
 
@@ -119,9 +118,9 @@ ms.lasthandoff: 03/16/2017
 
 첫 번째 종속성 호출 후 큰 간격이 있어 보이므로 코드를 보고 그 이유를 확인해야 합니다.
 
-### <a name="profiling-your-live-site"></a>라이브 사이트 프로파일링
+### <a name="profile-your-live-site"></a>라이브 사이트 프로파일링
 
-시간에 따른 위치를 알 수 없나요? Application Insights 프로파일러는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다. 프로파일러는 현재 제한된 미리 보기로 제공됩니다. [평가판에 등록](https://aka.ms/AIProfilerPreview)할 수 있습니다.
+시간에 따른 위치를 알 수 없나요? [Application Insights 프로파일러](app-insights-profiler.md)는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다.
 
 ## <a name="failed-requests"></a>실패한 요청
 실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다. 문제를 클릭하여 추적할 수 있습니다.
@@ -133,7 +132,7 @@ ms.lasthandoff: 03/16/2017
 ![요청 유형을 클릭하고, 인스턴스를 클릭하여 동일한 인스턴스의 다른 보기로 이동하고, 클릭하여 예외 세부 정보를 표시합니다.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>분석
-[분석 쿼리 언어](app-insights-analytics.md)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
+[Log Analytics 쿼리 언어](https://docs.loganalytics.io/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
 
 * 실패한 종속성 호출을 찾습니다.
 
@@ -213,4 +212,3 @@ ms.lasthandoff: 03/16/2017
 * [예외](app-insights-asp-net-exceptions.md)
 * [사용자 및 페이지 데이터](app-insights-javascript.md)
 * [Availability](app-insights-monitor-web-app-availability.md)
-

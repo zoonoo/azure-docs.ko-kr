@@ -4,7 +4,7 @@ description: "Azure Functions에서 Azure Storage 바인딩을 사용하는 방�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure Functions Storage 테이블 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -61,7 +60,7 @@ Azure Storage 테이블 입력 바인딩을 사용하면 함수의 저장소 테
 다음 사항에 유의하세요. 
 
 * `partitionKey` 및 `rowKey`를 함께 사용하여 단일 엔터티를 읽습니다. 이러한 속성은 선택적입니다. 
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#application-settings)할 수도 있습니다.  
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#settings)할 수도 있습니다.  
 
 <a name="inputusage"></a>
 
@@ -114,7 +113,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>C의 입력 샘플# #
+### <a name="input-sample-in-c"></a>C#의 입력 샘플 #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -132,7 +131,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### <a name="input-sample-in-f"></a>F의 입력 샘플# #
+### <a name="input-sample-in-f"></a>F#의 입력 샘플 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -179,7 +178,7 @@ Azure Storage 테이블 출력 바인딩을 사용하면 엔터티를 함수의 
 다음 사항에 유의하세요. 
 
 * `partitionKey` 및 `rowKey`를 함께 사용하여 단일 엔터티를 씁니다. 이러한 속성은 선택적입니다. 또한 함수 코드에 엔터티 개체를 만들 때 `PartitionKey` 및 `RowKey`를 지정할 수 있습니다.
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#application-settings)할 수도 있습니다. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 또한 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md#settings)할 수도 있습니다. 
 
 <a name="outputusage"></a>
 
@@ -226,7 +225,7 @@ Node.js 또는 C# 함수에서 개체를 직렬화할 수 있습니다. C# 함�
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
+### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -253,7 +252,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F에서 출력 샘플# #
+### <a name="output-sample-in-f"></a>F#에서 출력 샘플 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -293,7 +292,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>샘플: C에서 여러 테이블 엔터티 읽기#  #
+## <a name="sample-read-multiple-table-entities-in-c"></a>샘플: C#에서 여러 테이블 엔터티 읽기  #
 다음 *function.json* 및 C# 코드 예제에서는 큐 메시지에 지정된 파티션 키에 대한 엔터티를 읽습니다.
 
 ```json
@@ -341,5 +340,4 @@ public class Person : TableEntity
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

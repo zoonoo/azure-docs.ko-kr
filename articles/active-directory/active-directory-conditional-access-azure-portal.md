@@ -13,23 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2017
+ms.date: 09/27/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 62804019a8c2c5e719c36021ee04cbd20e03dd05
-ms.lasthandoff: 03/07/2017
-
-
+ms.reviewer: calebb
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="conditional-access-in-azure-active-directory---preview"></a>Azure Active Directory 조건부 액세스 - 미리 보기
-
-> [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-conditional-access-azure-portal.md)
-> * [Azure 클래식 포털](active-directory-conditional-access.md)
-
-
-이 항목에서 설명하는 동작은 현재 [미리 보기](active-directory-preview-explainer.md)로 있습니다.
+# <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
 모바일 우선, 클라우드 우선 세계에서 Azure Active Directory는 어디에서나 장치, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 장치(BYOD 포함), 기업 네트워크 외 근무 및 타사 SaaS 앱의 확산에 따라 IT 전문가는 다음 두 가지 대립되는 목표에 직면하고 있습니다.
 
@@ -66,31 +59,22 @@ Azure Active Directory 조건부 액세스의 컨텍스트에서
 
 조건부 액세스 정책에서 제어 문은 조건 문을 충족할 때 발생해야 하는 상황을 정의합니다.  
 제어 문을 사용하면 추가 요구 사항에 따라 액세스를 차단하거나 액세스를 허용할 수 있습니다.
-액세스를 허용하는 정책을 구성할 때는 요구 사항을 하나 이상 선택해야 합니다.   
+액세스를 허용하는 정책을 구성할 때는 요구 사항을 하나 이상 선택해야 합니다.  
 
-### <a name="grant-controls"></a>권한 부여 컨트롤
+두 가지 형식의 컨트롤이 있습니다. 
+
+- **권한 부여 컨트롤** - 권한 부여 컨트롤은 사용자가 인증을 완료하고 로그인을 시도하는 리소스에 도달할 수 있는지 여부를 제어합니다. 여러 컨트롤을 선택한 경우 정책이 처리될 때 모든 컨트롤이 필요한지 여부를 구성할 수 있습니다.
 Azure Active Directory의 현재 구현을 사용하면 다음 권한 부여 컨트롤 요구 사항을 구성할 수 있습니다.
 
-![제어](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![제어](./media/active-directory-conditional-access-azure-portal/73.png)
 
-- **다단계 인증**: 다단계 인증을 통해 강력한 인증을 요구할 수 있습니다. AD FS(Active Directory Federation Service)와 결합된 Azure Multi-Factor 또는 온-프레미스 다단계 인증 공급자를 공급자로 사용할 수 있습니다. 다단계 인증을 사용하면 유효한 사용자의 자격 증명에 액세스 할 수 있는 권한이 없는 사용자가 리소스에 액세스하지 못하도록 방지할 수 있습니다.
+- **세션 컨트롤** - 세션 컨트롤을 통해 클라우드 앱 내에서 환경을 제한할 수 있습니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
 
-- **준수 장치** - 장치 수준에서 조건부 액세스 정책을 설정할 수 있습니다. 정책을 준수하는 컴퓨터 또는 모바일 장치 관리 응용 프로그램에 등록된 모바일 장치만 조직의 리소스에 액세스할 수 있도록 정책을 설정할 수 있습니다. 예를 들어 Intune을 사용하여 장치의 정책 준수를 확인한 다음 사용자가 응용 프로그램에 액세스하려고 할 때 해당 정책을 적용하기 위해 Azure AD에 보고할 수 있습니다. Intune을 사용하여 앱 및 데이터를 보호하는 방법에 대한 자세한 지침은 ‘Microsoft Intune을 사용하여 앱 및 데이터 보호’를 참조하세요. 또한 Intune을 사용하여 분실되거나 도난당한 장치에 대한 데이터 보호도 적용할 수 있습니다. 자세한 내용은 ‘Microsoft Intune을 사용하여 전체 또는 선택적 초기화로 데이터 보호’를 참조하세요.
+    ![제어](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **도메인 가입 장치** - Azure Active Directory에 연결하는 데 사용한 장치가 도메인 가입 장치이도록 요구할 수 있습니다. 이 정책은 Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿에 적용됩니다. Azure AD를 사용하여 도메인 가입 장치의 자동 등록을 설정하는 방법에 대한 자세한 내용은 [Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)을 참조하세요.
 
-조건부 액세스 정책에서 요구 사항을 둘 이상 선택한 경우 해당 조건을 적용하기 위한 요구 사항을 구성할 수도 있습니다. 선택한 모든 제어 문 또는 그 중 하나를 요구하도록 선택할 수 있습니다.
+자세한 내용은 [Azure Active Directory 조건부 액세스의 컨트롤](active-directory-conditional-access-controls.md)를 참조하세요.
 
-![제어](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>세션 컨트롤
-세션 컨트롤을 통해 클라우드 앱 내에서 환경을 제한할 수 있습니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
-
-![제어](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
-
-#### <a name="use-app-enforced-restrictions"></a>앱에서 적용된 제한 사항 사용
-이 컨트롤을 사용하여 Azure AD가 장치 정보를 클라우드 앱에 전달하도록 할 수 있습니다. 클라우드 앱은 이 컨트롤을 통해 사용자가 규격 장치 또는 도메인 가입 장치에서 들어오는지 확인합니다. 이 컨트롤은 현재 SharePoint를 통해 클라우드 앱으로만 지원됩니다. SharePoint에서는 장치 정보를 사용하여 사용자에게 장치 상태에 따라 제한된 환경이나 전체 환경을 제공합니다.
-SharePoint를 통해 제한된 액세스를 요구하는 방법을 알아보려면[여기](https://aka.ms/spolimitedaccessdocs)로 이동합니다.
 
 ## <a name="condition-statement"></a>조건 문
 
@@ -101,103 +85,111 @@ SharePoint를 통해 제한된 액세스를 요구하는 방법을 알아보려�
 ![제어](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
-- **주체** - 대부분의 경우 제어 문을 특정 사용자 집합에 적용할 것입니다. 조건 문에서 정책이 적용되는 사용자 및 그룹을 선택하여 이러한 집합을 정의할 수 있습니다. 필요한 경우 사용자 집합을 제외하여 정책 대상에서 명시적으로 제외할 수도 있습니다.  
-사용자 및 그룹을 선택하여 정책이 적용되는 사용자 범위를 정의할 수 있습니다.    
+### <a name="who"></a>누가?
 
-    ![제어](./media/active-directory-conditional-access-azure-portal/08.png)
+조건부 액세스 정책을 구성할 경우 정책을 적용할 사용자 또는 그룹을 선택해야 합니다. 대부분의 경우 제어 문을 특정 사용자 집합에 적용할 것입니다. 조건 문에서 정책이 적용되는 필수 사용자 및 그룹을 선택하여 이러한 집합을 정의할 수 있습니다. 필요한 경우 사용자 집합을 제외하여 정책 대상에서 명시적으로 제외할 수도 있습니다.  
+
+![제어](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
-- **대상** - 일반적으로, 보호 관점에서 다른 앱보다 특별한 주의가 필요한, 사용자 환경에서 실행되는 특정 앱이 있습니다. 예를 들어, 중요한 데이터에 액세스할 수 있는 앱이 영향을 받을 수 있습니다.
+### <a name="what"></a>무엇을?
+
+조건부 액세스 정책을 구성할 경우 정책을 적용할 클라우드 앱을 선택해야 합니다.
+일반적으로 사용자 환경에는 보호 관점에서 다른 앱보다 특별한 주의가 필요한 특정 앱이 있습니다. 예를 들어, 중요한 데이터에 액세스할 수 있는 앱이 영향을 받을 수 있습니다.
 클라우드 앱을 선택하면 정책이 적용되는 클라우드 앱의 범위를 정의할 수 있습니다. 필요한 경우 정책에서 일단의 앱을 명시적으로 제외할 수도 있습니다.
 
-    ![제어](./media/active-directory-conditional-access-azure-portal/09.png)
+![제어](./media/active-directory-conditional-access-azure-portal/09.png)
 
+조건부 액세스 정책에서 사용할 수 있는 클라우드 앱의 전체 목록은 [Azure Active Directory 조건부 액세스 기술 참조](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments)를 참조하세요.
 
-- **방법** - 앱에 대한 액세스를 제어할 수 있는 조건에서 수행하는 한, 사용자가 클라우드 앱에 액세스하는 방법에 대한 추가 제어 문을 부과할 필요는 없습니다. 그러나 신뢰할 수 없는 네트워크 또는 정책을 준수하지 않는 장치에서 클라우드 앱에 대한 액세스를 수행하는 경우에는 상황이 다를 수 있습니다. 조건 문에서 앱에 대한 액세스를 수행하는 방법에 대한 추가 요구 사항이 있는 특정 액세스 조건을 정의할 수 있습니다.
+### <a name="how"></a>방법
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/01.png)
+앱에 대한 액세스를 제어할 수 있는 조건에서 수행하는 한, 사용자가 클라우드 앱에 액세스하는 방법에 대한 추가 제어 문을 부과할 필요는 없습니다. 그러나 신뢰할 수 없는 네트워크 또는 정책을 준수하지 않는 장치에서 클라우드 앱에 대한 액세스를 수행하는 경우에는 상황이 다를 수 있습니다. 조건 문에서 앱에 대한 액세스를 수행하는 방법에 대한 추가 요구 사항이 있는 특정 액세스 조건을 정의할 수 있습니다.
+
+![조건](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>조건
 
 Azure Active Directory의 현재 구현에서 다음 영역에 대한 조건을 정의할 수 있습니다.
 
+- 로그인 위험
+- 장치 플랫폼
+- 위치
+- 클라이언트 앱
 
-- **장치 플랫폼** - 장치 플랫폼은 장치(Android, iOS, Windows Phone, Windows)에서 실행되는 운영 체제를 특징으로 합니다. 정책의 대상에 포함된 장치 플랫폼뿐만 아니라 정책에서 제외되는 장치 플랫폼도 정의할 수 있습니다.  
+
+![조건](./media/active-directory-conditional-access-azure-portal/01.png)
+
+### <a name="sign-in-risk"></a>로그인 위험
+
+로그인 위험은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성을 추적하기 위해 Azure Active Directory에서 사용하는 개체입니다. 이 개체에서 가능성(높음, 중간 또는 낮음)은 [로그인 위험 수준](active-directory-reporting-risk-events.md#risk-level)이라는 특성의 형태로 저장됩니다. Azure Active Directory에서 로그인 위험을 검색한 경우 이 개체는 사용자의 로그인 동안 생성됩니다. 자세한 내용은 [위험한 로그인](active-directory-identityprotection.md#risky-sign-ins)을 참조하세요.  
+계산된 로그인 위험 수준을 조건부 액세스 정책의 조건으로 사용할 수 있습니다. 
+
+![조건](./media/active-directory-conditional-access-azure-portal/22.png)
+
+### <a name="device-platforms"></a>장치 플랫폼
+
+장치 플랫폼은 다음 장치에서 실행되는 운영 체제를 특징으로 합니다.
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS(미리 보기) 
+
+![조건](./media/active-directory-conditional-access-azure-portal/02.png)
+
+정책의 대상에 포함된 장치 플랫폼뿐만 아니라 정책에서 제외되는 장치 플랫폼도 정의할 수 있습니다.  
 정책에서 장치 플랫폼을 사용하려면 먼저 [구성] 토글을 **예**로 변경한 다음, 정책이 적용되는 장치 플랫폼을 모두 또는 개별적으로 선택합니다. 개별 장치 플랫폼을 선택하면 해당 플랫폼에만 정책이 적용됩니다. 이 경우 지원되는 다른 플랫폼에 대한 로그인은 정책의 영향을 받지 않습니다.
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **위치** - 위치는 Azure Active Directory에 연결하는 데 사용한 클라이언트의 IP 주소로 식별됩니다. 이 조건에서는 신뢰할 수 있는 IP를 잘 알고 있어야 합니다. 신뢰할 수 있는 IP는 조직의 로컬 인트라넷을 나타내는 신뢰할 수 있는 IP 주소 범위를 정의할 수 있는 다단계 인증 기능입니다. 위치 조건을 구성하면 신뢰할 수 있는 IP를 통해 조직의 네트워크와 다른 모든 위치에서 수행되는 연결을 구별할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
-모든 위치 또는 모든 신뢰할 수 있는 IP를 포함하거나, 모든 신뢰할 수 있는 IP를 제외할 수 있습니다.
+### <a name="locations"></a>위치
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/03.png)
+위치를 사용하여 연결 시도가 시작된 위치를 기반으로 조건을 정의할 수 있습니다. 위치 목록의 항목은 **명명된 위치** 또는 **MFA 신뢰할 수 있는 IP** 중 하나입니다.  
+
+**명명된 위치**는 연결 시도가 만들어진 위치에 대한 레이블을 정의할 수 있는 Azure Active Directory의 기능입니다. 위치를 정의하려면 IP 주소 범위를 구성하거나 국가/지역을 선택하면 됩니다.  
+
+![조건](./media/active-directory-conditional-access-azure-portal/42.png)
+
+또한 명명된 위치를 신뢰할 수 있는 위치로 표시할 수 있습니다. 조건부 액세스 정책의 경우 신뢰할 수 있는 위치는 위치 조건에서 *신뢰할 수 있는 모든 위치*를 선택할 수 있는 또 다른 필터 옵션입니다.
+명명된 위치는 비정상적인 위치 간 이동 불가능 위험 이벤트에 대해 거짓 긍정 수를 줄이기 위해 [위험 이벤트](active-directory-reporting-risk-events.md)의 검색과 관련하여 중요합니다. 
+
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음을 구성할 수 있습니다.
+ 
+ - 최대 500개 IP 범위로 명명된 하나의 위치
+ - 각각에 한 개의 IP 범위로 할당된 최대 60개의 명명된 위치(미리 보기) 
+
+자세한 내용은 [Azure Active Directory의 명명된 위치](active-directory-named-locations.md)를 참조하세요.
 
 
-- **클라이언트 앱** - 클라이언트 앱은 Azure Active Directory에 연결하는 데 사용한 일반적 수준의 앱(웹 브라우저, 모바일 앱, 데스크톱 클라이언트)이거나, 구체적으로 Exchange Active Sync를 선택할 수 있습니다.  
+**MFA 신뢰할 수 있는 IP**는 조직의 로컬 인트라넷을 나타내는 신뢰할 수 있는 IP 주소 범위를 정의할 수 있는 다단계 인증 기능입니다. 위치 조건을 구성하면 신뢰할 수 있는 IP를 통해 조직의 네트워크와 다른 모든 위치에서 수행되는 연결을 구별할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.  
+
+조건부 액세스 정책에서 다음을 수행할 수 있습니다.
+
+- 포함
+    - 임의의 위치
+    - 신뢰할 수 있는 모든 위치
+    - 선택한 위치
+- 제외
+    - 신뢰할 수 있는 모든 위치
+    - 선택한 위치
+     
+![조건](./media/active-directory-conditional-access-azure-portal/03.png)
+
+
+### <a name="client-apps"></a>클라이언트 앱
+
+클라이언트 앱은 Azure Active Directory에 연결하는 데 사용한 일반적 수준의 앱(웹 브라우저, 모바일 앱, 데스크톱 클라이언트)이거나, 구체적으로 Exchange Active Sync를 선택할 수 있습니다.  
 레거시 인증은 최신 인증을 사용하지 않는 이전 Office 클라이언트와 같은 기본 인증을 사용하는 클라이언트를 의미합니다. 현재 레거시 인증에서는 조건부 액세스를 지원하지 않습니다.
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/04.png)
+![조건](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-## <a name="what-you-should-know"></a>알아야 할 사항
-
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>내 정책에 사용자를 할당해야 합니까?
-
-조건부 액세스 정책을 구성할 때는 적어도 하나의 그룹을 할당해야 합니다. 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다.
-
-여러 사용자와 그룹을 정책에 할당하려는 경우 하나의 사용자 또는 그룹을 할당하여 소규모로 시작한 후에 구성을 테스트해야 합니다. 그런 다음 정책이 예상대로 작동하면 해당 정책에 추가로 할당할 수 있습니다.  
+조건부 액세스 정책에서 사용할 수 있는 클라이언트 앱의 전체 목록은 [Azure Active Directory 조건부 액세스 기술 참조](active-directory-conditional-access-technical-reference.md#client-apps-condition)를 참조하세요.
 
 
-### <a name="how-are-assignments-evaluated"></a>할당은 어떻게 평가됩니까?
-
-모든 할당은 논리적으로 **and**가 적용됩니다. 할당을 둘 이상 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.  
-
-조직의 네트워크 외부에서 수행되는 모든 연결에 적용되는 위치 조건을 구성해야 하는 경우 다음을 수행할 수 있습니다.
-
-- **모든 위치** 포함
-- **모든 신뢰할 수 있는 IP** 제외
-
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Azure 클래식 포털과 Azure Portal에서 정책을 구성하면 어떻게 됩니까?  
-두 정책은 모두 Azure Active Directory에서 적용되며 모든 요구 사항을 충족하는 경우에만 사용자가 액세스 권한을 획득할 수 있습니다.
-
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Intune Silverlight 포털과 Azure Portal에 정책이 있으면 어떻게 됩니까?
-두 정책은 모두 Azure Active Directory에서 적용되며 모든 요구 사항을 충족하는 경우에만 사용자가 액세스 권한을 획득할 수 있습니다.
-
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>동일한 사용자에 대해 여러 정책을 구성하면 어떻게 됩니까?  
-Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하고, 사용자에게 액세스 권한을 부여하기 전에 모든 요구 사항이 충족되는지 확인합니다.
-
-
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스가 Exchange ActiveSync에서 작동합니까?
-
-아니요. 현재 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 없습니다.
-
-
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>다단계 인증이나 준수 장치가 필요하면 어떻게 되나요?
-
-현재, 장치에 관계 없이 다단계 인증을 수행하도록 요구됩니다.
-
-
-## <a name="what-you-should-avoid-doing"></a>금지해야 할 기능
-
-조건부 액세스 프레임 워크는 훌륭한 구성 유연성을 제공합니다. 그러나 훌륭한 유연성은 잘못된 결과를 방지하기 위해 해제하기 전에 각 구성 정책을 신중하게 검토해야 한다는 것을 의미하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
-
-사용자 환경에서 다음과 같은 구성을 피해야 합니다.
-
-
-**모든 사용자에 대한 모든 클라우드 앱:**
-
-- **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
-
-- **호환 장치가 필요** - 장치를 아직 등록하지 않은 사용자의 경우 이 정책은 Intune 포털에 대한 액세스를 비롯한 모든 액세스를 차단합니다. 등록된 장치가 없는 관리자의 경우 이 정책은 정책을 변경하기 위해 Azure Portal로 다시 돌아가지 않도록 차단합니다.
-
-- **도메인 가입 필요** - 이 정책 차단 액세스에도 도메인에 가입된 장치가 아직 없는 경우에 조직의 모든 사용자에 대한 액세스를 차단할 가능성이 있습니다.
-
-
-**모든 사용자 경우 모든 클라우드 앱, 모든 장치 플랫폼은 다음과 같습니다.**
-
-- **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
@@ -221,9 +213,10 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 사용자 환경에서 Intune을 사용하는 경우 Azure 콘솔에서 조건부 액세스 정책 인터페이스를 즉시 사용할 수 있습니다.
 
-많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 각 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉, 새 정책을 만들 때 조건부 액세스로 보호하려는 각 Office&365; 앱을 포함하도록 클라우드 앱을 구성합니다.
+많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 각 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉, 새 정책을 만들 때 조건부 액세스로 보호하려는 각 O365 앱을 포함하도록 클라우드 앱을 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
 
+- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요. 

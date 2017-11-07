@@ -12,13 +12,14 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
-
-
+ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 데이터 웨어하우스 서비스에 대한 모든 항목
 이 항목에서는 Azure의 **SQL 데이터 웨어하우스** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
@@ -34,7 +35,7 @@ ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
 | &nbsp; | 문서 | 업데이트된 텍스트, 코드 조각 | 업데이트 시기 |
 | ---:|:--- |:--- |:--- |
 | 2 |[Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드합니다(PolyBase).](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- 바이트 및 파일을 추적하려면 SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
-| 3 |[SQL Data Warehouse 복원](sql-data-warehouse-restore-database-overview.md) |** 일시 중지된 데이터 웨어하우스를 복원할 수 있습니까?** 일시 중지된 데이터 웨어하우스를 복원하려면 먼저 데이터 웨어하우스를 온라인으로 전환해야 합니다. 데이터 웨어하우스가 다시 온라인 상태가 되면 7일의 복원 지점 중에 선택할 수 있습니다. ** 지역 중복 지역에 복원** 지역 중복 저장소를 사용하는 경우 다른 지역에 쌍으로 구성된 데이터 센터에 데이터 웨어하우스를 복원할 수 있습니다. 데이터 웨어하우스는 마지막 일일 백업에서 복원됩니다. ** 타임라인 복원** 지난 7일 이내의 복원 지점으로 데이터베이스를 복원할 수 있습니다. 스냅숏은 4~8시간마다 시작되며 7일 동안 사용할 수 있습니다. 7일보다 오래된 스냅숏은 만료되고 해당 복원 지점을 더 이상 사용할 수 없게 됩니다. ** 복원 비용** 복원된 데이터 웨어하우스에 대한 저장소 비용은 Azure Premium Storage 요금으로 청구됩니다. 복원된 데이터 웨어하우스를 일시 중지하면 저장소에 Azure Premium Storage 요금이 부과됩니다. 일시 중지의 이점은 |2016-09-29 |
+| 3 |[SQL Data Warehouse 복원](sql-data-warehouse-restore-database-overview.md) |** 일시 중지된 데이터 웨어하우스를 복원할 수 있나요?** 일시 중지된 데이터 웨어하우스를 복원하려면 먼저 데이터 웨어하우스를 온라인으로 전환해야 합니다. 데이터 웨어하우스가 다시 온라인 상태가 되면 7일의 복원 지점 중에 선택할 수 있습니다. ** 지역 중복 지역에 복원** 지역 중복 저장소를 사용하는 경우 다른 지역에 쌍으로 구성된 데이터 센터에 데이터 웨어하우스를 복원할 수 있습니다. 데이터 웨어하우스는 마지막 일일 백업에서 복원됩니다. ** 타임라인 복원** 지난 7일 이내의 복원 지점으로 데이터베이스를 복원할 수 있습니다. 스냅숏은 4~8시간마다 시작되며 7일 동안 사용할 수 있습니다. 7일보다 오래된 스냅숏은 만료되고 해당 복원 지점을 더 이상 사용할 수 없게 됩니다. ** 복원 비용** 복원된 데이터 웨어하우스에 대한 저장소 비용은 Azure Premium Storage 요금으로 청구됩니다. 복원된 데이터 웨어하우스를 일시 중지하면 저장소에 Azure Premium Storage 요금이 부과됩니다. 일시 중지의 이점은 |2016-09-29 |
 
 ## <a name="get-started"></a>시작
 | &nbsp; | 제목 | 설명 |
@@ -158,15 +159,9 @@ ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
 ## <a name="miscellaneous"></a>기타
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
-| 83 |[SQL 데이터 웨어하우스용 Visual Studio 2015 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md) |Azure SQL 데이터 웨어하우스용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치 |
+| 83 |[SQL Data Warehouse용 Visual Studio 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md) |Azure SQL 데이터 웨어하우스용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치 |
 | 84 |[프리미엄 저장소 세부 정보로 마이그레이션](sql-data-warehouse-migrate-to-premium-storage.md) |기존 SQL 데이터 웨어하우스를 프리미엄 저장소로 마이그레이션하기 위한 지침 |
 | 85 |[위협 감지 시작](sql-data-warehouse-security-threat-detection.md) |위협 감지를 시작하는 시기 |
 | 86 |[SQL 데이터 웨어하우스 용량 제한](sql-data-warehouse-service-capacity-limits.md) |SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다. |
 | 87 |[Azure SQL 데이터 웨어하우스 문제 해결](sql-data-warehouse-troubleshoot.md) |Azure SQL 데이터 웨어하우스 문제 해결 |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

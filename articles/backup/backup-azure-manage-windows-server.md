@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/9/2017
+ms.date: 08/15/2017
 ms.author: markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
-ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
-ms.lasthandoff: 01/23/2017
-
-
+ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -80,8 +79,8 @@ Recovery Services Vault 대시보드에는 Recovery Services Vault의 세부 정
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Azure 백업 에이전트에 의한 백업 경고
 | 경고 수준 | 전송되는 경고 |
 | --- | --- |
-| 중요 |Backup failure, recovery failure |
-| Warning |백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해&100;개 미만의 파일이 백업되지 않았고&1;백만 개 이상의 파일이 성공적으로 백업된 경우). |
+| 중요 |백업 실패, 복구 실패 |
+| Warning |백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해 100개 미만의 파일이 백업되지 않았고 1백만 개 이상의 파일이 성공적으로 백업된 경우). |
 | 정보 제공 |없음 |
 
 ## <a name="manage-backup-alerts"></a>백업 경고 관리
@@ -108,9 +107,9 @@ Recovery Services Vault 대시보드에는 Recovery Services Vault의 세부 정
 
     ![경고 필터링](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-**경보별**을 **알림** 빈도로 선택한 경우 전자 메일 그룹화 또는 축소가 발생하지 않습니다. 모든 경고에 대해 알림 1개가 발생합니다. 이것이 기본 설정이며 확인 전자 메일도 즉시 전송됩니다.
+**경보별**을 **알림** 빈도로 선택한 경우 메일 그룹화 또는 축소가 발생하지 않습니다. 모든 경고에 대해 알림 1개가 발생합니다. 이것이 기본 설정이며 확인 메일도 즉시 전송됩니다.
 
-**시간별 요약**을 **알림** 빈도로 선택하면 지난 한 시간 동안 생성되어 확인되지 않은 새 경고가 있음을 알려 주는 전자 메일 한 개가 사용자에게 전송됩니다. 한 시간이 끝날 때 확인 전자 메일이 전송됩니다.
+**시간별 요약**을 **알림** 빈도로 선택하면 지난 한 시간 동안 생성되어 확인되지 않은 새 경고가 있음을 알려 주는 메일 한 개가 사용자에게 전송됩니다. 한 시간이 끝날 때 확인 메일이 전송됩니다.
 
 다음 심각도 수준의 경고를 보낼 수 있습니다.
 
@@ -214,7 +213,7 @@ Recovery Services Vault 대시보드에는 Recovery Services Vault의 세부 정
     ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. 항목을 추가하거나 변경하려면 **백업할 항목 선택** 화면에서 **항목 추가**를 클릭합니다.
 
-    마법사의 이 페이지에서 **제외 설정**을 지정할 수도 있습니다. 파일 또는 파일 형식을 제외하려면 [제외 설정](#exclusion-settings)추가 절차를 읽어보세요.
+    마법사의 이 페이지에서 **제외 설정**을 지정할 수도 있습니다. 파일 또는 파일 형식을 제외하려면 [제외 설정](#manage-exclusion-settings)추가 절차를 읽어보세요.
 4. 백업할 파일 및 폴더를 선택하고 **확인**을 클릭합니다.
 
     ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server/add-items-modify.png)
@@ -243,7 +242,7 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 제한을 사용하려면
 
 1. **백업 에이전트**에서 **속성 변경**을 클릭합니다.
-2. **[제한] 탭에서 **[백업 작업에 인터넷 대역폭 사용 제한 사용]을 선택합니다**.
+2. **제한 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택합니다.
 
     ![네트워크 제한](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
@@ -296,7 +295,7 @@ A1. 백업 작업 상태가 Azure 백업 에이전트와 Azure 포털에 반영�
 
 A.2 경고는 Azure 백업 실패 후 20분 이내에 발생합니다.
 
-**Q3. 알림이 구성된 경우 전자 메일이 전송되지 않는 경우가 있나요?**
+**Q3. 알림이 구성된 경우 메일이 전송되지 않는 경우가 있나요?**
 
 A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는 경우의 사례입니다.
 
@@ -313,12 +312,10 @@ A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는
 2. 프로세스가 실행되고 있지 않으면 **제어판**을 열고 서비스 목록을 검색합니다. **Microsoft Azure Recovery Services 관리 에이전트**를 시작하거나 다시 시작합니다.
 
     자세한 내용은 다음 위치에 있는 로그를 검색합니다.<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
-    예:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` 예:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)
 * [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

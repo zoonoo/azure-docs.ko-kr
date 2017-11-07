@@ -2,7 +2,7 @@
 title: ".NET용 Media Services SDK의 재시도 논리 | Microsoft Docs"
 description: "이 항목에서는 NET용 Media Services SDK의 재시도 논리에 대한 개요를 제공합니다."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
-
+ms.openlocfilehash: 859dd76db4ba06196a853469a1385703d835fa22
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리
 Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 있습니다. 일시적 오류가 발생하는 대부분의 경우 몇 번 재시도하면 성공적으로 작동합니다. .NET용 Media Services SDK는 웹 요청, 쿼리 실행, 변경 저장, 저장소 작업에 의해 발생하는 예외 및 오류와 관련된 일시적 오류를 처리하기 위해 재시도 논리를 구현합니다.  기본적으로 .NET용 Media Services SDK는 응용 프로그램에 예외를 다시 던져넣기 전에 재시도를 네 번 실행합니다. 그러면 응용 프로그램의 코드가 이 예외를 제대로 처리해야 합니다.  
@@ -47,7 +47,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | StorageException |아니요 |예 |아니요 |아니요 |
 | IOException |아니요 |예 |아니요 |아니요 |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> WebException 상태 코드
+### <a name="WebExceptionStatus"></a> WebException 상태 코드
 다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 열거형은 상태 코드를 정의합니다.  
 
 | 가동 상태 | 웹 요청 | 저장소 | 쿼리 | SaveChanges |
@@ -65,7 +65,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | 시간 제한 |예 |예 |예 |아니요 |
 | ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |예 |예 |예 |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
+### <a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
 Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryException 또는 DataServiceQueryException를 던질 경우 HTTP 오류 상태 코드가 StatusCode 속성에 반환됩니다.  다음 테이블은 어떤 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다.  
 
 | 가동 상태 | 웹 요청 | 저장소 | 쿼리 | SaveChanges |
@@ -86,10 +86,4 @@ Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryE
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

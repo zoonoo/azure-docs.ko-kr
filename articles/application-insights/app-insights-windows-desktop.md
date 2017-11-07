@@ -3,8 +3,8 @@ title: "Windows 데스크톱 앱의 사용량 및 성능 모니터링"
 description: "HockeyApp 및 Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-ms.lasthandoff: 11/17/2016
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 11/17/2016
    
     ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 5. [API를 사용](app-insights-api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
-6. 앱을 실행하고 Azure 포털에서 만든 리소스의 원격 분석을 참조하세요.
+6. 앱을 실행하고 Azure Portal에서 만든 리소스의 원격 분석을 참조하세요.
 
 ## <a name="telemetry"></a>예제 코드
 ```C#
@@ -90,5 +89,4 @@ ms.lasthandoff: 11/17/2016
 * [진단 검색](app-insights-diagnostic-search.md)
 * [메트릭 탐색](app-insights-metrics-explorer.md)
 * [분석 쿼리 작성](app-insights-analytics.md)
-
 

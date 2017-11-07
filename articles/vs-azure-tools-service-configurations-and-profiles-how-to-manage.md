@@ -3,8 +3,8 @@ title: "서비스 구성 및 프로필을 관리하는 방법 | Microsoft Docs"
 description: "서비스 구성 및 프로필 구성 파일로 작업하는 방법에 대해 배우기|배포 환경에 대한 설정을 저장하고 클라우드 서비스에 대한 설정을 게시합니다."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7da8c551-fb06-4057-b5c7-c77f4b39d803
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
-
-
+ms.date: 8/11/2017
+ms.author: kraigb
+ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>서비스 구성 및 프로필을 관리하는 방법
 ## <a name="overview"></a>개요
@@ -60,7 +60,7 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
     솔루션 탐색기의 Azure 프로젝트에서 서비스 구성 파일의 이름이 변경됩니다.
 
 ### <a name="to-change-a-service-configuration"></a>서비스 구성을 변경하려면
-* 서비스 구성을 변경하려는 경우, Azure 프로젝트에서 변경하려는 특정 역할에 대 한 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. 자세한 내용은 [방법: Visual Studio와 함께 Azure 클라우드 서비스에 대한 역할 구성](https://msdn.microsoft.com/library/azure/hh369931.aspx) 을 참조하세요.
+* 서비스 구성을 변경하려는 경우, Azure 프로젝트에서 변경하려는 특정 역할에 대 한 바로 가기 메뉴를 연 다음 **속성**을 선택합니다. 자세한 내용은 [방법: Visual Studio와 함께 Azure 클라우드 서비스에 대한 역할 구성](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 을 참조하세요.
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>프로필을 사용하여 여러 다른 설정 조합 만들기
 프로필을 사용하여 다양한 용도에 맞는 다른 설정 조합으로 **게시 마법사** 를 자동으로 채울 수 있습니다. 예를 들어, 디버깅용으로 하나의 프로필이 있고 릴리스 빌드용으로 다른 프로필이 있을 수 있습니다. 이 경우 **디버그** 프로필은 **IntelliTrace**를 사용하며 **디버그** 구성이 선택되며, **릴리스** 프로필은 **IntelliTrace**를 사용하지 않도록 설정하고 **릴리스** 구성이 선택됩니다. 또한 다른 프로필로 다른 저장소 계정을 사용하여 서비스를 배포할 수도 있습니다.
@@ -101,10 +101,4 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio에서 Azure 프로젝트의 다른 부분 구성에 대해 알아보려면 [Azure 프로젝트 구성](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

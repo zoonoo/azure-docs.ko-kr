@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>스케줄러 개념, 용어 + 엔터티 계층 구조
 ## <a name="scheduler-entity-hierarchy"></a>스케줄러 엔터티 계층 구조
@@ -176,7 +176,7 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
 재시도 정책을 설정하기 위해 재시도 간격(**retryInterval**)과 재시도 횟수(**retryCount**) 등, 두 추가 설정을 지정할 수 있습니다.
 
-**retryInterval** 개체로 지정한 재시도 간격은 재시도 간 간격입니다. 기본값은 30초이며 구성 가능한 최소값은 15초, 최대값은 18개월입니다. 무료 작업 컬렉션에 있는 작업의 구성 가능한 최소값은 1시간입니다.  ISO 8601 형식으로 정의됩니다. 마찬가지로, 재시도 횟수 값은 **retryCount** 개체로 정의하며 재시도를 시도하는 횟수입니다. 기본값은 4이고 최대값은 20입니다\. **retryInterval** 및 **retryCount**는 선택 사항입니다. **retryType**이 **fixed**로 설정되고 명시적으로 지정한 값이 없을 때 기본값으로 제공됩니다.
+**retryInterval** 개체로 지정한 재시도 간격은 재시도 간 간격입니다. 기본값은 30초이며 구성 가능한 최소값은 15초, 최대값은 18개월입니다. 무료 작업 컬렉션에 있는 작업의 구성 가능한 최소값은 1시간입니다.  ISO 8601 형식으로 정의됩니다. 마찬가지로, 재시도 횟수 값은 **retryCount** 개체로 정의하며 재시도를 시도하는 횟수입니다. 기본값은 4이고 최대값은 20입니다. **retryInterval** 및 **retryCount**는 모두 선택 사항입니다. **retryType**이 **fixed**로 설정되고 명시적으로 지정한 값이 없을 때 기본값으로 제공됩니다.
 
 ## <a name="see-also"></a>참고 항목
  [스케줄러란?](scheduler-intro.md)
@@ -196,10 +196,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 19dbb1625f46f8864413dc538a96b2413bc6eea0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
 [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md)문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 이 작업을 수행하는 시나리오 중 하나는 Express 경로 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 하는 경우입니다. 다음 섹션에서는 VM을 만들 때 선택할 수 있도록 랩의 가상 네트워크 설정으로 기존 가상 네트워크를 추가하는 방법을 보여 줍니다.
@@ -30,8 +29,8 @@ ms.lasthandoff: 03/10/2017
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다. 
-4. 랩의 블레이드에서 **구성**을 선택합니다.
-5. 랩의 **구성** 블레이드에서 **가상 네트워크**를 선택합니다.
+4. 랩의 블레이드에서 **구성 및 정책**을 선택합니다.
+5. 랩의 **구성 및 정책** 블레이드에서 **가상 네트워크**를 선택합니다.
 6. **가상 네트워크** 블레이드에서 현재 랩에 대해 구성한 가상 네트워크 및 랩에 대해 만들어진 기본 가상 네트워크의 목록이 표시됩니다. 
 7. **+추가**를 선택합니다.
    
@@ -62,5 +61,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>다음 단계
 랩에 원하는 가상 네트워크를 추가한 후에는 [랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)해야 합니다.
-
 

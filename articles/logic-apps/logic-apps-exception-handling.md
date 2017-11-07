@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: be14485c9070d7dce5ecbaea778f31f30e13cfa9
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -208,7 +207,7 @@ HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 �
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure 진단 및 원격 분석
 
 이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. 
-[Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md) 은 모든 워크플로 이벤트(모든 실행 및 작업 상태 포함)를 Azure Storage 계정 또는 Azure 이벤트 허브로 보내는 간단한 방법을 제공합니다. 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모니터링 도구로 게시할 수 있습니다. 한 가지 잠재적인 옵션은 Azure 이벤트 허브를 통해 모든 이벤트를 [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)으로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그에서 모든 잘못된 부분, 평균 또는 오류를 가려내는 라이브 쿼리를 작성할 수 있습니다. 스트림 분석으로 큐, 토픽, SQL, DocumentDB 및 Power BI와 같은 기타 데이터 원본으로 쉽게 출력할 수 있습니다.
+[Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md) 은 모든 워크플로 이벤트(모든 실행 및 작업 상태 포함)를 Azure Storage 계정 또는 Azure 이벤트 허브로 보내는 간단한 방법을 제공합니다. 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모니터링 도구로 게시할 수 있습니다. 한 가지 잠재적인 옵션은 Azure 이벤트 허브를 통해 모든 이벤트를 [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)으로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그에서 모든 잘못된 부분, 평균 또는 오류를 가려내는 라이브 쿼리를 작성할 수 있습니다. Stream Analytics는 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 기타 데이터 원본에 쉽게 출력할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -219,4 +218,3 @@ HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 �
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9
-

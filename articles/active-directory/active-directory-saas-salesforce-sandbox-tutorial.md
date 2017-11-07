@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 5d37dbcce06ac979f3cabef1220e5f1fe8e67931
-ms.openlocfilehash: 6c0cd8aeaaa094a6bf046d47a96eddffc6430d44
-ms.lasthandoff: 03/01/2017
-
-
+ms.reviewer: jeedes
+ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
  5. **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다. 
  6. **SAML ID 위치**로 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
  7. Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다. 
- 8. SFDC는 SAML 로그아웃을 지원하지 않습니다.  해결 방법으로 **ID 공급자 로그아웃 URL** 텍스트 상자에 'https://login.windows.net/common/wsfederation?wa=wsignout1.0'을 붙여 넣습니다.
+ 8. SFDC는 SAML 로그아웃을 지원하지 않습니다.  해결 방법으로 **ID 공급자 로그아웃 URL** 텍스트 상자에 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0'을 붙여 넣습니다.
  9. **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP Post**를 선택합니다. 
  10. **Save**를 클릭합니다.
 11. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -187,5 +187,4 @@ URL의 값을 가져오려면 이전 섹션에서 만든 SSO 프로필을 클릭
 이제 10분 동안 기다린 후 계정이 Salesforce Sandbox에 동기화되었는지 확인해야 합니다.
 
 SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
-
 

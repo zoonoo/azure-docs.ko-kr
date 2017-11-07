@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure Active Directory 통합
 이 자습서는 Azure 및 TOPdesk - Secure의 통합을 보여 주기 위한 것입니다.  
@@ -121,7 +120,7 @@ TOPdesk - Secure에 대한 Single Sign-On을 구성하려면 로고 아이콘 �
    
     b. **TOPdesk – Public Reply URL** 텍스트 상자에서 **TOPdesk - Secure AssertionConsumerService URL**을 붙여넣습니다 (예: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
    
-    c. **다음**을 클릭합니다.
+    c. **다음**을 누릅니다.
 
 10. **TOPdesk - Secure에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬 저장합니다.
     
@@ -215,5 +214,4 @@ TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
     ![예](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
 

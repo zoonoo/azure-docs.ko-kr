@@ -3,7 +3,7 @@ title: "Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-
 description: "Azure Active Directory를 사용하여 비즈니스에 필요한 모든 SaaS 및 웹 응용 프로그램에 Single Sign-On을 사용하도록 설정합니다."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-
-
+ms.date: 09/11/2017
+ms.author: curtand
+ms.reviewer: asmalser
+ms.custom: it-pro
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다. 
@@ -33,7 +35,7 @@ Azure AD를 사용하면 현재 널리 사용하고 있는 SaaS 응용 프로그
 
 통합 아키텍처는 다음 네 가지 기본 문서 블록으로 구성됩니다.
 
-* Single Sign-On을 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 SaaS 응용 프로그램에 액세스할 수 있습니다.  Single Sign-On을 통해 사용자가 자신의 단일 조직 계정을 사용하여 응용 프로그램에 인증할 수 있습니다.
+* Single Sign-On을 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 SaaS 응용 프로그램에 액세스할 수 있습니다. Single Sign-On을 통해 사용자가 자신의 단일 조직 계정을 사용하여 응용 프로그램에 인증할 수 있습니다.
 
 * 사용자 프로비저닝은 대상 SaaS 응용 프로그램에 사용자 프로비저닝 및 프로비저닝 해제를 가능하게 합니다.  Single Sign-On을 통해 인증한 후에는, 사용자에게 프로비전된 계정으로 응용 프로그램을 사용하도록 권한을 부여할 수 있습니다.
 
@@ -77,12 +79,10 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
-
-* Internet Explorer 8, 9, 10, 11 - Windows 7 이상( [IE 확장 배포 가이드](active-directory-saas-ie-group-policy.md)참조)
+* Internet Explorer 8, 9, 10, 11 - Windows 7 이상
+* Windows 10 Anniversary Edition 이상 Edge 
 * Chrome - Windows 7 이상 및 Mac OS X 이상
 * Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
-
-**참고:** 브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ### <a name="existing-single-sign-on"></a>기존 Single Sign-On
 응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure 관리 포털은 "기존 Single Sign-On”의 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들어 선택된 사용자의 액세스 패널에 배치할 수 있습니다. 
@@ -114,7 +114,7 @@ Azure AD 응용 프로그램 갤러리에서 사용할 응용 프로그램을 �
 ### <a name="application-not-in-the-gallery"></a>응용 프로그램이 갤러리에 없습니까?
 응용 프로그램이 Azure AD 응용 프로그램 갤러리에 없으면 다음과 같은 옵션이 제공됩니다.
 
-* **사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다.  SAML 2.0을 지원하는 페더레이션된 앱이나 HTML 기반 로그인 페이지가 있고 암호기반 SSO가 구성된 앱을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](active-directory-saas-custom-apps.md)에 대한 이 문서를 참조하세요.
+* **사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다.  SAML 2.0을 지원하는 페더레이션된 앱이나 HTML 기반 로그인 페이지가 있고 암호기반 SSO가 구성된 앱을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 대한 이 문서를 참조하세요.
 * **개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 페더레이션된 Single Sign-On 또는 프로비저닝을 구현할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요. 
   
   * [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)
@@ -208,9 +208,3 @@ Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형�
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

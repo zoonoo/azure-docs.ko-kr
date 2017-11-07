@@ -1,6 +1,6 @@
 ---
-title: Provision a VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a VM in Azure Stack.
+title: "Azure 스택에서 테스트 VM 만들기 | Microsoft Docs"
+description: "테스트 클라우드 연산자로 스택 Azure에서에서 VM을 프로 비전 하는 방법을 알아봅니다."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -12,36 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/1/2017
+ms.date: 9/25/2017
 ms.author: erikje
-translationtype: Human Translation
-ms.sourcegitcommit: 33592f5cf36308eb900b555c9ae1d583dff91e03
-ms.openlocfilehash: 6e396679adce46107a72d576698f0a2ad047295b
-ms.lasthandoff: 04/18/2017
-
-
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-virtual-machine"></a>Provision a virtual machine
-As an administrator, you can create virtual machines to evaluate resources before offering them in plans.
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Azure 스택에서 테스트 가상 컴퓨터 만들기
+
+*적용 대상: Azure 스택 개발 키트*
+
+Azure 스택 연산자로 유효성을 검사 하는 테스트 가상 컴퓨터를 만들 수 있습니다 프로그램 [Azure 스택](azure-stack-poc.md) 개발자 키트 배포 합니다.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Eval image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> 가상 컴퓨터를 프로 비전 수 전에 해야 [Azure 스택 시장에 Windows Server 2016 Evaluation 이미지를 추가](azure-stack-add-default-image.md)합니다.
 > 
 > 
 
-## <a name="provision-a-virtual-machine"></a>Provision a virtual machine
-1. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
-
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
-4. In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults, and click **OK**. In the **Settings** blade, click **OK**.
-
-   ![](media/azure-stack-provision-vm/image04.png)
-5. In the **Summary** blade, click **OK** to create the virtual machine.  
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
-
+## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+1. Azure 스택 개발 키트 호스트에서 [로그인](azure-stack-connect-azure-stack.md) 관리자 포털에 (`https://adminportal.local.azurestack.external`)를 클릭 하 고 **새로** > **계산**  >  **Windows Server 2016 데이터 센터 Eval** > **만들**합니다.  
+2. 에 **기본 사항** 블레이드에서 입력 **이름**, **사용자 이름**, 및 **암호**합니다. **구독**을 선택합니다. 만들기는 **리소스 그룹**, 또는 기존 키를 선택한 다음 클릭 **확인**합니다.  
+3. 에 **크기를 선택** 블레이드에서 클릭 **표준 A1**, 클릭 하 고 **선택**합니다.  
+4. 에 **설정** 블레이드에서 기본값을 적용 하 고 클릭 **확인**
+5. **요약** 블레이드에서 클릭 **확인** 가상 컴퓨터를 만듭니다.  
+6. 새 가상 컴퓨터를 보려면 클릭 **모든 리소스**, 다음 가상 컴퓨터를 검색 하 고 해당 이름을 클릭 합니다.
     ![](media/azure-stack-provision-vm/image06.png)
 
-## <a name="next-steps"></a>Next steps
-[Storage accounts](azure-stack-provision-storage-account.md)
 
+## <a name="next-steps"></a>다음 단계
+[관리자 및 사용자 포털을 사용 하 여 Azure 스택](azure-stack-manage-portals.md)

@@ -12,22 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: c856380534bc43da7f8542842866612b9f705f16
-ms.openlocfilehash: 0e90fd528dcba205a389216c5fcdc862bc8f669d
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Azure Redis Cache를 관리하는 방법
 이 토픽에서는 [재부팅](#reboot) 및 Azure Redis Cache 인스턴스의 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법을 설명합니다.
-
-> [!IMPORTANT]
-> 이 문서에 설명된 설정 및 기능은 프리미엄 계층 캐시에 대해서만 사용할 수 있습니다.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 **재부팅** 블레이드에서는 하나 이상의 캐시 노드를 재부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 응용 프로그램의 복원력을 테스트할 수 있습니다.
@@ -52,7 +46,7 @@ ms.lasthandoff: 02/17/2017
 * **클러스터링이 설정된 프리미엄 캐시 노드** - 클러스터링이 설정된 프리미엄 캐시 중 하나 이상의 노드를 다시 부팅하면 선택한 노드에서도 해당하는 노드 또는 클러스터링되지 않은 캐시의 노드를 다시 부팅할 때와 같은 동작이 나타납니다.
 
 > [!IMPORTANT]
-> 재부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다.
+> 이제 모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다.
 > 
 > 
 
@@ -83,10 +77,10 @@ ms.lasthandoff: 02/17/2017
 예, PowerShell 소개는 [Redis Cache를 다시 부팅하려면](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)을 참조하세요.
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?
-다시 부팅은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
+모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다.
 
-## <a name="schedule-updates"></a>업데이트 예약
-**업데이트 예약** 블레이드에서는 캐시 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
+## <a name="schedule-updates"></a>업데이트를 예약
+**업데이트 예약** 블레이드에서는 프리미엄 계층 캐시의 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
 
 > [!NOTE] 
 > 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.
@@ -98,7 +92,7 @@ ms.lasthandoff: 02/17/2017
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
 > [!NOTE]
-> 업데이트를 위한 기본 유지 관리 기간은&5;시간입니다. 이 값은 Azure 포털에서는 구성할 수 없지만 PowerShell에서 [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
+> 업데이트를 위한 기본 유지 관리 기간은 5시간입니다. 이 값은 Azure 포털에서는 구성할 수 없지만 PowerShell에서 [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
 > 
 > 
 
@@ -117,15 +111,14 @@ ms.lasthandoff: 02/17/2017
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?
 예, 다음 PowerShell cmdlet을 사용하여 예약된 업데이트를 관리할 수 있습니다.
 
-* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/remove-azurermrediscachepatchschedule)
+* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?
 **업데이트 예약** 기능은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Redis Cache 프리미엄 계층](cache-premium-tier-intro.md) 기능에 대해 더 알아봅니다.
-
 

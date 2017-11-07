@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
 
@@ -34,7 +34,7 @@ Azure Active Directory ID 보호는 Azure AD Premium P2 버전의 기능으로, 
 
 ## <a name="getting-started"></a>시작
 
-Microsoft는&10;년 넘게 클라우드 기반 ID를 보호하고 있습니다. Azure Active Directory ID 보호를 사용하는 경우 사용자 환경에서 Microsoft가 ID 보호를 위해 사용하는 것과 동일한 보호 시스템을 사용할 수 있습니다.
+Microsoft는 10년 넘게 클라우드 기반 ID를 보호하고 있습니다. Azure Active Directory ID 보호를 사용하는 경우 사용자 환경에서 Microsoft가 ID 보호를 위해 사용하는 것과 동일한 보호 시스템을 사용할 수 있습니다.
 
 대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 시간이 지나면서 공격자는 점점 더 효과적으로 제3자 침해를 활용하고 정교한 피싱 공격을 사용하고 있습니다. 일단 공격자가 더 낮은 권한을 가진 사용자 계정에 대한 액세스 권한을 얻게 되면 측면 이동을 통해 비교적 간단하게 중요한 회사 리소스에 대한 액세스 권한을 얻게 됩니다.
 
@@ -71,6 +71,25 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 * 위험한 사용자 계정 차단 및 보호 정책
 * Multi-Factor Authentication에 사용자 등록 요구 정책
 
+
+
+## <a name="identity-protection-roles"></a>ID 보호 역할
+
+ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇 가지 역할을 할당할 수 있습니다. Azure AD ID 보호는 3가지 디렉터리 역할을 지원합니다.
+
+| 역할                         | 가능한 작업                          | 불가능한 작업
+| :--                          | ---                                |  ---   |
+| 전역 관리자         | ID 보호에 대한 완전한 액세스, ID 보호 등록| |
+| 보안 관리자       | ID 보호에 대한 완전한 액세스 | ID 보호 등록, 사용자의 암호 재설정 |
+| 보안 판독기              | ID 보호에 대한 읽기 전용 액세스 | ID 보호 등록, 사용자 수정, 정책 구성, 암호 재설정 |
+
+
+
+
+자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+
+
+
 ## <a name="detection"></a>감지
 
 ### <a name="vulnerabilities"></a>취약점
@@ -102,7 +121,8 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-Aure Active Directory는 일부 [위험 이벤트 유형](active-directory-reporting-risk-events.md#risk-event-types)을 실시간으로 검색합니다. 사용자의 로그인 주에 검색된 모든 실시간 위험 이벤트는 *위험한 로그인*이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다. 위험한 로그인의 수명 주기는 사용자가 로그아웃하면 끝납니다.
+Azure Active Directory는 [위험 이벤트 유형](active-directory-reporting-risk-events.md#risk-event-types)을 실시간 및 오프라인으로 검색합니다. 사용자 로그인 중에 검색된 각 위험 이벤트는 위험한 로그인이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다.
+
 
 ### <a name="sign-in-risk-level"></a>로그인 위험 수준
 
@@ -192,7 +212,7 @@ ID 보호 콘솔의 **위험 이벤트** 페이지에서는 모든 이벤트를 
 
 ## <a name="users-flagged-for-risk"></a>위험에 대한 플래그가 지정된 사용자
 
-사용자에 대해 Azure Active Directory에서 검색된 모든 [위험 이벤트](active-directory-identity-protection-risk-events.md)는 *위험에 대한 플래그가 지정된 사용자*라는 논리적 개념을 파생시킵니다. *위험에 대한 사용자 플래그* 또는 *위험한 사용자*는 손상되었을 수 있는 사용자 계정에 대한 지표입니다.   
+사용자에 대해 Azure Active Directory에서 검색된 모든 활성 [위험 이벤트](active-directory-identity-protection-risk-events.md)는 사용자 위험이라는 논리적 개념을 파생시킵니다. 위험 플래그가 지정된 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 ![위험에 대한 플래그가 지정된 사용자](./media/active-directory-identityprotection/1200.png)
 
@@ -396,4 +416,3 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
 * [Azure Active Directory ID 보호 - 사용자를 차단 해제하는 방법](active-directory-identityprotection-unblock-howto.md)
 
 * [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
-

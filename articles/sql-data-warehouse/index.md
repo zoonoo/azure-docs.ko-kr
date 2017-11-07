@@ -2,7 +2,7 @@
 title: "Azure SQL Data Warehouse 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "SQL Data Warehouse를 사용하여 방대한 병렬 처리와 SQL Server를 결합하는 방법에 대해 알아봅니다. 설명서에서는 데이터를 로드, 분석, 관리 및 내보내는 방법을 보여 줍니다."
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
-ms.lasthandoff: 04/08/2017
-
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>SQL Data Warehouse 설명서
 
 방대한 병렬 처리와 SQL Server 관계형 데이터베이스를 결합하는 SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 웨어하우스에 데이터를 로드한 다음 분석, 관리 및 내보내는 방법을 보여 줍니다.
@@ -113,6 +112,5 @@ ms.lasthandoff: 04/08/2017
         </div>
     </li>
 </ul>
-
 
 

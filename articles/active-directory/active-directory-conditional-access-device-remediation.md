@@ -1,6 +1,6 @@
 ---
-title: "Windows 장치의 Azure Portal 상에서 &quot;여기에서 가져올 수 없습니다&quot; 문제 해결 | Microsoft Docs"
-description: "조직의 온라인 리소스의 액세스 문제를 해결하기 위해 수행할 수 있는 단계를 알아봅니다."
+title: "Windows 장치의 Azure Portal 상의 여기에서 가져올 수 없습니다 | Microsoft Docs"
+description: "여기에서 가져올 수 없는 위치 및 이 대화 상자에서 실행되지 않도록 방지하기 위해 확인할 점에 대해 알아봅니다."
 services: active-directory
 keywords: "장치 기반 조건부 액세스, 장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
-
-
+ms.reviewer: jairoc
+ms.openlocfilehash: 7ba8a79df39c135ef1831b46d38babeedfb722ba
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다'
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/06/2017
 
 ![지원되지 않은 브라우저에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/02.png "시나리오")
 
-유일하게 수정된 부분은 응용 프로그램이 장치 플랫폼에 지원하는 브라우저를 사용하는 것입니다. 지원되는 브라우저의 전체 목록은 [지원되는 브라우저](active-directory-conditional-access-supported-apps.md#supported-browsers)를 참조하세요.  
+유일하게 수정된 부분은 응용 프로그램이 장치 플랫폼에 지원하는 브라우저를 사용하는 것입니다. 지원되는 브라우저의 전체 목록은 [지원되는 브라우저](active-directory-conditional-access-supported-apps.md)를 참조하세요.  
 
 
 ## <a name="supported-versions-of-windows"></a>지원되는 Windows 버전
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/06/2017
 
 ### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>장치가 온-프레미스 Active Directory에 조인되어 있습니까?
 
-**장치가 조직의 온-프레미스 Active Directory로 도메인에 조인된 경우**
+**장치가 조직의 온-프레미스 Active Directory에 조인된 경우 다음을 수행합니다.**
 
 1. 작업 계정(Active Directory 계정)을 사용하여 Windows에 로그인하는지 확인합니다.
 2. 가상 사설망(VPN) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.
@@ -159,5 +159,4 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
-
 

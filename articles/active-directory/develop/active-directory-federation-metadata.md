@@ -3,7 +3,7 @@ title: "Azure AD 페더레이션 메타데이터 | Microsoft Docs"
 description: "이 문서에서는 Azure Active Directory가 Azure Active Directory 토큰을 수락하는 서비스에 대해 게시하는 페더레이션 메타데이터 문서를 설명합니다."
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 9904ec79782b1790ecb21f31b078fea9936c8380
-ms.openlocfilehash: 305b7ce52d1313ecde641c952db291588fabf01c
-
-
+ms.author: dastrock
+ms.custom: aaddev
+ms.openlocfilehash: ecafb02a6ac13d1c3cd1fe77ef710cd8525e32b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
 Azure Active Directory(Azure AD)는 Azure AD가 발급하는 보안 토큰을 수락하도록 구성된 서비스에 대한 페더레이션 메타데이터 문서를 게시합니다. 페더레이션 메타데이터 문서 형식은 [Web Services Federation Language(WS-Federation) 버전 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)에서 설명하며, [OASIS SAML(Security Assertion Markup Language) v2.0의 메타데이터](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)를 확장합니다.
@@ -40,7 +41,7 @@ Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.co
 
 **테넌트에 독립적인 끝점**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
-예를 들어, 테넌트별 끝점은 `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
+예를 들어, 테넌트별 끝점은 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
@@ -155,9 +156,3 @@ https://login.microsoftonline.com/common/wsfed
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

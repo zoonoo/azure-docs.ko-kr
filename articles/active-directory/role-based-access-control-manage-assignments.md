@@ -3,7 +3,7 @@ title: "Azure 리소스 액세스 권한 할당 보기 | Microsoft Docs"
 description: "Azure Portal에서 모든 사용자 또는 그룹에 대한 모든 역할 기반 액세스 제어 할당 보기 및 관리"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 05/04/2017
+ms.author: andredm
+ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기
 > [!div class="op_single_selector"]
 > * [사용자 또는 그룹에 따른 액세스 관리](role-based-access-control-manage-assignments.md)
 > * [리소스에 따른 액세스 관리](role-based-access-control-configure.md)
 
-Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 액세스 권한을 관리할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
+Azure AD(Azure Active Directory)의 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 
 
 두 가지 방법으로 사용 권한을 제한할 수 있기 때문에 RBAC를 사용하여 할당된 액세스 권한은 세분화됩니다.
 
 * **범위:** RBAC 역할 할당은 특정 구독, 리소스 그룹 또는 리소스로 범위가 지정됩니다. 단일 리소스에 대한 액세스 권한을 가진 사용자는 동일한 구독에서 다른 리소스에 액세스할 수 없습니다.
 * **역할:** 할당의 범위 내에서 역할을 할당하면 액세스 권한이 더 좁아집니다. 역할은 소유자와 같이 높은 수준일 수도 있고 가상 컴퓨터 판독기와 같이 특정될 수도 있습니다.
 
-역할은 할당에 대한 범위인 구독, 리소스 그룹 또는 리소스 내에서만 할당될 수 있습니다. 하지만 지정된 사용자나 그룹에 대한 모든 액세스 권한 할당은 단일 위치에서만 볼 수 있습니다.
+역할은 할당에 대한 범위인 구독, 리소스 그룹 또는 리소스 내에서만 할당될 수 있습니다. 하지만 지정된 사용자나 그룹에 대한 모든 액세스 권한 할당은 단일 위치에서만 볼 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 
 
 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)하는 방법에 대해 자세히 알아봅니다.
 
@@ -44,7 +43,7 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
 2. **사용자 및 그룹** 및 **모든 사용자** 또는 **모든 그룹**을 차례로 선택합니다. 이 예제에서는 개별 사용자에게 집중합니다.
     ![Azure Active Directory에서 사용자 및 그룹 관리 - 스크린샷](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. 이름 또는 사용자 이름별로 사용자를 검색합니다.
-4. 사용자 블레이드에서 **Azure 리소스** 를 선택합니다. 해당 사용자에 대한 모든 액세스 권한 할당이 표시됩니다.
+4. 사용자 블레이드에서 **Azure 리소스**를 선택합니다. 해당 사용자에 대한 모든 액세스 권한 할당이 표시됩니다.
 
 ### <a name="read-permissions-to-view-assignments"></a>할당을 보는 읽기 사용 권한
 이 페이지에서는 읽을 수 있는 사용 권한이 있는 액세스 권한 할당만 보여 줍니다. 예를 들어 구독 A에 대한 읽기 액세스 권한이 있으며 Azure 리소스 블레이드로 이동하여 사용자의 할당을 확인합니다. 구독 A에 대한 액세스 권한 할당을 확인할 수 있지만 구독 B에 대한 액세스 권한 할당이 있는지 표시되지 않습니다.
@@ -60,5 +59,4 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
 
 * [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)
 * [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
-
 

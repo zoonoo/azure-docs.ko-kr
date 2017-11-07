@@ -12,18 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 10/06/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 48c444bfebf46131503dfeefbcd7365b6979215d
-ms.openlocfilehash: 2f59157f47eb211bc7f7d6542f1a7f77ffb90b41
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 4f716d85a60650a77d393eb725493e2e4d11de7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>작업 예약 및 브로드캐스트(노드)
 
-## <a name="introduction"></a>소개
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업데이트하는 작업을 만들고 추적할 수 있게 하는 완전히 관리되는 서비스입니다.  작업(job)은 다음과 같은 작업(action)에 사용될 수 있습니다.
 
 * desired 속성 업데이트
@@ -39,10 +39,10 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* 솔루션 백 엔드에서 **lockDoor**를 호출할 수 있는 직접 메서드가 포함된 시뮬레이션된 장치 앱을 만듭니다.
+* 솔루션 백 엔드에서 **lockDoor**를 호출할 수 있는 직접 메서드가 포함된 Node.js로 시뮬레이션된 장치 앱을 만듭니다.
 * 작업을 사용하여 시뮬레이션된 장치 앱에서 **lockDoor** 직접 메서드를 호출하고, 장치 작업을 사용하여 desired 속성을 업데이트하는 Node.js 콘솔 앱을 만듭니다.
 
-이 자습서를 마치면 두 가지 Node.js 콘솔 앱이 만들어집니다.
+이 자습서를 마치면 두 가지 Node.js 앱이 만들어집니다.
 
 **simDevice.js** - 장치 ID로 IoT Hub에 연결하고 **lockDoor** 직접 메서드를 수신합니다.
 
@@ -50,7 +50,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 0.12.x 이상, <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
+* Node.js 버전 4.0.x 이상 <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -58,7 +58,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
-이 섹션에서는 클라우드에서 호출한 직접 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다. 이 메서드는 시뮬레이션된 장치 재부팅을 트리거하고, reported 속성을 사용하여 장치 및 해당 장치가 마지막으로 재부팅한 시간을 확인하는 장치 쌍 쿼리를 사용하도록 설정합니다.
+이 섹션에서는 클라우드에서 호출한 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다. 이 메서드는 시뮬레이션된 **lockDoor** 메서드를 트리거합니다.
 
 1. **simDevice**라는 빈 폴더를 새로 만듭니다.  **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
    
@@ -152,7 +152,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
-6. 작업 실행을 모니터링하는 데 사용할 다음 함수를 추가합니다.
+6. 작업 실행을 모니터링하는 데 사용되는 다음 함수를 추가합니다.
    
     ```
     function monitorJob (jobId, callback) {
@@ -205,11 +205,13 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
    
     var twinJobId = uuid.v4();
@@ -258,15 +260,14 @@ IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 �
 
 [자습서: 펌웨어 업데이트를 수행하는 방법][lnk-fwupdate]
 
-IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 참조하세요.
+계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작][lnk-iot-edge]을 참조하세요.
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-

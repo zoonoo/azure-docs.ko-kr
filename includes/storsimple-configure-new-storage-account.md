@@ -14,8 +14,3 @@
       ![저장소 계정 추가](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장** 을 클릭하여 새로 만들어진 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인** 을 클릭합니다.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

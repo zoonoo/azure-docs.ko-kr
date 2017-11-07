@@ -3,8 +3,8 @@ title: "Azure Portal을 사용하여 Azure Data Lake Analytics 작업 문제 해
 description: "Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해결하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
@@ -14,61 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
-
-
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 문제 해결
 Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해결하는 방법에 대해 알아봅니다.
 
 이 자습서에서는 누락된 원본 파일 문제를 설치하고 Azure 포털을 사용하여 문제를 해결합니다.
 
-**필수 구성 요소**
-
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
-
-* **데이터 레이크 분석 작업 프로세스에 대한 기본 지식**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
-* **데이터 레이크 분석 계정**. [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)을 참조하세요.
-* **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**.  [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)
-
 ## <a name="submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 제출
-이제 잘못된 원본 파일 이름을 사용하여 U-SQL 작업 이름을 만듭니다.  
 
-**작업을 제출하려면**
+다음 U-SQL 작업 제출:
 
-1. Azure 포털의 왼쪽 위 모서리에서 **Microsoft Azure** 를 클릭합니다.
-2. 데이터 레이크 분석 계정 이름을 가진 타일을 클릭합니다.  계정을 만들었을 때 여기에 고정되었습니다.
-   계정이 여기에 고정되어 있지 않은 경우 [포털에서 분석 계정 열기](data-lake-analytics-manage-use-portal.md#access-adla-account)를 참조하세요.
-3. 위쪽 메뉴에서 **새 작업** 을 클릭합니다.
-4. 작업 이름을 입력하고 다음 U-SQL 스크립트를 입력합니다.
+```
+@searchlog =
+   EXTRACT UserId          int,
+           Start           DateTime,
+           Region          string,
+           Query           string,
+           Duration        int?,
+           Urls            string,
+           ClickedUrls     string
+   FROM "/Samples/Data/SearchLog.tsv1"
+   USING Extractors.Tsv();
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv1"
-            USING Extractors.Tsv();
+OUTPUT @searchlog   
+   TO "/output/SearchLog-from-adls.csv"
+   USING Outputters.Csv();
+```
+    
+스크립트에 정의된 원본 파일은 **/Samples/Data/SearchLog.tsv1**이고 여기서는 **/Samples/Data/SearchLog.tsv**입니다.
 
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adls.csv"
-        USING Outputters.Csv();
-
-    스크립트에 정의된 원본 파일은 **/Samples/Data/SearchLog.tsv1**이고 여기서는 **/Samples/Data/SearchLog.tsv**입니다.
-5. 위쪽에서 **작업 제출** 을 클릭합니다. 새 작업 세부 정보 창이 열립니다. 제목 표시줄에 작업 상태가 표시됩니다. 완료하는 데 몇 분이 걸립니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭하면 됩니다.
-6. 작업 상태가 **실패**로 바뀔 때까지 기다립니다.  작업이 **성공**인 경우 이는 /Samples 폴더를 제거하지 않았기 때문입니다. 이 자습서의 앞부분에서 **필수 조건** 섹션을 참조하세요.
-
-작업이 작은데 오래 걸리는 이유가 궁금할 수 있습니다.  데이터 레이크 분석은 빅 데이터를 처리하기 위해 설계되었다는 점을 기억하세요.  이 기능은 해당 분산 시스템을 사용하여 많은 양의 데이터를 처리할 때 그 빛을 발합니다.
-
-작업을 제출했다고 가정하고 포털을 닫습니다.  다음 섹션에서는 작업의 문제를 해결하는 방법에 대해 알아봅니다.
 
 ## <a name="troubleshoot-the-job"></a>작업 문제 해결
-마지막 섹션에서 작업을 제출했고 작업이 실패했습니다.  
 
 **모든 작업을 보려면**
 
@@ -102,9 +83,3 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 * [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 * [Visual Studio를 사용하여 Azure 데이터 레이크 분석 및 U-SQL 시작](data-lake-analytics-u-sql-get-started.md)
 * [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -3,7 +3,7 @@ title: "Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에
 description: "API 관리에서 OAuth 2.0을 사용하여 사용자에게 권한을 부여하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
-ms.lasthandoff: 01/31/2017
-
+ms.openlocfilehash: c61b4969757d62d7e16e7acecf7d7bed4b31c9b1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 대부분의 API는 [OAuth 2.0](http://oauth.net/2/) 을 지원하여 API를 보호하고 유효한 사용자만 액세스 권한이 부여되고 자격이 있는 리소스에만 액세스할 수 있도록 합니다. 이러한 API와 함께 Azure API 관리의 대화형 개발자 콘솔을 사용하기 위해 서비스에서 OAuth 2.0 사용 API로 작동하도록 서비스 인스턴스를 구성할 수 있습니다.
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/31/2017
 
 **권한 부여 끝점 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 응용 프로그램을 식별하는 클라이언트 ID로 바뀝니다.
 
-`https://login.windows.net/<client_id>/oauth2/authorize`
+`https://login.microsoftonline.com/<client_id>/oauth2/authorize`
 
 **권한 부여 요청 방법** 은 권한 부여 요청이 OAuth 2.0 서버로 전송되는 방법을 지정합니다. 기본적으로는 **GET** 이 선택됩니다.
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 01/31/2017
 
 Azure Active Directory OAuth 2.0 서버의 경우 **토큰 끝점 URL**의 형식은 다음과 같습니다. `<APPID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
 
-`https://login.windows.net/<APPID>/oauth2/token`
+`https://login.microsoftonline.com/<APPID>/oauth2/token`
 
 **클라이언트 인증 방법**의 기본 설정은 **기본**이고 **액세스 토큰 전송 방법**의 기본 설정은 **권한 부여 헤더**입니다. 양식의 이 섹션에서 **기본 범위**와 함께 이러한 값을 구성합니다.
 
@@ -173,5 +173,4 @@ OAuth 2.0 및 API 관리 사용에 대한 자세한 내용은 다음 비디오 �
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure 포털에서 Azure 스케줄러 시작
 Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 자습서에서는 작업을 만드는 방법을 알아봅니다. 스케줄러의 모니터링 및 관리 기능도 알아봅니다.
@@ -48,7 +48,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
    4. **종료 날짜**: 오늘 날짜부터 이틀 후  
       
       ![][recurrence-schedule]
-6.  **만들기**
+6. **만들기**
 
 ## <a name="manage-and-monitor-jobs"></a>작업 관리 및 모니터링
 작업이 만들어지면 기본 Azure 대시보드에 표시됩니다. 작업을 클릭하면 다음 탭을 제공하는 새 창이 열립니다.
@@ -82,7 +82,7 @@ HTTP 및 HTTPS 작업 동작 유형에서, 메서드를 허용되는 HTTP 동사
 ### <a name="schedule"></a>일정
 이렇게 하면 빠른 만들기 마법사에서 만든 일정을 변경하지 않으려는 경우 일정을 다시 구성할 수 있습니다.
 
- [작업에서 복잡한 일정 및 고급 되풀이](scheduler-advanced-complexity.md)
+[작업에서 복잡한 일정 및 고급 되풀이](scheduler-advanced-complexity.md)
 
 시작 날짜와 시간, 되풀이 일정 및 종료 날짜와 시간(작업이 되풀이될 경우)을 변경할 수 있습니다.
 
@@ -152,9 +152,3 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 스케줄러에 대�
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

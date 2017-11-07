@@ -3,7 +3,7 @@ title: "Azure SQL 데이터 웨어하우스용 PowerShell cmdlet"
 description: "데이터베이스를 일시 중지하고 다시 시작하는 방법을 포함하여 Azure SQL 데이터 웨어하우스용 PowerShell cmdlet을 확인합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96ac017b469405e0eb106bf5eb391b5273600ab2
-ms.lasthandoff: 12/08/2016
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: ce3e11587c2e0cb92923868a4f26d7f59c7ef4ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
 많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][Manage scalability with REST] 문서를 참조하세요.
@@ -73,8 +72,8 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## <a name="frequently-used-powershell-cmdlets"></a>자주 사용되는 PowerShell cmdlet
-다음 PowerShell cmdlet은 Azure SQL 데이터 웨어하우스에서 자주 사용됩니다.
+## <a name="other-supported-powershell-cmdlets"></a>지원되는 기타 PowerShell cmdlet
+다음 PowerShell cmdlet은 Azure SQL Data Warehouse에서 지원됩니다.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
@@ -93,7 +92,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 * [Powershell을 사용하여 SQL Data Warehouse 만들기][Create a SQL Data Warehouse using PowerShell]
 * [데이터베이스 복원][Database restore]
 
-PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL Database Cmdlet][Azure SQL Database Cmdlets]을 참조하세요.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대한 작업][Operations for Azure SQL Databases]을 참조하세요.
+PowerShell로 자동화할 수 있는 다른 작업은 [Azure SQL Database Cmdlet][Azure SQL Database Cmdlets]을 참조하세요. 모든 Azure SQL Database cmdlet이 Azure SQL Data Warehouse에 대해 지원되는 것은 아닙니다.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대한 작업][Operations for Azure SQL Databases]을 참조하세요.
 
 <!--Image references-->
 
@@ -120,4 +119,3 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL Databas
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-

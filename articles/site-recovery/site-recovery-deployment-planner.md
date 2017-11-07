@@ -8,21 +8,20 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery 사용자 가이드입니다.
+이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 
 ## <a name="overview"></a>개요
 
@@ -36,7 +35,7 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
 **호환성 평가**
 
-* 디스크 수, 디스크 크기, IOPS 및 변동에 따른 VM 적합성 평가
+* 디스크 수, 디스크 크기, IOPS, 변동 및 부팅 형식(EFI/BIOS)에 따른 VM 적합성 평가
 * 델타 복제에 필요한 예상 네트워크 대역폭
 
 **네트워크 대역폭 요구 사항 및 RPO 평가**
@@ -67,7 +66,7 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
 | 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Microsoft Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure 저장소 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 2 이상으로 설정되어야 합니다.</li></ul>|
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Microsoft Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure 저장소 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 2 이상으로 설정되어야 합니다.</li><li>443 포트 허용: ASR Deployment Planner는 이 포트를 사용하여 vCenter Server/ESXi 호스트에 연결합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
@@ -119,14 +118,18 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. VCenter 서버/vSphere ESXi 호스트의 모든 VM의 이름을 가져오려면 .txt 파일에 목록을 저장하고 여기에 나열된 두 개의 명령을 실행합니다.
+4. Connect-VIServer가 cmdlet의 이름으로 인식되지 않으면 다음 명령을 실행해야 할 수도 있습니다.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. VCenter 서버/vSphere ESXi 호스트의 모든 VM의 이름을 가져오려면 .txt 파일에 목록을 저장하고 여기에 나열된 두 개의 명령을 실행합니다.
 &lsaquo;서버 이름&rsaquo;, &lsaquo;사용자 이름&rsaquo;, &lsaquo;암호&rsaquo;, &lsaquo;outputfile.txt&rsaquo;을 입력 내용으로 바꿉니다.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. 메모장에서 출력 파일을 연 다음 다른 파일에 프로파일링하려는 모든 VM의 이름(예를 들어 ProfileVMList.txt)을 한 줄에 한 개씩 복사합니다. 이 파일은 명령줄 도구의 *-VMListFile* 매개 변수에 대한 입력으로 사용됩니다
+6. 메모장에서 출력 파일을 연 다음 다른 파일에 프로파일링하려는 모든 VM의 이름(예를 들어 ProfileVMList.txt)을 한 줄에 한 개씩 복사합니다. 이 파일은 명령줄 도구의 *-VMListFile* 매개 변수에 대한 입력으로 사용됩니다
 
     ![Deployment Planner의 VM 이름 목록](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
@@ -140,7 +143,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | VM을 프로파일링할 vCenter 서버/vSphere ESXi 호스트의 정규화된 도메인 이름 또는 IP 주소입니다.|
 | -User | vCenter 서버/vSphere ESXi 호스트에 연결할 사용자 이름입니다. 사용자는 적어도 읽기 전용 액세스 권한을 가지고 있어야 합니다.|
-| -VMListFile |    프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일에는 VM 이름/IP 주소가 한 줄에 하나씩 있어야 합니다. 파일에 지정된 가상 컴퓨터 이름은 vCenter 서버/vSphere ESXi 호스트의 VM 이름과 동일해야 합니다.<br>예를 들어 VMList.txt 파일에는 다음과 같은 VM이 포함되어 있습니다.<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일에는 VM 이름/IP 주소가 한 줄에 하나씩 있어야 합니다. 파일에 지정된 가상 컴퓨터 이름은 vCenter 서버/vSphere ESXi 호스트의 VM 이름과 동일해야 합니다.<br>예를 들어 VMList.txt 파일에는 다음과 같은 VM이 포함되어 있습니다.<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | 프로파일링을 실행할 일 수입니다. 15일 이상 프로파일링을 실행하여 지정된 기간 동안 사용자 환경에서 워크로드 패턴을 관찰하고 정확한 권장 사항을 제공하는 데 사용하도록 하는 것이 좋습니다. |
 | -Directory | (선택 사항) 프로파일링 중에 생성된 프로파일링 데이터를 저장하기 위한 범용 명명 규칙(UNC) 또는 로컬 디렉터리 경로입니다. 디렉터리 이름을 지정하지 않으면 현재 경로 아래에 'ProfiledData'라는 디렉터리가 기본 디렉터리로 사용됩니다. |
 | -Password | (선택 사항) vCenter server/vSphere ESXi 호스트에 연결하는 데 사용하는 암호입니다. 지금 지정하지 않으면 나중에 명령을 실행할 때 지정하도록 요구하는 메시지가 표시됩니다.|
@@ -205,6 +208,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM 단위의 시작 날짜 및 시간(24시간 형식)입니다. *StartDate*는 *EndDate*와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
+| -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 저장소 계정에 배치할 수 있는 가상 컴퓨터의 수는 가상 컴퓨터의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>예제 1: 프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
 ```
@@ -244,8 +248,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 도구에서는 모든 VM을 프로파일링하는 동안 수집된 읽기/쓰기 IOPS, 쓰기 IOPS 및 데이터 변동의 95번째 백분위수 값을 기본적으로 사용합니다. 이 메트릭은 사용자의 VM이 일시적 이벤트 때문에 볼 수 있는 100번째 백분위수 급증을 대상 저장소 계정 및 원본 대역폭 요구 사항을 결정하는 데 사용되지 않도록 합니다.
  예를 들어 일시적 이벤트는 하루에 한 번 실행하는 백업 작업, 주기적 데이터베이스 인덱싱 또는 분석 보고서 생성 작업 또는 기타 유사한 단기적 시점 이벤트일 수 있습니다.
 
-95번째 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90번째 백분위수로)하지 않은 경우 기본 폴더의 구성 파일 *ASRDeploymentPlanner.exe.config*를 업데이트하고 
-기존 프로파일링된 데이터에 대한 새 보고서를 생성하기 위해 저장할 수 있습니다.
+95번째 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90번째 백분위수로)하지 않은 경우 기본 폴더의 구성 파일 *ASRDeploymentPlanner.exe.config*를 업데이트하고 기존 프로파일링된 데이터에 대한 새 보고서를 생성하기 위해 저장할 수 있습니다.
 ```
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
@@ -457,7 +460,9 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 **VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [Azure 프리미엄 저장소](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 저장소 계정 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형이 결정됩니다. 예:
 * 128GB 미만은 P10입니다.
 * 128GB 이상 512GB 미만은 P20입니다.
-* 512GB 이상 1023GB 미만은 P30입니다.
+* 512GB ~ 1,024GB는 P30입니다.
+* 1,025GB ~ 2,048GB는 P40입니다.
+* 2,049GB ~ 4,095GB는 P50입니다.
 
 디스크의 워크로드 특성이 P20 또는 P30 범주에 속하지만 크기가 더 낮은 프리미엄 저장소 디스크 유형에 낮게 매핑되는 경우 도구에서 해당 VM을 **예**\*로 표시합니다. 또한 도구에서는 원본 디스크 크기를 권장 프리미엄 저장소 디스크 유형에 맞게 변경하거나 대상 디스크 유형 사후 장애 조치를 변경할 것을 권장합니다.
 
@@ -483,7 +488,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다.
 
 **OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
 
@@ -495,7 +500,8 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [저장소 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
-* 디스크 크기가 1023GB보다 큽니다. Azure Storage는 현재 1TB보다 큰 디스크 크기를 지원하지 않습니다.
+* 디스크 크기가 4,095GB보다 큽니다. Azure Storage는 현재 4,095GB보다 큰 디스크 크기를 지원하지 않습니다.
+* OS 디스크는 2,048GB보다 큽니다. Azure Storage는 현재 2,048GB보다 큰 OS 디스크 크기를 지원하지 않습니다.
 * 부팅 유형은 EFI입니다. 현재 Azure Site Recovery는 BIOS 부팅 유형 가상 컴퓨터만 지원합니다.
 
 * 총 VM 크기(복제 + TFO)가 지원되는 저장소 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 저장소 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 저장소 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
@@ -520,7 +526,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다.
 
 **OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
 
@@ -529,11 +535,11 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
 ---|---|---|---
-Standard Storage | 8KB    | 2MBps | 디스크당 168GB
-프리미엄 P10 디스크 | 8KB    | 2MBps | 디스크당 168GB
-프리미엄 P10 디스크 | 16KB | 4MBps |    디스크당 336GB
+Standard Storage | 8KB | 2MBps | 디스크당 168GB
+프리미엄 P10 디스크 | 8KB | 2MBps | 디스크당 168GB
+프리미엄 P10 디스크 | 16KB | 4MBps | 디스크당 336GB
 프리미엄 P10 디스크 | 32KB 이상 | 8MBps | 디스크당 672GB
-프리미엄 P20 또는 P30 디스크 | 8KB    | 5MBps | 디스크당 421GB
+프리미엄 P20 또는 P30 디스크 | 8KB  | 5MBps | 디스크당 421GB
 프리미엄 P20 또는 P30 디스크 | 16KB 이상 |10MBps | 디스크당 842GB
 
 여기서는 I/O가 30% 겹치고 있다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며 5분 내에 복구 지점이 생성됩니다.
@@ -561,6 +567,24 @@ Deployment Planner를 업데이트하려면 다음을 수행합니다.
 
 
 ## <a name="version-history"></a>버전 기록
+
+### <a name="131"></a>1.3.1
+업데이트: 2017년 7월 19일
+
+다음과 같은 새로운 기능이 추가됩니다.
+
+* 보고서 생성에서 1TB보다 큰 대용량 디스크에 대한 지원이 추가되었습니다. 이제 Deployment Planner를 사용하여 1TB(최대 4,095GB)보다 큰 디스크가 있는 가상 컴퓨터에 대한 복제를 계획할 수 있습니다.
+[Azure Site Recovery에서 대용량 디스크 지원(영문)](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)에 대해 자세히 알아보세요.
+
+
+### <a name="13"></a>1.3
+업데이트: 2017년 5월 9일
+
+다음과 같은 새로운 기능이 추가됩니다.
+
+* 보고서 생성에서 Managed Disk 지원이 추가되었습니다. 가상 컴퓨터의 수는 단일 저장소에 배치되고 계정은 Managed Disk가 장애 조치/테스트 장애 조치에 대해 선택되어 있는지에 따라 계산됩니다.        
+
+
 ### <a name="12"></a>1.2
 업데이트: 2017년 4월 7일
 
@@ -589,4 +613,3 @@ Azure Site Recovery Deployment Planner 공개 미리 보기 1.0에는 다음과 
 * 도구는 Hyper-V에서 Azure로의 배포가 아닌 VMware에서 Azure로의 시나리오에 대해서만 작동합니다. Hyper-V에서 Azure로의 시나리오에 대해서는 [Hyper-V Capacity Planner 도구](./site-recovery-capacity-planning-for-hyper-v-replication.md)를 사용합니다.
 * 미국 정부 및 중국 Microsoft Azure 지역에서는 GetThroughput 작업이 지원되지 않습니다.
 * 여러 ESXi 호스트에서 동일한 이름 또는 IP 주소를 가진 둘 이상의 VM이 vCenter 서버에 있는 경우 도구에서 VM을 프로파일링할 수 없습니다. 이 버전에서 도구는 VMListFile에서 중복된 VM 이름 또는 IP 주소에 대한 프로파일링을 건너뜁니다. 해결 방법은 VCenter 서버 대신 ESXi 호스트를 사용하여 VM을 프로파일링하는 것입니다. 각 ESXi 호스트에 대해 인스턴스 하나만 실행해야 합니다.
-

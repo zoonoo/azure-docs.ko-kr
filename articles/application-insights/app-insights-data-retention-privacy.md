@@ -1,23 +1,23 @@
 ---
-title: "Application Insights 데이터 보존 및 저장소"
+title: "Azure Application Insights 데이터 보존 및 저장소 | Microsoft Docs"
 description: "보존 및 개인 정보 취급 방침"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
-ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
-
-
+ms.date: 04/07/2017
+ms.author: mbullwin
+ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -67,7 +67,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 * [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
 * [종속성](app-insights-asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
-* [추적 로그](app-insights-search-diagnostic-logs.md) 및 [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
+* [추적 로그](app-insights-asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
 
 [자세한 내용](#data-sent-by-application-insights).
 
@@ -108,7 +108,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](http://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
 
-데이터는 Microsoft Azure 서버에 저장됩니다. Azure 포털 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](http://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다.
+데이터는 Microsoft Azure 서버에 저장됩니다. Azure Portal 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](http://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다.
 
 Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있습니다. Microsoft에서는 사용자가 허락한 경우에만, 그리고 Application Insights 사용을 지원하는 데 필요한 경우에 사용자 데이터에 액세스합니다. 
 
@@ -198,16 +198,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 ## <a name="credits"></a>크레딧
 이 제품에는 MaxMind에서 작성된 GeoLite2 데이터를 포함하며 [http://www.maxmind.com](http://www.maxmind.com)에 있습니다.
 
-## <a name="a-namevideoavideos"></a><a name="video"></a>동영상
-#### <a name="introduction"></a>소개
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
-> 
-> 
 
-#### <a name="get-started"></a>시작
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -221,10 +212,4 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

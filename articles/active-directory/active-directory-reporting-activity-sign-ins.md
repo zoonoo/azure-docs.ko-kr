@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 포털 – 미리 보기의 로그인 활동 보고서 | Microsoft Docs"
-description: "Azure Active Directory 포털 – 미리 보기의 로그인 활동 보고서 소개"
+title: "Azure Active Directory 포털의 로그인 작업 보고서 | Microsoft Docs"
+description: "Azure Active Directory 포털의 로그인 작업 보고서 소개"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 10/21/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
-ms.lasthandoff: 04/10/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: d28def78ef34e7c41e846fc10771992f109efd45
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory 포털 – 미리 보기의 로그인 활동 보고서
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
-Azure Active Directory [미리 보기](active-directory-preview-explainer.md)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 Azure Active Directory(Azure AD) 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
@@ -36,6 +36,17 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 
 이 항목에서는 로그인 활동에 대한 개요를 제공합니다.
 
+## <a name="pre-requisite"></a>필수 구성 요소
+
+### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+* 보안 관리 또는 보안 판독기 역할의 사용자
+* 전역 관리자
+* 모든 사용자(비관리자)가 자신의 로그인에 액세스할 수 있습니다. 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
+* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다.
+
+
 ## <a name="signs-in-activities"></a>로그인 활동
 
 보고서에서 사용자 로그인에 의해 제공되는 정보를 사용하여 다음과 같은 질문에 대한 대답을 찾습니다.
@@ -44,7 +55,7 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-모든 로그인 활동 데이터의 첫 번째 진입점은 **Azure Active Directory**의 [활동] 섹션의 **로그인**입니다. Directory.
+모든 로그인 작업 데이터의 첫 번째 진입점은 **Azure Active**의 [작업] 섹션에 있는 **로그인**입니다.
 
 
 ![로그인 활동](./media/active-directory-reporting-activity-sign-ins/61.png "로그인 활동")
@@ -186,6 +197,6 @@ Azure Active Directory 외에도 Azure Portal에서는 로그인 활동 데이�
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
 
+로그인 활동 오류 코드에 대해 자세히 알아보려면 [Azure Active Directory 포털의 로그인 활동 보고서 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)를 참조하세요.
 

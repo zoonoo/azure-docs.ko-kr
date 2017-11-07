@@ -3,23 +3,22 @@ title: "Azure RBAC 문제 해결 | Microsoft Docs"
 description: "역할 기반 액세스 제어 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다."
 services: azure-portal
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>역할 기반 액세스 제어 문제 해결
 
@@ -46,14 +45,14 @@ ms.lasthandoff: 03/04/2017
 * 웹 테스트
 * 가상 네트워크(쓰기 권한이 있는 사용자가 이전에 가상 네트워크를 구성한 경우에만 읽기 권한자에게 표시됨)
 
-이러한 타일에 액세스할 수 없는 경우 관리자에게 웹앱에 대한 참여자 권한을 요청해야 합니다.
+이러한 타일에 액세스할 수 없는 경우 관리자에게 웹앱에 대한 참가자 권한을 요청해야 합니다.
 
 ### <a name="dealing-with-related-resources"></a>관련 리소스 사용
 웹앱에서 몇 가지 리소스가 상호 연동되는 경우 웹앱의 구조가 복잡해집니다. 아래에는 웹 사이트 몇 개가 포함된 일반적인 리소스 그룹이 나와 있습니다.
 
 ![웹앱 리소스 그룹](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-따라서 사용자에게 웹앱에 대한 권한만 부여하면 Azure 포털에서 웹 사이트 블레이드의 기능을 대부분 사용할 수 없게 됩니다.
+따라서 사용자에게 웹앱에 대한 권한만 부여하면 Azure Portal에서 웹 사이트 블레이드의 기능을 대부분 사용할 수 없게 됩니다.
 
 다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획**에 대한 **쓰기** 권한이 필요합니다.  
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 03/04/2017
 
 다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
 
-* SSL 인증서 및 바인딩(SSL 인증서는 같은 리소스 그룹과 지리적 위치의 사이트 간에 공유될 수 있기 때문)  
+* SSL 인증서 및 바인딩(SSL 인증서는 같은 리소스 그룹과 지리적 위치의 사이트 간에 공유될 수 있음)  
 * 경고 규칙  
 * 자동 크기 조정 설정  
 * Application Insights 구성 요소  
@@ -87,12 +86,11 @@ ms.lasthandoff: 03/04/2017
 * 부하 분산된 집합  
 * 경고 규칙  
 
-이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참여자 권한을 요청해야 합니다.
+이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참가자 권한을 요청합니다.
 
 ## <a name="see-more"></a>자세히 보기
 * [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
 * [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
-
 

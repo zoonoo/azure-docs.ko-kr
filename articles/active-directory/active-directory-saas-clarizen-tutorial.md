@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 3908c354a8551d7b16c759a48ef3e5316bfa11fa
 ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.lasthandoff: 02/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
 
@@ -106,7 +105,7 @@ Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clari
 
 4. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-    !["새 인증서 만들기" 클릭](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)     
+    !["새 인증서 만들기" 클릭](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
 5. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 만료 날짜를 선택합니다. 그런 다음 **Save**를 클릭합니다.
 
@@ -259,4 +258,3 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Clarizen에 �
 [201]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_203.png
-

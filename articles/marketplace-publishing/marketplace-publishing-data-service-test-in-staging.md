@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>스테이징에서 데이터 서비스 제품 테스트
 > [!IMPORTANT]
@@ -35,7 +35,7 @@ ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
 
   ![그리기](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
 
-1.  [게시 포털](https://publish.windowsazure.com)
+1. [게시 포털](https://publish.windowsazure.com)
 2. 왼쪽 탐색 창에서 **데이터 서비스** 를 선택합니다.
 3. 스테이징에 푸시할 제품을 선택합니다. 위와 같은 화면이 표시됩니다.
 4. **Push To Staging** (스테이징으로 푸시) 단추를 클릭합니다.  
@@ -63,7 +63,7 @@ DataMarket 포털 외에 Azure 포털에서도 데이터 서비스를 테스트�
 스테이징으로 푸시가 완료되면 “진행 중” 아이콘이 움직임을 멈추고 상태가 “준비됨”으로 업데이트됩니다.  이제 제품을 테스트할 준비가 되었습니다.  
 
 ## <a name="step-2-test-your-staged-offer-in-datamarket"></a>2단계. DataMarket에서 준비된 제품 테스트
- **“See Your service offer at…”**  텍스트 다음에 나오는 링크를 클릭하여 제품이 프로덕션으로 이동하고 DataMarket에 공개되면 구독자에게 보여질 화면을 표시합니다.
+**“See Your service offer at…”** 텍스트 다음에 나오는 링크를 클릭하여 제품이 프로덕션으로 이동하고 DataMarket에 공개되면 구독자에게 보여질 화면을 표시합니다.
 
   ![그리기](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -96,10 +96,4 @@ DataMarket 포털 외에 Azure 포털에서도 데이터 서비스를 테스트�
 
 ## <a name="see-also"></a>참고 항목
 * [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,7 +3,7 @@ title: "Application Gateway 만들기, 시작 또는 삭제 | Microsoft Docs"
 description: "이 페이지에서는 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고 삭제하기 위한 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -13,14 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
-
-
+ms.date: 07/31/2017
+ms.author: davidmu
+ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 Application Gateway 만들기, 시작 또는 삭제 
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
+Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
 이 문서는 응용 프로그램 게이트웨이를 생성, 구성, 시작 및 삭제하는 단계를 안내합니다.
 
@@ -106,11 +105,11 @@ DnsName       :
 
 XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성할 수 있습니다.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>XML을 사용하여 응용 프로그램 게이트웨이 구성
+### <a name="configure-the-application-gateway-by-using-xml"></a>XML을 사용하여 응용 프로그램 게이트웨이 구성
 
 다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.  
 
-### <a name="step-1"></a>1단계:
+#### <a name="step-1"></a>1단계:
 
 다음 텍스트를 메모장에 복사합니다.
 
@@ -211,7 +210,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>2단계:
+#### <a name="step-2"></a>2단계:
 
 다음으로 응용 프로그램 게이트웨이를 설정합니다. 구성 XML 파일에 `Set-AzureApplicationGatewayConfig` cmdlet를 사용합니다.
 
@@ -219,14 +218,14 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>구성 개체를 사용하여 응용 프로그램 게이트웨이 구성
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>구성 개체를 사용하여 응용 프로그램 게이트웨이 구성
 
 다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 Application Gateway 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 `Set-AzureApplicationGateway` 명령을 사용하여 이전에 만든 응용 프로그램 게이트웨이 리소스에 대한 구성을 커밋합니다.
 
 > [!NOTE]
 > 각 구성 개체에 값을 할당하기 전에 PowerShell에서 저장소에 사용할 개체 종류를 선언해야 합니다. 개별 항목을 만드는 첫 줄은 어떤 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`이 사용되는지 정의합니다.
 
-### <a name="step-1"></a>1단계:
+#### <a name="step-1"></a>1단계:
 
 모든 개별 구성 항목을 만듭니다.
 
@@ -297,7 +296,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>2단계:
+#### <a name="step-2"></a>2단계:
 
 응용 프로그램 게이트웨이 구성 개체 ($appgwconfig)에 모든 개별 구성 항목을 할당합니다.
 
@@ -385,7 +384,7 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>응용 프로그램 게이트웨이 삭제
+## <a name="delete-the-application-gateway"></a>응용 프로그램 게이트웨이 삭제
 
 응용 프로그램 게이트웨이를 삭제하려면:
 
@@ -443,7 +442,6 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
-

@@ -1,8 +1,10 @@
 # 개요
 ## [부하 분산 장치란?](load-balancer-overview.md)
+## [Load Balancer Standard란?](load-balancer-standard-overview.md)
 ## [인터넷 부하 분산 장치](load-balancer-internet-overview.md)
 ## [내부 부하 분산 장치](load-balancer-internal-overview.md)
 ## [부하 분산 장치 프로브 이해](load-balancer-custom-probe-overview.md)
+## [고가용성 포트 이해](load-balancer-ha-ports-overview.md)
 ## [Azure Resource Manager 지원](load-balancer-arm.md)
 ## [IPv6 지원](load-balancer-ipv6-overview.md)
 ## [여러 VIP](load-balancer-multivip-overview.md)
@@ -24,14 +26,17 @@
 ### [인터넷 연결 부하 분산 장치 구성(CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [인터넷 연결 부하 분산 장치 구성(템플릿)](load-balancer-get-started-internet-arm-template.md)
 
-## [인터넷 연결 부하 분산 장치 구성(클래식 포털)](load-balancer-get-started-internet-classic-portal.md)
+## [인터넷 연결 부하 분산 장치 구성 - (클래식 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [인터넷 연결 부하 분산 장치 구성(클래식 클라우드)](load-balancer-get-started-internet-classic-cloud.md)
-### [인터넷 연결 부하 분산 장치 구성(클래식 PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [인터넷 연결 부하 분산 장치 구성(클래식 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [IPv6으로 인터넷 연결 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)
 ### [IPv6으로 인터넷 연결 부하 분산 장치 만들기(CLI)](load-balancer-ipv6-internet-cli.md)
 ### [IPv6으로 인터넷 연결 부하 분산 장치 만들기(템플릿)](load-balancer-ipv6-internet-template.md)
+
+## [영역 중복 공용 부하 분산 장치 표준 만들기](load-balancer-get-started-internet-az-portal.md)
+### [영역 중복 공용 부하 분산 장치 표준 만들기 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [영역 중복 공용 부하 분산 장치 표준 만들기(CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # 방법
 ## [부하 분산 장치의 TCP 유휴 시간 제한 구성](load-balancer-tcp-idle-timeout.md)
@@ -44,10 +49,17 @@
 ### [여러 IP 구성 사용(PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer에 대한 Log analytics](load-balancer-monitor-log.md)
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
+## [내부 부하 분산 장치에 대해 고가용성 포트 구성](load-balancer-configure-ha-ports.md)
+## [가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [가용성 영역에서 공용 IP 주소 만들기(PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [가용성 영역에서 공용 IP 주소 만들기(CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+## 문제 해결
+### [Azure Load Balancer 문제 해결](load-balancer-troubleshoot.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
@@ -65,5 +77,7 @@
 ## [DNS](/azure/dns/)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
+## [가격](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)

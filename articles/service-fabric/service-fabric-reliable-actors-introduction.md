@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>서비스 패브릭 신뢰할 수 있는 행위자 소개
 Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 서비스 패브릭에서 제공한 확장성 및 안정성 보증에 기반한 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -32,7 +31,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자 디자인 패턴이 많은 분산된 시스템 문제 및 시나리오에 잘 맞겠지만 구현하는 패턴 및 프레임워크의 제약 조건을 신중하게 고려해야 합니다. 일반적인 지침으로 문제 또는 시나리오를 모델링하기 위해 행위자 패턴을 고려합니다.
 
-* 문제 영역은&1;,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
+* 문제 영역은 1,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
 * 일련의 행위자에 걸친 상태를 쿼리하는 등 외부 구성 요소에서 중요한 상호 작용을 필요로 하지 않는 단일 스레드 개체로 작업하려고 합니다.
 * 행위자 인스턴스는 I/O 작업을 실행하여 예측할 수 없는 지연으로 호출자를 차단하지 않습니다.
 
@@ -55,7 +54,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자는 행위자 서비스의 파티션에 분산되고 이러한 파티션은 서비스 패브릭 클러스터의 노드에 분산됩니다. 각 서비스 파티션은 일련의 행위자를 포함합니다. 서비스 패브릭은 서비스 파티션의 배포 및 장애 조치를 관리합니다.
 
-예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된&9;개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
+예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된 9개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
 
 ![Reliable Actors 분배][2]
 
@@ -144,18 +143,11 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 행위자 런타임은 이러한 메서드의 호출을 제어하는 상황에서 이러한 동시성을 보증합니다. 예를 들어 타이머와 미리 알림 콜백 뿐만 아니라 클라이언트 요청에 대한 응답으로 수행되는 메서드 호출에 대해 이러한 보증을 제공합니다. 하지만 행위자 코드가 행위자 런타임에서 제공하는 메커니즘 외부에서 이러한 메서드를 호출하는 경우 런타임은 어떠한 동시성도 보장할 수 없습니다. 예를 들어, 행위자 메서드에서 반환된 작업과 연결되지 않은 일부 작업의 컨텍스트에서 메서드를 호출하는 경우 런타임은 동시성을 보장할 수 없습니다. 행위자가 자체적으로 만드는 스레드에서 메서드가 호출되는 경우 런타임은 동시성을 보장할 수 없습니다. 따라서 백그라운드 작업을 수행하려면 행위자가 턴 기반 동시성을 따르는 [행위자 타이머 및 행위자 미리 알림](service-fabric-reliable-actors-timers-reminders.md) 을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Reliable Actors 시작](service-fabric-reliable-actors-get-started.md)
-* [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
-* [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
-* [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-* [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
-* [행위자 이벤트](service-fabric-reliable-actors-events.md)
-* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
-* [행위자 다형성 및 개체 지향 디자인 패턴](service-fabric-reliable-actors-polymorphism.md)
-* [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+* 첫 번째 Reliable Actors 서비스를 빌드하여 시작합니다.
+   * [.NET에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started.md)
+   * [Java에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-

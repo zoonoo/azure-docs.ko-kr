@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 04/28/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5121da4f4e68ac5a95f80a4c7e622bba2f65ffea
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: b753c76b8c3d789c681d7fbff6aa07590b860be5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 컴퓨터 준비
-이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 컴퓨터) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/articles/1989673)을 참조하세요.
+이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 컴퓨터) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 컴퓨터 준비
 
@@ -108,7 +107,6 @@ ms.lasthandoff: 04/03/2017
         # sudo yum install WALinuxAgent
 
         # sudo chkconfig waagent on
-
 
     WALinuxAgent 패키지를 설치하면 3단계에서 NetworkManager 및 NetworkManager-gnome 패키지를 아직 제거하지 않은 경우 이러한 패키지를 제거합니다.
 
@@ -351,16 +349,12 @@ ms.lasthandoff: 04/03/2017
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
-
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
@@ -432,7 +426,7 @@ ms.lasthandoff: 04/03/2017
 
     `/etc/dracut.conf` 을 편집하고 콘텐츠를 추가합니다.
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Initramfs를 다시 빌드합니다.
 
@@ -495,15 +489,12 @@ ms.lasthandoff: 04/03/2017
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-        
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
@@ -557,9 +548,9 @@ ms.lasthandoff: 04/03/2017
 
 8. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예:
    
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
-   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다. 그 밖에 다음 매개 변수를 제거하는 것이 좋습니다.
+   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 그 밖에 다음 매개 변수를 제거하는 것이 좋습니다.
    
         rhgb quiet crashkernel=auto
    
@@ -569,7 +560,7 @@ ms.lasthandoff: 04/03/2017
 
     `/etc/dracut.conf`를 편집하고 다음 내용을 추가합니다.
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Initramfs를 다시 빌드합니다.
 
@@ -615,15 +606,12 @@ ms.lasthandoff: 04/03/2017
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
@@ -722,15 +710,12 @@ ms.lasthandoff: 04/03/2017
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-                
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
@@ -901,4 +886,3 @@ Initramfs를 다시 빌드합니다.
 이제 Red Hat Enterprise Linux 가상 하드 디스크를 사용하여 Azure에 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에서 2단계 및 3단계를 참조하세요.
 
 Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 참조하세요.
-

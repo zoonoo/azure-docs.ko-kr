@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 4cc1f60820861913f43ae449b20381036fd49bdf
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
@@ -69,45 +68,47 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 ## <a name="offers-and-pricing-tiers"></a>제품 및 가격 책정 계층
 
-다음은 각 운영 관리 및 보안 제품에 속하는 관리 솔루션을 구분한 테이블입니다.
+다음은 각 Operations Management Suite 제품에 속하는 관리 솔루션을 구분한 테이블입니다.
 이 테이블에는 각 관리 솔루션에 적용되는 가격 책정 계층도 분류되어 있습니다.
 이 테이블의 모든 솔루션은 Azure Portal 및 Log Analytics 포털의 솔루션 갤러리 내에서 얻을 수 있습니다.
 
-| 관리 솔루션                                                                        | 제안                                                                     | 가격 책정 계층<sup>1</sup>                                                    | 메모 |
-| ---                                                                                        | ---                                                                       | ---                                                                                                       | ---   |
-| Activity Log Analytics                                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 90일간 데이터 무료 제공<br>체험 계층 요금에 적용되지 않는 데이터 |
-| [AD 평가](log-analytics-ad-assessment.md)                                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [AD 복제 상태](log-analytics-ad-replication-status.md)                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| 에이전트 상태                                                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 체험 계층 요금에 적용되지 않는 데이터 |
-| [경고 관리](log-analytics-solution-alert-management.md)                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| Application Insights 커넥터 <br>(미리 보기)                                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>    | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| Automation Hybrid Worker                                                                     | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [Azure Application Gateway 분석](log-analytics-azure-networking-analytics.md)      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [Azure 네트워크 보안 그룹 분석](log-analytics-azure-networking-analytics.md)      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md)                                                          | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br>&nbsp;노드당&nbsp;(OMS)                                                                             | Log Analytics 작업 영역을 Automation 계정에 연결해야 함|
-| 백업                                                                                    | <ul><li>Insight and Analytics</li></ul>                                     | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | 기존 Backup 자격 증명 모음 필요 |
-| 용량 및 성능 <br>(미리 보기)                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [변경 내용 추적](log-analytics-change-tracking.md)                                         | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [컨테이너](log-analytics-containers.md)                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| HDInsight HBase 모니터링 <br>(미리 보기)                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [Key Vault 분석](log-analytics-azure-key-vault.md)                      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| Logic Apps B2B                      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [맬웨어 평가](log-analytics-malware.md)                                             | <ul><li>보안 및 규정 준수</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                               | |
-| [네트워크 성능 모니터](log-analytics-network-performance-monitor.md) <br>(미리 보기)    | <ul><li>Insight and Analytics</li></ul>                                     | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | |
-| Office 365 Analytics <br>(미리 보기)                                                        | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [보안 및 감사](../operations-management-suite/oms-security-getting-started.md)        | <ul><li>보안&nbsp;및&nbsp;규정 준수</li></ul>                        | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                               | 보안 이벤트 로그를 수집하려면 이 솔루션이 필요 |
-| [Service Fabric Analytics](log-analytics-service-fabric.md) <br>(미리 보기)                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) <br>(미리 보기)| <ul><li>Insight and Analytics</li></ul>                         | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부 및 유럽 서부에서 사용 가능     |
-| 사이트 복구                                                                                | <ul><li>Insight and Analytics</li></ul>                                     | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | 기존 Site Recovery 자격 증명 모음 필요 |
-| [SQL 평가](log-analytics-sql-assessment.md)                                            | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| 작업이 없는 동안 VM 시작/중지<br>(미리 보기)                                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| [System Center Operations Manager 평가](log-analytics-scom-assessment.md) <br>(미리 보기) | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>         | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| 업데이트 관리                                                                               | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [업데이트 규정 준수](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(미리 보기)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터 |
-| [업그레이드 준비](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터 |
-| [VMware 모니터링](log-analytics-vmware.md) <br>(미리 보기)                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| 실시간 데이터 2.0<br>(미리 보기)                                                                   | <ul><li>Insight and Analytics</li></ul>                                      | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부 및 유럽 서부에서 사용 가능 |
+| 관리 솔루션                                                                       | 제안                                                                     | 가격 책정 계층<sup>1</sup>                                                 | 참고 사항 |
+| ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
+| [Activity Log Analytics](log-analytics-activity.md)(활동 로그 분석)                                                                   | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | 90일간 데이터 무료 제공<br>체험 계층 요금에 적용되지 않는 데이터 |
+| [AD 평가](log-analytics-ad-assessment.md)                                           | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [AD 복제 상태](log-analytics-ad-replication-status.md)                           | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [에이전트 상태](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | 체험 계층 요금에 적용되지 않는 데이터<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [경고 관리](log-analytics-solution-alert-management.md)                            | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [Application Insights 커넥터(미리 보기)](log-analytics-app-insights-connector.md)                                               | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>자동화 및 제어</li></ul>                                  | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
+| [Azure Application Gateway 분석](log-analytics-azure-networking-analytics.md)    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Azure 네트워크 보안 그룹 분석](log-analytics-azure-networking-analytics.md)     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md)                                                       | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br>&nbsp;노드당&nbsp;(OMS)                                                                          | Log Analytics 작업 영역을 Automation 계정에 연결해야 함|
+| [Azure Web Apps 분석](log-analytics-azure-web-apps-analytics.md)     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+|[백업](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)                                                                       | 기존 백업 자격 증명 모음이 필요합니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [용량 및 성능(미리 보기)](log-analytics-capacity.md)                                                   | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [변경 내용 추적](log-analytics-change-tracking.md)                                       | <ul><li>자동화 및 제어</li></ul>                                  | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
+| [컨테이너](log-analytics-containers.md)                                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [IT Service Management Connector(미리 보기)](log-analytics-itsmc-overview.md)                                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> &nbsp;노드당&nbsp;(OMS)     | |
+| HDInsight HBase 모니터링 <br>(미리 보기)                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Key Vault 분석](log-analytics-azure-key-vault.md)                   | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [맬웨어 평가](log-analytics-malware.md)                                            | <ul><li>보안 및 규정 준수</li></ul>                                 | 무료<br> 독립 실행형<br>&nbsp;노드당&nbsp;(OMS)                                                                           | 2017년 6월 19일 이후 보안 및 규정 준수 솔루션을 추가할 경우 작업 영역 가격 책정 계층에 관계 없이 [노드당 비용이 청구됩니다](https://azure.microsoft.com/pricing/details/security-compliance/). 처음 60일 동안 무료로 사용할 수 있습니다.  |
+| [네트워크 성능 모니터](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | |
+| [Office 365 분석(미리 보기)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [보안 및 감사](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>보안&nbsp;및&nbsp;규정 준수</li></ul>                       | 무료<br> 독립 실행형<br>&nbsp;노드당&nbsp;(OMS)                                                                           | 보안 이벤트 로그를 수집하려면 이 솔루션이 필요<br>2017년 6월 19일 이후 보안 및 규정 준수 솔루션을 추가할 경우 작업 영역 가격 책정 계층에 관계 없이 [노드당 비용이 청구됩니다](https://azure.microsoft.com/pricing/details/security-compliance/). 처음 60일 동안 무료로 사용할 수 있습니다. |
+| [Service Fabric 분석(미리 보기)](log-analytics-service-fabric.md)                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [서비스 맵(미리 보기)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Insight and Analytics</li></ul>                      | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부, 유럽 서부 및 미국 중서부에서 사용 가능    |
+| [사이트 복구](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)                                                                       | 기존 Site Recovery 자격 증명 모음이 필요합니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [SQL 평가](log-analytics-sql-assessment.md)                                         | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| 작업이 없는 동안 VM 시작/중지<br>(미리 보기)                                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [System Center Operations Manager 평가(미리 보기)](log-analytics-scom-assessment.md)  | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>        | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>자동화 및 제어</li></ul>                                  | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
+| [업데이트 준수(미리 보기)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터입니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [업그레이드 준비](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터입니다.<br> Azure Portal/Marketplace에서 추가할 수 없습니다. |
+| [VMware 모니터링(미리 보기)](log-analytics-vmware.md)                                | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)   | |
+| [Wire Data 2.0(미리 보기)](log-analytics-wire-data.md)                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부, 유럽 서부 및 미국 중서부에서 사용 가능 |
 
 <sup>1</sup> *Standard* 및 *Premium(OMS)* 가격 책정 계층은 2016년 9월 21일 전에 Log Analytics 작업 영역을 만든 고객에게만 제공됩니다.
 
@@ -115,9 +116,9 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 커뮤니티 제공 솔루션은 [Azure 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS))에서 또는 저자에게 직접 받을 수 있습니다.
 
-| 관리 솔루션                 | 제안                                                                     | 가격 책정 계층                         | 메모 |
-| ---                                 | ---                                                                       | ---                                   | ---   |
-| 모든 커뮤니티 제공 솔루션  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> &nbsp;노드당&nbsp;(OMS)     |    Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
+| 관리 솔루션               | 제안                                                                     | 가격 책정 계층                         | 메모 |
+| ---                               | ---                                                                       | ---                                   | ---   |
+| 모든 커뮤니티 제공 솔루션  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>   | 무료<br> &nbsp;노드당&nbsp;(OMS)     |   Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
 
 
 
@@ -138,47 +139,47 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 
 | 관리 솔루션 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Activity Log Analytics | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 알림 시 |
-| AD 평가 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 일 |
-| AD 복제 상태 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |5일 |
-| 에이전트 상태 | Windows 및 Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | 1분 |
-| 경고 관리(Nagios) |Linux |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |도착 시 |
-| 경고 관리(Zabbix) |Linux |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |1분 |
-| 경고 관리(Operations Manager) |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |3분 |
-| Application Insights 커넥터(미리 보기) | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 알림 시 |
-| Azure Application Gateway 분석 | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10분 |
-| Azure 네트워크 보안 그룹 분석 | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10분 |
-| Azure SQL Analytics(미리 보기) |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10분 |
-| 용량 관리 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |매시간 |
-| 컨테이너 | Windows 및 Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3분 |
-| Key Vault 분석 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |10분 |
-| 네트워크 성능 모니터 | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
-| Office 365 분석(미리 보기) |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |알림 시 |
-| Service Fabric 분석 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |5분 |
-| 서비스 맵 | Windows 및 Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | 15초 |
-| SQL 평가 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 일 |
-| SurfaceHub |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |도착 시 |
-| System Center Operations Manager 평가(미리 보기) | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | 7일 |
-| Analytics 업그레이드(미리 보기) | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 2일 |
-| VMware 모니터링(미리 보기) | Linux | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3분 |
-| 실시간 데이터 |Windows(2012 R2/8.1 이상) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1분 |
+| Activity Log Analytics | Azure |   |   |   |   |   | 알림 시 |
+| AD 평가 |Windows |&#8226; |&#8226; |  |  |&#8226; |7 일 |
+| AD 복제 상태 |Windows |&#8226; |&#8226; |  |  |&#8226; |5일 |
+| 에이전트 상태 | Windows 및 Linux | &#8226; | &#8226; |   |   | &#8226; | 1분 |
+| 경고 관리(Nagios) |Linux |&#8226; |  |  |  |  |도착 시 |
+| 경고 관리(Zabbix) |Linux |&#8226; |  |  |  |  |1분 |
+| 경고 관리(Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3분 |
+| Application Insights 커넥터(미리 보기) | Azure |   |   |   |   |   | 알림 시 |
+| Azure Application Gateway 분석 | Azure |   |   |   |   |   | 알림 시 |
+| Azure 네트워크 보안 그룹 분석 | Azure |   |   |   |   |   | 알림 시 |
+| Azure SQL Analytics(미리 보기) |Windows |  |  |  |  |  | 10분 |
+| 용량 관리 |Windows |&#8226; |&#8226; |  |  |&#8226; |도착 시 |
+| 컨테이너 | Windows 및 Linux | &#8226; | &#8226; |   |   |   | 3분 |
+| Key Vault 분석 |Windows |  |  |  |  |  |알림 시 |
+| 네트워크 성능 모니터 | Windows | &#8226; | &#8226; |   |   |   | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
+| Office 365 분석(미리 보기) |Windows |  |  |  |  |  |알림 시 |
+| Service Fabric 분석 |Windows |  |  |&#8226; |  |  |5분 |
+| 서비스 맵 | Windows 및 Linux | &#8226; | &#8226; |   |   |   | 15초 |
+| SQL 평가 |Windows |&#8226; |&#8226; |  |  |&#8226; |7 일 |
+| SurfaceHub |Windows |&#8226; |  |  |  |  |도착 시 |
+| System Center Operations Manager 평가(미리 보기) | Windows | &#8226; | &#8226; |   |   | &#8226; | 7일 |
+| Analytics 업그레이드(미리 보기) | Windows | &#8226; |   |   |   |   | 2일 |
+| VMware 모니터링(미리 보기) | Linux | &#8226; |   |   |   |   | 3분 |
+| 실시간 데이터 |Windows(2012 R2/8.1 이상) |&#8226; |&#8226; |  |  |  | 1분 |
 
 
 ### <a name="automation--control"></a>Automation and Control
 
 | 관리 솔루션 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Automation Hybrid Worker | Windows | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![예](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 해당 없음 |
-| 변경 내용 추적 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |매시간 |
-| 변경 내용 추적 |Linux |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |매시간 |
-| 업데이트 관리 | Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
+| Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | 해당 없음 |
+| 변경 내용 추적 |Windows |&#8226; |&#8226; |  |  |&#8226; |매시간 |
+| 변경 내용 추적 |Linux |&#8226; |  |  |  |  |매시간 |
+| 업데이트 관리 | Windows |&#8226; |&#8226; |  |  |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
 
 ### <a name="security--compliance"></a>보안 및 규정 준수
 
 | 관리 솔루션 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 맬웨어 방지 평가 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |매시간 |
-| 보안 및 감사<sup>1</sup> | Windows 및 Linux | ![일부](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![일부](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![일부](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![일부](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | 다양 |
+| 맬웨어 방지 평가 |Windows |&#8226; |&#8226; |  |  |&#8226; |매시간 |
+| 보안 및 감사<sup>1</sup> | Windows 및 Linux | 부분 | 부분 | 부분 |   | 부분 | 다양 |
 
 <sup>1</sup>보안 및 감사 솔루션은 Windows, Operations Manager 및 Linux 에이전트에서 로그를 수집할 수 있습니다. 다음 항목에 대한 데이터 수집 정보는 [데이터 원본](#data-sources)을 참조하세요.
 
@@ -193,8 +194,8 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 
 | 관리 솔루션 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 백업 | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 해당 없음 |
-| Azure Site Recovery | Azure | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) | 해당 없음 |
+| 백업 | Azure |   |   |   |   |   | 해당 없음 |
+| Azure Site Recovery | Azure |   |   |   |   |   | 해당 없음 |
 
 
 ### <a name="data-sources"></a>데이터 원본
@@ -202,16 +203,17 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 
 | 데이터 원본 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ETW |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |5분 |
-| IIS 로그 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |5분 |
-| 네트워크 응용 프로그램 게이트웨이 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |10분 |
-| 네트워크 보안 그룹 |Windows |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |10분 |
-| 성능 카운터 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |예약된 대로, 최소 10초 |
-| 성능 카운터 |Linux |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |예약된 대로, 최소 10초 |
-| syslog |Linux |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |Azure 저장소: 10분, 에이전트: 도착 시 |
-| Windows 보안 이벤트 로그 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |Azure 저장소: 10분, 에이전트: 도착 시 |
-| Windows 방화벽 로그 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |도착 시 |
-| Windows 이벤트 로그 |Windows |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |![아니요](./media/log-analytics-add-solutions/oms-bullet-red.png) |![예](./media/log-analytics-add-solutions/oms-bullet-green.png) |Azure 저장소: 1분, 에이전트: 도착 시 |
+| Azure 활동 로그 |Windows |  |  |  |  |  |알림 시 |
+| Azure 진단 로그 |Windows |  |  |  |  |  |알림 시 |
+| Azure 진단 메트릭 |Windows |  |  |  |  |  |알림 시 |
+| ETW |Windows |  |  |&#8226; |  |  |5분 |
+| IIS 로그 |Windows |&#8226; |&#8226; |&#8226; |  |  |5분 |
+| 성능 카운터 |Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
+| 성능 카운터 |Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
+| syslog |Linux |&#8226; |  |  |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
+| Windows 보안 이벤트 로그 |Windows |&#8226; |&#8226; |&#8226; |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |
+| Windows 방화벽 로그 |Windows |&#8226; |&#8226; |  |  |  |도착 시 |
+| Windows 이벤트 로그 |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |Azure 저장소: 10분, 에이전트: 도착 시 |
 
 
 
@@ -235,7 +237,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 포털을 통해 미리 보기 기능을 사용하는 경우 기능이 미리 보기 상태임을 알리는 경고가 표시됩니다.
 
 #### <a name="for-both-private-and-public-preview"></a>*비공개* 및 *공개* 미리 보기의 경우
-다음이 공개 및 비공개 미리 보기 모두에 적용됩니다.
+다음 정보는 공개 및 비공개 미리 보기에 모두 적용됩니다.
 
 * 항상 올바르게 작동하지 않을 수 있습니다.
   * 사소한 불편에서 전혀 작동하지 않는 것에 이르기까지 다양한 문제가 있을 수 있습니다.
@@ -259,7 +261,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 * 공개 미리 보기는 프로덕션/중요 시스템에 적합하지 않을 수 있습니다.
 
 #### <a name="for-private-preview"></a>*비공개* 미리 보기의 경우
-위의 항목 외에도 다음은 비공개 미리 보기에 해당되는 것입니다.
+위의 항목 외에 다음 정보가 비공개 미리 보기에 해당됩니다.
 
 * 더 나은 기능/솔루션을 만들 수 있도록 경험에 대한 의견을 제공해 주시기를 기대합니다.
 * 설문 조사, 전화 또는 전자 메일을 사용하여 피드백에 관해 연락을 드릴 수 있습니다.
@@ -278,4 +280,3 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md)하여 솔루션에서 수집한 자세한 정보를 확인합니다.
-

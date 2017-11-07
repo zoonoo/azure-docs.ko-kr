@@ -1,5 +1,5 @@
 ---
-title: "Mac OS X에서 개발 환경 설정 | Microsoft Docs"
+title: "Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs"
 description: "런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다."
 services: service-fabric
 documentationcenter: java
@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 09/26/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -49,8 +48,7 @@ Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Serv
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    이 단계에서는 VM을 다운로드할 위치와 함께 VM 구성을 포함하는 파일 `Vagrantfile`을 가져옵니다.
-
+    이 단계에서는 VM을 다운로드할 위치와 함께 VM 구성을 포함하는 파일 `Vagrantfile`을 다운로드합니다.  파일은 Ubuntu 스톡 이미지를 가리킵니다.
 
 2. 리포지토리의 로컬 클론으로 이동
 
@@ -71,28 +69,84 @@ Service Fabric은 OS X에서 고유하게 실행되지 않습니다. 로컬 Serv
     vagrant up
     ```
 
-   이 단계에서는 미리 구성된 VM 이미지를 다운로드하고 로컬로 부팅한 다음 로컬 Service Fabric 클러스터를 설정합니다. 배포를 완료하려면 몇 분 정도가 걸립니다. 설치가 성공적으로 완료되면 출력에 클러스터가 시작되었음을 나타내는 메시지가 표시됩니다.
 
-    ![다음 VM 프로비전을 시작하는 클러스터 설치][cluster-setup-script]
+5. VM에 로그인 및 Service Fabric SDK 설치
 
->[!TIP]
-> VM을 다운로드하는 데 오랜 시간이 소요되면 wget 또는 curl을 사용하거나 `Vagrantfile` 파일에서 **config.vm.box_url**에 지정된 링크에 이동하여 브라우저를 통해 다운로드할 수 있습니다. 로컬에서 다운로드한 후에 `Vagrantfile` 이미지가 다운로드한 로컬 경로를 가리키도록 편집합니다. 예를 들어 /home/users/test/azureservicefabric.tp8.box에 이미지를 다운로드하는 경우 해당 경로에 **config.vm.box_url**을 설정합니다.
->
+    ```bash
+    vagrant ssh
+    ```
+
+   [SDK 설치](service-fabric-get-started-linux.md)에 설명된 대로 SDK를 설치합니다.  아래 스크립트는 sfctl CLI와 함께 Service Fabric 런타임 및 Service Fabric 일반 SDK를 설치하기 위해 편의상 제공됩니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스를 읽고 동의하는 것으로 가정합니다.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Service Fabric 클러스터 시작
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
+
+    >[!TIP]
+    > VM을 다운로드하는 데 오랜 시간이 소요되면 wget 또는 curl을 사용하거나 `Vagrantfile` 파일에서 **config.vm.box_url**에 지정된 링크에 이동하여 브라우저를 통해 다운로드할 수 있습니다. 로컬에서 다운로드한 후에 `Vagrantfile` 이미지가 다운로드한 로컬 경로를 가리키도록 편집합니다. 예를 들어 /home/users/test/azureservicefabric.tp8.box에 이미지를 다운로드하는 경우 해당 경로에 **config.vm.box_url**을 설정합니다.
+    >
 
 5. http://192.168.50.50:19080/Explorer에서 Service Fabric Explorer로 이동하여 클러스터가 올바르게 설정되었는지 테스트합니다(기본 개인 네트워크 IP를 유지한다고 가정함).
 
     ![호스트 Mac에서 본 Service Fabric Explorer][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Vagrant에 필요한 Java 아티팩트를 설치하여 Service Fabric Java 프로그래밍 모델 사용
+
+Java를 사용하여 Service Fabric 서비스를 빌드하려면 빌드 작업을 실행하는 데 사용되는 Gradle과 함께 JDK 1.8을 설치했는지 확인합니다. 다음 코드 조각은 Gradle과 함께 Open JDK 1.8을 설치합니다. Service Fabric Java 라이브러리는 Maven에서 끌어옵니다.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac에서 Service Fabric CLI(sfctl) 설정
+
+[Service Fabric CLI](service-fabric-cli.md#cli-mac)의 지침에 따라 Mac에 Service Fabric CLI(`sfctl`)를 설치합니다.
+클러스터, 응용 프로그램 및 서비스를 비롯하여 Service Fabric 엔터티와 상호 작용하기 위한 CLI 명령입니다.
+
+## <a name="create-application-on-you-mac-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
+
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 따르세요.
+
+1. Mac에 Node.js 및 NPM이 설치되어 있어야 합니다. 그렇지 않으면 다음을 사용하여 Homebrew를 사용하는 Node.js 및 NPM을 설치할 수 있습니다. Mac에 설치된 Node.js 및 NPM의 버전을 확인하려면 ``-v`` 옵션을 사용할 수 있습니다.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
+
+  ```bash
+  npm install -g yo
+  ```
+3. 사용하려는 Yeoman 생성기를 설치하고 [설명서](service-fabric-get-started-linux.md)를 시작하는 단계를 따릅니다. Yeoman을 사용하여 Service Fabric 응용 프로그램을 만들려면 다음 단계에 따릅니다.
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Mac에서 Service Fabric Java 응용 프로그램을 빌드하려면 컴퓨터에 JDK 1.8 및 Gradle을 설치해야 합니다.
+
+## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
+
+[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 응용 프로그램을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 응용 프로그램의 패키지는 현재 미리 보기 상태이며 NuGet.org에서 호스트됩니다.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Eclipse Neon용 Service Fabric 플러그 인 설치
 
 Service Fabric은 Java 서비스를 만들고 빌드하고 배포하는 프로세스를 간소화할 수 있는 **Java IDE용 Eclipse Neon**에 대한 플러그 인을 제공합니다. Service Fabric Eclipse 플러그 인 설치 또는 업데이트에 대한 일반적인 [설명서](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon)에 나와 있는 설치 단계를 따르면 됩니다.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Mac에서 Service Fabric Eclipse 플러그 인 사용
-
-[Service Fabric Eclipse 플러그 인 설명서](service-fabric-get-started-eclipse.md)에 나와 있는 단계를 완료했는지 확인합니다. Mac 호스트에서 vagrant-guest 컨테이너를 사용하여 Service Fabric Java 응용 프로그램을 만들고 빌드하며 배포하는 단계는 다음과 같은 사항을 제외하고 대부분 일반적인 설명서와 같습니다.
-
-* Service Fabric Java 응용 프로그램을 성공적으로 빌드하는 데 Service Fabric 라이브러리가 필요하므로 Eclipse 프로젝트를 공유 경로에 생성해야 합니다. 기본적으로 ``Vagrantfile``이 존재하는 호스트에서 경로의 내용은 게스트에서 ``/vagrant`` 경로와 공유됩니다.
-* ``~/home/john/allprojects/`` 경로에 ``Vagrantfile``이 있는 경우 ``~/home/john/allprojects/MyActor`` 위치에 ``MyActor``라는 Service Fabric 프로젝트를 만들어야 하며 Eclipse 작업 영역에 대한 경로는 ``~/home/john/allprojects``입니다.
+>[!TIP]
+> 생성된 응용 프로그램 ``Local.json``의 ``Vagrantfile``에서 설명한 것처럼 기본적으로 기본 IP를 지원합니다. 해당 IP를 변경하고 다른 IP로 Vagrant를 배포하는 경우에 응용 프로그램의 ``Local.json``에서 해당 IP를 업데이트하세요.
 
 ## <a name="next-steps"></a>다음 단계
 <!-- Links -->
@@ -101,10 +155,10 @@ Service Fabric은 Java 서비스를 만들고 빌드하고 배포하는 프로�
 * [Azure Portal에서 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 * [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)
 * [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)
+* [Service Fabric CLI를 사용하여 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

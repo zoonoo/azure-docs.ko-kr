@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 03/30/2017
 2016년 2월 빌드에서 지원됩니다.
 
 **Q: AD DS 상태 에이전트는 서버 코어에서 작동하나요?**  
-예. 에이전트를 설치한 후 다음 PowerShell commandlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
+예. 에이전트를 설치한 후 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -104,8 +103,7 @@ ms.lasthandoff: 03/30/2017
 
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [여기](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)를 클릭하여 직접 질문을 할 수 있습니다.
 
-[Azure AD Connect 고객 지원](https://manage.windowsazure.com/?getsupport=true)
+[Azure AD에 대한 지원을 받는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
-* Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
-
+* Azure Portal을 통해 지원을 받으려면 이 링크를 사용합니다.
 

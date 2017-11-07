@@ -11,14 +11,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 379bc2e80a89b6d46db3bd536737583d51029328
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure 검색서비스 만들기
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 03/06/2017
    * 연속 대시("--")를 사용할 수 없음
 
 ## <a name="select-a-subscription"></a>구독 선택
-둘 이상의 구독이 있는 경우 데이터 또는 파일 저장소 서비스도 있는 구독을 선택합니다. Azure Search는 *인덱서*를 통해 인덱싱하기 위해 Azure 테이블 및 Blob Storage, SQL Database 및 DocumentDB를 자동 검색할 수 있지만, 동일한 구독의 서비스에 대해서만 가능합니다.
+둘 이상의 구독이 있는 경우 데이터 또는 파일 저장소 서비스도 있는 구독을 선택합니다. Azure Search는 *인덱서*를 통해 인덱싱하기 위해 Azure Table 및 Blob Storage, SQL Database, Azure Cosmos DB를 자동 검색할 수 있지만, 동일한 구독의 서비스에 대해서만 가능합니다.
 
 ## <a name="select-a-resource-group"></a>리소스 그룹 선택
 리소스 그룹은 함께 사용된 Azure 서비스 및 리소스의 컬렉션입니다. 예를 들어 Azure Search를 사용하여 SQL Database를 인덱싱하는 경우 이들 두 서비스는 동일한 리소스 그룹의 일부여야 합니다.
@@ -111,5 +110,4 @@ Azure Search 서비스를 프로비전한 후에 [인덱스를 정의](search-wh
 코드 또는 스크립트에서 서비스에 액세스하려면 URL(*service-name*.search.windows.net)과 키를 제공합니다. 관리 키는 모든 액세스 권한을 부여하고, 쿼리 키는 읽기 전용 액세스 권한을 부여합니다. 시작하려면 [.NET에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 빠른 포털 기반 자습서는 [첫 번째 인덱스 빌드 및 쿼리](search-get-started-portal.md)를 참조하세요.
-
 

@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
 ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에서 하드웨어 구성 요소 교체
 
@@ -66,7 +65,7 @@ StorSimple 8000 시리즈 장치는 기본 및/또는 EBOD 엔클로저의 여�
 
 장치의 기본 하드웨어 구성 요소는 다음 표에 요약되어 있습니다. **교체 절차** 열에 있는 링크를 클릭하면 연결된 자습서로 이동합니다.
 
-| 구성 요소 | # 표시 | 플러그 인 모듈 여부 | 교체 절차 |
+| 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
 | 섀시 |1 |아니요 |[StorSimple 장치의 섀시 교체](storsimple-chassis-replacement.md) |
 | 기본 컨트롤러 |2 |예 |[StorSimple 장치의 컨트롤러 모듈 교체](storsimple-controller-replacement.md) |
@@ -78,7 +77,7 @@ StorSimple 8000 시리즈 장치는 기본 및/또는 EBOD 엔클로저의 여�
 
 기본 엔클로저와 EBOD 엔클로저는 해당 I/O 모듈이 서로 다릅니다. 또한 PCM의 전력량이 서로 다릅니다. 기본 엔클로저의 PCM은 764W인 반면, EBOD 엔클로저의 PCM은 580W입니다. 기본 엔클로저의 PCM에는 백업 배터리 모듈도 포함되어 있습니다.
 
-| 구성 요소 | # 표시 | 플러그 인 모듈 여부 | 교체 절차 |
+| 구성 요소 | 현재 개수 | 플러그 인 모듈 여부 | 교체 절차 |
 |:--- |:--- |:--- |:--- |
 | 섀시 |1 |아니요 |[StorSimple 장치의 섀시 교체](storsimple-chassis-replacement.md) |
 | EBOD 컨트롤러 |2 |예 |[StorSimple 장치의 EBOD 컨트롤러 교체](storsimple-ebod-controller-replacement.md) |
@@ -137,5 +136,4 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 ## <a name="next-steps"></a>다음 단계
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md) 를 검토하세요.
-
 

@@ -1,0 +1,100 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Cosmos DB 설명서
+metadata:
+  document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
+  title: 'Azure Cosmos DB 설명서 - 자습서, API 참조'
+  description: 'Azure Cosmos DB를 사용하여 전역적으로 분산된 다중 모델 데이터베이스를 사용하는 방법을 알아봅니다. 자습서는 문서, 키/값 및 그래프 데이터베이스를 빌드 및 쿼리하는 방법을 보여 줍니다.'
+  services: cosmos-db
+  author: czeumault
+  manager: carolz
+  ms.service: cosmos-db
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/24/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Cosmos DB는 포괄적인 SLA로 사용자가 지리 지역 수에 따라 처리량 및 저장소를 탄력적이고 독립적으로 조정할 수 있도록 설계된 전역적으로 분산된 데이터베이스 서비스입니다.  널리 사용되는 API 및 프로그래밍 모델을 사용하여 문서, 키/값 또는 Cosmos DB를 포함한 그래프 데이터베이스를 개발할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 Cosmos DB를 사용하는 방법을 알아보세요.'
+sections:
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: Azure Cosmos DB를 사용하여 다중 모델 API 중 하나를 사용하여 전역적으로 분산된 데이터베이스를 만드는 방법에 대해 알아봅니다.
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_net.svg
+          - image:
+              src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_nodejs.svg
+          - image:
+              src: media/index/logo_python.svg
+          - image:
+              src: media/index/logo_gremlin.svg
+        rows:
+          - title: DocumentDB API
+            values:
+              - href: /azure/cosmos-db/create-documentdb-dotnet
+              - href: /azure/cosmos-db/create-documentdb-java
+              - href: /azure/cosmos-db/create-documentdb-nodejs
+              - href: /azure/cosmos-db/create-documentdb-python
+              - href: null
+          - title: MongoDB API
+            values:
+              - href: /azure/cosmos-db/create-mongodb-dotnet
+              - href: /azure/cosmos-db/create-mongodb-java
+              - href: /azure/cosmos-db/create-mongodb-nodejs
+              - href: null
+              - href: null
+          - title: 그래프 API
+            values:
+              - href: /azure/cosmos-db/create-graph-dotnet
+              - href: /azure/cosmos-db/create-graph-java
+              - href: /azure/cosmos-db/create-graph-nodejs
+              - href: null
+              - href: /azure/cosmos-db/create-graph-gremlin-console
+          - title: 테이블 API
+            values:
+              - href: /azure/cosmos-db/create-table-dotnet
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: Azure Cosmos DB를 사용하여 앱을 개발하는 방법에 대해 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: 'Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>를 사용하여 앱 개발'
+          - html: 'Cosmos DB&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>로 데이터 가져오기'
+          - html: 'Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>를 사용하여 데이터 쿼리'
+          - html: 'Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>를 사용하여 전역 데이터베이스 복제'
+          - html: <a href="local-emulator">에뮬레이터를 사용하여 로컬로 응용 프로그램 개발</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기</a>
+  - title: 샘플
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/cosmos-db/cli-samples">Azure CLI</a>
+          - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
+  - title: 참조
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: DocumentDB API
+            html: '<p><a href="/rest/api/documentdb/">REST (영문)</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="documentdb-sdk-dotnet-changefeed">.NET 변경 피드</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">REST 리소스 공급자</a></p><p><a href="documentdb-sql-query-reference">SQL</a></p>'
+          - title: MongoDB API
+            html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">유선 프로토콜</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.JS</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
+          - title: 테이블 API
+            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST (영문)</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
+          - title: Gremlin API
+            html: '<p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'

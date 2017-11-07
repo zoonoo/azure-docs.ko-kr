@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -66,7 +66,7 @@ bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발
 
 따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다.  일치하는 항목이 없는 경우 인증이 실패합니다. 
 
-예를 들어 사용자의 UPN이 bsimon@bmcontoso.com,인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 http://bmcontoso.com/adfs/services/trust로 설정됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
+예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 http://bmcontoso.com/adfs/services/trust로 설정됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
 다음은 이 논리를 구현하는 사용자 지정된 클레임 규칙입니다.
 
@@ -144,7 +144,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-정규식에서 마지막 숫자는 루트 도메인에 있는 상위 도메인 수를 설정합니다. 여기서 bmcontoso.com이 있으므로&2;개의 상위 도메인이 필요합니다. 3개의 상위 도메인을 유지해야 한다면(예: corp.bmcontoso.com) 숫자는&3;이 되었을 것입니다. 결과적으로 범위를 나타낼 수 있으며, 항상 최대 도메인 수와 일치하도록 매칭됩니다. "{2,3}"은&2;~3개의 도메인(예: bmfabrikam.com 및 corp.bmcontoso.com)이 매칭됩니다.
+정규식에서 마지막 숫자는 루트 도메인에 있는 상위 도메인 수를 설정합니다. 여기서 bmcontoso.com이 있으므로 2개의 상위 도메인이 필요합니다. 3개의 상위 도메인을 유지해야 한다면(예: corp.bmcontoso.com) 숫자는 3이 되었을 것입니다. 결과적으로 범위를 나타낼 수 있으며, 항상 최대 도메인 수와 일치하도록 매칭됩니다. "{2,3}"은 2~3개의 도메인(예: bmfabrikam.com 및 corp.bmcontoso.com)이 매칭됩니다.
 
 하위 도메인을 지원하기 위해 사용자 지정 클레임을 추가하려면 다음 단계를 사용합니다.
 
@@ -162,10 +162,4 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
     ![클레임 바꾸기](./media/active-directory-multiple-domains/sub2.png)
 
 5. 확인을 클릭합니다.  적용을 클릭합니다.  확인을 클릭합니다.  AD FS 관리를 닫습니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

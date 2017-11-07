@@ -1,10 +1,10 @@
 ---
 title: "ESP8266에서 클라우드로 - Sparkfun ESP8266 Thing Dev를 Azure IoT Hub에 연결 | Microsoft Docs"
-description: "Arduino 장치인 Sparkfun ESP8266 Thing Dev를 IoT 자산을 관리하는 데 도움이 되는 Microsoft 클라우드 서비스인 Azure IoT Hub에 연결하는 가이드입니다."
+description: "이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Sparkfun ESP8266 Thing Dev를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
-ms.lasthandoff: 04/12/2017
-
-
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Sparkfun ESP8266 Thing Dev를 클라우드의 Azure IoT Hub에 연결
 
@@ -53,6 +52,7 @@ ms.lasthandoff: 04/12/2017
 
 개발 환경에는 다음 사항도 필요합니다.
 
+* 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Windows 또는 Ubuntu가 실행되는 Mac 또는 PC
 * Sparkfun ESP8266 Thing Dev가 연결되는 무선 네트워크
 * 구성 도구를 다운로드하기 위한 인터넷 연결
@@ -64,79 +64,7 @@ ms.lasthandoff: 04/12/2017
 * 실험용 회로판
 * M/M 점퍼 와이어
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>IoT Hub 만들기 및 Sparkfun ESP8266 Thing Dev에 대한 장치 등록
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>Azure Portal에 Azure IoT Hub 만들기
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-1. **새로 만들기** > **사물 인터넷** > **IoT Hub**를 차례로 클릭합니다.
-
-   ![iot hub 만들기](media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. **IoT Hub** 창에서 IoT Hub에 필요한 정보를 입력합니다.
-
-   ![iot hub 생성을 위한 기본 정보](media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **이름**: IoT Hub의 이름. 입력한 이름이 올바른 경우 녹색 확인 표시가 나타납니다.
-   * **가격 및 크기 계층**: 이 데모에서는 무료 F1 계층을 선택해도 충분합니다. [가격 및 크기 계층](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
-   * **리소스 그룹**: IoT Hub를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)(영문)를 참조하세요.
-   * **위치**: IoT Hub가 생성된 곳에서 가장 가까운 위치를 선택합니다.
-   * **대시보드에 고정**: 대시보드에서 IoT Hub에 손쉽게 액세스하려면 이 옵션을 선택합니다.
-1. **만들기**를 클릭합니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 창에서 진행률을 볼 수 있습니다.
-
-   ![알림 창에서 iot hub 만들기 진행률 모니터링](media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. IoT Hub를 만들었으면 대시보드에서 클릭합니다. 나주에 사용되므로 **호스트 이름**을 기록해둔 다음 **공유 액세스 정책**을 클릭합니다.
-
-   ![IoT Hub의 호스트 이름 가져오기](media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. **공유 액세스 정책** 창에서 **iothubowner** 정책을 클릭한 다음 나중에 사용되므로 IoT Hub의 **연결 문자열**을 복사하여 기록해둡니다. 자세한 내용은 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)를 참조하세요.
-
-   ![iot hub 연결 문자열 가져오기](media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-IoT Hub를 만들었습니다. 적어둔 호스트 이름 및 연결 문자열은 나중에 사용됩니다.
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>IoT Hub에서 Sparkfun ESP8266 Thing Dev에 대한 장치 등록
-
-모든 IoT Hub에는 IoT Hub에 연결이 허용된 장치에 대한 정보를 저장하는 ID 레지스트리가 있습니다. 장치를 IoT Hub에 연결할 수 있으려면 IoT Hub의 ID 레지스트리에 해당 장치에 대한 항목이 있어야 합니다.
-
-이 섹션에서는 iothub explorer CLI 도구를 사용하여 IoT Hub의 ID 레지스트리에 ESP8266 Thing Dev에 대한 장치를 등록합니다.
-
-> [!NOTE]
-> iothub explorer가 제대로 작동하려면 Node.js 4.x 이상이 필요합니다.
-
-ESP8266 Thing Dev에 대한 장치를 등록하려면 다음 단계를 수행합니다.
-
-1. 최신 LTS 버전의 Node.js(NPM 포함)를 [다운로드](https://nodejs.org/en/download/)하여 설치합니다.
-1. NPM을 사용하여 iothub explorer를 설치합니다.
-
-   * Windows 7 이상. 관리자로 명령 프롬프트를 시작합니다. 다음 명령을 실행하여 iothub explorer를 설치합니다.
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 이상. 키보드 단축키 Ctrl + Alt + T를 사용하여 터미널을 연 후 다음 명령을 실행합니다.
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 이상. 터미널을 연 후 다음 명령을 실행합니다.
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. 다음 명령을 실행하여 IoT Hub에 로그인합니다.
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. `deviceID`가 `new-device`인 새 장치를 등록하고 다음 명령을 실행하여 연결 문자열을 가져옵니다.
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-등록된 장치의 연결 문자열을 나중에 사용하기 위해 기록해둡니다.
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>ESP8266 Thing Dev를 센서와 컴퓨터에 연결
 
@@ -232,7 +160,7 @@ Arduino IDE에 Sparkfun ESP8266 Thing Dev 패키지를 설치합니다.
 
    ![esp8266 패키지 설치됨](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. **도구** > **보드** > **Adafruit HUZZAH ESP8266**를 클릭합니다.
+1. **도구** > **보드** > **Sparkfun ESP8266 Thing Dev**를 클릭합니다.
 
 ### <a name="install-necessary-libraries"></a>필요한 라이브러리 설치
 
@@ -263,6 +191,14 @@ Arduino IDE에 Sparkfun ESP8266 Thing Dev 패키지를 설치합니다.
 1. Arduino IDE에서 **도구** > **포트**를 차례로 클릭한 다음 Sparkfun ESP8266 Thing Dev에 대한 직렬 포트를 클릭합니다.
 1. **스케치** > **업로드**를 차례로 클릭하여 샘플 응용 프로그램을 빌드하고 Sparkfun ESP8266 Thing Dev에 배포합니다.
 
+> [!Note]
+> macOS를 사용하는 경우 업로드하는 동안 다음 메시지가 표시될 수 있습니다. `warning: espcomm_sync failed`,`error: espcomm_open failed`. 터미널 창을 열고 아래 작업을 완료하여 이 문제를 해결합니다.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
+
 ### <a name="enter-your-credentials"></a>자격 증명 입력
 
 업로드를 성공적으로 완료했으면 단계에 따라 자격 증명을 입력합니다.
@@ -290,4 +226,3 @@ Arduino IDE에 Sparkfun ESP8266 Thing Dev 패키지를 설치합니다.
 IoT Hub에 Sparkfun ESP8266 Thing Dev를 성공적으로 연결하고 캡처한 센서 데이터를 IoT Hub에 보냈습니다. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

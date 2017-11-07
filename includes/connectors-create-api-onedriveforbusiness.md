@@ -14,8 +14,3 @@
 4. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
    ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: "Marketplace용 솔루션 템플릿 만들기 가이드 | Microsoft Docs"
-description: "Azure 마켓플레이스에서 구입하기 위한 여러 VM 이미지 솔루션 템플릿을 만들고 인증하고 배포하는 방법에 대한 자세한 지침입니다."
+description: "Azure Marketplace에서 구입하기 위한 여러 VM 이미지 솔루션 템플릿을 만들고 인증하고 배포하는 방법에 대한 자세한 지침입니다."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 21da313ba5472223961a301b96e08655a3bbdcad
-ms.lasthandoff: 04/04/2017
-
-
+ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure 마켓플레이스용 솔루션 템플릿 만들기 가이드
+# <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Marketplace용 솔루션 템플릿 만들기 가이드
 1단계 [계정 만들기 및 등록][link-acct-creation]을 완료한 후 [솔루션 템플릿을 만들기 위한 기술 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md)에서 Azure 호환 솔루션 템플릿 만들기에 대해 안내했습니다. 이제 Azure Marketplace의 [게시 포털][link-pubportal]에서 여러 VM에 대한 솔루션 템플릿을 만드는 단계를 안내합니다.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>게시 포털에서 솔루션 템플릿 제품 만들기
@@ -55,17 +54,16 @@ ms.lasthandoff: 04/04/2017
   >
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 솔루션 템플릿을 만들고 zip 파일을 업로드했으므로 제품을 스테이징으로 푸시하기 전에 [마켓플레이스 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md) 의 지침을 따르세요. [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
+지금까지 솔루션 템플릿을 만들고 zip 파일을 업로드했으므로 제품을 스테이징으로 푸시하기 전에 [Marketplace 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md) 의 지침을 따르세요. [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
 
 다음 관련 문서를 참조할 수도 있습니다.
 
 * VM 이미지: [Azure의 가상 컴퓨터 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 * VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 * Azure Resource Manager: [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 및 [간단한 템플릿 예제](https://github.com/rjmax/ArmExamples)
-* 저장소 계정 제한: [저장소 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets)
+* Storage 계정 제한: [Storage 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [Premium storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
-

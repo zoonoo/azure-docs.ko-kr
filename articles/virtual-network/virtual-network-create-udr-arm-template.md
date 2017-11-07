@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>템플릿을 사용하여 사용자 정의 경로(UDR) 만들기
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 03/22/2017
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"    
+      "displayName": "UDR - FrontEnd"   
     },
     "properties": {
       "routes": [
@@ -115,7 +114,7 @@ ms.lasthandoff: 03/22/2017
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>클릭하여 배포하는 방식으로 템플릿 배포
 공용 저장소에서 사용할 수 있는 샘플 템플릿은 위에 설명된 시나리오를 생성하는 데 사용된 기본값을 포함하는 매개 변수 파일을 사용합니다. 클릭하여 배포하는 방식으로 이 템플릿을 배포하려면 [이 링크](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)에 따라 **Azure에 배포**를 클릭하고 필요한 경우 기본 매개 변수 값을 대체하고 포털의 지침을 따릅니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 다음 명령을 실행하여 리소스 그룹을 만듭니다.
 
     ```powershell
@@ -407,4 +406,3 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 다음 단계를 완�
 > [!TIP]
 > 일부 리소스가 표시되지 않으면 `azure group deployment show` 명령을 실행하여 배포의 프로비전 상태가 *성공*인지 확인합니다.
 > 
-

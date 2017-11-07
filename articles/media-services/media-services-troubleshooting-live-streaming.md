@@ -4,7 +4,7 @@ description: "이 토픽에서는 라이브 스트리밍 문제를 해결하는 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: fa91baf7c494941fccf0e6ca38b930f3c2a521ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드
 이 토픽에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
@@ -73,5 +72,4 @@ ms.lasthandoff: 02/16/2017
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

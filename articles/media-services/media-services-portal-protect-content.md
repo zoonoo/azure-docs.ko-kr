@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/25/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
-
-
+ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
 > [!NOTE]
@@ -124,17 +124,14 @@ FairPlay 암호화를 사용하려면 Content Protection 설정 블레이드의 
 
 암호화를 선택한 후 **적용**을 누릅니다.
 
+>[!NOTE] 
+>Safari에서 AES 암호화 HLS를 재생하려는 경우 [이 블로그](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

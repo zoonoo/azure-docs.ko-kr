@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
-
-
+ms.openlocfilehash: 7b8b9072d0e2fd054ca07873c0a9ce772dc2941e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-hybrid-connections"></a>하이브리드 연결 만들기 및 관리
+
+> [!IMPORTANT]
+> BizTalk 하이브리드 연결은 사용 중지되고 App Service 하이브리드 연결로 대체됩니다. 기존 BizTalk 하이브리드 연결 관리 방법을 비롯한 자세한 내용은 [Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md)을 참조하세요.
+
+
 ## <a name="overview-of-the-steps"></a>단계의 개요
 1. 개인 네트워크에 있는 온-프레미스 리소스의 **host name** 또는 **FQDN** of the on-premises resource in your private netw또는k.
 2. 하이브리드 연결에 Azure 웹앱 또는 Azure 모바일 앱을 연결합니다.
@@ -42,10 +47,10 @@ ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
 > 
 > 
 
-## <a name="a-namecreatehybridconnectionacreate-a-hybrid-connection"></a><a name="CreateHybridConnection"></a>하이브리드 연결 만들기
+## <a name="CreateHybridConnection"></a>하이브리드 연결 만들기
 하이브리드 연결은 웹앱 **또는** BizTalk 서비스를 사용하여 Azure 포털에서 만들 수 있습니다. 
 
-**웹앱을 사용하여 하이브리드 연결을 만들려면**[Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)을 참조하세요. 기본 방법인 웹앱에서 하이브리드 연결 관리자(HCM)를 설치할 수도 있습니다. 
+<!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 **BizTalk 서비스에서 하이브리드 연결을 만들려면**
 
@@ -68,10 +73,11 @@ ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
 * 하이브리드 연결을 여러 개 만들 수 있습니다. 허용되는 연결 수는 [BizTalk 서비스: Editions 차트](biztalk-editions-feature-chart.md) 를 참조하세요. 
 * 각 하이브리드 연결은 송신하는 응용 프로그램 키와 수신하는 온-프레미스 키, 연결 문자열 쌍으로 생성됩니다. 각 쌍에는 기본 및 보조 키가 있습니다. 
 
-## <a name="a-namelinkwebsitealink-your-azure-app-service-web-app-or-mobile-app"></a><a name="LinkWebSite"></a>Azure App Service Web App 또는 Mobile App 연결
-Azure App Service에서 Web App 또는 Mobile App을 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. [Azure App Service에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스](../app-service-web/web-sites-hybrid-connection-get-started.md)를 참조하세요.
+## <a name="LinkWebSite"></a>Azure App Service Web App 또는 Mobile App 연결
+Azure App Service에서 Web App 또는 Mobile App을 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. 
+<!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
-## <a name="a-nameinstallhcmainstall-the-hybrid-connection-manager-on-premises"></a><a name="InstallHCM"></a>온-프레미스에 하이브리드 연결 관리자 설치
+## <a name="InstallHCM"></a>온-프레미스에 하이브리드 연결 관리자 설치
 하이브리드 연결이 만들어진 후에는 온-프레미스 리소스에 하이브리드 연결 관리자를 설치합니다. 이 관리자는 Azure 웹앱이나 BizTalk 서비스에서 다운로드할 수 있습니다. BizTalk 서비스 단계는 다음과 같습니다. 
 
 1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
@@ -106,7 +112,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 * 하이브리드 연결 관리자는 권한 부여를 위해 유효한 온-프레미스 연결 문자열을 사용해야 합니다. Azure 웹앱 또는 모바일 앱은 권한 부여를 위해 유효한 응용 프로그램 연결 문자열을 사용해야 합니다.
 * 다른 서버에 하이브리드 연결 관리자의 다른 인스턴스를 설치하여 하이브리드 연결을 확장할 수 있습니다. 첫 번째 온-프레미스 수신기와 동일한 주소를 사용하도록 온-프레미스 수신기를 구성합니다. 이 상황에서 트래픽이 활성 온-프레미스 수신기 사이에서 임의로 분산됩니다(라운드 로빈). 
 
-## <a name="a-namemanagehybridconnectionamanage-hybrid-connections"></a><a name="ManageHybridConnection"></a>하이브리드 연결 관리
+## <a name="ManageHybridConnection"></a>하이브리드 연결 관리
 하이브리드 연결을 관리하기 위해 다음을 할 수 있습니다.
 
 * Azure 포털을 사용하고 BizTalk 서비스로 이동합니다. 
@@ -138,8 +144,6 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 복사되면 그룹 정책 편집기를 사용하여 정책을 변경할 수 있습니다.
 
 ## <a name="next"></a>다음
-[Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Azure Web Apps에서 온-프레미스 SQL Server에 연결](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)   
 [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>참고 항목
@@ -151,9 +155,3 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

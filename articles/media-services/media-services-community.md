@@ -4,7 +4,7 @@ description: "이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-
-
+ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-community"></a>Azure 미디어 서비스 커뮤니티
 이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다.   
@@ -37,7 +37,7 @@ ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
 
 ## <a name="discussion"></a>토론
 ### <a name="twitter"></a>Twitter
- [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter 핸들을 사용하여 AMS 뉴스 및 업데이트를 Twitter에 팔로우합니다.  [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용하여 Twitter에서 지원을 요청할 수 있습니다.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter 핸들을 사용하여 AMS 뉴스 및 업데이트를 Twitter에 팔로우합니다. [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용하여 Twitter에서 지원을 요청할 수 있습니다.  
 
 ### <a name="online-forums"></a>온라인 포럼
 현재 제품 및 기능에 대한 질문을 하는 데 다음 포럼을 사용할 수 있습니다.
@@ -59,10 +59,4 @@ Azure 미디어 서비스 기본 전자 메일: **mediaservices@microsoft.com**
 | Azure 미디어 플레이어 |ampinfo@microsoft.com |
 | Azure 미디어 탐색기 |amse@microsoft.com |
 | Workflow Designer |mepd@microsoft.com |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

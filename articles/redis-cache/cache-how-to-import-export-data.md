@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 07/31/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 5e6d731f0a1cecc1a191c74a45e37a9b94fd98ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
 Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 
@@ -40,7 +39,7 @@ Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Re
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스를 진행하는 동안, Azure Redis Cache는 Azure 저장소에서 메모리로 RDB 파일을 로드한 다음 키를 캐시에 삽입합니다.
 
 > [!NOTE]
-> 가져오기 작업을 시작하기 전에, RDB(Redis 데이터베이스) 파일이 Azure Redis Cache 인스턴스와 동일한 지역 및 구독 내 Azure Storage의 페이지 또는 블록 Blob에 업로드되었는지 확인해야 합니다. 자세한 내용은 [Azure Blob 저장소 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Redis Cache 내보내기](#export) 기능을 사용하여 RDB 파일을 내보내면, RDB 파일이 페이지 Blob에 저장되고 가져오기를 수행할 준비가 됩니다.
+> 가져오기 작업을 시작하기 전에, RDB(Redis 데이터베이스) 파일이 Azure Redis Cache 인스턴스와 동일한 지역 및 구독 내 Azure Storage의 페이지 또는 블록 Blob에 업로드되었는지 확인해야 합니다. 자세한 내용은 [Azure Blob 저장소 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Redis Cache 내보내기](#export) 기능을 사용하여 RDB 파일을 내보내면, RDB 파일이 페이지 Blob에 저장되고 가져오기를 수행할 준비가 됩니다.
 >
 >
 
@@ -78,7 +77,7 @@ Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Re
 2. **저장소 컨테이너 선택** 을 클릭하고 원하는 저장소 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
-   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
+   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
    >
    >
 
@@ -107,8 +106,8 @@ Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Re
 * [가져오기/내보내기는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?](#how-does-importexport-work-with-a-custom-databases-setting)
 * [가져오기/내보내기가 Redis 지속성과 어떻게 다른가요?](#how-is-importexport-different-from-redis-persistence)
 * [PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 가져오기/내보내기를 자동화할 수 있나요?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
-* [Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
+* [가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>어떤 가격 책정 계층에서 가져오기/내보내기를 사용할 수 있나요?
 가져오기/내보내기는 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
@@ -156,7 +155,7 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 이를 해결하려면, 15분이 지나기 전에 가져오기 또는 내보내기 작업을 시작하세요.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?
-내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Blob Storage 계정](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)을 참조하세요.
+내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Blob Storage 계정](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
@@ -176,4 +175,3 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
-

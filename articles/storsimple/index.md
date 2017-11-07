@@ -2,7 +2,7 @@
 title: "Azure StorSimple 설명서 - 자습서 | Microsoft Docs"
 description: "온-프레미스 장치 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션인 Azure StorSimple을 사용하는 방법에 대해 알아봅니다."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 8236c1e4167e3b66edb1b410deb450d01c34d9f2
-ms.openlocfilehash: 9c083c08f73c5e2c8ed873f612c8695a9687a5a6
-
+ms.openlocfilehash: 579fe32f75e051e679e6cbbaea5f99c7fcd6037b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="storsimple-documentation"></a>StorSimple 설명서
 
@@ -120,39 +121,31 @@ ms.openlocfilehash: 9c083c08f73c5e2c8ed873f612c8695a9687a5a6
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="http://onlinehelp.storsimple.com/">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>기타 StorSimple 솔루션</h3>
-                        <p>StorSimple 5000-7000 시리즈</p>
+                        <p><a href="http://onlinehelp.storsimple.com/">StorSimple 5000-7000 시리즈</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/azure/storsimple/storsimple-update3-release-notes">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>릴리스 정보</h3>
-                        <p>릴리스 정보</p>
+                        <p><a href="/azure/storsimple/storsimple-update3-release-notes">릴리스 정보</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

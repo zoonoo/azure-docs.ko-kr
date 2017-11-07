@@ -2,7 +2,7 @@
 title: "Azure Monitor 파트너 통합 | Microsoft Docs"
 description: "Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/16/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 7a3b8c4d373a97db1a1fae4af6d6ee4d8c35d4c4
-ms.openlocfilehash: ae3d9963045749f5487b4baac77e5eacc16ac9fc
-
-
+ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
-| [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
-| [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![파트너 로고][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![파트너 로고][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![파트너 로고][cloudmonix-logo]<br/>**CloudHealth**][cloudmonix-anchor] |
+| [![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![파트너 로고][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![파트너 로고][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![파트너 로고][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
-Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다. 여기에는 Azure Monitor API를 통한 Azure 감사 로그가 포함됩니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
+Alert Logic Log Manager는 보안 분석 및 보존을 위해 Azure Monitor API를 통한 Azure Activity Log를 포함하여 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
 
 [설명서로 이동합니다.][alertlogic-doc]
 
@@ -43,6 +43,11 @@ AppDynamics APM(Application Performance Management)을 사용하면 응용 프�
 Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다.
 
 [설명서로 이동합니다.][atlassian-doc]
+
+## <a name="circonus"></a>Circonus
+Circonus는 온-프레미스 또는 SaaS 배포용으로 빌드된 마이크로 서비스 모니터링 및 분석 플랫폼입니다. 완전히 자동화 가능한 API 중심 플랫폼은 모니터링하는 시스템에 비해 더 확장 가능하고 안정적입니다. DevOps의 요구 사항에 대해 개발된 Circonus는 비즈니스 최적화를 사용할 수 있는 백분위수 기반 경고, 그래프, 대시보드 및 Machine Learning 인텔리전스를 제공합니다. Circonus는 Microsoft Azure 클라우드 리소스 및 해당 응용 프로그램을 실시간으로 모니터링합니다. Circonus를 사용하여 리소스 및 응용 프로그램에서 측정하려는 변수에 대해 메트릭을 수집하고 추적할 수 있습니다. Circonus를 사용하면 Azure의 리소스 사용률, 응용 프로그램 성능 및 작동 상태를 시스템 수준에서 표시할 수 있습니다.
+
+[설명서로 이동합니다.][circonus-doc]
 
 ## <a name="cloudhealth"></a>CloudHealth
 상당한 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 통해 CloudHealth는 클라우드 관리를 재정의하고 있습니다. Cloudhealth 플랫폼을 사용하면 엔터프라이즈 및 MSP가 클라우드 투자에 따른 수익을 최대화하고 비용, 사용량, 성능 및 보안과 관련하여 확고한 결정을 내릴 수 있습니다.
@@ -59,16 +64,13 @@ Cloudyn은 기업이 클라우드 기능을 완전히 구현할 수 있도록 �
 
 [설명서로 이동합니다.][cloudyn-doc]
 
-## <a name="datadog"></a>DataDog
+## <a name="datadog"></a>Datadog
 Datadog는 클라우드급 응용 프로그램을 위한 세계 선두의 모니터링 서비스로, 서버, 데이터베이스, 도구 및 서비스의 데이터를 하나로 모아 전체 스택에 대한 통합된 뷰를 제시합니다. 이 기능은 SaaS 기반 데이터 분석 플랫폼에서 제공되므로 개발 및 운영 팀이 협업하여 중단 시간을 방지하고, 성능 문제를 해결하며, 개발 및 개발 주기가 제 때에 끝날 수 있게 할 수 있습니다. Datadog와 Azure를 통합하면 전체 인프라에서 메트릭을 수집 및 파악하고, VM 메트릭과 응용 프로그램 수준 메트릭을 상관하며, 속성 및 사용자 지정 태그의 조합을 통해 메트릭을 상세 분석할 수 있습니다.
 
 [설명서로 이동합니다.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent는 해당하는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다.
-이러한 방식으로 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다.
-메트릭을 단순히 표시하는 것 외에도 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다.
-문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
+Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. 메트릭을 단순히 표시하는 것 외에도 Dynatrace는 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다. 문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
 
 [설명서로 이동합니다.][dynatrace-doc]
 
@@ -90,8 +92,8 @@ ScienceLogic은 어디서든지 모든 기술을 관리하는 차세대 IT 서�
 
 [자세히 알아봅니다][sciencelogic-doc].
 
-## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Microsoft 클라우드 서비스를 위한 Splunk 추가 기능
-Microsoft 클라우드 서비스를 위한 Splunk 추가 기능은 [여기 Splunkbase](https://splunkbase.splunk.com/app/3110/)에서 사용할 수 있습니다.
+## <a name="azure-monitor-add-on-for-splunk"></a>Splunk용 Azure Monitor 추가 기능
+Splunk용 Azure Monitor 추가 기능은 [Splunkbase에서 사용 가능](https://splunkbase.splunk.com/app/3534/)합니다.
 
 [설명서로 이동합니다.][splunk-doc]
 
@@ -103,29 +105,31 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor에 대한 자세한 정보](monitoring-overview.md)
 * [REST API를 사용하여 메트릭 액세스](monitoring-rest-api-walkthrough.md)
-* [타사 서비스에 활동 로그 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
-* [타사 서비스에 진단 로그 스트리밍](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [타사 서비스에 활동 로그 스트림](monitoring-stream-activity-logs-event-hubs.md)
+* [타사 서비스에 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
-[datadog-anchor]: #datadog "DataDog"
+[datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
-[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
+[splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
@@ -140,22 +144,17 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
-[appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics 설명서."
+[appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 설명서."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 소개."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog 설명서."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Dynatrace 설명서."
+[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Splunk 설명서."
+[splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

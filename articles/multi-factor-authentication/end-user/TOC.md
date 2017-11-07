@@ -13,9 +13,3 @@
 ### [앱 시작](microsoft-authenticator-app-how-to.md)
 ### [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -1,11 +1,12 @@
 ---
-title: "네트워크 ACL(액세스 제어 목록)이란?"
-description: "ACL 정보"
+title: "Azure 네트워크 액세스 제어 목록이란?"
+description: "Azure에서 액세스 제어 목록에 대한 자세한 정보"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
 ms.devlang: na
@@ -14,31 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="what-is-an-endpoint-access-control-list-acls"></a>끝점 ACL(액세스 제어 목록)이란?
-끝점 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다.
+# <a name="what-is-an-endpoint-access-control-list"></a>끝점 액세스 제어 목록이란?
 
 > [!IMPORTANT]
-> 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](virtual-networks-nsg.md)을 참조하세요.
-> 
-> 
+> Azure에는 리소스를 만들고 작업하는 Resource Manager와 클래식이라는 두 가지 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
 
-ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+끝점 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다. 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](virtual-networks-nsg.md)를 참조하세요.
+
+ACL은 PowerShell 또는 Azure Portal을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 액세스 제어 목록 관리](virtual-networks-acl-powershell.md)를 참조하세요. Azure Portal을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 네트워크 ACL을 사용하여 다음을 수행할 수 있습니다.
 
 * 가상 컴퓨터 입력 끝점에 대한 원격 서브넷 IPv4 주소 범위에 따라 들어오는 트래픽을 선택적으로 허용하거나 거부합니다.
 * IP 주소를 블랙리스트에 올립니다.
 * 가상 컴퓨터 끝점별로 여러 규칙을 생성합니다.
-* 가상 컴퓨터 끝점별로 최대 50개의 ACL 규칙을 지정합니다.
 * 올바른 규칙 집합이 지정된 가상 컴퓨터 끝점에 적용될 수 있도록 규칙 순서를 사용합니다(가장 낮은 값에서 가장 높은 값의 순서로).
 * 특정 원격 서브넷 IPv4 주소에 대해 ACL을 지정합니다.
+
+ACL 제한은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 문서를 참조하세요.
 
 ## <a name="how-acls-work"></a>ACL의 작동 방식
 ACL은 규칙 목록이 포함된 개체입니다. ACL을 만들어 가상 컴퓨터 끝점에 적용하는 경우 VM의 호스트 노드에서 패킷 필터링이 발생합니다. 즉, VM 대신 ACL 규칙이 일치하는 호스트 노드에서 원격 IP 주소의 트래픽을 필터링합니다. 그러면 VM에서 패킷 필터링에 귀중한 CPU 주기를 사용하는 것을 방지할 수 있습니다.
@@ -85,11 +85,10 @@ ACL은 규칙 목록이 포함된 개체입니다. ACL을 만들어 가상 컴�
 | 200 |175.0.0.0/8 |80 |허용 |
 
 ## <a name="network-acls-and-load-balanced-sets"></a>네트워크 ACL 및 부하 분산된 집합
-LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 수 있습니다. ACL이 LB 집합에 대해 지정된 경우 네트워크 ACL이 해당 LB 집합의 모든 가상 컴퓨터에 적용됩니다. 예를 들어 LB 집합이 "포트 80"에 생성되고 LB 집합에 3개의 VM이 포함된 경우 하나의 VM 끝점 "포트 80"에 생성된 네트워크 ACL은 다른 VM에 자동으로 적용됩니다.
+부하 분산된 집합 끝점에서 네트워크 ACL을 지정할 수 있습니다. ACL이 부하 분산된 집합에 대해 지정된 경우 네트워크 ACL이 해당 부하 분산된 집합의 모든 가상 컴퓨터에 적용됩니다. 예를 들어 부하 분산된 집합이 "포트 80"에 생성되고 부하 분산된 집합에 3개의 VM이 포함된 경우 하나의 VM 끝점 "포트 80"에 생성된 네트워크 ACL은 다른 VM에 자동으로 적용됩니다.
 
 ![네트워크 ACL 및 부하 분산된 집합](./media/virtual-networks-acl/IC674733.png)
 
 ## <a name="next-steps"></a>다음 단계
-[PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](virtual-networks-acl-powershell.md)
-
+[PowerShell을 사용하여 끝점에 대한 액세스 제어 목록 관리](virtual-networks-acl-powershell.md)
 

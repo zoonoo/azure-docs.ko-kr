@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
-ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
-
-
+ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.
@@ -34,7 +34,7 @@ ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
    
    * Azure 개인 피어링 사용 - 이 피어링을 사용하여 가상 네트워크 내에 배포된 VM/클라우드 서비스에 연결해야 합니다.
    * Azure 공용 피어링 사용 - 공용 IP 주소에 호스팅된 Azure 서비스에 연결하려는 경우 Azure 공용 피어링을 사용해야 합니다. Azure 개인 피어링에 대한 기본 라우팅을 사용하도록 선택한 경우 Azure 리소스에 액세스하는 것이 요구됩니다.
-   * Microsoft 피어링 사용 - 이 기능을 사용하여 Office 365 및 CRM 온라인 서비스에 액세스해야 합니다. 
+   * Microsoft 피어링 사용 - Office 365 및 Dynamics 365에 액세스하려면 이 기능을 사용해야 합니다. 
      
      > [!IMPORTANT]
      > 인터넷에 사용하는 것 이외에 별도 프록시/Edge를 사용하여 Microsoft에 연결해야 합니다. Express 경로 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
@@ -112,13 +112,7 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 ## <a name="next-steps"></a>다음 단계
 * Express 경로 연결을 구성합니다.
   
-  * [Express 경로 회로 만들기](expressroute-howto-circuit-arm.md)
+  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)
   * [라우팅 구성](expressroute-howto-routing-arm.md)
-  * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-arm.md)
 

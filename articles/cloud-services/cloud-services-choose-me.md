@@ -11,14 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/21017
+ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>클라우드 서비스 또는 다른 항목을 선택해야 합니까?
 Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각은 다양한 서비스 세트를 제공하므로 정확히 무엇을 수행하고자 하는지에 따라 선택 항목이 달라집니다.
@@ -28,7 +27,7 @@ Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프�
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>클라우드 서비스에 대한 설명
-클라우드 서비스는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/) 의 예입니다. [앱 서비스](../app-service-web/app-service-web-overview.md)와 마찬가지로 이 기술은 확장성 있고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
+클라우드 서비스는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/) 의 예입니다. [앱 서비스](../app-service/app-service-web-overview.md)와 마찬가지로 이 기술은 확장성 있고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -42,7 +41,7 @@ IIS를 통해 앱을 자동으로 배포하고 호스팅합니다.
 * **작업자 역할**  
 IIS를 사용하지 않고 앱을 독립 실행형으로 실행합니다.
 
-예를 들어, 간단한 응용 프로그램은 단일 웹 역할만 사용하여 웹 사이트를 제공할 수 있습니다. 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 해당 요청을 작업자 역할에 전달하여 처리할 수 있습니다. (이 통신에는 [서비스 버스](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../storage/storage-introduction.md)를 사용할 수 있습니다.)
+예를 들어, 간단한 응용 프로그램은 단일 웹 역할만 사용하여 웹 사이트를 제공할 수 있습니다. 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 해당 요청을 작업자 역할에 전달하여 처리할 수 있습니다. (이 통신에는 [서비스 버스](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../storage/common/storage-introduction.md)를 사용할 수 있습니다.)
 
 이전 그림에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 Cloud Services 응용 프로그램에 VM을 [확장 및 배포](cloud-services-how-to-scale.md)합니다.
 
@@ -63,5 +62,4 @@ IIS를 사용하지 않고 앱을 독립 실행형으로 실행합니다.
 [Node.js로 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md)  
 [PHP로 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md)  
 [Python에서 클라우드 서비스 앱 만들기](cloud-services-python-ptvs.md)
-
 

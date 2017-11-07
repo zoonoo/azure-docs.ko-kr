@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47f493d0ec80318805303c8192477d7002533eb
-
-
+ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="templates"></a>템플릿
 ## <a name="overview"></a>개요
@@ -148,10 +148,4 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
         </binding>  
       </visual>
     </tile>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

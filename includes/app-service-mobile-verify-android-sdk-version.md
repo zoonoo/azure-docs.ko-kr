@@ -15,8 +15,3 @@
 3. Android Studio 프로젝트 탐색기에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하여 **Properties**를 선택하고 왼쪽 열에서 **Android**를 선택합니다. **Project Build Target**을 **targetSdkVersion**과 동일한 SDK 버전으로 설정하십시오.
 
 Android Studio에서는 Eclipse와 달리 매니페스트 파일이 대상 SDK 및 최소 SDK 버전을 지정하는 데 더 이상 사용되지 않습니다.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

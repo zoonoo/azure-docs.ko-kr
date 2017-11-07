@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory B2B 공동 작업에 대한 지원 받기 | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업에 대한 지원 환경이란?"
 services: active-directory
@@ -14,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 05/26/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 1ac5ce4b0c3177069bdd0ba4afdb02ef9950fdef
-
-
+ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 공동 작업에 대한 지원 받기
 
 설명서를 읽고 올바르게 수행했지만 여전히 기능을 작동시킬 수 없으신가요? 지원 티켓을 엽니다(지원 계획 필요).
@@ -44,10 +41,4 @@ ms.openlocfilehash: 1ac5ce4b0c3177069bdd0ba4afdb02ef9950fdef
 
   ![지원 티켓 문제 설명](media/active-directory-b2b-support/problem-description.png)
 
-  연락처 정보를 추가하면 지원 담당자가 추가 문제 해결을 위해 연락할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+3. 지원 담당자가 추가 문제 해결을 위해 연락할 수 있도록 하려면 연락처 정보를 추가합니다.

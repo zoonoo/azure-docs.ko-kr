@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 1209acfb13d53288b1ff0ed232c44c3fdcd3a9f4
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: dc764cd4d6bf5cb199080fd77a450c74bd1d49e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하는 Azure Active Directory의 기능입니다.
@@ -46,7 +45,7 @@ ms.lasthandoff: 03/10/2017
 이 동작을 지원하기 위해 사용자, 그룹 및 연락처 개체 클래스:   
 **DirSyncProvisioningError**
 
-정상적으로 추가해야 하는 고유성 제약 조건을 위반하는 충돌 특성을 저장하는 데 사용되는 다중값 특성입니다. 해결된 중복 특성 충돌을 찾기 위해&1;시간마다 실행되고 격리에서 문제의 특성을 자동으로 제거하는 백그라운드 타이머 작업이 Azure Active Directory에서 활성화되었습니다.
+정상적으로 추가해야 하는 고유성 제약 조건을 위반하는 충돌 특성을 저장하는 데 사용되는 다중값 특성입니다. 해결된 중복 특성 충돌을 찾기 위해 1시간마다 실행되고 격리에서 문제의 특성을 자동으로 제거하는 백그라운드 타이머 작업이 Azure Active Directory에서 활성화되었습니다.
 
 ### <a name="enabling-duplicate-attribute-resiliency"></a>중복 특성 복원력 활성화
 중복 특성 복원력은 모든 Azure Active Directory 테넌트의 새로운 기본 동작입니다. 2016년 8월 22일 또는 그 이후에 동기화를 처음으로 사용하는 모든 테넌트에 기본적으로 설정됩니다. 이 날짜 이전에 동기화를 사용하도록 설정한 테넌트에는 이 기능이 일괄적으로 사용하도록 설정됩니다. 이 출시는 2016년 9월에 시작되며 기능이 사용되는 특정 날짜와 함께 각 테넌트의 기술 알림 담당자에게 전자 메일 알림이 전송됩니다.
@@ -127,7 +126,7 @@ Office 365 관리 센터에서 디렉터리 동기화 오류를 보는 방법에
 중복 특성 충돌이 있는 개체가 이 새 동작으로 처리되는 경우 알림은 테넌트에 대한 기술 알림 문의로 전송되는 표준 ID 동기화 오류 보고서 전자 메일에 포함됩니다. 그러나 이 동작에서 중요한 변경 사항이 있습니다. 이전에 중복 특성 충돌에 대한 정보는 충돌이 해결될 때까지 모든 후속 오류 보고서에 포함됩니다. 이 새 동작으로 지정된 충돌에 대한 오류 알림이 충돌 특성이 격리되는 시간에 한 번만 나타납니다.
 
 ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.  
-    ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
+    ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "활성 사용자")  
 
 ## <a name="resolving-conflicts"></a>충돌 해결
 이러한 오류에 대한 문제 해결 전략 및 해결 방법은 중복 특성 오류가 이전에 처리된 방식과 다르지 않습니다. 유일한 차이점은 타이머 작업은 서비스쪽 테넌트를 통해 스윕하여 충돌이 해결되면 적절한 개체에 문제의 특성을 자동으로 추가한다는 점입니다.
@@ -165,7 +164,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **ID 동기화 오류 보고서**:
 
 *이 문제를 해결하는 방법에 대한 단계*의 링크가 잘못되었습니다.  
-    ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
+    ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "활성 사용자")  
 
 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)를 가리켜야 합니다.
 
@@ -173,5 +172,4 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 * [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
-ms.author: cakarst
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 03d4c2a75ff99a55aaa58ca76d6145fd0eec9fac
-ms.lasthandoff: 04/18/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
@@ -254,8 +252,8 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -278,4 +276,3 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
-

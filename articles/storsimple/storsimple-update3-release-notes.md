@@ -12,15 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 09/25/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0e31079494eb709a3333d6c8735f47f8406fea05
-ms.openlocfilehash: 846ff5124be258580c060bfe64bab1a4ccd31202
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: b8b230904e1e079417c3b39bbc281bc3a87668a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 3 릴리스 정보
 
@@ -76,7 +75,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 12 |마이그레이션 |마이그레이션이 완료되면 5000/7000 시리즈 장치는 마이그레이션된 데이터 컨테이너에 액세스하지 않아야 합니다. |마이그레이션이 완료되고 커밋된 후 마이그레이션된 데이터 컨테이너를 삭제하는 것이 좋습니다. |예 |아니요 |
 | 13 |복제 및 DR |업데이트 1을 실행하는 StorSimple 장치는 사전 업데이트 1 소프트웨어를 실행하는 장치에 복제하거나 재해 복구를 수행할 수 없습니다. |이러한 작업을 허용하려면 대상 장치를 업데이트 1로 업데이트해야 합니다. |예 |예 |
 | 14 |마이그레이션 |볼륨 그룹과 연결된 볼륨이 없으면 마이그레이션에 대한 구성 백업은 5000-7000 시리즈 장치에서 실패할 수 있습니다. |연결된 볼륨이 없는 모든 빈 볼륨 그룹을 삭제한 다음 구성 백업을 다시 시도하세요. |예 |아니요 |
-| 15 |Azure PowerShell cmdlet 및 로컬에 고정된 볼륨 |Azure PowerShell cmdlet을 통해 로컬에 고정된 볼륨을 만들 수 없습니다. (Azure PowerShell을 통해 만드는 모든 볼륨은 계층화됩니다.) |로컬에 고정된 볼륨을 구성하려면 항상 StorSimple 관리자 서비스를 사용하세요. |예 |아니요 |
+| 15 |Azure PowerShell cmdlet 및 로컬에 고정된 볼륨 |Azure PowerShell cmdlet을 통해 로컬에 고정된 볼륨을 만들 수 없습니다. (Azure PowerShell을 통해 만드는 모든 볼륨은 계층화됩니다.) 또한 계층화된 볼륨 형식을 수정하는 원하지 않는 영향을 미치기 때문에 Azure PowerShell cmdlet를 사용하지 않아서 로컬로 고정된 볼륨의 속성을 수정하는 않아야 합니다. |로컬에 고정된 볼륨을 구성 및 수정하려면 항상 StorSimple 관리자 서비스를 사용하세요.  |예 |아니요 |
 | 16 |로컬에 고정된 볼륨에 사용 가능한 공간 |로컬에 고정된 볼륨을 삭제하면 새 볼륨에 사용할 수 있는 공간이 즉시 업데이트되지 않을 수 있습니다. StorSimple 관리자 서비스는 사용 가능한 로컬 공간을 거의 매 시간마다 업데이트합니다. |새 볼륨을 만들기 전에 한 시간을 기다려 주세요. |예 |아니요 |
 | 17 |로컬로 고정된 볼륨 |복원 작업에서는 백업 카탈로그의 임시 스냅숏 백업을 복원 작업 기간에만 노출합니다. 또한 접두사 **tmpCollection**이 붙은 가상 디스크 그룹을 **백업 정책** 페이지에 복원 작업 기간에만 노출합니다. |복원 작업에 로컬로 고정된 볼륨만 있거나 로컬로 고정된 볼륨과 계층화된 볼륨이 함께 있는 경우에 이 동작이 발생할 수 있습니다. 복원 작업에 계층화된 볼륨만 있으면 이 동작이 발생 하지 않습니다. 사용자 개입이 필요 없습니다. |예 |아니요 |
 | 18 |로컬로 고정된 볼륨 |복원 작업을 취소하면 그 즉시 컨트롤러 장애 조치(failover)가 발생하고, 복원 작업에서는 **취소됨** 대신 **실패**를 표시합니다. 복원 작업을 취소하면 그 즉시 컨트롤러 장애 조치(failover)가 발생하고, 복원 작업에서는 **취소됨** 대신 **실패**로 표시합니다. |복원 작업에 로컬로 고정된 볼륨만 있거나 로컬로 고정된 볼륨과 계층화된 볼륨이 함께 있는 경우에 이 동작이 발생할 수 있습니다. 복원 작업에 계층화된 볼륨만 있으면 이 동작이 발생 하지 않습니다. 사용자 개입이 필요 없습니다. |예 |아니요 |
@@ -93,5 +92,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 장치에 [업데이트 3를 설치](storsimple-install-update-3.md) 하는 방법을 알아봅니다.
-
 

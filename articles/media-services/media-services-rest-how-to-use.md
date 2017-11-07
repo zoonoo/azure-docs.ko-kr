@@ -4,7 +4,7 @@ description: "미디어 서비스 REST API 개요"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
-
-
+ms.openlocfilehash: eada8f2bcd2488d5ed36b0c24aa3d1b917815517
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -27,6 +27,7 @@ ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
+이 항목에서는 Media Services에서 REST v2를 사용하는 방법에 대한 개요를 제공합니다.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -101,23 +102,22 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 | MERGE |명명된 속성 변경 내용으로 기존 개체를 업데이트합니다. |
 | HEAD |GET 응답에 대한 개체의 메타데이터를 반환합니다. |
 
-## <a name="limitation"></a>제한 사항
-엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
-
-## <a name="discovering-media-services-model"></a>미디어 서비스 모델 검색
+## <a name="discover-media-services-model"></a>Media Services 모델 검색
 미디어 서비스 엔터티를 더 쉽게 검색할 수 있게 되면 $metadata 작업을 사용할 수 있습니다. 유효한 모든 엔터티 형식, 엔터티 속성, 연결, 함수, 동작 등을 검색할 수 있습니다. 다음 예제는 URI https://media.windows.net/API/$metadata를 생성하는 방법을 보여 줍니다.
 
 브라우저에서 메타데이터를 보려면 "? api version=2.x"를 URI의 끝에 추가하거나 귀하의 요청에 x-ms-version 헤더를 포함하지 말아야 합니다.
+
+## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+
+AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+REST를 사용하여 AMS API에 액세스하려면 [Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스](media-services-rest-connect-with-aad.md)를 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

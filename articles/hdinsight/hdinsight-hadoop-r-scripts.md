@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 R을 사용하여 클러스터 사용자 지정 | Microsoft 문서"
+title: "HDInsight에서 R을 사용하여 클러스터 사용자 지정 - Azure | Microsoft Docs"
 description: "스크립트 동작을 사용하여 R을 설치하는 방법을 알아보고 HDInsight 클러스터에서 R을 사용합니다."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 8b74f2e4169ac97e09da12d5ed85e0e24b50e150
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 R 설치 및 사용
+
 스크립트 동작을 사용하여 R로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 HDInsight 클러스터에서 R을 사용하는 방법을 알아봅니다. [HDInsight 제품](https://azure.microsoft.com/pricing/details/hdinsight/)에는 HDInsight 클러스터의 일부로 R Server가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요. Linux 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
 
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 R을 설치할 수 있습니다. HDInsight 클러스터에 R을 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob( [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1))에서 다운로드할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/08/2016
 **관련된 문서**
 
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
+* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
@@ -102,7 +102,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 
 ## <a name="see-also"></a>참고 항목
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
+* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 * [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
@@ -113,4 +113,3 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
-

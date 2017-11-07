@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0182d0d600af691daf8c2ac7a5cb93d7755f61da
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 컴퓨터 확장 및 기능
 
@@ -33,13 +32,12 @@ Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Linux용 DSC 확장을 사용하여 가상 컴퓨터에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)을 참조하세요.
-- Microsoft Monitoring Agent VM 확장을 사용하여 가상 컴퓨터의 모니터링을 구성합니다. 자세한 내용은 [VM 모니터링 사용 또는 사용 안 함](vm-monitoring.md)을 참조하세요.
+- Microsoft Monitoring Agent VM 확장을 사용하여 가상 컴퓨터의 모니터링을 구성합니다. 자세한 내용은 [Linux VM을 모니터링하는 방법](tutorial-monitoring.md)을 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 - Docker VM 확장을 사용하여 Azure Virtual Machine에서 Docker 호스트를 구성합니다. 자세한 내용은 [Docker VM 확장](dockerextension.md)을 참조하세요.
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](extensions-customscript.md)을 참조하세요.
 
-VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](../windows/dotnet-core-1-landing.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -56,7 +54,7 @@ Azure VM 에이전트는 Azure Virtual Machine과 Azure 패브릭 컨트롤러 �
 Azure Virtual Machine와 함께 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 Azure CLI와 함께 다음 명령을 실행하고 해당 예제 위치를 선택한 위치로 바꿉니다.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## <a name="run-vm-extensions"></a>VM 확장 실행
@@ -67,12 +65,15 @@ Azure 가상 컴퓨터 확장은 기존 가상 컴퓨터에서 실행할 수 있
 
 ### <a name="azure-cli"></a>Azure CLI
 
-`azure vm extension set` 명령을 사용하여 기존 가상 컴퓨터에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 컴퓨터에 대한 사용자 지정 스크립트 확장을 실행합니다.
+`az vm extension set` 명령을 사용하여 기존 가상 컴퓨터에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 컴퓨터에 대한 사용자 지정 스크립트 확장을 실행합니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 이 스크립트는 다음 텍스트와 유사한 출력을 생성합니다.
@@ -127,7 +128,7 @@ Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포�
 }
 ```
 
-자세한 내용은 [Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](../windows/extensions-authoring-templates.md)을 참조하세요.
+자세한 내용은 [Azure Resource Manager 템플릿 작성](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions)을 참조하세요.
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 
@@ -205,18 +206,15 @@ VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저�
 가상 컴퓨터에 대해 가상 컴퓨터 확장을 실행한 후에 다음 Azure CLI 명령을 사용하여 확장 상태를 반환합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 출력은 다음 텍스트와 비슷합니다.
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 가상 컴퓨터를 선택하고 **확장**을 선택한 후 원하는 확장을 선택합니다.
@@ -226,7 +224,7 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 가상 컴퓨터 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 Azure CLI를 사용하여 다음 명령을 실행합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 Azure Portal에서 다음 단계에 사용하여 확장을 제거할 수 있습니다.
@@ -244,4 +242,3 @@ Azure Portal에서 다음 단계에 사용하여 확장을 제거할 수 있습�
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-

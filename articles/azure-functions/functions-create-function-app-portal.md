@@ -4,23 +4,23 @@ description: "포털의 Azure App Service에서 새 함수 앱을 만듭니다."
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f9eea56f7f7b4f8f47a159c0c444d0d0aacc99cc
-ms.lasthandoff: 03/22/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
 
@@ -30,15 +30,19 @@ Azure Function 앱에서는 Azure App Service 인프라를 사용합니다. 이 
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-함수 앱을 만들 때 문자, 숫자 및 하이픈만 포함할 수 있는 유효한 **앱 이름**을 제공해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다. 
+함수 앱을 만들 때 문자, 숫자 및 하이픈만 포함할 수 있는 유효한 **앱 이름**을 제공해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다.
 
 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 
 
-함수 앱을 만든 후에 하나 이상의 서로 다른 언어로 개별 함수를 만들 수 있습니다. [포털을 사용하여](functions-create-first-azure-function-azure-portal.md#create-a-function), [연속 배포](functions-continuous-deployment.md) 또는 [FTP를 사용하여 업로드](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp)하여 함수를 만듭니다.  
+함수 앱을 만든 후에 하나 이상의 서로 다른 언어로 개별 함수를 만들 수 있습니다. [포털을 사용하여](functions-create-first-azure-function.md#create-function), [연속 배포](functions-continuous-deployment.md) 또는 [FTP를 사용하여 업로드](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp)하여 함수를 만듭니다.
 
 ## <a name="service-plans"></a>서비스 계획
 
 Azure Functions에는 소비 계획 및 App Service 계획이라는 두 가지 서비스 계획이 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음 코드가 실행되지 않을 때 축소합니다. App Service 계획은 App Service의 모든 기능이 함수 앱 액세스 권한을 제공합니다. 함수 앱이 만들어지면 서비스 계획을 선택해야 하며 현재는 변경할 수 없습니다. 자세한 내용은 [Azure Functions 호스팅 계획 선택](functions-scale.md)을 참조하세요.
+
+App Service 계획에서 JavaScript 함수를 실행하려는 경우 코어 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [함수에 대한 JavaScript 참조](functions-reference-node.md#choose-single-core-app-service-plans)를 참조하세요.
+
+<a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>저장소 계정 요구 사항
 
@@ -47,11 +51,11 @@ App Service에서 함수 앱을 만들 때 Blob, 큐 및 Table Storage를 지원
 >[!NOTE]
 >소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 저장소 계정의 Azure File Storage에 저장됩니다. 기본 저장소 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
 
-저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 서비스 소개](../storage/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
+저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
+
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 

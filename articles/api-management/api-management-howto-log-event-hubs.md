@@ -3,7 +3,7 @@ title: "Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하�
 description: "Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법 배우기"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
-ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
 Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있는 확장성이 뛰어난 데이터 수집 서비스이므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. 이벤트 허브는 이벤트 파이프라인에 대한 "현관"의 역할을 하고 데이터가 이벤트 허브에 수집되면 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환 및 저장될 수 있습니다. 이벤트 허브는 이러한 이벤트를 소비하는 데에서 이벤트 스트림의 프로덕션을 분리하므로 이벤트 소비자가 자신의 개인 일정에 이벤트를 액세스할 수 있습니다.
@@ -48,9 +47,9 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 ![연결 문자열][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>API 관리 로거 만들기
-이제 이벤트 허브를 만들었으므로 다음 단계는 API 관리 서비스에서 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 를 구성하여 이벤트 허브에 이벤트를 기록할 수 있도록 하는 것입니다.
+이제 이벤트 허브를 만들었으므로 다음 단계는 API 관리 서비스에서 [로거](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) 를 구성하여 이벤트 허브에 이벤트를 기록할 수 있도록 하는 것입니다.
 
-API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 구성됩니다. REST API를 처음으로 사용하기 전에 [필수 구성 요소](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites)를 검토하고 [REST API에 액세스할 수 있도록 설정](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI)했는지 확인합니다.
+API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 구성됩니다. REST API를 처음으로 사용하기 전에 [필수 구성 요소](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites)를 검토하고 [REST API에 액세스할 수 있도록 설정](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI)했는지 확인합니다.
 
 로거를 만들려면 다음 URL 템플릿을 사용하여 HTTP PUT 요청을 만듭니다.
 
@@ -62,8 +61,8 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 요청에 다음 헤더를 추가합니다.
 
 * 콘텐츠 형식 : 응용 프로그램/json
-* 권한 부여 : SharedAccessSignature uid=...
-  * `SharedAccessSignature` 생성에 대한 지침은 [Azure API 관리 REST API 인증](https://msdn.microsoft.com/library/azure/dn798668.aspx)을 참조하세요.
+* 권한 부여 : SharedAccessSignature 58...
+  * `SharedAccessSignature` 생성에 대한 지침은 [Azure API 관리 REST API 인증](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication)을 참조하세요.
 
 다음 템플릿을 사용하여 요청 본문을 지정합니다.
 
@@ -79,13 +78,13 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 ```
 
 * `type`은 `AzureEventHub`로 설정해야 합니다.
-* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가&0;인 문자열이 될 수 있습니다.
+* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
 * `credentials`는 Azure 이벤트 허브의 `name` 및 `connectionString`을 포함합니다.
 
 요청을 만들 때 로거가 생성되면 `201 Created` 의 상태 코드가 반환됩니다.
 
 > [!NOTE]
-> 다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 엔터티 설명서를 참조하세요.
+> 다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) 엔터티 설명서를 참조하세요.
 >
 >
 
@@ -122,8 +121,8 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
   * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
-  * [로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-  * [log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [로거 엔터티 참조](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [log-to-eventhub 정책 참조](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링](api-management-log-to-eventhub-sample.md)    
 
 ## <a name="watch-a-video-walkthrough"></a>연습 동영상 시청
@@ -139,4 +138,3 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-

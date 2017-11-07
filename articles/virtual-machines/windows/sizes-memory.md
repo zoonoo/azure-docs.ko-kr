@@ -3,7 +3,7 @@ title: "Windows Azure VM 크기 - 메모리 | Microsoft Docs"
 description: "Azure의 Windows 가상 컴퓨터에 사용할 수 있는 다양한 메모리에 최적화 크기를 나열합니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 68e4afcedffbb6c70eae83eae18b242b408a15a4
-ms.lasthandoff: 03/31/2017
-
-
+ms.date: 08/30/2017
+ms.author: jonbeck
+ms.openlocfilehash: fe8997a17d8d0b843e89f63f25ace86e15d0ad69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="memory-optimized"></a>메모리에 최적화
 
 

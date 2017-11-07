@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
-
-
+ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement용 iOS SDK
 이 문서에서는 iOS 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 모든 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-ios-get-started.md)의 단계를 진행하세요
@@ -31,8 +31,11 @@ ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
 3. 태그 계획 구현: [iOS 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="401-12132016"></a>4.0.1 (12/13/2016)
-* 백그라운드에서 로그 전달을 개선하였습니다.
+### <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* 백그라운드에서 지워진 배지를 수정했습니다.
+* 기본 큐에서 호출되지 않는 API에 대한 XCode 9의 경고를 수정했습니다.
+* 도달률 설문에서 메모리 누수를 해결했습니다.
+* iOS 6.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로그램의 배포 대상은 iOS 7 이상이어야 합니다.
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)
 
@@ -49,8 +52,8 @@ XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 
 > [!NOTE]
 > XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)를 사용할 수도 있습니다. iOS 10 장치에서 실행하는 경우 이 이전 버전의 도달률 모듈에는 알려진 버그가 있습니다. 시스템 알림은 작동하지 않습니다. 이 문제를 해결하려면 다음과 같이 앱 대리자에서 더 이상 사용되지 않는 API `application:didReceiveRemoteNotification:`을 구현해야 합니다.
-> 
-> 
+>
+>
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -60,8 +63,8 @@ XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 
 > [!IMPORTANT]
 > 이 iOS API는 더 이상 사용되지 않으므로 예정된(부분적인) iOS 버전 업그레이드에서는 이 동작이 달라질 수 있습니다. 따라서 **이 해결 방법은 권장되지 않습니다**. 가능한 한 빨리 XCode 8로 전환해야 합니다.
-> 
-> 
+>
+>
 
 #### <a name="usernotifications-framework"></a>UserNotifications 프레임워크
 빌드 단계에서 `UserNotifications` 프레임워크를 추가해야 합니다.
@@ -72,7 +75,7 @@ XCode 8은 SDK 버전 4.0.0부터 필수입니다.
 XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대상의 `capability` 탭에서 한 번 더 확인하세요.
 
 #### <a name="add-the-new-ios-10-notification-registration-code"></a>새 iOS 10 알림 등록 코드
-알림에 앱을 등록하는 이전 코드 조각은 계속 작동하지만 iOS 10에서 실행되는 동안은 사용이 중단된 API를 사용합니다. 
+알림에 앱을 등록하는 이전 코드 조각은 계속 작동하지만 iOS 10에서 실행되는 동안은 사용이 중단된 API를 사용합니다.
 
 `User Notification` 프레임워크 가져오기:
 
@@ -176,14 +179,7 @@ XCode 8은 앱 푸시 기능을 다시 설정할 수 있습니다. 선택한 대
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

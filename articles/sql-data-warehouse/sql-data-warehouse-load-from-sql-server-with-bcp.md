@@ -3,7 +3,7 @@ title: "SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(bcp) | Mic
 description: "데이터의 크기가 작으면, bcp를 사용하여 SQL Server의 데이터를 플랫 파일로 내보내고 Azure SQL 데이터 웨어하우스로 데이터를 직접 가져옵니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8dc7c2fb833c1c51ecef772ba1cbe5f0405fe494
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(플랫 파일)
 > [!div class="op_single_selector"]
@@ -200,4 +198,3 @@ SQL Data Warehouse에 테이블을 만드는 방법에 대한 내용은 [테이�
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

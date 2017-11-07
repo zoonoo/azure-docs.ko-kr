@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: "Azure Search를 사용하는 사람: 사례 연구 및 고객 사례 | Microsoft Docs"
 description: "Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색과 관련한 사례 연구 및 고객 스토리"
 services: search
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 197e5eba551d60ec33bcb5705bfa13f145554b74
-
-
+ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
 풍부한 Azure 검색 경험을 다음과 같은 조직의 온라인 응용 프로그램에 통합하여 해당 조직이 비즈니스를 발전시키도록 도운 방법에 대해 알아봅니다.
@@ -42,8 +42,8 @@ Medihoo는 자체의 의료 검색 웹 사이트에 대한 대규모 계획을 �
 ## <a name="weichert-realtorshttpscustomersmicrosoftcompagescustomerstoryaspxrecid21252"></a>[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 Weichert Realtors는 클라우드로 이동하고 있으며 비즈니스를 수행하는 방법의 완전한 변화를 선도하고 있습니다. 이 회사는 Microsoft Azure로 마이그레이션하여 고가의 온-프레미스 하드웨어 및 소프트웨어 사용을 중단한 후 운영비를 60% 절감할 수 있었으며, 강력한 검색 기능으로 자체의 CRM 솔루션을 완전히 개조하고 비즈니스의 미래에 중요한 다양한 새 데이터 서비스의 가능성을 열었습니다. [자세한 정보...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-## <a name="whattopediacomsearch-dev-case-study-whattopediamd"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
-스웨덴의 한 창업 회사가 여행 포털에서 여행자가 미지의 지역에 있을 때 호텔, 레스토랑 및 오락에 관한 정보를 제공하는 방법과 유사하게, 매우 유용한 범위형 검색 환경을 통해 쇼핑객을 소매점과 연결하는 정보미디어 포털을 구축한 방법을 알아봅니다.[자세한 정보...](search-dev-case-study-whattopedia.md)
+## <a name="whattopediacom"></a>Whattopedia.com
+스웨덴의 한 창업 회사가 여행 포털에서 여행자가 미지의 지역에 있을 때 호텔, 레스토랑 및 오락에 관한 정보를 제공하는 방법과 유사하게, 매우 유용한 범위형 검색 환경을 통해 쇼핑객을 소매점과 연결하는 정보미디어 포털을 구축한 방법을 알아봅니다.
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -52,9 +52,3 @@ Weichert Realtors는 클라우드로 이동하고 있으며 비즈니스를 수�
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

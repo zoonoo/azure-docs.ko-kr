@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 144dcd5277673024c7a71808f32c6a7b6491559a
-ms.openlocfilehash: 6ccea0eeb594070eed6341d3f5ec80db0efdf8f2
-ms.lasthandoff: 02/27/2017
-
-
+ms.openlocfilehash: 6459b6196eb7f4a083b67e5a421bcc0d51d39e5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Node.js)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="create-a-nodejs-sample-solution"></a>node.js 샘플 솔루션 만들기
 
-Node.js 버전 0.10.x 이상이 개발 컴퓨터에 설치되었는지 확인합니다. 명령줄에서 `node --version`을 실행하여 버전을 확인할 수 있습니다.
+Node.js 버전 0.11.5 이상이 개발 컴퓨터에 설치되었는지 확인합니다. 명령줄에서 `node --version`을 실행하여 버전을 확인할 수 있습니다.
 
 1. 개발 컴퓨터에서 **RemoteMonitoring**이라는 폴더를 만듭니다. 명령줄 환경에서 이 폴더로 이동합니다.
 
@@ -143,7 +142,7 @@ Node.js 버전 0.10.x 이상이 개발 컴퓨터에 설치되었는지 확인합
         // Complete the response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -160,7 +159,7 @@ Node.js 버전 0.10.x 이상이 개발 컴퓨터에 설치되었는지 확인합
         // Complete the response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -255,4 +254,3 @@ Node.js 버전 0.10.x 이상이 개발 컴퓨터에 설치되었는지 확인합
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-

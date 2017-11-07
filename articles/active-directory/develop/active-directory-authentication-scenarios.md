@@ -3,7 +3,7 @@ title: "Azure AD의 인증 시나리오 | Microsoft Docs"
 description: "AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
+author: skwan
 manager: mbaldwin
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 97c6724261e35063c461ee95ccad36372dd907db
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 04/27/2017
+ms.author: skwan
+ms.custom: aaddev
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD의 인증 시나리오
 Azure AD(Azure Active Directory)는 Identity-as-a-service를 제공하며 OAuth 2.0 및 OpenID Connect 등의 업계 표준 프로토콜뿐만 아니라 신속하게 코딩을 시작하는 데 유용한 여러 플랫폼용 오픈 소스 라이브러리를 지원하여 개발자의 인증 작업을 간소화합니다. 이 문서는 Azure AD가 지원하는 다양한 시나리오에 대해 설명하고 시작하는 방법을 보여 줍니다. 다음 섹션으로 구분하여 설명합니다.
@@ -237,7 +237,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>OAuth 2.0 인증 코드 권한을 사용한 위임된 사용자 ID
 1. 인증 메커니즘이 Azure AD와 독립적인 웹 응용 프로그램에 사용자가 이미 로그인되어 있습니다.
 2. 웹 응용 프로그램이 액세스 토큰을 획득하려면 인증 코드가 필요하므로, 웹 응용 프로그램이 브라우저를 통해 Azure AD의 권한 부여 끝점에 대한 요청을 발급하고 성공적인 인증 후에 응용 프로그램 ID 및 웹 응용 프로그램의 리디렉션 URI를 제공합니다. 사용자가 Azure AD에 로그인합니다.
-3. 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 응용 프로그램이 아니라 다중 테넌트 응용 프로그램에만 적용됩니다(응용 프로그램에 필수 권한이 이미 있으므로).
+3. 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이 동의는 단일 및 다중 테넌트 응용 프로그램 모두에 적용됩니다.  단일 테넌트의 경우 관리자가 사용자 대신 관리자 동의를 수행할 수 있습니다.  이 작업은 [Azure Portal](https://portal.azure.com)에서 `Grant Permissions` 단추를 사용하여 수행할 수 있습니다. 
 4. 사용자가 동의한 후에는 웹 응용 프로그램이 액세스 토큰을 획득하는 데 필요한 인증 코드를 수신합니다.
 5. Azure AD에서 발급된 인증 코드를 사용하여 웹 응용 프로그램은 인증 코드, 클라이언트 응용 프로그램에 대한 정보(응용 프로그램 ID 및 리디렉션 URI), 원하는 리소스(웹 API에 대한 응용 프로그램 ID URI) 등이 포함된 요청을 Azure AD의 토큰 끝점에 보냅니다.
 6. 웹 응용 프로그램 및 웹 API에 대한 정보와 인증 코드는 Azure AD에서 유효성이 검사됩니다. 유효성 검사가 성공하면 Azure AD는 JWT 액세스 토큰과 JWT 새로 고침 토큰 등 두 가지 토큰을 반환합니다.
@@ -282,7 +282,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 #### <a name="registering"></a>등록
 * 단일 테넌트: 응용 프로그램 ID 및 위임된 사용자 ID의 경우 모두, 디먼 또는 서버 응용 프로그램을 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 디먼 또는 서버의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용 중인 경우 서버 응용 프로그램이 Azure Portal의 "다른 응용 프로그램에 대한 사용 권한" 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 응용 프로그램 ID 형식을 사용 중일 때는 필요 없습니다.
-* 다중 테넌트: 먼저, 디먼 또는 서버 응용 프로그램이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 응용 프로그램에 동의하여 응용 프로그램을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 응용 프로그램에는 조직의 임의의 사용자가 동의할 수 있는 수준인 사용자 수준 권한만 필요합니다. 또 일부 응용 프로그램에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 응용 프로그램에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 두 웹 API가 모두 이들의 디렉터리에 등록됩니다.
+* 다중 테넌트: 먼저, 디먼 또는 서버 응용 프로그램이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 응용 프로그램에 동의하여 응용 프로그램을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 응용 프로그램에는 조직의 임의의 사용자가 동의할 수 있는 수준인 사용자 수준 권한만 필요합니다. 또 일부 응용 프로그램에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 응용 프로그램에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 응용 프로그램과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
 
 #### <a name="token-expiration"></a>토큰 만료
 첫 번째 응용 프로그램이 인증 코드를 사용하여 JWT 액세스 토큰을 가져오는 경우 JWT 새로 고침 토큰도 수신합니다. 액세스 토큰이 만료되면 사용자에게 자격 증명을 요구하지 않고 새로 고침 토큰을 사용하여 사용자를 다시 인증할 수 있습니다. 이 새로 고침 토큰을 사용하여 사용자를 인증하면 새 액세스 토큰 및 새로 고침 토큰을 얻습니다.
@@ -295,5 +295,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
 

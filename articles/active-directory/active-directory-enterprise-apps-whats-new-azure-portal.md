@@ -3,7 +3,7 @@ title: "Azure Active Directory의 새로운 Enterprise Application 관리 기능
 description: "Azure Active Directory의 새로운 Enterprise Application 관리 기능에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: ajamess
 manager: femila
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
@@ -12,28 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2016
+ms.date: 07/13/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: d15020779b398dbcd055352dbf38822b1bd02b7c
-ms.openlocfilehash: 0f0cf786f91c75f7a514790dccfbfc1f05b67e56
-
-
+ms.reviewer: asteen
+ms.openlocfilehash: 0c32a6719292aa903aa32dfdc4a31114e7a28346
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory의 새로운 Enterprise Application 관리 기능 
 
-새로운 Azure Portal에는 향상된 Enterprise Application 관리 도구가 포함되어 있습니다. Azure 클래식 포털에서 사용한 도구 중 일부와 새로운 일부 기능을 사용하여 앱을 보다 간단하고 효율적으로 관리할 수 있습니다.
+Azure AD(Azure Active Directory)는 앱을 보다 간단하고 효율적으로 관리할 수 있도록 하는 새로운 기능으로 엔터프라이즈 응용 프로그램 관리 도구를 개선하였습니다.
 
-Azure Portal에서 Azure AD에 대해 향상된 몇 가지 기능은 다음과 같습니다.
+[Azure Portal](https://portal.azure.com)에서 Azure AD에 대해 향상된 몇 가지 기능은 다음과 같습니다.
 
-- 간소화된 응용 프로그램 만들기 모델 및 클래식 포털에서 사용한 모든 응용 프로그램 종류에 대한 지원을 갖춘 새롭고 향상된 응용 프로그램 갤러리 환경 
-- 새 응용 프로그램의 파일럿으로 신속하게 진행할 수 있는 새로운 빠른 시작 환경 
-- 몇 번의 클릭만으로 셀프 서비스 정책을 구성할 수 있는 기능 
-- 마지막으로 응용 프로그램 프록시, Single Sign-On 구성에 대한 중요한 개선 및 사용자 고유의 응용 프로그램 환경을 통해 새로운 포털에서 그 어느 때보다 더 많은 성과 획득 이 멋진 새로운 것들에 대해 계속 알아보세요!
+- 간소화된 응용 프로그램 만들기 모델 및 사용한 모든 응용 프로그램 종류에 대한 지원을 갖춘 향상된 응용 프로그램 갤러리 환경 
+- 응용 프로그램의 파일럿으로 진행할 수 있는 완전히 새로운 빠른 시작 환경 
+- 몇 번의 클릭만으로 셀프 서비스 정책 구성 
+- 응용 프로그램 프록시, Single Sign-On 구성에 대한 개선 및 사용자 고유의 응용 프로그램 환경을 통해 그 어느 때보다 더 많은 성과 획득
 
-## <a name="the-new-and-improved-application-gallery"></a>새롭고 개선된 응용 프로그램 갤러리
+## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리의 향상된 기능
 
-대규모 갤러리, 클라우드로 확장되는 사용자 지정 응용 프로그램 또는 개발 중인 새로운 응용 프로그램에서 제공하는 등 새롭게 간소화된 환경을 사용하여 원하는 모든 응용 프로그램을 쉽게 추가할 수 있습니다.  **Enterprise Application** 개요 또는 **모든 응용 프로그램** 블레이드에서 **추가** 단추를 클릭하면 이 새로운 환경을 시작할 수 있습니다.
+[응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), 클라우드로 확장하려는 사용자 지정 응용 프로그램 또는 개발 중인 새로운 응용 프로그램에서 즐겨찾는 응용 프로그램을 추가합니다.  **엔터프라이즈 응용 프로그램** 개요 또는 **모든 응용 프로그램** 블레이드에서 **추가**를 클릭하면 이 새로운 환경을 시작할 수 있습니다.
  
   ![응용 프로그램 추가](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
@@ -148,17 +149,11 @@ Azure Portal에서 Azure AD에 대해 향상된 몇 가지 기능은 다음과 �
 
 ##<a name="feedback"></a>사용자 의견
 
-업데이트된 미리 보기 환경을 사용하는 것이 좋습니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
+향상된 Azure AD 환경 사용이 사용자의 마음에 들기를 바랍니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [Azure Active Directory로 응용 프로그램 관리](active-directory-enable-sso-scenario.md)를 참조하세요.
 
-
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

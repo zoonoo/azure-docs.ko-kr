@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 08/08/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5c6ab3a8fdacb43546801518b76a15314d0b4b0f
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 02227adeb8a9a7463506efa44ddc2977f8aae65a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>New-AzureRmIotHub cmdlet을 사용하여 IoT Hub 만들기
 
@@ -29,19 +28,31 @@ ms.lasthandoff: 03/21/2017
 Azure PowerShell cmdlet을 사용하여 Azure IoT Hub를 만들고 관리할 수 있습니다. 이 자습서에서는 PowerShell로 IoT Hub를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하는 [Azure Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Azure Resource Manager 배포 모델 사용에 대해 설명합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델 사용에 대해 설명합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* [Azure PowerShell 1.0][lnk-powershell-install] 이상.
-* [Azure Resource Manager cmdlet][lnk-rm-install].
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
+* [Azure PowerShell cmdlet][lnk-powershell-install]
 
 ## <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
 PowerShell 명령 프롬프트에서 다음 명령을 입력하여 Azure 구독에 로그인합니다.
 
 ```powershell
 Login-AzureRmAccount
+```
+
+Azure 구독이 여러 개 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 구독에 액세스할 수 있습니다. 다음 명령을 사용하여 사용할 수 있는 Azure 구독을 나열합니다.
+
+```powershell
+Get-AzureRMSubscription
+```
+
+다음 명령을 사용하여 IoT Hub를 만드는 명령을 실행하는 데 사용할 구독을 선택합니다. 이전 명령의 출력에서 구독 이름 또는 ID를 사용할 수 있습니다.
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
@@ -74,8 +85,10 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-> [!NOTE]
-> IoT Hub의 이름은 고유해야 합니다.
+IoT Hub의 이름은 고유해야 합니다.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 
 다음 명령을 사용하여 구독에 있는 모든 IoT Hub를 나열할 수 있습니다.
 
@@ -111,17 +124,15 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-[lnk-iothub-cmdlets]: /powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
-[lnk-rm-install]: /powershell/resourcemanager/
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

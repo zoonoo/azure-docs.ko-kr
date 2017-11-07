@@ -3,7 +3,7 @@ title: "Azure에서 Linux VM 응용 프로그램 액세스 문제 해결 | Micro
 description: "다음과 같은 자세한 문제 해결 단계를 사용하여 Azure의 Linux 가상 컴퓨터에서 실행되는 응용 프로그램 연결 관련 문제를 격리하세요."
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -13,17 +13,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
-ms.date: 12/20/2016
-ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3237972398eb30174dbde84304d3a115646840ed
-ms.lasthandoff: 04/03/2017
-
-
+ms.topic: troubleshooting
+ms.date: 05/26/2017
+ms.author: genli
+ms.openlocfilehash: 26350bd91b99c81ed5ecb49cbc6daae580842b6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="troubleshoot-application-connectivity-issues-on-a-linux-azure-virtual-machine"></a>Linux Azure 가상 컴퓨터에서 응용 프로그램 연결 문제 해결
+# <a name="troubleshoot-application-connectivity-issues-on-a-linux-virtual-machine-in-azure"></a>Azure Linux 가상 컴퓨터에서 응용 프로그램 연결 문제해결
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
-
 

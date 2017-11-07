@@ -3,7 +3,7 @@ title: "데이터 없음 문제 해결 - .NET용 Application Insights"
 description: "Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.lasthandoff: 03/15/2017
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -159,11 +158,9 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 ## <a name="no-performance-data"></a>성능 데이터 없음
 성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](app-insights-java-collectd.md), [Windows 데스크톱 앱](app-insights-windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure Cloud Services](app-insights-azure.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
 
-Azure 웹 사이트에는 사용할 수는 없습니다.
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>내 서버에 앱을 게시한 이후로 (서버) 데이터가 없음
 * 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 서버로 복사했는지 확인합니다.
-* 방화벽에서 [일부 TCP 포트를 열어야](app-insights-ip-addresses.md#data-access-api)할 수 있습니다.
+* 방화벽에서 [일부 TCP 포트를 열어야](app-insights-ip-addresses.md)할 수 있습니다.
 * 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) 를 설정하십시오.
 * Windows Server 2008: 다음 업데이트를 설치했는지 확인하십시오. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -179,10 +176,9 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>사용자 원격 분석에 잘못된 지리적 데이터
 도시, 지역 및 국가 차원이 IP 주소에서 파생되며 항상 정확하지는 않습니다.
 
-## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure 클라우드 서비스에서 실행할 때의 "메서드를 찾을 수 없음" 예외
-.NET 4.6용으로 빌드하셨나요? 4.6은 Azure 클라우드 서비스 역할에서 자동으로 지원되지 않습니다. [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) 합니다.
+## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services에서 실행할 때의 "메서드를 찾을 수 없음" 예외
+.NET 4.6용으로 빌드하셨나요? 4.6은 Azure Cloud Services 역할에서 자동으로 지원되지 않습니다. [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) 합니다.
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

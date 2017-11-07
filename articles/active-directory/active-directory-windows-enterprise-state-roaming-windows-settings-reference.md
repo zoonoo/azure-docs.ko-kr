@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 다음은 Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다. 
@@ -89,7 +88,19 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **장치**: 연결된 공유 프린터 |X |X |기타 |
 | **Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
 | **Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
-| **Edge 브라우저**: 기타 모든 Edge 설정 |X |X | |
+| **Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 양식 항목 저장 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 쿠키 기본 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 사이트에서 내 장치에 보호된 미디어 라이선스를 저장하도록 허용 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
+| **Edge 브라우저**: 화면 판독기 설정 <sup>[[1]](#footnote-1)</sup> |sync |sync |내부 |
 | **고대비**: 켜기 또는 끄기 |sync |X |간편한 액세스 |
 | **고대비**: 테마 설정 |sync |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |sync |sync |Internet Explorer |
@@ -159,10 +170,12 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **입력**: 터치 키보드의 개인 설정 데이터 |sync |backup |language |
 | **Wi-Fi**: Wi-Fi 프로필(WPA만) |sync |sync |암호 |
 
+###### <a name="footnote-1"></a>각주 1
+지원되는 최소 OS 업데이트 버전은 Windows 작성자 업데이트(빌드 15063)입니다. 
+
 ## <a name="related-topics"></a>관련된 항목
 * [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
 * [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-

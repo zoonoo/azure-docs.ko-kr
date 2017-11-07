@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 07/13/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7e6053c8a737674f0e8d9816d3ee228c118a722e
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
 Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트릭 및 로그를 수집하고 결과를 Azure 저장소로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -40,14 +39,14 @@ Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트�
 * 연결 문제를 해결하는 방법  
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, 가상 컴퓨터 크기 집합 및 Service Fabric에서 지원됩니다.
+Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, 가상 컴퓨터 확장 집합 및 Service Fabric에서 지원됩니다.
 
 * Azure 진단 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 응용 프로그램에서 Azure 진단의 기존 구성은 다음과 같습니다.
   * Visual Studio: [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [PowerShell을 사용하여 Azure 클라우드 서비스에서 진단 사용](../cloud-services/cloud-services-diagnostics-powershell.md)
-* 항목별로 프로비전되는 이벤트 허브 네임스페이스, [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* 항목별로 프로비전되는 Event Hubs 네임스페이스([Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) 참조)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>이벤트 허브 싱크에 Azure 진단 연결
 기본적으로 Azure 진단은 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 응용 프로그램은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 이벤트 허브에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.
@@ -59,10 +58,23 @@ Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 �
   </Sink>
 </SinksConfig>
 ```
+```JSON
+"SinksConfig": {
+    "Sink": [
+        {
+            "name": "HotPath",
+            "EventHub": {
+                "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+                "SharedAccessKeyName": "SendRule"
+            }
+        }
+    ]
+}
+```
 
 이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스(Event Hubs 네임스페이스 + “/” + 이벤트 허브 이름)로 설정됩니다.  
 
-이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure 포털](http://go.microsoft.com/fwlink/?LinkID=213885) 에 표시됩니다.  
+이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure Portal](http://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.  
 
 **싱크** 이름의 경우 같은 값이 구성 파일 전체에서 일관되게 사용되고 있다면 유효한 문자열로 설정할 수 있습니다.
 
@@ -73,11 +85,23 @@ Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 �
 
 또한, 이벤트 허브 싱크도 **.wadcfgx** 구성 파일의 *PrivateConfig* 섹션에서 선언되고 정의되어야 합니다.
 
-```
+```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <StorageAccount name="" key="" endpoint="" />
-  <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
+  <StorageAccount name="{account name}" key="{account key}" endpoint="{optional storage endpoint}" />
+  <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 </PrivateConfig>
+```
+```JSON
+{
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{optional storage endpoint}",
+    "EventHub": {
+        "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+        "SharedAccessKeyName": "SendRule",
+        "SharedAccessKey": "{base64 encoded key}"
+    }
+}
 ```
 
 `SharedAccessKeyName` 값은 **Event Hubs** 네임스페이스에 정의된 SAS(공유 액세스 서명) 키 및 정책과 일치해야 합니다. [Azure Portal](https://manage.windowsazure.com)에서 Event Hubs 대시보드로 이동하여 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: "SendRule")을 설정합니다. 또한 **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 값이 작동 중인 경우 변경할 필요가 없습니다. 이 예제에서는 값을 비워 둡니다. 이는 다운스트림 자산이 값을 설정한다는 의미입니다. 예를 들어 *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름 및 키를 설정합니다.  
@@ -99,35 +123,84 @@ Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 �
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
 </PerformanceCounters>
 ```
+```JSON
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "sinks": "HotPath",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Memory\\Available MBytes",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+            "sampleRate": "PT3M"
+        }
+    ]
+}
+```
 
-다음 예제에서는 싱크가 계층 구조에서 **PerformanceCounters** 부모 모드에 적용됩니다. 즉 모든 **PerformanceCounters** 자식이 Event Hubs로 전송됩니다.  
+위의 예제에서는 싱크가 계층 구조에서 부모 **PerformanceCounters** 노드에 적용됩니다. 즉 모든 자식 **PerformanceCounters**를 Event Hubs로 보냅니다.  
 
 ```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="HotPath" />
   <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="HotPath"/>
   <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
 </PerformanceCounters>
+```
+```JSON
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        },
+        {
+            "counterSpecifier": "\\Memory\\Available MBytes",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+            "sampleRate": "PT3M"
+        },
+        {
+            "counterSpecifier": "\\ASP.NET\\Requests Rejected",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        },
+        {
+            "counterSpecifier": "\\ASP.NET\\Requests Queued",
+            "sampleRate": "PT3M",
+            "sinks": "HotPath"
+        }
+    ]
+}
 ```
 
 이전 예제에서 싱크는 단 세 개의 카운터(**대기 중인 요청**, **거부된 요청** 및 **% 프로세서 시간**)에만 적용되었습니다.  
 
 다음 예제에서는 개발자가 전송될 데이터 양을 이 서비스의 상태에 사용되는 중요 메트릭으로 제한하는 방법을 보여 줍니다.  
 
-```
+```XML
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
+```
+```JSON
+"Logs": {
+    "scheduledTransferPeriod": "PT1M",
+    "scheduledTransferLogLevelFilter": "Error",
+    "sinks": "HotPath"
+}
 ```
 
 이 예제에서 싱크는 로그에 적용되며 오류 수준 추적으로만 필터링됩니다.
@@ -218,7 +291,7 @@ namespace EventHubListener
         static void Main(string[] args)
         {
             string eventHubConnectionString = "Endpoint= <your connection string>”
-            string eventHubName = "<Event Hub name>";
+            string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -296,10 +369,10 @@ namespace EventHubListener
         </Sink>
       </SinksConfig>
     </WadCfg>
-    <StorageAccount />
+    <StorageAccount>ACCOUNT_NAME</StorageAccount>
   </PublicConfig>
   <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <StorageAccount name="" key="" endpoint="" />
+    <StorageAccount name="{account name}" key="{account key}" endpoint="{storage endpoint}" />
     <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
   </PrivateConfig>
   <IsEnabled>true</IsEnabled>
@@ -319,6 +392,118 @@ namespace EventHubListener
   </Role>
 </ServiceConfiguration>
 ```
+
+가상 컴퓨터에 대한 Json 기반 설정은 다음과 같습니다.
+```JSON
+"settings": {
+    "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": 4096,
+            "sinks": "applicationInsights.errors",
+            "DiagnosticInfrastructureLogs": {
+                "scheduledTransferLogLevelFilter": "Error"
+            },
+            "Directories": {
+                "scheduledTransferPeriod": "PT1M",
+                "IISLogs": {
+                    "containerName": "wad-iis-logfiles"
+                },
+                "FailedRequestLogs": {
+                    "containerName": "wad-failedrequestlogs"
+                }
+            },
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "HotPath",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Memory\\Available MBytes",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Web Service(_Total)\\Bytes Total/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Requests/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Errors Total/Sec",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET\\Requests Queued",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\ASP.NET\\Requests Rejected",
+                        "sampleRate": "PT3M"
+                    },
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "DataSource": [
+                    {
+                        "name": "Application!*"
+                    }
+                ]
+            },
+            "Logs": {
+                "scheduledTransferPeriod": "PT1M",
+                "scheduledTransferLogLevelFilter": "Error",
+                "sinks": "HotPath"
+            }
+        },
+        "SinksConfig": {
+            "Sink": [
+                {
+                    "name": "HotPath",
+                    "EventHub": {
+                        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
+                        "SharedAccessKeyName": "SendRule"
+                    }
+                },
+                {
+                    "name": "applicationInsights",
+                    "ApplicationInsights": "",
+                    "Channels": {
+                        "Channel": [
+                            {
+                                "logLevel": "Error",
+                                "name": "errors"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "StorageAccount": "{account name}"
+}
+
+
+"protectedSettings": {
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{storage endpoint}",
+    "EventHub": {
+        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
+        "SharedAccessKeyName": "SendRule",
+        "SharedAccessKey": "YOUR_KEY_HERE"
+    }
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
@@ -328,4 +513,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 <!-- Images. -->
 [0]: ../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
-

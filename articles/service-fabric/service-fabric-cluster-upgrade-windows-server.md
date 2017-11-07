@@ -3,7 +3,7 @@ title: "Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 
 description: "클러스터 업데이트 모드 설정 등 독립 실행형 Service Fabric 클러스터를 실행하는 Azure Service Fabric 코드 및/또는 구성을 업그레이드합니다."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
@@ -12,16 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 10/15/2017
+ms.author: dekapur
+ms.openlocfilehash: 3bce0d93876077c33edb7d8a0a352d44a95ed934
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드
+# <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Windows Server 클러스터에서 독립 실행형 Azure Service Fabric 업그레이드
 > [!div class="op_single_selector"]
 > * [Azure 클러스터](service-fabric-cluster-upgrade.md)
 > * [독립 실행형 클러스터](service-fabric-cluster-upgrade-windows-server.md)
@@ -113,6 +112,10 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 >
 >
 
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>자동 프로비전 및 수동 프로비전
+최신 코드 버전의 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침에 대해서는 Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt [독립 실행형 패키지](service-fabric-cluster-standalone-package-contents.md)를 참조하세요.
+수동 프로세스에 대해서는 아래의 지침을 따르세요.
+
 구성 업그레이드를 시작하기 전에 클러스터 구성을 수정하여 다음 속성을 false로 설정합니다.
 
         "fabricClusterAutoupgradeEnabled": false,
@@ -183,6 +186,23 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>클러스터 구성 업그레이드
+구성 업그레이드를 시작하기 전에 독립 실행형 패키지에서 PowerShell 스크립트를 실행하여 새 클러스터 구성 json을 테스트할 수 있습니다.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+또는
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+끝점, 클러스터 이름, 노드 IP 등의 일부 구성은 업그레이드할 수 없습니다. 여기서는 새 클러스터 구성 json과 이전 json을 비교하여 테스트를 진행하며, 문제가 있으면 PowerShell 창에서 오류를 throw합니다.
+
 클러스터 구성을 업그레이드하려면 **Start-ServiceFabricClusterConfigurationUpgrade**를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
 
 ```powershell
@@ -193,10 +213,12 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 ### <a name="cluster-certificate-config-upgrade"></a>클러스터 인증서 구성 업그레이드  
 오류는 클러스터 노드 간의 통신을 차단하므로 주의해서 인증서 롤오버가 실행될 수 있도록 클러스터 노드 간 인증에 클러스터 인증서가 사용됩니다.  
-기술적으로 두 가지 옵션이 지원됩니다.  
+기술적으로 세 가지 옵션이 지원됩니다.  
 
 1. 단일 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 B(기본) -> 인증서 C(기본) ->...'입니다.   
 2. 이중 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 A(기본) 및 B(보조) -> 인증서 B(기본) -> 인증서 B(기본) 및 C(보조) -> 인증서 C(기본) ->...'입니다.
+3. 인증서 형식 업그레이드: 지문 기반 인증서 구성 <-> CommonName 기반 인증서 구성입니다. 예를 들어, 인증서 지문 A(기본) 및 지문 B(보조) -> 인증서 CommonName C입니다.
+4. 인증서 발급자 지문 업그레이드: 업그레이드 경로는 ‘Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)’입니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -206,4 +228,3 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
-ms.openlocfilehash: d0488999f55b7ccc393f4852f22c6adf4a031b1f
-
-
+ms.openlocfilehash: 26c0256f6fa299551d92e9bcd058ca359d8c85b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>응용 프로그램을 마이그레이션하기 전에 클라우드 서비스와 서비스 패브릭 간의 차이점에 대해 알아봅니다.
 Microsoft Azure 서비스 패브릭은 확장성이 뛰어난 매우 안정적인 분산된 응용 프로그램을 위한 차세대 클라우드 응용 프로그램 플랫폼입니다. 분산된 클라우드 응용 프로그램을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
@@ -103,9 +103,3 @@ Microsoft Azure 서비스 패브릭은 확장성이 뛰어난 매우 안정적�
 [9]: ./media/service-fabric-cloud-services-migration-differences/cloud-services-architecture.png
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

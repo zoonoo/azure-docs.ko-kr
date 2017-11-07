@@ -43,8 +43,3 @@ Azure용 웹 응용 프로그램 프로젝트를 만들면 Azure에서 가상 �
 [3]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
-
-
-<!--HONumber=Nov16_HO3-->
-
-

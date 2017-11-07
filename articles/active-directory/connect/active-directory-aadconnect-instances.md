@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
-ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
-
-
+ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: 인스턴스에 대한 특별한 고려 사항
 Azure AD Connect는 Azure AD 및 Office 365의 전세계 인스턴스로 가장 많이 사용됩니다. 그러나 다른 인스턴스도 있고 URL 및 기타 특별한 고려 사항에 대한 다른 요구 사항을 포함합니다.
@@ -38,7 +38,7 @@ Microsoft 클라우드 독일에 현재 표시되지 않는 기능은 다음과 
 
 * **Azure AD Connect Health**를 사용할 수 없습니다.
 * **자동 업데이트**를 사용할 수 없습니다.
-* **비밀번호 쓰기 저장**을 사용할 수 없습니다.
+* **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
 * 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
 
 ## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government 클라우드
@@ -49,6 +49,7 @@ Microsoft 클라우드 독일에 현재 표시되지 않는 기능은 다음과 
 | 프록시 서버에서 열린 URL |
 | --- |
 | \*.microsoftonline.com |
+| \*.microsoftonline.us |
 | \*.gov.us.microsoftonline.com |
 | +인증서 해지 목록 |
 
@@ -63,14 +64,8 @@ Microsoft Azure Government 클라우드에 현재 표시되지 않는 기능은 
 
 * **Azure AD Connect Health**를 사용할 수 없습니다.
 * **자동 업데이트**를 사용할 수 없습니다.
-* **비밀번호 쓰기 저장**을 사용할 수 없습니다.
+* **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
 * 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

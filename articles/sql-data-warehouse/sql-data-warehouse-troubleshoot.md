@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse 문제 해결 | Microsoft Docs"
 description: "Azure SQL 데이터 웨어하우스 문제 해결"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
-ms.lasthandoff: 03/04/2017
-
-
+ms.custom: manage
+ms.date: 03/30/2017
+ms.author: kevin;barbkess
+ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스 문제 해결
 이 항목에서는 고객이 제기하는 가장 일반적인 문제 해결 질문 일부에 대해 설명합니다.
@@ -31,12 +31,13 @@ ms.lasthandoff: 03/04/2017
 | 현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인이 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) |이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview]를 참조하세요. |
 | CTAIP 오류 |이 오류는 로그인이 SQL 데이터 웨어하우스 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다.  이 오류가 발생하는 경우 [보안 개요][Security overview] 문서를 살펴보세요.  이 문서에서는 마스터 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL Data Warehouse 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다. |
 | 방화벽에 의해 차단 |Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다.  액세스를 위해 방화벽을 구성하려면 [프로비전 지침][Provisioning instructions]의 [클라이언트 IP에 대한 서버 방화벽 액세스 구성][Configure server firewall access for your client IP] 단계를 따르세요. |
-| 도구 또는 드라이버에 연결할 수 없음 |SQL Data Warehouse 사용 시에는 [SSMS][SSMS], [SSDT for Visual Studio 2015][SSDT for Visual Studio 2015] 또는 [sqlcmd][sqlcmd]를 사용하여 데이터를 쿼리하는 것이 좋습니다. SQL Data Warehouse에 연결하는 방법 및 관련 드라이버에 대한 자세한 내용은 [Azure SQL Data Warehouse용 드라이버][Drivers for Azure SQL Data Warehouse] 및 [Azure SQL Data Warehouse에 연결][Connect to Azure SQL Data Warehouse] 문서를 참조하세요. |
+| 도구 또는 드라이버에 연결할 수 없음 |SQL Data Warehouse 사용 시에는 [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio] 또는 [sqlcmd][sqlcmd]를 사용하여 데이터를 쿼리하는 것이 좋습니다. SQL Data Warehouse에 연결하는 방법 및 관련 드라이버에 대한 자세한 내용은 [Azure SQL Data Warehouse용 드라이버][Drivers for Azure SQL Data Warehouse] 및 [Azure SQL Data Warehouse에 연결][Connect to Azure SQL Data Warehouse] 문서를 참조하세요. |
 
 ## <a name="tools"></a>도구
 | 문제 | 해결 방법 |
 |:--- |:--- |
 | Visual Studio 개체 탐색기에 AAD 사용자가 없음 |이는 알려진 문제입니다.  해결 방법으로 [sys.database_principals][sys.database_principals]에서 사용자를 봅니다.  SQL Data Warehouse에서 Azure Active Directory를 사용하는 방법에 대한 자세한 내용을 [Azure SQL Data Warehouse에 대한 인증][Authentication to Azure SQL Data Warehouse]을 참조하세요. |
+|수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결이 느려지거나 중단되거나 오류를 생성함| 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 "Microsoft Azure SQL Data Warehouse 버전"으로 설정되고 엔진 유형이 "Microsoft Azure SQL Database"로 설정되어 있는지도 확인합니다.|
 
 ## <a name="performance"></a>성능
 | 문제 | 해결 방법 |
@@ -54,6 +55,7 @@ ms.lasthandoff: 03/04/2017
 | Msg 40847: 서버가 허용되는 데이터베이스 트랜잭션 단위 할당량인 45000을 초과하므로 작업을 수행할 수 없습니다. |만들려는 데이터베이스의 [DWU][DWU]를 줄이거나 또는 [할당량 증가를 요청][request a quota increase]합니다. |
 | 공간 사용률 조사 |시스템의 공간 사용률을 이해하려면 [테이블 크기][Table sizes]를 참조하세요. |
 | 테이블 관리 도움말 |테이블 관리에 대한 도움이 필요한 경우 [테이블 개요][Overview] 문서를 참조하세요.  이 문서에는 [테이블 데이터 유형][Data types], [테이블 배포][Distribute], [테이블 인덱싱][Index],  [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]과 같이 좀 더 자세한 항목으로 연결되는 링크가 포함되어 있습니다. |
+|TDE(투명한 데이터 암호화) 진행률 표시줄이 Azure Portal에서 업데이트되지 않음|[powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption)을 통해 TDE의 상태를 볼 수 있습니다.|
 
 ## <a name="polybase"></a>Polybase
 | 문제 | 해결 방법 |
@@ -88,7 +90,7 @@ ms.lasthandoff: 03/04/2017
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
@@ -133,4 +135,3 @@ ms.lasthandoff: 03/04/2017
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-

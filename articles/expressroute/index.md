@@ -2,7 +2,7 @@
 title: "Azure ExpressRoute 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a169425aa6e99b1a710f5ca56a76445fb1e09bc
-ms.openlocfilehash: 0d06677f6f3815e8ebb35d13f906481350069d4c
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="expressroute-documentation"></a>ExpressRoute 설명서
 
 ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
@@ -90,10 +89,11 @@ ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </li>
     <li>
@@ -110,6 +110,5 @@ ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 
         </div>
     </li>
 </ul>
-
 
 

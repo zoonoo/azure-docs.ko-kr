@@ -3,7 +3,7 @@ title: "독립 실행형 Azure Service Fabric 클러스터 만들기 | Microsoft
 description: "온-프레미스 또는 클라우드에서 Windows Server 컴퓨터(실제 또는 가상)를 사용하여 Azure Service Fabric 클러스터를 만듭니다."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
-ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3389684dca62a1b3c8297600c7c09ffef642c854
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 8/10/2017
+ms.author: chackdan;maburlik;dekapur
+ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기
 Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 컴퓨터 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다. 즉, 온-프레미스 또는 클라우드 공급자에 서로 연결된 일련의 Windows Server 컴퓨터가 있는 환경에서 Service Fabric 응용 프로그램을 배포하고 실행할 수 있습니다. 서비스 패브릭은 독립 실행형 Windows Server 패키지라는 서비스 패브릭 클러스터를 만들 수 있는 설치 패키지를 제공합니다.
@@ -33,17 +32,17 @@ Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 컴�
 
 <a id="getsupport"></a>
 
-## <a name="get-support-for-the-service-fabric-standalone-package"></a>Service Fabric 독립 실행형 패키지에 대한 지원
+## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 지원
 * [Azure Service Fabric 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)에서 Windows Server용 Service Fabric 독립 실행형 패키지에 대해 커뮤니티에 문의합니다.
 * [Service Fabric에 대한 전문 지원](http://support.microsoft.com/oas/default.aspx?prid=16146)에 대한 티켓을 엽니다.  [여기](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)에서 Microsoft의 전문 지원에 대해 자세히 알아봅니다.
 * 또한 [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)의 일부로 이 패키지에 대해 지원을 받을 수도 있습니다.
 * 자세한 내용은 [Azure Service Fabric 지원 옵션](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support)을 참조하세요.
-* 지원을 위해 로그를 수집하려면 [Service Fabric 독립 실행형 로그 수집기](https://go.microsoft.com/fwlink/?linkid=842487)를 실행합니다.
+* 지원을 위해 로그를 수집하려면 [Service Fabric 독립 실행형 로그 수집기](service-fabric-cluster-standalone-package-contents.md)를 실행합니다.
 
 <a id="downloadpackage"></a>
 
-## <a name="download-the-service-fabric-standalone-package"></a>서비스 패브릭 독립 실행형 패키지 다운로드
-클러스터를 만들려면 다음에서 찾을 수 있는 Windows Server(2012 R2 이상)용 Service Fabric 독립 실행형 패키지를 사용합니다. <br>
+## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 다운로드
+클러스터를 만들려면 다음에서 찾을 수 있는 Windows Server(Windows Server 2012 R2 이상)용 Service Fabric 패키지를 사용합니다. <br>
 [다운로드 링크 - Service Fabric 독립 실행형 패키지 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 [여기](service-fabric-cluster-standalone-package-contents.md)에서 패키지의 자세한 내용을 찾습니다.
@@ -67,7 +66,7 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 
 문제 해결 세부 정보는 [클러스터 배포를 위한 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)에서 환경 설정 섹션을 참조하세요.
 
-실행 중인 개발 시나리오를 마친 경우 아래 "[클러스터 제거](#removecluster_anchor)" 섹션의 단계를 참조하여 컴퓨터에서 Service Fabric 클러스터를 제거할 수 있습니다. 
+실행 중인 개발 시나리오를 마친 경우 "[클러스터 제거](#removecluster_anchor)" 섹션의 단계를 참조하여 컴퓨터에서 Service Fabric 클러스터를 제거할 수 있습니다. 
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>1B단계: 다중 컴퓨터 클러스터 만들기
 아래 링크에서 자세히 설명된 계획 및 준비 단계를 완료한 후 클러스터 구성 파일을 사용하여 프로덕션 클러스터를 만들 준비가 되었습니다. <br>
@@ -75,39 +74,48 @@ Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다�
 
 1. 독립 실행형 패키지 폴더에서 *TestConfiguration.ps1* 스크립트를 실행하여 작성한 구성 파일의 유효성을 검사합니다.  
 
-```powershell
-.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
-```
+    ```powershell
+    .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+    ```
 
-아래와 유사한 출력이 표시됩니다. 아래쪽 필드 "Passed"가 "True"로 반환되는 경우 온전성 검사를 통과했고 클러스터는 입력 구성에 따라 배포 가능한 것으로 보입니다.
+    아래와 유사한 출력이 표시됩니다. 아래쪽 필드 "Passed"가 "True"로 반환되는 경우 온전성 검사를 통과했고 클러스터는 입력 구성에 따라 배포 가능한 것으로 보입니다.
 
-```
-Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-Running Best Practices Analyzer...
-Best Practices Analyzer completed successfully.
-
-
-LocalAdminPrivilege        : True
-IsJsonValid                : True
-IsCabValid                 : True
-RequiredPortsOpen          : True
-RemoteRegistryAvailable    : True
-FirewallAvailable          : True
-RpcCheckPassed             : True
-NoConflictingInstallations : True
-FabricInstallable          : True
-Passed                     : True
-```
+    ```
+    Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
+    Running Best Practices Analyzer...
+    Best Practices Analyzer completed successfully.
+    
+    LocalAdminPrivilege        : True
+    IsJsonValid                : True
+    IsCabValid                 : True
+    RequiredPortsOpen          : True
+    RemoteRegistryAvailable    : True
+    FirewallAvailable          : True
+    RpcCheckPassed             : True
+    NoConflictingInstallations : True
+    FabricInstallable          : True
+    Passed                     : True
+    ```
 
 2. 클러스터 만들기: *CreateServiceFabricCluster.ps1* 스크립트를 실행하여 구성의 각 컴퓨터에 Service Fabric 클러스터를 배포합니다. 
-```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-```
+    ```powershell
+    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+    ```
 
 > [!NOTE]
 > CreateServiceFabricCluster.ps1 PowerShell 스크립트를 실행한 VM/컴퓨터에 배포 추적이 기록됩니다. 스크립트가 실행된 디렉터리에 따라 하위 폴더 DeploymentTraces에서 찾을 수 있습니다. Service Fabric이 컴퓨터에 올바르게 배포되었는지 확인하려면 클러스터 구성 파일 FabricSettings 섹션에서 설명된 대로 FabricDataRoot 디렉터리에 설치된 파일을 찾습니다(기본적으로 c:\ProgramData\SF). 또한 작업 관리자에서 실행 중인 FabricHost.exe 및 Fabric.exe 프로세스를 볼 수 있습니다.
 > 
 > 
+
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>1C단계: 오프라인(인터넷 끊김) 클러스터 만들기
+Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다운로드됩니다. 클러스터를 인터넷에 연결되지 않은 컴퓨터에 배포할 때 Service Fabric 런타임 패키지를 별도로 다운로드하고 클러스터 생성 시 경로를 제공해야 합니다.
+런타임 패키지는 [다운로드 링크 - Service Fabric 런타임 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)에서 인터넷에 연결된 다른 컴퓨터에서 개별적으로 다운로드할 수 있습니다. 오프라인 클러스터를 배포하는 위치에 런타임 패키지를 복사하고 아래와 같이 포함된 `-FabricRuntimePackagePath` 매개 변수를 사용하여 `CreateServiceFabricCluster.ps1`을 실행하여 클러스터를 만듭니다. 
+
+```powershell
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
+```
+여기서 `.\ClusterConfig.json` 및 `.\MicrosoftAzureServiceFabric.cab`는 각각 클러스터 구성 및 런타임 .cab 파일에 대한 경로입니다.
+
 
 ### <a name="step-2-connect-to-the-cluster"></a>2단계: 클러스터에 연결
 보안 클러스터에 연결하려면 [보안 클러스터에 대한 Service Fabric 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요.
@@ -116,7 +124,9 @@ Passed                     : True
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+예제:
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>3단계: Service Fabric Explorer 표시
@@ -194,4 +204,3 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
-

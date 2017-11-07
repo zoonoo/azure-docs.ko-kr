@@ -3,7 +3,7 @@ title: "Log Analytics 로그 검색 REST API | Microsoft Docs"
 description: "이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b12f823d723b013755fc868b883faefa2072eb75
-ms.openlocfilehash: 9b21fed003f96dbf7ebd72d6f46fff91acbf039e
-ms.lasthandoff: 12/02/2016
-
-
+ms.date: 09/06/2017
+ms.author: bwren
+ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 로그 검색 REST API
 이 가이드는 Log Analytics 검색 REST API를 사용하는 방법의 예제를 비롯한 기본 자습서를 제공합니다. Log Analytics는 OMS(Operations Management Suite)의 일부입니다.
+
+> [!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우 [새 버전의 로그 검색 API에 대한 문서](https://dev.loganalytics.io/)를 참조해야 합니다.
 
 > [!NOTE]
 > Log Analytics는 이전에 Operational Insights라고 했기 때문에 리소스 공급자에서는 Operational Insights라고 합니다.
@@ -237,8 +239,11 @@ Azure Resource Manager는 [Library for.NET](https://msdn.microsoft.com/library/a
 
 ```
     $savedSearchParametersJson = "{'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisismyid?api-version=2015-03-20 $savedSearchParametersJson
 ```
+
+> [!NOTE]
+> Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
 
 ### <a name="delete-saved-searches"></a>저장된 검색 삭제
 **요청:**
@@ -413,4 +418,3 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
-

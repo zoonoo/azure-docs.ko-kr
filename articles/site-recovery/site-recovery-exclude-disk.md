@@ -8,21 +8,25 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/24/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다. 이 기능은 VMware에서 Azure 및 Hyper-V에서 Azure로의 시나리오를 위해 지원됩니다.
+
+## <a name="supported-scenarios"></a>지원되는 시나리오
+**기능** | **VMware에서 Azure로** | **Hyper-V에서 Azure로** | **Azure 간**| **Hyper-V 간** 
+--|--|--|--|--
+디스크 제외 | 예 | 예 | 아니요 | 아니요
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +54,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="how-to-exclude-disks-from-replication"></a>복제에서 디스크를 제외하는 방법은?
 
 ### <a name="vmware-to-azure"></a>VMware에서 Azure로
-[복제 사용](site-recovery-vmware-to-azure.md#enable-replication) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
+[복제 사용](site-recovery-vmware-to-azure.md) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
 
 ![복제에서 디스크를 제외하고 VMware에서 Azure 장애 복구에 대한 복제를 사용하도록 설정](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -66,7 +70,7 @@ ms.lasthandoff: 04/06/2017
 >
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
-[복제 사용](site-recovery-hyper-v-site-to-azure.md#enable-replication) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
+[복제 사용](site-recovery-hyper-v-site-to-azure.md) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
 
 ![복제에서 디스크를 제외하고 Azure 장애 복구에 Hyper-V에 대한 복제를 사용하도록 설정](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -107,8 +111,8 @@ DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
-DISK0 |    C:\ | 운영 체제 디스크
-Disk1 |    E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+DISK0 | C:\ | 운영 체제 디스크
+Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -140,13 +144,13 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 3. 다음 sqlcmd를 실행하여 tempdb 경로를 새 경로로 바꿉니다.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -172,9 +176,9 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 |    E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
-Disk2 |    D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
-Disk3 |    G:\ | 사용자 데이터베이스 2
+Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
+Disk3 | G:\ | 사용자 데이터베이스 2
 
 
 #### <a name="vmware-to-azure"></a>VMware에서 Azure로
@@ -185,8 +189,8 @@ Azure에서 온-프레미스 VMware로 계획된 장애 조치(failover) 후 VMW
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 |    D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
-Disk2 |    G:\ | 사용자 데이터베이스 2
+Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
+Disk2 | G:\ | 사용자 데이터베이스 2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
 원래 위치로 장애 복구가 수행되면 장애 복구 가상 컴퓨터 디스크 구성은 Hyper-V의 원래 가상 컴퓨터 디스크 구성과 동일하게 유지됩니다. Hyper-V 사이트에서 Azure로 제외된 디스크는 장애 복구 가상 컴퓨터에서 사용할 수 있습니다.
@@ -195,7 +199,7 @@ Azure에서 온-프레미스 Hyper-V로 계획된 장애 조치(failover) 후 Hy
 
 **디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | 운영 체제 디스크
+DB-Disk0-OS | DISK0 |   C:\ | 운영 체제 디스크
 DB-Disk1 | Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 DB-Disk2(제외된 디스크) | Disk2 | E:\ | 임시 파일
 DB-Disk3(제외된 디스크) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\))
@@ -270,4 +274,3 @@ Azure Virtual Machine의 페이징 파일 설정은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
-

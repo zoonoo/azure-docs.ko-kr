@@ -1,161 +1,95 @@
 ---
-title: "Python을 사용하여 Azure SQL Database에 연결 | Microsoft Docs"
-description: "Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Python 코드 샘플을 제시합니다."
+title: "Python을 사용하여 Azure SQL Database 쿼리 | Microsoft Docs"
+description: "이 항목에서는 Python을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다."
 services: sql-database
 documentationcenter: 
-author: meet-bhagdev
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.custom: mvc,develop apps
+ms.workload: On Demand
+ms.tgt_pltfrm: n
 ms.devlang: python
-ms.topic: article
-ms.date: 03/27/2017
-ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 91e1dcd5b4a7dc62a09c9deb26622dacba1dcaa1
-ms.lasthandoff: 03/30/2017
-
-
+ms.topic: quickstart
+ms.date: 08/08/2017
+ms.author: carlrab
+ms.openlocfilehash: dc1697520080cbdc8e53686f800ad122e69c2478
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Azure SQL Database: Python을 사용하여 데이터에 연결 및 쿼리
+# <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
 
-[Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 쿼리합니다. 이 가이드는 Python을 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+ 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.
 
-이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
+## <a name="prerequisites"></a>필수 조건
 
-- [DB 만들기 - 포털](sql-database-get-started-portal.md)
-- [DB 만들기 - CLI](sql-database-get-started-cli.md)
+이 빠른 시작 자습서를 완료하려면 다음 항목이 있어야 합니다.
 
-## <a name="configure-development-environment"></a>개발 환경 구성
-### <a name="mac-os"></a>**Mac OS**
-터미널을 열고 Python 스크립트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew**, **Mac용 Microsoft ODBC Driver** 및 **pyodbc**를 설치합니다. pyodbc는 Linux의 Microsoft ODBC 드라이버를 사용하여 SQL Database에 연결합니다.
+- Azure SQL 데이터베이스입니다. 이 빠른 시작에서는 다음과 같은 빠른 시작 중 하나에서 만든 리소스를 사용합니다. 
 
-``` bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql
-sudo pip install pyodbc==3.1.1
-```
+   - [DB 만들기 - 포털](sql-database-get-started-portal.md)
+   - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+   - [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
-터미널을 열고 Python 스크립트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **Linux용 Microsoft ODBC 드라이버** 및 **pyodbc**를 설치합니다. pyodbc는 Linux의 Microsoft ODBC 드라이버를 사용하여 SQL Database에 연결합니다.
+- 이 빠른 시작 자습서에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
 
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev
-sudo pip install pyodbc==3.1.1
-```
+- 운영 체제에 맞게 설치된 Python 및 관련 소프트웨어
 
-### <a name="windows"></a>**Windows**
-[Microsoft ODBC 드라이버 13.1](https://www.microsoft.com/download/details.aspx?id=53339)을 설치합니다. pyodbc는 Linux의 Microsoft ODBC 드라이버를 사용하여 SQL Database에 연결합니다. 
+    - **MacOS**: Homebrew와 Python을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1단계](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)를 참조하세요.
+    - **Ubuntu**: Python 및 기타 필요한 패키지를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1단계](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/)를 참조하세요.
+    - **Windows**: 최신 버전의 Python(환경 변수가 자동으로 구성됨)을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python Driver를 설치합니다. [1.2, 1.3 및 2.1 단계](https://www.microsoft.com/sql-server/developer-get-started/python/windows/) 참조 
 
-그런 다음 pip를 사용하여 pyodbc를 설치합니다.
+## <a name="sql-server-connection-information"></a>SQL 서버 연결 정보
 
-```cmd
-pip install pyodbc==3.1.1
-```
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
-pip 사용을 활성화하는 방법은 [여기](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)에서 찾을 수 있습니다.
-
-## <a name="get-connection-information"></a>연결 정보 가져오기
-
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **Essentials** 창에서 정규화된 서버 이름을 검토합니다. 
+3. 데이터베이스의 **개요** 페이지에서 다음 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
-   
-## <a name="select-data"></a>데이터 선택
-[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문과 [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html)를 사용하여 Azure SQL Database에서 데이터를 쿼리합니다. [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수를 사용하여 SQL 데이터베이스에 대한 쿼리에서 결과 집합을 검색할 수 있습니다. 이 함수는 본질적으로 모든 쿼리를 허용하며, [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html)을 사용하여 반복될 수 있는 결과 집합을 반환합니다.
+   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. 서버 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.     
+    
+## <a name="insert-code-to-query-sql-database"></a>SQL 데이터베이스 쿼리 코드 삽입 
+
+1. 원하는 텍스트 편집기에서 **sqltest.py** 파일을 새로 만듭니다.  
+
+2. 내용을 다음 코드로 바꾸고, 서버, 데이터베이스, 사용자 및 암호에 대해 적절한 값을 추가합니다.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()
 while row:
-    print str(row[0]) + " " + str(row[1])
+    print (str(row[0]) + " " + str(row[1]))
     row = cursor.fetchone()
 ```
 
+## <a name="run-the-code"></a>코드 실행
 
-## <a name="insert-data"></a>데이터 삽입
-SQL Database에서 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 속성 및 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 개체를 사용하여 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 자동으로 생성할 수 있습니다. 
+1. 명령 프롬프트에서 다음 명령을 실행합니다.
 
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-with cursor.execute("INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')"): 
-    print ('Successfuly Inserted!')
-cnxn.commit()
-```
+   ```Python
+   python sqltest.py
+   ```
 
-## <a name="update-data"></a>데이터 업데이트
-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문과 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수를 사용하여 Azure SQL Database에서 데이터를 업데이트할 수 있습니다.
-
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?"
-with cursor.execute(tsql,50,'BrandNewProduct'):
-    print ('Successfuly Updated!')
-cnxn.commit()
-
-```
-
-
-## <a name="delete-data"></a>데이터 삭제
-[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문과 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수를 사용하여 Azure SQL Database에서 데이터를 삭제할 수 있습니다.
-
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "DELETE FROM SalesLT.Product WHERE Name = ?"
-with cursor.execute(tsql,'BrandNewProduct'):
-    print ('Successfuly Deleted!')
-cnxn.commit()
-```
+2. 상위 20개 행이 반환되는지 확인한 다음 응용 프로그램 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [SQL Database 개발 개요](sql-database-develop-overview.md)를 검토합니다.
-* [SQL Server용 Microsoft Python Driver](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)에 대한 추가 정보
-* [Python 개발자 센터](/develop/python/)를 방문합니다.
-* 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
+
+- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [SQL Server용 Microsoft Python 드라이버](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Python 개발자 센터](https://azure.microsoft.com/develop/python/?v=17.23h)
 

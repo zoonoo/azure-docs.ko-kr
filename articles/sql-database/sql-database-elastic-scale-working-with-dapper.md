@@ -7,19 +7,18 @@ manager: jhubbard
 author: torsteng
 ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 01369360fa10ae39e2f9b435d877de0171574286
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 이 문서는 Dapper에 의존하여 응용 프로그램을 만들 개발자를 위한 것이지만, 구현 분할 확장 데이터 계층 응용 프로그램을 생성하기 위해 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md) 를 수용하고 싶은 개발자들도 사용 가능합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 응용 프로그램에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스의 분할된 데이터베이스 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
@@ -168,4 +167,3 @@ Dapper 및 DapperExtensions를 사용하는 응용 프로그램에서는 Azure S
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
-

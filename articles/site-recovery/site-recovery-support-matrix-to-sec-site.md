@@ -4,7 +4,7 @@ description: "Azure 사이트 복구에 대한 지원되는 운영 체제 및 �
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,29 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
-
-
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 보조 사이트에 복제하기 위한 지원 매트릭스
-
-> [!div class="op_single_selector"]
-> * [Azure에 복제](site-recovery-support-matrix-to-azure.md)
-> * [온-프레미스 위치에 복제](site-recovery-support-matrix-to-sec-site.md)
 
 이 문서는 Azure Site Recovery를 사용하여 보조 온-프레미스 사이트에 복제하는 경우 지원 되는 사항을 요약하여 설명합니다.
 
 ## <a name="deployment-options"></a>배포 옵션
 
-**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(VMM 없음)** | **Hyper-V(VMM 포함)**
+**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(SCVMM 포함/제외)**
 --- | --- | --- | ---
-**Azure 포털** | 보조 VMware 사이트에 온-프레미스 VMware VM을 복제합니다.<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다(Azure Portal에서 사용할 수 없음). | 지원되지 않음 | VMM 클라우드의 온-프레미스 Hyper-V VM을 보조 VMM 클라우드에 복제<br/><br/> 표준 Hyper-V 복제만 해당 SAN은 지원되지 않음
-**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 지원되지 않음 | 유지 관리 모드에만 해당됩니다.
-**PowerShell** | 지원되지 않음 | 지원되지 않음 | 지원됨
+**Azure 포털** | 보조 VMware 사이트에 온-프레미스 VMware VM을 복제합니다.<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다(Azure Portal에서 사용할 수 없음). | VMM 클라우드의 온-프레미스 Hyper-V VM을 보조 VMM 클라우드에 복제<br></br> VMM이 없으면 지원되지 않음  <br/><br/> 표준 Hyper-V 복제만 해당 SAN은 지원되지 않음
+**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다.<br></br> SCVMM이 없으면 지원되지 않음
+**PowerShell** | 지원되지 않음 | 지원됨<br></br> SCVMM이 없으면 지원되지 않음
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
@@ -47,7 +43,7 @@ ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
 
   >[!Note]
   > Windows Server 2016 및 2012 R2 호스트가 혼합된 VMM 2016 클라우드는 현재 지원되지 않습니다.
-
+  > 기존 SCVMM 2012 R2를 2016으로 업그레이드하는 구성은 현재 지원되지 않습니다.
 ### <a name="host-servers"></a>호스트 서버
 
 **배포웹사이트를** | **지원**
@@ -119,7 +115,7 @@ RDM | 예 | 해당 없음
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 | 예
 저장소 공간 | 아니요 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요
-디스크 제외 | 아니요 | 아니요
+디스크 제외 | 아니요 | 예
 다중 경로(MPIO) | 해당 없음 | 예
 
 ## <a name="vaults"></a>자격 증명 모음
@@ -139,10 +135,5 @@ RDM | 예 | 해당 없음
 
 ## <a name="next-steps"></a>다음 단계
 
-[배포 필수 조건](site-recovery-prereq.md)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+- [VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](site-recovery-vmm-to-vmm.md)
+- [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)

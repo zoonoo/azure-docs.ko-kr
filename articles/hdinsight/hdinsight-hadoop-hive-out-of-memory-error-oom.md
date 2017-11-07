@@ -1,10 +1,10 @@
 ---
-title: "OOM(메모리 부족) 오류 - Hive 설정 | Microsoft 문서"
-description: "HDInsight의 Hadoop에서 Hive 쿼리로 OOM(메모리 부족) 오류를 수정합니다. 고객 시나리오는 많은 대형 테이블 간 쿼리입니다."
+title: "Azure HDInsight에서 Hive 메모리 부족 오류 수정 | Microsoft Docs"
+description: "HDInsight에서 Hive 메모리 부족 오류를 수정합니다. 고객 시나리오는 많은 대형 테이블 간 쿼리입니다."
 keywords: "메모리 부족 오류, OOM, Hive 설정"
 services: hdinsight
 documentationcenter: 
-author: rashimg
+author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
-ms.author: rashimg;jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf0ff13a2d5ffc5bf0b07b80f482fc4144b0cd0f
-ms.lasthandoff: 11/17/2016
-
-
+ms.date: 08/17/2017
+ms.author: jgao
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="fix-an-out-of-memory-oom-error-with-hive-memory-settings-in-hadoop-in-azure-hdinsight"></a>Azure HDInsight의 Hadoop에서 Hive 메모리 설정으로 OOM(메모리 부족) 오류 수정
-고객이 직면하는 일반적인 문제 중 하나는 Hive를 사용할 때 OOM(메모리 부족) 오류가 발생하는 것입니다. 이 문서에서는 고객 시나리오 및 문제 해결을 위한 Hive 설정에 대해 설명합니다.
+# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 메모리 부족 오류 수정
 
-## <a name="scenario-hive-query-across-large-tables"></a>시나리오: 큰 테이블에서 Hive 쿼리
-고객은 Hive를 사용하여 아래 쿼리를 실행했습니다.
+Hive 메모리 설정을 구성하여 큰 테이블을 처리할 때 Hive 메모리 부족 오류를 수정하는 방법에 대해 알아봅니다.
+
+## <a name="run-hive-query-against-large-tables"></a>큰 테이블에서 Hive 쿼리 실행
+
+고객은 Hive 쿼리를 실행했습니다.
 
     SELECT
         COUNT (T1.COLUMN1) as DisplayColumn1,
@@ -51,14 +52,12 @@ ms.lasthandoff: 11/17/2016
 * 다른 테이블은 크지는 않지만 많은 열을 포함합니다.
 * 모든 테이블은 서로 조인되며 TABLE1 및 기타 테이블의 여러 열과 조인되기도 합니다.
 
-고객이 24 노드 A3 클러스터에서 MapReduce에 대해 Hive를 사용하여 쿼리를 실행하면 쿼리는 약 26분 동안 실행됩니다. 고객은 MapReduce에서 Hive를 사용하여 쿼리를 실행할 때 다음과 같은 경고 메시지를 보게 됩니다.
+Hive 쿼리를 완료하는 데는 24 노드 A3 HDInsight 클러스터에서 26분이 소요되었습니다. 고객은 다음과 같은 경고 메시지를 보게 됩니다.
 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-쿼리는 약 26분만에 실행 완료되었으므로 고객은 이러한 경고를 무시하고 대신 이 쿼리를 성능을 개선하는 방법에 초점을 두기 시작합니다.
-
-고객은 [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)를 참조하여 Tez 실행 엔진을 사용하기로 합니다. Tez 설정을 사용하여 동일한 쿼리를 실행하자, 쿼리가 15분만에 실행되었고 다음과 같은 오류가 발생합니다.
+Tez 실행 엔진을 사용하여 동일한 쿼리가 15분만에 실행되었고 다음과 같은 오류가 발생합니다.
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -84,14 +83,16 @@ ms.lasthandoff: 11/17/2016
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
 
-고객은 더 큰 VM을 사용하면 힙 공간이 클 것이라 생각하고 더 큰 VM(즉, D12)을 사용하기로 합니다. 이렇게 해도 오류가 계속 발생합니다. 고객은 이 문제를 디버깅하기 위해 HDInsight 팀에 연락합니다.
+이 오류는 보다 큰 가상 컴퓨터를 사용할 때 유지됩니다(예: D12).
 
-## <a name="debug-the-out-of-memory-oom-error"></a>OOM(메모리 부족) 오류 디버깅
-당사의 지원 및 엔지니어링 팀은 OOM(메모리 부족) 오류를 발생시킨 문제 중 하나가 [Apache JIRA에 설명된 알려진 문제](https://issues.apache.org/jira/browse/HIVE-8306)라는 것을 발견했습니다. JIRA의 설명은 다음과 같습니다.
+
+## <a name="debug-the-out-of-memory-error"></a>메모리 부족 오류 디버깅
+
+당사의 지원 및 엔지니어링 팀은 메모리 부족 오류를 발생시킨 문제 중 하나가 [Apache JIRA에 설명된 알려진 문제](https://issues.apache.org/jira/browse/HIVE-8306)라는 것을 발견했습니다.
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask**가 실제로 **true**로 설정되었음이 확인되었습니다.
+hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask**가 **true**로 설정되어 있습니다.
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
@@ -103,27 +104,24 @@ hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask*
         </description>
       </property>
 
-경고 메시지와 JIRA에 따라, Map Join이 Java 힙 공간 OOM 오류의 원인이라는 가설을 세웠습니다. 따라서 이 문제를 보다 자세히 살펴보았습니다.
+Map Join이 Java 힙 공간 메모리 부족 오류의 원인일 가능성이 있습니다. 블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 다음 이미지를 참조하세요.
 
-블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 아래 이미지를 참조하세요.
+![Tez 컨테이너 메모리 다이어그램: Hive 메모리 부족 오류](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-![Tez 컨테이너 메모리 다이어그램: Hive 메모리 부족 오류 OOM](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
-
-블로그 게시물에서 알 수 있듯이 **hive.tez.container.size** 및 **hive.tez.java.opts**의 두 가지 메모리 설정이 힙의 컨테이너 메모리를 정의합니다. 경험에 따르면 OOM 예외가 발생했다고 해서 컨테이너 크기가 너무 작은 것은 아닙니다. Java 힙 크기(hive.tez.java.opts)가 너무 작은 것입니다. OOM이 표시될 때마다 **hive.tez.java.opts**를 늘려볼 수 있습니다. 필요한 경우 **hive.tez.container.size**를 늘려야 할 수도 있습니다. **java.opts** 설정은 **container.size**의 80% 정도여야 합니다.
+블로그 게시물에서 알 수 있듯이 **hive.tez.container.size** 및 **hive.tez.java.opts**의 두 가지 메모리 설정이 힙의 컨테이너 메모리를 정의합니다. 경험에 따르면 메모리 부족 예외가 발생했다고 해서 컨테이너 크기가 너무 작은 것은 아닙니다. Java 힙 크기(hive.tez.java.opts)가 너무 작은 것입니다. 메모리 부족이 표시될 때마다 **hive.tez.java.opts**를 늘려볼 수 있습니다. 필요한 경우 **hive.tez.container.size**를 늘려야 할 수도 있습니다. **java.opts** 설정은 **container.size**의 80% 정도여야 합니다.
 
 > [!NOTE]
 > **hive.tez.java.opts** 설정은 항상 **hive.tez.container.size**보다 작아야 합니다.
 > 
 > 
 
-D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 크기를 사용하고 java.opts에 80%를 할당하기로 했습니다. 이 작업은 아래 설정을 사용하여 Hive 콘솔에서 수행했습니다.
+D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 크기를 사용하고 java.opts에 80%를 할당하기로 했습니다.
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m
 
-이러한 설정에 따라 쿼리는 10분 이내에 성공적으로 실행됩니다.
+새로운 설정에 따라 쿼리는 10분 이내에 성공적으로 실행됩니다.
 
-## <a name="conclusion-oom-errors-and-container-size"></a>결론: OOM 오류 및 컨테이너 크기
-OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다.
+## <a name="next-steps"></a>다음 단계
 
-
+OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다. Hive 쿼리 최적화는 [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)를 참조하세요.

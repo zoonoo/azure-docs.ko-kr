@@ -2,7 +2,7 @@
 title: "Azure Active Directory Domain Services 설명서 - 자습서 | Microsoft Docs"
 description: "Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 컴퓨터를 도메인에 조인하고 그룹 정책으로 관리하는 방법에 대해 알아봅니다."
 services: active-directory-ds
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
-ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
-
+ms.openlocfilehash: a3eaf61fcfdc9dbb70561e9a81dc2b31d68d7c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="active-directory-domain-services-documentation"></a>Active Directory Domain Services 설명서
 
@@ -167,10 +168,4 @@ Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사�
         </a>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

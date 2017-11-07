@@ -14,17 +14,15 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="create-always-on-availability-group-to-improve-availability-and-disaster-recovery"></a>Always On 가용성 그룹을 만들어 가용성 및 재해 복구 개선
+# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다. 전체 자습서는 두 개의 SQL Server의 데이터베이스 복제본으로 가용성 그룹을 만듭니다.
 
@@ -296,7 +294,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\**입니다.**다음**을 클릭합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\**입니다. **다음**을 누릅니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -354,7 +352,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | 설정 | 필드 |
    | --- | --- |
    | **Name** |예를 들어 **sqlLB**와 같은 부하 분산 장치에 대한 텍스트 이름을 사용합니다. |
-   | **구성표** |내부 |
+   | **형식** |내부 |
    | **가상 네트워크** |Azure Virtual Network의 이름을 사용합니다. |
    | **서브넷** |가상 컴퓨터가 있는 서브넷 이름을 사용합니다.  |
    | **IP 주소 할당** |정적 |
@@ -381,6 +379,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | 설정 | 설명 | 예제
    | --- | --- |---
    | **Name** | 텍스트 이름 입력 | SQLLBBE
+   | **연결 대상** | 목록에서 선택 | 가용성 집합
    | **가용성 집합** | SQL Server VM이 있는 가용성 집합의 이름 사용 | sqlAvailabilitySet |
    | **가상 컴퓨터** |두 개의 Azure SQL Server VM 이름 | sqlserver-0, sqlserver-1
 
@@ -390,9 +389,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
 1. 가용성 집합의 경우 SQL Server가 있는 가용성 집합을 선택합니다.
 
-1. 가상 컴퓨터의 경우 두 SQL Server를 모두 포함합니다. 파일 공유 미러링 모니터 서버는 포함하지 마십시오. 선택은 다음과 유사해야 합니다.
-
-   ![리소스 그룹의 부하 분산 장치 찾기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/88-configurebepool.png)
+1. 가상 컴퓨터의 경우 두 SQL Server를 모두 포함합니다. 파일 공유 미러링 모니터 서버는 포함하지 마십시오.
 
 1. **확인**을 클릭하여 백엔드 풀을 만듭니다.
 
@@ -468,7 +465,7 @@ SQL Server Management Studio에서 수신기 포트를 설정합니다.
 1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
 
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
 
     수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다.
@@ -503,4 +500,3 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 ## <a name="next-steps"></a>다음 단계
 
 - [두 번째 가용성 그룹에 대한 부하 분산 장치에 IP 주소를 추가](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP)합니다.
-

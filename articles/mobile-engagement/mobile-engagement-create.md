@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement 앱 만들기
 이 문서에서는 **빨리 만들기** 메서드를 사용하여 새 **Azure Mobile Engagement** 앱을 만드는 방법을 보여 줍니다. 또한 문서는 앱을 모니터링하고 관리하기 위해 **Mobile Engagement** 포털을 탐색하는 방법도 보여줍니다. 
@@ -48,5 +47,4 @@ Mobile Engagement 포털에 위치하게 되면 세그먼트를 분석, 생성 �
 [Mobile Engagement 전략 정의](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Azure Mobile Engagement 시작](mobile-engagement-windows-store-dotnet-get-started.md) (페이지 맨 위에 있는 다른 모바일 플랫폼을 선택할 수 있습니다)
-
 

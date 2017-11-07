@@ -13,94 +13,243 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 08/02/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4d63e904e5e844a68cd986e2be2bfb3e0d2fee5d
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 보안 및 정책 적용
-조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 가상 컴퓨터에 대해 원하는 동작을 정의하는 방법을 설명합니다.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용
+조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
-이 작업을 수행하는 개략적인 단계는 다음과 같습니다.
+정책에 대한 소개는 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
 
-1. Azure Resource Manager 정책 101
-2. 가상 컴퓨터에 대한 정책 정의
-3. 정책 만들기
-4. 정책 적용
+## <a name="permitted-virtual-machines"></a>허용되는 Virtual Machines
+조직에 대한 가상 컴퓨터가 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Windows Server 2012 R2 Datacenter Virtual Machines만 만드는 것을 허용합니다.
 
-## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager 정책 101
-Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 문서에 있는 단계를 계속하는 것이 좋습니다. 아래 문서에서 정책의 기본 정의 및 구조, 정책 평가 방법을 설명하고 정책 정의의 다양한 예제를 제공합니다.
-
-* [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../resource-manager-policy.md)
-
-## <a name="define-a-policy-for-your-virtual-machine"></a>가상 컴퓨터에 대한 정책 정의
-엔터프라이즈에 대한 일반적인 시나리오 중 하나는 LOB 응용 프로그램과 호환되도록 테스트된 특정 운영 체제에서 사용자에게만 가상 컴퓨터를 만들 수 있도록 하는 것일 수 있습니다. Azure Resource Manager 정책을 사용하여 몇 단계만으로 이 작업을 수행할 수 있습니다.
-이 정책 예제에서는 Windows Server 2012 R2 Datacenter 가상 컴퓨터만 만드는 것을 허용합니다. 정책 정의는 아래와 같습니다.
-
-```
-"if": {
-  "allOf": [
-    {
-      "field": "type",
-      "equals": "Microsoft.Compute/virtualMachines"
-    },
-    {
-      "not": {
-        "allOf": [
-          {
-            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "MicrosoftWindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "WindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "2012-R2-Datacenter"
-          }
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "in": [
+          "Microsoft.Compute/disks",
+          "Microsoft.Compute/virtualMachines",
+          "Microsoft.Compute/VirtualMachineScaleSets"
         ]
+      },
+      {
+        "not": {
+          "allOf": [
+            {
+              "field": "Microsoft.Compute/imagePublisher",
+              "in": [
+                "MicrosoftWindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageOffer",
+              "in": [
+                "WindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageSku",
+              "in": [
+                "2012-R2-Datacenter"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageVersion",
+              "in": [
+                "latest"
+              ]
+            }
+          ]
+        }
       }
-    }
-  ]
-},
-"then": {
-  "effect": "deny"
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
 ```
 
-위의 정책은 아래 변경으로 가상 컴퓨터 배포에 모든 Windows Server Datacenter 이미지를 사용할 수 있도록 하는 시나리오로 쉽게 수정할 수 있습니다.
+와일드 카드를 사용하여 모든 Windows Server Datacenter 이미지를 허용하도록 이전 정책을 수정합니다.
 
-```
+```json
 {
-  "field": "Microsoft.Compute/virtualMachines/imageSku",
+  "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
 }
 ```
 
-#### <a name="virtual-machine-property-fields"></a>가상 컴퓨터 속성 필드
-아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 아래 문서를 참조하세요.
+anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지를 허용하도록 이전 정책을 수정합니다.
 
-* [필드 및 소스](../../azure-resource-manager/resource-manager-policy.md#conditions)
+```json
+{
+  "anyOf": [
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2012-R2-Datacenter*"
+    },
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2016-Datacenter*"
+    }
+  ]
+}
+```
 
-| 필드 이름 | 설명 |
-| --- | --- |
-| imagePublisher |이미지 게시자 지정 |
-| imageOffer |선택된 이미지 게시자에 대한 제품 지정 |
-| imageSku |선택한 제품에 대한 SKU 지정 |
-| imageVersion |선택한 SKU에 대한 이미지 버전 지정 |
+정책 필드에 대한 자세한 내용은 [정책 별칭](../../azure-resource-manager/resource-manager-policy.md#aliases)을 참조하세요.
 
-## <a name="create-the-policy"></a>정책 만들기
-정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. 정책 만들기에 대한 자세한 내용은 아래 문서를 참조하세요.
+## <a name="managed-disks"></a>관리 디스크
 
-* [정책 만들기](../../resource-manager-policy.md)
+관리 디스크 사용을 요구하려면 다음 정책을 사용합니다.
 
-## <a name="apply-the-policy"></a>정책 적용
-정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. 정책 적용에 대한 자세한 내용은 아래 문서를 참조하세요.
+```json
+{
+  "if": {
+    "anyOf": [
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                "exists": true
+              },
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                "exists": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
-* [정책 만들기](../../resource-manager-policy.md)
+## <a name="images-for-virtual-machines"></a>Virtual Machines에 대한 이미지 
 
+보안상의 이유로 승인된 사용자 지정 이미지만 환경에 배포하도록 요구할 수 있습니다. 승인된 이미지를 포함하는 리소스 그룹이나 특정한 승인된 이미지를 지정할 수 있습니다.
+
+다음 예제에서는 승인된 리소스 그룹의 이미지가 필요합니다.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Compute/imageId",
+                    "contains": "resourceGroups/CustomImage"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+} 
+```
+
+다음 예제에서는 승인된 이미지 ID를 명시합니다.
+
+```json
+{
+    "field": "Microsoft.Compute/imageId",
+    "in": ["{imageId1}","{imageId2}"]
+}
+```
+
+## <a name="virtual-machine-extensions"></a>가상 컴퓨터 확장 
+
+특정 유형의 확장을 사용하지 못하게 하고자 할 수 있습니다. 예를 들어 한 확장이 특정 사용자 지정 가상 컴퓨터 이미지와 호환되지 않을 수 있습니다. 다음 예제에서는 특정 확장을 차단하는 방법을 보여 줍니다. 게시자 및 유형을 사용하여 차단할 확장을 판단합니다.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                "equals": "Microsoft.Compute"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                "equals": "{extension-type}"
+
+      }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+
+## <a name="azure-hybrid-use-benefit"></a>AHUB(Azure Hybrid Use Benefit)
+
+온-프레미스 라이선스가 있는 경우 가상 컴퓨터에서 라이선스 요금을 절약할 수 있습니다. 라이선스가 없는 경우 이 옵션이 금지됩니다. 다음 정책에서는 AHUB(Azure Hybrid Use Benefit)의 사용을 금지합니다.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in":[ "Microsoft.Compute/virtualMachines","Microsoft.Compute/VirtualMachineScaleSets"]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "exists": true
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+## <a name="next-steps"></a>다음 단계
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-create-assign.md)를 참조하세요.
+* 리소스 정책에 대한 소개는 [리소스 정책 개요](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
+* 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](../../azure-resource-manager/resource-manager-subscription-governance.md)를 참조하세요.

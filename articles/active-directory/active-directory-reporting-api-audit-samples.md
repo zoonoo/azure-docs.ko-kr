@@ -3,7 +3,7 @@ title: "Azure Active Directory Reporting 감사 API 샘플 | Microsoft Docs"
 description: "Azure Active Directory Reporting API를 시작하는 방법"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
-ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 98e1d09cbf638032fe1b5b9dcf19332f9158d7a7
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory Reporting 감사 API 샘플
 이 항목은 Azure Active Directory Reporting API에 대한 항목 컬렉션의 일부입니다.  
@@ -27,7 +28,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
 다음을 참조하세요.
 
-* [감사 로그](active-directory-reporting-azure-portal.md#audit-logs) 를 참조하세요.
+* [감사 로그](active-directory-reporting-azure-portal.md#activity-reports) 를 참조하세요.
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
 질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
@@ -98,7 +99,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
     CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
     CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
-    LOGIN_URL="https://login.windows.net"
+    LOGIN_URL="https://login.microsoftonline.com"
     TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
 
     TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
@@ -128,7 +129,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 
     client_id = 'your-application-client-id-here'
     client_secret = 'your-application-client-secret-here'
-    login_url = 'https://login.windows.net/'
+    login_url = 'https://login.microsoftonline.com/'
     tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
     # Get an OAuth access token
@@ -150,7 +151,7 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:
@@ -166,10 +167,4 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 감사 데�
 * 이 항목의 샘플을 사용자 지정하시겠습니까? [Azure Active Directory 감사 API 참조](active-directory-reporting-api-audit-reference.md)를 확인하세요. 
 * Azure Active Directory Reporting API를 사용하는 전체적인 개요를 확인하려는 경우 [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
 * Azure Active Directory Reporting에 대한 자세한 내용을 알아보려면 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.  
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

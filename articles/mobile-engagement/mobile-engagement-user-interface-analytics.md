@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>응용 프로그램에 대한 기록 데이터를 분석하는 방법
 이 문서에서는 **Mobile Engagement** 포털의 **분석** 탭을 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다.
@@ -54,7 +53,7 @@ Azure Mobile Engagement에서는 앱을 SDK와 통합하는 즉시 그래프로 
 ## <a name="accessing-the-retention-overview"></a>재방문 주기 개요 액세스
 ![Analytics3][12]
 
-재방문 주기 개요는 가운데 화면에서&7;개의 카드로 구분되며 각 카드에는 특정 재방문 기간에 대한 개요가 표시됩니다. 예제에는 재방문 기간 2일이 표시되어 있습니다. 다른 카드에는 4일 및 7일의 재방문 기간이 나와 있습니다.
+재방문 주기 개요는 가운데 화면에서 7개의 카드로 구분되며 각 카드에는 특정 재방문 기간에 대한 개요가 표시됩니다. 예제에는 재방문 기간 2일이 표시되어 있습니다. 다른 카드에는 4일 및 7일의 재방문 기간이 나와 있습니다.
 
 ## <a name="understanding-the-retention-overview-cards"></a>재방문 주기 개요 카드 이해
 ![Analytics4][13]
@@ -169,4 +168,3 @@ Azure Mobile Engagement에서는 앱을 SDK와 통합하는 즉시 그래프로 
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-

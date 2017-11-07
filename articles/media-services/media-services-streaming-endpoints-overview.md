@@ -1,12 +1,11 @@
 ---
-
 title: "Azure Media Services 스트리밍 끝점 개요 | Microsoft Docs"
 description: "이 항목에서는 Azure Media Services 스트리밍 끝점의 개요를 제공합니다."
 services: media-services
 documentationcenter: 
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
@@ -14,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7e18325426bac86d89ff0235e18ddca9fd21e8de
-ms.openlocfilehash: 41a58493c8931e8ce241ce31ecb1ca20b5a82cb3
-
-
+ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 끝점 개요 
 
@@ -78,8 +77,8 @@ Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리
 기능|표준|Premium
 ---|---|---
 처음 15일 무료| 예 |아니요
-처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당&200;Mbps CDN을 사용하여 크기를 조정합니다.
-SLA | 99.9|99.9(SU당&200;Mbps)입니다.
+처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
+SLA | 99.9|99.9(SU당 200Mbps)입니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
 청구를 계산합니다.| 매일|매일
 동적 암호화|예|예
@@ -106,16 +105,10 @@ CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 표준|**중지됨** 상�
 CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 프리미엄|**중지됨** 상태에서 허용됩니다. **시작됨** 상태에서 허용되지 않습니다. 클래식 CDN을 삭제하고 새로 만들어서 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

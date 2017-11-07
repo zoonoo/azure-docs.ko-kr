@@ -15,19 +15,15 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 799bacdac6ff49cb6fa38cd208318673629d4035
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
-> 
-> 
 
-Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 관리하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 각 정책을 설정하는 방법에 대한 단계별 설명을 제공합니다.  
+Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 비용을 관리하고 낭비를 최소화할 수 있습니다. 이 문서에서는 각 정책을 설정하는 방법에 대해 단계별로 설명합니다.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>허용된 가상 컴퓨터 크기를 설정합니다.
 허용 VM 크기를 설정하는 정책은 랩에서 허용되는 VM 크기를 지정함으로써 랩의 낭비가 최소화되도록 돕습니다. 이 정책이 활성화되면 이 목록의 VM 크기만 사용하여 VM을 만들 수 있습니다.
@@ -100,6 +96,9 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
     사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용하려면 VM의 블레이드를 열고 해당 **자동 시작** 설정을 변경합니다. 
 
+## <a name="set-expiration-date"></a>만료 날짜 설정
+[VM을 만들 때](devtest-lab-add-vm.md) 만료 날짜를 설정할 수 있습니다. **고급 설정**에서 달력 아이콘을 선택하고 VM이 자동으로 삭제될 날짜를 지정합니다.  기본적으로 VM은 만료되지 않습니다.
+
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>다음 단계
@@ -111,5 +110,4 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 * [사용자 지정 이미지 만들기](devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기본 이미지를 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 * [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs에서 Azure Marketplace 이미지에 기반하여 VM을 만들 수 있습니다. 이 문서에서는 랩에서 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 * [랩에서 VM 만들기](devtest-lab-add-vm-with-artifacts.md) - 기본 이미지(사용자 지정 또는 마켓플레이스 이미지)에서 VM을 만드는 방법 및 VM에서 아티팩트 작업 방법에 대해 설명합니다.
-
 
