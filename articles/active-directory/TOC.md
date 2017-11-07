@@ -48,7 +48,6 @@
 #### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](active-directory-licensing-ps-examples.md)
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
-### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
 ### [사용자 작업 정보 관리](active-directory-users-work-info-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [SSPR 보고](active-directory-passwords-reporting.md)
 ### IT 관리자: 암호 재설정
 #### [Azure 포털](active-directory-users-reset-password-azure-portal.md)
-#### [Azure 클래식 포털](active-directory-create-users-reset-password.md)
 ### [라이선스 SSPR](active-directory-passwords-licensing.md)
 ### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
 ### [문제 해결](active-directory-passwords-troubleshoot.md)
@@ -242,6 +240,7 @@
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
 ### [O365 디렉터리](active-directory-manage-o365-subscription.md)
 ### [셀프 서비스 등록](active-directory-self-service-signup.md)
+#### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

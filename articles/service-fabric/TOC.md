@@ -6,6 +6,7 @@
 ## [.NET 응용 프로그램 만들기](service-fabric-quickstart-dotnet.md)
 ## [Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)
 ## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
+## [Java 응용 프로그램 배포](service-fabric-quickstart-java.md)
 
 # 자습서
 ## .NET 앱 배포
@@ -28,7 +29,9 @@
 ### 1 - Azure에서 클러스터 만들기
 #### [1a- Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2 - Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+### [2-클러스터 크기 조정](service-fabric-tutorial-scale-cluster.md)
+### [3- Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+
 
 # 샘플
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=service-fabric)

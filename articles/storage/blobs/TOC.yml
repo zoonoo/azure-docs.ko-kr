@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Blob 사용 - Python
       href: storage-quickstart-blobs-python.md
+    - name: Blob 사용 - Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: 자습서
   items:
     - name: 이미지 업로드 및 처리

@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Draft를 사용하여 응용 프로그램 개발
       href: kubernetes-draft.md
+    - name: Azure 파일에서 데이터 유지
+      href: azure-files.md
     - name: Kubernetes 대시보드 사용
       href: kubernetes-dashboard.md
     - name: 서비스 주체 만들기

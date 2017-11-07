@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: 개발
       items:
-        - name: 연결 라이브러리
-          href: concepts-connection-libraries.md
+        - name: 드라이버 및 도구 호환성
+          href: concepts-compatibility.md
         - name: 응용 프로그램 개발
           href: concepts-database-application-development.md
     - name: 데이터베이스 마이그레이션

@@ -84,8 +84,20 @@
         - name: Azure Machine Learning 작업 영역
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: 가상 컴퓨터 설정
-          href: virtual-machines.md
+        - name: 데이터 과학 VM 설정
+          items:
+            - name: Windows 데이터 과학 VM 만들기
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Ubuntu 데이터 과학 VM 만들기
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: CentOS 데이터 과학 VM 만들기
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: 심층 학습 VM 만들기
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: 비즈니스 요구 사항 분석
       items:
         - name: 시나리오 식별

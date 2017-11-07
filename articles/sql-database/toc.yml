@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: SQL 데이터 동기화의 모범 사례
+          href: sql-database-best-practices-data-sync.md
+        - name: SQL 데이터 동기화 문제 해결
+          href: sql-database-troubleshoot-data-sync.md
     - name: 확장
       items:
         - name: 분할된 앱 만들기

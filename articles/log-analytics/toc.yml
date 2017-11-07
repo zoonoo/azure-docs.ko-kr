@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: 경고 관리 솔루션
           href: log-analytics-solution-alert-management.md
+    - name: 관리
+      items:
+        - name: 작업 영역 비용 관리
+          href: log-analytics-manage-cost-storage.md
+        - name: 작업 영역 삭제
+          href: log-analytics-manage-del-workspace.md
     - name: 솔루션 사용
       items:
         - name: 솔루션 개요

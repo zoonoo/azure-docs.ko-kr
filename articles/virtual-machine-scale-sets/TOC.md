@@ -36,6 +36,7 @@
 #### [Azure CLI 2.0 사용](virtual-machine-scale-sets-manage-cli.md)
 #### [Azure PowerShell 사용](virtual-machine-scale-sets-manage-powershell.md)
 ### [확장 집합에서 수직적 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [자동 OS 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [확장 집합을 위한 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC 및 확장 집합 사용](virtual-machine-scale-sets-dsc.md)
 ### [확장 집합에 대한 네트워킹](virtual-machine-scale-sets-networking.md)

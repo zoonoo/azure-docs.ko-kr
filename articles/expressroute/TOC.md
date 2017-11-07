@@ -24,7 +24,7 @@
 ### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
-## 가상 네트워크를 Express 경로 회로에 연결합니다.
+## 가상 네트워크를 ExpressRoute 회로에 연결합니다.
 ### [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
@@ -41,6 +41,7 @@
 ## ExpressRoute에 대해 라우터 구성
 ### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)
+## [ExpressRoute에 대한 네트워크 성능 모니터 구성](how-to-npm.md)
 
 ## 모범 사례
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)

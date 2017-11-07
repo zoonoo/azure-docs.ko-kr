@@ -78,6 +78,7 @@
 ### [제안](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [패싯 탐색](search-faceted-navigation.md)
 ### [동의어 미리 보기](search-synonyms.md)
+### [moreLikeThis 미리 보기](search-more-like-this.md)
 
 # 참조
 
@@ -86,7 +87,7 @@
 ## [Python(관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST (영문)](/rest/api/searchservice)
 ## [REST(관리)](/rest/api/searchmanagement)
-## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
+## [서비스 REST(미리 보기)](search-api-2016-09-01-preview.md)
 
 # 리소스
 
