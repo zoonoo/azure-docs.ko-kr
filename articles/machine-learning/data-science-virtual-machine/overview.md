@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8398af10d4826373e16420be3309c6ae8246ca4b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 가상 컴퓨터에 대한 소개
 
@@ -46,30 +46,30 @@ ms.lasthandoff: 10/11/2017
 데이터 과학 해카톤/시합 또는 대규모 데이터 모델링 탐사에는, 일반적으로 짧은 기간 동안 확장된 하드웨어 용량이 필요합니다. 데이터 과학 VM은 요구에 따라서 데이터 과학 환경을 고성능 컴퓨팅 리소스가 필요한 실험을 허용하는 확장된 서버에서 신속하게 복제하도록 지원할 수 있습니다.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
-데이터 과학 VM은 Microsoft R Server, SQL Server, Visual Studio Tools , Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. 데이터 과학 VM을 신속하게 설정할 수 있기 때문에 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션이나 회의 자습서의 과정 따라 연습하는 등의 기타 단기 사용 시나리오에 적용할 수 있습니다.
+데이터 과학 VM은 Microsoft ML Server, SQL Server, Visual Studio Tools, Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. 데이터 과학 VM을 신속하게 설정할 수 있기 때문에 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션이나 회의 자습서의 과정 따라 연습하는 등의 기타 단기 사용 시나리오에 적용할 수 있습니다.
 
 ### <a name="deep-learning"></a>심층 학습
 GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리즘을 사용하여 학습 모델에 대한 데이터 과학 VM을 사용할 수 있습니다. Azure 클라우드의 VM 크기 조정 기능을 활용하면 DSVM을 통해 필요에 따라 클라우드에서 GPU 기반 하드웨어를 사용할 수 있습니다. 큰 모델을 학습할 때 GPU 기반 VM으로 전환하거나, 동일한 OS 디스크를 유지하면서 고속 계산이 필요할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 알고리즘이 미리 설치되어 있습니다. Linux에서 GPU 심층 학습은 [Linux(Ubuntu) 버전에 대한 데이터 과학 가상 컴퓨터](http://aka.ms/dsvm/ubuntu)에서만 사용 가능합니다. Ubuntu/Windows 2016 버전의 데이터 과학 VM은 비GPU 기반 Azure 가상 컴퓨터에 배포할 수 있습니다. 이 경우 모든 심층 학습 프레임워크가 CPU 모드로 대체됩니다. 이전에 Windows Server 2012에서 [심층 학습 도구 키트](http://aka.ms/dsvm/deeplearning)를 게시했지만, 이제는 Windows Server 2016을 Windows 기반 심층 학습 작업에 사용하는 것이 좋습니다. DSVM의 CentOS 기반 Linux 버전에는 일부 심층 학습 도구(Microsoft Cognitive Toolkit, TensorFlow, MXNet)의 CPU 빌드만 포함되어 있지만, GPU 드라이버 및 프레임워크는 사전 설치되어 있지 않습니다. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>데이터 과학 VM에는 무엇이 포함되어 있나요?
-데이터 과학 가상 컴퓨터에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 다양한 Azure 데이터 및 분석 제품을 사용하기 쉽게 해주는 도구도 포함되어 있습니다. Microsoft R Server를 사용하거나 SQL Server 2016을 사용하여 대규모 데이터 집합에서 예측 모델을 조사하고 구축할 수 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 가상 컴퓨터의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
+데이터 과학 가상 컴퓨터에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 다양한 Azure 데이터 및 분석 제품을 사용하기 쉽게 해주는 도구도 포함되어 있습니다. Microsoft ML Server(R, Python)를 사용하거나 SQL Server 2017을 사용하여 대규모 데이터 집합에서 예측 모델을 탐색하고 구축할 수 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 가상 컴퓨터의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
 
 
 | **도구**                                                           | **Windows 버전** | **Linux 버전** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | 인기 있는 패키지가 사전 설치된 [Microsoft R Open](https://mran.microsoft.com/open/)   |Y                      | Y             |
-| [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition은 다음을 포함합니다. <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) 병렬 및 분산 고성능 R 프레임워크<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) -Microsoft의 새로운 기계 학습 알고리즘 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 운영](https://msdn.microsoft.com/microsoft-r/operationalize/about)                                            |Y                      | Y <br/> (MicrosoftML은 아직 사용할 수 없음)|
+| [Microsoft ML Server(R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition은 다음을 포함합니다. <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) 병렬 및 분산 고성능 프레임 워크(R 및 Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -Microsoft의 새로운 기계 학습 알고리즘 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 및 Python 연산화](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus(공유 정품 인증) - Excel, Word 및 PowerPoint   |Y                      |N              |
 | 인기 있는 패키지가 사전 설치된 [Anaconda Python](https://www.continuum.io/) 2.7, 3.5    |Y                      |Y              |
 | Julia 언어에 대해 인기 있는 패키지가 사전 설치된 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
-| 관계형 데이터베이스                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS에만 해당) |
+| 관계형 데이터베이스                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS에만 해당) |
 | 데이터베이스 도구                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC 드라이버| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)(쿼리 도구), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC 드라이버|
-| SQL Server R Services를 통한 확장성 있는 데이터베이스 내 분석 | Y     |N              |
+| SQL Server ML 서비스(R, Python)를 통한 확장성 있는 데이터베이스 내 분석 | Y     |N              |
 | 다음의 커널이 있는 **[Jupyter 노트북 서버](http://jupyter.org/),**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 & 3.5 | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | N | Y |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | Y (Ubuntu에만 해당) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub(다중 사용자 노트북 서버)| N | Y |
@@ -92,7 +92,12 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy(Azure Data Lake 저장소)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
+| &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            * 
+            [Adlcopy(Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB 데이터 마이그레이션 도구](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft 데이터 관리 게이트웨이](https://msdn.microsoft.com/library/dn879362.aspx): 온-프레미스 및 클라우드 간 데이터 이동 | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix/Linux 명령줄 유틸리티 | Y | Y |

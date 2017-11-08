@@ -13,20 +13,27 @@ ms.custom: VNet Service endpoints
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 10/13/2017
+ms.workload: On Demand
+ms.date: 10/30/2017
 ms.author: genemi
-ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
 *가상 네트워크 규칙*은 Azure SQL Database 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]이 있어야 합니다.
+
+
+> [!NOTE]
+> Azure SQL Database의 경우 이 기능은 다음과 같은 Azure 지역에서 미리 보기로 제공됩니다.
+>
+> - WestCentralUS, WestUS2 및 EastUS.
+
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>가상 네트워크 규칙을 만드는 방법
 
@@ -139,7 +146,7 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
     - [ExpressRoute][expressroute-indexmd-744v]를 통한 온-프레미스
 
-#### <a name="expressroute"></a>Express 경로
+#### <a name="expressroute"></a>ExpressRoute
 
 네트워크가 [ExpressRoute][expressroute-indexmd-744v]의 사용을 통해 Azure 네트워크에 연결된 경우 각 회로는 Microsoft Edge에서 두 개의 공용 IP 주소로 구성됩니다. 두 개의 IP 주소는 Azure 공용 피어링을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결하는 데 사용됩니다.
 

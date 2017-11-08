@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결 방법
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 | Azure AD 연결 컴퓨터의 응용 프로그램 이벤트 로그에서 오류 6800로 인해 온-프레미스에서 암호 재설정 서비스가 시작되지 않습니다. <br> <br> 온보딩 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다. | 비밀번호 쓰기 저장을 사용하는 경우 동기화 엔진은 저장 라이브러리를 호출하여 클라우드 온보딩 서비스와 대화함으로써 구성(온보딩)을 수행합니다. 비밀번호 쓰기 저장에 대한 WCF 끝점을 온보딩 또는 시작하는 동안 발생한 오류는 Azure AD 연결 컴퓨터의 이벤트 로그에서 오류를 발생시킵니다. <br> <br> ADSync 서비스를 다시 시작하는 동안 쓰기 저장을 구성한 경우 WCF 끝점을 시작합니다. 그러나 끝점을 시작하는 데 실패하면 6800 이벤트를 로그하고 동기화 서비스를 시작합니다. 이 이벤트의 현재 상태는 암호 쓰기 저장 끝점이 시작되지 않았음을 의미합니다. 이 이벤트(6800)에 대한 이벤트 로그 세부 정보는 PasswordResetService 요소가 생성한 이벤트 로그 항목과 함께 끝점을 시작하지 못한 이유를 나타냅니다. 비밀번호 쓰기 저장이 여전히 작동하지 않는 경우 이러한 이벤트 로그 오류를 검토하고 Azure AD Connect를 다시 시작합니다. 문제가 지속되면 암호 쓰기 저장을 비활성화하고 다시 활성화시킵니다.
 | 사용자가 암호 재설정 또는 비밀번호 쓰기 저장을 사용하도록 설정된 계정을 잠금 해제하려는 경우 작업이 실패합니다. <br> <br> 또한 잠금 해제 작업이 발생한 후 “동기화 엔진이 오류 hr=800700CE 반환, 메시지=파일 이름 또는 확장명이 너무 깁니다”를 포함하는 Azure AD Connect 이벤트 로그에서 이벤트가 표시됩니다. | Azure AD Connect에 대한 Active Directory 계정을 찾고 최대 127자를 사용하는 암호를 재설정합니다. 그런 다음 시작 메뉴에서 [동기화 서비스]를 엽니다. [커넥터]로 이동하고 [Active Directory Connector]를 찾습니다. 이를 선택하고 [속성]을 클릭합니다. [자격 증명] 페이지로 이동하고 새 암호를 입력합니다. [확인]을 선택하여 페이지를 닫습니다. |
 | Azure AD Connect 설치 프로세스의 마지막 단계에서 암호 쓰기 저장을 구성할 수 없다는 오류가 표시됩니다. <br> <br> Azure AD 연결 응용 프로그램 이벤트 로그는 "인증 토큰 가져오기 오류"라는 오류 32009 텍스트를 포함합니다. | 이 오류는 다음과 같은 두 경우에 발생합니다.<br> <br> a. Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 잘못된 암호를 지정했습니다.<br> b. Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 페더레이션된 사용자를 사용하려 했습니다.<br> <br> 이 오류를 해결하려면 Azure AD Connect 설치 프로세스를 시작할 때 지정한 전역 관리자로 페더레이션된 계정을 사용하지 않고 지정된 암호가 올바른지 확인하세요. |
-| Azure AD Connect 컴퓨터 이벤트 로그는 PasswordResetService가 발생시킨 오류 32002를 포함합니다. <br> <br> 오류에서 "ServiceBus에 연결 오류, 토큰 공급자가 보안 토큰을 제공할 수 없습니다... "라는 메시지가 보입니다. | 온-프레미스 환경을 클라우드의 Service Bus 끝점에 연결할 수 없습니다. 이 오류는 특정 포트 또는 웹 주소에 대한 아웃바운드 연결을 차단하는 방화벽 규칙에 의해 발생됩니다. 자세한 정보는 [네트워크 요구 사항](active-directory-passwords-how-it-works.md#network-requirements)을 참조하세요. 이러한 규칙을 업데이트한 후 Azure AD Connect 컴퓨터를 재부팅하고 암호 쓰기 저장은 작업을 다시 시작해야 합니다. |
+| Azure AD Connect 컴퓨터 이벤트 로그는 PasswordResetService가 발생시킨 오류 32002를 포함합니다. <br> <br> 오류에서 "ServiceBus에 연결 오류, 토큰 공급자가 보안 토큰을 제공할 수 없습니다... "라는 메시지가 보입니다. | 온-프레미스 환경을 클라우드의 Service Bus 끝점에 연결할 수 없습니다. 이 오류는 특정 포트 또는 웹 주소에 대한 아웃바운드 연결을 차단하는 방화벽 규칙에 의해 발생됩니다. 자세한 내용은 [연결 필수 조건](./connect/active-directory-aadconnect-prerequisites.md)을 참조하세요. 이러한 규칙을 업데이트한 후 Azure AD Connect 컴퓨터를 재부팅하고 암호 쓰기 저장은 작업을 다시 시작해야 합니다. |
 | 시간이 지난 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다. | 일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 비밀번호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 작동하지 않으면 Azure AD Connect를 완전히 제거하고 다시 설치해보세요. |
 | 페더레이션된 페더레이션되거나 암호 해시 동기화되어 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다. <br ><br> 이 외에도 암호 재설정 작업 중 관리 에이전트와 관련한 오류가 온-프레미스 이벤트 로그에서 거부된 액세스를 표시할 수 있습니다 | 이러한 오류를 이벤트 로그에 표시한 경우 AD MA 계정(구성 시 마법사에서 지정됨)이 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인합니다. <br> <br> **이 사용 권한이 부여되면 DC에서 sdprop 백그라운드 작업을 통해 권한을 주는 데 최대 1시간이 걸릴 수 있습니다.** <br> <br> 암호 재설정을 작동하기 위해 해당 암호를 재설정하는 사용자 개체의 보안 설명자에 사용 권한을 스탬프해야 합니다. 사용자 개체에 이 사용 권한이 표시될 때까지 암호 재설정은 액세스가 거부되어 실패하게 됩니다. |
 | 페더레이션된 페더레이션되거나 암호 해시 동기화되어 자신의 암호를 재설정하려는 사용자는 서비스 문제가 나타나는 암호를 제출한 후 오류가 나타납니다. <br> <br> 이외에 암호 재설정 작업 중에 Azure AD Connect 서비스에서 이벤트 로그에 "개체를 찾을 수 없습니다"라는 오류가 나타날 수 있습니다. | 이 오류는 일반적으로 동기화 엔진이 AAD 커넥터 공간 또는 연결된 MV에서 사용자 개체 또는 AD 커넥터 공간 개체를 찾을 수 없음을 나타냅니다. <br> <br> 이 문제를 해결하려면 Azure AD Connect의 현재 인스턴스를 통해 사용자가 온-프레미스에서 AAD에 실제로 동기화되었는지 확인하고 커넥터 공간 및 MV에서 개체의 상태를 검사합니다. AD CS 개체가 "Microsoft.InfromADUserAccountEnabled.xxx" 규칙을 통한 MV 개체의 커넥터인지 확인합니다.|
@@ -164,7 +164,7 @@ Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 �
 
 ### <a name="confirm-network-connectivity"></a>네트워크 연결 확인
 
-가장 일반적인 오류 지점은 방화벽 및 또는 프록시 포트 및 유휴 시간 제한이 올바르지 않게 구성된 것입니다. 자세한 내용은 [Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기](active-directory-passwords-how-it-works.md#network-requirements) 문서에서 네트워크 요구 사항을 참조하세요.
+가장 일반적인 오류 지점은 방화벽 및 또는 프록시 포트 및 유휴 시간 제한이 올바르지 않게 구성된 것입니다. 자세한 내용은 [Azure AD Connect에 대한 필수 조건](./connect/active-directory-aadconnect-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect 동기화 서비스 다시 시작
 
@@ -269,13 +269,14 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
 
 다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
 
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작
-* [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
-* [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
-* [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포
-* [**사용자 지정**](active-directory-passwords-customize.md) - 회사 SSPR 경험의 모양과 느낌을 사용자 지정.
-* [**정책**](active-directory-passwords-policy.md) - Azure AD 암호 정책을 이해하고 설정
-* [**비밀번호 쓰기 저장**](active-directory-passwords-writeback.md) - 비밀번호 쓰기 저장이 온-프레미스 디렉터리와 함께 작동 하는 원리
-* [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
-* [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
-* [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](active-directory-passwords-best-practices.md)
+* [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+* [라이선스 관련 질문이 있습니까?](active-directory-passwords-licensing.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](active-directory-passwords-data.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](active-directory-passwords-policy.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](active-directory-passwords-writeback.md)
+* [SSPR 작업은 어떻게 보고 합니까?](active-directory-passwords-reporting.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)

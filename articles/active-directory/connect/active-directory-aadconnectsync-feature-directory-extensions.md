@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d586df0ede6ff9b3a4837a4a9c551ab3ee6d763a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce7da9321a4a36e892bad75819d1c30ab5197a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph 탐색기](https://graphexplorer.azurewebsites.net/) 및 [Microsoft Graph 탐색기](https://developer.microsoft.com/en-us/graph/graph-explorer)를 통해 사용할 수 있는 특성을 볼 수 있습니다.
@@ -32,6 +32,10 @@ ms.lasthandoff: 10/11/2017
 * 사용자 및 그룹 개체 유형
 * 단일 값 특성: 문자열, 부울, 정수, 이진
 * 다중 값 특성: 문자열, 이진
+
+
+>[!NOTE]
+> Azure AD Connect는 다중값 AD 특성을 Azure AD에 다중값 디렉터리 확장으로 동기화하는 것을 지원하지만, Azure AD에는 현재 다중값 디렉터리 확장을 지원하는 기능이 없습니다.
 
 특성 목록은 Azure AD Connect 설치 도중에 만들어진 스키마 캐시에서 읽힙니다. 추가 특성을 사용하여 Active Directory 스키마를 확장한 경우 [스키마를 새로 고쳐야](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) 이러한 새 특성을 볼 수 있습니다.
 

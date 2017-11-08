@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 장치에 StorSimple 장치 관리자 서비스 배포
 
@@ -74,7 +74,7 @@ StorSimple 장치 관리자 서비스를 만들려면 다음 항목이 필요합
 
 #### <a name="before-you-transition"></a>전환하기 전에
 
-* 장치가 업데이트 3.0 이상을 실행하고 있습니다. 장치에서 이전 버전을 실행 중인 경우 최신 업데이트를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)로 이동하세요. StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치합니다.
+* 장치가 업데이트 3.0 이상을 실행하고 있습니다. 장치가 그 이전 버전을 실행 중인 경우 핫픽스 메서드를 통해 업데이트 5를 설치하는 것이 좋습니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치합니다.
 
 * 새 Azure Portal로 전환하면 StorSimple 장치를 관리하는 데 Azure 클래식 포털을 사용할 수 없습니다.
 

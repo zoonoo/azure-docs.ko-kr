@@ -29,7 +29,7 @@ sections:
             href: /azure/container-instances/container-instances-quickstart
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure 포털
+            text: Azure Portal
             href: /azure/container-instances/container-instances-quickstart-portal
   - title: 단계별 자습서
     items:

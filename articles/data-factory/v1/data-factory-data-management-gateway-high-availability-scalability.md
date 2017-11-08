@@ -14,13 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: eb026d44eedf3b393408c8453a8ed1cfed3ce415
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [버전 2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
+
+
 이 문서에서는 데이터 관리 게이트웨이/통합을 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
 
 > [!NOTE]

@@ -9,11 +9,11 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="document-collection-analysis"></a>문서 컬렉션 분석
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 | 파일 이름 | 형식 | 설명 |
 |-----------|------|-------------|
-| `aml_config` | 폴더 | Azure Machine Learning Workbench 구성 폴더는 자세한 실험 실행 구성에 대해 [이 설명서](./experiment-execution-configuration-reference.md)를 참조합니다. |
+| `aml_config` | 폴더 | Azure Machine Learning Workbench 구성 폴더는 자세한 실험 실행 구성에 대해 [이 설명서](./experimentation-service-configuration-reference.md)를 참조합니다. |
 | `Code` | 폴더 | Python 스크립트 및 Python 패키지를 저장하는 데 사용하는 코드 폴더 |
 | `Data` | 폴더 | 중간 파일을 저장하는 데 사용되는 데이터 폴더 |
 | `notebooks` | 폴더 | Jupyter 노트북 폴더 |
@@ -120,6 +120,7 @@ ms.lasthandoff: 10/11/2017
 | `notebooks/3_Topic_Model_Training.ipynb` | iPython Notebook | LDA 토픽 모델 교육 |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | iPython Notebook | 교육된 LDA 토픽 모델을 기반으로 문서 컬렉션의 내용을 요약합니다. |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | 문서 컬렉션의 토픽 내용을 분석하고 토픽 정보를 문서 컬렉션과 연결된 다른 메타 데이터와 서로 관련시킵니다. |
+| `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | 학습된 토픽 모델의 대화형 시각화 |
 | `notebooks/winprocess.py` | Python 파일 | 노트북에서 사용하는 다중 처리에 대한 python 스크립트 |
 | `README.md` | Markdown 파일 | 추가 정보 markdown 파일 |
 
@@ -224,6 +225,8 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 `4_Topic_Model_Summarization.ipynb`에서는 교육된 LDA 토픽 모델을 기반으로 문서의 내용을 요약하는 방법을 보여 줍니다. 요약은 3 단계에서 배운 LDA 토픽 모델에 적용됩니다. 토픽을 순도 측정값을 기록하는 데 사용하여 토픽의 중요성 또는 품질을 측정하는 방법을 보여줍니다. 이 순도 측정은 문서를 지배하는 잠재 토픽이 많은 문서에 약하게 분산되어 있는 잠재 토픽보다 의미 체계적으로 더욱 중요한 듯이 보인다고 가정합니다. 이 개념은 "[Latent Topic Modeling for Audio Corpus Summarization(오디오 코퍼스 요약에 대한 잠재 토픽 모델링)](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)"라는 기사에 소개되었습니다.
 
 Notebook `5_Topic_Model_Analysis.ipynb`은 문서 컬렉션의 토픽 내용을 분석하고 토픽 정보를 문서 컬렉션과 연결된 다른 메타 데이터와 서로 관련시키는 방법을 보여 줍니다. 사용자가 학습된 토픽 및 문서 컬렉션을 더 잘 이해할 수 있도록 돕기 위해 이 노트북에 몇 가지 그리기가 소개됩니다.
+
+Notebook `6_Interactive_Visualization.ipynb`는 학습된 토픽 모델을 대화형으로 시각화하는 방법을 보여 줍니다. 여기에는 4개의 대화형 시각화 작업이 포함됩니다.
 
 ## <a name="conclusion"></a>결론
 

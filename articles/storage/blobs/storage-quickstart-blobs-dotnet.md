@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: 97bacc2c1285fe4a467a54f224bb9fabbd851fee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob Storage에서 개체 전송
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)을 설치합니다.
+* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
     - **Azure 개발**
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 12. 저장소 계정에 사용할 `Location`을 선택합니다.
 13. **대시보드에 고정**을 선택하고 **만들기**를 클릭하여 저장소 계정을 만듭니다. 
 
-저장소 계정을 만들면 대시보드에 고정됩니다. 클릭하여 엽니다. 설정에서 **액세스 키**를 클릭합니다. 키를 선택하고 나중에 사용할 수 있게 연결 문자열을 클립보드에 복사한 후 메모장에 붙여 넣습니다.
+저장소 계정을 만들면 대시보드에 고정됩니다. 클릭하여 엽니다. 설정에서 **액세스 키**를 클릭합니다. 키를 선택하고 나중에 사용할 수 있게 연결 문자열을 클립보드에 복사한 후 텍스트 편집기에 붙여 넣습니다.
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 
@@ -68,7 +68,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. Visual Studio의 솔루션 탐색기에서 `app.config` 파일을 엽니다. StorageConnectionString 항목을 찾습니다. **값**에 대해 연결 문자열의 전체 값을 Azure Portal에서 저장한 메모장의 값으로 바꿉니다. 완료하면 다음과 비슷한 결과가 표시됩니다.
+응용 프로그램에서 저장소 계정에 대한 연결 문자열을 제공해야 합니다. Visual Studio의 솔루션 탐색기에서 `app.config` 파일을 엽니다. `StorageConnectionString` 항목을 찾습니다. **값**에 대해 연결 문자열의 전체 값을 Azure Portal에서 저장한 값으로 바꿉니다. `storageConnectionString`이 다음과 유사하게 나타납니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,8 +78,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>" />
   </appSettings>
 </configuration>
 ```
@@ -98,7 +98,7 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-아무 키나 눌러 계속하면 저장소 컨테이너 및 파일이 삭제됩니다. 계속하기 전에 MyDocuments에서 두 파일을 열어 동일한지 확인합니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다.
+아무 키나 눌러 계속하면 저장소 컨테이너 및 파일이 삭제됩니다. 계속하기 전에 MyDocuments에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다.
 
 [Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
@@ -108,17 +108,17 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
-* 저장소 계정을 가리키는 **CloudStorageAccount** 개체를 인스턴스화합니다. 
+* 저장소 계정을 가리키는 **CloudStorageAccount** 개체의 인스턴스를 만듭니다. 
 
-* 저장소 계정의 Blob 서비스를 가리키는 **CloudBlobClient** 개체를 인스턴스화합니다. 
+* 저장소 계정의 Blob service를 가리키는 **CloudBlobClient** 개체의 인스턴스를 만듭니다. 
 
-* 액세스하는 컨테이너를 나타내는 **CloudBlobContainer** 개체를 인스턴스화합니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.
+* 액세스하는 컨테이너를 나타내는 **CloudBlobContainer** 개체의 인스턴스를 만듭니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.
 
-**CloudBlobContainer**가 있으면 관심 있는 특정 blob을 가리키는 **CloudBlockBlob** 개체를 인스턴스화하고, 업로드, 다운로드, 복사 등을 수행할 수 있습니다.
+**CloudBlobContainer**가 있으면 관심 있는 특정 Blob을 가리키는 **CloudBlockBlob** 개체의 인스턴스를 만들고, 업로드, 다운로드, 복사 등을 수행할 수 있습니다.
 
-이 섹션에서는 개체를 인스턴스화하고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 blob을 공용 blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
+이 섹션에서는 개체의 인스턴스를 만들고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob을 공용 Blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
-이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 CreateIfNotExists를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 CreateIfNotExists를 한 번만 호출하거나, 코드에서 만들 필요가 없도록 컨테이너를 미리 만드는 것이 더 좋은 방법입니다.
+이 예제에서는 샘플이 실행될 때마다 새 컨테이너를 만들려고 하기 때문에 **CreateIfNotExists**를 사용합니다. 응용 프로그램 전체에서 동일한 컨테이너를 사용하는 프로덕션 환경에서는 **CreateIfNotExists**를 한 번만 호출하는 것이 더 좋은 방법입니다. 또는, 코드에서 만들 필요가 없도록 컨테이너를 미리 만드는 것이 좋습니다.
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -161,11 +161,11 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 Blob 저장소에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 메모리 스트림이 있는 경우 UploadFromFileAsync 대신 UploadFromStreamAsync 메서드를 사용할 수 있습니다. 
 
-블록 blob 크기는 4.7TB까지 가능하며, Excel 스프레드시트에서 큰 비디오 파일까지 다양할 수 있습니다. 페이지 blob은 IaaS VM을 백업하는 데 사용되는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
+블록 Blob은 모든 유형의 텍스트 또는 이진 파일이 될 수 있습니다. 페이지 blob은 IaaS VM을 백업하는 데 사용되는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync)를 사용하여 컨테이너의 파일 목록을 가져옵니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
+[CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync)를 사용하여 컨테이너의 파일 목록을 가져올 수 있습니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
 
 컨테이너에 있는 blob이 5,000개 이하인 경우 모든 blob 이름이 ListBlobsSegmentedAsync의 단일 호출에서 검색됩니다. 컨테이너에 있는 blob이 5,000개보다 많을 경우 서비스는 모든 blob 이름이 검색될 때까지 5,000개씩 목록을 검색합니다. 이 API가 처음 호출되면 처음 5,000개 blob 이름과 연속 토큰이 반환됩니다. 두 번째로 호출될 때는 이 토큰을 제공해야 합니다. 그러면 서비스는 다음 blob 이름 집합을 검색합니다. 이와 같이 진행하다가 연속 토큰이 null이 되어 모든 blob 이름이 검색되었음을 나타내면 중단됩니다. 
 

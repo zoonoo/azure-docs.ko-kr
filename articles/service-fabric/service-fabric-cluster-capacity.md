@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * 미래를 예측할 수 없으므로 알고 있는 사실을 바탕으로 진행하고 다음 응용 프로그램으로 시작해야 하는 노드 형식의 수를 결정합니다. 나중에 노드 유형을 추가하거나 제거할 수 있습니다. 서비스 패브릭 클러스터에는 하나 이상의 노드 유형이 있어야 합니다.
 
 ## <a name="the-properties-of-each-node-type"></a>각 노드 유형의 속성
-**노드 유형**은 Cloud Services의 역할과 똑같이 보일 수 있습니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. 고유한 가상 컴퓨터 확장 집합으로 정의된 각 노드 형식은 독립적으로 확장 또는 축소되고 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다.
+**노드 유형** 은 Cloud Services의 역할과 똑같이 보일 수 있습니다. 노드 유형에서 VM 크기, VM 수 및 VM 속성을 정의합니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. 고유한 가상 컴퓨터 확장 집합으로 정의된 각 노드 형식은 독립적으로 확장 또는 축소되고 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다.
 
 가상 컴퓨터 확장 집합에 대한 노드 형식의 관계, 인스턴스 중 하나로 RDP를 수행하는 방법, 새 포트 열기 등에 대한 자세한 내용은 [이 문서](service-fabric-cluster-nodetypes.md)를 읽어보세요.
 
@@ -92,6 +92,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>실버 또는 골드 내구성 수준을 사용해야 하는 경우에 대한 권장 사항
 
 규모 감축(VM 인스턴스 수 축소)이 자주 수행될 것으로 예상되는 상태 비저장 서비스를 호스트하는 모든 노드 유형에는 실버 또는 골드 재구성을 사용하고, 이러한 규모 감축 작업의 간소화를 위해 배포 작업이 지연되도록 하는 것이 좋습니다. 규모 확장 시나리오(VM 인스턴스 추가)는 내구성 계층 선택에 영향을 주지 않으며, 규모 감축만 영향을 줍니다.
+
+### <a name="changing-durability-levels"></a>내구성 수준 변경
+- 내구성 수준이 Silver 또는 Gold인 노드 유형은 Bronze로 다운그레이드할 수 없습니다.
+- Bronze에서 Silver 또는 Gold로 업그레이드하는 데 몇 시간이 걸릴 수 있습니다.
+- 내구성 수준을 변경할 때는 VMSS 리소스의 Service Fabric 확장 구성과 Service Fabric 클러스터 리소스의 노드 유형 정의 모두에서 업데이트해야 합니다. 이러한 값이 일치해야 합니다.
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>실버 또는 골드 내구성 수준으로 설정한 노드 유형에 대한 운영 권장 사항입니다.
 

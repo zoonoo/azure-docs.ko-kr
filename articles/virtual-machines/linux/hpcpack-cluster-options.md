@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 08/25/2017
+ms.date: 10/26/2017
 ms.author: danlep
-ms.openlocfilehash: 99aee6b73242d21842b02ded8c9e4e25bc5cedb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae36e64c0261b1fe8d02d6dcb80df7cdee333db9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-linux-hpc-workloads-in-azure"></a>HPC Pack을 사용하여 Azure에서 Linux HPC 워크로드의 클러스터를 만들고 관리하기 위한 옵션
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 이 문서는 HPC 팩을 사용하여 Linux 워크로드를 실행할 때 사용 가능한 옵션에 대해 살펴봅니다. 또한 [HPC 팩을 사용하여 Windows HPC 워크로드](../windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 실행할 때 사용 가능한 옵션도 있습니다.
 
-## <a name="hpc-pack-cluster-in-azure-vms"></a>Azure VM의 HPC Pack 클러스터
+## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Azure VM의 HPC Pack 클러스터 및 VM 확장 집합
 ### <a name="azure-templates"></a>Azure 템플릿
 * (GitHub) [HPC 팩 2016 클러스터 템플릿](https://github.com/MsHpcPack/HPCPack2016)
-* (마켓플레이스) [Linux 워크로드용 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+* (GitHub) [HPC 팩 2012 R2 클러스터 템플릿](https://github.com/MsHpcPack/HPCPack2012R2)
+* (Marketplace) [Linux 워크로드용 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 * (퀵 스타트) [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
 ### <a name="powershell-deployment-script-for-hpc-pack-2012-r2"></a>HPC Pack 2012 R2에 대한 PowerShell 배포 스크립트

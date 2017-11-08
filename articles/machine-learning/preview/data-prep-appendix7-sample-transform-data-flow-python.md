@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning Data Preparation을 사용한 데이터 흐름 변환 예제 | Microsoft Docs"
-description: "이 문서는 Azure ML 데이터 준비로 가능한 사용자 변환 데이터 흐름 변환의 예제 집합을 제공합니다."
+description: "이 문서에서는 Azure Machine Learning 데이터 준비에서 사용할 수 있는 일단의 데이터 흐름 변환 예제를 제공합니다."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,29 +12,29 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: f43f65ca89349fc790684e9bd7acd2f19e15abe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>사용자 지정 데이터 흐름 변환 예제(Python) 
-메뉴에서 이 변환의 이름은 'Transform Dataflow (스크립트)'입니다. 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 읽습니다.
+메뉴의 변환 이름은 **Transform Dataflow(스크립트)**입니다. 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
 
 ## <a name="transform-frame"></a>프레임 변환
 ### <a name="create-a-new-column-dynamically"></a>동적으로 새 열 만들기 
-동적으로 열(city2)을 만들고 기존 city 열에 맞춰 여러 다른 버전의 샌프란시스코를 조정합니다.
+열(**city2**)을 동적으로 만들고 여러 다른 버전의 San Francisco를 기존 city 열 중 하나로 조정합니다.
 ```python
     df.loc[(df['city'] == 'San Francisco') | (df['city'] == 'SF') | (df['city'] == 'S.F.') | (df['city'] == 'SAN FRANCISCO'), 'city2'] = 'San Francisco'
 ```
 
 ### <a name="add-new-aggregates"></a>새 집계 추가
-Risk_category 열로 그룹화된 점수 열에 대해 계산된 첫 번째 및 마지막 집계를 사용해 새 프레임을 만듭니다.
+score 열에 대해 계산된 첫 번째 및 마지막 집계가 있는 새 프레임을 만듭니다. 이러한 집계는 **risk_category** 열로 그룹화됩니다.
 ```python
     df = df.groupby(['risk_category'])['Score'].agg(['first','last'])
 ```
 ### <a name="winsorize-a-column"></a>열 윈저화 
-열의 이상값을 줄이기 위해 수식을 충족하는 데이터를 다시 작성합니다.
+열의 이상값을 줄이기 위해 수식을 충족하도록 데이터를 다시 작성합니다.
 ```python
     import scipy.stats as stats
     df['Last Order'] = stats.mstats.winsorize(df['Last Order'].values, limits=0.4)
@@ -42,8 +42,7 @@ Risk_category 열로 그룹화된 점수 열에 대해 계산된 첫 번째 및 
 
 ## <a name="transform-data-flow"></a>데이터 흐름 변환
 ### <a name="fill-down"></a>자동 채우기 
-자동 채우기를 하려면 두 변환이 필요합니다.
-다음과 같은 데이터를 가정합니다.
+자동 채우기를 하려면 두 변환이 필요합니다. 다음과 같은 데이터를 가정합니다.
 
 
 |시스템 상태         |City       |
@@ -59,16 +58,16 @@ Risk_category 열로 그룹화된 점수 열에 대해 계산된 첫 번째 및 
 |              |샌안토니오|
 |              |휴스턴    |
 
-우선 다음 코드를 포함하는 'Add Column (스크립트)' 변환을 만듭니다.
+먼저 다음 코드가 포함된 Add Column(스크립트) 변환을 만듭니다.
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-이제 다음 코드를 포함하는 Transform Data Flow (스크립트) 변환을 만듭니다
+이제 코드가 포함된 Transform Data Flow(스크립트) 변환을 만듭니다.
 ```python
     df = df.fillna( method='pad')
 ```
 
-그리고 다음과 같은 데이터를 가정합니다.
+이제 데이터는 다음과 같습니다.
 
 |시스템 상태         |newState         |City       |
 |--------------|--------------|-----------|

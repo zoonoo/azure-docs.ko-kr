@@ -71,7 +71,6 @@
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### [스크립트를 사용하여 정책 할당](resource-manager-policy-create-assign.md)
 ### 예
 #### [태그](resource-manager-policy-tags.md)
 #### [명명 규칙](resource-manager-policy-naming-convention.md)

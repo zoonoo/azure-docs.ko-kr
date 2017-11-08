@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
-ms.author: corywink
-ms.openlocfilehash: 5039dd30f85278b4e3bbba938ef40077af2c5c75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 09/21/2017
+ms.author: dobett
+ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
@@ -28,96 +28,76 @@ ms.lasthandoff: 10/11/2017
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
-* [미리 구성된 원격 모니터링 솔루션][lnk-remote-monitoring-github]
-* [예측 유지 관리 미리 구성된 솔루션][lnk-predictive-maintenance-github]
+
+* [원격 모니터링 사전 구성 솔루션(.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [원격 모니터링 사전 구성 솔루션(.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [예측 유지 관리 사전 구성 솔루션](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IoT Hub 장치 관리 기능을 사용하는 미리 구성된 원격 모니터링 솔루션을 최신 버전으로 업데이트하려면 어떻게 해야 합니까?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>새 원격 모니터링 솔루션을 프로비전하는 비용은 얼마인가요?
 
-* https://www.azureiotsuite.com/ 사이트에서 미리 구성된 솔루션을 배포하는 경우 항상 최신 버전의 솔루션의 새 인스턴스를 배포합니다.
-* 명령줄을 사용하여 미리 구성된 솔루션을 배포하는 경우 새 코드와 함께 기존 배포를 업데이트할 수 있습니다. GitHub [리포지토리][lnk-remote-monitoring-github]에서 [클라우드 배포][lnk-cloud-deployment]를 참조하세요.
+새로운 사전 구성 솔루션은 두 가지 배포 옵션을 제공합니다.
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션에 새 장치 메서드에 대한 지원을 어떻게 추가할 수 있습니까?
+* *기본* 옵션은 낮은 개발 비용을 원하는 개발자나 데모 또는 개념 증명을 빌드하려는 고객을 위해 설계되었습니다.
+* *표준* 옵션은 프로덕션이 준비된 인프라를 배포하려는 기업을 위해 설계되었습니다.
 
-[미리 구성된 솔루션 사용자 지정][lnk-customize] 문서에서 [시뮬레이터에 새 메서드에 대한 지원 추가][lnk-add-method] 섹션을 참조하세요.
+### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>솔루션을 개발하는 동안 비용을 낮게 유지하려면 어떻게 해야 하나요?
 
-### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>시뮬레이션된 장치가 desired 속성 변경을 무시하고 있는 이유는 무엇입니까?
-미리 구성된 원격 모니터링 솔루션에서 시뮬레이션된 장치 코드는 **Desired.Config.TemperatureMeanValue** 및 **Desired.Config.TelemetryInterval** desired 속성만을 사용하여 reported 속성을 업데이트합니다. 다른 모든 desired 속성 변경 요청은 무시됩니다.
+두 가지 차별화된 배포를 제공하는 것 외에 새로운 원격 모니터링 솔루션에는 시뮬레이션된 모든 장치를 필요할 때 활성화 또는 비활성화할 수 있는 설정이 있습니다. 시뮬레이션을 비활성화하면 솔루션에서 수집된 데이터가 줄어들어 전체 비용이 절감됩니다.
 
-### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>내 장치가 솔루션 대시보드의 장치 목록에 나타나지 않는 이유는 무엇입니까?
+### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>세 가지 사전 구성 솔루션 모두에 새로운 마이크로 서비스 아키텍처를 사용할 수 있나요?
 
-솔루션 대시보드의 장치 목록은 쿼리를 사용하여 장치 목록을 반환합니다. 현재 쿼리는 10K 이상의 장치를 반환할 수 없습니다. 쿼리에 대한 검색 조건을 더 제한적으로 설정해 보세요.
+현재 원격 모니터링 솔루션은 가장 광범위한 시나리오를 다루는 마이크로 서비스 아키텍처를 사용합니다.
+
+### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>새 업데이트의 새로운 오픈 소스 마이크로 서비스 기반 아키텍처는 어떤 이점을 제공하나요?
+
+지난 2년 동안 클라우드 아키텍처는 크게 발전했습니다. 마이크로 서비스는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 훌륭한 패턴으로 부상했습니다. 이 아키텍처 패턴은 일부 Microsoft 서비스에 내부적으로 사용되어 뛰어난 안정성과 확장성을 제공하고 있습니다. 고객이 이점을 누릴 수 있도록 이러한 경험을 실제 활용하고 있습니다.
+
+### <a name="is-the-new-preconfigured-solution-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 사전 구성 솔루션을 사용할 수 있나요?
+
+예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
+
+### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>기본 배포와 표준 배포의 차이가 무엇인가요? 두 가지 배포 옵션 중 적합한 옵션을 어떻게 결정하나요?
+
+각 배포 옵션은 서로 다른 요구에 대응합니다. 기본 배포는 PoC 및 소규모 파일럿을 시작하고 개발하도록 설계되었습니다. 최소한의 필요한 리소스와 보다 저렴한 비용으로 간소화된 아키텍처를 제공합니다. 표준 배포는 프로덕션이 준비된 솔루션을 빌드하고 사용자 지정하도록 설계되었으며 이를 실현하는 데 필요한 요소가 포함된 배포를 제공합니다. 안정성과 확장성을 위해 응용 프로그램 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 Kubernetes)를 사용하여 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다. 현재 필요에 따라 옵션을 선택해야 합니다. 프로젝트 단계에 따라 둘 중 하나를 사용할 수도 있고, 둘 다를 조합하여 사용할 수도 있습니다.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Azure IoT Suite에 대한 기존 투자를 계속 활용할 수 있나요?
+
+예. 현재 존재하는 모든 솔루션은 Azure 구독에서 계속 작동하며 소스 코드는 GitHub에서 계속 사용할 수 있습니다.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure 포털에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 미리 구성된 솔루션에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
-* [azureiotsuite.com][lnk-azureiotsuite]에서 미리 구성된 솔루션을 삭제하면, 미리 구성된 솔루션을 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다. 
-* [Azure Portal][lnk-azure-portal]에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹에서 리소스만 삭제합니다. 또한 [Azure 클래식 포털][lnk-classic-portal]에 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
+* [azureiotsuite.com](https://www.azureiotsuite.com/)에서 미리 구성된 솔루션을 삭제하면, 미리 구성된 솔루션을 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 IoT Hub 인스턴스는 몇 개인가요?
 
-기본적으로 [구독당 10개의 IoT Hub][link-azuresublimits]를 프로비전할 수 있습니다. [Azure 지원 티켓][link-azuresupportticket]을 만들어 이 제한을 높일 수 있습니다. 결과적으로 미리 구성된 모든 솔루션이 새 IoT Hub를 프로비전하기 때문에 지정된 구독에서 최대 10개의 미리 구성된 솔루션을 프로비전할 수 있습니다. 
+기본적으로 [구독당 10개의 IoT Hub](../azure-subscription-service-limits.md#iot-hub-limits)를 프로비전할 수 있습니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어 이 제한을 높일 수 있습니다. 결과적으로 미리 구성된 모든 솔루션이 새 IoT Hub를 프로비전하기 때문에 지정된 구독에서 최대 10개의 미리 구성된 솔루션을 프로비전할 수 있습니다.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 Azure Cosmos DB 인스턴스는 몇 개인가요?
 
-50개입니다. [Azure 지원 티켓][link-azuresupportticket]을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독당 Cosmos DB 인스턴스를 50개만 프로비전할 수 있습니다. 
+50개입니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독당 Cosmos DB 인스턴스를 50개만 프로비전할 수 있습니다.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 
 2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜젝션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
 
-### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>정적 맵이 있는 원격 모니터링 솔루션 배포에서는 대화형 Bing 맵을 어떻게 추가하나요?
-
-1. [Azure Portal][lnk-azure-portal]에서 엔터프라이즈용 Bing 맵 API QueryKey를 가져옵니다. 
-   
-   1. [Azure Portal][lnk-azure-portal]에서 엔터프라이즈용 Bing 맵 API가 있는 리소스 그룹으로 이동합니다.
-   2. **모든 설정**을 클릭한 다음 **키 관리**를 클릭합니다. 
-   3. **MasterKey**와 **QueryKey** 등, 두 개의 키를 볼 수 있습니다. **QueryKey**에 대한 값을 복사합니다.
-      
-      > [!NOTE]
-      > 엔터프라이즈용 Bing 맵 API 계정이 없는 경우 [Azure Portal][lnk-azure-portal]에서 + 새로 만들기를 클릭하고 엔터프라이즈용 Bing 맵 API를 검색한 다음 지침에 따라 새로 만듭니다.
-      > 
-      > 
-2. [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github]에서 최신 코드를 풀다운합니다.
-3. 저장소의 /docs/ 폴더에서 명령줄 배포 지침에 따라 로컬 또는 클라우드 배포를 실행합니다. 
-4. 로컬 또는 클라우드 배포를 실행한 후에는 루트 폴더에서 배포 중에 *.user.config 파일이 만들어졌는지 확인합니다. 텍스트 편집기에서 이 파일을 엽니다. 
-5. **QueryKey**에서 복사한 값을 포함하도록 다음 줄을 변경합니다. 
-   
-   `<setting name="MapApiQueryKey" value="" />`
-
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>DreamSpark용 Microsoft Azure가 있는 경우 사전 구성된 솔루션을 만들 수 있나요?
 
-현재는 [DreamSpark용 Microsoft Azure][lnk-dreamspark] 계정을 사용하여 사전 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정][lnk-30daytrial]을 만들면 사전 구성된 솔루션을 만들 수 있습니다.
+현재는 [DreamSpark용 Microsoft Azure](https://www.dreamspark.com/Product/Product.aspx?productid=99) 계정으로 미리 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정](https://azure.microsoft.com/free/)을 만들면 미리 구성된 솔루션을 만들 수 있습니다.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>CSP(클라우드 솔루션 공급자) 구독이 있는 경우 미리 구성된 솔루션을 만들 수 있나요?
 
-현재는 CSP(클라우드 솔루션 공급자) 구독이 있는 미리 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정][lnk-30daytrial]을 만들면 사전 구성된 솔루션을 만들 수 있습니다.
+현재는 CSP(클라우드 솔루션 공급자) 구독이 있는 미리 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 평가판 계정](https://azure.microsoft.com/free/)을 만들면 미리 구성된 솔루션을 만들 수 있습니다.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>AAD 테넌트를 어떻게 삭제하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk-delete-aad-tennant]을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 
 미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
 
-* [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
+* [예측 유지 관리 사전 구성 솔루션 개요](iot-suite-predictive-overview.md)
 * [연결된 팩터리 미리 구성된 솔루션 개요](iot-suite-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려][lnk-security-groundup]
-
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
-
-[link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
-[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
-[lnk-azure-portal]: https://portal.azure.com
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
-[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
-[lnk-30daytrial]: https://azure.microsoft.com/free/
-[lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance
+* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

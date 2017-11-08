@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1b6e368df4914e58eb3f8d6481132f25d27312b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>셀프 서비스 암호 재설정을 위한 Azure AD 기능 사용자 지정
 
@@ -28,7 +28,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="customize-the-contact-your-administrator-link"></a>관리자에게 문의 링크 사용자 지정
 
-SSPR을 사용하지 않는 경우라도 사용자는 암호 재설정 포털에서 "관리자에게 문의" 링크를 사용합니다.  이 링크를 클릭하면 사용자의 암호를 변경하는 데 도움을 요청하기 위해 관리자에게 전자 메일을 보내도록 연결합니다. 이 전자 메일은 다음 순서로 다음과 같은 받는 사람에게 전송됩니다.
+SSPR을 사용하지 않는 경우라도 사용자는 암호 재설정 포털에서 "관리자에게 문의" 링크를 사용합니다.  이 링크를 클릭하면 사용자의 암호를 변경하는 데 도움을 요청하기 위해 관리자에게 전자 메일을 보내거나 지정한 URL로 사용자를 보냅니다. 사용자가 지원을 위해 사용하는 이메일 주소 또는 웹 사이트와 같은 값으로 설정하는 것이 좋습니다.
+
+![연락처][Contact]
+
+이 전자 메일은 다음 순서로 다음과 같은 받는 사람에게 전송됩니다.
 
 1. **암호 관리자** 역할이 할당된 경우 이 역할을 가진 관리자에게 알림이 제공됩니다.
 2. 암호 관리자가 할당되지 않은 경우 **사용자 관리자** 역할을 가진 관리자에게 알림이 제공됩니다.
@@ -96,16 +100,17 @@ SharePoint Online과 Office 2010의 일부 기능은 이 확인란을 선택할 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](active-directory-passwords-best-practices.md)
+* [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+* [라이선스 관련 질문이 있습니까?](active-directory-passwords-licensing.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](active-directory-passwords-data.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](active-directory-passwords-policy.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](active-directory-passwords-writeback.md)
+* [SSPR 작업은 어떻게 보고 합니까?](active-directory-passwords-reporting.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작 
-* [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
-* [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
-* [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포
-* [**정책**](active-directory-passwords-policy.md) - Azure AD 암호 정책을 이해하고 설정
-* [**비밀번호 쓰기 저장**](active-directory-passwords-writeback.md) - 비밀번호 쓰기 저장이 온-프레미스 디렉터리와 함께 작동 하는 원리
-* [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
-* [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
-* [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-
+[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "암호 전자 메일 예제 재설정에 대한 도움이 필요하면 관리자에게 문의하십시오."

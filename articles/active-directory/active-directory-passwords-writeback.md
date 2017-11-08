@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 
@@ -83,18 +83,48 @@ DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으
 아래 단계에서는 사용자 환경에서 [기본](./connect/active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정](./connect/active-directory-aadconnect-get-started-custom.md) 설정을 사용하여 Azure AD Connect를 이미 구성했다고 가정합니다.
 
 1. 비밀번호 쓰기 저장을 구성하고 사용하도록 설정하려면 Azure AD Connect 서버에 로그인하고 **Azure AD Connect** 구성 마법사를 시작합니다.
-2. [시작] 화면에서 **구성**을 클릭합니다.
-3. 추가 작업 화면에서 **동기화 옵션 사용자 지정**을 클릭한 후 **다음**을 선택합니다.
+2. 시작 화면에서 **구성**을 클릭합니다.
+3. [추가 작업] 화면에서 **동기화 옵션 사용자 지정**을 클릭한 후 **다음**을 선택합니다.
 4. [Azure AD에 연결] 화면에서 전역 관리자 자격 증명을 입력하고 **다음**을 선택합니다.
 5. [디렉터리 연결] 및 [도메인 및 OU 필터링] 화면에서 **다음**을 선택하면 됩니다.
 6. 선택적 기능 화면에서 **비밀번호 쓰기 저장** 옆에 있는 상자를 선택하고 **다음**을 클릭합니다.
    ![Azure AD Connect에서 비밀번호 쓰기 저장 사용][Writeback]
 7. [구성 준비 완료] 화면에서 **구성**을 클릭하고 프로세스가 완료될 때까지 기다립니다.
-8. [구성 완료]가 표시되면 **종료**를 클릭하면 됩니다.
+8. [구성 완료]가 표시되면 **종료**를 클릭합니다.
+
+## <a name="active-directory-permissions"></a>Active Directory 사용 권한
+
+Azure AD Connect 유틸리티에서 지정된 계정에는 암호 재설정, 암호 변경, lockoutTime에 대한 쓰기 권한과 pwdLastSet에 대한 쓰기 권한, SSPR에서 범위를 지정하려는 해당 포리스트 **또는** 사용자 OU에 있는 **각 도메인**의 루트 개체에 대한 확장된 권한을 가지고 있어야 합니다.
+
+위에서 참조되는 계정을 모르는 경우, Azure Active Directory Connect 구성 UI를 열고 현재 구성 보기 옵션을 클릭합니다. 권한을 추가해야 하는 계정은 "디렉터리 동기화" 아래에 나열됩니다.
+
+이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. **이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다.**
+
+> [!NOTE]
+> 이 사용 권한이 디렉터리의 모든 개체를 복제하려면 한 시간 이상이 걸릴 수 있습니다.
+>
+
+비밀번호 쓰기 저장이 발생하도록 적절한 사용 권한을 설정하려면
+
+1. 적절한 도메인 관리 권한이 있는 계정으로 [Active Directory 사용자 및 컴퓨터]를 엽니다.
+2. [보기]메뉴에서 [고급 기능]이 켜져 있어야 합니다.
+3. 왼쪽 패널에서, 도메인의 루트를 나타내는 개체를 마우스 오른쪽 단추로 클릭하고 속성을 선택합니다.
+    * [보안] 탭을 클릭합니다.
+    * [고급]을 클릭합니다.
+4. [사용 권한] 탭에서 [추가]를 클릭합니다.
+5. (Azure AD Connect 설정에서) 사용 권한이 적용되는 계정을 선택합니다
+6. [드롭다운에 적용 박스]에서 [하위 사용자] 개체를 선택합니다.
+7. 사용 권한 아래에서 다음에 대한 확인란을 선택합니다.
+    * 암호 만료 안 됨
+    * 암호 재설정
+    * 암호 변경
+    * lockoutTime 쓰기
+    * pwdLastSet 쓰기
+8. 적용/확인을 클릭하여 열려 있는 대화 상자를 적용하고 종료합니다.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
-라이선스에 대한 정보는 [비밀번호 쓰기 저장에 필요한 라이선스](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) 항목 또는 다음 사이트를 참조하세요.
+라이선스에 대한 정보는 [비밀번호 쓰기 저장에 필요한 라이선스](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) 또는 다음 사이트를 참조하세요.
 
 * [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -159,9 +189,9 @@ DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으
 사용자가 암호 재설정 요청을 전송한 이후부터 온-프레미스 환경에 도달하기 전까지 최대 서비스 안정성 및 보안을 보장하기 위해 진행되는 암호화 단계를 아래에서 설명합니다.
 
 * **1단계 - 2048비트 RSA 키를 사용한 암호 암호화** - 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 먼저 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
-* **2단계 - AES-GCM을 사용한 패키지 수준 암호화** - AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 그러면 기본 Service Bus 채널에 대한 직접 액세스 권한을 가진 사용자가 콘텐츠를 보기/변조하지 않도록 방지합니다.
-* **3단계 - 모든 통신이 TLS/SSL에 발생** - Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 권한이 없는 제3자에게서 콘텐츠를 보호합니다.
-* **6개월마다 자동 키 롤오버** - 자동으로 6개월마다 또는 비밀번호 쓰기 저장을 Azure AD Connect에서 사용/다시 사용할 때마다 이러한 키를 모두 롤오버하여 최대 서비스의 보안 및 안전을 보장합니다.
+* **2단계 - AES-GCM을 사용한 패키지 수준 암호화** - AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 ServiceBus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
+* **3단계 - 모든 통신이 TLS/SSL에 발생** - Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
+* **6개월마다 자동 키 롤오버** - 6개월마다 또는 Azure AD Connect에서 비밀번호 쓰기 저장이 사용하지 않도록/다시 사용하도록 설정될 때마다 자동으로 모든 키를 롤오버하여 최상의 서비스 보안과 안전성을 보장합니다.
 
 ### <a name="password-writeback-bandwidth-usage"></a>비밀번호 쓰기 저장 대역폭 사용
 
@@ -182,17 +212,16 @@ DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
-
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작 
-* [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
-* [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
-* [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포
-* [**사용자 지정**](active-directory-passwords-customize.md) - 회사 SSPR 경험의 모양과 느낌을 사용자 지정.
-* [**정책**](active-directory-passwords-policy.md) - Azure AD 암호 정책을 이해하고 설정
-* [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
-* [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
-* [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](active-directory-passwords-best-practices.md)
+* [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+* [라이선스 관련 질문이 있습니까?](active-directory-passwords-licensing.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](active-directory-passwords-data.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](active-directory-passwords-policy.md)
+* [SSPR 작업은 어떻게 보고 합니까?](active-directory-passwords-reporting.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Azure AD Connect에서 비밀번호 쓰기 저장 사용"

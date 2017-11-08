@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 9dfeff7aea50db2cbaacacdbac724d6f9dfd7019
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 응용 프로그램을 등록하는 것입니다. 마지막 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 응용 프로그램의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.
+Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다. 다음 단계는 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet을 사용하여 서비스 패브릭 런타임에 응용 프로그램을 등록하는 것입니다. 다음 단계로, [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 응용 프로그램의 인스턴스를 시작합니다.  이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.  프로비전이 완료되면 리소스 소비를 줄이기 위해 이미지 저장소에서 복사된 응용 프로그램 패키지를 정리해야 합니다.  같은 이유로, 응용 프로그램 형식이 더 이상 필요하지 않은 경우 등록 해제해야 합니다. 자세한 내용은 [PowerShell을 사용하여 응용 프로그램 배포 및 제거](service-fabric-application-upgrade-tutorial-powershell.md)를 참조하세요.
 
 이제 [클러스터 및 응용 프로그램을 보는 서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. 응용 프로그램에는 웹 서비스가 있으며, Internet Explorer 주소 표시줄에 [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) 를 입력하여 웹 서비스로 이동할 수 있습니다.  화면에서 일부 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.  또한 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) 을 사용하여 응용 프로그램 상태를 확인할 수 있습니다.
 

@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
 배포 후에 여러 조직에서는 SSPR을 실제로 사용하는 방법 및 경우를 알아보고자 합니다. Azure AD는 준비된 보고서를 사용하여 질문에 대답하는 보고 기능을 제공하고 적절하게 허가받은 경우 사용자 지정 쿼리를 만들도록 할 수 있습니다.
+
+![보고][Reporting]
 
 [Azure Portal](https://portal.azure.com/)에 있는 보고서에서는 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -39,6 +41,10 @@ ms.lasthandoff: 10/11/2017
 * 암호 재설정을 시도할 때 사용자나 관리자가 직면하는 공통적인 문제는 무엇입니까?
 * 어느 관리자가 자신의 암호를 자주 재설정합니까?
 * 암호 재설정에 대해 의심스러운 활동이 있습니까?
+
+## <a name="power-bi-content-pack"></a>Power BI 콘텐츠 팩
+
+Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](active-directory-reporting-power-bi-content-pack-how-to.md) 문서를 참조하세요. 그런 다음 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Azure Portal에서 암호 관리 보고서를 보는 방법
 
@@ -94,77 +100,6 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 | 열 | 허용되는 값과 해당 의미 |
 | --- | --- |
 | 등록된 데이터 |**대체 전자 메일** – 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일<p><p>**사무실 전화** – 인증하는 데 사용자가 사용한 사무실 전화<p>**휴대폰** – 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화<p>**보안 질문** – 인증하는 데 사용자가 사용한 보안 질문<p>**위의 조합(예: 대체 전자 메일 + 휴대폰)** – 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 메서드를 표시합니다. |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>클래식 포털에서 암호 다시 설정 활동 보기
-
-이 보고서는 조직 내에서 발생한 모든 암호 재설정 시도를 보여줍니다.
-
-* **최대 시간 범위**: 30일
-* **최대 행 수**: 75,000개
-* **다운로드 가능**: 예, CSV 파일을 통해
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Azure 클래식 포털의 보고서 열 설명
-
-다음 목록에서는 각 보고서의 열에 대해 자세히 설명합니다.
-
-1. **사용자** – 암호 재설정 작업을 시도한 사용자(사용자가 암호를 재설정할 때 제공되는 사용자 ID 필드에 따라).
-2. **역할** – 디렉터리에서 사용자의 역할입니다.
-3. **날짜 및 시간** – 시도한 날짜 및 시간입니다.
-4. **사용된 메서드** –이 재설정 작업에 사용자가 사용한 인증 메서드입니다.
-5. **결과** – 암호 재설정 작업의 결과입니다.
-6. **세부 정보** – 암호 재설정 결과로 왜 이 값이 생성되었는지에 대한 자세한 설명입니다.  또한 예기치 않은 오류를 해결하기 위해 수행할 수 있는 완화 단계를 포함합니다.
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Azure 클래식 포털의 보고서 값 설명
-
-다음 테이블에서 각 열에 대해 허용되는 다른 값을 설명합니다.
-
-| 열 | 허용되는 값과 해당 의미 |
-| --- | --- |
-| 사용된 메서드 |**대체 전자 메일** – 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일<p>**사무실 전화** – 인증하는 데 사용자가 사용한 사무실 전화<p>**휴대폰** – 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화<p>**보안 질문** – 인증하는 데 사용자가 사용한 보안 질문<p>**위의 조합(예: 대체 전자 메일 + 휴대폰)** – 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 메서드를 표시합니다. |
-| 결과 |**중단됨** – 사용자가 암호 재설정을 시작하지만 완료하지 않고 중간에서 중단됩니다.<p>**차단됨** -사용자의 계정이 암호 재설정 페이지를 사용하거나 24시간 동안 너무 여러 번 단일 암호 재설정 게이트를 사용하여 암호를 재설정할 수 없습니다.<p>**취소됨** – 사용자가 암호 재설정을 시작했지만 취소 단추를 클릭하여 도중 세션을 취소했습니다. <p>**연결된 관리자** – 세션 중 사용자가 해결할 수 없는 문제가 생겨 사용자가 암호 재설정 작업을 완료하는 대신 “관리자에게 문의” 링크를 클릭했습니다.<p>**실패함** – 사용자가 기능을 사용하도록 구성되지 않았기 때문에 암호를 재설정할 수 없습니다(라이선스 없음, 누락된 인증 정보, 암호 관리 온-프레미스지만 쓰기 저장이 꺼져 있음).<p>**성공함** - 암호가 재설정되었습니다. |
-| 세부 정보 |아래 테이블을 참조하세요. |
-
-### <a name="allowed-values-for-details-column"></a>세부 정보 열에 대해 허용되는 값
-
-다음은 암호 재설정 활동 보고서를 사용하는 경우 예상할 수 있는 결과 형식 목록입니다.
-
-| 세부 정보 | 결과 형식 |
-| --- | --- |
-| 사용자가 전자 메일 확인 옵션을 완료한 후 중단함 |Abandoned |
-| 사용자가 모바일 SMS 확인 옵션을 완료한 후 중단함 |Abandoned |
-| 사용자가 모바일 음성 통화 확인 옵션을 완료한 후 중단함 |Abandoned |
-| 사용자가 사무실 음성 통화 확인 옵션을 완료한 후 중단함 |Abandoned |
-| 사용자가 보안 질문 옵션을 완료한 후 중단함 |Abandoned |
-| 사용자가 사용자 ID를 입력한 후 중단함 |Abandoned |
-| 사용자가 전자 메일 확인 옵션을 시작한 후 중단함 |Abandoned |
-| 사용자가 모바일 SMS 확인 옵션을 시작한 후 중단함 |Abandoned |
-| 사용자가 모바일 음성 통화 확인 옵션을 시작한 후 중단함 |Abandoned |
-| 사용자가 사무실 음성 통화 확인 옵션을 시작한 후 중단함 |Abandoned |
-| 사용자가 보안 질문 옵션을 시작한 후 중단함 |Abandoned |
-| 사용자가 새 암호를 선택하기 전에 중단함 |Abandoned |
-| 사용자가 새 암호를 선택하는 중에 중단함 |Abandoned |
-| 사용자가 너무 많은 잘못된 SMS 확인 코드를 입력하여 24시간 동안 차단됨 |Blocked |
-| 사용자가 너무 많이 모바일 음성 인증을 시도하여 24시간 동안 차단됨 |Blocked |
-| 사용자가 너무 많이 사무실 음성 인증을 시도하여 24시간 동안 차단됨 |Blocked |
-| 사용자가 너무 많이 보안 질문에 답변을 시도하여 24시간 동안 차단됨 |Blocked |
-| 사용자가 너무 많이 전화번호 확인을 시도하여 24시간 동안 차단됨 |Blocked |
-| 사용자가 필수 인증 방법을 전달하기 전에 취소함 |Canceled |
-| 사용자가 새 암호를 전송하기 전에 취소함 |Canceled |
-| 사용자 전자 메일 확인 옵션을 시도한 후 관리자에 문의함 |Contacted admin |
-| 사용자가 모바일 SMS 확인 옵션을 시도한 후 관리자에 문의함 |Contacted admin |
-| 사용자가 모바일 음성 통화 확인 옵션을 시도한 후 관리자에 문의함 |Contacted admin |
-| 사용자가 사무실 음성 통화 확인 옵션을 시도한 후 관리자에 문의함 |Contacted admin |
-| 사용자가 보안 질문 확인 옵션을 시도한 후 관리자에 문의함 |Contacted admin |
-| 이 사용자에 대한 암호 재설정이 사용되지 않습니다. 이를 해결하려면 구성 탭에서 암호 재설정 사용합니다. |Failed |
-| 사용자에게 라이선스가 없습니다. 이를 해결하기 위해 사용자에게 라이선스를 추가할 수 있습니다. |Failed |
-| 사용자가 쿠키를 사용하지 않고 장치에서 다시 설정하려고 시도함 |Failed |
-| 사용자의 계정에 정의된 인증 메서드가 부족합니다. 이를 해결하려면 인증 정보를 추가합니다. |Failed |
-| 사용자의 암호는 관리 대상 온-프레미스입니다. 이를 해결하려면 암호 쓰기 저장을 사용하도록 설정할 수 있습니다. |Failed |
-| 온-프레미스 암호 재설정 서비스에 접근할 수 없습니다. 동기화 컴퓨터의 이벤트 로그를 확인합니다. |Failed |
-| 사용자의 온-프레미스 암호를 재설정하는 중에 문제가 발생했습니다. 동기화 컴퓨터의 이벤트 로그를 확인합니다. |Failed |
-| 이 사용자는 암호 재설정 사용자 그룹의 멤버가 아닙니다. 이를 해결하려면 해당 그룹에 이 사용자를 추가합니다. |Failed |
-| 암호 재설정은 이 테넌트에 대해 완전히 비활성화되었습니다. 이를 해결하려면 [여기](http://aka.ms/ssprtroubleshoot) 를 참조하세요. |Failed |
-| 사용자가 성공적으로 암호를 재설정함 |Succeeded |
 
 ## <a name="self-service-password-management-activity-types"></a>셀프 서비스 암호 관리 활동 유형
 
@@ -263,15 +198,16 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](active-directory-passwords-best-practices.md)
+* [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+* [라이선스 관련 질문이 있습니까?](active-directory-passwords-licensing.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](active-directory-passwords-data.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](active-directory-passwords-policy.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](active-directory-passwords-writeback.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
-* [사용자 관리 감사 로그로 바로 가기](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) - 테넌트의 사용자 관리 감사 로그로 직접 이동합니다.
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작 
-* [**라이선스**](active-directory-passwords-licensing.md) - Azure AD 라이선스 구성
-* [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
-* [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포
-* [**사용자 지정**](active-directory-passwords-customize.md) - 회사 SSPR 경험의 모양과 느낌을 사용자 지정.
-* [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
-* [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
-* [**정책**](active-directory-passwords-policy.md) - Azure AD 암호 정책을 이해하고 설정
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Azure AD의 SSPR 작업 감사 로그 예제"

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Jenkins를 사용하여 Linux Java 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -37,60 +37,65 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. 다음 단계를 사용하여 Service Fabric 컨테이너 응용 프로그램을 클러스터에 배포합니다.
+  ``` 
+
+   > [!NOTE]
+   > 8081 포트가 클러스터의 사용자 지정 끝점으로 지정되었는지 확인합니다.
+   >
+2. 다음 단계를 사용하여 응용 프로그램을 복제합니다.
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. Jenkins 컨테이너 인스턴스의 상태를 유지하려는 Azure Storage 파일 공유의 연결 옵션 세부 정보가 필요합니다. 동일한 용도로 Microsoft Azure Portal을 사용하는 경우 ``sfjenkinsstorage1``이라는 Azure Storage 계정을 만드는 단계를 따르세요. ``sfjenkins``라는 저장소 계정 아래 **파일 공유**를 만듭니다. 파일 공유에 대해 **연결**을 클릭하고 다음과 유사하게 **Linux에서 연결** 아래 표시되는 값을 메모해 둡니다.
+3. 다음과 같이 파일 공유에서 Jenkins 컨테이너의 상태를 유지합니다.
+  * 클러스터와 **동일한 지역**에서 Azure 저장소 계정을 ``sfjenkinsstorage1``과 같은 이름으로 만듭니다.
+  * ``sfjenkins`` 같은 이름의 저장소 계정에서 **파일 공유**를 만듭니다.
+  * 파일 공유에 대한 **연결**을 클릭하고 **Linux에서 연결** 아래에 표시된 값을 적어둡니다. 이 값은 다음과 비슷합니다.
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 > [!NOTE]
-> cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다. 
+> cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다.         
 >
 
-4. ```setupentrypoint.sh``` 스크립트에서 자리 표시자 값을 해당 azure 저장소 세부 정보로 업데이트합니다.
+4. ```setupentrypoint.sh``` 스크립트의 자리 표시자 값을 3단계의 Azure 저장소 세부 정보로 업데이트합니다.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-``[REMOTE_FILE_SHARE_LOCATION]``을 위의 포인트 3 연결 출력의 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` 값으로 바꿉니다.
-``[FILE_SHARE_CONNECT_OPTIONS_STRING]``을 위의 포인트 3에서 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 값으로 바꿉니다.
+  * ``[REMOTE_FILE_SHARE_LOCATION]``을 위 3단계의 연결 출력 값인 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins``로 바꿉니다.
+  * ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``을 위 3단계의 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 값으로 바꿉니다.
 
 5. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
-```azurecli
+```sh
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 그러면 클러스터에 Jenkins 컨테이너를 설치하고 Service Fabric Explorer를 사용하여 모니터링할 수 있습니다.
 
-### <a name="steps"></a>단계
-1. 브라우저에서 ``http://PublicIPorFQDN:8081``으로 이동합니다. 로그인하는 데 필요한 초기 관리자 암호의 경로가 제공됩니다. 관리 사용자 권한으로 Jenkins를 계속 사용할 수 있습니다. 또는 초기 관리자 계정으로 로그인한 후에 사용자를 만들고 변경할 수 있습니다.
-
    > [!NOTE]
-   > 클러스터를 만드는 동안 8081 포트를 응용 프로그램 끝점 포트로 지정해야 합니다(이 포트는 클러스터에서 열림).
+   > 클러스터에 Jenkins 이미지를 다운로드하는 데 몇 분이 걸릴 수 있습니다.
    >
 
-2. ``docker ps -a``를 사용하여 컨테이너 인스턴스 ID를 가져옵니다.
-3. 컨테이너에 SSH(Secure Shell) 로그인을 수행하고 Jenkins 포털에서 표시된 경로를 붙여넣습니다. 예를 들어 포털에서 경로 `PATH_TO_INITIAL_ADMIN_PASSWORD`가 표시된 경우 다음을 실행합니다.
+### <a name="steps"></a>단계
+1. 브라우저에서 ``http://PublicIPorFQDN:8081``으로 이동합니다. 로그인하는 데 필요한 초기 관리자 암호의 경로가 제공됩니다. 
+2. Jenkins 컨테이너가 실행 중인 노드를 확인하려면 Service Fabric Explorer를 살펴봅니다. 이 노드에 SSH(Secure Shell)로 로그인합니다.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. ``docker ps -a``를 사용하여 컨테이너 인스턴스 ID를 가져옵니다.
+4. 컨테이너에 SSH(Secure Shell) 로그인을 수행하고 Jenkins 포털에서 표시된 경로를 붙여넣습니다. 예를 들어 포털에서 경로 `PATH_TO_INITIAL_ADMIN_PASSWORD`가 표시된 경우 다음을 실행합니다.
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. [새 SSH 키 생성 및 SSH 에이전트에 추가](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)에서 설명한 단계를 사용하여 Jenkins를 사용하도록 GitHub을 설정합니다.
-    * GitHub에서 제공되는 지침을 사용하여 SSH 키를 생성하고 SSH 키를 리포지토리를 호스팅하는 GitHub 계정에 추가합니다.
-    * (호스트가 아닌) Jenkins Docker 셸에서 이전 링크에 언급된 명령을 실행합니다.
-    * 호스트에서 Jenkins 셸에 로그인하려면 다음 명령을 사용합니다.
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. [Jenkins 시작] 페이지에서 [설치할 플러그 인 선택] 옵션을 선택하고, **없음** 확인란을 선택하고, [설치]를 클릭합니다.
+6. 사용자를 만들거나 관리자로 계속하려면 선택합니다.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Service Fabric 클러스터 외부에서 Jenkins 설정
 
@@ -133,7 +138,7 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
 
 1. ``http://PublicIPorFQDN:8081``으로 이동합니다.
 2. Jenkins 대시보드에서 **Jenkins 관리** > **플러그 인 관리** > **고급**을 선택합니다.
-여기에서는 플러그 인을 업로드할 수 있습니다. **파일 선택**을 선택한 다음 필수 구성 요소에서 다운로드한 **serviceFabric.hpi** 파일을 선택합니다. **업로드**를 선택하면 Jenkins에서 플러그 인을 자동으로 설치합니다. 요청된 경우 다시 시작을 허용합니다.
+여기에서는 플러그 인을 업로드할 수 있습니다. **파일 선택**을 선택한 다음, 필수 구성 요소에서 다운로드했거나 [여기서](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) 다운로드할 수 있는 **serviceFabric.hpi** 파일을 선택합니다. **업로드**를 선택하면 Jenkins에서 플러그 인을 자동으로 설치합니다. 요청된 경우 다시 시작을 허용합니다.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
@@ -141,7 +146,7 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
 2. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
 3. 작업 페이지로 이동하여 **구성**을 클릭합니다.
 
-   a. 일반 섹션의 **GitHub 프로젝트** 아래에서 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/sayantancs/SFJenkins``).
+   a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/sayantancs/SFJenkins``).
 
    b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: ``https://github.com/sayantancs/SFJenkins.git``). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 4. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
@@ -156,7 +161,7 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
 
    e. **트리거 빌드** 섹션 아래에서 원하는 빌드 옵션을 선택합니다. 이 예에서는 리포지토리에 일부 푸시가 발생할 때마다 빌드를 트리거하려고 합니다. 따라서 **GITScm 폴링에 대한 GitHub 후크 트리거**를 선택합니다. (이전에는 이 옵션을 **변경 내용이 GitHub에 푸시될 경우에 빌드**라고 했습니다.)
 
-   f. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 제공된 위젯에서 사용자의 응용 프로그램에 대한 경로를 **루트 빌드 스크립트**로 지정합니다. 그러면 지정된 경로에서 build.gradle을 선택하고 적절하게 작동합니다. Eclipse 플러그 인 또는 Yeoman 생성기를 사용하여 ``MyActor``이라는 프로젝트를 만든 경우 루트 빌드 스크립트는 ``${WORKSPACE}/MyActor``를 포함해야 합니다. 이 기능을 표시한 예제는 다음 스크린샷을 참조하세요.
+   f. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 고급 메뉴가 열리는 위젯에서 응용 프로그램에 대한 **루트 빌드 스크립트**의 경로를 지정합니다. 지정된 경로에서 build.gradle을 선택하면 이에 따라 적절하게 작동합니다. Eclipse 플러그 인 또는 Yeoman 생성기를 사용하여 ``MyActor``이라는 프로젝트를 만든 경우 루트 빌드 스크립트는 ``${WORKSPACE}/MyActor``를 포함해야 합니다. 이 기능을 표시한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업][build-step]
 

@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>개요: 장애 조치 그룹 및 활성 지역 복제
 활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전이 발생하거나 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 장애 조치는 사용자의 응용 프로그램에서 수동으로 시작되어야 합니다. 장애 조치 후 새 주 데이터베이스에는 다른 연결 끝점이 있습니다. 
@@ -116,6 +116,8 @@ Azure SQL Database를 사용하는 항상 사용 가능한 서비스를 빌드�
 DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않아도 됩니다.  
 - **데이터 손실에 대비**: 가동 중지가 검색되는 경우 SQL은 중요한 지식에 대한 데이터 손실이 없으면 읽기-쓰기 장애 조치(failover)를 자동으로 트리거합니다. 그렇지 않으면 **GracePeriodWithDataLossHours**에서 지정한 기간 동안 대기합니다. **GracePeriodWithDataLossHours**를 지정한 경우 데이터 손실에 대비합니다. 일반적으로 중단 시에 Azure에서는 가용성을 우선으로 합니다. 데이터 손실을 방지하려는 경우 **GracePeriodWithDataLossHours**를 24시간과 같은 충분히 큰 숫자로 설정해야 합니다. 
 
+> [!IMPORTANT]
+> 지역에서 복제를 사용하는 800개 이하의 DTU 및 250개 이상의 데이터베이스가 있는 탄력적 풀에는 더 길게 계획된 장애 조치(failover) 및 저하된 성능을 포함한 문제가 발생할 수 있습니다.  이러한 문제는 지역에서 복제 끝점이 지리적으로 광범위하게 분리되어 있거나 여러 보조 끝점이 각 데이터베이스에 대해 사용되는 경우 쓰기 집약적 작업에 발생할 가능성이 높습니다.  이러한 문제의 증상은 지역에서 복제 지연이 시간에 따라 증가하는 경우에 표시됩니다.  이러한 지연은 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 사용하여 모니터링할 수 있습니다.  이러한 문제가 발생하는 경우 완화 방안에는 풀 DTU의 수를 늘리거나 동일한 풀에 지역에서 복제된 데이터베이스 수를 줄이는 방법이 있습니다.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>주 데이터베이스 업그레이드 또는 다운그레이드
 보조 데이터베이스와의 연결을 해제하지 않고 주 데이터베이스를 다른 성능 수준(동일한 서비스 계층 내)으로 업그레이드 또는 다운그레이드할 수 있습니다. 업그레이드하는 경우에는 보조 데이터베이스를 먼저 업그레이드한 다음에 주 데이터베이스를 업그레이드하는 것이 좋습니다. 다운그레이드하는 경우에는 반대 순서로 주 데이터베이스를 먼저 다운그레이드하고 보조 데이터베이스를 다운그레이드합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다. 
@@ -134,7 +136,7 @@ DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않�
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>장애 조치(failover) 그룹 및 활성 지역 복제를 프로그래밍 방식으로 관리
 앞에서 설명한 대로 자동 장애 조치 그룹(미리 보기 상태)과 활성 지역 복제는 Azure PowerShell 및 REST API를 사용하여 프로그래밍 방식으로 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다.
 
-**Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)를 참조하세요.
+**Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Transact-SQL을 사용하여 SQL Database 장애 조치(failover) 관리
 
@@ -156,7 +158,7 @@ DR 지역의 응용 프로그램이 다른 연결 문자열을 사용하지 않�
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
 | [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Azure SQL Database와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |

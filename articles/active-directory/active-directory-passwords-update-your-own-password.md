@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Azure AD 암호를 잊어버렸어요. 도와주세요!
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
    > 계정 잠금을 해제해야 하는 경우 지금은 “암호를 알고 있지만, 여전히 로그인할 수 없습니다.” 옵션을 선택합니다.
    >
 
-3. IT 담당자가 SSPR을 구성한 방법에 따라 다음 항목 중 하나 이상이 표시됩니다. 사용자 또는 IT 담당자가 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 문서를 사용하기 전에 이 정보 중 일부를 입력했습니다.
+3. IT 담당자가 SSPR을 어떻게 구성하느냐에 따라 다음 인증 방법 중 하나 이상이 표시됩니다. 사용자 또는 IT 담당자가 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 문서를 사용하기 전에 이 정보 중 일부를 입력했습니다.
 
    * **대체 전자 메일로 메일 보내기**
    * **휴대폰으로 문자 보내기**

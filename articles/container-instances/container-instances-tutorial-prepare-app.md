@@ -1,11 +1,11 @@
 ---
-title: "Azure Container Instances 자습서 - 앱 준비 | Azure Docs"
+title: "Azure Container Instances 자습서 - 앱 준비 "
 description: "Azure Container Instances에 배포할 앱 준비"
 services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ca4cd00b3e9e58fd1137b896e7aac96549bf6d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d99411b2dc9ae9c3f2ebd3b9f346973a91e7c9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Azure Container Instances에 배포를 위한 컨테이너 만들기
 
-Azure Container Instances를 통해 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure로 Docker 컨테이너를 배포할 수 있습니다. 이 자습서에서는 Node.js에서 간단한 웹 응용 프로그램을 빌드하고 Azure Container Instances를 사용하여 실행할 수 있는 컨테이너로 패키지합니다. 다음 내용을 설명합니다.
+Azure Container Instances를 통해 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure로 Docker 컨테이너를 배포할 수 있습니다. 이 자습서에서는 Node.js에서 작은 웹 응용 프로그램을 빌드하고 Azure Container Instances를 사용하여 실행할 수 있는 컨테이너로 패키지합니다. 다음 항목에 대해서 다룹니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제  
+> * GitHub에서 응용 프로그램 소스 복제
 > * 응용 프로그램 소스에서 컨테이너 이미지 만들기
 > * 로컬 Docker 환경에서 이미지 테스트
 
@@ -36,11 +36,13 @@ Azure Container Instances를 통해 어떠한 가상 컴퓨터를 프로비전�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서에서는 컨테이너, 컨테이너 이미지 및 기본 Docker 명령과 같은 핵심 Docker 개념에 대한 기본적인 지식이 있다고 가정합니다. 필요한 경우 컨테이너 기본 사항에 대한 입문서는 [Get started with Docker(Docker 시작)]( https://docs.docker.com/get-started/)를 참조하세요. 
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+이 자습서에서는 컨테이너, 컨테이너 이미지 및 기본 `docker` 명령과 같은 핵심 Docker 개념에 대한 기본적인 지식이 있다고 가정합니다. 필요한 경우 컨테이너 기본 사항에 대한 입문서는 [Get started with Docker(Docker 시작)]( https://docs.docker.com/get-started/)를 참조하세요.
 
 이 자습서를 완료하려면 Docker 개발 환경이 필요합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
-Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
+Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 Azure CLI 및 Docker 개발 환경을 로컬로 설치하는 것이 좋습니다.
 
 ## <a name="get-application-code"></a>응용 프로그램 코드 가져오기
 
@@ -58,7 +60,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 샘플 리포지토리에서 제공된 Dockerfile은 컨테이너가 빌드되는 방식을 보여 줍니다. 컨테이너에 사용하기에 적합한 소규모 배포인 [Alpine Linux](https://alpinelinux.org/) 기반의 [공식 Node.js 이미지][dockerhub-nodeimage]로 시작합니다. 그런 다음 응용 프로그램 파일을 컨테이너에 복사하고 노드 패키지 관리자를 사용하여 종속성을 설치한 후 마지막으로 응용 프로그램을 시작합니다.
 
-```
+```Dockerfile
 FROM node:8.2.0-alpine
 RUN mkdir -p /usr/src/app
 COPY ./app/* /usr/src/app/
@@ -103,7 +105,7 @@ http://localhost:8080 을 브라우저에서 열어 컨테이너가 실행 중�
 이 자습서에서는 Azure Container Instances에 배포할 수 있는 컨테이너 이미지를 만들었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
-> * GitHub에서 응용 프로그램 소스 복제  
+> * GitHub에서 응용 프로그램 소스 복제
 > * 응용 프로그램 소스에서 컨테이너 이미지 만들기
 > * 컨테이너를 로컬로 테스트
 
@@ -113,7 +115,7 @@ http://localhost:8080 을 브라우저에서 열어 컨테이너가 실행 중�
 > [Azure Container Registry에 이미지 밀어넣기](./container-instances-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
-[dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/
+[dockerhub-nodeimage]: https://store.docker.com/images/node
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Visual Studio Team Services 및 IIS를 사용하여 연속 통합 파이프라인 만들기
 응용 프로그램 개발의 빌드, 테스트 및 배포 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Visual Studio Team Services 및 IIS를 실행하는 Azure의 Windows VM(가상 컴퓨터)를 사용하여 CI/CD 파이프라인을 만듭니다. 다음 방법에 대해 알아봅니다.
@@ -230,7 +230,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 새 웹 배포 패키지를 IIS에 게시하기 위한 릴리스 정의 만들기
 > * CI/CD 파이프라인 테스트
 
-SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+한 쌍의 Windows VM에 SQL&#92;IIS&#92;.NET 스택을 설치하는 방법을 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [SSL로 웹 서버 보호](tutorial-secure-web-server.md)
+> [SQL&#92;IIS&#92;.NET 스택](tutorial-iis-sql.md)

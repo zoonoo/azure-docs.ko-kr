@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: 흐름 제어
       items:
+        - name: If 조건 작업
+          href: control-flow-if-condition-activity.md
         - name: 웹 작업
           href: control-flow-web-activity.md
         - name: 조회 작업

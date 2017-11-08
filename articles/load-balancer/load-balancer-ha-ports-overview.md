@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>고가용성 포트 개요(미리 보기)
 
@@ -36,7 +36,7 @@ HA 포트는 프런트 엔드 및 백 엔드 포트를 **0**으로 설정하고 
 
 ## <a name="why-use-ha-ports"></a>HA 포트를 사용하는 이유
 
-### <a name="network-virtual-appliances"></a>네트워크 가상 어플라이언스
+### <a name="nva"></a>네트워크 가상 어플라이언스
 
 여러 유형의 보안 위협에서 Azure 워크로드를 보호하기 위해 NVA(네트워크 가상 어플라이언스)를 사용할 수 있습니다. NVA가 이러한 시나리오에서 사용되는 경우 신뢰할 수 있고 가용성이 뛰어나며 요청 시 확장 가능해야 합니다.
 
@@ -139,6 +139,8 @@ Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 
 - 단일 네트워크 인터페이스 IP 구성에 HA 포트가 있는 하나 이상의 DSR 부하 분산 장치 규칙을 설정할 수 있습니다. 단, 각각의 프런트 엔드 IP 구성은 고유해야 합니다.
 - 모든 부하 분산 규칙이 HA 포트(DSR 전용)이거나 모든 규칙이 비HA 포트(DSR 및 비DSR)인 경우 동일한 백 엔드 풀을 가리키는 두 개(또는 그 이상)의 부하 분산 장치 규칙이 공존할 수 있습니다. HA 포트와 비 HA 포트 규칙의 조합이 있는 경우 이러한 두 가지 부하 분산 규칙이 공존할 수 없습니다.
 - HA 포트를 IPv6에는 사용할 수 없습니다.
+- NVA 시나리오에 대한 흐름 대칭은 단일 NIC에서만 지원됩니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 
+
 
 
 ## <a name="next-steps"></a>다음 단계

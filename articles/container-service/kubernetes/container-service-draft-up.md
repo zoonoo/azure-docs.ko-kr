@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8cef40f4360c6b9c9ab734171a4cca2a21a4c711
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 응용 프로그램 빌드 및 Kubernetes에 배포
 
@@ -271,16 +271,16 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 응용 프�
   }
   ```
 5. **draft**를 다시 설치합니다.
-  1. `helm delete --purge draft`를 입력하여 클러스터에서 **draftd**를 제거합니다. 
-  2. 동일한 `draft-init` 명령을 사용하되 `--ingress-enabled` 옵션을 포함하여 **draft**를 다시 설치합니다.
+
+   1. `helm delete --purge draft`를 입력하여 클러스터에서 **draftd**를 제거합니다. 
+   2. 동일한 `draft-init` 명령을 사용하되 `--ingress-enabled` 옵션을 포함하여 **draft**를 다시 설치합니다.
     ```bash
     draft init --ingress-enabled
     ```
-위에서 처음에 수행했던 것처럼 메시지에 응답합니다. 하지만 Azure DNS로 구성한 전체 도메인 경로 사용에 대한 질문에 추가로 응답해야 합니다.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. 이번에 `draft up`을 호출하면 `<appname>.draft.<domain>.<top-level-domain>` 형식의 URL에서 응용 프로그램(또는 `curl`)을 볼 수 있습니다. 이 예제의 경우 `http://handy-labradoodle.draft.squillace.io`입니다. 
+   위에서 처음에 수행했던 것처럼 메시지에 응답합니다. 하지만 Azure DNS로 구성한 전체 도메인 경로 사용에 대한 질문에 추가로 응답해야 합니다.
+
+6. 송신(예: draft.example.com)에 대한 최상위 도메인(draft.squillace.io)을 입력합니다.
+7. 이번에 `draft up`을 호출하면 `<appname>.draft.<domain>.<top-level-domain>` 형식의 URL에서 응용 프로그램(또는 `curl`)을 볼 수 있습니다. 이 예제의 경우 `http://handy-labradoodle.draft.squillace.io`입니다. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

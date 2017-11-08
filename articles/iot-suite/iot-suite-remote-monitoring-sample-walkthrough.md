@@ -1,6 +1,6 @@
 ---
-title: "미리 구성된 원격 모니터링 솔루션 연습 | Microsoft Docs"
-description: "Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다."
+title: "원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs"
+description: "원격 모니터링 사전 구성 솔루션의 아키텍처 둘러보기."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -10,275 +10,136 @@ editor:
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>미리 구성된 원격 모니터링 솔루션 연습
+# <a name="remote-monitoring-preconfigured-solution-architecture"></a>원격 모니터링 사전 구성 솔루션 아키텍처
 
-[미리 구성된 IoT Suite 원격 모니터링 솔루션][lnk-preconfigured-solutions]은 원격 위치에서 실행되는 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 출발점으로 사용하고 사용자의 특정 비즈니스 요구 사항을 충족하도록 [사용자 지정][lnk-customize]할 수 있습니다.
+IoT Suite 원격 모니터링 [사전 구성 솔루션](iot-suite-what-are-preconfigured-solutions.md)은 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](iot-suite-remote-monitoring-customize.md)할 수 있습니다.
 
 이 문서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
 * 솔루션의 문제를 해결합니다.
-* 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다. 
+* 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
 * Azure 서비스를 사용하는 고유한 IoT 솔루션을 디자인합니다.
 
 ## <a name="logical-architecture"></a>논리 아키텍처
 
-다음 다이어그램에서는 미리 구성된 솔루션의 논리적 구성 요소를 간략히 보여줍니다.
+다음 다이어그램은 [IoT 아키텍처](iot-suite-what-is-azure-iot.md)에 오버레이된 원격 모니터링 사전 구성 솔루션의 논리적 구성 요소에 대해 설명합니다.
 
 ![논리 아키텍처](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="simulated-devices"></a>시뮬레이션된 장치
+## <a name="why-microservices"></a>마이크로 서비스를 사용하는 이유는 무엇인가요?
 
-미리 구성된 솔루션에서 시뮬레이션된 장치가 냉각 장치(예: 건물 공조기 또는 시설 공기 처리 장치)를 나타냅니다. 미리 구성된 솔루션을 배포할 때 [Azure WebJob][lnk-webjobs]에서 실행되는 네 개의 시뮬레이션된 장치도 자동으로 프로비전합니다. 시뮬레이션된 장치를 사용하면 물리적 장치를 배포하지 않고도 솔루션의 동작을 쉽게 탐색할 수 있습니다. 실제 물리적 장치를 배포하려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm] 자습서를 참조하세요.
+클라우드 아키텍처는 Microsoft가 사전 구성 솔루션을 처음 발표한 이후 발전해 왔습니다. [마이크로 서비스](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 입증된 방법으로 부상했습니다. 일부 Microsoft 서비스는 뛰어난 안정성과 확장성을 제공하는 아키텍처 패턴을 내부적으로 사용합니다. 업데이트된 사전 구성 솔루션을 통해 혜택을 볼 수 있도록 이러한 내용을 실제로 활용할 수 있습니다.
 
-### <a name="device-to-cloud-messages"></a>장치-클라우드 메시지
+> [!TIP]
+> 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
-시뮬레이션된 장치는 각각 IoT Hub에 다음과 같은 메시지 유형을 보낼 수 있습니다.
+## <a name="device-connectivity"></a>장치 연결
 
-| Message | 설명 |
-| --- | --- |
-| 시작 |장치가 시작되면 백 엔드로 자체에 대한 정보를 포함하는 **장치 정보** 메시지를 보냅니다. 이 데이터에는 장치 ID와 장치에서 지원하는 명령 및 메서드 목록이 포함됩니다. |
-| 현재 상태 |장치는 **현재 상태** 메시지를 정기적으로 전송하여 센서의 현재 상태를 감지할 수 있는지 여부를 보고합니다. |
-| 원격 분석 |장치의 시뮬레이트된 센서에서 수집된 온도 및 습도에 대한 시뮬레이션된 값을 보고하는 **원격 분석** 메시지를 정기적으로 전송합니다. |
+이 솔루션은 논리적 구조의 장치 연결 부분에 다음과 같은 구성 요소를 포함합니다.
 
-> [!NOTE]
-> 솔루션은 장치에서 지원하는 명령의 목록을 장치 쌍이 아니라 Cosmos DB 데이터베이스에 저장합니다.
+### <a name="simulated-devices"></a>시뮬레이션된 장치
 
-### <a name="properties-and-device-twins"></a>속성 및 장치 쌍
+이 솔루션에는 솔루션의 종단 간 흐름을 테스트하기 위해 시뮬레이션된 장치 풀을 관리할 수 있는 마이크로 서비스가 포함되어 있습니다. 시뮬레이션된 장치는:
 
-시뮬레이션된 장치는 *reported 속성*으로 IoT Hub의 [쌍][lnk-device-twins]에 다음 장치 속성을 보냅니다. 장치는 시작 시와 **장치 상태 변경** 명령 또는 메서드에 대한 응답으로 reported 속성을 보냅니다.
+* 장치-클라우드 원격 분석을 생성합니다.
+* IoT Hub의 클라우드-장치 메서드 호출에 응답합니다.
 
-| 속성 | 목적 |
-| --- | --- |
-| Config.TelemetryInterval | 장치가 원격 분석을 전송하는 빈도(초) |
-| Config.TemperatureMeanValue | 시뮬레이션된 온도 원격 분석에 대한 평균 값을 지정합니다. |
-| Device.DeviceID |솔루션에서 장치를 만들 때 제공되거나 할당되는 ID |
-| Device.DeviceState | 장치에서 보고한 상태 |
-| Device.CreatedTime |솔루션에서 장치가 만들어진 시간 |
-| Device.StartupTime |장치가 시작된 시간 |
-| Device.LastDesiredPropertyChange |마지막 desired 속성 변경의 버전 번호 |
-| Device.Location.Latitude |장치의 위도 위치 |
-| Device.Location.Longitude |장치의 경도 위치 |
-| System.Manufacturer |장치 제조업체 |
-| System.ModelNumber |장치의 모델 번호 |
-| System.SerialNumber |장치의 일련 번호 |
-| System.FirmwareVersion |장치 펌웨어의 현재 버전 |
-| System.Platform |장치의 플랫폼 아키텍처 |
-| System.Processor |장치를 실행하는 프로세서 |
-| System.InstalledRAM |장치에 설치된 RAM의 양 |
+마이크로 서비스는 시뮬레이션을 생성, 시작 및 중지할 수 있는 RESTful 끝점을 제공합니다. 각 시뮬레이션은 원격 분석을 보내고 메서드 호출에 응답하는 다양한 유형의 가상 장치 집합으로 구성됩니다.
 
-시뮬레이터는 샘플 값으로 시뮬레이션된 장치에 이러한 속성을 시드합니다. 시뮬레이터가 시뮬레이션된 장치를 초기화할 때마다 장치는 reported 속성으로 IoT Hub에 미리 정의된 메타데이터를 보고합니다. Reported 속성은 장치에 의해 업데이트될 수만 있습니다. reported 속성을 변경하려면 솔루션 포털에서 desired 속성을 설정합니다. 다음은 장치의 책임입니다.
+시뮬레이션된 장치를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
 
-1. IoT Hub에서 desired 속성을 주기적으로 검색합니다.
-2. desired 속성 값으로 해당 구성을 업데이트합니다.
-3. 새 값을 reported 속성으로 허브에 다시 보냅니다.
+### <a name="physical-devices"></a>물리적 장치
 
-솔루션 대시보드에서 [장치 쌍][lnk-device-twins]을 사용하여 장치의 속성을 설정하는 데 *desired 속성*을 사용할 수 있습니다. 일반적으로 장치는 허브에서 desired 속성 값을 읽어 내부 상태를 업데이트하고 reported 속성으로 변경을 다시 보고합니다.
+물리적 장치를 솔루션에 연결할 수 있습니다. Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치의 동작을 구현할 수 있습니다.
 
-> [!NOTE]
-> 시뮬레이션된 장치 코드는 **Desired.Config.TemperatureMeanValue** 및 **Desired.Config.TelemetryInterval** desired 속성만을 사용하여 IoT Hub로 다시 전송된 reported 속성을 업데이트합니다. 시뮬레이션된 장치에서 다른 모든 desired 속성 변경 요청은 무시됩니다.
+물리적 장치를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
 
-### <a name="methods"></a>메서드
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub 및 IoT 관리자 마이크로 서비스
 
-시뮬레이션된 장치는 IoT Hub를 통해 솔루션 포털에서 호출된 다음 메서드([직접 메서드][lnk-direct-methods])를 처리할 수 있습니다.
-
-| 메서드 | 설명 |
-| --- | --- |
-| InitiateFirmwareUpdate |펌웨어 업데이트를 수행하도록 장치를 지시합니다. |
-| Reboot |다시 부팅하도록 장치를 지시합니다. |
-| FactoryReset |공장 재설정을 수행하도록 장치를 지시합니다. |
-
-일부 메서드는 reported 속성을 사용하여 진행 상태를 보고합니다. 예를 들어 **InitiateFirmwareUpdate** 메서드는 장치에서 업데이트 실행을 비동기적으로 시뮬레이션합니다. 메서드는 비동기 작업이 reported 속성을 사용하여 솔루션 대시보드에 상태 업데이트를 계속해서 다시 보내는 동안 장치에서 즉시 반환합니다.
-
-### <a name="commands"></a>명령
-
-또한 시뮬레이션된 장치는 IoT Hub를 통해 솔루션 포털에서 보낸 다음 명령(클라우드-장치 메시지)을 처리할 수 있습니다.
-
-| 명령 | 설명 |
-| --- | --- |
-| PingDevice |장치에 *ping* 을 보내 활성 상태임을 확인합니다. |
-| StartTelemetry |장치의 원격 분석 발신을 시작합니다. |
-| StopTelemetry |장치의 원격 분석 발신을 차단합니다. |
-| ChangeSetPointTemp |임의 데이터가 생성되는 지점 주위의 설정 지점 값을 변경합니다. |
-| DiagnosticTelemetry |추가 원격 분석 값(externalTemp)을 보낼 장치 시뮬레이터를 트리거합니다. |
-| ChangeDeviceState |장치의 확장된 상태 속성을 변경하고 장치로부터 받은 장치 정보 메시지를 전송합니다. |
-
-> [!NOTE]
-> 이러한 명령(클라우드-장치 메시지) 및 메서드(직접 메서드)의 비교는 [클라우드-장치 통신 지침][lnk-c2d-guidance]을 참조하세요.
-
-## <a name="iot-hub"></a>IoT 허브
-
-[IoT Hub][lnk-iothub]는 장치에서 클라우드로 전송된 데이터를 수집하고 ASA(Azure Stream Analytics) 작업에 사용할 수 있도록 합니다. 각 스트림 ASA 작업은 장치에서 메시지 스트림을 읽는 데 별도 IoT Hub 소비자 그룹을 사용합니다.
+[IoT Hub](../iot-hub/index.md)는 장치에서 클라우드로 전송된 데이터를 수집하고 `telemetry-agent` 마이크로 서비스에서 사용할 수 있도록 합니다.
 
 또한 솔루션에서 IoT Hub는:
 
-- 포털에 연결하도록 허용되는 모든 장치의 ID 및 인증 키를 저장하는 ID 레지스트리를 유지 관리합니다. ID 레지스트리를 통해 장치를 활성화 및 비활성화할 수 있습니다.
-- 솔루션 포털을 대신하여 명령을 장치에 보냅니다.
-- 솔루션 포털을 대신하여 장치에서 메서드를 호출합니다.
-- 등록된 모든 장치에 대한 장치 쌍을 유지 관리합니다. 장치 쌍은 장치에서 보고한 속성 값을 저장합니다. 또한 장치 쌍은 다음에 연결할 때 검색하는 장치에 대해 솔루션 포털에서 설정한 desired 속성을 저장합니다.
-- 여러 장치에 대한 속성을 설정하거나 여러 장치에서 메서드를 호출하는 작업을 예약합니다.
+* 포털에 연결하도록 허용되는 모든 장치의 ID 및 인증 키를 저장하는 ID 레지스트리를 유지 관리합니다. ID 레지스트리를 통해 장치를 활성화 및 비활성화할 수 있습니다.
+* 솔루션 포털을 대신하여 장치에서 메서드를 호출합니다.
+* 등록된 모든 장치에 대한 장치 쌍을 유지 관리합니다. 장치 쌍은 장치에서 보고한 속성 값을 저장합니다. 또한 장치 쌍은 다음에 연결할 때 검색하는 장치에 대해 솔루션 포털에서 설정한 desired 속성을 저장합니다.
+* 여러 장치에 대한 속성을 설정하거나 여러 장치에서 메서드를 호출하는 작업을 예약합니다.
 
-## <a name="azure-stream-analytics"></a>Azure 스트림 분석
+솔루션에는 다음과 같이 IoT Hub와의 상호 작용을 처리하기 위한 `iot-manager` 마이크로 서비스가 포함됩니다.
 
-원격 모니터링 솔루션에서 ASA([Azure Stream Analytics][lnk-asa])는 처리 또는 저장을 위해 다른 백 엔드 구성 요소에 IoT Hub에서 수신한 장치 메시지를 디스패치합니다. 다른 ASA 작업은 메시지의 내용을 기반으로 특정 기능을 수행합니다.
+* IoT 장치 만들기 및 관리.
+* 장치 쌍 관리.
+* 장치에 대한 메서드 호출.
+* IoT 자격 증명 관리.
 
-**작업 1: 장치 정보** 는 들어오는 메시지 스트림에서 장치 정보 메시지를 필터링하고 이벤트 허브 끝점으로 보냅니다. 장치는 시작 시 그리고 **SendDeviceInfo** 명령에 반응하여 장치 정보 메시지를 보냅니다. 이 작업은 다음 쿼리 정의를 사용하여 **장치 정보** 메시지를 식별합니다.
+또한 이 서비스는 IoT Hub 쿼리를 실행하여 사용자 정의 그룹에 속하는 장치를 검색합니다.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+마이크로 서비스는 장치와 장치 쌍을 관리하고 메서드를 호출하며 IoT Hub 쿼리를 실행하는 RESTful 끝점을 제공합니다.
 
-이 작업은 추가 처리를 위해 이벤트 허브에 해당 출력을 보냅니다.
+## <a name="data-processing-and-analytics"></a>데이터 처리 및 분석
 
-**작업 2: 규칙** 은 장치 단위 임계값에 대해 들어오는 온도 및 습도 원격 분석 값을 평가합니다. 임계값은 솔루션 포털에서 사용할 수 있는 규칙 편집기에서 설정됩니다. 각 장치/값 쌍은 **참조 데이터**로서 스트림 분석에서 읽는 Blob의 타임스탬프에 의해 저장됩니다. 작업은 장치에 대해 설정한 임계값에 대해 비지 않은 값을 비교합니다. '>' 조건을 초과하면, 작업은 **경보** 이벤트를 출력하여 임계값을 초과했음을 나타내고 장치, 값 및 타임스탬프 값을 제공합니다. 이 작업은 다음 쿼리 정의를 사용하여 알람을 트리거해야 하는 원격 분석 메시지를 식별합니다.
+이 솔루션은 논리적 구조의 데이터 처리 및 분석 부분에 다음과 같은 구성 요소를 포함합니다.
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+### <a name="device-telemetry"></a>장치 원격 분석
 
-UNION ALL
+이 솔루션에는 장치 원격 분석을 처리하는 마이크로 서비스가 2개 포함됩니다.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+[telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 마이크로 서비스:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Cosmos DB에 원격 분석 데이터를 저장합니다.
+* 장치에서 원격 분석 스트림을 분석합니다.
+* 정의된 규칙에 따라 알람을 생성합니다.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+알람은 Cosmos DB에 저장됩니다.
 
-작업은 추가 처리를 위해 이벤트 허브에 해당 출력을 전송하고 솔루션 포털이 경고 정보를 읽을 수 있는 위치에서 Blob 저장소에 각 경고의 세부 정보를 저장합니다.
+`telemetry-agent` 마이크로 서비스를 통해 솔루션 포털은 장치에서 전송된 원격 분석 데이터를 읽을 수 있습니다. 또한 솔루션 포털은 이 서비스를 사용하여 다음을 수행합니다.
 
-**작업 3: 원격 분석** 은 두 가지 방식으로 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 방식은 모든 원격 분석 메시지를 장치에서 장기 저장을 위한 영구 Blob 저장소로 보냅니다. 두 번째 방식은 5분짜리 슬라이딩 윈도우를 통해 평균, 최소 및 최대 습도 값을 계산하고 이 데이터를 Blob 저장소에 보냅니다. 솔루션 포털은 차트를 채우기 위해 Blob 저장소에서 원격 분석 데이터를 참고합니다. 이 작업은 다음과 같은 쿼리 정의를 사용합니다.
+* 알람을 트리거하는 임계값과 같은 모니터링 규칙을 정의합니다.
+* 지난 알람 목록을 검색합니다.
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+마이크로 서비스에 제공되는 RESTful 끝점을 사용하여 원격 분석, 규칙 및 알람을 관리합니다.
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### <a name="storage"></a>저장소
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+[storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 마이크로 서비스는 사전 구성 솔루션에 사용되는 기본 저장소 서비스 앞에 있는 어댑터입니다. 간단한 컬렉션 및 키-값 저장소를 제공합니다.
 
-## <a name="event-hubs"></a>이벤트 허브(영문)
+사전 구성 솔루션의 표준 배포는 Cosmos DB를 기본 저장소 서비스로 사용합니다.
 
-**장치 정보** 및 **규칙** ASA 작업은 이벤트 허브에 해당 데이터를 출력하여 WebJob에서 실행되는 **이벤트 프로세서**에 안전하게 전달합니다.
+Cosmos DB 데이터베이스는 사전 구성 솔루션의 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
 
-## <a name="azure-storage"></a>Azure 저장소
+## <a name="presentation"></a>프레젠테이션
 
-솔루션은 Azure blob 저장소를 사용하여 솔루션의 장치에서 모든 원시 데이터 및 요약된 원격 분석 데이터를 유지합니다. 포털은 차트를 채우기 위해 Blob 저장소에서 원격 분석 데이터를 참고합니다. 경고를 표시하려면 솔루션 포털이 원격 분석 값이 구성된 임계값을 초과하는 시기를 기록한 Blob 저장소에서 데이터를 읽습니다. 또한 솔루션은 Blob 저장소를 사용하여 솔루션 포털에서 사용자가 설정한 임계값을 기록합니다.
+이 솔루션은 논리적 구조의 프레젠테이션 부분에 다음과 같은 구성 요소를 포함합니다.
 
-## <a name="webjobs"></a>웹 작업
+[웹 사용자 인터페이스는 React Javascript 응용 프로그램입니다](https://github.com/Azure/pcs-remote-monitoring-webui). 이 응용 프로그램은:
 
-장치 시뮬레이터를 호스팅하는 것 외에도 솔루션의 WebJobs는 명령 응답을 처리하는 Azure WebJob에서 실행되는 **이벤트 프로세서**를 호스팅합니다. 명령 응답 메시지를 사용하여 장치 명령 기록(Cosmos DB 데이터베이스에 저장됨)을 업데이트합니다.
+* Javascript React만 사용하고 브라우저에서 완전히 실행됩니다.
+* CSS 스타일이 적용됩니다.
+* AJAX 호출을 통해 공용 마이크로 서비스와 상호 작용합니다.
 
-## <a name="cosmos-db"></a>Cosmos DB
+사용자 인터페이스는 사전 구성된 모든 솔루션 기능을 제공하고 다음과 같은 다른 서비스와 상호 작용합니다.
 
-솔루션은 Cosmos DB 데이터베이스를 사용하여 솔루션에 연결된 장치에 대한 정보를 저장합니다. 이 정보에는 솔루션 포털에서 장치에 전송된 명령 및 솔루션 포털에서 호출된 메서드의 기록이 포함됩니다.
+* 사용자 데이터를 보호하는 [인증](https://github.com/Azure/pcs-auth-dotnet) 마이크로 서비스.
+* IoT 장치를 나열 및 관리하는 [iothub-관리자](https://github.com/Azure/iothub-manager-dotnet) 마이크로 서비스.
 
-## <a name="solution-portal"></a>솔루션 포털
-
-솔루션 포털은 미리 구성된 솔루션의 일부로 배포된 웹앱입니다. 솔루션 포털의 키 페이지는 대시보드 및 장치 목록입니다.
-
-### <a name="dashboard"></a>대시보드
-
-웹앱의 이 페이지는 PowerBI javascript 컨트롤([PowerBI-시각 리포지토리](https://www.github.com/Microsoft/PowerBI-visuals) 참조)을 사용하여 장치에서 원격 분석 데이터를 시각화합니다. 솔루션은 ASA 원격 분석 작업을 사용하여 Blob 저장소에 원격 분석 데이터를 작성합니다.
-
-### <a name="device-list"></a>장치 목록
-
-솔루션 포털의 이 페이지에서 다음을 수행할 수 있습니다.
-
-* 새 장치를 프로비전합니다. 이 작업은 고유 장치 ID를 설정하고 인증 키를 생성합니다. 장치에 대한 정보를 IoT Hub ID 레지스트리와 솔루션 관련 Cosmos DB 데이터베이스 모두에 기록합니다.
-* 장치 속성을 관리합니다. 이 작업은 기본 속성 보기 및 새 속성으로 업데이트를 포함합니다.
-* 명령을 장치로 보냅니다.
-* 장치의 명령 기록을 봅니다.
-* 장치를 활성화하고 비활성화합니다.
+[ui-config](https://github.com/Azure/pcs-config-dotnet) 마이크로 서비스를 사용하면 사용자 인터페이스로 구성 설정을 저장 및 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 TechNet 블로그 게시물은 미리 구성된 원격 모니터링 솔루션에 대한 더 많은 정보를 제공합니다.
+소스 코드와 개발자 문서를 탐색하려면 다음 두 가지 주요 GitHub 리포지토리 중 하나를 시작하십시오.
 
-* [IoT 도구 모음 - 내부 살펴보기 - 원격 모니터링](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT 도구 모음 - 원격 모니터링 - 라이브 및 시뮬레이션된 장치 추가](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [Azure IoT(.NET)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Azure IoT(Java)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
-
-* [미리 구성된 원격 모니터링 솔루션 연습][lnk-connect-rm]
-* [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+원격 모니터링 사전 구성 솔루션에 대한 자세한 개념 정보는 [미리 구성된 솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.

@@ -1,6 +1,5 @@
 # 개요
 ## [Azure Security Center란?](security-center-intro.md)
-## [Power BI를 통해 통찰력 얻기](security-center-powerbi.md)
 ## [데이터 보안](security-center-data-security.md)
 ## 시나리오
 ### [사고 대응](security-center-incident-response.md)

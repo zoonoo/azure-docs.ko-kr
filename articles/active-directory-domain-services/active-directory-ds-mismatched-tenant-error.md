@@ -4,7 +4,7 @@ description: "기존 Azure AD Domain Services로 관리되는 도메인의 디�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
 Azure 클래식 포털을 사용하여 활성화된 기존의 관리되는 도메인이 있습니다. 새 Azure Portal로 이동하여 관리되는 도메인을 확인할 때 다음 오류 메시지가 표시됩니다.
@@ -43,7 +43,7 @@ Azure 클래식 포털을 사용하여 활성화된 기존의 관리되는 도�
 
 ![테넌트 구성 불일치](./media/getting-started/mismatched-tenant-config.png)
 
-따라서 관리되는 도메인과 해당 도메인이 활성화된 가상 네트워크가 서로 다른 두 Azure AD에 속한 경우 이 오류가 표시됩니다.
+따라서 관리되는 도메인과 해당 도메인이 활성화된 가상 네트워크가 서로 다른 두 Azure AD 테넌트에 속한 경우 이 오류가 표시됩니다.
 
 리소스 관리자 환경에서 다음과 같은 규칙이 적용됩니다.
 - Azure AD 디렉터리에 여러 Azure 구독이 있을 수 있습니다.
@@ -55,9 +55,9 @@ Azure 클래식 포털을 사용하여 활성화된 기존의 관리되는 도�
 ## <a name="resolution"></a>해결 방법
 두 가지 방법으로 디렉터리 불일치 오류를 해결할 수 있습니다. 방법은 다음과 같습니다.
 
-- **삭제** 단추를 클릭하여 기존의 관리되는 도메인을 삭제합니다. 관리되는 도메인과 해당 도메인을 사용할 수 있는 가상 네트워크가 Azure AD 디렉터리에 속하도록 [Azure Portal](https://portal.azure.com)을 사용하여 다시 만듭니다. 새로 만든 관리되는 도메인, 이전에 삭제된 도메인에 조인한 모든 컴퓨터를 다시 조인해야 합니다.
+- **삭제** 단추를 클릭하여 기존의 관리되는 도메인을 삭제합니다. 관리되는 도메인과 해당 도메인을 사용할 수 있는 가상 네트워크가 Azure AD 디렉터리에 속하도록 [Azure Portal](https://portal.azure.com)을 사용하여 다시 만듭니다. 삭제된 도메인에 이전에 조인한 모든 컴퓨터를 새로 만든 관리되는 도메인에 조인합니다.
 
-- 가상 네트워크가 포함된 Azure 구독을 네트워크 관리되는 도메인이 속한 Azure AD 디렉터리로 이동하려면 Azure 지원에 문의하세요. **새 지원 요청**을 클릭하고 지원 요청의 **세부 정보** 섹션에 **디렉터리 불일치**를 명시합니다. 오류 메시지에 제공한 정보를 지원 요청의 일부로 포함합니다.
+- 가상 네트워크가 포함된 Azure 구독을 관리되는 도메인이 속한 Azure AD 디렉터리로 이동합니다. [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md) 문서의 단계를 수행합니다.
 
 
 ## <a name="related-content"></a>관련 콘텐츠

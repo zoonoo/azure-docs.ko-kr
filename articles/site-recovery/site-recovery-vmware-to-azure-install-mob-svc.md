@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/30/2017
 ms.author: anoopkv
-ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>모바일 서비스(VMware/Azure 물리적 서버) 설치
 Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버에 모바일 서비스를 배포할 수 있습니다.
@@ -50,13 +50,16 @@ Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 �
 
 | 설치 관리자 파일 템플릿 이름| 운영 체제 |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1(64비트) </br> Windows Server 2012(64비트) </br> Windows Server 2012 R2(64비트) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL(Red Hat Enterprise Linux) 6.4, 6.5, 6.6, 6.7, 6.8(64비트만 해당) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8(64비트만 해당) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | RHEL(Red Hat Enterprise Linux) 7.1, 7.2(64비트만 해당) </br> CentOS 7.0, 7.1, 7.2(64비트만 해당)</br> CentOs 7.3(마이그레이션만 해당) |
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1(64비트) </br> Windows Server 2012(64비트) </br> Windows Server 2012 R2(64비트) </br> Windows Server 2016(64비트) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux(RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux(RHEL) 7.1, 7.2, 7.3(64비트 전용) </br> CentOS 7.0, 7.1, 7.2, 7.3(64비트 전용) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3(64비트만 해당)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4(64비트만 해당)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5(64비트만 해당)|
 |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04(64비트만 해당)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS 서버(64비트 전용)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7(64비트 전용)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8(64비트 전용)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI를 사용하여 수동으로 모바일 서비스 설치
@@ -93,7 +96,7 @@ Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수행하�
 
 1. Azure Portal에서 <Your Vault> -> 복제된 항목 보기로 이동합니다.
 2. **구성 서버**를 최신 버전으로 업데이트한 경우 읽을 수 있는 *새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다.라는 알림이 표시됩니다. 클릭하여 설치합니다.*
-   
+
      ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. 알림을 클릭하여 가상 컴퓨터 선택 페이지를 엽니다.
 4. 모바일 서비스를 업그레이드하려는 가상 컴퓨터를 선택하고 확인 단추를 클릭합니다.
@@ -102,7 +105,7 @@ Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수행하�
 5. 선택한 가상 컴퓨터 각각에 대한 모바일 서비스 업데이트 작업을 시작합니다.
 
 > [!NOTE]
-> 모바일 서비스를 설치하는 데 사용되는 계정의 암호를 업데이트하는 방법에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure-manage-configuration-server.md). 
+> 모바일 서비스를 설치하는 데 사용되는 계정의 암호를 업데이트하는 방법에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure-manage-configuration-server.md).
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Windows Server 컴퓨터에서 모바일 서비스 제거
 Windows Server 컴퓨터에서 모바일 서비스를 제거하려면 다음 방법 중 하나를 사용합니다.

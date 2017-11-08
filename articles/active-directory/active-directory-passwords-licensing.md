@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db849cd1e9da634064f79fbc041098542580ad02
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
 Azure AD 암호 재설정의 기능을 작동하려면 **조직에서 할당된 하나 이상의 라이선스가 있어야 합니다**. 암호 재설정 환경에서 사용자별 라이선스를 적용하지 않습니다. Microsoft 라이선스 규약을 준수하려면 프리미엄 기능을 사용하는 모든 사용자에게 라이선스를 할당해야 합니다.
 
-* **클라우드 사용자만 해당** - Office 365(O365) 유료 SKU 또는 Azure AD Basic
+* **클라우드 전용 사용자** - Office 365(O365) 유료 SKU 또는 Azure AD Basic
 * **클라우드** 및/또는 **온-프레미스 사용자** - Azure AD Premium P1 또는 P2, EMS(Enterprise Mobility + Security) 또는 SPE(Secure Productive Enterprise)
 
 ## <a name="licenses-required-for-password-writeback"></a>비밀번호 쓰기 저장에 필요한 라이선스
@@ -40,7 +40,7 @@ Azure AD 암호 재설정의 기능을 작동하려면 **조직에서 할당된 
 * Microsoft 365 E3
 * Microsoft 365 E5
 
-> [!NOTE]
+> [!WARNING]
 > 독립 실행형 Office 365 라이선스 계획은 **비밀번호 쓰기 저장을 지원하지 않습니다**. 따라서 이 기능을 작동시키기 위해 이전 계획 중 하나가 필요합니다.
 
 다음 페이지에서는 라이선스 비용을 포함한 추가 정보를 찾을 수 있습니다.
@@ -58,13 +58,14 @@ Azure AD 암호 재설정의 기능을 작동하려면 **조직에서 할당된 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.
-
-* [**빠른 시작**](active-directory-passwords-getting-started.md) - Azure AD 셀프 서비스 암호 관리를 사용하여 운영 시작 
-* [**데이터**](active-directory-passwords-data.md) - 암호 관리에 필요한 데이터 및 사용 방식을 이해
-* [**롤아웃**](active-directory-passwords-best-practices.md) - 여기서 제공하는 지침을 사용하여 배포 계획을 세우고 사용자에게 SSPR 배포
-* [**사용자 지정**](active-directory-passwords-customize.md) - 회사 SSPR 경험의 모양과 느낌을 사용자 지정.
-* [**보고**](active-directory-passwords-reporting.md) - 사용자가 SSPR 기능에 액세스하는 조건, 시간 및 위치 탐색
-* [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
-* [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
-* [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](active-directory-passwords-best-practices.md)
+* [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](active-directory-passwords-data.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](active-directory-passwords-policy.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](active-directory-passwords-writeback.md)
+* [SSPR 작업은 어떻게 보고 합니까?](active-directory-passwords-reporting.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](active-directory-passwords-how-it-works.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)

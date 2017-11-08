@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5dcc6bf5d8c2cdbfadbbe5170b57c8e9a611b2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b179444738584e7033f0872d8ef5b721af1d3970
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,6 +33,10 @@ ms.lasthandoff: 10/11/2017
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 Pig 작업을 사용하여 데이터 변환](../transform-data-using-hadoop-pig.md)을 참조하세요.
+
 
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pig 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
@@ -120,7 +124,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 **HDInsightLinkedService**라고 하겠습니다.
 2. 데이터를 호스팅하는 Azure Blob 저장소로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md) 를 만듭니다. 이 연결된 서비스를 **StorageLinkedService**라고 하겠습니다.
 3. 입력 및 출력 데이터를 가리키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 **PigSampleIn**이라고 하고, 출력 데이터 집합을 **PigSampleOut**이라고 하겠습니다.
-4. 2단계에서 구성한 Azure Blob 저장소의 파일에 Pig 쿼리를 복사합니다. 데이터를 호스트하는 Azure Storage가 쿼리 파일을 호스트하는 Azure Storage와 다른 경우에는 별도의 Azure Storage 연결된 서비스를 만듭니다. 활동 구성에서 연결된 서비스를 참조할 수 있습니다. 그런 다음 **scriptPath**를 사용하여 Pig 스크립트 파일 및 **scriptLinkedService**의 경로를 지정합니다. 
+4. 2단계에서 구성한 Azure Blob Storage의 파일에 Pig 쿼리를 복사합니다. 데이터를 호스트하는 Azure Storage가 쿼리 파일을 호스트하는 Azure Storage와 다른 경우에는 별도의 Azure Storage 연결된 서비스를 만듭니다. 활동 구성에서 연결된 서비스를 참조할 수 있습니다. 그런 다음 **scriptPath**를 사용하여 Pig 스크립트 파일 및 **scriptLinkedService**의 경로를 지정합니다. 
    
    > [!NOTE]
    > **script** 속성을 사용하여 활동 정의에서 Pig 스크립트를 인라인으로 제공할 수도 있습니다. 그러나 이렇게 하면 스크립트의 모든 특수 문자를 이스케이프 처리해야 하므로 디버그 관련 문제가 발생할 수 있기 때문에 이 방식은 사용하지 않는 것이 좋습니다. 모법 사례는 4단계를 수행하는 것입니다.
@@ -164,7 +168,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 7. 데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요.
 
 ## <a name="specifying-parameters-for-a-pig-script"></a>Pig 스크립트에 대한 매개 변수 지정
-게임 로그가 Azure Blob 저장소에 매일 수집되고 날짜 및 시간을 기준으로 분할된 폴더에 저장되는 경우의 예를 들어 보겠습니다. Pig 스크립트에 매개 변수를 사용하여 런타임 동안 입력 폴더 위치를 동적으로 전달하며 날짜 및 시간으로 분할된 출력을 생성하려고 합니다.
+게임 로그가 Azure Blob Storage에 매일 수집되고 날짜 및 시간을 기준으로 분할된 폴더에 저장되는 경우의 예를 들어 보겠습니다. Pig 스크립트에 매개 변수를 사용하여 런타임 동안 입력 폴더 위치를 동적으로 전달하며 날짜 및 시간으로 분할된 출력을 생성하려고 합니다.
 
 매개 변수가 있는 Pig 스크립트를 사용하려면 다음을 수행합니다.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center 마이그레이션 FAQ
 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 FAQ는 플랫폼 마이그레이션에 대한 질문에 답변합니다.
@@ -26,36 +26,49 @@ ms.lasthandoff: 10/11/2017
 ## <a name="data-collection-agents-and-workspaces"></a>데이터 수집, 에이전트 및 작업 영역
 
 ### <a name="how-is-data-collected"></a>데이터를 어떻게 수집해야 하나요?
-Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 데이터를 수집했습니다. 이 보안 데이터는 취약점 및 보안 이벤트를 식별하는 데 사용되는 보안 구성에 대한 정보를 포함하며 위협을 검색하는 데 사용됩니다. 에이전트에 의해 수집된 데이터는 VM에 연결된 기존 Log Analytics 작업 영역 또는 Security Center에서 만든 새 작업 영역 중 하나에 저장됩니다. Security Center가 새 작업 영역을 만들 때 VM의 지리적 위치가 고려됩니다.
+Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 데이터를 수집했습니다. 보안 데이터에는 다음에 대한 정보가 포함됩니다.
+
+- 보안 구성 - 취약성을 파악하는 데 사용됨
+- 보안 이벤트 - 위협을 감지하는 데 사용
+
+에이전트에 의해 수집된 데이터는 VM에 연결된 기존 Log Analytics 작업 영역 또는 Security Center에서 만든 새 작업 영역 중 하나에 저장됩니다. Security Center가 새 작업 영역을 만들 때 VM의 지리적 위치가 고려됩니다.
 
 > [!NOTE]
 > Microsoft Monitoring Agent는 OMS(Operations Management Suite), Log Analytics 서비스 및 SCOM(System Center Operations Manager)에서 사용되는 것과 동일한 에이전트입니다.
 >
 >
 
-처음으로 데이터 수집을 활성화하거나 구독을 마이그레이션하는 경우 Security Center는 각 VM에 대한 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있는지 확인합니다. Microsoft Monitoring Agent가 설치되지 않은 경우 Security Center는 다음을 수행합니다.
+자동 프로비전(이전에 로그 컬렉션이라고 함)이 사용 가능하거나 구독이 마이그레이션되어 있는 경우 Security Center는 Microsoft Monitoring Agent가 각 VM에 Azure 확장으로 이미 설치되어 있는지 확인합니다. Microsoft Monitoring Agent가 설치되어 있지 않은 경우 Security Center는 기본적으로:
 
-- VM에 Microsoft Monitoring Agent 설치
-   - Security Center에서 만든 작업 영역이 이미 VM과 동일한 지리적 위치에 있는 경우 에이전트는 이 작업 영역에 연결됩니다.
-   - 작업 영역이 없는 경우 Security Center는 해당 지리적 위치에서 새 리소스 그룹 및 기본 작업 영역을 만들고 해당 작업 영역에 에이전트를 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.
+- VM에 Microsoft Monitoring Agent 확장을 설치합니다.
+
+   - Security Center에서 만든 작업 영역이 VM과 동일한 지리적 위치에 이미 있는 경우 에이전트는 이 작업 영역에 연결됩니다.
+   - 작업 영역이 없는 경우 Security Center는 해당 지리적 위치에 새 리소스 그룹 및 기본 작업 영역을 만들고 에이전트를 해당 작업 영역에 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.
 
        작업 영역: DefaultWorkspace-[subscription-ID]-[geo]
 
        리소스 그룹: DefaultResouceGroup-[geo]
-- 작업 영역에서 Security Center 솔루션 설치
 
-작업 영역의 위치는 VM의 위치를 기반으로 합니다. 자세한 내용은 [데이터 보안](security-center-data-security.md)을 참조하세요.
+- Security Center의 VM과 관련된 가격 책정 계층에 따라 작업 영역에서 Security Center 솔루션을 사용하도록 설정합니다. 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
+- 마이그레이션된 구독에 대해서만 Security Center에서 이전 Azure Monitoring Agent를 제거합니다.
 
 > [!NOTE]
-> 플랫폼 마이그레이션 이전에 Security Center는 Azure Monitoring Agent를 사용하여 VM에서 보안 데이터를 수집하고 저장소 계정에 데이터를 저장했습니다. 플랫폼 마이그레이션 후에 Security Center는 Microsoft Monitoring Agent 및 작업 영역을 사용하여 동일한 데이터를 수집하고 저장합니다. 저장소 계정은 마이그레이션 후에 제거할 수 있습니다.
+> Microsoft Monitoring Agent의 자동 설치를 무시하고 자신의 작업 영역을 사용할 수 있습니다.  [자동 에이전트 설치 및 작업 영역 만들기를 중지하는 방법](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation) 및 [기존 작업 영역을 사용하는 방법](#how-can-i-use-my-existing-log-analytics-workspace)을 참조하세요.
+>
+>
+
+작업 영역의 위치는 VM의 위치를 기반으로 합니다. 자세한 내용은 [데이터 보안](security-center-data-security.md)을 참조하세요. 구독에 여러 지리적 위치의 VM이 포함된 경우에는 Security Center에서 여러 작업 영역을 만듭니다. 여러 작업 영역은 데이터 프라이버시 규칙을 유지하기 위해 만들어집니다.
+
+> [!NOTE]
+> 플랫폼 마이그레이션 이전에 Security Center는 Azure Monitoring Agent를 사용하여 VM에서 보안 데이터를 수집하고 저장소 계정에 데이터를 저장했습니다. 플랫폼 마이그레이션 후에 Security Center는 Microsoft Monitoring Agent 및 작업 영역을 사용하여 동일한 데이터를 수집하고 저장합니다. 저장소 계정은 마이그레이션 후에 제거할 수 있습니다.  또한 Security Center는 플랫폼 마이그레이션 후 이전에 설치된 Azure Monitoring Agent를 제거합니다.
 >
 >
 
 ### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Log Analytics 또는 OMS에 대한 요금을 청구하나요?
 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 OMS에 구성되는 동안 OMS 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
-- **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
-- **표준 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 및 'Security' 솔루션을 설치합니다.
+- **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
+- **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 저장소 및 비례 배분 청구로 변경됩니다.
 
@@ -63,6 +76,14 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
 > Security Center에서 만든 작업 영역의 OMS 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
 >
 >
+
+### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Microsoft Monitoring Agent 설치의 자동 프로비전을 위한 VM의 요건은 무엇입니까?
+다음과 같은 경우 Windows 또는 Linux IaaS VM이 요건 충족됩니다.
+
+- Microsoft Monitoring Agent 확장이 VM에 현재 설치되어 있지 않습니다.
+- VM이 실행 중인 상태입니다.
+- Windows 또는 Linux VM 에이전트가 설치되어 있습니다.
+- VM이 웹 응용 프로그램 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?
 **기본 작업 영역을 삭제하지 않는 것이 좋습니다.** Security Center는 기본 작업 영역을 사용하여 VM의 보안 데이터를 저장합니다.  작업 영역을 삭제하는 경우 Security Center는 이 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다.
@@ -105,10 +126,20 @@ Security Center는 Microsoft Monitoring Agent를 사용하여 VM에서 보안 �
       ![모니터링되는 VM 다시 구성][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Microsoft Monitoring Agent가 VM에 확장으로 이미 설치되어 있으면 어떻게 되나요?
-Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. Security Center는 이미 연결된 작업 영역에서 VM의 보안 데이터를 저장합니다.
+Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. Security Center는 이미 연결된 작업 영역에서 VM의 보안 데이터를 저장합니다. Security Center는 Security Center 사용을 지원하기 위해 VM의 Azure 리소스 ID를 포함하도록 확장 버전을 업데이트합니다.
 
 ### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>컴퓨터에 확장판이 아닌 Microsoft Monitoring Agent를 설치하면 어떻게 되나요?
 Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Microsoft Monitoring Agent를 설치하지 않으며, 보안 모니터링 기능이 제한됩니다.
+
+자세한 내용은 다음 섹션 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](security-center-platform-migration-faq.md#what-happens-if-a-scom-or-oms-direct-agent-is-already-installed-on-my-vm)를 참조하세요.
+
+### <a name="what-happens-if-a-scom-or-oms-direct-agent-is-already-installed-on-my-vm"></a>SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?
+Security Center는 에이전트가 설치되어 있는지 미리 확인할 수 없습니다.  Security Center는 Microsoft Monitoring Agent 확장을 설치하려고 시도하고 기존에 설치된 에이전트로 인해 실패합니다.  이 실패로 인해 에이전트의 연결 설정을 해당 작업 영역에 우선 적용할 수 없고 multi-homing을 만들지 않습니다.
+
+> [!NOTE]
+> 에이전트 버전이 최신 OMS 에이전트 버전으로 업데이트됩니다.  이것은 SCOM 사용자에게도 적용됩니다.
+>
+>
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -122,6 +153,35 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 2. 다음으로 **보안 정책 - 데이터 수집** 블레이드에서 **끄기**를 선택하여 자동 프로비저닝을 해제합니다.
    ![데이터 수집][2]
+
+### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>자동 에이전트 설치 및 작업 영역 생성을 옵트아웃해야 하나요?
+
+> [!NOTE]
+> 자동 프로비전을 옵트아웃하도록 선택하는 경우 [옵트아웃의 의미는 무엇인가요?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) 및 [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
+>
+>
+
+다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
+
+- Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다.  VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
+- Microsoft Monitoring Agent 확장을 설치하면 에이전트 버전이 업데이트됩니다. 이것은 직접 에이전트 및 SCOM 에이전트에 적용됩니다. 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치된 SCOM 에이전트가 2012 버전인 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
+- 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
+- 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
+
+   1. 자동 프로비전을 옵트아웃할 수 있습니다. 마이그레이션 후 기본 작업 영역 설정을 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)의 설명에 따라 설정합니다.
+   2. 또는 마이그레이션이 완료되고, Microsoft Monitoring Agent가 VM에 설치되고, VM이 생성된 작업 영역에 연결되도록 허용합니다. 그런 다음 이미 설치된 에이전트를 재구성하도록 선택하여 기본 작업 영역 설정을 설정하고 자신의 사용자 지정 작업 영역을 선택합니다. 자세한 내용은 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)를 참조하세요.
+
+### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 의미는 무엇인가요?
+마이그레이션이 완료되면 Security Center는 VM에서 보안 데이터를 수집할 수 없으며 일부 보안 권장 사항과 경고를 사용할 수 없습니다. 옵트아웃하는 경우 Microsoft Monitoring Agent를 수동으로 설치해야 합니다. [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
+
+### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 경우 권장되는 단계는 무엇인가요?
+Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Microsoft Monitoring Agent를 수동으로 설치해야 합니다. 설치에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agents.md)을 참조하세요.
+
+에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 'Security' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 블레이드를 통해 가격 책정 계층을 적용합니다.
+
+   ![가격 책정 계층 ][1]
+
+Security Center는 선택한 가격 책정 계층을 기반으로 작업 영역에 올바른 솔루션을 사용하도록 설정합니다.
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Security Center에서 설치한 OMS 확장을 제거하려면 어떻게 할까요?
 Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security Center 권장 사항 및 경고를 제한하기 때문에 권장되지는 않습니다.
@@ -164,7 +224,7 @@ Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 V
 Security Center에서 VM이 만든 작업 영역에 이미 연결되어 있는지를 식별하는 경우 Security Center를 통해 가격 책정 계층에 따라 이 작업 영역에서 솔루션을 사용할 수 있습니다. 솔루션이 [솔루션 대상 지정](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
 - **체험 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
-- **표준 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 및 'Security' 솔루션을 설치합니다.
+- **표준 계층** – Security Center가 작업 영역에 'Security' 솔루션을 설치합니다.
 
    ![기본 작업 영역의 솔루션][4]
 

@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d64425d067df92998538c78d1ca3a1650502b77a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47ebebbd838d245c2559bff8d8750e80dbcc3fd8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
+> [!NOTE]
+> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [질문과 대답 - Data Factory 버전 2](../frequently-asked-questions.md)를 참조하세요.
+
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 Data Factory는 **데이터의 이동과 변환을 자동화**하는 클라우드 기반 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 작동하는 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
@@ -35,7 +38,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 * Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
-* 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+* 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요.
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>데이터 팩터리의 지역 가용성은 얼마나 되나요?
@@ -65,11 +68,11 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory에서 지원하는 컴퓨팅 환경은 무엇입니까?
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다.
 
-| 컴퓨팅 환경 | 작업 |
+| Compute 환경 | 작업 |
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
-| [Azure 배치](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure 기계 학습](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 작업: 배치 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
+| [Azure 기계 학습](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure 데이터 레이크 분석](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
@@ -112,8 +115,8 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>추가 저장소 계정을 HDInsight 클러스터에 연결하려면 어떻게 해야 하나요?
 사용자 고유의 HDInsight 클러스터를 사용하는 경우(BYOC - 자체 클러스터 가져오기) 다음 항목을 참조하세요.
 
-* [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용][hdinsight-alternate-storage]
-* [HDInsight Hive와 추가 저장소 계정 사용][hdinsight-alternate-storage-2]
+* [대체 Storage 계정 및 메타스토어와 HDInsight 클러스터 사용][hdinsight-alternate-storage]
+* [HDInsight Hive와 추가 Storage 계정 사용][hdinsight-alternate-storage-2]
 
 데이터 팩터리 서비스에서 만든 주문형 클러스터를 사용하는 경우 데이터 팩터리 서비스가 사용자를 대신해서 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. 주문형 연결된 서비스에 대한 JSON 정의에서, 다음 JSON 조각과 같이 **additionalLinkedServiceNames** 속성을 사용하여 대체 저장소 계정을 지정합니다.
 

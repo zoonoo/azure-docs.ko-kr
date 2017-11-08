@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/25/2017
+ms.date: 10/26/2017
 ms.author: danlep
-ms.openlocfilehash: b82cb6cc3724af9306bc3b23125cf7cfa03df8ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dd00d4fb0d334e836256e66207358c034fc005a
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>HPC Pack을 사용하여 Azure에서 Windows HPC 워크로드의 클러스터를 만들고 관리하기 위한 옵션
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
@@ -27,11 +27,12 @@ ms.lasthandoff: 10/11/2017
 이 문서는 Windows 워크로드를 실행하기 위한 HPC Pack 클러스터를 생성하는 옵션을 중점적으로 설명합니다. 또한 [Linux HPC 워크로드](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 실행하는 HPC 팩 클러스터를 생성하는 옵션도 있습니다.
 
 
-## <a name="hpc-pack-cluster-in-azure-vms"></a>Azure VM의 HPC Pack 클러스터
+## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Azure VM의 HPC Pack 클러스터 및 VM 확장 집합
 ### <a name="azure-templates"></a>Azure 템플릿
 * (GitHub) [HPC 팩 2016 클러스터 템플릿](https://github.com/MsHpcPack/HPCPack2016)
-* (마켓플레이스) [Windows 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
-* (마켓플레이스) [Excel 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+* (GitHub) [HPC 팩 2012 R2 클러스터 템플릿](https://github.com/MsHpcPack/HPCPack2012R2)
+* (Marketplace) [Windows 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+* (Marketplace) [Excel 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 * (퀵 스타트) [HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 * (퀵 스타트) [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 * [Azure에서 HPC 팩 헤드 노드에 Azure "버스트" 노드 추가](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="burst-with-azure-batch"></a>Azure Batch를 사용하여 버스트
-* [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
+* [HPC 팩을 사용하여 Azure Batch로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## <a name="rdma-clusters-for-mpi-workloads"></a>MPI 워크로드에 대한 RDMA 클러스터
 * [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory의 새로운 기능 | Microsoft Docs"
-description: "Azure Active Directory의 **최신 릴리스**, **알려진 문제점**, **버그 수정**, **사용되지 않는 기능** 및 **변경 계획**을 계속 확인하려면 이 릴리스 정보를 사용합니다."
+title: "새로운 기능 Azure Active Directory 릴리스 정보 | Microsoft Docs"
+description: "Azure AD(Active Directory)의 최신 릴리스, 알려진 문제점, 버그 수정, 사용되지 않는 기능 및 변경 계획을 계속 확인하려면 이 릴리스 정보를 사용합니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -76,6 +76,8 @@ Azure Active Directory는 HTML 사용자 이름 및 암호 필드를 렌더링�
 
 이 공개 미리 보기를 사용하면 MFA 관리 및 보고가 핵심 Azure AD 구성 환경의 일부로 통합되어 Azure AD 환경에서 MFA 관리 포털 기능을 관리할 수 있습니다.
 
+자세한 내용은 [Azure Portal의 다단계 인증 보고에 대한 참조 정보](active-directory-reporting-activity-sign-ins-mfa.md)를 참조하세요. 
+
 
 ---
 **유형:** 새로운 기능  
@@ -112,8 +114,6 @@ Azure Active Directory PIM(Privileged Identity Management)을 사용하면 이�
 **서비스 범주:** 액세스 검토  
 **제품 기능:** 거버넌스  
 
-
-Azure AD의 새로운 기능
 
 액세스 검토(미리 보기)를 통해 조직은 그룹 구성원 자격을 효율적으로 관리하고 엔터프라이즈 응용 프로그램에 액세스할 수 있습니다. 
 

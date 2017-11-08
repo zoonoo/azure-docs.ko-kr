@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Instances 자습서 - 앱 배포 | Microsoft Docs"
+title: "Azure Container Instances 자습서 - 앱 배포"
 description: "Azure Container Instances 자습서 - 앱 배포"
 services: container-instances
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances에 컨테이너 배포
 
@@ -32,31 +32,39 @@ ms.lasthandoff: 10/11/2017
 > * 브라우저에서 응용 프로그램 보기
 > * 컨테이너 로그 보기
 
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+이 자습서를 완료하려면 Docker 개발 환경이 필요합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+
+Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 Azure CLI 및 Docker 개발 환경을 로컬로 설치하는 것이 좋습니다.
+
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
 Azure CLI를 통해 단일 명령으로 Azure Container Instances에 컨테이너를 배포할 수 있습니다. 컨테이너 이미지가 개인 Azure Container Registry에 호스트되기 때문에 액세스하는 데 필요한 자격 증명을 포함해야 합니다. 필요한 경우 아래와 같이 쿼리할 수 있습니다.
 
 컨테이너 레지스트리 로그인 서버(레지스트리 이름을 업데이트):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 컨테이너 레지스트리 암호:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 1개의 CPU 코어 및 1GB 메모리의 리소스를 요청하는 컨테이너 레지스트리에서 컨테이너 이미지를 배포하려면 다음 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 몇 초 정도 지나면 Azure Resource Manager에서 초기 응답이 수신됩니다. 배포 상태를 확인하려면 다음을 사용합니다.
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -78,7 +86,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 또한 컨테이너의 로그 출력을 볼 수 있습니다.
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 

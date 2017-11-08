@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 > [!NOTE]
 > - 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 >
-> - 이 기능은 하나 이상의 동적 그룹에 추가된 각 사용자 멤버에 대해 Azure AD Premium P1 라이선스가 필요합니다.
+> - 이 기능은 하나 이상의 동적 그룹에 추가된 각 사용자 멤버에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자가 동적 그룹의 구성원이 되도록 사용자에게 실제로 라이선스를 할당해야 하는 것은 아니지만 테넌트에 모든 사용자를 포괄할 수 있도록 최소한의 라이선스가 있어야 합니다. 예를 들어 테넌트의 모든 동적 그룹에 고유 사용자가 총 1,000명 있는 경우 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 최소 1,000개 또는 그 이상의 라이선스가 있어야 합니다.
 >
 > - 장치 또는 사용자에 대한 동적 그룹을 만들 수 있지만 사용자 및 장치 개체를 모두 포함하는 규칙을 만들 수는 없습니다.
 
@@ -306,7 +306,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **PowerShell을 사용하여 그룹에 대한 멤버 자격 관리 변경**
 
 > [!NOTE]
-> 동적 그룹 속성을 변경하려면 [Azure AD PowerShell 버전 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [여기](https://www.powershellgallery.com/packages/AzureADPreview)에서 설치할 수 있습니다.
+> 동적 그룹 속성을 변경하려면 **Azure AD PowerShell 버전 2**의 [미리 보기 버전](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 cmdlet을 사용해야 합니다. [여기](https://www.powershellgallery.com/packages/AzureADPreview)에서 미리 보기를 설치할 수 있습니다.
 
 기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure VM 백업 FAQ | Microsoft Docs"
+title: Azure VM Backup FAQ | Microsoft Docs
 description: "Azure VM 백업 작동 방식, 제한 및 정책 변경 시 발생하는 상황과 관련된 일반적인 질문에 대한 대답입니다."
 services: backup
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 0117398a1ad2a8519f50732d173bec9fbb7411b5
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 백업 서비스에 대한 질문
-이 문서에서는 Azure VM 백업 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
+# <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Backup 서비스에 대한 질문
+이 문서에서는 Azure VM Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
 
 ## <a name="configure-backup"></a>백업 구성
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Recovery Services 자격 증명 모음은 클래식 VM 또는 Resource Manager 기반 VM을 지원하나요? <br/>
@@ -36,12 +36,12 @@ Recovery Services 자격 증명 모음은 두 모델을 모두 지원합니다. 
   * 아직 보호되지 않음 - VM 블레이드로 이동하고 설정 메뉴에서 Backup 상태를 확인하여 VM의 백업 상태를 확인할 수 있습니다. [VM의 백업 상태를 확인하는 방법](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)에 대해 자세히 알아보세요.
   * VM과 동일한 지역에 속함
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 따르나요?
 아니요. 주문형 백업 작업의 보존 범위를 지정해야 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
-Key Vault에 액세스하려면 Azure Backup 서비스에 대한 권한을 부여해야 합니다. [PowerShell 설명서](backup-azure-vms-automation.md)의 *백업 사용* 섹션에서 설명하는 단계를 사용하여 PowerShell에서 이러한 권한을 제공할 수 있습니다.
+Key Vault에 액세스하려면 Azure Backup 서비스에 대한 권한을 부여해야 합니다. [PowerShell 설명서](backup-azure-vms-automation.md)의 *Backup 사용* 섹션에서 설명하는 단계를 사용하여 PowerShell에서 이러한 권한을 제공할 수 있습니다.
 
 ### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>VM 디스크를 관리 디스크로 마이그레이션했습니다. 내 백업이 계속 작동하나요?
 예, 백업이 원활하게 작동하므로 백업을 다시 구성할 필요가 없습니다. 
@@ -59,6 +59,9 @@ Azure 전체 VM 복원을 빠른 만들기 옵션으로 생각해 볼 수 있습
   * 만드는 리소스에 대한 명명 규칙을 제어합니다.
   * 가용성 집합에 VM을 추가합니다.
   * PowerShell/선언적 템플릿 정의를 통해서만 설정할 수 있는 기타 구성
+  
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>내 디스크를 관리 디스크로 업그레이드한 후 관리되지 않는 디스크 VM의 백업을 사용하여 복원할 수 있나요?
+예, 관리되지 않는 디스크에서 관리 디스크로 마이그레이션하기 전에 수행한 백업을 사용할 수 있습니다. 기본적으로 VM 복원 작업은 관리되지 않는 디스크가 있는 VM을 만듭니다. 디스크 복원 기능을 사용하여 디스크를 복원하고 이를 사용하여 관리 디스크에 VM을 만들 수 있습니다. 
 
 ## <a name="manage-vm-backups"></a>VM 백업 관리
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>VM에서 백업 정책을 변경하면 어떻게 되나요?

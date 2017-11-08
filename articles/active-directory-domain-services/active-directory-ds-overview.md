@@ -4,7 +4,7 @@ description: "Azure Active Directory Azure Active Directory Domain Services 개�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD Domain Services
+# <a name="azure-active-directory-ad-domain-services"></a>Azure AD(Active Directory) Domain Services
 ## <a name="overview"></a>개요
-Azure 인프라 서비스를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Azure 가상 컴퓨터를 사용하여 즉각적으로 배포하고 분 단위로 요금을 지불할 수 있습니다. Windows, Linux, SQL Server, Oracle, IBM, SAP, BizTalk에 대한 지원을 사용하여 거의 모든 운영 체제에서 워크로드를 모든 언어로 배포할 수 있습니다. 이러한 혜택으로 운영 비용을 절감하기 위해 Azure에 레거시 응용 프로그램 배포된 온-프레미스를 마이그레이션할 수 있습니다.
+Azure 인프라 서비스를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Azure Virtual Machines를 사용하여 즉각적으로 배포하고 분 단위로 요금을 지불할 수 있습니다. Windows, Linux, SQL Server, Oracle, IBM, SAP, BizTalk에 대한 지원을 사용하여 거의 모든 운영 체제에서 워크로드를 모든 언어로 배포할 수 있습니다. 이러한 혜택으로 운영 비용을 절감하기 위해 Azure에 레거시 응용 프로그램 배포된 온-프레미스를 마이그레이션할 수 있습니다.
 
 온-프레미스 응용 프로그램을 Azure에 마이그레이션하는 중요한 측면은 이러한 응용 프로그램의 ID 요구를 처리하는 것입니다. 디렉터리 인식 응용 프로그램은 회사 디렉터리에 대한 읽기 또는 쓰기 액세스를 LDAP에 의존하거나 Windows 통합 인증(Kerberos 또는 NTLM 인증)에 의존하여 최종 사용자를 인증합니다. Windows 서버에서 실행하는 LOB(기간 업무)는 일반적으로 도메인 가입된 컴퓨터에 배포되므로 그룹 정책을 사용하여 안전하게 관리할 수 있습니다. 온-프레미스 응용 프로그램을 클라우드에 '들어올려서 옮기기' 위해 회사 ID 인프라에 대한 이러한 종속성을 해결해야 합니다.
 
@@ -35,6 +35,10 @@ Azure에 배포된 해당 응용 프로그램의 ID 요구를 충족하기 위�
 이러한 모든 방법은 높은 비용 및 관리 오버헤드로 성능이 크게 저하됩니다. 관리자는 Azure 가상 컴퓨터를 사용하여 도메인 컨트롤러를 배포해야 합니다. 또한 이러한 가상 컴퓨터를 관리, 보안, 패치, 모니터링, 백업하고 문제를 해결해야 합니다. 온-프레미스 디렉터리에 대한 VPN 연결에 대한 의존은 Azure에서 배포된 워크로드를 일시적인 네트워크 결함 또는 중단에 취약하게 만듭니다. 이러한 네트워크 중단으로 이러한 응용 프로그램에 대한 가동 시간이 더 낮아지고 안정성이 감소하게 됩니다.
 
 더욱 쉽게 대안을 제공하도록 Azure AD 도메인 서비스를 설계했습니다.
+
+### <a name="watch-an-introductory-video"></a>소개 비디오 보기
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## <a name="introducing-azure-ad-domain-services"></a>Azure AD 도메인 서비스 소개
 Azure AD 도메인 서비스는 도메인 가입, 그룹 정책, LDAP, Kerberos/NTLM 인증 등과 같이 Windows Server Active Directory와 완전히 호환되는 관리된 도메인 서비스를 제공합니다. 클라우드에서 도메인 컨트롤러를 배포, 관리 및 패치할 필요 없이 이러한 도메인 서비스를 사용할 수 있습니다. Azure AD 도메인 서비스는 기존 Azure AD 테넌트와 통합하므로 사용자가 회사 자격 증명을 사용하여 로그인할 수 있도록 합니다. 또한 기존 그룹 및 사용자 계정을 사용하여 리소스에 대한 액세스를 보호하므로 Azure 인프라 서비스에 온-프레미스 리소스를 원활하게 '들어올려서 옮길' 수 있습니다.

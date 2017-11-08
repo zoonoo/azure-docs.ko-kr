@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Instances 자습서 - Azure Container Registry 준비 | Microsoft Docs"
+title: "Azure Container Instances 자습서 - Azure Container Registry 준비"
 description: "Azure Container Instances 자습서 - Azure Container Registry 준비"
 services: container-instances
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
-세 부분으로 이루어진 자습서의 두 번째 부분입니다. [이전 단계](./container-instances-tutorial-prepare-app.md)에서 [Node.js](http://nodejs.org)로 작성된 간단한 웹 응용 프로그램에 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./container-instances-tutorial-prepare-app.md)로 돌아갑니다. 
+세 부분으로 이루어진 자습서의 두 번째 부분입니다. [이전 단계](container-instances-tutorial-prepare-app.md)에서 [Node.js](http://nodejs.org)로 작성된 간단한 웹 응용 프로그램에 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
 
 Azure Container Registry는 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 이 자습서에서는 Azure Container Registry 인스턴스를 배포하고 컨테이너 이미지를 이 인스턴스에 밀어넣는 과정을 안내합니다. 완료되는 단계는 다음과 같습니다.
 
@@ -38,7 +38,11 @@ Azure Container Registry는 Docker 컨테이너 이미지를 위한 Azure 기반
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.12 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+이 자습서를 완료하려면 Docker 개발 환경이 필요합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+
+Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 Azure CLI 및 Docker 개발 환경을 로컬로 설치하는 것이 좋습니다.
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
@@ -60,7 +64,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
-ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인해야 합니다. [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
+ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인해야 합니다. [az acr login](/cli/azure/acr#az_acr_login) 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력해야 합니다.
 
 ```azurecli
 az acr login --name <acrName>
