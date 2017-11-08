@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>논리 앱을 사용하여 정기적으로 실행하는 작업 및 워크플로 예약
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 | 매일 8:30 AM에 실행(시작 날짜와 시간 없음) | 1 | 일 | {없음} | {사용할 수 없음} | 8 | 30 | 이 일정은 지정된 일정에 따라 매일 8:30 AM에 실행됩니다. | 
 | 매일 8:30 AM에 실행(시작 날짜와 시간 있음) | 1 | 일 | *startDate*T08:30:00Z | {사용할 수 없음} | {없음} | {없음} | 이 일정은 지정된 시작 날짜의 8:30 AM에 시작됩니다. | 
 | 매일 8:30 AM 및 4:30 PM에 실행 | 1 | 일 | {없음} | {사용할 수 없음} | 8, 16 | 30 | | 
-| 매일 8:30 AM 및 4:45에 실행 | 1 | 일 | {없음} | {사용할 수 없음} | 8, 16 | 30, 45 | | 
+| 매일 8:30 AM, 8:45 AM, 4:30 PM 및 4:45 PM에 실행 | 1 | 일 | {없음} | {사용할 수 없음} | 8, 16 | 30, 45 | | 
 | 매주 토요일 5 PM에 실행(시작 날짜와 시간 없음) | 1 | 주 | {없음} | “토요일” | 17 | 00 | 이 일정은 매주 토요일 5:00 PM에 실행됩니다. | 
 | 매주 토요일 5 PM에 실행(시작 날짜와 시간 있음) | 1 | 주 | *startDate*T17:00:00Z | “토요일” | {없음} | {없음} | 이 일정은 지정된 시작 날짜 및 시간(이 경우 2017년 9월 9일 5:00 PM)보다 *더 일찍* 시작되지 않습니다. 이후 되풀이는 매주 토요일 5:00 PM에 실행됩니다. | 
 | 매주 화요일, 목요일 5 PM에 실행 | 1 | 주 | {없음} | “화요일”, “목요일” | 17 | {없음} | 이 일정은 매주 화요일, 목요일 5:00 PM에 실행됩니다. | 

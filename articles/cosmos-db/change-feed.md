@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -157,7 +157,7 @@ Azure Cosmos DB의 [DocumentDB SDK](documentdb-sdk-dotnet.md)는 변경 피드�
 
 복수의 reader가 있는 경우 **ChangeFeedOptions**를 사용하여 읽기 로드를 다른 스레드 또는 다른 클라이언트로 분산할 수 있습니다.
 
-다음과 같은 몇 개의 코드만 있으면 바로 변경 피드를 읽을 수 있습니다. 이 문서에 사용된 전체 코드는 [azure-cosmos-db-DocumentFeed GitHub repo](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed)에서 확인할 수 있습니다.
+다음과 같은 몇 개의 코드만 있으면 바로 변경 피드를 읽을 수 있습니다. 이 문서에 사용된 전체 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)에서 확인할 수 있습니다.
 
 위 4단계의 코드에서 마지막 줄에 있는 **ResponseContinuation**에는 문서의 마지막 LSN(논리적 시퀀스 번호)이 있으며, 다음에 이 시퀀스 번호 이후 새 문서를 읽을 때 이 LSN을 사용합니다. **ChangeFeedOption**의 **StartTime**을 사용하면 네트워크를 넓혀 문서를 가져올 수 있습니다. 따라서 **ResponseContinuation**이 null이지만 **StartTime**이 과거로 돌아갈 경우 **StartTime** 이후 변경된 모든 문서를 얻습니다. 단, **ResponseContinuation**에 값이 있는 경우에는 시스템에서 해당 LSN 이후의 모든 문서를 제공합니다.
 
@@ -278,7 +278,7 @@ Azure Cosmos DB와 Azure Functions를 사용하는 방법에 대한 자세한 �
 
 * [정보 페이지](documentdb-sdk-dotnet-changefeed.md) 
 * [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [위 1 ~ 6단계를 보여주는 샘플 코드](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [위 1 ~ 6단계를 보여주는 샘플 코드](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub의 추가 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 SDK를 통해 변경 피드를 사용하는 방법을 보려면 다음 리소스를 사용하세요.

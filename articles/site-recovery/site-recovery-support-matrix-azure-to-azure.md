@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/25/2017
 **리소스 이동 유형** | **지원됨/지원되지 않음** | **설명**  
 --- | --- | ---
 **리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음 |리소스 그룹 간에 Recovery Services 자격 증명 모음을 이동할 수 없습니다.
-**리소스 그룹 간에 계산, 저장소 및 네트워크 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 컴퓨터(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 컴퓨터에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
+**리소스 그룹 간에 Compute, Storage 및 Network 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 컴퓨터(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 컴퓨터에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 
 
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/25/2017
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2016(Server Core 및 데스크톱 경험이 포함된 Server)*
+- Windows Server 2016(Server Core, 데스크톱 경험이 있는 Server)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1 이상
@@ -128,12 +128,12 @@ ms.lasthandoff: 10/25/2017
 > 브라질 남부 지역의 경우 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2 및 미국 중북부 지역 중 하나로만 복제 및 장애 조치(failover)하고 장애 복구(failback)할 수 있습니다.
 
 
-## <a name="support-for-compute-configuration"></a>계산 구성 지원
+## <a name="support-for-compute-configuration"></a>Compute 구성 지원
 
 **구성** | **지원됨/지원되지 않음** | **설명**
 --- | --- | ---
 크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machines 크기](../virtual-machines/windows/sizes.md) 참조
-가용성 집합 | 지원됨 | 포털에서 '복제 사용' 단계 중에 기본 옵션을 사용하는 경우 원본 지역 구성에 따라 가용성 집합이 자동으로 만들어집니다. 언제든지 '복제된 항목 > 설정 > 계산 및 네트워크 > 가용성 집합'에서 대상 가용성 집합을 변경할 수 있습니다.
+가용성 집합 | 지원됨 | 포털에서 '복제 사용' 단계 중에 기본 옵션을 사용하는 경우 원본 지역 구성에 따라 가용성 집합이 자동으로 만들어집니다. 언제든지 '복제된 항목 > 설정 > Compute 및 네트워크 > 가용성 집합'에서 대상 가용성 집합을 변경할 수 있습니다.
 HUB(하이브리드 사용 혜택) VM | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치 또는 장애 조치 VM에서도 HUB 라이선스를 사용합니다.
 가상 컴퓨터 크기 집합 | 지원되지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 Site Recovery에서 지원하는 운영 체제에서 실행되는 경우에 지원됨
@@ -178,8 +178,8 @@ NIC(네트워크 인터페이스) | 특정 Azure VM 크기에서 지원되는 �
 NIC의 NSG(Resource Manager)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.  
 서브넷의 NSG(Resource Manager 및 클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 VM의 NSG(클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
-예약된 IP(고정 IP)/원본 IP 유지 | 지원됨 | 원본 VM의 NIC에 고정 IP 구성이 있고 대상 서브넷에서 동일한 IP를 사용할 수 있는 경우 해당 IP가 장애 조치 VM에 할당됩니다. 대상 서브넷에서 동일한 IP를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 중 하나가 이 VM용으로 예약됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
-동적 IP| 지원됨 | 원본 VM의 NIC에 동적 IP 구성이 있는 경우 장애 조치 VM의 NIC도 기본적으로 동적으로 설정됩니다. '복제된 항목 > 설정 > 계산 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
+예약된 IP(고정 IP)/원본 IP 유지 | 지원됨 | 원본 VM의 NIC에 고정 IP 구성이 있고 대상 서브넷에서 동일한 IP를 사용할 수 있는 경우 해당 IP가 장애 조치 VM에 할당됩니다. 대상 서브넷에서 동일한 IP를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 중 하나가 이 VM용으로 예약됩니다. '복제된 항목 > 설정 > Compute 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
+동적 IP| 지원됨 | 원본 VM의 NIC에 동적 IP 구성이 있는 경우 장애 조치 VM의 NIC도 기본적으로 동적으로 설정됩니다. '복제된 항목 > 설정 > Compute 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
 Traffic Manager 통합 | 지원됨 | 트래픽이 평소에는 원본 지역의 끝점으로 라우팅되고 장애 조치 시에는 대상 지역의 끝점으로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure 관리 DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |    

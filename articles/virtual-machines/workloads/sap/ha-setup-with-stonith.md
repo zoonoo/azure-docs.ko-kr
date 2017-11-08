@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6db4a9308ede1744081f114c61f1ca0c303706e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="high-availability-setup-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 장치를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
 
 **고지 사항:** *이 가이드는 성공적으로 작동하는 Microsoft HANA 대규모 인스턴스 환경에서 설정을 테스트하여 작성하였습니다. Microsoft의 HANA 대규모 인스턴스 서비스 관리 팀은 운영 체제를 지원하지 않으므로 운영 체제 계층에 관한 추가 문제 해결 또는 설명은 SUSE에 문의하십시오. Microsoft 서비스 관리 팀은 STONITH 장치를 설정하고 완전히 도움을 드릴 것이며 STONITH 장치 문제에 대한 문제 해결에 참여할 수 있습니다.*
@@ -31,13 +31,13 @@ SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필�
 - 운영 체제 등록
 - 패치/패키지를 가져오기 위해 HANA 대규모 인스턴스 서버를 SMT 서버에 연결
 - 운영 체제에 최신 패치 설치
-- NTP(시간 서버)를 설정
+- NTP(시간 서버) 설정
 - HA 설정에 관한 SUSE 설명서의 최신 버전을 읽고 이해
 
-### <a name="setup-details"></a>설정 정보
+### <a name="set-up-details"></a>설정 세부 정보
 - 이 가이드에서는 다음 설정을 사용했습니다.
-- 운영 체제: SUSE 12 SP1
-- HANA 대규모 인스턴스: 2xS192(4 소켓, 2 TB)
+- 운영 체제: SAP용 SLES 12 SP1
+- HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
 - HANA 버전: HANA 2.0 SP1
 - 서버 이름: sapprdhdb95(노드 1) 및 sapprdhdb96(노드 2)
 - STONITH 장치: iSCSI 기반 STONITH 장치
@@ -48,6 +48,7 @@ HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft
 - 서버 이름 및 서버 IP 주소(예: myhanaserver1, 10.35.0.1)
 - 위치(예: 미국 동부)
 - 고객 이름(예: Microsoft)
+- SID - HANA 시스템 식별자(예: H11)
 
 STONITH 장치를 구성한 후 Microsoft 서비스 관리 팀이 STONITH 설정을 구성하는 데 사용할 수 있는 SBD 장치 이름 및 iSCSI 저장소의 IP 주소를 제공합니다. 
 
@@ -65,14 +66,18 @@ STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라
 ## <a name="1---identify-the-sbd-device"></a>1.   SBD 장치 식별
 이 섹션에서는 Microsoft 서비스 관리 팀이 STONITH를 구성한 후 설정에 맞는 SBD 장치를 결정하는 방법을 설명합니다. **이 섹션은 기존 고객에게만 적용됩니다**. 새 고객의 경우 Microsoft 서비스 관리 팀이 SBD 장치 이름을 제공하며 따라서 이 섹션을 건너뛸 수 있습니다.
 
-1.1 */etc/iscsi/initiatorname.isci*를 *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*로 수정.  
-Microsoft 서비스 관리에서 이 문자열을 제공합니다. 이 작업은 두 노드에서 **모두** 수행해야 하지만 노드 번호는 각 노드에서 서로 다릅니다.
+1.1 */etc/iscsi/initiatorname.isci*를 다음으로 수정 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+Microsoft 서비스 관리에서 이 문자열을 제공합니다. 노드 **둘 다**에서 이 파일을 수정하지만 노드 번호는 노드마다 다릅니다.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 */etc/iscsi/iscsid.conf* 수정: *node.session.timeo.replacement_timeout=5* 및 *node.startup = automatic*을 설정합니다. 이 작업은 두 노드에서 **모두** 수행해야 합니다.
+1.2 */etc/iscsi/iscsid.conf* 수정: *node.session.timeo.replacement_timeout=5* 및 *node.startup = automatic*을 설정합니다. 노드 **둘 다**에서 파일을 수정합니다.
 
-1.3 검색 명령을 실행하여 4개 세션을 표시합니다. 이 작업은 두 노드에서 모두 수행해야 합니다.
+1.3 검색 명령을 실행하여 4개 세션을 표시합니다. 이 작업은 두 노드에서 모두 실행합니다.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -80,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 iSCSI 장치에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. 이 작업은 두 노드에서 **모두** 수행해야 합니다.
+1.4 iSCSI 장치에 로그인하는 명령을 실행하고 4개 세션을 표시합니다. 이 작업은 **두** 노드에서 모두 실행합니다.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 다시 검사 스크립트 실행: *rescan-scsi-bus.sh*.  사용자를 위해 생성된 새 디스크가 표시됩니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호(예: 1, 2 등)가 표시됩니다.
+1.5 다시 검사 스크립트 실행: *rescan-scsi-bus.sh*.  이 스크립트는 사용자를 위해 생성된 새 디스크를 표시합니다.  이 작업은 두 노드에서 모두 실행합니다. 0보다 더 큰 LUN 번호(예: 1, 2 등)가 표시됩니다.
 
 ```
 rescan-scsi-bus.sh
@@ -120,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3.   클러스터 구성
 이 섹션에서는 SUSE HA 클러스터를 설정하는 단계를 설명합니다.
 ### <a name="31-package-installation"></a>3.1 패키지 설치
-3.1.1 ha_sles 및 SAPHanaSR-doc 패턴이 설치되었는지 확인하십시오. 설치되지 않은 경우 설치하십시오. 이 작업은 두 노드에서 **모두** 수행해야 합니다.
+3.1.1 ha_sles 및 SAPHanaSR-doc 패턴이 설치되었는지 확인하십시오. 설치되지 않은 경우 설치합니다. 이 패키지는 두 노드에서 **모두** 실행합니다.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -212,7 +217,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9 sbd config를 채택하려면 다음과 같이 */etc/sysconfig/sbd* 파일을 업데이트합니다. 이 작업은 두 노드에서 **모두** 수행해야 합니다.
+4.9 sbd config를 채택하려면 다음과 같이 */etc/sysconfig/sbd* 파일을 업데이트합니다. 노드 **둘 다**에서 파일을 업데이트합니다.
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -256,7 +261,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
-이 예제에서는 다음 리소스를 설정하였으며 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우). **노드 중 한 개**에서만 이 구성을 수행하면 됩니다. 주 노드에서 수행합니다.
+이 예제에서는 다음 리소스를 설정하였으며 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우). **노드 중 한 개**에서만 이 구성을 수행합니다. 주 노드에서 수행합니다.
 
 - 클러스터 부트스트랩
 - STONITH 장치
@@ -364,7 +369,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>시나리오 2: yast2가 그래픽 보기에 표시되지 않는 경우
-여기서는 yast2 화면을 사용하여 이 문서의 고가용성 클러스터를 설정했습니다. yast2가 그림과 같은 그래픽 창과 함께 열리지 않고 Qt 오류를 throw하면 아래 단계를 수행합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
+여기서는 yast2 화면을 사용하여 이 문서의 고가용성 클러스터를 설정했습니다. yast2가 그림과 같은 그래픽 창과 함께 열리지 않고 Qt 오류를 throw하면 다음과 같이 단계를 수행합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
 
 **오류**
 

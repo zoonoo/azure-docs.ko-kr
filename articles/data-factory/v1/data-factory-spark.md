@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3690b5f62d8384d255d420946f6ac1cfd47b9317
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -34,6 +34,9 @@ ms.lasthandoff: 10/11/2017
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 spark 작업을 사용하여 데이터 변환](../transform-data-using-spark.md)을 참조하세요.
 
 ## <a name="introduction"></a>소개
 Spark 활동은 Azure Data Factory에서 지원하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 중 하나입니다. 이 활동은 Azure HDInsight의 Apache Spark 클러스터에서 지정된 Spark 프로그램을 실행합니다.    
@@ -81,7 +84,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 ### <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 두 개의 연결된 서비스를 만듭니다. 하나는 Spark 클러스터를 데이터 팩터리에 연결하는 서비스이고, 다른 하나는 Azure 저장소를 데이터 팩터리에 연결하는 서비스입니다.  
 
-#### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+#### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서 만드는 데이터 집합은 이 연결된 서비스를 참조합니다. 다음 단계에서 정의하는 HDInsight 연결된 서비스는 이 연결된 서비스를 참조합니다.  
 
 1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **작성자 및 배포**를 클릭합니다. 데이터 팩터리 편집기가 표시되어야 합니다.
@@ -90,7 +93,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
    ![새 데이터 저장소 - Azure Storage - 메뉴](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 3. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 **JSON 스크립트**가 표시됩니다.
 
-   ![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   ![Azure Storage 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 4. **계정 이름** 및 **계정 키**를 Azure 저장소 계정의 이름 및 계정 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 5. 연결된 서비스를 배포하려면 명령 모음에서 **배포**를 클릭합니다. 연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라지고 왼쪽의 트리 보기에 **AzureStorageLinkedService**가 표시됩니다.
 

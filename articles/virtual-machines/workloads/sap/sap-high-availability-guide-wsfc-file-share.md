@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ SAP는 Windows 장애 조치(failover) 클러스터에 SAP (A)SCS 인스턴스�
 * SAP (A)SCS 인스턴스를 가상 호스트 이름 **<(A)SCSVirtualHostName>**을 사용하여 클러스터링되고 액세스 가능함
 * SAP GLOBAL 파일이 SMB 파일 공유에 배치되고 <SAPGLOBALHost> 호스트 이름 \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 액세스됨
 * SAP (A)SCS 인스턴스가 양 클러스터 노드에서 로컬 디스크에 설치됨
-* **<(A)SCSVirtualHostName>** 네트워크 이름이 **<SAPGLOBALHost>**와 다름
+* **<(A)SCSVirtualHostName>** 네트워크 이름이 **&lt;SAPGLOBALHost&gt;**와 다름
 
 ![그림 2: SMB 파일 공유를 사용하는 새로운 SAP (A)SCS HA 아키텍처][sap-ha-guide-figure-8004]
 

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
 ## <a name="traffic-manager-basics"></a>Traffic Manager 기본 사항
 
-### <a name="what-ip-address-does-traffic-manager-use"></a>트래픽 관리자가 사용하는 IP 주소는 어떻게 되나요?
+### <a name="what-ip-address-does-traffic-manager-use"></a>Traffic Manager가 사용하는 IP 주소는 어떻게 되나요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 전송합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 전송합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
-따라서 트래픽 관리자는 클라이언트가 연결할 끝점 또는 IP 주소를 제공하지 않습니다. 서비스에 고정 IP 주소가 필요한 경우 Traffic Manager가 아니라 서비스에서 구성해야 합니다.
+따라서 Traffic Manager는 클라이언트가 연결할 끝점 또는 IP 주소를 제공하지 않습니다. 서비스에 고정 IP 주소가 필요한 경우 Traffic Manager가 아니라 서비스에서 구성해야 합니다.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager는 '고정' 세션을 지원하나요?
 
@@ -38,23 +38,23 @@ ms.lasthandoff: 10/25/2017
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Traffic Manager를 사용할 때 HTTP 오류가 나타나는 이유는 무엇인가요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 트래픽 관리자를 통해서가 아니라 직접 서비스 끝점에 연결합니다. Traffic Manager는 클라이언트와 서버 간에 HTTP 트래픽을 표시하지 않습니다. 따라서 표시된 모든 HTTP 오류는 응용 프로그램에서 가져온 것이어야 합니다. 클라이언트를 응용 프로그램에 연결하는 경우 모든 DNS 확인 단계를 완료합니다. Traffic Manager가 응용 프로그램 트래픽 흐름에 있는 모든 상호 작용을 포함합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다. Traffic Manager는 클라이언트와 서버 간에 HTTP 트래픽을 표시하지 않습니다. 따라서 표시된 모든 HTTP 오류는 응용 프로그램에서 가져온 것이어야 합니다. 클라이언트를 응용 프로그램에 연결하는 경우 모든 DNS 확인 단계를 완료합니다. Traffic Manager가 응용 프로그램 트래픽 흐름에 있는 모든 상호 작용을 포함합니다.
 
 따라서 추가 조사는 응용 프로그램에 중점을 두어야 합니다.
 
 클라이언트의 브라우저에서 보낸 HTTP 호스트 헤더는 문제의 가장 일반적인 소스입니다. 사용자가 사용하는 도메인 이름에 대한 올바른 호스트 헤더를 수락하도록 응용 프로그램을 구성하는지 확인합니다. Azure App Service를 사용하는 끝점의 경우 [Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성](../app-service/web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
 
-### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>트래픽 관리자를 사용할 때 성능 영향은 무엇인가요?
+### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Traffic Manager를 사용할 때 성능 영향은 무엇인가요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트가 서비스 끝점에 직접 연결되므로 연결이 설정된 후 트래픽 관리자를 사용하면 성능 영향이 발생하지 않습니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트가 서비스 끝점에 직접 연결되므로 연결이 설정된 후 Traffic Manager를 사용하면 성능 영향이 발생하지 않습니다.
 
-Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추가 DNS 조회를 DNS 확인 체인에 삽입해야 합니다. DNS 확인 시간에 대한 트래픽 관리자의 영향은 최소입니다. Traffic Manager는 이름 서버의 글로벌 네트워크를 사용하며 DNS 쿼리가 사용 가능한 가장 가까운 이름 서버로 라우팅되도록 [애니캐스트](https://en.wikipedia.org/wiki/Anycast) 네트워킹을 사용합니다. 또한 DNS 응답의 캐싱은 트래픽 관리자를 사용하여 발생한 추가 DNS 대기 시간이 세션 중 일부에만 적용되는 것을 의미합니다.
+Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추가 DNS 조회를 DNS 확인 체인에 삽입해야 합니다. DNS 확인 시간에 대한 Traffic Manager의 영향은 최소입니다. Traffic Manager는 이름 서버의 글로벌 네트워크를 사용하며 DNS 쿼리가 사용 가능한 가장 가까운 이름 서버로 라우팅되도록 [애니캐스트](https://en.wikipedia.org/wiki/Anycast) 네트워킹을 사용합니다. 또한 DNS 응답의 캐싱은 Traffic Manager를 사용하여 발생한 추가 DNS 대기 시간이 세션 중 일부에만 적용되는 것을 의미합니다.
 
 성능 메서드는 사용 가능한 가장 가까운 끝점으로 트래픽을 라우팅합니다. 최종적인 결론은 이 메서드와 연결된 전체 성능 영향을 최소화해야 한다는 것입니다. DNS 대기 시간 증가는 끝점에 대한 더 낮은 네트워크 대기 시간으로 오프셋되어야 합니다.
 
-### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>트래픽 관리자에는 어떤 응용 프로그램 프로토콜을 사용할 수 있나요?
+### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Traffic Manager에는 어떤 응용 프로그램 프로토콜을 사용할 수 있나요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 트래픽 관리자를 통해서가 아닌 응용 프로그램 끝점에 직접 연결됩니다. 따라서 이 연결에서는 모든 응용 프로그램 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 응용 프로그램 프로토콜을 사용하지 않고 Traffic Manager의 끝점 상태 모니터링을 수행할 수 있습니다. 응용 프로그램 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 끝점이 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 Traffic Manager를 통해서가 아닌 응용 프로그램 끝점에 직접 연결됩니다. 따라서 이 연결에서는 모든 응용 프로그램 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 응용 프로그램 프로토콜을 사용하지 않고 Traffic Manager의 끝점 상태 모니터링을 수행할 수 있습니다. 응용 프로그램 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 끝점이 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
 
@@ -64,7 +64,7 @@ Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드�
 
 이 문제를 해결하려면 naked 도메인 이름에서 다른 URL로 트래픽을 연결하는 HTTP 리디렉션을 사용하는 것이 좋습니다. 그런 다음 Traffic Manager를 사용할 수 있습니다. 예를 들어 naked 도메인 'contoso.com'에서는 사용자를 Traffic Manager DNS 이름을 가리키는 'www.contoso.com'으로 리디렉션할 수 있습니다.
 
-트래픽 관리자에서 naked 도메인에 대한 전체 지원은 기능 백로그에서 추적됩니다. [커뮤니티 피드백 사이트에서 투표](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)하여 이 기능 요청에 지원을 등록할 수 있습니다.
+Traffic Manager에서 naked 도메인에 대한 전체 지원은 기능 백로그에서 추적됩니다. [커뮤니티 피드백 사이트에서 투표](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)하여 이 기능 요청에 지원을 등록할 수 있습니다.
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요? 
 예, Traffic Manager는 수신한 DNS 쿼리의 원본 IP 주소(일반적으로 DNS 확인자의 IP 주소) 외에도 최종 사용자를 대신하여 요청하는 확인자에 의한 쿼리에 포함되는 경우 지리 및 성능 라우팅 방법에 대한 조회를 수행할 때 클라이언트 서브넷 주소를 고려합니다.  
@@ -370,7 +370,7 @@ Traffic Manager는 HTTP 및 HTTPS 상태 검사에서 호스트 헤더를 사용
 
 프로필을 10개 수준 깊이까지 중첩할 수 있습니다. '루프'는 허용되지 않습니다.
 
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>동일한 트래픽 관리자 프로필에서 중첩 자식 프로필과 다른 끝점 유형을 혼합할 수 있나요?
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>동일한 Traffic Manager 프로필에서 중첩 자식 프로필과 다른 끝점 유형을 혼합할 수 있나요?
 
 예. 프로필 내에서 서로 다른 유형의 끝점을 결합하는 방법에는 제한이 없습니다.
 
@@ -406,5 +406,5 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 | Inactive. 모든 하위 프로필 끝점이 사용 안 함 또는 중지됨이거나 끝점이 없는 프로필입니다. |중지됨 | |
 
 ## <a name="next-steps"></a>다음 단계:
-- 트래픽 관리자 [끝점 모니터링 및 자동 장애 조치(failover)](../traffic-manager/traffic-manager-monitoring.md)에 대해 자세히 알아봅니다.
-- 트래픽 관리자 [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
+- Traffic Manager [끝점 모니터링 및 자동 장애 조치(failover)](../traffic-manager/traffic-manager-monitoring.md)에 대해 자세히 알아봅니다.
+- Traffic Manager [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.

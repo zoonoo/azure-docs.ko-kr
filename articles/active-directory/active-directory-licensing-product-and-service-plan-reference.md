@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory의 제품 및 서비스 계획 참조 | Microsoft Docs"
-description: "제품 및 서비스 계획 참조"
+title: "Azure Active Directory의 라이선스에 대한 제품 이름 및 서비스 계획 식별자 | Microsoft Docs"
+description: "Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure AD 라이선스를 관리하기 위한 식별자 맵"
 services: active-directory
 keywords: "Azure Active Directory 라이선싱 서비스 계획"
 documentationcenter: 
@@ -13,33 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: e796c03f4477b431907d8b5fbd6065239bb1d40e
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="reference-for-products-and-service-plans-in-azure-active-directory"></a>Azure Active Directory의 제품 및 서비스 계획 참조
+# <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
-이 문서에서는 Microsoft Online Services 라이선스 관리 작업 시 유용하게 활용할 수 있는 참고 정보를 제공합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 Office 365 포털에서 라이선스를 관리할 때 *Office 365 Enterprise E3*와 같은 제품 이름이 표시됩니다. PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 구체적이지만 덜 익숙한 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 cmdlet 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 열거하고 해당 제품의 여러 ID 값을 제공합니다.
 
-## <a name="product-names-and-identifiers-used-in-azure-ad"></a>Azure AD에 사용되는 제품 이름 및 식별자
-
-[Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 또는 Office 포털에서 라이선스를 관리할 때는 *Office 365 Enterprise E3* 등과 같은 친근한 제품 이름을 확인할 수 있습니다. 그러나 PowerShell v1.0 cmdlet을 사용할 때는 동일한 제품이 다소 익숙하지 않은 *ENTERPRISEPACK* 등의 이름으로 식별됩니다. PowerShell v 2.0 또는 Microsoft Graph 사용 시 같은 제품이 *6fd2c87f-b296-42f0-b197-1e91e994b900* 등의 GUID 값으로 식별됩니다. 제품에 포함된 서비스 계획도 마찬가자입니다.
-
-다음 표에서는 가장 자주 사용되는 Microsoft Online Services 제품을 열거하고 해당 제품의 여러 ID 값을 제공합니다.
-
-- **제품 이름**: 관리 포털에 표시되는 값입니다.
+- **제품 이름**: 관리 포털에서 사용됩니다.
 - **문자열 ID**: 라이선스에 대한 작업을 수행할 때 PowerShell v1.0 cmdlet에서 사용됩니다.
-- **Guid Id**: Azure AD Graph 및 Microsoft Graph에서 사용합니다.
-- **서비스 계획 포함**: 제품의 서비스 계획 목록입니다. 문자열 ID 및 Guid ID가 나열됩니다.
+- **Guid ID**: Azure AD Graph 및 Microsoft Graph에서 사용되는 GUID입니다.
+- **포함된 서비스 계획**: 문자열 ID 및 GUID에 해당하는 제품의 서비스 계획 목록입니다.
 
 >[!NOTE]
->이 정보는 2017년 10월 11일 기준입니다. 이 표에는 가장 일반적으로 사용되는 제품이 선별되어 포함되어 있습니다.
+>이 정보는 2017년 10월 11일 기준입니다.
 
-| 제품 이름 | 문자열 ID | Guid ID| 서비스 계획 포함 |
+| 제품 이름 | 문자열 ID | GUID | 서비스 계획 포함 |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -103,7 +97,7 @@ ms.lasthandoff: 10/19/2017
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>동시에 할당될 수 없는 서비스 계획
 
-일부 제품에는 동시에 할당할 수 없는 상호 배타적인 서비스 계획이 포함됩니다. 예를 들어 *Office 365 Enterprise E1* 및 *Office 365 Enterprise E3*이 테넌트에 있도록 두 라이선스를 같은 사용자에게 할당하면 작업이 실패합니다. 이것은 E3 제품에 E1의 해당 제품과 충돌하는 다음 서비스 계획이 포함되어 있기 때문입니다.
+일부 제품에는 동시에 할당할 수 없는 서비스 계획이 포함됩니다. 예를 들어 *Office 365 Enterprise E1* 및 *Office 365 Enterprise E3*이 테넌트에 있도록 두 라이선스를 같은 사용자에게 할당하면 작업이 실패합니다. 이것은 E3 제품에 E1의 해당 제품과 충돌하는 다음 서비스 계획이 포함되어 있기 때문입니다.
 
 -   SharePoint Online(계획 2)은 SharePoint Online(계획 1)과 충돌합니다.
 -   Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.
@@ -121,7 +115,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | CRMIUR    | c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -137,7 +131,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -152,7 +146,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -162,7 +156,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -178,7 +172,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -187,7 +181,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -196,7 +190,7 @@ ms.lasthandoff: 10/19/2017
 
 다음 서비스 계획은 함께 할당할 수 없습니다.
 
-| 서비스 계획 이름 | Guid ID |
+| 서비스 계획 이름 | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |

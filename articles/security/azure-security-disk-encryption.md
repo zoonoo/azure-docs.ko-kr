@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 및 Linux IaaS VM용 Azure 디스크 암호화
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하기 위해 노력하고 있으며 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 합니다. 또한 Azure 고객에게 비즈니스 요구에 가장 잘 맞는 솔루션을 선택할 수 있는 유연성을 제공합니다. 이 문서에는 "Windows 및 Linux IaaS VM용 Azure 디스크 암호화"라는 새로운 기술 솔루션을 소개하여 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호하도록 합니다. 이 문서에서는 지원되는 시나리오와 사용자 환경을 비롯하여 Azure 디스크 암호화 기능을 사용하는 방법에 대한 자세한 지침을 제공합니다.
@@ -247,8 +247,8 @@ Azure AD 응용 프로그램을 만들려면 다음 PowerShell cmdlet을 사용�
 > [!NOTE]
 > $azureAdApplication.ApplicationId는 Azure AD ClientID이며 $aadClientSecret은 나중에 Azure Disk Encryption을 설정하는 데 사용할 클라이언트 비밀입니다. Azure AD 클라이언트 비밀을 적절하게 보호합니다.
 
-##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 Azure AD 클라이언트 ID 및 비밀 설정
-[Azure 클래식 포털]( https://manage.windowsazure.com)을 사용하여 Azure AD 클라이언트 ID 및 비밀을 설정할 수도 있습니다. 이 작업을 수행하려면 다음을 수행합니다.
+##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Azure Portal에서 Azure AD 클라이언트 ID 및 비밀 설정
+Azure Portal을 사용하여 Azure AD 클라이언트 ID 및 비밀을 설정할 수도 있습니다. 이 작업을 수행하려면 다음을 수행합니다.
 
 1. **Active Directory** 탭을 클릭합니다.
 
@@ -270,8 +270,6 @@ Azure AD 응용 프로그램을 만들려면 다음 PowerShell cmdlet을 사용�
 
  ![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > Azure 클래식 포털에서는 위의 흐름이 지원되지 않습니다.
 
 ##### <a name="use-an-existing-application"></a>기존 응용 프로그램 사용
 다음 명령을 실행하려면 [Azure AD PowerShell 모듈](https://technet.microsoft.com/library/jj151815.aspx)을 가져와 사용합니다.
@@ -634,12 +632,12 @@ CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows 
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>암호화된 IaaS VM의 암호화 상태 가져오기
-Azure Resource Manager, [PowerShell cmdlet](/powershell/azure/overview) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 다음 섹션에서는 Azure 클래식 포털 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
+Azure Resource Manager, [PowerShell cmdlet](/powershell/azure/overview) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 다음 섹션에서는 Azure Portal 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 암호화된 Windows VM의 암호화 상태 가져오기
 다음을 수행하여 Azure Resource Manager에서 IaaS VM의 암호화 상태를 가져올 수 있습니다.
 
-1. [Azure 클래식 포털](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 **가상 컴퓨터**를 클릭하여 구독에서 가상 컴퓨터의 요약 보기를 확인합니다. **구독** 드롭다운 목록에서 구독 이름을 선택하여 가상 컴퓨터 보기를 필터링할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 **가상 컴퓨터**를 클릭하여 구독에서 가상 컴퓨터의 요약 보기를 확인합니다. **구독** 드롭다운 목록에서 구독 이름을 선택하여 가상 컴퓨터 보기를 필터링할 수 있습니다.
 
 2. **가상 컴퓨터** 페이지 위쪽에서 **열**을 클릭합니다.
 
@@ -737,7 +735,7 @@ Azure 관리 디스크 ARM 템플릿을 사용하여 암호화된 Linux IaaS VM 
  [갤러리 이미지로 암호화된 Windows IaaS 관리 디스크 VM 새로 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
-  >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅숏을 만들고 백업해야 합니다.  포털에서 관리 디스크의 스냅숏을 만들거나 Azure Backup을 사용할 수 있습니다.  백업은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다.  백업을 만들면 Set-AzureRmVMDiskEncryptionExtension cmdlet에 -skipVmBackup 매개 변수를 지정하여 관리 디스크를 암호화하는 데 사용할 수 있습니다.  이 명령은 백업을 만들고 이 매개 변수가 지정될 때까지 관리 디스크 기반 VM에 대해 실패합니다.    
+  >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅숏을 만들고 백업해야 합니다.  포털에서 관리 디스크의 스냅숏을 만들거나 Azure Backup을 사용할 수 있습니다.  Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다.  백업을 만들면 Set-AzureRmVMDiskEncryptionExtension cmdlet에 -skipVmBackup 매개 변수를 지정하여 관리 디스크를 암호화하는 데 사용할 수 있습니다.  이 명령은 백업을 만들고 이 매개 변수가 지정될 때까지 관리 디스크 기반 VM에 대해 실패합니다.    
  
 ### <a name="update-encryption-settings-of-an-existing-encrypted-non-premium-vm"></a>기존의 암호화된 프리미엄 이외 VM의 암호화 설정 업데이트
   VM 실행에 사용되는 기존의 Azure Disk Encryption 지원 인터페이스[PS cmdlet, CLI 또는 ARM 템플릿]를 사용하여 Windows VM의 AAD 클라이언트 ID/비밀, 키 암호화 키[KEK], BitLocker 암호화 키 또는 Linux VM의 암호 같은 암호화 설정을 업데이트하세요. 암호화 설정 업데이트는 Premium Storage VM과 비 Premium Storage VM에서 모두 지원됩니다.

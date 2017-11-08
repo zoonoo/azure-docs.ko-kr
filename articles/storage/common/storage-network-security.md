@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure Storage 방화벽 및 Virtual Network 구성(미리 보기)
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
 
 ## <a name="preview-availability-and-support"></a>미리 보기 가용성 및 지원
-Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 기능은 현재 다음 지역의 신규 또는 기존 저장소 계정에 사용할 수 있습니다.
-- 미국 동부
-- 미국 서부
-- 미국 서부 2
-- 미국 중서부
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
+Storage 방화벽 및 Virtual Network는 미리 보기로 제공됩니다.  이 기능은 모든 Azure 공용 클라우드 지역의 신규 또는 기존 저장소 계정에 사용할 수 있습니다.
 
 > [!NOTE]
 > 미리 보기 중에는 프로덕션 워크로드가 지원되지 않습니다.
@@ -304,7 +298,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다.  [자세한 정보](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|클러스터 프로비저닝 및 설치.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL 데이터 웨어하우스|Microsoft.Sql|데이터 가져오기 및 내보내기.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure SQL Data Warehouse|Microsoft.Sql|데이터 가져오기 및 내보내기.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
 |Azure Backup|Microsoft.RecoveryServices|관리되지 않는 디스크의 백업 및 복원입니다.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 

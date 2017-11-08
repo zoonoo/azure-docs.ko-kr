@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 85678452e84a65bd81472396f8ebbb91091a2095
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -80,7 +80,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-다음 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet을 호출하여 ‘queuename’이라는 큐를 만듭니다.
+다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음 [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet을 호출하여 ‘queuename’이라는 큐를 만듭니다.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -91,7 +91,7 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 
 ## <a name="retrieve-a-queue"></a>큐 검색
 
-저장소 계정의 특정 큐 또는 모든 큐의 목록을 쿼리하고 검색할 수 있습니다. 다음 예에서는 저장소 계정의 모든 큐 및 특정 큐를 검색하는 방법을 보여 줍니다. 두 명령 모두 [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet을 사용합니다.
+Storage 계정의 특정 큐 또는 모든 큐의 목록을 쿼리하고 검색할 수 있습니다. 다음 예에서는 저장소 계정의 모든 큐 및 특정 큐를 검색하는 방법을 보여 줍니다. 두 명령 모두 [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet을 사용합니다.
 
 ```powershell
 # Retrieve a specific queue
@@ -171,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 연습에서 만든 자산을 모두 제거하려면 리소스 그룹을 제거합니다. 그러면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
+이 연습에서 만든 자산을 모두 제거하려면 리소스 그룹을 제거합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -192,5 +192,5 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage cmdlet
 * [Storage PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 저장소 탐색기
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

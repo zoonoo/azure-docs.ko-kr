@@ -13,11 +13,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b18b6f02f14db352289e3ab7e8b07a220868ce76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services 정의 WebRole 스키마
 Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI와 같이 IIS 7에서 지원되는 것처럼 웹 응용 프로그램 프로그래밍에 대해 사용자 지정된 역할입니다.
@@ -297,7 +297,7 @@ HTTP, HTTPS, UDP 및 TCP 끝점의 조합인 여러 끝점을 정의할 수 있�
 |permissionLevel|string|선택 사항입니다. 역할 프로세스에 부여되는 액세스 권한을 지정합니다. 관리자 권한 프로세스만 개인 키에 액세스할 수 있도록 하려면 `elevated` 권한을 지정합니다. `limitedOrElevated` 권한을 사용하면 모든 역할 프로세스가 개인 키에 액세스할 수 있습니다. 가능한 값은 `limitedOrElevated` 또는 `elevated`입니다. 기본값은 `limitedOrElevated`입니다.|  
 
 ##  <a name="Imports"></a> Imports  
-`Imports` 요소는 게스트 운영 체제에 구성 요소를 추가하는 웹 역할의 가져오기 모듈 컬렉션을 설명합니다. 이 요소는 `Import` 요소의 부모입니다. 이 요소는 선택 사항이며 역할은 런타임 블록을 하나만 가질 수 있습니다.
+`Imports` 요소는 게스트 운영 체제에 구성 요소를 추가하는 웹 역할의 가져오기 모듈 컬렉션을 설명합니다. 이 요소는 `Import` 요소의 부모입니다. 이 요소는 선택 사항이며 역할은 imports 블록을 하나만 가질 수 있습니다. 
 
 `Imports` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 

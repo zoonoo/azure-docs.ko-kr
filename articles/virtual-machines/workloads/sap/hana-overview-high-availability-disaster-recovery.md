@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -74,7 +74,7 @@ HANA 큰 인스턴스를 사용하는 재해 복구 설치에 대한 추가 요�
 - 재해 복구 사이트에서 복구하려는 Azure(큰 인스턴스)의 SAP HANA SKU 각각에 대해 DR 사이트의 추가 저장소를 주문해야 합니다. 추가 저장소를 구입하면 저장소 볼륨을 할당할 수 있습니다. 프로덕션 Azure 지역의 저장소 복제 대상인 볼륨을 재해 복구 Azure 지역에 할당할 수 있습니다.
  
 
-## <a name="backup-and-restore"></a>백업 및 복원
+## <a name="backup-and-restore"></a>Backup 및 복원
 
 운영 데이터베이스에서 가장 중요한 측면 중 하나는 다양한 치명적인 이벤트로부터 데이터베이스를 보호하는 것입니다. 이러한 이벤트의 원인은 자연 재해에서 단순한 사용자 오류에 이르기까지 다양합니다.
 
@@ -207,7 +207,7 @@ HANA 큰 인스턴스 테넌트의 저장소 스냅숏 인터페이스에 대한
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>4단계: SAP HANA 사용자 계정 만들기
 
-SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA에 사용자 계정을 만들어야 합니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 이 계정에는 **백업 관리** 및 **카탈로그 읽기** 권한이 있어야 합니다. 이 예제에서 사용자 이름은 **SCADMIN**입니다. HANA Studio에서 만든 사용자 계정 이름은 대/소문자를 구분합니다. 사용자가 다음에 로그인할 때 암호를 변경하도록 요구하는 경우 **아니요**를 선택해야 합니다.
+SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA에 사용자 계정을 만들어야 합니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 이 계정에는 **Backup 관리** 및 **카탈로그 읽기** 권한이 있어야 합니다. 이 예제에서 사용자 이름은 **SCADMIN**입니다. HANA Studio에서 만든 사용자 계정 이름은 대/소문자를 구분합니다. 사용자가 다음에 로그인할 때 암호를 변경하도록 요구하는 경우 **아니요**를 선택해야 합니다.
 
 ![HANA Studio에서 사용자 만들기](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -222,12 +222,12 @@ SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트
 
 **비 MDC HANA 설치**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **MDC HANA 설치**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 다음 예제에서 사용자는 **SCADMIN01**이고 호스트 이름은 **lhanad01**이고 인스턴스는 **01**입니다.
@@ -276,7 +276,7 @@ HANABackupCustomerDetails.txt
 - **HANABackupCustomerDetails.txt**: 이 파일은 SAP HANA 구성에 맞게 수정해야 하는 수정 가능한 구성 파일입니다.
 
  
-HANABackupCustomerDetails.txt 파일은 저장소 스냅숏을 실행하는 스크립트의 제어 및 구성 파일입니다. 사용자의 목적에 맞게 파일을 조정하고 설정하십시오. 사용자의 인스턴스를 배포한 Azure의 SAP HANA Service Management에서 **저장소 백업 이름** 및 **저장소 IP 주소**를 수신했어야 합니다. 이 파일에서는 변수의 시퀀스, 순서 또는 간격을 수정할 수 없습니다. 그렇지 않으면 스크립트가 제대로 실행되지 않습니다. 또한 Azure Service Management의 SAP HANA에서 확장 노드 또는 마스터 노드의 IP 주소(확장의 경우)를 수신했습니다. SAP HANA를 설치하는 동안 얻은 HANA 인스턴스 번호도 알고 있습니다. 이제 구성 파일에 백업 이름을 추가해야 합니다.
+HANABackupCustomerDetails.txt 파일은 저장소 스냅숏을 실행하는 스크립트의 제어 및 구성 파일입니다. 사용자의 목적에 맞게 파일을 조정하고 설정하십시오. 사용자의 인스턴스를 배포한 Azure의 SAP HANA Service Management에서 **Storage Backup 이름** 및 **Storage IP 주소**를 수신했어야 합니다. 이 파일에서는 변수의 시퀀스, 순서 또는 간격을 수정할 수 없습니다. 그렇지 않으면 스크립트가 제대로 실행되지 않습니다. 또한 Azure Service Management의 SAP HANA에서 확장 노드 또는 마스터 노드의 IP 주소(확장의 경우)를 수신했습니다. SAP HANA를 설치하는 동안 얻은 HANA 인스턴스 번호도 알고 있습니다. 이제 구성 파일에 백업 이름을 추가해야 합니다.
 
 강화 또는 스케일 아웃 배포의 경우 저장소 백업 이름과 저장소 IP 주소를 입력한 후 구성 파일은 다음 예와 같습니다. 또한 구성 파일에 다음 데이터를 입력해야 합니다.
 - 단일 노드 또는 마스터 노드 IP 주소
@@ -385,7 +385,7 @@ Snapshot created successfully.
 세 가지 유형의 스냅숏 백업을 만들 수 있습니다.
 - **HANA**: hana/data 및 /hana/shared(/usr/sap도 포함)가 포함된 볼륨이 조합된 스냅숏으로 보호되는 결합된 스냅숏 백업. 이 스냅숏에서 단일 파일을 복원할 수 있습니다.
 - **Logs**: /hana/logbackups 볼륨의 스냅숏 백업. 이 저장소 스냅숏을 실행하기 위해 트리거되는 HANA 스냅숏은 없습니다. 이 저장소 볼륨은 SAP HANA 트랜잭션 로그 백업을 포함하기 위한 볼륨입니다. SAP HANA 트랜잭션 로그 백업은 로그 증가를 제한하고 잠재적 인 데이터 손실을 방지하기 위해 더 자주 수행됩니다. 이 스냅숏에서 단일 파일을 복원할 수 있습니다. 빈도를 5분 미만으로 낮추면 안됩니다.
-- **Boot**: HANA 큰 인스턴스의 부팅 LUN(논리 단위 번호)을 포함하는 볼륨의 스냅숏. 이 스냅숏 백업은 HANA 큰 인스턴스의 유형 I SKU에서만 가능합니다. 부팅 LUN을 포함하는 볼륨의 스냅숏에서 단일 파일 복원을 수행할 수 없습니다.  
+- **Boot**: HANA 큰 인스턴스의 부팅 LUN(논리 단위 번호)을 포함하는 볼륨의 스냅숏. 이 스냅숏 백업은 HANA 큰 인스턴스의 유형 I SKU에서만 가능합니다. 부팅 LUN을 포함하는 볼륨의 스냅숏에서 단일 파일 복원을 수행할 수 없습니다. HANA 대규모 인스턴스의 유형 II SKU에서는 OS 수준 백업을 수행하고 개별 파일도 복원합니다. 자세한 내용은 문서 "[유형 II SKU에 대한 OS 백업 수행 방법](os-backup-type-ii-skus.md)"을 참조하세요.
 
 
 이러한 세 가지 유형의 스냅숏에 대한 호출 구문은 다음과 같습니다.
@@ -659,9 +659,9 @@ HANA Backup ID:
 
  ![데이터베이스를 복구하는 기본으로 백업을 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-5. 델타가 HANA 스냅숏 시간과 가장 최근의 상태 간에 존재하지 않는 경우 **델타 백업 사용** 확인란의 선택을 취소합니다.
+5. 델타가 HANA 스냅숏 시간과 가장 최근의 상태 간에 존재하지 않는 경우 **델타 Backup 사용** 확인란의 선택을 취소합니다.
 
- ![델타가 존재하지 않는 경우 "델타 백업 사용" 확인란의 선택을 취소합니다](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+ ![델타가 존재하지 않는 경우 "델타 Backup 사용" 확인란의 선택을 취소합니다](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 6. 요약 화면에서 **마침**을 선택하여 복원 절차를 시작합니다.
 

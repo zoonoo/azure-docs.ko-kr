@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8c5dd3ddd03b3531e4ffb7b622110a2ea997f9ae
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>CDN 끝점에 사용자 지정 도메인 추가
-프로필을 만든 후 일반적으로 하나 이상의 CDN 끝점(azureedge.net의 하위 도메인)을 추가하여 HTTP 및 HTTPS를 통해 콘텐츠를 배달합니다. 기본적으로 이 끝점은 모든 URL에 포함됩니다(예: `http(s)://contoso.azureedge.net/photo.png`). 편의를 위해 Azure CDN은 사용자 지정 도메인(예: `www.contoso.com`)을 끝점과 연결하는 옵션을 제공합니다. 이 옵션을 통해 끝점 대신 사용자 지정 도메인을 사용하여 콘텐츠를 배달합니다. 이 옵션은 브랜딩 목적으로 자체 도메인 이름을 고객에게 표시하려는 경우 등에 유용합니다.
+프로필을 만든 후 일반적으로 하나 이상의 CDN [끝점](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)(`azureedge.net`의 하위 도메인)을 추가하여 HTTP 및 HTTPS를 통해 콘텐츠를 배달합니다. 기본적으로 이 끝점은 모든 URL에 포함됩니다(예: `https://contoso.azureedge.net/photo.png`). Azure CDN에서는 편리하게 사용자 지정 도메인(예: `www.contoso.com`)을 끝점과 연결할 수 있습니다. 이 옵션을 통해 끝점 대신 사용자 지정 도메인을 사용하여 콘텐츠를 배달합니다. 이 옵션은 브랜딩 목적으로 자체 도메인 이름을 고객에게 표시하려는 경우 등에 유용합니다.
 
 사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 사용자 지정 도메인을 구한 후에는 다음 단계를 따르세요.
 1. [도메인 공급자의 DNS 레코드에 액세스](#step-1-access-dns-records-by-using-your-domain-provider)

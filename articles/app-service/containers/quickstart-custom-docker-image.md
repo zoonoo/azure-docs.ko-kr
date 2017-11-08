@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Web App for Containers에서 사용자 지정 Docker Hub 이미지 실행
 
@@ -42,7 +42,7 @@ App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원�
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
 ```
 
-이전 명령에서 `--deployment-container-image-name`은 공용 Docker Hub 이미지 [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/)를 가리킵니다. [https://github.com/rachelappel/docker-image](https://github.com/rachelappel/docker-image)에서 그 콘텐츠를 점검할 수 있습니다.
+이전 명령에서 `--deployment-container-image-name`은 공용 Docker Hub 이미지 [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/)를 가리킵니다. [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest)에서 그 콘텐츠를 점검할 수 있습니다.
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 

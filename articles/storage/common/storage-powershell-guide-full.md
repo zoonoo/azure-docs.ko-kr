@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: robinsh
-ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Azure 저장소와 함께 Azure PowerShell 사용
+# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell이 사용됩니다. Azure Storage의 경우 이러한 cmdlet는 제어 평면과 데이터 평면 등, 두 범주로 나뉩니다. 제어 평면 cmdlet는 저장소 계정 관리(저장소 계정 만들기, 속성 설정, 저장소 계정 삭제, 액세스 키 회전)에 사용됩니다. 데이터 평면 cmdlet는 저장소 계정*에* 저장된 데이터를 관리하는 데 사용됩니다. 예를 들어 Blob 업로드, 파일 공유 만들기, 큐에 메시지 추가 등이 있습니다.
 
@@ -32,14 +32,13 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 > * 저장소 계정 속성 설정
 > * 액세스 키를 검색하고 다시 생성
 > * 저장소 계정에 대한 액세스 보호 
-> * Storage Analytics를 사용하도록 설정
+> * 저장소 분석 사용
 
-또한 Storage Analyics 사용 및 액세스 방법, 데이터 평면 cmdlet 사용 방법 등과 같이, Storage에 대한 몇 가지 다른 PowerShell 문서 링크도 제공합니다.
-<!-- also how to access the china and government clouds  -->
+이 문서에서는 저장소 분석을 사용하고 액세스하는 방법, 데이터 평면 cmdlet을 사용하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 저장소에 대한 몇 가지 다른 PowerShell 문서에 대한 링크를 제공합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-이 연습에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 연습에는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
 이 연습에서는 일반 PowerShell 창에 명령을 입력하거나, [Windows PowerShell ISE(Integrated Scripting Environment)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)를 사용하여 예제를 진행하면서 편집기에 명령을 입력한 다음 한 번에 하나 이상의 명령을 테스트할 수 있습니다. 실행하려는 행을 강조 표시한 다음 선택 항목 실행을 클릭하여 해당 명령만 실행할 수 있습니다.
 
@@ -94,7 +93,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
-$skuName = "Standard\_LRS"
+$skuName = "Standard_LRS"
     
 # Create the storage account.
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 이제 새 저장소 계정과 그에 대한 참조가 있습니다. 
 
-## <a name="managing-the-storage-account"></a>저장소 계정 관리
+## <a name="manage-the-storage-account"></a>저장소 계정 관리
 
 이제 새 저장소 계정 또는 기존 저장소 계정에 대한 참조가 있으므로 다음 섹션에서는 저장소 계정 관리에 사용할 수 있는 몇 가지 명령을 설명합니다.
 
@@ -142,9 +141,9 @@ SKU 이름은 LRS(로컬 중복 저장소)처럼 저장소 계정에 대한 복�
 
 * HTTPS 트래픽만 허용됩니다. 
 
-### <a name="managing-the-access-keys"></a>액세스 키 관리
+### <a name="manage-the-access-keys"></a>액세스 키 관리
 
-Azure 저장소 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
+Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
 
 ```powershell
 $storageAccountKey = `
@@ -171,17 +170,17 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 
 
-저장소 계정을 삭제하려면[Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)를 사용합니다. 
-
-> [!IMPORTANT]
-> 저장소 계정을 삭제하면 계정에 저장된 모든 자산이 함께 삭제됩니다. 계정을 실수로 삭제한 경우 즉시 지원을 요청하고 저장소 계정을 복원하기 위한 티켓을 엽니다. 데이터 복구는 보장되지 않지만 복구될 때도 있습니다. 지원 티켓이 해결되기 전까지는 기존 이름과 같은 이름으로 저장소 계정을 만들지 않습니다. 
->
+저장소 계정을 삭제하려면[Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)를 사용합니다.
 
 ```powershell
 Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>Vnet 및 방화벽을 사용하여 저장소 계정 보호
+> [!IMPORTANT]
+> 저장소 계정을 삭제하면 계정에 저장된 모든 자산이 함께 삭제됩니다. 계정을 실수로 삭제한 경우 즉시 지원을 요청하고 저장소 계정을 복원하기 위한 티켓을 엽니다. 데이터 복구는 보장되지 않지만 복구될 때도 있습니다. 지원 티켓이 해결되기 전까지는 기존 이름과 같은 이름으로 저장소 계정을 만들지 않습니다. 
+>
+
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Vnet 및 방화벽을 사용하여 저장소 계정 보호
 
 기본적으로 모든 저장소 계정은 인터넷에 액세스할 수 있는 네트워크를 통해 액세스 가능합니다. 그러나 특정 가상 네트워크의 응용 프로그램만 저장소 계정에 액세스하도록 허용하는 네트워크 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](storage-network-security.md)을 참조하세요. 
 
@@ -190,7 +189,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
 * [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
-## <a name="using-storage-analytics"></a>저장소 분석 사용  
+## <a name="use-storage-analytics"></a>저장소 분석 사용  
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
@@ -208,28 +207,36 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 * PowerShell을 사용하여 저장소 로깅 데이터를 사용하도록 설정하고 검색하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 로깅을 활성화하는 방법](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell)과 [저장소 로깅 로그 데이터 찾기](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data)를 참조하세요.
 
-* 저장소 메트릭 및 저장소 로깅을 사용하여 저장소 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+* Storage 메트릭 및 저장소 로깅을 사용하여 저장소 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
-## <a name="managing-the-data-in-the-storage-account"></a>저장소 계정의 데이터 관리
+## <a name="manage-the-data-in-the-storage-account"></a>저장소 계정의 데이터 관리
 
-이제 PowerShell에서 저장소 계정을 관리하는 방법을 이해했으므로 다음 문서를 통해 저장소 계정의 데이터 개체 액세스에 PowerShell을 사용하는 방법을 살펴봅니다.
+이제 PowerShell에서 저장소 계정을 관리하는 방법을 이해했으므로 다음 문서를 통해 저장소 계정의 데이터 개체 액세스에 액세스하는 방법을 살펴봅니다.
 
 * [PowerShell을 사용하여 Blob를 관리하는 방법](../blobs/storage-how-to-use-blobs-powershell.md)
 * [PowerShell을 사용하여 파일을 관리하는 방법](../files/storage-how-to-use-files-powershell.md)
 * [PowerShell을 사용하여 큐를 관리하는 방법](../queues/storage-powershell-how-to-use-queues.md)
 
-<!--## Government Cloud and China Cloud
+## <a name="azures-independently-deployed-clouds"></a>Azure의 독립적으로 배포된 클라우드
 
-ROBINROBINROBIN 
+대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음은 사용 가능한 환경입니다.
 
-To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
+* [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
+* [중국 21Vianet이 운영하는 Azure China Cloud](http://www.windowsazure.cn/)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
-* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
--->
+PowerShell을 사용하여 이러한 클라우드와 저장소에 액세스하는 방법에 대한 내용은 [PowerShell을 사용하여 Azure 독립 클라우드에서 저장소 관리](storage-powershell-independent-clouds.md)를 참조하세요.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 연습에 대해 새 리소스 그룹과 저장소 계정을 만든 후에는 리소스 그룹을 제거하여 만든 모든 자산을 제거할 수 있습니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 사례에서는 만든 저장소 계정 및 리소스 그룹 자체가 제거됩니다.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 문서에서는 관리 평면 cmdlet를 사용하여 저장소 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다. 
+이 방법 문서에서는 관리 평면 cmdlet를 사용하여 저장소 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 저장소 계정 나열
@@ -238,11 +245,9 @@ To access the Government cloud of the China datacenters, you have to use some sp
 > * 저장소 계정 속성 설정
 > * 액세스 키를 검색하고 다시 생성
 > * 저장소 계정에 대한 액세스 보호 
-> * Storage Analytics를 사용하도록 설정
+> * 저장소 분석 사용
 
-데이터 개체 관리 방법, Storage Analytics를 사용하도록 설정하는 방법 등, 몇 가지 다른 문서에 대한 링크도 있습니다. 다음은 참고를 위한 몇 가지 다른 관련 문서와 리소스입니다. 
-<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
--->
+또한 이 문서에서는 데이터 개체를 관리하는 방법, 저장소 분석을 사용하도록 설정하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 몇 가지 다른 문서에 대한 참조도 제공합니다. 다음은 참조를 위한 몇 가지 관련 문서와 리소스입니다.
 
 * [Azure Storage 제어 평면 PowerShell cmdles](/powershell/module/AzureRM.Storage/)
 * [Azure Storage 데이터 평면 PowerShell cmdles](/powershell/module/azure.storage/)
