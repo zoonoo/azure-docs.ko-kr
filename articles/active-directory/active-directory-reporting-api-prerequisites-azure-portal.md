@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e233547ce2add2d3eab1e9c46c4d7e701df72495
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Azure AD Reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -110,6 +110,11 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 6. 위쪽의 도구 모음에서 **저장**을 클릭합니다.
 
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. **사용 권한 부여**를 클릭하고 **예**를 클릭합니다.
+
+    ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## <a name="gather-configuration-settings"></a>구성 설정 수집 
 이 섹션에서는 디렉터리에서 다음 설정을 가져오는 방법을 보여 줍니다.

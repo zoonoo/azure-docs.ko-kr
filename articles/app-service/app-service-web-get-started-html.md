@@ -3,8 +3,8 @@ title: "Azure에서 정적 HTML 웹앱 만들기 | Microsoft Docs"
 description: "정적 HTML 샘플 앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: 
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
+ms.date: 10/26/2017
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a4b6e0578bb0b45b6be5bdf28af5936d627b1c74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd1b3ad946274bfa6a312d7c2373d45dbcb44541
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -45,7 +45,11 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-이 터미널 창을 사용하여 이 빠른 시작의 모든 명령을 실행합니다.
+샘플 코드를 포함하는 디렉터리로 변경합니다.
+
+```bash
+cd html-docs-hello-world
+```
 
 ## <a name="view-the-html"></a>HTML 보기
 
@@ -64,10 +68,6 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![빈 웹앱 페이지](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-Azure에서 비어 있는 새 웹앱을 만들었습니다.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -99,11 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-브라우저에서 Azure 웹앱 URL로 이동합니다.
-
-```
-http://<app_name>.azurewebsites.net
-```
+브라우저에서 Azure 웹앱 URL로 이동합니다. `http://<app_name>.azurewebsites.net`
 
 이 페이지는 Azure App Service 웹앱으로 실행됩니다.
 
@@ -115,7 +111,7 @@ http://<app_name>.azurewebsites.net
 
 텍스트 편집기에서 *index.html* 파일을 열고 태그를 변경합니다. 예를 들어 "Azure App Service - 샘플 정적 HTML 사이트"에서 H1 제목을 "Azure App Service'로 변경합니다.
 
-Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+로컬 터미널 창에서 Git의 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
 
 ```bash
 git commit -am "updated HTML"

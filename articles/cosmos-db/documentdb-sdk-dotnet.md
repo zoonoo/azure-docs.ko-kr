@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -51,6 +51,10 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
+
+* 여러 가지 안정성 수정 및 향상된 기능이 추가되었습니다.
 
 ### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
 
@@ -257,6 +261,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.18.0](#1.18.0) |2017년 10월 17일 |--- |
 | [1.17.0](#1.17.0) |2017년 8월 10일 |--- |
 | [1.16.1](#1.16.1) |2017년 8월 7일 |--- |
 | [1.16.0](#1.16.0) |2017년 8월 2일 |--- |

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database의 Compute 단위 설명
 이 항목에서는 Compute 단위의 개념과 워크로드가 최대 수준의 Compute 단위에 도달하면 어떻게 되는지 설명합니다.
@@ -21,7 +21,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-are-compute-units"></a>Compute 단위란?
 Compute 단위는 PostgreSQL용 단일 Azure 데이터베이스 서버에서 사용할 수 있도록 보장되는 CPU 처리량을 측정하는 단위입니다. Compute 단위는 CPU 및 메모리 리소스를 혼합해서 측정합니다. 일반적으로 50 Compute 단위는 코어의 절반과 같습니다. 100 Compute 단위는 하나의 코어와 같습니다. 2000 Compute 단위는 서버에서 사용할 수 있도록 보장되는 처리량의 20개 코어와 같습니다.
 
-Compute 단위당 메모리 양은 기본 및 표준 가격 책정 계층에 대해 최적화됩니다. 성능 수준을 증가시켜 Compute 단위를 두 배로 높일 경우 단일 PostgreSQL용 Azure 데이터베이스에서 사용할 수 있는 리소스 집합이 동일하게 두 배로 높아집니다.
+Compute 단위당 메모리 양은 기본 및 표준 가격 책정 계층에 대해 최적화됩니다. 성능 수준을 증가시켜 Compute 단위를 두 배로 높일 경우 단일 Azure Database for PostgreSQL에 사용할 수 있는 CPU 및 메모리 양이 동일하게 두 배로 높아집니다.
 
 예를 들어 표준 800 Compute 단위는 표준 100 Compute 단위 구성보다 8배 더 많은 CPU 처리량 및 메모리를 제공합니다. 그러나 표준 100 Compute 단위는 기본 100 Compute 단위와 동일한 CPU 처리량을 제공하지만 표준 가격 책정 계층에 미리 구성된 메모리 양은 기본 가격 책정 계층에 대해 구성된 메모리 양의 2배입니다. 따라서 표준 가격 책정 계층은 동일한 Compute 단위가 선택된 기본 가격 책정 계층보다 더 나은 워크로드 성능과 더 낮은 트랜잭션 대기 시간을 제공합니다.
 

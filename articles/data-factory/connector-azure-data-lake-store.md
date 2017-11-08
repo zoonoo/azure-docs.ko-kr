@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: e4f92c0c4d9307837ef6c760acd8eaa846938ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,11 @@ ms.lasthandoff: 10/11/2017
 - 응용 프로그램 UI
 - 응용 프로그램 키
 - 테넌트 ID
+
+[!TIP]
+> Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
+>- 원본으로 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어가 필요하지 않습니다.
+>- 싱크로, 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사를 수행하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
 
 다음과 같은 속성이 지원됩니다.
 

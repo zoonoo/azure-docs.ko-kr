@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법
 
@@ -39,7 +39,7 @@ Azure Machine Learning Workbench는 Jupyter Notebook 통합을 통해 대화형 
 프로젝트의 `aml_config` 폴더에서 실행 구성 및 계산 대상을 구성하여 Azure ML Workbench의 여러 커널에 액세스할 수 있습니다. `az ml computetarget attach` 명령을 실행하여 새로운 계산 대상을 추가하는 것은 새 커널을 추가하는 것과 동일합니다.
 
 >[!NOTE]
->실행 구성 및 계산 대상에 대한 자세한 내용은 [실행 구성](experiment-execution-configuration.md)을 검토하세요.
+>실행 구성 및 계산 대상에 대한 자세한 내용은 [실행 구성](experimentation-service-configuration.md)을 검토하세요.
 
 ### <a name="kernel-naming-convention"></a>커널 명명 규칙
 커널 이름은 일반적으로 "\<프로젝트 이름> \<실행 구성 이름>" 형식입니다. 예를 들어 _myIris_라는 프로젝트에 _docker-python_이라는 실행 구성이 있는 경우 Jupyter Notebook노트북을 열 때 커널 목록에서 "myIris docker-python"이라는 커널을 찾을 수 있습니다.
@@ -107,5 +107,5 @@ $ az ml notebook start
 
 ## <a name="next-steps"></a>다음 단계
 - Jupyter Notebook 사용 방법은 [Jupyter 공식 설명서](http://jupyter-notebook.readthedocs.io/en/latest/)를 참조하세요.    
-- Azure ML 실험 실행 환경에 대한 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experiment-execution-configuration.md)를 검토하세요.
+- Azure ML 실험 실행 환경에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)를 검토하세요.
 

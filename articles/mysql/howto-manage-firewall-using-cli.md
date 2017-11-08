@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: bc7763981c27a3d37cc1bd16c0f8efc0b4c01ce0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d192287eeaaaa82c0f61f8aa13b8bf7bf8cd47
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MySQL용 Azure Database 방화벽에 대한 개요는 [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/11/2017
 명령:
 - **create**: Azure MySQL 서버 방화벽 규칙을 만듭니다.
 - **delete**: Azure MySQL 서버 방화벽 규칙을 삭제합니다.
-- **list: Azure MySQL 서버 방화벽 규칙을 나열합니다.
-- **show: Azure MySQL 서버 방화벽 규칙의 세부 정보를 표시합니다.
+- **list**: Azure MySQL 서버 방화벽 규칙을 나열합니다.
+- **show**: Azure MySQL 서버 방화벽 규칙의 세부 정보를 표시합니다.
 - **update**: Azure MySQL 서버 방화벽 규칙을 업데이트합니다.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure에 로그인 및 MySQL용 Azure Database 서버 나열

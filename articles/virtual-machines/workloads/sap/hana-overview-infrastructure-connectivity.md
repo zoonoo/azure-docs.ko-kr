@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 인프라 및 연결 
 
@@ -40,8 +40,7 @@ HANA 큰 인스턴스 설명서 전반에 걸쳐 HANA 큰 인스턴스 SKU를 �
 - 비즈니스 연락처 정보(전자 메일 주소 및 전화 번호 포함)
 - 기술 담당자 정보(전자 메일 주소 및 전화 번호 포함)
 - 기술 네트워킹 담당자 정보(전자 메일 주소 및 전화 번호 포함)
-- Azure 배포 지역 (7월 현재 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽 
-- 2017)
+- Azure 배포 지역(2017년 7월 현재 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽)
 - Azure(큰 인스턴스) SKU(구성)에서 SAP HANA 확인
 - HANA 큰 인스턴스의 개요 및 아키텍처 문서에서 이미 자세히 설명했듯이 다음에 배포되는 모든 Azure 지역의 경우:
     - Azure VNet을 HANA 큰 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위

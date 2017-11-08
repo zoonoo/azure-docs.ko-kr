@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -204,16 +204,19 @@ Wingtip은 SaaS 앱이며 SaaS 앱상의 실제 부하는 일반적으로 간헐
 1. **F5**를 사용하여 스크립트를 실행합니다.
 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Pool1**을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 *tenants1* 서버의 데이터베이스 목록으로 이동합니다. 
+1. **contosoconcerthall** 데이터베이스를 클릭합니다.
+1. **contosoconcerthall**이 나열된 풀을 클릭합니다. **Elastic Database 풀** 섹션에서 풀을 찾습니다.
+
 1. **탄력적 풀 모니터링** 차트를 검사하고 증가된 풀 eDTU 사용량을 확인합니다. 1~2분 후 더 높은 부하가 시작되어야 하며 곧 이어 풀이 100% 사용률에 도달하는 것을 확인해야 합니다.
-1. 지난 시간에 가장 많이 사용한 데이터베이스를 나타내는 **Elastic Database 모니터링**을 검사합니다. *contosoconcerthall* 데이터베이스는 곧 가장 많이 사용한 데이터베이스 5개 중 하나로 나타나야 합니다.
-1. **Elastic Database 모니터링** **차트**를 클릭하면 아무 데이터베이스나 모니터링할 수 있는 **데이터베이스 리소스 사용률** 페이지가 열립니다. 이 기능을 사용하여 *contosoconcerthall* 데이터베이스에 대한 화면을 격리할 수 있습니다.
-1. 데이터베이스 목록을 보려면 **contosoconcerthall**을 클릭합니다.
-1. **가격 책정 계층(DTU 조정)**을 클릭하여 **성능 구성** 페이지를 엽니다. 여기에서 데이터베이스에 대한 독립 실행형 성능 수준을 설정할 수 있습니다.
-1. **표준** 탭을 클릭하여 표준 계층에서 규모 옵션을 엽니다.
-1. **DTU 슬라이드**를 오른쪽으로 밀어 **100** DTU를 선택합니다. 이는 서비스 목표 **S3**에 해당합니다.
-1. **적용**을 클릭하여 데이터베이스를 풀에서 밖으로 이동하고 *표준 S3* 데이터베이스로 만듭니다.
-1. 크기 조정이 완료되면 탄력적 풀과 데이터베이스 블레이드에서 contosoconcerthall 데이터베이스 및 Pool1에 대한 영향을 모니터링합니다.
+2. 지난 시간에 가장 많이 사용한 데이터베이스를 나타내는 **Elastic Database 모니터링**을 검사합니다. *contosoconcerthall* 데이터베이스는 곧 가장 많이 사용한 데이터베이스 5개 중 하나로 나타나야 합니다.
+3. **Elastic Database 모니터링** **차트**를 클릭하면 아무 데이터베이스나 모니터링할 수 있는 **데이터베이스 리소스 사용률** 페이지가 열립니다. 이 기능을 사용하여 *contosoconcerthall* 데이터베이스에 대한 화면을 격리할 수 있습니다.
+4. 데이터베이스 목록을 보려면 **contosoconcerthall**을 클릭합니다.
+5. **가격 책정 계층(DTU 조정)**을 클릭하여 **성능 구성** 페이지를 엽니다. 여기에서 데이터베이스에 대한 독립 실행형 성능 수준을 설정할 수 있습니다.
+6. **표준** 탭을 클릭하여 표준 계층에서 규모 옵션을 엽니다.
+7. **DTU 슬라이드**를 오른쪽으로 밀어 **100** DTU를 선택합니다. 이는 서비스 목표 **S3**에 해당합니다.
+8. **적용**을 클릭하여 데이터베이스를 풀에서 밖으로 이동하고 *표준 S3* 데이터베이스로 만듭니다.
+9. 크기 조정이 완료되면 탄력적 풀과 데이터베이스 블레이드에서 contosoconcerthall 데이터베이스 및 Pool1에 대한 영향을 모니터링합니다.
 
 비용을 줄이기 위해 contosoconcerthall 데이터베이스에 대해 높은 부하가 진정되면 지체 없이 풀로 반환해야 합니다. 이러한 상황이 일어나는 시기를 확실히 모르는 경우 DTU 사용량이 풀의 데이터베이스별 최대값보다 낮게 떨어질 때 트리거되는 데이터베이스에 대한 경고를 설정할 수 있습니다. 풀로 데이터베이스 이동은 연습 5에서 설명합니다.
 

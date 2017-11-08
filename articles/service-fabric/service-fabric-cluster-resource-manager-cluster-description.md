@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="describing-a-service-fabric-cluster"></a>서비스 패브릭 클러스터 설명
 서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 클러스터 Resource Manager는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장합니다. 이러한 주요 규칙을 적용하는 동시에 클러스터의 리소스 사용도 최적화되도록 시도합니다.
@@ -39,7 +39,7 @@ Service Fabric이 이러한 정보를 사용하여 서비스를 안전하게 배
 > [!WARNING]
 > Service Fabric에 제공되는 장애 도메인 정보는 정확해야 합니다. 예를 들어 Service Fabric 클러스터의 노드가 5개의 물리적 호스트에서 실행되는 10개의 가상 컴퓨터에서 실행된다고 가정해 보겠습니다. 이 경우 10개의 가상 컴퓨터가 있지만 별도의 5개(최상위 수준) 장애 도메인만 있습니다. 동일한 물리적 호스트를 공유하면 물리적 호스트에 장애가 발생하는 경우 VM에서 조정된 오류가 발생하므로 동일한 루트 장애 도메인을 공유하게 됩니다.  
 >
-> Service Fabric에서 노드의 장애 도메인이 변경되지 않기를 기대하기 때문입니다. [HA-VM](https://technet.microsoft.com/en-us/library/cc967323.aspx)과 같이 VM의 고가용성을 보장하는 다른 메커니즘은 한 호스트에서 다른 호스트로 VM의 투명한 마이그레이션을 사용합니다. 이러한 메커니즘은 VM 내부의 실행 중인 코드를 다시 구성하거나 알리지 않습니다. 따라서 Service Fabric 클러스터를 실행하기 위한 환경으로 **지원되지 않습니다**. Service Fabric은 사용되는 유일한 고가용성 기술이어야 합니다. 라이브 VM 마이그레이션, SAN 또는 기타와 같은 메커니즘은 필요하지 않습니다. 이러한 메커니즘은 Service Fabric과 함께 사용되는 경우 복잡성을 추가하고, 중앙 집중화된 오류 원인을 추가하며, Service Fabric과 충돌하는 안정성 및 가용성 전략을 사용하기 때문에 응용 프로그램 가용성 및 안정성을 _떨어뜨립니다_. 
+> Service Fabric에서 노드의 장애 도메인이 변경되지 않을 것으로 예상합니다. [HA-VM](https://technet.microsoft.com/en-us/library/cc967323.aspx)과 같이 VM의 고가용성을 보장하는 다른 메커니즘은 한 호스트에서 다른 호스트로 VM의 투명한 마이그레이션을 사용하는 경우 Service Fabric과 충돌할 수 있습니다. 이러한 메커니즘은 VM 내부의 실행 중인 코드를 다시 구성하거나 알리지 않습니다. 따라서 Service Fabric 클러스터를 실행하기 위한 환경으로 **지원되지 않습니다**. Service Fabric은 사용되는 유일한 고가용성 기술이어야 합니다. 라이브 VM 마이그레이션, SAN 또는 기타와 같은 메커니즘은 필요하지 않습니다. 이러한 메커니즘은 Service Fabric과 함께 사용되는 경우 복잡성을 추가하고, 중앙 집중화된 오류 원인을 추가하며, Service Fabric과 충돌하는 안정성 및 가용성 전략을 사용하기 때문에 응용 프로그램 가용성 및 안정성을 _떨어뜨립니다_. 
 >
 >
 

@@ -3,7 +3,7 @@ title: "Azure에서 Python 웹앱 만들기 | Microsoft Docs"
 description: "몇 분 안에 Azure App Service Web Apps에서 첫 번째 Python Hello World를 배포합니다."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/17/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b3908aa6534d08c5f3bd41d439556f48067dc466
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: ae410c7fabac6d23a69922804a0a87fde63594a2
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
 
@@ -45,8 +45,6 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-이 터미널 창을 사용하여 이 빠른 시작의 모든 명령을 실행합니다.
 
 샘플 코드를 포함하는 디렉터리로 변경합니다.
 
@@ -84,23 +82,17 @@ python main.py
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>웹앱 만들기
 
-![빈 웹앱 페이지](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Azure에서 비어 있는 새 웹앱을 만들었습니다.
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
 
-## <a name="configure-to-use-python"></a>Python을 사용하도록 구성
-
-[az webapp config set](/cli/azure/webapp/config#set) 명령을 사용하여 Python 버전 `3.4`를 사용하도록 웹앱을 구성합니다.
-
-```azurecli-interactive
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-이러한 방식으로 Python 버전을 설정하는 것은 플랫폼에서 제공하는 기본 컨테이너를 사용합니다. 자신만의 컨테이너를 사용하려면 [az webapp config container set](/cli/azure/webapp/config/container#set) 명령에 대한 CLI 참조를 참조하세요.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
+![빈 웹앱 페이지](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
@@ -168,7 +160,7 @@ Python 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 return 'Hello, Azure!'
 ```
 
-Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+로컬 터미널 창에서 Git의 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
 
 ```bash
 git commit -am "updated output"

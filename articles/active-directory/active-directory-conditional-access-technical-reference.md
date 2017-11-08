@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7f9574bc3d811d413b68d97ebe710858af8eb919
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/24/2017
 
 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
 
-- [Azure Information Protection](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Azure Information Protection - [자세한 정보](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -147,23 +147,24 @@ Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지�
 Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 조건부 액세스를 지원하는 모바일 앱 및 데스크톱 클라이언트는 다음과 같습니다.
 
 
-| 클라이언트 응용 프로그램| 대상 서비스| 플랫폼 |
+| 클라이언트 앱| 대상 서비스| 플랫폼 |
 | --- | --- | --- |
-| 앱에 대한 Azure Multi-Factor Authentication 및 위치 정책(장치 기반 정책 지원 안 함)| 모든 My Apps 앱 서비스| Android, iOS|
-| Azure RemoteApp| Azure RemoteApp 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android, macOS|
-| Dynamics 365 앱| Dynamics 365| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Microsoft Office 365 Teams(Windows Desktop, iOS, Android, Windows Phone, 웹 클라이언트 등, Microsoft Teams과 모든 해당 앱을 지원하는 모든 서비스 제어)| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| 메일/달력/인물 정보 앱, Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 10|
+| Azure 원격 앱| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
+| Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online| Windows 10|
+| 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+| Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.| Office 365 SharePoint Online| Windows 10|
+| macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| Mac OS X|
+| Office 모바일 앱| Office 365 SharePoint Online| iOS, Android|
+| Office Yammer 앱| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016(macOS용 Office)| Office 365 Exchange Online| Mac OS X|
 | Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook 모바일 앱| Office 365 Exchange Online| iOS|
-| Outlook 2016(macOS용 Office)| Office 365 Exchange Online| macOS|
-| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 동기화 클라이언트, 향후 Office Groups 및 SharePoint 앱 지원 예정| Office 365 SharePoint Online| Windows 10|
-| Office 2016 앱, Office 2013(최신 인증 사용), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 동기화 클라이언트| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Office 모바일 앱| Office 365 SharePoint Online| iOS, Android|
-| macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 지원), 향후 OneDrive for Business 지원 예정| Office 365 SharePoint Online| macOS|
-| Office Yammer 앱| Office 365 Yammer| Windows 10, iOS, Android|
-| PowerBI 앱(현재 Android에서 지원되지 않음)| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS|
-| Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS|
+| 비즈니스용 Skype| Office 365 Exchange Online| Android, iOS|
+| Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 
 
 

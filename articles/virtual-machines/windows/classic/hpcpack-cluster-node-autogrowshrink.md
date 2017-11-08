@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>클러스터 워크로드에 따라 Azure에서 HPC 팩 클러스터 리소스를 자동으로 증가 및 축소
 HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 클러스터의 현재 워크로드에 따라 노드 또는 코어 등과 같은 클러스터 리소스를 자동으로 증가 또는 축소하려는 방법이 필요합니다. 이렇게 클러스터 리소스의 크기를 조정하면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다.
@@ -178,7 +178,7 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>SOA 예제
-기본적으로 **SoaJobGrowThreshold**는 50000으로 설정되며 **SoaRequestsPerCore**는 200000으로 설정됩니다. 70000개의 요청을 가진 하나의 SOA 작업을 제출하는 경우 대기열에 저장된 하나의 태스크가 있으며 수신 요청 수는 70000개입니다. 이 경우 HPC 팩은 대기열에 저장된 태스크에 대해 코어 1개를 증가시키며 수신 요청의 경우 (70000-50000)/20000 = 1개의 코어가 증가하므로 모두 합해서 이 SOA 작업에 대해 코어 2개가 증가합니다.
+기본적으로 **SoaJobGrowThreshold**는 50000으로 설정되며 **SoaRequestsPerCore**는 20000으로 설정됩니다. 70000개의 요청을 가진 하나의 SOA 작업을 제출하는 경우 대기열에 저장된 하나의 태스크가 있으며 수신 요청 수는 70000개입니다. 이 경우 HPC 팩은 대기열에 저장된 태스크에 대해 코어 1개를 증가시키며 수신 요청의 경우 (70000-50000)/20000 = 1개의 코어가 증가하므로 모두 합해서 이 SOA 작업에 대해 코어 2개가 증가합니다.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>AzureAutoGrowShrink.ps1 스크립트 실행
 ### <a name="prerequisites"></a>필수 조건

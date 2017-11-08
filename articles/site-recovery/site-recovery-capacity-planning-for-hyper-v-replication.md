@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery용 Hyper-V Capacity Planner 도구 실행 | Microsoft Docs"
+title: "Azure Site Recovery용 Hyper-V Capacity Planner 도구 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery용 Hyper-V Capacity Planner 도구를 실행하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery용 Hyper-V Capacity Planner 도구 실행
+# <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery용 Hyper-V Capacity Planner 도구
 
 Azure Site Recovery 배포의 일환으로 복제 및 대역폭 요구 사항을 파악해야 합니다. Site Recovery용 Hyper-V Capacity Planner 도구를 사용하면 Hyper-V 가상 컴퓨터 복제를 위해 이 작업을 수행할 수 있습니다.
 

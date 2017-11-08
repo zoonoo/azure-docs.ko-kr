@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: e8321c3d16253226a5931cacbce6fa5d50b697bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abf234caa4c26cf3554911aabb839c696b1ba8cb
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: 인스턴스에 대한 특별한 고려 사항
 Azure AD Connect는 Azure AD 및 Office 365의 전세계 인스턴스로 가장 많이 사용됩니다. 그러나 다른 인스턴스도 있고 URL 및 기타 특별한 고려 사항에 대한 다른 요구 사항을 포함합니다.
 
-## <a name="microsoft-cloud-germany"></a>Microsoft 클라우드 독일
-[Microsoft 클라우드 독일](http://www.microsoft.de/cloud-deutschland) 은 독일 데이터 트러스티에서 운영하는 독립 클라우드입니다.
+## <a name="microsoft-cloud-germany"></a>Microsoft Cloud 독일
+[Microsoft Cloud 독일](http://www.microsoft.de/cloud-deutschland) 은 독일 데이터 트러스티에서 운영하는 독립 클라우드입니다.
 
 | 프록시 서버에서 열린 URL |
 | --- |
@@ -34,7 +34,7 @@ Azure AD Connect는 Azure AD 및 Office 365의 전세계 인스턴스로 가장 
 
 Azure AD 테넌트에 로그인할 경우 onmicrosoft.de 도메인의 계정을 사용해야 합니다.
 
-Microsoft 클라우드 독일에 현재 표시되지 않는 기능은 다음과 같습니다.
+Microsoft Cloud 독일에 현재 표시되지 않는 기능은 다음과 같습니다.
 
 * **Azure AD Connect Health**를 사용할 수 없습니다.
 * **자동 업데이트**를 사용할 수 없습니다.
@@ -50,15 +50,12 @@ Microsoft 클라우드 독일에 현재 표시되지 않는 기능은 다음과 
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
+| \*.windows.net(자동 Azure AD 정부 테넌트 검색에 필수) |
 | \*.gov.us.microsoftonline.com |
 | +인증서 해지 목록 |
 
-Azure AD Connect는 Azure AD 테넌트가 Government 클라우드에 있음을 자동으로 검색할 수 없습니다. Azure AD Connect를 설치하는 경우 대신 다음 작업을 수행해야 합니다.
-
-1. Azure AD Connect 설치를 시작합니다.
-2. EULA를 허용하는 첫 번째 페이지가 표시되면 진행을 멈추고 설치 마법사가 실행되도록 합니다.
-3. regedit을 시작하고 레지스트리 키 `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance`을 `2` 값으로 변경합니다.
-4. Azure AD Connect 설치 마법사로 다시 이동하여 EULA에 동의하고 계속합니다. 설치하는 동안 (Express 설치가 아닌) **사용자 지정 구성** 설치 경로를 사용해야 합니다. 그런 다음 일반적인 설치를 계속합니다.
+> [!NOTE]
+> AAD Connect 버전 1.1.647.0의 경우 *.windows.net이 프록시 서버에 열려 있으므로 더 이상 레지스트리에서 AzureInstance 값을 설정할 필요가 없습니다.
 
 Microsoft Azure Government 클라우드에 현재 표시되지 않는 기능은 다음과 같습니다.
 

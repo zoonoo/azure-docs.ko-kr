@@ -13,20 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: a130907fe6cf2ae6498502644949290bc838f239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 모니터링  
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
 
 Azure Monitor는 대부분의 Microsoft Azure 서비스에 대한 기본 수준의 인프라 메트릭과 로그를 제공합니다. 자세한 내용은 [모니터링 개요](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)를 참조하세요. Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보낸 로그입니다. Data Factory는 Azure Monitor에서 진단 로그를 출력합니다. 
 
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 파이프라인 모니터링 및 관리](v1/data-factory-monitor-manage-pipelines.md)를 참조하세요.
+
 ## <a name="diagnostic-logs"></a>진단 로그
 
-* 감사 또는 수동 검사를 위해 **저장소 계정** 에 저장합니다. 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* 감사 또는 수동 검사를 위해 **Storage 계정** 에 저장합니다. 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * 진단 로그를 **Event Hubs**로 스트림하여 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집합니다.
 * **OMS(Operations Management Suite) Log Analytics**를 사용하여 진단 로그를 분석합니다.
 

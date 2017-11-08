@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d4ef794106b27b812bfc0c5a7975fad23da1898
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure에서 Node.js 및 MongoDB 웹앱 작성
 
@@ -90,7 +90,7 @@ npm start
 
 앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
 
-```
+```console
 --
 MEAN.JS - Development Environment
 
@@ -122,17 +122,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다.
-
-[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
-
-다음 예제에서는 유럽 서부 지역의 리소스 그룹을 만듭니다.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
-```
-
-[az appservice list-locations](/cli/azure/appservice#list-locations) Azure CLI 명령을 사용하여 사용할 수 있는 위치를 나열합니다. 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기
 
@@ -192,20 +182,16 @@ Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
 
-MEAN.js 리포지토리에서 _config/env/production.js_를 엽니다.
+로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다. 
 
-`db` 개체에서 `uri`의 값을 업데이트합니다.
-
-* 두 개의 *\<cosmosdb_name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꿉니다.
-* *\<primary_master_key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿉니다.
-
-다음은 `db` 개체를 보여 주는 코드입니다.
+다음 코드를 이 파일에 복사합니다. 2개의 *\<cosmosdb_name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꾸고 *\<primary_master_key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
 
 ```javascript
-db: {
-  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
-  ...
-},
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+  }
+};
 ```
 
 [Cosmos DB에서 SSL을 요구](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하므로 `ssl=true` 옵션이 필요합니다. 
@@ -220,7 +206,7 @@ db: {
 gulp prod
 ```
 
-다음 명령을 실행하여 _config/env/production.js_에서 구성한 연결 문자열을 사용합니다.
+다음 명령을 실행하여 _config/env/local-production.js_에서 구성한 연결 문자열을 사용합니다.
 
 ```bash
 NODE_ENV=production node server.js
@@ -230,7 +216,7 @@ NODE_ENV=production node server.js
 
 앱이 로드되면 프로덕션 환경에서 실행 중인지 확인해야 합니다.
 
-```
+```console
 --
 MEAN.JS
 
@@ -249,70 +235,23 @@ MEAN.JS version: 0.5.0
 
 이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure App Service에 배포합니다.
 
+### <a name="configure-a-deployment-user"></a>배포 사용자 구성
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-다음 예제에서는 **무료** 가격 책정 계층을 사용하여 _myAppServicePlan_이라는 App Service 계획을 만듭니다.
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다.
-
-```json 
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-```
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
-
-웹앱은 코드를 배포할 호스팅 공간을 제공하고, 배포된 응용 프로그램을 확인할 수 있도록 URL도 제공합니다. 웹앱을 만드는 데 사용합니다. 
-
-다음 명령에서 *\<app_name>* 자리 표시자를 고유한 앱 이름으로 바꿉니다. 이 이름은 웹앱에 대한 URL의 일부로 사용되므로 Azure App Service의 모든 앱에서 고유해야 합니다. 
-
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
-```
-
-웹앱을 만들었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  ...
-  < Output has been truncated for readability >
-}
-```
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>환경 변수 구성
 
-자습서의 앞부분에서는 _config/env/production.js_에 데이터베이스 연결 문자열을 하드코딩했습니다. 최상의 보안을 유지하려면 이 중요한 데이터를 Git 리포지토리 외부에 두는 것이 좋습니다. Azure에서 실행되는 응용 프로그램의 경우는 대신 환경 변수를 사용합니다.
+기본적으로 MEAN.js 프로젝트는 _config/env/local-production.js_를 Git 리포지토리 외부에 둡니다. 따라서 Azure 웹앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
 
-Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) 명령을 사용하여 환경 변수를 _앱 설정_으로 지정합니다. 
+앱 설정을 지정하려면 Cloud Shell에서 [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) 명령을 사용합니다. 
 
 다음 예제에서는 Azure 웹앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
@@ -322,13 +261,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Node.js 코드에서는 다른 환경 변수에 액세스할 때와 마찬가지로 `process.env.MONGODB_URI`를 사용하여 이 응용 프로그램 설정에 액세스합니다. 
 
-이제 다음 명령을 사용하여 _config/env/production.js_의 변경 내용을 실행 취소합니다.
-
-```bash
-git checkout -- .
-```
-
-_config/env/production.js_를 다시 엽니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
+로컬 MEAN.js 리포지토리에서 _config/env/production.js_(_config/env/local-production.js_ 아님)를 엽니다. 여기에는 프로덕션 환경 특정 구성이 있습니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
 
 ```javascript
 db: {
@@ -337,49 +270,9 @@ db: {
 },
 ```
 
-### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성 
-
-Cloud Shell에서 [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 명령을 사용하여 배포에 대한 자격 증명을 만듭니다.
-
-FTP, 로컬 Git, GitHub, Visual Studio Team Services 및 BitBucket과 같은 다양한 방법으로 응용 프로그램을 Azure App Service에 배포할 수 있습니다. FTP 및 로컬 Git의 경우 배포에 인증하기 위해 배포 사용자를 서버에 구성할 필요가 있습니다. 이 배포 사용자는 계정 수준이며 Azure 구독 계정과 다릅니다. 이 배포 사용자는 한 번만 구성하면 됩니다.
-
-다음 명령에서 *\<사용자 이름>* 및 *\<암호>*를 새 사용자 이름 및 암호로 바꿉니다. 사용자 이름은 고유해야 합니다. 암호는 글자, 숫자, 기호와 같은 세 가지 요소 중 두 가지를 포함하여 8자 이상이어야 합니다. ` 'Conflict'. Details: 409` 오류가 발생하면 사용자 이름을 변경합니다. ` 'Bad Request'. Details: 400` 오류가 발생하면 더 강력한 암호를 사용합니다.
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-앱을 배포할 때 이후 단계에서 사용할 사용자 이름과 암호를 기록합니다.
-
-[az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#config-local-git) 명령을 사용하여 Azure 웹앱에 대한 로컬 Git 액세스를 구성합니다. 
-
-```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
-```
-
-배포 사용자가 구성되면 Azure CLI에 다음과 같은 형식으로 Azure 웹앱의 배포 URL이 표시됩니다.
-
-```bash 
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
-``` 
-
-다음 단계에서 사용되므로 터미널의 출력을 복사합니다. 
-
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. 
-
-```bash
-git remote add azure <paste_copied_url_here> 
-```
-
-Azure에 원격으로 푸시하여 Node.js 응용 프로그램을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 입력한 암호를 묻는 메시지가 나타납니다. 
-
-```bash
-git push azure master
-```
-
-배포하는 동안 Azure App Service는 진행 상황을 Git에 전합니다.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 5, done.

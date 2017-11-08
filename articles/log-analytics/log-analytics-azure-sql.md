@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
-ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/26/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -47,8 +47,8 @@ Azure SQL 분석 솔루션은 Log Analytics 서비스에 연결하는 데 에이
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. 없는 경우 [무료](https://azure.microsoft.com/free/) 구독을 하나 만들 수 있습니다.
-- Log Analytics 작업 영역. 기존 항목을 사용하거나 이 솔루션 사용을 시작하기 전에 [새로 만들 수 있습니다.](log-analytics-get-started.md)
-- Azure SQL Database 및 탄력적 풀에 대한 Azure 진단을 사용하도록 설정하고 [Log Analytics에 데이터를 보내도록 구성](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)합니다.
+- Log Analytics 작업 영역. 기존 항목을 사용하거나 이 솔루션 사용을 시작하기 전에 [새로 만들 수 있습니다.](log-analytics-quick-create-workspace.md)
+- Azure SQL Database 및 탄력적 풀에 대한 Azure 진단을 사용하도록 설정하고 [Log Analytics에 데이터를 보내도록 구성](../sql-database/sql-database-metrics-diag-logging.md)합니다.
 
 ## <a name="configuration"></a>구성
 
@@ -60,9 +60,9 @@ Azure SQL 분석 솔루션을 작업 영역에 추가하려면 다음 단계를 
 3. **모니터링 + 관리** 목록에서 **모두 표시**를 클릭합니다.
 4. **권장** 목록에서 **자세히**를 클릭한 후 새 목록에서 **Azure SQL Analytics(미리 보기)**를 찾아 선택합니다.  
     ![Azure SQL Analytics 솔루션](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. **Azure SQL 분석(미리 보기)** 창에서 **만들기**를 클릭합니다.  
+5. **Azure SQL Analytics(미리 보기)** 블레이드에서 **만들기**를 클릭합니다.  
     ![만들기](./media/log-analytics-azure-sql/portal-create.png)
-6. **새 솔루션 만들기** 창에서 솔루션을 추가할 작업 영역을 선택한 후 **만들기**를 클릭합니다.  
+6. **새 솔루션 만들기** 블레이드에서 솔루션을 추가할 작업 영역을 선택한 후 **만들기**를 클릭합니다.  
     ![작업 영역에 추가](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -83,7 +83,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## <a name="using-the-solution"></a>솔루션 사용
 
 >[!NOTE]
-> Azure SQL 분석의 최신 버전을 가져오려면 Log Analytics 작업 영역을 업그레이드합니다.
+> Azure SQL 분석의 최신 버전을 가져오려면 Log Analytics를 업그레이드하세요.
 >
 
 솔루션을 작업 영역에 추가하면 Azure SQL Analytics 타일이 작업 영역에 추가되고 개요에 표시됩니다. 타일은 솔루션이 연결된 Azure SQL 데이터베이스 및 Azure SQL 탄력적 풀 수를 보여 줍니다.
@@ -96,26 +96,17 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ![Azure SQL 분석 개요](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-임의의 타일을 선택하면 특정 관점으로의 드릴다운 보고서가 열립니다.
+임의의 타일을 선택하면 특정 관점으로의 드릴다운 보고서가 열립니다. 관점을 선택하면 드릴다운 보고서가 열립니다.
 
 ![Azure SQL 분석 시간 제한](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
 각 관점에서 구독, 서버, 탄력적 풀 및 데이터베이스 수준에 대한 요약이 제공됩니다. 또한 각 관점에 따라 오른쪽에 관점별 보고서가 표시됩니다. 목록에서 구독, 서버, 풀 또는 데이터베이스를 선택하면 계속해서 드릴다운됩니다.
 
-| 관점 | 설명 |
-| --- | --- |
-| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. 드릴다운은 DTU 및 GB 메트릭에 대한 요약을 제공합니다. |
-| 자세한 정보 | Intelligent Insights에 대한 계층적 드릴다운을 제공합니다. Intelligent Insights에 대해 자세히 알아보세요. |
-| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. |
-| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. |
-| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. |
-| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |
-| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. |
-| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. |
+| 관점 | 설명 | | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점입니다. 드릴다운은 DTU 및 GB 메트릭에 대한 요약을 제공합니다. | | 정보 | 인텔리전스 정보에 대한 계층적 드릴다운을 제공합니다. Intelligent Insights에 대해 자세히 알아보세요. | | 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | | 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | | 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | | 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. | | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 보고서
 
-수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다. [Intelligent Insights에 대해 자세히 알아보려면 여기를 클릭](../sql-database/sql-database-intelligent-insights.md)
+수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다. 
 
 ![Azure SQL 분석 정보](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -136,6 +127,9 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ### <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
 Azure SQL Database 리소스에서 가져온 데이터와 경고를 쉽게 만들 수 있습니다. 다음은 경고 생성에 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 *Azure SQL Database에 대한 높은 DTU*
 
@@ -162,7 +156,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 6. **경고 규칙 추가** 페이지에서 원하는 적절한 속성과 특정 임계값을 구성한 후 **저장**을 클릭합니다.  
 ![경고 규칙 추가](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 - Log Analytics의 [로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
 - Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](log-analytics-dashboards.md).

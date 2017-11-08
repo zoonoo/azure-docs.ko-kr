@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2017
+ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ce117076ed5c15ddff850485d8f8912ec53caf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Azure HDInsight Tool for Visual Studio Code 사용
 
@@ -48,18 +48,6 @@ Azure HDInsight Tools for Visual Studio Code(VSCode)를 사용하여 Hive 배치
 5. **창 다시 로드**를 클릭하여 확인합니다. [확장] 창에서 **Azure HDInsight Tools**를 확인할 수 있습니다.
 
    ![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
-
-Spark 사용자의 경우 더 나은 언어 서비스 환경을 위해 Python 확장을 사용하는 것이 좋습니다. Python 확장은 Hive 사용자에게는 필요하지 않습니다. 
-
-**Python을 설치하려면**
-
-1. **Visual Studio Code**를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다.
-2. 왼쪽 창에서 **확장**을 클릭합니다. 검색 상자에 **python**을 입력합니다. Python 확장 목록이 표시됩니다. 그중 하나가 **Python**입니다.
-3. **Python** 옆의 **설치**를 클릭합니다. 몇 초 후에 **설치** 단추가 **다시 로드**로 변경됩니다.
-4. **다시 로드**를 클릭하여 **Python** 확장을 활성화합니다.
-5. **창 다시 로드**를 클릭하여 확인합니다. [확장] 창에서 **Python**을 확인할 수 있습니다.
-
-     ![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 ## <a name="open-hdinsight-workspace"></a>HDInsight 작업 영역 열기
 
@@ -90,21 +78,19 @@ VSCode에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 Az
 
     일단 연결되면 Azure 계정 이름이 VSCode 창 왼쪽 맨 아래 상태 표시줄에 표시됩니다. 
 
-    > [!NOTE] 
-    > Azure 계정에서 두 가지 요소를 사용하도록 설정한 경우 PIN 대신 전화 인증을 사용하는 것이 좋습니다.
-    > Google Chrome을 사용한 Azure 로그인의 경우 알려진 문제가 있습니다.
+    > [!NOTE]
+    > 알려진 Azure 인증 문제로 인해 개인 모드 또는 incognito 모드에서 브라우저를 엽니다. Azure 계정에서 두 가지 요소를 사용하도록 설정한 경우 PIN 대신 전화 인증을 사용하는 것이 좋습니다.
+  
 
-4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하여 다음과 같이 상황에 맞는 메뉴를 엽니다.
-
-    ![HDInsight Tools for Visual Studio Code 스크립트 편집기 상황에 맞는 메뉴](./media/hdinsight-for-vscode/hdinsight-for-vscode-context-menu.png)
-
-    상황에 맞는 메뉴에서 다음 작업을 수행할 수 있습니다.
+4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하여 다음과 같이 상황에 맞는 메뉴를 엽니다. 상황에 맞는 메뉴에서 다음 작업을 수행할 수 있습니다.
 
     - logout
     - 클러스터 나열
     - 기본 클러스터 설정
     - 대화형 Hive 쿼리 제출
     - Hive 배치 스크립트 제출
+    - 대화형 PySpark 쿼리 제출
+    - PySpark 배치 스크립트 제출
     - 구성 설정
 
 ## <a name="list-hdinsight-clusters"></a>HDInsight 클러스터 나열
@@ -144,7 +130,7 @@ HDInsight Tools for VSCode를 사용하면 HDInsight 대화형 쿼리 클러스�
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Interactive Hive**를 클릭하여 쿼리를 제출합니다. Tools를 사용하면 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 다음과 같이 새 탭에 쿼리 결과가 표시됩니다.
+3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Hive 대화형**을 클릭하여 쿼리를 제출합니다. Tools를 사용하면 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 다음과 같이 새 탭에 쿼리 결과가 표시됩니다.
 
    ![대화형 Hive 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -162,7 +148,7 @@ HDInsight Tools for VSCode를 사용하면 HDInsight 대화형 쿼리 클러스�
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Submit Hive Batch Script**를 클릭하여 Hive 작업을 제출합니다. 
+3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Hive Batch**를 클릭하여 Hive 작업을 제출합니다. 
 4. 제출할 클러스터를 선택합니다.  
 
     Hive 작업을 제출한 후 제출 성공 정보 및 jobid가 **출력** 패널에 표시됩니다. 작업 실시간 로그 및 상태가 표시된 **웹 브라우저**가 열립니다.
@@ -171,11 +157,44 @@ HDInsight Tools for VSCode를 사용하면 HDInsight 대화형 쿼리 클러스�
 
 [대화형 Hive 쿼리 제출](#submit-interactive-hive-queries)에 비해 배치가 훨씬 더 오래 걸립니다.
 
+## <a name="submit-interactive-pyspark-queries"></a>대화형 PySpark 쿼리 제출
+또한 VSCode용 HDInsight 도구를 사용하면 Spark 클러스터에 대화형 PySpark 쿼리를 제출할 수 있습니다.
+1. 새 작업 폴더 및 확장명이 .py인 새 스크립트 파일을 만듭니다(없는 경우).
+2. 수행하지 않은 경우 Azure 계정에 연결합니다.
+3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
+   ```python
+   from operator import add
+   lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
+   counters = lines.flatMap(lambda x: x.split(' ')) \
+                .map(lambda x: (x, 1)) \
+                .reduceByKey(add)
 
-## <a name="submit-pyspark-job"></a>PySpark 작업 제출
+   coll = counters.collect()
+   sortedCollection = sorted(coll, key = lambda r: r[1], reverse = True)
+
+   for i in range(0, 5):
+        print(sortedCollection[i])
+   ```
+4. 이러한 스크립트를 강조 표시하고 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: PySpark 대화형**을 클릭합니다.
+5. VSCode에서 **Python** 확장을 설치하지 않은 경우 다음 **설치** 단추를 클릭합니다.
+    ![Visual Studio Code Python용 HDInsight 설치](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+
+6. Python 환경을 설치하지 않은 경우 시스템에서 설정합니다. 
+   - Windows에서 [Python](https://www.python.org/downloads/)을 다운로드하고 설치합니다. 그런 다음 시스템 경로에 `Python` 및 `pip`이 설치되어 있는지 확인합니다.
+   - MacOS 및 Linux용 지침은 [Visual Studio Code용 PySpark 대화형 환경 설정](set-up-pyspark-interactive-environment.md)을 참조하세요.
+7. PySpark 쿼리를 제출할 클러스터를 선택합니다. 잠시 후 다음과 같이 오른쪽의 새 탭에 쿼리 결과가 표시됩니다.
+
+   ![python 작업 결과 제출](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+8. 이 도구에서는 쿼리 **SQL 절**을 지원합니다.
+
+   ![Python 결과 작업 제출](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 표시됩니다. 상태가 **PySpark 커널(작업 중)**이면 다른 쿼리를 전송할 수 없습니다. 그렇지 않으면 실행이 중단됩니다.
+9. 이 클러스터는 세션을 유지할 수 있습니다. 예를 들어 **a=100**인 경우 이미 클러스터에 이 세션을 유지합니다. 이제 클러스터에 **a 인쇄**를 실행합니다.
+ 
+
+## <a name="submit-pyspark-batch-job"></a>PySpark 배치 작업 제출
 
 1. 새 작업 폴더 및 확장명이 .py인 새 스크립트 파일을 만듭니다(없는 경우).
-2. Azure 계정에 연결한 다음 기본 클러스터를 구성합니다(아직 구성하지 않은 경우).
+2. 수행하지 않은 경우 Azure 계정에 연결합니다.
 3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
 
     ```python
@@ -198,7 +217,7 @@ HDInsight Tools for VSCode를 사용하면 HDInsight 대화형 쿼리 클러스�
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Submit PySpark Job**을 클릭합니다. 
+4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: PySpark Batch**를 클릭합니다. 
 5. PySpark 작업을 제출할 클러스터를 선택합니다. 
 
    ![python 작업 결과 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
@@ -224,10 +243,12 @@ HDInsight for VSCode에서 지원하는 기능은 다음과 같습니다.
 * HDInsight for VScode: [비디오](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Visual Studio Code용 PySpark 대화형 환경 설정](set-up-pyspark-interactive-environment.md)
+* [IntelliJ용 Azure 도구 키트를 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 원격으로 Spark 응용 프로그램 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

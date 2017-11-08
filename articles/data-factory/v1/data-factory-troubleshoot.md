@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: de40d4afce48e94df0f69c5edca46838268a5e29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b4cab46e0fc86d5074b6d19601cd7ff4afeb0eb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
+> [!NOTE]
+> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 
+
 이 문서에서는 Azure Data Factory 사용 시 발생하는 문제에 대한 문제 해결 팁을 제공합니다. 여기서는 서비스 사용 중 발생할 수 있는 모든 문제를 다루지는 않으며, 몇 가지 문제와 일반적인 문제 해결 팁을 설명합니다.   
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
@@ -99,7 +102,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>문제: 주문형 HDInsight 프로비전 실패
-HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob 저장소를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 저장소를 사용하여 주문형 HDInsight 클러스터에 대한 모든 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
+HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob Storage를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 저장소를 사용하여 주문형 HDInsight 클러스터에 대한 모든 로그 및 지원 파일을 저장합니다.  경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.

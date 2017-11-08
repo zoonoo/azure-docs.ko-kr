@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>MySQL용 Azure 데이터베이스의 제한 사항(미리 보기)
 MySQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
@@ -30,7 +30,7 @@ Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 
 | 기본 100 Compute 단위    | 100개 연결   |
 | 표준 100 Compute 단위 | 200개 연결   |
 | 표준 200 Compute 단위 | 400개 연결   |
-| 표준 400 Compute 단위 | 400개 연결   |
+| 표준 400 Compute 단위 | 800개 연결   |
 | 표준 800 Compute 단위 | 1600개 연결  |
 | **최대 Compute 단위**      |                   |
 | 기본 서비스 계층         | 100 Compute 단위 |

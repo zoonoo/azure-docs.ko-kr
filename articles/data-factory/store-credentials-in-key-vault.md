@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: cb4545dcd41fe9a2c73bc86096843b717d61a785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193d7c77f01384106b3e0d932d02ba6cdff9e750
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md)에서 데이터 저장소의 자격 증명을 저장할 수 있습니다. Azure Data Factory에서는 데이터 저장소를 사용하는 작업을 실행할 때 자격 증명을 검색합니다.
+[Azure Key Vault](../key-vault/key-vault-whatis.md)에서 데이터 저장소의 자격 증명을 저장할 수 있습니다. Azure Data Factory에서는 데이터 저장소를 사용하는 작업을 실행할 때 자격 증명을 검색합니다. 현재 [Dynamics 커넥터](connector-dynamics-crm-office-365.md)만이 이 기능을 지원합니다.
 
 > [!NOTE]
-> 현재 [Dynamics 커넥터](connector-dynamics-crm-office-365.md)만이 이 기능을 지원합니다.
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="steps"></a>단계
 

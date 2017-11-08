@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7615074ce3f5098d5155dfc28ada567ea6361878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -56,6 +56,10 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](documentdb-sdk-do
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)(으)로 전자 메일을 보내세요.
+
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* 여러 가지 안정성 수정 및 향상된 기능이 추가되었습니다.
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
 
@@ -140,6 +144,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](documentd
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.6.0](#1.6.0) |2017년 10월 17일 |--- |
 | [1.5.1](#1.5.1) |2017년 10월 2일 |--- |
 | [1.5.0](#1.5.0) |2017년 8월 10일 |--- | 
 | [1.4.1](#1.4.1) |2017년 8월 7일 |--- |

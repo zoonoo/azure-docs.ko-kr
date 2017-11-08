@@ -3,7 +3,7 @@ title: "여러 구성 요소, 마이크로 서비스 및 컨테이너에 대한 
 description: "여러 구성 요소 또는 역할로 이루어진 앱에서 성능 및 사용량을 모니터링합니다."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
-ms.openlocfilehash: ca1bb8ee886c4b4e69be9dd653d6a52b874e1f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights(미리 보기)로 다중 구성 요소 응용 프로그램 모니터링
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="1-install-the-latest-pre-release-package"></a>1. 최신 시험판 패키지 설치
 
-각 서버 구성 요소에 대한 프로젝트에서 Appication Insights 패키지를 업데이트하거나 설치합니다. Visual Studio를 사용하는 경우:
+각 서버 구성 요소에 대한 프로젝트에서 Application Insights 패키지를 업데이트하거나 설치합니다. Visual Studio를 사용하는 경우:
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
 2. **시험판 포함**을 선택합니다.

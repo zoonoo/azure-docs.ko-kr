@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee8ee3af5918ddbe7393ff2574833f798ffcb19
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
 
 > [!NOTE]
-> 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
->
->
+> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [Data Factory 버전 2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+
+게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 ## <a name="failed-to-install-or-register-gateway"></a>게이트웨이를 설치하거나 등록하지 못함
 ### <a name="1-problem"></a>1. 문제

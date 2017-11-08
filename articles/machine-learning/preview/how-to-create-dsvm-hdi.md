@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>계산 대상으로 DSVM 및 HDI Spark 클러스터 만들기
 
-Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스터용 Apache Spark와 같은 추가 계산 대상을 추가하여 기계 학습 실험을 쉽게 강화하거나 확장할 수 있습니다. 이 문서는 Azure에서 이러한 계산 대상을 만드는 단계를 안내합니다. Azure ML 계산 대상에 대한 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experiment-execution-configuration.md)를 참조하세요.
+Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스터용 Apache Spark와 같은 추가 계산 대상을 추가하여 기계 학습 실험을 쉽게 강화하거나 확장할 수 있습니다. 이 문서는 Azure에서 이러한 계산 대상을 만드는 단계를 안내합니다. Azure ML 계산 대상에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)를 참조하세요.
 
 >[!NOTE]
 >진행하기 전에 Azure에서 VM 및 HDI 클러스터와 같은 리소스를 만들 수 있는 적절한 권한이 있는지 확인해야 합니다. 또한 이러한 리소스는 모두 구성에 따라 많은 계산 코어를 사용할 수 있습니다. 구독의 가상 CPU 코어에 대한 용량이 충분한지 확인하십시오. 구독에 허용되는 최대 코어 수를 늘리려면 Azure 지원에 언제든지 문의하세요.
@@ -181,7 +181,7 @@ $ az ml experiment prepare -c <compute target name>
 ## <a name="next-steps"></a>다음 단계
 
 다음에 대해 자세히 알아봅니다.
-- [Azure Machine Learning 실험 실행 서비스 개요](experiment-execution-configuration.md)
-- [Azure Machine Learning Workbench 실행 구성 파일](experiment-execution-configuration-reference.md)
+- [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench 실험 서비스 구성 파일](experimentation-service-configuration-reference.md)
 - [Azure HDInsight용 Apache Spark 클러스터](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [데이터 과학 가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

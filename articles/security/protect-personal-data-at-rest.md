@@ -1,7 +1,25 @@
-제목: 암호화로 미사용 개인 데이터 보호 | Microsoft Docs 설명: 이 문서는 Azure를 사용하여 개인 데이터 서비스를 보호하는 데 도움이 되는 시리즈의 일부입니다. 보안 설명서 센터: 해당 없음 작성자: Barclayn 관리자: MBaldwin 편집자: TomSh
-
-ms.assetid: ms.service: security ms.devlang: 해당 없음 ms.topic: article ms.tgt_pltfrm: 해당 없음 ms.workload: 해당 없음 ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
-
+---
+title: "암호화를 사용하는 Azure Protect 미사용 개인 데이터 | Microsoft Docs"
+description: "이 문서는 개인 데이터를 보호하는 데 Azure를 사용하도록 하는 시리즈의 일부입니다."
+services: security
+documentationcenter: na
+author: Barclayn
+manager: MBaldwin
+editor: TomSh
+ms.assetid: 
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2017
+ms.author: barclayn
+ms.custom: 
+ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure 암호화 기술: 암호화로 미사용 개인 데이터 보호
 
@@ -37,7 +55,7 @@ ms.assetid: ms.service: security ms.devlang: 해당 없음 ms.topic: article ms.
 
 Azure 서비스는 미사용 개인 데이터를 암호화하여 보호할 수 있는 여러 도구와 기술을 제공합니다.
 
-### <a name="azure-key-vault"></a>Azure 키 자격 증명 모음
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)는 Azure 서비스에서 미사용 데이터를 암호화하는 데 사용되는 키에 안전한 저장소를 제공하며 권장되는 키 저장소 및 관리 솔루션입니다. 암호화 키 관리는 저장된 데이터를 보호하는 데 필수적입니다.
 
@@ -87,13 +105,13 @@ Azure Disk Encryption를 지원하도록 키 자격 증명 모음을 설정하�
 
 특정 배포 시나리오 및 사용자 환경에 대한 자세한 지침은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)에 포함되어 있습니다.
 
-### <a name="azure-storage-service-encryption"></a>Azure 저장소 서비스 암호화
+### <a name="azure-storage-service-encryption"></a>Azure Storage 서비스 암호화
 
-[미사용 데이터에 대한 Azure SSE(저장소 서비스 암호화)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)를 사용하면 조직의 보안 및 규정 준수 약정을 충족하도록 데이터를 보호할 수 있습니다. Azure Storage에서 저장소에 저장하기 전에 256비트 AES 암호화를 사용하여 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 이 서비스는 Azure Blob 및 파일에서 사용할 수 있습니다.
+[미사용 데이터에 대한 Azure SSE(Storage 서비스 암호화)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)를 사용하면 조직의 보안 및 규정 준수 약정을 충족하도록 데이터를 보호할 수 있습니다. Azure Storage에서 저장소에 저장하기 전에 256비트 AES 암호화를 사용하여 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 이 서비스는 Azure Blob 및 파일에서 사용할 수 있습니다.
 
-#### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>저장소 서비스 암호화를 사용하여 개인 데이터를 보호하려면 어떻게 할까요?
+#### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Storage 서비스 암호화를 사용하여 개인 데이터를 보호하려면 어떻게 할까요?
 
-저장소 서비스 암호화를 사용하도록 설정하려면 다음을 수행합니다.
+Storage 서비스 암호화를 사용하도록 설정하려면 다음을 수행합니다.
 
 1. Azure Portal에 로그인합니다.
 
@@ -103,7 +121,7 @@ Azure Disk Encryption를 지원하도록 키 자격 증명 모음을 설정하�
 
 4. [File Service] 섹션 아래에서 [암호화]를 선택합니다.
 
-암호화 설정을 클릭하면 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+암호화 설정을 클릭하면 Storage 서비스 암호화를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ![](media/protect-personal-data-at-rest/storage-service-encryption.png)
 
@@ -115,9 +133,9 @@ Azure Disk Encryption를 지원하도록 키 자격 증명 모음을 설정하�
 
 2. [SMB를 사용하여 파일 공유를 탑재](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows)하면 Robocopy와 같은 유틸리티를 사용하여 파일을 복사할 수 있습니다.
 
-3. [저장소 클라이언트 라이브러리(예: .NET)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs)를 사용하여 Blob 저장소 간에 또는 저장소 계정 간에 또는 Blob 또는 파일 데이터를 복사합니다.
+3. [Storage 클라이언트 라이브러리(예: .NET)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs)를 사용하여 Blob 저장소 간에 또는 Storage 계정 간에 또는 Blob 또는 파일 데이터를 복사합니다.
 
-4.  [저장소 탐색기](https://docs.microsoft.com/en-us/azure/storage/storage-explorers)를 사용하여 암호화를 사용하도록 설정된 저장소 계정에 Blob을 업로드합니다.
+4.  [저장소 탐색기](https://docs.microsoft.com/en-us/azure/storage/storage-explorers)를 사용하여 암호화를 사용하도록 설정된 Storage 계정에 Blob을 업로드합니다.
 
 ### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
 
@@ -145,7 +163,7 @@ TDE를 사용하도록 설정하는 방법에 대한 지침, TDE로 보호되는
 
 ## <a name="summary"></a>요약
 
-회사에서 Azure 클라우드에 저장된 개인 데이터를 암호화하는 목표를 달성할 수 있습니다. 이렇게 하려면 Azure Disk Encryption을 사용하여 전체 볼륨을 보호하면 됩니다. 여기에는 식별 가능한 개인 정보 및 기타 중요한 데이터를 보관하는 운영 체제 파일과 데이터 파일이 모두 포함될 수 있습니다. Azure 저장소 서비스 암호화는 Blob 및 파일에 저장된 개인 데이터를 보호하는 데 사용할 수 있습니다. Azure SQL 데이터베이스에 저장된 데이터의 경우 투명한 데이터 암호화는 무단 노출로부터 개인 정보를 보호합니다.
+회사에서 Azure 클라우드에 저장된 개인 데이터를 암호화하는 목표를 달성할 수 있습니다. 이렇게 하려면 Azure Disk Encryption을 사용하여 전체 볼륨을 보호하면 됩니다. 여기에는 식별 가능한 개인 정보 및 기타 중요한 데이터를 보관하는 운영 체제 파일과 데이터 파일이 모두 포함될 수 있습니다. Azure Storage 서비스 암호화는 Blob 및 파일에 저장된 개인 데이터를 보호하는 데 사용할 수 있습니다. Azure SQL 데이터베이스에 저장된 데이터의 경우 투명한 데이터 암호화는 무단 노출로부터 개인 정보를 보호합니다.
 
 Azure에서 데이터를 암호화하는 데 사용되는 키를 보호하기 위해 회사에서 Azure Key Vault를 사용할 수 있습니다. 이렇게 하면 키 관리 프로세스가 간소화되고 회사에서 개인 데이터를 액세스하고 암호화하는 키를 관리할 수 있습니다.
 

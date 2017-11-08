@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/31/2017
 ms.author: maquaran
-ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -31,21 +31,20 @@ ms.lasthandoff: 10/11/2017
 > * [REST (영문)](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**시작**</td><td>[DocumentDB 변경 피드 프로세서 .NET SDK 시작](change-feed.md)</td></tr>
-
-<tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**API 설명서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**시작**|[DocumentDB 변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
+|**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* .NET Standard 2.0에 대한 지원을 추가합니다. 이제 패키지는 `netstandard2.0` 및 `net451` 프레임워크 모니커를 지원합니다.
+* [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 버전 1.17.0 이상과 호환 가능합니다.
+* [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) 버전 1.5.1 이상과 호환 가능합니다.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * 변경 피드가 비어 있거나 보류 중인 작업이 없을 때 예상되는 남은 작업을 계산할 때 발생하는 문제를 해결했습니다.
@@ -70,6 +69,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.2.0](#1.2.0) |2017년 10월 31일 |--- |
 | [1.1.1](#1.1.1) |2017년 8월 29일 |--- |
 | [1.1.0](#1.1.0) |2017년 8월 13일 |--- |
 | [1.0.0](#1.0.0) |2017년 7월 7일 |--- |

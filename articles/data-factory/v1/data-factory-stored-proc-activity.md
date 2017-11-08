@@ -1,6 +1,6 @@
 ---
 title: "SQL Server 저장 프로시저 작업"
-description: "SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에서 저장 프로시저를 호출하는 방법을 알아봅니다."
+description: "SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL Database 또는 Azure SQL Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c53725806845095c55add65fb65a247d8873dc74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa1f4f0a264c58024206304b2bf9a43610cb835d
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -34,13 +34,16 @@ ms.lasthandoff: 10/11/2017
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
+> [!NOTE]
+> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 저장 프로시저 작업을 사용하여 데이터 변환](../transform-data-using-stored-procedure.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 팩터리의 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
 
-- Azure SQL 데이터베이스
-- Azure SQL 데이터 웨어하우스
+- Azure SQL Database
+- Azure SQL Data Warehouse
 - SQL Server 데이터베이스.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 온-프레미스/Azure VM에서 데이터 원본을 Cloud Services에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
@@ -53,7 +56,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 ## <a name="walkthrough"></a>연습
 ### <a name="sample-table-and-stored-procedure"></a>샘플 테이블 및 저장 프로시저
-1. SQL Server Management Studio 또는 익숙한 다른 도구를 사용하여 Azure SQL 데이터베이스에서 다음 **테이블** 을 만듭니다. datetimestamp 열은 해당 ID가 생성된 날짜와 시간입니다.
+1. SQL Server Management Studio 또는 익숙한 다른 도구를 사용하여 Azure SQL Database에서 다음 **테이블** 을 만듭니다. datetimestamp 열은 해당 ID가 생성된 날짜와 시간입니다.
 
     ```SQL
     CREATE TABLE dbo.sampletable
@@ -125,7 +128,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>출력 데이터 집합 만들기
-저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 집합을 지정해야 합니다. 이는 출력 데이터 집합이 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 집합은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 집합은 **더미 데이터 집합**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 집합)일 수 있습니다. 더미 데이터 집합은 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다. 
+저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 집합을 지정해야 합니다. 이는 출력 데이터 집합이 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 집합은 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 집합은 **더미 데이터 집합**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 집합)일 수 있습니다. 더미 데이터 집합은 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다. 
 
 1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**, **새 데이터 집합**, **Azure SQL**을 차례로 클릭합니다. 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure SQL**을 선택합니다.
 
@@ -312,7 +315,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 | 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
 | type | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
 | inputs | 선택 사항입니다. 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니요 |
-| outputs | 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다. |예 |
+| outputs | 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다. |예 |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server Database의 저장 프로시저 이름을 지정합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 

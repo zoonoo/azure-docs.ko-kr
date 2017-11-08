@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 10/30/2017
 ms.author: elkuzmen
-ms.openlocfilehash: c919947e15306ff17de90cbaedd19c7545cf02dc
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: a2ccae76ff548847b331c7993013f22a098525ce
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="use-managed-service-identity-with-a-linux-vm-to-access-azure-resource-manager"></a>Linux VM에서 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 자습서에서는 새 Linux VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
-2. **계산**을 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
+2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하여 VM에 로그인할 수 있습니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
@@ -80,9 +80,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-resource-manager"></a>VM ID를 사용하여 액세스 토큰을 가져온 다음 Resource Manager를 호출하는 데 사용 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Resource Manager를 호출하는 데 사용 
 
-아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. 
+아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만들고 사용하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
 1. Portal에서 Linux VM으로 이동한 다음 **개요**에서 **연결**을 클릭합니다.  
 2. 선택한 SSH 클라이언트를 사용하여 VM에 **연결**합니다. 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 
@@ -65,11 +65,11 @@ Docker CLI를 사용하여 사용자 레지스트리를 사용하는 동안 다�
 
 컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 이렇게 하려면 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용합니다. *username*, *password* 및 *login server* 값을 이전 단계에서 적어 둔 값으로 바꿉니다.
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-명령이 완료되면 ‘로그인했습니다.’라는 메시지를 반환합니다.
+완료되면 이 명령은 `Login Succeeded`를 반환합니다. `--password-stdin` 매개 변수를 사용하도록 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
 
 ## <a name="push-image-to-acr"></a>ACR에 이미지 푸시
 

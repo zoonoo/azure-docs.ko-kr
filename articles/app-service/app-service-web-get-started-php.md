@@ -3,8 +3,8 @@ title: "Azure에서 PHP 웹앱 만들기 | Microsoft Docs"
 description: "몇 분 안에 Azure App Service Web Apps에서 첫 번째 PHP Hello World를 배포합니다."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: a91f9b6693476f68ef0e64fb0283ded2cedec29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -71,13 +71,17 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## <a name="create-a-web-app"></a>웹앱 만들기
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+
+```bash
+http://<app name>.azurewebsites.net
+```
 
 ![빈 웹앱 페이지](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-Azure에서 비어 있는 새 웹앱을 만들었습니다.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -128,7 +132,7 @@ PHP 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 echo "Hello Azure!";
 ```
 
-Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+로컬 터미널 창에서 Git의 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
 
 ```bash
 git commit -am "updated output"

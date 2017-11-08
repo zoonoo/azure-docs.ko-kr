@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Azure Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
+
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1의 데이터 이동 보안 고려 사항](v1/data-factory-data-movement-security-considerations.md)을 참조하세요.
 
 Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
@@ -62,17 +65,17 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
-#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage 및 Azure Table Storage
-Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
+Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
 #### <a name="amazon-s3"></a>Amazon S3
 Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC(가상 사설 클라우드) 내에서 Amazon S3를 지원하지 않습니다.

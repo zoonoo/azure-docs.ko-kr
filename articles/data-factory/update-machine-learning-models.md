@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
@@ -88,7 +88,7 @@ Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델�
 두 번째 Azure Machine Learning 연결된 서비스의 경우, Azure Machine Learning 웹 서비스가 기본 웹 서비스 또는 새 웹 서비스일 때 구성이 다릅니다. 차이점은 다음 섹션에서 별도로 설명합니다. 
 
 ## <a name="web-service-is-a-classic-web-service"></a>기존의 웹 서비스
-예측 웹 서비스가 **기존의 웹 서비스**인 경우 [Azure Portal](https://manage.windowsazure.com)을 사용하여 또 하나의 **기본이 아닌 업데이트 가능한 끝점**을 만들어야 합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 끝점을 만든 후 다음 단계를 수행합니다.
+예측 웹 서비스가 **클래식 웹 서비스**인 경우 Azure Portal을 사용하여 또 하나의 **기본이 아닌 업데이트 가능한 끝점**을 만들어야 합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 끝점을 만든 후 다음 단계를 수행합니다.
 
 * **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
 * **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 끝점 페이지 자체의 오른쪽 하단에 있습니다.
@@ -161,10 +161,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>샘플: Azure Machine Learning 모델 재학습 및 업데이트
 
-이 섹션에서는 **Azure ML 배치 실행 작업** 을 사용하여 모델을 재학습하는 샘플 파이프라인을 제공합니다. 파이프라인은 또한 **Azure ML 업데이트 리소스 작업** 을 사용하여 점수 매기기 웹 서비스에서 모델을 업데이트합니다. 섹션에서는 또한 모든 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 코드 조각 예제도 제공합니다.
+이 섹션에서는 **Azure ML Batch 실행 작업** 을 사용하여 모델을 재학습하는 샘플 파이프라인을 제공합니다. 파이프라인은 또한 **Azure ML 업데이트 리소스 작업** 을 사용하여 점수 매기기 웹 서비스에서 모델을 업데이트합니다. 섹션에서는 또한 모든 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 코드 조각 예제도 제공합니다.
 
 ### <a name="azure-blob-storage-linked-service"></a>Azure Blob 저장소 연결된 서비스:
-Azure 저장소는 다음 데이터를 보관합니다.
+Azure Storage는 다음 데이터를 보관합니다.
 
 * 학습 데이터. Azure ML 학습 웹 서비스에 대한 입력 데이터입니다.  
 * iLearner 파일. Azure ML 학습 웹 서비스에서의 출력입니다. 이 파일은 업데이트 리소스 작업에 대한 입력이기도 합니다.  

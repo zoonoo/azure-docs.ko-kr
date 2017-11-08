@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 64baee04c43442a73dbb9ef657c091f307204ce4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure에서 PHP 및 MySQL 웹앱 빌드
 
@@ -324,23 +324,18 @@ git commit -m "database.php updates"
 
 이 단계에서는 MySQL에 연결된 PHP 응용 프로그램을 Azure App Service에 배포합니다.
 
+### <a name="configure-a-deployment-user"></a>배포 사용자 구성
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
-
-### <a name="set-the-php-version"></a>PHP 버전 설정
-
-Cloud Shell에서 [az webapp config set](/cli/azure/webapp/config#set) 명령을 사용하여 응용 프로그램에 필요한 PHP 버전을 설정합니다.
-
-다음 명령은 PHP 버전을 _7.0_으로 설정합니다.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --php-version 7.0
-```
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 
@@ -397,17 +392,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 기본적으로 Azure App Service에서는 루트 가상 응용 프로그램 경로(_/_)가 배포된 응용 프로그램 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
 
-### <a name="configure-a-deployment-user"></a>배포 사용자 구성
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
-
-### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
-
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다.
+로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;paste\_copied\_url\_here>_를 [웹앱 만들기](#create)에 저장된 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <paste_copied_url_here>

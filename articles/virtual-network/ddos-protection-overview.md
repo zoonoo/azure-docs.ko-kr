@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS 보호 표준 개요
 
@@ -35,12 +35,12 @@ DDoS(분산 서비스 거부) 공격은 고객이 응용 프로그램을 클라�
 
 ![Azure DDoS 보호 표준](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-개발 및 테스트 시나리오의 경우 DDoS 보호 표준을 사용해 보고 다음과 같은 리소스를 사용하여 자신의 경험에 대한 의견을 제공해 주시면 감사하겠습니다.
+개발, 테스트 또는 프로덕션 환경에서 DDoS 보호 표준을 사용하는 것이 좋습니다. 다음 리소스를 사용하여 환경에 대한 피드백을 제공합니다.
 - [Microsoft Azure 포럼의 Azure DDoS 보호](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
 - [MSDN 포럼의 Azure DDoS 보호](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection).
 - [Stack Overflow의 Azure DDos 보호](https://stackoverflow.com/tags/azure-ddos/info)
 
-지원 문제의 경우 [Azure 지원 티켓](../azure-supportability/how-to-create-azure-support-request.md)을 열면 됩니다.
+지원 문제의 경우 [Azure 지원 티켓](../azure-supportability/how-to-create-azure-support-request.md)을 열면 됩니다. DDoS 보호 표준이 미리 보기 상태인 동안 최상의 노력을 기반으로 지원이 제공됩니다.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS 보호 표준으로 완화되는 DDoS 공격의 유형
 

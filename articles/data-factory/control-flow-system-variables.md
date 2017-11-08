@@ -13,14 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: shlo
-ms.openlocfilehash: dbf0a12ec1a5348e7c73248cc389ec1a5a5d4a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 274c003e0697ba08d010c3bf13724461a4b624ee
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 이 문서에서는 Azure Data Factory에서 지원하는 시스템 변수에 대해 설명합니다. 데이터 팩터리 엔터티를 정의할 때 식에서 이러한 변수를 사용할 수 있습니다. 
+
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 함수와 변수](v1/data-factory-functions-variables.md)를 참조하세요.
+
 
 ## <a name="pipeline-scope"></a>파이프라인 범위:
 

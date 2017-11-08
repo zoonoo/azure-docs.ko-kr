@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: ad9807fc72e3a6e0a6d3916d2d9e042af1fa83ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5d6cf07c52920a795c42e7f3578b1666a86d3c5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 Oracle 데이터베이스에서 지원되는 싱크 데이터 저장소로 또는 지원되는 원본 데이터 저장소에서 Oracle 데이터베이스로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히, 이 Oracle 커넥터는 Oracle 데이터베이스의 다음 버전을 지원합니다.
+특히, 이 Oracle 커넥터는 Oracle 데이터베이스의 다음 버전을 지원하고 기본 또는 OID 인증을 지원합니다.
 
     - Oracle 12c R1(12.1)
     - Oracle 11g R1, R2(11.1, 11.2)

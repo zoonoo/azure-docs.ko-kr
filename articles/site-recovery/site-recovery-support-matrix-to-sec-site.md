@@ -12,57 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 보조 사이트에 복제하기 위한 지원 매트릭스
 
-이 문서는 Azure Site Recovery를 사용하여 보조 온-프레미스 사이트에 복제하는 경우 지원 되는 사항을 요약하여 설명합니다.
+이 문서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 보조 온-프레미스 사이트에 복제하는 경우 지원 되는 사항을 요약하여 설명합니다.
 
-## <a name="deployment-options"></a>배포 옵션
+## <a name="supported-scenarios"></a>지원되는 시나리오
 
-**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(SCVMM 포함/제외)**
---- | --- | --- | ---
-**Azure 포털** | 보조 VMware 사이트에 온-프레미스 VMware VM을 복제합니다.<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다(Azure Portal에서 사용할 수 없음). | VMM 클라우드의 온-프레미스 Hyper-V VM을 보조 VMM 클라우드에 복제<br></br> VMM이 없으면 지원되지 않음  <br/><br/> 표준 Hyper-V 복제만 해당 SAN은 지원되지 않음
-**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다.<br></br> SCVMM이 없으면 지원되지 않음
-**PowerShell** | 지원되지 않음 | 지원됨<br></br> SCVMM이 없으면 지원되지 않음
-
-## <a name="on-premises-servers"></a>온-프레미스 서버
-
-### <a name="virtualization-servers"></a>가상화 서버
-
-**배포웹사이트를** | **지원**
+**배포웹사이트를** | **세부 정보** 
 --- | ---
-**VMware VM/물리적 서버** | 최신 업데이트가 설치된 vSphere 6.0, 5.5 또는 5.1
-**Hyper-V(VMM 포함)** | VMM 2016 및 VMM 2012 R2
+**VMware 간** | 보조 VMware 사이트에 대한 온-프레미스 VMware VM의 재해 복구<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다.
+**Hyper-V 간** | 보조 VMM 클라우드에 대한 VMM 클라우드의 온-프레미스 Hyper-V VM 재해 복구<br></br> VMM이 없으면 지원되지 않음
 
-  >[!Note]
-  > Windows Server 2016 및 2012 R2 호스트가 혼합된 VMM 2016 클라우드는 현재 지원되지 않습니다.
-  > 기존 SCVMM 2012 R2를 2016으로 업그레이드하는 구성은 현재 지원되지 않습니다.
-### <a name="host-servers"></a>호스트 서버
+
+
+  
+
+## <a name="host-servers"></a>호스트 서버
 
 **배포웹사이트를** | **지원**
 --- | ---
 **VMware VM/물리적 서버** | vCenter 5.5 또는 6.0(5.5 기능만 지원) 
-**Hyper-V(VMM 없음)** | 보조 사이트로 복제하는 데 지원되는 구성이 아님
-**Hyper-V(VMM 포함)** | Windows Server 2016 및 최신 업데이트가 포함된 Windows Server 2012 R2<br/><br/> Windows Server 2016 호스트는 VMM 2016에서 관리되어야 합니다.
+**Hyper-V(VMM 포함)** | Windows Server 2016 및 최신 업데이트가 포함된 Windows Server 2012 R2<br/><br/> Windows Server 2016 호스트는 VMM 2016에서 관리되어야 합니다.<br/><br/> Windows Server 2016 및 2012 R2 호스트가 혼합된 VMM 2016 클라우드는 현재 지원되지 않습니다.<br/><br/> 기존 VMM 2012 R2를 System Center 2016으로 업그레이드하도록 포함하는 배포는 현재 지원되지 않습니다.
+
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
-다음은 Azure Site Recovery를 사용하는 경우 다양한 배포 시나리오에서 지원되는 운영 체제를 요약한 테이블입니다. 이 지원은 언급된 OS에서 실행되는 모든 워크로드에 적용됩니다.
+
+다음 표에서는 Site Recovery를 사용하여 복제된 컴퓨터에 대한 운영 체제 지원을 요약합니다. 워크로드를 지원되는 운영 체제에서 실행할 수 있습니다.
 
 **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
---- | --- | ---
+--- | ---
 64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4 또는 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 | [Hyper-V에서 지원](https://technet.microsoft.com/library/mt126277.aspx)하는 모든 게스트 운영 체제
 
->[!Note]
->파일 시스템(EXT3, ETX4, ReiserFS, XFS), Multipath 소프트웨어 장치 매퍼, 볼륨 관리자(LVM2)등의 저장소가 포함된 Linux 컴퓨터만 복제할 수 있습니다.
->HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다.
->ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.
+## <a name="linux-machine-storage"></a>Linux 컴퓨터 저장소
+
+다음 저장소를 포함한 Linux 컴퓨터만을 복제할 수 있습니다.
+
+- 파일 시스템(EXT3, ETX4, ReiserFS, XFS)
+- 다중 경로 소프트웨어 장치 매퍼
+- 볼륨 관리자(LVM2)
+- HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다.
+- ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.
 
 ## <a name="network-configuration"></a>네트워크 구성
 
@@ -91,7 +88,7 @@ IPv6 | 아니요 | 아니요
 
 ### <a name="host-storage"></a>호스트 저장소
 
-**저장소(호스트)** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
+**Storage(호스트)** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
 --- | --- | ---
 NFS | 예 | 해당 없음
 SMB 3.0 | 해당 없음 | 예
@@ -135,5 +132,5 @@ RDM | 예 | 해당 없음
 
 ## <a name="next-steps"></a>다음 단계
 
-- [VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](site-recovery-vmm-to-vmm.md)
-- [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)
+- [VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](tutorial-vmm-to-vmm.md)
+- [VMware VM 및 물리적 서버를 보조 사이트에 복제](tutorial-vmware-to-vmware.md)

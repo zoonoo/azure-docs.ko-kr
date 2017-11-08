@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -62,6 +62,10 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
 - **Azure(큰 인스턴스)에서 SAP HANA:** 다양한 Azure 지역에서 큰 인스턴스 스탬프로 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식적인 이름입니다. 관련 용어인 **HANA 큰 인스턴스**는 Azure(큰 인스턴스)에서 SAP HANA의 약어이며 기술적 배포 가이드에 널리 사용됩니다.
 - **프레미스 간:** VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 Azure 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이러한 것이 대부분의 SAP 자산이 배포될 것으로 예상되는 일반적인 시나리오입니다. 자세한 내용은 [VPN Gateway 계획 및 설계](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 가이드 및 [Azure Portal을 사용해 사이트 간 연결로 VNet 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 - **테넌트:** HANA 대규모 인스턴스 스탬프에 배포되는 고객은 “테넌트"로 격리됩니다. 테넌트는 네트워킹, 저장소 및 계산 계층에서 다른 테넌트로부터 격리됩니다. 따라서 서로 다른 테넌트에 할당된 저장소 및 계산 단위는 HANA 대규모 인스턴스 스탬프 수준에서 상호 보거나 통신할 수 없습니다. 고객은 다양한 테넌트에 배포하도록 선택할 수 있습니다. 그러한 경우에도 HANA 대규모 인스턴스 스탬프 수준에서 테넌트 간 통신은 없습니다.
+- **SKU 범주:** HANA 큰 인스턴스의 경우 SKU는 다음 두 가지 범주로 제공됩니다.
+    - **형식 I 클래스:** S72, S72m, S144, S144m, S192 및 S192m
+    - **형식 II 클래스:** S384, S384m, S384xm, S576, S768 및 S960
+
 
 Microsoft Azure 공용 클라우드에서 SAP 워크로드를 배포하는 토픽에 게시된 여러 가지의 추가 리소스가 있습니다. Azure에서 SAP HANA 배포를 계획하고 실행하는 사용자라면 누구든지 Azure IaaS의 보안 주체와 Azure IaaS에서 SAP 워크로드 배포를 경험하고 잘 이해하는 것이 좋습니다. 다음 리소스를 통해 더 많은 정보를 얻고 진행하기 전에 참조합니다.
 
@@ -122,7 +126,7 @@ Azure 큰 인스턴스 스탬프 자체는 다음 구성 요소를 결합합니�
 
 Azure VM과 마찬가지로, Azure(큰 인스턴스)에서 SAP HANA이 여러 Azure 지역에 제공됩니다. 재해 복구 기능을 제공하려면 옵트인하도록 선택할 수 있습니다. 하나의 지정학적 지역의 서로 다른 큰 인스턴스 스탬프가 서로 연결됩니다. 예를 들어 미국 서부 및 미국 동부에 있는 HANA 대형 인스턴스 스탬프가 DR 복제 목적을 위해 전용 네트워크 링크를 통해 연결됩니다. 
 
-Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 것처럼 SAP HANA의 다양한 워크로드 유형에 맞게 조정된 HANA 큰 인스턴스의 다양한 SKU 중에서 선택할 수 있습니다. SAP는 Intel 프로세서 세대(네 가지 SKU 유형 제공됨)에 따라 메모리를 다양한 워크로드에 맞게 프로세서 소켓 비율에 적용합니다.
+Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 것처럼 SAP HANA의 다양한 워크로드 유형에 맞게 조정된 HANA 큰 인스턴스의 다양한 SKU 중에서 선택할 수 있습니다. SAP는 Intel 프로세서 세대에 따라 다양한 워크로드의 프로세서 소켓 비율에 메모리를 적용합니다. 다음 표에서는 제공된 SKU 형식을 보여줍니다.
 
 2017년 7월 현재 Azure(대형 인스턴스)의 SAP HANA는 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽의 Azure 지역에서 여러 구성으로 사용하도록 제공됩니다.
 
@@ -158,7 +162,7 @@ Azure Virtual Machines로 서로 다른 VM 유형 간에 선택할 수 있는 �
 
 - 네트워크: HANA 대규모 인스턴스 스탬프 내의 가상 네트워크를 통해 격리.
 - 저장소: 저장소 볼륨이 할당되고 테넌트 간 저장소 볼륨을 격리하는 저장소 가상 컴퓨터를 통해 격리.
-- 계산: 서버 단위를 단일 테넌트에 전용으로 할당 서버 단위의 하드 또는 소프트 파티션 없음. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
+- Compute: 서버 단위를 단일 테넌트에 전용으로 할당 서버 단위의 하드 또는 소프트 파티션 없음. 테넌트 간 단일 서버 또는 호스트 단위의 공유 없음. 
 
 따라서 서로 다른 테넌트 간 HANA 대규모 인스턴스 단위 배포는 상호 보이지 않습니다. 또한 서로 다른 테넌트에 배포된 HANA 대규모 인스턴스 단위가 HANA 대규모 인스턴스 스탬프 수준에서 상호 직접 통신하지도 않습니다. 한 테넌트 내의 HANA 대규모 인스턴스 단위만 HANA 대규모 인스턴스 스탬프 수준에서 상호 통신할 수 있습니다.
 청구 측면에서 큰 인스턴스 스탬프에 배포된 테넌트가 하나의 Azure 구독에 할당됩니다. 그러나 네트워크 측면에서 그것은 동일한 Azure 등록 내에서 다른 Azure 구독의 Azure Vnet에서 액세스할 수 있습니다. 또한 동일한 Azure 지역의 또 다른 Azure 구독을 사용하여 배포할 경우 별도의 HANA 대규모 인스턴스 테넌트를 요청하기로 선택할 수 있습니다.
@@ -355,7 +359,7 @@ HANA 큰 인스턴스 SKU를 세분화하면 가능한 분할 조각들의 몇 �
 ### <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 HANA 큰 인스턴스에 사용된 저장소를 통해 디스크에 저장된 대로 데이터의 투명한 암호화가 가능합니다. HANA 큰 인스턴스 단위 배포 시 이러한 종류의 암호화를 설정하는 옵션이 제공됩니다. 또한 이미 배포 후에는 암호화된 볼륨으로 변경하도록 선택할 수 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로의 이동은 투명하며 가동 중지 시간이 필요하지 않습니다. 
 
-Type I 클래스 SKU와 함께 부팅 LUN이 저장된 볼륨은 암호화됩니다. HANA 큰 인스턴스의 Type II 클래스 SKU인 경우 OS 메서드로 부팅 LUN을 암호화해야 합니다. 
+Type I 클래스 SKU와 함께 부팅 LUN이 저장된 볼륨은 암호화됩니다. HANA 큰 인스턴스의 Type II 클래스 SKU인 경우 OS 메서드로 부팅 LUN을 암호화해야 합니다. 자세한 내용은 Microsoft 서비스 관리 팀에 문의하세요.
 
 
 ## <a name="networking"></a>네트워킹

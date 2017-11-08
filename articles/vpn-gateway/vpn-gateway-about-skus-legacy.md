@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 10/31/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 
@@ -39,7 +39,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="resize"></a>게이트웨이 크기 조정(게이트웨이 SKU 변경)
 
-동일한 SKU 제품군 내에서 게이트웨이 SKU 크기를 조정할 수 있습니다. 예를 들어 Standard SKU는 HighPerformance SKU로 크기를 조정할 수 있습니다. 이전 SKU와 새 SKU 제품군 간에 VPN Gateway의 크기를 조정할 수는 없습니다. 예를 들어 Standard SKU에서 VpnGw2 SKU로 크기를 조정할 수는 없습니다. 
+동일한 SKU 제품군 내에서 게이트웨이 SKU 크기를 조정할 수 있습니다. 예를 들어 Standard SKU는 HighPerformance SKU로 크기를 조정할 수 있습니다. 이전 SKU와 새 SKU 제품군 간에 VPN Gateway의 크기를 조정할 수는 없습니다. 예를 들어 Standard SKU에서 VpnGw2 SKU로 크기를 조정할 수는 없습니다.
+
+>[!IMPORTANT]
+>게이트웨이의 크기를 조정할 때 크기가 조정되는 동안 해당 게이트웨이가 20~30분 동안 가동 중지됩니다.
+>
+>
 
 클래식 배포 모델의 게이트웨이 SKU 크기를 조정하려면 다음 명령을 사용합니다.
 

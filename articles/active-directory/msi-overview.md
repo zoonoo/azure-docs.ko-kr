@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)
 
@@ -50,16 +50,18 @@ Azure 가상 컴퓨터에서 관리 서비스 ID가 작동하는 방식의 예�
 <br><br>
 | MSI 사용 리소스에서 | 학습할 방법 |
 | ------- | -------- |
-| Azure VM(Windows) | [Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-windows-vm-access-arm.md) |
+| Azure VM(Windows) | [Windows VM 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure SQL 액세스](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Windows VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Windows VM 관리 서비스 ID를 사용하여 SAS를 통해 Azure Storage 액세스](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Windows VM 관리 서비스 ID를 사용하여 Azure SQL 액세스](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Windows VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM(Linux)   | [Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-linux-vm-access-arm.md) |
+| Azure VM(Linux)   | [Linux VM 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager 액세스](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Linux VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [ VM 관리 서비스 ID를 사용하여 SAS를 통해 Azure Storage 액세스](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Linux VM 관리 서비스 ID 및 Azure Key Vault를 사용한 비 Azure AD 리소스 액세스](msi-tutorial-linux-vm-access-nonaad.md) |
-| Azure 앱 서비스  | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
+| Azure App Service  | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>관리 서비스 ID를 지원하는 Azure 서비스
@@ -72,8 +74,8 @@ Azure 가상 컴퓨터에서 관리 서비스 ID가 작동하는 방식의 예�
 
 | 부여 | 가동 상태 | Date | 구성 | 토큰 가져오기 |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure 가상 컴퓨터 | 미리 보기 | 2017년 9월 | [Azure 포털](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure 리소스 관리자 템플릿](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST (영문)](msi-how-to-get-access-token-using-msi.md#rest) |
-| Azure 앱 서비스 | 미리 보기 | 2017년 9월 | [Azure 포털](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST (영문)](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Virtual Machines | 미리 보기 | 2017년 9월 | [Azure 포털](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure 리소스 관리자 템플릿](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST (영문)](msi-how-to-get-access-token-using-msi.md#rest) |
+| Azure App Service | 미리 보기 | 2017년 9월 | [Azure 포털](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST (영문)](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure 기능 | 미리 보기 | 2017년 9월 | [Azure 포털](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 템플릿](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST (영문)](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
@@ -83,7 +85,7 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 | 부여 | 리소스 ID | 가동 상태 | Date | 액세스 권한 할당 |
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure 리소스 관리자 | https://management.azure.com/ | 사용 가능 | 2017년 9월 | [Azure 포털](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure 키 자격 증명 모음 | https://vault.azure.net/ | 사용 가능 | 2017년 9월 | |
+| Azure Key Vault | https://vault.azure.net/ | 사용 가능 | 2017년 9월 | |
 | Azure 데이터 레이크 | https://datalake.azure.net/ | 사용 가능 | 2017년 9월 | |
 | Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 10월 | |
 

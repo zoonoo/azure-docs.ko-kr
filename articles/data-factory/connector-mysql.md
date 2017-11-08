@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: c7a6e32089a084d200cd0bb7a57f8f8a1e1bb04e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d702f4e0746f07c5420853a7b93bdc793e4f288
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로
 이 MySQL 커넥터를 사용하려면 다음을 수행해야 합니다.
 
 - 자체 호스팅 통합 런타임을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 참조하세요.
-- 통합 런타임 컴퓨터에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5 이상을 설치합니다.
+- 통합 런타임 컴퓨터에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5 이상을 설치합니다. 이 32비트 드라이버는 64비트 IR과 호환 가능합니다.
 
 > [!TIP]
 > "원격측에서 전송 스트림을 닫았으므로 인증에 실패했습니다." 오류가 발생할 경우 MySQL 커넥터/Net을 더 높은 버전으로 업그레이드하는 방안을 고려해 보세요.

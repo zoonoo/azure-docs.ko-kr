@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: b394b78b1d1a45a725c438d2cb978bb367c24894
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 문서는 Azure Data Factory 서비스의 버전 2에 적용됩니다. Data Factory에 대한 질문과 대답입니다.  
+
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1의 질문과 대답](v1/data-factory-faq.md)을 참조하세요.
 
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요? 
 Data Factory는 데이터의 이동과 변환을 자동화하는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: spelluru
-ms.openlocfilehash: 42135f0a0101ba82bca0d662ae4b970f799f70d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 195b7276346827479fbbe10dfaaaa9ed1d754967
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 클라우드의 데이터 변환
 
@@ -24,23 +24,64 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
+## <a name="prerequisites"></a>필수 조건
+* **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 저장소 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 저장소와 동일한 저장소 계정을 사용합니다.  
+
+### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
+1. 다음 내용이 포함된 **WordCount_Spark.py**라는 Python 파일을 만듭니다. 
+
+    ```python
+    import sys
+    from operator import add
+    
+    from pyspark.sql import SparkSession
+    
+    def main():
+        spark = SparkSession\
+            .builder\
+            .appName("PythonWordCount")\
+            .getOrCreate()
+            
+        lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
+        counts = lines.flatMap(lambda x: x.split(' ')) \
+            .map(lambda x: (x, 1)) \
+            .reduceByKey(add)
+        counts.saveAsTextFile("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/outputfiles/wordcount")
+        
+        spark.stop()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+2. **&lt;storageAccountName&gt;**을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
+3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
+4. **spark**라는 폴더를 만듭니다.
+5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
+6. **script** 하위 폴더에 **WordCount_Spark.py** 파일을 업로드합니다. 
+
+
+### <a name="upload-the-input-file"></a>입력 파일 업로드
+1. 일부 텍스트가 포함된 **minecraftstory.txt**라는 파일을 만듭니다. Spark 프로그램은 이 텍스트의 단어 수를 계산합니다. 
+2. Blob 컨테이너의 `spark` 폴더에 `inputfiles`이라는 하위 폴더를 만듭니다. 
+3. `inputfiles` 하위 폴더에 `minecraftstory.txt`를 업로드합니다. 
+
 ## <a name="sample-script"></a>샘플 스크립트
 > [!IMPORTANT]
 > 이 스크립트는 하드 드라이브의 c:\ 폴더에 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 정의하는 JSON 파일을 만듭니다.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Transform data using Spark")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
 샘플 스크립트를 실행한 후에는 다음 명령을 사용하여 리소스 그룹 및 해당 그룹에 연결된 모든 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
 리소스 그룹에서 Data Factory를 제거하려면 다음 명령을 실행합니다. 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<resource group name>"
+Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -62,4 +103,4 @@ Remove-AzureRmDataFactoryV2 -Name "<data factory name>" -ResourceGroupName "<res
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
 
-추가 Azure Cosmos DB PowerShell 스크립트 샘플은 [Azure Cosmos DB PowerShell 스크립트](../samples-powershell.md)에 있습니다.
+추가 Azure Data Factory PowerShell 스크립트 샘플은 [Azure Data Factory PowerShell 샘플](../samples-powershell.md)에 있습니다.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가
 
@@ -98,7 +98,7 @@ Google+ 계정으로 페더레이션하려면 응용 프로그램 대신 Azure A
 4.  **옵션**에는 **수동**을 사용합니다.
 5.  **이름**에는 `GoogleSecret`를 사용합니다.  
     `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
-6.  **비밀** 상자에서 https://apps.dev.microsoft.com의 Microsoft 응용 프로그램 암호를 입력합니다
+6.  **암호** 상자에 위에서 복사한 [Google 개발자 콘솔](https://console.developers.google.com/)의 Google 응용 프로그램 암호를 입력합니다.
 7.  **키 사용**에는 **서명**을 사용합니다.
 8.  **만들기**
 9.  `B2C_1A_GoogleSecret` 키를 만들었는지 확인합니다.

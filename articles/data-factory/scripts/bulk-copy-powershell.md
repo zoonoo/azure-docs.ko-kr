@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 스크립트: Azure Data Factory를 사용하여 클라우드의 데이터 복사 | Microsoft Docs"
-description: "이 PowerShell 스크립트는 Azure Blob Storage의 한 위치에서 동일한 Blob Storage의 다른 위치로 데이터를 복사합니다."
+title: "PowerShell 스크립트: Azure Data Factory를 사용하여 대용량 데이터 복사 | Microsoft Docs"
+description: "이 PowerShell 스크립트는 Azure Data Factory를 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사하는 방법을 보여줍니다."
 services: data-factory
 author: spelluru
 manager: jhubbard
@@ -10,31 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 10/31/2017
 ms.author: spelluru
-ms.openlocfilehash: c564491e0f30e0e898bc03eecb29710edeb267f6
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: c8044d70a7c793d865884223081433e49f014f7b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2017
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>PowerShell을 사용하여 데이터 팩터리 파이프라인을 만들어 클라우드의 데이터 복사
+# <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
-이 샘플 PowerShell 스크립트는 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 Azure Data Factory에서 파이프라인을 만듭니다.
+이 샘플 PowerShell 스크립트는 Azure SQL Data Warehouse에 Azure SQL Database에 있는 여러 테이블의 데이터를 복사합니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하여 하나 만듭니다. 
-* Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
+이 샘플을 실행하기 위한 필수 구성 요소는 [자습서: 대량 복사](../tutorial-bulk-copy.md#prerequisites)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
 > [!IMPORTANT]
 > 이 스크립트는 하드 드라이브의 c:\ 폴더에 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 정의하는 JSON 파일을 만듭니다.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
-
+[!code-powershell[main](../../../powershell_scripts/data-factory/bulk-copy-from-sql-databse-to-sql-data-warehouse/bulk-copy-from-sql-database-to-sql-data-warehouse.ps1 "Bulk copy from Azure SQL Database => Azure SQL Data Warehouse")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -69,4 +66,4 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
 
-추가 Azure Data Factory PowerShell 스크립트 샘플은 [Azure Data Factory PowerShell 샘플](../samples-powershell.md)에 있습니다.
+추가 Azure Data Factory PowerShell 스크립트 샘플은 [Azure Data Factory PowerShell 스크립트](../samples-powershell.md)에 있습니다.
