@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -27,7 +27,7 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 가지고 있지만 크기와 사용량 제약이 있습니다.
 
 ## <a name="standard"></a>Standard
-Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 저장소 제한과 이미지 처리량이 증가합니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족해야 합니다.
+Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 저장소 제한과 이미지 처리량이 증가합니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다.
 
 ## <a name="premium"></a>Premium
 Premium 레지스트리는 저장소 및 동시 작업 수 등의 제약에 더 높은 한도를 제공하여 대규모 시나리오가 가능합니다. Premium은 더 높은 이미지 처리량뿐만 아니라, 각 배포에 네트워크에 가까운 레지스트리를 유지하면서 여러 지역 전반에서 단일 레지스트리를 관리하기 위해 [지역에서 복제](container-registry-geo-replication.md)와 같은 기능이 추가됩니다.
@@ -43,21 +43,7 @@ Classic 레지스트리 SKU는 Azure에서 Azure Container Registry 서비스의
 
 다음 표에는 Basic, Standard 및 Premium 서비스 계층의 기능 및 한계에 대해 자세히 나와 있습니다.
 
-| 기능 | Basic | Standard | Premium |
-|---|---|---|---|---|
-| 저장소 | 10GiB | 100GiB| 500GiB |
-| 분당 ReadOps<sup>1, 2</sup> | 1k | 300k | 10,000k |
-| 분당 WriteOps<sup>1, 3</sup> | 100 | 500 | 2k |
-| 다운로드 대역폭 MBps<sup>1</sup> | 30 | 60 | 100 |
-| 업로드 대역폭 MBps<sup>1</sup> | 10 | 20 | 50 |
-| Webhook | 2 | 10 | 100 |
-| 지역에서 복제 | 해당 없음 | 해당 없음 | [지원 *(미리 보기)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps* 및 *대역폭*은 최소 추정치입니다. ACR은 사용량 요구에 따라 성능을 개선하려고 합니다.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image)은 이미지의 레이어 수와 매니페스트 검색을 더한 값에 따라 여러 읽기 작업으로 변환됩니다.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image)는 푸시해야 하는 레이어 수에 따라 여러 쓰기 작업으로 변환됩니다. `docker push`에는 기존 이미지에 대해 매니페스트를 검색할 *ReadOps*가 포함되어 있습니다.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>레지스트리 크기 관리
 각 SKU의 저장소 제약 조건은 일반적인 시나리오(시작은 Basic, 다수의 프로덕션 앱은 Standard, 초대형 성능과 [지역에서 복제](container-registry-geo-replication.md)는 Premium)와 맞추기 위한 것입니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.

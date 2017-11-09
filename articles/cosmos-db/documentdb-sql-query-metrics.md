@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](documentdb-sql-query.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 밀리초 | 문서를 로드하는 데 소요된 시간  | 
 | `systemFunctionExecuteTimeInMs` | 밀리초 | 시스템(기본 제공) 함수를 실행하는 데 소요된 총 시간(밀리초)  | 
 | `userFunctionExecuteTimeInMs` | 밀리초 | 사용자 정의 함수를 실행하는 데 소요된 총 시간(밀리초) | 
-| `retrievedDocumentCount` | 밀리초 | 검색된 총 문서 수  | 
+| `retrievedDocumentCount` | count | 검색된 총 문서 수  | 
 | `retrievedDocumentSize` | 바이트 | 검색된 총 문서 크기(바이트)  | 
 | `outputDocumentCount` | count | 출력 문서 수 | 
 | `writeOutputTimeInMs` | 밀리초 | 쿼리 실행 시간(밀리초) | 

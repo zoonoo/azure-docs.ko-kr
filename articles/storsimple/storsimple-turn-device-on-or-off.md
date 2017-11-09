@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 켜기 또는 끄기
+
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 장치 종료는 정상적인 시스템 작업의 일환으로 필요하지 않습니다. 그러나 새 장치 또는 종료할 장치의 전원을 켜야 할 수도 있습니다. 일반적으로 오류가 발생한 하드웨어를 교체, 물리적으로 장치를 이동하거나 장치의 서비스를 중단해야 하는 경우 종료가 필요합니다. 이 자습서는 다양한 시나리오에서 StorSimple 장치를 켜고 종료하는데 필요한 절차에 대해 설명합니다.
 

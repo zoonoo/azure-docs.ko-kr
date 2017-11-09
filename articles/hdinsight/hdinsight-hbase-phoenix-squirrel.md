@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04392b535965edd785bbb66a52eb6b41b768553e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64a4c5b158ebe0119f2f0133587a743fd2dbf0ff
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
 HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
@@ -29,7 +29,7 @@ HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 �
 >
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-phoenix-squirrel-linux.md)을 참조하세요.
 >
 
 
@@ -97,7 +97,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 2. [인증서 만들기](#Create-your-certificates)
 3. [VPN 클라이언트 구성](#Configure-your-VPN-client)
 
-자세한 내용은 [Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성](../vpn-gateway/vpn-gateway-point-to-site-create.md) 을 참조하세요.
+자세한 내용은 [Azure Virtual Network에 대한 지점 및 사이트 간 VPN 연결 구성](../vpn-gateway/vpn-gateway-point-to-site-create.md) 을 참조하세요.
 
 #### <a name="configure-a-virtual-network-and-a-dynamic-routing-gateway"></a>가상 네트워크 및 동적 라우팅 게이트웨이 구성
 Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확인합니다(이 섹션의 필수 조건 참조). 다음 단계에서는 지점 및 사이트 간 연결을 구성합니다.
@@ -269,7 +269,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
 * [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
 * [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: Virtual Network 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 Virtual Network에 HBase 클러스터를 배포할 수 있습니다.
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
+* [HDInsight에서 HBase 복제 구성](hbase/apache-hbase-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
 
 
 [azure-portal]: https://portal.azure.com
@@ -278,8 +278,8 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

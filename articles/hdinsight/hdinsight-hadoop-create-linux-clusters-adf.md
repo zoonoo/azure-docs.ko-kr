@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -85,7 +85,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. Azure에 로그인합니다.
 2. Azure 리소스 그룹 만들기
-3. Azure 저장소 계정 만들기
+3. Azure Storage 계정 만들기
 4. 저장소 계정에 Blob 컨테이너 만들기
 5. Blob 컨테이너에 다음 두 파일 복사
 
@@ -270,13 +270,13 @@ dataFactoryName은 템플릿을 배포할 때 지정하는 데이터 팩터리�
 ### <a name="defining-entities-within-the-data-factory"></a>데이터 팩터리 내에서 엔터티 정의
 다음 데이터 팩터리 엔터티는 JSON 템플릿에 정의됩니다.
 
-* [Azure 저장소 연결된 서비스](#azure-storage-linked-service)
+* [Azure Storage 연결된 서비스](#azure-storage-linked-service)
 * [HDInsight 주문형 연결된 서비스](#hdinsight-on-demand-linked-service)
 * [Azure Blob 입력 데이터 집합](#azure-blob-input-dataset)
 * [Azure Blob 출력 데이터 집합:](#azure-blob-output-dataset)
 * [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+#### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 Azure Storage 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 기본 HDInsight 저장소 계정, 입력 데이터 저장소 및 출력 데이터 저장소로 동일한 저장소 계정이 사용됩니다. 따라서 Azure Storage 연결된 서비스 하나만 정의합니다. 연결된 서비스 정의에서 Azure Storage 계정의 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](../data-factory/connector-azure-blob-storage.md)를 참조하세요.
 
 ```json
@@ -296,7 +296,7 @@ Azure Storage 연결된 서비스는 Azure Storage 계정을 데이터 팩터리
 **connectionString**은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 템플릿을 배포하는 동안 다음 매개 변수 값을 지정합니다.  
 
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight 주문형 연결된 서비스
-주문형 HDInsight 연결된 서비스 정의에서 Data Factory 서비스에 사용된 구성 매개 변수에 대한 값을 지정하여 런타임에 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [연결된 서비스 계산](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
+주문형 HDInsight 연결된 서비스 정의에서 Data Factory 서비스에 사용된 구성 매개 변수에 대한 값을 지정하여 런타임에 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Compute 연결된 서비스](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 문서를 참조하세요.  
 
 ```json
 
@@ -564,7 +564,7 @@ Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Data Factory를 사용하여 주문형 HDInsight 클러스터를 만들고 Hive 작업을 처리하는 방법을 알아보았습니다. 자세히 알아보려면 다음을 참조하세요.
 
-* [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -594,4 +594,4 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 Resource Manager 템플릿을 업데이트해야 합니다. 이 CLI 스크립트에 대해 도움이 필요한 경우 [Azure 저장소에서 Azure CLI 사용](../storage/common/storage-azure-cli.md)을 참조하세요.
+컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 Resource Manager 템플릿을 업데이트해야 합니다. 이 CLI 스크립트에 대해 도움이 필요한 경우 [Azure Storage에서 Azure CLI 사용](../storage/common/storage-azure-cli.md)을 참조하세요.

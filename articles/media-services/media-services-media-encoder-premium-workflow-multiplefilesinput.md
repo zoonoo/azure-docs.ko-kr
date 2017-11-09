@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
@@ -305,9 +305,9 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 * 클립 목록 XML
 * 출력 파일/자산  
 
-![새 인코딩 워크플로](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
+![새 Encoding 워크플로](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
-*새 인코딩 워크플로*
+*새 Encoding 워크플로*
 
 입력 미디어 파일을 허용하기 위해 미디어 파일 입력 구성 요소를 추가하기 시작합니다. 워크플로에 구성 요소를 추가하려면 리포지토리 검색 상자에서 구성 요소를 찾고 디자이너 창으로 원하는 항목을 끕니다.
 
@@ -372,9 +372,9 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 로컬에서 워크플로를 실행하여 올바르게 실행되고 있는지 확인할 수 있습니다.
 
-완료되면 Azure 미디어 서비스에서 실행할 수 있습니다.
+완료되면 Azure Media Services에서 실행할 수 있습니다.
 
-먼저 Azure 미디어 서비스에서 안에 두 파일(비디오 파일 및 로고)이 있는 자산을 준비합니다. .NET 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다. 또한 Azure 포털이나 [AMSE(Azure 미디어 서비스 탐색기)](https://github.com/Azure/Azure-Media-Services-Explorer) 를 사용하여 수행할 수도 있습니다.
+먼저 Azure Media Services에서 안에 두 파일(비디오 파일 및 로고)이 있는 자산을 준비합니다. .NET 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다. 또한 Azure Portal이나 [AMSE(Azure Media Services 탐색기)](https://github.com/Azure/Azure-Media-Services-Explorer) 를 사용하여 수행할 수도 있습니다.
 
 이 자습서에는 AMSE를 사용하여 자산을 관리하는 방법을 보여 줍니다. 두 가지 방법으로 자산에 파일을 추가합니다.
 
@@ -465,14 +465,14 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 * 인코딩된 자산은 다중 언어 오디오 트랙을 포함하며 이러한 트랙을 Azure Media Player에서 선택할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Azure Media Services의 프리미엄 Encoding 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Azure Media Services의 프리미엄 Encoding 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
-* [샘플 워크플로 파일](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
-* [Azure 미디어 서비스 탐색기 도구](http://aka.ms/amse)
+* [샘플 워크플로 파일](https://github.com/Azure/azure-media-services-samples)
+* [Azure Media Services 탐색기 도구](http://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

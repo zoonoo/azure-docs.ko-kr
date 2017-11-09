@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
@@ -29,17 +29,17 @@ ms.lasthandoff: 10/11/2017
 
 Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)만 개방합니다. 이러한 포트는 SSH 및 보안 HTTPS 프로토콜을 통해 노출된 서비스를 사용하여 클러스터에 안전하게 액세스하는 데 사용됩니다.
 
-내부적으로 HDInsight는 Azure 가상 네트워크에서 실행되는 여러 Azure 가상 컴퓨터(클러스터 내의 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. 예를 들어 SSH를 사용하여 헤드 노드 중 하나에 연결하는 경우 헤드 노드부터 시작하여 클러스터 노드에서 실행 중인 서비스에 직접 액세스할 수 있습니다.
+내부적으로 HDInsight는 Azure Virtual Network에서 실행되는 여러 Azure Virtual Machines(클러스터 내의 노드)에 의해 구현됩니다. 가상 네트워크 내에서 인터넷을 통해 노출되지 않은 포트를 액세스할 수 있습니다. 예를 들어 SSH를 사용하여 헤드 노드 중 하나에 연결하는 경우 헤드 노드부터 시작하여 클러스터 노드에서 실행 중인 서비스에 직접 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > HDInsight의 구성 옵션으로 Azure Virtual Network를 지정하지 않을 경우 하나는 자동으로 생성됩니다. 단, 다른 컴퓨터(예: 다른 Azure Virtual Machines 또는 클라이언트 개발 컴퓨터)는 이 가상 네트워크에 연결할 수 없습니다.
 
 
-추가 컴퓨터를 가상 네트워크에 조인하려면 먼저 가상 네트워크를 만든 후 HDInsight 클러스터를 만들 때 이를 지정해야 합니다. 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)
+추가 컴퓨터를 가상 네트워크에 조인하려면 먼저 가상 네트워크를 만든 후 HDInsight 클러스터를 만들 때 이를 지정해야 합니다. 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>공용 포트
 
-HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
+HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
 | 부여 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
@@ -48,17 +48,17 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | Ambari |443 |HTTPS |Ambari 웹 UI. [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. [Curl에서 Hive 사용](hdinsight-hadoop-use-pig-curl.md), [Curl에서 Pig 사용](hdinsight-hadoop-use-pig-curl.md), [Curl에서 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요. |
-| HiveServer2 |443 |ODBC |ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요. |
-| HiveServer2 |443 |JDBC |JDBC를 사용하여 Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. [Curl에서 Hive 사용](hadoop/apache-hadoop-use-pig-curl.md), [Curl에서 Pig 사용](hadoop/apache-hadoop-use-pig-curl.md), [Curl에서 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-curl.md)을 참조하세요. |
+| HiveServer2 |443 |ODBC |ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요. |
+| HiveServer2 |443 |JDBC |JDBC를 사용하여 Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 다음은 특정 클러스터 유형에 대해 사용할 수 있습니다.
 
 | 부여 | 포트 | 프로토콜 | 클러스터 유형 | 설명 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. [HBase를 사용하여 시작](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API. [Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. [HBase를 사용하여 시작](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. [Livy를 사용하여 원격으로 Spark 작업 제출](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>인증
 

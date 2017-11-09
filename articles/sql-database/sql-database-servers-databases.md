@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 3bd39b9a63cd4a18eabee3d1737daac56b3e37df
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
 
@@ -35,7 +35,7 @@ Azure SQL Database는 다음과 같을 수 있습니다.
 - [다중 테넌트 SaaS 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)에 속한 데이터베이스 집합의 일부 및 해당 데이터베이스는 단일 또는 풀링된 데이터베이스 또는 둘 다일 수 있습니다. 
 
 > [!TIP]
-> 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers)를 참조하세요. 
+> 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. 
 >
  
 - Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL_LATIN1_GENERAL_CP1_CI_AS**이며 여기서 **LATIN1_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
@@ -126,7 +126,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|리소스 그룹 만들기]
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|서버 만들기|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|서버에 대한 정보 반환|
-|[Set-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqlserver)|서버의 속성 수정|
+|[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|서버의 속성 수정|
 |[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|서버 제거|
 |[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|서버 수준 방화벽 규칙 만들기 |
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|서버의 방화벽 규칙 가져오기|

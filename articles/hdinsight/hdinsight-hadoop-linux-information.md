@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -39,9 +39,9 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 ## <a name="users"></a>사용자
 
-[도메인에 가입](hdinsight-domain-joined-introduction.md)되어 있지 않으면 HDInsight를 **단일 사용자** 시스템으로 간주하기 때문에 관리자 수준 권한으로 하나의 SSH 사용자 계정이 클러스터와 함께 만들어집니다. 추가 SSH 계정을 만들 수는 있지만 클러스터에 대한 관리자 액세스 권한이 있어야 합니다.
+[도메인에 가입](./domain-joined/apache-domain-joined-introduction.md)되어 있지 않으면 HDInsight를 **단일 사용자** 시스템으로 간주하기 때문에 관리자 수준 권한으로 하나의 SSH 사용자 계정이 클러스터와 함께 만들어집니다. 추가 SSH 계정을 만들 수는 있지만 클러스터에 대한 관리자 액세스 권한이 있어야 합니다.
 
-도메인 가입 HDInsight에서는 여러 사용자와 세분화된 권한 및 역할 설정을 지원합니다. 자세한 내용은 [도메인 가입 HDInsight 클러스터 구성](hdinsight-domain-joined-manage.md)을 참조하세요.
+도메인 가입 HDInsight에서는 여러 사용자와 세분화된 권한 및 역할 설정을 지원합니다. 자세한 내용은 [도메인 가입 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-manage.md)을 참조하세요.
 
 ## <a name="domain-names"></a>도메인 이름
 
@@ -172,7 +172,7 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 
 1. [Azure Portal](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
-2. **속성** 섹션에서 **저장소 계정**을 선택합니다. 클러스터에 대한 저장소 정보가 표시됩니다.
+2. **속성** 섹션에서 **Storage 계정**을 선택합니다. 클러스터에 대한 저장소 정보가 표시됩니다.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>HDInsight 외부에서 파일에 액세스하는 방법
 
@@ -181,7 +181,7 @@ HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방�
 __Azure Storage__를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 저장소 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure 저장소의 Blob 작업을 위한 python 스크립트입니다.
+* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure Storage의 Blob 작업을 위한 python 스크립트입니다.
 * 다양한 SDK:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -190,7 +190,7 @@ __Azure Storage__를 사용하는 경우 다음 링크를 참조하여 데이터
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [저장소 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
 __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
@@ -277,6 +277,6 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 MapReduce 작업 사용](hadoop/hdinsight-use-mapreduce.md)

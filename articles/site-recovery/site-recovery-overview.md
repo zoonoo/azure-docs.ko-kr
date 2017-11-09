@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -67,8 +67,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 **어떤 지역이 Site Recovery에 지원됩니까?** | [지원되는 지역](https://azure.microsoft.com/regions/services/) |
 **복제된 컴퓨터에 필요한 운영 체제는 무엇입니까?** | [Azure VM 요구 사항](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware VM 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM의 경우 Azure 및 Hyper-V에서 지원하는 [게스트 OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)가 지원됩니다.<br/><br/> [물리적 서버 요구 사항](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **어떤 VMware 서버/호스트가 필요합니까?** | VMware VM은 [지원되는 vSphere 호스트/vCenter 서버](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에 있을 수 있습니다.
-
-**어떤 워크로드를 복제할 수 있습니까?** 지원되는 복제 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
+**어떤 워크로드를 복제할 수 있습니까?** | 지원되는 복제 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
 
 
 

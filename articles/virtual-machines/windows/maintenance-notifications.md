@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: fec64b3c499577af6b1d6eddb1c761ee0af73772
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 계획된 유지 관리 알림 처리
 
@@ -72,7 +72,7 @@ MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다.
 또한 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용하고 VM을 지정하지 않고 리소스 그룹의 모든 VM에 대한 유지 관리 상태를 가져올 수 있습니다.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 다음 PowerShell 함수는 사용자의 구독 ID를 사용하고 유지 관리에 예약된 VM의 목록을 출력합니다.
@@ -120,7 +120,7 @@ Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.Reso
 
 **Q: 가용성 집합을 사용한 고가용성 제안을 따르는 것이 안전한가요?**
 
-**A:** 가용성 집합 또는 가상 컴퓨터 확장 집합에 배포된 가상 컴퓨터에는 UD(업데이트 도메인) 개념이 있습니다. 유지 관리를 수행할 때 Azure는 UD 제약 조건을 적용하고 다른 UD(동일한 가용성 집합 내)의 가상 컴퓨터를 다시 부팅하지 않습니다.  또한 Azure 가상 컴퓨터의 다음 그룹으로 이동하기 전에 30분 이상 대기합니다. 
+**A:** 가용성 집합 또는 가상 컴퓨터 확장 집합에 배포된 가상 컴퓨터에는 UD(업데이트 도메인) 개념이 있습니다. 유지 관리를 수행할 때 Azure는 UD 제약 조건을 적용하고 다른 UD(동일한 가용성 집합 내)의 가상 컴퓨터를 다시 부팅하지 않습니다.  또 Azure는 다음 가상 컴퓨터 그룹으로 이동하기 전에 30분 이상 대기합니다. 
 
 고가용성에 대한 자세한 내용은 Azure에서 Windows 가상 컴퓨터의 가용성 관리 또는 Azure에서 Linux 가상 컴퓨터의 가용성 관리를 참조하세요.
 
@@ -148,7 +148,7 @@ Azure 지역에 관한 자세한 내용은 Azure에서 가상 컴퓨터의 지�
 - 한 가용성 집합 안에서도 각 VM 다시 시작 사이에 30분 이상이 필요함
 - 더 신속한 유지 관리 완료를 위해 전체 응용 프로그램(다중 계층, 다중 업데이트 도메인)을 작동 중지하려 함
 
-**Q: 내 가상 컴퓨터가 정확히 언제 영향을 받는지 확인하는 방법이 있나요?**
+**Q: 내 가상 컴퓨터가 정확히 언제 영향을 받는지 확인할 수 있나요?**
 
 **A:** 예약을 설정할 때 며칠의 시간 창을 정의합니다. 그러나 이 창 내에서의 정확한 서버(및 VM) 순서는 알 수 없습니다. VM에 해당하는 정확한 시간을 알고자 하는 고객은 예약된 이벤트를 사용하고 가상 컴퓨터 안에서 쿼리하여 VM 다시 부팅에 대한 10분 전 알림을 수신할 수 있습니다.
   

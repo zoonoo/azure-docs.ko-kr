@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Azure Search의 동의어(미리 보기)
 
 검색 엔진의 동의어는 사용자가 실제로 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. 예를 들어 용어 "dog"와 "canine" 및 "puppy"의 동의어 연결을 지정하면 "dog", "canine" 또는 "puppy"를 포함하는 모든 문서는 쿼리의 범위에 속하게 됩니다.
 
-Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다. 자세한 내용은 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)를 참조하세요.
+Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다.
 
 ## <a name="feature-availability"></a>기능 가용성
 
@@ -78,14 +78,14 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은 이 문서([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 위의 규칙을 사용하면 검색 쿼리 "USA"가 "USA" 또는 "United States" 또는 "United States of America"로 확장됩니다.
 
 명시적 매핑은 "=>" 화살표로 표시됩니다. 지정되면 "=>" 왼쪽에 일치하는 검색 쿼리의 용어 시퀀스는 오른쪽에 대체 항목으로 바뀝니다. 아래 규칙이 지정되면 검색 쿼리 "Washington", "Wash" 또는 "WA"가 모두 "WA"로 다시 작성됩니다. 명시적 매핑은 지정된 방향으로만 적용돠며 이 경우 "WA" 쿼리를 "Washington"으로 다시 작성하지 않습니다.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>서비스 아래 동의어 맵을 나열합니다.

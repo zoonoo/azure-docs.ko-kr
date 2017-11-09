@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: denlee
-ms.openlocfilehash: 8ecbb478c81cde25bbd0d1c9ee07ae02b07f8cc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7500ed798519671ba864cc185efffa0f93a8be70
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark-Azure Cosmos DB 커넥터를 사용하여 실시간 빅 데이터 분석 가속화
 
@@ -44,7 +44,7 @@ Spark GraphX 및 Azure Cosmos DB의 Gremlin Graph API로 작업하는 경우 [Sp
 
 * [Apache Spark](http://spark.apache.org/)는 속도, 사용 편의성 및 정교한 분석을 기반으로 구축된 강력한 오픈 소스 처리 엔진입니다.
 
-* [Azure HDInsight에서 Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 사용하면 중요 업무용 배포를 위해 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)를 사용하여 클라우드에 Apache Spark를 배포할 수 있습니다.
+* [Azure HDInsight에서 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 사용하면 중요 업무용 배포를 위해 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)를 사용하여 클라우드에 Apache Spark를 배포할 수 있습니다.
 
 공식적으로 지원되는 버전:
 
@@ -351,4 +351,4 @@ Cosmos DB와 Spark를 아직 연결하지 않았으면 [azure-cosmosdb-spark](ht
 * [분산 집계 예제](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)(영문)
 * [샘플 스크립트 및 노트북](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)(영문)
 
-또한 [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)(Apache Spark SQL, DataFrame 및 데이터 집합 가이드) 및 [Azure HDInsight의 Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html)(Apache Spark SQL, DataFrame 및 데이터 집합 가이드) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.

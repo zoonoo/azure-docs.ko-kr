@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 0518519da6c5e62a863a47d6743ab7b7c5923acf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
 이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## <a name="create-an-azure-vm"></a>Azure VM 만들기

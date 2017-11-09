@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>서비스 패브릭 신뢰할 수 있는 행위자 소개
 Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 서비스 패브릭에서 제공한 확장성 및 안정성 보증에 기반한 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -143,7 +143,7 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 행위자 런타임은 이러한 메서드의 호출을 제어하는 상황에서 이러한 동시성을 보증합니다. 예를 들어 타이머와 미리 알림 콜백 뿐만 아니라 클라이언트 요청에 대한 응답으로 수행되는 메서드 호출에 대해 이러한 보증을 제공합니다. 하지만 행위자 코드가 행위자 런타임에서 제공하는 메커니즘 외부에서 이러한 메서드를 호출하는 경우 런타임은 어떠한 동시성도 보장할 수 없습니다. 예를 들어, 행위자 메서드에서 반환된 작업과 연결되지 않은 일부 작업의 컨텍스트에서 메서드를 호출하는 경우 런타임은 동시성을 보장할 수 없습니다. 행위자가 자체적으로 만드는 스레드에서 메서드가 호출되는 경우 런타임은 동시성을 보장할 수 없습니다. 따라서 백그라운드 작업을 수행하려면 행위자가 턴 기반 동시성을 따르는 [행위자 타이머 및 행위자 미리 알림](service-fabric-reliable-actors-timers-reminders.md) 을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 첫 번째 Reliable Actors 서비스를 빌드하여 시작합니다.
+첫 번째 Reliable Actors 서비스를 빌드하여 시작합니다.
    * [.NET에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started.md)
    * [Java에서 Reliable Actors 시작](service-fabric-reliable-actors-get-started-java.md)
 

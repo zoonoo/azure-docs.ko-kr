@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
 
@@ -27,7 +27,7 @@ TDSP를 사용하는 데이터 과학 팀에서 사용할 수 있는 데이터 �
 
 - 데이터 과학 가상 컴퓨터(Windows 및 Linux CentOS)
 - HDInsight Spark 클러스터
-- SQL 데이터 웨어하우스
+- SQL Data Warehouse
 - Azure 데이터 레이크
 - HDInsight Hive 클러스터
 - Azure File Storage
@@ -61,10 +61,10 @@ Apache Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 
 
 HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 만드는 데 약 10분 정도 걸립니다. 처리되는 데이터는 Azure Blob Storage에 저장합니다. 클러스터에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 Azure Blob 저장소 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python과 다른 Scala를 사용하여 데이터 과학 솔루션을 구축하는 방법에 대한 두 가지 포괄적인 연습을 게시했습니다. Azure HDInsight **Spark 클러스터**에 대한 자세한 내용은 [개요: HDInsight Linux의 Apache Spark](../../hdinsight/hdinsight-apache-spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Python**을 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Scala**를 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요. 
+Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python과 다른 Scala를 사용하여 데이터 과학 솔루션을 구축하는 방법에 대한 두 가지 포괄적인 연습을 게시했습니다. Azure HDInsight **Spark 클러스터**에 대한 자세한 내용은 [개요: HDInsight Linux의 Apache Spark](../../hdinsight/spark/apache-spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Python**을 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Scala**를 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요. 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
+##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 계산 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 계산 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 저장소 비용은 최소화되며, 분석하려는 데이터 집합 부분에 대해서만 계산을 실행할 수 있습니다. 
 
@@ -86,7 +86,7 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 데이터 과학자를 위해 Hive는 Hive 쿼리에서 Python UDF(사용자 정의 함수)를 실행하여 레코드를 처리할 수 있습니다. 이 기능은 데이터 분석에서 Hive 쿼리의 기능을 상당히 확장합니다. 특히 데이터 과학자들이 SQL과 비슷한 HiveQL 및 Python과 같이 친숙한 언어로 확장 가능한 기능 엔지니어링을 수행할 수 있습니다. 
 
-Azure HDInsight Hive 클러스터에 대한 자세한 내용은 [HDInsight의 Hadoop에서 Hive 및 HiveQL 사용](../../hdinsight/hdinsight-use-hive.md)을 참조하세요. Azure HDInsight Hive 클러스터를 사용하여 확장 가능한 종단 간 데이터 과학 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: Azure HDInsight Hadoop 클러스터 사용](hive-walkthrough.md)을 참조하세요.
+Azure HDInsight Hive 클러스터에 대한 자세한 내용은 [HDInsight의 Hadoop에서 Hive 및 HiveQL 사용](../../hdinsight/hadoop/hdinsight-use-hive.md)을 참조하세요. Azure HDInsight Hive 클러스터를 사용하여 확장 가능한 종단 간 데이터 과학 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: Azure HDInsight Hadoop 클러스터 사용](hive-walkthrough.md)을 참조하세요.
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b1d41fe185f4c3d5fdce13ab8f0136bc961f013
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: 테이블 API를 사용하여 .NET 응용 프로그램 빌드
 
@@ -43,7 +43,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
-이제 데이터 탐색기(미리 보기)를 사용하여 새 테이블에 데이터를 추가할 수 있습니다.
+이제 데이터 탐색기를 사용하여 새 테이블에 데이터를 추가할 수 있습니다.
 
 1. 데이터 탐색기에서 **sample-table**, **엔터티**를 클릭한 다음 **엔터티 추가**를 클릭합니다.
 

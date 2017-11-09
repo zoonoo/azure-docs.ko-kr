@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>ASP.NET Core를 사용하여 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
 기본적으로 Azure 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.
@@ -210,12 +210,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     ![브라우저에 표시되는 상태 저장 카운터 값][browser-aspnet-counter-value]
    
     브라우저를 주기적으로 새로 고쳐 카운터 값 업데이트를 확인하세요.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel 및 WebListener
-
-Kestrel로 알려진 기본 ASP.NET Core 웹 서버는 [현재 직접 인터넷 트래픽을 처리를 지원하지 않습니다](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). 따라서 Service Fabric에 대한 ASP.NET Core 상태 비저장 서비스 템플릿은 기본적으로 [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener)를 사용합니다. 
-
-Service Fabric의 Kestrel 및 WebListener에 대한 자세한 내용은 [Service Fabric Reliable Services의 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)를 참조하세요.
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Reliable Actor 서비스에 연결
 이 자습서는 상태 저장 서비스와 통신하는 웹 프런트 엔드를 추가하는 방법에 초점을 맞추고 있습니다. 그러나 매우 비슷한 모델에 따라 행위자와 통신할 수 있습니다. 사용자가 Reliable Actor 프로젝트를 만들면 Visual Studio에서 자동으로 인터페이스 프로젝트를 생성합니다. 사용자는 이 인터페이스를 사용하여 웹 프로젝트에 행위자와 통신하기 위한 행위자 프록시를 생성할 수 있습니다. 통신 채널은 자동으로 제공됩니다. 따라서 사용자는 이 자습서에서 상태 저장 서비스에 대해 수행한 대로 `ServiceRemotingListener`를 설정하기 위해 동일한 작업을 수행할 필요가 없습니다.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: cf7b0dd3a81c35be4907dbba85b72ce4f87e3a9f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7464611e669165d9ec1f0de7422b20b3f3b8c2b5
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>컨테이너의 볼륨 플러그 인 및 로깅 드라이버 사용
 
@@ -29,7 +29,7 @@ Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인]
 Docker 볼륨/로깅 드라이버가 컴퓨터에 설치되어 있지 않으면 RDP/SSH-ing를 통해 컴퓨터에 수동으로 설치하거나 VMSS 시작 스크립트를 통해 설치합니다. 예를 들어 Docker 볼륨 드라이버를 설치하려면 컴퓨터로 SSH를 수행한 후 다음을 실행합니다.
 
 ```bash
-docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
     CLOUD_PLATFORM=AZURE \
     AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
@@ -77,7 +77,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-
 볼륨 플러그 인을 지정할 때 Service Fabric은 지정된 매개 변수를 사용하여 볼륨을 자동으로 만듭니다. `Source` 태그는 볼륨의 이름이며 `Driver` 태그는 볼륨 드라이버 플러그 인을 지정합니다. 다음 코드 조각에 나와 있는 대로 `DriverOption` 태그를 사용하여 옵션을 지정할 수 있습니다.
 
 ```xml
-<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```

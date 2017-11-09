@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 응용 프로그램 만들기
 Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체의 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여 줍니다. 대화형 응용 프로그램의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
@@ -32,7 +32,7 @@ Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체
 * Azure AD 응용 프로그램 비밀 키 - [응용 프로그램 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
 
 ## <a name="prerequisites"></a>필수 조건
-* HDInsight 클러스터. [시작 자습서](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) 참조
+* HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) 참조
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD 응용 프로그램에 역할 할당
 Azure AD 응용 프로그램에 [역할](../active-directory/role-based-access-built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 읽기 권한자 역할에 응용 프로그램을 추가하면 응용 프로그램에서 리소스 그룹과 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준의 범위를 설정합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.

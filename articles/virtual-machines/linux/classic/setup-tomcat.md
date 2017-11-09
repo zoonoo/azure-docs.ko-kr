@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7 설치
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현합니다. Tomcat은 Java 코드를 실행할 수 있는 순수한 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.  
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../../../resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 클래식 배포 모델을 사용하는 방법에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Resource Manager 템플릿을 사용하여 Open JDK 및 Tomcat이 있는 Ubuntu VM을 배포하려면 [이 문서 ](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)를 참조하세요.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 이 문서에서는 Tomcat7을 Linux 이미지에 설치하고 이를 Azure에 배포합니다.  
 

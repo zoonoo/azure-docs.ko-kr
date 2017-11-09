@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/31/2017
 [Azure Portal](https://portal.azure.com/)에 있는 보고서에서는 다음과 같은 질문에 대답할 수 있습니다.
 
 > [!NOTE]
-> 사용자는 [전역 관리자](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles)여야 하며 적어도 한 번 감사 로그를 방문하여 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 이렇게 할 때까지는 조직의 데이터가 수집되지 않습니다.
+> 사용자는 [전역 관리자](active-directory-assign-admin-roles.md)여야 하며 적어도 한 번 감사 로그를 방문하여 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 이렇게 할 때까지는 조직의 데이터가 수집되지 않습니다.
 
 * 얼마나 많은 사람들이 암호 재설정을 위해 등록합니까?
 * 누가 암호 재설정을 위해 등록합니까?
@@ -78,13 +78,7 @@ Azure AD 보고서 및 이벤트 API는 암호 재설정 및 암호 재설정 �
 
 이 창에서 미치지 않는 데이터를 검색하거나 저장해야 하는 경우 외부 데이터베이스에서 이 데이터를 유지하고 API를 사용하여 그 결과인 델타를 쿼리하는 것이 좋습니다. 조직에서 SSPR을 사용하기 시작할 때 이 데이터를 검색하고 외부에서 유지한 다음이 시점에서 델타를 계속 추적하는 것이 좋습니다입니다.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>PowerShell을 사용하여 암호 다시 설정 등록 이벤트를 빠르게 다운로드하는 방법
-
-Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉터리의 최근 등록 이벤트에 다음 PowerShell 스크립트를 사용할 수 있습니다. 이 PowerShell 스크립트는 최근 등록한 사람을 확인하거나 암호 다시 설정 롤아웃이 예상대로 수행되도록 하려는 경우에 유용합니다.
-
-* [Azure AD SSPR 등록 활동 PowerShell 스크립트](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Azure Portal의 보고서 열 설명
+## <a name="description-of-report-columns-in-azure-portal"></a>Azure Portal의 보고서 열 설명
 
 다음 목록에서는 각 보고서의 열에 대해 자세히 설명합니다.
 
@@ -93,7 +87,7 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 * **날짜 및 시간** – 시도한 날짜 및 시간입니다.
 * **등록된 데이터** – 암호 재설정 등록 중 사용자가 제공한 인증 데이터입니다.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Azure Portal의 보고서 값 설명
+## <a name="description-of-report-values-in-azure-portal"></a>Azure Portal의 보고서 값 설명
 
 다음 테이블에서 각 열에 대해 허용되는 다른 값을 설명합니다.
 

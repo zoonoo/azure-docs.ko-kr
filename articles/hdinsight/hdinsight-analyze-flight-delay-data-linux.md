@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 07927f1660681af35428747b51a8c14ba6153a7a
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
 
@@ -31,9 +31,9 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Hadoop 사용하기 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Hadoop 사용하기 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* **Azure SQL 데이터베이스**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL Database**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
 * **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 1.0 설치](../cli-install-nodejs.md)를 참조하세요.
 
@@ -208,7 +208,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. 설치가 완료된 후에 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
+3. 설치가 완료된 후에 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL Database 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
@@ -306,15 +306,15 @@ HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -45,9 +45,9 @@ Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 응용
 클라우드 셸에서 git을 사용하여 응용 프로그램 정의의 복사본을 복제합니다.
 
 ```azurecli-interactive
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
+cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Azure에서 Service Fabric 클러스터에 컨테이너 배포
@@ -141,7 +141,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
 * Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
-* GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)을 확인합니다.
+* GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-containers)을 확인합니다.
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

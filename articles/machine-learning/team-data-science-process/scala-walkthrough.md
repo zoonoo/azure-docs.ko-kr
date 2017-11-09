@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
 이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
@@ -32,7 +32,7 @@ Java 가상 컴퓨터 기반 언어인 [Scala](http://www.scala-lang.org/)는 �
 
 [Spark](http://spark.apache.org/) 는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/) 는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
 
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) 는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
 
 이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
 
@@ -43,7 +43,7 @@ Java 가상 컴퓨터 기반 언어인 [Scala](http://www.scala-lang.org/)는 �
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독이 있어야 합니다. 아직 없으면 [Azure 무료 평가판을 다운로드하세요](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* 다음 절차를 완료하려면 Azure HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 클러스터를 만들려면 [시작: Azure HDInsight에서 Apache Spark 만들기](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. **클러스터 형식 선택** 메뉴에서 클러스터 형식 및 버전을 설정합니다.
+* 다음 절차를 완료하려면 Azure HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 클러스터를 만들려면 [시작: Azure HDInsight에서 Apache Spark 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. **클러스터 형식 선택** 메뉴에서 클러스터 형식 및 버전을 설정합니다.
 
 ![HDInsight 클러스터 형식 구성](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ Spark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하�
 * `%%local` 다음 줄의 코드가 로컬로 실행될 것임을 지정합니다. 코드는 유효한 Scala 코드여야 합니다.
 * `%%sql -o <variable name>` `sqlContext`에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 `%%local` Scala 컨텍스트에서 Spark 데이터 프레임으로 유지됩니다.
 
-Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 대해 사용할 수 있는 커널](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 대해 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
 ### <a name="import-libraries"></a>라이브러리 가져오기
 다음 코드를 사용하여 Spark, MLlib 및 기타 필요한 라이브러리를 가져옵니다.

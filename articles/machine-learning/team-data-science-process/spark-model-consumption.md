@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하
 * **%%sql -o <variable name>** 
 * sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
-Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>데이터 수집 및 정리된 데이터 프레임 만들기
 이 섹션에는 점수를 매길 데이터를 수집하는 데 필요한 일련의 작업에 대한 코드가 포함되어 있습니다. 택시 여정 및 요금 파일(.tsv 파일로 저장됨)의 연결된 0.1% 샘플을 읽고 데이터를 서식 지정한 다음 정리된 데이터 프레임을 만듭니다.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>웹 인터페이스를 통해 Spark 모델 사용
-Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요. 
+Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../../hdinsight/spark/apache-spark-livy-rest-interface.md)을 참조하세요. 
 
 Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 여기서는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***로 업로드했습니다.   
@@ -587,7 +587,7 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 * **Logic Apps Designer**를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
-![논리 앱 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
+![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>다음 작업
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.

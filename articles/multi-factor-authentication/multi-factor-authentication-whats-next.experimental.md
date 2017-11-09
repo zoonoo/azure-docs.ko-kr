@@ -3,7 +3,7 @@ title: "Azure MFA 구성 | Microsoft Docs"
 description: "MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다.  보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
-ms.author: kgremban
-ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 이 문서는 준비하고 실행 중인 Multi-Factor Authentication을 관리하는데 도움이 됩니다.  Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다.  모든 버전의 Azure Multi-Factor Authentication에서 이러한 모든 기능을 사용할 수는 없습니다.
@@ -236,7 +236,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 * Azure AD에서 앱 암호를 확인하기 때문에 페더레이션을 바이패스합니다. 앱 암호를 설정할 때 페더레이션이 능동적으로 사용됩니다.
 * 페더레이션된(SSO) 사용자의 경우 수동 흐름과 달리 ID 공급자(IdP)로 이동하지 않습니다. 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실제 시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
-* 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
+* 앱 암호를 사용할 경우 온-프레미스 클라이언트 Access Control 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅/감사 기능은 앱 암호에 사용할 수 없습니다
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 조직의 사용자 이름, 암호 및 앱 암호의 조합이 필요할 수 있습니다. 그러나 이것은 인증 위치에 따라 다릅니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
 

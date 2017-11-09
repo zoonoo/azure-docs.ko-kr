@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Java 8 및 Tomcat에서 웹앱을 배포하는 Resource Manager 템플릿은 [여기](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/)를 참조하세요.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있습니다. 한 예로, Java 응용 프로그램 서버(예: Apache Tomcat)를 호스트하도록 Azure에서 실행되는 가상 컴퓨터를 구성할 수 있습니다.
 
@@ -43,7 +44,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ## <a name="to-create-a-virtual-machine"></a>가상 컴퓨터를 만드는 방법
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.  
-2. **새로 만들기**, **계산**을 차례로 클릭한 다음 **추천 앱**에서 **모두 보기**를 클릭합니다.
+2. **새로 만들기**, **Compute**를 차례로 클릭한 다음 **추천 앱**에서 **모두 보기**를 클릭합니다.
 3. **JDK**를 클릭한 다음 **JDK** 창에서 **JDK 8**을 클릭합니다.  
    JDK 8에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우 **JDK 6** 및 **JDK 7**을 지원하는 가상 컴퓨터 이미지를 사용할 수 있습니다.
 4. JDK 8 창에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
@@ -63,7 +64,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>가상 컴퓨터에 원격으로 로그인하려면 다음을 수행합니다.
 1. [Azure 포털](https://portal.azure.com)에 로그온합니다.
-2. **가상 컴퓨터(클래식)**를 클릭합니다. 필요한 경우 서비스 범주 아래의 왼쪽 하단에 있는 **추가 서비스**를 클릭합니다. **가상 컴퓨터(클래식)** 항목이 **계산** 그룹에 나열됩니다.
+2. **가상 컴퓨터(클래식)**를 클릭합니다. 필요한 경우 서비스 범주 아래의 왼쪽 하단에 있는 **추가 서비스**를 클릭합니다. **가상 컴퓨터(클래식)** 항목이 **Compute** 그룹에 나열됩니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. 가상 컴퓨터가 시작되면 창 위쪽의 메뉴를 통해 연결할 수 있습니다.
 5. **Connect**를 클릭합니다.

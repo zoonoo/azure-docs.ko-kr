@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25b0d65797b623f96d623d692ee7707b4452860c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 |---|---|
 |**SDK 다운로드**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API 설명서**|[.NET API 참조 설명서](https://aka.ms/acdbtableapiref)|
-|**빠른 시작**|[Azure Cosmos DB: .NET 및 Table API를 사용하여 앱 빌드](https://aka.ms/acdbtnetqs)|
+|**빠른 시작**|[Azure Cosmos DB: .NET 및 Table API를 사용하여 앱 빌드](create-table-dotnet.md)|
 |**자습서**|[Azure CosmosDB: Graph API로 컨테이너 만들기](tutorial-develop-graph-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 

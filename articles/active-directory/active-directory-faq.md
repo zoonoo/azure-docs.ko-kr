@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: e70ac475f8ffce93e89fa09f18f8943eb2371d13
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -152,7 +152,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD에는 Microsoft, 응용 프로그램 서비스 공급자 및 파트너의 사전 통합된 응용 프로그램이 2,600개 넘게 있습니다. 사전 통합된 모든 응용 프로그램에서 SSO(Single Sign-On)를 지원합니다. SSO를 사용하면 조직의 자격 증명을 사용하여 앱에 액세스할 수 있습니다. 일부 응용 프로그램은 자동화된 프로비전 및 프로비전 해제도 지원합니다.
 
-미리 통합된 응용 프로그램의 전체 목록은 [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
+미리 통합된 응용 프로그램의 전체 목록은 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 - - -
 **Q: 필요한 응용 프로그램이 Azure AD 마켓플레이스에 없는 경우 어떻게 하나요?**

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행 
 
@@ -29,7 +29,7 @@ HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **HDInsight 대화형 쿼리 클러스터**. HDInsight 클러스터를 만들려면 [클러스터 만들기](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.  대화형 쿼리 형식을 선택해야 합니다. 
+* **HDInsight 대화형 쿼리 클러스터**. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.  대화형 쿼리 형식을 선택해야 합니다. 
 
 ## <a name="create-a-zeppelin-note"></a>Zeppelin 노트 만들기
 
@@ -76,9 +76,9 @@ HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](./hdinsight-connect-hive-power-bi.md)
-* [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./hdinsight-connect-excel-hive-odbc-driver.md)
-* [파워 쿼리를 사용하여 Hadoop에 Excel 연결](./hdinsight-connect-excel-power-query.md)
-* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](./hdinsight-hadoop-visual-studio-tools-get-started.md)
+* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
+* [파워 쿼리를 사용하여 Hadoop에 Excel 연결](hadoop/apache-hadoop-connect-excel-power-query.md)
+* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./hdinsight-upload-data.md)

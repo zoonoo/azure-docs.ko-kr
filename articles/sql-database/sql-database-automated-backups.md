@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: e779aab97a1b96d4a0e327865e957ecd0d97a278
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -43,7 +43,7 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>무료 백업 저장소가 얼마나 포함되어 있습니까?
-SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소를 갖습니다. 제공된 백업 저장소를 데이터베이스가 초과하면, Azure 지원 팀에 문의하여 보존 기간을 줄이도록 선택할 수 있습니다. 또 다른 옵션은 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금이 청구되는 추가 백업 저장소에 대한 비용을 지불하는 것입니다. 
+SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소를 갖습니다. 
 
 ## <a name="how-often-do-backups-happen"></a>백업이 얼마나 자주 수행됩니까?
 매주 전체 데이터베이스 백업이 수행되고, 일반적으로 몇 시간마다 차등 데이터베이스 백업이 수행되며, 일반적으로 5 - 10분마다 트랜잭션 로그 백업이 수행됩니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다. 

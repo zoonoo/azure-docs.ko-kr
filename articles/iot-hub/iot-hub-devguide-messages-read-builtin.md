@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 끝점에서 장치-클라우드 메시지 읽기
 
@@ -61,9 +61,9 @@ IoT Hub SDK에는 **끝점**에서 보여 주듯이 IoT Hub 끝점 이름으로 
 
 IoT Hub를 노출하는 이벤트 허브와 호환 가능한 끝점으로 사용할 수 있는 SDK 및 통합에는 다음 목록의 항목이 포함됩니다.
 
-* [Java 이벤트 허브 클라이언트](https://github.com/Azure/azure-event-hubs-java)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
-* [Apache Spark 통합](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
+* [Java Event Hubs 클라이언트](https://github.com/Azure/azure-event-hubs-java)
+* [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
+* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 
 ## <a name="next-steps"></a>다음 단계
 

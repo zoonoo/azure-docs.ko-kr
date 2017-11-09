@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 참조하세요.
+* **Azure Storage 계정** - HDInsight 클러스터는 Azure Blob Storage 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob Storage가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 ## <a name="open-the-portal"></a>포털 열기
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
@@ -61,7 +61,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
 * 스크립트 작업을 사용하여 클러스터 구성을 변경하거나 Giraph 또는 Solr과 같은 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정할 수 있는 사용자 지정 스크립트를 실행합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)(영문)을 참조하세요.
 * 클러스터를 만드는 동안 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
-* Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
+* Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
   > [!NOTE]
   > HDInsight 클러스터에 Jar 파일을 배포하거나 HDInsight 클러스터에서 Jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](https://azure.microsoft.com/support/options/)로 문의하세요.
@@ -111,7 +111,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
    * **속성**: 클러스터 속성을 표시합니다.
    * **클러스터 AAD ID**:
-   * **Azure 저장소 키**: 기본 저장소 계정 및 키를 표시합니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
+   * **Azure Storage 키**: 기본 Storage 계정 및 키를 표시합니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
    * **클러스터 로그인**: 클러스터 HTTP 사용자 이름 및 암호를 변경합니다.
    * **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.
    * **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다.
@@ -205,7 +205,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>클러스터 일시 중지/종료
-대부분의 Hadoop 작업은 이따금 실행되는 일괄 처리 작업입니다. 대부분의 Hadoop 클러스터는 프로세스에 사용되지 않는 기간이 깁니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다.
+대부분의 Hadoop 작업은 이따금 실행되는 일괄 처리 작업입니다. 대부분의 Hadoop 클러스터는 프로세스에 사용되지 않는 기간이 깁니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다.
 HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
@@ -213,7 +213,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 * 사용자 Azure 데이터 팩터리. 주문형 및 자체 정의 HDInsight 연결된 서비스는 [Azure HDInsight 연결된 서비스](../data-factory/compute-linked-services.md) 및 [Azure 데이터 팩터리를 사용한 분석 및 변환](../data-factory/transform-data.md)을 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
 * Azure CLI 사용 [Azure CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
-* HDInsight .NET SDK 사용 [Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
+* HDInsight .NET SDK 사용 [Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)
 
@@ -258,7 +258,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
     ![HDinsight 총합계 제거 http 웹 서비스 액세스](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
-각 HDInsight 클러스터에는 기본 저장소 계정이 있습니다. 클러스터의 기본 저장소 계정 및 키는 **설정**/**속성**/**Azure 저장소 키**. [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
+각 HDInsight 클러스터에는 기본 저장소 계정이 있습니다. 클러스터의 기본 Storage 계정 및 키는 **설정**/**속성**/**Azure Storage 키**. [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
 
 ## <a name="find-the-resource-group"></a>리소스 그룹 찾기
 Azure Resource Manager 모드에서는 각각의 HDInsight 클러스터가 Azure 리소스 그룹과 함께 만들어집니다. 클러스터가 속하는 Azure 리소스 그룹이 아래 표시됩니다.
@@ -271,7 +271,7 @@ Azure Resource Manager 모드에서는 각각의 HDInsight 클러스터가 Azure
 ## <a name="open-hdinsight-query-console"></a>HDInsight 쿼리 콘솔 열기
 HDInsight 쿼리 콘솔에는 다음 기능이 포함됩니다.
 
-* **Hive 편집기**: Hive 작업 제출을 위한 GUI 웹 인터페이스입니다.  [쿼리 콘솔을 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-query-console.md)을 참조하세요.
+* **Hive 편집기**: Hive 작업 제출을 위한 GUI 웹 인터페이스입니다.  [쿼리 콘솔을 사용하여 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-query-console.md)을 참조하세요.
 
     ![HDInsight 포털 Hive 편집기](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **작업 내역**: Hadoop 작업을 모니터링합니다.  
@@ -371,8 +371,8 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
-* [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [프로그래밍 방식으로 Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

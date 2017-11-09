@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Windows Server VHD를 만들어서 Azure에 업로드
-이 문서에서는 일반화된 자체 VM 이미지를 VHD(가상 하드 디스크)로 업로드하고 이를 가상 컴퓨터를 만드는 데 사용하는 방법을 소개합니다. Microsoft Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD에 대하여](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 문서에서는 일반화된 자체 VM 이미지를 VHD(가상 하드 디스크)로 업로드하고 이를 가상 컴퓨터를 만드는 데 사용하는 방법을 소개합니다. Microsoft Azure의 디스크 및 VHD에 대한 자세한 내용은 [Virtual Machines용 디스크 및 VHD에 대하여](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 가상 컴퓨터를 [업로드](../upload-generalized-managed.md)할 수도 있습니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.

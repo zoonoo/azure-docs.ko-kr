@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 6fd88c58c0067deab08d502be4bd624c297b5fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20c2ae547d794836474aa34096a20de25dad96c8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 4부: Azure CLI를 사용하여 Azure Cosmos DB 계정 만들기
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 자습서의 이 부분을 시작하기 전에 자습서 [3부](tutorial-develop-mongodb-nodejs-part3.md)의 단계를 완료했는지 확인합니다. 
 
-이 자습서 섹션에서는 (인터넷 브라우저에서) 로컬로 설치된 Azure Cloud Shell 또는 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)을 사용합니다. 로컬로 Azure CLI를 사용하면 Azure CLI 버전 2.0 이상을 실행하는지 확인합니다. 명령 프롬프트에서 `az --version`을 실행하여 버전을 확인합니다. 
+이 자습서 섹션에서는 (인터넷 브라우저에서) 로컬로 설치된 Azure Cloud Shell 또는 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 사용합니다. 로컬로 Azure CLI를 사용하면 Azure CLI 버전 2.0 이상을 실행하는지 확인합니다. 명령 프롬프트에서 `az --version`을 실행하여 버전을 확인합니다. 
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

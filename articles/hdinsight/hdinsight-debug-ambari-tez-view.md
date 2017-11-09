@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅
 
@@ -30,7 +30,7 @@ HDInsight의 Ambari Web UI에는 Tez를 사용하는 작업을 이해 및 디버
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 단계는 [Linux 기반 HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 단계는 [Linux 기반 HDInsight 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * HTML5를 지원하는 최신 웹 브라우저
 
 ## <a name="understanding-tez"></a>Tez 이해
@@ -106,7 +106,7 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Tez 뷰를 사용하는 방법을 배웠으므로 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
+이제 Tez 뷰를 사용하는 방법을 배웠으므로 [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
 
 Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
 

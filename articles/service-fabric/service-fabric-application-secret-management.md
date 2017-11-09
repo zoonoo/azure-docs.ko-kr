@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab60d37c8a6189b25ce35d2659999542ca5c8d6b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>서비스 패브릭 응용 프로그램의 비밀 관리
 이 가이드에서는 서비스 패브릭 응용 프로그램에서 비밀을 관리하는 단계를 안내합니다. 저장소 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
 
-이 가이드에서는 Azure 주요 자격 증명 모음을 사용하여 키와 비밀을 관리합니다. 하지만 응용 프로그램에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 응용 프로그램을 배포할 수 있습니다. 
+이 가이드에서는 Azure Key Vault를 사용하여 키와 비밀을 관리합니다. 하지만 응용 프로그램에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 응용 프로그램을 배포할 수 있습니다. 
 
 ## <a name="overview"></a>개요
 [서비스 구성 패키지][config-package]를 통해 서비스 구성 설정을 관리하는 방법이 권장됩니다. 구성 패키지는 관리되는 상태 유효성 검사 및 자동 롤백을 사용하여 롤링 업그레이드를 통해 버전이 관리되며 업데이트할 수 있습니다. 이 방법은 전역 서비스 중단 가능성을 줄이기 때문에 기본 설정으로 사용됩니다. 암호화된 비밀도 마찬가지입니다. 서비스 패브릭에는 인증서 암호화를 사용하여 구성 패키지 Settings.xml 파일의 값을 암호화 및 해독하는 기본 기능이 포함되어 있습니다.

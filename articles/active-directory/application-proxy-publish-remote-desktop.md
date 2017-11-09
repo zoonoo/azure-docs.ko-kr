@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
@@ -49,9 +49,6 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 - 이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다.
 
 - 이 시나리오에서는 최종 사용자가 RD 웹 페이지를 통해 연결하는 Windows 7 또는 Windows 10 데스크톱에서 Internet Explorer를 수행한다고 가정합니다. 다른 운영 체제를 지원해야 하는 경우 [다른 클라이언트 구성 지원](#support-for-other-client-configurations)을 참조하세요.
-
-  >[!NOTE]
-  >Windows 10 Creator's Update는 현재 지원되지 않습니다.
 
 - Internet Explorer에서 RDS ActiveX 추가 기능을 사용하도록 설정합니다.
 

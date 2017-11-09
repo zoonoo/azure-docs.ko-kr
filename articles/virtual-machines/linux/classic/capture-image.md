@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 방법을 알아봅니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 이 문서에서는 Linux를 실행하는 클래식 Azure VM(Virtual Machine)을 캡처하여 다른 Virtual Machines를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 VM에 연결된 데이터 디스크가 포함됩니다. 여기에 네트워킹 구성은 포함되지 않으므로 이미지에서 다른 VM을 만들 때 네트워킹을 구성해야 합니다.
 
@@ -96,7 +97,7 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
    azure vm image list
    ```
 
-   [Azure Portal](http://portal.azure.com)에서 새 이미지는 **계산** 서비스에 속하는 **VM 이미지(클래식)**에 표시됩니다. Azure 서비스 목록의 맨 아래에서 _추가 서비스_를 클릭하고 **계산** 서비스를 살펴보아 **VM 이미지(클래식)**에 액세스할 수 있습니다.   
+   [Azure Portal](http://portal.azure.com)에서 새 이미지는 **Compute** 서비스에 속하는 **VM 이미지(클래식)**에 표시됩니다. Azure 서비스 목록의 맨 아래에서 _추가 서비스_를 클릭하고 **Compute** 서비스를 살펴보아 **VM 이미지(클래식)**에 액세스할 수 있습니다.   
 
    ![이미지 캡처 성공](./media/capture-image/VMCapturedImageAvailable.png)
 

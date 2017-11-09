@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -76,13 +76,13 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 
 | 클러스터 유형 | 기능 |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |저장된 데이터의 일괄 처리 쿼리 및 분석 |
-| [HBase](hdinsight-hbase-overview.md) |많은 양의 스키마 없는 NoSQL 데이터에 대한 처리 |
-| [Storm](hdinsight-storm-overview.md) |실시간 이벤트 처리 |
-| [Spark](hdinsight-apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
-| [Kafka (미리 보기)](hdinsight-apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
-| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |저장된 데이터의 일괄 처리 쿼리 및 분석 |
+| [HBase](hbase/apache-hbase-overview.md) |많은 양의 스키마 없는 NoSQL 데이터에 대한 처리 |
+| [Storm](storm/apache-storm-overview.md) |실시간 이벤트 처리 |
+| [Spark](spark/apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
+| [Kafka (미리 보기)](kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
+| [R Server](r-server/r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
+| [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>각 클러스터 유형에 대한 노드 수
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
@@ -208,7 +208,7 @@ HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  
 
 만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
 
-Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
+Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 > [!NOTE]
 > HDInsight 클러스터에 JAR 파일을 배포하거나 HDInsight 클러스터에서 JAR 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)으로 문의하세요.
@@ -242,7 +242,7 @@ Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터�
 
 HDInsight와 함께 Azure Virtual Network를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
-Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 예제는 [Storm 및 HBase의 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요. 가상 네트워크에 대한 특정 구성 요구 사항을 비롯한 가상 네트워크로 HDInsight를 사용하는 것에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 예제는 [Storm 및 HBase의 센서 데이터 분석](storm/apache-storm-sensor-data-analysis.md)을 참조하세요. 가상 네트워크에 대한 특정 구성 요구 사항을 비롯한 가상 네트워크로 HDInsight를 사용하는 것에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 ## <a name="troubleshoot-access-control-issues"></a>액세스 제어 문제 해결
 
@@ -250,6 +250,6 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-- [HDInsight, Hadoop 에코시스템 및 Hadoop 클러스터의 정의](hdinsight-hadoop-introduction.md)
-- [HDInsight에서 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [HDInsight, Hadoop 에코시스템 및 Hadoop 클러스터의 정의](hadoop/apache-hadoop-introduction.md)
+- [HDInsight에서 Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Windows PC에서 HDInsight의 Hadoop 작업](hdinsight-hadoop-windows-tools.md)

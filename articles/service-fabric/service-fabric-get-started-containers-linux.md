@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*은 (컨테이너 ID가 아닌) 실행 중인 컨테이너에 이름을 지정합니다.
 
-실행 중인 컨테이너에 연결합니다.  포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다.  포트 4000에서 반환되는 IP 주소(예: "http://localhost:4000")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -228,7 +228,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿉니다). 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-실행 중인 컨테이너에 연결합니다.  포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다.  포트 4000에서 반환되는 IP 주소(예: "http://localhost:4000")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ![Hello World!][hello-world]
 
@@ -385,7 +385,7 @@ yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
 * [컨테이너에서 .NET 응용 프로그램 배포](service-fabric-host-app-in-a-container.md) 자습서를 참조합니다.
 * Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
-* GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)을 확인합니다.
+* GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-containers)을 확인합니다.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 메타데이터 서비스: Windows VM에 예정된 이벤트(미리 보기)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 예약된 이벤트는 Azure 메타데이터 서비스의 하위 서비스 중 하나입니다. 응용 프로그램에서 이벤트를 준비하고 중단을 제한할 수 있도록 예정된 이벤트(예: 다시 부팅)에 대한 정보를 나타냅니다. 이 기능은 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machine 유형에 사용할 수 있습니다. 예약된 이벤트는 가상 컴퓨터에 예방 작업을 수행하여 이벤트의 영향을 최소화할 수 있는 시간을 제공합니다. 
 
-예약된 이벤트를 Linux 및 Windows VM 모두에서 사용할 수 있습니다. Linux에서 예약된 이벤트에 대한 자세한 내용은 [Linux VM에 예약된 이벤트](../windows/scheduled-events.md)를 참조하세요.
+예약된 이벤트를 Linux 및 Windows VM 모두에서 사용할 수 있습니다. Linux에서 예약된 이벤트에 대한 자세한 내용은 [Linux VM에 예약된 이벤트](../linux/scheduled-events.md)를 참조하세요.
 
 ## <a name="why-scheduled-events"></a>예정된 이벤트 의의
 
@@ -54,8 +54,8 @@ Azure 메타데이터 서비스는 VM 내에서 액세스할 수 있는 REST 끝
 Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가용성 집합의 모든 Virtual Machines에 나타납니다. 따라서 이벤트의 `Resources` 필드를 확인하여 영향을 받을 VM을 식별해야 합니다. 
 
 ### <a name="discovering-the-endpoint"></a>끝점 검색
-가상 컴퓨터가 VNet(가상 네트워크) 내에 생성된 경우, 라우팅할 수 없는 고정 IP(`169.254.169.254`)에서 메타데이터 서비스를 사용할 수 있습니다.
-클라우드 서비스 및 클래식 VM의 기본 사례처럼 가상 컴퓨터가 가상 네트워크에 생성되지 않은 경우 사용할 끝점을 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법은 이 샘플을 참조하세요.
+Virtual Machine이 VNet(Virtual Network) 내에 생성된 경우, 라우팅할 수 없는 고정 IP(`169.254.169.254`)에서 메타데이터 서비스를 사용할 수 있습니다.
+클라우드 서비스 및 클래식 VM의 기본 사례처럼 Virtual Machine이 Virtual Network에 생성되지 않은 경우 사용할 끝점을 검색하려면 추가 논리가 필요합니다. [호스트 끝점을 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법은 이 샘플을 참조하세요.
 
 ### <a name="versioning"></a>버전 관리 
 인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 최신 버전은 `2017-03-01`입니다.

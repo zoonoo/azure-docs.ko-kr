@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Microsoft Azure의 Azure Monitor 서비스에 대해 간략히 설명합니다. Azure Monitor 기능에 대해 설명하고 Azure Monitor를 사용하는 방법에 대한 추가 정보를 제공합니다.  소개하는 비디오를 사용하려면 이 문서의 아래쪽에 있는 다음 단계 링크를 참조하세요. 
@@ -56,8 +57,8 @@ Log Analytics 또는 Application Insights에 등록하지 않았거나 현재 �
 ![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
 Compute 서비스에는 다음이 포함됩니다. 
-- 클라우드 서비스 
-- 가상 컴퓨터 
+- Cloud Services 
+- Virtual Machines 
 - 가상 컴퓨터 확장 집합 
 - 서비스 패브릭
 
@@ -163,6 +164,6 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 - Azure Monitor를 사용할 수 있는 시나리오를 설명하는 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234) 및 [Azure Monitor(Ignite 2016 비디오)](https://myignite.microsoft.com/videos/4977)에서 제공됩니다.
 - [Azure Monitor 시작](monitoring-get-started.md)에서 Azure Monitor 인터페이스를 통해 실행합니다.
 - 클라우드 서비스, 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우 [Azure 진단 확장](../azure-diagnostics.md)을 설정합니다.
-- [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우
+- [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - App Service 웹앱에서 문제를 진단하려는 경우
 - [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Hive의 새로운 기능** [Hortonworks 설명서](https://hortonworks.com/apache/hive/#section_4)를 참조하세요.
 
-* **Hive CLI 사용 중단**: Hive CLI는 더 이상 사용되지 않으며 고객은 대신 Beeline을 사용하는 것이 좋습니다. 자세한 내용은 [Apache 설명서](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)를 참조하세요. HDInsight와 함께 Beeline을 사용하는 방법에 대한 지침은 [HDInsight Hadoop 클러스터에서 Beeline 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
+* **Hive CLI 사용 중단**: Hive CLI는 더 이상 사용되지 않으며 고객은 대신 Beeline을 사용하는 것이 좋습니다. 자세한 내용은 [Apache 설명서](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)를 참조하세요. HDInsight와 함께 Beeline을 사용하는 방법에 대한 지침은 [HDInsight Hadoop 클러스터에서 Beeline 사용](hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요.
 
 * **Apache Phoenix 및 HBase의 새로운 기능**.
     * 저장소 할당량 지원: 다중 테넌트 환경에서 일반적으로 사용되며 테이블 및 네임스페이스 수준별로 저장소 공간을 제한할 수 있도록 합니다.

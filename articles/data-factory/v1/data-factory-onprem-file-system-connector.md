@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5fa3391d7acf93a3362533d0a65d600913eee3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58e62a087c456c2e5b9772935aca17b77a75c5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -237,7 +237,7 @@ typeProperties 섹션은 데이터 집합의 각 형식마다 다릅니다. 데�
 
 **userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 서버 연결 서비스](#linked-service-properties)를 참조하세요.
 
-**Azure 저장소 연결 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```JSON
 {

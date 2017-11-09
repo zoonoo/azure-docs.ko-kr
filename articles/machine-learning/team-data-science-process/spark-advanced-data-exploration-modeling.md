@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 686231a03b962dce9a1980affd308e52b36d2987
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 016d7760895e9b8cca082bac4e14388680fbbc05
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 집합 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure 저장소 Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
+이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 집합 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다. 
 
 * **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
 * **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
-Spark는 Azure 저장소 Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
+Spark는 Azure Storage Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
 모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. "wasb///"로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다른 위치를 “wasb://”에서 참조합니다.
 
@@ -119,7 +119,7 @@ PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
 * **%%sql -o <variable name>** sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
-Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
 ## <a name="data-ingestion-from-public-blob"></a>공용 blob에서 데이터 수집:
 데이터 과학 프로세스의 첫 번째 단계는 원본에서 분석할 데이터를 수집하여 데이터 탐색 및 모델링 환경에 상주시키는 것입니다. 이 환경은 이 연습에서 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
@@ -1008,7 +1008,7 @@ Area under ROC = 0.985336538462
 > 
 
 ### <a name="linear-regression-with-sgd"></a>SGD가 있는 선형 회귀
-이 섹션의 코드는 크기 조정된 기능을 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 사용하는 선형 회귀를 학습하는 방법 및 WASB(Azure Blob 저장소)에서 모델의 점수를 매기고 평가하며 저장하는 방법을 보여줍니다.
+이 섹션의 코드는 크기 조정된 기능을 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 사용하는 선형 회귀를 학습하는 방법 및 WASB(Azure Blob Storage)에서 모델의 점수를 매기고 평가하며 저장하는 방법을 보여줍니다.
 
 > [!TIP]
 > 경험에 따르면 LinearRegressionWithSGD 모델의 수렴과 관련된 문제가 발생할 수 있으며 매개 변수는 유효한 모델을 얻기 위해 신중하게 변경/최적화되어야 합니다. 변수의 크기를 조정하면 수렴에 큰 도움이 됩니다.

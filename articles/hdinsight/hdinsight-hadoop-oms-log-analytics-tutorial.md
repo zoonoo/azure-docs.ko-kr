@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링(미리 보기)
 
@@ -39,7 +39,7 @@ Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 
     * Kafka
     * Interactive Hive
 
-    HDInsight 클러스터를 만드는 방법에 대한 지침은 [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+    HDInsight 클러스터를 만드는 방법에 대한 지침은 [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 
 * **Log Analytics 작업 영역** - 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경으로 생각할 수 있습니다. Azure HDInsight 클러스터와 연결할 수 있는 작업 영역 하나가 이미 만들어져 있어야 합니다. 지침은 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)를 참조하세요.

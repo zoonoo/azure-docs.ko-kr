@@ -3,7 +3,7 @@ title: "Java에서 첫 번째 신뢰할 수 있는 Azure 마이크로 서비스 
 description: "상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개"
 services: service-fabric
 documentationcenter: java
-author: vturecek
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
-ms.author: vturecek
-ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: suhuruli
+ms.openlocfilehash: 59b58e9d9bdb044c81261fd19338c3f95bd409b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]

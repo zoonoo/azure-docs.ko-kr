@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7c0dab5ab2d7342ce4de8899040478a6143c184b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2501113fe75f20602059927a4e0a50cecd86b187
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning에서 GPU를 사용하는 방법
 GPU(그래픽 처리 장치)는 일반적으로 특정 심층 신경망 모델을 교육할 때 발생할 수 있는 계산 집약적 작업을 처리하는 데 널리 사용됩니다. GPU를 사용하면 모델의 교육 시간을 크게 줄일 수 있습니다. 이 문서에서는 실행 대상으로 GPU가 장착된 [DSVM(Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)을 사용하도록 Azure ML Workbench를 구성하는 방법을 알아봅니다. 
@@ -116,7 +116,7 @@ dependencies:
   - python=3.5.2
   - pip: 
     # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
 다중 GPU VM의 성능을 개선하는 Microsoft Cognitive 도구 키트의 1비트 SGD 버전을 사용할 수도 있습니다. [1비트 SGD에 대한 라이선스 요구 사항](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license)을 기록해 둡니다.

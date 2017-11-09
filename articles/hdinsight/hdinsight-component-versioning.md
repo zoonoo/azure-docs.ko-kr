@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 
@@ -174,7 +174,7 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 _Standard_ 및 _Premium_
 
 | HDInsight Premium 기능 | 설명 |
 | --- | --- |
-| 도메인에 가입된 HDInsight 클러스터 |엔터프라이즈 수준의 보안을 위해 Azure Active Directory(Azure AD) 도메인에 HDInsight 클러스터를 연결합니다. HDInsight Premium에서 HDInsight 클러스터에 로그온하기 위해 Azure AD를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Hive 보안을 위한 역할 기반 액세스 제어를 구성하고 필요한 만큼 사용할 데이터 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원이 액세스하는 데이터 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있으므로 회사 리소스를 고도로 관리할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요. |
+| 도메인에 가입된 HDInsight 클러스터 |엔터프라이즈 수준의 보안을 위해 Azure Active Directory(Azure AD) 도메인에 HDInsight 클러스터를 연결합니다. HDInsight Premium에서 HDInsight 클러스터에 로그온하기 위해 Azure AD를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Hive 보안을 위한 역할 기반 액세스 제어를 구성하고 필요한 만큼 사용할 데이터 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원이 액세스하는 데이터 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있으므로 회사 리소스를 고도로 관리할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요. |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>HDInsight Premium에서 지원되는 클러스터 형식
 다음 표에서는 HDInsight Premium에서 지원되는 클러스터 형식을 나열합니다.

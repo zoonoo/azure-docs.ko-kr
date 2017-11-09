@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2017
+ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 29529978a2f6a1454c7a97b5f5baac214a90d63b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
@@ -68,14 +68,14 @@ Azure에서 문제가 있는 노드를 검색하고 따라서 역할 인스턴�
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>문제: 역할 인스턴스가 시작됨, 초기화 중, 사용 중 및 중지됨 사이를 반복해요
 이 상태는 응용 프로그램 코드, 패키지 또는 구성 파일에 문제가 있음을 나타낼 수 있습니다. 이 경우 몇 분마다 상태가 변경되는 것을 확인할 수 있어야 하고 Azure 포털은 **재활용 중**, **사용 중** 또는 **초기화 중**과 같이 표시됩니다. 역할 인스턴스의 실행을 방해하는 응용 프로그램에 문제가 있다는 것을 의미합니다.
 
-이 문제를 해결하는 방법에 대한 자세한 내용은 [Azure PaaS 계산 진단 데이터](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) 및 [역할을 재활용하는 일반적인 문제](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md) 블로그 게시물을 참조하세요.
+이 문제를 해결하는 방법에 대한 자세한 내용은 [Azure PaaS Compute 진단 데이터](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) 및 [역할을 재활용하는 일반적인 문제](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md) 블로그 게시물을 참조하세요.
 
 ## <a name="problem-my-application-stopped-working"></a>문제: 내 응용 프로그램의 작동이 중지되었어요
 1. Azure 포털에서 역할 인스턴스를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 다음 조건을 고려하여 문제를 해결합니다.
    * 역할 인스턴스가 최근에 중지된 경우 ( **중단 횟수**의 값을 확인할 수 있음) 배포를 업데이트할 수 있습니다. 역할 인스턴스가 다시 스스로 작동하는지 확인하기 위해 기다립니다.
    * 역할 인스턴스가 **사용 중**인 경우 응용 프로그램 코드가 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 이벤트를 처리하는지 확인합니다. 이 이벤트를 처리하는 일부 코드를 추가하거나 수정해야 합니다.
-   * [Azure PaaS 계산 진단 데이터](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
+   * [Azure PaaS Compute 진단 데이터](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
 
 > [!WARNING]
 > 클라우드 서비스를 재활용하면 배포에 대한 속성을 다시 설정하며 이렇게 하면 원래 문제에 대한 정보가 효과적으로 지워집니다.

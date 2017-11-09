@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0440cd2fadffd945c75d1b94df67e0c8b8bf7c1e
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 이 문서에서는 Azure Portal을 사용하여 클래식 배포 모델에서 만든 신규 및 기존 디스크를 Windows 가상 컴퓨터에 연결하는 방법을 보여 줍니다.
+
+
 
 또한 [Azure 포털에서 Linux VM에 데이터 디스크를 연결](../../linux/attach-disk-portal.md)할 수도 있습니다.
 
@@ -43,6 +41,7 @@ Refernce article:
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>가상 컴퓨터 찾기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.

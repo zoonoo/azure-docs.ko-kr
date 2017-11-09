@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 이 토픽에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
@@ -112,7 +112,7 @@ Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼�
 
 ![작업 영역 만들기](./media/move-hive-tables/output-hive-results-2.png)
 
-Azure 저장소 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
+Azure Storage 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
 ![작업 영역 만들기](./media/move-hive-tables/output-hive-results-3.png)
 
@@ -120,7 +120,7 @@ Azure 저장소 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테�
 양식의 URL *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*를 웹 브라우저에 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
 
 ### <a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
-PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md)을 참조하세요.
+PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
 
 ## <a name="create-tables"></a>Hive 데이터베이스 및 테이블 만들기
 Hive 쿼리는 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)에서 공유되며 여기에서 다운로드할 수 있습니다.

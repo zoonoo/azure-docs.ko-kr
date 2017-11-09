@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 4f716d85a60650a77d393eb725493e2e4d11de7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1252ff6b238a4d9a757006cb09a0ea56f14543e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>작업 예약 및 브로드캐스트(노드)
 
@@ -149,7 +149,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
+    var maxExecutionTimeInSeconds =  300;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
 6. 작업 실행을 모니터링하는 데 사용되는 다음 함수를 추가합니다.

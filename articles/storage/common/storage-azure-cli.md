@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage에서 Azure CLI 2.0 사용
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 저장소 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
+이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
-* **저장소 계정**: [Azure 저장소 계정 정보](storage-create-storage-account.md)의 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
+* **Storage 계정**: [Azure Storage 계정 정보](storage-create-storage-account.md)의 [Storage 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
 
 ### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 설치
 
@@ -393,7 +393,7 @@ az storage share snapshot -n <share name>
 }
 ```
 
-### <a name="list-share-napshots"></a>공유 스냅숏 나열
+### <a name="list-share-snapshots"></a>공유 스냅숏 나열
 
 `az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅숏을 나열할 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>응용 프로그램을 Azure AD에 추가하는 방법 및 이유
 Azure Active Directory 인스턴스에서 응용 프로그램 목록을 확인할 때 처음에 어려운 것 중 하나는 응용 프로그램이 어디서 추가되었는지 및 그 이유를 이해하는 것입니다.  이 문서에서는 응용 프로그램이 디렉터리에 표시되는 방식을 간략하게 설명하고 응용 프로그램이 디렉터리에 추가된 과정을 이해하는 데 도움이 되는 컨텍스트를 제공합니다.
@@ -84,8 +84,8 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 응용 프로그램 개체에 대한 자세한 내용은 Azure AD Graph REST API 참조 문서를 참조하세요.  *힌트*: The Azure AD Graph API 설명서는 현재 사용할 수 있는 Azure AD의 스키마 참조에 가깝습니다.  
-  * [응용 프로그램](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [서비스 주체](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [응용 프로그램](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [서비스 주체](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>응용 프로그램이 Azure AD 인스턴스에 어떻게 추가되나요?
 다음과 같은 여러 가지 방법으로 응용 프로그램을 Azure AD에 추가할 수 있습니다.

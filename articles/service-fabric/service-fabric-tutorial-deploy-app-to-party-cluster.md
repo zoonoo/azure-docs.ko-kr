@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Azure에서 Party 클러스터에 응용 프로그램 배포
 이 자습서는 시리즈의 2부로, Azure에서 Party 클러스터에 Azure Service Fabric 응용 프로그램을 배포하는 방법을 보여 줍니다.
@@ -58,24 +58,6 @@ Party 클러스터에 대한 액세스 권한을 얻으려면 http://aka.ms/trys
 
 > [!NOTE]
 > Party 클러스터는 보호되지 않으므로 응용 프로그램과 그 안에 있는 데이터는 다른 사람에게 표시될 수 있습니다. 다른 사람이 보기를 원하지 않는 항목은 배포하지 마세요. 모든 세부 사항은 사용 약관을 읽어 보아야 합니다.
-
-## <a name="configure-the-listening-port"></a>수신 대기 포트 구성
-VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **끝점** 리소스를 찾아 **포트** 값을 80으로 변경합니다.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-'F5' 키를 사용하여 디버깅할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 응용 프로그램 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **응용 프로그램 URL** 속성을 업데이트합니다.
-
-![응용 프로그램 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Azure에 앱 배포
 이제 응용 프로그램이 준비되면 Visual Studio에서 Party 클러스터에 직접 배포할 수 있습니다.

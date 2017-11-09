@@ -19,10 +19,12 @@
 
 ## 방법
 ### [Azure 포털을 통해 관리](storsimple-virtual-array-manager-service-administration.md)
-#### [최신 업데이트 설치](storsimple-virtual-array-install-update-06.md)
-##### [업데이트 0.5 설치](storsimple-virtual-array-install-update-05.md)
-##### [업데이트 0.4 설치](storsimple-virtual-array-install-update-04.md)
-##### [업데이트 0.3 설치](storsimple-virtual-array-install-update.md)
+#### [최신 업데이트 설치](storsimple-virtual-array-install-update-1.md)
+##### [업데이트 0.6 설치](storsimple-virtual-array-install-update-06.md)
+##### 보관
+###### [업데이트 0.5 설치](storsimple-virtual-array-install-update-05.md)
+###### [업데이트 0.4 설치](storsimple-virtual-array-install-update-04.md)
+###### [업데이트 0.3 설치](storsimple-virtual-array-install-update.md)
 #### [백업 만들기 및 관리](storsimple-virtual-array-backup.md)
 #### [백업에서 복제](storsimple-virtual-array-clone.md)
 #### [장애 조치(failover) 및 DR](storsimple-virtual-array-failover-dr.md)
@@ -43,10 +45,10 @@
 ### [로컬 웹 UI를 통해 구성](storsimple-ova-web-ui-admin.md)
 
 ## 릴리스 정보
-### [업데이트 0.6 - 현재](storsimple-virtual-array-update-06-release-notes.md)
-### [업데이트 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [업데이트 1 - 현재](storsimple-virtual-array-update-1-release-notes.md)
+### [업데이트 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### 보관
+#### [업데이트 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [업데이트 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [업데이트 0.3](storsimple-ova-update-03-release-notes.md)
 #### [업데이트 0.2 및 0.1](storsimple-ova-update-01-release-notes.md)

@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/25/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f7810d519da500a33c2e1cd15b8de54835f304d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74beeffe04fa4b6dba4db8687bdebe79e0d750f4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 

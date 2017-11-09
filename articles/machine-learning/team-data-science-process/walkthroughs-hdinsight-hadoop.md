@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 
 
-이 연습에서는 HDInsight Hadoop 클러스터와 Hive를 사용하여 예측 분석을 수행합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. Azure HDInsight에 대한 소개는 [Azure HDInsight, Hadoop 기술 스택 및 Hadoop 클러스터에 대한 소개](../../hdinsight/hdinsight-hadoop-introduction.md)를 참조하세요.
+이 연습에서는 HDInsight Hadoop 클러스터와 Hive를 사용하여 예측 분석을 수행합니다. Team Data Science Process에 설명된 단계를 따릅니다. Team Data Science Process의 개요는 [데이터 과학 프로세스](overview.md)를 참조하세요. Azure HDInsight에 대한 소개는 [Azure HDInsight, Hadoop 기술 스택 및 Hadoop 클러스터에 대한 소개](../../hdinsight/hadoop/apache-hadoop-introduction.md)를 참조하세요.
 
 Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사용하는 **플랫폼**에 따라 그룹화됩니다. 이러한 예제의 항목 목록은 [Team Data Science Process 실행 연습](walkthroughs.md)을 참조하세요.
 

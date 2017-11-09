@@ -4,7 +4,7 @@ description: "Spark Apache Spark를 사용하여 DStreams로 Apache Kafka에(서
 keywords: "kafka 예제,kafka zookeeper,spark 스트리밍 kafka,spark 스트리밍 kafka 예제"
 services: hdinsight
 documentationcenter: 
-author: Blackmist
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: larryfr
-ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maxluk
+ms.openlocfilehash: 6608363f90b61fe60f26d3f9fafd77b1e2232838
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -97,7 +97,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 이 예제에서는 Spark를 사용하여 Kafka에(서) 쓰고 읽는 방법을 배웠습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
 
-* [HDInsight에서 Apache Kafka 시작](hdinsight-apache-kafka-get-started.md)
-* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](hdinsight-apache-kafka-mirroring.md)
+* [HDInsight에서 Apache Kafka 시작](kafka/apache-kafka-get-started.md)
+* [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](kafka/apache-kafka-mirroring.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
 

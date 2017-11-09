@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 174ab97ac14f4c05690306691df5ee4b6d33dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a3c9422887592c29c2eae8bd75cf960865808fd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>리소스 관리자 배포에서 저장소 삭제 오류 해결
 이 문서에서는 Azure Resource Manager 배포에서 Azure Storage 계정, 컨테이너 또는 Blob 삭제를 시도할 때 발생하는 다음 오류 중 하나에 대한 문제 해결 지침을 제공합니다.

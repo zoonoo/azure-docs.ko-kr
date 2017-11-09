@@ -1,24 +1,24 @@
 ---
-title: "Service Fabric 백업 및 복원 | Microsoft Docs"
-description: "서비스 패브릭 백업 및 복원에 관한 개념 설명서"
+title: "Service Fabric Backup 및 복원 | Microsoft Docs"
+description: "서비스 패브릭 Backup 및 복원에 관한 개념 설명서"
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: subramar,jessebenson
+editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 8d81abec1c879ac6edbd4610dafdfd43ec7cf903
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -36,9 +36,9 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 - 데이터 손상을 초래하는 서비스 내 버그. 예를 들어 신뢰할 수 있는 컬렉션에 잘못된 데이터 작성을 시작하는 서비스 코드가 업그레이드되는 경우 발생할 수 있습니다. 이런 경우 코드와 데이터 모두 이전 상태로 되돌아가야 할 수도 있습니다.
 - 오프라인 데이터 처리. 데이터를 생성하는 서비스와는 별도로 비즈니스 인텔리전스를 위한 데이터를 오프라인 처리하는 것이 편리할 수 있습니다.
 
-백업/복원 기능을 사용하면 Reliable Services API에 구축된 서비스로 백업을 만들고 복원할 수 있습니다. 플랫폼에서 제공하는 백업 API를 사용하면 읽기 또는 쓰기 작업을 차단하지 않고 서비스 파티션 상태를 백업할 수 있습니다. 복원 API를 사용하면 선택한 백업에서 서비스 파티션의 상태를 복원할 수 있습니다.
+Backup/복원 기능을 사용하면 Reliable Services API에 구축된 서비스로 백업을 만들고 복원할 수 있습니다. 플랫폼에서 제공하는 백업 API를 사용하면 읽기 또는 쓰기 작업을 차단하지 않고 서비스 파티션 상태를 백업할 수 있습니다. 복원 API를 사용하면 선택한 백업에서 서비스 파티션의 상태를 복원할 수 있습니다.
 
-## <a name="types-of-backup"></a>백업 유형
+## <a name="types-of-backup"></a>Backup 유형
 백업 옵션에는 전체 및 증분이라는 두 가지가 있습니다.
 전체 백업은 검사점 및 모든 로그 레코드처럼 복제본의 상태를 다시 만드는 데 필요한 모든 데이터를 포함하는 백업입니다.
 전체 백업은 검사점 및 로그를 포함하므로 자체적으로 복원할 수 있습니다.
@@ -48,11 +48,11 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 복구 지점 목표가 5분인 경우 복제본을 5분마다 백업해야 합니다.
 백업할 때마다 50MB(`CheckpointThresholdInMB`를 사용하여 구성 가능)의 로그 외에도 16GB의 검사점을 복사해야 합니다.
 
-![전체 백업 예입니다.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
+![전체 Backup 예입니다.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
 이 문제에 대한 해결 방법은 증분 백업입니다. 여기서 백업에는 마지막 백업 이후에 변경된 로그 레코드만 포함됩니다.
 
-![증분 백업 예입니다.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
+![증분 Backup 예입니다.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
 증분 백업은 마지막 백업 이후 변경 사항만 백업(검사점은 포함하지 않음)하므로 속도는 더 빠르지만 자체적으로 복원할 수 없습니다.
 증분 백업을 복원하려면 전체 백업 체인이 필요합니다.
@@ -62,7 +62,7 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 서비스 작성자에는 백업 수행 시기와 백업 저장 위치에 대한 모든 권한이 있습니다.
 
 백업을 시작하려면 서비스에서 상속된 `BackupAsync` 멤버 함수를 호출해야 합니다.  
-백업은 주 복제본에서만 수행되며 상태 쓰기 권한을 부여해야 합니다.
+Backup은 주 복제본에서만 수행되며 상태 쓰기 권한을 부여해야 합니다.
 
 아래와 같이 `BackupAsync`는 `BackupDescription` 개체를 가져오며, 여기서는 `Func<< BackupInfo, CancellationToken, Task<bool>>>` 콜백 함수뿐만 아니라 전체 또는 증분 백업도 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 때 호출되고 일부 외부 저장소로 이동할 준비가 되어 있습니다.
 
@@ -175,7 +175,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
   - 복원할 때 복원 중인 백업이 데이터 손실 이전의 파티션 상태보다 오래된 것일 가능성이 있습니다. 이 때문에 가능한 많은 데이터를 복구하기 위한 마지막 수단으로만 복원해야 합니다.
   - 백업 폴더 경로와 백업 폴더 내 파일 경로를 나타내는 문자열은 FabricDataRoot 경로 및 응용 프로그램 형식 이름의 길이에 따라 255자보다 길 수 있습니다. 이로 인해 `Directory.Move`와 같은 일부 .NET 메서드에서 `PathTooLongException` 예외가 발생(throw)될 수 있습니다. 한 가지 해결 방법은 `CopyFile`과 같은 kernel32 API를 직접 호출하는 것입니다.
 
-## <a name="backup-and-restore-reliable-actors"></a>Reliable Actors 백업 및 복원
+## <a name="backup-and-restore-reliable-actors"></a>Reliable Actors Backup 및 복원
 
 
 Reliable Actors 프레임워크는 Reliable Services를 기반으로 구축됩니다. 행위자를 호스팅하는 ActorService는 상태 저장 신뢰할 수 있는 서비스입니다. 따라서 Reliable Services에서 사용 가능한 모든 백업 및 복원 기능이 Reliable Actors에도 제공됩니다(상태 제공자와 관련된 동작은 제외). 백업이 파티션 단위로 수행되기 때문에 파티션에서 모든 행위자에 대한 상태는 백업됩니다(또한 복원은 비슷하고 파티션 기준으로 발생함). 백업/복원을 수행하려면 서비스 소유자는 ActorService에서 파생되는 사용자 지정 행위자 서비스 클래스를 만든 다음 이전 섹션에서 설명한 것과 같이 Reliable Services와 유사한 백업/복원을 수행해야 합니다.
@@ -230,7 +230,7 @@ class MyCustomActorService : ActorService
 > `KvsActorStateProvider`는 현재 RestorePolicy.Safe 옵션을 무시합니다. 이 기능은 이후 릴리스에서 지원될 예정입니다.
 > 
 
-## <a name="testing-backup-and-restore"></a>테스트 백업 및 복원
+## <a name="testing-backup-and-restore"></a>테스트 Backup 및 복원
 데이터가 백업되고 복원될 수 있도록 하는 것이 중요합니다. 이 작업은 특정 파티션에서 데이터 손실을 유도할 수 있는 PowerShell의 `Start-ServiceFabricPartitionDataLoss` cmdlet을 호출하여 서비스에 대한 데이터 백업 및 복원 기능이 예상대로 작동하는지 테스트함으로써 수행할 수 있습니다.  프로그래밍 방식으로 데이터 손실을 호출하고 해당 이벤트에서 복원하는 것도 가능합니다.
 
 > [!NOTE]
@@ -241,10 +241,10 @@ class MyCustomActorService : ActorService
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>내부 살펴보기: 백업 및 복원에 대한 자세한 내용 
 다음은 백업 및 복원에 대한 자세한 내용입니다.
 
-### <a name="backup"></a>백업
+### <a name="backup"></a>Backup
 Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관된 백업을 만드는 기능을 제공합니다. 이를 위해 검사점 및 로그 지속성 메커니즘을 활용합니다.  Reliable State Manager는 트랜잭션 로그로부터의 부담을 줄이고 복구 시간을 단축하기 위해 특정 지점에서 유사 항목(경량) 검사점을 사용합니다.  `BackupAsync`가 호출되면 신뢰할 수 있는 상태 관리자에서 모든 신뢰할 수 있는 개체에 최신 검사점 파일을 로컬 백업 폴더에 복사하도록 지시합니다.  그런 다음 Reliable State Manager가 "시작  포인터"에서부터 마지막 로그 레코드까지의 모든 로그 레코드를 백업 폴더에 복사합니다.  최신 로그 레코드까지의 모든 로그 레코드가 백업에 포함되고 신뢰할 수 있는 상태 관리자에서 미리 쓰기 로깅을 유지하므로 신뢰할 수 있는 상태 관리자는 커밋된 모든 트랜잭션(`CommitAsync`가 성공적으로 반환됨)이 백업에 포함되도록 보장합니다.
 
-`BackupAsync`가 호출된 후에 커밋되는 모든 트랜잭션은 백업에 포함되거나 포함되지 않을 수 있습니다.  로컬 백업 폴더를 플랫폼에서 입력합 후에는(즉, 런타임에서 로컬 백업 완료됨) 서비스의 백업 콜백이 호출됩니다.  이 콜백은 백업 폴더를 Azure 저장소 등의 외부 위치로 이동하는 것을 담당합니다.
+`BackupAsync`가 호출된 후에 커밋되는 모든 트랜잭션은 백업에 포함되거나 포함되지 않을 수 있습니다.  로컬 백업 폴더를 플랫폼에서 입력합 후에는(즉, 런타임에서 로컬 백업 완료됨) 서비스의 백업 콜백이 호출됩니다.  이 콜백은 백업 폴더를 Azure Storage 등의 외부 위치로 이동하는 것을 담당합니다.
 
 ### <a name="restore"></a>복원
 신뢰할 수 있는 상태 관리자에서는 `RestoreAsync` API를 사용하여 백업에서 복원하는 기능을 제공합니다.  

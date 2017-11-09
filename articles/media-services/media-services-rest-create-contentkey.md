@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-미디어 서비스를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
+Media Services를 사용하면 암호화된 자산을 새로 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다. 
 
 새 자산을 만들 때(예: [파일 업로드](media-services-rest-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
@@ -47,23 +47,23 @@ ms.lasthandoff: 10/11/2017
 4. 키 식별자 및 콘텐츠 키를 사용하여 계산된 체크섬 값(PlayReady AES 키 체크섬 알고리즘에 기반)을 만듭니다. 자세한 내용은 [여기](http://www.microsoft.com/playready/documents/)에 있는 PlayReady 헤더 개체 문서의 "PlayReady AES 키 체크섬 알고리즘" 섹션을 참조하세요.
    
    다음은 키 식별자와 암호화되지 않은 콘텐츠 키의 GUID 부분을 사용하여 체크섬을 계산하는 .NET 예제입니다.
-
-         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
+   
+        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-
-            byte[] array = null;
-            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-            {
-                aesCryptoServiceProvider.Mode = CipherMode.ECB;
-                aesCryptoServiceProvider.Key = contentKey;
-                aesCryptoServiceProvider.Padding = PaddingMode.None;
-                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-                array = new byte[16];
-                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-            }
-            byte[] array2 = new byte[8];
-            Array.Copy(array, array2, 8);
-            return Convert.ToBase64String(array2);
+ 
+             byte[] array = null;
+             using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+             {
+                 aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                 aesCryptoServiceProvider.Key = contentKey;
+                 aesCryptoServiceProvider.Padding = PaddingMode.None;
+                 ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                 array = new byte[16];
+                 cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+             }
+             byte[] array2 = new byte[8];
+             Array.Copy(array, array2, 8);
+             return Convert.ToBase64String(array2);
          }
 5. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 6. $links 작업을 통해 **ContentKey** 엔터티와 **Asset** 엔터티를 연결합니다.
@@ -72,14 +72,14 @@ ms.lasthandoff: 10/11/2017
 
 >[!NOTE]
 
->미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+>Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
-## <a name="connect-to-media-services"></a>미디어 서비스에 연결
+## <a name="connect-to-media-services"></a>Media Services에 연결
 
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 >[!NOTE]
->https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+>https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId 검색
 다음 예제에서는 콘텐츠 키를 암호화할 때 사용해야 하는 인증서의 ProtectionKeyId(인증서 지문)를 검색하는 방법을 보여 줍니다. 컴퓨터에 적절한 인증서가 이미 있는지 확인하려면 이 단계를 수행합니다.
@@ -252,7 +252,7 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
     HTTP/1.1 204 No Content 
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

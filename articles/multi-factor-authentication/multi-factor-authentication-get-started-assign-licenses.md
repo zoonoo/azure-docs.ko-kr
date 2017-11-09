@@ -3,7 +3,7 @@ title: "Azure MFA의 라이선스 할당 | Microsoft Docs"
 description: "Microsoft Azure Multi-Factor Authentication의 라이선스를 할당하는 방법에 대해 알아봅니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 514ef423-8ee6-4987-8a4e-80d5dc394cf9
 ms.service: multi-factor-authentication
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/13/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e8e5ce183d11a76fb679da0e6c707383ce86d0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>사용자에게 Azure MFA, Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하면 MFA에 사용하기 시작할 수 있습니다.

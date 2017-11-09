@@ -3,7 +3,7 @@ title: "MFA에 대한 보안 모범 사례 | Microsoft Docs"
 description: "이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 모범 사례를 제공합니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
 
@@ -88,7 +88,7 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 
 * 이 앱 암호는 Azure AD에서 확인되므로 페더레이션을 바이패스합니다. 앱 암호를 설정할 때에만 페더레이션이 사용됩니다.
 * 페더레이션된(SSO) 사용자의 경우 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
-* 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
+* 앱 암호를 사용할 경우 온-프레미스 클라이언트 Access Control 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅/감사 기능은 앱 암호에 사용할 수 없습니다
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
 * 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 **사용자가 브라우저에 기반하지 않는 응용 프로그램에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.

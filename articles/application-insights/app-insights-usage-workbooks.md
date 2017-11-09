@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e11d431c03be0d2aff05b2ceda8d3df41441a7ec
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3edaefa942b834a070c55fe28daf60c74ea9f59d
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Application Insights에서 대화형 통합 문서를 사용하여 사용 현황 데이터 조사 및 공유
 
@@ -117,7 +117,7 @@ Azure 대시보드에 통합 문서에 대한 링크를 고정하려면:
 ## <a name="next-steps"></a>다음 단계
 
 ## <a name="next-steps"></a>다음 단계
-- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
+- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
 - 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
     - [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
     - [깔때기](usage-funnels.md)

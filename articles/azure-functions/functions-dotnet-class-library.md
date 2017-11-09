@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: e55af617236f3c36da161158a10b26f2f8f30224
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
 
@@ -144,7 +144,7 @@ Cosmos DB 문서에 바인딩하려면 [Microsoft.Azure.WebJobs.Extensions.Docum
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -155,7 +155,7 @@ public static void Run(
 
 ### <a name="event-hubs-trigger-and-output"></a>Event Hubs 트리거 및 출력
 
-Azure Functions는 이벤트 허브에 대한 트리거 및 출력 바인딩을 지원합니다. 자세한 내용은 [Azure Functions Event Hub 바인딩](functions-bindings-event-hubs.md)를 참조하세요.
+Azure Functions는 Event Hubs에 대한 트리거 및 출력 바인딩을 지원합니다. 자세한 내용은 [Azure Functions Event Hub 바인딩](functions-bindings-event-hubs.md)를 참조하세요.
 
 `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` 및 `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]`형식은 [Microsoft.Azure.WebJobs.ServiceBus] NuGet 패키지에 정의되어 있습니다. 
 

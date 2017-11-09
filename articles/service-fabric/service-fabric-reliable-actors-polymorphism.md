@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 36a59a41b2261369a2062c76ef90aebf7e24a221
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38a86b25b30420c6f0b3027258fa094529c90278
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 프레임워크의 다형성
 Reliable Actors 프레임워크를 사용하면 개체 지향 디자인에 사용하는 동일한 기술을 대부분 사용하여 행위자를 빌드할 수 있습니다. 이러한 다형성 기술 중 하나는 보다 일반화된 부모로부터 형식과 인터페이스를 상속하도록 허용합니다. Reliable Actors 프레임워크의 상속은 일반적으로 몇 가지 추가적인 제약 조건과 함께 .NET 모델을 따릅니다. Java/Linux의 경우 Java 모델을 따릅니다.

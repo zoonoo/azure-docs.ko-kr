@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
 이 문서에서는 여러 게스트 실행 파일을 패키징하고 Azure Service Fabric에 배포하는 방법을 보여 줍니다. 단일 Service Fabric 패키지를 빌드 및 배포하는 방법은 [Service Fabric에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
@@ -29,7 +29,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 응용
 
 ## <a name="samples"></a>샘플
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 응용 프로그램 패키징
 또는 실행 게스트를 수동으로 패키징할 수 있습니다. 수동 패키징의 경우 이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공되는 Service Fabric 패키징 도구를 사용합니다.
@@ -203,7 +203,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000 )에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
+응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000)에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
 
 이 자습서에서는 간편하게 두 기존 응용 프로그램을 하나의 서버 패브릭 응용 프로그램으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 
@@ -217,4 +217,4 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)에서 컨테이너 배포 방법을 알아봅니다.
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)

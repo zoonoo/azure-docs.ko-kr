@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>배포 시나리오 및 사용 사례
 이 섹션에서는 Azure AD(Active Directory) 도메인 서비스에서 이익이 되는 몇 가지 시나리오 및 사용 사례를 살펴보겠습니다.
@@ -85,4 +85,4 @@ Azure AD Domain Services를 사용하여 Azure에 배포된 원격 데스크톱 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>도메인에 가입된 HDInsight 클러스터(미리 보기)
 Apache Ranger를 사용하여 Azure AD Domain Services 관리되는 도메인에 가입된 Azure HDInsight 클러스터를 설정할 수 있습니다. Apache Ranger를 통해 Hive 정책을 생성 및 적용하고, 사용자(예: 데이터 과학자)가 Excel, Tableau 등의 ODBC 기반 도구를 사용하여 Hive에 연결할 수 있도록 허용합니다. Microsoft는 조만간 HBase, Spark, Storm 등의 다른 워크로드를 도메인에 가입된 HDInsight에 추가하기 위해 준비 중입니다.
 
-이 배포 시나리오에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터를 구성](../hdinsight/hdinsight-domain-joined-configure.md)하는 방법을 참조하세요.
+이 배포 시나리오에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터를 구성](../hdinsight/domain-joined/apache-domain-joined-configure.md)하는 방법을 참조하세요.

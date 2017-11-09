@@ -17,11 +17,11 @@ ms.workload: big-data
 ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -62,7 +62,7 @@ Microsoft Windows는 기본적으로 SSH 클라이언트를 제공하지 않습�
 
 * [Git(https://git-scm.com/)](https://git-scm.com/)(영문): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
 
-* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크톱은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
+* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크탑은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
 
 * [OpenSSH(https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell 팀은 OpenSSH를 Windows에 이식하여 테스트 릴리스를 제공합니다.
 
@@ -135,7 +135,7 @@ SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsigh
 
 __도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
 
-자세한 내용은 [도메인에 조인된 HDInsight 구성](hdinsight-domain-joined-configure.md)을 참조하세요.
+자세한 내용은 [도메인에 조인된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요.
 
 ## <a name="connect-to-nodes"></a>노드에 연결
 

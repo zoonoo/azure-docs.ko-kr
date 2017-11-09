@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -155,8 +155,8 @@ Data Factory는 데이터를 이동하는 것과 같은 지리적 위치의 싱�
 &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부
 일본 | 일본 동부 | 일본 동부
 &nbsp; | 일본 서부 | 일본 동부
-한국 | 한국 중부 | 한국 남부
-&nbsp; | 한국 남부 | 한국 남부
+한국 | 한국 중부 | 한국 중부
+&nbsp; | 한국 남부 | 한국 중부
 인도 | 인도 중부 | 인도 중부
 &nbsp; | 인도 서부 | 인도 중부
 &nbsp; | 인도 남부 | 인도 중부

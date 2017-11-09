@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service(AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -326,7 +326,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
-                                                <p>클라우드 서비스</p>
+                                                <p>Cloud Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service(AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                <p>가상 네트워크</p>
+                                                <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
@@ -830,7 +830,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>백업</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1078,7 +1078,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>알림 허브</p>
+                                                <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1352,8 +1352,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Kubernetes, DC/OS 또는 Docker Swarm을 사용하여 컨테이너 크기 조정 및 오케스트레이션</p>
+                                                    <h3>Azure Container Service(AKS)</h3>
+                                                    <p>Kubernetes를 사용하여 컨테이너화된 대규모 응용 프로그램 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1428,7 +1428,7 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>클라우드 서비스</h3>
+                                                    <h3>Cloud Services</h3>
                                                     <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
                                                 </div>
                                             </div>
@@ -1471,7 +1471,7 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>가상 네트워크</h3>
+                                                    <h3>Virtual Network</h3>
                                                     <p>사설 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결</p>
                                                 </div>
                                             </div>
@@ -1586,7 +1586,7 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>트래픽 관리자</h3>
+                                                    <h3>Traffic Manager</h3>
                                                     <p>고성능 및 고가용성을 위해 들어오는 트래픽 라우팅</p>
                                                 </div>
                                             </div>
@@ -2019,8 +2019,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Kubernetes, DC/OS 또는 Docker Swarm을 사용하여 컨테이너 크기 조정 및 오케스트레이션</p>
+                                                    <h3>Azure Container Service(AKS)</h3>
+                                                    <p>Kubernetes를 사용하여 컨테이너화된 대규모 응용 프로그램 실행</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>클래식 배포 모델을 사용하여 만든, Windows Server 2016을 실행하는 가상 컴퓨터에 MySQL 설치
 [MySQL](https://www.mysql.com) 은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 **Windows Server 2016**을 실행하는 가상 컴퓨터에 MySQL Server로 **커뮤니티 버전의 MySQL 5.7.18**을 설치하고 실행하는 방법을 보여 줍니다. 다른 버전의 MySQL 또는 Windows Server에서는 작업 단계가 약간 다를 수 있습니다.
@@ -28,6 +28,7 @@ Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Windows Server 2016을 실행하는 가상 컴퓨터 만들기
 Windows Server 2016을 실행하는 VM이 아직 없는 경우 이 [자습서](./tutorial.md)를 사용하여 가상 컴퓨터를 만들 수 있습니다.
@@ -87,7 +88,7 @@ Windows Server 2016을 실행하는 VM이 아직 없는 경우 이 [자습서](.
 인터넷상의 클라이언트 컴퓨터에 사용 가능한 MySQL 서비스의 경우 TCP 포트에 대한 끝점을 구성하고 Windows 방화벽 규칙을 만들어야 합니다. MySQL Server 서비스가 MySQL 클라이언트에 대해 수신하는 기본 포트 값은 3306입니다. **유형 및 네트워킹** 페이지(이전 절차의 11단계)에서 제공된 값과 일치하는 한 다른 포트를 지정할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 사용의 경우 인터넷상의 모든 컴퓨터가 MySQL Server 서비스를 사용할 수 있으므로 보안 영향을 고려합니다. ACL(액세스 제어 목록)에서 끝점을 사용할 수 있는 원본 IP 주소 집합을 정의할 수 있습니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](setup-endpoints.md)을 참조하세요.
+> 프로덕션 사용의 경우 인터넷상의 모든 컴퓨터가 MySQL Server 서비스를 사용할 수 있으므로 보안 영향을 고려합니다. ACL(Access Control 목록)에서 끝점을 사용할 수 있는 원본 IP 주소 집합을 정의할 수 있습니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](setup-endpoints.md)을 참조하세요.
 >
 >
 

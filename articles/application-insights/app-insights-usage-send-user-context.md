@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9d9360d77c6a0db82d3708baf4af15a0fcdc188e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -88,7 +88,7 @@ ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
+- 사용 현황 환경을 활성화하려면 [사용자 지정 이벤트](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 또는 [페이지 보기](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views) 보내기를 시작합니다.
 - 사용자 지정 이벤트 또는 페이지 보기를 이미 보낸 경우 사용자가 서비스를 사용하는 방법에 대해 알아보려면 사용 현황 도구를 살펴봅니다.
     * [사용 현황 개요](app-insights-usage-overview.md)
     * [사용자, 세션 및 이벤트](app-insights-usage-segmentation.md)

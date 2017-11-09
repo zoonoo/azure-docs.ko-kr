@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ac105b82b9bc25e6cc9f5cdf21f34400a09b3934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
 
@@ -279,10 +279,10 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다. 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/app-service-cli-configure-custom-domain.md)을 참조하세요. 

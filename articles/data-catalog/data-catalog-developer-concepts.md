@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 10/15/2017
 ms.author: spelluru
-ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
 Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.

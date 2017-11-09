@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Service Fabric을 사용하여 API Management 배포
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
@@ -384,7 +384,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="conclusion"></a>결론
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
@@ -393,7 +393,6 @@ az group delete --name $ResourceGroupName
 > * API 작업 만들기
 > * 백 엔드 정책 구성
 > * 제품에 API 추가
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

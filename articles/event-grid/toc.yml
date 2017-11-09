@@ -4,6 +4,8 @@
   items:
     - name: Event Grid 정보
       href: overview.md
+    - name: 메시징 서비스 비교
+      href: compare-messaging-services.md
 - name: 빠른 시작
   items:
     - name: Blob 저장소 이벤트 라우팅 - Azure CLI

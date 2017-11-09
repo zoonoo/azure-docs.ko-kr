@@ -3,7 +3,7 @@ title: "LDAP 인증 및 Azure MFA 서버 | Microsoft Docs"
 description: "LDAP 인증 및 Azure Multi-Factor Authentication 서버 배포에 도움이 되는 Azure Multi-Factor 인증 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 기본적으로 Azure Multi-Factor Authentication 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다. 그러나 ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러 같은 다른 LDAP 디렉터리에 바인딩하도록 구성할 수 있습니다. LDAP를 통해 디렉터리에 연결된 경우 Azure Multi-Factor Authentication 서버는 LDAP 프록시의 역할인 인증을 수행할 수 있습니다. 또한 RADIUS 대상으로서 LDAP 바인딩 사용, IIS 인증을 사용한 사용자의 사전 인증 또는 Azure MFA 사용자 포털에서 기본 인증이 가능합니다.

@@ -3,7 +3,7 @@ title: "Azure에서 Windows용 가상 컴퓨터 확장 및 기능 | Microsoft Do
 description: "확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/06/2017
-ms.author: nepeters
+ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 컴퓨터 확장 및 기능
 

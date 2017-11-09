@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/17/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
             private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.5";
+            private const string NewClusterVersion = "3.6";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
@@ -379,29 +379,29 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다. 
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 클러스터
-* [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux.md)
+* [HDInsight에서 HBase 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 클러스터
-* [HDInsight에서 Storm용 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
-* [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
-* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [HDInsight에서 Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
+* [HDInsight의 Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
+* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 클러스터
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
+* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](spark/apache-spark-create-standalone-application.md)
+* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
+* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
+* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](spark/apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>작업 실행
-* [.NET SDK를 사용하여 HDInsight에서 Hive 작업 실행](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [.NET SDK를 사용하여 HDInsight에서 Hive 작업 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
 

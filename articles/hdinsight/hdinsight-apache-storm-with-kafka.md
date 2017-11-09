@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 97b89b9c6ef88c1611ccad7963a0aa8e7eb82318
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
 
@@ -71,8 +71,8 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**에 있습니다. 이 템플릿은 다음 리소스를 만듭니다.
     
     * Azure 리소스 그룹
-    * Azure 가상 네트워크
-    * Azure 저장소 계정
+    * Azure Virtual Network
+    * Azure Storage 계정
     * HDInsight 버전 3.6의 Kafka(작업자 노드 3개)
     * HDInsight 버전 3.6의 Storm(작업자 노드 3개)
 
@@ -341,6 +341,6 @@ Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 Stor
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight의 Storm에서 사용할 수 있는 더 많은 예제 토폴로지는 [예제 Storm 토폴로지 및 구성 요소](hdinsight-storm-example-topology.md)를 참조하세요.
+HDInsight의 Storm에서 사용할 수 있는 더 많은 예제 토폴로지는 [예제 Storm 토폴로지 및 구성 요소](storm/apache-storm-example-topology.md)를 참조하세요.
 
-Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
+Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요.

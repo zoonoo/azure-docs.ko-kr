@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/10/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: fadad88be94552dd1db061146d8dfab86d797f61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,14 +36,14 @@ Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, �
 이 자습서를 성공적으로 완료하려면 다음이 필요합니다.
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>추가 샘플
-테이블 저장소를 사용하는 추가 예제는 [.NET에서 Azure 테이블 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -63,7 +63,7 @@ using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 ### <a name="parse-the-connection-string"></a>연결 문자열 구문 분석
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-the-table-service-client"></a>테이블 서비스 클라이언트 만들기
+### <a name="create-the-table-service-client"></a>Table service 클라이언트 만들기
 [CloudTableClient][dotnet_CloudTableClient] 클래스를 사용하면 Table Storage에 저장된 테이블 및 엔터티를 검색할 수 있습니다. Table service 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
 ```csharp
@@ -233,7 +233,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 ```
 
 ## <a name="retrieve-a-single-entity"></a>단일 엔터티 검색
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 [TableOperation][dotnet_TableOperation]을 사용하여 고객 'Ben Smith'를 지정합니다. 이 메서드는 컬렉션 대신 엔터티 하나만 반환하며, [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result]에서 반환되는 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 [TableOperation][dotnet_TableOperation]을 사용하여 고객 'Ben Smith'를 지정합니다. 이 메서드는 컬렉션 대신 엔터티 하나만 반환하며, [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result]에서 반환되는 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 Table service에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -264,7 +264,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
-엔터티를 업데이트하려면 테이블 서비스에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 테이블 서비스에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 이 코드에서는 [Insert][dotnet_TableOperation_Insert]를 호출하는 대신 [Replace][dotnet_TableOperation_Replace]를 사용합니다. [Replace][dotnet_TableOperation_Replace]를 실행하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 [Replace][dotnet_TableOperation_Replace] 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.
+엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 이 코드에서는 [Insert][dotnet_TableOperation_Insert]를 호출하는 대신 [Replace][dotnet_TableOperation_Replace]를 사용합니다. [Replace][dotnet_TableOperation_Replace]를 실행하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 [Replace][dotnet_TableOperation_Replace] 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -464,8 +464,8 @@ do
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
-* [.NET에서 Azure 테이블 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* 사용 가능한 API에 대한 자세한 내용은 테이블 서비스 참조 설명서를 참조하세요.
+* [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 * [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -552,7 +552,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - R Server에 대한 일반 정보는 [R 시작](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)(영문)을 참조하세요.
 
-- HDInsight의 R Server에 대한 자세한 내용은 [Azure HDInsight의 R Server 개요](hdinsight-hadoop-r-server-overview.md) 및 [Azure HDInsight의 R Server](hdinsight-hadoop-r-server-get-started.md)를 참조하세요.
+- HDInsight의 R Server에 대한 자세한 내용은 [Azure HDInsight의 R Server 개요](r-server/r-server-overview.md) 및 [Azure HDInsight의 R Server](r-server/r-server-get-started.md)를 참조하세요.
 
 SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 

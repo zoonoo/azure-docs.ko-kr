@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>개발자용 Azure Active Directory
 Azure Active Directory는 개발자가 사용자를 Microsoft에서 지원하는 회사 또는 학교 계정에 안전하게 로그인할 수 있게 도와주는 클라우드 ID 서비스입니다.  여기 설명서는 산업 표준 인증 프로토콜 OAuth 및 OpenID Connect를 사용하여 응용 프로그램에 Azure AD 지원을 추가하는 방법을 보여줍니다.
@@ -59,16 +59,9 @@ Azure Active Directory는 개발자가 사용자를 Microsoft에서 지원하는
 | [용어](active-directory-dev-glossary.md)                                      | 이 설명서에서 사용하는 용어 및 단어의 정의 |
 | [참조 자료 더 보기...](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>도움말 및 지원
-Azure Active Directory 개발과 관련하여 도움을 받기에 가장 좋은 장소입니다.
-
-|  |  
-|---|
-|[Stack Overflow`azure-active-directory` 및 `adal` 태그](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Azure Active Directory에 대한 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Microsoft 개발자 채팅 사용(제한된 시간 동안 무료)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Microsoft 개인 계정에 로그인해야 하는 경우 [Azure AD v2.0 끝점](active-directory-appmodel-v2-overview.md)을 사용하는 방법을 고려해 볼 수 있습니다.  Azure AD v2.0 끝점은 Microsoft 계정과 Microsoft 회사 계정(Azure AD의)을 단일 인증 시스템으로 통합한 것입니다.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

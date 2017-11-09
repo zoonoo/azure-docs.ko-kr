@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: c9a6040f7115917219143cd4bc8d0e3ac87370cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c1064232db87c23048fe01f04f403947e60ab93
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -84,7 +84,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
     | 저장소                                      | 설명 |
     |----------------------------------------------|-------------|
-    | **기본 저장소인 Azure Storage Blob**   | <ul><li>**기본 저장소 형식**으로 **Azure Storage**를 선택합니다. 그런 다음 Azure 구독의 일부인 저장소 계정을 지정하고 저장소 계정을 선택하려는 경우 **선택 방법**에서 **내 구독**을 선택할 수 있습니다. 그렇지 않으면 **선택키**를 클릭하고 Azure 구독 외부에서 선택하려는 저장소 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**의 경우 포털에서 제안한 기본 컨테이너 이름을 사용하거나 고유한 이름을 지정하도록 선택할 수 있습니다.</li><li>WASB를 기본 저장소를 사용하는 경우 선택적으로 **추가 저장소 계정**을 클릭하여 클러스터와 연결할 추가 저장소 계정을 지정합니다. **Azure Storage 키** 블레이드에서 **저장소 키 추가**를 클릭한 다음 Azure 구독 또는 다른 구독에서 저장소 계정 선택키를 제공하여 저장소 계정을 제공할 수 있습니다.</li><li>WASB를 기본 저장소로 사용하는 경우 선택적으로 **Data Lake Store 액세스**를 클릭하여 Azure Data Lake Store를 추가 저장소로 지정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.</li></ul> |
+    | **기본 저장소인 Azure Storage Blob**   | <ul><li>**기본 저장소 형식**으로 **Azure Storage**를 선택합니다. 그런 다음 Azure 구독의 일부인 저장소 계정을 지정하고 저장소 계정을 선택하려는 경우 **선택 방법**에서 **내 구독**을 선택할 수 있습니다. 그렇지 않으면 **선택키**를 클릭하고 Azure 구독 외부에서 선택하려는 저장소 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**의 경우 포털에서 제안한 기본 컨테이너 이름을 사용하거나 고유한 이름을 지정하도록 선택할 수 있습니다.</li><li>WASB를 기본 저장소를 사용하는 경우 선택적으로 **추가 Storage 계정**을 클릭하여 클러스터와 연결할 추가 Storage 계정을 지정합니다. **Azure Storage 키** 블레이드에서 **저장소 키 추가**를 클릭한 다음 Azure 구독 또는 다른 구독에서 저장소 계정 선택키를 제공하여 저장소 계정을 제공할 수 있습니다.</li><li>WASB를 기본 저장소로 사용하는 경우 선택적으로 **Data Lake Store 액세스**를 클릭하여 Azure Data Lake Store를 추가 저장소로 지정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.</li></ul> |
     | **기본 저장소로 Azure Data Lake Store** | **기본 저장소 유형**에서 **데이터 레이크 저장소**를 선택하고 지침은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서를 참조합니다. |
     | **외부 Metastore**                      | 필요에 따라 SQL Database를 지정하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장할 수 있습니다. **Hive용 SQL Database 사용**에 대해 SQL Database를 클릭하고 데이터베이스의 사용자 이름/암호를 입력합니다. Oozie 메타데이터에 대해 이러한 단계를 반복합니다.<br><br>metastores에 대한 Azure SQL Database를 사용하는 동안 몇 가지 고려 사항입니다. <ul><li>메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.</li><li>Metastore를 만들 때 클러스터를 만드는 프로세스가 실패할 수 있으므로 대시 또는 하이픈을 포함하는 데이터베이스 이름을 사용하지 않습니다.</li></ul>                                                                                                                                                                       |
 
@@ -109,14 +109,14 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
    
    **다음**을 클릭하여 노드 가격 책정 구성을 저장합니다.
 
-7. **고급 설정**을 클릭하여 **스크립트 작업**을 사용하는 등 다른 선택적 설정을 구성하고 **가상 네트워크**에 조인하여 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
+7. **고급 설정**을 클릭하여 **스크립트 작업**을 사용하는 등 다른 선택적 설정을 구성하고 **Virtual Network**에 조인하여 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
 
     ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "클러스터 노드 수 지정")
 
     | 옵션 | 설명 |
     |--------|-------------|
     | **스크립트 작업** | 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우에 이 옵션을 사용합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. |
-    | **Virtual Network** | 클러스터를 가상 네트워크에 배치하려는 경우 Azure Virtual Network 및 서브넷을 선택합니다. 가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요. |
+    | **Virtual Network** | 클러스터를 가상 네트워크에 배치하려는 경우 Azure Virtual Network 및 서브넷을 선택합니다. Virtual Network에 대한 특정 구성 요구 사항을 포함하여 Virtual Network로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요. |
 
     **다음**을 누릅니다.
 
@@ -156,23 +156,23 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 클러스터
-* [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux.md)
+* [HDInsight에서 HBase 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 클러스터
-* [HDInsight에서 Storm용 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
-* [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
-* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [HDInsight에서 Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
+* [HDInsight의 Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
+* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 클러스터
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
+* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](spark/apache-spark-create-standalone-application.md)
+* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
+* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
+* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](spark/apache-spark-eventhub-streaming.md)
 

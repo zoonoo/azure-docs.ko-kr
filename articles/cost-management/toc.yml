@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3 - 소비 예측
       href: tutorial-forecast-spending.md
+    - name: 4 - 비용 관리
+      href: tutorial-manage-costs.md
 - name: 리소스
   items:
     - name: 비용 관리 비디오

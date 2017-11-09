@@ -1,6 +1,6 @@
 ---
 title: "HDInsight에서 Hadoop 작업용 데이터 업로드 | Microsoft Docs"
-description: "Azure CLI, Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다."
+description: "Azure CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다."
 keywords: "etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드"
 services: hdinsight,storage
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
 
@@ -140,7 +140,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 예를 들어, HDInsight와 함께 작동하도록 만들진 PowerShell 스크립트는 [HDInsight 도구](https://github.com/blackmist/hdinsight-tools)를 참조하세요.
 
 #### <a id="azcopy"></a>AzCopy
-AzCopy는 데이터를 Azure 저장소 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
+AzCopy는 데이터를 Azure Storage 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
 
 AzCopy 구문은 다음과 같습니다.
 
@@ -184,26 +184,26 @@ HDInsight의 기본 파일 시스템이 Azure Storage에 있으므로 /example/d
 >
 
 ### <a name="graphical-clients"></a>그래픽 클라이언트
-Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 응용 프로그램이 있습니다. 다음 테이블은 이러한 응용 프로그램 중 일부의 목록입니다.
+Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 응용 프로그램이 있습니다. 다음 테이블은 이러한 응용 프로그램 중 일부의 목록입니다.
 
 | 클라이언트 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [HDInsight 용 Microsoft Visual Studio Tools](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
-| [Azure 저장소 탐색기](http://storageexplorer.com/) |✔ |✔ |✔ |
+| [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Azure Storage 탐색기](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [클라우드 저장소 스튜디오 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [Azure 탐색기](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>HDInsight 용 Visual Studio Tools
-자세한 내용은 [연결된 리소스 탐색](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)을 참조하세요.
+자세한 내용은 [연결된 리소스 탐색](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)을 참조하세요.
 
-#### <a id="storageexplorer"></a>Azure 저장소 탐색기
-*Azure 저장소 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
+#### <a id="storageexplorer"></a>Azure Storage 탐색기
+*Azure Storage 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
 
 이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 더 자세한 정보를 얻을 지침을 보려면 [저장소 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
-1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 **저장소 계정 이름** 및 **저장소 계정 키**를 묻는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 **추가** 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
+1. Azure Storage 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 **Storage 계정 이름** 및 **Storage 계정 키**를 묻는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 **추가** 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
 
     HDInsight 클러스터에서 사용하는 저장소 계정에 대한 이름과 키를 입력한 다음 **저장 및 열기**를 선택합니다.
 
@@ -307,14 +307,14 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0519a9c60386f8fea0047a661e48f008d3141c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbe2f7cb1d843c5e4ec7bc00a7e7dc5a49b31896
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
 
@@ -151,6 +151,6 @@ Azure Data Factory는 원본과 대상의 동기화 상태를 유지하기 위�
 ## <a name="next-steps"></a>다음 단계
 완전한 JSON 예제에 대한 다음 커넥터 문서를 검토합니다. 
 
-- [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

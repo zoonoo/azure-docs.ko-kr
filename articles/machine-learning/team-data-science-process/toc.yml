@@ -79,8 +79,23 @@
           maintainContext: true
         - name: 플랫폼 및 도구
           href: platforms-and-tools.md
-        - name: Hadoop 사용자 지정
-          href: customize-hadoop-cluster.md
+        - name: HDInsight 클러스터의 R 및 Python
+          items:
+            - name: HDInsight의 Spark 소개
+              href: ../../hdinsight/spark/apache-spark-overview.md
+              maintainContext: true
+            - name: Azure HDInsight에서 Apache Spark 클러스터 만들기
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+              maintainContext: true
+            - name: Jupyter Notebook의 PySpark 커널
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+              maintainContext: true
+            - name: HDInsight의 R Server
+              href: ../../hdinsight/r-server/r-server-overview.md
+              maintainContext: true
+            - name: HDInsight에서 R 서버 사용 시작
+              href: ../../hdinsight/r-server/r-server-get-started.md
+              maintainContext: true
         - name: Azure Machine Learning 작업 영역
           href: ../studio/create-workspace.md
           maintainContext: true

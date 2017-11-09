@@ -3,7 +3,7 @@ title: "Azure MFA NPS 확장에 대한 오류 코드 문제 해결 | Microsoft D
 description: "일반적인 오류 메시지에 대한 구체적인 해결 방법으로 Azure Multi-factor Authentication용 NPS 확장 문제 해결에 대한 도움 얻기"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf1fc0f5cf0c53547c96b46404828f76a405650f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 

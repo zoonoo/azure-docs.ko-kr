@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.openlocfilehash: c888760ab311e8ac08b1e625bb837f91047db645
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e10e5bbb035878eb62d9295b91263602f8128230
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -62,3 +62,5 @@ Microsoft Graph API는 `user.read` 범위가 있어야만 사용자 프로필을
 백 엔드 API에 범위가 필요 없는 경우(권장되지 않음) `acquireTokenSilent` 및/또는 `acquireTokenRedirect` 호출에서 `clientId`를 범위로 사용할 수 있습니다.
 
 <!--end-collapse-->
+
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

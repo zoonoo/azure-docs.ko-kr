@@ -5,25 +5,25 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/1/2017
+ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
 신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.
 
-신뢰할 수 있는 컬렉션과 다른 고가용성 기술 (예: Redis, Azure 테이블 서비스 및 Azure 큐 서비스)의 주요 차이점은 상태가 서비스 인스턴스에서 로컬로 유지되지만 가용성도 높다는 점입니다. 이는 다음을 의미합니다.
+신뢰할 수 있는 컬렉션과 다른 고가용성 기술 (예: Redis, Azure Table service 및 Azure 큐 서비스)의 주요 차이점은 상태가 서비스 인스턴스에서 로컬로 유지되지만 가용성도 높다는 점입니다. 이는 다음을 의미합니다.
 
 * 모든 읽기가 로컬이므로 대기 시간이 짧고 처리량이 많습니다.
 * 모든 쓰기가 최소한의 네트워크 IO 수를 유발하므로 대기 시간이 짧고 처리량이 많습니다.
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [신뢰할 수 있는 상태 관리자 및 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 * 데이터 관리
-  * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
   * [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)

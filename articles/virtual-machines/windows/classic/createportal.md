@@ -13,17 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 11/03/17
 ms.author: cynthn
-ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54548ff2e8b881030bdbee3511b7ac13ddf67d99
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
+
+[!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 

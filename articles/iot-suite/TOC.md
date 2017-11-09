@@ -8,6 +8,41 @@
 ### [미리 구성된 솔루션 배포](iot-suite-remote-monitoring-deploy.md)
 ### [미리 구성된 솔루션 작동](iot-suite-remote-monitoring-explore.md)
 
+## 원격 모니터링(이전 버전)
+### [미리 구성된 솔루션이란?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [FAQ](iot-suite-v1-faq.md)
+
+### 시작
+#### [미리 구성된 솔루션 시작](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [azureiotsuite.com의 사용 권한](iot-suite-v1-permissions.md)
+#### [원격 모니터링 솔루션 연습](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Raspberry Pi에 연결](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### C 사용
+###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [펌웨어 업데이트 구현](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Node.js 사용
+###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [펌웨어 업데이트 구현](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Intel NUC 게이트웨이 연결
+##### [시뮬레이션된 데이터](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [실제 센서 사용](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### 방법
+#### 시뮬레이션된 장치 연결
+##### [Windows에서 C](iot-suite-v1-connecting-devices.md)
+##### [Linux에서 C](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.JS](iot-suite-v1-connecting-devices-node.md)
+#### [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-v1-logic-apps-tutorial.md)
+#### [미리 구성된 솔루션 사용자 지정](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-v1-dynamic-telemetry.md)
+#### [원격 모니터링 솔루션에서 사용자 지정 규칙 만들기](iot-suite-v1-custom-rule.md)
+#### [원격 모니터링 솔루션의 장치 정보](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## 예측 유지 관리
 ### [예측 유지 관리 솔루션 개요](iot-suite-predictive-overview.md)
 ### [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)

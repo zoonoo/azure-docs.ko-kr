@@ -14,23 +14,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
-[Apache Storm](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 Azure Event Hubs Storm Spout를 사용하여 Event Hubs에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
+[Apache Storm](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 Azure Event Hubs Storm Spout를 사용하여 Event Hubs에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. Event Hubs와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 Event Hubs에서 병렬 수신됩니다.
 
 Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
 ## <a name="create-project-and-add-code"></a>프로젝트 만들기 및 코드 추가
 
-이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm][HDInsight Storm] 설치를 사용합니다.
+이 자습서에서는 이미 사용할 수 있는 Event Hubs spout와 함께 제공되는 [HDInsight Storm][HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작 절차](../hdinsight/hdinsight-storm-overview.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작 절차](../hdinsight/storm/apache-storm-overview.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
 
@@ -246,8 +246,8 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[HDInsight 센서 분석 자습서]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[HDInsight 센서 분석 자습서]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

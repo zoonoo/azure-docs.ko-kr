@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 4264af14370557c55050b0c4951812090d33d7a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,20 +49,20 @@ Virtual Machines의 **Azure Batch** 풀 또는 Windows 기반 **Azure HDInsight*
 * Visual Studio 2012/2013/2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
-### <a name="azure-batch-prerequisites"></a>Azure 배치 필수 조건
-이 연습에서는 Azure 배치를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 컴퓨터의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
+### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
+이 연습에서는 Azure Batch를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 컴퓨터의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
 자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
 
-1. **Azure 포털** 을 사용하여 [Azure 배치 계정](http://portal.azure.com)을 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
+1. **Azure Portal** 을 사용하여 [Azure Batch 계정](http://portal.azure.com)을 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
     1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL**이 표시됩니다. 이 예제에서 **myaccount**는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
     2. 왼쪽 메뉴에서 **키**를 클릭하고 **기본 액세스 키**를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀**을 클릭하고 풀의 **ID**를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.     
-2. **Azure 배치 풀**을 만듭니다.
+2. **Azure Batch 풀**을 만듭니다.
 
-   1. [Azure 포털](https://portal.azure.com)에서 왼쪽 메뉴의 **찾아보기**, **배치 계정**을 차례로 클릭합니다.
-   2. Azure 배치 계정을 선택하여 **배치 계정** 블레이드를 엽니다.
+   1. [Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴의 **찾아보기**, **Batch 계정**을 차례로 클릭합니다.
+   2. Azure Batch 계정을 선택하여 **Batch 계정** 블레이드를 엽니다.
    3. **풀** 타일을 클릭합니다.
    4. **풀** 블레이드에서 도구 모음의 추가 단추를 클릭하여 풀을 추가합니다.
       1. 풀에 대한 ID(풀 ID)를 입력합니다. Data Factory 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다.
@@ -119,7 +119,7 @@ public IDictionary<string, string> Execute(
     ```PowerShell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
-4. **Azure 저장소** NuGet 패키지를 프로젝트로 가져옵니다.
+4. **Azure Storage** NuGet 패키지를 프로젝트로 가져옵니다.
 
     ```PowerShell
     Install-Package WindowsAzure.Storage -Version 4.3.0
@@ -437,11 +437,11 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
     ![데이터 팩터리 블레이드](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 이 단계에서는 Azure Storage 계정 및 Azure 배치 계정을 데이터 팩터리에 연결합니다.
+연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 이 단계에서는 Azure Storage 계정 및 Azure Batch 계정을 데이터 팩터리에 연결합니다.
 
-#### <a name="create-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
+#### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포 타일**을 클릭합니다. 데이터 팩터리 편집기가 표시됩니다.
-2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure 저장소**를 선택합니다. 편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure 저장소**를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
     
     ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)을 참조하세요.
@@ -449,16 +449,16 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
     ![Azure Storage 연결 서비스](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
-#### <a name="create-azure-batch-linked-service"></a>Azure 배치 연결된 서비스 만들기
-1. Data Factory Editor의 도구 모음에서 **... 추가**를 클릭하고 **새 계산**을 클릭한 다음 메뉴에서 **Azure 배치**를 선택합니다.
+#### <a name="create-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
+1. Data Factory Editor의 도구 모음에서 **... 추가**를 클릭하고 **새 계산**을 클릭한 다음 메뉴에서 **Azure Batch**를 선택합니다.
 
-    ![새 계산 - Azure 배치](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    ![새 계산 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. JSON 스크립트를 다음과 같이 변경합니다.
 
-   1. **accountName** 속성의 Azure 배치 계정 이름을 지정합니다. **Azure 배치 계정 블레이드**의 **URL**은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountName` JSON 속성에 대해 `accountname`을 사용합니다.
-   2. **accessKey** 속성에 대한 Azure 배치 계정 키를 지정합니다.
+   1. **accountName** 속성의 Azure Batch 계정 이름을 지정합니다. **Azure Batch 계정 블레이드**의 **URL**은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountName` JSON 속성에 대해 `accountname`을 사용합니다.
+   2. **accessKey** 속성에 대한 Azure Batch 계정 키를 지정합니다.
    3. **poolName** 속성에 대한 필수 조건의 일부로 만든 풀의 이름을 지정합니다. 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
-   4. **batchUri** 속성에 대한 Azure 배치 URI를 지정합니다. 예: `https://westus.batch.azure.com`.  
+   4. **batchUri** 속성에 대한 Azure Batch URI를 지정합니다. 예: `https://westus.batch.azure.com`.  
    5. **AzureStorageLinkedService** for the **linkedServiceName** 속성의 Azure 배치 계정 이름을 지정합니다.
 
         ```json
@@ -617,11 +617,11 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
     다음 사항에 유의하세요.
 
-   * Azure 배치 풀의 VM 2대에서 2개 조각을 동시에 처리하도록 **동시성**이 **2**로 설정됩니다.
+   * Azure Batch 풀의 VM 2대에서 2개 조각을 동시에 처리하도록 **동시성**이 **2**로 설정됩니다.
    * activities 섹션에는 **DotNetActivity**유형의 작업 하나밖에 없습니다.
    * **AssemblyName**은 **MyDotnetActivity.dll** DLL 이름으로 설정합니다.
    * **EntryPoint**는 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
-   * **PackageLinkedService**는 사용자 지정 작업 Zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정합니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
+   * **PackageLinkedService**는 사용자 지정 작업 Zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정합니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure Storage 계정을 사용 중이라고 가정합니다.
    * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
@@ -667,18 +667,18 @@ Visual Studio에서 데이터 팩터리 프로젝트를 만드는 경우 다음�
     > 데이터 팩터리 엔터티를 게시하면 zip 파일이 자동으로 생성되어 Blob 컨테이너 customactivitycontainer에 업로드됩니다. Blob 컨테이너가 없으면 자동으로 생성됩니다.  
 
 
-## <a name="data-factory-and-batch-integration"></a>Data Factory 및 배치 통합
+## <a name="data-factory-and-batch-integration"></a>Data Factory 및 Batch 통합
 Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름으로 작업을 만듭니다. 왼쪽 메뉴에서 **작업**을 클릭합니다. 
 
-![Azure Data Factory - 배치 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+![Azure Data Factory - Batch 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
 조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 5개 조각이 있는 경우 이 작업(job)에 5개 작업(task)이 만들어집니다. Batch 풀에 여러 계산 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
 
-![Azure Data Factory - 배치 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+![Azure Data Factory - Batch 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
-다음 다이어그램에서는 Azure Data Factory 및 배치 작업 간의 관계를 보여 줍니다.
+다음 다이어그램에서는 Azure Data Factory 및 Batch 작업 간의 관계를 보여 줍니다.
 
-![데이터 팩터리 및 배치](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+![데이터 팩터리 및 Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 ## <a name="troubleshoot-failures"></a>오류 문제 해결
 문제 해결은 몇 가지 기본적인 방법으로 구성됩니다.
@@ -722,7 +722,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름�
     ```
 
     프로젝트를 빌드합니다. bin\Debug 폴더에서 4.3.0 이후 버전의 Azure.Storage 어셈블리를 삭제합니다. 이진 파일 및 PDB 파일이 포함된 zip 파일을 만듭니다. Blob 컨테이너(customactivitycontainer)에서 이전 zip 파일을 새 zip 파일로 바꿉니다. 실패한 조각을 다시 실행합니다(조각을 마우스 오른쪽 단추로 클릭하고 실행을 클릭).   
-8. 사용자 지정 작업은 패키지에서 **app.config** 파일을 사용하지 않습니다. 따라서 코드가 구성 파일에서 연결 문자열을 읽는 경우 런타임 시 작동하지 않습니다. Azure 배치를 사용할 경우 **Azure KeyVault**에 모든 암호를 저장하고, 인증서 기반 서비스 주체를 사용하여 **KeyVault**을 보호하고, 인증서를 Azure 배치 풀에 배포하는 것이 좋습니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이 솔루션은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
+8. 사용자 지정 작업은 패키지에서 **app.config** 파일을 사용하지 않습니다. 따라서 코드가 구성 파일에서 연결 문자열을 읽는 경우 런타임 시 작동하지 않습니다. Azure Batch를 사용할 경우 **Azure KeyVault**에 모든 암호를 저장하고, 인증서 기반 서비스 주체를 사용하여 **KeyVault**을 보호하고, 인증서를 Azure Batch 풀에 배포하는 것이 좋습니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이 솔루션은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
 
    최상은 아니지만 좀 더 쉬운 해결 방법이 있습니다. 즉 연결 문자열 설정을 사용하여 **Azure SQL 연결 서비스**를 만들고, 이 서비스를 사용하는 데이터 집합을 만든 다음 사용자 지정 .NET 작업에 이 데이터 집합을 더미 입력 데이터 집합으로 연결하면 됩니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다.  
 
@@ -768,7 +768,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ```
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
-**자동 크기 조정** 기능으로 Azure 배치 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 
+**자동 크기 조정** 기능으로 Azure Batch 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 
 
 여기에 나오는 샘플 수식은 다음과 같은 동작을 구현합니다. 풀이 처음 만들어질 때는 VM 1개로 시작합니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다.  이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 따라서 새 작업이 제출되면 풀이 자동으로 커지고, 작업이 완료되면 VM은 하나씩 사용 가능한 상태로 해제된 후 자동 크기 조정에 따라 해당 VM이 축소됩니다. startingNumberOfVMs 및 maxNumberofVMs은 요구에 맞게 조정될 수 있습니다.
 
@@ -782,12 +782,12 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](../../batch/batch-automatic-scaling.md) 을 참조하세요.
+자세한 내용은 [Azure Batch 풀에서 자동으로 계산 노드 크기 조정](../../batch/batch-automatic-scaling.md)을 참조하세요.
 
-풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, 배치 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, 배치 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
+풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다.  풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
 ## <a name="use-hdinsight-compute-service"></a>HDInsight 계산 서비스 사용
-이 연습에서는 Azure 배치 계산을 사용하여 사용자 지정 작업을 실행했습니다. 또한 사용자 고유의 Windows 기반 HDInsight 클러스터를 사용할 수도 있고, 데이터 팩터리가 주문형 Windows 기반 HDInsight 클러스터를 만들고 그 HDInsight 클러스터에서 사용자 지정 작업을 실행하게 할 수도 있습니다. 다음은 HDInsight 클러스터를 사용하는 고급 단계입니다.
+이 연습에서는 Azure Batch 계산을 사용하여 사용자 지정 작업을 실행했습니다. 또한 사용자 고유의 Windows 기반 HDInsight 클러스터를 사용할 수도 있고, 데이터 팩터리가 주문형 Windows 기반 HDInsight 클러스터를 만들고 그 HDInsight 클러스터에서 사용자 지정 작업을 실행하게 할 수도 있습니다. 다음은 HDInsight 클러스터를 사용하는 고급 단계입니다.
 
 > [!IMPORTANT]
 > 사용자 지정 .NET 작업은 Windows 기반 HDInsight 클러스터에서만 실행됩니다. 이 제한 사항에 대한 해결 방법은 MapReduce 작업을 사용하여 Linux 기반 HDInsight 클러스터에서 사용자 지정 Java 코드를 실행하는 것입니다. 또 다른 옵션은 VM의 Azure Batch 풀을 사용하여 HDInsight 클러스터를 사용하는 대신 사용자 지정 작업을 실행하는 것입니다.
@@ -847,7 +847,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
    4. **LinkedServiceName** 속성에 대해 **AzureStorageLinkedService**를 입력합니다.
 4. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
-자세한 내용은 [연결된 서비스 계산](data-factory-compute-linked-services.md) 을 참조하세요.
+자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)를 참조하세요.
 
 **파이프라인 JSON**에서 HDInsight(주문형 또는 사용자 고유의) 연결된 서비스를 사용합니다.
 
@@ -1143,7 +1143,7 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 ## <a name="sample-custom-activities-on-github"></a>GitHub의 샘플 사용자 지정 작업
 | 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
-| [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드합니다. |
+| [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob Storage로 데이터를 다운로드합니다. |
 | [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Azure ML 모델을 호출하고 감성 분석, 점수 매기기, 예측 등을 수행합니다. |
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |

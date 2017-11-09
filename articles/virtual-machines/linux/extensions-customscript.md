@@ -3,7 +3,7 @@ title: "Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft
 description: "사용자 지정 스크립트 확장을 사용하여 Linux VM 구성 작업 자동화"
 services: virtual-machines-linux
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
-ms.openlocfilehash: 1dde64aac72c11ccfccf4fdb676279692befaadd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: 3f8eeb71027d9bdd5c72570bd07d673136646e6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Linux 가상 컴퓨터에서 Azure 사용자 지정 스크립트 확장
+# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Linux Virtual Machines에서 Azure 사용자 지정 스크립트 확장
 사용자 지정 스크립트 확장은 Azure 가상 컴퓨터에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure 저장소 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임으로 제공할 수 있습니다. 사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되고, Azure CLI, PowerShell, Azure Portal 또는 Azure 가상 컴퓨터 REST API를 사용하여 실행할 수도 있습니다.
 
 이 문서에서는 Azure CLI 및 Azure Resource Manager 템플릿에서 사용자 지정 스크립트 확장을 사용하는 방법을 자세히 설명하고 Linux 시스템에서의 문제 해결 단계도 제공합니다.

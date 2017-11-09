@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 453c774c97b77dd7829a50fa5e5668d06f817a1d
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -242,7 +242,7 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 다음으로 배포한 모델을 사용하여 예측을 반환하는 웹 서비스를 만듭니다. 
 
 ```azure-cli
-$ az ml service create realtime -m asset_download/model.pkl -f score.py -r python –n <web service name>
+$ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
 ## <a name="step-10-run-the-web-service"></a>10단계. 웹 서비스 실행

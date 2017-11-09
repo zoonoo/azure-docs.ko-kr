@@ -1,25 +1,25 @@
 ---
 title: "Azure SQL Data Warehouse의 탄력적 쿼리 자습서 | Microsoft Docs"
-description: "Azure SQL Data Warehouse의 탄력적 쿼리 사용 방법 알아보기 "
+description: "Azure SQL Data Warehouse의 탄력적 쿼리 사용 방법 알아보기"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
 editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
-ms.date: 09/18/2017
+ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: 8698dace1b7308fc60178d97e134cb708ff02255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>SQL Data Warehouse에서 탄력적 쿼리 구성
 
@@ -119,7 +119,11 @@ ms.lasthandoff: 10/11/2017
    ,   [CustomerID] [int] NOT NULL 
    ) 
    WITH 
-   (DATA_SOURCE = EnterpriseDwSrc)
+   (
+        DATA_SOURCE = EnterpriseDwSrc
+   ,    SCHEMA_NAME = N'dbo'
+   ,    OBJECT_NAME = N'OrderInformation'
+   )
    ```
 
 5. 이제 **SQL Database 인스턴스**에 외부 테이블 정의가 있는 것을 볼 수 있습니다.

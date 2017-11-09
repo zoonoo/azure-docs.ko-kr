@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -33,7 +33,7 @@ Mono 버전 4.2.1은 HDInsight 버전 3.5에 포함되어 있습니다. HDInsigh
 Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> SCP.NET 프레임워크는 Mono와 호환됩니다. Mono와 함께 SCP.NET을 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+> SCP.NET 프레임워크는 Mono와 호환됩니다. Mono와 함께 SCP.NET을 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 ## <a name="automated-portability-analysis"></a>자동 이식성 분석
 
@@ -74,8 +74,8 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono compatibility (ht
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight에서 MapReduce와 함께 C# 사용](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [HDInsight에서 MapReduce와 함께 C# 사용](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Hive 및 Pig과 함께 C# 사용자 정의 함수 사용](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Hive 및 Pig과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight에서 Storm용 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [HDInsight에서 Storm용 C# 토폴로지 개발](storm/apache-storm-develop-csharp-visual-studio-topology.md)

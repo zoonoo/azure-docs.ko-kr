@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 10/15/2017
 ms.author: spelluru
-ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1d16cac19571c5802be081d6972e1f74f6dffe1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure 데이터 카탈로그 시작
 Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 자세한 개요는 [Azure Data Catalog란](data-catalog-what-is-data-catalog.md)을 참조하세요.
@@ -102,12 +102,12 @@ Adventure Works 데이터베이스는 제품, 판매 및 구매를 포함하는 
 Adventure Works 샘플 데이터베이스를 설치하려면 다음을 수행합니다.
 
 1. CodePlex에서 [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) 을 다운로드합니다.
-2. 컴퓨터에서 데이터베이스를 복원하려면 [SQL Server Management Studio를 사용하여 데이터베이스 백업 복원](http://msdn.microsoft.com/library/ms177429.aspx)의 지침을 따르거나 다음 단계를 따릅니다.
+2. 컴퓨터에서 데이터베이스를 복원하려면 [SQL Server Management Studio를 사용하여 데이터베이스 Backup 복원](http://msdn.microsoft.com/library/ms177429.aspx)의 지침을 따르거나 다음 단계를 따릅니다.
    1. SQL Server Management Studio를 열고 SQL Server 데이터베이스 엔진에 연결합니다.
    2. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
    3. **데이터베이스 복원** 아래에서 **원본**에 대해 **장치** 옵션을 선택하고 **찾아보기**를 클릭합니다.
    4. **백업 장치 선택** 아래에서 **추가**를 클릭합니다.
-   5. **AdventureWorks2014.bak** 파일이 있는 폴더로 이동하여 파일을 선택하고 **확인**을 클릭하여 **백업 파일 찾기** 대화 상자를 닫습니다.
+   5. **AdventureWorks2014.bak** 파일이 있는 폴더로 이동하여 파일을 선택하고 **확인**을 클릭하여 **Backup 파일 찾기** 대화 상자를 닫습니다.
    6. **확인**을 클릭하여 **백업 장치 선택** 대화 상자를 닫습니다.    
    7. **확인**을 클릭하여 **데이터베이스 복원** 대화 상자를 닫습니다.
 

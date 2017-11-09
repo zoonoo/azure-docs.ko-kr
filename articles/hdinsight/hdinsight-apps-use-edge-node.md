@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -76,7 +76,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 
 **기존 클러스터에 빈 에지 노드를 추가하려면**
 
-1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [Hadoop 자습서: HDInsight에서 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [Hadoop 자습서: HDInsight에서 Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 2. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -99,7 +99,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 
 **기존 클러스터에 빈 에지 노드를 추가하려면**
 
-1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [HDInsight에서 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+1. 아직 없는 경우 HDInsight 클러스터를 만듭니다.  [HDInsight에서 Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 2. Azure에 로그인하여 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

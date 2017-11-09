@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처 이해
-Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)을 참조하세요.
+Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)을 참조하세요.
 
-Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)을 참조하세요.
+Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)을 참조하세요.
 
 ## <a name="azure-ad-architecture"></a>Azure AD 아키텍처
 Azure AD의 지리적으로 분산된 아키텍처는 광범위한 모니터링, 자동화된 재라우팅, 장애 조치 및 복구 기능을 결합하여 고객에게 엔터프라이즈 수준의 가용성과 성능을 제공할 수 있습니다.
@@ -79,7 +79,7 @@ Azure AD는 토큰 발급 및 디렉터리 읽기에 대한 [복구 시간 목�
 
 ### <a name="data-centers"></a>데이터 센터
 
-Azure AD의 복제본은 전 세계에 걸쳐 위치한 데이터 센터에 저장됩니다. 자세한 내용은 [Azure 데이터 센터](https://azure.microsoft.com/en-us/overview/datacenters)를 참조하세요.
+Azure AD의 복제본은 전 세계에 걸쳐 위치한 데이터 센터에 저장됩니다. 자세한 내용은 [Azure 데이터 센터](https://azure.microsoft.com/overview/datacenters)를 참조하세요.
 
 Azure AD는 다음 특성을 가진 데이터 센터에서 작동합니다.
 
@@ -113,8 +113,8 @@ Azure AD 서비스가 예상대로 작동하지 않는 경우 최대한 빨리 �
 
 **보안 작업**
 
-모든 작업에 대해 감사뿐만 아니라 MFA(Multi-Factor Authentication)와 같은 운영 제어를 사용합니다. 또한 Just-In-Time 권한 상승 시스템을 사용하여 지속적으로 운영 주문형 태스크에 필요한 임시 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 클라우드](https://azure.microsoft.com/en-us/support/trust-center)를 참조하세요.
+모든 작업에 대해 감사뿐만 아니라 MFA(Multi-Factor Authentication)와 같은 운영 제어를 사용합니다. 또한 Just-In-Time 권한 상승 시스템을 사용하여 지속적으로 운영 주문형 태스크에 필요한 임시 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 클라우드](https://azure.microsoft.com/support/trust-center)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory 개발자 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

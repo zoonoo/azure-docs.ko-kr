@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -166,8 +166,8 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
     HDInsight 버전 3.1(Hadoop 2.4) 이상만 클러스터에 사용자 지정 구성 요소 설치를 위한 스크립트 작업 사용을 지원합니다. 스크립트의 다른 작업을 계속 수행하기 전에 사용자 지정 스크립트에서 **Get-HDIHadoopVersion** 도우미 메서드를 사용하여 Hadoop 버전을 확인해야 합니다.
 * 스크립트 리소스에 대한 안정적인 링크 제공
 
-    사용자는 클러스터의 사용자 지정에서 사용되는 모든 스크립트와 기타 아티팩트가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 클러스터 노드의 재이미징이 필요한 경우 이러한 리소스를 사용해야 합니다. 모든 리소스를 사용자가 제어하는 저장소 계정으로 다운로드하고 보관하는 것이 좋습니다. 이 계정은 기본 저장소 계정이나 사용자 정의된 클러스터에 대해 클러스터 배포 시 지정된 추가 저장소 계정 중 하나일 수 있습니다.
-    예를 들어 설명서에 제공된 Spark 및 R 사용자 지정된 클러스터 샘플에서는 이 저장소 계정 https://hdiconfigactions.blob.core.windows.net/에 리소스의 로컬 복사본을 만들었습니다.
+    사용자는 클러스터의 사용자 지정에서 사용되는 모든 스크립트와 기타 아티팩트가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 클러스터 노드의 재이미징이 필요한 경우 이러한 리소스를 사용해야 합니다. 모든 리소스를 사용자가 제어하는 Storage 계정으로 다운로드하고 보관하는 것이 좋습니다. 이 계정은 기본 Storage 계정이나 사용자 정의된 클러스터에 대해 클러스터 배포 시 지정된 추가 Storage 계정 중 하나일 수 있습니다.
+    예를 들어 설명서에 제공된 Spark 및 R 사용자 지정된 클러스터 샘플에서는 이 Storage 계정 https://hdiconfigactions.blob.core.windows.net/에 리소스의 로컬 복사본을 만들었습니다.
 * 클러스터 사용자 지정 스크립트가 멱등원인지 확인
 
     HDInsight 클러스터의 노드가 클러스터 수명 동안 재이미징된다고 예상해야 합니다. 클러스터가 재이미징될 때마다 클러스터 사용자 지정 스크립트가 실행됩니다. 이 스크립트는 멱등원이 되도록 설계해야 합니다. 즉, 재이미징될 때 스크립트에서는 클러스터가 처음 생성될 때 스크립트가 처음으로 실행된 직후의 상태와 동일한 사용자 지정된 상태로 클러스터가 돌아가는지 확인해야 합니다. 예를 들어 사용자 지정 스크립트가 처음 실행될 때와 이후 실행될 때마다 응용 프로그램을 D:\AppLocation에 설치 설치한 경우 재이미징될 때 스크립트에서는 응용 프로그램이 D:\AppLocation 위치에 있는지 확인한 이후에 스크립트의 다른 단계를 진행해야 합니다.
@@ -236,7 +236,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 ## <a name="checklist-for-deploying-a-script-action"></a>스크립트 작업 배포를 위한 검사 목록
 이러한 스크립트 배포를 준비할 때 수행하는 단계는 다음과 같습니다.
 
-1. 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 기본 또는 클러스터 배포 시 지정된 추가 저장소 계정, 또는 공개적으로 액세스할 수 있는 저장소 컨테이너가 될 수 있습니다.
+1. 사용자 지정 스크립트가 포함된 파일을 배포 중 클러스터 노드에서 액세스할 수 있는 위치에 배치합니다. 기본 또는 클러스터 배포 시 지정된 추가 Storage 계정, 또는 공개적으로 액세스할 수 있는 저장소 컨테이너가 될 수 있습니다.
 2. 스크립트가 동일한 노드에서 여러 번 실행될 수 있도록 멱등원으로 실행되는지 확인하는 검사를 스크립트에 추가합니다.
 3. **Write-Output** Azure PowerShell cmdlet을 사용하여 STDOUT 및 STDERR로 인쇄합니다. **Write-Host**를 사용하지 마세요.
 4. 임시 파일 폴더(예: $env:TEMP)를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
@@ -245,14 +245,14 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 ## <a name="debug-custom-scripts"></a>사용자 지정 스크립트 디버그
 스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\cluster-name-fragment><\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다.
-로그를 확인하는 쉬운 방법은 Visual Studio용 HDInsight 도구를 사용하는 것입니다. 도구 설치에 대해서는 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+로그를 확인하는 쉬운 방법은 Visual Studio용 HDInsight 도구를 사용하는 것입니다. 도구 설치에 대해서는 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
 **Visual Studio를 사용하여 로그를 확인하려면**
 
 1. Visual Studio를 엽니다.
 2. **보기**를 클릭하고 **서버 탐색기**를 클릭합니다.
 3. 마우스 오른쪽 단추로 "Azure"를 클릭하고, **Microsoft Azure Subscriptions**에 연결을 클릭한 다음 자격 증명을 입력합니다.
-4. **저장소**를 확장하고 기본 파일 시스템으로 사용되는 Azure 저장소 계정을 확장한 후 **테이블**을 확장하고 테이블 이름을 두 번 클릭합니다.
+4. **Storage**를 확장하고 기본 파일 시스템으로 사용되는 Azure Storage 계정을 확장한 후 **테이블**을 확장하고 테이블 이름을 두 번 클릭합니다.
 
 또한 클러스터 노드에 원격 액세스하여 사용자 지정 스크립트의 STDOUT 및 STDERR을 확인할 수 있습니다. 각 노드의 로그는 해당 노드 전용이며 **C:\HDInsightLogs\DeploymentAgent.log**에 로깅됩니다. 이러한 로그 파일은 사용자 지정 스크립트의 모든 출력을 기록합니다. Spark 스크립트 작업에 대한 예제 로그 조각은 다음과 같습니다.
 

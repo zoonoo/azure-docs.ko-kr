@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2bc5ec9b6396850f863c51288f86a99f42db726b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -243,7 +243,7 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
   }
 }
 ```
-### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 
 ```JSON
 {

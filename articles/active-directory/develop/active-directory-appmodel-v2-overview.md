@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
 과거 Azure Active Directory에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 앱 개발자는 별도의 두 시스템과 통합해야 했습니다.  **Azure AD v2.0 끝점**에서는 간단한 통합을 사용하여 두 가지 유형의 계정에 모두 로그인할 수 있게 하는 새로운 인증 API 버전을 도입했습니다.  또한 v2.0 끝점을 사용하는 앱은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph](https://graph.microsoft.io)에서 REST API를 사용할 수 있습니다.
@@ -49,13 +49,8 @@ ms.lasthandoff: 10/11/2017
 * [v2.0 끝점의 범위 및 동의](active-directory-v2-scopes.md)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>도움말 및 지원
-Azure Active Directory 개발과 관련하여 도움을 받기에 가장 좋은 장소입니다.
-
-* [Stack Overflow`azure-active-directory` 및 `adal` 태그](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Azure Active Directory에 대한 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](active-directory-developers-guide.md)를 시작해야 합니다.  v2.0 끝점은 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

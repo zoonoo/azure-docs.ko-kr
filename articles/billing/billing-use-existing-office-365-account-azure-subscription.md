@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 923b3ca8a2e2b1d7f44cd77946a02e1d30839f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c81d7fa793388612ec4d76d79a2f30f209b9cf42
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Office 365 계정으로 Azure 구독에 등록
-Office 365 구독을 보유하는 경우 Office 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Office 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 컴퓨터를 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [역할 기반 액세스 제어를 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)할 수 있습니다.
+Office 365 구독을 보유하는 경우 Office 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Office 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 컴퓨터를 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [역할 기반 Access Control을 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)할 수 있습니다.
 
 Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독에 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
 

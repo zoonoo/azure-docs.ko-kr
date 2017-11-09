@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/mysql-replication/)은 MySQL 클러스터를 배포해야 하는 경우에 사용할 수 있습니다.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 이 문서에서는 Microsoft Azure에서 고가용성 Linux 기반 서비스를 배포하는 데 사용할 수 있는 다양한 접근 방법을 살펴보고, MySQL 서버 고가용성을 입문서로 살펴봅니다. 이 접근 방법을 보여 주는 비디오는 [채널 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)(영문)에서 사용할 수 있습니다.
 

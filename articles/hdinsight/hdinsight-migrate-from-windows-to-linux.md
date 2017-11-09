@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 
@@ -98,7 +98,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Azure Storage Blob 간 직접 복사
 
-또는 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet을 사용하여 HDInsight 외부의 저장소 계정 간에 Blob을 복사할 수 있습니다. 자세한 내용은 Azure 저장소에서 Azure PowerShell 사용에 대한 Azure Blob 섹션 관리 방법을 참조하세요.
+또는 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet을 사용하여 HDInsight 외부의 저장소 계정 간에 Blob을 복사할 수 있습니다. 자세한 내용은 Azure Storage에서 Azure PowerShell 사용에 대한 Azure Blob 섹션 관리 방법을 참조하세요.
 
 ## <a name="client-side-technologies"></a>클라이언트 쪽 기술
 
@@ -140,9 +140,9 @@ Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스�
 
 Linux 기반 클러스터용 부트스트랩은 이 기능을 제공하지 않습니다. 대신 [클러스터 생성 중 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)에 설명된 스크립트 동작을 사용합니다.
 
-### <a name="virtual-networks"></a>가상 네트워크
+### <a name="virtual-networks"></a>Virtual Network
 
-Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에서만 작동하는 반면 Linux 기반 HDInsight 클러스터는 리소스 관리자 가상 네트워크가 필요합니다. Linux-HDInsight 클러스터에서 연결해야 하는 Classic Virtual Network에 리소스가 있는 경우 [Resource Manager Virtual Network에 Classic Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
+Windows 기반 HDInsight 클러스터는 클래식 Virtual Network에서만 작동하는 반면 Linux 기반 HDInsight 클러스터는 리소스 관리자 Virtual Network가 필요합니다. Linux-HDInsight 클러스터에서 연결해야 하는 Classic Virtual Network에 리소스가 있는 경우 [Resource Manager Virtual Network에 Classic Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
 
 구성 요구 사항에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
 
@@ -188,8 +188,8 @@ Pig 및 MapReduce 워크로드는 Linux 기반 클러스터에서 매우 유사�
 Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니다. 대신, SSH를 사용하여 클러스터 헤드 노드로 원격으로 연결할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [SSH와 함께 Hive 사용](hdinsight-hadoop-use-hive-ssh.md)
-* [SSH와 함께 Pig 사용](hdinsight-hadoop-use-pig-ssh.md)
-* [SSH와 함께 MapReduce 사용](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [SSH와 함께 Pig 사용](hadoop/apache-hadoop-use-pig-ssh.md)
+* [SSH와 함께 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Linux 기반 HDInsight는 원격 데스크톱 기능을 제공하지 않습니�
 
 | Windows 기반 | Linux 기반에서... |
 | --- | --- |
-| **Hive 편집기** |[Ambari에서 Hive 보기](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive 편집기** |[Ambari에서 Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` - Tez 사용 설정 |Tez는 Linux 기반 클러스터에 대한 기본 실행 엔진이므로 SET 문이 더 이상 필요하지 않습니다. |
 | C# 사용자 정의 함수 | Linux 기반 HDInsight로 C# 구성 요소를 검증하는 방법에 대한 자세한 내용은 [.NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요. |
 | Hive 작업의 일부로 호출된 서버의 CMD 파일 또는 스크립트 |Bash 스크립트 사용 |
-| `hive` 명령 |[SSH 세션에서 Hive](hdinsight-hadoop-use-hive-ssh.md) 또는 [Beeline](hdinsight-hadoop-use-hive-beeline.md) 사용 |
+| `hive` 명령 |[SSH 세션에서 Hive](hdinsight-hadoop-use-hive-ssh.md) 또는 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 사용 |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ C# 응용 프로그램을 사용하는 워크플로가 있는 경우 Linux 환�
 
 | Windows 기반 | Linux 기반에서... |
 | --- | --- |
-| Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) 를 참조하세요. |
+| Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md) 를 참조하세요. |
 | Storm UI |Storm UI는 https://CLUSTERNAME.azurehdinsight.net/stormui에서 사용할 수 있습니다. |
 | C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. 2016년 10월 28일 이후에 생성된 클러스터에만 사용할 수 있습니다. |
 
@@ -253,7 +253,7 @@ Spark 클러스터는 미리 보기 중 Windows 클러스터에서 사용 가능
 
 Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight 클러스터에서 지원되지 않습니다. 대신 ADF 파이프라인의 일부로 사용자 지정 작업을 구현하기 위해서는 다음 방법 중 하나를 사용해야 합니다.
 
-* Azure 배치 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Azure Batch 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
 * MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/transform-data-using-hadoop-map-reduce.md)을 참조하세요.
 
 ### <a name="line-endings"></a>줄 끝

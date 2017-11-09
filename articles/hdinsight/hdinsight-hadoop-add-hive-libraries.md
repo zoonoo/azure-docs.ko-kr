@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02fcff7cf2b40c712f0575f7885eac95f9de04b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
 
@@ -61,7 +61,7 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
   > [!NOTE]
   > 이 문서에서는 사용자가 이미 저장소 계정과 BLOB 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
   >
-  > 저장소 계정을 만들지 않은 경우 [Azure Portal](https://portal.azure.com)을 통해 수행할 수 있습니다. [Azure 저장소 탐색기](http://storageexplorer.com/)와 같은 유틸리티를 사용하여 계정에 컨테이너를 만들고 파일을 업로드할 수 있습니다.
+  > 저장소 계정을 만들지 않은 경우 [Azure Portal](https://portal.azure.com)을 통해 수행할 수 있습니다. [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 유틸리티를 사용하여 계정에 컨테이너를 만들고 파일을 업로드할 수 있습니다.
 
 ## <a name="create-a-cluster-using-the-script"></a>스크립트를 사용하여 클러스터 만들기
 
@@ -98,4 +98,4 @@ HDInsight에 Hive 라이브러리를 미리 로드하는 방법을 알아봅니�
 
 ## <a name="next-steps"></a>다음 단계
 
-Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Hive 사용](hdinsight-use-hive.md)
+Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Hive 사용](hadoop/hdinsight-use-hive.md)

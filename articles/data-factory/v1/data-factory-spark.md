@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -56,7 +56,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 
 ### <a name="prerequisites"></a>필수 조건
 1. 연습의 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 지침에 따라 **범용 Azure Storage 계정**을 만듭니다.  
-2. 자습서의 [Azure HDInsight에서 Apache Spark 클러스터 만들기](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) 지침에 따라 **Azure HDInsight에서 Apache Spark 클러스터**를 만듭니다. 1단계에서 만든 Azure 저장소 계정을 이 클러스터와 연결합니다.  
+2. 자습서의 [Azure HDInsight에서 Apache Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 지침에 따라 **Azure HDInsight에서 Apache Spark 클러스터**를 만듭니다. 1단계에서 만든 Azure 저장소 계정을 이 클러스터와 연결합니다.  
 3. [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)에 있는 **test.py** python 스크립트 파일을 다운로드하여 검토합니다.  
 3.  Azure Blob 저장소의 **adfspark** 컨테이너에 있는 **test.py**를 **pyFiles** 폴더로 업로드합니다. 컨테이너와 폴더가 없으면 만듭니다.
 
@@ -234,7 +234,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
     ![Jupyter 쿼리 결과](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-자세한 지침은 [Spark SQL 쿼리 실행](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) 섹션을 참조하세요. 
+자세한 지침은 [Spark SQL 쿼리 실행](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 섹션을 참조하세요. 
 
 ### <a name="troubleshooting"></a>문제 해결
 **getDebugInfo**를 **Always**로 설정한 후에는 Azure Blob 컨테이너의 **pyFiles** 폴더에 **log** 하위 폴더가 표시됩니다. 로그 폴더의 로그 파일에서 추가 세부 정보를 제공합니다. 이 로그 파일은 오류가 발생할 때 특히 유용합니다. 프로덕션 환경에서는 이 오류를 **실패**로 설정할 수 있습니다.

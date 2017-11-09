@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 R 설치 및 사용
 
-스크립트 동작을 사용하여 R로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 HDInsight 클러스터에서 R을 사용하는 방법을 알아봅니다. [HDInsight 제품](https://azure.microsoft.com/pricing/details/hdinsight/)에는 HDInsight 클러스터의 일부로 R Server가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요. Linux 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
+스크립트 동작을 사용하여 R로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 HDInsight 클러스터에서 R을 사용하는 방법을 알아봅니다. [HDInsight 제품](https://azure.microsoft.com/pricing/details/hdinsight/)에는 HDInsight 클러스터의 일부로 R Server가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](r-server/r-server-get-started.md)을 참조하세요. Linux 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
 
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 R을 설치할 수 있습니다. HDInsight 클러스터에 R을 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob( [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1))에서 다운로드할 수 있습니다.
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-is-r"></a>R이란?
 <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a>은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. R은 수백 개의 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 자체 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다. R은 다양한 분야에서 전문 통계학자와 과학자 대부분의 기본 프로그래밍 환경입니다.
 
-R은 Azure Blob 저장소(WASB)와 호환되므로 HDInsight의 R을 사용하여 이 저장소에 저장된 데이터를 처리할 수 있습니다.  
+R은 Azure Blob Storage(WASB)와 호환되므로 HDInsight의 R을 사용하여 이 Storage에 저장된 데이터를 처리할 수 있습니다.  
 
 ## <a name="install-r"></a>R 설치
-HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) 는 Azure 저장소의 읽기 전용 Blob에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만드는 동안 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) 는 Azure Storage의 읽기 전용 Blob에서 다운로드할 수 있습니다. 이 섹션에서는 Azure Portal을 사용하여 클러스터를 만드는 동안 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!NOTE]
 > 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서 도입되었습니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
@@ -112,4 +112,4 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
+[hdinsight-install-spark]:spark/apache-spark-jupyter-spark-sql.md

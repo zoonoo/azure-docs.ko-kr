@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Microsoft Azure에서 개인 데이터 검색, 식별 및 분류
 
@@ -150,13 +150,13 @@ Hadoop는 오픈 소스 Apache 저장소이며 Hadoop 클러스터에서 분석�
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Excel 파워 쿼리를 사용하여 Azure HDInsight의 Hadoop 클러스터를 Excel로 가져오려면 어떻게 할까요?
 
-HDInsight 자습서에서는 이 전체 과정을 설명합니다. 필수 구성 요소를 설명하고 [Azure HDInsight 시작](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) 자습서에 대한 링크를 포함합니다. 지침은 Excel 2016, 2013 및 2010을 다룹니다(단계는 이전 버전의 Excel와 약간 다름). Excel 파워 쿼리 추가 기능이 설치되지 않은 경우 이 자습서에서는 가져오는 방법을 보여줍니다. Excel에서 자습서를 시작하고 클러스터와 연결된 Azure Blob Storage 계정이 필요합니다.
+HDInsight 자습서에서는 이 전체 과정을 설명합니다. 필수 구성 요소를 설명하고 [Azure HDInsight 시작](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) 자습서에 대한 링크를 포함합니다. 지침은 Excel 2016, 2013 및 2010을 다룹니다(단계는 이전 버전의 Excel와 약간 다름). Excel 파워 쿼리 추가 기능이 설치되지 않은 경우 이 자습서에서는 가져오는 방법을 보여줍니다. Excel에서 자습서를 시작하고 클러스터와 연결된 Azure Blob Storage 계정이 필요합니다.
 
   ![Excel에서 쿼리](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-이 작업을 수행하는 방법을 알아보려면 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hdinsight/hdinsight-connect-excel-power-query.md) 자습서를 방문합니다.
+이 작업을 수행하는 방법을 알아보려면 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) 자습서를 방문합니다.
 
-소스: [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hdinsight/hdinsight-connect-excel-power-query.md)
+소스: [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure Information Protection: 문서 및 전자 메일에 대한 개인 데이터 분류
 

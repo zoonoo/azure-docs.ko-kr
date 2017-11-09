@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Data Warehouse 시작
 
@@ -198,7 +198,7 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
     ```
 5. 외부 테이블을 만듭니다. 이 테이블은 Azure Blob Storage에 저장된 데이터를 참조합니다. 다음 T-SQL 명령을 실행하여 외부 데이터 원본에서 이전에 정의한 Azure Blob을 모두 가리키는 다수의 외부 테이블을 만듭니다.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Azure Blob Storage에서 데이터를 가져옵니다.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
 
 2. 로드되는 데이터를 봅니다.
 
-   몇 GB의 데이터를 로드하고 고성능 클러스터형 columnstore 인덱스에 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다. 쿼리를 시작한 후 SQL Data Warehouse에서 몇 가지 주요 작업을 수행하는 동안 커피 또는 스낵을 즐기세요.
-    
-    ```sql
+  몇 GB의 데이터를 로드하고 고성능 클러스터형 columnstore 인덱스에 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다. 쿼리를 시작한 후 SQL Data Warehouse에서 몇 가지 주요 작업을 수행하는 동안 커피 또는 스낵을 즐기세요.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. 모든 시스템 쿼리를 표시합니다.
 
@@ -563,7 +564,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
     > [!NOTE]
     > 크기를 조정하는 동안에는 쿼리를 실행할 수 없습니다. 크기 조정 시 현재 실행 중인 쿼리를 **종료**합니다. 작업이 완료되면 다시 시작할 수 있습니다.
     >
-    
+
 5. 모든 열에 대해 상위 1백만 개 항목을 선택하여 여행 데이터에서 스캔 작업을 수행합니다. 신속하게 넘어가려면 더 적은 수의 열을 선택합니다. 이 작업을 실행하는 데 걸린 시간을 기록해 둡니다.
 
     ```sql
@@ -626,11 +627,11 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 
     > [!NOTE]
     > SQL DW에서는 통계를 자동으로 관리하지 않습니다. 통계는 쿼리 성능에 중요하며, 통계를 만들고 업데이트하는 것이 좋습니다.
-    > 
+    >
     > **조인에 포함된 열, WHERE 절에 사용된 열 및 GROUP BY에 있는 열에서 통계를 유지하면 가장 많은 이득을 획득할 수 있습니다.**
     >
 
-3. 필수 조건에서 쿼리를 다시 실행하고 성능 차이를 관찰합니다. 쿼리 성능의 차이는 확장하는 만큼 급격한 것은 아니지만 속도 향상에 주목해야 합니다. 
+4. 필수 조건에서 쿼리를 다시 실행하고 성능 차이를 관찰합니다. 쿼리 성능의 차이는 확장하는 만큼 급격한 것은 아니지만 속도 향상에 주목해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -644,7 +645,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 
 [동시성 및 워크로드 관리][]
 
-[Azure SQL 데이터 웨어하우스에 대한 모범 사례][]
+[Azure SQL Data Warehouse에 대한 모범 사례][]
 
 [쿼리 모니터링][]
 
@@ -653,7 +654,7 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 [Azure SQL Data Warehouse로 데이터 마이그레이션][](영문)
 
 [동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
-[Azure SQL 데이터 웨어하우스에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Azure SQL Data Warehouse에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [쿼리 모니터링]: sql-data-warehouse-manage-monitor.md
 [대규모 관계형 데이터 웨어하우스를 구축하기 위한 상위 10가지 모범 사례]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/(영문)
 [Azure SQL Data Warehouse로 데이터 마이그레이션]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/(영문)

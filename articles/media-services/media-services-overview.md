@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: a2c5fbb574f0388af62186047afedfb45f0881a0
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services는 개발자가 확장 가능한 미디어 관리
 
 콘텐츠를 라이브로 스트리밍하고 주문형 콘텐츠를 배달하도록 선택할 수 있습니다. 이 항목은 관련 항목으로도 연결됩니다.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
 * [AMS 라이브 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
@@ -82,7 +82,7 @@ Azure Media Services의 모든 주요 구성 요소를 소개하는 사용 방�
 
 자세한 내용은 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-데이터 센터에서 가용성에 대한 정보는 [사용 가능성](scenarios-and-availability.md#availability) 섹션을 참조하세요.
+데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](scenarios-and-availability.md#availability) 섹션을 참조하세요.
 
 ## <a name="support"></a>지원
 

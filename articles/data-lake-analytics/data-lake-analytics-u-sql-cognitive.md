@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: a651fe045d7eb1265f698ebb89843fd4c2b1c436
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>자습서: U-SQL의 인식 기능 시작
 
@@ -78,7 +78,7 @@ REFERENCE ASSEMBLY ImageOcr;
 
 OUTPUT @tags_serialized
     TO "/tags.csv"
-    USING Outputers.Csv();
+    USING Outputters.Csv();
 ```
 더 많은 예제는 **다음 단계** 섹션의 **U-SQL/인식 샘플**을 참조하세요.
 

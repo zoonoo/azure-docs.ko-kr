@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/26/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: a4775b6b78b27a07cd39cc58f2088f67fd1b083b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1ccd165f9652a8e5e96652937667add6825db8c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 컴퓨터)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
@@ -100,9 +100,9 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 
     ![원격 데스크톱을 사용하여 VM에 로그인](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
 
-2. **서버 관리자**를 연 다음 **파일 및 저장소 서비스**를 선택합니다. 
+2. **서버 관리자**를 연 다음 **파일 및 Storage 서비스**를 선택합니다. 
 
-    ![서버 관리자에서 파일 및 저장소 서비스 선택](./media/troubleshoot-recovery-disks-portal/server-manager-select-storage.png)
+    ![서버 관리자에서 파일 및 Storage 서비스 선택](./media/troubleshoot-recovery-disks-portal/server-manager-select-storage.png)
 
 3. 데이터 디스크가 자동으로 감지되고 연결됩니다. 연결된 디스크 목록을 보려면 **디스크**를 선택합니다. 데이터 디스크를 선택하여 드라이브 문자를 포함한 볼륨 정보를 볼 수 있습니다. 다음 예에서는 **F:**를 사용하여 연결된 데이터 디스크를 보여 줍니다.
 
@@ -116,9 +116,9 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>원래 가상 하드 디스크의 탑재 해제 및 분리
 오류가 해결되면 문제 해결 VM에서 기존 가상 하드 디스크를 분리합니다. 가상 하드 디스크를 문제 해결 VM에 연결하는 임대가 해제될 때까지 가상 하드 디스크를 다른 VM과 사용할 수 없습니다.
 
-1. VM에 대한 RDP 세션에서 **서버 관리자**를 연 다음 **파일 및 저장소 서비스**를 선택합니다.
+1. VM에 대한 RDP 세션에서 **서버 관리자**를 연 다음 **파일 및 Storage 서비스**를 선택합니다.
 
-    ![서버 관리자에서 파일 및 저장소 서비스 선택](./media/troubleshoot-recovery-disks-portal/server-manager-select-storage.png)
+    ![서버 관리자에서 파일 및 Storage 서비스 선택](./media/troubleshoot-recovery-disks-portal/server-manager-select-storage.png)
 
 2. **디스크**를 선택한 다음 데이터 디스크를 선택합니다. 데이터 디스크를 마우스 오른쪽 단추로 클릭하고 **오프라인 상태로 전환**을 선택합니다.
 

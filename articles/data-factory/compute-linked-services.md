@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory에서 지원하는 컴퓨팅 환경 | Microsoft Docs"
+title: "Azure Data Factory에서 지원하는 Compute 환경 | Microsoft Docs"
 description: "데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 계산 환경을 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: e0d95951f5647d2713f0a5c462211fdf1f554e59
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
+# <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 계산 환경을 설명합니다. 또한 이러한 계산 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
 
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다. 
 
-| 컴퓨팅 환경                      | 작업                               |
+| Compute 환경                      | 작업                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
-| [Azure 배치](#azure-batch-linked-service) | [사용자 지정](transform-data-using-dotnet-custom-activity.md) |
-| [Azure 기계 학습](#azure-machine-learning-linked-service) | [Machine Learning 작업: 배치 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) |
+| [Azure Batch](#azure-batch-linked-service) | [사용자 지정](transform-data-using-dotnet-custom-activity.md) |
+| [Azure 기계 학습](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
 
@@ -128,16 +128,10 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON 예제
 
 ```json
-"additionalLinkedServiceNames": [
-    "otherLinkedServiceName1": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    },
-    "otherLinkedServiceName2": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    }
-]
+"additionalLinkedServiceNames": [{
+    "referenceName": "MyStorageLinkedService2",
+    "type": "LinkedServiceReference"          
+}]
 ```
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
@@ -175,58 +169,53 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 ```json
 {
-  "name": " HDInsightOnDemandLinkedService",
-  "properties": {
-    "type": "HDInsightOnDemand",
-    "typeProperties": {
-        "clusterSize": 16,
-        "timeToLive": "01:30:00",
-        "hostSubscriptionId": "<subscription ID>",
-        "servicePrincipalId": "<service principal ID>",
-        "servicePrincipalKey": {
-          "value": "<service principal key>",
-          "type": "SecureString"
-        },
-        "tenant": "<tenent id>",
-        "clusterResourceGroup": "<resource group name>",
-        "version": "3.6",
-        "osType": "Linux",
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name": " HDInsightOnDemandLinkedService",
+    "properties": {
+      "type": "HDInsightOnDemand",
+      "typeProperties": {
+          "clusterSize": 16,
+          "timeToLive": "01:30:00",
+          "hostSubscriptionId": "<subscription ID>",
+          "servicePrincipalId": "<service principal ID>",
+          "servicePrincipalKey": {
+            "value": "<service principal key>",
+            "type": "SecureString"
           },
-          "coreConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "hiveConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "mapReduceConfiguration": {
-              "mapreduce.reduce.java.opts": "-Xmx4000m",
-              "mapreduce.map.java.opts": "-Xmx4000m",
-              "mapreduce.map.memory.mb": "5000",
-              "mapreduce.reduce.memory.mb": "5000",
-              "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-          },
-          "yarnConfiguration": {
-              "yarn.app.mapreduce.am.resource.mb": "5000",
-              "mapreduce.map.memory.mb": "5000"
-          },
-          "additionalLinkedServiceNames": [
-              "otherLinkedServiceName1": {
-                  "referenceName": "datafeeds1",
-                  "type": "LinkedServiceReference"
-              },
-              "otherLinkedServiceName2": {
-                  "referenceName": "datafeeds2",
-                  "type": "LinkedServiceReference"
-              }
-          ]}
-  },
-    "connectVia": {
-    "referenceName": "<name of Integration Runtime>",
-    "type": "IntegrationRuntimeReference"
-  }
+          "tenant": "<tenent id>",
+          "clusterResourceGroup": "<resource group name>",
+          "version": "3.6",
+          "osType": "Linux",
+          "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "coreConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "hiveConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "mapReduceConfiguration": {
+                "mapreduce.reduce.java.opts": "-Xmx4000m",
+                "mapreduce.map.java.opts": "-Xmx4000m",
+                "mapreduce.map.memory.mb": "5000",
+                "mapreduce.reduce.memory.mb": "5000",
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+            },
+            "yarnConfiguration": {
+                "yarn.app.mapreduce.am.resource.mb": "5000",
+                "mapreduce.map.memory.mb": "5000"
+            },
+            "additionalLinkedServiceNames": [{
+                "referenceName": "MyStorageLinkedService2",
+                "type": "LinkedServiceReference"          
+            }]
+        }
+    },
+      "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
 }
 ```
 
@@ -240,7 +229,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. | 아니요       |
 
 #### <a name="specifying-node-sizes"></a>노드 크기 지정
-이전 섹션에 언급된 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터 크기](../virtual-machines/linux/sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
+이전 섹션에 언급된 속성에 대해 지정해야 하는 문자열 값은 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
 
 D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeSize 및 dataNodeSize 속성에 대한 값으로 **Standard_D4**를 지정합니다. 
 
@@ -249,7 +238,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 "dataNodeSize": "Standard_D4",
 ```
 
-이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 [가상 컴퓨터 크기](../virtual-machines/linux/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.        
+이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외: 클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure'. 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/linux/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.        
 
 ## <a name="bring-your-own-compute-environment"></a>사용자 고유의 계산 환경 가져오기
 이 구성의 형식에서는 사용자가 이미 기존 컴퓨팅 환경을 데이터 팩터리에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다.
@@ -257,7 +246,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 이 구성의 형식은 다음의 계산 환경에 대해 지원됩니다.
 
 * Azure HDInsight
-* Azure 배치
+* Azure Batch
 * Azure 기계 학습
 * Azure 데이터 레이크 분석
 * Azure SQL DB, Azure SQL DW, SQL Server
@@ -308,11 +297,11 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
 
-Azure 일괄 처리 연결된 서비스를 만들어 데이터 팩터리에 가상 컴퓨터(VM)의 일괄 처리 풀을 등록합니다. Azure 배치를 사용하여 사용자 지정 작업을 실행할 수 있습니다.
+Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 컴퓨터(VM)의 일괄 처리 풀을 등록합니다. Azure 배치를 사용하여 사용자 지정 작업을 실행할 수 있습니다.
 
-Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
+Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 
-* [Azure 배치 기본 사항](../batch/batch-technical-overview.md) 입니다.
+* [Azure Batch 기본 사항](../batch/batch-technical-overview.md) 입니다.
 * [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet을 통해 Azure Portal을 사용하여 Azure Batch 계정을 만들기 위해 Azure Batch 계정 또는 [Azure Portal](../batch/batch-account-create-portal.md)을 만듭니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목을 참조하십시오.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
 
@@ -353,7 +342,7 @@ Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
 | accessKey         | Azure Batch 계정에 대한 선택키  | 예      |
 | batchUri          | Azure 배치 계정에 대한 URL로, https://*batchaccountname.region*.batch.azure.com 형식을 사용합니다. | 예      |
 | poolName          | 가상 컴퓨터의 풀 이름입니다.    | 예      |
-| linkedServiceName | Azure 일괄 처리 연결된 서비스와 관련된 Azure 저장소 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | 예      |
+| linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | 예      |
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스

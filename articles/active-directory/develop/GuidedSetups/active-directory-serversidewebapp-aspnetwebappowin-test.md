@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfa2563a6a58370d9a611440017441a751b46244
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -83,3 +83,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > 또 다른 방법으로 IssuerValidator 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현합니다. `TokenValidationParameters`에 대한 자세한 내용은 [이](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 문서") MSDN 문서를 참조하세요.
 
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

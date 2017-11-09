@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 0d2d187ca55ca6e7723139423b4b28783f256704
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방
 이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.

@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe9cc11a9046b537a4a10f34e77bacb69232743
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fecb9ebf359e3d3d23d5af0f60882cdfac5ff45
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Azure에서 기존 Windows VM 재시작 또는 크기 조정 관련 배포 문제 해결
 중지된 Azure 가상 컴퓨터(VM)를 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.

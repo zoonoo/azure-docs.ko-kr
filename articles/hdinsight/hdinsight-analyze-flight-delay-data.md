@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]*을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
@@ -67,7 +67,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 이 자습서에서는 [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA][rita-website](영문)의 항공사 비행 데이터 운항정시성을 사용합니다.
 데이터의 복사본은 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 컨테이너에 업로드되었습니다.
 PowerShell 스크립트의 일부는 데이터를 공용 blob 컨테이너에서 클러스터의 기본 blob 컨테이너로 복사합니다. HiveQL 스크립트도 같은 Blob 컨테이너에 복사합니다.
-자체 저장소 계정으로 데이터를 가져오고 업로드하는 방법과 HiveQL 스크립트 파일을 만들고 업로드하는 방법을 알아보려면 [부록 A](#appendix-a)와 [부록 B](#appendix-b)를 참조하세요.
+자체 Storage 계정으로 데이터를 가져오고 업로드하는 방법과 HiveQL 스크립트 파일을 만들고 업로드하는 방법을 알아보려면 [부록 A](#appendix-a)와 [부록 B](#appendix-b)를 참조하세요.
 
 다음 표는 이 자습서에 사용된 파일을 보여 줍니다.
 
@@ -244,8 +244,8 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 ## <a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
 데이터 파일과 HiveQL 스크립트 파일을 업로드하려면( [부록 B](#appendix-b)참조) 약간의 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 만들고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
-* **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure 저장소 계정을 사용합니다.** HDInsight 클러스터에는 저장소 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
-* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure 저장소 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 저장소 계정을 추가 저장소 계정으로서 연결해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 저장소 계정의 액세스 키를 인식합니다.
+* **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure Storage 계정을 사용합니다.** HDInsight 클러스터에는 Storage 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
+* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 Storage 계정을 추가 Storage 계정으로서 연결해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
 
 > [!NOTE]
 > 데이터 파일의 Blob 저장소 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
@@ -272,7 +272,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 
     <table border="1">
     <tr><th>변수 이름</th><th>참고 사항</th></tr>
-    <tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure 저장소 계정입니다.</td></tr>
+    <tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure Storage 계정입니다.</td></tr>
     <tr><td>$blobContainerName</td><td>데이터를 업로드할 Blob 컨테이너입니다.</td></tr>
     </table>
 2. Azure PowerShell ISE를 엽니다.
@@ -357,7 +357,7 @@ tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상
 > [!NOTE]
 > 새 위치에서 읽으려면 Hive 쿼리를 업데이트해야 합니다.
 >
-> 컨테이너 액세스 권한을 공용으로 구성하거나 저장소 계정을 HDInsight 클러스터에 바인딩해야 합니다. 그렇지 않으면 Hive 쿼리 문자열이 데이터 파일에 액세스할 수 없습니다.
+> 컨테이너 액세스 권한을 공용으로 구성하거나 Storage 계정을 HDInsight 클러스터에 바인딩해야 합니다. 그렇지 않으면 Hive 쿼리 문자열이 데이터 파일에 액세스할 수 없습니다.
 
 - - -
 
@@ -380,7 +380,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 
     <table border="1">
     <tr><th>변수 이름</th><th>참고 사항</th></tr>
-    <tr><td>$storageAccountName</td><td>HiveQL 스크립트를 업로드할 Azure 저장소 계정입니다.</td></tr>
+    <tr><td>$storageAccountName</td><td>HiveQL 스크립트를 업로드할 Azure Storage 계정입니다.</td></tr>
     <tr><td>$blobContainerName</td><td>HiveQL 스크립트를 업로드할 Blob 컨테이너입니다.</td></tr>
     </table>
 2. Azure PowerShell ISE를 엽니다.
@@ -728,14 +728,14 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

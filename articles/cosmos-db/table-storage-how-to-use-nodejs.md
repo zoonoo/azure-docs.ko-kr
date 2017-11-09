@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a92abbb08270c33f1848dc6789a89c2a81701ff
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>개요
-이 항목에서는 Node.js 응용 프로그램의 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
+이 항목에서는 Node.js 응용 프로그램의 Azure Table service를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
 
 이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Azure 저장소에 액세스하도록 응용 프로그램 구성
-Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure 저장소 SDK가 필요합니다.
+## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 응용 프로그램 구성
+Azure Storage를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램을 만든 폴더로 이동합니다.
@@ -62,7 +62,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 var azure = require('azure-storage');
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
+## <a name="set-up-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
@@ -401,8 +401,8 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 
 SAS가 쿼리 액세스만으로 생성되었기 때문에 엔터티를 삽입, 업데이트 또는 삭제하려고 하면 오류가 반환됩니다.
 
-### <a name="access-control-lists"></a>액세스 제어 목록
-ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 테이블에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
+### <a name="access-control-lists"></a>Access Control 목록
+ACL(Access Control 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 테이블에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
 
 ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
 

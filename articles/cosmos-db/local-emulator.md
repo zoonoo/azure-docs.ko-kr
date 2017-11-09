@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 에뮬레이터에는 다음과 같은 하드웨어 및 소프�
   * 10GB의 하드 디스크 여유 공간
 
 ## <a name="installation"></a>설치
-[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)에서 Azure Cosmos DB 에뮬레이터를 다운로드하여 설치하거나 Windows용 Docker에서 에뮬레이터를 실행할 수 있습니다. Windows용 Docker의 에뮬레이터 사용에 대한 지침을 보려면 [Docker에서 실행](#running-on-docer)을 참조하세요. 
+[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)에서 Azure Cosmos DB 에뮬레이터를 다운로드하여 설치하거나 Windows용 Docker에서 에뮬레이터를 실행할 수 있습니다. Windows용 Docker의 에뮬레이터 사용에 대한 지침을 보려면 [Docker에서 실행](#running-on-docker)을 참조하세요. 
 
 > [!NOTE]
 > Azure Cosmos DB 에뮬레이터를 설치, 구성 및 실행하려면 컴퓨터에 대한 관리 권한이 있어야 합니다.

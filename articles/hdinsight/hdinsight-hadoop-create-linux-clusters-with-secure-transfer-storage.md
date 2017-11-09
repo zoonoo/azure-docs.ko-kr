@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정으로 Hadoop 클러스터 만들기
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
     - 저장소 계정에 짧은 이름을 사용합니다.
     - 저장소 계정과 blob 컨테이너를 미리 만들어 두어야 합니다. 
 
-    자세한 지침은 [클러스터 만들기](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. 
+    자세한 지침은 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. 
 
 스크립트 동작을 사용하여 고유의 구성 파일을 제공하는 경우 다음과 같은 설정에서 wasbs를 사용해야 합니다.
 
@@ -74,7 +74,7 @@ HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 �
 * Visual Studio에서 Hive 쿼리를 수행 하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight로 Hive 사용][hdinsight-use-hive]을 참조하세요.
 * 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight로 Pig 사용][hdinsight-use-pig]을 참조하세요.
 * Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
-* Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+* Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 HDInsight가 데이터를 저장하는 방법 또는 HDInsight로 데이터를 가져오는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -91,12 +91,12 @@ HDInsight 클러스터를 만드는 방법 또는 관리하는 방법에 대해 
   * 로컬 파일 시스템의 Hadoop 파일 및 예제의 위치
   * 기본 데이터 저장소로 HDFS 대신 Azure Storage(WASB) 사용
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
+[1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/12/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3b11dc6afac716ef391976093839547e8fd37a91
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 
@@ -64,4 +64,4 @@ az policy definition show --name regionPolicyAssignment
 자세한 내용은 다음 문서를 참조하세요.
 
 - [리소스 정책 개요](resource-manager-policy.md)
-- [포털을 통해 정책 할당 보기](resource-manager-policy-portal.md#view-policy-assignments)
+- [포털을 통해 정책 할당 보기](resource-manager-policy-portal.md)

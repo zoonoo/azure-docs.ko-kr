@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: 보안 개념
       href: concepts-security.md
+    - name: 보안
 - name: 방법 가이드
   items:
     - name: 장치 등록 관리
       href: how-to-manage-enrollments.md
     - name: SDK로 HSM 사용
       href: use-hsm-with-sdk.md
+    - name: 프로비전 서비스에 대한 액세스 제어
+      href: how-to-control-access.md
 - name: 참조
   items:
     - name: REST (영문)

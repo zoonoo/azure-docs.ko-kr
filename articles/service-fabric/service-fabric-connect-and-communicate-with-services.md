@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/9/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.
@@ -179,7 +179,7 @@ Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션
 * **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 쪽에 `WcfCommunicationListener`를 사용하고 클라이언트에 `WcfCommunicationClient` 및 `ServicePartitionClient` 클래스를 사용할 수 있습니다. 그러나 이 기능은 Windows 기반 클러스터의 C# 응용프로그램에만 사용할 수 있습니다. 자세한 내용은 이 문서에서 [WCF 기반 통신 스택 구현](service-fabric-reliable-services-communication-wcf.md)에 대한 부분을 참조하세요.
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>사용자 지정 프로토콜 및 기타 통신 프레임워크 사용
-서비스는 TCP 소켓을 통한 사용자 지정 이진 프로토콜이든 [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 또는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)를 통한 스트리밍 이벤트이든 통신에 대한 모든 프로토콜 또는 프레임워크를 사용할 수 있습니다. 서비스 패브릭은 모든 검색 및 연결 작업을 추상화하면서도 통신 스택을 연결할 수 있는 통신 API를 제공합니다. 자세한 내용은 이 문서에서 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md) 에 대한 부분을 참조하세요.
+서비스는 TCP 소켓을 통한 사용자 지정 이진 프로토콜이든 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 또는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)를 통한 스트리밍 이벤트이든 통신에 대한 모든 프로토콜 또는 프레임워크를 사용할 수 있습니다. 서비스 패브릭은 모든 검색 및 연결 작업을 추상화하면서도 통신 스택을 연결할 수 있는 통신 API를 제공합니다. 자세한 내용은 이 문서에서 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md) 에 대한 부분을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md)에서 개념 및 사용 가능한 API에 대해 알아본 다음 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)을 사용하여 빠르게 시작하거나 [OWIN 자체 호스트를 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)를 사용하여 통신 수신기를 작성하는 방법에 대해 자세히 알아보세요.

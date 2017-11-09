@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: ad9aa6aee0a9f6407da6e9f45df71f8feb8b1500
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df6cd9651d63ccea175fc8417d9f7dd2a9161f57
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
 
-[도메인에 가입된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 새로운 사용자를 동기화 할 수 있습니다.
+[도메인에 가입된 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 새로운 사용자를 동기화 할 수 있습니다.
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
 
 Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자신의 도메인 자격 증명을 사용하여 Hue, Ambari 보기, ODBC, JDBC, PowerShell, REST API 등 다른 승인된 끝점과의 클러스터 상호 작용을 인증할 수 있습니다.
@@ -32,7 +32,7 @@ Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 
 > [!WARNING]
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
 
-새 도메인 가입 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](hdinsight-domain-joined-configure.md)에 따라 프로비전하세요.
+새 도메인 가입 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](./domain-joined/apache-domain-joined-configure.md)에 따라 프로비전하세요.
 
 ## <a name="access-the-ambari-management-page"></a>Ambari 관리 페이지 액세스
 
@@ -123,7 +123,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
     ![역할 목록 보기 - 사용자](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [HDInsight 클러스터 만들기](hdinsight-domain-joined-configure.md#create-hdinsight-cluster)를 참조하세요.
+* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [HDInsight 클러스터 만들기](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster)를 참조하세요.
 
     ![역할 목록 보기 - 그룹](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -143,8 +143,8 @@ Microsoft Azure Active Directory 도메인 사용자 "hiveuser2"를 *클러스�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [도메인에 가입된 HDInsight에서 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
-* [도메인에 가입된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-ambari-view.md)
+* [도메인에 가입된 HDInsight에서 Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+* [도메인에 가입된 HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-manage.md)
+* [HDInsight에서 Hadoop과 Hive 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

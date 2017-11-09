@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>파일 및 폴더 수준에서 사용자 권한 관리
 
-[도메인에 가입된 HDInsight 클러스터](hdinsight-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, YARN 및 Hive와 같은 다양한 서비스에 대해 RBAC(*역할 기반 액세스 제어*)를 사용합니다. 클러스터의 기본 데이터 저장소가 Azure Storage 또는 MASB(Microsoft Azure Storage Blob)인 경우 파일 및 폴더 수준 사용 권한을 적용할 수도 있습니다. Apache Ranger를 사용하여 동기화된 Azure AD 사용자 및 그룹의 클러스터 파일에 대한 액세스를 제어할 수 있습니다.
+[도메인에 가입된 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure AD(Azure Active Directory) 사용자에 대해 강력한 인증을 사용하고, YARN 및 Hive와 같은 다양한 서비스에 대해 RBAC(*역할 기반 액세스 제어*)를 사용합니다. 클러스터의 기본 데이터 저장소가 Azure Storage 또는 MASB(Microsoft Azure Storage Blob)인 경우 파일 및 폴더 수준 사용 권한을 적용할 수도 있습니다. Apache Ranger를 사용하여 동기화된 Azure AD 사용자 및 그룹의 클러스터 파일에 대한 액세스를 제어할 수 있습니다.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 HDInsight 도메인 가입 클러스터용 Apache Ranger 인스턴스는 Ranger-WASB 서비스로 미리 구성되어 있습니다. Ranger-WASB 서비스는 Ranger-HDFS와 유사한 정책 관리 엔진이지만 다른 Ranger 액세스 정책이 적용됩니다. Ranger-WASB 서비스에서 들어오는 리소스 요청에 일치하는 Ranger 정책이 없는 경우 기본 응답은 DENY입니다. Ranger 서비스는 WASB에 대한 권한 검사를 통과하지 못합니다.
@@ -69,7 +69,7 @@ resource: path=/app-logs/{USER}, user: {USER}, recursive=true, permissions: all,
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Apache Ranger를 사용해 파일 및 폴더 수준 사용 권한 관리
 
-새 도메인 가입 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](hdinsight-domain-joined-configure.md)을 따라 프로비전하세요.
+새 도메인 가입 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](./domain-joined/apache-domain-joined-configure.md)을 따라 프로비전하세요.
 
 `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`으로 이동하여 Ranger-WASB를 엽니다. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
 
@@ -117,8 +117,8 @@ Apache Ranger [정책 평가 흐름](#permission-and-policy-model)을 요구에 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [도메인에 가입된 HDInsight에서 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
-* [도메인에 가입된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
+* [도메인에 가입된 HDInsight에서 Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+* [도메인에 가입된 HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-manage.md)
 * [Ambari 관리 - 사용자에게 Ambari 권한 부여](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
@@ -296,7 +296,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>동적 멤버 자격을 정적으로 또는 그 반대로 변경
 그룹에서 멤버 자격을 관리하는 방식을 변경할 수 있습니다. 이것은 시스템에 동일한 그룹 이름과 ID를 유지하려는 경우에 유용하므로 그룹에 대한 기존 참조는 여전히 유효합니다. 새 그룹을 만들면 해당 참조를 업데이트해야 합니다.
 
-이 기능을 지원하기 위해 Azure Portal을 업데이트 하는 중입니다. 그 전까지 [Azure 클래식 포털](https://manage.windowsazure.com)([여기](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)의 지침에 따라)을 사용하거나 다음과 같이 PowerShell cmdlet을 사용할 수 있습니다.
+이 기능을 지원하기 위해 Azure Portal을 업데이트 하는 중입니다. 그 전까지 [Azure 클래식 포털](https://manage.windowsazure.com)([여기](active-directory-accessmanagement-groups-with-advanced-rules.md)의 지침에 따라)을 사용하거나 다음과 같이 PowerShell cmdlet을 사용할 수 있습니다.
 
 > [!WARNING]
 > 기존 정적 그룹을 동적 그룹으로 변경할 경우 기존의 모든 멤버가 그룹에서 제거된 후 멤버 자격 규칙이 처리되어 새 멤버가 추가됩니다. 그룹이 앱 또는 리소스에 대한 액세스를 제어하는 데 사용되는 경우 멤버 자격 규칙이 완전히 처리될 때까지는 원래 멤버가 액세스하지 못할 수 있습니다.

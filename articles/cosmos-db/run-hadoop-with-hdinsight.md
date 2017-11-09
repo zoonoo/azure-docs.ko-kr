@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Azure Cosmos DB 및 HDInsight를 사용하여 Apache Hive, Pig 또는 Hadoop 작업 실행
 이 자습서에서는 Cosmos DB의 Hadoop 커넥터를 사용하여 Azure HDInsight에서 [Apache Hive][apache-hive], [Apache Pig][apache-pig] 및 [Apache Hadoop][apache-hadoop] MapReduce 작업을 실행하는 방법을 설명합니다. Cosmos DB의 Hadoop 커넥터를 사용하면 Cosmos DB가 Hive, Pig 및 MapReduce 작업에 대한 원본 및 싱크 둘 다로 작동할 수 있습니다. 이 자습서에서는 Cosmos DB가 Hadoop 작업에 대한 데이터 원본 및 대상으로 모두 사용됩니다.
@@ -420,13 +420,13 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-deploy-java-mapreduce]:../hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
-[hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
+[hdinsight-use-hive]:../hdinsight/hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:../hdinsight/hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-pig]:../hdinsight/hadoop/hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/run-hadoop-with-hdinsight/customprovision-page1.png
 [image-hive-query-results]: ./media/run-hadoop-with-hdinsight/hivequeryresults.PNG

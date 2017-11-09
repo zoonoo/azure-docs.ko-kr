@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4dbf1fa32f916a206e4f8d796218ab809835ad
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -37,14 +37,14 @@ Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 �
 
 Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍)에 대한 다양한 추가 설명서 및 Windows PowerShell 스크립팅에 사용되는 cmdlet에 대한 설명서를 웹에서 찾을 수 있습니다. 이러한 리소스에 대한 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
-* [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight에서 Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 소개][hdinsight-introduction]
 
 오늘날에 많은 사람들이 MapReduce를 통한 Hive 및 Pig를 선택합니다.  자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 
 **필수 조건**:
 
@@ -62,7 +62,7 @@ MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만�
 
 [부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
 
-Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
+Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **단어 개수 MapReduce 작업을 제출하려면**
 
@@ -127,7 +127,7 @@ Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Ja
 Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 수 있는 스트리밍 API를 MapReduce에 제공합니다.
 
 > [!NOTE]
-> 이 자습서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight 클러스터를 스트리밍하는 예제는 [HDInsight용 Python 스트리밍 프로그램 개발](hdinsight-hadoop-streaming-python.md)을 참조하세요.
+> 이 자습서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight 클러스터를 스트리밍하는 예제는 [HDInsight용 Python 스트리밍 프로그램 개발](hadoop/apache-hadoop-streaming-python.md)을 참조하세요.
 
 예제에서 mapper 및 reducer는 [stdin][stdin-stdout-stderr]에서 입력을 줄 단위로 읽고 출력을 [stdout][stdin-stdout-stderr]로 내보내는 실행 파일입니다. 프로그램은 텍스트의 모든 단어 수를 계산합니다.
 
@@ -986,12 +986,12 @@ public class TeraSort extends Configured implements Tool {
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-introduction]: hdinsight-hadoop-introduction.md
+[hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
@@ -999,8 +999,8 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
 [hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline

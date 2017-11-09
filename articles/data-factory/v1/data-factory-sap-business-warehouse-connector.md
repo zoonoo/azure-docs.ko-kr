@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3815ce9879379c07204ce1294dc0fe55bd9ede53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 }
 ```
 
-### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
+### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 이 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. type 속성은 **AzureStorage**로 설정됩니다. typeProperties 섹션은 Azure Storage 계정에 대한 연결 정보를 제공합니다.
 
 ```json

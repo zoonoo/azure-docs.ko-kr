@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 937f20d7c52bef12b7aa9451944515262a099bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -160,7 +160,7 @@ Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 
 
 1. **DROP TABLE 문** 은 log4j Hive 테이블이 있는 경우 이 테이블을 삭제합니다.
 2. **CREATE TABLE 문** 은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하는 데 Hive 외부 테이블이 사용됩니다.
-3. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure 저장소의 blob에 저장합니다.
+3. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure Storage의 blob에 저장합니다.
 
 스크립트에서 사용되는 3개의 변수가 있습니다.
 
@@ -170,7 +170,7 @@ Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 
 
 워크플로 정의 파일(이 자습서에서는 workflow.xml)은 런타임 시 이러한 값을 이 HiveQL 스크립트에 전달합니다.
 
-워크플로 파일과 HiveQL 파일은 모두 Blob 컨테이너에 저장되어 있습니다.  이 자습서의 뒷부분에서 사용할 PowerShell 스크립트는 이 두 파일을 기본 저장소 계정에 복사합니다. 
+워크플로 파일과 HiveQL 파일은 모두 Blob 컨테이너에 저장되어 있습니다.  이 자습서의 뒷부분에서 사용할 PowerShell 스크립트는 이 두 파일을 기본 Storage 계정에 복사합니다. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>PowerShell을 사용하여 Oozie 작업 제출
 Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제공하지 않습니다. **Invoke-RestMethod** cmdlet을 사용하여 Oozie 웹 서비스를 불러올 수 있습니다. Oozie 웹 서비스 API는 HTTP REST JSON API입니다. Oozie 웹 서비스 API에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0용) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1용)를 참조하세요.
@@ -179,7 +179,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 1. Azure에 연결
 2. Azure 리소스 그룹 만들기 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-3. Azure SQL 데이터베이스 서버, Azure SQL 데이터베이스 및 두 개의 테이블을 만듭니다. 이러한 작업은 워크플로의 Sqoop 작업에서 사용됩니다.
+3. Azure SQL Database 서버, Azure SQL Database 및 두 개의 테이블을 만듭니다. 이러한 작업은 워크플로의 Sqoop 작업에서 사용됩니다.
    
     테이블 이름은 *log4jLogCount*입니다.
 4. Oozie 작업을 실행하는 데 사용되는 HDInsight 클러스터를 만듭니다.
@@ -194,7 +194,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
    * 데이터 파일(/example/data/sample.log)을 wasb:///tutorials/useoozie/data/sample.log에 복사합니다.
 6. Oozie 작업을 제출합니다.
    
-    Oozie 작업 결과를 검사하려면 Visual Studio 또는 다른 도구를 사용하여 Azure SQL 데이터베이스에 연결합니다.
+    Oozie 작업 결과를 검사하려면 Visual Studio 또는 다른 도구를 사용하여 Azure SQL Database에 연결합니다.
 
 스크립트는 다음과 같습니다.  Windows PowerShell ISE에서 스크립트를 실행할 수 있습니다. 처음 7개의 변수를 구성하기만 하면 됩니다.
 
@@ -638,20 +638,20 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md

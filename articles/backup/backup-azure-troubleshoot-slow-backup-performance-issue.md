@@ -1,6 +1,6 @@
 ---
-title: "Azure 백업에서 파일 및 폴더의 느린 백업 문제 해결 | Microsoft Docs"
-description: "Azure 백업 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다."
+title: "Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결 | Microsoft Docs"
+description: "Azure Backup 성능 문제의 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다."
 services: backup
 documentationcenter: 
 author: genlin
@@ -12,25 +12,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure 백업에서 파일 및 폴더의 느린 백업 문제 해결
-이 문서에서는 Azure 백업을 사용할 때 파일 및 폴더의 느린 백업 성능 문제에 대한 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다. Azure 백업 에이전트를 사용하여 파일을 백업하는 경우 백업 프로세스가 예상보다 오래 걸릴 수 있습니다. 이러한 지연은 다음 중 하나 이상에 의해 발생할 수 있습니다.
+# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
+이 문서에서는 Azure Backup을 사용할 때 파일 및 폴더의 느린 백업 성능 문제에 대한 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다. Azure Backup 에이전트를 사용하여 파일을 백업하는 경우 백업 프로세스가 예상보다 오래 걸릴 수 있습니다. 이러한 지연은 다음 중 하나 이상에 의해 발생할 수 있습니다.
 
 * [백업 중인 컴퓨터에서 성능 병목 현상이 발생하는 경우](#cause1)
-* [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure 백업 프로세스를 방해하는 경우](#cause2)
-* [백업 에이전트가 Azure VM(가상 컴퓨터)에서 실행 중인 경우](#cause3)  
+* [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 프로세스를 방해하는 경우](#cause2)
+* [Backup 에이전트가 Azure VM(가상 컴퓨터)에서 실행 중인 경우](#cause3)  
 * [많은 수(수백만 개)의 파일을 백업하는 경우](#cause4)
 
-문제 해결을 시작하기 전에 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)를 다운로드하여 설치하는 것이 좋습니다. Microsoft는 다양한 문제를 해결하고, 기능을 추가하고, 성능을 향상시키기 위해 백업 에이전트를 자주 업데이트합니다.
+문제 해결을 시작하기 전에 [최신 Azure Backup 에이전트](http://aka.ms/azurebackup_agent)를 다운로드하여 설치하는 것이 좋습니다. Microsoft는 다양한 문제를 해결하고, 기능을 추가하고, 성능을 향상시키기 위해 Backup 에이전트를 자주 업데이트합니다.
 
-일반적인 구성 문제가 발생하지 않도록 [Azure 백업 서비스 - FAQ](backup-azure-backup-faq.md) 를 검토하는 것이 좋습니다.
+일반적인 구성 문제가 발생하지 않도록 [Azure Backup 서비스 - FAQ](backup-azure-backup-faq.md) 를 검토하는 것이 좋습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -60,10 +60,10 @@ Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니�
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure 백업을 방해함
-Windows 시스템 내의 다른 프로세스가 Azure 백업 에이전트 프로세스의 성능에 부정적인 영향을 미치는 경우가 확인되었습니다. 예를 들어 Azure 백업 에이전트 및 다른 프로그램을 함께 사용하여 데이터를 백업하거나 바이러스 백신 소프트웨어가 실행되고 있고 백업할 파일이 잠겨 있는 경우 파일을 여러 번 잠그면서 경합이 발생할 수 있습니다. 이 경우 백업이 실패하거나 작업이 예상보다 오래 걸릴 수 있습니다.
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해함
+Windows 시스템 내의 다른 프로세스가 Azure Backup 에이전트 프로세스의 성능에 부정적인 영향을 미치는 경우가 확인되었습니다. 예를 들어 Azure Backup 에이전트 및 다른 프로그램을 함께 사용하여 데이터를 백업하거나 바이러스 백신 소프트웨어가 실행되고 있고 백업할 파일이 잠겨 있는 경우 파일을 여러 번 잠그면서 경합이 발생할 수 있습니다. 이 경우 백업이 실패하거나 작업이 예상보다 오래 걸릴 수 있습니다.
 
-이 시나리오에서 가장 좋은 방법은 다른 백업 프로그램을 해제하고 Azure 백업 에이전트의 백업 시간이 달라지는지 확인하는 것입니다. 일반적으로 여러 개의 백업이 동시에 실행되지 않도록 하는 것만으로도 백업이 서로 영향을 주지 않도록 할 수 있습니다.
+이 시나리오에서 가장 좋은 방법은 다른 백업 프로그램을 해제하고 Azure Backup 에이전트의 백업 시간이 달라지는지 확인하는 것입니다. 일반적으로 여러 개의 백업이 동시에 실행되지 않도록 하는 것만으로도 백업이 서로 영향을 주지 않도록 할 수 있습니다.
 
 바이러스 백신 프로그램의 경우 다음 파일 및 위치를 제외하는 것이 좋습니다.
 
@@ -73,8 +73,8 @@ Windows 시스템 내의 다른 프로세스가 Azure 백업 에이전트 프로
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: 백업 에이전트가 Azure 가상 컴퓨터에서 실행되고 있음
-VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실행할 때보다 성능이 더 느려집니다. 이것은 IOPS 제한 때문으로 예상됩니다.  그러나 백업되는 데이터 드라이브를 Azure 프리미엄 저장소로 전환하여 성능을 최적화할 수 있습니다. 이 문제를 해결하기 위해 계속 노력 중이며, 이후 릴리스에서 수정 사항을 사용할 수 있게 될 것입니다.
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: Backup 에이전트가 Azure 가상 컴퓨터에서 실행되고 있음
+VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실행할 때보다 성능이 더 느려집니다. 이것은 IOPS 제한 때문으로 예상됩니다.  그러나 백업되는 데이터 드라이브를 Azure Premium Storage로 전환하여 성능을 최적화할 수 있습니다. 이 문제를 해결하기 위해 계속 노력 중이며, 이후 릴리스에서 수정 사항을 사용할 수 있게 될 것입니다.
 
 <a id="cause4"></a>
 

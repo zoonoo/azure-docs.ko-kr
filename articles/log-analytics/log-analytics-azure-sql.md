@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -102,7 +102,16 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 각 관점에서 구독, 서버, 탄력적 풀 및 데이터베이스 수준에 대한 요약이 제공됩니다. 또한 각 관점에 따라 오른쪽에 관점별 보고서가 표시됩니다. 목록에서 구독, 서버, 풀 또는 데이터베이스를 선택하면 계속해서 드릴다운됩니다.
 
-| 관점 | 설명 | | 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점입니다. 드릴다운은 DTU 및 GB 메트릭에 대한 요약을 제공합니다. | | 정보 | 인텔리전스 정보에 대한 계층적 드릴다운을 제공합니다. Intelligent Insights에 대해 자세히 알아보세요. | | 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | | 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | | 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | | 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. | | 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | | 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. |
+| 관점 | 설명 |
+| --- | --- |
+| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. 드릴다운은 DTU 및 GB 메트릭에 대한 요약을 제공합니다. |
+| 자세한 정보 | Intelligent Insights에 대한 계층적 드릴다운을 제공합니다. Intelligent Insights에 대해 자세히 알아보세요. |
+| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. |
+| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. |
+| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. |
+| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |
+| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. |
+| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 보고서
 
