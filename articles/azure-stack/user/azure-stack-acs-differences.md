@@ -3,22 +3,22 @@ title: "Azure 스택 저장소: 차이점과 고려 사항"
 description: "Azure 스택 배포 고려 사항 함께 Azure 스택 저장소 및 Azure 저장소 간의 차이점을 이해 합니다."
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure 스택 저장소: 차이점과 고려 사항
 
@@ -33,7 +33,7 @@ Azure 스택 저장소는 Microsoft Azure 스택에서 저장소 클라우드 �
 | 기능 | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|지원 클라우드 기반 SMB 파일 공유|아직 지원 되지 않음
-|나머지 암호화에는 데이터|256 비트 AES 암호화|아직 지원 되지 않음
+|휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화|256 비트 AES 암호화|아직 지원 되지 않음
 |Storage 계정 유형|범용 및 Azure Blob 저장소 계정|범용만
 |복제 옵션|로컬 중복 저장소, 지역 중복 저장소, 읽기 액세스 지역 중복 저장소 및 영역 중복 저장소|로컬 중복 저장소
 |Premium Storage|완전하게 지원|성능 제한이 있지만 제공 될 수 있습니다 또는 보장
