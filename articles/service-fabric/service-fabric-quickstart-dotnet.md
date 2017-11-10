@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 디버거를 서비스에 연결하려면 관리자 권한으로 Visual Studio를 실행해야 합니다.
 
-복제한 리포지토리에서 **Voting.sln** Visual Studio 솔루션을 엽니다.
+복제한 리포지토리에서 **Voting.sln** Visual Studio 솔루션을 엽니다.  
+
+기본적으로 응답 응용 프로그램은 포트 8080에서 수신하도록 설정됩니다.  응용 프로그램 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **끝점** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  응용 프로그램 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 응용 프로그램 포트 값으로 대체합니다.
 
 응용 프로그램을 배포하려면 **F5** 키를 누릅니다.
 
 > [!NOTE]
-> 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
+> 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.  출력에서 "응용 프로그램 URL이 설정되지 않았거나 HTTP/HTTPS URL이 아니므로 응용 프로그램에 대한 브라우저가 열리지 않습니다."라는 메시지가 표시됩니다.  메시지가 오류를 나타내지 않지만 브라우저가 자동으로 시작되지 않습니다.
 
 배포가 완료되면 브라우저를 시작하고 응용 프로그램의 웹 프런트 엔드인 페이지(`http://localhost:8080`)를 엽니다.
 
@@ -114,14 +116,15 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 디버깅 세션을 중지하려면 **Shift+F5** 키를 누릅니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
-응용 프로그램을 Azure의 클러스터에 배포하려면 사용자 고유의 클러스터를 만들거나 Party 클러스터를 만들도록 선택할 수 있습니다.
+응용 프로그램을 Azure에 배포하려면 응용 프로그램을 실행하는 Service Fabric 클러스터가 필요합니다. 
 
-Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
+### <a name="join-a-party-cluster"></a>Party 클러스터 조인
+Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 
 
-사용자 고유의 클러스터를 만드는 방법은 [Azure에서 첫 번째 Service Fabric 클러스터 만들기](service-fabric-get-started-azure-cluster.md)를 참조하세요.
+[Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. **연결 끝점** 값을 기억해두세요. 다음 단계에서 사용됩니다.
 
 > [!Note]
-> 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 8080에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. Party 클러스터를 사용하는 경우 이 포트가 열려 있습니다.
+> 기본적으로 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 8080에서 수신 대기하도록 구성됩니다. 포트 8080은 Party 클러스터에서 열립니다.  응용 프로그램 포트를 변경해야 하는 경우 Party 클러스터에서 열려 있는 포트 중 하나를 변경합니다.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 배포
@@ -131,7 +134,9 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
     ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. **연결 끝점** 필드에 클러스터의 연결 끝점을 입력하고 **게시**를 클릭합니다. Party 클러스터에 등록하면 연결 끝점이 브라우저에 제공됩니다. - 예를 들면 `winh1x87d1d.westus.cloudapp.azure.com:19000`입니다.
+2. **연결 끝점** 필드에 Party 클러스터 페이지의 **연결 끝점**을 복사하고 **게시**를 클릭합니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
 3. 브라우저를 열고 클러스터 주소에 ':8080'을 뒤에 붙여 입력하여 클러스터로 응용 프로그램을 가져옵니다(예: `http://winh1x87d1d.westus.cloudapp.azure.com:8080`). 이제 Azure의 클러스터에서 실행 중인 응용 프로그램이 표시됩니다.
 
