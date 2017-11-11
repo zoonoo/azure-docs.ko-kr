@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 2dd5fe36105f4013c36dd4dc952424d5672ba91f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure 스택 앱 서비스 리소스 공급자 추가
 
@@ -97,7 +97,7 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image07.png)    
 
-11. 역할 인스턴스 및 SKU 옵션을 검토 합니다. 기본값은 인스턴스와 ASDK 배포의 각 역할에 대 한 최소 SKU의 최소 수도 채워집니다. 코어 및 메모리 요구 사항에 대 한 요약 제공 배포를 계획 하는 데 도움이 됩니다. 선택 항목을 변경한 후 클릭 **다음**합니다.
+11. 역할 인스턴스 및 SKU 옵션을 검토 합니다. 기본값은 인스턴스와 ASDK 배포의 각 역할에 대 한 최소 SKU의 최소 수도 채워집니다. 배포를 계획 하는 데 도움이 vCPU 및 메모리 요구 사항에 대 한 요약 제공 됩니다. 선택 항목을 변경한 후 클릭 **다음**합니다.
 
     > [!NOTE]
     > 프로덕션 배포의 경우의 지침에 따라 [용량 Azure 스택에서 Azure 앱 서비스 서버 역할에 대 한 계획](azure-stack-app-service-capacity-planning.md)합니다.
@@ -106,11 +106,11 @@ Azure 스택 환경에 앱 서비스 리소스 공급자를 설치 합니다. �
 
     | 역할 | 최소 인스턴스 | 최소 SKU | 참고 사항 |
     | --- | --- | --- | --- |
-    | Controller | 1 | -Standard_A1 (1 코어, 1792 MB) | 클라우드 앱 서비스의 상태를 유지 관리 및 관리 합니다. |
-    | 관리 | 1 | -Standard_A2 (2 코어, 3584 MB) | 앱 서비스 Azure 리소스 관리자 및 API 끝점, 포털 확장 (관리, 테 넌 트, 함수 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
-    | 게시자 | 1 | -Standard_A1 (1 코어, 1792 MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
-    | FrontEnd | 1 | -Standard_A1 (1 코어, 1792 MB) | 앱 서비스 응용 프로그램에 요청을 라우팅합니다. |
-    | 공유 작업자 | 1 | -Standard_A1 (1 코어, 1792 MB) | 호스트 웹 또는 응용 프로그램 API 및 Azure 함수 응용 프로그램. 더 많은 인스턴스를 추가할 수 있습니다. 운영자 제품을 정의 하 고 모든 SKU 계층을 선택 수 있습니다. 계층은 코어를 하나 이상이 있어야 합니다. |
+    | Controller | 1 | -Standard_A1 (1 vCPU, 1792 MB) | 클라우드 앱 서비스의 상태를 유지 관리 및 관리 합니다. |
+    | 관리 | 1 | -Standard_A2 (2 개의 Vcpu, 3584 MB) | 앱 서비스 Azure 리소스 관리자 및 API 끝점, 포털 확장 (관리, 테 넌 트, 함수 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
+    | 게시자 | 1 | -Standard_A1 (1 vCPU, 1792 MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
+    | FrontEnd | 1 | -Standard_A1 (1 vCPU, 1792 MB) | 앱 서비스 응용 프로그램에 요청을 라우팅합니다. |
+    | 공유 작업자 | 1 | -Standard_A1 (1 vCPU, 1792 MB) | 호스트 웹 또는 응용 프로그램 API 및 Azure 함수 응용 프로그램. 더 많은 인스턴스를 추가할 수 있습니다. 운영자 제품을 정의 하 고 모든 SKU 계층을 선택 수 있습니다. 계층에 최소 하나의 vCPU 있어야 합니다. |
 
     ![앱 서비스 설치 관리자](media/azure-stack-app-service-deploy/image08.png)    
 

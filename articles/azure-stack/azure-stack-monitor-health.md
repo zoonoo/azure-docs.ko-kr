@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack의 상태 및 경고 모니터링
 
@@ -36,7 +36,7 @@ Azure 스택 인프라 모니터링 상태 및 Azure 스택 영역에 대 한 �
  
  Azure 스택 연산자로 관리자 포털 및 REST API 및 PowerShell을 통해 구성 요소의 상태를 볼 수 있습니다.
  
-포털에서 상태를 보려면의 원하는 영역을 클릭는 **지역 관리** 바둑판식으로 배열입니다. 인프라 역할 및 리소스 공급자의 상태를 볼 수 있습니다. 이 버전에서는 계산 리소스 공급자는 성능 상태를 보고 하지 않습니다.
+포털에서 상태를 보려면의 원하는 영역을 클릭는 **지역 관리** 바둑판식으로 배열입니다. 인프라 역할 및 리소스 공급자의 상태를 볼 수 있습니다.
 
 ![인프라 역할 목록](media/azure-stack-monitor-health/image2.png)
 
