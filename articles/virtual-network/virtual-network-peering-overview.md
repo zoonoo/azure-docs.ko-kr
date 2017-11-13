@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -35,9 +35,9 @@ ms.lasthandoff: 10/24/2017
 
 ## <a name="requirements-constraints"></a>요구 사항 및 제약 조건
 
-* 동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역의 가상 네트워크 피어링은 미국 중서부, 캐나다 중부 및 미국 서부 2에서 현재 미리 보기 상태입니다. 미리 보기에 [구독을 등록](virtual-network-create-peering.md)할 수 있습니다.
+* 동일한 지역의 가상 네트워크 피어링은 일반 공급됩니다. 서로 다른 지역의 가상 네트워크 피어링은 미국 중서부, 캐나다 중부 및 미국 서부 2에서 현재 미리 보기 상태입니다. 다른 지역에서 가상 네트워크를 피어링하기 전에 먼저 미리 보기에 대한 [구독을 등록](virtual-network-create-peering.md#register)해야 합니다. 미리 보기에 대한 등록을 완료하지 않은 경우 다른 지역에서 가상 네트워크 간 피어링 만들기 시도는 실패합니다.
     > [!WARNING]
-    > 교차 지역에서 만든 가상 네트워크 피어링은 일반 공급 릴리스의 피어링과 동일한 수준의 가용성과 신뢰성을 가질 수 없습니다. 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 가상 네트워크 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
+    > 교차 지역에서 만든 가상 네트워크 피어링은 일반 공급 릴리스의 피어링과 동일한 수준의 가용성과 신뢰성을 가질 수 없습니다. 가상 네트워크 피어링은 기능상의 제약이 있거나, 일부 Azure 지역에서 사용하지 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
 * 피어링된 가상 네트워크에는 겹치지 않는 IP 주소 공간이 있어야 합니다.
 * 가상 네트워크가 다른 가상 네트워크와 피어링되면 주소 범위를 추가하거나 가상 네트워크의 주소 공간에서 삭제할 수 없습니다. 피어링된 가상 네트워크의 주소 공간에 주소 범위를 추가해야 하는 경우 피어링을 제거하고, 주소 공간을 추가한 후 피어링을 다시 추가해야 합니다.

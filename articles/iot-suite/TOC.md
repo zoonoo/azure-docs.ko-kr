@@ -88,7 +88,7 @@
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT 허브](/azure/iot-hub/)
-## [IoT 중부](/azure/index#pivot=services&panel=iot)
+## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [기계 학습](/azure/machine-learning/)
 
 # 리소스

@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: 문제 해결
           href: azure-diagnostics-troubleshooting.md
-    - name: Azure Monitor 메트릭 탐색기 사용
-      items:
-        - name: 메트릭 차트 만들기
-          href: monitoring-metric-charts.md
+    - name: 메트릭 탐색기에서 메트릭 차트 만들기
+      href: monitoring-metric-charts.md
+    - name: Grafana로 메트릭 보내기
+      href: monitor-send-to-grafana.md
 - name: 참조
   items:
     - name: Azure CLI

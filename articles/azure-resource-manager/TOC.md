@@ -71,9 +71,7 @@
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### 예
-#### [태그](resource-manager-policy-tags.md)
-#### [명명 규칙](resource-manager-policy-naming-convention.md)
+### [명명 규칙](resource-manager-policy-naming-convention.md)
 
 ## 감사
 ### [활동 로그 보기](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 가상 컴퓨터 배포 오류

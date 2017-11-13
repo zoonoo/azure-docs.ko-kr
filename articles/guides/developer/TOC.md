@@ -1,7 +1,7 @@
 # 개요
 ## [개발자 가이드](azure-developer-guide.md) 
-## [Azure 서비스 개요](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [포털 개요](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Azure 서비스 개요](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [포털 개요](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # 빠른 시작
@@ -77,7 +77,7 @@
 ## 보안
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## 백업
+## Backup
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [가상 컴퓨터](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
@@ -107,6 +107,7 @@
 ## [결제](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # 리소스
+## [Azure 한도 및 할당량](../../azure-subscription-service-limits.md)
 ## [Azure 지역](https://azure.microsoft.com/regions/)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

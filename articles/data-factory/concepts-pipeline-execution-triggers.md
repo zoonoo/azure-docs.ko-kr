@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 }
 ```
 
+> [!IMPORTANT]
+>  **매개 변수** 속성은 **파이프라인** 내에서 필수 속성입니다. 파이프라인에서 매개 변수를 사용하지 않는 경우에도 속성이 있어야 하므로 매개 변수에 대한 빈 json을 포함합니다.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>개요: 스케줄러 트리거 스키마
 다음 테이블은 트리거의 되풀이 및 일정 계획과 관련된 주요 요소의 공급 개요를 제공합니다.
 
 JSON 속성 |     설명
 ------------- | -------------
 startTime | startTime은 날짜-시간입니다. 간단한 일정의 경우 startTime은 첫 번째 항목입니다. 복잡한 일정의 경우 트리거는 startTime 이후에 시작합니다.
+endTime | 트리거에 대한 종료 날짜-시간을 지정합니다. 이 시간 이후 트리거가 실행되지 않습니다. 과거의 endTime을 갖는 것은 유효하지 않습니다.
+timeZone | 현재는 UTC만 지원됩니다. 
 되풀이 | recurrence 개체는 트리거에 대한 되풀이 규칙을 지정합니다. recurrence 개체는 frequency, interval, endTime, count 및 schedule 요소를 지원합니다. recurrence가 정의된 경우 frequency는 필수 요소이며 recurrence의 다른 요소는 선택 사항입니다.
 frequency | 트리거가 되풀이되는 빈도 단위를 나타냅니다. 지원되는 값은 `minute`, `hour`, `day`, `week`또는 `month`입니다.
 interval | interval은 양의 정수입니다. 이는 트리거가 실행하는 빈도를 결정하는 frequency에 대한 간격을 정의합니다. 예를 들어 interval이 3이고 frequency가 "week"인 경우 매 3주마다 트리거가 되풀이됩니다.
-endTime | 트리거에 대한 종료 날짜-시간을 지정합니다. 이 시간 이후 트리거가 실행되지 않습니다. 과거의 endTime을 갖는 것은 유효하지 않습니다.
 schedule | 지정된 빈도를 가진 트리거는 되풀이 일정을 기반으로 되풀이를 변경합니다. schedule에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 조건이 포함됩니다.
+
+
+### <a name="schedule-trigger-example"></a>일정 트리거 예제
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>개요: 스케줄러 트리거 스키마 기본값, 제한 및 예
 
@@ -242,7 +283,7 @@ startTime 값 | 일정 없이 되풀이 | 일정대로 되풀이
 
 startTime이 이전이고 recurrence가 있으나 schedule이 없는 경우에 어떻게 되는지 예제를 보겠습니다. 현재 시간이 `2017-04-08 13:00`이고 startTime이 `2017-04-07 14:00`이며 recurrence는 2일마다라고 가정합니다(frequency: day 및 interval: 2를 사용하여 정의됨). startTime이 현재 시간보다 이전임에 유의하십시오.
 
-이러한 조건일 경우 첫 실행은 `2017-04-09 at 14:00`입니다. 스케줄러 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다. 현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다. 따라서 이 경우 startTime은 `2017-04-07 at 2:00pm`이므로 다음 인스턴스는 `2017-04-09 at 2:00pm`인 시간부터 2일 후입니다.
+이러한 조건일 경우 첫 실행은 `2017-04-09 at 14:00`입니다. Scheduler 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다. 현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다. 따라서 이 경우 startTime은 `2017-04-07 at 2:00pm`이므로 다음 인스턴스는 `2017-04-09 at 2:00pm`인 시간부터 2일 후입니다.
 
 첫 번째 실행 시간은 startTime이 `2017-04-05 14:00` 또는 `2017-04-01 14:00`이더라도 동일합니다. 첫 번째 실행 후 후속 실행은 일정을 사용하여 계산됩니다. 따라서 `2017-04-11 at 2:00pm`, 그 다음에 `2017-04-13 at 2:00pm`, 그 다음에 `2017-04-15 at 2:00pm` 식으로 실행됩니다.
 
@@ -251,7 +292,7 @@ startTime이 이전이고 recurrence가 있으나 schedule이 없는 경우에 �
 ### <a name="deep-dive-schedule"></a>자세히 알아보기: schedule
 한편 schedule은 트리거 실행의 횟수를 제한할 수 있는 방법이기도 합니다. 예를 들어 빈도가 "month"인 트리거에 31일에만 실행되는 schedule이 있을 경우, 이 작업은 31일이 있는 달에만 실행됩니다.
 
-또한 schedule로 트리거 실행의 횟수를 늘릴 수도 있습니다. 예를 들어 빈도가 "month"인 트리거의 schedule이 매월 1일과 2일로 설정된 경우, 트리거는 한 달에 한 번 실행되는 것이 아니라 매월 1일과 2일에 실행됩니다.
+반면 schedule로 트리거 실행의 횟수를 늘릴 수도 있습니다. 예를 들어 빈도가 "month"인 트리거의 schedule이 매월 1일과 2일로 설정된 경우, 트리거는 한 달에 한 번 실행되는 것이 아니라 매월 1일과 2일에 실행됩니다.
 
 여러 일정 요소가 지정된 경우, 계산되는 순서는 가장 큰 것부터 가장 작은 것의 순서입니다. 즉 주차, 날짜, 요일, 시간, 분의 순서입니다.
 
@@ -262,9 +303,9 @@ JSON 이름 | 설명 | 유효한 값
 --------- | ----------- | ------------
 minutes | 트리거가 실행될 시간(분)입니다. | <ul><li>Integer</li><li>정수 배열</li></ul>
 hours | 트리거가 실행될 일(시간)입니다. | <ul><li>Integer</li><li>정수 배열</li></ul>
-weekDays | 트리거가 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday 또는 Sunday</li><li>위 값의 배열(최대 배열 크기는 7)</li></p>대/소문자 구분 안 함</p>
+weekDays | 트리거가 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday 또는 Sunday</li><li>값의 배열(최대 배열 크기는 7)</li></p>대/소문자 구분 안 함</p>
 monthlyOccurrences | 며칠에 트리거를 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다. | monthlyOccurence 개체의 배열: `{ "day": day,  "occurrence": occurence }`. <p> day는 트리거를 실행할 요일입니다. 예를 들어 `{Sunday}`는 해당 월의 매주 일요일입니다. 필수입니다.<p>occurrence는 월 중에 되풀이되는 날입니다. 예를 들어 `{Sunday, -1}`은 해당 월의 마지막 일요일입니다. 선택 사항입니다.
-monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에만 지정할 수 있습니다. | <ul><li>1 이상 31 이하 사이의 모든 값</li><li>1 이하 및 31 이상의 모든 값</li><li>위 값의 배열</li>
+monthDays | 트리거가 실행될 날짜입니다. 빈도가 월인 경우에만 지정할 수 있습니다. | <ul><li>1 이상 31 이하 사이의 모든 값</li><li>1 이하 및 31 이상의 모든 값</li><li>값의 배열</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>예제: 되풀이 일정

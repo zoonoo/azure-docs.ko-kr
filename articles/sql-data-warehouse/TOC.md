@@ -18,7 +18,7 @@
 ### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
 ### [질문과 대답](sql-data-warehouse-overview-faq.md)
 
-## 백업 및 복원
+## Backup 및 복원
 
 ### [Backup 개요](sql-data-warehouse-backups.md)
 ### [복원 개요](sql-data-warehouse-restore-database-overview.md)
@@ -120,6 +120,8 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [계산 수준 자동화](manage-compute-with-azure-functions.md)
+
 ### 리소스 클래스
 #### [지침](resource-classes-for-workload-management.md)
 #### [워크로드 분석](analyze-your-workload.md)

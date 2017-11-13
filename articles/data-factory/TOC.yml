@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: 방법 가이드
   items:
-    - name: 데이터 이동
+    - name: 데이터 복사
       items:
-        - name: 복사 활동 개요
+        - name: 대상에 지원되는 원본에서 데이터 복사
           href: copy-activity-overview.md
+        - name: 분할된 데이터 읽기 또는 쓰기
+          href: how-to-read-write-partitioned-data.md
         - name: 커넥터
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: If 조건 작업
           href: control-flow-if-condition-activity.md
+        - name: Until 작업
+          href: control-flow-until-activity.md
         - name: 웹 작업
           href: control-flow-web-activity.md
         - name: 조회 작업
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: ForEach 작업
           href: control-flow-for-each-activity.md
+        - name: Wait 작업
+          href: control-flow-wait-activity.md
         - name: 식 언어
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: 자체 호스팅되는 통합 런타임에 대한 자격 증명 암호화
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: 데이터 팩터리 서비스 ID
+          href: data-factory-service-identity.md
     - name: 모니터링 및 관리
       items:
         - name: SDK 사용

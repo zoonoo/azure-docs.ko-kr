@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network 서비스 끝점(미리 보기)
 
@@ -27,7 +27,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 미리 보기 상태로 제공됩니다.
 
-- **Azure Storage**: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast 및 AustraliaSouthEast
+- **Azure Storage**: Azure 공용 클라우드에서 모든 지역입니다.
 - **Azure SQL Database**: WestCentralUS, WestUS2 및 EastUS
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.

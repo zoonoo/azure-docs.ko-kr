@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: 템플릿에서 ASE 만들기
       href: create-from-template.md
+    - name: 강제 터널 구성
+      href: forced-tunnel-support.md
 - name: 참조
   items:
     - name: 관리 주소

@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: OMS Log Analytics를 사용하여 SQL 데이터 동기화 모니터링
+          href: sql-database-sync-monitor-oms.md
         - name: SQL 데이터 동기화의 모범 사례
           href: sql-database-best-practices-data-sync.md
         - name: SQL 데이터 동기화 문제 해결

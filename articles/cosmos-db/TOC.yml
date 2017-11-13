@@ -246,6 +246,8 @@
           items:
             - name: 테이블 개발
               href: table-support.md
+            - name: PowerShell에서 Table API 작업
+              href: table-powershell.md
             - name: Azure 테이블 저장소
               items:
                 - name: 테이블 저장소 개요
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: 테이블 저장소 REST API
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: 방법
+                - name: 개발
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: 루비
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: 변경 피드
           href: change-feed.md
         - name: 지리 공간적
