@@ -87,7 +87,6 @@
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
-### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
 ### 그룹 설정 관리
@@ -254,7 +253,6 @@
 ##### [클래식 포털](active-directory-add-manage-domain-names.md)
 ### [디렉터리 관리](active-directory-administer.md)
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
-### [O365 디렉터리](active-directory-manage-o365-subscription.md)
 ### [셀프 서비스 등록](active-directory-self-service-signup.md)
 #### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
