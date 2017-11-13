@@ -20,8 +20,6 @@
       items:
         - name: 저장소 옵션
           href: r-server-storage.md
-        - name: R Studio 설치
-          href: r-server-install-r-studio.md
         - name: Compute 컨텍스트
           href: r-server-compute-contexts.md
         - name: ScaleR 및 SparkR

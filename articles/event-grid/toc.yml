@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: 이벤트 스키마
       href: event-schema.md
+      items:
+        - name: Azure 구독
+          href: event-schema-subscriptions.md
+        - name: Blob 저장소
+          href: event-schema-blob-storage.md
+        - name: 이벤트 허브(영문)
+          href: event-schema-event-hubs.md
+        - name: 리소스 그룹
+          href: event-schema-resource-groups.md
 - name: 리소스
   items:
     - name: Azure 로드맵

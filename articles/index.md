@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 72583761a5e19c5585f760b919a664597fb51f7e
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -300,7 +300,7 @@ ms.lasthandoff: 11/06/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
                                                 <p>Azure Container Service(AKS)</p>
                                             </a>
@@ -384,7 +384,7 @@ ms.lasthandoff: 11/06/2017
                                     <h3>컨테이너</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service(AKS)</p>
                                             </a>
@@ -1342,7 +1342,7 @@ ms.lasthandoff: 11/06/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2009,7 +2009,7 @@ ms.lasthandoff: 11/06/2017
                         <a href="#containers">컨테이너</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

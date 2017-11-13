@@ -65,7 +65,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
       
        ![구성 업로드](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
    2. **구성 파일**에서 **찾아보기**를 사용하여 업데이트된 .cscfg 파일을 선택합니다.
-   3. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **Apply configuration even if one or more roles contain a single instance** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
+   3. 클라우드 서비스에 인스턴스가 하나뿐인 역할이 포함된 경우 **하나 이상의 역할에 단일 인스턴스가 포함된 경우에도 구성 적용** 확인란을 선택하여 역할의 구성 업데이트를 진행하도록 설정합니다.
       
        모든 역할에 대해 두 개 이상의 인스턴스를 정의하지 않는 경우 Azure는 서비스 구성 업데이트 과정에서 최소 99.95%의 클라우드 서비스 가용성을 보장할 수 없습니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
    4. **확인** (확인 표시)을 클릭합니다. 
