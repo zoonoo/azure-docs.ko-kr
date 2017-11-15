@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>StorSimple 장치에 대한 다중 경로 I/O 구성
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치에 대한 다중 경로 I/O 구성](storsimple-8000-configure-mpio-windows-server.md)으로 이동하세요. 이동에 대해 궁금한 점은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 Microsoft는 Windows Server에서 MPIO(다중 경로 I/O) 기능에 대한 지원을 기본으로 제공하여 항상 사용 가능한 내결함성 SAN 구성 빌드를 돕습니다. MPIO는 중복 실제 경로 구성 요소(어댑터, 케이블 및 스위치)를 사용하여 서버 및 저장소 장치 간의 논리 경로를 만듭니다. 논리 경로에 오류를 일으키는 구성 요소 오류가 발생할 경우 응용 프로그램이 데이터에 계속 액세스할 수 있도록 다중 경로 논리가 I/O에 대한 대체 경로를 사용합니다. 또한 구성에 따라 MPIO가 이러한 모든 경로에서 부하를 다시 분산하여 성능을 향상할 수도 있습니다. 자세한 내용은 [MPIO 개요](https://technet.microsoft.com/library/cc725907.aspx "MPIO 개요 and features")를 참조하세요.  
 
 StorSimple 솔루션의 고가용성을 위해 MPIO는 StorSimple 장치에서 구성되어야 합니다. MPIO가 Windows Server 2012 R2를 실행하는 호스트 서버에 설치되면 서버가 링크, 네트워크 또는 인터페이스를 허용할 수 있습니다. 

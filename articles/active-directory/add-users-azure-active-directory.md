@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory에 새 사용자 추가 | Microsoft Docs"
-description: "Azure Active Directory에서 새 사용자를 추가하는 방법을 설명합니다."
+title: "Azure Active Directory에서 사용자 추가 또는 삭제 | Microsoft Docs"
+description: "Azure Active Directory에서 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 새 사용자 추가
 이 문서에서는 Azure Porta을 사용하거나 온-프레미스 Windows Server AD 사용자 계정 데이터를 동기화하여 한 번에 하나씩 Azure AD(Azure Active Directory)에서 조직에 새 사용자를 추가하는 방법을 설명합니다. 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="learn-more"></a>자세한 정보 
-* [외부 사용자 추가](active-directory-users-create-external-azure-portal.md)
+* [다른 디렉터리에서 게스트 사용자 추가](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Azure AD의 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
 

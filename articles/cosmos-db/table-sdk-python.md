@@ -1,6 +1,6 @@
 ---
-title: "Python에 대한 Azure Cosmos DB 테이블 API | Microsoft Docs"
-description: "릴리스 날짜, 사용 중지 날짜 및 각 버전 간의 변경 내용을 포함하는 프리미엄 태블릿용 Azure Cosmos DB Python SDK의 모든 것을 알아봅니다."
+title: Azure Table Storage SDK for Python | Microsoft Docs
+description: "릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Table Storage SDK for Python에 대해 자세히 알아봅니다."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/04/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 8a52032c1f406b7bcaab59f6ba19bee0784d20eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="azure-cosmos-db-table-api-for-python-release-notes-and-resources"></a>Python용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
+# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>Azure Table Storage SDK for Python: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Python](table-sdk-python.md)

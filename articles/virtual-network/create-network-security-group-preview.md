@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>네트워크 및 응용 프로그램 보안 그룹(미리 보기)을 사용하여 네트워크 트래픽 필터링
 
@@ -44,6 +44,7 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
@@ -52,7 +53,9 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    이전 명령에서 반환되는 출력의 **state**에 *Registered*가 표시되면 나머지 단계를 진행합니다. 등록되기 전에 진행하면 나머지 단계가 실패합니다.
+    > [!WARNING]
+    > 등록을 완료하는 데 최대 1시간이 걸릴 수 있습니다. 이전 명령에서 반환되는 출력의 **state**에 *Registered*가 표시되면 나머지 단계를 진행합니다. 등록되기 전에 진행하면 나머지 단계가 실패합니다.
+
 6. 다음 bash스크립트를 실행하여 리소스 그룹을 만듭니다.
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    9단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myWebNic*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myWebNic*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
+    9단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myNic1*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myNic1*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
 
 13. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 *win2016datacenter*를 *UbuntuLTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
 
@@ -239,7 +239,8 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    이전 명령에서 반환되는 출력의 **RegistrationState** 열에 *Registered*가 표시되면 나머지 단계를 진행합니다. 등록되기 전에 진행하면 나머지 단계가 실패합니다.
+    > [!WARNING]
+    > 등록을 완료하는 데 최대 1시간이 걸릴 수 있습니다. 이전 명령에서 반환되는 출력의 **RegistrationState**에 *Registered*가 표시되면 나머지 단계를 진행합니다. 등록되기 전에 진행하면 나머지 단계가 실패합니다.
         
 6. 리소스 그룹 만들기:
 
@@ -343,7 +344,6 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ Azure CLI 명령은 Windows, Linux 또는 macOS에서 실행하는지 여부에 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    8단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myWebNic*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myWebNic*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
+    8단계에서 만든 해당 보안 규칙만 네트워크 인터페이스를 구성원으로 하는 응용 프로그램 보안 그룹을 기반으로 네트워크 인터페이스에 적용됩니다. 예를 들어 *WebRule*만 *myNic1*에 적용됩니다. 왜냐하면 네트워크 인터페이스는 *WebServers* 응용 프로그램 보안 그룹의 구성원이고 규칙에서 *WebServers* 응용 프로그램 보안 그룹을 대상으로 지정하기 때문입니다. *AppRule* 및 *DatabaseRule* 규칙은 *myNic1*에 적용되지 않습니다. 왜냐하면 네트워크 인터페이스는 *AppServers* 및 *DatabaseServers* 응용 프로그램 보안 그룹의 구성원이 아니기 때문입니다.
 
 13. 각 서버 유형에 대해 하나의 가상 컴퓨터를 만들고 각 가상 컴퓨터에 해당 네트워크 인터페이스를 연결합니다. 이 예제에서는 Windows 가상 컴퓨터를 만들지만 스크립트를 실행하기 전에 *-Windows*를 *-Linux*로, *MicrosoftWindowsServer*를 *Canonical*로, *windowsServer*를 *UbuntuServer*로, *2016-Datacenter*를 *14.04.2-LTS*로 변경하면 Linux 가상 컴퓨터를 만들 수 있습니다.
 

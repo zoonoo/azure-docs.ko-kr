@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -40,6 +40,18 @@ Azure Active Directory는 지속적으로 개선되고 있습니다. 최신 개�
 -   변경 계획 
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문하세요.
+
+## <a name="november-2017"></a>2017년 11월
+
+**형식:** 사용되지 않는 기능  
+**서비스 범주:** ACS  
+**제품 기능:** Access Control Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함)은 2018년 말에 사용 중지됩니다.  자세한 일정 및 상위 수준 마이그레이션 지침을 포함한 자세한 내용은 다음 몇 주 동안 제공될 예정입니다. 그 동안에는 이 페이지에 ACS와 관련된 문의 사항과 함께 의견을 남겨주시면 우리 팀의 구성원들이 도움을 드리겠습니다.
+
+---
 
 
 ## <a name="october-2017"></a>2017년 10월

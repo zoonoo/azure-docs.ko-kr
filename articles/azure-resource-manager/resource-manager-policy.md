@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>리소스 정책 개요
 리소스 정책을 사용하면 조직에서 리소스에 대한 규칙을 설정할 수 있습니다. 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 컴퓨터만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 이에 따라 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
@@ -55,8 +55,6 @@ Azure에서는 일부 기본 제공 정책 정의을 제공하여 정의해야 �
 * 허용되지 않는 리소스 종류
 * SQL Server 버전 12.0 필요
 * 저장소 계정 암호화 필요
-
-[포털](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) 또는 [Azure CLI](resource-manager-policy-create-assign.md#azure-cli)를 통해 이러한 정책을 할당할 수 있습니다.
 
 ## <a name="policy-definition-structure"></a>정책 정의 구조
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
@@ -446,5 +444,5 @@ PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinition
 * 정책 규칙을 정의한 후에 범위에 할당합니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
 * 정책 예제는 [Azure 리소스 정책 GitHub 리포지토리](https://github.com/Azure/azure-policy-samples)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-* 정책 스키마는 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)에 게시되어 있습니다. 
+* 정책 스키마는 [http://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](http://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)에 게시되어 있습니다. 
 

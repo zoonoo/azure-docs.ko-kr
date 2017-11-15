@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
@@ -61,7 +61,8 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 1. 왼쪽 탐색 영역에서 함수 이름을 클릭하여 개발 페이지로 다시 이동합니다.
 1. **함수 URL 가져오기**를 클릭하고 URL을 복사합니다. 이제 `/api/hello` 경로가 사용되는 것을 볼 수 있습니다.
 1. 새 브라우저 탭 또는 기본 REST 클라이언트에 URL을 복사합니다. 브라우저는 기본적으로 GET을 사용합니다.
-1. 함수를 실행하고 작동하는지 확인합니다. 빠른 시작 코드를 충족하려면 "name" 매개 변수를 쿼리 문자열로 제공해야 할 수 있습니다.
+1. URL의 검색어 문자열에 매개 변수를 추가합니다(예: `/api/hello/?name=John`).
+1. 'Enter' 키를 눌러 작동하는지 확인합니다. "*Hello John*"이라는 응답이 표시됩니다.
 1. 다른 HTTP 메서드로 끝점을 호출하여 함수가 실행되지 않는지 확인할 수도 있습니다. 이 경우 cURL, Postman 또는 Fiddler와 같은 REST 클라이언트를 사용해야 합니다.
 
 ## <a name="proxies-overview"></a>프록시 개요
@@ -85,9 +86,8 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 [함수 앱 만들기](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) 단계를 반복하여 프록시를 만들 새 함수 앱을 만듭니다. 이 새로운 앱의 URL은 API에 대한 프런트 엔드로 사용되고 이전에 편집하던 함수 앱은 백 엔드로 사용됩니다.
 
 1. 포털의 새 프런트 엔드 함수 앱으로 이동합니다.
-1. **설정**을 선택합니다. 그런 후 **Azure Functions 프록시 사용(미리 보기)**을 "설정"으로 전환합니다.
-1. **플랫폼 설정**을 선택하고 **응용 프로그램 설정**을 선택합니다.
-1. **앱 설정** 아래로 스크롤하고 "HELLO_HOST" 키를 갖는 새 설정을 만듭니다. 해당 값을 백 엔드 함수 앱의 호스트(예: `<YourBackendApp>.azurewebsites.net`)로 설정합니다. 이것은 HTTP 함수를 테스트할 때 이전에 복사한 URL의 일부입니다. 나중에 구성에서 이 설정을 참조할 수 있습니다.
+1. **플랫폼 기능**을 선택하고 **응용 프로그램 설정**을 선택합니다.
+1. 키/값 쌍이 저장된 **응용 프로그램 설정**으로 스크롤하고 "HELLO_HOST" 키로 새 설정을 만듭니다. 해당 값을 백 엔드 함수 앱의 호스트(예: `<YourBackendApp>.azurewebsites.net`)로 설정합니다. 이것은 HTTP 함수를 테스트할 때 이전에 복사한 URL의 일부입니다. 나중에 구성에서 이 설정을 참조할 수 있습니다.
 
     > [!NOTE] 
     > 프록시에 대한 하드 코드된 환경 종속성을 방지하려면 호스트 구성에 대해 앱 설정이 권장됩니다. 앱 설정을 사용할 경우 환경 간에 프록시 구성을 이동할 수 있고 환경 관련 앱 설정이 적용됩니다.
@@ -120,7 +120,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 
 다음으로 프록시를 사용하여 솔루션에 대한 모의 API 만듭니다. 이를 통해 백 엔드를 완전히 구현하지 않고도 클라이언트 개발을 진행할 수 있습니다. 개발 후반부에 이 논리를 지원하는 새 함수 앱을 만들고 프록시를 해당 앱으로 리디렉션할 수 있습니다.
 
-이 모의 API를 만들려면 이번에는 [App Service 편집기](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)를 사용하여 새 프록시를 만듭니다. 시작하려면 포털의 함수 앱으로 이동합니다. **플랫폼 기능**을 선택하고 **App Service 편집기**를 찾습니다. 이를 클릭하면 새 탭에서 App Service 편집기가 열립니다.
+이 모의 API를 만들려면 이번에는 [App Service 편집기](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)를 사용하여 새 프록시를 만듭니다. 시작하려면 포털의 함수 앱으로 이동합니다. **플랫폼 기능**을 선택하고 **개발 도구**에서 **App Service 편집기**를 찾습니다. 이를 클릭하면 새 탭에서 App Service 편집기가 열립니다.
 
 왼쪽 탐색 영역에서 `proxies.json`을 선택합니다. 모든 사용자 프록시에 대한 구성이 저장되는 파일입니다. [함수 배포 방법](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) 중 하나를 사용하는 경우 이 파일이 소스 제어에 유지됩니다. 이 파일에 대한 자세한 내용은 [프록시 고급 구성](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration)을 참조하세요.
 
@@ -178,7 +178,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 
 이렇게 하면 backendUri 속성을 제외한 새 프록시 "GetUserByName"이 추가됩니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 레거시 시스템으로 프록시할 때, 헤더를 수정하거나 매개 변수를 쿼리하는 등의 작업이 필요할 때 특히 유용합니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses)을 참조하세요.
 
-브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `/api/users/{username}` 끝점을 호출하여 모의 API를 테스트합니다. _{username}_을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
+브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 끝점을 호출하여 모의 API를 테스트합니다. _{username}_을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 

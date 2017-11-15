@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
-# Azure Service Bus 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
 Advanced Message Queueing Protocol 1.0은 비동기적으로 안전하고 안정적으로 두 대상 간에 메시지를 전송하기 위한 표준화된 프레이밍 및 전송 프로토콜입니다. 또한 Azure Service Bus 메시징 및 Azure Event Hubs의 기본 프로토콜입니다. 두 서비스 모두 HTTPS를 지원합니다. 지원되는 소유 SBMP 프로토콜은 AMQP를 기준으로 단계적으로 중단되고 있습니다.
 
 AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨어 사용자(예: JP Morgan Chase)와 미들웨어 공급업체(예: Microsoft 및 Red Hat)를 연결한 광범위한 업계 공동 작업의 결과입니다. AMQP 프로토콜 및 확장 사양에 대한 기술 표준화 포럼은 OASIS이며 국제 표준 ISO/IEC 19494와 같은 공식 승인을 받았습니다.
 
-## 목표
+## <a name="goals"></a>목표
 
 이 문서에서는 현재 OASIS AMQP 기술 위원회에서 최종 마무리 단계에 있는 일부 확장 사양 초안과 AMQP 1.0 메시징 사양의 핵심 개념을 요약해서 설명하며, 이러한 사양을 토대로 Azure Service Bus가 구현되고 구축되는 방식을 알아봅니다.
 
 이 문서는 모든 플랫폼에서 기존 AMQP 1.0 클라이언트 스택을 사용하는 개발자가 AMQP 1.0을 통해 Azure Service Bus와 상호 작용할 수 있도록 하기 위해 작성되었습니다.
 
-Apache Proton 또는 AMQP.NET Lite와 같은 일반적인 범용 AMQP 1.0 스택은 이미 모든 핵심 AMQP 1.0 제스처를 이미 구현하는 데 사용되고 있습니다. 이러한 기본적인 제스처는 상위 수준의 API로 래핑되기도 합니다. 그뿐 아니라 Apache Proton은 두 가지 명령적 Messenger API와 반응적 Reactor API를 모두 제공합니다.
+일반적인 범용 AMQP 1.0 스택(예: Apache Proton 또는 AMQP.NET Lite)은 이미 모든 핵심 AMQP 1.0 프로토콜을 구현하고 있습니다. 이러한 기본적인 제스처는 상위 수준의 API로 래핑되기도 합니다. 그뿐 아니라 Apache Proton은 두 가지 명령적 Messenger API와 반응적 Reactor API를 모두 제공합니다.
 
 다음 논의에서는 AMQP 연결, 세션 및 링크의 관리와 프레임 전송 및 흐름 제어의 처리가 해당 스택(예: Apache Proton-C)에서 처리되며, 응용 프로그램 개발자의 많은 주의가 필요하지 않다고 가정합니다. 각각 `send()` 및 `receive()` 작업 모양을 갖는 특정 형식의 *발신자*와 *수신자* 추상화 개체를 만들고 연결하는 기능과 같은 몇 가지 API 기본형이 있다고 추상적으로 가정해보겠습니다.
 
 메시지 찾아보기 또는 세션 관리와 같은 Azure Service Bus의 고급 기능을 설명할 때 AMQP 용어로 설명하기도 하지만 이와 같이 가정된 API 추상화를 기반으로 계층화된 의사 구현으로 설명하기도 합니다.
 
-## AMQP란?
+## <a name="what-is-amqp"></a>AMQP란?
 
 AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워크 연결 방향으로 흐르는 이진 데이터 스트림의 구조를 제공한다는 것을 의미합니다. 이 구조는 *프레임*이라고 부르는 고유한 데이터 블록이 연결된 대상 간에 교환될 수 있도록 윤곽을 제공합니다. 전송 기능은 두 통신 당사자가 프레임이 전송될 때와 전송이 완료된 것으로 간주될 때에 대한 공유되는 이해를 설정할 수 있도록 합니다.
 
@@ -48,13 +48,13 @@ AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워
 
 AMQP 1.0 프로토콜은 확장 가능하게 설계되었으며 사양을 추가하여 기능을 향상할 수 있습니다. 이 문서에서 설명하는 세 가지 확장 사양이 이러한 경우를 보여 줍니다. 네이티브 AMQP TCP 포트를 구성하는 것이 어려울 수 있는 기존 HTTPS/WebSocket 인프라를 통해 통신할 수 있도록 하기 위해 바인딩 사양에 WebSocket을 통해 AMQP를 계층화하는 방법을 정의합니다. 관리를 위해 요청/응답 방식으로 메시지 인프라와 상호 작용하거나 고급 기능을 제공하기 위해 AMQP 관리 사양은 필요한 기본적인 상호 작용 기본 형식을 정의합니다. 페더레이션된 인증 모델 통합을 위해 AMQP 클레임 기반 보안 사양은 권한 부여 토큰을 연결하고 링크와 연결된 이러한 토큰을 갱신하는 방법을 정의합니다.
 
-## 기본 AMQP 시나리오
+## <a name="basic-amqp-scenarios"></a>기본 AMQP 시나리오
 
 이 섹션에서는 연결, 세션 및 링크의 생성과 큐, 토픽 및 구독 같은 Service Bus 엔터티와의 메시지 송수신 등 Azure Service Bus에서 AMQP 1.0을 사용하는 기본적인 방법을 설명합니다.
 
 AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1.0 사양이지만, 이 사양은 구현을 정확히 안내하기 위해 작성되었으며 프로토콜 학습용은 아닙니다. 이 섹션에서는 Service Bus가 AMQP 1.0을 사용하는 방법을 설명하는 데 필요한 다양한 용어를 중점적으로 소개합니다. AMQP를 좀 더 포괄적으로 소개하고 AMQP 1.0을 광범위하게 논의하려는 경우 [이 비디오 과정][this video course]을 검토할 수 있습니다.
 
-### 연결 및 세션
+### <a name="connections-and-sessions"></a>연결 및 세션
 
 AMQP는 통신하는 프로그램을 *컨테이너*라고 합니다. 여기에는 해당 컨테이너 내의 통신하는 엔터티인 *노드*가 포함됩니다. 큐는 이러한 노드가 될 수 있습니다. AMQP는 멀티플렉싱을 허용합니다. 따라서 노드 간의 많은 통신 경로에 대해 단일 연결을 사용할 수 있습니다. 예를 들어 응용 프로그램 클라이언트는 동일한 네트워크 연결을 통해 한 큐에서 수신하고 다른 큐로 전송하는 작업을 동시에 진행할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure Service Bus는 현재 각 연결에 대해 정확히 하나의 세션을 �
 
 연결, 채널 및 세션은 사용 후 삭제됩니다. 기본 연결이 축소되면 연결, TLS 터널, SASL 권한 부여 컨텍스트 및 세션을 다시 설정해야 합니다.
 
-### 링크
+### <a name="links"></a>링크
 
 AMQP는 링크를 통해 메시지를 전송합니다. 링크는 세션을 통해 만들어진 통신 경로로, 한 방향으로 메시지를 전송할 수 있도록 합니다. 전송 상태 협상은 링크를 통해 진행되며 연결 당사자 간에 양방향으로 진행됩니다.
 
@@ -97,7 +97,7 @@ Service Bus에서 노드는 큐, 토픽, 구독 또는 큐나 구독의 배달 �
 
 링크를 만들기 위해서는 연결하는 클라이언트가 로컬 노드 이름을 사용해야 합니다. Service Bus는 이러한 노드 이름을 강제적으로 규정하지 않으며 해석하지 않습니다. AMQP 1.0 클라이언트 스택은 일반적으로 클라이언트의 범위에서 이러한 임시 노드 이름이 고유하도록 하는 체계를 사용합니다.
 
-### 전송
+### <a name="transfers"></a>전송
 
 링크가 설정되면 해당 링크를 통해 메시지를 전송할 수 있습니다. AMQP에서는 링크를 통해 메시지를 발신자에서 수신자로 이동하는 명시적 프로토콜 제스처(*전송* 수행)를 통해 전송이 실행됩니다. 전송은 “합의에 도달하면” 완료됩니다. 즉, 양쪽 당사자가 해당 전송의 결과에 대해 공유된 이해를 설정해야 합니다.
 
@@ -117,7 +117,7 @@ Service Bus는 링크 복구를 지원하지 않습니다. 클라이언트가 �
 
 가능한 중복 전송을 보상하기 위해 Service Bus는 큐 및 토픽에 대한 선택적 기능으로 중복 검색을 지원합니다. 중복 검색 기능은 사용자 정의 기간 동안 들어오는 모든 메시지의 메시지 ID를 기록한 후 동일한 기간 동안 동일한 메시지 ID를 사용해서 전송된 모든 메시지를 자동으로 삭제합니다.
 
-### 흐름 제어
+### <a name="flow-control"></a>흐름 제어
 
 앞서 설명한 세션 수준 흐름 제어 모델 외에, 각 링크에는 자체 흐름 제어 모델도 있습니다. 세션 수준 흐름 제어는 컨테이너가 한번에 너무 많은 프레임을 처리하지 못하게 하고, 링크 수준 흐름 제어는 링크에서 처리하려는 메시지 수 및 처리 시기가 응용 프로그램에서 자동으로 결정되도록 합니다.
 
@@ -141,49 +141,49 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 다음 테이블의 화살표는 수행 흐름 방향을 표시합니다.
 
-#### 메시지 수신자 만들기
+#### <a name="create-message-receiver"></a>메시지 수신자 만들기
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |클라이언트는 수신자로서 엔터티에 연결합니다. |
 | Service Bus는 응답하고 링크의 해당 끝을 연결합니다. |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
-#### 메시지 발신자 만들기
+#### <a name="create-message-sender"></a>메시지 발신자 만들기
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### 메시지 발신자 만들기(오류)
+#### <a name="create-message-sender-error"></a>메시지 발신자 만들기(오류)
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### 메시지 수신자/발신자 닫기
+#### <a name="close-message-receiversender"></a>메시지 수신자/발신자 닫기
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |작업 없음 |
 | 작업 없음 |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### 전송(성공)
+#### <a name="send-success"></a>전송(성공)
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### 전송(오류)
+#### <a name="send-error"></a>전송(오류)
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
 | 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
-#### 수신
+#### <a name="receive"></a>수신
 
 | 클라이언트 | Service Bus |
 | --- | --- |
@@ -191,7 +191,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
-#### 다중 메시지 수신
+#### <a name="multi-message-receive"></a>다중 메시지 수신
 
 | 클라이언트 | Service Bus |
 | --- | --- |
@@ -201,11 +201,11 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
-### 메시지
+### <a name="messages"></a>메시지
 
 다음 섹션에서는 Service Bus에서 사용되는 표준 AMQP 메시지 섹션의 속성과 이러한 속성이 어떤 Service Bus API 집합에 매핑되는지 설명합니다.
 
-#### 머리글
+#### <a name="header"></a>머리글
 
 | 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### properties
+#### <a name="properties"></a>properties
 
 | 필드 이름 | 사용 | API 이름 |
 | --- | --- | --- |
@@ -233,18 +233,18 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | group-sequence |세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. Service Bus에서 무시됩니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## 고급 Service Bus 기능
+## <a name="advanced-service-bus-capabilities"></a>고급 Service Bus 기능
 
 이 섹션에서는 현재 AMQP의 OASIS 기술 위원회에서 개발 중인 AMQP의 확장 초안에 기반하는 Azure Service Bus의 고급 기능을 설명합니다. Service Bus는 이러한 초안의 최신 버전을 구현하며, 해당 초안이 표준 상태에 도달하면 도입된 변경 내용을 채택합니다.
 
 > [!NOTE]
-> Service Bus 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청/응답 기반 작업](service-bus-amqp-request-response.md) 문서에 설명되어 있습니다.
+> Service Bus 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [Service Bus의 AMQP 1.0: 요청-응답 기반 작업](service-bus-amqp-request-response.md) 문서에서 설명하고 있습니다.
 > 
 > 
 
-### AMQP 관리
+### <a name="amqp-management"></a>AMQP 관리
 
-AMQP 관리 사양은 여기서 논의할 첫 번째 확장 초안입니다. 이 사양은 AMQP 프로토콜 위에 계층화된 프로토콜 제스처 집합을 정의합니다. 이 제스처 집합은 AMQP를 통해 메시징 인프라와 관리 상호 작용을 수행할 수 있도록 합니다. 이 사양은 메시징 인프라 및 쿼리 작업 집합 내 엔터티 관리를 위한 *만들기*, *읽기*, *업데이트* 및 *삭제*와 같은 일반 작업을 정의합니다.
+AMQP 관리 사양은 이 문서에서 설명하는 초안 확장 중 첫 번째입니다. 이 사양은 AMQP를 통해 메시지 인프라와 관리 상호 작용을 수행할 수 있도록 하는 AMQP 프로토콜 위에 계층화된 프로토콜 집합을 정의합니다. 이 사양은 메시징 인프라 및 쿼리 작업 집합 내 엔터티 관리를 위한 *만들기*, *읽기*, *업데이트* 및 *삭제*와 같은 일반 작업을 정의합니다.
 
 이러한 모든 제스처는 클라이언트와 메시지 인프라 간에 요청/응답 상호 작용을 필요로 하므로, 해당 사양에서는 AMQP를 토대로 이러한 상호 작용 패턴을 모델링하는 방법을 정의합니다. 클라이언트는 메시지 인프라에 연결하고, 세션을 시작하고, 링크 쌍을 만듭니다. 한 링크에서 클라이언트는 보낸 사람 역할을 하고, 다른 링크에서는 받는 사람 역할을 하므로 양방향 채널로 작동할 수 있는 링크 쌍이 만들어집니다.
 
@@ -263,7 +263,7 @@ AMQP 관리 사양은 여기서 논의할 첫 번째 확장 초안입니다. 이
 
 Service Bus는 현재 관리 사양의 어떤 핵심 기능도 구현하지 않지만 관리 사양이 정의하는 요청/응답 패턴은 클레임 기반 보안 기능 및 다음 섹션에서 다룰 고급 기능 대부분의 토대가 됩니다.
 
-### 클레임 기반 권한 부여
+### <a name="claims-based-authorization"></a>클레임 기반 권한 부여
 
 AMQP CBS(클레임 기반 인증) 사양 초안은 관리 사양의 요청/응답 패턴을 기반으로 구축되며, AMQP와 페더레이션된 보안 토큰을 사용하는 방법에 대한 일반화된 모델을 설명합니다.
 
@@ -316,7 +316,7 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 클라이언트는 이후에 토큰 만료를 계속 추적해야 합니다. 토큰이 만료되면 Service Bus는 각 엔터티에 대한 연결에서 모든 링크를 즉시 삭제합니다. 이를 방지하기 위해 클라이언트는 다른 링크에서 흐르는 페이로드 트래픽을 방해하지 않으면서 가상 *$cbs* 관리 노드에서 *put-token* 제스처를 사용하여 언제든지 노드에 대한 토큰을 새 토큰으로 바꿀 수 있습니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 AMQP에 대한 자세한 내용을 알아보려면 다음 링크를 방문하세요.
 

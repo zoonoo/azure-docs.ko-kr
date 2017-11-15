@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -88,6 +88,23 @@ SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으�
 관리자에 의해 설정된 경우 사용자는 더 많은 인증 방법을 제공하도록 선택할 수 있습니다.
 
 사용자가 필요한 최소 메서드를 등록하지 않은 경우 자신의 암호를 재설정하려면 관리자에게 요청하라고 지시하는 오류 페이지가 표시됩니다.
+
+#### <a name="changing-authentication-methods"></a>인증 방법 변경
+
+다시 설정 또는 등록 잠금 해제에 필요한 인증 방법이 하나만 있는 정책으로 시작한 경우 이를 두 가지로 변경하면 어떻게 되나요?
+
+| 등록 방법 수 | 필요한 방법 수 | 결과 |
+| :---: | :---: | :---: |
+| 1개 이상 | 1 | 다시 설정 또는 잠금 해제 **가능** |
+| 1 | 2 | 다시 설정 또는 잠금 해제 **불가능** |
+| 2 이상 | 2 | 다시 설정 또는 잠금 해제 **가능** |
+
+사용자가 사용할 수 있는 인증 방법 유형을 변경하면 사용 가능한 최소 데이터 양이 없는 경우 사용자가 SSPR을 사용할 수 없게 실수로 중지할 수 있습니다.
+
+예제: 
+1. 사무실 전화 및 보안 질문의 2가지 인증 방법으로 구성된 원래 정책 
+2. 관리자가 더 이상 보안 질문을 사용하지 않고 휴대폰 및 보조 메일 사용을 허용하도록 정책 변경
+3. 휴대폰 및 채워진 대체 메일 필드가 없는 사용자는 암호 다시 설정 불가능
 
 ### <a name="how-secure-are-my-security-questions"></a>보안 질문은 얼마나 안전한가요?
 
@@ -169,6 +186,7 @@ SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으�
 > [!NOTE]
 > 사용자는 취소를 클릭하거나 창을 닫아서 암호 재설정 등록 포털을 해제할 수 있지만 등록을 완료할 때까지 매번 로그인하라는 메시지가 표시됩니다.
 >
+> 사용자가 이미 로그인한 경우 사용자의 연결이 끊어지지 않습니다.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인해야 하기 전의 일 수
 
@@ -190,7 +208,7 @@ SSPR(셀프 서비스 암호 재설정)을 사용하는 경우 인증 방법으�
 
 ## <a name="on-premises-integration"></a>온-프레미스 통합
 
-Azure AD Connect를 설치, 구성 및 사용하도록 설정하는 경우 온-프레미스 통합에 대해 다음과 같은 추가 옵션이 있습니다.
+Azure AD Connect를 설치, 구성 및 사용하도록 설정하는 경우 온-프레미스 통합에 대해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](active-directory-passwords-writeback.md#configuring-password-writeback)을 참조하세요.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 
@@ -214,6 +232,9 @@ Azure AD Connect를 설치, 구성 및 사용하도록 설정하는 경우 온-�
 3. **B2B 사용자** - 새 [Azure AD B2B 기능](active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대를 처리하는 동안 등록된 전자 메일을 사용하여 암호를 재설정할 수 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나를 사용하여 http://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동됩니다.
+
+> [!NOTE]
+> Hotmail.com, Outlook.com 또는 기타 개인 메일 주소와 같이 Azure AD 테넌트에 대한 게스트 액세스 권한이 부여된 Microsoft 계정은 Azure AD SSPR을 사용할 수 없으며 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 정보를 사용하여 암호를 다시 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: "PHP에서 테이블 저장소를 사용하는 방법 | Microsoft Docs"
-description: "PHP의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다."
+description: "PHP의 Table service를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다."
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -12,35 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 7a48446a11c5c6db0c9f4fdd8872b1e3c12e85c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cfdfc814d1dfc15149d7b100ba1f6b68e90bb36
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-php"></a>PHP에서 테이블 저장소를 사용하는 방법
+# <a name="how-to-use-azure-table-storage-from-php"></a>PHP에서 Azure Table Storage를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][download]를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입, 삭제 및 쿼리**등의 시나리오를 다룹니다. Azure 테이블 서비스에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 가이드에서는 Azure Table service를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][download]를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입, 삭제 및 쿼리**등의 시나리오를 다룹니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
-Azure 테이블 서비스에 액세스하는 PHP 응용 프로그램을 만들기 위해 충족해야 할 유일한 요구 사항은 코드 내에서 PHP용 Azure SDK의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Azure Table service에 액세스하는 PHP 응용 프로그램을 만들기 위해 충족해야 할 유일한 요구 사항은 코드 내에서 PHP용 Azure SDK의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 테이블 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Table service 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-the-table-service"></a>응용 프로그램에서 테이블 서비스에 액세스하도록 구성
-Azure 테이블 서비스 API를 사용하려면 다음을 수행해야 합니다.
+## <a name="configure-your-application-to-access-the-table-service"></a>응용 프로그램에서 Table service에 액세스하도록 구성
+Azure Table service API를 사용하려면 다음을 수행해야 합니다.
 
 1. [require_once][require_once] 문을 사용하여 자동 로더 파일 참조 및
 2. 사용할 수 있는 모든 클래스 참조
@@ -60,7 +60,7 @@ use WindowsAzure\Common\ServicesBuilder;
 아래 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
-Azure 테이블 서비스 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. 테이블 서비스 연결 문자열 형식은 다음과 같습니다.
+Azure Table service 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. Table service 연결 문자열 형식은 다음과 같습니다.
 
 Live 서비스에 액세스하는 경우:
 
@@ -92,7 +92,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 ```
 
 ## <a name="create-a-table"></a>테이블 만들기
-**TableRestProxy** 개체를 통해 **createTable** 메서드를 사용하여 테이블을 만들 수 있습니다. 테이블을 만드는 중에 테이블 서비스 제한 시간을 설정할 수 있습니다. 테이블 서비스 제한 시간에 대한 자세한 내용은 [테이블 서비스 작업의 제한 시간 설정][table-service-timeouts]을 참조하세요.
+**TableRestProxy** 개체를 통해 **createTable** 메서드를 사용하여 테이블을 만들 수 있습니다. 테이블을 만드는 중에 Table service 제한 시간을 설정할 수 있습니다. Table service 제한 시간에 대한 자세한 내용은 [Table service 작업의 제한 시간 설정][table-service-timeouts]을 참조하세요.
 
 ```php
 require_once 'vendor\autoload.php';

@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec625a604660489812b1a8c133fa0156a422b605
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 원격으로 연결
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 8000 시리즈 장치에 원격으로 연결](storsimple-8000-remote-connect.md)로 이동하세요. 이동과 관련하여 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 
 ## <a name="overview"></a>개요
 Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다. 
@@ -63,7 +66,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격
    > HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
    > 
    > 
-5. 페이지 맨 아래에서 **저장** 을 클릭합니다.
+5. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
 ### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용
 원격 관리를 사용하도록 설정하려면 장치 직렬 콘솔에서 다음 단계를 따르세요.
@@ -134,7 +137,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원�
 3. **원격 관리 사용**을 **예**로 설정합니다.
 4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTPS가 선택되었는지 확인합니다. 
 5. **원격 관리 인증서 다운로드**를 클릭합니다. 이 파일을 저장할 위치를 지정합니다. 장치에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치해야 합니다.
-6. 페이지 맨 아래에서 **저장** 을 클릭합니다.
+6. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
 ### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용
 원격 관리를 사용하도록 설정하려면 장치 직렬 콘솔에서 다음 단계를 따르세요.

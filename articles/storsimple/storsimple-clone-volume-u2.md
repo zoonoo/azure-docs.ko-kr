@@ -12,21 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 2b627250df62bbe3299869ef3812947afbb8f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381cd1de089d5281351e289869ebc0e6fdabea06
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume-update-2"></a>StorSimple 관리자 서비스를 사용하여 볼륨 복제(업데이트 2)
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 볼륨 복제(업데이트 2)](storsimple-8000-clone-volume-u2.md)로 이동합니다. 이동에 대해 궁금한 점은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
 ## <a name="overview"></a>개요
-StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
+StorSimple Manager 서비스 **Backup 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
 
-![백업 카탈로그 페이지](./media/storsimple-clone-volume-u2/backupCatalog.png)  
+![Backup 카탈로그 페이지](./media/storsimple-clone-volume-u2/backupCatalog.png)  
 
 이 자습서에서는 개별 볼륨 복제에 백업 세트를 사용하는 방법을 설명합니다. *임시* 및 *영구* 복제의 차이점에 대해서도 설명합니다.
 
@@ -45,7 +48,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 로컬 또는 클라우드 스냅숏을 사용하여 동일한 장치, 다른 장치 또는 가상 컴퓨터에 클론을 만들 수 있습니다.
 
 #### <a name="to-clone-a-volume"></a>볼륨 복제하기
-1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭하고 백접 세트를 선택합니다.
+1. StorSimple Manager 서비스 페이지에서 **Backup 카탈로그** 탭을 클릭하고 백접 세트를 선택합니다.
 2. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 백업 세트에서 볼륨을 클릭하여 선택합니다.
    
      ![볼륨 복제](./media/storsimple-clone-volume-u2/CloneVol.png) 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect Sync: 운영 작업 및 고려 사항
 이 항목은 Azure AD Connect Sync에 대한 관리 작업을 설명하는 것을 목표로 합니다.
@@ -68,11 +68,18 @@ ms.lasthandoff: 10/11/2017
 #### <a name="verify"></a>Verify
 1. cmd 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
 2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
-3. 섹션 [CSAnalyzer](#appendix-csanalyzer)의 PowerShell 스크립트를 `csanalyzer.ps1`이라는 파일에 복사합니다.
-4. PowerShell 창을 열고 PowerShell 스크립트를 만든 폴더로 이동합니다.
-5. `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`을 실행합니다.
-6. 이제 Microsoft Excel에서 검사할 수 있는 **processedusers1.csv**라는 파일이 있습니다. Azure AD로 내보낼 준비가 된 모든 변경 내용은 이 파일에 포함됩니다.
-7. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기 및 동기화 및 확인)를 다시 실행합니다.
+3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` %temp%에 Microsoft Excel에서 검사할 수 있는 export.csv라는 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
+4. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기 및 동기화 및 확인)를 다시 실행합니다.
+
+**export.csv 파일 이해** 파일은 대부분 따로 설명이 필요하지 않습니다. 콘텐츠를 이해하기 위한 일부 약어입니다.
+* OMODT - 개체 수정 형식입니다. 개체 수준에서 작업이 추가, 업데이트 또는 삭제 중 어떤 것인지를 나타냅니다.
+* AMODT - 특성 수정 형식입니다. 특성 수준에서 작업이 추가, 업데이트 또는 삭제 중 어떤 것인지를 나타냅니다.
+
+**일반 식별자 검색** export.csv 파일에는 내보내려는 모든 변경 내용이 들어 있습니다. 각 행은 커넥터 공간에 있는 개체의 변경 사항에 해당하며 개체는 DN 특성으로 식별됩니다. DN 특성은 커넥터 공간에서 개체에 할당된 고유한 식별자입니다. export.csv에서 많은 행/변경 사항을 분석할 때 DN 특성만으로는 변경 사항이 있는 개체를 파악하기 어려울 수 있습니다. 변경 사항을 분석하는 과정을 단순화하려면 csanalyzer.ps1 PowerShell 스크립트를 사용합니다. 스크립트는 개체의 공통 식별자(예: displayName, userPrincipalName)를 검색합니다. 스크립트를 사용하려면 다음을 수행합니다.
+1. 섹션 [CSAnalyzer](#appendix-csanalyzer)의 PowerShell 스크립트를 `csanalyzer.ps1`이라는 파일에 복사합니다.
+2. PowerShell 창을 열고 PowerShell 스크립트를 만든 폴더로 이동합니다.
+3. `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`을 실행합니다.
+4. 이제 Microsoft Excel에서 검사할 수 있는 **processedusers1.csv**라는 파일이 있습니다. 이 파일은 DN 특성에서 공통 식별자(예: displayName 및 userPrincipalName)로의 매핑을 제공합니다. 현재는 내보내려는 실제 특성 변경 사항이 포함되어 있지 않습니다.
 
 #### <a name="switch-active-server"></a>활성 서버 전환
 1. Azure AD로 내보내지 않으므로 현재 활성 서버에서 서버를 해제하거나(DirSync/FIM Azure AD Sync) 스테이징 모드로 설정합니다(Azure AD Connect).

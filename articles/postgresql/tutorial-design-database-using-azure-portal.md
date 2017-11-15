@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL 디자인
 
@@ -71,13 +71,13 @@ Azure Database for PostgreSQL 서버는 정의된 [계산 및 저장소 리소�
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-PostgreSQL용 Azure Database 서비스는 서버 수준 방화벽을 만듭니다. 기본적으로 방화벽 규칙을 만들어 특정 IP 주소 범위에 대해 방화벽을 열지 않는 한 이 방화벽은 모든 외부 응용 프로그램과 도구가 서버 및 서버의 모든 데이터베이스에 연결되는 것을 방지합니다. 
+Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합니다. 기본적으로 방화벽 규칙을 만들어 특정 IP 주소 범위에 대해 방화벽을 열지 않는 한 이 방화벽은 모든 외부 응용 프로그램과 도구가 서버 및 서버의 모든 데이터베이스에 연결되는 것을 방지합니다. 
 
 1.  배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 **mypgserver-20170401** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
  
  ![PostgreSQL용 Azure Database - 서버 검색 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  서버 블레이드에서 **연결 보안**을 선택합니다. 
+2.  서버 페이지에서 **연결 보안**을 선택합니다. 
 3.  **규칙 이름** 아래의 텍스트 상자를 클릭하고 연결을 위한 IP 범위를 허용 목록으로 만드는 새 방화벽 규칙을 추가합니다. 이 자습서에서는 **규칙 이름 = AllowAllIps**, **시작 IP = 0.0.0.0** 및 **종료 IP = 255.255.255.255**를 입력하여 모든 IP를 허용한 다음 **저장**을 클릭하겠습니다. 작은 IP 범위를 적용하는 특정 방화벽 규칙을 설정하여 네트워크에서 연결할 수 있습니다.
  
  ![PostgreSQL용 Azure Database - 방화벽 규칙 만들기](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -85,19 +85,20 @@ PostgreSQL용 Azure Database 서비스는 서버 수준 방화벽을 만듭니�
 4.  **저장**을 클릭한 다음 **X**를 클릭하여 **연결 보안** 페이지를 닫습니다.
 
   > [!NOTE]
-  > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 5432 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
+  > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
   >
 
 
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기
 
-Azure Database for PostgreSQL 서버를 만들 때 기본 **postgres** 데이터베이스도 만들어집니다. 데이터베이스 서버에 연결하려면 호스트 정보와 액세스 자격 증명을 제공해야 합니다.
+Azure Database for PostgreSQL 서버를 만들 때 또한 기본 **postgres** 데이터베이스도 만들어집니다. 데이터베이스 서버에 연결하려면 호스트 정보와 액세스 자격 증명을 제공해야 합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 **mypgserver-20170401** 서버를 검색합니다.
 
   ![PostgreSQL용 Azure Database - 서버 검색 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. **mypgserver-20170401**서버 이름을 클릭합니다.
+
 4. 서버의 **개요** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
 
  ![PostgreSQL용 Azure Database - 서버 관리자 로그인](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -136,9 +137,9 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>데이터베이스에서 테이블 만들기
-이제 Azure Database for PostgreSQL에 연결하는 방법을 알았으므로 몇 가지 기본 작업을 수행하는 방법을 살펴볼 수 있습니다.
+이제 Azure Database for PostgreSQL에 연결하는 방법을 알았으므로 몇 가지 기본 작업을 완료할 수 있습니다.
 
-먼저 테이블을 만들고 일부 데이터와 함께 로드할 수 있습니다. 인벤토리 정보를 추적하는 테이블을 만들어 보겠습니다.
+먼저 테이블을 만들고 일부 데이터와 함께 로드합니다. 이 SQL 코드를 사용하여 인벤토리 정보를 추적하는 테이블을 만들어 보겠습니다.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -153,7 +154,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>테이블에 데이터 로드
-이제 테이블을 만들었으므로 이 테이블에 일부 데이터를 삽입할 수 있습니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 일부 삽입합니다.
+이제 테이블을 만들었으므로 이 테이블에 일부 데이터를 삽입합니다. 열린 명령 프롬프트 창에서 다음 쿼리를 실행하여 데이터 행을 일부 삽입합니다.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -202,4 +203,4 @@ SELECT * FROM inventory;
 > * 데이터 업데이트
 > * 데이터 복원
 
-다음으로 Azure CLI를 사용하여 유사한 작업을 수행하는 방법을 알아보려면 [Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-cli.md) 자습서를 검토하세요.
+다음으로 Azure 명령줄 인터페이스를 사용하여 유사한 작업을 수행하는 방법을 알아보려면 [Azure 명령줄 인터페이스를 사용하여 첫 번째 Azure Database for PostgreSQL 디자인](tutorial-design-database-using-azure-cli.md) 자습서를 검토하세요.

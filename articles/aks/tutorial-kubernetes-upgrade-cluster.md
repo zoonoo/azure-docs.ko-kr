@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f203e01e6aaecf04944ee830df4f6adeb1c74d2f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2cb81b5cd8b70df8077d9574e0232bc6b3d37c52
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Kubernetes 업그레이드
 
@@ -49,20 +49,20 @@ Azure CLI를 사용하여 AKS(Azure Container Service) 클러스터를 업그레
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-다음에서 현재 노드 버전이 `1.7.7`이고 버전 `1.8.1`이 사용 가능하다는 것을 볼 수 있습니다.
+여기서 현재 노드 버전이 `1.7.7`이고, `1.7.9`, `1.8.1` 및 `1.8.2` 버전을 사용할 수 있다는 것을 알 수 있습니다.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
--------  ---------------  ---------------  ----------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades       AgentPoolVersion    AgentPoolUpgrades
+-------  ---------------  ---------------  -------------------  ------------------  -------------------
+default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
 ## <a name="upgrade-cluster"></a>클러스터 업그레이드
 
-`az aks upgrade` 명령을 사용하여 클러스터 노드를 업그레이드합니다. 다음 예에서는 클러스터를 버전 `1.8.1`로 업데이트합니다.
+`az aks upgrade` 명령을 사용하여 클러스터 노드를 업그레이드합니다. 다음 예에서는 클러스터를 버전 `1.8.2`로 업데이트합니다.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 출력:
@@ -97,7 +97,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
     "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
-    "kubernetesVersion": "1.8.1",
+    "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -134,7 +134,7 @@ az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  westus2     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>다음 단계

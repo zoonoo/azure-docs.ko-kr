@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 
@@ -91,6 +91,8 @@ DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으
    ![Azure AD Connect에서 비밀번호 쓰기 저장 사용][Writeback]
 7. [구성 준비 완료] 화면에서 **구성**을 클릭하고 프로세스가 완료될 때까지 기다립니다.
 8. [구성 완료]가 표시되면 **종료**를 클릭합니다.
+
+비밀번호 쓰기 저장과 관련된 일반적인 문제 해결 작업은 문제 해결 문서에서 [비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) 섹션을 참조하세요.
 
 ## <a name="active-directory-permissions"></a>Active Directory 사용 권한
 

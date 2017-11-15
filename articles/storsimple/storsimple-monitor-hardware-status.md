@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 686a4faf37342e844f3aa0166d9311a438fa753a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링](storsimple-8000-monitor-hardware-status.md)으로 이동하세요. 이동과 관련하여 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 이 문서에서는 온-프레미스 StorSimple 장치에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 관리자 서비스의 **유지 관리** 페이지를 사용하여 장치 구성 요소 상태를 모니터링하는 방법도 설명합니다. 
 
@@ -91,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 | SAS 커넥터 [0-1] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 프로세서 코어 |I/O |물리적 |Controller |아니요 |각 컨트롤러 내에서 프로세서 코어의 상태를 나타냅니다. |
-| 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에에서 사용된 전원 시스템의 상태를 나타냅니다. |
+| 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에서 사용된 전원 시스템의 상태를 나타냅니다. |
 | 인클로저 전자 기기 진단 |I/O |물리적 |Controller |아니요 |컨트롤러에서 제공된 진단 하위 시스템의 상태를 나타냅니다. |
 | 베이스 보드 관리 컨트롤러(BMC) |I/O |물리적 |Controller |아니요 |독립적인 연결을 통해 시스템 관리자와 통신하고 센서를 통해 하드웨어 장비를 모니터링하는 전문 서비스 프로세서인 BMC(베이스 보드 관리 컨트롤러)의 상태를 나타냅니다. |
 | 이더넷 |I/O |물리적 |Controller |아니요 |각 네트워크 인터페이스, 즉, 컨트롤러에서 제공하는 관리 및 데이터 포트의 상태를 나타냅니다. |
@@ -119,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 | SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
 | SAS 커넥터 [0-2] |I/O |물리적 |Controller |아니요 |SAS 확장기에 통합된 저장소를 연결하는데 사용되는 각 SAS 커넥터의 상태를 나타냅니다. |
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
-| 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에에서 사용된 전원 시스템의 상태를 나타냅니다. |
+| 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에서 사용된 전원 시스템의 상태를 나타냅니다. |
 | 인클로저 전자 기기 진단 |I/O |물리적 |Controller |아니요 |컨트롤러에서 제공된 진단 하위 시스템의 상태를 나타냅니다. |
 | 장치 컨트롤러에 연결 |I/O |물리적 |Controller |아니요 |EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다. |
 

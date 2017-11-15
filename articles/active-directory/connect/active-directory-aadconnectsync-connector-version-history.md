@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
 
 > [!NOTE]
 > 이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 설치하도록 지원되지 않습니다. 출시된 커넥터는 지정된 빌드로 업그레이드할 때 AADConnect에 미리 설치됩니다.
+
 
 이 항목은 출시된 커넥터의 모든 버전을 나열합니다.
 
@@ -37,6 +38,29 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0(AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* Lotus Notes:
+  * 사용자 지정 인증자 필터링 옵션
+  * ImportOperations 클래스 가져오기에서는 '보기' 모드에서 실행할 수 있는 작업과 '검색' 모드에서 실행할 수 있는 작업의 정의가 수정되었습니다.
+* 일반 LDAP:
+  * OpenLDAP Directory는 entryUUI 대신 DN을 앵커로 사용합니다. 앵커 수정이 가능한 GLDAP 커넥터의 새로운 옵션
+* 일반 SQL:
+  * varbinary(max) 유형의 필드로 내보내기가 수정되었습니다.
+  * 데이터 원본의 이진 데이터를 CSEntry 개체에 추가할 때 DataTypeConversion 함수가 0바이트에서 실패했습니다. CSEntryOperationBase 클래스의 DataTypeConversion 함수가 수정되었습니다.
+
+
+
+
+### <a name="enhancements"></a>향상된 기능:
+
+* 일반 SQL:
+  * 명명되거나 명명되지 않은 매개 변수로 저장 프로시저를 실행하기 위한 모드를 구성하는 기능이 일반 SQL 관리 에이전트 구성 창의 '글로벌 매개 변수' 페이지에 추가되었습니다. '글로벌 매개 변수' 페이지에는 '명명된 매개 변수를 사용하여 저장 프로시저 실행'이라는 레이블의 확인란이 있습니다. 이는 명명된 매개 변수로 저장 프로시저를 실행할지에 대한 모드를 담당합니다.
+    * 현재 명명된 매개 변수로 저장 프로시저를 실행하는 기능은 IBM DB2 및 MSSQL 데이터베이스에서만 작동합니다. Oracle 및 MySQL 데이터베이스의 경우 이 방법이 작동하지 않습니다. 
+      * MySQL의 SQL 구문은 저장 프로시저에서 명명된 매개 변수를 지원하지 않습니다.
+      * Oracle용 ODBC 드라이버는 저장 프로시저에서 명명된 매개 변수에 대해 명명된 매개 변수를 지원하지 않습니다.
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0(AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표
 * [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014년 2월  
 * [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013년 10월
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013년 8월
+
+## <a name="troubleshooting"></a>문제 해결 
+
+> [!NOTE]
+> ECMA2 커넥터 중 하나를 사용하여 Microsoft Identity Manager 또는 AADConnect를 업데이트하는 경우입니다. 
+
+일치하도록 업그레이드할 때 커넥터 정의를 새로 고침해야 하거나, 응용 프로그램 이벤트 로그 시작 부분에서 경고 ID 6947을 보고하는 다음 오류를 수신합니다. "Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다").
+
+정의를 새로 고치려면:
+* 커넥터 인스턴스의 속성 열기
+* 연결/연결 대상 탭 클릭
+  * 커넥터 계정 암호 입력
+* 각 속성 탭을 차례로 클릭
+  * 이 커넥터 유형에 새로 고침 단추가 포함된 파티션 탭이 있는 경우 해당 탭에서 새로 고침 단추를 클릭합니다.
+* 모든 속성 탭에 액세스한 후 확인 단추를 클릭하여 변경 사항을 저장합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/01/2017
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 Azure Data Lake Store 커넥터](v1/data-factory-azure-datalake-connector.md)를 참조하세요.
 
-## <a name="supported-scenarios"></a>지원되는 시나리오
+## <a name="supported-capabilities"></a>지원되는 기능
 
 모든 지원되는 원본 데이터 저장소에서 Azure Data Lake Store로 데이터를 복사하거나 Azure Data Lake Store에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/01/2017
 - 응용 프로그램 키
 - 테넌트 ID
 
-[!TIP]
+>[!TIP]
 > Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
 >- 원본으로 적어도 **읽기 + 실행** 데이터 액세스 권한을 부여하여 폴더의 내용을 나열하고 복사하거나 **읽기** 권한을 부여하여 단일 파일을 복사합니다. 계정 수준 액세스 제어가 필요하지 않습니다.
 >- 싱크로, 적어도 **쓰기 + 실행** 데이터 액세스 권한을 부여하여 폴더에서 자식 항목을 만듭니다. Azure IR을 사용하여 복사를 수행하는 경우(클라우드의 소스와 싱크 모두) Data Factory가 Data Lake Store의 지역을 감지하기 위해 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.

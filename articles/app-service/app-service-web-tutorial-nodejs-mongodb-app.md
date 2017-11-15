@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure에서 Node.js 및 MongoDB 웹앱 작성
 
@@ -182,7 +182,7 @@ Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
 
-로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다. 
+로컬 MEAN.js 저장소의 _구성/환경/_ 폴더에서 _local-production.js_라는 파일을 만듭니다. 기본적으로 리포지토리 밖에서 이 파일을 만들도록 _.gitignore_를 구성합니다. 
 
 다음 코드를 이 파일에 복사합니다. 2개의 *\<cosmosdb_name>* 자리 표시자를 Cosmos DB 데이터베이스 이름으로 바꾸고 *\<primary_master_key>* 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
 
@@ -209,7 +209,12 @@ gulp prod
 다음 명령을 실행하여 _config/env/local-production.js_에서 구성한 연결 문자열을 사용합니다.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
 `NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 응용 프로그램을 Azure에 로드합니다. 
@@ -416,12 +421,15 @@ _modules/articles/client/views/admin/form-article.client.view.html_을 엽니다
 로컬 터미널 창에서 프로덕션 모드로 변경 내용을 다시 테스트합니다.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> _config/env/production.js_이 원래대로 돌아갔으며 `MONGODB_URI` 환경 변수는 로컬 컴퓨터가 아닌 Azure 웹앱에만 설정되어 있다는 점에 유의해야 합니다. 구성 파일을 살펴보면 프로덕션 구성에서 기본적으로 로컬 MongoDB 데이터베이스를 사용하는 것을 알 수 있습니다. 이렇게 하면 로컬에서 코드 변경 내용을 테스트할 때 프로덕션 데이터를 건드리지 않을 수 있습니다.
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 브라우저에서 `http://localhost:8443`으로 이동하여 로그인했는지 확인합니다.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -94,7 +94,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Azure Active Directory에서 암호 만료 정책 설정
 
-Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Microsoft Azure Active Directory 모듈을 사용하여 사용자의 암호가 만료되지 않도록 설정할 수 있습니다. 또한 Windows PowerShell cmdlet을 사용하여 만료되지 않는 구성을 제거하거나 어떤 사용자 암호가 만료되지 않도록 설정되어 있는지 확인할 수 있습니다. 이 지침은 ID 및 디렉터리 서비스로 Microsoft Azure Active Directory를 사용하는 Microsoft Intune, Office 365와 같은 다른 공급자에 제공됩니다.
+Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Microsoft Azure Active Directory 모듈을 사용하여 사용자의 암호가 만료되지 않도록 설정할 수 있습니다. 또한 Windows PowerShell cmdlet을 사용하여 만료되지 않는 구성을 제거하거나 어떤 사용자 암호가 만료되지 않도록 설정되어 있는지 확인할 수 있습니다. 이 지침은 ID 및 디렉터리 서비스로 Microsoft Azure Active Directory를 사용하는 Microsoft Intune, Office 365와 같은 다른 공급자에 제공됩니다. 이는 정책에서 변경할 수 있는 유일한 부분입니다.
 
 > [!NOTE]
 > 디렉터리 동기화를 통해 동기화되지 않는 사용자 계정의 암호만 만료되지 않도록 구성할 수 있습니다. 디렉터리 동기화에 대한 자세한 내용은 [Azure AD와 AD 연결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)을 참조하세요.
@@ -127,6 +127,9 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 
    * 특정 사용자의 암호가 만료되지 않도록 설정하려면 해당 사용자의 사용자 계정 이름(UPN) 또는 사용자 ID를 사용하여 `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > `-PasswordNeverExpires $true`를 설정하면 `pwdLastSet` 특성을 기반으로 암호가 유효합니다. 즉, 암호가 만료되지 않도록 설정한 다음 `pwdLastSet`를 기반으로 90일 이상이 경과하고 `-PasswordNeverExpires $false`를 변경하면 다음 로그온 시 `pwdLastSet`가 90일 이상인 모든 암호를 변경해야 합니다. 이 변경으로 많은 사용자가 영향을 받을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

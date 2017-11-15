@@ -1,5 +1,5 @@
 ---
-title: "Java에서 테이블 저장소를 사용하는 방법 | Microsoft Docs"
+title: "Java에서 Azure Table Storage를 사용하는 방법 | Microsoft Docs"
 description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 services: cosmos-db
 documentationcenter: java
@@ -12,22 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 7f92b1e14a514e9eda39f7ca94f63fc761dfdf41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-java"></a>Java에서 테이블 저장소를 사용하는 방법
+# <a name="how-to-use-azure-table-storage-from-java"></a>Java에서 Azure Table Storage를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#Next-Steps) 섹션을 참조하십시오.
 
-SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
+SDK는 Android 장치에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -347,7 +347,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-retrieve-a-single-entity"></a>방법: 단일 엔터티 검색
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 Table service에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```java
 try

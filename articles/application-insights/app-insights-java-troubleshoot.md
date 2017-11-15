@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
@@ -124,6 +124,13 @@ Tomcat 서버의 경우 `%temp%\javasdklogs` 또는 `java.io.tmpdir` 아래에�
 **데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?**
 
 [데이터 보존 및 개인 정보][data]를 참조하세요.
+
+## <a name="debug-logging"></a>디버그 로깅
+Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Application Insights 코어 jar 내에서 `com.microsoft.applicationinsights.core.dependencies.http` 네임스페이스 아래로 위치가 변경되었습니다. 이를 통해 Application Insights는 같은 `org.apache.http`의 다른 버전이 하나의 코드 베이스에 존재하는 시나리오를 처리할 수 있습니다. 
+
+>[!NOTE]
+>앱의 모든 네임스페이스에 대해 DEBUG 수준의 로깅을 사용하도록 설정하면 `org.apache.http`를 포함하여 실행 중인 모든 모듈이 `com.microsoft.applicationinsights.core.dependencies.http`로 이름이 바뀝니다. Application Insights는 로그 호출이 Apache 라이브러리에 의해 이루어지기 때문에 이러한 호출에 대해서는 필터링을 적용할 수 없습니다. DEBUG 수준 로깅은 상당한 양의 로그 데이터를 생성하므로 실제 프로덕션 인스턴스에는 권장되지 않습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 **내 Java 서버 앱에 대해 Application Insights를 설정했습니다. 다른 어떤 작업을 할 수 있나요?**

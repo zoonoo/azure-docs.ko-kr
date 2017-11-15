@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: shlo
-ms.openlocfilehash: 892e61397bb6e54781665f210434a4ab9ccb2632
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Azure Data Factory의 대기 작업
 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다. 
@@ -111,4 +111,4 @@ Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [웹 작업](control-flow-web-activity.md)
-- [단위 작업](control-flow-until-activity.md)
+- [Until 작업](control-flow-until-activity.md)

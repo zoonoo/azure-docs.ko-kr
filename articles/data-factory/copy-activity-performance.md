@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 ![성능 매트릭스](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->Azure Data Factory 버전 2에서 복사 작업이 Azure Integration Runtime에서 실행될 때 최소 클라우드 데이터 이동 단위는 2입니다.
+>Azure Data Factory 버전 2에서 복사 작업이 Azure Integration Runtime에서 실행될 때 최소 클라우드 데이터 이동 단위는 2입니다. 지정되지 않은 경우 [클라우드 데이터 이동 단위](#cloud-data-movement-units)에서 사용 중인 기본 데이터 이동 단위를 참조하세요.
 
 주의할 사항:
 
@@ -84,13 +84,12 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 **클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DMU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**에만 적용됩니다.
 
-**복사 작업 실행을 위한 최소 클라우드 데이터 이동 단위는 2입니다.** 다음 표는 다양한 복사 시나리오에서 사용되는 기본 DMU의 목록입니다.
+**복사 작업 실행을 위한 최소 클라우드 데이터 이동 단위는 2입니다.** 지정하지 않은 경우 다음 표의 다양한 복사 시나리오에서 사용되는 기본 DMU의 목록을 참조하세요.
 
 | 복사 시나리오 | 서비스에 따라 결정되는 기본 DMU |
 |:--- |:--- |
-| 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 2~16 |
-| Salesforce/Dynamics에서 데이터 복사 | 4 |
-| 그 밖의 모든 복사 시나리오 | 2 |
+| 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~16 |
+| 그 밖의 모든 복사 시나리오 | 4 |
 
 기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
 
@@ -272,7 +271,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하며 처리량을 최대화할 수 있도록 하는 데이터 저장소 특정 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요.
 
-* **Blob Storage에서 SQL Data Warehouse**로 데이터를 복사하는 경우에는, 성능을 높이기 위해 **PolyBase**를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+* **Blob Storage에서 SQL Data Warehouse**로 데이터를 복사하는 경우에는, 성능을 높이기 위해 **PolyBase**를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
 * **HDFS에서 Azure Blob/Azure Data Lake Store**로 데이터를 복사할 때는 **DistCp**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [DistCp를 사용하여 HDFS에서 데이터 복사](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)를 참조하세요.
 * **Redshift에서 Azure SQL Data Warehouse/Azure BLob/Azure Data Lake Store**로 데이터를 복사할 때는 **UNLOAD**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
@@ -294,7 +293,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성을 이
 
 Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요. 이러한 항목에서 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하고 처리량을 최대화하는 방법을 파악할 수 있습니다.
 
-* **Blob Storage에서 SQL Data Warehouse**로 데이터를 복사하는 경우에는, 성능을 높이기 위해 **PolyBase**를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+* **Blob Storage에서 SQL Data Warehouse**로 데이터를 복사하는 경우에는, 성능을 높이기 위해 **PolyBase**를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
 * **HDFS에서 Azure Blob/Azure Data Lake Store**로 데이터를 복사할 때는 **DistCp**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [DistCp를 사용하여 HDFS에서 데이터 복사](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)를 참조하세요.
 * **Redshift에서 Azure SQL Data Warehouse/Azure BLob/Azure Data Lake Store**로 데이터를 복사할 때는 **UNLOAD**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 

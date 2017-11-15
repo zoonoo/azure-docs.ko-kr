@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Microsoft HPC(고성능 컴퓨팅) Pack 및 주문형 Azure 계산 노드를 사용하여 하이브리드 HPC 클러스터 설정
 Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정합니다. 이 문서에 표시된 클러스터는 온-프레미스 HPC Pack 헤드 노드와 Azure Cloud Service에서 주문형으로 배포되는 일부 계산 노드로 구성됩니다. 그런 다음 하이브리드 클러스터에서 계산 작업을 실행할 수 있습니다.
@@ -87,7 +87,9 @@ HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 �
 
 2. **구독** > *your_subscription_name*을 클릭합니다.
 
-3. **관리 인증서** > **업로드**.4를 클릭합니다. 헤드 노드에서 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 찾은 다음 **업로드**를 클릭합니다.
+3. **관리 인증서** > **업로드**를 클릭합니다.
+
+4. 헤드 노드에서 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 찾은 다음 **업로드**를 클릭합니다.
 
    
 관리 인증서 목록에 **기본 HPC Azure 관리** 인증서가 표시됩니다.

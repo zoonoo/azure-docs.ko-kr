@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 815d4bd539db8aebf2ee1eb62aef13b554b9cc47
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 장치에서 장치 모드 변경
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치에서 장치 모드 변경](storsimple-8000-device-modes.md)으로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 이 문서에서는 StorSimple 장치에서 작동할 수 있는 다양한 모드에 대한 간략한 설명을 제공합니다. StorSimple 장치는 표준, 유지 관리 및 복구의 세 가지 모드로 작동할 수 있습니다. 
 
 이 문서를 읽은 후 다음에 대해 알 수 있습니다.

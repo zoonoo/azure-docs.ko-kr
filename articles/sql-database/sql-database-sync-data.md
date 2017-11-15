@@ -1,5 +1,5 @@
 ---
-title: "데이터 동기화(미리 보기) | Microsoft Docs"
+title: "Azure SQL 데이터 동기화(미리 보기) | Microsoft Docs"
 description: "이 개요에서는 Azure SQL 데이터 동기화(미리 보기)를 소개합니다."
 services: sql-database
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화
 
 SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다.
 
@@ -44,7 +44,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 -   **동기화 데이터베이스**는 데이터 동기화에 대한 메타데이터 및 로그를 포함합니다. 동기화 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database여야 합니다. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
 
 > [!NOTE]
-> 온-프레미스 데이터베이스를 사용하는 경우 [로컬 에이전트를 구성](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)해야 합니다.
+> 온-프레미스 데이터베이스를 사용하는 경우 [로컬 에이전트를 구성](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)해야 합니다.
 
 ![데이터베이스 간 데이터 동기화](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -58,7 +58,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   **전역 분산 응용 프로그램:** 많은 비즈니스는 여러 지역 및 여러 국가 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
 
-다음과 같은 시나리오에서는 데이터 동기화를 사용하지 않는 것이 좋습니다.
+데이터 동기화가 적합하지 않은 시나리오는 다음과 같습니다.
 
 -   재해 복구
 
@@ -77,48 +77,6 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 -   **충돌 해결:** 데이터 동기화는 충돌 해결을 위해 *허브 우선* 또는 *멤버 우선*이라는 두 가지 옵션을 제공합니다.
     -   *허브 우선*을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
     -   *구성원 우선*을 선택하는 경우 구성원의 변경 내용은 항상 허브의 변경 내용을 덮어씁니다. 구성원이 둘 이상인 경우 최종 값은 먼저 동기화된 구성원에 따라 달라집니다.
-
-## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
-
-### <a name="performance-impact"></a>성능에 미치는 영향
-데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
-
-### <a name="eventual-consistency"></a>결과적 일관성
-데이터 동기화가 트리거 기반이기 때문에 트랜잭션 일관성이 보장되지 않습니다. Microsoft는 결과적으로 모든 변경 내용을 적용하고 데이터 동기화가 데이터 손실을 발생하지 않도록 보장합니다.
-
-### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
-
--   FileStream
-
--   SQL/CLR UDT
-
--   XMLSchemaCollection(XML 지원)
-
--   Cursor, Timestamp, Hierarchyid
-
-### <a name="requirements"></a>요구 사항
-
--   각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 변경이 필요한 경우 행을 삭제하고 새 기본 키 값으로 새로 만듭니다. 
-
--   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
-
--   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
-
--   스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
-
-### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **차원**                                                      | **제한**              | **해결 방법**              |
-| 데이터베이스가 속할 수 있는 동기화 그룹의 최대 수입니다.       | 5                      |                             |
-| 단일 동기화 그룹에서 끝점의 최대 수입니다.              | 30                     | 여러 동기화 그룹 만들기 |
-| 단일 동기화 그룹에서 온-프레미스 끝점의 최대 수입니다. | 5                      | 여러 동기화 그룹 만들기 |
-| 데이터베이스, 테이블, 스키마 및 열 이름                       | 이름당 50자 |                             |
-| 동기화 그룹의 표                                          | 500                    | 여러 동기화 그룹 만들기 |
-| 동기화 그룹에서 표의 열                              | 1000                   |                             |
-| 표의 데이터 행 크기                                        | 24Mb                  |                             |
-| 최소 동기화 간격                                           | 5분              |                             |
 
 ## <a name="common-questions"></a>일반적인 질문
 
@@ -143,15 +101,63 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 데이터 동기화에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>데이터 동기화를 사용하여 데이터베이스를 어떻게 내보내고 가져오나요?
-데이터베이스를 .bacpac 파일로 내보내고 가져와 새 데이터베이스를 만든 후에는 새 데이터베이스에서 데이터 동기화를 사용하기 위해 다음 두 가지를 수행해야 합니다.
+데이터베이스를 `.bacpac` 파일로 내보내고 새 데이터베이스를 만들기 위해 파일을 가져온 후에 새 데이터베이스에서 데이터 동기화를 사용하려면 다음 두 가지 작업을 수행해야 합니다.
 1.  [이 스크립트](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)를 사용하여 **새 데이터베이스**에서 데이터 동기화 개체와 파생 테이블을 정리합니다. 이 스크립트는 데이터베이스에서 모든 필요한 데이터 동기화 개체를 삭제합니다.
 2.  새 데이터베이스를 통해 동기화 그룹을 다시 만듭니다. 더 이상 기존 동기화 그룹이 필요하지 않으면 삭제합니다.
+
+## <a name="sync-req-lim"></a>요구 사항 및 제한 사항
+
+### <a name="general-requirements"></a>일반 요구 사항
+
+-   각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 변경이 필요한 경우 행을 삭제하고 새 기본 키 값으로 새로 만듭니다. 
+
+-   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
+
+-   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
+
+-   스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
+
+### <a name="general-considerations"></a>일반적인 고려 사항
+
+#### <a name="eventual-consistency"></a>결과적 일관성
+데이터 동기화가 트리거 기반이기 때문에 트랜잭션 일관성이 보장되지 않습니다. Microsoft는 결과적으로 모든 변경 내용을 적용하고 데이터 동기화가 데이터 손실을 발생하지 않도록 보장합니다.
+
+#### <a name="performance-impact"></a>성능에 미치는 영향
+데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
+
+### <a name="general-limitations"></a>일반적인 제한 사항
+
+#### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
+
+-   FileStream
+
+-   SQL/CLR UDT
+
+-   XMLSchemaCollection(XML 지원)
+
+-   Cursor, Timestamp, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
+
+| **차원**                                                      | **제한**              | **해결 방법**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| 데이터베이스가 속할 수 있는 동기화 그룹의 최대 수입니다.       | 5                      |                             |
+| 단일 동기화 그룹에서 끝점의 최대 수입니다.              | 30                     | 여러 동기화 그룹 만들기 |
+| 단일 동기화 그룹에서 온-프레미스 끝점의 최대 수입니다. | 5                      | 여러 동기화 그룹 만들기 |
+| 데이터베이스, 테이블, 스키마 및 열 이름                       | 이름당 50자 |                             |
+| 동기화 그룹의 표                                          | 500                    | 여러 동기화 그룹 만들기 |
+| 동기화 그룹에서 표의 열                              | 1000                   |                             |
+| 표의 데이터 행 크기                                        | 24Mb                  |                             |
+| 최소 동기화 간격                                           | 5분              |                             |
+|||
 
 ## <a name="next-steps"></a>다음 단계
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
--   [SQL 데이터 동기화 시작](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 데이터 동기화 시작](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)
+-   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +168,4 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [SQL Database 개요](sql-database-technical-overview.md)
-
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

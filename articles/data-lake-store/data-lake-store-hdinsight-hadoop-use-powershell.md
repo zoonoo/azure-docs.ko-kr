@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell을 사용하여 Data Lake Store를 (추가 저장소로) 사용하여 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>데이터 레이크 저장소에 대한 역할 기반 액세스를 위한 인증 설정
-모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure 클래식 포털 또는 Azure 리소스 관리자 API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight, Azure 리소스(이전에 만든 Azure 데이터 레이크 저장소 계정)에 대한 액세스와 같은 응용 프로그램 서비스를 부여하는 방법을 보여 줍니다.
+모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight, Azure 리소스(이전에 만든 Azure 데이터 레이크 저장소 계정)에 대한 액세스와 같은 응용 프로그램 서비스를 부여하는 방법을 보여 줍니다.
 
 Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 다음 작업을 수행해야 합니다.
 
@@ -264,6 +264,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 `hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
 ## <a name="see-also"></a>참고 항목
+* [Azure HDInsight 클러스터에 Data Lake Store 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [포털: HDInsight 클러스터를 만들어 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 0a4130fcf3f3ee9a2a6ad99a53778b69e85b25c0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>PowerShell을 사용하여 여러 Azure SQL Database 간 동기화
  
@@ -29,7 +29,9 @@ ms.lasthandoff: 10/31/2017
 
 이 샘플에는 Azure PowerShell 모듈 버전 4.2 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
  
-`Login-AzureRmAccount`를 실행하여 Azure와 연결합니다. 
+`Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+
+SQL 데이터 동기화의 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화(미리 보기)](../sql-database-sync-data.md)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -164,7 +166,7 @@ $IsSucceeded = $false
 While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
@@ -361,3 +363,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
 추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
+
+SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
+
+-   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](../sql-database-sync-data.md)
+-   [Azure SQL 데이터 동기화 시작](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 데이터 동기화 모범 사례](../sql-database-best-practices-data-sync.md)
+-   [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
+
+-   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
+    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
+
+-   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+SQL Database에 대한 자세한 내용은 다음을 참조하세요.
+
+-   [SQL Database 개요](../sql-database-technical-overview.md)
+-   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

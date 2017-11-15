@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: babcf20b58af1415e0e658e0a622cb056e34642b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션 배포
 
@@ -39,13 +39,17 @@ ms.lasthandoff: 10/31/2017
 
 Azure 구독에 미리 구성된 솔루션을 배포하기 전에 일부 구성 옵션을 선택해야 합니다.
 
-1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com](https://www.azureiotsuite.com)에 로그온한 다음 **+**를 클릭하여 솔루션을 만듭니다.
+1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com](https://www.azureiotsuite.com)에 로그온한 다음 **+**를 클릭하여 새 솔루션을 만듭니다.
 
-1. **원격 모니터링** 타일에서 **선택**을 클릭합니다.
+    ![새 솔루션 만들기](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. **원격 모니터링 미리 보기** 타일에서 **선택**을 클릭합니다.
+
+    ![원격 모니터링 선택](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. **원격 모니터링 솔루션 만들기** 페이지에서 미리 구성된 원격 모니터링 솔루션에 **솔루션 이름**을 입력합니다.
 
-1. **기본** 또는 **엔터프라이즈** 배포를 선택합니다. 작동 방법을 알아보거나 데모 실행을 위해 솔루션을 배포하는 경우 **기본** 옵션을 선택하여 비용을 최소화합니다.
+1. **기본** 또는 **표준** 배포를 선택합니다. 작동 방법을 알아보거나 데모 실행을 위해 솔루션을 배포하는 경우 **기본** 옵션을 선택하여 비용을 최소화합니다.
 
 1. 언어로 **Java** 또는 **.NET**을 선택합니다. Java 또는 .NET 구현으로 모든 마이크로 서비스가 제공됩니다.
 
@@ -55,6 +59,8 @@ Azure 구독에 미리 구성된 솔루션을 배포하기 전에 일부 구성 
 
 1. **솔루션 만들기** 를 클릭하여 프로비전 프로세스를 시작합니다. 일반적으로 이 프로세스는 실행하는 데 몇 분 정도 걸립니다.
 
+    ![원격 모니터링 솔루션 세부 정보](media/iot-suite-remote-monitoring-deploy/createform.png)
+
 문제 해결 정보는 GitHub 리포지토리에서 [배포에 실패한 경우 수행할 작업](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails)을 참조하세요.
 
 ## <a name="sign-in-to-the-preconfigured-solution"></a>미리 구성된 솔루션에 로그인
@@ -63,10 +69,14 @@ Azure 구독에 미리 구성된 솔루션을 배포하기 전에 일부 구성 
 
 1. **프로비전된 솔루션** 페이지에서 새 원격 모니터링 솔루션을 선택합니다.
 
+    ![새 솔루션 선택](media/iot-suite-remote-monitoring-deploy/choosenew.png)
+
 1. 표시되는 패널에서 원격 모니터링 솔루션에 대한 정보를 볼 수 있습니다. **솔루션 대시보드**를 선택하여 원격 모니터링 솔루션에 연결합니다.
 
     > [!NOTE]
     > 완료한 경우 이 패널에서 원격 모니터링 솔루션을 삭제할 수 있습니다.
+
+    ![솔루션 패널](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. 원격 모니터링 솔루션 대시보드는 브라우저에 표시됩니다.
 

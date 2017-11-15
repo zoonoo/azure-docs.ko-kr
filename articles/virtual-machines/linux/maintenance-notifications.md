@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 계획된 유지 관리 처리
 
@@ -65,6 +65,8 @@ MaintenanceRedeployStatus의 다음과 같은 값이 반환됩니다.
 | LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>CLI를 사용하여 VM에서 유지 관리 시작
 
 `IsCustomerInitiatedMaintenanceAllowed`가 true로 설정되는 경우 다음 호출이 VM에서 유지 관리를 시작합니다.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>클래식 배포
+
+클래식 배포 모델을 사용하여 배포된 레거시 VM이 아직 있는 경우 CLI 1.0을 사용하여 VM을 쿼리하고 유지 관리를 시작할 수 있습니다.
+
+다음을 입력하여 클래식 VM에서 작동하도록 올바른 모드에 있는지 확인합니다.
+
+```
+azure config mode asm
+```
+
+*myVM*이라는 VM에 대한 유지 관리 상태를 가져오려면 다음을 입력합니다.
+
+```
+azure vm show myVM 
+``` 
+
+*myService* 서비스 및 *myDeployment* 배포에서 *myVM*이라는 클래식 VM에 대한 유지 관리를 시작하려면 다음을 입력합니다.
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>FAQ

@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 응용 프로그램
 
@@ -122,7 +122,7 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
    다음 필드를 작성합니다.
 
    * **현재 버전**: 업로드하는 패키지에 대한 버전을 입력합니다. `{number}.{number}.{number}{number}` 형식이어야 합니다.
-   * **패키지 파일 선택**: 이 패키지에는 .zip 파일로 압축되는 필수 파일이 포함되어 있습니다. 자세한 내용은 [서비스 카탈로그 응용 프로그램 만들기](publish-service-catalog-app.md)를 참조하세요.
+   * **패키지 파일 선택**: 이 패키지에는 .zip 파일로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 응용 프로그램에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 응용 프로그램을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
    * **PrincipalId**: 이 속성은 고객 구독에서 리소스에 대한 액세스 권한이 부여된 사용자, 사용자 그룹 또는 응용 프로그램의 Azure AD(Azure Active Directory) 식별자입니다. 역할 정의는 권한을 설명합니다.
    * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 RBAC(역할 기반 Access Control) 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
 

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/28/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db24d33249767b42f00d96081f21ca8ffb1ac985
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>StorSimple 관리자 서비스를 사용하여 볼륨 관리(업데이트 2)
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 볼륨 관리(업데이트 2)](storsimple-8000-manage-volumes-u2.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## <a name="overview"></a>개요
@@ -78,7 +81,7 @@ StorSimple 볼륨은 다음과 같을 수 있습니다.
 * **상태** – 온라인 또는 오프라인 상태가 될 수 있습니다. 오프라인인 경우 볼륨은 해당 볼륨을 사용하는 데 액세스가 허용된 초기자(서버)에 보이지 않습니다.
 * **용량** - 용량은 초기자(서버)가 저장할 수 있는 데이터의 전체 크기를 지정합니다. 로컬로 고정된 볼륨은 완전히 프로비전되고 StorSimple 장치에 상주합니다. 계층화된 볼륨은 씬 프로비전되며 데이터는 중복 제거됩니다. 씬 프로비전된 볼륨으로 장치가 구성된 볼륨 용량에 따라 클라우드에서 또는 내부적으로 실제 저장소 용량을 미리 할당하지 않습니다. 볼륨 용량이 할당되고 필요에 따라 사용됩니다.
 * **유형** – 볼륨이 **계층화됨**(기본값) 또는 **로컬로 고정**인지를 나타냅니다.
-* **백업** – 볼륨에 대한 기본 백업 정책이 있는지 여부를 나타냅니다.
+* **Backup** – 볼륨에 대한 기본 백업 정책이 있는지 여부를 나타냅니다.
 * **액세스** – 이 볼륨에 대한 액세스가 허용된 초기자(서버)를 지정합니다. 볼륨에 연결된 ACR(액세스 제어 레코드)의 구성원이 아닌 초기자는 해당 볼륨을 보지 못합니다.
 * **모니터링** – 볼륨을 모니터링 하는지 여부를 지정합니다. 볼륨이 만들어질 때 기본적으로 모니터링이 설정됩니다. 하지만 모니터링은 볼륨 클론에 대해서는 해제됩니다. 볼륨에 대한 모니터링을 사용하려면 [볼륨 모니터링](#monitor-a-volume)의 지침을 따릅니다. 
 

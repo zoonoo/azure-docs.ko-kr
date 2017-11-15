@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/12/2017
 | 최소 메모리(RAM) |8GB <br> 파일 서버의 경우 2백만 개 미만의 파일에 대해 8GB, 2-4백만 개 파일에 대해 16GB|
 | 디스크 공간<sup>1</sup> |OS 디스크 - 80GB  <br></br>데이터 디스크 - 500GB~8TB |
 | 최소 네트워크 인터페이스 수 |1 |
-| 최소 인터넷 대역폭<sup>2</sup> |5Mbps |
+| 인터넷 대역폭<sup>2</sup> |필요한 최소 대역폭: 5Mbps <br> 권장 대역폭: 100Mbps <br> 데이터 전송 속도는 인터넷 대역폭에 따라 다릅니다. 예를 들어, 100GB의 데이터는 5Mbps로 전송하는 데 2일이 걸리며 일일 백업이 하루 안에 완료되지 않으므로 백업 실패로 이어질 수 있습니다. 100Mbps 대역폭, 100GB 데이터는 2.5시간에 전송할 수 있습니다.   |
 
 <sup>1</sup> - 씬 프로비전됨
 
@@ -113,13 +113,13 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 > [!NOTE]
 > 
 > * 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
-> * 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+> * 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 > 
 > 
 
 | URL 패턴 | 구성 요소/기능 |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스<br>인증 서비스|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple 장치 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스|
 | `http://*.backup.windowsazure.com` |장치 등록 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
@@ -128,6 +128,5 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.partners.extranet.microsoft.com/*` |지원 패키지 |
 | `http://*.data.microsoft.com ` |Windows의 원격 분석 서비스는 [사용자 환경 및 진단 원격 분석 업데이트](https://support.microsoft.com/en-us/kb/3068708)를 참조하세요. |
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)
-

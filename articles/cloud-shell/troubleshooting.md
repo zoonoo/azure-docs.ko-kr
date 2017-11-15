@@ -12,29 +12,43 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure Cloud Shell 문제 해결
 
 Azure Cloud Shell의 문제에 대해 알려진 해결책은 다음과 같습니다.
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>저장소 대화 상자 - 오류: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>일반적인 해결 방법
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>저장소 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 - **세부 정보**: Cloud Shell에서 저장소 계정을 만들 경우 관리자가 배치한 Azure 정책 때문에 실패합니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **해결 방법**: Azure 관리자에게 문의하여 저장소 생성을 거부하는 Azure 정책을 제거하거나 업데이트하세요.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>저장소 대화 상자 - 오류: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>저장소 대화 상자 - 오류: 400 DisallowedOperation
  - **세부 정보**: Azure Active Directory 구독을 사용할 때는 저장소를 만들 수 없습니다.
  - **해결 방법**: 저장소 리소스를 만들 수 있는 Azure 구독을 사용하세요. Azure AD 구독으로는 Azure 리소스를 만들 수 없습니다.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>터미널 출력 - 오류: 터미널에 연결할 수 없습니다. websocket을 설정할 수 없습니다. `Enter` 키를 눌러 다시 연결하세요.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>터미널 출력 - 오류: 터미널에 연결할 수 없습니다. websocket을 설정할 수 없습니다. `Enter` 키를 눌러 다시 연결하세요.
  - **세부 정보**: Cloud Shell에는 Cloud Shell 인프라에 대한 websocket 연결을 설정하기 위한 기능이 필요합니다.
  - **해결 방법**: *.console.azure.com의 도메인으로 https 요청 및 websocket 요청을 전송할 수 있게 네트워크 설정을 구성했는지 확인합니다.
+
+## <a name="bash-resolutions"></a>Bash 해결 방법
+
+### <a name="cannot-run-az-login"></a>az 로그인을 실행할 수 없음
+
+- **세부 정보**: Cloud Shell 또는 Azure Portal에 로그인하는 데 사용된 계정으로 이미 인증되어 `az login` 실행이 작동하지 않습니다.
+- **해결 방법**: 로그인 또는 로그아웃에 사용되는 계정을 활용하고 원하는 Azure 계정으로 다시 인증합니다.
+
+### <a name="cannot-run-the-docker-daemon"></a>Docker 디먼을 실행할 수 없음
+
+- **세부 정보**: Cloud Shell은 컨테이너를 활용하여 셸 환경을 호스트하므로 결과적으로 디먼 실행이 허용되지 않습니다.
+- **해결 방법**: 기본적으로 설치된 [docker-machine](https://docs.docker.com/machine/overview/)을 활용하여 원격 Docker 호스트에서 docker 컨테이너를 관리합니다.
 
 ## <a name="powershell-resolutions"></a>PowerShell 해결 방법
 

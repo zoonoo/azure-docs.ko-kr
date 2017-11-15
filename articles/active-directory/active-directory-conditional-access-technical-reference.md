@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
@@ -82,11 +82,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ## <a name="device-platform-condition"></a>장치 플랫폼 조건
 
-조건부 액세스 정책에서 정책을 클라이언트의 운영 체제에 연결하는 장치 플랫폼 조건을 구성할 수 있습니다.
-
-![클라이언트 OS에 액세스 정책 연결](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지원합니다.
+조건부 액세스 정책에서 정책을 클라이언트의 운영 체제에 연결하는 장치 플랫폼 조건을 구성할 수 있습니다. Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지원합니다.
 
 - Android
 
@@ -96,7 +92,12 @@ Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지�
 
 - Windows
 
-- macOS(미리 보기)
+- macOS
+
+
+![클라이언트 OS에 액세스 정책 연결](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,11 +132,11 @@ Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지�
 | Windows Server 2016    | Chrome                      | 서비스 예정 |
 | Windows Server 2012 R2 | Internet Explorer, 크롬   | ![확인][1] |
 | Windows Server 2008 R2 | Internet Explorer, 크롬   | ![확인][1] |
-| macOS                  | Safari                      | ![확인][1] |
-| macOS                  | Chrome                      | 곧 출시됩니다 |
+| macOS                  | Chrome, Safari              | ![확인][1] |
+
 
 > [!NOTE]
-> 크롬 지원의 경우 Windows 10 Creators 업데이트(버전 1703) 이상을 사용해야 합니다.<br>
+> 크롬 지원의 경우 Windows 10 크리에이터스 업데이트(버전 1703) 이상을 사용해야 합니다.<br>
 > [이 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치할 수 있습니다.
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>지원되는 모바일 응용 프로그램 및 데스크톱 클라이언트
@@ -153,7 +154,7 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 | 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online| Windows 10|
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS|
 | Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.| Office 365 SharePoint Online| Windows 10|
 | macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS|
 | 비즈니스용 Skype| Office 365 Exchange Online| Android, iOS|
 | Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+
 
 
 

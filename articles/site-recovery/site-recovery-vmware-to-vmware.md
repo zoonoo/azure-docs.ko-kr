@@ -1,9 +1,9 @@
 ---
-title: "다른 사이트에 VMware VM 또는 물리적 서버 복제(Azure 클래식 포털) | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버를 보조 사이트에 복제하려면 이 문서를 사용합니다."
+title: "보조 사이트에 VMware VM 또는 물리적 서버의 재해 복구 설정 | Microsoft Docs"
+description: "이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 VMware VM 또는 Windows/Linux 물리적 서버를 보조 사이트에 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Azure 클래식 포털에서 보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버 복제
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 VMware 가상 컴퓨터 또는 물리적 서버의 재해 복구 설정
 
-## <a name="overview"></a>개요
-Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 실시간 복제 기능을 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
-**Azure 계정**: [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/) .
+Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 실시간 복제 기능을 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다.
 
-## <a name="step-1-create-a-vault"></a>1단계: 자격 증명 모음 만들기
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 새로 만들기 > 관리 > 백업 및 사이트 복구(OMS)를 클릭합니다. 또는 찾아보기 > Recovery Services 자격 증명 모음 > 추가를 클릭합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/pricing/free-trial/) 계정을 만듭니다.
+
+
+## <a name="create-a-vault"></a>자격 증명 모음 만들기
+1. [Azure Portal](https://portal.azure.com/) > **Recovery Services**에 로그인합니다.
+2. 새로 만들기 > 관리 > Backup 및 사이트 복구(OMS)를 클릭합니다. 또는 찾아보기 > Recovery Services 자격 증명 모음 > 추가를 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
 4. **리소스 그룹**에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 필수 필드를 완료할 Azure 지역을 지정합니다.
 5. **위치**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격](https://azure.microsoft.com/pricing/details/site-recovery/)을 참조합니다.
 6. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 대시보드에 고정을 클릭하고 만들기를 클릭합니다.
-7. 대시보드 > 모든 리소스와 주 Recovery Services 자격 증명 모음 블레이드에 새 자격 증명 모음이 표시됩니다.
+7. 대시보드 > 모든 리소스와 주 Recovery Services 자격 증명 모음 페이지에 새 자격 증명 모음이 표시됩니다.
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>2단계: 자격 증명 모음을 구성하고 InMage Scout 구성 요소 다운로드
-1. Recovery Services 자격 증명 모음 블레이드에서 자격 증명 모음을 선택하고 설정을 클릭합니다.
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>자격 증명 모음을 구성하고 InMage Scout 구성 요소 다운로드
+1. Recovery Services 자격 증명 페이지에서 자격 증명 모음을 선택하고 **설정**을 클릭합니다.
 2. **설정** > **시작**에서 **Site Recovery** > 1단계: **인프라 준비** > **보호 목표**를 클릭합니다.
 3. **보호 목표**에서 복구 사이트에를 선택하고 예, VMware vSphere 하이퍼바이저 사용을 선택합니다. 그런 후 확인을 클릭합니다.
 4. **Scout 설치**에서 InMage Scout 8.0.1 GA 소프트웨어 및 등록 키를 클릭하여 다운로드합니다. 모든 필수 구성 요소에 대한 설치 파일은 다운로드한 zip 파일에 있습니다.
@@ -46,7 +46,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 ## <a name="step-3-install-component-updates"></a>3단계: 구성 요소 업데이트를 설치합니다.
 최신 [업데이트](#updates)에 대해 읽습니다. 다음 순서로 서버에 업데이트 파일을 설치합니다.
 
-1. 하나인 경우 RX 서버
+1. RX 서버(해당되는 경우)
 2. 서버 구성
 3. 프로세스 서버
 4. 마스터 대상 서버
@@ -69,7 +69,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 5. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 통합된 에이전트는 원본이 업데이트 4까지 업데이트되지 않은 경우 원본 서버에 적용할 수 없습니다. 이 목록의 뒷부분에서 설명했듯이 원본 서버에도 설치해야 합니다.<br>
 6. **vContinuum 서버**: **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe**를 vContinuum 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.<br>
 7. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.<br>
-8. **Windows 원본 서버**: 이미 원본이 업데이트 4에 있으면 원본에서 업데이트 5 에이전트를 설치할 필요가 없습니다. 업데이트 4 이하인 경우 업데이트 5 에이전트를 적용합니다.
+8. **Windows 원본 서버**: 업데이트 4가 이미 실행되는 경우 원본에 업데이트 5 에이전트를 설치할 필요가 없습니다. 업데이트 4 이하를 실행하는 경우 업데이트 5 에이전트를 적용합니다.
 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 두 번 클릭합니다. <br>
 9. **Linux 원본 서버**: 통합된 에이전트를 업데이트하려면 Linux 서버에 해당 버전의 UA 파일을 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 
@@ -86,7 +86,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 ## <a name="updates"></a>업데이트
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 업데이트 5
 Scout 업데이트 5는 누적 업데이트입니다. 업데이트 1부터 업데이트 4까지의 수정 사항과 함께 다음과 같은 새 버그 수정 및 향상된 기능이 모두 포함되어 있습니다.
-ASR Scout 업데이트 4부터 업데이트 5까지 추가된 수정 사항은 마스터 대상 및 vContinuum 구성 요소에 적용됩니다. 모든 원본 서버, 마스터 대상, 구성 서버, 프로세스 서버 및 RX가 이미 ASR Scout 업데이트 4에 있는 경우 업데이트 5만 마스터 대상 서버에 적용해야 합니다. 
+Site Recovery Scout 업데이트 4부터 업데이트 5까지 추가된 수정 사항은 마스터 대상 및 vContinuum 구성 요소에 적용됩니다. 모든 원본 서버, 마스터 대상, 구성 서버, 프로세스 서버 및 RX가 이미 Site Recovery Scout 업데이트 4에 있는 경우 업데이트 5만 마스터 대상 서버에 적용해야 합니다. 
 
 **새 플랫폼 지원**
 * SUSE Linux Enterprise Server 11 SP4(서비스 팩 4)
@@ -109,9 +109,9 @@ ASR Scout 업데이트 4부터 업데이트 5까지 추가된 수정 사항은 �
 
 > [!NOTE]
 > 
-> * 위에 나온 P2V 클러스터 수정은 ASR Scout 업데이트 5로 새로 보호되는 그러한 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 이미 보호되는 P2V MSCS 클러스터에서 클러스터 수정을 사용하려면 [ASR Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12인 보호되는 P2V MSCS 클러스터를 Scout 업데이트 5로 업그레이드에 언급된 업그레이드 단계를 수행해야 합니다.
+> * 위에 나온 P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 그러한 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 이미 보호되는 P2V MSCS 클러스터에서 클러스터 수정을 사용하려면 [릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12인 보호되는 P2V MSCS 클러스터를 Scout 업데이트 5로 업그레이드에 언급된 업그레이드 단계를 수행해야 합니다.
 > 
-> * 실제 MSCS 클러스터를 다시 보호하는 데 다시 보호할 때만 기존 대상 디스크를 다시 사용할 수 있습니다. 동일한 디스크 집합은 초기 보호될 때처럼 각 클러스터 노드에서 활성 상태입니다. 그렇지 않은 경우 [ASR Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12에 언급된 대로 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하는 수동 단계를 통해 다시 보호하는 동안 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만들게 됩니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
+> * 실제 MSCS 클러스터를 다시 보호하는 데 다시 보호할 때만 기존 대상 디스크를 다시 사용할 수 있습니다. 동일한 디스크 집합은 초기 보호될 때처럼 각 클러스터 노드에서 활성 상태입니다. 그렇지 않은 경우 [릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12에 언급된 대로 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하는 수동 단계를 통해 다시 보호하는 동안 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만들게 됩니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
 > 
 > * 원본 SLES11 또는 서비스 팩 서버를 사용하는 SLES11이 정상적으로 재부팅될 때마다 CX UI에서는 알림이 표시되지 않기 때문에 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시해야 합니다. 다시 동기화에 대해 루트 디스크를 표시하지 않을 경우 DI(데이터 무결성) 문제가 표시될 수 있습니다.
 > 
@@ -123,7 +123,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 
 * vCenter/vSphere 6.0, 6.1 및 6.2에 대한 지원이 추가되었습니다.
 * 다음 Linux 운영 체제에 대한 지원이 추가되었습니다.
-  * Red Hat Enterprise Linux(RHEL)7.0, 7.1 및 7.2
+  * Red Hat Enterprise Linux(RHEL) 7.0, 7.1 및 7.2
   * CentOS 7.0, 7.1 및 7.2
   * Red Hat Enterprise Linux(RHEL) 6.8
   * CentOS 6.8
@@ -164,7 +164,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 업데이트 3에는 다음 버그 수정 및 향상된 기능이 포함됩니다.
 
 * 구성 서버 및 RX가 프록시 뒤에 있는 경우 Site Recovery 자격 증명 모음에 등록하는 데 실패했습니다.
-* 복구 지점 목표(RPO)가 충족되지 않은 시간 수는 상태 보고서에 업데이트 되지 않습니다.
+* 복구 지점 목표(RPO)가 충족되지 않은 시간 수는 상태 보고서에 업데이트되지 않습니다.
 * ESX 하드웨어 세부 설명 및 네트워크 세부 설명이 UTF-8 문자를 포함하는 경우 구성 서버는 RX와 동기화하지 않습니다.
 * Windows Server 2008 R2 도메인 컨트롤러가 복구 후 부팅되지 않습니다.
 * 오프라인 동기화는 예상대로 작동하지 않습니다.
@@ -229,4 +229,4 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
   * 마스터 대상 서버에 26개 이상의 디스크가 있으면 Linux 가상 컴퓨터 보호가 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
-문의 사항이 있으시다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
+문의 사항이 있으시다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.

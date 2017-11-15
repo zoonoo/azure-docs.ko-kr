@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: b2542af86be236b8d575fcaf7687222cd74af661
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Service Fabric Linux 클러스터 배포
 이 자습서는 시리즈의 1부입니다. Azure CLI를 사용하여 기존 Azure VNET(가상 네트워크)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
@@ -84,17 +84,35 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Service Fabric 클러스터 배포
-네트워크 리소스에서 배포가 완료되면 다음 단계는 Service Fabric 클러스터용으로 지정된 서브넷 및 NSG의 VNET에 Service Fabric 클러스터를 배포하는 것입니다. 이 문서의 앞부분에서 배포된 기존 VNET과 서브넷에 클러스터를 배포하려면 Resource Manager 템플릿이 필요합니다.  자세한 내용은 [Azure Resource Manager를 사용하여 클러스터 만드기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 이 자습서 시리즈에서는 이전 단계에서 설정한 VNET, 서브넷 및 NSG의 이름을 사용하도록 템플릿을 미리 구성했습니다.  다음 Resource Manager 템플릿 및 매개 변수 파일을 다운로드합니다.
+네트워크 리소스에서 배포가 완료되면 다음 단계는 Service Fabric 클러스터용으로 지정된 서브넷 및 NSG의 VNET에 Service Fabric 클러스터를 배포하는 것입니다. 이 문서의 앞부분에서 배포된 기존 VNET과 서브넷에 클러스터를 배포하려면 Resource Manager 템플릿이 필요합니다.  자세한 내용은 [Azure Resource Manager를 사용하여 클러스터 만드기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 이 자습서 시리즈에서는 이전 단계에서 설정한 VNET, 서브넷 및 NSG의 이름을 사용하도록 템플릿을 미리 구성했습니다.  
+
+다음 Resource Manager 템플릿 및 매개 변수 파일을 다운로드합니다.
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
 
-배포를 위해 *linuxcluster.parameters.json* 파일에 빈 **clusterName**, **adminUserName** 및 **adminPassword** 매개 변수를 입력합니다.  자체 서명된 인증서를 만들려는 경우 **certificateThumbprint**, **certificateUrlValue** 및 **sourceVaultValue** 매개 변수를 비워 둡니다.  기존 인증서가 이전에 키 자격 증명 모음에 업로드되어 있는 경우 해당 매개 변수 값을 입력합니다.
+이 템플릿을 사용하여 보안 클러스터를 만듭니다.  클러스터 인증서는 노드 간 통신을 보호하고 관리 클라이언트에 클러스터 관리 끝점을 인증하는 데 사용되는 X.509 인증서입니다.  클러스터 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 SSL도 제공합니다. Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다.  클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다. 
 
-다음 스크립트를 사용하여 Resource Manager 템플릿 및 매개 변수 파일을 통해 클러스터를 배포합니다.  지정된 키 자격 증명 모음에 자체 서명된 인증서가 생성되어 클러스터를 보호하는 데 사용됩니다.  또한 인증서가 로컬에 다운로드됩니다.
+CA(인증 기관)의 인증서를 클러스터 인증서로 사용할 수도 있고 자체 서명된 인증서를 만들어서 테스트 용도로 사용할 수도 있습니다. 클러스터 인증서는 다음 조건을 충족해야 합니다.
+
+- 개인 키를 포함해야 합니다.
+- 키 교환을 위해 만들어야 합니다. 이 인증서는 개인 정보 교환(.pfx) 파일로 내보낼 수 있습니다.
+- 인증서의 주체 이름이 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. .cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다.  클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+
+배포를 위해 *linuxcluster.parameters.json* 파일에 빈 매개 변수를 입력합니다.
+
+|매개 변수|값|
+|---|---|
+|adminPassword|Password#1234|
+|adminUserName|vmadmin|
+|clusterName|mysfcluster|
+
+자체 서명된 인증서를 만들려는 경우 **certificateThumbprint**, **certificateUrlValue** 및 **sourceVaultValue** 매개 변수를 비워 둡니다.  이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 해당 매개 변수 값을 입력합니다.
+
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 cmdlet은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다. [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create)의 다른 매개 변수를 사용하여 기존 인증서 및/또는 키 자격 증명 모음을 지정할 수 있습니다.
 
 ```azurecli
 Password="q6D7nN%6ck@6"
-Subject="aztestcluster.southcentralus.cloudapp.azure.com"
+Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
 az group create --name $ResourceGroupName --location $Location
 
@@ -138,9 +156,9 @@ az group delete --name $ResourceGroupName
 > * Service Fabric CLI를 사용하여 클러스터에 연결
 > * 클러스터 제거
 
-이제 다음 자습서를 진행하여 Service Fabric을 사용하여 API Management를 배포하는 방법을 알아봅니다.
+이제 다음 자습서로 넘어가서 클러스터 규모를 조정하는 방법을 알아보겠습니다.
 > [!div class="nextstepaction"]
-> [API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+> [클러스터 규모 조정](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

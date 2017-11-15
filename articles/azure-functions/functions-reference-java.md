@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Java 주석은 `azure-functions-java-core` 패키지에 포함되어 입력 및 
 CosmosDB | 해당 없음
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | 해당 없음
-알림 허브 | 해당 없음
+Notification Hubs | 해당 없음
 저장소 Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
 저장소 큐 | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 저장소 테이블 | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
@@ -164,10 +164,11 @@ public static String echoLength(byte[] content) {
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ public class MyClass {
 }
 ```
 
-따라서 이 함수가 호출되면 HTTP 요청 페이로드에서 `in` 인수에 대한 `String` 및 `obj` 인수에 전달된 `MyObject` Azure Table Storage 형식을 전달합니다.
+따라서 이 함수가 호출되면 HTTP 요청 페이로드에서 `in` 인수에 대한 선택적 `String` 및 `obj` 인수에 전달된 Azure Table Storage `MyObject` 형식을 전달합니다. `Optional<T>` 유형을 사용하여 null이 될 수 있는 함수에 대한 입력을 처리합니다.
 
 ## <a name="outputs"></a>outputs
 
@@ -271,11 +272,34 @@ public class MyClass {
 
 | 특수 형식      |       대상        | 일반적 용도                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리 가져오기 |
-| `HttpResponseMessage` | HTTP 출력 바인딩 | 200 이외의 반환 상태   |
+| `HttpRequestMessage<T>`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리 가져오기 |
+| `HttpResponseMessage<T>` | HTTP 출력 바인딩 | 200 이외의 반환 상태   |
 
 > [!NOTE] 
 > `@BindingName` 주석을 사용하여 HTTP 헤더 및 쿼리를 가져올 수도 있습니다. 예를 들어 `@Bind("name") String query`는 HTTP 요청 헤더와 쿼리를 반복하고 해당 값을 메서드에 전달합니다. 예를 들어 요청 URL이 `http://example.org/api/echo?name=test`이면 `query`는 `"test"`가 됩니다.
+
+### <a name="metadata"></a>Metadata
+
+메타데이터는 HTTP 헤더, HTTP 쿼리 및 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)와 같은 다양한 원본에서 가져옵니다. 값을 얻으려면 메타데이터 이름과 함께 `@BindingName` 주석을 사용합니다.
+
+예를 들어 요청된 URL이 `http://{example.host}/api/metadata?name=test`이면 다음 코드 조각의 `queryValue`는 `"test"`가 됩니다.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>함수 실행 컨텍스트
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

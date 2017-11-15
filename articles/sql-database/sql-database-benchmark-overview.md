@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 43ab7ed75313863d2912063169ccc089af6052c2
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database 벤치마크 개요
 ## <a name="overview"></a>개요
@@ -106,7 +106,7 @@ ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하�
 | Standard(S2) |50 |7.1GB |
 | Premium(P1) |100 |14 GB |
 | Premium(P2) |200 |28GB |
-| Premium(P6/P3) |800 |114GB |
+| Premium(P6) |800 |114GB |
 
 ## <a name="measurement-duration"></a>측정 기간
 유효한 벤치마크를 실행하려면 한 시간 이상의 안정적 측정 기간이 필요합니다.

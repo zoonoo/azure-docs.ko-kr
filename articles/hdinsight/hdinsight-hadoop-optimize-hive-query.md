@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 쿼리를 최적화
 
@@ -53,7 +53,7 @@ HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 내용�
 * **컨테이너를 다시 사용**합니다. 가능할 때마다 Tez가 컨테이너를 다시 시작하여 컨테이너 시작으로 인한 대기 시간이 줄어듭니다.
 * **연속 최적화 기술**. 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
 
-이러한 개념에 대한 자세한 내용은 [Apache Tez](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+이러한 개념에 대한 자세한 내용은 [Apache TEZ](http://hortonworks.com/hadoop/tez/)를 참조하세요.
 
 아래 설정을 사용하여 쿼리를 접두사로 지정하여 모든 Hive 쿼리 Tez를 사용할 수 있습니다.
 
@@ -180,11 +180,11 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 ## <a name="next-steps"></a>다음 단계
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
 * [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
-* [HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hdinsight-hive-analyze-sensor-data.md)
-* [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](hdinsight-hive-analyze-website-log.md)
+* [HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hadoop/apache-hive-analyze-sensor-data.md)
+* [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

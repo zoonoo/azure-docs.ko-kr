@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리
-이 항목에서는 개발자가 PostgreSQL용 Azure Database에 연결하고 쿼리하도록 응용 프로그램을 프로그래밍하는 데 사용할 수 있는 라이브러리 및 드라이버를 나열합니다.
+이 문서에서는 개발자가 Azure Database for PostgreSQL에 연결하고 쿼리하도록 응용 프로그램을 개발하는 데 사용할 수 있는 라이브러리 및 드라이버를 나열합니다.
 
 ## <a name="client-interfaces"></a>클라이언트 인터페이스
-PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라이브러리는 외부 프로젝트이며 독립적으로 배포됩니다. 이러한 라이브러리는 Windows, Linux 및 Mac 플랫폼에서 지원됩니다. 일부 인기 있는 클라이언트 드라이버는 다음 표에 나와 있습니다.
+PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라이브러리는 외부 프로젝트이며 독립적으로 배포됩니다. 나열된 라이브러리는 Azure Database for PostgreSQL에 연결하기 위해 Windows, Linux 및 Mac 플랫폼에서 지원됩니다. 몇 가지 빠른 시작 예제는 다음 단계 섹션에 나열됩니다.
 
 | **언어** | **클라이언트 인터페이스** | **추가 정보** | **다운로드** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

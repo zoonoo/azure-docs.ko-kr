@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Linux 가상 컴퓨터 만들기
 
-Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 컴퓨터 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작은 가상 컴퓨터를 만들고 VM에 웹 서버를 설치하는 과정을 설명합니다.
+Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 컴퓨터 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 가상 컴퓨터를 만들고 VM에 웹 서버를 설치하는 방법에 대해 단계별로 설명합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -46,7 +46,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **계산**을 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다. 
+2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다. 
 
 3. 가상 컴퓨터 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키**를 선택합니다. SSH 공용 키를 붙여 넣을 때 선행 또는 후행 공백을 모두 제거해야 합니다. 완료되면 **확인**을 클릭합니다.
 

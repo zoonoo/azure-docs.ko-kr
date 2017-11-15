@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -51,6 +51,8 @@ Azure Event Grid의 몇 가지 주요 기능은 다음과 같습니다.
 * **기본 제공 이벤트** - 리소스 정의 기본 제공 이벤트를 사용하여 신속하게 준비하고 실행합니다.
 * **사용자 지정 이벤트** - Event Grid를 사용하여 사용자 앱의 사용자 지정 이벤트를 라우팅하고, 필터링하며, 안정적으로 배달합니다.
 
+Event Grid, Event Hubs 및 Service Bus를 비교하려면 [Choose between Azure services that deliver messages](compare-messaging-services.md)(메시지를 배달하는 Azure 서비스 중 선택)을 참조하세요.
+
 ## <a name="built-in-publisher-and-handler-integration"></a>기본 제공 게시자 및 처리기 통합
 
 Azure는 게시자 및 처리기를 모두 포함한 다양한 서비스를 사용하는 기본 제공 이벤트 지원을 제공합니다.
@@ -61,7 +63,7 @@ Azure는 게시자 및 처리기를 모두 포함한 다양한 서비스를 사�
 
 * 리소스 그룹(관리 작업)
 * Azure 구독(관리 작업)
-* Event Hubs
+* Event Hubs(영문)
 * 저장소 Blob
 * 사용자 지정 토픽
 
@@ -89,7 +91,7 @@ Azure Event Grid는 서버를 사용하지 않는 작업 자동화 및 통합 �
 
 Event Grid는 데이터 원본과 이벤트 처리기를 연결합니다. 예를 들어 Event Grid를 사용하여, 새 사진이 Blob Storage 컨테이너에 추가될 때마다 이미지 분석을 실행하도록 서버를 사용하지 않는 함수를 즉시 트리거합니다. 
 
-### <a name="ops-automation"></a>작업 자동화
+### <a name="ops-automation"></a>작업 Automation
 
 ![작업 자동화](./media/overview/Ops_automation.png)
 
@@ -100,14 +102,6 @@ Event Grid를 통해 자동화를 가속화하고 정책 적용을 간소화할 
 ![응용 프로그램 통합](./media/overview/app_integration.png)
 
 Event Grid는 앱을 다른 서비스와 연결합니다. 예를 들어 앱의 이벤트 데이터를 Event Grid로 보내고 Event Grid의 안정적인 배달, 고급 라우팅 및 Azure와의 직접 통합을 활용하는 사용자 지정 토픽을 만듭니다. 또는 Event Grid와 Logic Apps를 사용하여, 코드를 작성할 필요 없이 어디서든 데이터를 처리할 수 있습니다. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Event Grid는 다른 Azure 통합 서비스와 어떻게 다릅니까?
-
-Event Grid는 이벤트 구동, 반응성 프로그래밍을 사용할 수 있는 이벤트 백플레인입니다. Azure 서비스와 긴밀히 통합하고 타사 서비스와 통합할 수 있습니다. 이벤트 메시지는 서비스 및 응용 프로그램의 변화에 대응하는 데 필요한 정보를 포함합니다. Event Grid는 데이터 파이프라인이 아니며, 업데이트된 실제 개체를 배달하지 않습니다.
-
-Service Bus는 트랜잭션, 순서 지정, 중복 검색 및 즉시 일관성을 필요로 하는 일반적인 엔터프라이즈 응용 프로그램에 적합합니다. Event Grid는 반응성 모델의 속도, 비율 크기 조정, 너비 및 저렴한 비용을 위해 고안되었습니다. 서버를 사용하지 않는 아키텍처에 적합합니다.
-
-Event Grid는 Logic Apps 및 Event Hubs와 같은 다른 Azure 서비스를 보완합니다. Event Grid는 해당 워크플로를 시작하기 위해 논리 앱을 트리거합니다. Event Hubs는 Event Hubs 캡처 이벤트에 대응하고 데이터 수신과 변환 파이프라인을 빌드할 수 있도록 Event Grid와 작동합니다.
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid의 비용은 얼마입니까?
 

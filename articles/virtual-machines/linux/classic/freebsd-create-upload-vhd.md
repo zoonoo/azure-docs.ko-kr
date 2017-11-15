@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>FreeBSD VHD를 만들어서 Azure에 업로드
 이 문서에서는 FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure에서 VM(가상 컴퓨터)을 만들 수 있습니다.
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-이 작업에는 다음 5단계가 포함됩니다.
+이 작업에는 다음 4단계가 포함됩니다.
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>1단계: 업로드할 이미지 준비
 FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완료합니다.
@@ -114,66 +114,21 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
     이제 VM을 종료할 수 있습니다.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>2단계: Azure에서 저장소 계정 만들기
-가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파일을 업로드하려면 Azure에 저장소 계정이 있어야 합니다. Azure 클래식 포털을 사용하여 저장소 계정을 만들 수 있습니다.
+## <a name="step-2-prepare-the-connection-to-azure"></a>2단계: Azure 연결 준비
+클래식 배포 모델(`azure config mode asm`)에서 Azure CLI를 사용하고 있는지 확인한 다음 계정에 로그인합니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 명령 모음에서 **새로 만들기**를 선택합니다.
-3. **데이터 서비스** > **저장소** > **빠른 생성**을 선택합니다.
+```azurecli
+azure login
+```
 
-    ![저장소 계정 빠른 생성](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. 다음과 같이 필드를 채웁니다.
 
-   * **URL** 필드에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 3-24자의 숫자와 소문자를 사용할 수 있습니다. 이 이름은 구독에 대한 Azure Blob 저장소, Azure 큐 저장소 또는 Azure 테이블 저장소 리소스의 주소를 지정하는 데 사용되는 URL 내의 호스트 이름이 됩니다.
-   * **위치/선호도 그룹** 드롭다운 메뉴에서 저장소 계정의 **위치 또는 선호도 그룹**을 선택합니다. 선호도 그룹을 사용하면 클라우드 서비스와 저장소를 동일한 데이터 센터에 배치할 수 있습니다.
-   * **복제** 필드에서, 저장소 계정에 **지역 중복** 복제를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 내용은 [Azure Storage 복제](../../../storage/common/storage-redundancy.md)에서 확인할 수 있습니다.
+<a id="upload"> </a>
 
-     ![저장소 계정 세부 정보 입력](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. **저장소 계정 만들기**를 선택합니다. 이제 계정이 **저장소**아래에 나타납니다.
 
-    ![저장소 계정을 성공적으로 만들었음](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. 다음으로 업로드된 .vhd 파일의 컨테이너를 만듭니다. 저장소 계정 이름을 선택하고 **컨테이너**를 선택합니다.
+## <a name="step-3-upload-the-vhd-file"></a>3단계: .vhd 파일 업로드
 
-    ![저장소 계정 세부 정보](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. **컨테이너 만들기**를 선택합니다.
+VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 저장소 계정을 선택하거나 [새 계정을 만들 수 있습니다](../../../storage/common/storage-create-storage-account.md).
 
-    ![저장소 계정 세부 정보](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. **이름** 필드에 컨테이너의 이름을 입력합니다. 그런 다음 **액세스** 드롭 다운 메뉴에서 원하는 액세스 정책 유형을 선택합니다.
-
-    ![컨테이너 이름](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > 기본적으로 컨테이너는 전용이며 해당 계정 소유자만 액세스할 수 있습니다. 컨테이너 속성 및 메타데이터는 제외하고 컨테이너에 있는 Blob에 대한 공용 읽기 권한을 허용하려면 **공용 Blob** 옵션을 사용하세요. 컨테이너 및 Blob에 대한 전체 공용 읽기 권한을 허용하려면 **공용 컨테이너** 옵션을 사용하세요.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>3단계: Azure 연결 준비
-.vhd 파일을 업로드하려면 컴퓨터와 Azure 구독 간에 보안 연결을 설정해야 합니다. 이를 위해 Azure AD(Azure Active Directory) 방법이나 인증서 방법을 사용할 수 있습니다.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Azure AD 방법을 사용하여 .vhd 파일 업로드
-1. Azure PowerShell 콘솔을 엽니다.
-2. 다음 명령을 입력합니다.  
-    `Add-AzureAccount`
-
-    이 명령은 직장 또는 학교 계정으로 로그인할 수 있는 로그인 창을 엽니다.
-
-    ![PowerShell 창](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure가 자격 증명 정보를 인증하고 저장합니다. 그런 다음 창을 닫습니다.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>인증서 방법을 사용하여 .vhd 파일 업로드
-1. Azure PowerShell 콘솔을 엽니다.
-2. 입력: `Get-AzurePublishSettingsFile`
-3. 브라우저 창이 열리고 .publishsettings 파일을 다운로드하라는 메시지가 표시됩니다. 이 파일에는 Azure 구독에 대한 정보와 인증서가 포함되어 있습니다.
-
-    ![브라우저 다운로드 페이지](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. .publishsettings 파일을 저장합니다.
-5. 입력: `Import-AzurePublishSettingsFile <PathToFile>`, 여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
-
-   자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요.
-
-   PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
-
-## <a name="step-4-upload-the-vhd-file"></a>4단계: .vhd 파일 업로드
 .vhd 파일을 업로드할 때 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음은 파일을 업로드할 때 사용되는 몇 가지 용어입니다.
 
 * **BlobStorageURL**은 2단계에서 만든 저장소 계정의 URL입니다.
@@ -185,7 +140,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>5단계: 업로드한 .vhd 파일로 VM 만들기
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>4단계: 업로드한 .vhd 파일로 VM 만들기
 .vhd 파일을 업로드한 후에는 구독과 연결된 사용자 지정 이미지 목록에 .vhd 파일을 이미지로 추가하고 이 사용자 지정 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다.
 
 1. 이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.

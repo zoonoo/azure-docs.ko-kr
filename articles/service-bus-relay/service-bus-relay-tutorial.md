@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus WCF 릴레이 자습서 | Microsoft Docs"
-description: "WCF Relay를 사용하여 Service Bus 클라이언트 응용 프로그램과 서비스를 빌드합니다."
+description: "WCF 릴레이를 사용하여 클라이언트 및 서비스 응용 프로그램을 빌드합니다."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 릴레이 자습서
 
@@ -52,9 +52,9 @@ ms.lasthandoff: 10/11/2017
 
     ![][2]
 
-3. 서비스 버스 NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. 서비스 버스는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
+3. Service Bus NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
     ![][3]
 4. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
@@ -255,7 +255,7 @@ Azure 릴레이를 만들려면 첫째로 계약을 만들어야 하는데, 계�
 
 ### <a name="create-a-base-address-for-the-service"></a>서비스에 대한 기준 주소 만들기
 
-마지막 단계에서 추가한 코드 뒤에 서비스의 기본 주소에 대한 `Uri` 인스턴스를 만듭니다. 이 URI는 서비스 버스 체계, 네임스페이스 및 서비스 인터페이스의 경로를 지정합니다.
+마지막 단계에서 추가한 코드 뒤에 서비스의 기본 주소에 대한 `Uri` 인스턴스를 만듭니다. 이 URI는 Service Bus 체계, 네임스페이스 및 서비스 인터페이스의 경로를 지정합니다.
 
 ```csharp
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
