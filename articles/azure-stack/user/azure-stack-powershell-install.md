@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.  
 
@@ -82,7 +82,7 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>연결이 끊긴 또는 부분적으로 연결 된 시나리오에서 PowerShell을 설치 합니다.
 
-연결이 끊긴 시나리오에서는 먼저 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure 스택 개발 키트를 전송 해야 합니다.
+연결 되어 있지 않거나 부분적으로 연결 된 시나리오에서는 먼저 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure 스택 개발 키트를 전송 해야 합니다.
 
 > [!IMPORTANT]
 > 릴리스 1.2.11 AzureRM PowerShell 모듈의 주요 변경 내용 목록이 포함 되어 있습니다. 1.2.10에서 업그레이드 하 버전에서 마이그레이션 가이드를 참조 하십시오. [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration)합니다.
