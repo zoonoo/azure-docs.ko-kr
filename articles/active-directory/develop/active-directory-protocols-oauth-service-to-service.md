@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
 ---
-# 클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
 OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하는 대신 다른 웹 서비스를 호출할 때 웹 서비스( *기밀 클라이언트*)가 자체 자격 증명을 사용하여 인증하도록 허용합니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 데몬 서비스 또는 웹 사이트입니다. 더 높은 수준의 보증을 위해 Azure AD는 호출 서비스가 자격 증명으로 인증서(공유 암호 대신)를 사용할 수 있도록 합니다.
 
-## 클라이언트 자격 증명 부여 흐름 다이어그램
+## <a name="client-credentials-grant-flow-diagram"></a>클라이언트 자격 증명 부여 흐름 다이어그램
 다음 다이어그램에서는 Azure Active Directory(Azure AD)에서 클라이언트 자격 증명 부여 흐름이 작동하는 방법에 대해 설명합니다.
 
 ![OAuth 2.0 클라이언트 자격 증명 부여 흐름](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하�
 3. 보안 리소스에 인증하는 데 액세스 토큰이 사용됩니다.
 4. 보안 리소스의 데이터는 웹 응용 프로그램에 반환됩니다.
 
-## Azure AD에서 서비스 등록
+## <a name="register-the-services-in-azure-ad"></a>Azure AD에서 서비스 등록
 Azure AD(Azure Active Directory)에서 호출 서비스와 수신 서비스를 등록합니다. 자세한 지침은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)을 참조하세요.
 
-## 액세스 토큰 요청
+## <a name="request-an-access-token"></a>액세스 토큰 요청
 액세스 토큰을 요청하려면 테넌트별 Azure AD 끝점에 HTTP POST를 사용합니다.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## 서비스 간 액세스 토큰 요청
+## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
 클라이언트 응용 프로그램이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
 
-### 첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
 | 매개 변수 |  | 설명 |
@@ -57,7 +57,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | client_secret |필수 |Azure AD에서 호출 웹 서비스 또는 디먼 응용 프로그램에 대해 등록된 키를 입력합니다. 키를 생성하려면 Azure Portal에서 **Active Directory**를 클릭하고, 디렉터리를 전환한 후 응용 프로그램을 클릭하고 **설정**을 클릭하고 **키**를 클릭한 후 키를 입력합니다.|
 | resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. Azure Portal에서 앱 ID URI을 찾으려면, **Active Directory**을 클릭하고, 디렉터리를 전환하고, 서비스 응용 프로그램을 클릭한 후 **설정** 및 **속성**을 클릭합니다. |
 
-#### 예제
+#### <a name="example"></a>예제
 다음 HTTP POST는 https://service.contoso.com/ 웹 서비스용 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### 두 번째 사례: 인증서를 사용한 액세스 토큰 요청
+### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
 | 매개 변수 |  | 설명 |
@@ -81,7 +81,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
 
-#### 예제
+#### <a name="example"></a>예제
 다음 HTTP POST는 인증서가 있는 https://service.contoso.com/ 웹 서비스용 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### 서비스 간 액세스 토큰 응답
+### <a name="service-to-service-access-token-response"></a>서비스 간 액세스 토큰 응답
 
 성공 응답에는 다음 매개 변수가 있는 JSON OAuth 2.0 응답이 있습니다.
 
@@ -105,7 +105,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 | not_before |액세스 토큰은 사용할 수 있게 되는 시작 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 토큰 유효 기간까지의 기간(초)으로 표시됩니다.|
 | resource |수신 웹 서비스의 앱 ID URI입니다. |
 
-#### 응답 예제
+#### <a name="example-of-response"></a>응답 예제
 다음 예제는 웹 서비스에 액세스 토큰 요청에 대한 성공 응답을 보여줍니다.
 
 ```
@@ -118,6 +118,6 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 }
 ```
 
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md)
 * [공유 암호를 사용한 서비스 간 호출의 C# 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon) 및 [인증서를 사용한 서비스 간 호출의 C# 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

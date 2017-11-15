@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
 ---
-# v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다.  주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
 
 * 이러한 앱의 보안적인 특성은 기존의 서버 기반 웹 응용 프로그램과 확실한 차이가 있습니다.
@@ -39,12 +39,12 @@ v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을
 > 
 > 
 
-## 프로토콜 다이어그램
+## <a name="protocol-diagram"></a>프로토콜 다이어그램
 전체 암시적 로그인 흐름은 다음과 같습니다. - 각 단계를 아래에서 자세히 설명합니다.
 
 ![OpenId Connect 스윔 레인](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## 로그인 요청 보내기
+## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고 2.0 끝점으로부터 `id_token`을 받습니다.
 
 ```
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 사용자가 인증하고 동의하면 v2.0 끝점이 `response_mode` 매개 변수에 지정된 방법을 사용하여 표시된 `redirect_uri`에서 해당 앱에 응답을 반환합니다.
 
-#### 성공적인 응답
+#### <a name="successful-response"></a>성공적인 응답
 읽기 쉽도록 줄 바꿈을 포함하여 `response_mode=fragment` 및 `response_type=id_token+token`을 사용하는 성공적인 응답은 다음과 같이 표시됩니다.
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |앱이 요청한 id_token입니다. id_token을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다.  Id_token 및 해당 콘텐츠에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)에 포함되어 있습니다. |
 | state |요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
 
-#### 오류 응답
+#### <a name="error-response"></a>오류 응답
 앱이 적절하게 처리할 수 있도록 `redirect_uri` 에 오류 응답을 보낼 수도 있습니다.
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
-## id_token 유효성 검사
+## <a name="validate-the-idtoken"></a>id_token 유효성 검사
 id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. id_token의 서명 유효성을 검사하고 앱의 요구 사항에 따라 토큰의 클레임을 확인해야 합니다.  v2.0 끝점은 [JWT(JSON 웹 토큰)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
 
 클라이언트 코드에서 `id_token`의 유효성을 검사하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버에 보내서 그 곳에서 유효성 검사를 수행합니다.  id_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다.  [토큰 유효성 검사](active-directory-v2-tokens.md#validating-tokens) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-v2-tokens.md#validating-tokens)를 포함하여 자세한 내용은 [v2.0 토큰 참조](active-directory-v2-tokens.md)를 참조하세요.  대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
@@ -136,7 +136,7 @@ id_token의 클레임에 대한 자세한 내용은[ v2.0 끝점 토큰 참조](
 
 id_token의 유효성을 완전히 검사한 후 사용자와 세션을 시작하고 id_token의 클레임을 사용하여 앱에서 사용자 정보를 가져올 수 있습니다.  이 정보는 표시, 레코드, 권한 부여 등에 사용될 수 있습니다.
 
-## 액세스 토큰 가져오기
+## <a name="get-access-tokens"></a>액세스 토큰 가져오기
 사용자를 단일 페이지 앱에 로그인했으니, [Microsoft Graph](https://graph.microsoft.io)와 같이 Azure AD로 보안이 유지되는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다.  `token` response_type을 사용하여 토큰을 이미 받았더라도 이 방법을 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고 추가 리소스에 대한 토큰을 얻을 수 있습니다.
 
 일반적인 OpenID Connect/OAuth 흐름에서는 v2.0 `/token` 끝점에 요청을 보내어 이 작업을 수행합니다.  하지만 v2.0 끝점은 CORS 요청을 지원하지 않기 때문에 AJAX 호출이 토큰을 가져오고 새로 고치도록 하는 것은 불가능합니다.  그 대신, 숨겨진 iFrame에 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 `prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 응용 프로그램에 반환됩니다.  성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
 
-#### 성공적인 응답
+#### <a name="successful-response"></a>성공적인 응답
 `response_mode=fragment` 를 사용한 성공적인 응답은 다음과 같습니다.
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | scope |access_token이 유효한 범위입니다. |
 
-#### 오류 응답
+#### <a name="error-response"></a>오류 응답
 앱이 적절하게 처리할 수 있도록 `redirect_uri` 에 오류 응답을 보낼 수도 있습니다.  `prompt=none`의 경우, 예상되는 오류는 다음과 같습니다.
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다.  어떠한 방식이든 응용 프로그램에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
 
-## 토큰 새로 고침
+## <a name="refreshing-tokens"></a>토큰 새로 고침
 `id_token`과 `access_token`은 모두 짧은 시간 안에 만료되기 때문에 앱은 주기적으로 토큰을 새로 고치도록 준비가 되어야 합니다.  이러한 유형의 토큰을 새로 고치려면, Azure AD의 동작을 제어하도록 `prompt=none` 매개 변수를 사용하여 위와 동일한 숨겨진 iFrame 요청을 수행합니다.  새 `id_token`을 받으려면 `response_type=id_token` 및 `scope=openid`는 물론 `nonce` 매개 변수를 사용해야 합니다.
 
-## 로그아웃 요청 보내기
+## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 끝점에 요청을 보내 사용자 세션을 종료하고 v2.0 끝점에서 설정한 쿠키를 지울 수 있습니다.  앱은 웹 응용 프로그램에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음 브라우저를 아래 주소로 리디렉션합니다.
 
 ```
