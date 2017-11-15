@@ -9,11 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 
@@ -36,13 +36,13 @@ Azure Storage 계정에 대한 일반적인 내용은 [Azure storage 계정 정�
     - 내부적으로 Azure Key Vault는 키와 Azure Storage 계정을 나열(동기화)할 수 있습니다.  
     - Azure Key Vault는 정기적으로 키를 다시 생성(회전)합니다. 
     - 키 값은 호출자에게 응답으로 반환되지 않습니다. 
-    - Azure Key Vault는 저장소 계정과 클래식 저장소 계정 둘 다의 키를 관리합니다. 
+    - Azure Key Vault는 Storage 계정과 클래식 Storage 계정 둘 다의 키를 관리합니다. 
 - Azure Key Vault를 사용하면 자격 증명 모음/개체 소유자가 SAS(계정 또는 서비스 SAS) 정의를 만들 수 있습니다.
     - SAS 정의를 사용하여 만든 SAS 값은 REST URI 경로를 통해 암호로 반환됩니다. 자세한 내용은 [Azure Key Vault 저장소 계정 작업](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)을 참조하세요.
 
 ## <a name="naming-guidance"></a>명명 지침
 
-- 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.  
+- Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.  
 - SAS 정의 이름은 1-102자로, 0-9, a-z, A-Z만 포함해야 합니다.
 
 ## <a name="developer-experience"></a>개발자 환경
@@ -134,15 +134,15 @@ $yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincip
 
 ### <a name="set-permissions"></a>권한 설정
 
-저장소 권한을 *모두*로 설정했는지 확인합니다. 다음 명령을 사용하여 yourKeyVaultServicePrincipalId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
+저장소 권한을 *모두*로 설정했는지 확인합니다. 다음 명령을 사용하여 youruserPrincipalId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 이제 자신의 이름을 검색하고 관련된 ObjectId를 가져와서 자격 증명 모음에 대한 권한을 설정할 수 있습니다.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>액세스 허용
@@ -213,7 +213,7 @@ Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
 - [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 - [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 
-## <a name="storage-account-onboarding"></a>저장소 계정 등록 
+## <a name="storage-account-onboarding"></a>Storage 계정 등록 
 
 예제: Key Vault 개체 소유자인 사용자는 Azure Key Vault에 저장소 계정 개체를 추가하여 저장소 계정을 등록합니다.
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Azure Container Registry에서 웹앱 배포
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/24/2017
 
 시리즈의 다음 부분에서는 응용 프로그램을 업데이트한 다음 새 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Web App for Containers에 자동 배포
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Web App for Containers에 자동 배포
 
 Azure Container Registry는 컨테이너화된 응용 프로그램을 [Web App for Containers](../app-service/containers/index.yml)에 직접 배포할 수 있도록 지원합니다. 이 자습서에서는 Azure Portal을 사용하여 이전 자습서에서 만든 컨테이너 이미지를 다른 Azure 영역에 있는 두 개의 웹앱 계획에 배포합니다.
 
@@ -48,11 +48,11 @@ Azure Container Registry는 컨테이너화된 응용 프로그램을 [Web App f
 
 [Azure Portal](https://portal.azure.com)에 로그인하고 이전 자습서에서 만든 레지스트리로 이동합니다.
 
-**리포지토리** > **acr-helloworld**를 선택하고 **태그**의 **v1** 태그를 마우스 오른쪽 단추로 클릭한 다음 **앱 서비스에 배포**를 선택합니다.
+**리포지토리** > **acr-helloworld**를 선택하고 **태그**의 **v1** 태그를 마우스 오른쪽 단추로 클릭한 다음 **웹앱에 배포**를 선택합니다.
 
 ![Azure Portal에서 App Service에 배포][deploy-app-portal-01]
 
-표시되는 **Web App on Linux(미리 보기)**에서 각 설정에 대해 다음 값을 지정합니다.
+표시되는 **Web App for Containers**에서 각 설정에 대해 다음 값을 지정합니다.
 
 | 설정 | 값 |
 |---|---|
@@ -71,7 +71,7 @@ Azure Container Registry는 컨테이너화된 응용 프로그램을 [Web App f
 
 포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-westus*입니다.
 
-브라우저에서 실행 중인 응용 프로그램을 보려면 **앱 서비스 개요**의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
+브라우저에서 실행 중인 응용 프로그램을 보려면 **App Service** 개요의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
 
 ![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>두 번째 Web App for Containers 인스턴스 배포
 
-이전 섹션에서 설명한 절차를 사용하여 *미국 동부* 영역에 두 번째 웹앱을 배포합니다. **Linux의 웹앱(미리 보기)**에서 다음 값을 지정합니다.
+이전 섹션에서 설명한 절차를 사용하여 *미국 동부* 영역에 두 번째 웹앱을 배포합니다. **Web App for Containers**에서 다음 값을 지정합니다.
 
 | 설정 | 값 |
 |---|---|

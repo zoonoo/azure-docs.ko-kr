@@ -4,7 +4,7 @@ description: "이 문서에서는 Microsoft Azure용 NPS(네트워크 정책 서
 services: active-directory
 keywords: "Azure MFA, 원격 데스크톱 게이트웨이 통합, Azure Active Directory, 네트워크 정책 서버 확장"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 6ff9a341b31e5005949dcc0ecb2591060269846e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -66,7 +66,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 * Azure MFA 라이선스
 * Windows Server 소프트웨어
 * NPS(네트워크 정책 및 액세스 서비스) 역할
-* 온-프레미스 AD와 동기화되는 Azure AD 
+* 온-프레미스 Active Directory와 동기화되는 Azure Active Directory
 * Azure Active Directory GUID ID
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>RDS(원격 데스크톱 서비스) 인프라
@@ -75,10 +75,10 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 테스트를 위해 온-프레미스 RDS 인프라를 수동으로 빨리 만들려면 다음 단계에 따라 배포합니다. 
 **자세한 정보**: [Azure 빠른 시작으로 RDS 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) 및 [기본 RDS 인프라 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure) 
 
-### <a name="licenses"></a>라이선스
+### <a name="azure-mfa-license"></a>Azure MFA 라이선스
 Azure AD Premium, EMS(Enterprise Mobility plus Security) 또는 MFA 구독을 통해 사용할 수 있는 Azure MFA에 대한 라이선스가 필요합니다. 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)을 참조하세요. 테스트를 위해 평가판 구독을 사용할 수 있습니다.
 
-### <a name="software"></a>소프트웨어
+### <a name="windows-server-software"></a>Windows Server 소프트웨어
 NPS 확장을 사용하려면 NPS 역할 서비스가 설치된 Windows Server 2008 R2 SP1 이상이 필요합니다. 이 섹션의 모든 단계는 Windows Server 2016에서 수행되었습니다.
 
 ### <a name="network-policy-and-access-services-nps-role"></a>NPS(네트워크 정책 및 액세스 서비스) 역할
@@ -86,11 +86,11 @@ NPS 역할 서비스는 네트워크 액세스 정책 상태 서비스뿐만 아
 
 NPS 역할 서비스 Windows Server 2012 또는 이전 버전 설치에 대한 자세한 내용은 [NAP 상태 정책 서버 설치(영문)](https://technet.microsoft.com/library/dd296890.aspx)를 참조하세요. 도메인 컨트롤러에 NPS를 설치하기 위한 권장 사항을 포함하여 NPS에 대한 모범 사례에 대한 자세한 내용은 [NPS 모범 사례(영문)](https://technet.microsoft.com/library/cc771746)를 참조하세요.
 
-### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 동기화되는 Azure Active Directory 
+### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 동기화되는 Azure Active Directory
 NPS 확장을 사용하려면 온-프레미스 사용자가 Azure AD와 동기화되고 MFA를 사용하도록 설정되어야 합니다. 이 섹션에서는 온-프레미스 사용자가 AD Connect를 사용하여 Azure AD와 동기화된다고 가정합니다. Azure AD 연결에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../active-directory/connect/active-directory-aadconnect.md)을 참조하세요. 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID
-NPS를 설치하려면 Azure AD의 GUID를 알고 있어야 합니다. Azure AD의 GUID를 찾기 위한 지침은 아래에 나와 있습니다.
+NPS 확장을 설치하려면 Azure AD의 GUID를 알고 있어야 합니다. Azure AD의 GUID를 찾기 위한 지침은 아래에 나와 있습니다.
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성 
 이 섹션에서는 Azure MFA와 원격 데스크톱 게이트웨이를 통합하기 위한 지침에 대해 설명합니다. 사용자는 관리자로서 다단계 인증 장치 또는 응용 프로그램을 직접 등록하기 전에 먼저 Azure MFA 서비스를 구성해야 합니다.
@@ -126,11 +126,11 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 1. [NPS 확장](https://aka.ms/npsmfa)을 다운로드합니다. 
 2. 설치 실행 파일(NpsExtnForAzureMfaInstaller.exe)을 NPS 서버에 복사합니다.
 3. NPS 서버에서 **NpsExtnForAzureMfaInstaller.exe**를 두 번 클릭합니다. 메시지가 표시되면 **실행**을 클릭합니다.
-4. Azure MFA용 NPS 확장 대화 상자에서 소프트웨어 사용 조건을 검토하고, **사용 약관에 동의함**을 선택한 다음, **설치**를 클릭합니다.
+4. Azure MFA용 NPS 확장 설치 대화 상자에서 소프트웨어 사용 조건을 검토하고, **사용 약관에 동의함**을 선택한 다음, **설치**를 클릭합니다.
  
   ![Azure MFA 설치](./media/nps-extension-remote-desktop-gateway/image2.png)
 
-5. Azure MFA용 NPS 확장 대화 상자에서 [닫기]를 클릭합니다. 
+5. Azure MFA용 NPS 확장 설치 대화 상자에서 **닫기**를 클릭합니다. 
 
   ![Azure MFA용 NPS 확장](./media/nps-extension-remote-desktop-gateway/image3.png)
 
@@ -145,7 +145,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 * 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한 부여
 * 네트워크 정책 서버 서비스 다시 시작
 
-사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 사용자 등에 연결해야 합니다.
+사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.
 
 스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
 
@@ -184,7 +184,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
   ![서버 이름](./media/nps-extension-remote-desktop-gateway/image9.png)
 
-4. [속성] 대화 상자에서 **RD CAP** 저장소 탭을 선택합니다.
+4. 속성 대화 상자에서 **RD CAP 저장소** 탭을 선택합니다.
 5. [RD CAP 저장소] 탭에서 **NPS를 실행하는 중앙 서버**를 선택합니다. 
 6. **NPS를 실행하는 서버의 이름 또는 IP 주소 입력** 필드에서 NPS 확장을 설치한 서버의 IP 주소 또는 서버 이름을 입력합니다.
 
@@ -194,7 +194,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 8. **공유 비밀** 대화 상자에서 공유 비밀을 입력한 다음 **확인**을 클릭합니다. 이 공유 비밀을 기록하여 안전하게 저장해 둡니다.
 
  >[!NOTE]
- >공유 비밀은 RADIUS 서버와 클라이언트 간의 신뢰 관계를 설정하는 데 사용됩니다. 길고 복잡한 암호를 만드세요.
+ >공유 비밀은 RADIUS 서버와 클라이언트 간의 신뢰 관계를 설정하는 데 사용됩니다. 길고 복잡한 비밀을 만드세요.
  >
 
  ![공유 비밀](./media/nps-extension-remote-desktop-gateway/image11.png)
@@ -204,7 +204,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 사용자의 자격 증명에 대한 유효성을 검사하고, 2단계 인증을 수행하며, 응답을 수신하고, RADIUS 메시지에 응답할 시간을 보장하려면 RADIUS 시간 제한 값을 조정해야 합니다.
 
-1. RD 게이트웨이 서버의 [서버 관리자]에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
+1. RD 게이트웨이 서버에서 서버 관리자를 엽니다. 메뉴에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
 2. **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트 및 서버**를 펼치고 **원격 RADIUS 서버**를 선택합니다.
 
  ![원격 RADIUS 서버](./media/nps-extension-remote-desktop-gateway/image12.png)
@@ -225,7 +225,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
  ![Radius 서버 편집](./media/nps-extension-remote-desktop-gateway/image14.png)
 
-8.  [확인]을 두 번 클릭하여 대화 상자를 닫습니다.
+8.  **확인**을 두 번 클릭하여 대화 상자를 닫습니다.
 
 ### <a name="verify-connection-request-policies"></a>연결 요청 정책 확인 
 기본적으로 연결 권한 부여 정책에 중앙 정책 저장소를 사용하도록 RD 게이트웨이를 구성하면 RD 게이트웨이가 CAP 요청을 NPS 서버로 전달하도록 구성됩니다. Azure MFA 확장이 설치된 NPS 서버에서 RADIUS 액세스 요청을 처리합니다. 다음 단계에서는 기본 연결 요청 정책을 확인하는 방법을 보여 줍니다. 
@@ -245,7 +245,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 ### <a name="register-server-in-active-directory"></a>Active Directory에 서버 등록
 이 시나리오에서 제대로 작동하려면 NPS 서버를 Active Directory에 등록해야 합니다.
 
-1. **서버 관리자**를 엽니다.
+1. NPS 서버에서 **서버 관리자**를 엽니다.
 2. [서버 관리자]에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
 3. [네트워크 정책 서버] 콘솔에서 **NPS(로컬)**를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 클릭합니다. 
 4. **확인**을 두 번 클릭합니다.
@@ -266,7 +266,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 
  ![이름 및 주소](./media/nps-extension-remote-desktop-gateway/image18.png)
 
-4. **확인**을 클릭하여 [새 RADIUS 클라이언트] 대화 상자를 닫습니다.
+4. **확인**을 클릭하여 새 RADIUS 클라이언트 대화 상자를 닫습니다.
 
 ### <a name="configure-network-policy"></a>네트워크 정책 구성
 Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지정된 중앙 정책 저장소입니다. 따라서 유효한 연결 요청에 대한 권한을 부여하도록 NPS 서버에 CAP를 구현해야 합니다.  
@@ -280,7 +280,7 @@ Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지
 
  ![네트워크 속성](./media/nps-extension-remote-desktop-gateway/image20.png)
 
-4. **Copy of Connections to other access servers(다른 액세스 서버 연결 복사본)** 대화 상자의 [정책 이름]에서 적합한 이름(예: **RDG_CAP**)을 입력합니다. **정책 사용**을 선택하고 **액세스 허용**을 선택합니다. 필요에 따라 네트워크 액세스 형식에서 **원격 데스크톱 게이트웨이**를 선택하거나 **지정되지 않음**으로 그대로 둘 수 있습니다.
+4. **다른 액세스 서버 연결 복사본** 대화 상자의 **정책 이름**에서 적합한 이름(예: _RDG_CAP_)을 입력합니다. **정책 사용**을 선택하고 **액세스 허용**을 선택합니다. 필요에 따라 **네트워크 액세스 서버 형식**에서 **원격 데스크톱 게이트웨이**를 선택하거나 **지정되지 않음**으로 그대로 둘 수 있습니다.
 
  ![연결 복사본](./media/nps-extension-remote-desktop-gateway/image21.png)
 
@@ -319,7 +319,7 @@ Azure MFA에서 이전에 구성한 보조 인증 방법으로 성공적으로 �
 ### <a name="view-event-viewer-logs-for-successful-logon-events"></a>성공적인 로그온 이벤트에 대한 이벤트 뷰어 로그 보기
 Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인하려면 다음 Windows PowerShell 명령을 실행하여 Windows 터미널 서비스 및 Windows 보안 로그를 쿼리할 수 있습니다.
 
-_Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational_ 게이트웨이 작업 로그에서 성공적인 로그인 이벤트를 쿼리하려면 다음 명령을 사용합니다.
+_Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational_ 게이트웨이 작업 로그에서 성공적인 로그인 이벤트를 쿼리하려면 다음 PowerShell 명령을 사용합니다.
 
 * _Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational_ | where {$_.ID -eq '300'} | FL 
 * 이 명령에서는 사용자가 RD RAP(리소스 권한 부여 정책 요구 사항)를 충족하고 액세스 권한이 부여되었음을 보여 주는 Windows 이벤트가 표시됩니다.

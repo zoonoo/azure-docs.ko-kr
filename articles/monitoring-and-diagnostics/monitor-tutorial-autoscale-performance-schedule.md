@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 
-자동 크기 조정 설정을 사용하면 미리 설정된 조건에 따라 서비스의 인스턴스를 추가/제거할 수 있습니다. 이러한 설정은 포털을 통해 만들 수 있습니다. 이 메서드는 자동 크기 조정 설정을 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 자습서는 다음을 설명합니다.
+자동 크기 조정 설정을 사용하면 미리 설정된 조건에 따라 서비스의 인스턴스를 추가/제거할 수 있습니다. 이러한 설정은 포털을 통해 만들 수 있습니다. 이 메서드는 자동 크기 조정 설정을 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 
 
-1. App Service 만들기
-2. 자동 크기 조정 설정 구성
-3. 확장 작업 트리거
-4. 축소 작업 트리거
+이 자습서에서는 다음을 수행합니다. 
+> [!div class="checklist"]
+> * Web App 및 App Service 계획 만들기
+> * 웹앱이 수신하는 요청 수에 따라 규모 확장 및 규모 감축에 대한 자동 크기 조정 규칙 구성
+> * 규모 확장 작업을 트리거하고 인스턴스 수가 증가하는지 확인
+> * 규모 감축 작업을 트리거하고 인스턴스 수가 감소하는지 확인
+> * 리소스 정리
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -32,12 +35,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Web App 및 App Service 계획 만들기
-1. 왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
-2. *Web App* 항목을 검색하고 선택하여 **만들기**를 클릭합니다.
-3. *MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup'이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
-4. 몇 분 내에 리소스를 프로비전해야 합니다. 이 자습서의 나머지 부분을 통해 방금 만든 Web App 및 해당 App Service 계획을 참조합니다.
+왼쪽 탐색 창에서 **새로 만들기** 옵션을 클릭합니다.
 
-    ![포털에서 새 앱 서비스 만들기](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+*Web App* 항목을 검색하고 선택하여 **만들기**를 클릭합니다.
+
+*MyTestScaleWebApp*과 같은 앱 이름을 선택합니다. *myResourceGroup'이라는 새 리소스 그룹을 만들고 선택한 리소스 그룹에 배치합니다.
+
+몇 분 내에 리소스를 프로비전해야 합니다. 이 자습서의 나머지 부분에서는 웹앱 및 해당 App Service 계획을 사용합니다.
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>자동 크기 조정 설정으로 이동합니다.
 1. 왼쪽 탐색 창에서 **모니터** 옵션을 선택합니다. 페이지가 로드되면 **자동 크기 조정** 탭을 선택합니다.
@@ -54,12 +60,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
  ## <a name="configure-default-profile"></a>기본 프로필 구성
 1. 자동 크기 조정 설정의 **이름**을 입력합니다.
 2. 기본 프로필에서 **크기 조정 모드**가 '특정 인스턴스 수로 크기 조정'으로 설정되었는지 확인합니다.
-3. 인스턴스 수를 1로 설정합니다. 이 설정을 사용하면 다른 프로필이 활성화되거나 적용될 때 기본 프로필이 인스턴스 수를 1로 반환하게 됩니다.
+3. 인스턴스 수를 **1**로 설정합니다. 이 설정을 사용하면 다른 프로필이 활성화되거나 적용될 때 기본 프로필이 인스턴스 수를 1로 반환하게 됩니다.
 
   ![자동 크기 조정 설정으로 이동합니다.](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>되풀이 프로필 만들기
+## <a name="create-recurrance-profile"></a>되풀이 프로필 만들기
 
 1. 기본 프로필 아래에서 **크기 조정 조건 추가** 링크를 클릭합니다.
 
@@ -67,11 +73,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. **크기 조정 모드**를 '메트릭에 따라 크기 조정'으로 설정했는지 확인합니다.
 
-4. **인스턴스 제한**을 **최소** '1'로 설정하고 **최대** '2'로 설정하며 **기본** '1'로 설정합니다. 그러면 이 프로필이 서비스 계획에 1개 미만 또는 2개 초과 인스턴스가 있지 않도록 합니다. 프로필에 결정을 내리는 데 충분한 데이터가 없는 경우 기본 인스턴스 수를 사용합니다(이 경우에 1).
+4. **인스턴스 제한**을 **최소** '1'로 설정하고 **최대** '2'로 설정하며 **기본** '1'로 설정합니다. 이 설정은 이 프로필이 서비스 계획에 1개 미만 또는 2개 초과 인스턴스가 있지 않도록 합니다. 프로필에 결정을 내리는 데 충분한 데이터가 없는 경우 기본 인스턴스 수를 사용합니다(이 경우에 1).
 
 5. **일정**으로 '특정 일 반복'을 선택합니다.
 
-6. 월요일부터 금요일까지 9시(PST)에서 18(PST)까지 반복하도록 프로필을 설정합니다. 그러면 이 프로필이 활성 상태로 오전 9시~오후 6시, 월요일부터 금요일까지 적용 가능하게 됩니다. 다른 시간 동안 '기본값' 프로필은 자동 크기 조정 설정에서 사용하는 프로필입니다.
+6. 월요일부터 금요일까지 9시(PST)에서 18(PST)까지 반복하도록 프로필을 설정합니다. 이 설정은 이 프로필이 활성 상태로 오전 9시~오후 6시, 월요일부터 금요일까지 적용 가능하게 됩니다. 다른 시간 동안 '기본값' 프로필은 자동 크기 조정 설정에서 사용하는 프로필입니다.
 
 ## <a name="create-a-scale-out-rule"></a>확장 규칙 만들기
 
@@ -150,7 +156,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 시간에 따라 App Service 계획의 인스턴스 수를 반영하는 차트가 표시됩니다.
 
-7. 잠시 후에 인스턴스 수가 2에서 1로 감소해야 합니다. 이 프로세스는 적어도 10분이 걸립니다.  
+7. 잠시 후에 인스턴스 수가 2에서 1로 감소해야 합니다. 이 프로세스는 적어도 100분이 걸립니다.  
 
 8. 차트에는 이 자동 크기 조정 설정에서 수행한 각 크기 조정 작업에 해당하는 활동 로그 항목 집합이 표시됩니다.
 
@@ -168,7 +174,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 간단한 Web App 및 App Service 계획을 만들었습니다. Web App에서 수신한 요청 수에 따라 App Service 계획의 크기를 조정하는 자동 크기 조정 설정을 만들었습니다. 자동 크기 조정 설정에 대한 자세한 내용을 보려면 자동 크기 조정 개요를 계속 진행합니다.
+이 자습서에서는 다음을 수행했습니다.  
+> [!div class="checklist"]
+> * 웹앱 및 App Service 계획 만들기
+> * 웹앱이 수신하는 요청 수에 따라 규모 확장 및 규모 감축에 대한 자동 크기 조정 규칙 구성
+> * 규모 확장 작업을 트리거하고 인스턴스 수가 증가하는지 확인
+> * 규모 확장 작업을 트리거하고 인스턴스 수가 증가하는지 확인
+> * 리소스 정리
+
+
+자동 크기 조정 설정에 대한 자세한 내용을 보려면 [자동 크기 조정 개요](monitoring-overview-autoscale.md)를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [모니터링 데이터 보관](./monitor-tutorial-archive-monitoring-data.md)
+> [모니터링 데이터 보관](monitor-tutorial-archive-monitoring-data.md)

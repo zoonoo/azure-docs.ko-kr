@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, 기본값: None|동적| |
 | PeriodicApiSlowTraceInterval | time(초), 기본값: 5분 |동적| 시간 간격은 초 단위로 지정합니다. PeriodicApiSlowTraceInterval은 API 모니터에서 느린 API 호출을 다시 추적할 간격을 정의합니다. |
 | NodeDeactivationMaxReplicaCloseDuration | time(초), 기본값: 900 |동적|시간 간격은 초 단위로 지정합니다. 노드 비활성화 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다. |
 | FabricUpgradeMaxReplicaCloseDuration | time(초), 기본값: 900 |동적| 시간 간격은 초 단위로 지정합니다. 패브릭 업그레이드 중에 닫힌 복제본이 있는 서비스 호스트를 종료하기 전에 시스템에서 기다리는 기간입니다. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. 긴밀하게 붙어 있는 복제본을 갖춘 서비스 호스트를 종료하기 전에 시스템에서 대기하는 기간입니다.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. 긴밀하게 붙어 있는 복제본을 갖춘 서비스 호스트를 종료하기 전에 시스템에서 대기하는 기간입니다. 이 값을 0으로 설정하는 경우 복제본을 닫도록 지시되지 않습니다.|
 |ReplicaChangeRoleFailureRestartThreshold|int, 기본값: 10|동적| 정수입니다. 기본 수준 승격 중에 자동 완화 작업(복제본 다시 시작)이 적용되는 API 실패 수를 지정합니다. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, 기본값: 2147483647|동적| 정수입니다. 기본 수준 승격 중에 경고 상태 보고서가 발생되는 API 실패 수를 지정합니다.|
 

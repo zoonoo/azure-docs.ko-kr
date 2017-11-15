@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
 
@@ -39,10 +39,10 @@ PostgreSQL용 Azure Database는 커뮤니티 버전의 오픈 소스 [PostgreSQL
 - [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
-미리 보기에서 MySQL용 Azure Database는 기본 및 표준이라는 두 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은 [가격 책정 계층](concepts-service-tiers.md)을 참조하세요.
+미리 보기에서 Azure Database for PostgreSQL은 기본 및 표준이라는 두 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은 [가격 책정 계층](concepts-service-tiers.md)을 참조하세요.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
-기능을 사용하고 해제할 때를 어떻게 결정하나요? 계산 단위에 따라 성능 등급을 함께 결합한 기본 제공 성능 모니터링 및 경고 기능을 사용합니다. 이 도구를 사용하면 현재 또는 프로젝트된 성능 요구에 기반하여 계산 단위를 확장 또는 축소하는 경우 미치는 영향을 신속하게 평가할 수 있습니다. 자세한 내용은 [경고](howto-alert-on-metric.md)를 참조하세요.
+기능을 사용하고 해제할 때를 어떻게 결정하나요? Compute 단위에 따라 성능 등급을 함께 결합한 기본 제공 성능 모니터링 및 경고 기능을 사용합니다. 이 도구를 사용하면 현재 또는 프로젝트된 성능 요구에 기반하여 Compute 단위를 확장 또는 축소하는 경우 미치는 영향을 신속하게 평가할 수 있습니다. 자세한 내용은 [경고](howto-alert-on-metric.md)를 참조하세요.
 
 ## <a name="keep-your-app-and-business-running"></a>앱 및 비즈니스 운영 유지
 Azure의 업계 선도적인 99.99% 가용성(미리 보기 상태에서 사용할 수 없음) SLA(서비스 수준 약정)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. 모든 PostgreSQL 서버용 Azure Database에서 다른 방법으로 구입 또는 설계, 구축 및 관리해야 하는 기본 제공 보안, 내결함성 및 데이터 보호를 활용합니다. PostgreSQL용 Azure Database에서 각 서비스 계층은 해당 방식으로 시작하고 실행하고 계속하는 데 사용할 수 있는 일련의 포괄적인 비즈니스 연속성 기능 및 옵션을 제공합니다. [특정 시점 복원](howto-restore-server-portal.md)을 사용하면 데이터베이스를 최대 35일 전의 상태로 복원할 수 있습니다. 또한 데이터베이스를 호스팅하는 데이터 센터에서 중단이 발생하면 최신 백업의 지역 중복 복사본에서 데이터베이스를 복원할 수 있습니다.

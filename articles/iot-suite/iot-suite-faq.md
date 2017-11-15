@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2017
 ms.author: dobett
-ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 63b059cb91956231fd3bafbe9770a04a0b7e347a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/31/2017
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
 * [원격 모니터링 사전 구성 솔루션(.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [원격 모니터링 사전 구성 솔루션(.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [원격 모니터링 사전 구성 솔루션(Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [예측 유지 관리 사전 구성 솔루션](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory)
 

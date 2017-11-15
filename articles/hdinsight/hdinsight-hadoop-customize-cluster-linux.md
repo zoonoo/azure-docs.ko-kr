@@ -1,6 +1,6 @@
 ---
 title: "스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정 - Azure | Microsoft Docs"
-description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 작업은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다."
+description: "스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
 HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립트를 호출하는 **스크립트 작업** 이라는 구성 옵션을 제공합니다. 이러한 스크립트는 추가 구성 요소를 설치하고 구성 설정을 변경하는 데 사용합니다. 스크립트 작업은 클러스터를 만드는 중이거나 만든 후에 사용할 수 있습니다.
 
@@ -31,7 +31,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-스크립트 작업을 Azure 마켓플레이스에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure 마켓플레이스에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
+스크립트 작업을 Azure Marketplace에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
 ## <a name="permissions"></a>권한
 
@@ -40,7 +40,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 * **AMBARI.RUN\_CUSTOM\_COMMAND**: Ambari 관리자 역할은 기본적으로 이 권한을 가집니다.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**: HDInsight 클러스터 관리자와 Ambari 관리자는 기본적으로 이 권한을 가집니다.
 
-도메인 가입 HDInsight에서 권한으로 작업하는 방법에 대한 자세한 내용은 [도메인 가입 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)를 참조하세요.
+도메인 가입 HDInsight에서 권한으로 작업하는 방법에 대한 자세한 내용은 [도메인 가입 HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-manage.md)를 참조하세요.
 
 ## <a name="access-control"></a>액세스 제어
 
@@ -53,9 +53,9 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 * [Azure 포털에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)
 * [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)
 
-## <a name="understanding-script-actions"></a>스크립트 작업 이해
+## <a name="understanding-script-actions"></a>스크립트 동작 이해
 
-스크립트 동작은 단순히 URI 및 해당 매개 변수를 제공하는 Bash 스크립트입니다. 이 스크립트는 HDInsight 클러스터의 노드에서 실행됩니다. 다음은 스크립트 작업의 특징 및 기능입니다.
+스크립트 동작은 URI 및 해당 매개 변수를 제공하는 Bash 스크립트입니다. 이 스크립트는 HDInsight 클러스터의 노드에서 실행됩니다. 다음은 스크립트 작업의 특징 및 기능입니다.
 
 * HDInsight 클러스터에서 액세스할 수 있는 URI에 저장되어야 합니다. 가능한 저장소 위치는 다음과 같습니다.
 
@@ -106,14 +106,14 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 > 스크립트 작업을 통해 변경된 내용을 자동으로 취소하는 방법은 없습니다. 변경 사항을 수동으로 되돌리거나 되돌린 스크립트를 제공하세요.
 
 
-### <a name="script-action-in-the-cluster-creation-process"></a>클러스터 만들기 프로세스의 스크립트 작업
+### <a name="script-action-in-the-cluster-creation-process"></a>클러스터 만들기 프로세스의 스크립트 동작
 
-클러스터를 만들 때 사용되는 스크립트 작업은 기존 클러스터에서 실행되는 스크립트 작업과 약간 다릅니다.
+클러스터를 만들 때 사용되는 스크립트 동작은 기존 클러스터에서 실행되는 스크립트 동작과 약간 다릅니다.
 
 * 이 스크립트는 **자동으로 보존**됩니다.
 * 스크립트가 **실패**하면 클러스터 만들기 프로세스가 실패할 수 있습니다.
 
-다음 다이어그램에서는 만들기 프로세스 중 스크립트 작업을 실행할 때를 보여줍니다.
+다음 다이어그램에서는 만들기 프로세스 중 스크립트 동작을 실행할 때를 보여줍니다.
 
 ![HDInsight 클러스터 사용자 지정 및 클러스터 만드는 동안의 단계][img-hdi-cluster-states]
 
@@ -150,9 +150,9 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 이 단계에�
 > [!NOTE]
 > 클러스터를 만든 후 클러스터 사용자(관리자) 암호를 변경한 경우 이 클러스터를 실행하는 스크립트 작업에 오류가 발생할 수 있습니다. 작업자 노드를 대상으로 하는 지속적인 스크립트 작업이 있는 경우 클러스터 크기 조정 시 이러한 스크립트가 실패할 수 있습니다.
 
-## <a name="example-script-action-scripts"></a>예제 스크립트 작업 스크립트
+## <a name="example-script-action-scripts"></a>예제 스크립트 동작 스크립트
 
-스크립트 작업 스크립트는 다음 유틸리티를 통해 사용할 수 있습니다.
+스크립트 동작 스크립트는 다음 유틸리티를 통해 사용할 수 있습니다.
 
 * Azure 포털
 * Azure PowerShell
@@ -171,11 +171,11 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 | **Hive 라이브러리 사전 로드** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)를 참조하세요. |
 | **Mono 설치 또는 업데이트** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash. [HDInsight에서 Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)를 참조하세요. |
 
-## <a name="use-a-script-action-during-cluster-creation"></a>클러스터를 만드는 동안 스크립트 작업 사용
+## <a name="use-a-script-action-during-cluster-creation"></a>클러스터를 만드는 동안 스크립트 동작 사용
 
 이 섹션에는 HDInsight 클러스터를 만들 때 스크립트 작업을 사용할 수 있는 다양한 방법에 대한 예제를 제공합니다.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure 포털에서 스크립트 작업 사용
+### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure Portal에서 스크립트 동작 사용
 
 1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. __클러스터 요약__ 섹션에 도달하면 중지합니다.
 
@@ -211,229 +211,29 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 3. 클러스터를 만들려면 __클러스터 요약__ 선택 영역에서 __만들기__를 선택합니다.
 
-### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
+### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 스크립트 동작 사용
 
-이 섹션의 예제는 Azure Resource Manager 템플릿을 통해 스크립트 작업을 사용하는 방법을 설명합니다.
+스크립트 동작을 Azure Resource Manager 템플릿과 함께 사용할 수 있습니다. 예제를 보려면 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)을 참조하세요.
 
-#### <a name="before-you-begin"></a>시작하기 전에
+이 예제에서는 스크립트 동작이 다음 코드를 사용하여 추가됩니다.
 
-* HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
-* 템플릿을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
-* 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
-
-#### <a name="create-clusters-using-script-action"></a>스크립트 작업을 사용하여 클러스터 만들기
-
-1. 다음 템플릿을 컴퓨터의 위치에 복사합니다. 이 템플릿은 헤드 노드에 Giraph를 설치하며 클러스터의 작업자 노드도 설치합니다. 또한 JSON 템플릿이 유효한지 확인할 수 있습니다. 템플릿 콘텐츠를 [JSONLint](http://jsonlint.com/), 즉, 온라인 JSON 유효성 검사기 도구에 붙여 넣습니다.
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "West US",
-                    "allowedValues": [ "West US" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.2",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. Azure PowerShell을 시작하고 Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
+    ]
 
-        Add-AzureRmAccount
+템플릿 배포 방법에 대한 내용은 다음 문서를 참조하세요.
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. 여러 구독이 있는 경우 배포에 사용할 구독 ID를 제공합니다.
+* [템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+* [템플릿과 Azure CLI로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
-    > [!NOTE]
-    > `Get-AzureRmSubscription`을 사용하여 계정과 관련한 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
+### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 동작 사용
 
-4. 기본 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
-
-        ResourceGroupName : myresourcegroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. 리소스 그룹에 대한 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 다음 데이터를 포함하는 매개 변수:
-
-    * 배포에 사용할 이름
-    * 리소스 그룹의 이름
-    * 사용자가 만든 템플릿에 대한 경로 또는 URL입니다.
-
-  템플릿에 매개 변수가 필요한 경우 해당 매개 변수를 전달해야 합니다. 이 경우 클러스터에서 R을 설치하는 스크립트 작업은 매개 변수가 필요하지 않습니다.
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    템플릿에 정의된 매개 변수에 값을 제공하라는 메시지가 표시됩니다.
-
-1. 리소스 그룹을 배포한 경우 배포에 대한 요약이 표시됩니다.
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. 배포에 실패할 경우 다음 cmdlet을 사용하여 오류에 대한 정보를 가져올 수 있습니다.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
-
-### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 작업 사용
-
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
+이 섹션에서는 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 다음 스크립트는 PowerShell을 사용하는 클러스터를 만들 때 스크립트 작업을 적용하는 방법에 대해 보여줍니다.
 
@@ -441,15 +241,15 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>클러스터를 만드는 동안 HDInsight .NET SDK에서 스크립트 작업 사용
+### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>클러스터를 만드는 동안 HDInsight .NET SDK에서 스크립트 동작 사용
 
 HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 클라이언트 라이브러리를 제공합니다. 코드 샘플은 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action)를 참조하세요.
 
-## <a name="apply-a-script-action-to-a-running-cluster"></a>실행 중인 클러스터에 스크립트 작업 적용
+## <a name="apply-a-script-action-to-a-running-cluster"></a>실행 중인 클러스터에 스크립트 동작 적용
 
 이 섹션에서는 실행 중인 클러스터에 스크립트 작업을 적용하는 방법을 알아봅니다.
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Azure 포털에서 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Azure Portal에서 실행 중인 클러스터에 스크립트 동작 적용
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
 
@@ -460,7 +260,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
    > [!NOTE]
    > **모든 설정**을 선택한 다음 설정 섹션에서 **스크립트 작업**을 선택할 수도 있습니다.
 
-3. 스크립트 작업 섹션 가장 위에서 **새로운 항목 제출**을 선택합니다.
+3. 스크립트 동작 섹션 맨 위에서 **새로운 항목 제출**을 선택합니다.
 
     ![실행 중인 클러스터에 스크립트 적용](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -482,7 +282,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 5. 마지막으로 **만들기** 단추를 사용하여 클러스터에 스크립트를 적용합니다.
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Azure PowerShell에서 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Azure PowerShell에서 실행 중인 클러스터에 스크립트 동작 적용
 
 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
@@ -499,7 +299,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
     Parameters      :
     NodeTypes       : {HeadNode, WorkerNode}
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Azure CLI에서 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Azure CLI에서 실행 중인 클러스터에 스크립트 동작 적용
 
 계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure CLI 설치](../cli-install-nodejs.md)를 참조하세요.
 
@@ -533,17 +333,17 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
         data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
         info:    hdinsight script-action create command OK
 
-### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>REST API를 사용하여 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>REST API를 사용하여 실행 중인 클러스터에 스크립트 동작 적용
 
-[실행 중인 클러스터의 스크립트 작업](https://msdn.microsoft.com/library/azure/mt668441.aspx)을 참조하세요.
+[실행 중인 클러스터의 스크립트 동작](https://msdn.microsoft.com/library/azure/mt668441.aspx)을 참조하세요.
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>HDInsight .NET SDK에서 실행 중인 클러스터에 스크립트 작업 적용
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>HDInsight .NET SDK에서 실행 중인 클러스터에 스크립트 동작 적용
 
 .NET SDK를 사용하여 클러스터에 스크립트를 적용하는 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
 
-## <a name="view-history-promote-and-demote-script-actions"></a>기록 보기, 스크립트 작업 승격 및 강등
+## <a name="view-history-promote-and-demote-script-actions"></a>기록 보기, 스크립트 동업 승격 및 강등
 
-### <a name="using-the-azure-portal"></a>Azure 포털 사용
+### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
 
@@ -554,15 +354,15 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
    > [!NOTE]
    > **모든 설정**을 선택한 다음 설정 섹션에서 **스크립트 작업**을 선택할 수도 있습니다.
 
-4. 이 클러스터에 대한 스크립트 기록이 스크립트 작업 섹션에 표시됩니다. 이 정보에는 지속된 스크립트 목록이 포함되어 있습니다. 아래 스크린샷을 보시면 Solr 스크립트가 이 클러스터에서 실행되었지만 스크린샷에는 지속된 스크립트가 보이지 않습니다.
+4. 이 클러스터에 대한 스크립트 기록이 스크립트 동작 섹션에 표시됩니다. 이 정보에는 지속된 스크립트 목록이 포함되어 있습니다. 아래 스크린샷을 보시면 Solr 스크립트가 이 클러스터에서 실행되었지만 스크린샷에는 지속된 스크립트가 보이지 않습니다.
 
-    ![스크립트 작업 섹션](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![스크립트 동작 섹션](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 5. 기록에서 스크립트를 선택하면 이 스크립트의 속성 섹션이 표시됩니다. 화면 맨 위에서 스크립트를 다시 실행하거나 승격할 수 있습니다.
 
     ![스크립트 작업 속성](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. 또한 스크립트 작업 섹션에서 항목 오른쪽에 있는 **...**를 사용하여 작업을 수행할 수도 있습니다.
+6. 또한 스크립트 동작 섹션에서 항목 오른쪽에 있는 **...**를 사용하여 작업을 수행할 수도 있습니다.
 
     ![스크립트 작업 ... 사용량](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -639,7 +439,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
     ![선택한 작업으로 Ambari 웹 UI 모음](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
-3. **작업** 열에 **run\_customscriptaction**이 있는 항목을 찾습니다. 이러한 항목을 스크립트 작업을 실행할 때 생성됩니다.
+3. **작업** 열에 **run\_customscriptaction**이 있는 항목을 찾습니다. 이러한 항목을 스크립트 동작을 실행할 때 생성됩니다.
 
     ![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
@@ -647,7 +447,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
 ### <a name="access-logs-from-the-default-storage-account"></a>기본 저장소 계정에서 로그 액세스
 
-스크립트 작업 오류로 인해 클러스터를 만들 수 없는 경우 로그는 클러스터 저장소 계정에서 액세스할 수 있습니다.
+스크립트 오류로 인해 클러스터를 만들 수 없는 경우 로그는 클러스터 저장소 계정에 유지됩니다.
 
 * 저장소 로그는 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`에서 제공합니다.
 
@@ -703,19 +503,19 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>클러스터를 만드는 동안 기록에 스크립트가 표시되지 않음
 
-2016년 3월 15일 전에 클러스터를 만든 경우에는 스크립트 작업 기록에 항목이 나타나지 않을 수 있습니다. 2016년 3월 15일 이후에 클러스터의 크기를 조정하면 클러스터를 만들 때 사용되는 스크립트가 기록에 나타납니다. 크기 조정 작업의 일부로 클러스터의 새 노드에 적용되기 때문입니다.
+2016년 3월 15일 전에 클러스터를 만든 경우에는 스크립트 동작 기록에 항목이 나타나지 않을 수 있습니다. 클러스터의 크기를 조정하면 스크립트가 스크립트 동작 기록에 표시됩니다.
 
 두 가지 예외 사항이 있습니다.
 
-* 클러스터가 2015년 9월 1일 전에 생성되었습니다. 스크립트 작업이 이 날에 도입되었습니다. 따라서 이 날짜 이전에 생성된 클러스터는 클러스터 생성에 스크립트 작업이 사용되지 않았습니다.
+* 클러스터가 2015년 9월 1일 전에 생성되었습니다. 스크립트 동작이 이 날에 도입되었습니다. 따라서 이 날짜 이전에 생성된 클러스터는 클러스터 생성에 스크립트 동작이 사용되지 않았습니다.
 
-* 클러스터를 만들 때 여러 스크립트 작업을 사용하고 여러 스크립트에 같은 이름을 사용했거나 여러 스크립트의 이름과 URI는 같지만 매개 변수는 서로 다르게 했습니다. 이 경우에는 다음 오류가 표시됩니다.
+* 클러스터를 만들 때 여러 스크립트 동작을 사용하고 여러 스크립트에 같은 이름을 사용했거나 여러 스크립트의 이름과 URI는 같지만 매개 변수는 서로 다르게 했습니다. 이 경우에는 다음 오류가 표시됩니다.
 
     기존 스크립트에 충돌하는 스크립트 이름이 있으므로 이 클러스터에서 새 스크립트 작업을 실행할 수 없습니다. 클러스터 만들기에 제공되는 스크립트 이름이 모두 고유해야 합니다. 크기 조정에 기존 스크립트가 실행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
+* [HDInsight용 스크립트 동작 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
 * [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)

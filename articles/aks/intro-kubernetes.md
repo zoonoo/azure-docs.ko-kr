@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fa46d16e2105c0354cc533c58fb9e0093c129ced
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service(AKS) 소개
 
@@ -48,13 +48,13 @@ Kubernetes는 컨테이너화된 응용 프로그램의 배포, 크기 조정 �
 
 ## <a name="videos"></a>비디오
 
-Azure Container Services의 Kubernetes 지원(Azure Friday, 2017년 1월):
+AKS(Azure Container Service) - Azure 2017년 10월 금요일:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Kubernetes-Support-in-Azure-Container-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >
 >
 
-Kubernetes에서 응용 프로그램을 개발 및 배포하기 위한 도구(Azure OpenDev, 2017년 6월):
+Kubernetes에서 응용 프로그램을 개발 및 배포하기 위한 도구 - Azure OpenDev, 2017년 6월:
 
 > [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
 >

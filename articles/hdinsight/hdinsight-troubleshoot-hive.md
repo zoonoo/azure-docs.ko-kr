@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Hive 문제 해결
 
 Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 사항 및 해결 방법을 알아봅니다.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터로 가져오는 방법
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
 
 
 ### <a name="resolution-steps"></a>해결 단계:
@@ -54,7 +54,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>클러스터에서 Hive 로그를 찾는 방법
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>클러스터에서 Hive 로그를 찾으려면 어떻게 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -83,7 +83,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>클러스터에서 특정 구성으로 Hive 셸을 시작하는 방법
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>클러스터에서 특정 구성으로 Hive 셸을 시작하려면 어떻게 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -110,7 +110,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Tez DAG 데이터를 분석하는 방법
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Tez DAG 데이터를 분석하려면 어떻게 하나요?
 
 
 ### <a name="resolution-steps"></a>해결 단계:
@@ -150,7 +150,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>클러스터에서 Tez DAG 데이터를 다운로드하는 방법
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>클러스터에서 Tez DAG 데이터를 다운로드하려면 어떻게 하나요?
 
 
 #### <a name="resolution-steps"></a>해결 단계:
@@ -177,6 +177,8 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>참고 항목
+[Azure HDInsight를 사용하여 문제 해결](hdinsight-troubleshoot-guide.md)
 
 
 

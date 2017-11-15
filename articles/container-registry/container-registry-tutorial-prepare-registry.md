@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>지리적 복제 Azure Container Registry 준비
 
@@ -247,10 +247,10 @@ v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34
 > * 응용 프로그램 원본에서 Docker 컨테이너 이미지를 만들었습니다.
 > * 컨테이너 이미지를 레지스트리에 푸시했습니다.
 
-다음 자습서로 이동하여 지역에서 복제를 사용하여 여러 Azure App Service 인스턴스에 컨테이너를 배포하여 이미지를 로컬로 제공하는 방법을 알아보세요.
+다음 자습서로 이동하여 지역에서 복제를 사용하여 여러 Web App for Containers 인스턴스에 컨테이너를 배포하여 이미지를 로컬로 제공하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure App Services에 컨테이너 배포](container-registry-tutorial-deploy-app.md)
+> [Azure Container Registry에서 웹앱 배포](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

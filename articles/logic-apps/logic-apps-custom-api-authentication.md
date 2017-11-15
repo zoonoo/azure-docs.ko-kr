@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>논리 앱에서 사용자 지정 API 호출에 대해 호출 보호
 
@@ -49,7 +49,7 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1부: 논리 앱의 Azure AD 응용 프로그램 ID 만들기
 
-논리 앱은 이 Azure AD 응용 프로그램 ID를 사용하여 Azure AD에 대해 인증합니다. 디렉터리에 대해 이 ID를 한 번만 설정하면 됩니다. 예를 들어 논리 앱마다 고유한 ID를 만들 수 있더라도 모든 논리 앱에 대해 동일한 ID를 사용하도록 선택할 수 있습니다. Azure Portal, [Azure 클래식 포털](#app-identity-logic-classic) 또는 [PowerShell](#powershell)을 사용하여 이러한 ID를 설정할 수 있습니다.
+논리 앱은 이 Azure AD 응용 프로그램 ID를 사용하여 Azure AD에 대해 인증합니다. 디렉터리에 대해 이 ID를 한 번만 설정하면 됩니다. 예를 들어 논리 앱마다 고유한 ID를 만들 수 있더라도 모든 논리 앱에 대해 동일한 ID를 사용하도록 선택할 수 있습니다. Azure Portal에서 또는 [PowerShell](#powershell)을 사용하여 이러한 ID를 설정할 수 있습니다.
 
 **Azure Portal에서 논리 앱에 대한 응용 프로그램 ID 만들기**
 
@@ -94,34 +94,6 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
    ![나중을 위한 키 복사 및 저장](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Azure 클래식 포털에서 논리 앱의 응용 프로그램 ID 만들기**
-
-1. Azure 클래식 포털에서 [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)를 선택합니다.
-
-2. 웹앱 또는 API 앱에 사용하는 것과 동일한 디렉터리를 선택합니다.
-
-3. **응용 프로그램** 탭의 페이지 아래쪽에서 **추가**를 선택합니다.
-
-4. 응용 프로그램 ID의 이름을 지정하고 **다음**(오른쪽 화살표)를 선택합니다.
-
-5. **앱 속성** 아래에서 **로그인 URL** 및 **앱 ID URI**에 대한 도메인으로 형식이 지정된 고유 문자열을 제공하고 **완료**를 선택합니다(확인 표시).
-
-6. **구성** 탭에서 3부에서 사용할 논리 앱의 **클라이언트 ID**를 복사하여 저장합니다.
-
-7. **키** 아래에서 **기간 선택** 목록을 엽니다. 키의 기간을 선택합니다.
-
-   만드는 키는 논리 앱에 대한 응용 프로그램 ID의 "비밀" 또는 암호 역할을 합니다.
-
-8. 페이지 아래쪽에서 **저장**을 선택합니다. 몇 초 정도 기다려야 할 수도 있습니다.
-
-9. **키** 아래에서 현재 표시된 키를 복사하여 저장합니다. 
-
-   3부에서 논리 앱을 구성할 때 이 키를 "비밀" 또는 암호로 지정합니다.
-
-자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 응용 프로그램을 구성하는 방법](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
-
 <a name="powershell"></a>
 
 **PowerShell에서 논리 앱의 응용 프로그램 ID 만들기**
@@ -156,7 +128,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 4. **인증/권한 부여** 페이지에서 **저장**을 선택합니다.
 
-이제 웹앱 또는 API 앱과 연결된 응용 프로그램 ID에 대한 클라이언트 ID 및 테넌트 ID를 찾아야 합니다. 이러한 ID는 3부에서 사용됩니다. 따라서 Azure Portal 또는 [Azure 클래식 포털](#find-id-classic)에 대해 이러한 단계를 계속합니다.
+이제 웹앱 또는 API 앱과 연결된 응용 프로그램 ID에 대한 클라이언트 ID 및 테넌트 ID를 찾아야 합니다. 이러한 ID는 3부에서 사용됩니다. 따라서 Azure Portal에 대해 이러한 단계를 계속합니다.
 
 **Azure Portal에서 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID 및 테넌트 ID 찾기**
 
@@ -177,32 +149,6 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 5. 변경 내용을 저장하지 않고 **Azure Active Directory 설정** 페이지를 닫습니다.
 
-<a name="find-id-classic"></a>
-
-**Azure 클래식 포털에서 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID 및 테넌트 ID 찾기**
-
-1. Azure 클래식 포털에서 [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)를 선택합니다.
-
-2.  웹앱 또는 API 앱에 사용할 디렉터리를 선택합니다.
-
-3. **검색** 상자에서 웹앱 또는 API 앱의 응용 프로그램 ID를 찾아 선택합니다.
-
-4. **구성** 탭에서 **클라이언트 ID**를 복사하고 3부에서 사용할 해당 GUID를 저장합니다.
-
-5. 클라이언트 ID를 가져온 후 **구성** 탭 아래쪽에서 **끝점 보기**를 선택합니다.
-
-6. **페더레이션 메타데이터 문서**의 URL을 복사하고 해당 URL을 찾습니다.
-
-7. 열린 메타데이터 문서에서 `https://sts.windows.net/{GUID}` 형식의 **entityID** 특성이 있는 루트 **EntityDescriptor ID** 요소를 찾습니다. 
-
-   이 특성의 GUID는 특정 테넌트의 GUID(테넌트 ID)입니다.
-
-8. 테넌트 ID를 복사하고, 3부에서 사용할 뿐만 아니라 필요한 경우 웹앱 또는 API 앱의 배포 템플릿에서도 사용할 해당 ID를 저장합니다.
-
-자세한 내용은 다음 항목을 참조하세요.
-
-* [Azure 앱 서비스의 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Azure Resource Manager 템플릿으로 배포할 때 인증 설정**
@@ -212,7 +158,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 1부의 단계를 수행할 수도 있지만 **로그인 URL** 및 **앱 ID URI**에 대한 웹앱 또는 API 앱의 실제 `https://{URL}`을 사용해야 합니다. 이러한 단계에서 앱의 배포 템플릿 및 3부에서 사용할 클라이언트 ID와 테넌트 ID를 모두 저장해야 합니다.
 
 > [!NOTE]
-> 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID를 만들 때는 PowerShell 대신 Azure Portal 또는 Azure 클래식 포털을 사용해야 합니다. PowerShell commandlet은 웹 사이트에 사용자가 로그인하는 데 필요한 권한을 설정하지 않습니다.
+> 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID를 만들 때는 PowerShell이 아닌 Azure Portal을 사용해야 합니다. PowerShell commandlet은 웹 사이트에 사용자가 로그인하는 데 필요한 권한을 설정하지 않습니다.
 
 클라이언트 ID와 테넌트 ID를 가져온 후에는 이러한 ID를 웹앱 또는 API 앱의 하위 리소스로 배포 템플릿에 포함합니다.
 

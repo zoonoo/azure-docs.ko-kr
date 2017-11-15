@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob Storage에서 개체 전송
 
@@ -34,25 +34,7 @@ ms.lasthandoff: 10/31/2017
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 저장소 계정 만들기
-
-먼저 이 빠른 시작 가이드에서 사용할 새 범용 저장소 계정을 만듭니다. 
-
-1. [Azure Portal](https://portal.azure.com)로 이동한 후 Azure 계정을 사용하여 로그인합니다. 
-2. 허브 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정 - blob, 파일, 테이블, 큐**를 선택합니다. 
-3. 저장소 계정의 이름을 입력합니다. 이 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 또한 고유해야 합니다.
-4. `Deployment model`을 **Resource Manager**로 설정합니다.
-5. `Account kind`를 **일반적인 용도**로 설정합니다.
-6. `Performance`를 **표준**으로 설정합니다. 
-7. `Replication`을 **LRS(로컬 중복 저장소)**로 설정합니다.
-8. `Storage service encryption`을 **사용 안 함**으로 설정합니다.
-9. `Secure transfer required`를 **사용 안 함**으로 설정합니다.
-10. 사용 중인 구독을 선택합니다. 
-11. `resource group`에 대해 새 리소스 그룹을 만들고 고유한 이름을 지정합니다. 
-12. 저장소 계정에 사용할 `Location`을 선택합니다.
-13. **대시보드에 고정**을 선택하고 **만들기**를 클릭하여 저장소 계정을 만듭니다. 
-
-저장소 계정을 만들면 대시보드에 고정됩니다. 클릭하여 엽니다. 설정에서 **액세스 키**를 클릭합니다. 키를 선택하고 나중에 사용할 수 있게 연결 문자열을 클립보드에 복사한 후 텍스트 편집기에 붙여 넣습니다.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 
@@ -115,6 +97,9 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 * 액세스하는 컨테이너를 나타내는 **CloudBlobContainer** 개체의 인스턴스를 만듭니다. 컨테이너는 컴퓨터에서 폴더를 사용하여 파일을 구성하는 것과 같이 blob을 구성하는 데 사용됩니다.
 
 **CloudBlobContainer**가 있으면 관심 있는 특정 Blob을 가리키는 **CloudBlockBlob** 개체의 인스턴스를 만들고, 업로드, 다운로드, 복사 등을 수행할 수 있습니다.
+
+> [!IMPORTANT]
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
 이 섹션에서는 개체의 인스턴스를 만들고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob을 공용 Blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 

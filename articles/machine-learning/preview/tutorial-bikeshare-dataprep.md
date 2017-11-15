@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>자전거 공유 자습서: Azure Machine Learning Workbench에서 고급 데이터 준비
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -493,7 +493,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
 ### <a name="remove-columns"></a>열 제거
 
-여행 데이터에서 각 행은 자전거 픽업 이벤트를 나타냅니다. 이 자습서에서는 **starttime** 및 **스테이션 시작** 열만 필요합니다. 이러한 두 개의 열을 다중 선택하여 다른 열을 제거하고 열 헤더를 마우스 오른쪽 단추로 클릭하고 **열 유지**를 선택합니다. 다른 열이 제거됩니다.
+여행 데이터에서 각 행은 자전거 픽업 이벤트를 나타냅니다. 이 자습서에서는 **starttime** 및 **시작 스테이션 ID** 열만 필요합니다. 이러한 두 개의 열을 다중 선택하여 다른 열을 제거하고 열 헤더를 마우스 오른쪽 단추로 클릭하고 **열 유지**를 선택합니다. 다른 열이 제거됩니다.
 
 ![열 유지 옵션의 이미지](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

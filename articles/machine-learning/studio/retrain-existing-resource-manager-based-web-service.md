@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
 이 문서에서는 다음 시나리오에 대한 재학습 프로세스를 설명합니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 다음으로 학습 실험을 학습된 모델 및 모델 평가 결과를 생성하는 웹 서비스로 배포해야 합니다.  
 
-실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭한 다음 **웹 서비스[New] 배포**를 선택합니다. Azure Machine Learning Web Services 포털은 **웹 서비스 배포** 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 배치 실행 방법만 사용할 수 있습니다.
+실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭한 다음 **웹 서비스[New] 배포**를 선택합니다. Azure Machine Learning Web Services 포털은 **웹 서비스 배포** 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
 ## <a name="retrain-the-model-with-new-data-by-using-bes"></a>BES를 사용하여 새 데이터로 모델 다시 학습
 이 예에서는 재학습 응용 프로그램을 만드는 데 C#을 사용합니다. 또한 Python 또는 R 샘플 코드를 사용하여 이 작업을 수행할 수 있습니다.
@@ -83,12 +83,13 @@ ms.lasthandoff: 10/11/2017
 
 **사용** 페이지의 **기본 사용량 정보** 섹션에서 기본 키를 찾아 **apikey** 선언으로 복사합니다.
 
-### <a name="update-the-azure-storage-information"></a>Azure 저장소 정보 업데이트
+### <a name="update-the-azure-storage-information"></a>Azure Storage 정보 업데이트
 BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.  
 
-Azure Storage 정보를 업데이트하려면 Azure 클래식 포털에서 저장소 계정에 대한 저장소 계정 이름, 키 및 컨테이너 정보 검색한 다음 해당 값을 업데이트해야 합니다. 실험을 실행한 후 결과 워크플로가 다음과 유사해야 합니다.
+Azure Storage 정보를 업데이트하려면 Azure Portal에서 Storage 계정에 대한 Storage 계정 이름, 키 및 컨테이너 정보를 검색한 다음 코드에서 해당 값을 업데이트해야 합니다.
+실험을 실행한 후 결과 워크플로는 다음과 비슷합니다.
 
-![실행 후 결과 워크플로][4]코드에서 ng 값입니다.
+![실행 후 결과 워크플로][4]
 
 1. Azure 클래식 포털에 로그인합니다.
 2. 왼쪽 탐색 열에서 **Storage**를 클릭합니다.
@@ -119,7 +120,9 @@ Azure Storage 정보를 업데이트하려면 Azure 클래식 포털에서 저�
             }
         },
 
-다음은 재학습 출력의 예입니다. ![재학습 출력][6]
+다음은 재학습 출력 예제입니다.
+
+![재학습 출력][6]
 
 ## <a name="evaluate-the-retraining-results"></a>재학습 결과 평가
 응용 프로그램을 실행할 때 출력은 평가 결과를 액세스하는 데 필요한 URL 및 공유 액세스 서명 토큰을 포함합니다.
