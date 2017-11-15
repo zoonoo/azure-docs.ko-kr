@@ -4,7 +4,7 @@ description: "스택에서 Azure 가상 컴퓨터와 작업 하는 경우의 차
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure 스택의 가상 컴퓨터에 대 한 고려 사항
 
@@ -46,12 +46,14 @@ Azure 스택 개발 키트는 다음 크기를 지원합니다.
 
 | 형식 | 크기 | 지원 되는 크기의 범위 |
 | --- | --- | --- |
-|범용 가상 컴퓨터 |Basic A|A0 A4|
-|범용 가상 컴퓨터 |표준 A|A0-A7|
-|범용 가상 컴퓨터 |표준 D|D1 D4|
-|범용 가상 컴퓨터 |표준 Dv2|D1v2 D5v2|
-|메모리에 최적화|D 시리즈|D11 D14|
-|메모리에 최적화 |Dv2 시리즈|D11v2 D14v2|
+|범용 가상 컴퓨터 |Basic A|A0-A 4|
+|범용 가상 컴퓨터 |표준 A|A0 - A7|
+|범용 가상 컴퓨터 |D 시리즈|D1-D 4|
+|범용 가상 컴퓨터 |Dv2 시리즈|D1_v2-D5_v2|
+|범용 가상 컴퓨터 |DS 시리즈|DS1-DS4|
+|범용 가상 컴퓨터 |DSv2 시리즈|DS1_v2-DS5_v2|
+|메모리에 최적화|DS 시리즈|DS11-DS14|
+|메모리에 최적화 |DSv2 시리즈|DS11_v2-DS14_v2|
 
 가상 컴퓨터 크기와 해당 관련된 리소스 수량 Azure 스택와 Azure 간에 일치 됩니다. 예를 들어, 메모리, 코어 수 및 만들 수 있는 데이터 디스크의 수/크기 양을 포함 됩니다. 그러나 Azure 스택에는 동일한 VM 크기의 성능을 특정 Azure 스택 환경의 기본 특성에 따라 달라 집니다.
 

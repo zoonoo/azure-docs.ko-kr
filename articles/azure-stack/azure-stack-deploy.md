@@ -3,8 +3,8 @@ title: "Azure 스택 개발 키트 배포 필수 구성 요소 | Microsoft Docs"
 description: "Azure 스택 개발 키트 (클라우드 연산자)에 대 한 환경 및 하드웨어 요구 사항을 봅니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 \*다양 한를 추가 하려는 경우이 권장 용량 보다 더 많은 해야는 [마켓플레이스 항목](azure-stack-download-azure-marketplace-item.md) Azure에서.
 
-**데이터 디스크 드라이브 구성:** 모든 데이터 드라이브는 동일한 유형 (모든 SAS 또는 모든 SATA) 및 용량 이어야 합니다. SAS 디스크 드라이브를 사용 하면 단일 경로 (다중 경로 지원이 없는 MPIO 제공)를 통해 디스크 드라이브를 첨부 되어야 합니다.
+**데이터 디스크 드라이브 구성:** 모든 데이터 드라이브는 동일한 유형 (모든 SAS, 모든 SATA 또는 모든 NVMe) 및 용량 이어야 합니다. SAS 디스크 드라이브를 사용 하면 단일 경로 (다중 경로 지원이 없는 MPIO 제공)를 통해 디스크 드라이브를 첨부 되어야 합니다.
 
 **HBA 구성 옵션**
 
@@ -56,6 +56,7 @@ ms.lasthandoff: 10/11/2017
 * RAID SSD (미디어 형식이 지정 되지 않은/알 수 없는 경우\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \*통과 기능 없이 RAID 컨트롤러에는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러는 지정되지 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용됩니다. 따라서 이러한 ssd 개발 키트를 배포할 수 있습니다.
 
