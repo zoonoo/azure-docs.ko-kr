@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 11/15/2017
 ms.author: rajanaki
-ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]
-> * [Azure 포털](site-recovery-vmm-to-azure.md)
+> * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
@@ -36,15 +36,15 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 이 문서는 시나리오의 필수 조건을 포함하고 있으며, 다음 내용을 보여 줍니다.
 
-* 복구 서비스 자격 증명 모음을 설정하는 방법
+* Recovery Services 자격 증명 모음을 설정하는 방법
 * 원본 VMM 서버에 Azure Site Recovery 공급자 설치
 * 자격 증명 모음에 서버를 등록하고, Azure 저장소 계정 추가
-* Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트 설치
+* Hyper-V 호스트 서버에 Azure Recovery Services 에이전트 설치
 * VMM 클라우드에 대한 보호 설정 구성, 이 구성은 모든 보호되는 가상 컴퓨터에 적용됩니다.
 * 이러한 가상 컴퓨터의 보호 활성화
 * 모든 기능이 예상대로 작동하는지 확인하기 위해 장애 조치(Failover) 테스트
 
-이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
+이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
@@ -55,9 +55,9 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 다음 필수 조건이 충족되었는지 확인합니다.
 
 ### <a name="azure-prerequisites"></a>Azure 필수 조건
-* [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site 복구 관리자 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
+* [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
 * CSP 구독 시나리오에 복제하려면 CSP 구독이 필요합니다. [CSP 프로그램에 등록하는 방법](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)에서 CSP 프로그램에 대해 자세히 알아보세요.
-* Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/common/storage-introduction.md) 를 참조하세요.
+* Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure Storage 설정에 대한 자세한 내용은 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md) 를 참조하세요.
 * 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인해야 합니다.
 
 > [!NOTE]
@@ -121,15 +121,15 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
-## <a name="step-2-create-a-recovery-services-vault"></a>2단계: 복구 서비스 자격 증명 모음 만들기
+## <a name="step-2-create-a-recovery-services-vault"></a>2단계: Recovery Services 자격 증명 모음 만들기
 1. 또한 Azure Resource Manager에 리소스 그룹이 없는 경우 만듭니다.
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. 새 복구 서비스 자격 증명 모음을 만들고, 만든 ASR 자격 증명 모음 개체를 변수에 저장합니다(나중에 사용됨). Get-AzureRMRecoveryServicesVault cmdlet을 사용하여 ASR 자격 증명 모음 개체 게시 만들기를 검색할 수도 있습니다.
+2. 새 Recovery Services 자격 증명 모음을 만들고, 만든 ASR 자격 증명 모음 개체를 변수에 저장합니다(나중에 사용됨). Get-AzureRMRecoveryServicesVault cmdlet을 사용하여 ASR 자격 증명 모음 개체 게시 만들기를 검색할 수도 있습니다.
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: 복구 서비스 자격 증명 모음 설정
+## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 설정
 
 다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
 
@@ -174,8 +174,8 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 저장소 계정은 Azure Site Recovery 서비스와 같은 지역에 있고 같은 구독과 연결되어야 합니다.
 
-## <a name="step-6-install-the-azure-recovery-services-agent"></a>6단계: Azure 복구 서비스 에이전트 설치
-1. [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) 에서 Azure 복구 서비스 에이전트를 다운로드하여 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 서버에 설치합니다.
+## <a name="step-6-install-the-azure-recovery-services-agent"></a>6단계: Azure Recovery Services 에이전트 설치
+1. [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) 에서 Azure Recovery Services 에이전트를 다운로드하여 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 서버에 설치합니다.
 2. 모든 VMM 호스트에 다음 명령을 실행합니다.
 
        marsagentinstaller.exe /q /nu

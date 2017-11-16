@@ -6,7 +6,7 @@ keywords: "Active Directory 사용 방법, 클라우드의 Active Directory, Act
 documentationcenter: 
 author: barlanmsft
 manager: angrobe
-editor: pblachar
+ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a345cacfe53f37f851eebb76b5b8997cb9c0b54b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: e0f7b08f7ad00679434992874ff5215f2b2c9dd3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
 2단계 인증은 다른 사람이 침입하기 어렵게 만들어 계정을 보호하는 추가 보안 단계입니다. 이 문서를 읽고 있다면 아마도 회사 또는 학교 관리자로부터 Multi-Factor Authentication에 대한 전자 메일을 받았을 것입니다. 또는 로그인을 시도했고 추가 보안 검증을 설정하라는 메시지를 받았을 수도 있습니다. 해당되는 경우 **자동 등록 프로세스를 완료해야만 로그인할 수 있습니다**.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: ec0fada3f8e94d8dda63d00f0ead7fa28535474f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b640b9ff353a9570debb18adfcd0ecefbe342ff0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 이 문서는 Azure Active Directory와 페더레이션되는 조직에 대해 온-프레미스 또는 클라우드에서 리소스의 보안을 유지하려고 작성되었습니다. 중요한 끝점에 대해 2단계 확인을 트리거할 수 있도록 Azure Multi-factor Authentication 서버를 사용하고 AD FS를 사용하도록 구성하여 리소스를 보호합니다.

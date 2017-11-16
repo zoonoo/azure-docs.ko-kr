@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/31/2017
+ms.date: 11/15/2017
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa4b82fdf50eca382c4c84610a5f4857106c6d6d
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Site Recovery 자격 증명 모음에서 Azure Resource Manager 기반 Recovery Services 자격 증명 모음으로 업그레이드
 
@@ -38,7 +38,7 @@ Recovery Services 자격 증명 모음은 다음을 포함하는 기능 배열�
 
 * 동일한 자격 증명 모음에서 Backup 및 Site Recovery 관리 - 이제 동일한 자격 증명 모음에서 재해 복구 또는 백업 실행에 대해 서버를 보호할 수 있습니다. 이를 통해 관리 오버헤드를 크게 줄입니다.
 
-업그레이드된 환경 및 기능에 대한 자세한 내용은 [저장소, 백업 및 복구 블로그](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/)를 참조하세요.
+업그레이드된 환경 및 기능에 대한 자세한 내용은 [Storage, Backup 및 복구 블로그](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/)를 참조하세요.
 
 ## <a name="salient-features"></a>핵심 기능
 

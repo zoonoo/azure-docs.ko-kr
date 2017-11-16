@@ -3,7 +3,7 @@ title: "Azure HDInsight의 Spark에서 Jupyter와 함께 사용자 지정 Maven 
 description: "HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 사용자 지정 Maven 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: e9bfe7065321957883ae4fadbfa8b8e3558f5b75
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: nitinme
+ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 패키지 사용
 > [!div class="op_single_selector"]

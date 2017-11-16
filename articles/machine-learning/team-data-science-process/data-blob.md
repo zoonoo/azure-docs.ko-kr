@@ -4,7 +4,7 @@ description: "Azure Blob 저장소에서 데이터 처리"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 61792050cbda7d6c1ec3f7e88c3552c752ca74da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a31b77ca2d315b506c925a83a5050c0e70c54842
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 

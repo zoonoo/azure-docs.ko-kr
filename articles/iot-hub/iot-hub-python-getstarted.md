@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: 7ebbac4464d793717f68a4cb7905c53d1f5c051a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eec9eb9d5b5ecc0b33ce03f33b9f1600600f6c4e
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Python을 사용하여 IoT Hub에 시뮬레이션된 장치 연결
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -193,6 +193,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분에서는 IoT Hub �
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. 시뮬레이션된 장치의 메시지를 포맷하여 IoT Hub로 보내는 다음 함수를 추가합니다.

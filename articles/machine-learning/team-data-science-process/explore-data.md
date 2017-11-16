@@ -4,7 +4,7 @@ description: "다양한 저장소 환경에서 데이터를 탐색하는 방법"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6eae8772-f479-4627-bb12-64f6d1440b22
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 983a3d22c73721c643b8283679040a0b6f7beedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7983ec6f9ffcfcfa8e57181b8ec5db24a004f3f5
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스에서 데이터 탐색
 이 문서에서는 데이터 과학 프로세스에 일반적으로 사용되는 4개의 서로 다른 저장소 환경에서 데이터를 탐색하는 방법을 설명합니다.

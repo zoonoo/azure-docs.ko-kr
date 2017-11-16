@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86e8e5ce183d11a76fb679da0e6c707383ce86d0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48f6ca268630524dab6d239621a7824faaa67849
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>사용자에게 Azure MFA, Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하면 MFA에 사용하기 시작할 수 있습니다.
@@ -42,4 +42,4 @@ Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [Microsoft Azure Active Directory 라이선스란?](../active-directory/active-directory-licensing-what-is.md)을 참조하세요.
+- 자세한 내용은 [Microsoft Azure Active Directory 라이선스란?](../active-directory/active-directory-licensing-whatis-azure-portal.md)을 참조하세요.

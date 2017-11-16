@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 0927fc67-8090-4fdd-913a-b3cfed3fbe77
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: d8f077f6e402b14f7d9134a5633dae58e914bd06
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 393bf8f8f9ff7657f15502ad482cd2250d613456
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 조직이 Azure Active Directory와 페더레이션되어 있는 경우 Azure Multi-Factor Authentication 또는 AD FS(Active Directory Federation Services)를 사용하여 Azure AD에서 액세스하는 리소스를 보호합니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 다음 절차를 따르세요.

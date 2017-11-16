@@ -107,9 +107,6 @@
         - name: 클러스터 관리
           href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
-        - name: 사용자 권한 관리
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: 빅 데이터 분석
       items:
         - name: 파워 쿼리를 사용하여 분석
@@ -188,9 +185,6 @@
           maintainContext: true
         - name: 사용자에게 Ambari 보기에 대한 권한 부여
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: 파일 및 폴더 수준에서 사용자 권한 관리
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: 관리
       items:

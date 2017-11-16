@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: affe0d7da4b6e40da3b7fdb10d53b9e793ec19bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,11 +57,9 @@ ms.lasthandoff: 11/06/2017
 ```json
 {
     "name": "WebLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Web",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
         }
@@ -164,4 +162,4 @@ Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.
+Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

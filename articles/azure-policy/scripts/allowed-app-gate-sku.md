@@ -15,15 +15,15 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: c8ef4fe09ca2b0608548ea4b2a4ed0a4852cdab4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8843ee720e6dd919464a2e0f84501be5af8da7e3
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="allowed-application-gateway-skus"></a>허용되는 응용 프로그램 게이트웨이 SKU
 
-이 정책을 적용하려면 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정하세요.
+이 정책을 적용하려면 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,23 +31,22 @@ ms.lasthandoff: 11/04/2017
 
 [!code-json[main](../../../policy-templates/samples/network/applicaiton-gateway-skus/azurepolicy.json "Allowed Application Gateway SKUs")]
 
-
-[Azure Portal](#deploy-with-the-portal)과 [PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)를 사용하여 이 템플릿을 배포할 수 있습니다.
+[PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)와 함께 [Azure Portal](#deploy-with-the-portal)을 사용하여 이 템플릿을 배포할 수 있습니다.
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade)
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fapplicaiton-gateway-skus%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-````powershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name "applicaiton-gateway-skus" -DisplayName "Allowed Application Gateway SKUs" -description "This policy enables you to specify a set of application Gateway SKUs that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/applicaiton-gateway-skus/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/applicaiton-gateway-skus/azurepolicy.parameters.json' -Mode All
 $definition
 $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
 $assignment
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>PowerShell 배포 정리
 
@@ -57,18 +56,15 @@ $assignment
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-````cli
-
+```azurecli-interactive
 az policy definition create --name 'applicaiton-gateway-skus' --display-name 'Allowed Application Gateway SKUs' --description 'This policy enables you to specify a set of application Gateway SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/applicaiton-gateway-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/applicaiton-gateway-skus/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "applicaiton-gateway-skus"
-
-````
+```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Azure CLI 배포 정리
 
@@ -80,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 Azure Policy 템플릿 샘플은 [Azure Policy 템플릿](../json-samples.md)에 있습니다.
+- 추가적인 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](../json-samples.md)에 있습니다.

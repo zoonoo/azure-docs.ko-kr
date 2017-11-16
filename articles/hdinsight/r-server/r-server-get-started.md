@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e584a9adb75510c92fc2a25b657f55df88372e6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9a941ce5c6f0989749c5a6db4348757f898a46f1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
 
@@ -784,6 +784,5 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 이제 R Server와 SSH 세션에서 R 콘솔을 사용하는 기본 사항이 포함된 새 HDInsight 클러스터를 만드는 방법을 알아야 합니다. 다음 항목에서는 HDInsight에 R Server를 관리하고 작업하는 다른 방법에 대해 설명합니다.
 
-* [HDInsight에 RStudio Server 추가(클러스터 생성 동안 설치되지 않은 경우)](r-server-install-r-studio.md)
 * [HDInsight의 R 서버에 대한 Compute 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](r-server-storage.md)

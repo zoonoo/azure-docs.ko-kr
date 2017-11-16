@@ -16,6 +16,7 @@
 ### [MPP 아키텍처](massively-parallel-processing-mpp-architecture.md)
 ### [성능 계층](performance-tiers.md)
 ### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [용량 제한](sql-data-warehouse-service-capacity-limits.md)
 ### [질문과 대답](sql-data-warehouse-overview-faq.md)
 
 ## Backup 및 복원
@@ -147,7 +148,7 @@
 
 # 참조
 
-## [용량 제한](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [전체 참조](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)

@@ -24,9 +24,6 @@
   items:
     - name: 클러스터 관리
       href: apache-domain-joined-manage.md
-    - name: 사용자 권한 관리
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: 참조
   items:
     - name: 코드 샘플

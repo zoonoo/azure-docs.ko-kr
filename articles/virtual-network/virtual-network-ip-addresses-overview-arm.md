@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 두 가지 유형의 IP 주소를 사용할 수 있습니다.
 
 * **공용 IP 주소**: Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
-* **개인 IP 주소**: VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
+* **개인 IP 주소**: VPN 게이트웨이 또는 ExpressRoute 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](virtual-network-ip-addresses-overview-classic.md) 대신 이 모델을 사용하도록 권장합니다.
@@ -110,7 +110,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 ### <a name="internet-facing-load-balancers"></a>인터넷 연결 부하 분산 장치
 
-공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#SKU) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 고정 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#SKU) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 고정 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ### <a name="vpn-gateways"></a>VPN 게이트웨이
 
@@ -118,7 +118,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 ### <a name="application-gateways"></a>응용 프로그램 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **응용 프로그램 게이트웨이** 와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만을 할당할 수 있습니다.
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
 ### <a name="at-a-glance"></a>요약
 다음 표는 공용 IP 주소를 최상위 리소스와 연결할 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 고정)를 보여줍니다.
@@ -131,7 +131,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 | 프런트 엔드 |프런트 엔드 구성 |예 |아니요 |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
-개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 Express 경로 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
+개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
 
 Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 유형의 Azure 리소스에 연결됩니다.
 

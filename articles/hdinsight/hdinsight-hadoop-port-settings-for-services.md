@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
@@ -169,8 +169,8 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 | 부여 | 노드 | 포트 | 프로토콜 | URL 경로 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
-| Livy 서버 | 헤드 노드 | 8998 | HTTP | /batches | 문, 작업 및 응용 프로그램을 실행하기 위한 서비스 |
+| Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 응용 프로그램을 실행하기 위한 서비스 |
 
 예제:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. 이 예제에서 `10.0.0.11`은 Livy 서비스를 호스트하는 헤드 노드의 IP 주소입니다.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. 이 예제에서 `10.0.0.11`은 Livy 서비스를 호스트하는 헤드 노드의 IP 주소입니다.

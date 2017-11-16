@@ -250,8 +250,6 @@
 ### [Eclipse에서 Java 서비스 디버그](service-fabric-debugging-your-application-java.md)
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Azure에 API Management 및 Service Fabric 배포](service-fabric-api-management-quick-start.md)
-
 ## Cloud Services에서 마이그레이션
 ### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure 리소스 관리자](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### 응용 프로그램 업그레이드
@@ -281,11 +278,8 @@
 ##### [워크로드 중](service-fabric-testability-workload-tests.md)
 ##### [테스트 시나리오 사용](service-fabric-testability-scenarios.md)
 ##### [노드 전환 API 소개](service-fabric-node-transition-apis.md)
-#### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)
 
-### 연속 통합 설정
-#### [VSTS를 사용하여 연속 통합 설정](service-fabric-set-up-continuous-integration.md)
-#### [Jenkins를 사용하여 Linux Java 응용 프로그램 배포](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Jenkins를 사용하여 Linux Java 응용 프로그램 배포](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## 클러스터 만들기 및 관리
 ### Azure의 클러스터
@@ -319,21 +313,6 @@
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
-
-### 클러스터 리소스 관리 및 오케스트레이션
-#### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
-#### [클러스터 Resource Manager 아키텍처](service-fabric-cluster-resource-manager-architecture.md)
-#### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
-#### [클러스터 Resource Manager 설정 구성](service-fabric-cluster-resource-manager-configure-services.md)
-#### [리소스 사용 메트릭](service-fabric-cluster-resource-manager-metrics.md)
-#### [서비스 선호도 사용](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [서비스 배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [클러스터 관리](service-fabric-cluster-resource-manager-management-integration.md)
-#### [클러스터 조각 모음](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [클러스터 균형 조정](service-fabric-cluster-resource-manager-balancing.md)
-#### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## 모니터링 및 진단
 ### OMS

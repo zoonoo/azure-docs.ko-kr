@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
 이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다. 
@@ -60,7 +60,7 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
     ![사용 가능한 정책 정의](./media/security-center-policies/security-center-policies-fig11.png)
 
     * 정책에 대한 자세한 설명을 보려면 정책을 선택합니다.  
-    정의 **미리 보기** 창이 열립니다. 정의에 대한 설명과 [정책 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) 구조체를 제공하는 JSON 코드에 대한 링크가 표시됩니다.
+    정의 **미리 보기** 창이 열립니다. 정의에 대한 설명과 [정책 정의](../azure-policy/policy-definition.md) 구조체를 제공하는 JSON 코드에 대한 링크가 표시됩니다.
 
     ![정의 미리 보기 창](./media/security-center-policies/security-center-policies-fig14.png)
 

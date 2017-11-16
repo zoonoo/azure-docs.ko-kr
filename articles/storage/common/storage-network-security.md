@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Azure Storage 방화벽 및 Virtual Network 구성(미리 보기)
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. 저장소 계정에 대한 기본 규칙의 상태를 표시합니다.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. 기본적으로 네트워크 액세스를 거부하도록 기본 규칙을 설정합니다.  
@@ -173,14 +173,14 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 3. Virtual Network 및 서브넷에 대한 네트워크 규칙을 추가합니다.  
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 4. Virtual Network 및 서브넷에 대한 네트워크 규칙을 제거합니다. 
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 > [!IMPORTANT]
@@ -291,7 +291,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 
 "신뢰할 수 있는 Microsoft 서비스" 예외를 사용하도록 설정하면 다음과 같은 서비스(구독에 등록)는 저장소 계정에 대한 액세스가 허가됩니다.
 
-|부여|리소스 공급자 이름|목적|
+|서비스|리소스 공급자 이름|목적|
 |:------|:---------------------|:------|
 |Azure DevTest Labs|Microsoft.DevTestLab|사용자 지정 이미지 만들기 및 아티팩트 설치.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. 저장소 계정 네트워크 규칙에 대한 예외를 표시합니다.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. 저장소 계정 네트워크 규칙에 대한 예외를 구성합니다.

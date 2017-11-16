@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.
 
-1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
 2. AAD 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당합니다. 이는 포털에서 데이터 레이크 저장소 계정에 대한 액세스 및 포털 또는 API에서 포털 및 관리 작업을 제어합니다.
 3. AAD 보안 그룹을 데이터 레이크 저장소 파일 시스템에 액세스 제어 목록(ACL)으로 할당합니다.
 4. 또한 Data Lake 저장소의 데이터에 액세스할 수 있는 클라이언트에 대한 IP 주소 범위를 설정할 수도 있습니다.
@@ -37,7 +37,7 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory의 보안 그룹 만들기
-AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
+AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 > [!NOTE] 
 > Azure Portal을 사용하여 Azure AD에서 그룹에 사용자 및 다른 그룹을 추가할 수 있습니다. 그러나 서비스 사용자를 그룹에 추가하기 위해서는 [Azure AD PowerShell 모듈](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)을 사용하세요.
@@ -56,7 +56,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 1. Azure 데이터 레이크 저장소 계정을 엽니다. 왼쪽 창에서 **찾아보기**, **Data Lake Store**를 차례로 클릭한 다음 Data Lake Store 블레이드에서 사용자 또는 보안 그룹을 할당하려는 계정 이름을 클릭합니다.
 
-2. Data Lake Store 계정 설정 블레이드에서 **액세스 제어(IAM)**를 클릭합니다. 이 블레이드는 기본적으로 **구독 관리자** 그룹을 소유자로 표시합니다.
+2. Data Lake Store 계정 설정 블레이드에서 **Access Control(IAM)**을 클릭합니다. 이 블레이드는 기본적으로 **구독 관리자** 그룹을 소유자로 표시합니다.
    
     ![Azure Data Lake Store 계정에 보안 그룹 할당](./media/data-lake-store-secure-data/adl.select.user.icon.png "Azure Data Lake Store 계정에 보안 그룹 할당")
 
@@ -108,7 +108,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
    
     ![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.acl.4.png "그룹에 권한 할당")
    
-    Data Lake Store의 사용 권한 및 기본/액세스 ACL에 대한 자세한 내용은 [Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
+    Data Lake Store의 사용 권한 및 기본/액세스 ACL에 대한 자세한 내용은 [Data Lake Store에서 Access Control](data-lake-store-access-control.md)을 참조하세요.
 6. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 이제 연결된 권한으로 새롭게 추가된 그룹이 **액세스** 블레이드에 나열됩니다.
    
     ![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.acl.5.png "그룹에 권한 할당")
@@ -125,7 +125,7 @@ Azure Data Lake 저장소를 사용하면 데이터 저장소에 대한 액세�
 ![방화벽 설정 및 IP 액세스](./media/data-lake-store-secure-data/firewall-ip-access.png "방화벽 설정 및 IP 주소")
 
 ## <a name="remove-security-groups-for-an-azure-data-lake-store-account"></a>Azure 데이터 레이크 저장소 계정에 대한 보안 그룹 제거
-Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 경우 Azure 포털 및 Azure 리소스 관리자 API를 사용하여 계정의 관리 작업에 대한 액세스를 변경합니다.
+Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 경우 Azure Portal 및 Azure Resource Manager API를 사용하여 계정의 관리 작업에 대한 액세스를 변경합니다.
 
 1. Data Lake Store 계정 블레이드에서 **설정**을 클릭합니다. **설정** 블레이드에서 **사용자**를 클릭합니다.
    
@@ -152,7 +152,7 @@ Azure Data Lake Store 파일 시스템에서 보안 그룹 ACL을 제거하면 D
 
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
-* [Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)

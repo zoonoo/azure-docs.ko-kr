@@ -15,15 +15,15 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 32f2e82472cca3106a7daf9d44b1f38b90f18c30
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2c34114d6b8fa10a2f0781e1819c64eedd9288d0
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="allowed-resource-types"></a>허용되는 리소스 유형
 
-이 정책은 승인된 리소스 종류만 배포되도록 보장합니다. 허용되는 리소스 종류 배열을 지정하세요.
+이 정책은 승인된 리소스 종류만 배포되도록 보장합니다. 허용되는 리소스 종류 배열을 지정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,24 +31,22 @@ ms.lasthandoff: 11/04/2017
 
 [!code-json[main](../../../policy-templates/samples/built-in-policy/allowed-resourcetypes/azurepolicy.json "Allowed resource types")]
 
-
-[Azure Portal](#deploy-with-the-portal)과 [PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)를 사용하여 이 템플릿을 배포할 수 있습니다.
+[PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)와 함께 [Azure Portal](#deploy-with-the-portal)을 사용하여 이 템플릿을 배포할 수 있습니다.
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade)
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-resourcetypes%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-
-````powershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name "allowed-resourcetypes" -DisplayName "Allowed resource types" -description "This policy enables you to specify the resource types that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
+$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfResourceTypesAllowed <Allowed resource types> -PolicyDefinition $definition
 $assignment
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>PowerShell 배포 정리
 
@@ -58,18 +56,15 @@ $assignment
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-````cli
-
+```azurecli-interactive
 az policy definition create --name 'allowed-resourcetypes' --display-name 'Allowed resource types' --description 'This policy enables you to specify the resource types that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-resourcetypes"
-
-````
+```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Azure CLI 배포 정리
 
@@ -81,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 Azure Policy 템플릿 샘플은 [Azure Policy 템플릿](../json-samples.md)에 있습니다.
+- 추가적인 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](../json-samples.md)에 있습니다.

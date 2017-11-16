@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store의 보호
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Store는 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Store의 보안 기능에 대해 알아봅니다.
@@ -65,7 +65,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="using-acls-for-operations-on-file-systems"></a>파일 시스템 작업에 ACL 사용
 Data Lake Store는 HDFS(Hadoop 분산 파일 시스템)와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원합니다. 소유자 역할, 소유자 그룹 및 다른 사용자 및 그룹의 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 권한을 제어합니다. Data Lake Store 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
 
-[보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스에 대해 최대 9개의 항목을 추가하는 제한 때문에 사용자 지정 액세스를 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
+[보안 그룹](../active-directory/active-directory-groups-create-azure-portal.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스에 대해 최대 9개의 항목을 추가하는 제한 때문에 사용자 지정 액세스를 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
 ![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-security-overview/adl.acl.2.png "표준 및 사용자 지정 액세스 나열")
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 86ffacae9265b68e8adfeb8f7d8c72626f872dba
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Azure IoT Edge용 OPC 게시자
 
@@ -382,7 +382,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>바인드 바운트 사용(공유 파일 시스템)
 
-일부 시나리오에서는 컨테이너 파일 시스템 대신 호스트의 위치에서 구성 정보를 읽어오거나 로그 파일을 쓰고자 할 수 있습니다. 이러한 동작을 구성하려면 바인드 마운트 모드의 `docker run`에서 `-v` 옵션을 사용합니다.
+일부 시나리오에서는 컨테이너 파일 시스템 대신 호스트의 위치에서 구성 정보를 읽어오거나 로그 파일을 쓰고자 할 수 있습니다. 이러한 동작을 구성하려면 바인드 마운트 모드의 `docker run`에서 `-v` 옵션을 사용합니다. 예:
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### <a name="store-for-x509-certificates"></a>X509 인증서의 저장소
 

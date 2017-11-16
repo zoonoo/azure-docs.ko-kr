@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d3b9dd38c993b7f04dfc419ba06be0783cb66eb2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c1c5a83fc54744dca1da0c7049f34fcf0bd5dfb4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication에서 앱 암호란 무엇인가요?
 Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트와 같은 특정 비브라우저 앱은 현재 다단계 인증을 지원하지 않습니다. 다단계 인증은 사용자 기준으로 사용되도록 설정됩니다.  즉, 다음과 같은 경우 사용자가 다단계 인증을 사용할 수 없습니다.

@@ -13,17 +13,15 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4505023c1869c0bb23e99dc7db1ee6e65466c2cc
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 공장 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
-
-## <a name="introduction"></a>소개
 
 연결된 공장 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 
@@ -189,5 +187,5 @@ JSON 파일 내용은 공장, 생산 라인 및 스테이션 노드의 계층 �
 
 [lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-faq]: iot-suite-v1-faq.md

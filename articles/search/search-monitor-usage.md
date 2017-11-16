@@ -1,25 +1,25 @@
 ---
 title: "Azure Search 서비스의 사용량 및 통계 모니터링 | Microsoft Docs"
-description: "Microsoft Azure에서 호스팅되는 검색 서비스인 Azure 검색에 대해 리소스 소비 및 인덱스 크기를 추적합니다."
+description: "Microsoft Azure에서 호스팅되는 Search 서비스인 Azure Search에 대해 리소스 소비 및 인덱스 크기를 추적합니다."
 services: search
 documentationcenter: 
-author: bernitorres
-manager: jlembicz
+author: HeidiSteen
+manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: betorres
-ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: heidist
+ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitoring-an-azure-search-service"></a>Azure Search 서비스 모니터링
 
@@ -30,7 +30,7 @@ Azure Search는 검색 서비스의 사용량 및 성능을 추적하기 위한 
 
 Azure Search는 다음 세 가지 메트릭에 대한 데이터를 수집합니다.
 
-* 검색 대기 시간: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을 1분마다 집계합니다.
+* 검색 대기 시간: 검색 쿼리를 처리하는 데 필요한 Search 서비스의 시간을 1분마다 집계합니다.
 * QPS(초당 검색 쿼리 수): 초당 수신된 검색 쿼리 수를 1분마다 집계합니다.
 * 제한된 검색 쿼리 백분율: 제한된 검색 쿼리의 비율을 1분마다 집계합니다.
 
@@ -49,7 +49,7 @@ Azure Search는 다음 세 가지 메트릭에 대한 데이터를 수집합니�
 리소스 사용량을 모니터링하려면 [포털](https://portal.azure.com)에서 서비스에 대한 개수와 통계를 봅니다.
 
 1. [포털](https://portal.azure.com)에 로그인합니다.
-2. Azure 검색 서비스의 서비스 대시보드를 엽니다. 홈페이지에서 서비스에 대한 타일을 찾거나 표시줄에 있는 찾아보기에서 서비스를 탐색할 수 있습니다.
+2. Azure Search 서비스의 서비스 대시보드를 엽니다. 홈페이지에서 서비스에 대한 타일을 찾거나 표시줄에 있는 찾아보기에서 서비스를 탐색할 수 있습니다.
 
 사용 섹션에는 사용 가능한 리소스의 어떤 부분이 현재 사용 중인지 알려주는 측정기가 포함됩니다. 인덱스, 문서, 저장소에 대한 서비스당 제한에 대한 정보는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ Azure Search는 다음 세 가지 메트릭에 대한 데이터를 수집합니�
 >
 
 ### <a name="using-the-rest-api"></a>REST API 사용
-Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로그래밍 방식 액세스를 제공합니다.  [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 사용하여 Azure SQL Database나 Azure Cosmos DB에서 인덱스를 로드하는 경우, 추가 API를 사용하여 필요한 숫자를 얻을 수 있습니다.
+Azure Search REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로그래밍 방식 액세스를 제공합니다.  [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 사용하여 Azure SQL Database나 Azure Cosmos DB에서 인덱스를 로드하는 경우, 추가 API를 사용하여 필요한 숫자를 얻을 수 있습니다.
 
 * [인덱스 통계 가져오기](/rest/api/searchservice/get-index-statistics)
 * [문서 수 계산](/rest/api/searchservice/count-documents)
@@ -147,7 +147,7 @@ Azure Search는 미리 정의된 차트와 테이블을 사용하여 검색 트�
 ## <a name="next-steps"></a>다음 단계
 기존 서비스에 대해 파티션과 복제본의 할당 균형을 조정하는 방법에 대한 지침은 [복제본 및 파티션 확장](search-limits-quotas-capacity.md)을 검토하세요.
 
-서비스 관리에 대한 자세한 내용은 [Microsoft Azure에서 검색 서비스 관리](search-manage.md) 또는 튜닝 지침은 [성능 및 최적화](search-performance-optimization.md)를 방문하십시오.
+서비스 관리에 대한 자세한 내용은 [Microsoft Azure에서 Search 서비스 관리](search-manage.md) 또는 튜닝 지침은 [성능 및 최적화](search-performance-optimization.md)를 방문하십시오.
 
 놀라운 보고서 만들기에 대해 자세히 알아보세요. 자세한 내용은 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -325,7 +325,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-get-started-azure-cluster.md#remove-the-cluster)하는 것이 좋습니다.  [파티 클러스터](http://tryazureservicefabric.westus.cloudapp.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-get-started-azure-cluster.md#remove-the-cluster)하는 것이 좋습니다.  [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
 
 이미지를 컨테이너 레지스트리에 푸시한 후에 개발 컴퓨터에서 로컬 이미지를 삭제할 수 있습니다.
 

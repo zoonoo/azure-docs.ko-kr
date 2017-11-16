@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bd9289ea528c3a80f63380daf52161d2477a6771
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
-기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](move-sql-azure.md)을 참조하세요.
+기계 학습을 위해 Azure SQL Database로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 기계 학습을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
 다음 **메뉴** 는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 1. [명령줄 BCP(대량 복사 유틸리티)](#insert-tables-bcp)
 2. [대량 삽입 SQL 쿼리 ](#insert-tables-bulkquery)
-3. [SQL Server의 기본 제공 그래픽 유틸리티(가져오기/내보내기, SSIS)](#sql-builtin-utilities)
+3. [SQL Server의 기본 제공 그래픽 유틸리티(Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>명령줄 BCP(대량 복사 유틸리티)
 BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 이는 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM)에서 작동합니다.
@@ -158,14 +158,14 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세한 내용은 [SSIS(Integration Services) 및 스튜디오 환경](https://technet.microsoft.com/library/ms140028.aspx)을 참조하세요.
 
 * SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx)  
-* 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx)
+* Import/Export 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx)
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
 다음과 같은 마이그레이션 전략을 사용할 수도 있습니다.
 
 1. [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [플랫 파일로 내보내기](#export-flat-file)
-3. [SQL 데이터베이스 마이그레이션 마법사](#sql-migration)
+3. [SQL Database 마이그레이션 마법사](#sql-migration)
 4. [데이터베이스 백업 및 복원](#sql-backup)
 
 아래는 각 방법에 대한 설명입니다.
@@ -191,8 +191,8 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
         bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
 4. [파일 원본에서 데이터 이동](#filesource_to_sqlonazurevm) 섹션에 설명된 아무 방법을 사용하여 플랫 파일에서 SQL Server로 데이터를 이동합니다.
 
-### <a name="sql-migration"></a>SQL 데이터베이스 마이그레이션 마법사
-[SQL Server 데이터베이스 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) 는 두 SQL Server 인스턴스 간에 데이터를 이동할 수 있는 사용자에게 편리한 방법을 제공합니다. 사용자가 원본과 대상 테이블 사이에 데이터 스키마를 매핑하고, 열 유형 및 다양한 기타 기능을 선택할 수 있습니다. 사용자에게는 보이지 않지만 SQL Server 데이터베이스 마이그레이션 마법사는 BCP(대량 복사)를 사용합니다. 아래는 SQL 데이터베이스 마이그레이션 마법사의 시작 화면 스크린샷입니다.  
+### <a name="sql-migration"></a>SQL Database 마이그레이션 마법사
+[SQL Server 데이터베이스 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) 는 두 SQL Server 인스턴스 간에 데이터를 이동할 수 있는 사용자에게 편리한 방법을 제공합니다. 사용자가 원본과 대상 테이블 사이에 데이터 스키마를 매핑하고, 열 유형 및 다양한 기타 기능을 선택할 수 있습니다. 사용자에게는 보이지 않지만 SQL Server 데이터베이스 마이그레이션 마법사는 BCP(대량 복사)를 사용합니다. 아래는 SQL Database 마이그레이션 마법사의 시작 화면 스크린샷입니다.  
 
 ![SQL Server 마이그레이션 마법사][2]
 

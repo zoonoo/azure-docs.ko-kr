@@ -15,11 +15,11 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 737771fe72c1a191861e24c17d437bf88cf7c522
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ef800fde2b9692bc01fe69fb501d27a7ab89ea75
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deny-hybrid-use-benefit"></a>하이브리드 사용 혜택 거부
 
@@ -31,23 +31,22 @@ AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다. 온-프레미스 라�
 
 [!code-json[main](../../../policy-templates/samples/compute/deny-hybrid-use-benefit/azurepolicy.json "Deny hybrid use benefit")]
 
-
 [PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)와 함께 [Azure Portal](#deploy-with-the-portal)을 사용하여 이 템플릿을 배포할 수 있습니다.
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade)
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fdeny-hybrid-use-benefit%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-````powershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name "deny-hybrid-use-benefit" -DisplayName "Deny hybrid use benefit" -description "This policy will deny usage of hybrid use benefit." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/deny-hybrid-use-benefit/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/deny-hybrid-use-benefit/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
+$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
 $assignment
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>PowerShell 배포 정리
 
@@ -57,19 +56,15 @@ $assignment
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-
-````cli
-
+```azurecli-interactive
 az policy definition create --name 'deny-hybrid-use-benefit' --display-name 'Deny hybrid use benefit' --description 'This policy will deny usage of hybrid use benefit.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/deny-hybrid-use-benefit/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/deny-hybrid-use-benefit/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "deny-hybrid-use-benefit"
-
-````
+```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Azure CLI 배포 정리
 

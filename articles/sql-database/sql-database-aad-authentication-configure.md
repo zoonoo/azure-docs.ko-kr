@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: d1a73da7ba3e92f5229faf73cb932dd50b50dfe1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="create-and-populate-an-azure-ad"></a>Azure AD 만들기 및 채우기
 Azure AD를 만들고 사용자 및 그룹으로 채웁니다. Azure AD는 초기 Azure AD 관리되는 도메인일 수 있습니다. Azure AD는 Azure AD와 페더레이션된 온-프레미스 Active Directory Domain Services일 수도 있습니다.
 
-자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Windows PowerShell을 사용한 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/active-directory-aadconnect-ports.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-domains-add-azure-portal.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Windows PowerShell을 사용한 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/active-directory-aadconnect-ports.md)를 참조하세요.
 
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
 조직에서 Azure AD 디렉터리에 데이터베이스를 연결하려면 해당 디렉터리가 데이터베이스를 호스팅하는 Azure 구독에서 신뢰할 수 있는 디렉터리여야 합니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx)를 참조하세요.

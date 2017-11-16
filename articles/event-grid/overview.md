@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -25,6 +25,30 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
 
 ![Event Grid 기능 모델](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>이벤트 게시자
+
+현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 게시자를 지원합니다.
+
+* 리소스 그룹(관리 작업)
+* Azure 구독(관리 작업)
+* Event Hubs(영문)
+* 저장소 Blob
+* 사용자 지정 토픽
+
+올해 다른 Azure 서비스가 추가될 예정입니다.
+
+## <a name="event-handlers"></a>이벤트 처리기
+
+현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 처리기를 지원합니다. 
+
+* Azure 기능
+* Logic Apps
+* Azure Automation
+* 웹후크
+* Microsoft Flow
+
+올해 다른 Azure 서비스가 추가될 예정입니다.
 
 ## <a name="concepts"></a>개념
 
@@ -52,34 +76,6 @@ Azure Event Grid의 몇 가지 주요 기능은 다음과 같습니다.
 * **사용자 지정 이벤트** - Event Grid를 사용하여 사용자 앱의 사용자 지정 이벤트를 라우팅하고, 필터링하며, 안정적으로 배달합니다.
 
 Event Grid, Event Hubs 및 Service Bus를 비교하려면 [Choose between Azure services that deliver messages](compare-messaging-services.md)(메시지를 배달하는 Azure 서비스 중 선택)을 참조하세요.
-
-## <a name="built-in-publisher-and-handler-integration"></a>기본 제공 게시자 및 처리기 통합
-
-Azure는 게시자 및 처리기를 모두 포함한 다양한 서비스를 사용하는 기본 제공 이벤트 지원을 제공합니다.
-
-### <a name="publishers"></a>게시자
-
-현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 게시자를 지원합니다.
-
-* 리소스 그룹(관리 작업)
-* Azure 구독(관리 작업)
-* Event Hubs(영문)
-* 저장소 Blob
-* 사용자 지정 토픽
-
-올해 다른 Azure 서비스가 추가될 예정입니다.
-
-### <a name="handlers"></a>처리기
-
-현재 다음 Azure 서비스는 Event Grid에 대한 기본 제공 처리기를 지원합니다. 
-
-* Azure 기능
-* Logic Apps
-* Azure Automation
-* 웹후크
-* Microsoft Flow
-
-올해 다른 Azure 서비스가 추가될 예정입니다.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Event Grid로 할 수 있는 작업은 무엇인가요?
 

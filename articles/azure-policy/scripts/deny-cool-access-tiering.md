@@ -15,11 +15,11 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: b8af42ce568b10b3f78e7f49ccc747c00072ae99
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 47de69aaa7938a813ff9866cec6e492a8ef3b7a5
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>저장소 계정에 대한 쿨 액세스 계층 거부
 
@@ -31,24 +31,22 @@ ms.lasthandoff: 11/04/2017
 
 [!code-json[main](../../../policy-templates/samples/Storage/storage-account-access-tier/azurepolicy.json "Deny cool access tiering for storage accounts")]
 
-
-[Azure Portal](#deploy-with-the-portal)과 [PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)를 사용하여 이 템플릿을 배포할 수 있습니다.
+[PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)와 함께 [Azure Portal](#deploy-with-the-portal)을 사용하여 이 템플릿을 배포할 수 있습니다.
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade)
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fstorage-account-access-tier%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-
-````powershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name "storage-account-access-tier" -DisplayName "Deny cool access tiering for storage accounts" -description "Ensures there's no usage of cool access tiering for storage." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> -PolicyDefinition $definition
+$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
 $assignment
-````
+```
 
 ### <a name="clean-up-powershell-deployment"></a>PowerShell 배포 정리
 
@@ -58,19 +56,15 @@ $assignment
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-
-````cli
-
+```azurecli-interactive
 az policy definition create --name 'storage-account-access-tier' --display-name 'Deny cool access tiering for storage accounts' --description 'Ensures there's no usage of cool access tiering for storage.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "storage-account-access-tier"
-
-````
+```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Azure CLI 배포 정리
 
@@ -82,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 Azure Policy 템플릿 샘플은 [Azure Policy 템플릿](../json-samples.md)에 있습니다.
+- 추가적인 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](../json-samples.md)에 있습니다.

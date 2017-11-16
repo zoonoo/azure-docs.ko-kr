@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Suite란?
 
@@ -90,7 +90,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 
 * [Azure IoT Hub](../iot-hub/index.md) - 이 서비스는 장치-클라우드 및 클라우드-장치 메시징 기능을 제공하고 클라우드 및 다른 핵심 IoT Suite 서비스에 대한 게이트웨이의 역할을 합니다. 이 서비스를 사용하면 장치로부터 대규모 메시지를 수신하고 장치로 명령을 보낼 수 있습니다. 서비스를 통해 [장치를 관리](../iot-hub/iot-hub-device-management-overview.md)할 수도 있습니다. 예를 들어 허브에 연결된 하나 이상의 장치에서 공장 재설정을 구성, 다시 부팅 또는 수행할 수 있습니다.
 * [Azure Event Hubs](../event-hubs/index.md) - 클라우드에 대규모 이벤트 수집을 제공합니다. [Azure IoT Hub 및 Azure Event Hubs의 비교](../iot-hub/iot-hub-compare-event-hubs.md)를 참조하세요.
-* [Azure Time Series Insights](../time-series-insights/index.md) - 미리 구성된 솔루션에서 이 서비스를 사용하여 장치의 원격 분석 데이터를 분석하고 표시합니다.
+* [Azure Time Series Insights](../time-series-insights/index.yml) - 미리 구성된 솔루션에서 이 서비스를 사용하여 장치의 원격 분석 데이터를 분석하고 표시합니다.
 * [Azure Container Service](../container-service/index.yml) - 미리 구성된 솔루션의 마이크로 서비스를 호스팅하고 관리합니다.
 * [Azure Cosmos DB](../cosmos-db/index.yml) 및 [Azure Storage](../storage/index.yml)(데이터 저장용)
 * [Azure Stream Analytics](../stream-analytics/index.md) - 미리 구성된 예측 유지 관리 솔루션에서 이 서비스를 사용하여 들어오는 원격 분석을 처리하고, 집계를 수행하며, 이벤트를 검색합니다. 또한 미리 구성된 솔루션에서 Stream Analytics를 사용하여 장치의 메타데이터 또는 명령 응답과 같은 데이터가 포함된 정보 메시지를 처리합니다.

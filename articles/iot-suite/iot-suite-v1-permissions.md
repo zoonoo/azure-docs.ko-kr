@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 891752e2b600112b1e44cecc3c6e8e50215c597b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -150,7 +150,7 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
+[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md

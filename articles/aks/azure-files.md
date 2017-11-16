@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6e88c590e11aa8d2f4ae17e8b5e164483f0a6820
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Kubernetes에서 Azure Files 사용
 
@@ -35,7 +35,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [Kubernetes 볼륨][kubernetes-v
 [az group create][az-group-create] 명령을 사용하여 Azure 파일 공유에 대한 리소스 그룹을 만듭니다. 저장소 계정의 리소스 그룹 및 HDInsight 클러스터는 동일한 지역에 있어야 합니다.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 [az storage account create][az-storage-create] 명령을 사용하여 Azure Storage 계정을 만들 수 있습니다. 저장소 계정 이름은 고유해야 합니다. `--name` 인수 값을 고유한 값으로 업데이트합니다.

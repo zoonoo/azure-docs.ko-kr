@@ -1,9 +1,9 @@
 ---
 title: "Azure에서 Linux로 Cassandra 실행 | Microsoft Docs"
-description: "Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
+description: "Node.js 앱에서 Azure Virtual Machines의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스
 > [!IMPORTANT] 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>개요
 Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성되었으므로 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
 
-이 문서는 Microsoft Azure 가상 컴퓨터 및 가상 네트워크를 활용하여 Cassandra를 단일 및 다중 데이터 센터로 Ubuntu에 배포하는 과정을 보여 주는 데 중점을 둡니다. 프로덕션에 최적화된 작업을 위한 클러스터 배포는 필요한 복제, 데이터 일관성, 처리량 및 고가용성 요구 사항을 충족하기 위해 다중 디스크 노드 구성, 적절한 링 토폴로지 디자인 및 데이터 모델링이 필요하므로 이 문서의 범위를 벗어납니다.
+이 문서는 Microsoft Azure Virtual Machines 및 Virtual Network를 활용하여 Cassandra를 단일 및 다중 데이터 센터로 Ubuntu에 배포하는 과정을 보여 주는 데 중점을 둡니다. 프로덕션에 최적화된 작업을 위한 클러스터 배포는 필요한 복제, 데이터 일관성, 처리량 및 고가용성 요구 사항을 충족하기 위해 다중 디스크 노드 구성, 적절한 링 토폴로지 디자인 및 데이터 모델링이 필요하므로 이 문서의 범위를 벗어납니다.
 
 이 문서에서는 인프라 배포를 훨씬 용이하게 하는 Cassandra 클러스터 비교 Docker, Chef 또는 Puppet 빌드와 관련된 작업을 보여 주는 기본적인 접근 방법을 사용합니다.  
 
@@ -76,7 +76,7 @@ Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 �
 | 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
 | Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
-**Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure Virtual Machines 기능은 디스크 지속성을 위해 Azure Blob Storage를 사용합니다. Azure Storage는 높은 내구성을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있으므로 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단일 Cassandra 노드가 실패하는 경우더라도 응용 프로그램에서 작동 중단이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)에 대한 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다.  게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다.  롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure 저장소 중복으로 손실되지 않습니다.  
+**Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure Virtual Machines 기능은 디스크 지속성을 위해 Azure Blob Storage를 사용합니다. Azure Storage는 높은 내구성을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있으므로 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단일 Cassandra 노드가 실패하는 경우더라도 응용 프로그램에서 작동 중단이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)에 대한 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다.  게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다.  롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure Storage 중복으로 손실되지 않습니다.  
 
 Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 약 99.9, 자세한 내용은 [고가용성](http://en.wikipedia.org/wiki/High_availability) 참조)이 필요하지 않은 경우 RF=1 및 일관성 수준=ONE으로 실행할 수 있습니다.  고가용성 요구 사항이 있는 응용 프로그램의 경우 RF=3 및 일관성 수준=QUORUM은 복제본 한 개당 노드 한 개의 가동 중지 시간을 감당합니다. 기존 배포(예: 온-프레미스)의 RF=1은 디스크 오류 등의 문제로 인한 데이터 손실 때문에 사용할 수 없습니다.   
 
@@ -85,7 +85,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관에 대한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스를 제공합니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
 
-**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다.  단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위 문서를 참조하세요.
+**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure Traffic Manager는 활성 영역에 트래픽을 리디렉션할 수 있습니다.  단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위 문서를 참조하세요.
 
 **재해 복구:** 제대로 설계된 경우 다중 지역 Cassandra 클러스터는 치명적인 데이터 센터 중단을 견딜 수 있습니다. 한 지역이 다운된 경우, 다른 지역에 배포된 응용 프로그램이 최종 사용자를 제공하기 시작할 수 있습니다. 다른 모든 비즈니스 연속성 구현과 마찬가지로, 응용 프로그램은 비동기 파이프라인의 데이터에서 일부 데이터 손실을 허용해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에서 소요된 시간 보다 훨씬 빠르게 복구를 작성합니다. 그림 2는 각 지역에 8개의 노드가 있는 일반적인 다중 지역 배포 모델을 보여줍니다. 두 지역은 같은 대칭에 대한 서로 다른 미러 이미지입니다. 실제는 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 디자인됩니다.
 
@@ -302,7 +302,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다. 
 
 ## <a name="single-region-deployment-process"></a>단일 지역 배포 프로세스
-**1단계: 가상 네트워크 만들기** Azure Portal에 로그인한 후 다음 표에 나열된 특성을 사용하여 가상 네트워크(클래식)를 만듭니다. 프로세스의 자세한 단계는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.      
+**1단계: Virtual Network 만들기** Azure Portal에 로그인한 후 다음 표에 나열된 특성을 사용하여 가상 네트워크(클래식)를 만듭니다. 프로세스의 자세한 단계는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.      
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
@@ -324,7 +324,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 
 Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 그룹을 통해 보호할 수 있습니다.  
 
-**2단계: 가상 컴퓨터 프로비전** 이전에 만든 이미지를 사용하여 클라우드 서버 "hk-c-svc-west"에 다음 가상 컴퓨터를 만들고 아래와 같이 해당 서브넷에 바인딩합니다.
+**2단계: Virtual Machines 프로비전** 이전에 만든 이미지를 사용하여 클라우드 서버 "hk-c-svc-west"에 다음 Virtual Machines를 만들고 아래와 같이 해당 서브넷에 바인딩합니다.
 
 <table>
 <tr><th>컴퓨터 이름    </th><th>서브넷    </th><th>IP 주소    </th><th>가용성 집합</th><th>DC/랙</th><th>시드 여부</th></tr>
@@ -460,8 +460,8 @@ VM에 로그인하고 다음을 수행합니다.
 ## <a id="tworegion"> </a>다중 지역 배포 프로세스
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
 
-### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1단계: 2번째 지역에 가상 네트워크 만들기
-Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 을 참조하세요.      
+### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1단계: 2번째 지역에 Virtual Network 만들기
+Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 Virtual Network를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 Virtual Network 구성](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 을 참조하세요.      
 
 <table>
 <tr><th>특성 이름    </th><th>값    </th><th>설명</th></tr>
@@ -489,7 +489,7 @@ Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 �
 
 다음 세부 정보당 두 개의 로컬 네트워크를 만듭니다.
 
-| 네트워크 이름 | VPN 게이트웨이 주소 | 주소 공간 | 설명 |
+| 네트워크 이름 | VPN Gateway 주소 | 주소 공간 | 설명 |
 | --- | --- | --- | --- |
 | hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 동부 지역에 생성된 VNET입니다. |
 | hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 서부 지역에 생성된 VNET입니다. |
@@ -497,7 +497,7 @@ Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 �
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>3단계: "로컬" 네트워크를 해당 VNET에 매핑
 Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "구성"을 클릭한 다음 "로컬 네트워크에 연결", 로컬 네트워크를 차례로 선택합니다.
 
-| 가상 네트워크 | 로컬 네트워크 |
+| Virtual Network | 로컬 네트워크 |
 | --- | --- |
 | hk-vnet-west-us |hk-lnet-map-to-east-us |
 | hk-vnet-east-us |hk-lnet-map-to-west-us |
@@ -509,7 +509,7 @@ Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "�
 두 로컬 네트워크를 편집하여 자리 표시자 게이트웨이 IP 주소를 방금 프로비전한 게이트웨이의 실제 IP 주소로 바꿉니다. 다음 매핑을 사용합니다.
 
 <table>
-<tr><th>로컬 네트워크    </th><th>가상 네트워크 게이트웨이</th></tr>
+<tr><th>로컬 네트워크    </th><th>Virtual Network 게이트웨이</th></tr>
 <tr><td>hk-lnet-map-to-east-us </td><td>hk-vnet-west-us의 게이트웨이</td></tr>
 <tr><td>hk-lnet-map-to-west-us </td><td>hk-vnet-east-us의 게이트웨이</td></tr>
 </table>

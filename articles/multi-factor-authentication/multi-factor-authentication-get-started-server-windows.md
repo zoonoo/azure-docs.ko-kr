@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a34d4c37facf80f1b16e3a81cd70718ee7590a23
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 508b97afa0e7844d6fd2e6c9da3e77073d62ae9f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하여 응용 프로그램에 대한 Windows 인증을 사용하도록 설정하고 구성할 수 있습니다. Windows 인증을 설정하기 전에 다음 목록을 유념하세요.

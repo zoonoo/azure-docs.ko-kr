@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: f5ab85c346119f52ce8c7ab7a8bda48c6672f35c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
 
@@ -91,14 +91,14 @@ output "vm_private_ips" {
 
 `terraform plan`을 실행하여 템플릿으로 만든 가상 컴퓨터 인프라를 미리 봅니다.
 
-![Terraform Plan](media/terraformPlanVmsWithModules.png)
+![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## <a name="create-the-virtual-machines-with-apply"></a>apply로 가상 컴퓨터 만들기
 
 `terraform apply`를 실행하여 Azure에서 VM을 프로비전합니다.
 
-![Terraform Apply](media/terraformApplyVmsWithModules.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>다음 단계
 

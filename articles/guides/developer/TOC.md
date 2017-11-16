@@ -107,7 +107,7 @@
 ## [결제](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # 리소스
-## [Azure 한도 및 할당량](../../azure-subscription-service-limits.md)
+## [Azure 한도 및 할당량](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure 지역](https://azure.microsoft.com/regions/)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -607,8 +607,7 @@ Azure Standard Storage는 Azure IaaS가 출시되었을 때 사용할 수 있던
 
 Azure Standard Storage 계정에 저장되는 데이터는 저장된 실제 데이터, 저장소 트랜잭션 볼륨, 아웃바운드 데이터 전송 및 선택한 중복성 옵션에 따라 비용이 청구됩니다. 많은 디스크를 최대 1TB의 크기로 만들 수 있지만 비어 있는 경우에는 무료입니다. VHD를 각각 100GB로 채우면 VHD가 만들어질 때의 보통 크기가 아니라 100GB를 저장하기 위한 비용이 청구됩니다.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92">
-            </a>Azure Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
 2015년 4월 Microsoft는 Azure Premium Storage를 도입했습니다. Premium Storage는 다음을 제공하는 것을 목표로 도입되었습니다.
 
 * 더 나은 I/O 대기 시간
@@ -943,7 +942,7 @@ VM이 범용으로 준비되고, 결과적으로 대상 Azure 배포 시나리�
 >
 > 마지막 단계는 관리자 계정을 사용하여 VM에 로그인하는 것입니다. *관리자* 권한으로 Windows 명령 창을 엽니다. %windir%\windows\system32\sysprep로 이동하여 sysprep.exe를 실행합니다.
 > 작은 창이 나타납니다. **일반화** 옵션을 선택하고(기본적으로 선택 취소됨) 종료 옵션을 기본 설정인 ‘다시 부팅'에서 '종료'로 변경해야 합니다. 이 절차에서는 sysprep 프로세스가 VM의 게스트 OS에서 온-프레미스로 실행된다고 가정합니다.
-> Azure에서 이미 실행 중인 VM을 사용하여 절차를 수행하려면 [이 문서](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)에서 설명하는 단계를 따르세요.
+> Azure에서 이미 실행 중인 VM을 사용하여 절차를 수행하려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)에서 설명하는 단계를 따르세요.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -1148,8 +1147,7 @@ az disk create --name <new disk name> --resource-group <resource group name> --l
 az vm disk attach --disk <new disk name or managed disk id> --resource-group <resource group name> --vm-name <vm name> --caching <caching option> --lun <lun, for example 0>
 ```
 
-#### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1">
-            </a>Azure Storage 계정 간 디스크 복사
+#### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Azure Storage 계정 간 디스크 복사
 Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell cmdlet, Azure CLI 또는 타사 저장소 브라우저를 사용할 수 있습니다. Storage 계정 간 및 Azure 구독 내에서 지역 간에 Blob을 비동기식으로 복사하는 기능이 있는 PowerShell cmdlet 또는 CLI 명령으로 Blob을 만들고 관리할 수 있습니다.
 
 ##### <a name="powershell"></a>PowerShell
