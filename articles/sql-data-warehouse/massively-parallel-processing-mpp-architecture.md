@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: architecture
-ms.date: 10/23//2017
+ms.date: 11/15/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 39092028d8317f8881b4e0772dcb87b05c064b6a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
 Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massi
 ## <a name="mpp-architecture-components"></a>MPP 아키텍처 구성 요소
 SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 데이터 웨어하우스 단위로 알려진 계산 성능의 추상화입니다. SQL Data Warehouse는 사용자가 시스템의 데이터와 독립적으로 계산을 강화할 수 있도록 저장소에서 계산을 분리합니다.
 
-![SQL 데이터 웨어하우스 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
 SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 응용 프로그램은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 

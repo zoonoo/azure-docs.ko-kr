@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
-> [!div class="op_single_selector"]
-> * [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
-> * [Azure 클래식 포털](cloud-services-how-to-create-deploy.md)
->
->
-
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
 
 이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
@@ -65,7 +59,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 ## <a name="create-and-deploy"></a>만들기 및 배포
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **새로 만들기 > 계산**을 클릭한 다음 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
+2. **새로 만들기 > Compute**를 클릭한 다음 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
 
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 새 **클라우드 서비스** 블레이드에서 **DNS 이름**의 값을 입력합니다.

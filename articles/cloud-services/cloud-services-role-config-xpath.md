@@ -1,5 +1,5 @@
 ---
-title: "클라우드 서비스 역할 구성 XPath 참고 자료 | Microsoft Docs"
+title: "Cloud Services 역할 구성 XPath 참고 자료 | Microsoft Docs"
 description: "클라우드 서비스 역할 구성에서 설정을 환경 변수로 노출하기 위해 사용할 수 있는 다양한 XPath 설정입니다."
 services: cloud-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
 클라우드 서비스 작업자 또는 웹 역할 서비스 정의 파일에서 런타임 구성 값을 환경 변수로 노출할 수 있습니다. 다음 XPath 값(API 값에 해당)을 사용할 수 있습니다.
@@ -166,5 +166,5 @@ ms.lasthandoff: 10/11/2017
 
 [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) 패키지를 만듭니다.
 
-역할에 대해 [원격 데스크톱](cloud-services-role-enable-remote-desktop.md) 을 사용하도록 설정합니다.
+역할에 대해 [원격 데스크톱](cloud-services-role-enable-remote-desktop-new-portal.md) 을 사용하도록 설정합니다.
 
