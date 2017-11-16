@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering 서비스 시작
 
@@ -91,7 +91,7 @@ Azure Portal 및 BatchLabs에서 사전 설치된 응용 프로그램으로 VM �
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 
-Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습니다. 이 옵션을 사용하여 정확한 응용 프로그램 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 자체 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원을 통해 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 이 라이선스 유효성 검사는 Maya 또는 3DS Max에는 필요하지 않습니다. 현재 게시된 버전은 헤드리스 실행 시(배치/명령줄 모드에서) 라이선스 서버가 필요하지 않기 때문입니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
+Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습니다. 이 옵션을 사용하여 정확한 응용 프로그램 및 필요한 특정 버전으로 VM을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 가상 컴퓨터 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요. Autodesk 및 Chaos Group은 자체 라이선스 서비스에 대한 유효성을 검사하기 위해 Arnold 및 V-Ray를 각각 수정하였습니다. 이 지원을 통해 이러한 응용 프로그램 버전이 있는지 확인해야 합니다. 그렇지 않으면 사용량 과금 라이선스가 적용되지 않습니다. 이 라이선스 유효성 검사는 Maya 또는 3DS Max에는 필요하지 않습니다. 현재 게시된 버전은 헤드리스 실행 시(배치/명령줄 모드에서) 라이선스 서버가 필요하지 않기 때문입니다. 이 옵션을 진행하는 방법을 잘 모르는 경우 Azure 지원 담당자에게 문의하세요.
 
 ## <a name="options-for-submitting-a-render-job"></a>렌더링 작업 제출을 위한 옵션
 
@@ -101,7 +101,7 @@ Azure Batch를 사용하면 사용자 지정 이미지를 제공할 수 있습�
 
 Maya를 사용하면 다음을 수행할 수 있습니다.
 
-- [Maya용 Batch 플러그 인](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Maya용 Batch 플러그 인](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [BatchLabs](https://azure.github.io/BatchLabs) 데스크톱 응용 프로그램
 - [Batch 템플릿 CLI](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ Maya를 사용하면 다음을 수행할 수 있습니다.
 
 3DS Max Batch Labs 템플릿을 사용하면 Azure Batch Rendering 서비스를 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3ds Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
 
-또한 [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial)를 사용하여 렌더링 서비스를 기존 파이프라인과 통합할 수 있습니다.
+또한 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)를 사용하여 렌더링 서비스를 기존 파이프라인과 통합할 수 있습니다.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya용 Batch 플러그 인을 사용하여 렌더링 작업 제출

@@ -9,14 +9,6 @@
 ## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# 샘플
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [템플릿 배포](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [템플릿 배포](resource-manager-samples-cli-deploy.md)
-
 # 방법
 ## 템플릿 만들기
 ### [템플릿 섹션](resource-group-authoring-templates.md)

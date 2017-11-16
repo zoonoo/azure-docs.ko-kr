@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -56,7 +56,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 이 역할은 서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다.  구독 관리자에 대한 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 
-Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합이 있습니다.  이러한 관리자는 Azure Portal 또는 Azure 클래식 포털의 다양한 기능에 대해 액세스 권한을 갖게 됩니다. 관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
+Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합이 있습니다.  이러한 관리자는 Azure Portal 또는 Azure 클래식 포털의 다양한 기능에 대해 액세스 권한을 갖게 됩니다. 관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
 또한, Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
 
@@ -132,7 +132,6 @@ Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.
 Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
 - [Azure Portal에서 계정 재설정](active-directory-users-reset-password-azure-portal.md)
-- [클래식 Portal에서 계정 재설정](active-directory-create-users-reset-password.md)
 - [PowerShell 사용](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -199,7 +198,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD 조건부 액세스에서는 각 응용 프로그램에 대한 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
 
-자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access-azure-portal.md)를 참조하세요.
 
 - - -
 **Q: SaaS 앱을 위한 자동 사용자 프로비전이 무엇인가요?**
