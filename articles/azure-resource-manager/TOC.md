@@ -69,10 +69,6 @@
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 
-## 리소스 정책 설정
-### [리소스 정책이란?](resource-manager-policy.md)
-### [명명 규칙](resource-manager-policy-naming-convention.md)
-
 ## 감사
 ### [활동 로그 보기](resource-group-audit.md)
 ### [배포 작업 보기](resource-manager-deployment-operations.md)

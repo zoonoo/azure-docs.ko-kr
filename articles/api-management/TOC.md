@@ -53,7 +53,7 @@
 ### [관리되는 서비스 ID 사용](api-management-howto-use-managed-service-identity.md)
 ### Service Fabric과 통합
 #### [개요](../service-fabric/service-fabric-api-management-overview.md)
-#### [빠른 시작](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [자습서](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # 참조
 ## [Azure PowerShell](/powershell/azure/overview)
