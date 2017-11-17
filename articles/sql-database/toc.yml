@@ -200,9 +200,9 @@
     - name: 다중 테넌트 SaaS
       items:
         - name: SaaS 디자인 패턴
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: SaaS 앱 보안
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: 데이터베이스 개발
       items:
         - name: JSON 데이터
@@ -337,24 +337,45 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: 다중 테넌트 SaaS
       items:
-        - name: 자습서 소개
-          href: sql-database-wtp-overview.md
-        - name: 예제 앱 배포
-          href: sql-database-saas-tutorial.md
-        - name: 테넌트 프로비전
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: 데이터베이스 성능 모니터링
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Log Analytics로 모니터링
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: 단일 테넌트 복원
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: 테넌트 스키마 관리
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: 임시 쿼리 실행
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: 분석용 ETL
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Wingtips 시작
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: 독립 실행형 응용 프로그램
+          items:
+            - name: 예제 앱 배포
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: 테넌트당 데이터베이스
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: 자습서 소개
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: 앱 지침
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: 예제 앱 배포
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: 테넌트 프로비전
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: 데이터베이스 성능 모니터링
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Log Analytics로 모니터링
+              href: saas-dbpertenant-log-analytics.md
+            - name: 하나의 테넌트 복원
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: 테넌트 스키마 관리
+              href: saas-tenancy-schema-management.md
+            - name: 임시 쿼리 실행
+              href: saas-tenancy-adhoc-analytics.md
+            - name: 분석용 ETL
+              href: saas-tenancy-tenant-analytics.md
+        - name: 다중 테넌트 데이터베이스
+          items:
+            - name: 예제 앱 배포
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: 데이터베이스 성능 모니터링
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: 임시 쿼리 실행
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: 테넌트 스키마 관리
+              href: saas-multitenantdb-schema-management.md
     - name: 앱 개발
       items:
         - name: C 및 C ++

@@ -71,7 +71,7 @@
 ## 솔루션
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
 #### [여러 VM에 대한 업데이트 관리](manage-update-multi.md)
-#### [OMS 업데이트 관리와 SCCMr 통합](oms-solution-updatemgmt-sccmintegration.md)
+#### [OMS 업데이트 관리와 SCCM 통합](oms-solution-updatemgmt-sccmintegration.md)
 ### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
 ### [VM의 변경 내용 추적](automation-vm-change-tracking.md)
 ### [인벤토리 수집을 사용하여 VM 관리](automation-vm-inventory.md)

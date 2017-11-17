@@ -15,7 +15,7 @@
   items:
     - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
       href: terraform-create-vm-cluster-module.md
-    - name: Cloud Shell을 사용하여 VM 클러스터 만들기
+    - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: 인프라를 사용하여 VM 확장 집합 프로비전
       href: terraform-create-vm-scaleset-network-disks-hcl.md

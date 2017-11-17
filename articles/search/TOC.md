@@ -3,7 +3,6 @@
 
 # 시작
 
-## [SKU 선택](search-sku-tier.md)
 ## [서비스 만들기](search-create-service-portal.md)
 ## [인덱스 만들기](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # 자습서
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET 동의어 미리 보기](search-synonyms-tutorial-sdk.md)
-## [포털](search-get-started-portal.md)
+## [.NET으로 작성된 개발](search-howto-dotnet-sdk.md)
+## [.NET으로 작성된 동의어 미리 보기](search-synonyms-tutorial-sdk.md)
+## [.NET으로 작성된 SQL 데이터 인덱서](search-indexer-tutorial.md)
+## [포털 연습](search-get-started-portal.md)
 ## [반 구조체 데이터 검색](search-semi-structured-data.md)
-## [Node.JS](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [REST API 탐색](search-fiddler.md)
 
 # 방법
 
 ## 계획 및 디자인
+### [SKU 선택](search-sku-tier.md)
 ### [서비스 한도](search-limits-quotas-capacity.md)
 ### [서비스 확장성](search-capacity-planning.md)
 ### [다중 테넌트 지원을 위한 디자인 패턴](search-modeling-multitenant-saas-applications.md)
 ## 개발
 ### [API 버전](search-api-versions.md)
+### [Node.js로 작성된 개발](search-get-started-nodejs.md)
+### [Java로 작성된 개발](search-get-started-java.md)
 ### [SDK 업그레이드](search-dotnet-sdk-migration.md)
 ### [REST API 업그레이드](search-api-migration.md)
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)

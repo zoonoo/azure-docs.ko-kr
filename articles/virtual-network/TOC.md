@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### 가상 컴퓨터
+#### [가상 컴퓨터 네트워크 처리량](virtual-machine-network-throughput.md)
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

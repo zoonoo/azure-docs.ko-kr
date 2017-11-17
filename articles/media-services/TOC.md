@@ -94,7 +94,7 @@
 #### 미디어 인코더 Premium 워크플로를 사용하여 인코딩
 ##### [Media Encoder Premium 워크플로](media-services-encode-with-premium-workflow.md)
 ##### [Media Encoder Premium 워크플로 자습서](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [워크플로 디자이너로 고급 인코딩 워크플로 만들기](media-services-workflow-designer.md)
+##### [워크플로 디자이너로 고급 Encoding 워크플로 만들기](media-services-workflow-designer.md)
 ##### [다중 입력 프리미엄 워크플로](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [fMP4 청크를 생성하는 작업 만들기](media-services-generate-fmp4-chunks.md)
 ### 미디어 프로세서
@@ -106,7 +106,8 @@
 
 ## [스트림 라이브](media-services-manage-channels-overview.md)
 ### [온-프레미스 인코더](media-services-live-streaming-with-onprem-encoders.md)
-#### [포털](media-services-portal-live-passthrough-get-started.md)
+#### [권장 온-프레미스 인코더](media-services-recommended-encoders.md)
+#### [Azure 포털](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [클라우드 인코더를 사용한 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure 포털](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast 인코더](media-services-configure-wirecast-live-encoder.md)
 ### [장기 실행 작업 처리](media-services-dotnet-long-operations.md)
 ### [분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
+
+## [클립 콘텐츠](media-services-azure-media-clipper-overview.md)
+### [Azure Media Clipper 시작](media-services-azure-media-clipper-getting-started.md)
+### [Azure Media Clipper에 자산 로드](media-services-azure-media-clipper-load-assets.md)
+### [사용자 지정 바로 가기 키 구성](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [잘라내기 작업 제출](media-services-azure-media-clipper-submit-job.md)
+### [Azure 포털](media-services-azure-media-clipper-portal.md)
 
 ## [보호](media-services-content-protection-overview.md)
 ### [Azure Portal에서 콘텐츠 보호 구성](media-services-portal-protect-content.md)
@@ -132,7 +140,7 @@
 ### [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
 ### [Apple FairPlay로 보호되는 HLS 콘텐츠 스트림](media-services-protect-hls-with-fairplay.md)
 ### [DRM 하위 시스템의 하이브리드 디자인](hybrid-design-drm-sybsystem.md)
-### [다중 DRM 및 액세스 제어가 포함된 CENC](media-services-cenc-with-multidrm-access-control.md)
+### [다중 DRM 및 Access Control이 포함된 CENC](media-services-cenc-with-multidrm-access-control.md)
 ### 자산 배달 정책 구성
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
@@ -221,7 +229,7 @@
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
-## [가격](https://azure.microsoft.com/pricing/details/media-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](media-services-release-notes.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)

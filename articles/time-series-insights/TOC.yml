@@ -1,0 +1,76 @@
+- name: Azure Time Series Insights
+  href: index.yml
+- name: 개요
+  items:
+    - name: Time Series Insights 정보
+      href: time-series-insights-overview.md
+- name: 빠른 시작
+  items:
+    - name: Time Series Insights 탐색
+      href: time-series-quickstart.md
+- name: 개념
+  items:
+    - name: 환경 계획
+      href: time-series-insights-environment-planning.md
+    - name: 탐색기에서 데이터 시각화
+      href: time-series-insights-explorer.md
+    - name: 제한 완화
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: 진단 및 문제 해결
+      href: time-series-insights-diagnose-and-solve-problems.md
+    - name: 개발
+      items:
+        - name: 인증 및 권한 부여
+          href: time-series-insights-authentication-and-authorization.md
+        - name: 'C#을 사용하여 데이터 쿼리'
+          href: time-series-insights-query-data-csharp.md
+        - name: 'C#으로 작성된 참조 데이터 관리'
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: 사용자 지정 보기 공유
+          href: time-series-insights-parameterized-urls.md
+- name: 방법 가이드
+  items:
+    - name: 환경 만들기
+      href: time-series-insights-get-started.md
+    - name: 데이터 액세스 권한 부여
+      href: time-series-insights-data-access.md
+    - name: Event Hub에 연결
+      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+    - name: IoT Hub에 연결
+      href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: 참조 데이터 집합 만들기
+      href: time-series-insights-add-reference-data-set.md
+    - name: 이벤트 보내기
+      href: time-series-insights-send-events.md
+    - name: 환경 규모 조정
+      href: time-series-insights-how-to-scale-your-environment.md
+- name: 참조
+  items:
+    - name: 쿼리 API
+      href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+    - name: 쿼리 구문
+      href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: 리소스
+  items:
+    - name: 관련 서비스
+      items:
+        - name: Azure IoT Suite
+          href: /azure/iot-suite/
+        - name: Azure Event Hubs
+          href: /azure/event-hubs/
+        - name: Azure Stream Analytics
+          href: /azure/stream-analytics/
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+    - name: 지원 옵션
+      href: 'https://azure.microsoft.com/support/options/'

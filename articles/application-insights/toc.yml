@@ -37,7 +37,7 @@
       items:
         - name: Azure 웹앱
           href: app-insights-azure-web-apps.md
-        - name: Azure 클라우드 서비스
+        - name: Azure Cloud Services
           href: app-insights-cloudservices.md
     - name: ASP.NET 앱 모니터링
       items:
@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: 연속 모니터링 추가
+              href: app-insights-vsts-continuous-monitoring.md
             - name: 프로파일러
               href: app-insights-profiler.md
             - name: 프로파일러 활성화

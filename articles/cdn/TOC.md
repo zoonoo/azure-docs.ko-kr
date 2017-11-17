@@ -11,7 +11,7 @@
 ### [저장소](cdn-create-a-storage-account-with-cdn.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
 ### [CDN 끝점에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
-### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
+### [사용자 지정 도메인에 HTTPS 구성](cdn-custom-ssl.md)
 ## 콘텐츠 최적화
 ### [최적화 개요](cdn-optimization-overview.md)
 ####[큰 파일 최적화](cdn-large-file-optimization.md)
