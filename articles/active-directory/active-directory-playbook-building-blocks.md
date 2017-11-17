@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -66,7 +66,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 최신 버전의 Azure AD Connect를 다운로드합니다. | [Download Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)(Microsoft Azure Active Directory Connect 다운로드) |
 | 가장 간단한 경로로 Azure AD Connect를 설치합니다. Express <br/>1. 동기화 주기 시간을 최소화하기 위해 대상 OU를 필터링합니다.<br/>2. 온-프레미스 그룹에서 대상 사용자 집합을 선택합니다.<br/>3. 기타 POC 테마에 필요한 기능을 배포합니다. | [Azure AD Connect: 사용자 지정 설치: 도메인 및 OU 필터링](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: 사용자 지정 설치: 그룹 기반 필터링](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합: 동기화 기능 구성](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Azure AD Connect UI를 확인하고 실행 중인 프로필이 완료되었는지 확인합니다(가져오기, 동기화 및 내보내기). | [Azure AD Connect 동기화: 스케줄러](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Azure AD Connect UI를 확인하고 실행 중인 프로필이 완료되었는지 확인합니다(가져오기, 동기화 및 내보내기). | [Azure AD Connect 동기화: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | [Azure AD management portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)(Azure AD 관리 포털)을 열고, “All Users”(모든 사용자) 블레이드로 이동하고, “Source of authority”(인증 원본) 열을 추가하고, 사용자가 나타나고 “Windows Server AD”에서 오는 것으로 제대로 표시되는지 확인합니다. | [Azure AD management portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)(Azure AD 관리 포털) |
 
 ### <a name="considerations"></a>고려 사항
@@ -99,10 +99,10 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털로 이동합니다. | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding)(Azure AD 관리 포털 - 회사 브랜딩) |
-| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](active-directory-add-company-branding.md) |
+| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](customize-branding.md) |
 | 변경 내용이 완전히 적용될 때까지 몇 분 정도 기다립니다. |  |
 | POC 사용자 자격 증명으로 https://myapps.microsoft.com에 로그인합니다. |  |
-| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md) |
+| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](customize-branding.md) |
 | 필요한 경우 다른 장치에서 모양과 느낌을 확인합니다. |  |
 
 ### <a name="considerations"></a>고려 사항
@@ -209,7 +209,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 사전에 대상 응용 프로그램 및 정확한 로그인 URL 목록 제공. 예를 들어 Twitter를 사용할 수 있습니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입) |
-| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그(영문)] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그(영문)] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
 | Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 
@@ -287,7 +287,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 생성된 커넥터에 대한 실행 프로필을 만듭니다(전체 가져오기, 델타 가져오기, 전체 동기화, 델타 동기화, 내보내기) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)(관리 에이전트 실행 프로필 만들기)<br/> [Azure AD Connect Sync Service Manager에서 커넥터 사용](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 전체 가져오기 프로필을 실행하고 커넥터 공간에 개체가 있는지 확인합니다. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)(커넥터 공간 개체 검색)<br/>[Azure AD Connect Sync Service Manager에서 커넥터 사용: 커넥터 공간 검색](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| 전체 동기화 주기를 시작합니다. | [Azure AD Connect 동기화: 스케줄러: 스케줄러 시작](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
+| 전체 동기화 주기를 시작합니다. | [Azure AD Connect 동기화: Scheduler: Scheduler 시작](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | 문제 발생 시 문제 해결을 수행합니다. | [Azure AD와 동기화되지 않는 개체 문제 해결](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | LDAP 사용자가 응용 프로그램에 로그인하고 액세스할 수 있는지 확인합니다. | https://myapps.microsoft.com |
 
@@ -379,7 +379,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](active-directory-passwords.md) |
+| 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](active-directory-passwords-update-your-own-password.md) |
 | 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](active-directory-passwords-writeback.md) |
 | 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](active-directory-passwords-writeback.md) |
 

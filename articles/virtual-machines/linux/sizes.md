@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: e351f62df9ecabb5c4cc0e70f4315f265e820b7d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7c6f2e83e5763f3cf8f305c73c0ad74fa8b37c00
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure에서 Linux 가상 컴퓨터에 대한 크기
 이 문서에서는 Linux 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 컴퓨터에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 이 문서는 [Windows 가상 컴퓨터](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에도 적용됩니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/24/2017
 
 <br>
 
-- 다양한 크기의 가격 책정에 대한 자세한 내용은 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)을 참조하세요. 
+- 다양한 크기의 가격 책정에 대한 자세한 내용은 [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)을 참조하세요. 
 - Azure 지역의 VM 크기 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 - Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)을 참조하세요.
 - [ACU(Azure Compute 단위)](../windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

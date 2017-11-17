@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/24/2017
 
 다음 시나리오는 지원되지 _않습니다_.
 
-- 사용자가 최신 인증 _없이_ 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인합니다. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증을 사용하면 통과 인증 지원이 허용될 뿐 아니라 MFA(Multi-Factor Authentication) 등의 [조건부 액세스](../active-directory-conditional-access.md) 기능을 사용하여 사용자 계정을 보호할 수도 있습니다.
+- 사용자가 최신 인증 _없이_ 레거시 Office 클라이언트 응용 프로그램(Office 2010 및 Office 2013)에 로그인합니다. 가능할 경우 조직은 최신 인증으로 전환하는 것이 좋습니다. 최신 인증을 사용하면 통과 인증 지원이 허용될 뿐 아니라 MFA(Multi-Factor Authentication) 등의 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 사용자 계정을 보호할 수도 있습니다.
 - 사용자가 비즈니스용 Skype 2016을 포함한 비즈니스용 Skype 클라이언트 응용 프로그램에 로그인합니다.
 - 사용자가 PowerShell v1.0에 로그인합니다. PowerShell v2.0을 대신 사용하는 것이 좋습니다.
 - Azure AD Domain Services

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -51,7 +51,7 @@ Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정
 
 Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책을 할당할 수 있습니다.
 
-정책 정의의 구조에 대한 자세한 내용은 이 문서의 [정책 정의 구조](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)를 확인하세요.
+정책 정의의 구조에 대한 자세한 내용은 이 문서의 [정책 정의 구조](policy-definition.md)를 확인하세요.
 
 ## <a name="policy-assignment"></a>정책 할당
 
@@ -68,7 +68,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책을 할당�
 <!--
 Next link should point to new Concept page for Parameters
 -->
-정책 매개 변수에 대한 자세한 내용은 [리소스 정책 개요 - 매개 변수](../azure-resource-manager/resource-manager-policy.md#parameters)를 참조하세요.
+정책 매개 변수에 대한 자세한 내용은 [리소스 정책 개요 - 매개 변수](policy-definition.md#parameters)를 참조하세요.
 
 ## <a name="initiative-definition"></a>이니셔티브 정의
 이니셔티브 정의는 가장 중요한 단일 목표를 달성하기 위해 맞춤화된 정책 정의의 컬렉션입니다. 이니셔티브 정의를 사용하면 정책 정의 관리 및 할당을 더 쉽게 수행할 수 있습니다. 정책 집합을 단일 항목으로 그룹화하여 단순화합니다. 예를 들어 이름이 **Azure Security Center에서 모니터링 사용**이면서 목표가 Azure Security Center의 모든 사용 가능한 보안 권장 사항을 모니터링하는 것인 이니셔티브를 만들 수 있습니다.

@@ -17,7 +17,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
   "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "app",
+  "kind": "linux",
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",

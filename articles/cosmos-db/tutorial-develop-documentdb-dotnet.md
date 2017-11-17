@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 871731adc849c575d97ed6735b87457811668ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB: .NET의 DocumentDB API를 사용하여 개발
 
@@ -55,7 +55,6 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
-> * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
 > * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 >

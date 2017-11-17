@@ -15,17 +15,13 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477f20bd552460176be92f1db70bb0f76de8bac1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-> * [Azure 클래식 포털](active-directory-application-proxy-connectors.md)
->
 
 고객은 점점 더 많은 시나리오와 응용 프로그램을 위해 Azure AD의 응용 프로그램 프록시를 활용합니다. 따라서 더 많은 토폴로지를 사용하여 응용 프로그램 프록시를 더욱 유연하게 만들었습니다. 특정 응용 프로그램을 제공하는 특정 커넥터를 할당할 수 있도록 응용 프로그램 프록시 커넥터 그룹을 만들 수 있습니다. 이 기능은 응용 프로그램 프록시 배포를 최적화하는 보다 많은 제어와 방법을 제공합니다. 
 

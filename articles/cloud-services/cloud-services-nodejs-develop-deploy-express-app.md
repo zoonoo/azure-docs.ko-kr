@@ -3,7 +3,7 @@ title: "Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Docs"
 description: "클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드
 Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.

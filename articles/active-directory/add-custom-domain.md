@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 사용자 지정 도메인 이름 추가
 
@@ -78,7 +78,7 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 조직에서 사용자 지정 도메인 이름을 여러 개 사용하는 경우(예: ‘contoso.com’ 및 ‘contosobank.com’), 최대 900개의 도메인에 해당 이름을 추가할 수 있습니다. 이 문서의 단계를 사용하여 각 도메인 이름을 추가할 수 있습니다.
 
 ### <a name="learn-more"></a>자세한 정보
-[Azure AD에서 사용자 지정 도메인 이름의 개념적 개요](active-directory-add-domain-concepts.md)
+[Azure AD에서 사용자 지정 도메인 이름의 개념적 개요](active-directory-domains-manage-azure-portal.md)
 
 [사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)
 

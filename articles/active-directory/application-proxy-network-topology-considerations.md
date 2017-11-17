@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -102,7 +102,7 @@ Azure 및 회사 네트워크 간에 개인 피어링이 있는 전용 VPN 또�
 
 조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 응용 프로그램 위치에 적용할 수 있습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
 
-또한 다른 위치 및 네트워크에 있는 대상 앱에 [커넥터 그룹](active-directory-application-proxy-connectors.md)을 사용하여 커넥터를 구성하는 것이 좋습니다. 
+또한 다른 위치 및 네트워크에 있는 대상 앱에 [커넥터 그룹](active-directory-application-proxy-connectors-azure-portal.md)을 사용하여 커넥터를 구성하는 것이 좋습니다. 
 
 ## <a name="common-use-cases"></a>일반 사용 예
 
@@ -174,5 +174,5 @@ ExpressRoute 개인 피어링을 통해 회사 네트워크에 연결된 Azure �
 
 - [응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
 - [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [조건부 액세스 사용](application-proxy-enable-remote-access-sharepoint.md)
 - [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)

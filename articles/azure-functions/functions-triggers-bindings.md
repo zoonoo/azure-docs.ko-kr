@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 Azure Functions에서는 *트리거* 및 *바인딩*을 통해 Azure 및 기타 서비스의 이벤트에 대응하는 코드를 쓸 수 있습니다. 이 문서는 지원되는 모든 프로그래밍 언어의 트리거 및 바인딩에 대한 개념적 개요를 제공합니다. 여기에서는 모든 바인딩에 공통되는 기능을 설명합니다.
@@ -243,7 +243,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정
 
 각 트리거의 메타데이터 속성은 해당 참조 항목에서 자세히 설명되어 있습니다. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
-예를 들어 Blob 트리거에는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행할 수 있습니다([Blob Storage 트리거](functions-bindings-storage-blob.md#storage-blob-trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
+예를 들어 Blob 트리거에는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행할 수 있습니다([Blob Storage 트리거](functions-bindings-storage-blob.md#blob-storage-trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
 
 ```json
   "bindings": [
@@ -418,11 +418,11 @@ C# 및 기타 .NET 언어에서는 *function.json*의 선언적 바인딩과 달
 - [Blob 저장소](functions-bindings-storage-blob.md)
 - [Table Storage](functions-bindings-storage-table.md)
 - [이벤트 허브](functions-bindings-event-hubs.md)
-- [서비스 버스](functions-bindings-service-bus.md)
+- [Service Bus](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
-- [알림 허브](functions-bindings-notification-hubs.md)
-- [모바일 앱](functions-bindings-mobile-apps.md)
+- [Notification Hubs](functions-bindings-notification-hubs.md)
+- [Mobile Apps](functions-bindings-mobile-apps.md)
 - [외부 파일](functions-bindings-external-file.md)

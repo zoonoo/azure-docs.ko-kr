@@ -1,6 +1,6 @@
 ---
 title: "Python을 사용하여 Azure Blob Storage의 데이터 이동 | Microsoft Docs"
-description: "Python을 사용하여 Azure Blob 저장소의 데이터 이동"
+description: "Python을 사용하여 Azure Blob Storage의 데이터 이동"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: d7847f695a77ad469f56a20518cb979c41384d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e325f70a37200552832b9c0ac38f6c56471f2c
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Python을 사용하여 Azure Blob Storage 간 데이터 이동
 이 항목에서는 Python API를 사용하여 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있습니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 * 컨테이너의 Blob 나열
 * Blob 삭제
 
-Python API 사용에 대한 자세한 내용은 [Python에서 Blob 저장소 서비스를 사용하는 방법](../../storage/blobs/storage-python-how-to-use-blob-storage.md)을 참조하세요.
+Python API 사용에 대한 자세한 내용은 [Python에서 Blob Storage 서비스를 사용하는 방법](../../storage/blobs/storage-python-how-to-use-blob-storage.md)을 참조하세요.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -48,7 +48,7 @@ Python API 사용에 대한 자세한 내용은 [Python에서 Blob 저장소 서
 * 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
 
 ## <a name="upload-data-to-blob"></a>Blob에 데이터 업로드
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 코드의 맨 위쪽에 다음 코드 조각을 추가합니다.
+프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 코드의 맨 위쪽에 다음 코드 조각을 추가합니다.
 
     from azure.storage.blob import BlobService
 

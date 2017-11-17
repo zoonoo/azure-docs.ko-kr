@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: c1bf73bce96d231990bd42b4f840d97ce518dc9e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
-Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
+Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
 Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독에 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)할 수 있습니다.
 

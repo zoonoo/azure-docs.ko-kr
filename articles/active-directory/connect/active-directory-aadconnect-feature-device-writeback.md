@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 장치 쓰기 저장 사용
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 * 장치에 따라 ADFS(2012 R2 이상) 보호된 응용 프로그램에 조건부 액세스를 사용하도록 설정합니다.(신뢰 당사자 트러스트)
 
-응용 프로그램에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+응용 프로그램에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
 > [!IMPORTANT]
 > <li>장치는 사용자와 동일한 포리스트에 있어야 합니다. 장치가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 * 초기화 스크립트에서 제공하는 계정이 Active Directory Connector에서 사용하는 올바른 사용자인지 확인합니다. 이를 확인하려면 다음 단계를 수행하세요.
   * 시작 메뉴에서 **동기화 서비스**를 엽니다.
   * **커넥터** 탭을 엽니다.
-  * 형식이 Active Directory 도메인 서비스인 커넥터를 찾아 선택합니다.
+  * 형식이 Active Directory Domain Services인 커넥터를 찾아 선택합니다.
   * **작업** 아래에서 **속성**을 선택합니다.
   * **Active Directory 포리스트에 연결**로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다.
     ![동기화 서비스 관리자의 커넥터 계정](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
@@ -141,7 +141,7 @@ Active Directory의 구성 확인:
 ![문제 해결, 장치 등록 구성에 대한 권한 확인](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>추가 정보
-* [조건부 액세스를 사용한 위험 관리](../active-directory-conditional-access.md)
+* [조건부 액세스를 사용한 위험 관리](../active-directory-conditional-access-azure-portal.md)
 * [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>다음 단계

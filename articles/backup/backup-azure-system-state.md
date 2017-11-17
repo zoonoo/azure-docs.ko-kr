@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
@@ -35,7 +35,7 @@ Windows Server 시스템 상태를 백업하려면 데이터를 저장하려는 
 1. [Azure Portal](https://portal.azure.com/) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
 2. [허브] 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음 **Recovery Services 자격 증명 모음**을 클릭합니다.
 
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
     구독에 복구 서비스 자격 증명 모음이 있는 경우 자격 증명 모음이 나열됩니다.
 3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.

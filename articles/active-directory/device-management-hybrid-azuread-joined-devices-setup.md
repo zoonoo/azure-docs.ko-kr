@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 12469573eb58d53a4f6a8632c23d716ef6716263
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -298,7 +298,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 
 
-확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.  
+확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)를 참조하세요.  
 확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet을 사용합니다. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
@@ -566,7 +566,7 @@ Windows 현재 컴퓨터의 롤아웃을 제어하려면 등록하려는 장치�
 
 System Center Configuration Manager 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 이 패키지는 *quiet* 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. System Center Configuration Manager Current Branch는 완료된 등록을 추적하는 기능과 같은 이전 버전의 이점이 추가로 제공됩니다. 자세한 내용은 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)를 참조하세요.
 
-설치 관리자에서는 사용자 컨텍스트에서 실행되도록 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 예약된 작업을 보려면 장치에서 **Microsoft** > **작업 공간 연결**, 작업 스케줄러 라이브러리로 이동합니다.
+설치 관리자에서는 사용자 컨텍스트에서 실행되도록 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 예약된 작업을 보려면 장치에서 **Microsoft** > **작업 공간 연결**, 작업 Scheduler 라이브러리로 이동합니다.
 
 ## <a name="step-5-verify-joined-devices"></a>5단계: 가입 장치 확인
 

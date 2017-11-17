@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 821d70ec7236e165d4f60ed6217c49d10de1cfc3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/24/2017
 
 아니요, 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-## <a name="does-conditional-accessactive-directory-conditional-accessmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access.md)는 통과 인증에서 작동하나요?
+## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
 예, Azure Multi-Factor Authentication을 비롯한 모든 조건부 액세스 기능이 통과 인증에서 작동합니다.
 

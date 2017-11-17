@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: a0598d32b5bad240c0a5d77a6e19285115a9f6b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7aed1c69e930bdd5e5b451fa2726a75b78515eb
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: .NET을 사용하여 MongoDB 앱에 연결
 
@@ -45,7 +45,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
-> * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
 > * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 >

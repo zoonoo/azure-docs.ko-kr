@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1ed4fab00d5304a25d28149e2ce9adcc3168fd
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법
-Azure AD(Active Directory)와 전역 관리자(또는 회사 관리자)는 사용자가 Azure AD에서 **영구적으로** 역할에 할당되도록 업데이트할 수 있습니다. 이 작업은 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember` 등 PowerShell cmdlet을 사용하여 완료됩니다. 또는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)에 설명된 대로 Azure 클래식 포털을 사용할 수 있습니다.
+Azure AD(Active Directory)와 전역 관리자(또는 회사 관리자)는 사용자가 Azure AD에서 **영구적으로** 역할에 할당되도록 업데이트할 수 있습니다. 이 작업은 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember` 등 PowerShell cmdlet을 사용하여 완료됩니다. 또는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)에 설명된 대로 Azure 클래식 포털을 사용할 수 있습니다.
 
 Azure AD Privileged Identity Management 응용 프로그램을 통해 권한 있는 역할 관리자가 영구 역할 할당을 수행할 수도 있습니다. 또한 권한이 있는 역할 관리자는 사용자의 관리자 역할을 **적격**으로 만들 수 있습니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다.
 

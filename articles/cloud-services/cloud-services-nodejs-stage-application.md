@@ -3,7 +3,7 @@ title: "클라우드 서비스 배포 준비(Node.js) | Microsoft Docs"
 description: "Azure 응용 프로그램을 스테이징 환경에 배포한 다음 VIP(가상 IP) 교환을 사용하여 프로덕션 환경에 배포하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Azure에서 응용 프로그램 준비
 패키지 응용 프로그램을 먼저 Azure의 스테이징 환경에 배포하여 테스트한 후 해당 응용 프로그램을 인터넷에서 액세스할 수 있는 프로덕션 환경으로 이동할 수 있습니다. 스테이징 환경은 Azure에서 생성하는 숨겨진 URL로 미리 구성된 응용 프로그램에만 액세스할 수 있다는 점을 제외하면 프로덕션 환경과 똑같습니다. 응용 프로그램이 올바르게 작동되는지 확인한 후 VIP(가상 IP) 교환을 수행하여 해당 응용 프로그램을 프로덕션 환경으로 배포할 수 있습니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
    ```powershell
    Publish-AzureServiceProject -Slot staging
    ```
-2. [Azure 클래식 포털] 에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
+2. [Azure 클래식 포털] 에 로그온하고 **Cloud Services**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
    
    ![실행 중인 서비스가 표시된 포털][cloud-service]
 3. **대시보드**를 선택한 후 **스테이징**을 선택합니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-1. [Azure 클래식 포털]에 로그인하고 **클라우드 서비스** 를 클릭한 후 서비스 이름을 선택합니다.
+1. [Azure 클래식 포털]에 로그인하고 **Cloud Services** 를 클릭한 후 서비스 이름을 선택합니다.
 2. **대시보드**에서 **스테이징**을 선택한 후 페이지 맨 아래에 있는 **교환**을 클릭합니다. 그러면 VIP 교환 대화 상자가 열립니다.
    
    ![VIP 교환 대화 상자][vip-swap-dialog]

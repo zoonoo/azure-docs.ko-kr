@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2017
 ms.author: genli
-ms.openlocfilehash: 178d7fbc17464f7c9a4bc891453d0999e4ba62c3
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 091fe208783a2fe5d5c91abe4ec498bf760a3eb3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경
 
@@ -104,13 +104,13 @@ Azure Portal에서 누군가를 구독의 관리자로 추가하려면 그 사�
 | 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
 | [Azure 클래식 포털](https://manage.windowsazure.com) |구독당 200 |서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
 
-Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+Azure Active Directory RBAC(역할 기반 Access Control)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
 
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>리소스 액세스 제어 및 Active Directory에 대해 자세히 알아보기
 
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](../active-directory/active-directory-understanding-resource-access.md)를 참조하세요.
-* Azure Active Directory에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
+* Azure Active Directory에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

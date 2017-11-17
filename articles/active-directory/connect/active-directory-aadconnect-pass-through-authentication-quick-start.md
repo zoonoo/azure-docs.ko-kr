@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ### <a name="on-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
 1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 될 때 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 테넌트에서 잠기지 않도록 하려면 이 단계를 수행하는 것이 중요합니다.
-2. Azure AD 테넌트에 [사용자 지정 도메인 이름](../active-directory-add-domain.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나를 사용하여 로그인합니다.
+2. Azure AD 테넌트에 [사용자 지정 도메인 이름](../active-directory-domains-add-azure-portal.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나를 사용하여 로그인합니다.
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 

@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f254f4959c66aeb3eec522f31e0d8a6780358188
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
 
@@ -82,7 +82,7 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-* 게시된 앱에 대해 [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+* 게시된 앱에 대해 [조건부 액세스 사용](application-proxy-enable-remote-access-sharepoint.md)
 * [Azure AD에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)
 
 

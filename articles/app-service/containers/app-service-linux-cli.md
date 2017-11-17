@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 28dfa62c3408c43d3919a9657339bb8d25f6dcdf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
 
 이 문서의 명령을 사용하면 Azure CLI 2.0을 사용하여 Web App for Containers를 만들고 관리할 수 있습니다.
 다음 두 가지 방법으로 새 버전의 CLI를 사용하기 시작할 수 있습니다.
 
-* 컴퓨터에 [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* 컴퓨터에 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../../cloud-shell/overview.md) 사용
 
 ## <a name="create-a-linux-app-service-plan"></a>Linux App Service 계획 만들기
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/25/2017
 Linux App Service 계획을 만들려면 다음 명령을 사용할 수 있습니다.
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## <a name="create-a-custom-docker-container-web-app"></a>사용자 지정 Docker 컨테이너 웹앱 만들기
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>다음 단계
 
 * [Linux의 Azure App Service란?](app-service-linux-intro.md)
-* [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell(미리 보기)](../../cloud-shell/overview.md)
 * [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Web App for Containers를 사용한 연속 배포](app-service-linux-ci-cd.md)

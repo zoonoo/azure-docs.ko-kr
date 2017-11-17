@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
-ms.openlocfilehash: 3ccd892cf693ed959f71845c3571601825c90cf2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1b868c07522a8df8b574b3bf3d31de512a547fe
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
-이 가이드에서는 모바일 앱용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
+이 가이드에서는 Mobile Apps용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
 
 * 데이터 쿼리(삽입, 업데이트 및 삭제).
 * 인증.
@@ -234,8 +234,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -478,7 +478,7 @@ List<ToDoItem> results = mToDoTable
 * 화면 레이아웃
 * 두 요소를 연결하는 어댑터
 
-샘플 코드에서는 모바일 앱 SQL Azure 테이블 **ToDoItem** 의 데이터를 배열로 반환합니다. 이 활동은 데이터 응용 프로그램에서 매우 흔한 패턴입니다.  데이터베이스 쿼리는 종종 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환합니다. 이 샘플에서 배열은 데이터 원본입니다.  코드는 장치에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.  이 두 요소는 어댑터(이 코드에서 **ArrayAdapter&lt;ToDoItem&gt;** 클래스의 확장)를 통해 바인딩됩니다.
+샘플 코드에서는 Mobile Apps SQL Azure 테이블 **ToDoItem** 의 데이터를 배열로 반환합니다. 이 활동은 데이터 응용 프로그램에서 매우 흔한 패턴입니다.  데이터베이스 쿼리는 종종 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환합니다. 이 샘플에서 배열은 데이터 원본입니다.  코드는 장치에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.  이 두 요소는 어댑터(이 코드에서 **ArrayAdapter&lt;ToDoItem&gt;** 클래스의 확장)를 통해 바인딩됩니다.
 
 #### <a name="layout"></a>레이아웃 정의
 

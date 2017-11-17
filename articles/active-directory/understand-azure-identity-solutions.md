@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure ID 솔루션 이해
 Microsoft Azure AD(Azure Active Directory)는 디렉터리 서비스, ID 관리 및 응용 프로그램 액세스 관리를 제공하는 ID 및 액세스 관리 클라우드 솔루션입니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에 있는 수천 개의 사전 통합된 상용 및 사용자 지정 앱에 대해 신속하게 [SSO(single sign-on)를 사용](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)합니다. 이러한 앱은 대부분 Office 365, Salesforce.com, Box, ServiceNow 및 Workday와 같이 이미 사용하고 있는 앱들입니다.
@@ -53,11 +53,11 @@ Microsoft Azure는 개별 조직의 요구 사항에 맞게 다양한 수준의 
 |-----|-----|
 |[Azure 구독과 Azure Active Directory의 연관 관계](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |모든 Azure 구독은 사용자, 서비스 및 장치를 인증하는 Azure AD 디렉터리와 신뢰 관계가 있습니다. *여러 구독은 동일한 Azure AD 디렉터리를 트러스트할 수 있지만 구독은 단일 Azure AD 디렉터리만을 신뢰합니다*. 이 트러스트 관계는 구독이 다른 Azure 리소스(웹 사이트, 데이터베이스 등)와 갖는 관계와 다르며 구독의 하위 리소스와 더 유사합니다. 구독이 만료되면 Azure AD가 아닌 구독과 연결된 리소스에 대한 액세스도 중지됩니다. 하지만 Azure AD 디렉터리는 Azure에 남아 있으므로 해당 디렉터리와 다른 구독을 연결하여 테넌트 리소스를 계속 관리할 수 있습니다.|
 |[Azure AD 라이선스 작동 방식](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또는 활성화하면 디렉터리의 유효 기간 및 선불 라이선스를 포함하여 디렉터리가 구독으로 업데이트됩니다. 구독이 활성화되면 Azure AD 전역 관리자가 서비스를 관리하고 허가된 사용자가 사용할 수 있습니다. 할당되거나 사용 가능한 라이선스 수를 포함한 구독 정보는 **Azure Active Directory** > **라이선스** 블레이드의 Azure Portal에서 사용할 수 있습니다. 또한 이 탭은 사용자 라이선스 할당을 관리하기에 가장 적합한 위치이기도 합니다.|
-|[Azure Portal의 역할 기반 액세스 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 세밀한 액세스 관리를 제공할 수 있습니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC를 사용하여 모든 리소스 그룹(소유자, 참가자, 판독기)에 적용되는 세 가지 기본 역할을 기반으로 필요한 정확한 사용 권한을 직원에게 제공할 수 있습니다. 최대 2,000개의 고유한 [사용자 지정 RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)을 만들어 특정 요구 사항을 충족할 수도 있습니다. |
+|[Azure Portal의 역할 기반 Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure 역할 기반 Access Control(RBAC)을 통해 Azure 리소스에 대한 세밀한 액세스 관리를 제공할 수 있습니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. RBAC를 사용하여 모든 리소스 그룹(소유자, 참가자, 판독기)에 적용되는 세 가지 기본 역할을 기반으로 필요한 정확한 사용 권한을 직원에게 제공할 수 있습니다. 최대 2,000개의 고유한 [사용자 지정 RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)을 만들어 특정 요구 사항을 충족할 수도 있습니다. |
 |[하이브리드 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|하이브리드 ID는 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)를 사용하는 Azure AD에서 온-프레미스 AD DS(Windows Server Active Directory)를 통합하여 이뤄집니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 온-프레미스 앱이나 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 하이브리드 ID를 사용하여 ID 및 액세스를 위해 효과적으로 클라우드로 온-프레미스 환경을 확장합니다.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS와 Azure AD 간의 차이
-Azure AD(Azure Active Directory)와 온-프레미스 Active Directory(Active Directory 도메인 서비스 또는 AD DS)는 디렉터리 데이터를 저장하고 사용자와 리소스 간의 통신(사용자 로그온 프로세스, 인증 및 디렉터리 검색 포함)을 관리하는 시스템입니다.
+Azure AD(Azure Active Directory)와 온-프레미스 Active Directory(Active Directory Domain Services 또는 AD DS)는 디렉터리 데이터를 저장하고 사용자와 리소스 간의 통신(사용자 로그온 프로세스, 인증 및 디렉터리 검색 포함)을 관리하는 시스템입니다.
 
 Windows 2000 Server와 함께 처음 도입된 온-프레미스 Windows Server AD DS(Active Directory Domain Services)에 익숙한 경우 ID 서비스의 기본 개념을 이해할 것입니다. 하지만 Azure AD가 클라우드에서 단지 도메인 컨트롤러에 그치지 않는다는 것을 이해해야 합니다. 이 기능은 Azure에서 IDaaS(identity as a service)를 제공하는 완전히 새로운 방법으로써 클라우드 기반 기능을 완전히 포용하고 최신 위협으로부터 조직을 보호한다는 완전히 새로운 사고 방식이 필요합니다. 
 
@@ -110,12 +110,12 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 * [연결된 적이 있는 세계에 대한 추가 보안](../multi-factor-authentication/multi-factor-authentication.md)
 * [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
 * [Azure AD Reporting 시작](active-directory-reporting-getting-started.md)
-* [어디에서나 암호 관리](active-directory-passwords.md)
+* [어디에서나 암호 관리](active-directory-passwords-update-your-own-password.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 * [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
 * [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
-* [Microsoft Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)
+* [Microsoft Azure Active Directory 라이선스란?](active-directory-licensing-whatis-azure-portal.md)
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
 ## <a name="next-steps"></a>다음 단계

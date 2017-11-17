@@ -16,14 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리
-Azure Active Directory(Azure AD)는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다. 이 문서에서는 개요를 제공하지만 지금 바로 Azure AD 그룹 사용을 시작하려는 경우 [Azure AD에서 보안 그룹 관리](active-directory-accessmanagement-manage-groups.md)의 지침을 따릅니다. PowerShell을 사용하여 Azure Active directory에서 그룹을 관리하는 방법을 보려면 자세한 내용은 [그룹 관리를 위한 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)을 참조하세요.
+Azure Active Directory(Azure AD)는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다. 이 문서에서는 개요를 제공하지만 지금 바로 Azure AD 그룹 사용을 시작하려는 경우 [Azure AD에서 보안 그룹 관리](active-directory-groups-create-azure-portal.md)의 지침을 따릅니다. PowerShell을 사용하여 Azure Active directory에서 그룹을 관리하는 방법을 보려면 자세한 내용은 [그룹 관리를 위한 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
@@ -66,7 +66,7 @@ Azure AD의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 
 ## <a name="getting-started-with-access-management"></a>액세스 관리 시작
 시작할 준비가 되셨습니까? Azure AD 그룹으로 수행할 수 있는 기본 작업 중 일부를 시도해야 합니다. 이러한 기능을 사용하여 조직의 다른 리소스에 다른 사용자 그룹에 대한 특별한 액세스 권한을 제공합니다. 다음은 기본 첫 단계 목록입니다.
 
-* [그룹에 대한 동적 구성원을 구성하는 간단한 규칙 만들기](active-directory-accessmanagement-manage-groups.md)
+* [그룹에 대한 동적 구성원을 구성하는 간단한 규칙 만들기](active-directory-groups-create-azure-portal.md)
 * [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](active-directory-accessmanagement-group-saasapps.md)
 * [최종 사용자 셀프서비스에 사용할 수 있는 그룹 만들기](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect를 사용하여 Azure에 온-프레미스 그룹 동기화](active-directory-aadconnect.md)
@@ -75,8 +75,8 @@ Azure AD의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 
 ## <a name="next-steps"></a>다음 단계
 액세스 관리의 기본 사항을 이해했으므로, 다음은 Azure Active Directory에서 추가 응용 프로그램 및 리소스에 대한 액세스를 관리하는 데 사용할 수 있는 몇 가지 고급 추가 기능입니다.
 
-* [특성을 사용하여 고급 규칙 만들기](active-directory-accessmanagement-groups-with-advanced-rules.md)
-* [Azure AD의 보안 그룹 관리](active-directory-accessmanagement-manage-groups.md)
+* [특성을 사용하여 고급 규칙 만들기](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Azure AD의 보안 그룹 관리](active-directory-groups-create-azure-portal.md)
 * [Azure AD에서 전용 그룹 설정](active-directory-accessmanagement-dedicated-groups.md)
 * [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)

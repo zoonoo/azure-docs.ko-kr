@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7574fdf8787e799e4d73fe32df9c1ad5be93abf1
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 290f2e837cae9bdb95cf8acb486938632927ca8c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할에 사용자 할당
 이 문서는 Azure AD(Azure Active Directory)에서 사용자에게 관리 역할을 할당하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
    ![모든 사용자 그룹 열기](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 1. 목록에서 사용자를 선택합니다.
-2. 선택한 사용자에 대해 **디렉터리 역할**을 선택한 다음 **디렉터리 역할** 목록의 역할에 사용자를 할당합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
+2. 선택한 사용자에 대해 **디렉터리 역할**을 선택한 다음 **디렉터리 역할** 목록의 역할에 사용자를 할당합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
       ![역할에 사용자 할당](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. **저장**을 선택합니다.

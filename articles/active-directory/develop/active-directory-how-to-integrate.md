@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -41,13 +41,13 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 **Azure AD를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 사용자를 제어합니다.**  Azure AD의 관리자 및 응용 프로그램 소유자는 응용 프로그램에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다.  Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 응용 프로그램 내의 액세스를 제어할 수 있습니다.
 
-**Azure AD를 사용하여 역할 기반 액세스를 제어합니다.**  관리자와 응용 프로그램 소유자는 Azure AD에 응용 프로그램을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다.  역할 정보는 로그인 토큰의 응용 프로그램에 전송되며 Graph API를 사용해서도 읽을 수 있습니다.  [Azure AD를 사용하여 권한 부여](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)에 대해 자세히 알아보세요.
+**Azure AD를 사용하여 역할 기반 Access Control을 사용합니다.**  관리자와 응용 프로그램 소유자는 Azure AD에 응용 프로그램을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다.  역할 정보는 로그인 토큰의 응용 프로그램에 전송되며 Graph API를 사용해서도 읽을 수 있습니다.  [Azure AD를 사용하여 권한 부여](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)에 대해 자세히 알아보세요.
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 **Azure AD는 Office 365 및 기타 Microsoft 비즈니스 서비스의 권한 부여 서버입니다.**  응용 프로그램 로그인에 Azure AD를 지원하거나 OAuth 2.0을 사용하는 Azure AD 사용자 계정에 현재 사용자 계정 연결을 지원하는 경우 사용자의 프로필, 일정, 메일, 연락처, 파일 및 기타 정보에 대한 읽기 및 쓰기 권한을 요청할 수 있습니다.  사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다.  [Office 365 API 액세스](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)에 대해 자세히 알아보세요.
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 마켓플레이스에서 응용 프로그램 홍보
-**이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.**  이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다.  [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 Marketplace에서 응용 프로그램 홍보
+**이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.**  이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다.  [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
 **사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다.  [Azure AD 액세스 패널](../active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
@@ -67,7 +67,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 **비정상적인 로그인 감지.**  Azure AD는 의심스러운 활동을 감지하고 발생 가능한 문제를 IT 관리자에게 알리는 기계 학습 알고리즘을 사용하면서 하루 10억 개가 넘는 로그인을 처리합니다.  Azure AD 로그인을 지원함으로써 응용 프로그램이 보호됩니다. [Azure Active Directory 액세스 보고서 보기](../active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
 
-**조건부 액세스.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 응용 프로그램에 로그인할 수 있도록 요구할 수 있습니다.  클라이언트 장치의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 장치의 상태 조건을 설정할 수 있습니다.  [Azure Active Directory 조건부 액세스](../active-directory-conditional-access.md)에 대해 자세히 알아보세요.
+**조건부 액세스.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 응용 프로그램에 로그인할 수 있도록 요구할 수 있습니다.  클라이언트 장치의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 장치의 상태 조건을 설정할 수 있습니다.  [Azure Active Directory 조건부 액세스](../active-directory-conditional-access-azure-portal.md)에 대해 자세히 알아보세요.
 
 ### <a name="easy-development"></a>손쉬운 배포
 **산업 표준 프로토콜.**  Microsoft는 산업 표준을 지원합니다.  Azure AD는 SAML 2.0, OpenID Connect 1.0, OAuth 2.0, Ws-federation 1.2 인증 프로토콜을 지원합니다.  Graph API는 OData 4.0을 따릅니다.  응용 프로그램이 페더레이션된 로그인에 대해 이미 SAML 2.0 또는 OpenID Connect 1.0 프로토콜을 지원하는 경우 Azure AD 지원을 추가하는 것은 간단합니다.  [Azure AD 지원 인증 프로토콜](active-directory-authentication-protocols.md)에 대해 자세히 알아보세요.

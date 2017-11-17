@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/07/2017
 [Azure Portal](https://portal.azure.com/)에 있는 보고서에서는 다음과 같은 질문에 대답할 수 있습니다.
 
 > [!NOTE]
-> 사용자는 [전역 관리자](active-directory-assign-admin-roles.md)여야 하며 적어도 한 번 감사 로그를 방문하여 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 이렇게 할 때까지는 조직의 데이터가 수집되지 않습니다.
+> 사용자는 [전역 관리자](active-directory-assign-admin-roles-azure-portal.md)여야 하며 적어도 한 번 감사 로그를 방문하여 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 이렇게 할 때까지는 조직의 데이터가 수집되지 않습니다.
 
 * 얼마나 많은 사람들이 암호 재설정을 위해 등록합니까?
 * 누가 암호 재설정을 위해 등록합니까?

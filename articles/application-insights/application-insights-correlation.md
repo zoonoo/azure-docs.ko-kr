@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -81,7 +81,7 @@ Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extensi
 - `dependency`가 **Span**을 매핑되고 `span.kind = client`입니다.
 - `request` 및 `dependency`의 `id`가 **Span.Id**로 매핑됩니다.
 - `operation_Id`가 **TraceId**로 매핑됩니다.
-- `operation_ParentId`가 `ChileOf` 형식의 **Reference**로 매핑됩니다.
+- `operation_ParentId`가 `ChildOf` 형식의 **Reference**로 매핑됩니다.
 
 Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 
