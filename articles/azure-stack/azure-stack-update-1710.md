@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: twooley
-ms.openlocfilehash: 32ca25998046caa6cf29410644f3cd86868b679d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: acce605fe1f3157898b490c394d24037689a7cb6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure 스택 1710 업데이트 (빌드 20171020.1)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/10/2017
 | 증상  | 원인  | 해결 방법 |
 |---------|---------|---------|
 |다음과 유사한 오류가 한 업데이트를 수행 하는 경우<br>"저장소 호스트를 다시 시작 저장소 노드" 단계에서 발생할 수 있습니다.<br> 업데이트 작업 계획 합니다.<br><br>**{"name": "다시 시작 저장소 호스트", "설명": "다시 시작<br> 저장소 호스트 합니다.","errorMessage": "'다시 시작' 역할의 입력<br> 예외: \n\n 컴퓨터 발생 하는 'BareMetal'<br> 호스트 이름-05를 건너뜁니다. 해당 마지막 부팅 시간을 검색 하지 못했습니다<br> 다음 오류 메시지와 함께 WMI 서비스를 통해:<br> RPC 서버를 사용할 수 없습니다.<br> (HRESULT의 예외: 0x800706BA). \nat: 다시 시작을 호스트** | 이 문제는 일부 구성에 잠재적인 문제가 드라이버에 의해 발생 합니다. | 1. 베이스 보드 관리 컨트롤러 (BMC) 웹 인터페이스에 로그인 하 고 오류 메시지에서 식별 되는 호스트를 다시 시작 합니다.<br><br>2. 권한 있는 끝점을 사용 하 여 업데이트를 다시 시작 합니다. |
-| 업데이트 프로세스 표시 지연 업데이트를 수행 하는 경우<br> 단계를 수행한 후 진행 상황을 확인 하지 "단계: 단계 2.4-설치를 실행 합니다.<br> 업데이트 작업 계획의 "업데이트 합니다.<br><br>이 단계 그 다음으로 일련의.nupkg의 복사 프로세스<br> 내부 인프라 파일 공유에 파일입니다. 예:<br><br>**1 개의 파일을 content\PerfCollector\VirtualMachines에서 복사 <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**  | 이 문제는 로그 파일 꽉 찬 디스크 인프라 가상 컴퓨터 및에서 Windows 서버 스케일 아웃 파일 서버 (SOFS) 후속 업데이트에 전달 되는 문제를 발생 합니다. | Microsoft 고객 서비스 및 지원 (CSS)에 문의 하십시오. | 
+| 업데이트 프로세스 표시 지연 업데이트를 수행 하는 경우<br> 단계를 수행한 후 진행 상황을 확인 하지 "단계: 단계 2.4-설치를 실행 합니다.<br> 업데이트 작업 계획의 "업데이트 합니다.<br><br>이 단계 그 다음으로 일련의.nupkg의 복사 프로세스<br> 내부 인프라 파일 공유에 파일입니다. 예:<br><br>**1 개의 파일을 content\PerfCollector\VirtualMachines에서 복사 <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**<br><br>또는 메시지를 참조 하세요.<br><br>**WarningMessage:Task: 'LiveUpdate' 인터페이스의 호출<br> 못했습니다 ' Cloud\Fabric\VirtualMachines' 역할의:<br> 'VirtualMachines'가 발생 하는 역할의 'LiveUpdate'를 입력 한<br> 예외:는 디스크에 공간이 부족 .**  | 이 문제는 로그 파일 꽉 찬 디스크 인프라 가상 컴퓨터 및에서 Windows 서버 스케일 아웃 파일 서버 (SOFS) 후속 업데이트에 전달 되는 문제를 발생 합니다. | Microsoft 고객 서비스 및 지원 (CSS)에 문의 하십시오. | 
 | 다음과 유사한 오류가 한 업데이트를 수행 하는 경우<br> 단계에서 발생할 수 있습니다 "단계: 단계 2.13.2-업데이트 실행 중<br> *VM_Name*"의 업데이트 작업 계획 합니다. (가상 컴퓨터<br> 이름이 다를 수 있습니다.)<br><br>**ActionPlanInstanceWarning ece/MachineName:<br> WarningMessage:Task: 호출의 'LiveUpdate' 인터페이스<br> 역할 'Cloud\Fabric\WAS' 못했습니다: 'LiveUpdate' 역할의 입력<br> '가'에서 예외가 발생 했습니다: 중 오류가 발생 했습니다 저장소<br> 초기화: API를 만드는 동안 오류가 발생 했습니다.<br> Microsoft 저장소 서비스에 대 한 호출: {"Message": "시간 초과<br> 서비스 패브릭와 통신 하는 동안 발생 했습니다.<br> 예외 유형: TimeoutException 합니다.<br> 예외 메시지: 작업 시간이 초과 되었습니다. "}**  | 이 문제는 이후 업데이트에서 수정 하는 Windows Server의 경우 I/O 시간 초과 발생 합니다. | Microsoft CSS에 문의 하십시오.
 | 다음과 유사한 오류가 한 업데이트를 수행 하는 경우<br> 단계 중 "단계 21 다시 시작 SQL server Vm." 발생할 수 있습니다.<br><br>**발생 하는 ' VirtualMachines' 역할의 'LiveUpdateRestart'를 입력 한<br> 예외: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> MachineName VM에 대 한 쿼리-Sql01.-10/13/2017 오후 5시 11분: 50 VerboseMessage: [VirtualMachines: LiveUpdateRestart]<br> VM-10/13/2017 HighlyAvailable.으로 표시 되어 오후 5시 11분: 50<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart]에서<br>MS. Internal.ServerClusters.ExceptionHelp.Build<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(부울 force) Microsoft.FailoverClusters.PowerShell에.<br> StopClusterResourceCommand.BeginTimedOperation() <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>Microsoft.FailoverClusters.PowerShell에서 ProcessRecord().<br> FCCmdlet.ProcessRecord()-10/13/2017 오후 5시 11분: 50 경고<br>메시지: 작업: 호출의 'LiveUpdateRestart' 인터페이스<br> 역할 'Cloud\Fabric\VirtualMachines'가 실패 했습니다.** | 가상 컴퓨터를 다시 시작 하지 못했습니다.이 문제가 발생할 수 있습니다. | Microsoft CSS에 문의 하십시오.
 | 업데이트를 수행 하는 경우 다음과 유사한 오류가 발생할 수 있습니다.<br><br>**2017-10-22T01:37:37.5369944Z 'SQL' 역할의 유형 '종료'<br> 에서 예외가 발생 했습니다: 오류가 발생 일시 중지 노드<br> ' s45r1004 Sql01' 사이트 중지 SQL C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> 에서 542 CloudDeployment\Roles\SQL\SQL.psm1:line<br> 종료, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> 응용 프로그램 \EnterpriseCloudEngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: 줄에 50 &#60; ScriptBlock &#62;<br> &#60; 파일이 없습니다. >: 줄에 18 &#60; ScriptBlock &#62; &#60; 파일이 없습니다. &#62;: 16 줄** | 가상 컴퓨터 역할을 드레이닝 하도록 일시 중단된 상태로 넣을 수 없습니다이 문제가 발생할 수 있습니다. | Microsoft CSS에 문의 하십시오.
