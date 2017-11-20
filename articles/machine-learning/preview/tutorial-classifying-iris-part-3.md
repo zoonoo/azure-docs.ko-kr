@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
-ms.openlocfilehash: b6cdd135d2d264c8b4ede1592c686cdeea3d0a59
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 11/14/2017
+ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -119,8 +119,7 @@ Docker 엔진을 설치하고 로컬로 실행해야 합니다. 또는 Azure의 
 
 이제 모델을 조작할 환경이 준비되었습니다.
 
->[!NOTE]
->모델을 배포하려면 소유자에게 Azure 구독에 대한 액세스 권한이 있어야 합니다.
+
 
 ## <a name="prepare-to-operationalize-locally"></a>로컬에서 조작 준비
 _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너에서 실행합니다.
@@ -163,6 +162,8 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    출력의 세 번째 줄에 **“registrationState”: “Registering”**이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"**가 표시될 때까지 **show** 명령을 반복합니다.
 
 3. 환경을 만듭니다. 환경당 한 번씩 이 단계를 실행해야 합니다. 예를 들어, 개발 환경에 대해 한 번, 프로덕션에 대해 한 번씩 실행합니다. 첫 번째 환경에는 _로컬 모드_를 사용합니다. 나중에 다음 명령에서 `-c` 또는 `--cluster` 스위치를 사용하여 환경을 _클러스터 모드_로 설정할 수 있습니다.
+
+다음 설정 명령에서는 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>

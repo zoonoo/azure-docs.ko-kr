@@ -370,6 +370,8 @@
           items:
             - name: 예제 앱 배포
               href: saas-multitenantdb-get-started-deploy.md
+            - name: 테넌트 프로비전
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: 데이터베이스 성능 모니터링
               href: saas-multitenantdb-performance-monitoring.md
             - name: 임시 쿼리 실행

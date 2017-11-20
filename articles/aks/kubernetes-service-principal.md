@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하는 서비스 주체
 
@@ -34,13 +34,13 @@ Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure Active Dir
 
 Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 사용 권한이 있어야 합니다. 필요한 사용 권한이 없으면 필요한 사용 권한을 할당하거나 Kubernetes 클러스터에 대한 서비스 주체를 미리 만들도록 Azure AD 또는 구독 관리자에 요청해야 합니다.
 
-또한 Azure CLI 버전 2.0.20 이상이 설치되고 구성되어 있어야 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+또한 Azure CLI 버전 2.0.21 이상이 설치되고 구성되어 있어야 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-sp-with-aks-cluster"></a>AKS 클러스터를 사용하여 SP 만들기
 
 `az aks create` 명령을 사용하여 AKS 클러스터를 배포하는 경우 서비스 주체를 자동으로 생성하는 옵션이 있습니다.
 
-기존 서비스 주체를 지정하지 않았기 때문에 다음 예제에서 AKS 클러스터를 만들고, 클러스터에 대한 서비스 주체를 만듭니다. 이 작업을 완료하려면 사용자 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다. 
+기존 서비스 주체를 지정하지 않았기 때문에 다음 예제에서 AKS 클러스터를 만들고, 클러스터에 대한 서비스 주체를 만듭니다. 이 작업을 완료하려면 사용자 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다.
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

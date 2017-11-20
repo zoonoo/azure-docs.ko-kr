@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure IoT 옵션 | Microsoft Docs"
-description: "IoT Suite, IoT Central 또는 IoT Hub를 사용하여 Azure IoT 솔루션을 구현하는 방법을 선택합니다."
+description: "Azure IoT Suite, Microsoft IoT Central 또는 Azure IoT Hub를 사용하여 IoT 솔루션을 구현하는 방법을 선택합니다."
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT 옵션 비교
 
@@ -33,18 +33,18 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub는 IoT Central 및 IoT Suite 모두에서 사용하는 핵심 Azure PaaS입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
+Azure IoT Hub는 Microsoft IoT Central 및 Azure IoT Suite 모두에서 사용하는 핵심 Azure PaaS입니다. IoT Hub를 사용하면 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
 * 대용량 장치 연결 및 관리
 * 대용량 원격 분석 수집
 * 장치 명령 및 제어
 * 장치 보안 강화
 
-## <a name="compare-iot-suite-and-iot-central"></a>IoT Suite 및 IoT Central 비교
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Azure IoT Suite와 Microsoft IoT Central 비교
 
-Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT Suite 또는 Microsoft IoT Central을 사용할 필요가 없습니다. IoT Suite와 IoT Central 모두는 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에서는 요구 사항에 맞게 적절히 선택할 수 있도록 IoT Suite와 IoT Central의 주요 차이점을 요약하고 있습니다.
+Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT Suite 또는 Microsoft IoT Central을 사용할 필요가 없습니다. Azure IoT Suite와 Microsoft IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT Suite와 Microsoft IoT Central의 주요 차이점이 요약되어 있습니다.
 
-|                        | IoT Suite | IoT Central |
+|                        | Azure IoT Suite | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | 기본 사용 | 최대한의 유연성이 필요한 사용자 지정 IoT 솔루션의 개발을 가속화합니다. | 자세한 서비스 사용자 지정이 필요하지 않은 간단한 IoT 솔루션의 출시 시간을 가속화합니다. |
 | 기본 PaaS 서비스에 대한 액세스          | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다. | SaaS - 완벽하게 관리되는 솔루션이며, 기본 서비스가 노출되지 않습니다. |
@@ -63,6 +63,6 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 선택한 제품 및 접근 방식에 따라 제안되는 단계는 다음과 같습니다.
 
-* **IoT Suite**: [미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)
+* **Azure IoT Suite**: [미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Azure IoT Hub 서비스 개요](../iot-hub/iot-hub-what-is-iot-hub.md)

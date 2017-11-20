@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN 시작 | Microsoft Docs"
-description: "이 항목에서는 Azure CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법에 대해 설명합니다. 이 자습서는 새로운 CDN 프로필 및 끝점 생성을 안내합니다."
+description: "이 항목에서는 Azure CDN(Content Delivery Network)을 사용하도록 설정하는 방법에 대해 설명합니다. 이 자습서는 새로운 CDN 프로필 및 끝점 생성을 안내합니다."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN 시작
 이 문서에서는 새로운 CDN 프로필 및 끝점을 만들어서 Azure CDN을 활성화하는 방법을 설명합니다.
@@ -69,7 +69,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 7. **원래 호스트 헤더**에 CDN에서 각 요청과 함께 보낼 호스트 헤더를 입력하거나 기본값을 유지합니다.
    
    > [!WARNING]
-   > Azure 저장소 및 웹앱 등 일부 유형의 원본은 해당 원본의 도메인과 일치하는 호스트 헤더가 필요합니다. 해당 도메인과 다른 호스트 헤더를 필요로 하는 원본이 아니면 기본값을 유지해야 합니다.
+   > Azure Storage 및 Web Apps 등 일부 유형의 원본은 해당 원본의 도메인과 일치하는 호스트 헤더가 필요합니다. 해당 도메인과 다른 호스트 헤더를 필요로 하는 원본이 아니면 기본값을 유지해야 합니다.
    > 
    > 
 8. **프로토콜** 및 **원본 포트**에 원본의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다. CDN 제공 도메인(`<endpointname>.azureedge.net`)을 사용하여 HTTPS 콘텐츠에 액세스합니다. 
@@ -82,7 +82,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
    > HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 제약 조건이 있습니다.
    > 
    > * CDN에서 제공된 SSL 인증서를 사용해야 합니다. 타사 인증서는 지원되지 않습니다.
-   > * Azure CDN 사용자 지정 도메인에 대한 HTTPS 지원은 **Verizon의 Azure CDN** 제품(표준 및 프리미엄)에만 사용할 수 있습니다. **Akamai의 Azure CDN** 제품에서 지원되지 않습니다. 자세한 내용은 [Azure CDN 사용자 지정 도메인에서 HTTPS 활성화 또는 비활성화](cdn-custom-ssl.md)를 참조하세요.
+   > * Azure CDN 사용자 지정 도메인에 대한 HTTPS 지원은 **Verizon의 Azure CDN** 제품(표준 및 프리미엄)에만 사용할 수 있습니다. **Akamai의 Azure CDN** 제품에서 지원되지 않습니다. 자세한 내용은 [Azure CDN 사용자 지정 도메인에서 HTTPS 구성](cdn-custom-ssl.md)을 참조하세요.
   
 9. **추가** 단추를 클릭하여 새 끝점을 만듭니다.
    

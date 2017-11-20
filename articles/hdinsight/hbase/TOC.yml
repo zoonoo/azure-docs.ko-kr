@@ -4,28 +4,216 @@
   items:
     - name: 개요
       href: apache-hbase-overview.md
-    - name: 구성 요소 버전 관리
+    - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
 - name: 시작
   items:
     - name: HBase 및 NoSQL로 시작
       href: apache-hbase-tutorial-get-started-linux.md
-    - name: 용량 계획
+    - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: 방법
   items:
-    - name: 가상 네트워크에서 클러스터 만들기
-      href: apache-hbase-provision-vnet.md
-    - name: HBase 복제 구성
-      href: apache-hbase-replication.md
-    - name: Phoenix 및 SQLLine 사용
-      href: apache-hbase-phoenix-squirrel-linux.md
-    - name: Java 응용 프로그램 배포
-      href: apache-hbase-build-java-maven-linux.md
-    - name: HBase 문제 해결
-      href: apache-troubleshoot-hbase.md
+    - name: 클러스터 저장소 사용
+      items:
+        - name: Azure Storage 사용
+          href: ../hdinsight-hadoop-use-blob-storage.md
+          maintainContext: true
+        - name: Azure Data Lake Store 사용
+          href: ../hdinsight-hadoop-use-data-lake-store.md
+          maintainContext: true
+    - name: 개발
+      items:
+        - name: Java 응용 프로그램 배포
+          href: apache-hbase-build-java-maven-linux.md
+        - name: 빈 에지 노드 사용
+          href: ../hdinsight-apps-use-edge-node.md
+          maintainContext: true
+        - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+          maintainContext: true
+        - name: Phoenix 및 SQLLine 사용
+          href: apache-hbase-phoenix-squirrel-linux.md
+    - name: 클러스터 확장
+      items:
+        - name: 보안이 활성화된 저장소 계정 사용
+          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+          maintainContext: true
+        - name: 부트스트랩을 사용하여 클러스터 사용자 지정
+          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+          maintainContext: true
+        - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
+          href: ../hdinsight-hadoop-customize-cluster-linux.md
+          maintainContext: true
+        - name: 온-프레미스 네트워크에 HDInsight 연결
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+        - name: 스크립트 작업 개발
+          href: ../hdinsight-hadoop-script-actions-linux.md
+          maintainContext: true
+        - name: Virtual Network 사용
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: HDInsight 응용 프로그램 빌드
+          items:
+            - name: HDInsight 앱 설치
+              href: ../hdinsight-apps-install-applications.md
+              maintainContext: true
+            - name: 사용자 지정 앱 설치
+              href: ../hdinsight-apps-install-custom-applications.md
+              maintainContext: true
+            - name: REST를 사용하여 앱 설치
+              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: Azure Marketplace에 HDInsight 앱 게시
+              href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+    - name: 보안
+      items:
+        - name: HDInsight와 함께 SSH 사용
+          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+          maintainContext: true
+        - name: SSH 터널링 사용
+          href: ../hdinsight-linux-ambari-ssh-tunnel.md
+          maintainContext: true
+    - name: 관리
+      items:
+        - name: Linux 클러스터 만들기
+          href: ../hdinsight-hadoop-provision-linux-clusters.md
+          maintainContext: true
+          items:
+            - name: Azure PowerShell 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+              maintainContext: true
+            - name: cURL 및 Azure REST API 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+              maintainContext: true
+            - name: .NET SDK 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+              maintainContext: true
+            - name: Azure CLI 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+              maintainContext: true
+            - name: Azure 포털 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+              maintainContext: true
+            - name: Azure 리소스 관리자 템플릿 사용
+              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+              maintainContext: true
+        - name: 가상 네트워크에서 클러스터 만들기
+          href: apache-hbase-provision-vnet.md
+        - name: HBase 복제 구성
+          href: apache-hbase-replication.md
+        - name: 주문형 클러스터 만들기
+          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+          maintainContext: true
+        - name: Hadoop 클러스터 관리
+          href: ../hdinsight-administer-use-portal-linux.md
+          maintainContext: true
+          items:
+            - name: .NET SDK 사용
+              href: ../hdinsight-administer-use-dotnet-sdk.md
+              maintainContext: true
+            - name: Azure PowerShell 사용
+              href: ../hdinsight-administer-use-powershell.md
+              maintainContext: true
+            - name: Azure CLI 사용
+              href: ../hdinsight-administer-use-command-line.md
+              maintainContext: true
+        - name: Ambari 웹 UI를 사용하여 클러스터 관리
+          href: ../hdinsight-hadoop-manage-ambari.md
+          maintainContext: true
+          items:
+            - name: Ambari REST API 사용
+              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+              maintainContext: true
+        - name: 저장소 계정 추가
+          href: ../hdinsight-hadoop-add-storage.md
+          maintainContext: true
+        - name: Hadoop 작업용 데이터 업로드
+          href: ../hdinsight-upload-data.md
+          maintainContext: true
+        - name: Data Lake Store가 있는 다중 HDInsight 클러스터
+          href: ../hdinsight-multiple-clusters-data-lake-store.md
+          maintainContext: true
+        - name: Sqoop으로 데이터 가져오기 및 내보내기
+          href: ../hdinsight-use-sqoop.md
+          maintainContext: true
+          items:
+            - name: SSH를 사용하여 연결
+              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+            - name: cURL을 사용하여 실행
+              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+            - name: .NET SDK를 사용하여 실행
+              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+            - name: Azure PowerShell을 사용하여 실행
+              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+        - name: 클러스터 및 서비스 포트와 URI
+          href: ../hdinsight-hadoop-port-settings-for-services.md
+          maintainContext: true
+        - name: 가용성 및 안정성
+          href: ../hdinsight-high-availability-linux.md
+          maintainContext: true
+        - name: HDInsight 클러스터를 최신 버전으로 업그레이드
+          href: ../hdinsight-upgrade-cluster.md
+          maintainContext: true
+        - name: HDInsight 클러스터의 OS 패치
+          href: ../hdinsight-os-patching.md
+          maintainContext: true
+    - name: 모니터
+      items:
+        - name: Azure Log Analytics 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: 클러스터 지정 대시보드
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Log Analytics로 쿼리 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: 클러스터 성능 모니터링
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
+    - name: 문제 해결
+      href: ../hdinsight-troubleshoot-guide.md
+      maintainContext: true
+      items:
+        - name: HDFS 문제 해결
+          href: ../hdinsight-troubleshoot-hdfs.md
+          maintainContext: true
+        - name: HBase 문제 해결
+          href: apache-troubleshoot-hbase.md
+          maintainContext: true
+        - name: YARN 문제 해결
+          href: ../hdinsight-troubleshoot-yarn.md
+          maintainContext: true
+        - name: 리소스
+          items:
+            - name: Linux에서 HDInsight 사용에 관한 정보
+              href: ../hdinsight-hadoop-linux-information.md
+              maintainContext: true
+            - name: Hadoop 메모리 및 성능
+              href: ../hdinsight-hadoop-stack-trace-error-messages.md
+              maintainContext: true
+            - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
+              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+              maintainContext: true
+            - name: Hadoop 서비스에 대한 힙 덤프 사용
+              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+              maintainContext: true
+            - name: WebHCat 오류 이해 및 해결
+              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+              maintainContext: true
+            - name: Hive 설정 수정 메모리 부족 오류
+              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+              maintainContext: true
+            - name: Ambari 뷰를 사용하여 Tez 작업 디버깅
+              href: ../hdinsight-debug-ambari-tez-view.md
+              maintainContext: true
+            - name: Hive 쿼리 최적화
+              href: ../hdinsight-hadoop-optimize-hive-query.md
+              maintainContext: true
 - name: 참조
   items:
     - name: 코드 샘플

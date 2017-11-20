@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,15 +52,15 @@ Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터
 ## <a name="data-transformation-activities"></a>데이터 변환 활동
 Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프라인에 추가할 수 있는 다음과 같은 변환 작업을 지원합니다.
 
-데이터 변환 작업 | 컴퓨팅 환경
+데이터 변환 작업 | Compute 환경
 ---------------------------- | -------------------
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning 작업: 배치 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) | Azure VM
-[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL 데이터 웨어하우스 또는 SQL Server
+[Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) | Azure VM
+[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 
 자세한 내용은 [데이터 변환 작업](transform-data.md) 문서를 참조하세요. 
@@ -75,11 +75,12 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [WebActivity](control-flow-web-activity.md) | 웹 작업을 사용하면 Data Factory 파이프라인에서 사용자 지정 REST 끝점을 호출할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 집합 및 연결된 서비스를 전달할 수 있습니다. 
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다. 
 [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다. 
-Do-Until 작업 | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다.
-If 조건 작업 | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. 
+[Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
+[If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다.
+[Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다. 
 
 ## <a name="pipeline-json"></a>파이프라인 JSON
-JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살펴보겠습니다. 파이프라인에 대한 일반 구조는 다음과 같이 보입니다.
+파이프라인은 다음과 같은 방식에 따라 JSON 형식으로 정의됩니다. 
 
 ```json
 {

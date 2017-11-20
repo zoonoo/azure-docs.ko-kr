@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치
 Azure Machine Learning은 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 Azure Machine Learning 계정을 프로비전합니
    리소스 그룹 | _리소스 그룹_ | 새 리소스 그룹 이름을 만들거나 구독에서 기존 이름을 사용할 수 있습니다.
    위치 | _사용자와 가장 가까운 지역_ | 사용자 및 데이터 리소스에 가장 가까운 위치를 선택합니다.
    사용자 수 | 2 | 사용자 수를 입력합니다. 이 선택 영역은 [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에 영향을 미칩니다. 처음 두 사용자는 무료입니다. 이 빠른 시작의 목적상 사용자 2명을 사용합니다. 나중에 Azure Portal에 필요한 대로 사용자 수를 업데이트할 수 있습니다.
-   저장소 계정 | _고유한 이름_ | **새로 만들기**를 선택하고 이름을 입력하여 Azure Storage 계정을 만듭니다. 또는 **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 저장소 계정을 선택합니다. 저장소 계정은 필수이며 프로젝트 아티팩트를 보유하고 기록 데이터를 실행하는 데 사용됩니다. 
+   Storage 계정 | _고유한 이름_ | **새로 만들기**를 선택하고 이름을 입력하여 Azure Storage 계정을 만듭니다. 또는 **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 저장소 계정을 선택합니다. 저장소 계정은 필수이며 프로젝트 아티팩트를 보유하고 기록 데이터를 실행하는 데 사용됩니다. 
    실험 계정에 대한 작업 영역 | _고유한 이름_ | 새 작업 영역의 이름을 입력합니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다.
    작업 영역에 대한 소유자 할당 | _사용자 계정_ | 자신의 계정을 작업 영역 소유자로 선택합니다.
    모델 관리 계정 만들기 | *확인* | 실험 계정 만들기 경험의 일부로 Machine Learning 모델 관리 계정을 만드는 옵션도 있습니다. 이 리소스는 모델을 실시간 웹 서비스로 배포하고 관리할 준비가 될 때 사용됩니다. 모델 관리 계정을 실험 계정과 동시에 만드는 것이 좋습니다.
@@ -93,33 +93,20 @@ Windows 10, Windows Server 2016 또는 최신 버전을 실행하는 컴퓨터�
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>macOS에서 Azure Machine Learning Workbench 설치
-macOS Sierra를 실행하는 컴퓨터에 Azure Machine Learning Workbench를 설치합니다.
+macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbench를 설치합니다.
 
-1. [Homebrew](http://brew.sh)를 사용하여 openssl 라이브러리를 설치합니다. 자세한 내용은 [Mac에서 .NET Core에 대한 필수 구성 요소](https://docs.microsoft.com/dotnet/core/macos-prerequisites)를 참조하세요.
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. 최신 Azure Machine Learning Workbench 설치 관리자 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)를 다운로드합니다.
+1. 최신 Azure Machine Learning Workbench 설치 관리자 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg)를 다운로드합니다.
 
    >[!IMPORTANT]
    >설치 관리자를 디스크에 완전히 다운로드한 다음 거기에서 실행합니다. 브라우저의 다운로드 위젯에서 직접 실행하지 않습니다.
 
-3. 파인더에서 다운로드한 설치 관리자 **AmlWorkbench.dmg**를 두 번 클릭합니다.
+2. 파인더에서 다운로드한 설치 관리자 **AmlWorkbench.dmg**를 두 번 클릭합니다.
 
-4. 화면의 지시에 따라 설치를 완료합니다.
+3. 화면의 지시에 따라 설치를 완료합니다.
 
    설치 관리자가 Python, Miniconda 및 기타 관련 라이브러리 등 모든 필요한 종속 구성 요소를 다운로드합니다. 모든 구성 요소의 설치를 완료하는 데 한 약 30분쯤 걸릴 수 있습니다. 
 
-5. 이제 Azure Machine Learning Workbench가 다음 디렉터리에 설치되었습니다. 
+4. 이제 Azure Machine Learning Workbench가 다음 디렉터리에 설치되었습니다. 
 
    `/Applications/AmlWorkbench.app`
 

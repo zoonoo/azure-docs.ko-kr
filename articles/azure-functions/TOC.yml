@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: 언어
       items:
+        - name: 지원되는 언어
+          href: supported-languages.md
         - name: 'C# 스크립트'
           href: functions-reference-csharp.md
         - name: .NET 클래스 라이브러리

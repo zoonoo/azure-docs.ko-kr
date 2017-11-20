@@ -28,12 +28,6 @@
 #### [Arduino IDE를 사용하는 Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Arduino IDE를 사용하는 Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### IoT Gateway Starter Kit 사용
-##### [Intel NUC를 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## 확장된 IoT 시나리오
 ### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
 ### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
 ### [Logic Apps를 사용하여 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# 방법
+# 방법 가이드
 ## 계획
 ### [IoT Hub를 Event Hubs에 비교](iot-hub-compare-event-hubs.md)
 ### [솔루션 확장](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [X.509 CA 인증서 보안 개념](iot-hub-x509ca-concept.md)
 #### [X.509 CA 인증서 보안 시작](iot-hub-security-x509-get-started.md)
 ##### [인증서 만들기 - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [개요](iot-hub-iot-edge-overview.md)
-### 시작
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### 장치 시뮬레이션
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [실제 장치 사용](iot-hub-iot-edge-physical-device.md)
-### 모듈 만들기
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.JS](iot-hub-iot-edge-create-module-js.md)
-### 빌드
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core 모듈](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [.NET Core 관리 게이트웨이](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.JS](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [동적으로 모듈 추가](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [Out of Process 프록시 모듈](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [네이티브 모듈 호스트](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

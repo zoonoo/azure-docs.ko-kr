@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
@@ -101,7 +101,7 @@ IoT Hub는 Azure TSI에 이벤트 원본을 제공합니다. TSI는 메시지에
 
 현재 TSI는 데이터를 유지하려는 기간에 대한 고객의 사용자 지정을 허용하지 않습니다.
 
-TSI는 SearchSpan(Time.From, Time.To)을 사용하여 노드 데이터에 대해 쿼리하고 OPC UA ApplicationUri 또는 OPC UA NodeId 또는 OPC UA DisplayName으로 집계합니다.
+TSI는 **SearchSpan**(**Time.From**, **Time.To**)을 사용하여 노드 데이터에 대해 쿼리하고 **OPC UA ApplicationUri** 또는 **OPC UA NodeId** 또는 **OPC UA DisplayName**으로 집계합니다.
 
 OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위해 데이터는 이벤트, Sum, Avg, Min 및 Max의 수로 집계됩니다.
 
@@ -238,9 +238,9 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md

@@ -248,12 +248,12 @@
 ## 디렉터리 관리
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
-#### [개요](active-directory-domains-manage-azure-portal.md)
-#### [도메인 이름 관리](active-directory-domains-manage-azure-portal.md)
+#### [빠른 시작](add-custom-domain.md)
+#### [사용자 지정 도메인 이름 추가](active-directory-domains-manage-azure-portal.md)
 ### [디렉터리 관리](active-directory-administer.md)
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
 ### [셀프 서비스 등록](active-directory-self-service-signup.md)
-#### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
+### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

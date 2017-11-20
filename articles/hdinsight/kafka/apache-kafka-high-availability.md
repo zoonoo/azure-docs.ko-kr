@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: fe4cb62e4ceba46b44bdc62b05be4a6b1e2afa3d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f7a4245435093358cac567cf08c8ce3979371c04
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>HDInsight의 Apache Kafka(미리 보기)를 통한 데이터 고가용성
+# <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka를 통한 데이터 고가용성
 
 기본 하드웨어 랙 구성을 활용하기 위해 Kafka 토픽에 대한 파티션 복제본을 구성하는 방법에 대해 알아봅니다. 이 구성은 HDInsight의 Apache Kafka에 저장된 데이터의 가용성을 보장합니다.
 
