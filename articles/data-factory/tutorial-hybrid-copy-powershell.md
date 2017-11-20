@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory를 사용하여 클라우드에 온-프레미스 데이터 복사 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 SQL Server에서 BLob Storage로 데이터 복사 | Microsoft Docs"
 description: "Azure Data Factory에서 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 저장소에서 Azure 클라우드로 데이터를 복사하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 24a4255a23f0b9b9da5d8c3cefeefb8fe250f2f1
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="tutorial-copy-data-between-on-premises-and-cloud"></a>자습서: 온-프레미스 및 클라우드 간 데이터 복사
+# <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. Azure Data Factory의 자체 호스팅 IR(Integration Runtime)을 만들어 사용하면 온-프레미스 데이터 저장소와 클라우드 데이터 저장소를 통합할 수 있습니다.  다른 도구/SDK를 사용하여 데이터 팩터리를 만드는 방법을 알아보려면 [빠른 시작](quickstart-create-data-factory-dot-net.md)을 참조하세요.
 
 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요. 
