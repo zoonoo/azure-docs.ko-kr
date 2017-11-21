@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Python을 사용하여 Azure Blob Storage에서 개체 전송
 이 빠른 시작에서 Python을 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다. 
@@ -32,25 +32,7 @@ ms.lasthandoff: 10/17/2017
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Azure Portal을 사용하여 저장소 계정 만들기
-
-먼저 이 빠른 시작 가이드에서 사용할 새 범용 저장소 계정을 만듭니다. 
-
-1. [Azure Portal](https://portal.azure.com)로 이동한 후 Azure 계정을 사용하여 로그인합니다. 
-2. 허브 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정 - blob, 파일, 테이블, 큐**를 선택합니다. 
-3. 저장소 계정의 이름을 입력합니다. 이 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 또한 고유해야 합니다.
-4. `Deployment model`을 **Resource Manager**로 설정합니다.
-5. `Account kind`를 **일반적인 용도**로 설정합니다.
-6. `Performance`를 **표준**으로 설정합니다. 
-7. `Replication`을 **LRS(로컬 중복 저장소)**로 설정합니다.
-8. `Storage service encryption`을 **사용 안 함**으로 설정합니다.
-9. `Secure transfer required`를 **사용 안 함**으로 설정합니다.
-10. 사용 중인 구독을 선택합니다. 
-11. `resource group`에 대해 새 리소스 그룹을 만들고 고유한 이름을 지정합니다. 
-12. 저장소 계정에 사용할 `Location`을 선택합니다.
-13. **대시보드에 고정**을 선택하고 **만들기**를 클릭하여 저장소 계정을 만듭니다. 
-
-저장소 계정을 만들면 대시보드에 고정됩니다. 클릭하여 엽니다. **설정**에서 **액세스 키**를 클릭합니다. 키를 선택하고 나중에 사용할 수 있게 저장소 계정 이름을 클립보드에 복사한 후 메모장에 붙여 넣습니다.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 응용 프로그램입니다.  
@@ -100,8 +82,10 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 Cloud Blob 컨테이너가 있으면 관심 있는 특정 blob을 가리키는 **CloudBlockBlob** 개체를 인스턴스화하고, 업로드, 다운로드, 복사 등의 작업을 수행할 수 있습니다.
 
-이 섹션에서는 개체를 인스턴스화하고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob를 공용 Blob로 유지합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
+> [!IMPORTANT]
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
+이 섹션에서는 개체를 인스턴스화하고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob를 공용 Blob로 유지합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

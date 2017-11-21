@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-manage-cloud-services"></a>클라우드 서비스를 관리하는 방법
-> [!div class="op_single_selector"]
-> * [Azure 포털](cloud-services-how-to-manage-portal.md)
-> * [Azure 클래식 포털](cloud-services-how-to-manage.md)
->
->
-
+# <a name="how-to-manage-cloud-services"></a>Cloud Services를 관리하는 방법
 Azure Portal **Cloud Services(클래식)** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
 
 클라우드 서비스 크기를 조정하는 방법에 대한 자세한 내용은 [여기](cloud-services-how-to-scale-portal.md)를 참조하세요.
@@ -54,16 +48,16 @@ Azure Portal **Cloud Services(클래식)** 영역에서 서비스 역할 또는 
 ## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>방법: 스테이징된 배포의 수준을 프로덕션으로 올려 배포 교환
 새 클라우드 서비스 릴리스를 배포할 때는 클라우드 서비스 스테이징 환경에서 새 릴리스를 스테이징하고 테스트할 수 있습니다. **교환** 을 사용하여 두 배포의 주소로 사용 중인 URL을 전환하고 새 릴리스를 프로덕션으로 승격합니다.
 
-**클라우드 서비스** 페이지나 대시보드에서 배포를 교환할 수 있습니다.
+**Cloud Services** 페이지나 대시보드에서 배포를 교환할 수 있습니다.
 
 1. [Azure Portal][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 2. 블레이드에서 **교환** 단추를 클릭합니다.
 
-    ![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/swap-button.png)
+    ![Cloud Services 교환](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
 3. 다음과 같은 확인 메시지가 열립니다.
 
-    ![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services 교환](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. 배포 정보를 확인한 후 **확인** 을 클릭하여 배포를 교환합니다.
 
@@ -100,11 +94,11 @@ Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를
 1. [Azure Portal][Azure portal]에서 삭제하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 2. 블레이드에서 **삭제** 단추를  클릭 합니다.
 
-    ![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/delete-button.png)
+    ![Cloud Services 교환](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
 3. **클라우드 서비스 및 해당 배포**를 선택하여 전체 클라우드 서비스를 삭제하거나 **프로덕션 배포** 또는 **스테이징 배포**를 선택할 수 있습니다.
 
-    ![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+    ![Cloud Services 교환](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
 4. 맨 아래에 있는 **삭제** 단추를 클릭합니다.
 5. 클라우드 서비스를 삭제하려면 **클라우드 서비스 삭제**를 클릭합니다. 그리고 확인 메시지가 나타나면 **예**를 클릭합니다.
@@ -116,7 +110,7 @@ Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를
 ## <a name="how-to-find-more-information-about-failed-deployments"></a>방법: 실패한 배포에 대한 자세한 정보 보기
 **개요** 블레이드의 위쪽에는 상태 표시줄이 있습니다. 이 표시줄을 클릭하면 새 블레이드가 열리고 오류 정보가 표시됩니다. 배포에 오류가 없으면 정보 블레이드는 비어 있습니다.
 
-![클라우드 서비스 교환](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Cloud Services 교환](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 

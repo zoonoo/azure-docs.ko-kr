@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active Directory Federation Services) 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그인에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그인 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그인하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 AD FS의 새 설치를 배포하거나 Windows Server 2012 R2 팜에 기존 설치를 지정할 수 있습니다.
@@ -40,6 +40,7 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | [새 AD FS WAP 서버 추가](active-directory-aadconnect-federation-management.md#addwapserver) |초기 설치 후 추가적인 WAP(웹 응용 프로그램 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
 | [새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain) |Azure AD를 통해 페더레이션될 또 다른 도메인을 추가합니다. |
 | [SSL 인증서 업데이트](active-directory-aadconnectfed-ssl-update.md)| AD FS 팜에 대한 SSL 인증서를 업데이트합니다. |
+| [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](active-directory-aadconnect-o365-certs.md)|Azure AD로 O365 인증서를 갱신합니다.|
 | **기타 페더레이션 구성** | |
 | [Azure AD의 여러 인스턴스를 AD FS의 단일 인스턴스로 페더레이션](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | 단일 AD FS 팜을 사용하여 여러 Azure AD 페더레이션| 
 | [사용자 지정 회사 로고/일러스트레이션 추가](active-directory-aadconnect-federation-management.md#customlogo) |AD FS 로그인 페이지에 표시되는 사용자 지정 로고를 지정하여 로그인 환경을 수정합니다. |

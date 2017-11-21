@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 템플릿 고려 사항
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 응용 프로그램을 개발할 때 Azure 및 Azure Stack 간에 템플릿 이식성을 보장하는 것이 중요합니다.  이 항목에서는 Azure Resource Manager [템플릿](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)을 개발하기 위한 고려 사항을 제공합니다. 이러한 템플릿을 통해 Azure Stack 환경에 액세스하지 않고도 Azure에서 응용 프로그램 프로토타입을 만들고 배포를 테스트할 수 있습니다.
+
+## <a name="resource-provider-availability"></a>리소스 공급자 가용성
+서식 파일을 배포 하려는 이미 사용할 수 없거나 Azure 스택에서 미리 보기에 있는 Microsoft Azure 서비스를 사용 해야 합니다.
 
 ## <a name="public-namespaces"></a>공용 네임스페이스
 Azure Stack이 데이터 센터에서 호스트되므로 Azure 공용 클라우드와는 다른 서비스 끝점 네임스페이스가 제공됩니다. 결과적으로, 리소스 관리자 템플릿에 하드 코드 된 공용 끝점에는 Azure 스택에를 배포 하려고 할 때 실패 합니다. 대신 *reference* 및 *concatenate* 함수를 사용하여 배포 중에 리소스 공급자로부터 가져온 값을 기준으로 동적으로 서비스 끝점을 빌드할 수 있습니다. 예를 들어 템플릿에 *<containername>@<storageaccountname>.blob.core.windows.net*를 지정하지 말고 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201)을 가져와 *osDisk.URI* 끝점을 동적으로 설정합니다.
@@ -73,7 +76,6 @@ Resource Manager 템플릿은 배포하는 동안 위치 특성을 사용하여 
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>다음 단계
 * [PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)

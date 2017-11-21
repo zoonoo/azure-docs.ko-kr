@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c8945dd06f0372c4260e0553e15627607be6979
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에서 하드웨어 구성 요소 교체
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 8000 시리즈 장치에서 하드웨어 구성 요소 교체](storsimple-8000-hardware-component-replacement.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 
 ## <a name="overview"></a>개요
 하드웨어 구성 요소 교체 자습서에서는 Microsoft Azure StorSimple 8000 시리즈 장치의 하드웨어 구성 요소 및 구성 요소를 꺼내고 교체하는 데 필요한 단계를 설명합니다. 이 문서에서는 안전 아이콘을 설명하고, 자세한 자습서에 대한 포인터를 제공하고, 교체 가능한 구성 요소를 나열합니다.
@@ -70,7 +73,7 @@ StorSimple 8000 시리즈 장치는 기본 및/또는 EBOD 엔클로저의 여�
 | 섀시 |1 |아니요 |[StorSimple 장치의 섀시 교체](storsimple-chassis-replacement.md) |
 | 기본 컨트롤러 |2 |예 |[StorSimple 장치의 컨트롤러 모듈 교체](storsimple-controller-replacement.md) |
 | 764W PCM(전원 및 냉각 모듈) |2 |예 |[StorSimple 장치의 전원 및 냉각 모듈 교체](storsimple-power-cooling-module-replacement.md) |
-| 백업 배터리 |2 |예 |[StorSimple 장치의 백업 배터리 모듈 교체](storsimple-battery-replacement.md) |
+| Backup 배터리 |2 |예 |[StorSimple 장치의 백업 배터리 모듈 교체](storsimple-battery-replacement.md) |
 | 디스크 드라이브 |12 |예 |[StorSimple 장치의 디스크 드라이브 교체](storsimple-disk-drive-replacement.md) |
 
 **표 1** 기본 엔클로저의 하드웨어 구성 요소
@@ -129,7 +132,7 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 * 드라이브 캐리어 모듈이 있는 하드 디스크 드라이브
 * 컨트롤러 모듈
 * EBOD 컨트롤러 모듈
-* 백업 배터리 모듈
+* Backup 배터리 모듈
 * 랙 탑재 레일 키트
 
 교체 장치를 주문하려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요.

@@ -4,7 +4,7 @@ description: "Azure AD 도메인 서비스 관리되는 도메인에 대해 보�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 이 문서에서는 Azure AD 도메인 서비스 관리되는 도메인에 대해 LDAPS(Secure Lightweight Directory Access Protocol)를 사용하도록 설정하는 방법을 보여 줍니다. 보안 LDAP는 'SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP(Lightweight Directory Access Protocol)'라고도 합니다.
@@ -55,31 +55,36 @@ ms.lasthandoff: 10/11/2017
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>작업 1 - 보안 LDAP를 위한 인증서 가져오기
 첫 번째 태스크는 관리되는 도메인에 대한 보안 LDAP 액세스에 사용할 인증서를 얻는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
-* 인증 기관에서 인증서를 받습니다. 이 인증 기관은 공용 인증 기관일 수 있습니다.
+* 공용 인증 기관에서 인증서를 받습니다.
 * 자체 서명된 인증서를 만듭니다.
-
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>옵션 A(권장) - 인증 기관에서 보안 LDAP 인증서를 가져옵니다.
-조직이 공용 인증 기관에서 해당 인증서를 가져오는 경우 공용 인증 기관에서 보안 LDAP 인증서를 가져와야 합니다.
-
-인증서를 요청할 때는 [보안 LDAP 인증서에 대한 요구 사항](#requirements-for-the-secure-ldap-certificate)에 나와 있는 모든 요구 사항을 충족해야 합니다.
 
 > [!NOTE]
 > 보안 LDAP를 사용하여 관리되는 도메인에 연결해야 하는 클라이언트 컴퓨터는 보안 LDAP 인증서의 발급자를 신뢰해야 합니다.
 >
+
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>옵션 A(권장) - 인증 기관에서 보안 LDAP 인증서를 가져옵니다.
+조직이 공용 인증 기관에서 해당 인증서를 가져오는 경우 해당 공용 인증 기관에서 보안 LDAP 인증서를 가져옵니다.
+
+> [!TIP]
+> **'.onmicrosoft.com' 도메인 접미사가 있는 관리되는 도메인에 자체 서명된 인증서를 사용합니다.**
+> 관리되는 도메인의 DNS 도메인 이름이 '.onmicrosoft.com'으로 끝나면 공용 인증 기관에서 보안 LDAP 인증서를 얻을 수 없습니다. Microsoft가 'onmicrosoft.com' 도메인을 소유하고 있으므로 공용 인증 기관에서 이 접미사가 있는 도메인에 대해 보안 LDAP 인증서 발급을 거부합니다. 이 시나리오에서는 자체 서명된 인증서를 만들고 이를 사용하여 보안 LDAP를 구성합니다.
 >
 
+공용 인증 기관에서 얻은 인증서가 [보안 LDAP 인증서에 대한 요구 사항](#requirements-for-the-secure-ldap-certificate)에 설명된 모든 요구 사항을 충족하는지 확인합니다.
+
+
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>옵션 B - 보안 LDAP에 대한 자체 서명된 인증서 만들기
-공용 인증 기관의 인증서를 사용하지 않으려는 경우 보안 LDAP에 대한 자체 서명된 인증서를 만들도록 선택할 수 있습니다.
+공용 인증 기관의 인증서를 사용하지 않으려는 경우 보안 LDAP에 대한 자체 서명된 인증서를 만들도록 선택할 수 있습니다. 관리되는 도메인의 DNS 도메인 이름이 '.onmicrosoft.com'으로 끝나면 이 옵션을 선택합니다.
 
 **PowerShell을 사용하여 자체 서명된 인증서 만들기**
 
 Windows 컴퓨터에서 새로 자체 서명된 인증서를 만들려면 **관리자** 로 새 PowerShell 창을 열고 다음 명령을 입력합니다.
+```
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    $lifetime=Get-Date
-
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-앞의 샘플에서 '*.contoso100.com'을 관리되는 도메인의 DNS 도메인 이름으로 대체합니다. 예를 들어 'contoso100.onmicrosoft.com'이라는 관리되는 도메인을 만든 경우 위 스크립트의 '*.contoso100.com'을 '*.contoso100.onmicrosoft.com'으로 바꿉니다.
+앞의 샘플에서 '*.contoso100.com'을 관리되는 도메인의 DNS 도메인 이름으로 대체합니다. 예를 들어 'contoso100.onmicrosoft.com'이라는 관리되는 도메인을 만든 경우 앞에 나온 스크립트의 '*.contoso100.com'을 '*.contoso100.onmicrosoft.com'으로 바꿉니다.
 
 ![Azure AD 디렉터리 선택](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

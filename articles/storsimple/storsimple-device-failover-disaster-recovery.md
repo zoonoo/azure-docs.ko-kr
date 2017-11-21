@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02373633f2a30c6cd50e30b77a9faac2922926e6
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>StorSimple 장치에 대한 장애 조치 및 재해 복구
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-8000-device-failover-disaster-recovery.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 이 자습서에서는 재해 발생 시 StorSimple의 장애 조치에 필요한 단계를 설명합니다. 장애 조치를 사용하면 데이터 센터의 원래 장치에서 동일하거나 다른 지리적 위치에 있는 다른 실제 장치 또는 가상 장치에도 데이터를 마이그레이션할 수 있습니다. 
 
@@ -94,7 +97,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
    1. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다.
       **클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
    2. 선택한 컨테이너의 볼륨에 대한 **대상 장치 선택** 아래에서 사용 가능한 장치의 드롭다운 목록에서 대상 장치를 선택합니다. 사용할 용량이 있는 장치만 드롭다운 목록에 표시됩니다.
-   3. 마지막으로 **장애 조치 확인**에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)으로 지정하여장애 장치와 연결된 클라우드 데이터를 다른 장치로 옮길 수 있습니다.
+   3. 마지막으로 **장애 조치 확인**에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)으로 지정하여 장애 장치와 연결된 클라우드 데이터를 다른 장치로 옮길 수 있습니다.
 7. 장애 조치(failover) 작업은 **작업** 페이지를 통해 모니터링할 수 있도록 만들어집니다. 장애 조치된 볼륨 컨테이너에 로컬 볼륨이 있는 경우 컨테이너에서 (계층화된 볼륨이 아닌) 각 로컬 볼륨에 대한 개별 복원 작업이 표시됩니다. 이러한 복원 작업을 완료하려면 상당한 시간이 걸릴 수 있습니다. 장애 조치 작업이 이전에 완료될 가능성이 있습니다. 이러한 볼륨은 복원 작업이 완료된 후에 로컬 보장을 갖습니다. 장애 조치를 완료한 후 **장치** 페이지로 이동합니다.                                            
    
    1. 장애 조치 프로세스에 대한 대상 장치로 사용된 장치를 선택합니다.
@@ -118,7 +121,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 8. 작업이 성공적으로 완료되면 새 장치에 액세스하고 **볼륨 컨테이너** 페이지로 이동합니다. 이전 장치의 모든 볼륨 컨테이너는 이제 새 장치에 마이그레이션해야 합니다.
 
 ## <a name="fail-over-to-a-storsimple-virtual-device"></a>StorSimple 가상 장치로 장애 조치
-만들어진 StorSimple 가상 장치가 있어야 하며 이 절차를 실행하기 전에 구성해야 합니다. 업데이트 2를 실행하는 경우 64TB이고 프리미엄 저장소를 사용하는 8020 가상 장치를 DR에 사용하는 것이 좋습니다. 
+만들어진 StorSimple 가상 장치가 있어야 하며 이 절차를 실행하기 전에 구성해야 합니다. 업데이트 2를 실행하는 경우 64TB이고 Premium Storage를 사용하는 8020 가상 장치를 DR에 사용하는 것이 좋습니다. 
 
 대상 StorSimple 가상 장치에 장치를 복원하려면 다음 단계를 수행합니다.
 
@@ -134,7 +137,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
     **클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
    
     b. **선택한 컨테이너에서 볼륨에 대한 대상 장치 선택**의 사용 가능한 장치 드롭다운 목록에서 StorSimple 가상 장치를 선택합니다. **충분한 용량이 있는 장치만 드롭다운 목록에 표시됩니다.**  
-7. 마지막으로 **장애 조치 확인**에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)으로 지정하여장애 장치와 연결된 클라우드 데이터를 다른 장치로 옮길 수 있습니다.
+7. 마지막으로 **장애 조치 확인**에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)으로 지정하여 장애 장치와 연결된 클라우드 데이터를 다른 장치로 옮길 수 있습니다.
 8. 장애 조치를 완료한 후 **장치** 페이지로 이동합니다.
    
     a. 장애 조치 프로세스에 대한 대상 장치로 사용된 StorSimple 가상 장치를 선택합니다.

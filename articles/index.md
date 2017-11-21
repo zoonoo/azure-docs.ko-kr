@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 33fa9122eff29b15943c47b0c690cd3fe8244550
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/17/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -300,7 +300,7 @@ ms.lasthandoff: 11/06/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
                                                 <p>Azure Container Service(AKS)</p>
                                             </a>
@@ -384,7 +384,7 @@ ms.lasthandoff: 11/06/2017
                                     <h3>컨테이너</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service(AKS)</p>
                                             </a>
@@ -647,7 +647,7 @@ ms.lasthandoff: 11/06/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/luis/home">
+                                            <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
                                                 <p>LUIS(Language Understanding Intelligent Services)</p>
                                             </a>
@@ -689,7 +689,7 @@ ms.lasthandoff: 11/06/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
                                                 <p>Bing 비디오 검색</p>
                                             </a>
@@ -846,6 +846,12 @@ ms.lasthandoff: 11/06/2017
                                             <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1091,7 +1097,7 @@ ms.lasthandoff: 11/06/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>개발자용 Azure Active Directory</p>
                                             </a>
@@ -1174,7 +1180,7 @@ ms.lasthandoff: 11/06/2017
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>사이트 복구</p>
+                                                <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1342,7 +1348,7 @@ ms.lasthandoff: 11/06/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1695,7 +1701,7 @@ ms.lasthandoff: 11/06/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1819,7 +1825,7 @@ ms.lasthandoff: 11/06/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>사이트 복구</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>Azure VM, 온-프레미스 VM 및 물리적 서버의 재해 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
@@ -2009,7 +2015,7 @@ ms.lasthandoff: 11/06/2017
                         <a href="#containers">컨테이너</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2303,6 +2309,25 @@ ms.lasthandoff: 11/06/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Spark 클러스터를 사용하여 Azure Databricks 작업 영역 만들기</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>   
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2628,7 +2653,7 @@ ms.lasthandoff: 11/06/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS(anguage Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS(anguage Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a>
@@ -2690,7 +2715,7 @@ ms.lasthandoff: 11/06/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
@@ -3160,7 +3185,7 @@ ms.lasthandoff: 11/06/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>개발자용 Azure Active Directory</h3>
-                                                    <p>모바일 앱 및 웹 사이트에 대한 확장 가능한 플랫폼 간 인증</p>
+                                                    <p>웹, 모바일 및 백 엔드 API에 대한 안전한 플랫폼 간 인증</p>
                                                 </div>
                                             </div>
                                         </div>

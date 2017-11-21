@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -109,8 +109,8 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 ## <a name="supported-services-for-autoscale"></a>자동 크기 조정이 지원되는 서비스
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| 웹앱 |[웹앱 크기 조정](insights-how-to-scale.md) |
-| 클라우드 서비스 |[클라우드 서비스 자동 크기 조정](../cloud-services/cloud-services-how-to-scale.md) |
+| Web Apps |[Web Apps 크기 조정](insights-how-to-scale.md) |
+| Cloud Services |[클라우드 서비스 자동 크기 조정](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: 클래식 |[클래식 가상 컴퓨터 가용성 집합 크기 조정](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: Windows 확장 집합 |[Windows에서 가상 컴퓨터 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines: Linux 확장 집합 |[Linux에서 가상 컴퓨터 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

@@ -4,23 +4,26 @@ description: "모든 REST API 클라이언트는 Log Analytics 로그 검색 API
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Python 스크립트로 Log Analytics에서 데이터 검색
 모든 REST API 클라이언트는 [Log Analytics 로그 검색 API](log-analytics-log-search-api.md)를 통해 Log Analytics 작업 영역에서 데이터를 검색할 수 있습니다.  이 문서에서는 Log Analytics 로그 검색 API를 사용하는 Python 스크립트 예제를 보여 줍니다.  
+
+>[!NOTE]
+> 이 문서에서는 Log Analytics의 기존 쿼리 언어에 대해 로그 검색 API를 사용합니다.  [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드된 작업 영역의 경우 이 문서에 업데이트가 제공됩니다.
 
 ## <a name="authentication"></a>인증
 이 스크립트는 Azure Active Directory에서 서비스 주체를 사용하여 작업 영역을 인증합니다.  클라이언트 응용 프로그램은 서비스 주체를 통해 클라이언트에 계정이 없는 경우에도 서비스가 계정을 인증하도록 요청합니다. 이 스크립트를 실행하기 전에, [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)에 나와 있는 프로세스를 사용하여 서비스 주체를 만들어야 합니다.  이 스크립트에 응용 프로그램 ID, 테넌트 ID 및 인증 키를 제공해야 합니다. 

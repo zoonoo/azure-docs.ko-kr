@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 지금 사용 가능: Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner). 자세한 내용을 보려면 [처리량 요구 예측](request-units.md#estimating-throughput-needs)을 참조하세요.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ![처리량 계산기][5]
 
 ## <a name="introduction"></a>소개
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. [DocumentDB SQL](documentdb-sql-query.md)(문서), MongoDB(문서), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)(키-값) 및 [Gremlin](https://tinkerpop.apache.org/gremlin.html)(그래프)가 모두 기본적으로 지원되므로 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. [DocumentDB API](documentdb-introduction.md), MongoDB API, [Table API](table-introduction.md)를 통한 SQL 데이터 액세스 및 [Graph API](graph-introduction.md)를 통한 Gremlin 데이터 액세스가 모두 기본적으로 지원됩니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
 
 Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
 
@@ -39,7 +39,7 @@ Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리�
 * 내 응용 프로그램에 필요한 요청 단위를 어떻게 추정할 수 있나요?
 * 컬렉션의 요청 단위 용량을 초과하면 어떻게 되나요?
 
-Azure Cosmos DB는 다중 모델 데이터베이스이므로 문서 API에는 컬렉션/문서를, Graph API에는 그래프/노드를, 테이블 API에는 테이블/엔터티를 참조합니다. 이 문서 전체에서 컨테이너/항목의 개념을 일반화합니다.
+Azure Cosmos DB는 다중 모델 데이터베이스이므로 이 문서에서는 문서 API의 경우 컬렉션/문서를, Graph API의 경우 그래프/노드를, 테이블 API의 경우 테이블/엔터티를 가합니다. 이 문서에서는 컨테이너로서의 컬렉션, 그래프 또는 테이블 개념과 항목으로서의 문서, 노드 또는 엔터티의 개념에 대해 설명합니다.
 
 ## <a name="request-units-and-request-charges"></a>요청 단위 및 요청 요금
 Azure Cosmos DB는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 *예약*하여 신속하고 예측 가능한 성능을 제공합니다.  시간이 지나면 응용 프로그램 로드 및 액세스 패턴이 변하는데, Azure Cosmos DB를 사용하면 응용 프로그램에 제공되는 예약된 처리량을 간편하게 늘리거나 줄일 수 있습니다.
@@ -55,7 +55,7 @@ Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단�
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 용량 지정
 새 컬렉션, 테이블 또는 그래프를 시작할 때 예약하려는 초당 요청 단위 수(초당 RU)를 지정합니다. 프로비전된 처리량에 따라 Azure Cosmos DB는 컬렉션을 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다.
 
-Azure Cosmos DB에서는 컬렉션이 2,500개 이상의 요청 단위로 프로비전된 경우 파티션 키를 지정해야 합니다. 나중에 2,500개 이상의 요청 단위로 컬렉션 처리량의 크기를 조정하려는 경우에도 파티션 키가 필요합니다. 따라서 초기 처리량에 관계없이 컨테이너를 만들 때 [파티션 키](partition-data.md)를 구성하는 것이 좋습니다. 데이터는 여러 파티션에 분할되어야 하므로 컬렉션/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있도록 카디널리티가 높은(수백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 
+Azure Cosmos DB에서는 컬렉션이 2,500개 이상의 요청 단위로 프로비전된 경우 파티션 키를 지정해야 합니다. 나중에 2,500개 이상의 요청 단위로 컬렉션 처리량의 크기를 조정하려는 경우에도 파티션 키가 필요합니다. 따라서 초기 처리량에 관계없이 컨테이너를 만들 때 [파티션 키](partition-data.md)를 구성하는 것이 좋습니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컬렉션/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
 
 > [!NOTE]
 > 파티션 키는 논리적 경계이며 실제 경계가 아닙니다. 따라서 특정 파티션 키 값의 수를 제한할 필요가 없습니다. 사실 Azure Cosmos DB에 더 많은 부하 분산 옵션이 있으므로 고유 파티션 키 값이 적은 것보다 많은 것이 더 좋습니다.
@@ -100,7 +100,7 @@ Azure Cosmos DB 컨테이너에 대해 예약할 요청 단위 수를 추정하�
 * **항목 속성 개수**. 모든 속성의 기본 인덱싱을 가정할 경우 속성 수가 증가할수록 문서/노드/엔터티를 쓰는 데 사용되는 단위가 증가합니다.
 * **데이터 일관성**. 강력 또는 제한된 부실 데이터 일관성 수준을 사용하는 경우 항목을 읽는 데 추가 단위가 사용됩니다.
 * **인덱싱된 속성**. 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 인덱싱되는 속성 수를 제한하거나 지연 인덱싱을 사용하면 요청 단위 사용을 줄일 수 있습니다.
-* **문서 인덱싱**. 기본적으로 각 항목이 자동으로 인덱싱되며, 일부 항목을 인덱싱하지 않도록 선택하면 더 적은 요청 단위가 사용됩니다.
+* **문서 인덱싱**. 기본적으로 각 항목은 자동으로 인덱싱됩니다. 일부 항목을 인덱싱하지 않도록 선택하면 더 적은 요청 단위를 사용합니다.
 * **쿼리 패턴**. 쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, 프로젝션, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 * **스크립트 사용량**.  쿼리와 마찬가지로, 저장된 프로시저 및 트리거는 수행하는 작업의 복잡성에 따라 요청 단위를 사용합니다. 응용 프로그램을 개발하면서 요청 요금 헤더를 검사하면 각 작업이 요청 단위 용량을 어떻게 사용하는지 파악하는 데 도움이 됩니다.
 
@@ -243,7 +243,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 ![MongoDB API 포털 메트릭][6]
 
 ## <a name="a-request-unit-estimation-example"></a>요청 단위 추정 예제
-다음과 같은 ~1KB 문서를 가정하겠습니다.
+다음과 같은 1KB보다 작은 문서를 가정하겠습니다.
 
 ```json
 {
@@ -335,7 +335,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 
 ## <a id="RequestRateTooLarge"></a> Azure Cosmos DB에서 예약된 처리량 제한 초과
-요청 단위 소비는 예산이 비어 있는 경우 초당 비율로 평가된다는 점을 기억하세요. 컨테이너에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)을 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
+요청 단위 소비는 예산이 비어 있는 경우 초당 비율로 평가된다는 점을 기억하세요. 컨테이너에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

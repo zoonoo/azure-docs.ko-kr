@@ -20,8 +20,6 @@
       items:
         - name: 저장소 옵션
           href: r-server-storage.md
-        - name: R Studio 설치
-          href: r-server-install-r-studio.md
         - name: Compute 컨텍스트
           href: r-server-compute-contexts.md
         - name: ScaleR 및 SparkR
@@ -116,9 +114,6 @@
           maintainContext: true
         - name: 사용자에게 Ambari 보기에 대한 권한 부여
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: 파일 및 폴더 수준에서 사용자 권한 관리
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: 관리
       items:

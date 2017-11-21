@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 Service Fabric 5.4 버전부터 상태 및 부하 메트릭 이벤트를 컬렉션에 사용할 수 있습니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 등의 상태 또는 부하 보고 API를 사용하여 시스템 또는 코드에서 생성한 이벤트를 반영합니다. 이를 통해 시간 경과에 따른 시스템 상태의 집계 및 확인과 상태 또는 부하 이벤트 기반의 경고가 가능합니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
 
-이벤트를 수집하려면 Resource Manager 템플릿을 수정하여 다음을 포함하도록 합니다.
+클러스터에서 이벤트를 수집하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter`를 `4611686018427387912`로 수정합니다.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Service Fabric 5.4 버전부터 상태 및 부하 메트릭 이벤트를 컬렉�
 
 ## <a name="collect-reverse-proxy-events"></a>역방향 프록시 이벤트 수집
 
-Service Fabric 5.7 릴리스부터 [역방향 프록시](service-fabric-reverseproxy.md) 이벤트를 컬렉션에 사용할 수 있습니다.
-역방향 프록시는 요청 처리 실패를 나타내는 오류 이벤트가 담긴 채널 하나와, 역방향 프록시에서 처리된 모든 요청에 대한 상세 정보가 담긴 채널 하나 등, 두 채널로 이벤트를 내보냅니다. 
+Service Fabric 5.7 릴리스부터 [역방향 프록시](service-fabric-reverseproxy.md) 이벤트를 데이터 및 메시징 채널을 통해 컬렉션에 사용할 수 있습니다. 
 
-1. 오류 이벤트 수집: Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000010"을 추가합니다.
-Azure 클러스터에서 이벤트를 수집하려면 Resource Manager 템플릿을 수정하여 다음을 포함하도록 합니다.
+역방향 프록시는 요청 처리 실패 및 중요한 문제를 반영하는 기본 데이터 및 메시징 채널을 통해 오류 이벤트만을 푸시합니다. 자세한 채널은 역방향 프록시에 의해 처리된 모든 요청에 대한 자세한 정보 표시 이벤트를 포함합니다. 
+
+Visual Studio의 Diagnostic Event Viewer에서 오류 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000010"을 추가합니다. 모든 요청 원격 분석의 경우 ETW 공급자 목록의 Microsoft-ServiceFabric 항목을 "Microsoft-ServiceFabric:4:0x4000000000000020"으로 업데이트합니다.
+
+Azure에서 실행되는 클러스터의 경우:
+
+기본 데이터 및 메시징 채널에서 추적을 선택하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter` 값을 `4611686018427387920`으로 수정합니다.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Azure 클러스터에서 이벤트를 수집하려면 Resource Manager 템플릿
     }
 ```
 
-2. 모든 요청 처리 이벤트 수집: Visual Studio의 진단 이벤트 뷰어에서 ETW 공급자 목록의 Microsoft-ServiceFabric 항목을 "Microsoft-ServiceFabric:4:0x4000000000000020"으로 업데이트합니다.
-Azure Service Fabric 클러스터의 경우 Resource Manager 템플릿을 수정하여 다음을 포함하도록 합니다.
+모든 요청 처리 이벤트를 수집하려면 Resource Manager 템플릿의 WadCfg에서 `scheduledTransferKeywordFilter` 값을 `4611686018427387936`으로 변경하여 데이터 및 메시징 - 자세한 채널을 켭니다.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Azure Service Fabric 클러스터의 경우 Resource Manager 템플릿을 수정
       }
     }
 ```
-> 여기서는 역방향 프록시를 통과하는 모든 트래픽을 수집하여 저장소 용량을 신속하게 소비할 수 있으므로 이 채널을 통한 이벤트 수집을 활성화할 때는 주의가 필요합니다.
 
-Azure Service Fabric 클러스터의 경우 모든 노드의 이벤트가 SystemEventTable에 수집되어 집계됩니다.
+이 자세한 채널에서 이벤트 수집을 사용하면 신속하게 생성되는 많은 추적이 발생하고, 저장소 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 켭니다.
 역방향 프록시 이벤트의 문제 해결에 관한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.
 
 ## <a name="collect-from-new-eventsource-channels"></a>새 EventSource 채널에서 수집
@@ -252,27 +254,9 @@ Azure Service Fabric 클러스터의 경우 모든 노드의 이벤트가 System
 
 ## <a name="collect-performance-counters"></a>성능 카운터 수집
 
-클러스터에서 성능 메트릭을 수집하려면 클러스터에 대한 Resource Manager 템플릿에서 "WadCfg > DiagnosticMonitorConfiguration"에 성능 카운터를 추가합니다. 수집을 권장하는 성능 카운터에 대해서는 [Service Fabric 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
-
-예를 들어, 여기서는 15초마다 샘플링되고(이 값은 변경될 수 있고 "PT\<시간>\<단위>" 형식이 적용됨. 예를 들어 PT3M은 3분 간격으로 샘플링됨) 1분마다 적절한 저장소 테이블에 전송되는 하나의 성능 카운터를 설정합니다.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+클러스터에서 성능 메트릭을 수집하려면 클러스터에 대한 Resource Manager 템플릿에서 "WadCfg > DiagnosticMonitorConfiguration"에 성능 카운터를 추가합니다. 특정 성능 카운터를 수집하는 `WadCfg` 수정에 대한 단계는 [WAD를 사용하여 성능 모니터링](service-fabric-diagnostics-perf-wad.md)을 참조하세요. 수집을 권장하는 성능 카운터 목록에 대해서는 [Service Fabric 성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 참조하세요.
   
-아래 섹션에 설명된 대로 Application Insights 싱크를 사용하고 있을 때 이러한 메트릭을 Application Insights에 표시하려면 위에 표시된 대로 "sinks" 섹션에 싱크 이름을 추가해야 합니다. 또한 성능 카운터를 보낼 별도의 테이블을 만들어 보세요. 그러면 성능 카운터는 사용하도록 설정한 다른 로깅 채널에서 들어오는 데이터를 밀어내지 않습니다.
+아래 섹션에 설명된 대로 Application Insights 싱크를 사용하고 있을 때 이러한 메트릭을 Application Insights에 표시하려면 위에 표시된 대로 "sinks" 섹션에 싱크 이름을 추가해야 합니다. Application Insights 리소스에 개별적으로 구성된 성능 카운터를 자동으로 보냅니다.
 
 
 ## <a name="send-logs-to-application-insights"></a>Application Insights에 로그 보내기

@@ -55,7 +55,7 @@
   items:
     - name: App Service 작동 방법
       href: app-service-how-works-readme.md
-    - name: 앱 서비스 계획
+    - name: App Service 계획
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: OS 기능
       href: web-sites-available-operating-system-functionality.md
@@ -67,6 +67,8 @@
       href: web-sites-traffic-manager.md
     - name: 로컬 캐시
       href: app-service-local-cache-overview.md
+    - name: 진단
+      href: app-service-diagnostics.md
 - name: 방법 가이드
   items:
     - name: 앱 구성
@@ -143,6 +145,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: 앱 관리
       items:
+        - name: 호스팅 계획 관리
+          href: app-service-plan-manage.md
         - name: 앱 백업
           href: web-sites-backup.md
         - name: 백업 복원

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의*(.csdef)*, 서비스 구성*(.cscfg)*, 서비스 패키지*(.cspkg)*의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -143,7 +143,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대�
 여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하면 됩니다. 그러나 여기서 간략하게 요소를 설명합니다.
 
 **인스턴스**  
-역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 둘 이상의 인스턴스를 배포하면 [Azure 계산 SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
+역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 둘 이상의 인스턴스를 배포하면 [Azure Compute SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
 
 **ConfigurationSettings**  
 역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
@@ -239,7 +239,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 하나의 IP 주�
 <p />
 
 > [!TIP]
-> **Microsoft Azure 계산 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션을 사용하면 계산 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 응용 프로그램의 이진 파일을 복사합니다.
+> **Microsoft Azure Compute 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션을 사용하면 계산 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 응용 프로그램의 이진 파일을 복사합니다.
 > 
 > 
 
@@ -290,7 +290,7 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 * [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

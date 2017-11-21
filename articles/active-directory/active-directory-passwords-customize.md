@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>셀프 서비스 암호 재설정을 위한 Azure AD 기능 사용자 지정
 
@@ -40,7 +40,7 @@ SSPR을 사용하지 않는 경우라도 사용자는 암호 재설정 포털에
 
 어떠한 경우에도 최대 100명의 받는 사람에게 알림이 제공됩니다.
 
-다른 관리자 역할 및 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md) 문서를 참조하세요.
+다른 관리자 역할 및 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md) 문서를 참조하세요.
 
 ### <a name="disable-contact-your-administrator-emails"></a>관리자에게 문의 전자 메일 사용 안 함
 

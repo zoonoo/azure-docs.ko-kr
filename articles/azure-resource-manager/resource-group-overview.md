@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0d71f7eee6568f9b98c80315d265704ee0ae9fc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 응용 프로그램에 대한 인프라는 일반적으로 가상 컴퓨터, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
@@ -213,7 +213,7 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 
 1. 가상 컴퓨터 참여자는 가상 컴퓨터를 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없고 연결된 가상 네트워크 또는 저장소 계정을 관리할 수 없음
 2. 네트워크 참여자는 모든 네트워크 리소스를 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없음
-3. 저장소 계정 참여자는 저장소 계정을 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없음
+3. Storage 계정 참여자는 Storage 계정을 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없음
 4. SQL Server 참여자는 해당 보안 관련 정책을 제외한 SQL 서버 및 데이터베이스를 관리할 수 있음
 5. 웹 사이트 참여자는 웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음
 
@@ -251,7 +251,7 @@ JSON을 사용하여 정책을 정의하고 구독 전체 또는 리소스 그�
 }
 ```
 
-더 다양한 유형의 정책을 만들 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
+더 다양한 유형의 정책을 만들 수 있습니다. 자세한 내용은 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.
 
 ## <a name="sdks"></a>SDK
 Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.

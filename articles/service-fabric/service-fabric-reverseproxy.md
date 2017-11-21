@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 끝점이 있는 타 서비스와 통신합니다.
@@ -114,9 +114,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>포트 공유 서비스에 대한 특수 처리
-Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 서비스에 연결할 수 없는 경우 요청을 재시도합니다. 이는 클라이언트 코드가 자체 서비스 확인 및 확인 루프를 구현할 필요가 없으므로 Application Gateway의 주요 이점이 됩니다.
-
-일반적으로 서비스에 연결할 수 없는 경우 서비스 인스턴스 또는 복제가 일반적인 수명 주기의 일부로 다른 노드로 이동된 것입니다. 이 경우 Application Gateway는 끝점이 더 이상 원래 확인된 주소에 열려 있지 않음을 나타내는 네트워크 연결 오류를 수신할 수 있습니다.
+Service Fabric 역방향 프록시는 서비스 주소의 다시 확인을 시도하고 서비스에 연결할 수 없는 경우 요청을 재시도합니다. 일반적으로 서비스에 연결할 수 없는 경우 서비스 인스턴스 또는 복제가 일반적인 수명 주기의 일부로 다른 노드로 이동된 것입니다. 이 경우 역방향 프록시는 끝점이 더 이상 원래 확인된 주소에 열려 있지 않음을 나타내는 네트워크 연결 오류를 수신할 수 있습니다.
 
 그러나 복제 또는 서비스 인스턴스는 호스트 프로세스를 공유할 수 있으며 다음을 비롯하여 http.sys 기반 웹 서버에 의해 호스팅될 경우 포트를 공유할 수도 있습니다.
 
@@ -124,21 +122,21 @@ Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 �
 * [ASP.NET 코어 WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [카타나](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-이 상황에서 웹 서버는 호스트 프로세스에서 사용할 수 있고 요청에 응답할 가능성이 있지만 확인된 서비스 인스턴스 또는 복제는 더 이상 호스트에서 사용할 수 없습니다. 이 경우 게이트웨이는 웹 서버에서 HTTP 404 응답을 수신합니다. 따라서 HTTP 404에는 다음과 같은 두 가지 의미가 있습니다.
+이 상황에서 웹 서버는 호스트 프로세스에서 사용할 수 있고 요청에 응답할 가능성이 있지만 확인된 서비스 인스턴스 또는 복제는 더 이상 호스트에서 사용할 수 없습니다. 이 경우 게이트웨이는 웹 서버에서 HTTP 404 응답을 수신합니다. 따라서 HTTP 404 응답은 다음과 같은 두 가지 의미를 가질 수 있습니다.
 
 - 사례 #1: 서비스 주소가 올바르지만 사용자가 요청한 리소스가 없습니다.
 - 사례 #2: 서비스 주소가 올바르지 않고 사용자가 요청한 리소스가 다른 노드에 있을 수 있습니다.
 
-첫 번째 경우는 사용자 오류로 간주되는 일반적인 HTTP 404입니다. 그러나 두 번째 경우에 사용자는 존재하는 리소스를 요청했습니다. 서비스 자체가 이동되었으므로 Application Gateway에서 해당 서비스를 찾을 수 없습니다. Application Gateway는 주소를 다시 확인하고 요청을 다시 시도해야 합니다.
+첫 번째 경우는 사용자 오류로 간주되는 일반적인 HTTP 404입니다. 그러나 두 번째 경우에 사용자는 존재하는 리소스를 요청했습니다. 서비스 자체가 이동되어 역방향 프록시가 해당 서비스를 찾을 수 없습니다. 역방향 프록시가 주소를 다시 확인하고 요청을 다시 시도해야 합니다.
 
-그러므로 Application Gateway는 두 경우를 구별하는 방법이 필요합니다. 이러한 구별을 하려면 서버에서 제공하는 힌트가 필요합니다.
+그러므로 역방향 프록시가 두 경우를 구별할 수 있는 방법이 필요합니다. 이러한 구별을 하려면 서버에서 제공하는 힌트가 필요합니다.
 
-* 기본적으로 Application Gateway는 사례 # 2를 가정하여 요청을 다시 확인하고 다시 실행하려고 시도합니다.
-* Application Gateway에 대해 사례 #1을 나타내려면 서비스가 다음과 같은 HTTP 응답 헤더를 반환해야 합니다.
+* 기본적으로 역방향 프록시는 사례 # 2를 가정하여 요청을 다시 확인하고 다시 실행하려고 시도합니다.
+* 역방향 프록시에 사례 #1이라는 것을 알리려면 서비스가 다음과 같은 HTTP 응답 헤더를 반환해야 합니다.
 
   `X-ServiceFabric : ResourceNotFound`
 
-이 HTTP 응답 헤더는 요청한 리소스가 존재하지 않는 일반적인 HTTP 404 상황을 나타내며, Application Gateway는 서비스 주소를 다시 확인하려고 시도하지 않습니다.
+이 HTTP 응답 헤더는 요청한 리소스가 존재하지 않는 일반적인 HTTP 404 상황을 나타내며, 역방향 프록시는 서비스 주소를 다시 확인하려고 시도하지 않습니다.
 
 ## <a name="setup-and-configuration"></a>설정 및 구성
 

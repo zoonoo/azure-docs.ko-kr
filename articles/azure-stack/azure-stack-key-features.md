@@ -1,4 +1,4 @@
----
+﻿---
 title: "주요 기능 및 Azure 스택에 대 한 개념 | Microsoft Docs"
 description: "Azure Stack의 주요 기능 및 개념에 대해 알아봅니다."
 services: azure-stack

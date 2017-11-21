@@ -1,6 +1,6 @@
 ---
 title: "AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동 | Microsoft Docs"
-description: "AzCopy를 사용하여 Azure Blob 저장소의 데이터 이동"
+description: "AzCopy를 사용하여 Azure Blob Storage의 데이터 이동"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: f7a924b576690f5b76418a3de6221ef6c39c39f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 928d579da0cb469fd714b8a456a64917158d8ebc
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다.

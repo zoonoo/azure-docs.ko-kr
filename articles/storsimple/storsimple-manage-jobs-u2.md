@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 44b3550a2457a9f43a54117c6164858a0ef6f095
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리(업데이트 2)
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 작업 보기 및 관리(업데이트 2)](storsimple-8000-manage-jobs-u2.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>개요
@@ -57,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 1. **작업** 페이지에서 적절한 필터와 함께 쿼리를 실행하여 관심 있는 작업을 표시합니다. 완료되거나, 실행 중이거나, 취소된 작업을 검색할 수 있습니다.
 2. 작업을 선택합니다.
 3. 페이지 맨 아래에서 **세부 정보**를 클릭합니다.
-4. **백업 작업 세부 정보** 대화 상자에서 상태, 세부 정보, 시간 통계 및 데이터 통계를 볼 수 있습니다.
+4. **Backup 작업 세부 정보** 대화 상자에서 상태, 세부 정보, 시간 통계 및 데이터 통계를 볼 수 있습니다.
    
     ![작업 세부 정보 페이지](./media/storsimple-manage-jobs-u2/JobDetails.png)
 

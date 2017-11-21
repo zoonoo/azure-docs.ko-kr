@@ -1,5 +1,5 @@
 ---
-title: "클라우드 서비스에서 사용자 지정 도메인 이름 구성| Microsoft Docs"
+title: "Cloud Services에서 사용자 지정 도메인 이름 구성| Microsoft Docs"
 description: "DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 응용 프로그램이나 데이터를 인터넷에 노출하는 방법을 알아봅니다.  이 예제는 Azure 포털을 사용합니다."
 services: cloud-services
 documentationcenter: .net
@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
-> [!div class="op_single_selector"]
-> * [Azure 포털](cloud-services-custom-domain-name-portal.md)
-> * [Azure 클래식 포털](cloud-services-custom-domain-name.md)
-> 
-> 
-
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 응용 프로그램에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
 
 그러나 **contoso.com**등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
@@ -34,14 +28,14 @@ ms.lasthandoff: 10/11/2017
 CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너뛰고 이동하세요](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스의 경우 [이것](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
+> 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services의 경우 [이것](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
 > 
 > 
 
 <p/>
 
 > [!TIP]
-> 새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
+> 새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다.  이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure Cloud Services 또는 Azure Websites와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
 > 
 > 
 
@@ -57,12 +51,12 @@ CNAME 레코드는 *contoso.com* , **contoso.com** or **특정**도메인을 정
 > 
 
 ### <a name="a-record"></a>A 레코드
-*A* 레코드는 **contoso.com**, **www.contoso.com**, *등의 도메인이나*, **\*.contoso.com** 등의 와일드카드 도메인 을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 \***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com** 또는 **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
+*A* 레코드는 **contoso.com**, **www.contoso.com**, *등의 도메인이나 **\*.contoso.com** 등의 와일드카드 도메인*을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 \***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com** 또는 **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
 
 > [!NOTE]
 > A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 클라우드 서비스의 IP 주소로 자동으로 확인할 수 없습니다. 빈 슬롯(프로덕션 또는 스테이징)에 처음 배포할 때 클라우드 서비스에서 사용되는 IP 주소가 할당됩니다. 슬롯에 대한 배포를 삭제하면 Azure에서 IP 주소를 해제하며, 나중에 슬롯에 배포할 때 새 IP 주소가 지정될 수 있습니다.
 > 
-> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)을 참조하세요.
+> 편의상, 스테이징 배포와 프로덕션 배포 간에 전환하거나 기존 배포의 바로 업그레이드를 수행하는 경우 주어진 배포 슬롯(프로덕션 또는 스테이징)의 IP 주소가 지속됩니다. 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage-portal.md)을 참조하세요.
 > 
 > 
 
@@ -139,7 +133,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
+* [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
 * [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.

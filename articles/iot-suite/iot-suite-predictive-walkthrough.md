@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>미리 구성된 예측 유지 관리 솔루션 연습
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 
 파란색 항목은 미리 구성된 솔루션을 배포한 지역에 프로비전되는 Azure 서비스입니다. 미리 구성된 솔루션을 배포할 수 있는 지역 목록은 [프로비전 페이지][lnk-azureiotsuite]에 표시됩니다.
 
-녹색 항목은 항공기 엔진을 나타내는 시뮬레이션된 장치입니다. 다음 섹션에서 이러한 시뮬레이션된 장치에 대해 자세히 알아볼 수 있습니다.
+녹색 항목은 항공기 엔진을 나타내는 시뮬레이션된 장치입니다. 시뮬레이션된 장치에 대한 자세한 내용은 [시뮬레이션된 장치](#simulated-devices) 섹션에서 알아볼 수 있습니다.
 
 회색 항목은 *장치 관리* 기능을 구현하는 구성 요소를 나타냅니다. 미리 구성된 예측 유지 관리 솔루션의 현재 릴리스에서는 이러한 리소스를 프로비전하지 않습니다. 장치 관리에 대한 자세한 내용은 [미리 구성된 솔루션 원격 모니터링][lnk-remote-monitoring]을 참조합니다.
 
@@ -65,7 +65,7 @@ IoT Hub는 장치 명령 승인을 제공합니다.
 **이벤트 프로세서 호스트**는 Azure Web Job에서 실행됩니다. **이벤트 프로세서** 는 완료된 주기의 평균 센서 값을 사용합니다. 학습된 모델을 노출하는 API에 해당 값을 전달하여 엔진에 대한 RUL를 계산합니다. API는 솔루션의 일부로 프로비전되는 Machine Learning 작업 영역에 의해 노출됩니다.
 
 ## <a name="machine-learning"></a>기계 학습
-Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
+Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. [azureiotsuite.com][lnk-azureiotsuite] 페이지의 솔루션 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -78,10 +78,10 @@ Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

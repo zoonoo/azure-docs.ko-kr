@@ -1,6 +1,6 @@
 ---
-title: "OMS(Operations Management Suite)에 Linux 컴퓨터 연결 | Microsoft Docs"
-description: "이 문서에서는 Linux용 OMS 에이전트를 사용하여 Azure, 기타 클라우드 또는 온-프레미스에 호스트된 Linux 컴퓨터를 OMS에 연결하는 방법을 설명합니다."
+title: "Azure Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs"
+description: "이 문서에서는 Linux용 OMS 에이전트를 사용하여 Azure, 기타 클라우드 또는 온-프레미스에 호스트된 Linux 컴퓨터를 Log Analytics에 연결하는 방법을 설명합니다."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2017
+ms.date: 11/07/2017
 ms.author: magoedte
-ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56c666d1a18937df21a6aca8acde87beda1cad8e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Linux 컴퓨터 연결 
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Log Analytics에 Linux 컴퓨터 연결 
 
-Microsoft OMS(Operations Management Suite)를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경으 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
+Azure Log Analytics를 사용하여 물리적 서버 또는 Virtual Machines로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 [Azure Automation](../automation/automation-intro.md)에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경을 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
 
-Linux용 OMS 에이전트는 TCP 포트 443을 통해 OMS 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [HTTP 프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요.  System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 OMS 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 Operations Manager에서 계속 모니터링될 수도 있습니다.  OMS와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다.  OMS 에이전트는 둘 이상의 작업 영역에 보고하도록 구성할 수 없습니다.  
+Linux용 OMS 에이전트는 TCP 포트 443을 통해 Log Analytics 및 Azure Automation 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요.  System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 Operations Manager에서 계속 모니터링될 수도 있습니다.  Log Analytics와 통합된 Operations Manager 관리 그룹(현재 Operations Manager Operations 콘솔의 Operations Management Suite)에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다.  OMS 에이전트는 둘 이상의 Log Analytics 작업 영역에 보고하도록 구성할 수 없습니다.  
 
-IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 에이전트를 구성할 수 있습니다. OMS Linux 에이전트가 OMS 게이트웨이를 통해 OMS 서비스와 통신할 수 있도록 구성하는 방법에 대한 자세한 내용 및 단계에 대해서는 [OMS 게이트웨이 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요.  
+IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 에이전트를 구성할 수 있습니다. OMS Linux 에이전트가 OMS 게이트웨이를 통해 서비스와 통신할 수 있도록 구성하는 방법에 대한 자세한 내용 및 단계에 대해서는 [OMS 게이트웨이 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요.  
 
-다음 다이어그램은 방향 및 포트를 포함하여 에이전트 관리 Linux 컴퓨터와 OMS 간 연결을 보여 줍니다.
+다음 다이어그램은 방향 및 포트를 포함하여 에이전트 관리 Linux 컴퓨터와 Log Analytics 간 연결을 보여줍니다.
 
-![OMS와 에이전트의 직접 통신 다이어그램](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
+![Azure Services와 에이전트의 직접 통신 다이어그램](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 시작하기 전에 다음 세부 정보를 검토하여 필수 구성 요소를 충족하는지 확인합니다.
@@ -47,7 +47,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
 ### <a name="network"></a>네트워크
-아래 정보는 Linux 에이전트가 OMS와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 OMS 서비스로 아웃바운드됩니다. 
+아래 정보는 Linux 에이전트가 Log Analytics 및 Azure Automation과 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 서비스로 아웃바운드됩니다. 
 
 |에이전트 리소스| 포트 |  
 |------|---------|  
@@ -73,7 +73,7 @@ PAM | 플러그형 인증 모듈 |
 
 **패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
-omsagent | 1.4.1 | Linux용 Operations Management Suite 에이전트
+omsagent | 1.4.0 | Linux용 Operations Management Suite 에이전트
 omsconfig | 1.1.1 | OMS 에이전트용 구성 에이전트
 omi | 1.2.0 | Open Management Infrastructure(OMI) -- 경량 CIM 서버
 scx | 1.6.3 | 운영 체제 성능 메트릭용 OMI CIM 공급자
@@ -91,8 +91,8 @@ Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 �
 ### <a name="system-configuration-changes"></a>시스템 구성 변경 내용
 OMS Agent for Linux 패키지를 설치한 후에는 다음과 같은 시스템 수준의 구성 변경이 추가로 적용됩니다. 이러한 아티팩트는 omsagent 패키지가 제거되면 제거됩니다.
 
-* `omsagent` 라는 이름의 권한 없는 사용자가 생성됩니다. omsagent 디먼이 이 계정으로 실행됩니다.
-* sudoers "include" 파일은 /etc/sudoers.d/omsagent에 생성됩니다. 이 파일은 omsagent가 syslog 및 omsagent 디먼을 다시 시작할 수 있도록 권한을 부여합니다. 설치된 sudo 버전에서 sudo “include” 지시문이 지원되지 않으면, 이 항목은 /etc/sudoers에 기록됩니다.
+* `omsagent` 라는 이름의 권한 없는 사용자가 생성됩니다. 이 계정으로 omsagent 디먼이 실행됩니다.
+* sudoers "include" 파일은 /etc/sudoers.d/omsagent에 생성됩니다. 그러면 omsagent에서 syslog 및 omsagent 데몬을 다시 시작할 수 있도록 허가됩니다. 설치된 sudo 버전에서 sudo “include” 지시문이 지원되지 않으면, 이 항목은 /etc/sudoers에 기록됩니다.
 * syslog 구성은 이벤트 하위 집합을 에이전트에 전달하도록 수정됩니다. 자세한 내용은 아래의 **데이터 수집 구성** 섹션을 참조하세요.
 
 ### <a name="upgrade-from-a-previous-release"></a>이전 릴리스에서 업그레이드
@@ -100,13 +100,22 @@ OMS Agent for Linux 패키지를 설치한 후에는 다음과 같은 시스템 
 
 ## <a name="installing-the-agent"></a>에이전트 설치
 
-이 섹션에서는 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하는 번들을 사용하여 Linux용 OMS 에이전트를 설치하는 방법을 설명합니다.  직접 설치하거나 개별 패키지를 검색하도록 추출될 수 있습니다.  
+이 섹션에서는 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하는 번들을 사용하여 Linux용 OMS 에이전트를 수동으로 설치하는 방법을 설명합니다.  직접 설치하거나 개별 패키지를 검색하도록 추출될 수 있습니다.  Azure Linux VM에 에이전트를 설치하려는 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하여 Log Analytics VM 확장을 통해 에이전트를 설치하는 방법을 알아봅니다.  *Log Analytics VM 확장 사용* 섹션의 단계를 따릅니다.  사용자 환경에서 호스트되는 Linux 컴퓨터의 경우 [사용자 환경에서 호스팅되는 Linux 컴퓨터에서 데이터 수집](log-analytics-quick-collect-linux-computer.md) 문서에 설명된 스크립팅 방법을 사용하여 설치 프로세스를 간소화할 수 있습니다.  
 
-[OMS 클래식 포털](https://mms.microsoft.com)로 전환하면 찾을 수 있는 OMS 작업 영역 ID 및 키가 필요합니다.  **개요** 페이지의 맨 위 메뉴에서 **설정**을 선택한 다음, **Connected Sources\Linux Servers**로 이동합니다.  **작업 영역 ID** 및 **기본 키** 오른쪽에 값이 표시됩니다.  두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.    
+> [!NOTE]
+> 위에서 참조된 두 문서는 Log Analytics를 처음 사용하며 이 서비스를 바로 사용하기 원하는 사용자를 대상으로 하지만 컴퓨터 구성 단계와 관련이 있습니다.  작업 영역이 이미 있고 Linux 컴퓨터에 연결하려고 하는 경우 Azure Linux VM을 사용할 때는 기존 작업 영역을 선택하고, Azure 외부에 호스트된 컴퓨터를 사용할 때는 작업 영역 ID 및 키를 복사하여 스크립트에 제공합니다.  
 
-1. GitHub에서 최신 [Linux용 OMS 에이전트(x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) 또는 [Linux x86용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh)를 다운로드합니다.  
-2. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
-3. `--install` 또는 `--upgrade` 인수를 사용하여 번들을 설치합니다. 
+Linux용 OMS 에이전트를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  
+
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+3. Log Analytics 작업 영역 목록에서 컴퓨터가 보고할 작업 영역을 선택합니다.
+3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+4. **연결된 원본**을 선택한 다음 **Linux 서버**를 선택합니다.   
+5. **작업 영역 ID** 및 **기본 키**의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.  
+6. GitHub에서 최신 [Linux용 OMS 에이전트(x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) 또는 [Linux x86용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh)를 다운로드합니다.  
+7. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
+8. `--install` 또는 `--upgrade` 인수를 사용하여 번들을 설치합니다. 
 
     > [!NOTE]
     > Linux용 System Center Operations Manager 에이전트가 이미 설치된 경우처럼 기존 패키지가 설치된 경우에는 `--upgrade` 인수를 사용합니다. 설치 중에 Operations Management Suite에 연결하려면 `-w <WorkspaceID>` 및 `-s <Shared Key>` 매개 변수를 제공합니다.
@@ -128,7 +137,7 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <sh
 ```
 
 ## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성
-Linux용 OMS 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 OMS 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호) 둘 다 지원됩니다.  
+Linux용 OMS 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호) 둘 다 지원됩니다.  
 
 ### <a name="proxy-configuration"></a>프록시 구성
 프록시 구성 값은 다음 구문을 갖습니다.
@@ -171,8 +180,8 @@ sudo rm /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/
 sudo /opt/microsoft/omsagent/bin/service_control restart 
 ```
 
-## <a name="onboarding-with-operations-management-suite"></a>Operations Management Suite에 등록
-번들 설치 동안 작업 영역 ID 및 키가 제공되지 않았으므로 나중에 에이전트를 Operations Management Suite에 등록해야 합니다.
+## <a name="onboarding-with-log-analytics"></a>Log Analytics에 등록
+번들 설치 동안 작업 영역 ID 및 키가 제공되지 않았으므로 나중에 에이전트를 Log Analytics에 등록해야 합니다.
 
 ### <a name="onboarding-using-the-command-line"></a>명령줄을 사용하여 등록
 작업 영역에 대한 작업 영역 ID 및 키를 제공하여 omsadmin.sh 명령을 실행합니다. 이 명령은 루트 권한(sudo 권한 상승)으로 실행해야 합니다.
@@ -181,7 +190,7 @@ cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
 
-### <a name="onboarding-using-a-file"></a>파일을 사용하는 등록
+### <a name="register-using-a-file"></a>파일을 사용하여 등록
 1.  파일 `/etc/omsagent-onboard.conf`를 만듭니다. 이 파일은 루트에 대해 읽을 수 있고 쓸 수 있어야 합니다.
 `sudo vi /etc/omsagent-onboard.conf`
 2.  작업 영역 ID 및 공유 키를 사용하여 파일에 다음 줄을 삽입합니다.
@@ -189,7 +198,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
    
-3.  다음 명령을 실행하여 OMS에 등록합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+3.  다음 명령을 실행하여 Log Analytics에 등록합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
 4.  이 파일은 등록이 성공적으로 수행되면 삭제됩니다.
 
 ## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>OMS Agent for Linux에서 System Center Operations Manager에 보고하도록 설정
@@ -228,18 +237,18 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="issue-unable-to-connect-through-proxy-to-oms"></a>문제: 프록시를 통해 OMS에 연결할 수 없음
+### <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>문제: 프록시를 통해 Log Analytics에 연결할 수 없습니다.
 
 #### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* OMS 서비스 끝점이 데이터 센터의 허용 목록에 없습니다. 
+* Log Analytics 및 Azure Automation 서비스 끝점이 데이터 센터의 허용 목록에 없습니다. 
 
 #### <a name="resolutions"></a>해결 방법
-1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. 이 설정은 프록시를 통해 OMS 서비스에 연결하는 에이전트에 대한 자세한 출력을 허용합니다. 
+1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 Log Analytics 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 서버 또는 OMS 게이트웨이에서 사용할 에이전트 구성](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 OMS 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
+* 다음 Log Analytics 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
 
     |에이전트 리소스| 포트 |  
     |------|---------|  
@@ -261,22 +270,36 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 3. 이 항목 앞부분의 설치 지침에 따라 올바른 작업 영역 ID 및 작업 영역 키를 사용하여 다시 등록합니다.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
-이 오류는 알려진 문제이며 Linux 데이터를 OMS 작업 영역으로 처음 업로드할 때 발생합니다. 이 오류는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
+이 문제는 알려진 문제이며 Linux 데이터를 Log Analytics 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
 
-### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>문제: OMS 포털에서 데이터가 보이지 않음
+### <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않습니다.
 
 #### <a name="probable-causes"></a>가능한 원인
 
-- OMS 서비스 등록이 실패했습니다.
-- OMS 서비스에 대한 연결이 차단되었습니다.
+- Log Analytics 서비스 등록이 실패했습니다.
+- Log Analytics 서비스에 대한 연결이 차단되었습니다.
 - Linux용 OMS 에이전트가 백업되었습니다.
 
 #### <a name="resolutions"></a>해결 방법
-1. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 파일이 있는지 확인하여 OMS 서비스 등록에 성공했는지 알아봅니다.
+1. 파일이 있는지 확인하여 Log Analytics 서비스 등록에 성공했는지 알아봅니다. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
 3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
-4. OMS Agent for Linux가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 Linux용 OMS 에이전트를 다시 시작해야 합니다. 
+4. OMS Agent for Linux가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 Linux용 OMS 에이전트를 다시 시작해야 합니다. 
 
     >[!NOTE]
     >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
 
+### <a name="issue-omsagent-creates-excessive-number-of-user-process-on-computer-and-never-terminates-them"></a>문제: OMS 에이전트가 컴퓨터에서 과도한 개수의 사용자 프로세스를 만들고 종료하지 않습니다.
+Linux VM 관리를 지원하는 관리 솔루션을 사용하도록 설정하면 Linux 에이전트에서 많은 프로세스가 시작됩니다. 하지만 프로세스가 종료되기 전에 알려진 문제로 인해 다른 프로세스가 시작됩니다. 
+
+#### <a name="resolutions"></a>해결 방법
+OMS 에이전트에 의해 생성될 수 있는 사용자 프로세스의 수를 변경하려면 omsadmin.sh를 사용하여 에이전트를 구성합니다.  기본적으로 생성되는 프로세스의 수는 75개이며 이 제한을 변경하기 전에 먼저 다음 명령을 실행하여 현재 실행되고 있는 OMS 에이전트 프로세스 수를 확인해야 합니다. `ps aux | grep -E '^omsagent' | wc -l`  
+다음 명령을 실행하여 현재 설정된 제한을 확인할 수 있습니다. `cat /etc/security/limits.conf | grep -E '^omsagent'`
+
+다음 명령을 사용하여 사용자 지정 프로세스 제한을 구성하거나 프로세스 제한을 기본값으로 다시 설정합니다.
+
+1. OMS 에이전트에 대한 프로세스 제한을 설정하려면 다음 명령을 실행합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -n <specific number limit>`<br>설정할 수 있는 최소 제한은 5입니다.  
+
+2. OMS 에이전트에 대한 프로세스 제한을 기본 값으로 다시 설정하려면 다음 명령을 실행합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -N`
+
+다음 명령을 실행하여 새 설정이 적용되었는지 확인합니다. `cat /etc/security/limits.conf | grep -E '^omsagent'`  새 구성이 적용된 것으로 확인되지 않으면 프로세스 제한을 너무 낮게 설정했기 때문일 수 있습니다.  

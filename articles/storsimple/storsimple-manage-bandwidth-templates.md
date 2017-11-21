@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b426a0fc8e0a6c8615b348d3e832c134be4dfbaf
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 대역폭 템플릿을 사용하면 데이터를 StorSimple 장치에서 클라우드로 티어하도록 여러 시간의 일정에서 네트워크 대역폭 사용을 구성할 수 있습니다.
 
@@ -86,7 +89,7 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
 3. 변경 내용을 저장하려면 페이지 아래쪽에서 **저장** 을 클릭합니다. 페이지의 아래쪽에서 **예** 를 클릭합니다.
 
 > [!NOTE]
-> 편집한 일정이 수정하려는 대역폭 템플릿의 기존 일정와 겹치는 경우, 변경 내용을 저장할 수 없습니다.
+> 편집한 일정이 수정하려는 대역폭 템플릿의 기존 일정과 겹치는 경우, 변경 내용을 저장할 수 없습니다.
 > 
 > 
 
@@ -110,7 +113,7 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
 기본 템플릿은 편집할 수 있습니다. 이 템플릿의 사용(편집된 버전 포함)을 추적합니다.
 
 ## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>지정된 시간에 시작되는 하루 종일 대역폭 템플릿 만들기
-지정된 시간에 시작하고 하루 종일 실행되는 일정을 만들려면 이 절차를 따릅니다. 이 예제에서 일정은 아침에 오전 9시에 시작하고 다음 날 오전 9시까지 실행됩니다. 지정된 일정에 대한 시작 시간과 종료 시간 모두 동일한 24시간 일정에 포함 되어야 하며 여러 날에 걸쳐 있을 수 없습니다. 여러 날에 걸쳐 있는 대역폭 템플릿을 설정 해야하는 경우, 여러 일정을 사용해야 합니다(예에서와 같이) .
+지정된 시간에 시작하고 하루 종일 실행되는 일정을 만들려면 이 절차를 따릅니다. 이 예제에서 일정은 아침에 오전 9시에 시작하고 다음 날 오전 9시까지 실행됩니다. 지정된 일정에 대한 시작 시간과 종료 시간 모두 동일한 24시간 일정에 포함 되어야 하며 여러 날에 걸쳐 있을 수 없습니다. 여러 날에 걸쳐 있는 대역폭 템플릿을 설정해야 하는 경우, 여러 일정을 사용해야 합니다(예에서와 같이) .
 
 #### <a name="to-create-an-all-day-bandwidth-template"></a>하루 종일 대역폭 템플릿을 만들려면
 1. 아침 오전 9시에 시작되고 자정 때까지 실행되는 일정을 만듭니다.

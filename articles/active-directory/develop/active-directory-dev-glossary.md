@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
 이 문서에는 Azure AD에 대한 응용 프로그램 개발에 관해 알아보고자 할 때 유용한 핵심 Azure Active Directory(AD) 개발자 개념 함 합니다.
@@ -153,13 +153,13 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 [로그인](#sign-in) 시 [클라이언트 응용 프로그램](#client-application) 세션과 연결된 사용자 상태를 분리하여 최종 사용자의 인증을 무효화하는 프로세스
 
 ## <a name="tenant"></a>테넌트
-Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다음을 비롯한 다양한 기능을 제공합니다.
+Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다음과 같은 여러 기능을 제공합니다.
 
 * 통합 응용 프로그램에 대한 레지스트리 서비스
 * 사용자 계정 및 등록된 응용 프로그램의 인증
 * OAuth2 및 SAML을 포함한 다양한 프로토콜을 지원하는 데 필요한 REST 끝점([권한 부여 끝점](#authorization-endpoint), [토큰 끝점](#token-endpoint) 및 [다중 테넌트 응용 프로그램](#multi-tenant-application)에서 사용하는 "일반" 끝점 포함)
 
-테넌트는 구독을 프로비전하는 동안 Azure AD 또는 Office 365와 연결되어 구독에 대한 ID 및 액세스 관리 기능을 제공합니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory와 Azure 구독을 연결하는 방법][AAD-How-Subscriptions-Assoc]을 참조하세요.
+Azure AD 테넌트는 등록 시 Azure 및 Office 365 구독으로 생성/연결되어 구독에 대한 ID 및 액세스 관리 기능을 제공합니다. Azure 구독 관리자는 Azure Portal을 통해 Azure AD 테넌트를 추가로 만들 수도 있습니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory와 Azure 구독을 연결하는 방법][AAD-How-Subscriptions-Assoc]을 참조하세요.
 
 ## <a name="token-endpoint"></a>토큰 끝점
 OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부여 서버](#authorization-server)에서 구현하는 끝점 중 하나. 권한 부여에 따라 [OpenID Connect][OpenIDConnect] 프로토콜과 함께 사용할 경우 [클라이언트](#client-application) 또는 [ID 토큰](#ID-token)에 대한 [액세스 토큰](#access-token)(및 관련된 "새로 고침" 토큰)을 얻기 위해 사용될 수 있습니다.

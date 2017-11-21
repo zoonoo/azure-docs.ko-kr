@@ -10,7 +10,11 @@
     - name: 자동 프로비전 설정
       href: quick-setup-auto-provision.md
     - name: 시뮬레이션된 장치 만들기
-      href: quick-create-simulated-device.md
+      items:
+        - name: TPM
+          href: quick-create-simulated-device.md
+        - name: X.509
+          href: quick-create-simulated-device-x509.md
 - name: 자습서
   items:
     - name: 1 - 클라우드 리소스 설정
@@ -29,7 +33,6 @@
       href: concepts-service.md
     - name: 보안 개념
       href: concepts-security.md
-    - name: 보안
 - name: 방법 가이드
   items:
     - name: 장치 등록 관리

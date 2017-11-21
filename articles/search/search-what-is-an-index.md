@@ -1,6 +1,6 @@
 ---
-title: "Azure 검색 인덱스 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-description: "Azure 검색의 인덱스란 무엇이고 어떻게 사용됩니까?"
+title: "Azure Search의 인덱스 | Microsoft Docs"
+description: "Azure Search의 인덱스 개념과 인덱스 사용 방법에 대해 알아봅니다."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,29 +10,28 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Azure 검색 인덱스 만들기
+# <a name="indexes-in-azure-search"></a>Azure Search의 인덱스
 > [!div class="op_single_selector"]
 > * [개요](search-what-is-an-index.md)
 > * [포털](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
+> * [REST (영문)](search-create-index-rest-api.md)
 > 
 > 
 
-## <a name="what-is-an-index"></a>인덱스란?
-*인덱스*는 Azure 검색 서비스에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
+Azure Search에서 *인덱스*는 Azure Search 서비스에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
 
-문서를 추가/업로드하고 검색 쿼리를 Azure 검색에 제출하는 경우 요청을 검색 서비스의 특정 인덱스에 제출합니다.
+문서를 추가/업로드하고 검색 쿼리를 Azure Search에 제출하는 경우 요청을 Search 서비스의 특정 인덱스에 제출합니다.
 
-## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Azure 검색 인덱스에서 필드 형식 및 속성
+## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Azure Search 인덱스에서 필드 형식 및 속성
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.
 
 ### <a name="field-types"></a>필드 형식
@@ -64,5 +63,5 @@ Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/
 ## <a name="guidance-for-defining-an-index-schema"></a>인덱스 스키마를 정의하기 위한 지침
 인덱스를 설계할 때 계획 단계에서 각 의사 결정에 대해 신중하게 생각합니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://docs.microsoft.com/rest/api/searchservice/Create-Index)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 배포된 후 인덱스를 변경하려면 데이터를 다시 작성하고 다시 로드해야 합니다.
 
-데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 검색 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
+데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 Search 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 

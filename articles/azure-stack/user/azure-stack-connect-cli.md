@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>설치 하 고 Azure 스택과 함께 사용 하기 위해 CLI를 구성
 
@@ -204,6 +204,15 @@ az group create \
 리소스 그룹이 성공적으로 생성 되는 경우이 명령은 새로 만든된 리소스의 다음 속성을 출력 합니다.
 
 ![리소스 그룹에 대 한 출력 생성](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>알려진 문제
+Azure 스택에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 알려진된 문제가 있습니다.
+
+* CLI 대화형 모드 즉 `az interactive` Azure 스택 명령은 아직 지원 되지 않습니다.
+* Azure 스택에서 사용할 수 있는 가상 컴퓨터 이미지의 목록을 가져오려면를 사용 하 여는 `az vm images list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 하는 `--all` 옵션을 선택 하면 응답 Azure 스택 환경에서 사용할 수 있는 이미지에만 반환 하는지 확인 합니다. 
+* Azure에서 제공 되는 가상 컴퓨터 이미지 별칭 Azure 스택 적용할 수 없습니다. 전체 URN 매개 변수를 사용 해야 가상 컴퓨터 이미지를 사용할 때 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 파생 된이 URN이 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
+* 기본적으로 CLI 2.0 기본 가상 컴퓨터 이미지 크기도 "Standard_DS1_v2"를 사용합니다. 그러나이 크기는 없습니다 아직 Azure 스택에서 사용할 수 있는, 지정 하면는 `--size` 가상 컴퓨터를 만들 때에 명시적으로 매개 변수입니다. 사용 하 여 Azure 스택에서 사용할 수 있는 가상 컴퓨터 크기 목록을 가져올 수는 `az vm list-sizes --location <locationName>` 명령입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

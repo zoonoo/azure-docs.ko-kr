@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL Database로 SQL Server 데이터베이스 마이그레이션
 이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
 
 > [!NOTE]
-> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)를 참조하세요.
+> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/)를 참조하세요.
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>방법 1: 마이그레이션하는 동안 가동 중지 시간을 사용한 마이그레이션
@@ -39,12 +39,11 @@ ms.lasthandoff: 10/31/2017
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 평가합니다.
+1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
 3. 마이그레이션 중인 원본 데이터베이스를 트랜잭션 방식으로 일관되게 복사하고 원본 데이터베이스를 더 이상 변경하지 않도록 합니다(또는 마이그레이션이 완료된 후에 이러한 변경 내용을 수동으로 적용할 수 있음). 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
-5. 데이터베이스 복사본을 로컬 드라이브의 BACPAC 파일로 [내보냅니다](sql-database-export.md).
-6. 최상의 성능을 위해 권장되는 도구인 SQLPackage.exe와 여러 BACPAC를 사용하여 새로운 Azure SQL Database로서 .BACPAC 파일을 [가져옵니다](sql-database-import.md).
+5. Data Migration Assistant를 사용하여 데이터베이스 복사본을 새로운 Azure SQL Database로 [마이그레이션](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql)합니다.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>마이그레이션하는 동안 데이터 전송 성능 최적화 
 
@@ -94,7 +93,7 @@ ms.lasthandoff: 10/31/2017
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 
 1. 로컬 배포자 사용 
-   - 이는 서버의 성능에 영향을 미칠 수 있습니다. 
+   - 이렇게 하면 서버의 성능에 영향을 미칠 수 있습니다. 
    - 성능에 영향을 미치지 않아야 하면 다른 서버를 사용할 수 있지만 관리가 복잡해집니다.
 2. 스냅숏 폴더를 선택할 때 선택하는 폴더가 복제하려는 모든 테이블의 BCP를 수용하기에 충분한지 확인합니다. 
 3. 스냅숏을 만들면 완료될 때까지 연결된 테이블을 잠그며 스냅숏을 적절하게 예약합니다. 

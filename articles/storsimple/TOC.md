@@ -2,6 +2,7 @@
 
 ## 개요
 ### [솔루션이란?](storsimple-ova-overview.md)
+### [지역 가용성](storsimple-regions.md)
 
 ## 시작
 ### 계획
@@ -59,6 +60,7 @@
 ### [솔루션이란?](storsimple-overview.md)
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
+### [지역 가용성](storsimple-regions.md)
 ### [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)
 
 ## 시작

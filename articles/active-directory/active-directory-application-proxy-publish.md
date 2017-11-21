@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19f52181a2847ab52029adac4d58e402a76d5f30
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
@@ -97,7 +97,7 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 ## <a name="next-steps"></a>다음 단계
 * [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
 * [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-* [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+* [조건부 액세스 사용](application-proxy-enable-remote-access-sharepoint.md)
 * [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)

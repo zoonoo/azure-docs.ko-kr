@@ -1,30 +1,35 @@
 ---
 title: "Azure Marketplace 판매자 가이드 | Microsoft Docs"
-description: "이 가이드는 Azure Certified Virtual Machine 이미지를 IT 전문가 및 개발자에게 판매하려는 ISV(독립 소프트웨어 공급업체)의 비즈니스 사용자 및 제품 관리자를 위해 작성되었습니다."
+description: "이 가이드는 Azure Certified Virtual Machine 이미지 및 관리되는 응용 프로그램을 IT 전문가 및 개발자에게 판매하려는 ISV(독립 소프트웨어 공급업체)의 비즈니스 사용자 및 제품 관리자를 위해 작성되었습니다."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 판매자 가이드
 
-Azure Marketplace 판매자 가이드를 시작합니다. 이 가이드는 Azure Certified Virtual Machine 이미지를 IT 전문가 및 개발자에게 판매하려는 ISV(독립 소프트웨어 공급업체)의 비즈니스 사용자 및 제품 관리자를 위해 작성되었습니다. 전 세계에 있는 Azure 고객을 통해 [Marketplace](https://azuremarketplace.microsoft.com/)는 제품에 대한 풍부한 도달률 및 노출을 제공할 수 있습니다.
-
+Azure Marketplace 판매자 가이드를 시작합니다. 이 가이드는 Azure Certified Virtual Machine 이미지 및 관리되는 응용 프로그램을 IT 전문가 및 개발자에게 판매하려는 ISV(독립 소프트웨어 공급업체)의 비즈니스 사용자 및 제품 관리자를 위해 작성되었습니다. 전 세계에 있는 Azure 고객을 통해 [Azure Marketplace](https://azuremarketplace.microsoft.com/)는 제품에 대한 풍부한 도달률 및 노출을 제공할 수 있습니다.
 
 > [!NOTE]
-> 완성된 SaaS(Software as a Service) 제품을 비즈니스 사용자에게 판매하려는 경우 [AppSource](https://appsource.microsoft.com)에 나열하는 옵션을 조사할 수 있습니다.
+> [관리되는 응용 프로그램](https://docs.microsoft.com/en-us/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
+
+> [!NOTE]
+> 완성된 SaaS(Software as a Service) 제품을 _IT 전문가 개발자_에게 판매하는 데 관심이 있는 경우 saas-on-amp@microsoft.com에 문의하여 사용 가능한 옵션에 대해 자세히 알아볼 수 있습니다.
+
+> [!NOTE]
+> 완성된 SaaS(Software as a Service) 제품을 _비즈니스 사용자_에게 판매하려는 경우 [AppSource](https://appsource.microsoft.com)에 나열하는 옵션을 조사할 수 있습니다.
+
 
 이 가이드의 끝부분에서는 다음 항목에 대한 자세한 정보를 어디에서 확인할 수 있는지 알게 됩니다.
 
@@ -43,9 +48,9 @@ Azure Marketplace 판매자 가이드를 시작합니다. 이 가이드는 Azure
 
 ## <a name="whats-the-azure-marketplace"></a>Azure Marketplace란 무엇인가요?
 
-Azure Marketplace는 신생 기업에서 기존 기업까지 ISV가 전 세계 Azure 고객에게 자사의 솔루션을 제공하는 온라인 응용 프로그램 및 서비스 Marketplace입니다. Azure 게시자는 Marketplace를 통해 Azure에서 해당 클라우드 기반 응용 프로그램 및 모바일 솔루션을 신속하게 개발하려는 다른 전문가에게 가상 컴퓨터 이미지를 배포 및 판매할 수 있습니다. Marketplace는 데이터 처리, 데이터 저장소 및 분석 계층을 포함한 종단 간 데이터 분석 응용 프로그램에서 계층화된 전자 상거래 앱(데이터, 서비스 및 인터넷)까지 다양한 제품을 지원합니다.
+Azure Marketplace는 신생 기업에서 기존 기업까지 ISV가 전 세계 Azure 고객에게 자사의 솔루션을 제공하는 온라인 응용 프로그램 및 서비스 Marketplace입니다. Azure 게시자는 Marketplace를 통해 Azure에서 해당 클라우드 기반 응용 프로그램 및 모바일 솔루션을 신속하게 개발하려는 다른 전문가에게 가상 컴퓨터 이미지, 관리되는 응용 프로그램 및 SaaS 응용 프로그램을 배포 및 판매할 수 있습니다. Azure Marketplace는 데이터 처리, 데이터 저장소 및 분석 계층을 포함한 종단 간 데이터 분석 응용 프로그램에서 계층화된 전자 상거래 앱(데이터, 서비스 및 인터넷)까지 다양한 제품을 지원합니다.
 
-클라우드 고객은 고객의 고유한 요구에 맞는 솔루션을 검색할 때 여러 가지 문제에 직면합니다. Marketplace는 이러한 문제를 해결하고 고객과 혁신적인 ISV 솔루션을 연결하는 방법을 제공하며 이에 대한 내용은 다음 표에 설명되어 있습니다.
+클라우드 고객은 고객의 고유한 요구에 맞는 솔루션을 검색할 때 여러 가지 문제에 직면합니다. Azure Marketplace는 이러한 문제를 해결하고 고객과 혁신적인 ISV 솔루션을 연결하는 방법을 제공하며 이에 대한 내용은 다음 테이블에 설명되어 있습니다.
 
 | 고객 요구 | Azure Marketplace 솔루션 |
 | --- | --- |
@@ -54,14 +59,14 @@ Azure Marketplace는 신생 기업에서 기존 기업까지 ISV가 전 세계 A
 | 타사 응용 프로그램 및 서비스를 위한 확장성 있는 배포 메커니즘 필요 | 타사 응용 프로그램 및 서비스를 위한 확장성 있는 배포 생성 및 구성 가능 |
 | 기존 솔루션과 통합 및 연동하기 위한 새로운 응용 프로그램 및 서비스 필요 | 타사 응용 프로그램 및 서비스를 Azure에서 기존 솔루션과 손쉽게 통합 |
 
-Marketplace는 Azure 파트너 에코시스템의 옵션 및 장점을 전 세계 고객에게 제공합니다. 주요 이점은 다음과 같습니다.
+Azure Marketplace는 Azure 파트너 에코시스템의 옵션 및 장점을 전 세계 고객에게 제공합니다. 주요 이점은 다음과 같습니다.
 
 - Microsoft 및 파트너로부터 Azure 기반 제품에 대한 단일화된 위치 제공
 - 5,000가지 이상의 제품 제공
 - 통합된 플랫폼 환경
 - 간소화된 구성, 배포 및 관리
 
-## <a name="is-the-marketplace-right-for-my-business"></a>내 비즈니스에 Marketplace가 적합한가요?
+## <a name="is-azure-marketplace-right-for-my-business"></a>내 비즈니스에 Azure Marketplace가 적합한가요?
 
 이제 Azure Marketplace가 비즈니스에 적합한지 궁금할 수 있습니다. 그렇다면 얻고자 하는 것은 무엇인가요? Marketplace는 새로운 매출 기회를 만듭니다.
 
@@ -74,23 +79,32 @@ Marketplace는 Azure 파트너 에코시스템의 옵션 및 장점을 전 세�
 
 Marketplace 고객은 다양합니다. 또한 Azure는 모든 클라우드 공급자 중에서 급성장하는 고객층 중 하나입니다. 신생 업체에서 기업, 여러 산업, 공공 및 민간 부문에 이르기까지 다양한 회사에서 일하는 IT 전문가 및 개발자와 접촉할 수 있습니다.
 
-## <a name="how-does-the-marketplace-work"></a>Marketplace는 어떻게 작동하나요?
+## <a name="how-does-marketplace-work"></a>Marketplace는 어떻게 작동하나요?
 
-아주 쉽습니다. 승인되면 Azure Certified Virtual Machine 이미지를 만들어 Marketplace에 게시합니다. Azure 고객은 몇 분만에 제품을 찾아서 구입하고 배포할 수 있습니다. 더 나아가 고객은 자신있게 솔루션을 배포합니다. 고객은 환경이 Azure에서 성공적으로 구성되었고 인프라가 몇 분 안에 사용할 준비가 된다는 것을 알고 있습니다.
+아주 쉽습니다. 승인되면 Azure Certified Virtual Machine 이미지 또는 관리되는 응용 프로그램을 만들어 Marketplace에 게시합니다. Azure 고객은 몇 분만에 제품을 찾아서 구입하고 배포할 수 있습니다. 더 나아가 고객은 자신있게 솔루션을 배포합니다. 고객은 환경이 Azure에서 성공적으로 구성되었고 인프라가 몇 분 안에 사용할 준비가 된다는 것을 알고 있습니다.
 
-클라우드 파트너 포털은 Marketplace에서 제품을 만들기 위한 허브입니다. 가상 컴퓨터 이미지는 완전히 설치된 운영 체제 및 하나 이상의 응용 프로그램과 함께 미리 구성됩니다. 게시 준비가 완료되도록 이미지를 인증하려면 특정 필수 조건을 충족해야 합니다. 다음 섹션에서 설명합니다.
+클라우드 파트너 포털은 Marketplace에서 제품을 만들기 위한 허브입니다. 게시 준비가 완료되도록 제품을 인증하려면 특정 필수 조건을 충족해야 합니다. 다음 섹션에서 설명합니다.
 
 
 ## <a name="whats-next"></a>다음 작업
 
-Azure Marketplace가 실제로 제품에 적합하다고 생각할 수도 있습니다. 그렇다면 어떻게 시작할까요? 이 섹션은 다음을 통해 Marketplace에서 시작하고 실행하는 모든 사항을 보여 줍니다(그림 1). 
+Azure Marketplace가 실제로 제품에 적합하다고 생각할 수도 있습니다. 그렇다면 어떻게 시작할까요? 이 섹션은 다음을 수행하여 Marketplace에서 작동 및 실행하는 방법을 중점적으로 다룹니다(그림 1). 
 * Azure Certified 되기
 * 제품 판매 승인 받기
-* 클라우드 파트너 포털에서 제품 만들기 
+* 클라우드 파트너 포털에서 제품 만들기 및 게시 
 
 ![Azure Marketplace에서 판매 프로세스](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 그림 1: Azure Marketplace에서 판매 프로세스
+
+게시하려는 워크로드(가상 컴퓨터 또는 관리되는 응용 프로그램)에 따라, 다른 프로세스를 수행하여 제품을 게시합니다. 다음 콘텐츠는 _가상 컴퓨터 제품_을 게시하는 방법을 주로 설명합니다.
+
+> [!NOTE]
+> [관리되는 응용 프로그램](https://docs.microsoft.com/en-us/azure/managed-applications/overview)의 판매에 관심이 있는 경우 [여기](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app)에서 Azure Marketplace에서 프로그램을 나열하기 위한 지침을 따릅니다.
+
+> [!NOTE]
+> 완성된 SaaS(Software as a Service) 제품을 _IT 전문가 개발자_에게 판매하는 데 관심이 있는 경우 saas-on-amp@microsoft.com에 문의하여 사용 가능한 옵션에 대해 자세히 알아볼 수 있습니다.
+
 
 먼저 기술적 및 비기술적 필수 조건을 충족하고 가상 컴퓨터 이미지를 준비합니다. 그런 다음 제품을 지정하고 판매자로 등록합니다. 마지막으로 마케팅 콘텐츠를 추가하고 게시를 위해 제출합니다. Marketplace에 라이브 상태로 만들기 전에 미리 보기/스테이징 환경에서 제품을 검토할 수 있습니다.
 
@@ -103,6 +117,7 @@ Azure Marketplace에 대한 제품을 만드는 첫 번째 단계는 Azure Certi
 ![Azure 인증을 받기 위한 요구 사항](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 그림 2: Azure 인증을 받기 위한 요구 사항
+
 
 ### <a name="technical-prerequisites"></a>기술적 필수 조건
 
@@ -147,13 +162,15 @@ _Azure 인증_ 상태를 받았다는 것은 등록 프로세스가 성공적으
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>내 제품을 어떻게 지정하고 승인을 받나요?
 
-이제는 Marketplace에서 제품을 판매하도록 승인을 받을 차례입니다(그림 3). Microsoft에서는 제품을 쉽게 지정하고 게시 프로세스를 완료하며 판매자로 등록하도록 지원합니다
+이제는 Marketplace에서 제품을 판매하도록 승인을 받을 차례입니다(그림 3). 
+
+Microsoft에서는 제품을 쉽게 지정하고 게시 프로세스를 완료하며 판매자로 등록하도록 지원합니다 게시하려는 워크로드(가상 컴퓨터 또는 관리되는 응용 프로그램)에 따라, 다른 추천 프로세스를 따릅니다.
 
 ![Azure Marketplace에서 판매하도록 승인](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 그림 3: Azure Marketplace에서 판매하도록 승인을 받는 단계
 
-승인을 받는 첫 번째 단계는 제품을 [지정](https://createopportunity.azurewebsites.net/)하는 것이며 그런 다음 등록 및 게시합니다. 승인에는 _최대 3영업일_이 소요될 수 있습니다.
+_가상 컴퓨터 제품_을 게시하려는 경우 제품을 추천합니다[여기](https://createopportunity.azurewebsites.net/). 승인에는 _최대 3영업일_이 소요될 수 있습니다.
 
 승인되면 다음 내용을 받게 됩니다.
 
@@ -172,17 +189,19 @@ _Azure 인증_ 상태를 받았다는 것은 등록 프로세스가 성공적으
 
 ## <a name="what-about-best-practices"></a>모범 사례 정보
 
-다음은 Marketplace에서 판매자가 되는 데 최대한 활용할 수 있는 몇 가지 도구와 모범 사례입니다.
+다음은 Marketplace에서 판매자가 되는 데 최대한 활용할 수 있는 몇 가지 모범 사례입니다.
 
 ### <a name="azure-test-drives"></a>Azure 시험 사용
 
 [Azure 시험 사용](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1)는 잠재 고객에게 제품을 소개하고 구매하기 전에 사용해 볼 수 있는 옵션을 제공하는 훌륭한 방법입니다. 시험 사용을 통해 전환을 늘리고 업계를 선도할 수 있습니다.
 
-연락처 정보를 제공한 후 고객은 미리 빌드된 시험 사용에 액세스할 수 있습니다. 실제 시나리오에서 제품의 주요 기능 및 장점에 대한 실습, 자기 주도형 체험을 경험합니다.
+연락처 정보를 제공한 후 고객은 미리 빌드된 시험 사용에 액세스할 수 있습니다. 실제 시나리오에서 제품의 주요 기능 및 장점에 대한 실습, 자기 주도형 체험을 경험합니다. 그것뿐이 아닙니다. 제품과 관련된 시험 사용을 게시하여 최대 36% 더 많은 잠재 고객을 확보할 수 있습니다.
 
-현재는 제품에 대한 시험 사용 게시가 클래식 게시 포털에서만 제공됩니다. [새 시험 사용을 게시하는 방법](https://github.com/Azure/AzureTestDrive/wiki)에 대한 문서로 이동하여 자세히 알아봅니다.
+여기서는 등록 프로세스 동안 클라우드 파트너 포털에 시험 사용을 게시하는 데 필요한 모든 지침을 제공합니다. [Azure 시험 사용](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)에 대해 자세히 알아봅니다.
 
-[Azure 시험 사용](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf)에 대해 자세히 알아봅니다.
+###<a name="lead-generation"></a>잠재 고객 생성
+
+Azure Marketplace에 제품을 나열할 때 얻을 수 있는 주요 장점 중 하나는 귀하의 제품에 관심이 있거나 제품을 배포해본 적이 있는 고객을 귀하에게 연결해 주므로 잠재 고객으로 확보할 수 있다는 것입니다. 그뿐 아니라 이러한 잠재 고객을 CRM으로 직접 보낼 수 있으므로 빠르게 작업을 진행하고 후속 조치를 취하여 더 많은 기회를 창출하고 더 많은 거래를 성사시킬 수 있습니다. 잠재 고객을 통합하는 데 몇 분 정도만 걸리며 Cloud 파트너 포털의 게시 프로세스 동안 이러한 통합이 진행됩니다.
 
 ### <a name="go-to-market-checklist"></a>Go-to-market 검사 목록
 
@@ -198,21 +217,20 @@ _Azure 인증_ 상태를 받았다는 것은 등록 프로세스가 성공적으
 
 ## <a name="what-about-reports"></a>보고서 정보
 
-Marketplace는 Marketplace [게시자 보고 포털](https://reports.azure.com)을 통해 액세스할 수 있는 주문, 사용량 및 고객에 대한 보고서를 제공합니다. 유용한 통찰력 및 분석 외에도 원시 데이터는 탐색 가능한 테이블로 제공되고 CSV 또는 XLS 파일로 다운로드할 수 있습니다.
+Marketplace는 Marketplace Cloud 파트너 포털 정보 섹션을 통해 액세스할 수 있는 주문, 사용량 및 고객에 대한 보고서를 제공합니다. 유용한 통찰력 및 분석 외에도 원시 데이터는 탐색 가능한 테이블로 제공되고 CSV 또는 XLS 파일로 다운로드할 수 있습니다.
 
-이 [비디오](https://player.vimeo.com/video/200859918)는 다음과 같은 보고서 기능 및 혜택의 미리 보기를 제공합니다.
+정보 기능의 특징 및 장점에는 다음이 포함됩니다.
 
-- 보고서 유형: 홈페이지에서 주문, 사용량 및 고객 동향의 요약 스냅숏
+- 보고서 유형: 정보 홈페이지에 제공되는 주문, 사용량, 배포 및 고객 동향의 요약 스냅숏
 - 주문, 사용량 및 고객 데이터의 세부 정보
 - 월간 요약 또는 6개월 추세 보기로 표시된 주문 및 사용량
-- 표준으로 표시된 다양한 통찰력
 - 다음을 기준으로 한 사용량/주문:
   - 시장
   - 채널
   - 유행 제품
   - Marketplace 라이선스 유형
 
-상세 보고서에는 회사 이름 및 우편 번호와 같은 지리적 위치 등의 고객 정보가 표시되어 고객을 비교할 수 있습니다. 다음 목록은 고객에 대해 제공하는 구체적인 특성입니다.
+상세 보고서에는 회사 이름 및 우편 번호와 같은 지리적 위치 등의 고객 정보가 표시되어 고객을 비교하고 판매자를 지원할 수 있습니다. 다음 목록은 고객에 대해 제공하는 구체적인 특성입니다.
 
 - Reseller
 - FirstName
@@ -221,7 +239,7 @@ Marketplace는 Marketplace [게시자 보고 포털](https://reports.azure.com)�
 - CompanyName
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId(PAYG 고객만 해당)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Marketplace는 Marketplace [게시자 보고 포털](https://reports.azure.com)�
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-도움말 문서, 용어집 및 녹화된 데모를 통한 학습도 제공합니다. 보고서에 대한 도움 또는 지원이 필요한 경우 [지원 티켓](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249)을 열면 됩니다.
+도움말 문서, 용어집 및 녹화된 데모를 통한 학습도 제공합니다. 보고서에 대한 도움 또는 지원이 필요한 경우 언제든지 Cloud 파트너 포털을 통해 지원 티켓을 열 수 있습니다.
 
 ISV 판매자 커뮤니티에 오신 것을 환영하며 제품을 게시하기를 기대합니다.
 

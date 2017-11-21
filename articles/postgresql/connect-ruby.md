@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
-ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Ruby를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org) 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Ruby를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
@@ -23,7 +23,7 @@ ms.lasthandoff: 10/24/2017
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 - [DB 만들기 - 포털](quickstart-create-server-database-portal.md)
-- [DB 만들기 - Azure CLI](quickstart-create-server-database-azure-cli.md)
+- [DB 만들기 - Azure 명령줄 인터페이스](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-ruby"></a>Ruby 설치
 사용자의 컴퓨터에 Ruby를 설치합니다. 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/24/2017
 - `sudo gem install pg` 명령을 실행하여 Gem으로 Ruby pg 모듈을 빌드합니다.
 
 ## <a name="run-ruby-code"></a>Ruby 코드 실행 
-- 코드를 텍스트 파일에 저장하고 `C:\rubypostgres\read.rb` 또는 `/home/username/rubypostgres/read.rb`와 같은 .rb 파일 확장자를 사용하여 프로젝트 폴더에 파일을 저장합니다.
+- 코드를 .rb 파일 확장자를 사용하여 텍스트 파일에 저장하고 `C:\rubypostgres\read.rb` 또는 `/home/username/rubypostgres/read.rb`와 같은 프로젝트 폴더에 파일을 저장합니다.
 - 코드를 실행하려면 명령 프롬프트 또는 Bash 셸을 시작합니다. 프로젝트 폴더 `cd rubypostgres`로 디렉터리를 변경한 후 `ruby read.rb` 명령을 입력하여 응용 프로그램을 실행합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기

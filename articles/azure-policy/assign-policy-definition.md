@@ -5,26 +5,28 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
-Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 SQL Server 버전 12.0를 사용하지 않는 리소스를 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다. 이 프로세스를 마치면 버전이 다른 서버, 즉 *규정을 따르지 않는* 서버가 성공적으로 식별될 것입니다.
+Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 Managed Disks를 사용하지 않는 가상 컴퓨터를 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다.
+
+이 프로세스가 끝나면 Managed Disks를 사용하지 않는 *비규격* 가상 컴퓨터가 식별됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="opt-in-to-azure-policy"></a>Azure Policy 옵트인
+## <a name="opt-in-to-azure-policy"></a>Azure Policy에 옵트인
 
-Azure Policy는 현재 제한된 미리 보기로 제공되므로 액세스를 요청하려면 등록이 필요합니다.
+Azure Policy는 공개 미리 보기에서 사용할 수 있으며 액세스를 요청하려면 등록해야 합니다.
 
-1. https://aka.ms/getpolicy에서 Azure Policy로 이동한 다음 왼쪽 창에서 **등록**을 선택합니다.
+1. https://aka.ms/getpolicy에 있는 Azure Policy로 이동하고 왼쪽 창에서 **등록**을 선택합니다.
 
    ![정책 검색](media/assign-policy-definition/sign-up.png)
 
@@ -32,11 +34,11 @@ Azure Policy는 현재 제한된 미리 보기로 제공되므로 액세스를 �
 
    ![Azure Policy를 사용하기 위한 옵트인](media/assign-policy-definition/preview-opt-in.png)
 
-   필요에 따라 등록 요청을 수락하는 데 며칠이 걸릴 수 있습니다. 요청이 수락되면 서비스 사용을 시작할 수 있다는 내용의 전자 메일이 발송됩니다.
+   요청은 미리 보기에 대해 자동으로 승인됩니다. 시스템에서 등록을 처리하는 데 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 *SQL Server 버전 12.0 필요* 정의를 할당합니다. 
+이 빠른 시작에서 정책 할당을 만들고 *Managed Disks가 없는 가상 컴퓨터 감사* 정책 정의를 할당합니다.
 
 1. Azure Policy 페이지의 왼쪽 창에서 **할당**을 선택합니다.
 2. **할당** 창의 위쪽에서 **정책 할당**를 선택합니다.
@@ -50,14 +52,14 @@ Azure Policy는 현재 제한된 미리 보기로 제공되므로 액세스를 �
    Azure Policy는 사용 가능한 기본 정책 정의를 제공합니다. 다음과 같은 기본 정책 정의가 표시됩니다.
 
    - 태그 및 태그 값 강제 적용
-   - 태그 및 태그 값 적용
+   - 태그 및 해당 값 적용
    - SQL Server 버전 12.0 필요
 
-4. 정책 정의를 검색하여 *SQL Server 버전 12.0 필요* 정책을 찾습니다. 해당 정책을 클릭하고 **선택**을 클릭합니다.
+4. 정책 정의를 검색하여 *Managed Disks를 사용하지 않는 VM 감사* 정의를 찾습니다. 해당 정책을 클릭하고 **할당**을 클릭합니다.
 
    ![올바른 정책 정의 찾기](media/assign-policy-definition/select-available-definition.png)
 
-5. 정책 할당에 대한 표시 **이름**을 제공합니다. 여기서는 *SQL Server 버전 12.0 필요*을 사용합니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당이 이 환경에서 만드는 모든 SQL Server가 버전 12.0이 되도록 하는 방법에 대한 세부 정보를 제공합니다.
+5. 정책 할당에 대한 표시 **이름**을 제공합니다. 이 경우 *Managed Disks를 사용하지 않는 VM 감사*를 사용합니다. 선택적인 **설명**을 추가할 수도 있습니다. 이 설명은 이 정책 할당이 Managed Disks를 사용하지 않는 이 환경에서 작성된 모든 가상 컴퓨터를 식별하는 방법에 대한 세부 정보를 제공합니다.
 6. 정책이 기존 리소스에 적용되도록 하려면 가격 책정 계층을 **표준**으로 변경합니다.
 
    Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)을 참조하세요.
@@ -92,7 +94,7 @@ Azure Policy는 현재 제한된 미리 보기로 제공되므로 액세스를 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 가이드는 이 빠른 시작을 기반으로 구성됩니다. 후속 자습서를 계속 진행하려는 경우 이 자습서에서 만든 리소스를 지우지 마세요. 계속하지 않으려는 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.
+이 컬렉션의 다른 가이드는 이 빠른 시작에 기반하여 작성되었습니다. 후속 자습서를 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.
 1. 왼쪽 창에서 **할당**을 선택합니다.
 2. 방금 만든 할당을 검색합니다.
 
@@ -108,4 +110,3 @@ Azure Policy는 현재 제한된 미리 보기로 제공되므로 액세스를 �
 
 > [!div class="nextstepaction"]
 > [정책 만들기 및 관리](./create-manage-policy.md)
-

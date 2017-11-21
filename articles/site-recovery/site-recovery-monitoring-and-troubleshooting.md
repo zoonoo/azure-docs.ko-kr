@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결
 이 모니터링 및 문제 해결 가이드를 사용하면 복제 상태를 추적하는 방법 및 Azure Site Recovery에 대한 문제해결 기술에 대해 배울 수 있습니다.
 
 ## <a name="understand-the-components"></a>구성 요소 이해
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>온-프레미스와 Azure 간 복제를 위한 VMware 가상 컴퓨터 또는 물리적 서버 사이트 배포
-온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버와 Azure 간 데이터베이스 복구를 설정하려면 가상 컴퓨터 또는 서버에서 구성 서버, 마스터 대상 서버 및 프로세스 서버 구성 요소를 설정해야 합니다. 원본 서버에 대한 보호를 사용하도록 설정하면 Azure Site Recovery는 Microsoft Azure App Service의 Mobile Apps 기능을 설치합니다. 온-프레미스 중단이 발생한 후 및 원본 서버가 Azure에 장애 조치된 후 고객들은 Azure 및 마스터 대상 서버 온-프레미스에서 프로세스 서버를 설정하여 원본 서버 온-프레미스를 다시 빌드해야 합니다.
+온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버와 Azure 간 데이터베이스 복구를 설정하려면 가상 컴퓨터 또는 서버에서 구성 서버, 마스터 대상 서버 및 프로세스 서버 구성 요소를 설정해야 합니다. 원본 서버에 대한 보호를 사용하도록 설정하면 최신 버전이 아직 배포되지 않은 경우 Azure Site Recovery는 선택된 프로세스 서버에서 모바일 서비스를 설치합니다. 온-프레미스 중단이 발생한 후 및 원본 서버가 Azure에 장애 조치된 후 고객들은 Azure 및 마스터 대상 서버 온-프레미스에서 프로세스 서버를 설정하여 원본 서버 온-프레미스를 다시 빌드해야 합니다.
 
 ![온-프레미스와 Azure 간 복제를 위한 VMware/물리적 사이트 배포](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
@@ -55,7 +55,7 @@ Azure Site Recovery에서 모든 작업이 감사되며 **작업** 탭 아래에
 
 ![특정 작업에 대한 오류 세부 정보를 보여 주는 대화 상자](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-앞의 예제에서 진행 중인 다른 작업이 보호 구성 실패를 일으키는 것 같아 보입니다. 권장 사항에 따라 문제를 해결하고 **다시 시작**을 클릭하여 작업을 다시 시작합니다.
+앞의 예제에서 진행 중인 다른 작업이 보호 구성 실패를 일으키는 것 같아 보입니다. 권장 사항에 따라 문제를 해결한 다음, **다시 시작**을 클릭하여 작업을 다시 시작합니다.
 
 ![작업 탭의 다시 시작 단추](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
@@ -151,7 +151,7 @@ Azure Site Recovery에 대한 지원 티켓을 모으려면 URL(<http://aka.ms/g
 
 ### <a name="setup"></a>설정
 * [내부 오류로 인해 가상 컴퓨터 관리자 서버를 등록할 수 없습니다. 오류에 대한 자세한 내용은 Site Recovery 포털에서 작업 보기를 참조하세요. 다시 설정을 실행하여 서버를 등록합니다.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
-* [Hyper-V 복구 관리자 자격 증명 모음에 연결할 수 없습니다. 프록시 설정을 확인하거나 나중에 다시 시도하세요.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+* [Hyper-V Recovery Manager 자격 증명 모음에 연결할 수 없습니다. 프록시 설정을 확인하거나 나중에 다시 시도하세요.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### <a name="configuration"></a>구성
 * [보호 그룹을 만들 수 없습니다. 서버 목록을 검색하는 동안 오류가 발생했습니다.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
@@ -182,7 +182,7 @@ Azure Site Recovery에 대한 지원 티켓을 모으려면 URL(<http://aka.ms/g
 * [가상 컴퓨터에 대역 외 작업이 발생하고 장애 조치(failover)를 커밋하지 못했습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 * 테스트 장애 조치(Failover)
   * [테스트 장애 조치(Failover)가 진행 중이므로 장애 조치(Failover)를 시작할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
-* <span style="color:green;">새로 만들기</span> 컴퓨터가 속한 Virtual Machine 또는 서브넷과 연결된 네트워크 보안 그룹의 구성 설정으로 인해 'PreFailoverWorkflow 태스크 WaitForScriptExecutionTaskTimeout'으로 장애 조치의 시간이 초과되었습니다. 자세한 내용은 ['PreFailoverWorkflow 작업 WaitForScriptExecutionTaskTimeout'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) 을 참조하세요.
+* <span style="color:green;">새로 만들기</span> 컴퓨터가 속한 Virtual Machine 또는 서브넷과 연결된 네트워크 보안 그룹의 구성 설정으로 인해 'PreFailoverWorkflow 태스크 WaitForScriptExecutionTaskTimeout'으로 장애 조치의 시간이 초과되었습니다. 자세한 내용은 ['PreFailoverWorkflow 작업 WaitForScriptExecutionTaskTimeout'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery)을 참조하세요.
 
 ### <a name="configuration-server-process-server-master-target"></a>구성 서버, 프로세스 서버, 마스터 대상
 * [PS/CS가 VM으로 호스팅된 ESXi 호스트가 실패하고 퍼플 스크린이 표시되었습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)

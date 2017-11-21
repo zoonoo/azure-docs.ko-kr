@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -153,7 +153,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 시스템 성능 및 다운로드 속도 따라 설치 20 분 또는 long 512tb 같이 몇 시간 걸릴 수 있습니다. MySQLAdapter 블레이드를 사용할 수 없는 경우 관리 포털을 새로 고칩니다.
 
 > [!NOTE]
-> 설치 들어 이상 90 분이 걸리는 경우 실패할 수 있습니다 및 화면의 및 로그 파일에서 오류 메시지가 나타납니다. 배포는 실패 한 단계에서 다시 시도 됩니다. 권장 되는 메모리 및 코어 사양을 충족 하지 않는 시스템 MySQL RP 배포할 수 수 있습니다.
+> 설치 들어 이상 90 분이 걸리는 경우 실패할 수 있습니다 및 화면의 및 로그 파일에서 오류 메시지가 나타납니다. 배포는 실패 한 단계에서 다시 시도 됩니다. 시스템 메모리와 vCPU 권장된 사양을 충족 하지 않는 MySQL RP 배포할 수 수 있습니다.
 
 
 

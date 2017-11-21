@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.
@@ -228,7 +228,11 @@ ASP.NET 앱에 대한 기본 레이아웃인 *Views/Shared/_Layout.cshtml* 파�
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>VotingWeb.cs 파일 업데이트
-WebListener 웹 서버를 사용하여 상태 비저장 서비스 내에 ASP.NET Core 웹 호스트를 만드는 *VotingWeb.cs* 파일을 엽니다.  파일 맨 위에 `using System.Net.Http;` 지시문을 추가합니다.  `CreateServiceInstanceListeners()` 함수를 다음으로 바꾸고 변경 내용을 저장합니다.
+WebListener 웹 서버를 사용하여 상태 비저장 서비스 내에 ASP.NET Core 웹 호스트를 만드는 *VotingWeb.cs* 파일을 엽니다.  
+
+파일 맨 위에 `using System.Net.Http;` 지시문을 추가합니다.  
+
+`CreateServiceInstanceListeners()` 함수를 다음으로 바꾸고 변경 내용을 저장합니다.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>VotesController.cs 파일 추가
-투표 작업을 정의하는 컨트롤러를 추가합니다. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가->새 항목->클래스**를 선택합니다.  파일 이름을 "VotesController.cs"로 지정하고 **추가**를 클릭합니다.  파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  뒷부분의 [VotesController.cs 파일 업데이트](#updatevotecontroller_anchor)에서 백 엔드 서비스의 투표 데이터를 읽고 쓰도록 이 파일을 수정합니다.  지금은 컨트롤러가 보기에 고정 문자열 데이터를 반환합니다.
+투표 작업을 정의하는 컨트롤러를 추가합니다. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가->새 항목->클래스**를 선택합니다.  파일 이름을 "VotesController.cs"로 지정하고 **추가**를 클릭합니다.  
+
+파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  뒷부분의 [VotesController.cs 파일 업데이트](#updatevotecontroller_anchor)에서 백 엔드 서비스의 투표 데이터를 읽고 쓰도록 이 파일을 수정합니다.  지금은 컨트롤러가 보기에 고정 문자열 데이터를 반환합니다.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
+VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **끝점** 리소스를 찾고, **포트** 값을 80 또는 다른 포트로 변경합니다. 응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+'F5' 키를 사용하여 디버깅할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 응용 프로그램 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **응용 프로그램 URL** 속성을 업데이트합니다.
+
+![응용 프로그램 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>로컬로 응용 프로그램 배포 및 실행
 이제 진행하여 응용 프로그램을 실행할 수 있습니다. Visual Studio에서 `F5`를 눌러 응용 프로그램을 디버깅하기 위해 배포합니다. **관리자** 권한으로 Visual Studio를 이전에 열지 않은 경우 `F5` 키가 실패합니다.

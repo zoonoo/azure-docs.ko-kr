@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/01/2017
 
 샘플링에서 무시된 데이터 요소는 [연속 내보내기](app-insights-export-telemetry.md)와 같은 Application Insights 기능에서 사용할 수 없습니다.
 
-SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 수집 샘플링이 작동하지 않습니다. SDK의 샘플링 비율이 100%보다 작으면 설정된 수집 샘플링 설정이 무시됩니다.
+SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 수집 샘플링이 작동하지 않습니다. Visual Studio에서 ASP.NET SDK를 사용하도록 설정하거나 상태 모니터를 사용하고 수집 샘플링을 사용하지 않도록 설정하는 경우 적응 샘플링이 기본적으로 사용하도록 설정됩니다. SDK의 샘플링 비율이 100%보다 작으면 설정된 수집 샘플링 설정이 무시됩니다.
 
 > [!WARNING]
 > 타일에 표시된 값은 수집 샘플링에 대해 설정한 값을 나타냅니다. SDK 샘플링이 작업 중인 경우 실제 샘플링 속도를 나타내지 않습니다.

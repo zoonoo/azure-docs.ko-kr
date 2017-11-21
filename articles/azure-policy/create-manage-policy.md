@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -41,7 +41,7 @@ Azure Policy는 제한된 미리 보기에서 사용할 수 있으므로 액세�
 
    ![Azure Policy를 사용하기 위한 옵트인](media/assign-policy-definition/preview-opt-in.png)
 
-   필요에 따라 등록 요청을 수락하는 데 며칠이 걸릴 수 있습니다. 요청이 수락되면 전자 메일을 통해 서비스 사용을 시작할 수 있다고 알려줍니다.
+   필요에 따라 등록 요청을 수락하는 데 며칠이 걸릴 수 있습니다. 요청이 수락되면 서비스 사용을 시작할 수 있다는 내용의 전자 메일이 발송됩니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
@@ -61,7 +61,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
    ![사용 가능한 정책 정의 열기](media/create-manage-policy/open-policy-definitions.png)
 
 5. **SQL Server 버전 12.0 필요**를 선택합니다.
-   
+
    ![정책 찾기](media/create-manage-policy/select-available-definition.png)
 
 6. 정책 할당에 대한 표시 **이름**을 제공합니다. 여기서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당이 이 환경에서 만드는 모든 SQL Server가 버전 12.0이 되도록 하는 방법에 대한 세부 정보를 제공합니다.
@@ -93,7 +93,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
       - 정책 매개 변수
       - 정책 규칙/조건 - 여기서는 'VM SKU 크기가 G 시리즈와 같음'입니다.
       - 정책 효과 - 여기서는 **거부**입니다.
-   
+
    json 코드는 다음과 같습니다.
 
 ```json
@@ -118,9 +118,225 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    json 코드 샘플을 보려면 [리소스 정책 개요](../azure-resource-manager/resource-manager-policy.md) 문서를 참조하세요.
-   
+
 4. **저장**을 선택합니다.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>REST API를 사용하여 정책 정의 만들기
+
+정책 정의에 대한 REST API를 사용하여 정책을 만들 수 있습니다. REST API를 사용하여 정책 정의를 만들고, 삭제하고, 기존 정의에 관한 정보를 가져올 수 있습니다.
+정책 정의를 만들려면 다음 예제를 사용합니다.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+다음 예제와 비슷한 요청 본문을 포함합니다.
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>PowerShell을 사용하여 정책 정의 만들기
+
+PowerShell 예제를 진행하기 전에 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. 정책 매개 변수가 버전 3.6.0에 추가되었습니다. 이전 버전이 있는 경우 예제에서는 매개 변수를 찾을 수 없음을 나타내는 오류를 반환합니다.
+
+`New-AzureRmPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다.
+
+파일에서 정책 정의를 만들려면 경로를 파일에 전달합니다. 외부 파일에 대해서는 다음 예제를 사용합니다.
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+로컬 파일에 대해서는 다음 예제를 사용합니다.
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+인라인 규칙을 사용하여 정책 정의를 만들려면 다음 예제를 사용합니다.
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+출력 `$definition` 개체에 저장되어 정책 할당 중에 사용됩니다.
+다음 예제에서는 매개 변수를 포함하는 정책 정의를 만듭니다.
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>정책 정의 보기
+
+구독에서 모든 정책 정의를 보려면 다음 명령을 사용합니다.
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+기본 제공 정책을 비롯한 사용 가능한 모든 정책 정의를 반환합니다. 각 정책은 다음 형식으로 반환됩니다.
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Azure CLI를 사용하여 정책 정의 만들기
+
+정책 정의 명령과 함께 Azure CLI를 사용하여 정책 정의를 만들 수 있습니다.
+인라인 규칙을 사용하여 정책 정의를 만들려면 다음 예제를 사용합니다.
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>정책 정의 보기
+
+구독에서 모든 정책 정의를 보려면 다음 명령을 사용합니다.
+
+```
+az policy definition list
+```
+
+기본 제공 정책을 비롯한 사용 가능한 모든 정책 정의를 반환합니다. 각 정책은 다음 형식으로 반환됩니다.
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>이니셔티브 정의 만들기 및 할당
 
@@ -166,7 +382,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
    - 가격 책정 계층: 표준
    - 이 할당이 적용되는 범위: **Azure Advisor 용량 개발**
 
-5. **할당**을 선택합니다. 
+5. **할당**을 선택합니다.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>규정 비준수 또는 거부된 리소스 해결
 
@@ -205,4 +421,4 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 정책 정의의 구조에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [정책 정의 구조](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Azure Policy 정의 구조](policy-definition.md)

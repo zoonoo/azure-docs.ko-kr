@@ -1,5 +1,5 @@
 ---
-title: "Table Storage 사용 방법(C++) | Microsoft Docs"
+title: "C++에서 Azure Table Storage를 사용하는 방법 | Microsoft Docs"
 description: "Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 services: cosmos-db
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6adfda2ef17e04cedd026964cfcad7443e0bd9
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>C++에서 테이블 저장소를 사용하는 방법
+# <a name="how-to-use-azure-table-storage-with-c"></a>C++에서 Azure Table Storage를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -62,7 +62,7 @@ Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 �
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 테이블 서비스를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
+로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
@@ -140,7 +140,7 @@ azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>엔터티 일괄 삽입
-하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **table_batch_operation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 insert 메서드를 **table_batch_operation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음 **cloud_table.execute**가 호출되어 작업을 실행합니다.  
+하나의 쓰기 작업으로 Table service에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **table_batch_operation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 insert 메서드를 **table_batch_operation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음 **cloud_table.execute**가 호출되어 작업을 실행합니다.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -268,7 +268,7 @@ for (; it != end_of_results; ++it)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>단일 엔터티 검색
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **table_operation::retrieve_entity**를 사용하여 고객 'Jeff Smith'를 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, 반환된 값은 **table_result**입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.  
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **table_operation::retrieve_entity**를 사용하여 고객 'Jeff Smith'를 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, 반환된 값은 **table_result**입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 Table service에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -293,7 +293,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
-엔터티를 바꾸려면 테이블 서비스에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 테이블 서비스에 다시 저장합니다. 다음 코드에서는 기존 고객의 전화 번호와 메일 주소를 변경합니다. **table_operation::insert_entity**를 호출하는 대신, 이 코드에서는 **table_operation::replace_entity**를 사용합니다. 이렇게 하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 **table_operation::replace_entity** 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.  
+엔터티를 바꾸려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 다시 저장합니다. 다음 코드에서는 기존 고객의 전화 번호와 메일 주소를 변경합니다. **table_operation::insert_entity**를 호출하는 대신, 이 코드에서는 **table_operation::replace_entity**를 사용합니다. 이렇게 하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 **table_operation::replace_entity** 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -448,11 +448,11 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure 저장소에 대해 알아보세요.  
+이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure Storage에 대해 알아보세요.  
 
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [C++에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 큐 저장소를 사용하는 방법](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [C++에서 Azure 저장소 리소스 나열](../storage/common/storage-c-plus-plus-enumeration.md)
+* [C++에서 Azure Storage 리소스 나열](../storage/common/storage-c-plus-plus-enumeration.md)
 * [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
-* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

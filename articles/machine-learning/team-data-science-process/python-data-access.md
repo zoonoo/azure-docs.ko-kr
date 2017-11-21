@@ -4,7 +4,7 @@ description: "Python 클라이언트 라이브러리를 설치하고 사용하�
 services: machine-learning
 documentationcenter: python
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: huvalo;bradsev
-ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 사용하여 Python으로 데이터 집합에 액세스
 Microsoft Azure 기계 학습 Python 클라이언트 라이브러리 미리보기를 사용하면 로컬 Python 환경에서 Azure 기계 학습 데이터 집합으로 안전하게 액세스 할 수 있고, 작업 영역에 데이터 집합을 생성하여 관리할 수 있습니다.

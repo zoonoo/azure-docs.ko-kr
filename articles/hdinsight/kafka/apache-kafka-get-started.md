@@ -13,15 +13,15 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: ee69da7f2190d40148ea59e6a23315ad96c2bc92
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 91ef8aece812c0495fcb3bc31401606f40b7ba97
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight의 Apache Kafka(미리 보기) 시작
+# <a name="start-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka 시작
 
 Azure HDInsight의 [Apache Kafka](https://kafka.apache.org) 클러스터를 만들고 사용하는 방법에 대해 알아봅니다. Kafka는 HDInsight와 함께 제공되는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다.
 

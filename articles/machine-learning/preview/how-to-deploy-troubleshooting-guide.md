@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>문제 해결 서비스 배포 및 환경 설정
 다음 정보는 모델 관리 환경을 설정할 때 오류의 원인을 확인하는 데 도움이 될 수 있습니다.
@@ -36,7 +36,7 @@ Machine Learning Compute를 등록하려면 Azure 구독에 대한 소유자 권
 환경이 프로비전될 때 정보를 디버그 및 추적하려면 설정 명령에서 `--debug` 및 `--verbose` 플래그를 사용합니다.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>서비스 배포
@@ -89,7 +89,9 @@ Python 예제:
 ```
 
 ## <a name="other-common-problems"></a>다른 일반적인 문제
-- `env setup` 명령이 실패하면 구독에 사용 가능한 코어가 충분한 지 확인합니다.
-- 웹 서비스 이름에 밑줄(_)을 사용하지 마십시오(예: *my_webservice*).
-- 웹 서비스를 호출 할 때 **502 Bad Gateway** 오류가 발생하면 다시 시도합니다. 이 오류는 일반적으로 컨테이너가 클러스터에 아직 배포되지 않았음을 의미합니다.
-- 서비스를 만들 때 **CrashLoopBackOff** 오류가 발생하면 로그를 확인합니다. 일반적으로 **init** 함수에 종속성이 누락된 결과입니다.
+- `env setup` 명령이 `LocationNotAvailableForResourceType`을 나타내며 실패하면 Machine Learning 리소스에 대해 잘못된 위치(지역)를 사용하고 있는 것일 수 있습니다. `-l` 매개 변수로 지정된 위치가 `eastus2`, `westcentralus` 또는 `australiaeast`인지 확인하세요.
+- `env setup` 명령이 `Resource quota limit exceeded`를 나타내며 실패하면 구독에서 사용할 수 있는 충분한 코어가 있는지와 리소스가 다른 프로세스에서 사용되고 있지 않은지 확인합니다.
+- `env setup` 명령이 `Invalid environment name. Name must only contain lowercase alphanumeric characters`를 나타내며 실패하면 서비스 이름에 대문자, 기호 또는 밑줄(_)이 포함되어 있지 않은지 확인합니다(예: *my_environment*).
+- `service create` 명령이 `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`를 나타내며 실패하면 서비스 이름이 3~32자 사이이고, 소문자 영숫자로 시작 및 끝나고, 대문자, 기호(하이픈(-) 및 마침표(. ) 또는 밑줄(_) 제외)를 포함하지 않는지 확인합니다(예: *my_webservice*).
+- 웹 서비스를 호출할 때 `502 Bad Gateway` 오류가 발생하면 다시 시도합니다. 이 오류는 일반적으로 컨테이너가 클러스터에 아직 배포되지 않았음을 의미합니다.
+- 서비스를 만들 때 `CrashLoopBackOff` 오류가 발생하면 로그를 확인합니다. 일반적으로 **init** 함수에 종속성이 누락된 결과입니다.

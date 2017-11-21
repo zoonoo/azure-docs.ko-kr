@@ -9,14 +9,6 @@
 ## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# 샘플
-## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [템플릿 배포](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [템플릿 배포](resource-manager-samples-cli-deploy.md)
-
 # 방법
 ## 템플릿 만들기
 ### [템플릿 섹션](resource-group-authoring-templates.md)
@@ -69,12 +61,6 @@
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 
-## 리소스 정책 설정
-### [리소스 정책이란?](resource-manager-policy.md)
-### 예
-#### [태그](resource-manager-policy-tags.md)
-#### [명명 규칙](resource-manager-policy-naming-convention.md)
-
 ## 감사
 ### [활동 로그 보기](resource-group-audit.md)
 ### [배포 작업 보기](resource-manager-deployment-operations.md)
@@ -89,6 +75,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 가상 컴퓨터 배포 오류

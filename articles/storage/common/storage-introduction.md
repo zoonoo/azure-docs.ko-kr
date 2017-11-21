@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage 소개
 
@@ -47,7 +47,7 @@ Blob Storage, File Storage 및 Queue Storage와 같은 Azure Storage에서 제�
 
 Blob은 기본적으로 사용자가 컴퓨터(또는 태블릿, 모바일 장치 등)에 저장한 항목과 같은 파일입니다. 사진, Microsoft Excel 파일, HTML 파일, 가상 하드 디스크(VHD), 로그와 같은 빅 데이터, 데이터베이스 백업 등 거의 모든 것이 가능합니다. Blob은 폴더와 유사한 컨테이너에 저장됩니다. 
 
-Blob Storage에 파일을 저장한 후에 URL, REST 인터페이스 또는 Azure SDK 저장소 클라이언트 라이브러리 중 하나를 사용하여 전 세계 어디에서든지 해당 파일에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 Node.js, Java, PHP, Ruby, Python 및 .NET을 비롯한 여러 언어에서 사용할 수 있습니다. 
+Blob Storage에 파일을 저장한 후에 URL, REST 인터페이스 또는 Azure SDK 저장소 클라이언트 라이브러리 중 하나를 사용하여 전 세계 어디에서든지 해당 파일에 액세스할 수 있습니다. Storage 클라이언트 라이브러리는 Node.js, Java, PHP, Ruby, Python 및 .NET을 비롯한 여러 언어에서 사용할 수 있습니다. 
 
 블록 Blob, 페이지 Blob(VHD 파일에 사용됨) 및 추가 Blob라는 세 가지 Blob 유형이 있습니다.
 
@@ -80,7 +80,7 @@ Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니�
 
 ## <a name="table-storage"></a>테이블 저장소
 
-이제 표준 Azure Table Storage는 Cosmos DB의 일부입니다. 해당 설명서를 보려면 [Azure Table Storage 개요](../../cosmos-db/table-storage-overview.md)를 참조하세요. 또한 처리량 최적화 테이블, 글로벌 분포 및 자동 보조 인덱스를 제공하는 Azure Table Storage에 대한 프리미엄 테이블이 제공됩니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB: 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
+Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../../cosmos-db/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
 
 ## <a name="disk-storage"></a>디스크 저장소
 
@@ -121,7 +121,7 @@ Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD를 사용하여 저장소 계정에 대한 액세스 보호
 
-저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 응용 프로그램에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다. 
+저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 Access Control)를 사용하여 사용자, 그룹 또는 응용 프로그램에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다. 
 
 ### <a name="securing-access-using-shared-access-signatures"></a>공유 액세스 서명을 사용하여 액세스 보호 
 
@@ -202,16 +202,16 @@ Azure Storage에서 가격 책정에 대한 자세한 내용은 [가격 책정 �
 Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure Storage 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
 ### <a name="azure-storage-data-services"></a>Azure Storage 데이터 서비스
-* [저장소 서비스 REST API](/rest/api/storageservices/)
-* [.NET용 저장소 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+* [Storage 서비스 REST API](/rest/api/storageservices/)
+* [.NET용 Storage 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Java/Android용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/java/)
-* [Node.js용 저장소 클라이언트 라이브러리](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [PHP용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/php/)
-* [Python용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/python/)
-* [Ruby용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/ruby/)
+* [Java/Android용 Storage 클라이언트 라이브러리](https://azure.microsoft.com/develop/java/)
+* [Node.js용 Storage 클라이언트 라이브러리](http://dl.windowsazure.com/nodestoragedocs/index.html)
+* [PHP용 Storage 클라이언트 라이브러리](https://azure.microsoft.com/develop/php/)
+* [Python용 Storage 클라이언트 라이브러리](https://azure.microsoft.com/develop/python/)
+* [Ruby용 Storage 클라이언트 라이브러리](https://azure.microsoft.com/develop/ruby/)
 * [PowerShell용 Storage Cmdlet](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-* [CLI 2.0의 저장소 명령](/cli/azure/storage)
+* [CLI 2.0의 Storage 명령](/cli/azure/storage)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -34,32 +34,21 @@
 #### [클라우드 서비스 역할에서 작업을 사용하여 .NET 설치](cloud-services-dotnet-install-dotnet.md)
 
 ### 원격 데스크톱 구성
-#### [Azure 포털](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [클래식 포털](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [포털](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 배포
-### 포털에서 클라우드 서비스 만들기 및 배포
-#### [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
-#### [클래식 포털](cloud-services-how-to-create-deploy.md)
+### [포털에서 클라우드 서비스 만들기 및 배포](cloud-services-how-to-create-deploy-portal.md)
 ### [PowerShell에서 빈 클라우드 서비스 컨테이너 만들기](cloud-services-powershell-create-cloud-container.md)
-### 사용자 지정 도메인 이름 구성
-#### [포털](cloud-services-custom-domain-name-portal.md)
-#### [클래식 포털](cloud-services-custom-domain-name.md)
+### [사용자 지정 도메인 이름 구성](cloud-services-custom-domain-name-portal.md)
 ### [클라우드 서비스 배포 스테이징(Node.js)](cloud-services-nodejs-stage-application.md)
 ### [사용자 지정 도메인 컨트롤러에 연결](cloud-services-connect-to-custom-domain.md)
 
 ## 서비스 관리
-### 일반적인 관리 작업
-#### [Azure 포털](cloud-services-how-to-manage-portal.md)
-#### [클래식 포털](cloud-services-how-to-manage.md)
-### 클라우드 서비스 구성
-#### [Azure 포털](cloud-services-how-to-configure-portal.md)
-#### [클래식 포털](cloud-services-how-to-configure.md)
+### [일반적인 관리 작업](cloud-services-how-to-manage-portal.md)
+### [클라우드 서비스 구성](cloud-services-how-to-configure-portal.md)
 ### [Azure Automation을 사용하여 클라우드 서비스 관리](automation-manage-cloud-services.md)
-### 자동 크기 조정 구성
-#### [Azure 포털](cloud-services-how-to-scale-portal.md)
-#### [클래식 포털](cloud-services-how-to-scale.md)
+### [자동 크기 조정 구성](cloud-services-how-to-scale-portal.md)
 ### [Python으로 Azure 리소스 관리](cloud-services-python-how-to-use-service-management.md)
 
 ### [게스트 OS 패치](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## 인증서 관리
 ### [Cloud Services 및 관리 인증서](cloud-services-certs-create.md)
-### SSL 구성 
-#### [포털](cloud-services-configure-ssl-certificate-portal.md)
-#### [클래식 포털](cloud-services-configure-ssl-certificate.md)
+### [SSL 구성](cloud-services-configure-ssl-certificate-portal.md)
 
 ## 모니터
 ### [클라우드 서비스 모니터링](cloud-services-how-to-monitor.md)

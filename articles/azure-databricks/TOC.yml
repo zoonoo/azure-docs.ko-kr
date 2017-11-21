@@ -1,0 +1,25 @@
+- name: Azure Databricks 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Databricks란?
+      href: what-is-azure-databricks.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Databricks 작업 영역 만들기
+      href: quickstart-create-databricks-workspace-portal.md
+- name: 리소스
+  items:
+    - name: Databricks 설명서
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 지원 옵션
+      href: 'https://azure.microsoft.com/support/options/'

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Storm 문제 해결
 
@@ -42,7 +42,7 @@ https://\<클러스터 DNS 이름\>/stormui
 
  https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>한 토폴로지에서 다른 토폴로지로 Storm EventHub Spout 검사점 정보를 전송하는 방법
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>한 토폴로지에서 다른 토폴로지로 Storm 이벤트 허브 Spout 검사점 정보를 전송하는 방법
 
 HDInsight Storm 이벤트 허브 spout .jar 파일을 사용하여 Azure Event Hubs에서 읽은 토폴로지를 개발하는 경우 새 클러스터와 동일한 이름을 갖는 토폴로지를 배포해야 합니다. 그러나 Apache ZooKeeper에 커밋된 검사점 데이터를 이전 클러스터에서 보유해야 합니다.
 
@@ -86,7 +86,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진 파일을 찾는 방법
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진을 찾는 방법
 현재 HDP 스택에 대한 Storm 이진 파일은 /usr/hdp/current/storm-client에 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
  
 /usr/hdp에 특정 HDP 버전에 대한 이진 파일이 여러 개 있을 수 있습니다(예: /usr/hdp/2.5.0.1233/storm). /usr/hdp/current/storm-client 폴더는 클러스터에서 실행되는 최신 버전과 기호화된 링크로 연결되어 있습니다.
@@ -152,3 +152,5 @@ Nimbus Log4J 구성은 /usr/hdp/\<HDP 버전\>/storm/log4j2/cluster.xml에서 �
  
 예제: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>참고 항목
+[Azure HDInsight를 사용하여 문제 해결](../../hdinsight/hdinsight-troubleshoot-guide.md)

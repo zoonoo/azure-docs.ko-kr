@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/23/2017
 이러한 디렉터리의 내용을 zip으로 압축하고 진단을 위해 Microsoft로 보낼 수 있습니다.
 
 ### <a name="workbench-desktop-app"></a>워크벤치 데스크톱 앱
-워크벤치 데스크톱이 충돌하면 다음에서 로그 파일을 찾을 수 있습니다.
+로그인하는 데 문제가 있거나 Workbench 데스크톱이 충돌하면 다음에서 로그 파일을 찾을 수 있습니다.
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
 - 텍스트 클러스터링 변환은 Mac에서 지원되지 않습니다.
 
 - RevoScalePy 라이브러리는 (Docker 컨테이너의) Windows 또는 Linux에서만 지원됩니다. macOS에서는 지원되지 않습니다.
+
+## <a name="delete-experimentation-account"></a>실험 계정 삭제
+CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+Workbench 앱 내에서 프로젝트 및 작업 영역을 삭제할 수도 있습니다.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Windows에서 파일 이름이 너무 깁니다.
 Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 다소 잘못된 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.

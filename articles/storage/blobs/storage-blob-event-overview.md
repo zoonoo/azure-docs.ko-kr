@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Blob Storage 이벤트에 대응(미리 보기)
 
@@ -80,7 +80,7 @@ Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤
 
 ```
 
-자세한 내용은 [Blob Storage 이벤트 스키마](../../event-grid/event-schema.md#azure-blob-storage)를 참조하세요.
+자세한 내용은 [Blob Storage 이벤트 스키마](../../event-grid/event-schema-blob-storage.md)를 참조하세요.
 
 ## <a name="filtering-events"></a>이벤트 필터링
 Blob 이벤트 구독은 이벤트 형식에 따라, 그리고 생성 또는 삭제된 개체의 컨테이너 이름 및 Blob 이름을 기준으로 필터링할 수 있습니다.  Event Grid의 제목 필터는 "시작 문자" 및 "끝 문자" 일치 항목을 기준으로 작동하므로 일치하는 제목이 있는 이벤트는 구독자에게 전달됩니다.

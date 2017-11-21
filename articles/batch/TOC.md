@@ -17,6 +17,7 @@
 #### [Batch 서비스 포함 Azure AD](batch-aad-auth.md)
 #### [Batch 관리 포함 Azure AD](batch-aad-auth-management.md)
 ### [계산 집약적 VM](batch-pool-compute-intensive-sizes.md)
+### [컨테이너 워크로드](batch-docker-container-workloads.md)
 ### [동시 노드 작업](batch-parallel-node-tasks.md)
 ### [상태별 작업 계수](batch-get-task-counts.md)
 ### [사용자 지정 이미지로 풀 만들기](batch-custom-images.md)

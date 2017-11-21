@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e287ae16c9d1f07f3d4b0cbf8eb6fb2ba3e1d776
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>온-프레미스 StorSimple 장치(업데이트 1) 배포
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 > [!div class="op_single_selector"]
 > * [업데이트 2](storsimple-deployment-walkthrough-u2.md)
 > * [업데이트 1](storsimple-deployment-walkthrough-u1.md)
@@ -93,7 +96,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | &nbsp; |네트워크 인터페이스: 데이터 5</br>iSCSI가 사용되도록 설정된 경우 게이트웨이를 구성하지 마세요. |용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이: | |
 |  | | | |
 | **볼륨 컨테이너 만들기** |볼륨 컨테이너 이름: |컨테이너의 이름 | |
-| &nbsp; |Azure 저장소 계정: |이 볼륨 컨테이너와 연결할 저장소 계정 이름 및 액세스 키 | |
+| &nbsp; |Azure 저장소 계정: |이 볼륨 컨테이너와 연결할 Storage 계정 이름 및 액세스 키 | |
 | &nbsp; |클라우드 저장소 암호화 키: |각 컨테이너의 저장소에 대한 암호화 키 | |
 |  | | | |
 | **볼륨 만들기** |각 볼륨에 대한 세부 정보 |볼륨 이름: | |
@@ -202,7 +205,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>8단계: 백업 수행
-백업은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 장치에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
+Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 장치에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
 
 예약된 백업을 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
@@ -213,7 +216,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 ## <a name="configure-a-new-storage-account-for-the-service"></a>서비스에 대한 새 저장소 계정 구성
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다. StorSimple 볼륨 컨테이너를 만들려면 Microsoft Azure 저장소 계정이 필요합니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
+다른 지역에 Azure Storage 계정을 만들어야 하는 경우 단계별 지침은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md) 를 참조하세요.
 
 **StorSimple 관리자 서비스** 페이지의 Azure 클래식 포털에서 다음 단계를 수행합니다.
 

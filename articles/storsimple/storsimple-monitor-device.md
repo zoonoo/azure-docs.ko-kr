@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e1387bfb3487c148c8befcf3f8bf23bba35661f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다.
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 모니터링](storsimple-8000-monitor-device.md)으로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 특정 장치를 모니터링할 수 있습니다. I/O 성능, 용량 사용률, 네트워크 처리량 및 장치 성능 메트릭을 기준으로 사용자 지정 차트를 만들 수 있습니다. 
 
@@ -67,7 +70,7 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
   
     *여기서 (Primary data (volume i)는 볼륨 i에 할당된 기본 데이터의 크기입니다.*
 * **모든 볼륨에 모니터링을 사용하지 않는 볼륨이 포함되어 있음**: 모니터링을 사용하지 않는 볼륨이 장치에 있는 경우 해당 개별 볼륨의 모니터링 데이터는 차트에 제공되지 않습니다. 그러나 차트의 모든 볼륨에는 모니터링을 사용하지 않는 볼륨이 포함됩니다. 
-* **모든 볼륨에 대해 라이브 연결 백업이 있는 볼륨이 삭제됨**: 스냅숏 데이터를 포함하는 보륨이 삭제되었으나 연결된 스냅숏이 여전히 존재할 경우 불일치가 발생할 수 있습니다.
+* **모든 볼륨에 대해 라이브 연결 백업이 있는 볼륨이 삭제됨**: 스냅숏 데이터를 포함하는 볼륨이 삭제되었으나 연결된 스냅숏이 여전히 존재할 경우 불일치가 발생할 수 있습니다.
 * **모든 볼륨에 대해 포함된 볼륨이 삭제됨**: 일부 경우 구 볼륨이 삭제 후에도 존재할 수 있습니다. 삭제의 효과나 나타나지 않으며 장치가 더 낮은 가용 용량을 표시할 수 있습니다. 이러한 볼륨을 제거하려면 Microsoft 지원에 문의해야 합니다.
 
 다음 차트에서는 클라우드 스냅숏을 생성하기 전과 생성한 후의 StorSimple 장치 기본 저장소 용량 사용률을 보여 줍니다. 볼륨 데이터만 표시되기 때문에 클라우드 스냅숏으로 인해 기본 저장소가 변경되어서는 안 됩니다. 볼 수 있듯이 차트에서 클라우드 스냅숏을 생성한 후의 기본 용량 사용률에는 아무런 차이가 없습니다. 해당 장치에서 클라우드 스냅숏은 오후 2시 근처에 시작되었습니다.

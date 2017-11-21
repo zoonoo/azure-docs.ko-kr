@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 macOS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법도 보여 줍니다. 이 문서의 단계에서는 개발자가 Python을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
@@ -49,15 +49,15 @@ ms.lasthandoff: 10/24/2017
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 **mypgserver-20170401** 서버를 검색합니다.
+1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 만든 **mypgserver-20170401** 서버를 검색합니다.
 3. **mypgserver-20170401**서버 이름을 클릭합니다.
 4. 서버의 **개요** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
  ![PostgreSQL용 Azure Database - 서버 관리자 로그인](./media/connect-python/1-connection-string.png)
 5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 
 ## <a name="how-to-run-python-code"></a>Python 코드를 실행하는 방법
-이 항목에는 각각 특정 기능을 수행하는 총 4가지 샘플 코드가 포함되어 있습니다. 다음 지침에서는 텍스트 파일을 만들고, 코드 블록을 삽입한 후 나중에 실행할 수 있도록 파일을 저장하는 방법을 보여 줍니다. 각 코드 블록당 하나씩 4개의 별도의 파일을 만들어야 합니다.
+이 문서에는 각각 특정 기능을 수행하는 총 4가지 샘플 코드가 포함되어 있습니다. 다음 지침에서는 텍스트 파일을 만들고, 코드 블록을 삽입한 후 나중에 실행할 수 있도록 파일을 저장하는 방법을 보여 줍니다. 각 코드 블록당 하나씩 4개의 별도의 파일을 만들어야 합니다.
 
 - 원하는 텍스트 편집기를 사용하여 새 파일을 만듭니다.
 - 다음 섹션의 샘플 코드 중 하나를 텍스트 파일에 복사하여 붙여넣습니다. **host**, **dbname**, **user** 및 **password** 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
@@ -66,7 +66,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 -  코드를 실행하려면 Python 명령 다음에 파일 이름을 입력합니다(예: `Python postgres.py`).
 
 > [!NOTE]
-> Python 버전 3부터는 다음 코드 블록을 실행할 때 `SyntaxError: Missing parentheses in call to 'print'` 오류가 표시될 수 있습니다. 이 경우 `print "string"` 명령에 대한 각 호출을 함수 호출(괄호 사용)로 바꾸세요(예: `print("string")`).
+> Python 버전 3년부터 다음 코드 블록을 실행하면 `SyntaxError: Missing parentheses in call to 'print'` 오류가 표시될 수 있습니다. 이 경우 `print "string"` 명령의 모든 호출을 괄호를 사용하는 함수 호출(예: `print("string")`)로 바꿉니다.
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **INSERT** SQL 문이 있는 [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) 함수를 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요. [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) 함수는 PostgreSQL 데이터베이스에 대해 SQL 쿼리를 실행하는 데 사용됩니다. host, dbname, user 및 password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요.

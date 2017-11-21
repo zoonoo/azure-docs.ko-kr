@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis
 서버를 만들었으면 Azure Portal에서 테이블 형식 모델을 바로 만들 수 있습니다. 새로운 [웹 디자이너](analysis-services-create-model-portal.md)(미리 보기) 기능을 사용하면 Azure SQL Database, Azure SQL Data Warehouse 데이터 원본에 연결하거나 .pbix Power BI Desktop 파일을 가져올 수 있습니다. 테이블 간의 관계를 자동으로 만들므로 브라우저에서 직접 측정값을 만들거나 json 형식의 model.bim 파일을 편집할 수 있습니다.
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
+
+### <a name="the-right-tier-when-you-need-it"></a>필요할 때 올바른 계층
+
 Azure Analysis Services는 개발자, 기본 및 표준 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, CPU 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
 
-서버를 강화, 축소 또는 일시 중지합니다. Azure Portal을 사용하거나 즉시로 완전히 제어하려면 PowerShell을 사용합니다. 사용한 양만큼만 요금을 지급합니다. 다양한 계획 및 계층에 대해 자세히 알아보고 가격 계산기를 사용하여 올바른 계획을 결정하려면 [Azure Analysis Services 가격](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
+서버를 위쪽, 아래쪽으로 이동하거나 일시 중지합니다. Azure Portal을 사용하거나 즉시로 완전히 제어하려면 PowerShell을 사용합니다. 사용한 양만큼만 요금을 지급합니다. 다양한 계획 및 계층에 대해 자세히 알아보고 가격 계산기를 사용하여 올바른 계획을 결정하려면 [Azure Analysis Services 가격](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>빠른 쿼리 응답에 대한 리소스 확장
+
+Azure Analysis Services 확장으로 클라이언트 쿼리가 쿼리 풀의 여러 *쿼리 복제본*에 배포됩니다. 쿼리 복제본은 테이블 형식 모델의 복사본을 동기화했습니다. 쿼리 작업을 확산하여 높은 쿼리 작업 동안 응답 시간을 줄일 수 있습니다. 모델 처리 작업은 클라이언트 쿼리가 작업 처리에 의해 부정적인 영향을 받지 않도록 쿼리 풀에서 구분될 수 있습니다. 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 
+
+계층 변경과 마찬가지로 필요에 따라 쿼리 복제본을 확장할 수 있습니다. 포털에서 또는 REST API를 사용하여 확장을 구성합니다. 자세한 내용은 [Azure Analysis Services 확장](analysis-services-scale-out.md)을 참조하세요.
 
 ## <a name="keep-your-data-close"></a>데이터를 닫은 상태로 유지
 Azure Analysis Services 서버를 만들 수 있는 [Azure 지역](https://azure.microsoft.com/regions/)은 다음과 같습니다.
@@ -92,11 +101,17 @@ Azure Analysis Services에 대한 사용자 인증은 [AAD(Azure Active Director
 #### <a name="data-security"></a>데이터 보안
 Azure Analysis Services에서는 Azure Blob 저장소를 활용하여 Analysis Services 데이터베이스의 저장소와 메타데이터를 유지합니다. Blob에 있는 데이터 파일은 Azure Blob SSE(Server Side Encryption)를 통해 암호화됩니다. 직접 쿼리 모드를 사용하는 경우 메타데이터만 저장됩니다. 실제 데이터는 쿼리 시 데이터 원본에서 액세스됩니다.
 
+#### <a name="firewall"></a>방화벽
+
+Azure Analysis Services 방화벽은 규칙에 지정된 것 이외의 모든 클라이언트 연결을 차단합니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 
+
 #### <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치하고 구성하여 조직의 온-프레미스에 있는 데이터에 대한 액세스를 보호합니다. 게이트웨이는 직접 쿼리 모드와 메모리 내 모드 둘 다의 데이터 액세스를 제공합니다. Azure Analysis Services 모델이 온-프레미스 데이터 원본에 연결되는 경우 쿼리는 온-프레미스 데이터 원본에 대해 암호화된 자격 증명과 함께 만들어집니다. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 Azure Service Bus에 대한 요청을 보냅니다. 온-프레미스 데이터 게이트웨이에서는 보류 중인 요청을 위해 Azure Service Bus를 폴링합니다. 그러면 게이트웨이에서 쿼리를 가져오고, 자격 증명의 암호를 해독한 다음 쿼리를 실행할 데이터 원본에 연결합니다. 끝으로 그 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후에 Azure Analysis Services 데이터베이스로 전송됩니다.
 
 Azure Analysis Services는 [Microsoft Online Services 약관](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft Online Services 개인 정보 취급 방침](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)에 준하여 사용할 수 있습니다.
 Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter/Security/AzureSecurity)를 참조하세요.
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>최신 클라이언트 도구 지원
 ![데이터 시각화](./media/analysis-services-overview/aas-overview-clients.png)

@@ -24,15 +24,13 @@
 ## 배포
 ### [가상 네트워크](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
 
 ### 네트워크 보안 그룹
 #### [Azure 포털](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [템플릿](virtual-networks-create-nsg-arm-template.md)
 #### [응용 프로그램 보안 그룹](create-network-security-group-preview.md)
 #### 클래식
@@ -42,8 +40,7 @@
 ### 사용자 정의 경로
 #### [Azure 포털](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [템플릿](virtual-network-create-udr-arm-template.md)
 #### 클래식
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -63,11 +60,11 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### 가상 컴퓨터
+#### [가상 컴퓨터 네트워크 처리량](virtual-machine-network-throughput.md)
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 ##### 클래식
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -83,8 +80,7 @@
 
 #### 여러 네트워크 인터페이스를 사용하는 VM 만들기
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [템플릿](virtual-network-deploy-multinic-arm-template.md)
 
 ##### 클래식
@@ -136,7 +132,7 @@
 #### 클래식
 ##### 고정 IP 주소
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [인스턴스 수준 공용 IP 주소](virtual-networks-instance-level-public-ip.md)
 
 ### 클래식
@@ -154,8 +150,7 @@
 ### 네트워크 보안 그룹
 #### [Azure 포털](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [로그](virtual-network-nsg-manage-log.md)
 ### NIC(네트워크 인터페이스)

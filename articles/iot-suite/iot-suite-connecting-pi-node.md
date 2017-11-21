@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: d401dde25bf4ab430ac045fb6cfd90050a7ec2e7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5242d6d7abba1dc06f8e01b26a2d3bfdecb1d630
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>미리 구성된 원격 모니터링 솔루션에 Raspberry Pi 장치 연결(Node.js)
 
@@ -94,7 +94,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. `RemoteMonitoring` 폴더에서 **remote_monitoring.js**라는 파일을 만듭니다. 텍스트 편집기에서 이 파일을 엽니다. Raspberry Pi에서 `nano` 또는 `vi` 텍스트 편집기를 사용할 수 있습니다.
+1. `RemoteMonitoring` 폴더에 **remote_monitoring.js**라는 파일을 만듭니다. 텍스트 편집기에서 이 파일을 엽니다. Raspberry Pi에서 `nano` 또는 `vi` 텍스트 편집기를 사용할 수 있습니다.
 
 1. **remote_monitoring.js** 파일에서 다음 `require` 문을 추가합니다.
 
@@ -114,7 +114,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. 일부 기본 원격 분석 데이터를 정의하려면 다음 변수를 추가합니다.
+1. 기본 원격 분석 데이터를 정의하려면 다음 변수를 추가합니다.
 
     ```nodejs
     var temperature = 50;
@@ -125,7 +125,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     var pressureUnit = 'psig';
     ```
 
-1. 일부 속성 값을 정의하려면 다음 변수를 추가합니다.
+1. 속성 값을 정의하려면 다음 변수를 추가합니다.
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -211,7 +211,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     }
     ```
 
-1. 다음 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 솔루션은 직접 메서드를 사용하여 장치에서 동작합니다.
+1. 다음 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 솔루션은 직접 메서드를 사용하여 장치에서 작동합니다.
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -231,7 +231,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     }
     ```
 
-1. 다음 코드를 추가하여 솔루션에 원격 분석 데이터를 보냅니다. 클라이언트 앱은 메시지 스키마를 식별하는 메시지에 속성을 추가합니다.
+1. 다음 코드를 추가하여 솔루션에 원격 분석 데이터를 보냅니다. 클라이언트 앱은 메시지 스키마를 식별하기 위해 메시지에 속성을 추가합니다.
 
     ```node.js
     function sendTelemetry(data, schema) {

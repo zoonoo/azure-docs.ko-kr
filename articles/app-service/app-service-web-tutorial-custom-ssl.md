@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -151,13 +151,13 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 SSL 인증서를 업로드하려면 웹앱의 왼쪽 탐색 영역에서 **SSL 인증서**를 클릭합니다.
 
-**인증서 업로드**를 클릭합니다.
+**인증서 업로드**를 클릭합니다. 
 
 **PFX 인증서 파일**에서 PFX 파일을 선택합니다. **인증서 암호**에서 PFX 파일을 내보낼 때 만든 암호를 입력합니다.
 
 **업로드**를 클릭합니다.
 
-![인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 App Service에서 인증서 업로드가 완료되면 **SSL 인증서** 페이지에 업로드된 인증서가 표시됩니다.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
+[공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다. ASE(App Service Environment) 또는 App Service에서 Web Apps와 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Enviroment에서 웹앱을 사용해야 합니다. 자세한 내용은 [How to configure Public Certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)(웹앱에 공용 인증서를 구성하는 방법)을 참조하세요.
+
+![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>다음 단계
 

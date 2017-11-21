@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD에서 권한 있는 액세스 보안
 최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 권한 있는 계정은 IT 시스템을 운영하고 관리하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다. 권한 있는 액세스를 보호하려면 계정과 시스템을 악의적 사용자에게 노출될 위험으로부터 격리해야 합니다.
@@ -66,7 +66,7 @@ Azure Multi-Factor Authentication의 작동 방식에 대한 개요는 다음 �
 * [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md) 사용
 * [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) 사용
 * [Azure AD ID 보호](../active-directory-identityprotection.md) 사용
-* [조건부 액세스 제어](../active-directory-conditional-access.md) 사용
+* [조건부 액세스 제어](../active-directory-conditional-access-azure-portal.md) 사용
 
 완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](http://aka.ms/securecustomer) 문서의 "Customer responsibilities and roadmap(고객 책임 및 로드맵)" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
 

@@ -6,6 +6,7 @@
 ## [Office 365 계정을 사용하여 등록](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Azure 계정으로 Office 365 등록](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [관리 그룹으로 리소스 구성](billing-enterprise-mgmt-group-overview.md)
+## [예약 VM 인스턴스로 비용 절감](billing-save-compute-costs-reservations.md)
 ## [한도 및 할당량](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # 방법
@@ -17,9 +18,13 @@
 ### [사용량에서 용어 이해](billing-understand-your-usage.md)
 ### [외부 서비스 요금 이해](billing-understand-your-azure-marketplace-charges.md)
 ### [체험 서비스 미터 매핑 이해](billing-understand-free-service-meter-mapping.md)
+### [VM 인스턴스 Windows 비용 예약](billing-reserved-instance-windows-software-costs.md)
+### [예약 VM 인스턴스 할인 응용 프로그램 이해](billing-understand-vm-reservation-charges.md)
 ### [지출 한도 이해](billing-spending-limit.md)
 ### [청구 경고 설정](billing-set-up-alerts.md)
 ### [미지불액 해결](billing-azure-subscription-past-due-balance.md)
+### [종량제의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
+### [엔터프라이즈의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## 구독 관리
 ### [관리자 역할 관리](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [결제 정보 업데이트](billing-how-to-change-credit-card.md)
 ### [Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [청구서에 따른 구독에 대한 요금 지불](billing-how-to-pay-by-invoice.md)
+## [예약 VM 인스턴스 관리](billing-manage-reserved-vm-instance.md)
 ## 문제 해결
 ### [등록 문제](https://support.microsoft.com/en-us/help/4042959)
 ### [거부된 카드](https://support.microsoft.com/en-us/help/4042960)

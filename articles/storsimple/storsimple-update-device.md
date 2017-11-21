@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 업데이트
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련하여 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최신 상태로 유지할 수 있습니다. 업데이트 유형에 따라 Windows PowerShell 인터페이스 또는 Azure 클래식 포털을 통해 장치에 업데이트를 적용할 수 있습니다. 이 자습서에는 업데이트 유형 및 각 항목을 설치하는 방법을 설명합니다.
 

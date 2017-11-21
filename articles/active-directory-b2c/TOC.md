@@ -90,6 +90,7 @@
 ## 참조
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
 ### [SSO 세션 공급자](active-directory-b2c-reference-sso-custom.md)
+### [언어 사용자 지정](active-directory-b2c-language-customization-custom.md)
 ### [보안 프레임워크 정의](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # 참조

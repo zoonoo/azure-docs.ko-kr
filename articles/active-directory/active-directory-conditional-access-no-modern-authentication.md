@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5d09021627ca60a94cb1984b29b8dc7913d093d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b641f005796fd003a0f9b86c22505782ac4284d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정 
 
@@ -180,7 +180,7 @@ AD FS 규칙을 설정하여 Exchange Online에 대한 레거시 인증 프로�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
 
 
 

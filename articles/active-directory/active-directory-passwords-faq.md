@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -176,6 +176,11 @@ ms.lasthandoff: 10/31/2017
   > **A:** 암호 재설정을 위한 세션 수명은 15분입니다. 사용자에게는 암호 재설정 작업 시작부터 해당 암호를 재설정하는 데 15분이 주어집니다. 이 기간이 만료된 후 전자 메일 및 SMS 일회용 암호는 유효하지 않습니다.
   >
   >
+* **Q: 사용자가 암호를 다시 설정하지 못하도록 차단할 수 있나요?**
+
+  > **A:** 예, 그룹을 사용하여 셀프 서비스 암호 다시 설정을 사용하도록 설정한 경우 이 기능을 허용하는 그룹에서 이를 제거할 수 있습니다.
+  >
+  >
 
 ## <a name="password-change"></a>암호 변경
 
@@ -187,6 +192,11 @@ ms.lasthandoff: 10/31/2017
 * **Q: 온-프레미스 암호가 만료되는 경우 Office 포털에서 내 사용자에게 알릴 수 있습니까?**
 
   > **A:** [ADFS로 암호 정책 클레임 보내기](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396)에 나와 있는 지침에 따라 ADFS를 사용하는 경우 가능합니다. 암호 해시 동기화를 사용하는 경우에는 불가능합니다. 이는 온-프레미스의 암호 정책을 동기화하지 않기 때문이며, 이에 따라 만료 알림을 클라우드 환경에 게시할 수 없습니다. 두 경우 모두 [PowerShell을 사용하여 암호가 만료될 사용자에게 알림](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)(영문)을 보낼 수도 있습니다.
+  >
+  >
+* **Q: 사용자가 암호를 변경하지 못하도록 차단할 수 있나요?**
+
+  > **A:** 클라우드 전용 사용자의 경우 차단할 수 없습니다. 온-프레미스 사용자의 경우 `User cannot change password`를 선택하면 해당 사용자가 암호를 변경할 수 없습니다.
   >
   >
 

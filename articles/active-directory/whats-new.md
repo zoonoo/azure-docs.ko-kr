@@ -1,27 +1,35 @@
 ---
 title: "새로운 기능 Azure Active Directory 릴리스 정보 | Microsoft Docs"
-description: "Azure AD(Active Directory)의 최신 릴리스, 알려진 문제점, 버그 수정, 사용되지 않는 기능 및 변경 계획을 계속 확인하려면 이 릴리스 정보를 사용합니다."
+description: "최신 릴리스 정보, 알려진 문제, 버그 수정, 사용되지 않는 기능 및 예정된 변경 내용을 비롯한 Azure AD(Azure Active directory)의 새로운 기능에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
 editor: 
+featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
+
+
+
+
+> 즐겨찾는 RSS 피드 판독기에서 이 [피드](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us)를 구독하여 Azure Active Directory의 새로운 기능을 최신 상태로 유지합니다.
+
+
 
 Azure Active Directory는 지속적으로 개선되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 항목에서는 다음에 대한 정보를 제공합니다.
 
@@ -32,6 +40,18 @@ Azure Active Directory는 지속적으로 개선되고 있습니다. 최신 개�
 -   변경 계획 
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문하세요.
+
+## <a name="november-2017"></a>2017년 11월
+
+**형식:** 사용되지 않는 기능  
+**서비스 범주:** ACS  
+**제품 기능:** Access Control Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함)은 2018년 말에 사용 중지됩니다.  자세한 일정 및 상위 수준 마이그레이션 지침을 포함한 자세한 내용은 다음 몇 주 동안 제공될 예정입니다. 그 동안에는 이 페이지에 ACS와 관련된 문의 사항과 함께 의견을 남겨주시면 우리 팀의 구성원들이 도움을 드리겠습니다.
+
+---
 
 
 ## <a name="october-2017"></a>2017년 10월

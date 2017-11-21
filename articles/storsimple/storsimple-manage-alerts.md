@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
+ms.date: 11/03/2017
 ms.author: anbacker
-ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3ca8e1f22e50f5cffa982f321c9a6c325785a2d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md)로 이동합니다. 이동과 관련하여 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 StorSimple 관리자 서비스에서 **경고** 탭은 StorSimple 장치와 관련된 경고를 실시간으로 검토하고 삭제할 방법을 제공합니다. 이 탭에서는 StorSimple 장치 및 전체 Microsoft Azure StorSimple 솔루션의 상태 문제를 중앙에서 모니터링할 수 있습니다.
 
@@ -159,7 +162,7 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 ### <a name="job-failure-alerts"></a>작업 실패 경고
 | 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
 |:--- |:--- |:--- |
-| <*원본 볼륨 그룹 ID*>의 백업에 실패했습니다. |백업 작업이 실패했습니다. |연결 문제는 백업 작업이 성공적으로 완료되지 않도록 막을 수 있습니다. 연결 문제가 없으면 최대 백업 수에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다. |
+| <*원본 볼륨 그룹 ID*>의 백업에 실패했습니다. |Backup 작업이 실패했습니다. |연결 문제는 백업 작업이 성공적으로 완료되지 않도록 막을 수 있습니다. 연결 문제가 없으면 최대 백업 수에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다. |
 | <*원본 백업 요소 ID*>를 <*대상 볼륨 일련 번호*>에 복제하는 데 실패했습니다. |복제 작업이 실패했습니다. |백업을 여전히 유효한지 확인하려면 백업 목록을 새로 고칩니다. 백업이 유효하면 클라우드 연결 문제 때문에 복제 작업을 성공적으로 완료하지 못할 수 있습니다. 연결 문제가 없으면 저장소 제한에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 문제를 해결할 수 있는 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다. |
 | <*원본 백업 요소 ID*>의 복원에 실패했습니다. |복원 작업이 실패했습니다. |백업을 여전히 유효한지 확인하려면 백업 목록을 새로 고칩니다. 백업이 유효하면 클라우드 연결 문제 때문에 복원 작업을 성공적으로 완료하지 못할 수 있습니다. 연결 문제가 없으면 저장소 제한에 도달할 수 있습니다. 더 이상 필요하지 않은 백업을 삭제하고 작업을 다시 시도합니다. 문제를 해결할 수 있는 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지웁니다. |
 

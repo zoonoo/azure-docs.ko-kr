@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -48,26 +48,24 @@ HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubun
 > [!TIP]
 > HDInsight에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 ‘예’를 선택하여 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
 >
-> 이전에 같은 이름의 서버에 연결한 경우 저장된 호스트 키 서버의 호스트 키와 일치하지 않는다는 경고가 나타날 수도 있습니다. 이 경우 SSH 클라이언트가 클러스터에 연결하지 않을 수도 있습니다. 서버 이름에 대한 기존 항목을 제거하는 방법에 대해 SSH 클라이언트에 대한 설명서를 참조하세요.
+> 이전에 같은 이름의 서버에 연결한 경우 저장된 호스트 키 서버의 호스트 키와 일치하지 않는다는 경고가 나타날 수도 있습니다. 서버 이름에 대한 기존 항목을 제거하는 방법에 대해 SSH 클라이언트에 대한 설명서를 참조하세요.
 
 ## <a name="ssh-clients"></a>SSH 클라이언트
 
 Linux, Unix 및 macOS 시스템은 `ssh` 및 `scp` 명령을 제공합니다. `ssh` 클라이언트는 일반적으로 Linux 또는 Unix 기반 시스템에서 원격 명령줄 세션을 만드는 데 사용됩니다. `scp` 클라이언트는 클라이언트와 원격 시스템 간에 파일을 안전하게 복사하는 데 사용됩니다.
 
-Microsoft Windows는 기본적으로 SSH 클라이언트를 제공하지 않습니다. `ssh` 및 `scp` 클라이언트는 Windows에서 다음 패키지를 통해 사용할 수 있습니다.
+Microsoft Windows는 기본적으로 SSH 클라이언트를 설치하지 않습니다. `ssh` 및 `scp` 클라이언트는 Windows에서 다음 패키지를 통해 사용할 수 있습니다.
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
+* OpenSSH 클라이언트(베타): Fall Creators Update에서 __설정__ > __앱 및 기능__ > __선택적 기능 관리__ > __기능 추가__로 이동하여 __OpenSSH 클라이언트__를 선택합니다. 
+
+    > [!NOTE]
+    > 이 기능을 사용하도록 설정한 후 PowerShell에서 `ssh` 및 `scp` 명령을 사용할 수 없는 경우 로그아웃했다가 다시 로그인합니다.
 
 * [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about)(영문): `ssh` 및 `scp` 명령은 Windows 명령줄에서 Bash를 통해 사용할 수 있습니다.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
+
 * [Git(https://git-scm.com/)](https://git-scm.com/)(영문): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
-
-* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크탑은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
-
-* [OpenSSH(https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell 팀은 OpenSSH를 Windows에 이식하여 테스트 릴리스를 제공합니다.
-
-    > [!WARNING]
-    > OpenSSH 패키지는 SSH 서버 구성 요소 `sshd`를 포함합니다. 이 구성 요소는 다른 사용자가 연결할 수 있도록 시스템에서 SSH 서버를 시작합니다. 시스템에서 SSH 서버를 호스트하려는 것이 아니라면 이 구성 요소를 구성하거나 포트 22를 열지 않습니다. HDInsight와 통신할 필요가 없습니다.
 
 [PuTTY(http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm(http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)과 같은 몇 가지 그래픽 SSH 클라이언트가 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용하는 그래픽 클라이언트의 설명서를 참조하세요.
 
@@ -116,7 +114,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용하여 HDInsight에 연결할 경우 암호를 입력하라는 메시지가 표시됩니다.
 
 > [!WARNING]
-> SSH에 대한 암호 인증을 사용하는 것은 권장되지 않습니다. 암호는 추측할 수 있고 무차별 암호 대입 공격에 취약합니다. 대신 [인증하기 위한 SSH 키](#sshkey)를 사용하는 것이 좋습니다.
+> Microsoft는 SSH에 암호 인증을 사용하는 것을 권장하지 않습니다. 암호는 추측할 수 있고 무차별 암호 대입 공격에 취약합니다. 대신 [인증하기 위한 SSH 키](#sshkey)를 사용하는 것이 좋습니다.
 
 ### <a name="create-hdinsight-using-a-password"></a>암호를 사용하여 HDInsight 만들기
 
@@ -152,7 +150,7 @@ __도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* __에지 노드__에 연결할 때는 포트 22를 사용합니다. 정규화된 도메인 이름은 `edgenodename.clustername-ssh.azurehdinsight.net`이며, 여기서 `edgenodename`은 에지 노드 연결 시 사용자가 제공한 이름입니다. `clustername`은 클러스터의 이름입니다.
+* __에지 노드__에 연결할 때 포트 22를 사용합니다. 정규화된 도메인 이름은 `edgenodename.clustername-ssh.azurehdinsight.net`이며, 여기서 `edgenodename`은 에지 노드 연결 시 사용자가 제공한 이름입니다. `clustername`은 클러스터의 이름입니다.
 
     ```bash
     # Connect to edge node
@@ -176,7 +174,7 @@ __도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 
 
         ssh sshuser@wn0-myhdi
 
-    클러스터에 있는 노드의 도메인 이름 목록을 검색하려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
+    노드 이름 목록을 검색하려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
 
 __암호__를 사용하여 SSH 계정을 보호하는 경우 연결할 때 해당 암호를 입력합니다.
 

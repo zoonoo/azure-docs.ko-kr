@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 [Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 응용 프로그램을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
@@ -108,9 +108,9 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 
 ## <a name="get-support"></a>지원 받기
-Azure Active Directory 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)를 사용합니다. 
+Azure Active Directory 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource)를 사용합니다. 
 
-먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문이나 의견이 `[azure-active-directory]`로 태그가 지정되어 있는지 확인합니다.
+먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문이나 의견이 [`[azure-active-directory]` 및 `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource)로 태그가 지정되어 있는지 확인합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

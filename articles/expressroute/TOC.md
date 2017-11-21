@@ -36,12 +36,19 @@
 ### [Azure 포털](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [공용 피어링에서 Microsoft 피어링으로 이동](how-to-move-peering.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성
 ### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)
 ## [ExpressRoute에 대한 네트워크 성능 모니터 구성](how-to-npm.md)
+## 클래식 배포 모델 문서
+### [회로 수정](expressroute-howto-circuit-classic.md)
+### [피어링 구성 만들기 및 수정](expressroute-howto-routing-classic.md)
+### [가상 네트워크를 ExpressRoute 회로에 연결합니다.](expressroute-howto-linkvnet-classic.md)
+### [ExpressRoute 및 S2S 공존 연결 구성](expressroute-howto-coexist-classic.md)
+### [VNet에 게이트웨이 추가](expressroute-howto-add-gateway-classic.md)
 
 ## 모범 사례
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)

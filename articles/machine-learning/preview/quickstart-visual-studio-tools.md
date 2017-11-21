@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>AI용 Visual Studio Code 도구
 AI용 Visual Studio Code 도구는 심층 학습 / AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 
@@ -70,7 +70,6 @@ iris_sklearn.py를 열고 마우스 오른쪽 단추를 클릭하고 **AI: 작�
 1. 명령 팔레트를 엽니다(보기 > **명령 팔레트** 또는 **Ctrl+Shift+P**).
 2. "AI 목록"을 입력합니다.
 3. "AI: 작업 나열"에 대한 권장 사항을 찾아서 선택하고 Enter를 누릅니다.
-4. 플랫폼: "Azure Machine Learning"을 선택합니다.
 
 작업 목록 보기가 열리고 모든 실행 및 몇몇 관련 정보가 표시됩니다.
 

@@ -1,6 +1,6 @@
 ---
 title: "백업에서 StorSimple 볼륨 복원 | Microsoft Docs"
-description: "StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
+description: "StorSimple Manager 서비스 Backup 카탈로그 페이지를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,23 +12,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/22/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76fa3dd8fa2f9775dc166686e699a8dd66399aff
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>백업 세트에서 StorSimple 볼륨 복원(업데이트 2)
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [백업 세트에서 StorSimple 볼륨 복원(업데이트 2)](storsimple-8000-restore-from-backup-set-u2.md)으로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## <a name="overview"></a>개요
-**백업 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업을 나열 및 관리하거나, 백업 세트에서 복원하거나, 볼륨을 복제합니다.
+**Backup 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업을 나열 및 관리하거나, 백업 세트에서 복원하거나, 볼륨을 복제합니다.
 
- ![백업 카탈로그 페이지](./media/storsimple-restore-from-backup-set-u2/restore.png)
+ ![Backup 카탈로그 페이지](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-이 자습서에서는 **백업 카탈로그** 페이지를 사용하여 백업 세트에서 장치를 복원하는 방법을 설명합니다.
+이 자습서에서는 **Backup 카탈로그** 페이지를 사용하여 백업 세트에서 장치를 복원하는 방법을 설명합니다.
 
 로컬 또는 클라우드 백업에서 볼륨을 복원할 수 있습니다. 두 경우 모두 백그라운드에서 데이터를 다운로드하는 동안 복원 작업은 즉시 볼륨을 온라인으로 전환합니다. 
 
@@ -59,10 +62,10 @@ Heatmap 기반 추적은 계층화된 볼륨에 대해서만 사용하도록 설
 자동 리하이드레이션을 사용하면 일반적으로 일시적인 더 높은 읽기 성능이 예상됩니다. 실제 개선되는 정도는 액세스 패턴, 데이터 변동 및 데이터 형식 등 다양한 요인에 따라 달라집니다. 리하이드레이션 작업을 취소하려면 PowerShell cmdlet을 사용하면 됩니다. 이후 모든 복원 작업에 대해 리하이드레이션 작업을 영구적으로 사용하지 않도록 설정하려면 Microsoft 지원에 문의하세요.
 
 ## <a name="how-to-use-the-backup-catalog"></a>백업 카탈로그를 사용하는 방법
-**백업 카탈로그** 페이지는 백업 세트 선택 범위를 좁히는 데 도움이 되는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링할 수 있습니다.
+**Backup 카탈로그** 페이지는 백업 세트 선택 범위를 좁히는 데 도움이 되는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링할 수 있습니다.
 
 * **장치** – 백업 세트를 만든 장치입니다.
-* **백업 정책** 또는 **볼륨** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
+* **Backup 정책** 또는 **볼륨** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
 * **시작** 및 **종료** – 백업 세트를 만든 날짜 및 시간 범위입니다.
 
 그런 다음 필터링된 백업 세트는 다음 특성을 기반으로 표로 정리됩니다.
@@ -70,11 +73,11 @@ Heatmap 기반 추적은 계층화된 볼륨에 대해서만 사용하도록 설
 * **이름** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
 * **크기** – 백업 세트의 실제 크기입니다.
 * **만든 날짜** – 백업이 만들어진 날짜 및 시간입니다. 
-* **유형** – 백업 세트는 로컬 스냅숏 또는 클라우드 스냅숏일 수입니다. 로컬 스냅숏은 장치에 로컬로 저장된 모든 볼륨 데이터의 백업입니다. 클라우드 스냅숏은 클라우드에 있는 볼륨 데이터의 백업을 말합니다. 로컬 스냅숏은 데이터 복구 기능으로 클라우드 스냅숏을 선택하는 반면 빠른 액세스를 제공합니다.
+* **유형** – Backup 세트는 로컬 스냅숏 또는 클라우드 스냅숏일 수입니다. 로컬 스냅숏은 장치에 로컬로 저장된 모든 볼륨 데이터의 백업입니다. 클라우드 스냅숏은 클라우드에 있는 볼륨 데이터의 백업을 말합니다. 로컬 스냅숏은 데이터 복구 기능으로 클라우드 스냅숏을 선택하는 반면 빠른 액세스를 제공합니다.
 * **시작 기준** – 일정에 따라 자동으로 또는 사용자가 수동으로 백업을 시작할 수 있습니다. (백업을 예약하기 위해 백업 정책을 사용할 수 있습니다. 또는, **백업 수행** 옵션을 사용하여 대화형 백업을 수행할 수 있습니다.)
 
 ## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>백업에서 StorSimple 볼륨을 복원하는 방법
-**백업 카탈로그** 페이지를 사용하여 특정 백업에서 StorSimple 볼륨을 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
+**Backup 카탈로그** 페이지를 사용하여 특정 백업에서 StorSimple 볼륨을 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
 
 > [!WARNING]
 > 백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
@@ -82,9 +85,9 @@ Heatmap 기반 추적은 계층화된 볼륨에 대해서만 사용하도록 설
 > 
 
 ### <a name="to-restore-your-volume"></a>볼륨을 복원하려면
-1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭합니다.
+1. StorSimple Manager 서비스 페이지에서 **Backup 카탈로그** 탭을 클릭합니다.
    
-    ![백업 카탈로그](./media/storsimple-restore-from-backup-set-u2/restore.png)
+    ![Backup 카탈로그](./media/storsimple-restore-from-backup-set-u2/restore.png)
 2. 백업 세트를 다음과 같이 선택합니다.
    
    1. 해당 장치를 선택합니다.
@@ -92,14 +95,14 @@ Heatmap 기반 추적은 계층화된 볼륨에 대해서만 사용하도록 설
    3. 시간 범위를 지정합니다.
    4. 확인 아이콘 ![확인 아이콘](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) 을 클릭하여 이 쿼리를 실행 합니다.
       
-      선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
+      선택한 볼륨과 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
 3. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 이 볼륨은 복원하려면 호스트와 장치에서 오프라인 상태여야 합니다. **볼륨 컨테이너** 페이지에서 볼륨에 액세스한 다음 [볼륨을 오프라인 상태로 전환](storsimple-manage-volumes-u2.md#take-a-volume-offline) 의 단계에 따라 오프라인 상태로 전환합니다.
    
    > [!IMPORTANT]
    > 해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우 잠재적으로 데이터가 손상될 수입니다.
    > 
    > 
-4. **백업 카탈로그** 탭으로 다시 이동하고 백업 세트를 선택합니다.
+4. **Backup 카탈로그** 탭으로 다시 이동하고 Backup 세트를 선택합니다.
 5. 페이지의 맨 아래에서 **복원** 을 클릭합니다.
 6. 확인하라는 메시지가 표시됩니다. 복원 정보를 검토하고 확인 확인란을 선택합니다.
    

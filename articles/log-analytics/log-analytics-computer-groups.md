@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
 
@@ -70,7 +70,7 @@ Log Search에서 생성된 컴퓨터 그룹은 사용자가 정의한 검색 쿼
 > 작업 영역에서 [레거시 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)를 여전히 사용한다면 컴퓨터 그룹을 만들기 위해 동일한 프로시저를 사용하지만, 레거시 쿼리 언어 구문을 사용해야 합니다.
 
 
-### <a name="log-search-api"></a>로그 검색
+### <a name="log-search-api"></a>로그 검색 API
 로그 검색 API를 사용하여 만들어진 컴퓨터 그룹은 로그 검색으로 만든 검색과 동일합니다.  로그 검색 API를 사용하여 컴퓨터 그룹을 만드는 것에 대한 자세한 내용은 [Log Analytics 로그 검색 REST API의 컴퓨터 그룹](log-analytics-log-search-api.md#computer-groups)을 참조하세요.
 
 ### <a name="active-directory"></a>Active Directory
@@ -109,13 +109,29 @@ Azure Portal의 Log Analytics **고급 설정**에서 로그 검색 또는 Log S
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>로그 검색에서 컴퓨터 그룹 사용
-일반적으로 다음 구문을 사용하여 그 별칭을 함수로 취급함으로써 컴퓨터 그룹을 쿼리에 사용합니다.
+일반적으로 다음 구문을 사용하여 해당 별칭을 함수로 취급함으로써 로그 검색에서 생성된 컴퓨터 그룹을 쿼리에 사용합니다.
 
   `Table | where Computer in (ComputerGroup)`
 
 예를 들어 mycomputergroup이라는 컴퓨터 그룹에서 컴퓨터에 대해서만 UpdateSummary 레코드를 반환하기 위해 다음을 사용할 수 있습니다.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+가져온 컴퓨터 그룹 및 포함된 컴퓨터는 **ComputerGroup** 테이블에 저장됩니다.  예를 들어 다음 쿼리는 Active Directory의 도메인 컴퓨터 그룹에 포함된 컴퓨터 목록을 반환합니다. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+다음 쿼리는 도메인 컴퓨터의 컴퓨터에 대해서만 UpdateSummary 레코드를 반환합니다.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > 작업 영역에서 여전히 [레거시 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)를 사용한다면, 다음 구문을 사용하여 로그 검색에 컴퓨터 그룹을 참조합니다.  **범주** 지정은 선택 사항이며 다른 카테고리에 이름이 같은 컴퓨터 그룹이 있는 경우에만 필수입니다. 

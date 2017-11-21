@@ -2,6 +2,7 @@
 ## [Stream Analytics란?](stream-analytics-introduction.md)
 ## [Storm 및 Stream Analytics 비교](stream-analytics-comparison-storm.md)
 
+
 # 시작
 ## [IoT 스트리밍 데이터 처리](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [소셜 미디어](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Machine Learning으로 실시간 점수 매기기](stream-analytics-machine-learning-integration-tutorial.md)
 ### [실시간 이벤트 처리](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [IoT Edge의 Stream Analytics(미리 보기)](stream-analytics-edge.md)
 ### [Azure 사용 가이드에서 변칙 검색(미리 보기)](stream-analytics-machine-learning-anomaly-detection.md)
+### [Stream Analytics에서 자주 발생하는 거래 시뮬레이션](stream-analytics-high-frequency-trading.md)
 
 ## 작업 만들기
 ### [입력 만들기](stream-analytics-define-inputs.md)

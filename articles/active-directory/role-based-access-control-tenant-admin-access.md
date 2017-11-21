@@ -12,32 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2017
+ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 테넌트 관리자로 액세스 권한 상승
 
-역할 기반 액세스 제어를 통해 테넌트 관리자가 액세스에서 임시 권한이 상승되어 평소보다 높은 수준의 사용 권한을 부여받을 수 있습니다. 테넌트 관리자는 필요할 때 사용자 액세스 관리자 역할로 스스로의 권한을 높일 수 있습니다. 해당 역할은 테넌트 관리자 사용 권한을 주어 "/" 범위에서 자신 또는 다른 사용자에게 역할을 부여합니다.
+역할 기반 Access Control을 통해 테넌트 관리자가 액세스에서 임시 권한이 상승되어 평소보다 높은 수준의 사용 권한을 부여받을 수 있습니다. 테넌트 관리자는 필요할 때 사용자 액세스 관리자 역할로 스스로의 권한을 높일 수 있습니다. 해당 역할은 테넌트 관리자 사용 권한을 주어 "/" 범위에서 자신 또는 다른 사용자에게 역할을 부여합니다.
 
-이 기능은 테넌트 관리자가 조직에 있는 모든 구독을 확인할 수 있도록 하기 때문에 중요합니다. 또한 자동화 앱(예: 송장 발행 및 감사)에서 모든 구독에 액세스하여 조직의 대금 청구 또는 자산 관리 상태를 정확하게 볼 수 있게 합니다.  
+이 기능은 테넌트 관리자가 조직에 있는 모든 구독을 확인할 수 있도록 하기 때문에 중요합니다. 또한 송장 발행 및 감사와 같은 자동화 앱에서 모든 구독에 액세스하여 조직의 대금 청구 또는 자산 관리 상태를 정확하게 볼 수 있게 합니다.  
 
-## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Azure AD 관리 센터를 사용하여 테넌트 액세스에 elevateAccess를 사용하는 방법
+## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Azure AD 관리 센터를 사용하여 테넌트 액세스 권한을 위해 elevateAccess 사용
 
-[Azure Active Directory 관리 센터](https://aad.portal.azure.com)의 **속성**에서 이 기능을 호출할 수 있습니다.
-해당 기능을 **전역 관리자가 Azure 구독을 관리할 수 있습니다**라고도 합니다. 이 기능이 Azure Active Directory의 전역 속성인 것처럼 보이지만 현재 로그온한 사용자에 대해 사용자 기준으로 작동합니다. Azure Active Directory에서 전역 관리자 권한이 있는 경우 Azure Active Directory 관리 센터를 현재 로그인한 사용자에게 elevateAccess 기능을 호출할 수 있습니다.
+1. [Azure Active Directory 관리 센터](https://aad.portal.azure.com)로 이동한 다음 자격 증명을 사용하여 로그인합니다.
 
-**예** 및 **저장** 선택: 그러면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자에게 **사용자 액세스 관리자** 역할을 **할당**합니다.
+2. Azure AD 왼쪽 메뉴에서 **속성**을 선택합니다.
 
-**아니오** 및 **저장** 선택: 그러면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자로부터 **사용자 액세스 관리자** 역할을 **제거**합니다.
+3. **속성** 블레이드에서 **전역 관리자는 Azure 구독을 관리할 수 있습니다**를 찾고 **예**를 선택한 다음 **저장**을 선택합니다.
+    > [!IMPORTANT] 
+    > **예**를 선택하면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자에 대해 **사용자 액세스 관리자** 역할을 할당합니다. **이렇게 하면 사용자가 다른 모든 Azure 구독을 볼 수 있습니다.**
+    
+    > [!NOTE] 
+    > **아니요**를 선택하면 루트 "/"(루트 범위)에서 현재 포털에 로그인한 사용자에 대해 **사용자 액세스 관리자** 역할을 제거합니다.
+
+> [!TIP] 
+> 이 기능이 Azure Active Directory의 전역 속성인 것처럼 보이지만 현재 로그온한 사용자에 대해 사용자 기준으로 작동합니다. Azure Active Directory에서 전역 관리자 권한이 있는 경우 Azure Active Directory 관리 센터를 현재 로그인한 사용자에게 elevateAccess 기능을 호출할 수 있습니다.
 
 ![Azure AD 관리 센터 - 속성 - Globaladmin은 Azure 구독을 관리할 수 있습니다. - 스크린샷](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>elevateAccess를 사용하여 REST API로 테넌트 액세스 권한을 부여하는 방법
+## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>REST API를 사용하여 테넌트 액세스 권한을 부여하기 위해 elevateAccess 사용
 
 기본 프로세스는 다음 단계로 작동합니다.
 
@@ -70,50 +77,59 @@ ms.lasthandoff: 10/11/2017
 
 *elevateAccess*를 호출하는 경우 해당 권한을 취소하려면 할당을 삭제해야 하므로 스스로 역할 할당을 만듭니다.
 
-1.  roleName = 사용자 액세스 관리자인 [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get)을 호출하여 사용자 액세스 관리자 역할의 GUID 이름을 확인합니다. 응답은 다음과 같아야 합니다.
+1.  roleName = 사용자 액세스 관리자인 GET 역할 정의를 호출하여 사용자 액세스 관리자 역할의 GUID 이름을 확인합니다.
+    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
-    ```
-    {"value":[{"properties":{
-    "roleName":"User Access Administrator",
-    "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
-    "assignableScopes":["/"],
-    "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-    "createdOn":"0001-01-01T08:00:00.0000000Z",
-    "updatedOn":"2016-05-31T23:14:04.6964687Z",
-    "createdBy":null,
-    "updatedBy":null},
-    "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "type":"Microsoft.Authorization/roleDefinitions",
-    "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleName":"User Access Administrator",
+        "type":"BuiltInRole",
+        "description":"Lets you manage user access to Azure resources.",
+        "assignableScopes":["/"],
+        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
+        "createdOn":"0001-01-01T08:00:00.0000000Z",
+        "updatedOn":"2016-05-31T23:14:04.6964687Z",
+        "createdBy":null,
+        "updatedBy":null},
+        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "type":"Microsoft.Authorization/roleDefinitions",
+        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
+        "nextLink":null}
+        ```
 
-    이 경우에 **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**인 *name* 매개 변수에서 GUID를 저장합니다.
+        이 경우에 **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**인 *name* 매개 변수에서 GUID를 저장합니다.
 
-2. principalId = 고유한 ObjectId인 [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get)를 호출합니다. 그러면 테넌트의 모든 할당을 나열합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 GUID 역할 이름으로 끝나는 할당을 찾아봅니다. 역할 할당은 다음과 같야아 합니다.
+2. 또한 테넌트 범위에서 테넌트 관리자의 역할 할당을 나열해야 합니다. 액세스 권한 상승 호출을 수행한 TenantAdmin의 PrincipalId에 대한 테넌트 범위의 모든 할당을 나열합니다. 그러면 ObjectID에 대한 테넌트의 모든 할당이 나열됩니다. 
+    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
+    
+        >[!NOTE] 
+        >테넌트 관리자는 할당이 많지 않아야 합니다. 위의 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음 결과를 필터링할 수도 있습니다. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        
+    2. 위의 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 RoleDefinitionId가 1단계에서 찾은 역할 이름 GUID로 끝나고 PrincipalId가 테넌트 관리자의 ObjectId와 일치하는 역할 할당을 찾습니다. 역할 할당은 다음과 같습니다.
 
-    ```
-    {"value":[{"properties":{
-    "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "principalId":"{objectID}",
-    "scope":"/",
-    "createdOn":"2016-08-17T19:21:16.3422480Z",
-    "updatedOn":"2016-08-17T19:21:16.3422480Z",
-    "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-    "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-    "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-    "type":"Microsoft.Authorization/roleAssignments",
-    "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "principalId":"{objectID}",
+        "scope":"/",
+        "createdOn":"2016-08-17T19:21:16.3422480Z",
+        "updatedOn":"2016-08-17T19:21:16.3422480Z",
+        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
+        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
+        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+        "type":"Microsoft.Authorization/roleAssignments",
+        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
+        "nextLink":null}
+        ```
+        
+        이 경우에 **e7dd75bc-06f6-4e71-9014-ee96a929d099**인 *name* 매개 변수에서 GUID를 다시 저장합니다.
 
-    이 경우에 **e7dd75bc-06f6-4e71-9014-ee96a929d099**인 *name* 매개 변수에서 GUID를 다시 저장합니다.
+    3. 마지막으로 강조 표시된 **RoleAssignment ID**를 사용하여 액세스 권한 상승에 의해 추가된 할당을 삭제합니다.
 
-3. 마지막으로 roleAssignmentId = 2단계에서 찾은 GUID 이름인 [DELETE roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById)를 호출합니다.
+        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>다음 단계
 
-- [REST를 사용하여 역할 기반 액세스 제어를 관리](role-based-access-control-manage-access-rest.md)하는 방법에 대해 알아보기
+- [REST를 사용하여 역할 기반 Access Control을 관리](role-based-access-control-manage-access-rest.md)하는 방법에 대해 알아보기
 
 - Azure Portal에서 [액세스 할당 관리](role-based-access-control-manage-assignments.md)

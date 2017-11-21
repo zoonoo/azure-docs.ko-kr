@@ -14,6 +14,9 @@
 ### [서비스 한도](key-vault-service-limits.md)
 ### [HSM 보호 키](key-vault-hsm-protected-keys.md)
 ### [.NET 2.0으로 마이그레이션](key-vault-dotnet2api-release-notes.md)
+### [Web App 암호 저장](vs-secure-secret-appsettings.md)
+### [.NET을 사용하여 서비스 인증](service-to-service-authentication.md)
+
 ### 개요
 #### [보안 권역](key-vault-ovw-security-worlds.md)
 #### [일시 삭제](key-vault-ovw-soft-delete.md)

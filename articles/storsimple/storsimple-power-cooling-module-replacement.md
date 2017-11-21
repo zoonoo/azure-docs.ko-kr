@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031aff9d4797e99e6523a65ded7495c88aff282
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple 장치의 전원 및 냉각 모듈 교체
+> [!NOTE]
+> StorSimple용 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이동에 대한 전자 메일 및 포털 알림이 제공됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md)로 이동하세요. 이동과 관련하여 질문이 있는 경우 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 장치의 PCM(전원 및 냉각 모듈)은 기본 및 EBOD 엔클로저를 통해 제어되는 전원 공급 장치 및 냉각 팬으로 구성되어 있습니다. 각 엔클로저마다 인증된 PCM 모델 하나만 있습니다. 기본 엔클로저는 764W PCM에 대해 인증되고 EBOD 엔클로저는 580W PCM에 대해 인증됩니다. 기본 엔클로저와 EBOD 엔클로저의 PCM은 서로 다르지만 교체 절차는 동일합니다.
 
@@ -70,7 +73,7 @@ Microsoft Azure StorSimple 장치에서 PCM(전원 및 냉각 모듈)을 꺼낼 
    | 3 |모듈 결함 |
    | 4 |논리적 결함 |
    | 5 |장치 ID 디스플레이 |
-3. 기본 엔클로저 뒷면의 모니터링 표시기 LED를 사용하여 결함이 있는 PCM을 식별할 수도 있습니다. LED를 사용하여 결함이 있는 PCM을 찾는 방법을 이해하려면 다음 다이어그램과 표를 참조하세요. 예를 들어 **팬 오류** 에 해당하는 LED가 켜지면 팬에서 오류가 발생한 것입니다. 마찬가지로, **AC 오류** 에 해당하는 LED가 켜지면 전원 공급 장치에서 오류가 발생한 것입니다. 
+3. 기본 엔클로저 뒷면의 모니터링 표시기 LED를 사용하여 결함이 있는 PCM을 식별할 수도 있습니다. LED를 사용하여 결함이 있는 PCM을 찾는 방법을 이해하려면 다음 다이어그램과 표를 참조하세요. 예를 들어 **팬 오류**에 해당하는 LED가 켜지면 팬에서 오류가 발생한 것입니다. 마찬가지로, **AC 오류**에 해당하는 LED가 켜지면 전원 공급 장치에서 오류가 발생한 것입니다. 
    
     ![장치 PCM 모니터링 표시기 LED의 백플레인](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    

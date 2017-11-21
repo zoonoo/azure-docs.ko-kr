@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center FAQ(질문과 대답) | Microsoft Docs"
-description: "이 FAQ는 Azure 보안 센터에 대한 질문에 답변합니다."
+description: "이 FAQ는 Azure Security Center에 대한 질문에 답변합니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 보안 센터 FAQ(질문과 대답)
+# <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
 
 > [!NOTE]
@@ -29,14 +29,14 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="general-questions"></a>일반적인 질문
-### <a name="what-is-azure-security-center"></a>Azure 보안 센터란?
-Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+### <a name="what-is-azure-security-center"></a>Azure Security Center란?
+Azure Security Center는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-### <a name="how-do-i-get-azure-security-center"></a>Azure 보안 센터를 이용하려면 어떻게 해야 하나요?
-Azure 보안 센터는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **Security Center**로 스크롤합니다.  
+### <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?
+Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **Security Center**로 스크롤합니다.  
 
 ## <a name="billing"></a>결제
-### <a name="how-does-billing-work-for-azure-security-center"></a>Azure 보안 센터에 대한 청구는 어떻게 작동합니까?
+### <a name="how-does-billing-work-for-azure-security-center"></a>Azure Security Center에 대한 청구는 어떻게 작동합니까?
 Security Center는 두 계층으로 제공됩니다.
 
 **무료 계층**은 Azure 리소스, 기본 보안 정책, 보안 권장 사항, 그리고 파트너의 보안 제품 및 서비스와의 통합 등의 보안 상태를 볼 수 있게 해줍니다.
@@ -44,7 +44,7 @@ Security Center는 두 계층으로 제공됩니다.
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층은 처음 60일 동안 무료입니다. 60일을 넘어 서비스를 계속 사용하는 경우 서비스 요금이 자동으로 청구되기 시작합니다.  업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다.
 
 ## <a name="permissions"></a>권한
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 
@@ -68,19 +68,19 @@ Azure Security Center 무료 계층을 사용하는 경우 언제든지 가상 �
 ### <a name="where-is-my-data-stored"></a>내 데이터는 어디에 저장되나요?
 이 에이전트에서 수집된 데이터는 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다. 자세한 내용은 [데이터 보안](security-center-data-security.md)을 참조하세요.
 
-## <a name="using-azure-security-center"></a>Azure 보안 센터 사용
+## <a name="using-azure-security-center"></a>Azure Security Center 사용
 ### <a name="what-is-a-security-policy"></a>보안 정책이란?
 보안 정책은 지정된 구독 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Azure Security Center에서 회사의 보안 요구 사항 및 응용 프로그램 형식 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대한 정책을 정의합니다.
 
-Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 보안 권장 사항과 모니터링이 결정됩니다. 보안 정책에 대해 자세히 알아보려면 [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
+Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 보안 권장 사항과 모니터링이 결정됩니다. 보안 정책에 대해 자세히 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 
 ### <a name="who-can-modify-a-security-policy"></a>보안 정책을 누가 수정할 수 있나요?
 보안 정책을 수정하려면 해당 구독의 보안 관리자이거나 소유자 또는 참가자여야 합니다.
 
-보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)을 참조하세요.
+보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-policies.md)을 참조하세요.
 
 ### <a name="what-is-a-security-recommendation"></a>보안 권장 사항이란?
-Azure 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
+Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
 
 * 맬웨어 방지 프로그램을 프로비전하면 악성 소프트웨어를 식별하여 제거하는 데 도움이 됩니다.
 * [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 및 가상 컴퓨터에 대한 트래픽 제어 규칙 구성
@@ -101,7 +101,7 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * 가상 컴퓨터에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 응용 프로그램 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
 
-### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure 보안 센터에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
+### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
 Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다. MSRC는 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스했거나 고객의 Azure 사용이 사용 제한에 대한 조건을 준수하지 않는 것을 인식하면 보안 사고 관리자는 고객에게 알립니다. 보안 연락처를 지정하지 않은 경우 대개 Azure Security Center에 지정된 보안 연락처 또는 Azure 구독 소유자에게 메일을 전송하는 방식으로 알림이 수행됩니다.
 
 보안 센터는 지속적으로 고객의 Azure 환경을 모니터링하고 다양한 잠재적인 악의적 활동을 자동으로 검색하도록 분석을 적용하는 Azure 서비스입니다. 이러한 감지는 보안 센터 대시보드에서 보안 경고로 표시됩니다.
@@ -110,13 +110,13 @@ Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선�
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * 가상 컴퓨터(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
-* Azure 가상 네트워크
+* Azure Virtual Networks
 * Azure SQL 서비스
-* Azure 저장소 계정
+* Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
 * VM 및 App Service Environment에서 웹 응용 프로그램 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
-## <a name="virtual-machines"></a>가상 컴퓨터
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 컴퓨터가 지원되나요?
 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 작성된 VM(가상 컴퓨터)에 대해 모니터링 및 권장 사항이 제공됩니다.
 
@@ -128,5 +128,14 @@ Azure Security Center는 Azure 확장을 통해 설치된 맬웨어 방지 프�
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>VM에 대해 "검사 데이터 누락" 메시지가 표시되는 이유는 무엇인가요?
 VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다. Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 검사 데이터가 입력될 때까지는 다소 시간이 걸릴 수 있습니다(1시간 이내). 검색 데이터를 처음 입력한 후에는 검색 데이터가 전혀 없거나 최근 검색 데이터가 없기 때문에 이 메시지가 나타날 수 있습니다. VM이 중지된 상태이면 검사를 수행해도 데이터가 입력되지 않습니다. Windows 에이전트의 보존 정책에 따라 최근에(기본값은 30일) 검색 데이터가 입력되지 않은 경우에도 이 메시지가 나타날 수 있습니다.
 
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Security Center는 운영 체제 취약점, 시스템 업데이트 및 Endpoint Protection 문제를 얼마나 자주 검사합니까?
+Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 시간은 다음과 같습니다.
+
+- 운영 체제 취약점(Microsoft) – 데이터가 48시간 이내 업데이트됩니다.
+- 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.
+- Endpoint Protection 문제 – 데이터가 8시간 이내 업데이트됩니다.
+
+일반적으로 Security Center는 1시간마다 새 데이터를 검사합니다. 위의 대기 시간 값은 최근 검사가 없거나 검사가 실패한 최악의 시나리오입니다.
+
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?
-데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.
+데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.

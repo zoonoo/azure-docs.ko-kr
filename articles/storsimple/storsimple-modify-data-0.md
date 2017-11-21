@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 089988354c5e1ca2e8d5d1554084062a655e43da
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정](storsimple-8000-modify-data-0.md)으로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 장치에 DATA 0에서 DATA 5까지 6개의 네트워크 인터페이스가 있습니다. DATA 0 인터페이스는 항상 Windows PowerShell 인터페이스 또는 직렬 콘솔을 통해 구성되며 자동으로 클라우드가 활성화됩니다. Azure 클래식 포털을 통해 DATA 0 네트워크 인터페이스를 구성할 수 없습니다. 
 
-StorSimple 장치의 초기 배포 중 설치 마법사를 통해 DATA 0 인터페이스가 처음 구성됩니다. 장치가 운영 모드에 있을 때 DATA 0를 다시 구성해야할 수 있습니다. 이 자습서에서는 StorSimple용 Windows PowerShell을 통해 DATA 0 네트워크 설정을 수정하는 두 가지 방법을 제공합니다.
+StorSimple 장치의 초기 배포 중 설치 마법사를 통해 DATA 0 인터페이스가 처음 구성됩니다. 장치가 운영 모드에 있을 때 DATA 0를 다시 구성해야 할 수 있습니다. 이 자습서에서는 StorSimple용 Windows PowerShell을 통해 DATA 0 네트워크 설정을 수정하는 두 가지 방법을 제공합니다.
 
 이 자습서를 읽은 후에 다음을 수행할 수 있습니다.
 

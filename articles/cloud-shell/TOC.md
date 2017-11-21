@@ -14,7 +14,10 @@
 ## [PowerShell에서 저장소 유지](persisting-shell-storage-powershell.md)
 ## [창 사용](using-the-shell-window.md)
 
-# [가격 책정](pricing.md)
+# 예
+## [Bash에서 Terraform을 사용하여 Azure 리소스 배포](example-terraform-bash.md)
+
+# [가격](pricing.md)
 
 # [문제 해결](troubleshooting.md)
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure로 장애 조치 후 VM 연결을 위한 네트워킹 | Microsoft Docs"
+title: "Azure Site Recovery를 통해 Azure에 장애 조치(Failover) 후 VM에 연결 | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 온-프레미스로 장애 조치한 후 Azure VM에 연결하기 위한 네트워킹 지침입니다."
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
+author: prateek9us
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/12/2017
-ms.author: raynew
-ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: pratshar
+ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="networking-for-vm-connectivity-after-failover"></a>장애 조치 후 VM 연결을 위한 네트워킹
+# <a name="connecting-to-vms-after-failover-to-azure"></a>Azure에 장애 조치(failover) 후 Azure VM에 연결
 
 이 문서에서는 Azure로의 복제 및 장애 조치에 [Azure Site Recovery](site-recovery-overview.md)를 사용한 후 Azure VM에 연결하기 위한 네트워킹 요구 사항을 설명합니다.
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 복제 및 장애 조치(failover) 전략을 계획할 경우 주요 질문 중 하나는 장애 조치(failover) 후에 Azure VM에 어떻게 연결하는가입니다. 복제본 Azure VM에 대한 네트워크 전략을 설계할 경우 선택 몇 가지 항목이 있습니다.
 
 - **다른 IP 주소 사용**: 복제된 Azure VM 네트워크에 다른 IP 주소 범위를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
-- **동일한 IP 주소 유지**: 기본 온-프레미스 사이트에 있는 것과 동일한 IP 주소 범위를 장애 조치(failover) 후 Azure 네트워크에 대해 사용하려고 합니다. 동일한 IP 주소를 유지하면 장애 조치 후에 네트워크 관련 문제를 감소시켜서 복구를 간소화합니다. 그러나 Azure에 복제하는 경우 장애 조치 후에 경로를 IP 주소의 새 위치로 업데이트해야 합니다. 
+- **동일한 IP 주소 유지**: 기본 온-프레미스 사이트에 있는 것과 동일한 IP 주소 범위를 장애 조치(failover) 후 Azure 네트워크에 대해 사용하려고 합니다. 동일한 IP 주소를 유지하면 장애 조치 후 네트워크 관련 문제가 줄어들어 복구가 간소화됩니다. 그러나 Azure에 복제하는 경우 장애 조치 후에 경로를 IP 주소의 새 위치로 업데이트해야 합니다. 
 
 ## <a name="retaining-ip-addresses"></a>IP 주소 유지
 

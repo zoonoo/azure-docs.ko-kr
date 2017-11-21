@@ -1,6 +1,6 @@
 ---
-title: "테이블 저장소를 사용하는 웹앱(Node.js) | Microsoft Docs"
-description: "Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
+title: "Azure Table Storage: 웹앱 Node.js 빌드 | Microsoft Docs"
+description: "Azure Storage 서비스 및 Azure 모듈을 추가해 Express를 사용하여 Web App 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,19 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>저장소를 사용하는 Node.js 웹 응용 프로그램
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table Storage: Node.js 웹 응용 프로그램
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>개요
 이 자습서에서는 데이터 관리 서비스를 작업하도록 Node.js용 Microsoft Azure Client Libraries를 사용하여 [Express를 사용하는 Node.js 웹 응용 프로그램] 자습서에서 만든 응용 프로그램을 확장합니다. Azure에 배포할 수 있는 웹 기반 작업 목록 응용 프로그램을 만들도록 응용 프로그램을 확장합니다. 작업 목록을 통해 사용자는 작업을 가져오고 새 작업을 추가하고 작업을 완료로 표시할 수 있습니다.
 
-작업 항목은 Azure 저장소에 저장됩니다. Azure 저장소는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure Storage에는 데이터를 저장 및 액세스할 수 있는 몇 가지 데이터 구조가 포함되어 있습니다. Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하십시오.
+작업 항목은 Azure Storage에 저장됩니다. Azure Storage는 내결함성과 고가용성이 있는 구조화되지 않은 데이터 저장소를 제공합니다. Azure Storage에는 데이터를 저장 및 액세스할 수 있는 몇 가지 데이터 구조가 포함되어 있습니다. Node.js용 Azure SDK에 포함된 API 또는 REST API를 통해 저장소 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure에 데이터 저장 및 액세스]를 참조하십시오.
 
 이 자습서는 [Node.js 웹 응용 프로그램] 및 [Express를 사용하는 Node.js][Express를 사용하는 Node.js 웹 응용 프로그램] 자습서를 완료했다고 가정합니다.
 
@@ -105,7 +107,7 @@ web.config 설정은 환경 변수로서 노드에 전달된 다음 Azure SDK에
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a>node 응용 프로그램에서 테이블 서비스 사용
+## <a name="using-the-table-service-in-a-node-application"></a>node 응용 프로그램에서 Table service 사용
 이 섹션에서는 작업에 대한 모델을 포함하는 **task.js** 파일을 추가하여 **express** 명령으로 만들어진 기본 응용 프로그램을 확장합니다. 기존 **app.js** 파일을 수정하고 모델을 사용하는 새 **tasklist.js** 파일을 만듭니다.
 
 ### <a name="create-the-model"></a>모델 만들기

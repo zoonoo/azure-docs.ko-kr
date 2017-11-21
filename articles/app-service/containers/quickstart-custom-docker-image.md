@@ -1,10 +1,10 @@
 ---
-title: "Web App for Containers에서 사용자 지정 Docker Hub 이미지 실행 | Microsoft Docs"
-description: "Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법."
+title: "컨테이너용 Azure Web App에 대한 사용자 지정 Docker Hub 이미지 실행 | Microsoft Docs"
+description: "Containers용 Azure Web Apps에 사용자 지정 Docker 이미지를 사용하는 방법"
 keywords: "azure app service, 웹앱, linux, docker, 컨테이너"
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Web App for Containers에서 사용자 지정 Docker Hub 이미지 실행
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 사용자 지정 Docker Hub 이미지 실행
 
-App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 배포할 수도 있습니다. 이 요약에서는 웹앱을 만들어 Python 기반 Docker 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
+App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 웹앱을 만들어 [공식 Nginx Docker 이미지](https://hub.docker.com/r/_/nginx/)를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
+
+![Azure에서 실행되는 샘플 앱](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,10 +41,10 @@ App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원�
 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-이전 명령에서 `--deployment-container-image-name`은 공용 Docker Hub 이미지 [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/)를 가리킵니다. [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest)에서 그 콘텐츠를 점검할 수 있습니다.
+이전 명령에서 `--deployment-container-image-name`은 공용 Docker Hub 이미지 [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/)를 가리킵니다.
 
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
@@ -76,4 +78,4 @@ http://<app_name>.azurewebsites.net
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드](tutorial-docker-python-postgresql-app.md)
+> [사용자 지정 Docker 이미지 사용](tutorial-custom-docker-image.md)

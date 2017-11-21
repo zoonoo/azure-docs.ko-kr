@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure Multi-Factor Authentication 구성 설정 - 공개 미리 보기
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 10/30/2017
 
 | 기능 | 설명 | 
 |:--- |:--- |
+| [사용자 차단/차단 해제](#block/unblock-users) |사용자 차단/차단 해제를 통해 사용자가 인증 요청을 받지 못하도록 방지할 수 있습니다. |
 | [사기 행위 경고](#fraud-alert) |사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 사기를 보고할 수 있습니다. |
 | [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 Multi-Factor Authentication "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다. |
 | [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 Multi-Factor Authentication으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. |
@@ -37,6 +38,23 @@ ms.lasthandoff: 10/30/2017
 | [앱 암호](#app-passwords) |앱 암호를 사용하면 MFA를 인식하지 않는 응용 프로그램은 Multi-Factor Authentication를 바이패스하고 계속 작업할 수 있습니다. |
 | [기억된 장치 및 브라우저용 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-that-users-trust) |사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다. |
 | [선택 가능한 확인 방법](#selectable-verification-methods) |사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. |
+
+## <a name="blockunblock-users"></a>사용자 차단/차단 해제
+사용자 차단/차단 해제를 사용하여 사용자가 인증 요청을 받지 못하도록 방지할 수 있습니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 차단된 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
+
+### <a name="block-a-user"></a>사용자 차단
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **MFA 서버** > **사용자 차단/차단 해제**로 차례로 이동합니다.
+3. **추가**를 클릭하여 사용자를 차단합니다.
+4. **복제 그룹**을 선택하고, 차단되는 사용자 이름을 **username@domain.com**으로 입력하고, **이유** 필드에서 주석을 입력합니다.
+5. **추가**를 클릭하여 사용자 차단을 완료합니다.
+
+### <a name="unblock-a-user"></a>사용자 차단 해제
+1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **Azure Active Directory** > **MFA 서버** > **사용자 차단/차단 해제**로 차례로 이동합니다.
+3. 차단 해제하려는 사용자 옆에 있는 **작업** 열에서 **차단 해제**를 클릭합니다.
+4. **차단 해제 이유** 필드에서 주석을 입력합니다.
+5. **차단 해제**를 클릭하여 사용자 차단 해제를 완료합니다.
 
 ## <a name="fraud-alert"></a>사기 행위 경고
 사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 사기를 보고할 수 있습니다.  사용자가 모바일 앱 또는 자신의 전화를 통해 사기 행위를 보고할 수 있습니다.

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -183,6 +183,18 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 가상 네트워크의 공용 끝점의 수를 최소화하기 때문에 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 연결하는 것이 좋습니다. 이 경우, 원격 데스크톱 세션을 통해 연결한 다음 로컬 네트워크의 다른 Windows 클라이언트와 같이 가상 컴퓨터를 사용하도록 구성하면 됩니다. 포트를 이미 알 수 있으므로 공용 포트 번호를 추가할 필요가 없습니다.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>클라우드 어플라이언스에 대한 개인 IP 가져오기
+
+동일한 가상 네트워크에서 호스트 서버에 연결하는 클라우드 어플라이언스의 경우 클라우드 어플라이언스의 내부 또는 개인 IP 주소가 필요합니다. 다음 단계를 수행하여 클라우드 어플라이언스의 개인 IP 주소를 가져오기
+
+1. 클라우드 어플라이언스에 대한 기본 가상 컴퓨터로 이동합니다. 가상 컴퓨터에는 클라우드 어플라이언스와 동일한 이름이 있습니다. **모든 리소스**로 이동하고, 클라우드 어플라이언스 및 구독의 이름을 제공하고, 가상 컴퓨터로 유형을 선택합니다. 제공된 가상 컴퓨터의 목록에서 클라우드 어플라이언스에 해당하는 가상 컴퓨터를 선택하고 클릭합니다.
+
+     ![클라우드 어플라이언스에 대한 가상 컴퓨터 선택](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. **설정 > 네트워킹**으로 이동합니다. 오른쪽 창에 클라우드 어플라이언스의 개인 IP 주소가 표시됩니다. 기록해 둡니다.
+
+    ![클라우드 어플라이언스에 대한 개인 IP 주소 가져오기](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance 작업
 

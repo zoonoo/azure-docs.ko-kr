@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
 ---
-# 참조 - 통신 프로토콜 선택
+# <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
 
 IoT Hub를 사용하면 장치가 장치 쪽 통신에 다음 프로토콜을 사용할 수 있습니다.
 
@@ -51,7 +51,7 @@ IoT Hub를 사용하면 장치가 장치 쪽 통신에 다음 프로토콜을 �
 > [!WARNING]
 > HTTPS를 사용하는 경우 각 장치는 25분 이상마다 클라우드-장치에 대해 폴링합니다. 그렇지만 개발하는 동안에는 25분 보다 좀 더 자주 폴링을 하도록 할 수도 있습니다.
 
-## 포트 번호
+## <a name="port-numbers"></a>포트 번호
 
 장치는 다양한 프로토콜을 사용하여 Azure에서 IoT Hub와 통신할 수 있습니다. 일반적으로 프로토콜은 솔루션의 특정 요구 사항에 따라 선택됩니다. 다음 표에는 특정 프로토콜을 사용할 수 있는 장치에 대해 열려 있어야 하는 아웃바운드 포트가 나와 있습니다.
 
@@ -66,7 +66,7 @@ IoT Hub를 사용하면 장치가 장치 쪽 통신에 다음 프로토콜을 �
 Azure 지역에 IoT Hub를 만들면 IoT Hub는 해당 IoT Hub의 수명 동안 동일한 IP 주소를 유지합니다. 그러나 서비스 품질을 유지하기 위해 Microsoft가 IoT Hub를 다른 배율 단위로 이동하는 경우에는 새 IP 주소로 할당됩니다.
 
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 IoT Hub가 MQTT 프로토콜을 구현하는 방법에 대한 자세한 내용은 [MQTT 프로토콜을 사용하여 IoT 허브와 통신][lnk-mqtt-support]을 참조하세요.
 

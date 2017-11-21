@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 [TDSP(팀 데이터 과학 프로세스)](overview.md)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
@@ -59,15 +59,15 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip\_amount*가 $0보다 크면 지불된 것이고 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
 
 ## <a name="setup"></a>고급 분석용 HDInsight Hadoop 클러스터 설정
@@ -78,7 +78,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [Storage 계정 만들기](../../storage/common/storage-create-storage-account.md):이 Storage 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
    * HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스하는 데 사용됩니다.
@@ -124,7 +124,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 
-이제 데이터가 Azure Blob 저장소에 있고 HDInsight 클러스터 내에서 사용할 수 있도록 준비됩니다.
+이제 데이터가 Azure Blob Storage에 있고 HDInsight 클러스터 내에서 사용할 수 있도록 준비됩니다.
 
 ## <a name="#download-hql-files"></a>Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 > [!NOTE]
@@ -132,7 +132,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 > 
 > 
 
-예비 데이터 분석 및 데이터 다운 샘플링을 위해 클러스터의 헤드 노드에 액세스하려면 [Hadoop 클러스터의 헤드 노드 액세스](customize-hadoop-cluster.md#headnode)에 설명된 절차를 따릅니다.
+예비 데이터 분석 및 데이터 다운 샘플링을 위해 클러스터의 헤드 노드에 액세스하려면 [Hadoop 클러스터의 헤드 노드 액세스](customize-hadoop-cluster.md)에 설명된 절차를 따릅니다.
 
 이 연습에서는 주로 SQL과 유사한 쿼리 언어인 [Hive](https://hive.apache.org/)로 작성된 쿼리를 사용하여 예비 데이터 탐색을 수행합니다. Hive 쿼리는 .hql 파일에 저장됩니다. 그런 다음 모델 빌드를 위해 Azure 기계 학습 내에서 사용하도록 이 데이터를 다운 샘플링합니다.
 
@@ -413,7 +413,7 @@ NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. �
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-Hive 디렉터리 프롬프트에서 아래 명령을 실행합니다.
+Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -523,7 +523,7 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행합니다.
 
 직접 거리를 측정하면 직접 거리와 실제 여정 거리 간의 불일치를 찾을 수 있습니다. 이 기능이 필요한 이유는 승객이 운전 기사가 의도적으로 훨씬 더 긴 경로를 이용했는지 알면 팁을 제공하지 않을 것이기 때문입니다.
 
-실제 여정 거리와 두 경도-위도 지점 간의 [Haversine 거리](http://en.wikipedia.org/wiki/Haversine_formula) ("대권" 거리)를 비교하려면 Hive 내에서 제공되는 삼각 함수를 사용합니다.
+두 경도-위도 지점 사이의 실제 주행 거리와 [Haversine 거리](http://en.wikipedia.org/wiki/Haversine_formula)("대권" 거리)를 비교하려면 Hive 내에서 사용할 수 있는 삼각 함수를 사용합니다.
 
     set R=3959;
     set pi=radians(180);
@@ -557,7 +557,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 쿼리 결과는 Hadoop 클러스터 기본 컨테이너 아래의 9개의 Azure Blob(***queryoutputdir/000000\_0*** ~  ***queryoutputdir/000008\_0***)에 기록됩니다.
 
-개별 blob의 크기를 보려면 Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
+개별 Blob의 크기를 확인하려면 Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
     hdfs dfs -ls wasb:///queryoutputdir
 
@@ -581,7 +581,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 예비 데이터 분석 단계를 마쳤으므로 이제 Azure 기계 학습에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 액세스할 데이터를 다운 샘플링하는 방법을 보여 줍니다.
 
 ### <a name="down-sampling-the-data"></a>데이터 다운 샘플링
-이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키("medallion", "hack\_license" 및 "pickup\_datetime")에서 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
+이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키("medallion", "hack\_license" 및 "pickup\_datetime")에 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
 
 다운 샘플링한 데이터를 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 직접 사용하려면 위 쿼리 결과를 내부 Hive 테이블에 저장해야 합니다. 내부 Hive 테이블을 만들고 조인 및 다운 샘플링된 데이터로 채웁니다.
 
@@ -712,7 +712,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
 
-이 쿼리를 실행하려면 Hive 디렉터리 프롬프트에서 다음을 실행합니다.
+이 쿼리를 실행하려면 Hive 디렉터리 프롬프트에서 다음을 수행합니다.
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
@@ -721,19 +721,19 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 ### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Azure 기계 학습의 데이터 가져오기 모듈을 사용하여 다운 샘플링된 데이터 액세스
 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Azure Machine Learning 작업 영역과 클러스터 및 연결된 해당 저장소 계정의 자격 증명에 액세스해야 합니다.
 
-[데이터 가져오기][import-data] 모듈과 입력할 매개 변수에 대한 일부 정보는 다음과 같습니다.
+[데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
 
-**HCatalog server URI**: 클러스터 이름이 abc123인 경우 단순히 https://abc123.azurehdinsight.net입니다.
+**HCatalog server URI**: 클러스터 이름이 abc123인 경우 간단히 https://abc123.azurehdinsight.net입니다.
 
-**Hadoop user account name**: 클러스터에 대해 선택한 사용자 이름(원격 액세스 사용자 이름이 **아님**)입니다.
+**Hadoop user account name**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름이 **아님**).
 
-**Hadoop ser account password**: 클러스터에 대해 선택한 암호(원격 액세스 암호가 **아님**)입니다.
+**Hadoop ser account password**: 클러스터에 대해 선택한 암호입니다(원격 액세스 암호가 **아님**).
 
-**Location of output data** : Azure로 선택됩니다.
+**Location of output data**: Azure로 선택됩니다.
 
-**Azure storage account name** : 클러스터와 연결된 기본 저장소 계정의 이름입니다.
+**Azure storage account name**: 클러스터와 연결된 기본 저장소 계정의 이름입니다.
 
-**Azure container name** : 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 같습니다. "abc123"이라는 클러스터의 경우 단순히 abc123입니다.
+**Azure container name**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 동일합니다. "abc123"이라는 클러스터의 경우 단순히 abc123입니다.
 
 > [!IMPORTANT]
 > **Azure Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 쿼리할 모든 테이블은 내부 테이블이어야 합니다.** 데이터베이스 D.db의 테이블 T가 내부 테이블인지 확인하기 위한 팁은 다음과 같습니다.
@@ -744,7 +744,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
     hdfs dfs -ls wasb:///D.db/T
 
-테이블이 내부 테이블이고 채워진 경우 해당 내용이 여기에 표시되어야 합니다. 테이블이 내부 테이블인지 확인하는 또 다른 방법은 Azure 저장소 탐색기를 사용하는 것입니다. Azure 저장소 탐색기를 사용하여 클러스터의 기본 컨테이너 이름으로 이동한 다음 테이블 이름으로 필터링합니다. 테이블과 해당 내용이 표시되면 내부 테이블인 것입니다.
+테이블이 내부 테이블이고 채워진 경우 해당 내용이 여기에 표시되어야 합니다. 테이블이 내부 테이블인지 확인하는 또 다른 방법은 Azure Storage 탐색기를 사용하는 것입니다. Azure 저장소 탐색기를 사용하여 클러스터의 기본 컨테이너 이름으로 이동한 다음 테이블 이름으로 필터링합니다. 테이블과 해당 내용이 표시되면 내부 테이블인 것입니다.
 
 다음은 Hive 쿼리 및 [데이터 가져오기][import-data] 모듈의 스냅숏입니다.
 
@@ -783,7 +783,7 @@ b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
 a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0, 1, 2, 3, 4) 중 하나일 수 있는 "tip\_class"입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 tipped, tip\_amount, total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
-아래 스냅숏은 팁이 속할 수 있는 bin을 예측하는 실험을 보여 줍니다(Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20).
+아래 스냅숏은 팁이 속할 수 있는 bin을 예측하는 실험을 보여 줍니다(Class 0: tip = $0, class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, Class 4: tip > $20).
 
 ![실험 스냅숏](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,13 +795,13 @@ b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인�
 
 ![혼동 행렬](./media/hive-walkthrough/cxFmErM.png)
 
-우세한 클래스의 클래스 정확도는 매우 좋지만 희박한 클래스에서 "학습"하는 것은 좋지 않습니다.
+많이 사용되는 클래스에 대한 클래스 정확도는 매우 좋지만, 모델이 드물게 사용되는 클래스에서 "학습" 작업을 수행하는 것은 좋지 않습니다.
 
 **3. 회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.
 
 **사용된 학습자:** 향상된 의사 결정 트리
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입니다. 이 경우 대상 누수는 tipped, tip\_class, total\_amount입니다. 이러한 변수는 모두 일반적으로 테스트 시 사용할 수 없는 팁 금액에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입니다. 이 경우 대상 누수는 tipped, tip\_class, total\_amount입니다. 이러한 모든 변수는 테스트 시 일반적으로 사용할 수 없는 팁 크기에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
 아래 스냅숏에서는 주어진 팁 금액을 예측하는 실험을 보여 줍니다.
 
@@ -814,7 +814,7 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 결정 계수가 0.709인데, 이는 분산의 약 71%가 모델 계수로 설명됨을 의미합니다.
 
 > [!IMPORTANT]
-> Azure Machine Learning 및 이를 사용하고 액세스하는 방법에 대한 자세한 내용은 [Machine Learning이란?](../studio/what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
+> Azure Machine Learning 및 이를 액세스하고 사용하는 방법에 대한 자세한 내용은 [Machine Learning이란?](../studio/what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
 > 
 > 
 

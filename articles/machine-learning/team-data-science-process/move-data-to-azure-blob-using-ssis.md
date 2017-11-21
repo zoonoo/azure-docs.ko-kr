@@ -1,6 +1,6 @@
 ---
 title: "SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동 | Microsoft Docs"
-description: "SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동"
+description: "SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동"
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 53570d3bd92712e96090ee995bcb5f7483a6d498
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
@@ -68,7 +68,7 @@ SSIS 기능 팩을 사용하여 온-프레미스에서 Azure blob 저장소로 �
 
 | 필드 | 설명 |
 | --- | --- |
-| **AzureStorageConnection** |기존 Azure 저장소 연결 관리자를 지정하거나, blob 파일이 호스트되는 위치를 가리키는 Azure 저장소 계정을 참조하는 새 Azure 저장소 연결 관리자를 만듭니다. |
+| **AzureStorageConnection** |기존 Azure Storage 연결 관리자를 지정하거나, blob 파일이 호스트되는 위치를 가리키는 Azure Storage 계정을 참조하는 새 Azure Storage 연결 관리자를 만듭니다. |
 | **BlobContainer** |업로드된 파일을 blob로 유지할 blob 컨테이너의 이름을 지정합니다. |
 | **BlobDirectory** |업로드된 파일을 블록 blob로 저장할 blob 디렉터리를 지정합니다. blob 디렉터리는 가상 계층 구조입니다. blob가 이미 있는 경우 바뀝니다. |
 | **LocalDirectory** |업로드할 파일이 포함된 로컬 디렉터리를 지정합니다. |

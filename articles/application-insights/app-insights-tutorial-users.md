@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 응용 프로그램을 사용하는 방법 이해
 
@@ -40,7 +40,7 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 응�
 - [Visual Studio 스냅숏 디버거](http://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - Azure에 .NET 응용 프로그램을 배포하고 [Application Insights SDK를 사용하도록 설정](app-insights-asp-net.md)합니다. 
 - 사용자 지정 이벤트/페이지 보기 추가에 대한 [응용 프로그램에서 원격 분석 전송](app-insights-usage-overview.md#send-telemetry-from-your-app)
-- [사용자 컨텍스트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
+- [사용자 컨텍스트](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.

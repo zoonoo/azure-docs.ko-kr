@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 11/03/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5778d54060c9be1b0c90c34bcf7c8e9bacb414d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>StorSimple Manager 서비스를 통해 StorSimple 8000 시리즈 장치 비활성화 및 삭제
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple Manager 서비스를 통해 StorSimple 8000 시리즈 장치 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)로 이동합니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 StorSimple 장치 서비스를 중단하고 싶을 수 있습니다(예: 장치를 교체 또는 업그레이드하거나 더 이상 StorSimple을 사용하지 않는 경우). 그런 경우 장치를 비활성화한 다음 삭제해야 합니다. 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다. 이 자습서에서는 StorSimple 장치를 먼저 비활성화한 후 삭제하여 서비스에서 제거하는 방법에 대해 설명합니다. 
 
@@ -87,7 +90,7 @@ StorSimple 가상 컴퓨터에 대한 비활성화는 가상 장치의 할당을
 
 * StorSimple 가상 장치가 제거됩니다.
 * OS 디스크 및 StorSimple 가상 장치에 대해 만든 데이터 디스크가 제거됩니다.
-* 프로비전 중 호스티드 서비스 및 가상 네트워크가 보존됩니다. 이러한 엔터티를 사용하지 않는 경우 수동으로 삭제해야 합니다.
+* 프로비전 중 호스티드 서비스 및 Virtual Network가 보존됩니다. 이러한 엔터티를 사용하지 않는 경우 수동으로 삭제해야 합니다.
 * StorSimple 가상 장치에서 만든 클라우드 스냅숏은 보존됩니다.
 
 ## <a name="next-steps"></a>다음 단계

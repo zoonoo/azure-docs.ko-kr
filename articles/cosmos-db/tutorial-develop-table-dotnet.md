@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -41,29 +41,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB의 테이블 
 
-Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table 저장소](../storage/common/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB와 작업할 수 있습니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
+Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요하고 처리량이 높은 요구 사항을 가진 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table Storage](../storage/common/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB의 테이블과 함께 작업할 수 있습니다.   
 
-저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다.
+이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
-현재 Azure Table 저장소를 사용하는 경우 "프리미엄 테이블" 미리 보기를 사용하면 다음과 같은 이점이 있습니다.
-
-- 멀티 호밍 및 [자동 및 수동 장애 조치](regional-failover.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
-- 모든 속성("보조 인덱스")에 대한 스키마 독립적 자동 인덱싱 및 빠른 쿼리 지원 
-- 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
-- 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
-- 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
-- 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
-
-미리 보기에서 Azure Cosmos DB는 .NET SDK를 사용하여 Table API를 지원합니다. NuGet에서 [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스와 메서드 서명이 있는 [Azure Storage 미리 보기 SDK](https://aka.ms/premiumtablenuget)를 다운로드할 수 있지만, Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수도 있습니다 .
-
-복잡한 Azure Table 저장소 작업에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Azure Cosmos DB 소개: Table API](table-introduction.md)
-* [.NET용 저장소 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) - 사용 가능한 API에 대해 자세히 설명하는 Table service 참조 설명서
-
-### <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서는 Azure Table 저장소 SDK에 익숙하고 Azure Cosmos DB를 사용하여 제공되는 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
+## <a name="prerequisites"></a>필수 조건
 
 Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
 
@@ -72,14 +54,6 @@ Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Comm
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
 Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.  
-
-> [!TIP]
-> * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
-> * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
-> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 ```
 
 > [!NOTE]
-> 표준 Azure Table Storage에서 이 앱을 사용하려면 `app.config file`에서 연결 문자열을 변경해야 합니다. 계정 이름을 Table 계정 이름으로, 키를 Azure Storage 기본 키로 사용합니다. <br>
+> Azure Table Storage에서 이 앱을 사용하려면 `app.config file`에서 연결 문자열을 변경해야 합니다. 계정 이름을 Table 계정 이름으로, 키를 Azure Storage 기본 키로 사용합니다. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Azure DB Cosmos 기능
-Azure Cosmos DB는 Azure Table 저장소 API에서 사용할 수 없는 기능을 다양하게 지원합니다. 새 기능은 다음 `appSettings` 구성 값을 통해 사용하도록 설정할 수 있습니다. 미리 보기 Azure Storage SDK에 새 서명 또는 오버로드를 제공하지 않았습니다. 이렇게 하면 표준 테이블과 프리미엄 테이블에 모두 연결할 수 있으며, Blob 및 큐와 같은 다른 Azure Storage 서비스를 사용할 수 있습니다. 
+Azure Cosmos DB Table API는 Azure Table Storage에서 사용할 수 없는 기능을 다양하게 지원합니다. 새 기능은 다음 `appSettings` 구성 값을 통해 사용하도록 설정할 수 있습니다. Azure Storage SDK에 없었던, Table API에 새로 추가된 서명이나 오버로드는 없습니다. 이 기능을 사용하면 Azure Table Storage 및 Azure Cosmos DB에 모두 연결할 수 있으며, Blob 및 큐와 같은 다른 Azure Storage 서비스를 사용할 수 있습니다. 
 
 
 | 키 | 설명 |
@@ -311,7 +285,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 미리 보기에서 Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](documentdb-sql-query.md)를 참조하세요. 
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
-엔터티를 업데이트하려면 테이블 서비스에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 테이블 서비스에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 
+엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 
 
 ```csharp
 TableOperation updateOperation = TableOperation.Replace(updateEntity);

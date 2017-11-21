@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
 Terraform은 [간단한 템플릿 언어](https://www.terraform.io/docs/configuration/syntax.html)를 사용하여 클라우드 인프라를 정의, 미리 보기 및 배포하는 쉬운 방법을 제공합니다. 이 문서에서는 Terraform을 사용하여 Azure의 리소스를 프로비전하는 데 필요한 단계를 설명합니다. 
 
 > [!TIP]
-> Terraform은 [Azure Cloud Shell Bash 환경](/azure/cloud-shell/quickstart)의 일부이며, 자격 증명 및 [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure)로 미리 구성됩니다.
+> Terraform은 [Azure Cloud Shell 환경의 Bash](/azure/cloud-shell/quickstart)에 기본적으로 설치됩니다. 또한 자격 증명 및 [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure)로 미리 구성됩니다. Cloud Shell을 사용하여 이 문서의 설치/설정 부분을 건너뛸 수 있습니다.
 
 ## <a name="install-terraform"></a>Terraform 설치
 
@@ -47,9 +47,7 @@ Terraform에서 Azure로 리소스를 프로비전하도록 [Azure AD 서비스 
 
 다음 명령을 실행하여 Azure 구독을 관리하기 위해 로그인합니다.
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 여러 Azure 구독이 있는 경우 `az login` 명령을 사용하면 세부 정보가 반환됩니다. 사용하려는 구독에서 반환된 `id` 필드 값을 보유하도록 `SUBSCRIPTION_ID` 환경 변수를 설정합니다. 
 

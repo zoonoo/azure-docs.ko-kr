@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0f556c786fdfdf775e00e68740351e7630e0e002
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -398,7 +398,7 @@ ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열�
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * 원본: Base64 인코딩된 문자열  
-* 인코딩: 유니코드, ASCII, UTF8
+* Encoding: 유니코드, ASCII, UTF8
 
 **예제**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -615,12 +615,12 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 "20140905081453.0Z"를 반환할 수 있습니다.
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **설명:**  
-함수 GUID는 임의의 GUID를 새로 생성합니다.
+함수 Guid는 임의의 GUID를 새로 생성합니다.
 
 **구문:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### <a name="iif"></a>IIF

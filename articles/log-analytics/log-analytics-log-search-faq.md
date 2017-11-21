@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 새 로그 검색 FAQ 및 알려진 문제
 
@@ -38,13 +38,6 @@ ms.lasthandoff: 10/18/2017
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>질문: 컴퓨터 그룹을 사용하려고 할 때 오류가 발생합니다.  구문이 변경되었나요?
 예, 작업 영역이 업그레이드될 때 컴퓨터 그룹을 사용하는 구문이 변경됩니다.  자세한 내용은 [Log Analytics 로그 검색의 컴퓨터 그룹](log-analytics-computer-groups.md)을 참조하세요.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>알려진 문제: Active Directory에서 가져온 그룹
-현재 Active Directory에서 가져온 컴퓨터 그룹을 사용하는 쿼리를 만들 수 없습니다.  해결 방법으로, 이 문제를 해결할 때까지 가져온 Active Directory 그룹을 사용하여 새 컴퓨터 그룹 만든 다음, 쿼리에 해당 새 그룹을 사용하는 것입니다.
-
-가져온 Active Directory 그룹을 포함하는 새 컴퓨터 그룹을 만드는 쿼리의 예는 다음과 같습니다.
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>대시보드
@@ -76,11 +69,6 @@ ms.lasthandoff: 10/18/2017
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>알려진 문제: 목록의 검색 결과에 데이터가 없는 속성이 포함될 수 있습니다
-목록의 로그 검색 결과에 데이터가 없는 속성이 포함될 수 있습니다.  업그레이드하기 전에 이러한 속성을 포함할 수 없습니다.  이 문제는 빈 속성은 표시되지 않도록 수정될 예정입니다.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>알려진 문제: 차트에서 값을 선택하면 자세한 결과가 표시되지 않습니다
-업그레이드하기 전에 차트에서 값을 선택하면 선택한 값과 일치하는 레코드의 자세한 목록을 반환합니다.  업그레이드 후에 단일 요약된 줄만 반환됩니다.  이 문제는 현재 조사 중입니다.
 
 ## <a name="log-search-api"></a>로그 검색 API
 
@@ -109,11 +97,9 @@ ms.lasthandoff: 10/18/2017
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>질문: PowerBI 통합에서 변경되는 사항이 있나요?
-예.  작업 영역이 업그레이드되면 Log Analytics 데이터를 Power BI로 내보내는 프로세스가 더 이상 작동하지 않습니다.  그러면 업그레이드 전에 만든 모든 기존 일정을 사용할 수 없게 됩니다.  업그레이드 후 Azure Log Analytics는 Application Insights와 같은 플랫폼을 사용하며, [Application Insights 쿼리를 Power BI로 내보내는 프로세스](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)와 같은 프로세스를 사용하여 Log Analytics 쿼리를 Power BI로 내보냅니다.
+예.  작업 영역이 업그레이드되면 Log Analytics 데이터를 Power BI로 내보내는 프로세스가 더 이상 작동하지 않습니다.  그러면 업그레이드 전에 만든 모든 기존 일정을 사용할 수 없게 됩니다.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>알려진 문제: Power BI 요청 크기 제한
-현재 Power BI로 내보낼 수 있는 Log Analytics 쿼리에 대한 크기 제한은 8MB입니다.  이 한도는 나중에 상향 조정될 예정입니다.
-
+업그레이드 후 Azure Log Analytics는 Application Insights와 같은 플랫폼을 사용하며, [Application Insights 쿼리를 Power BI로 내보내는 프로세스](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)와 같은 프로세스를 사용하여 Log Analytics 쿼리를 Power BI로 내보냅니다.  Power BI로 내보내기를 수행하면 이제 API 끝점이 직접 호출됩니다. 이를 사용하여 최대 50만 개의 행 또는 64,000,000바이트의 데이터를 가져오고, 긴 쿼리의 내보내고, 쿼리 제한 시간(기본 시간 제한: 3분, 최대 시간 제한: 10분)을 사용자 지정할 수 있습니다.
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 
@@ -153,14 +139,11 @@ ms.lasthandoff: 10/18/2017
 ### <a name="question-will-my-solutions-continue-to-work"></a>질문: 내 솔루션이 계속 작동하나요?
 모든 솔루션은 업그레이드된 작업 영역에서 계속 작동합니다. 단, 새 쿼리 언어로 변환된 경우 성능은 향상됩니다.  이 섹션에 설명된 일부 기존 솔루션에는 알려진 문제가 있습니다.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>알려진 문제: 용량 및 성능 솔루션
-[용량 및 성능](log-analytics-capacity.md) 보기의 일부는 비어 있을 수 있습니다.  이 문제에 대한 수정은 곧 사용할 수 있습니다.
-
-### <a name="known-issue-application-insights-connector"></a>알려진 문제: Application Insights 커넥터
-[Application Insights 커넥터 솔루션](log-analytics-app-insights-connector.md)의 관점은 현재 업그레이드된 작업 영역에서 지원되지 않습니다.  이 문제에 대한 수정은 현재 분석 중입니다.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>알려진 문제: Application Insights 커넥터의 큐브 뷰
+[Application Insights 커넥터 솔루션](log-analytics-app-insights-connector.md)의 큐브 뷰가 Application Insights 커넥터 솔루션에서 더 이상 지원되지 않습니다.  Application Insights 데이터로 사용자 지정 뷰를 만들려면 뷰 디자이너를 사용할 수 있습니다.
 
 ### <a name="known-issue-backup-solution"></a>알려진 문제: Backup 솔루션
-Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하지 않습니다. 업그레이드된 작업 영역에서 작동하는 새 Backup 솔루션이 곧 발표될 것입니다.
+작업 영역을 업그레이드하기 전에 Backup 솔루션을 설치한 경우 Backup 솔루션에서 데이터를 수집하지 못할 수 있습니다. 이 솔루션을 제거한 다음 최신 버전을 설치합니다.  새 버전의 솔루션은 클래식 Backup 자격 증명 모음을 지원하지 않으므로 이 솔루션을 계속 사용하려면 Recovery Services 자격 증명 모음으로도 업그레이드해야 합니다.
 
 ## <a name="upgrade-process"></a>업그레이드 프로세스
 
@@ -182,9 +165,6 @@ Backup 솔루션은 업그레이드된 작업 영역의 데이터를 수집하�
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>질문: 뷰 디자이너를 통해 새 뷰를 만들려면 어떻게 할까요?
 업그레이드하기 전에 주 대시보드의 타일에서 뷰 디자이너로 새 뷰를 만들 수 있습니다.  작업 영역이 업그레이드되면 이 타일은 제거됩니다.  왼쪽 메뉴의 녹색 + 단추를 클릭하여 OMS 포털에서 뷰 디자이너로 새 뷰를 만들 수 있습니다.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>알려진 문제: 뷰에서 꺾은선형 차트에 대한 모두 보기 옵션을 사용해도 꺾은선형 차트로 결과가 표시되지 않습니다.
-뷰의 꺾은선형 차트에서 아래쪽에 *모두 보기*옵션을 클릭하면 테이블이 표시됩니다.  업그레이드하기 전에는 꺾은선형 차트로 표시됩니다.  이 문제는 잠재적 수정에 대한 분석 중입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -16,13 +16,13 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: bfc2b89533ca52b0b2e0cdfe3327d3c45b36009c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f06473fcd9d0133e05f2ed83c243f0d707ba4567
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 PACPAC 파일을 Azure SQL Database로 가져오기
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 BACPAC 파일을 Azure SQL Database에 가져오기
 
 이 PowerShell 스크립트 예제는 BACPAC 파일의 데이터베이스를 Azure SQL Database로 가져옵니다.  
 

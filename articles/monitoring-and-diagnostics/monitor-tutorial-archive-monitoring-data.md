@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
 
 Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. Log Analytics 또는 Azure Monitor에서 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다. 이 자습서에서는 저장소 계정에 데이터를 보관하도록 Azure 환경을 구성하는 과정을 안내합니다.
+
+> [!div class="checklist"]
+> * 모니터링 데이터를 저장할 저장소 계정을 만듭니다.
+> * 구독 로그를 해당 계정으로 라우팅합니다. 
+> * 리소스 데이터를 해당 계정으로 라우팅합니다. 
+> * 가상 컴퓨터(게스트 OS) 데이터를 해당 계정으로 라우팅합니다. 
+> * 모니터링 데이터를 확인합니다. 
+> * 리소스 정리 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -158,7 +166,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 저장소 계정에 보관할 Azure 환경(구독, 리소스 및 게스트 OS)에서 모니터링 데이터를 설정하는 방법을 배웠습니다. 데이터에서 더 많은 의미를 부여하고 정보를 이끌어 내려면 데이터를 Log Analytics으로도 전송해 보세요.
+이 자습서에서는 저장소 계정에 보관할 Azure 환경(구독, 리소스 및 게스트 OS)에서 모니터링 데이터를 설정하는 방법을 배웠습니다. 
+
+
+> [!div class="checklist"]
+> * 모니터링 데이터를 저장할 저장소 계정을 만듭니다.
+> * 구독 로그를 해당 계정으로 라우팅합니다. 
+> * 리소스 데이터를 해당 계정으로 라우팅합니다. 
+> * 가상 컴퓨터(게스트 OS) 데이터를 해당 계정으로 라우팅합니다. 
+> * 모니터링 데이터를 확인합니다. 
+> * 리소스 정리 
+
+데이터를 좀 더 잘 활용하고 추가 정보를 얻기 위해 Log Analytics로 데이터를 보낼 수도 있습니다.
 
 > [!div class="nextstepaction"]
 > [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)

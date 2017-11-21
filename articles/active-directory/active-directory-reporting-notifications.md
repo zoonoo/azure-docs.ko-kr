@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory Reporting 알림
 ## <a name="what-reports-generate-email-notifications"></a>어떤 보고서가 전자 메일 알림을 생성하나요?
@@ -47,5 +47,5 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 ## <a name="whats-next"></a>다음 단계
 * 사용 가능한 보안, 감사 및 작업 보고서는 [Azure AD 보안, 감사 및 작업 보고서](active-directory-view-access-usage-reports.md) 확인
 * [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
-* [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
+* [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](customize-branding.md)
 

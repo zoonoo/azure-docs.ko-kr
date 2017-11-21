@@ -25,11 +25,8 @@
 ###### [시뮬레이션된 데이터](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [실제 센서 사용](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [펌웨어 업데이트 구현](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Intel NUC 게이트웨이 연결
-##### [시뮬레이션된 데이터](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [실제 센서 사용](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### 방법
+### 방법 가이드
 #### 시뮬레이션된 장치 연결
 ##### [Windows에서 C](iot-suite-v1-connecting-devices.md)
 ##### [Linux에서 C](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ### [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 
-# 방법
+# 방법 가이드
 ## 원격 모니터링
 ### [고급 모니터링 수행](iot-suite-remote-monitoring-monitor.md)
 ### [문제를 감지하는 규칙 사용](iot-suite-remote-monitoring-automate.md)
@@ -88,7 +85,7 @@
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT 허브](/azure/iot-hub/)
-## [IoT 중부](/azure/index#pivot=services&panel=iot)
+## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [기계 학습](/azure/machine-learning/)
 
 # 리소스

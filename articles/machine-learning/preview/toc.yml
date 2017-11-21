@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: AI용 Visual Studio Code 도구 사용
       href: quickstart-visual-studio-tools.md
+    - name: Azure IoT Edge AI 도구 키트 사용
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: 계산 환경 구성
       items:
         - name: 실험 구성
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: 웹 서비스 배포
           href: model-management-service-deploy.md
+        - name: IoT Edge 장치에 배포
+          href: deploy-to-iot-edge-device.md
         - name: 웹 서비스 사용
           href: model-management-consumption.md
         - name: 모델 데이터 수집
@@ -118,6 +122,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: 미국 소득 분류 - TDSP 프로젝트
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: CNTK를 사용하여 이미지 분류
+          href: scenario-image-classification-using-cntk.md
 - name: 참조
   items:
     - name: 데이터 준비
@@ -162,6 +168,8 @@
       items:
         - name: 스프린트 0 - 2017년 10월
           href: release-notes-sprint-0.md
+        - name: 스프린트 1 - 2017년 11월
+          href: release-notes-sprint-1.md
 - name: 리소스
   items:
     - name: 질문과 대답

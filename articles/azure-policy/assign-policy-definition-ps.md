@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>PowerShell을 사용하여 Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 
-Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 *SQL Server 버전 12.0 필요* 정책 정의를 사용하여 규정을 준수하지 않는 리소스를 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다. 이 과정을 마치면 버전이 다른 서버, 특히 규정을 준수하지 않는 서버를 성공적으로 식별할 수 있습니다.
+Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 Managed Disks를 사용하지 않는 가상 컴퓨터를 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다.
+
+이 프로세스가 끝나면 Managed Disks를 사용하지 않는 *비규격* 가상 컴퓨터가 식별됩니다.
+
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 PowerShell이 사용됩니다. 이 가이드에서는 PowerShell을 사용하여 Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당을 만드는 방법에 대해 자세히 설명합니다.
 
@@ -29,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="opt-in-to-azure-policy"></a>Azure Policy에 옵트인
 
-Azure Policy는 제한된 미리 보기에서 사용할 수 있으므로 액세스를 요청하려면 등록해야 합니다.
+Azure Policy는 공개 미리 보기에서 사용할 수 있으며 액세스를 요청하려면 등록해야 합니다.
 
 1. https://aka.ms/getpolicy에 있는 Azure Policy로 이동하고 왼쪽 창에서 **등록**을 선택합니다.
 
@@ -39,11 +42,11 @@ Azure Policy는 제한된 미리 보기에서 사용할 수 있으므로 액세�
 
    ![Azure Policy를 사용하여 옵트인](media/assign-policy-definition/preview-opt-in.png)
 
-   필요에 따라 등록 요청을 수락하는 데 며칠이 걸릴 수 있습니다. 요청이 수락되면 전자 메일을 통해 서비스 사용을 시작할 수 있다고 알려줍니다.
+   요청은 미리 보기에 대해 자동으로 승인됩니다. 시스템에서 등록을 처리하는 데 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 *SQL Server 버전 12.0 필요* 정의를 지정합니다. 이 정책 정의는 정책 정의에 설정한 조건을 따르지 않는 리소스를 식별합니다.
+이 빠른 시작에서 정책 할당을 만들고 *Managed Disks가 없는 가상 컴퓨터 감사* 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정한 조건을 따르지 않는 리소스를 식별합니다.
 
 다음 단계에 따라 새 정책 할당을 만듭니다.
 
@@ -62,15 +65,15 @@ Azure Policy에는 사용 가능한 기본 제공 정책 정의가 이미 제공
 다음으로 `New-AzureRmPolicyAssignment` cmdlet을 사용하여 정책 정의를 원하는 범위에 적용합니다.
 
 이 자습서에서는 다음 정보를 명령에 제공합니다.
-- 정책 할당에 대한 표시 **이름** - 여기서는 'SQL Server 버전 12.0 필요' 할당을 사용하겠습니다.
-- **정책** – 할당을 만드는 데 사용되는 정책 정의입니다. 여기서 사용하는 정책 정의는 *SQL Server 버전 12.0 필요*입니다.
-- **범위** - 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 이 예제에서는 **FabrikamOMS** 리소스 그룹에 정책 정의를 할당합니다.
-- **$definition** – 정책 정의의 리소스 ID를 제공해야 합니다. 여기서는 *SQL Server 12.0 필요* 정책 정의에 대한 ID를 사용합니다.
+- 정책 할당에 대한 표시 **이름** - 이 경우 Managed Disks가 없는 가상 컴퓨터 감사를 사용합니다.
+- **정책** – 할당을 만드는 데 사용되는 정책 정의입니다. 이 경우 정책 정의는 *Managed Disks가 없는 가상 컴퓨터 감사*입니다.
+- **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 이 예제에서는 **FabrikamOMS** 리소스 그룹에 정책 정의를 할당합니다.
+- **$definition** - 정책 정의의 리소스 ID를 제공해야 합니다. 여기서는 *Managed Disks가 없는 가상 컴퓨터 감사* 정책 정의에 대한 ID를 사용합니다.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 이제 규정 비준수 리소스를 식별하여 환경의 준수 상태를 파악할 준비가 되었습니다.
@@ -89,7 +92,7 @@ New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Sc
 이 컬렉션의 다른 가이드는 이 빠른 시작에 기반하여 작성되었습니다. 후속 자습서를 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려면 다음 명령을 실행하여 만든 할당을 삭제합니다.
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>다음 단계

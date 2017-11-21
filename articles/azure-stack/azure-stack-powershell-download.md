@@ -14,32 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: c0a4f337c055f4b62d986e2a3c3ce7b962aceae9
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 661f24e1271b3f16fddc6426c94464dd8b388f18
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>GitHub에서 Azure 스택 도구 다운로드
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-**AzureStack 도구** 스택에 Azure 리소스를 배포 및 관리 하기 위한 PowerShell 모듈을 호스팅하는 GitHub 리포지토리 합니다. VPN 연결을 설정 하려는 경우 Azure 스택 개발 키트를 또는 Windows 기반 외부 클라이언트에 이러한 PowerShell 모듈을 다운로드할 수 있습니다. 이러한 도구를 얻으려면 GitHub 리포지토리를 복제 하거나 다운로드는 **AzureStack 도구** 폴더입니다. 
-
-리포지토리를 복제 하려면 다운로드 [Windows 용 Git](https://git-scm.com/download/win)명령 프롬프트를 열고 다음 스크립트를 실행 합니다.
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-Tools 폴더를 다운로드 하려면 다음 스크립트를 실행 합니다.
+**AzureStack 도구** 스택에 Azure 리소스를 배포 및 관리 하기 위한 PowerShell 모듈을 호스팅하는 GitHub 리포지토리 합니다. VPN 연결을 설정 하려는 경우 Azure 스택 개발 키트를 또는 Windows 기반 외부 클라이언트에 이러한 PowerShell 모듈을 다운로드할 수 있습니다. 이러한 도구를 얻으려면 GitHub 리포지토리를 복제 하거나 다운로드는 **AzureStack 도구** 다음 스크립트를 실행 하 여 폴더:
 
 ```PowerShell
 # Change directory to the root directory. 

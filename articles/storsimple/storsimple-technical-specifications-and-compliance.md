@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36be252baffe3b6ff84fcdf2d85a97101bec2371
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 장치에 대한 기술 사양 및 규정 준수
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치에 대한 기술 사양 및 규정 준수](storsimple-8000-technical-specifications-and-compliance.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 장치의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 PCM(전원 및 냉각 모듈), 디스크 드라이브, 저장소 용량, 엔클로저를 설명합니다. 호환성 정보는 국제 표준, 안전성 및 배출 및 케이블 연결 등의 작업을 다룹니다.
 
@@ -111,7 +114,7 @@ StorSimple 장치에는 8100 및 8600에 대한 하드 디스크 드라이브 �
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>기류, 고도, 충격, 진동, 방향, 안전성 및 EMC
 | 인클로저 | 운영 사양 |
 | --- | --- |
-| 기류 |시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. 랙 문 및 장애물때문에 생성된 역 압력은 5 파스칼(0.5mm 수면계)을 초과해서는 안됩니다. |
+| 기류 |시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. 랙 문 및 장애물 때문에 생성된 역 압력은 5 파스칼(0.5mm 수면계)을 초과해서는 안됩니다. |
 | 작동 가능 고도 |최대 작동 온도가 7000 피트 이상에서 5°로 지정된 -30m에서 3045m까지(-100피트 ~ 10, 000피트)입니다. |
 | 작동 불가능 고도 |-305m ~ 12,192m(-1,000피트 ~ 40,000피트) |
 | 충격, 작동 |5g 10 ms ½ sine |
@@ -153,13 +156,13 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 장치는 EN55024를 준수합니다.  
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
-플러그 및 전체 전원 코드 어셈블리는 장치가 사용 중인 국가에 맞는 표준을 충족해야하며 해당 국가에서 인정할 수 있는 안전 승인서가 있어야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.  
+플러그 및 전체 전원 코드 어셈블리는 장치가 사용 중인 국가에 맞는 표준을 충족해야 하며 해당 국가에서 인정할 수 있는 안전 승인서가 있어야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.  
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 | 구성 요소 | 사양 |
 | --- | --- |
 | 코드 형식 |SV 또는 SVT, 최소 18 AWG, 3선, 최대 2.0m 길이 |
-| 플러그 |NEMA 5-15P 첨부 파일 형식 접지 플러그  등급 120V, 10A 또는 IEC 320 C14, 250V, 10A |
+| 플러그 |NEMA 5-15P 첨부 파일 형식 접지 플러그 등급 120V, 10A 또는 IEC 320 C14, 250V, 10A |
 | 소켓 |IEC 320 C-13, 250V, 10A |
 
 ### <a name="ac-power-cords---europe"></a>AC 전원 코드-유럽

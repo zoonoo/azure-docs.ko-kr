@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
 
@@ -28,7 +28,7 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 또한 구독은 디렉터리와 연결되어 있습니다. 디렉터리는 사용자 집합을 정의합니다. 사용자 집합은 디렉터리를 만든 회사 또는 학교 사용자가 될 수 있습니다. 또는 외부 사용자(즉, Microsoft 계정)이 될 수 있습니다. 구독은 서비스 관리자(SA) 또는 CA(공동 관리자)로 할당된 해당 디렉터리 사용자의 하위 집합에서 액세스할 수 있습니다. 유일한 예외는 레거시의 이유로 Microsoft 계정(이전의 Windows Live ID)이 디렉터리에 없는 SA 또는 CA로 할당될 수 있다는 점입니다.
 
-<br><br>![Azure의 액세스 제어][2]
+<br><br>![Azure의 Access Control][2]
 
 Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하는 SA를 사용하여 구독이 연결되어 있는 디렉터리를 변경합니다. 이 때, **설정**의 **구독** 페이지에서 **디렉터리 편집** 명령을 사용합니다. 이 작업은 해당 구독의 액세스 제어에 영향을 줍니다.
 
@@ -53,7 +53,7 @@ Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하�
 ## <a name="next-steps"></a>다음 단계
 * Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
-* Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)
+* Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-understanding-resource-access/IC707931.png

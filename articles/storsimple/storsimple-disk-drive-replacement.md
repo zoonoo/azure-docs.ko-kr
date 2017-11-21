@@ -1,6 +1,6 @@
 ---
 title: "StorSimple 장치의 디스크 드라이브 교체 | Microsoft Docs"
-description: "StorSimple 기본 인클로저 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
+description: "StorSimple 기본 엔클로저 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d236d43fd6c7595f5461204afb33cb38c821cb4b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>StorSimple 장치의 디스크 드라이브 교체
+> [!NOTE]
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이 문서의 새 Azure Portal용 버전을 보려면 [StorSimple 장치의 디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md)로 이동하세요. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+
 ## <a name="overview"></a>개요
 이 자습서에서는 Microsoft Azure StorSimple 장치에서 오작동하거나 오류가 발생한 하드 디스크 드라이브를 꺼내고 교체하는 방법을 설명합니다. 디스크 드라이브를 교체하려면 다음을 수행해야 합니다.
 

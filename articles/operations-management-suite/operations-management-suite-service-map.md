@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -224,11 +224,26 @@ IT 서비스 관리 커넥터와 서비스 맵의 통합은 Operations Managemen
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite 성능 통합
-**컴퓨터 성능** 창에는 선택한 서버에 대한 표준 성능 메트릭이 표시됩니다. 메트릭에는 CPU 사용률, 메모리 사용률, 보내고 받은 네트워크 바이트 수 및 보내고 받은 네트워크 바이트 수에 따른 상위 프로세스 목록이 포함됩니다. 네트워크 성능 데이터를 구하려면 Operations Management Suite에서 Wire Data 2.0 솔루션을 사용하도록 설정해야 합니다.
+**컴퓨터 성능** 창에는 선택한 서버에 대한 표준 성능 메트릭이 표시됩니다. 메트릭에는 CPU 사용률, 메모리 사용률, 보내고 받은 네트워크 바이트 수 및 보내고 받은 네트워크 바이트 수에 따른 상위 프로세스 목록이 포함됩니다.
 
 ![컴퓨터 성능 창](media/oms-service-map/machine-performance.png)
 
+성능 데이터를 보려면 [적절한 Log Analytics 성능 카운터를 사용하도록 설정](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)해야 할 수 있습니다.  사용하도록 설정할 카운터는 다음과 같습니다.
 
+Windows:
+- Processor(*)\% Processor Time
+- Memory\% Committed Bytes In Use
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+Linux:
+- Processor(*)\% Processor Time
+- Memory(*)\% Used Memory
+- Network Adapter(*)\Bytes Sent/sec
+- Network Adapter(*)\Bytes Received/sec
+
+네트워크 성능 데이터를 구하려면 Operations Management Suite에서 Wire Data 2.0 솔루션을 사용하도록 설정해야 합니다.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Operations Management Suite 보안 통합
 보안 및 감사과 서비스 맵 통합은 Operations Management Suite 작업 영역에서 두 솔루션을 모두 사용하도록 설정하고 구성하면 자동으로 수행됩니다.
 

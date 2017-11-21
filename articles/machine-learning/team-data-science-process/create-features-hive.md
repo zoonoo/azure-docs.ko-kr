@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
 이 문서에는 Hive 쿼리를 사용하여 Azure HDInsight Hadoop 클러스터에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. 이러한 Hive 쿼리는 제공된 스크립트인 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 * 사용자 지정된 Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다.  지침이 필요한 경우 [고급 분석을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md)을 참조하세요.
 * Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](move-hive-tables.md) 의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
-* 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md#headnode)를 참조하세요.
+* 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md)를 참조하세요.
 
 ## <a name="hive-featureengineering"></a>기능 생성
 이 섹션에서는 Hive 쿼리를 사용하여 기능을 생성할 수 있는 방법의 몇 가지 예를 설명합니다. 추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다. 제시된 예는 다음과 같습니다.
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
-사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 그러려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(로그 odd)을 계산하는 일반 Hive 쿼리를 보여 줍니다.
+사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 그러려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(log odds)을 계산하는 몇 가지 일반적인 Hive 쿼리를 보여 줍니다.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,12 +83,12 @@ ms.lasthandoff: 10/11/2017
             group by <column_name1>, <column_name2>
             )b
 
-이 예에서, 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예에서, 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 0보다 큰 위험은 대상이 1일 확률이 0.5보다 크다는 것을 나타냅니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
 ### <a name="hive-datefeatures"></a>날짜/시간 필드에서 기능 추출
-Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제와 기본 형식이 아닌 다른 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
+Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제 및 기본 형식 이외의 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -114,7 +114,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         from <databasename>.<tablename>;
 
 ### <a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
-이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것이 이 쿼리의 목적입니다.
+이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. 이 쿼리의 목적은 Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것입니다.
 
 이 쿼리에 사용된 필드는 승차 위치와 하차 위치의 GPS 좌표이며 이름은 *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* 및 *dropoff\_latitude*입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
 
@@ -143,20 +143,20 @@ Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/conflue
 ## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
-1. **Java 힙 공간**: 대용량 데이터 집합 조인 또는 긴 레코드 처리와 관련된 쿼리에서 가장 흔히 발생하는 오류는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
+1. **Java 힙 공간**: 대용량 데이터 집합을 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     이 매개 변수는 Java 힙 공간에 4GB 메모리를 할당하고 정렬에 추가 메모리를 할당하여 정렬 작업의 효율성을 높입니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
 
-1. **DFS 블록 크기** : 이 매개 변수는 파일 시스템에서 저장하는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB이면 크기가 128MB 이하인 모든 데이터가 단일 블록에 저장되고 128MB보다 큰 데이터에는 추가 블록이 할당됩니다. 블록 크기를 너무 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상) 데이터를 처리할 때 권장하는 설정은 다음과 같습니다.
+1. **DFS 블록 크기**: 이 매개 변수는 파일 시스템에 저장되는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB이면 크기가 128MB 이하인 모든 데이터가 단일 블록에 저장되고 128MB보다 큰 데이터에는 추가 블록이 할당됩니다. 블록 크기를 너무 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상)의 데이터를 처리할 때 권장되는 설정은 다음과 같습니다.
    
         set dfs.block.size=128m;
-2. **Hive에서 조인 작업 최적화** : 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 발생하지만 맵 단계("맵조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 성과를 얻을 수 있는 경우도 있습니다. 가능하면 Hive에서 이 작업을 수행하도록 하려면 다음과 같이 설정합니다.
+2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. Hive에서 가능할 때마다 이 작업을 수행하도록 지시하려면 다음과 같이 설정합니다.
    
         set hive.auto.convert.join=true;
-3. **Hive에 대한 매퍼 수 지정**: Hadoop을 사용하면 사용자가 리듀서 수를 설정할 수 있지만 일반적으로 매퍼 수는 사용자가 설정하지 않습니다. 한 가지 팁을 드리자면 Hadoop 변수인 *mapred.min.split.size* 및 *mapred.max.split.size*를 선택하여 매퍼 수를 어느 정도 조절할 수 있습니다. 각 맵 작업의 크기가 아래와 같은 방법으로 결정되기 때문입니다.
+3. **Hive에 매퍼 수 지정**: Hadoop을 사용하면 사용자가 리듀서 수를 설정할 수 있지만, 매퍼 수는 일반적으로 사용자가 설정하지 않습니다. 한 가지 팁으로, 맵 작업 각각의 크기가 다음과 같은 방법으로 결정되므로 *mapred.min.split.size* 및 *mapred.max.split.size* Hadoop 변수를 선택하여 매퍼 수를 어느 정도 조절할 수 있습니다.
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

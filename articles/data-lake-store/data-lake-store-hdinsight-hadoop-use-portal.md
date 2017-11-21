@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6be2b9e21d134461dc00d93c3f188c96c6e7af6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기 | Azure
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Data Lake Store를 추가 저장소로 사용하는 경우 HDInsight 클러스�
 
 클러스터 설정을 완료한 후에 클러스터 블레이드에서 다음 단계 중 하나 또는 모두를 수행하여 결과를 확인합니다.
 
-* 클러스터에 대한 연결된 저장소가 지정한 Data Lake Store 계정인지 확인하려면 왼쪽 창에서 **저장소 계정**을 클릭합니다.
+* 클러스터에 대한 연결된 저장소가 지정한 Data Lake Store 계정인지 확인하려면 왼쪽 창에서 **Storage 계정**을 클릭합니다.
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "HDInsight 클러스터에 서비스 주체 추가")
 
@@ -176,7 +176,7 @@ Data Lake Store를 저장소로 사용하여 클러스터를 설정한 후에 HD
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>기본 저장소인 Data Lake Store에서 데이터에 대한 Hive 쿼리 실행
 
-Hive 쿼리를 실행하려면 Ambari 포털에서 [Hive 보기] 인터페이스를 사용합니다. [Ambari Hive 보기]를 사용하는 방법에 대한 지침은 [ HDInsight에서 Hadoop을 사용하여 Hive 보기 사용](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
+Hive 쿼리를 실행하려면 Ambari 포털에서 [Hive 보기] 인터페이스를 사용합니다. [Ambari Hive 보기]를 사용하는 방법에 대한 지침은 [ HDInsight에서 Hadoop을 사용하여 Hive 보기 사용](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 Data Lake Store에서 데이터를 사용하는 경우 다음과 같은 몇 가지 문자열을 변경합니다.
 
@@ -199,13 +199,14 @@ Blob Storage에서 Azure Data Lake Store로 데이터를 복사하는 방법에 
 * [AdlCopy를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Spark 클러스터에서 Data Lake Store 사용
-Spark 클러스터를 사용하여 Data Lake Store에 저장된 데이터에서 Spark 작업을 실행할 수 있습니다. 자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md)을 참조하세요.
+Spark 클러스터를 사용하여 Data Lake Store에 저장된 데이터에서 Spark 작업을 실행할 수 있습니다. 자세한 내용은 [HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)을 참조하세요.
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Storm 토폴로지에서 Data Lake 저장소 사용
-데이터 레이크 저장소를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. 이 시나리오를 수행하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm에 Azure Data Lake Store 사용](../hdinsight/hdinsight-storm-write-data-lake-store.md)을 참조하세요.
+데이터 레이크 저장소를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. 이 시나리오를 수행하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm에 Azure Data Lake Store 사용](../hdinsight/storm/apache-storm-write-data-lake-store.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
+* [Azure HDInsight 클러스터에 Data Lake Store 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: HDInsight 클러스터를 만들어 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -54,36 +54,12 @@ Service Fabric 클러스터의 상태를 가져옵니다. 상태에 따라 클�
 
 |인수|설명|
 | --- | --- |
-| --applications-health-state-filter| 응용 프로그램 상태를 필터링할 수 있습니다.
-                                                    objects returned in the result of cluster health
-                                                    query based on their health state. The possible
-                                                    values for this parameter include integer value
-                                                    obtained from members or bitwise operations on
-                                                    members of HealthStateFilter enumeration. Only
-                                                    applications that match the filter are returned.
-                                                    All applications are used to evaluate the
-                                                    aggregated health state. If not specified, all
-                                                    entries are returned. The state values are flag
-                                                    based enumeration, so the value could be a
-                                                    combination of these values obtained using
-                                                    bitwise 'OR' operator. For example, if the
-                                                    provided value is 6 then health state of
-                                                    applications with HealthState value of OK (2)
-                                                    and Warning (4) are returned. - Default -
-                                                    Default value. Matches any HealthState. The
-                                                    value is zero. - None - Filter that doesn't
-                                                    match any HealthState value. Used in order to
-                                                    return no results on a given collection of
-                                                    states. The value is 1. - Ok - Filter that
-                                                    matches input with HealthState value Ok. The
-                                                    value is 2. - Warning - Filter that matches
-                                                    input with HealthState value Warning. The value
-                                                    is 4. - Error - Filter that matches input with
-                                                    HealthState value Error. The value is 8. - All -
-                                                    Filter that matches input with any HealthState value. The value is 65535.|
-| --events-health-state-filter   | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다.
-값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.| |--exclude-health-statistics                   | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔티티 수를 보여줍니다.| |   --include-system-application-health-statistics| 상태 통계가 fabric:/System 응용 프로그램 상태 통계를 포함해야 하는지 여부를 나타냅니다. False(기본값). IncludeSystemApplicationHealthStatistics가 true로 설정된 경우 fabric:/System 응용 프로그램에 속한 엔티티를 포함합니다. 그렇지 않으면 쿼리 결과는 사용자 응용 프로그램에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계가 쿼리 결과에 포함되어야 합니다.| | --nodes-health-state-filter    | 노드 상태 개체의 필터링이 상태를 기반으로 한 클러스터 상태 쿼리의 결과값으로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 노드만 반환됩니다. 모든 노드는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 노드의 상태가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다.
-값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.| | --timeout -t                   | 서버 시간 제한(초).  기본값: 60.|
+| --applications-health-state-filter| 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 응용 프로그램 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용 가능한 값은 HealthStateFilter 열거형의 멤버 또는 멤버에 대한 비트 연산에서 가져온 정수 값입니다. 필터와 일치하는 응용 프로그램만 반환됩니다.  모든 응용 프로그램은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 응용 프로그램의 상태가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
+| --events-health-state-filter   | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다.  값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
+|--exclude-health-statistics                   | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다.|
+ |   --include-system-application-health-statistics| 상태 통계에 fabric:/System 응용 프로그램 상태 통계를 포함할지 여부를 지정합니다. False(기본값). IncludeSystemApplicationHealthStatistics가 true로 설정된 경우 fabric:/System 응용 프로그램에 속한 엔터티를 포함합니다. 그렇지 않으면 쿼리 결과는 사용자 응용 프로그램에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계를 쿼리 결과에 포함해야 합니다.|
+| --nodes-health-state-filter    | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 노드 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 노드만 반환됩니다. 모든 노드는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 노드의 상태가 반환됩니다. - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다. - None - HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다. - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다. - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다.  값은 4입니다. - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다. - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다.|
+| --timeout -t                   | 서버 시간 제한(초).  기본값: 60.|
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -118,8 +94,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
 Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.
-
-        Validate and provision the code or configuration packages of a Service Fabric cluster.
+Service Fabric 클러스터의 코드 또는 구성 패키지의 유효성을 검사하거나 프로비전합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -167,9 +142,9 @@ Service Fabric 클러스터 끝점에 연결합니다.
 | --verbose         | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
-Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.
+Service Fabric 클러스터의 코드 또는 구성 패키지를 프로비전 해제합니다.
 
-        Unprovision the code or configuration packages of a Service Fabric cluster.
+Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.
 
 ### <a name="arguments"></a>인수
 |인수|설명|
@@ -184,43 +159,46 @@ Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전�
 |--debug         | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
  |   --help -h       | 이 도움말 메시지 및 종료를 표시합니다.|
  |   --output -o     | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.  기본값: json.|
- |   --query         | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 Http://jmespath.org/를
-                      참조하세요.|
+ |   --query         | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
  |   --verbose       | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
 Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다.
-
-        Validate the supplied upgrade parameters and start upgrading the code or configuration
-        version of a Service Fabric cluster if the parameters are valid.
+제공된 업그레이드 매개 변수의 유효성을 검사하고 매개 변수가 유효한 경우 Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다.
 
 ### <a name="arguments"></a>인수
 |인수|설명|
 | --- | --- |
-|    --app-health-map                      | 오류를 발생시키기 전의 비정상 응용 프로그램 이름 및
-                                            최대 비율 쌍의 JSON 인코딩된 사전|
- |   --app-type-health-map                 | JSON 인코딩된 응용 프로그램 형식 쌍의 사전
-                                            name and maximum percentage unhealthy before raising
-                                            error.|
- |   --code-version                        | 클러스터 코드 버전입니다.| |   --config-version                      | 클러스터 구성 버전입니다.| |   --delta-health-evaluation             | 각 업그레이드 도메인 완료 후 절대 상태 평가보다는 델타 상태 평가를 할 수 있습니다.| |   --delta-unhealthy-nodes               | 클러스터 업그레이드 중에 허용되는 노드 상태 저하의 최대 허용치입니다.  기본값은 10입니다.
-델타는 업그레이드 시작 시 노드 상태와 상태 평가 시 노드 상태 간에 측정됩니다. 도메인 업그레이드가 완료될 때마다 클러스터의 글로벌 상태가 허용 범위 내에 있는지 확인하기 위해 점검이 수행됩니다.| |   --failure-action                      | 사용할 수 있는 값: 'Invalid', 'Rollback', 'Manual'.| |   --force-restart                       | 다시 시작을 강제합니다.| |   --health-check-retry                  | 재시도 시간 제한 상태 점검(밀리초 단위로 측정).| |   --health-check-stable                 | 안정적 지속 시간 상태 점검(밀리초 단위로 측정).| |  --health-check-wait                   | 대기 시간 상태 점검(밀리초 단위로 측정).| |  --replica-set-check-timeout           | 복제본 세트 업그레이드 시간 제한 점검(밀리초 단위로 측정).| |   --rolling-upgrade-mode                | 사용할 수 있는 값: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값: UnmonitoredAuto.| |  --timeout -t                          | 서버 시간 제한(초).  기본값: 60.| |  --unhealthy-applications              | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다.
-예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 응용 프로그램 형식의 응용 프로그램은 제외합니다. 적은 수의 응용 프로그램에 대한 하나의 오류를 허용하는 계산 반올림입니다.| |   --unhealthy-nodes                     | 오류를 보고하기 전에 허용되는 비정상 노드의 최대 백분율입니다.
-예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 큰 클러스터에서, 일부 노드는 언제나 작동이 안되거나 수리 중이라 이 비율은 그것을 감안하도록 구성되어야 합니다.| |   --upgrade-domain-delta-unhealthy-nodes| 클러스터 업그레이드 중에 허용되는 업그레이드 도메인 노드 상태 저하의 최대 허용치입니다.
-기본값: 15.
-델타는 업그레이드 시작 시 업그레이드 도메인 노드 상태와 상태 평가 시 업그레이드 도메인 노드 상태 간에 측정됩니다. 업그레이드 도메인 업그레이드가 완료될 때마다 클러스터의 글로벌 상태가 허용 범위 내에 있는지 확인하기 위해 점검이 수행됩니다.| |   --upgrade-domain-timeout              | 업그레이드 도메인 시간 제한(밀리초 단위로 측정).| |   --upgrade-timeout                     | 업그레이드 시간 제한(밀리초 단위로 측정).| |   --warning-as-error                    | 경고는 오류와 같은 심각도로 처리됩니다.|
+|    --app-health-map                      | 오류를 발생시키기 전의 비정상 응용 프로그램 이름 및 최대 비율 쌍의 JSON 인코딩된 사전.|
+ |   --app-type-health-map                 | 오류를 발생시키기 전의 비정상 응용 프로그램 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전.|
+ |   --code-version                        | 클러스터 코드 버전.|
+ |   --config-version                      | 클러스터 구성 버전.|
+ |   --delta-health-evaluation             | 각 업그레이드 도메인 완료 후 절대 상태 평가가 아닌 델타 상태 평가를 사용하도록 설정합니다.|
+ |   --delta-unhealthy-nodes               | 클러스터를 업그레이드하는 동안 허용되는 노드 상태 저하의 최대 비율입니다.  기본값은 10입니다. 델타는 업그레이드 시작 시 노드 상태와 상태 평가 시 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 검사가 수행됩니다.|
+ |   --failure-action                      | 사용할 수 있는 값: 'Invalid', 'Rollback', 'Manual'.|
+ |   --force-restart                       | 다시 시작을 강제합니다.|
+ |   --health-check-retry                  | 상태 점검 다시 시도 시간 제한(밀리초 단위로 측정).|
+ |   --health-check-stable                 | 안정적 지속 기간 상태 점검(밀리초 단위로 측정).|
+  |  --health-check-wait                   | 대기 기간 상태 점검(밀리초 단위로 측정).|
+  |  --replica-set-check-timeout           | 복제본 세트 업그레이드 점검 시간 제한(밀리초 단위로 측정).|
+ |   --rolling-upgrade-mode                | 사용할 수 있는 값: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값: UnmonitoredAuto.|
+  |  --timeout -t                          | 서버 시간 제한(초).  기본값: 60.|
+  |  --unhealthy-applications              | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. 예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 응용 프로그램 형식의 응용 프로그램은 제외합니다. 계산값은 적은 수의 응용 프로그램에서 오류 하나를 허용할 수 있도록 반올림됩니다.|
+ |   --unhealthy-nodes                     | 오류를 보고하기 전에 허용되는 비정상 노드의 최대 백분율입니다. 예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이를 감안하여 이 비율을 구성해야 합니다.|
+ |   --upgrade-domain-delta-unhealthy-nodes| 클러스터를 업그레이드하는 동안 허용되는 업그레이드 도메인 노드 상태 저하의 최대 비율입니다. 기본값: 15. 델타는 업그레이드 시작 시 업그레이드 도메인 노드 상태와 상태 평가 시 업그레이드 도메인 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 완료된 업그레이드 도메인에 대한 검사가 수행됩니다.|
+ |   --upgrade-domain-timeout              | 업그레이드 도메인 시간 제한(밀리초 단위로 측정).|
+ |   --upgrade-timeout                     | 업그레이드 시간 제한(밀리초 단위로 측정).|
+ |   --warning-as-error                    | 경고는 오류와 같은 심각도로 처리됩니다.|
 
 ### <a name="global-arguments"></a>전역 인수
-    |인수|설명|
+|인수|설명|
 | --- | --- |
 |--debug                               | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다.|
 |    --help -h                             | 이 도움말 메시지 및 종료를 표시합니다.|
-|    --output -o                           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv.
-                                            기본값: json.|
-|    --query                               | JMESPath 쿼리 문자열. 자세한 내용은 http://jmespath.org/를
-                                            참조하세요.|
-|    --verbose                             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에서 --debug을
-                                            사용합니다.|
+|    --output -o                           | 출력 형식.  허용되는 값: json, jsonc, 테이블, tsv. 기본값: json.|
+|    --query                               | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http://jmespath.org/를 참조하세요.|
+|    --verbose                             | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

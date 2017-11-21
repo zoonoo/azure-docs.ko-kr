@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
 이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다. 
@@ -60,7 +60,7 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
     ![사용 가능한 정책 정의](./media/security-center-policies/security-center-policies-fig11.png)
 
     * 정책에 대한 자세한 설명을 보려면 정책을 선택합니다.  
-    정의 **미리 보기** 창이 열립니다. 정의에 대한 설명과 [정책 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) 구조체를 제공하는 JSON 코드에 대한 링크가 표시됩니다.
+    정의 **미리 보기** 창이 열립니다. 정의에 대한 설명과 [정책 정의](../azure-policy/policy-definition.md) 구조체를 제공하는 JSON 코드에 대한 링크가 표시됩니다.
 
     ![정의 미리 보기 창](./media/security-center-policies/security-center-policies-fig14.png)
 
@@ -72,7 +72,7 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
 
 | 정책 | 활성화된 정책에서 수행하는 작업 |
 | --- | --- |
-| 시스템 업데이트 |Windows 업데이트 또는 Windows Server Update Services에서 사용 가능한 보안 및 중요 업데이트의 일일 목록을 검색합니다. 검색된 목록은 가상 컴퓨터에 구성된 서비스에 따라 다르며, 누락된 업데이트를 적용하도록 권장합니다. Linux 시스템의 경우 정책은 배포판에서 제공하는 패키지 관리 시스템을 사용하여 사용 가능한 업데이트가 있는 패키지를 확인합니다. 또한 [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md) 가상 컴퓨터에서 보안 및 중요 업데이트를 확인합니다. |
+| 시스템 업데이트 |Windows 업데이트 또는 Windows Server Update Services에서 사용 가능한 보안 및 중요 업데이트의 일일 목록을 검색합니다. 검색된 목록은 가상 컴퓨터에 구성된 서비스에 따라 다르며, 누락된 업데이트를 적용하도록 권장합니다. Linux 시스템의 경우 정책은 배포판에서 제공하는 패키지 관리 시스템을 사용하여 사용 가능한 업데이트가 있는 패키지를 확인합니다. 또한 [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) 가상 컴퓨터에서 보안 및 중요 업데이트를 확인합니다. |
 | OS 취약성 |운영 체제 구성을 매일 분석하여 가상 컴퓨터를 공격에 취약하게 만들 수 있는 문제를 확인합니다. 또한 정책은 이러한 취약점을 해결하는 구성 변경 내용을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장되는 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. (현재는 Windows Server 2016이 완전히 지원되지 않습니다.) |
 | Endpoint Protection |바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하도록 모든 Windows VM(가상 컴퓨터)에 끝점 보호를 설정하는 것이 좋습니다. |
 | 디스크 암호화 |모든 가상 컴퓨터에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다. |

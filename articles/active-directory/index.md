@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5c39e10e79cd1b1277e5e238f34146a20575ca8
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
@@ -95,6 +95,24 @@ Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고
         </div>
         </a>
     </li>
+       <li>
+        <a href="/azure/active-directory/develop/active-directory-developers-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Active Directory로 앱 개발</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li> 
 </ul>
 
 ---

@@ -20,7 +20,7 @@
 ## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [Backup 및 복원](analysis-services-backup.md)
-## [쿼리 복제본 확장 구성](analysis-services-scale-out.md)
+## [스케일 아웃 구성](analysis-services-scale-out.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [.odc 파일 만들기](analysis-services-odc.md)

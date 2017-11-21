@@ -1,6 +1,6 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 다중 사용자 클러스터
+- name: HDInsight의 엔터프라이즈 보안
   items:
     - name: 개요
       href: apache-domain-joined-introduction.md
@@ -13,6 +13,8 @@
   items:
     - name: 도메인에 가입된 HDInsight 구성
       href: apache-domain-joined-configure.md
+    - name: Azure AD DS를 사용하여 도메인에 가입된 HDInsight 구성
+      href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive 정책 구성
       href: apache-domain-joined-run-hive.md
     - name: 용량 계획
@@ -22,9 +24,6 @@
   items:
     - name: 클러스터 관리
       href: apache-domain-joined-manage.md
-    - name: 사용자 권한 관리
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: 참조
   items:
     - name: 코드 샘플

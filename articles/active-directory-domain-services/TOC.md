@@ -16,6 +16,7 @@
 ## [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
+## [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
 ## 관리되는 도메인 가입
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)

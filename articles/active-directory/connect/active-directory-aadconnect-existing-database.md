@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -43,11 +43,11 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 
 다음은 계속 진행하기 전에 주목해야 할 중요한 참고 사항입니다.
 
-
 - 하드웨어 및 필수 구성 요소에서 Azure AD Connect 설치를 위한 필수 조건 및 Azure AD Connect 설치를 위해 필요한 계정 및 권한을 검토합니다. “기존 데이터베이스 사용” 모드를 사용하여 Azure AD Connect를 설치할 때 필요한 권한은 “사용자 지정” 설치와 동일합니다.
+- 기존 ADSync 데이터베이스에 대한 Azure AD Connect 배포는 전체 SQL에서만 지원됩니다. SQL Express LocalDB에서는 지원되지 않습니다. 사용하려는 LocalDB에 기존 ADSync 데이터베이스가 있는 경우 먼저 ADSync 데이터베이스(LocalDB)를 백업하고 전체 SQL로 복원해야 합니다. 그런 다음 이 방법을 사용하여 복원된 데이터베이스에 대해 Azure AD Connect를 배포할 수 있습니다.
 - 설치에 사용되는 Azure AD Connect 버전은 다음 조건을 충족해야 합니다.
     - 1.1.613.0 이상 및
-    - ADSync 데이터베이스와 함께 마지막으로 사용된 Azure AD Connect의 버전 이상이어야 합니다. 설치에 사용되는 Azure AD Connect 버전이 ADSync 데이터베이스와 함께 마지막으로 사용된 버전보다 높은 경우 전체 동기화가 필요할 수도 있습니다.  이는 두 버전 간에 스키마 또는 동기화 규칙이 변경된 경우 필요합니다. 
+    - ADSync 데이터베이스와 함께 마지막으로 사용된 Azure AD Connect의 버전 이상이어야 합니다. 설치에 사용되는 Azure AD Connect 버전이 ADSync 데이터베이스와 함께 마지막으로 사용된 버전보다 높은 경우 전체 동기화가 필요할 수도 있습니다.  전체 동기화는 두 버전 간에 스키마 또는 동기화 규칙이 변경된 경우 필요합니다. 
 - 사용되는 ADSync 데이터베이스는 비교적 최신인 동기화 상태를 포함해야 합니다. 기존 ADSync 데이터베이스를 사용한 마지막 동기화 작업은 지난 3주 이내여야 합니다.
 - “기존 데이터베이스 사용” 메서드를 사용하여 Azure AD Connect를 설치하는 경우 이전 Azure AD Connect 서버에 구성된 로그인 메서드는 유지되지 않습니다. 또한 설치하는 동안 로그인 방법을 구성할 수 없습니다. 로그인 방법은 설치가 완료된 후에만 구성할 수 있습니다.
 - 동일한 ADSync 데이터베이스를 공유하는 여러 Azure AD Connect 서버를 사용할 수 없습니다. “기존 데이터베이스 사용” 메서드를 사용하면 새 Azure AD Connect 서버와 함께 기존 ADSync 데이터베이스를 다시 사용할 수 있습니다. 공유는 지원하지 않습니다.

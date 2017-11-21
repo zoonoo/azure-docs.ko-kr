@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0f8c8e2c22310f6de9f5bedff79a87b887bc0fb1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps에 대한 워크플로 정의 언어 스키마
 
@@ -264,7 +264,6 @@ ms.lasthandoff: 10/31/2017
 |json :|매개 변수를 JSON 형식 값으로 변환하고 `string()`의 반대입니다. 예를 들어 이 함수는 문자열이 아닌 배열로 `[1,2,3]`을 반환합니다. <p>`json('[1,2,3]')` <p>마찬가지로, 문자열을 개체로 변환할 수 있습니다. 예를 들어 이 함수는 `{ "abc" : "xyz" }`를 반환합니다. <p>`json('{"abc" : "xyz"}')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. 기본 형식 값으로 변환할 문자열입니다. <p>`json()` 함수는 XML 입력도 지원합니다. 예를 들어 다음 매개 변수 값은 <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>다음 JSON으로 변환됩니다. <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|매개 변수 인수를 부동 소수점 숫자로 변환합니다. 예를 들어 이 함수는 `10.333`을 반환합니다. <p>`float('10.333')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 부동 소수점 숫자로 변환할 값입니다.|  
 |bool|매개 변수를 부울로 변환합니다. 예를 들어 이 함수는 `false`를 반환합니다. <p>`bool(0)` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 부울로 변환할 값입니다.|  
-|coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. **참고**: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`을 반환합니다.  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Object*n* <p> **설명**: 필수. null을 검사할 개체입니다.|  
 |base64|입력 문자열의 base64 표현을 반환합니다. 예를 들어 이 함수는 `c29tZSBzdHJpbmc=`를 반환합니다. <p>`base64('some string')` <p> **매개 변수 번호**: 1 <p> **이름**: String 1 <p> **설명**: 필수. base64 표현으로 인코딩할 문자열입니다.|  
 |base64ToBinary|base64 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 이 함수는 `some string`의 이진 표현을 반환합니다. <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. Base64 인코딩된 문자열입니다.|  
 |base64ToString|based64 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 이 함수는 `some string`을 반환합니다. <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **매개 변수 번호**: 1 <p> **이름**: String <p> **설명**: 필수. Base64 인코딩된 문자열입니다.|  
@@ -280,7 +279,6 @@ ms.lasthandoff: 10/31/2017
 |uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`의 이진 표현을 반환합니다. <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1 <p> **이름**: String<p> **설명**: 필수. URI 인코딩된 문자열입니다.|  
 |uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 이 함수는 `You Are:Cool/Awesome`을 반환합니다. <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **매개 변수 번호**: 1<p> **이름**: String<p> **설명**: 필수. URI 인코딩된 문자열입니다.|  
 |xml|값의 XML 표현을 반환합니다. 예를 들어 이 함수는 `'\<name>Alan\</name>'`으로 표시된 XML 콘텐츠를 반환합니다. <p>`xml('\<name>Alan\</name>')` <p>`xml()` 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠로 변환됩니다. `\<abc>xyz\</abc>` <p> **매개 변수 번호**: 1<p> **이름**: Value<p> **설명**: 필수. XML로 변환할 값입니다.|  
-|xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다. <p> **예 1** <p>매개 변수 `p1` 값이 이 XML의 문자열 표현이라고 가정합니다. <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>다음 코드는 `xpath(xml(parameters('p1'), '/lab/robot/name')` <p>다음을 반환합니다. <p>`[ <name>R1</name>, <name>R2</name> ]` <p>반면에 다음 코드는 <p>`xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')` <p>다음을 반환합니다. <p>`13` <p> <p> **예 2** <p>다음 XML 콘텐츠를 가정한다면: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>또는 다음 코드는 <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>다음을 반환합니다. <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>그리고 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>다음을 반환합니다. <p>``xyz`` <p> **매개 변수 번호**: 1 <p> **이름**: Xml <p> **설명**: 필수. XPath 식을 평가할 XML입니다. <p> **매개 변수 번호**: 2 <p> **이름**: XPath <p> **설명**: 필수. 평가할 XPath 식입니다.|  
 |array|매개 변수를 배열로 변환합니다. 예를 들어 이 함수는 `["abc"]`를 반환합니다. <p>`array('abc')` <p> **매개 변수 번호**: 1 <p> **이름**: Value <p> **설명**: 필수. 배열로 변환할 값입니다.|
 |createArray|매개 변수에서 배열을 만듭니다. 예를 들어 이 함수는 `["a", "c"]`을 반환합니다. <p>`createArray('a', 'c')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Any *n* <p> **설명**: 필수. 배열로 결합할 값입니다.|
 |triggerFormDataValue|form-data 또는 form-encoded 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다.  일치 항목이 여러 개이면 오류입니다.  예를 들어 다음 코드는 `bar`를 반환합니다. `triggerFormDataValue('foo')`<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Key Name<br /><br />**설명**: 필수. 반환할 양식 데이터 값의 키 이름입니다.|
@@ -289,6 +287,18 @@ ms.lasthandoff: 10/31/2017
 |formDataValue|form-data 또는 form-encoded 작업 출력에서 키 이름과 일치하는 단일 값을 반환합니다.  일치 항목이 여러 개이면 오류입니다.  예를 들어 다음 코드는 `bar`를 반환합니다. `formDataValue('someAction', 'foo')`<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Action Name<br /><br />**설명**: 필수. form-data 또는 form-encoded 응답이 포함된 작업 이름입니다.<br /><br />**매개 변수 번호**: 2<br /><br />**이름**: Key Name<br /><br />**설명**: 필수. 반환할 양식 데이터 값의 키 이름입니다.|
 |formDataMultiValues|form-data 또는 form-encoded 작업 출력에서 키 이름과 일치하는 값 배열을 반환합니다.  예를 들어 다음 코드는 `["bar"]`를 반환합니다. `formDataMultiValues('someAction', 'foo')`<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Action Name<br /><br />**설명**: 필수. form-data 또는 form-encoded 응답이 포함된 작업 이름입니다.<br /><br />**매개 변수 번호**: 2<br /><br />**이름**: Key Name<br /><br />**설명**: 필수. 반환할 양식 데이터 값의 키 이름입니다.|
 |multipartBody|작업의 다중 부분 출력에서 일부 본문을 반환합니다.<br /><br />**매개 변수 번호**: 1<br /><br />**이름**: Action Name<br /><br />**설명**: 필수. multipart 응답이 포함된 작업 이름입니다.<br /><br />**매개 변수 번호**: 2<br /><br />**이름**: Index<br /><br />**설명**: 필수. 검색할 부분의 인덱스입니다.|
+
+### <a name="manipulation-functions"></a>조작 함수
+ 
+이러한 함수는 XML 및 개체에 적용됩니다.
+ 
+|함수 이름|설명|  
+|-------------------|-----------------| 
+|coalesce|전달된 인수에서 첫 번째 null이 아닌 개체를 반환합니다. **참고**: 빈 문자열은 null이 아닙니다. 예를 들어 매개 변수 1 및 2가 정의되지 않은 경우 이 함수는 `fallback`을 반환합니다.  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **매개 변수 번호**: 1 ... *n* <p> **이름**: Object*n* <p> **설명**: 필수. null을 검사할 개체입니다.|
+|addProperty|추가 속성이 있는 개체를 반환합니다. 속성이 런타임에 이미 있으면 오류가 throw됩니다. 예를 들어 이 함수는 `{ "abc" : "xyz", "def": "uvw" }` 개체를 반환합니다. <p>`addProperty(json('{"abc" : "xyz"}'), 'def', 'uvw')` <p> **매개 변수 번호**: 1 <p> **이름**: Object <p> **설명**: 필수. 새 속성을 추가할 개체입니다. <p> **매개 변수 번호**: 2 <p> **이름**: 속성 이름 <p> **설명**: 필수. 새 속성의 이름입니다. <p> **매개 변수 번호**: 3 <p> **이름**: Value <p> **설명**: 필수. 새 속성에 할당할 값입니다.|
+|setProperty|추가 속성 또는 기존 속성이 지정된 값으로 설정된 개체를 반환합니다. 예를 들어 이 함수는 `{ "abc" : "uvw" }` 개체를 반환합니다. <p>`setProperty(json('{"abc" : "xyz"}'), 'abc', 'uvw')` <p> **매개 변수 번호**: 1 <p> **이름**: Object <p> **설명**: 필수. 속성을 설정할 개체입니다.<p> **매개 변수 번호**: 2 <p> **이름**: 속성 이름<p> **설명**: 필수. 새 속성 또는 기존 속성의 이름입니다. <p> **매개 변수 번호**: 3 <p> **이름**: Value <p> **설명**: 필수. 속성에 할당할 값입니다.|
+|removeProperty|속성이 제거된 개체를 반환합니다. 제거할 속성이 존재하지 않는 경우 원래 개체가 반환됩니다. 예를 들어 이 함수는 `{ "abc" : "xyz" }` 개체를 반환합니다. <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **매개 변수 번호**: 1 <p> **이름**: Object <p> **설명**: 필수. 속성을 제거할 개체입니다.<p> **매개 변수 번호**: 2 <p> **이름**: 속성 이름 <p> **설명**: 필수. 제거할 속성의 이름입니다. <p>|
+|xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다. <p> **예 1** <p>매개 변수 `p1` 값이 이 XML의 문자열 표현이라고 가정합니다. <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>다음 코드는 `xpath(xml(parameters('p1')), '/lab/robot/name')` <p>다음을 반환합니다. <p>`[ <name>R1</name>, <name>R2</name> ]` <p>반면에 다음 코드는 <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>다음을 반환합니다. <p>`13` <p> <p> **예 2** <p>다음 XML 콘텐츠를 가정한다면: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>또는 다음 코드는 <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>다음을 반환합니다. <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>그리고 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>다음을 반환합니다. <p>``xyz`` <p> **매개 변수 번호**: 1 <p> **이름**: Xml <p> **설명**: 필수. XPath 식을 평가할 XML입니다. <p> **매개 변수 번호**: 2 <p> **이름**: XPath <p> **설명**: 필수. 평가할 XPath 식입니다.|
 
 ### <a name="math-functions"></a>수학 함수  
 
@@ -305,9 +315,9 @@ ms.lasthandoff: 10/31/2017
 |max|이 함수를 호출하는 데는 두 가지 다른 패턴이 있습니다. <p>여기서 `max`은 배열을 사용하고 함수는 `2`를 반환합니다. <p>`max([0,1,2])` <p>또는 이 함수는 쉼표로 구분된 값 목록을 사용하고 `2`를 반환할 수도 있습니다. <p>`max(0,1,2)` <p> **참고**: 모든 값은 숫자여야 하므로 매개 변수가 배열이면 배열에 숫자만 포함되어야 합니다. <p> **매개 변수 번호**: 1 <p> **이름**: Collection 또는 Value <p> **설명**: 필수. 최대값을 찾을 값 배열이거나 집합의 첫 번째 값입니다. <p> **매개 변수 번호**: 2 ... *n* <p> **이름**: Value *n* <p> **설명**: 선택 사항. 첫 번째 매개 변수가 Value인 경우 추가 값을 전달할 수 있으며 전달된 모든 값의 최대값이 반환됩니다.|  
 |range|특정 숫자부터 시작되는 정수 배열을 생성합니다. 반환된 배열의 길이를 정의합니다. <p>예를 들어 이 함수는 `[3,4,5,6]`을 반환합니다. <p>`range(3,4)` <p> **매개 변수 번호**: 1 <p> **이름**: Start index <p> **설명**: 필수. 배열에서 첫 번째 정수입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Count <p> **설명**: 필수. 이 값은 배열에 있는 정수 개수입니다.|  
 |rand|지정된 범위 내에서 임의의 정수를 생성합니다(첫 번째 끝만 포함). 예를 들어 다음 함수에서는 `0` 또는 '1'을 반환할 수 있습니다. <p>`rand(0,2)` <p> **매개 변수 번호**: 1 <p> **이름**: Minimum <p> **설명**: 필수. 반환 가능한 가장 작은 정수입니다. <p> **매개 변수 번호**: 2 <p> **이름**: Maximum <p> **설명**: 필수. 이 값은 반환될 수 있는 가장 높은 정수 다음의 다음 정수입니다.|  
-  
+ 
 ### <a name="date-functions"></a>날짜 함수  
-  
+
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |utcnow|현재 타임스탬프를 문자열로 반환합니다. 예: `2017-03-15T13:27:36Z`: <p>`utcnow()` <p> **매개 변수 번호**: 1 <p> **이름**: Format <p> **설명**: 선택 사항. 이 타임스탬프 값의 형식을 지정하는 방법을 나타내는 [단일 형식 지정자 문자](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) 또는 [사용자 지정 형식 패턴](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)입니다. 형식이 제공되지 않으면 ISO 8601 형식("o")이 사용됩니다.|  

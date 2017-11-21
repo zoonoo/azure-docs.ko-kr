@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 응용 프로그램을 개발할 때 시작점 역할을 합니다.   
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure Cosmos DB 프로젝트는 Microsoft 내부에서 대규모 인터넷 범위 응용 프로그램이 직면한 개발자 문제를 해결하기 위해 2011년에 "Project Florence"로 시작되었습니다. 이러한 문제가 Microsoft 응용 프로그램에만 국한된 것이 아님을 확인하고, Microsoft는 2015년에 Azure Cosmos DB를 [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/)의 형태로 외부 개발자에게 일반 공급하기로 결정했습니다. 이 서비스는 Microsoft 내부에서 보편적으로 사용되며, 외부적으로 Azure 개발자가 사용하는 급성장 서비스 중 하나입니다. 
 
-Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](http://azure.com/serverless) 응용 프로그램에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md), [Azure Tables](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
+Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사용되는, 전역으로 분산된 다중 모델 데이터베이스입니다. 낮은 응답 시간(밀리초)이 필요하며 신속하게 전역으로 크기를 조정해야 하는 [서버가 없는](http://azure.com/serverless) 응용 프로그램에 적합합니다. 여러 데이터 모델(키-값, 문서, 그래프 및 칼럼 형식) 및 [MongoDB API](mongodb-introduction.md), [DocumentDB API(SQL)](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md) 및 [Tables API](table-introduction.md) 등의 많은 데이터 액세스용 API를 기본적으로, 그리고 확장 가능한 방식으로 지원합니다. 
 
 전역으로 분산하려는 고성능 응용 프로그램에 적합한 Azure Cosmos DB의 몇 가지 특성은 다음과 같습니다.
 

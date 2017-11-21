@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -172,11 +172,11 @@ Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세�
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-현재 미국 서부와 미국 동부 2 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
+현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
 
 Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 지원되는 데이터 저장소 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 계산 서비스를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
-데이터 팩터리는 미국 서부와 미국 동부 2 지역에서만 사용할 수 있지만, 여러 지역에서 데이터 팩터리의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 데이터 관리 게이트웨이가 대신 데이터를 이동시킵니다.
+데이터 팩터리는 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 사용할 수 있지만, 여러 지역에서 데이터 팩터리의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 데이터 관리 게이트웨이가 대신 데이터를 이동시킵니다.
 
 예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역 외부에서 실행되고 있다고 가정해보겠습니다. 북유럽에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며 이를 사용하여 서유럽의 계산 환경에 작업을 예약할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
 

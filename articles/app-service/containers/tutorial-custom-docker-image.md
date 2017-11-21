@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -279,7 +279,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     > [!NOTE]
     > 이 구성을 사용하면 컨테이너에 대한 외부 연결이 허용되지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 게시 자격 증명으로 인증됩니다.
 
-* [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사하도록 Docker 엔진에 지시하는 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 지침입니다. 구성 파일은 [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config)을 기반으로 해야 합니다.
+* [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사하도록 Docker 엔진에 지시하는 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 지침입니다. 구성 파일은 [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)을 기반으로 해야 합니다.
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ 및 _<password>_를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>*은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. 
+Cloud Shell에서 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) 명령을 실행하여 사용자 지정 Docker 이미지를 웹앱에 할당합니다. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ 및 _\<password>_를 바꿉니다. Azure Container Registry의 경우 *\<docker-registry-server-url>*은 `https://<azure-container-registry-name>.azurecr.io` 형식입니다. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 ## <a name="next-steps"></a>다음 단계
 
-[Linux의 Azure App Service에 대한 FAQ](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드](tutorial-docker-python-postgresql-app.md)

@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Logic Apps에 대한 통합 계정에서 아티팩트 메타데이터 관리
 
-통합 계정에서 아티팩트에 대한 사용자 지정 메타데이터를 정의하고 논리 앱에 대한 런타임 동안 해당 메타데이터를 검색할 수 있습니다. 예를 들어 파트너, 규약, 스키마 및 맵 등의 아티팩트에 대해 메타데이터를 지정할 수 있습니다. 모두 키-값 쌍을 사용해서 메타데이터를 저장합니다. 현재 아티팩트는 UI를 통해 메타데이터를 만들 수 없고 REST API를 사용하여 메타데이터를 만들 수 있습니다. Azure Portal에서 파트너, 규약, 또는 스키마를 만들거나 선택할 때 메타데이터를 추가하려면 **JSON으로 편집**을 선택합니다. Logic Apps에서 아티팩트 메타데이터를 검색하려면 통합 계정 아티팩트 조회 기능을 사용할 수 있습니다.
+통합 계정에서 아티팩트에 대한 사용자 지정 메타데이터를 정의하고 논리 앱에 대한 런타임 동안 해당 메타데이터를 검색할 수 있습니다. 예를 들어 파트너, 규약, 스키마 및 맵 등의 아티팩트에 대해 메타데이터를 지정할 수 있습니다. 모두 키-값 쌍을 사용해서 메타데이터를 저장합니다. 현재 아티팩트는 UI를 통해 메타데이터를 만들 수 없고 REST API를 사용하여 메타데이터를 만들 수 있습니다. Azure Portal에서 파트너, 규약, 또는 스키마를 만들거나 선택할 때 메타데이터를 추가하려면 **편집**을 선택합니다. Logic Apps에서 아티팩트 메타데이터를 검색하려면 통합 계정 아티팩트 조회 기능을 사용할 수 있습니다.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>통합 계정에서 아티팩트에 메타데이터 추가
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 예를 들어 통합 계정에 [파트너](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [계약](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) 또는 [스키마](logic-apps-enterprise-integration-schemas.md)와 같은 아티팩트를 추가합니다.
 
-3.  아티팩트를 선택하고 **JSON으로 편집**을 선택한 후 메타데이터 정보를 입력합니다.
+3.  아티팩트를 선택하고 **편집**을 선택한 후 메타데이터 정보를 입력합니다.
 
     ![메타데이터 입력](media/logic-apps-enterprise-integration-metadata/image1.png)
 

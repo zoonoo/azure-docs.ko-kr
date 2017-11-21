@@ -27,20 +27,20 @@
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
-    - name: API 관리
+    - name: API Management
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
     - name: App Service
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: 컨테이너용 웹앱
+        - name: Linux의 App Service
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
-        - name: 앱 서비스 환경
+        - name: App Service Environment
           tocHref: /azure/app-service/environment/
           topicHref: /azure/app-service/environment/
-        - name: 웹앱
+        - name: Web Apps
           tocHref: /azure/app-service/
           topicHref: /azure/app-service/
         - name: Mobile Apps
@@ -49,7 +49,7 @@
     - name: Advisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
-    - name: 응용 프로그램 게이트웨이
+    - name: Application Gateway
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
     - name: Application Insights
@@ -58,25 +58,34 @@
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Databricks
+      tocHref: /azure/azure-databricks/
+      topicHref: /azure/azure-databricks/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
+    - name: Cost Management
+      tocHref: /azure/cost-management/
+      topicHref: /azure/cost-management/
     - name: 함수
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
-    - name: 정부
+    - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
-    - name: 독일
+    - name: Azure Germany
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: Azure portal
+    - name: Azure China 21Vianet
+      tocHref: /azure/china/
+      topicHref: /azure/china/
+    - name: Azure 포털
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
-    - name: Resource Manager
+    - name: 리소스 관리자
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
-    - name: Azure 스택
+    - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
     - name: Azure Stack 사용자
@@ -85,12 +94,15 @@
     - name: 지원 가능성
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: 백업
+    - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
-    - name: 배치
+    - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
+    - name: Batch AI
+      tocHref: /azure/batch-ai/
+      topicHref: /azure/batch-ai/
     - name: 결제
       tocHref: /azure/billing/
       topicHref: /azure/billing/
@@ -103,7 +115,7 @@
     - name: CDN
       tocHref: /azure/cdn/
       topicHref: /azure/cdn/
-    - name: 클라우드 서비스
+    - name: Cloud Services
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
     - name: Cognitive Services
@@ -116,6 +128,9 @@
         - name: Bing 웹 검색
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
+        - name: 음성
+          tocHref: /azure/cognitive-services/Speech/
+          topicHref: /azure/cognitive-services/Speech/
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -143,6 +158,9 @@
     - name: Container Instances
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
+    - name: AKS
+      tocHref: /azure/aks/
+      topicHref: /azure/aks/
     - name: 컨테이너 서비스
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
@@ -189,6 +207,31 @@
     - name: HDInsight
       tocHref: /azure/hdinsight/
       topicHref: /azure/hdinsight/
+      items:
+        - name: Hadoop은
+          tocHref: /azure/hdinsight/hadoop
+          topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+        - name: HBase
+          tocHref: /azure/hdinsight/hbase
+          topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+        - name: 대화형 쿼리
+          tocHref: /azure/hdinsight/interactive-query
+          topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+        - name: Kafka
+          tocHref: /azure/hdinsight/kafka
+          topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+        - name: 엔터프라이즈 보안
+          tocHref: /azure/hdinsight/domain-joined
+          topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+        - name: R 서버
+          tocHref: /azure/hdinsight/r-server
+          topicHref: /azure/hdinsight/r-server-overview
+        - name: Spark
+          tocHref: /azure/hdinsight/spark
+          topicHref: /azure/hdinsight/spark/apache-spark-overview
+        - name: Storm
+          tocHref: /azure/hdinsight/storm
+          topicHref: /azure/hdinsight/storm/apache-storm-overview
     - name: IoT 허브
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -223,19 +266,19 @@
         - name: 데이터 과학 가상 컴퓨터
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
-    - name: 마켓플레이스 소비자
+    - name: Marketplace 소비자
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/
-    - name: 마켓플레이스 게시
+    - name: Marketplace 게시
       tocHref: /azure/marketplace-publishing/
       topicHref: /azure/marketplace-publishing/
-    - name: 미디어 서비스
+    - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
     - name: 모바일 고객 관리
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/
-    - name: 모바일 서비스
+    - name: Mobile Services
       tocHref: /azure/mobile-services/
       topicHref: /azure/mobile-services/
     - name: 모니터링 및 진단
@@ -257,7 +300,7 @@
     - name: 네트워킹
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
-    - name: 알림 허브
+    - name: Notification Hubs
       tocHref: /azure/notification-hubs/
       topicHref: /azure/notification-hubs/
     - name: Operations Management Suite
@@ -284,7 +327,7 @@
     - name: 서비스 상태
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
-    - name: 스케줄러
+    - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
     - name: 검색
@@ -296,13 +339,13 @@
     - name: 보안 센터
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
-    - name: 서비스 버스
+    - name: Service Bus
       tocHref: /azure/service-bus/
       topicHref: /azure/service-bus/
     - name: Service Bus 메시징
       tocHref: /azure/service-bus-messaging/
       topicHref: /azure/service-bus-messaging/
-    - name: 서비스 버스 릴레이
+    - name: Service Bus Relay
       tocHref: /azure/service-bus-relay/
       topicHref: /azure/service-bus-relay/
     - name: 서비스 패브릭
@@ -311,13 +354,13 @@
     - name: 사이트 복구
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: SQL 데이터 웨어하우스
+    - name: SQL Data Warehouse
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
-    - name: SQL 데이터베이스
+    - name: SQL Database
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
-    - name: SQL Server 스트레치 데이터베이스
+    - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
     - name: 저장소
@@ -336,16 +379,19 @@
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/
-    - name: 스트림 분석
+    - name: Stream Analytics
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: 트래픽 관리자
+    - name: Time Series Insights
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
+    - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
     - name: 가상 컴퓨터 확장 집합
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
-    - name: 가상 컴퓨터
+    - name: Virtual Machines
       tocHref: /azure/virtual-machines/
       topicHref: /azure/virtual-machines/
       items:
@@ -370,9 +416,9 @@
             - name: Windows 클래식 배포
               tocHref: /azure/virtual-machines/windows/classic/
               topicHref: /azure/virtual-machines/windows/classic/
-    - name: 가상 네트워크
+    - name: Virtual Network
       tocHref: /azure/virtual-network/
       topicHref: /azure/virtual-network/
-    - name: VPN 게이트웨이
+    - name: VPN Gateway
       tocHref: /azure/vpn-gateway/
       topicHref: /azure/vpn-gateway/

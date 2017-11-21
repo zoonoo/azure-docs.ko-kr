@@ -1,6 +1,6 @@
 ---
 title: "Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 | Microsoft Docs"
-description: "Azure 마켓플레이스에서 다른 사용자가 구입할 수 있도록 가상 컴퓨터 이미지를 만드는 방법에 대한 자세한 지침입니다."
+description: "Azure Marketplace에서 다른 사용자가 구입할 수 있도록 가상 컴퓨터 이미지를 만드는 방법에 대한 자세한 지침입니다."
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
-이 문서의 **2단계**에서는 Azure 마켓플레이스에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
+# <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 컴퓨터 이미지 만들기 가이드
+이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
 
 ## <a name="1-define-offers-and-skus"></a>1. 제품 및 SKU 정의
 이 섹션에서는 제품 및 관련 SKU 정의에 대해 배웁니다.
@@ -42,7 +42,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 
 ### <a name="11-add-an-offer"></a>1.1 제품 추가
 1. 판매자 계정을 사용하여 [게시 포털][link-pubportal]에 로그인합니다.
-2. 게시 포털의 **가상 컴퓨터** 탭을 선택합니다. 표시된 입력 필드에 제품 이름을 입력합니다. 제품 이름은 일반적으로 Azure 마켓플레이스에 판매할 계획인 제품 또는 서비스의 이름입니다.
+2. 게시 포털의 **Virtual Machines** 탭을 선택합니다. 표시된 입력 필드에 제품 이름을 입력합니다. 제품 이름은 일반적으로 Azure Marketplace에 판매할 계획인 제품 또는 서비스의 이름입니다.
 3. **만들기**를 선택합니다.
 
 ### <a name="12-define-a-sku"></a>1.2 SKU 정의
@@ -51,17 +51,17 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 1. **SKU를 추가합니다.** SKU는 URL에 사용되는 식별자가 필요합니다. 이 식별자는 게시 프로필 내에서 공유해야 하지만, 식별자가 다른 게시자와 충돌할 위험은 없습니다.
 
    > [!NOTE]
-   > 제품 및 SKU 식별자는 마켓플레이스의 제품 URL에 표시됩니다.
+   > 제품 및 SKU 식별자는 Marketplace의 제품 URL에 표시됩니다.
    >
    >
 2. **SKU에 대한 요약 설명을 추가합니다.** 요약 설명은 고객에게 표시되므로 이해하기 쉽도록 작성합니다. 이 정보는 "스테이징으로 푸시" 단계까지 잠글 필요가 없습니다. 그때까지 자유롭게 편집할 수 있습니다.
 3. Windows 기반 SKU를 사용할 경우 제안된 링크를 따라 Windows Server의 승인된 버전을 습득하세요.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Azure 호환 VHD 만들기(Linux 기반)
-이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 설명서를 참조하세요.
+이 섹션에서는 Azure Marketplace에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 설명서를 참조하세요.
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Azure 호환 VHD 만들기(Windows 기반)
-이 섹션에서는 Azure 마켓플레이스에 대해 Windows Server 기반 SKU를 만드는 단계를 중심으로 다룹니다.
+이 섹션에서는 Azure Marketplace에 대해 Windows Server 기반 SKU를 만드는 단계를 중심으로 다룹니다.
 
 ### <a name="31-ensure-that-you-are-using-the-correct-base-vhds"></a>3.1 올바른 기본 VHD를 사용 중인지 확인
 VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함하는 Azure 승인 기본 이미지를 기반으로 해야 합니다.
@@ -102,7 +102,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     a.    빠른 배포를 위해 **선택적 구성** 및 **리소스 그룹**에서 속성에 대한 기본값을 그대로 사용할 수 있습니다.
 
-    b.    필요에 따라 **저장소 계정**에서 운영 체제 VHD를 저장할 저장소 계정을 선택할 수 있습니다.
+    b.    필요에 따라 **Storage 계정**에서 운영 체제 VHD를 저장할 Storage 계정을 선택할 수 있습니다.
 
     c.    필요에 따라 **리소스 그룹**에서 VM을 배치할 논리 그룹을 선택할 수 있습니다.
 6. 배포를 위한 **위치** 를 선택합니다.
@@ -167,7 +167,7 @@ VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들�
 * C 또는 D 드라이브는 항상 존재하므로 반드시 이 두 드라이브 중 하나를 사용하도록 구성해야 합니다. C 드라이브는 운영 체제 디스크이고 D 드라이브는 임시 로컬 디스크입니다.
 
 ### <a name="37-generalize-the-image"></a>3.7 이미지 일반화
-Azure 마켓플레이스의 모든 이미지는 일반적으로 다시 사용할 수 있어야 합니다. 즉, 운영 체제 VHD를 일반화해야 합니다.
+Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 있어야 합니다. 즉, 운영 체제 VHD를 일반화해야 합니다.
 
 * Windows의 경우 이미지에 "sysprep"을 실행해야 하므로 **sysprep** 명령을 지원하지 않도록 구성해서는 안 됩니다.
 * %windir%\System32\Sysprep 디렉터리에서 다음 명령을 실행할 수 있습니다.
@@ -236,7 +236,7 @@ API/PowerShell/Azure CLI를 사용하여 VM을 캡처하는 방법에 대한 지
 >
 
 ## <a name="5-obtain-certification-for-your-vm-image"></a>5. VM 이미지에 대한 인증받기
-Azure 마켓플레이스에 대한 VM 이미지 준비 과정의 다음 단계는 인증받기입니다.
+Azure Marketplace에 대한 VM 이미지 준비 과정의 다음 단계는 인증받기입니다.
 
 이 프로세스는 특수 인증 도구 실행, VHD가 있는 Azure 컨테이너에 확인 결과 업로드, 제품 추가, SKU 정의, 인증을 위해 VM 이미지 제출 등으로 구성됩니다.
 
@@ -290,6 +290,8 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 
 만든 공유 액세스 서명 URI는 다음 요구 사항을 준수해야 합니다.
 
+참고: 다음 지침은 지원되는 비관리 디스크 종류에만 적용됩니다.
+
 * VHD에 대한 공유 액세스 서명 URI를 생성할 때 나열 및 읽기 권한이면 충분합니다. 쓰기 또는 삭제 권한을 제공하지 마세요.
 * 액세스 기간은 공유 액세스 서명 URI가 만들어진 날로부터 3주 이상이어야 합니다.
 * UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
@@ -326,7 +328,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 
-7. Blob 컨테이너를 선택하면 Azure 저장소 탐색기에서 컨테이너 내의 파일을 보여주기 시작합니다. 제출해야 하는 이미지 파일(.vhd)를 선택합니다.
+7. Blob 컨테이너를 선택하면 Azure Storage 탐색기에서 컨테이너 내의 파일을 보여주기 시작합니다. 제출해야 하는 이미지 파일(.vhd)를 선택합니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
@@ -430,7 +432,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
 2.  다운로드되면 설치하세요.
 
-3.  다음 코드를 사용하여 PowerShell 파일을 만들고 로컬에 저장합니다.
+3.  다음 코드로 PowerShell 파일(또는 기타 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -442,9 +444,9 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
     b. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
 
-    c. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다.
+    c. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
 
-    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **2016/11/02**이어야 합니다.
+    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
 
     다음은 적절한 매개 변수를 업데이트한 후의 예제 코드입니다.
 
@@ -452,7 +454,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다.
+4.  "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다. OS에서 사용할 수 있는 어떤 스크립트 편집기도 사용할 수 있습니다.
 
 5.  스크립트를 실행하면 컨테이너 수준 액세스에 대한 SAS URL을 제공합니다.
 
@@ -494,7 +496,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 4. **SKU** 섹션에 속성을 입력합니다.
 5. **운영 체제 제품군**에서 운영 체제 VHD에 연결된 운영 체제 유형을 클릭합니다.
 6. **운영 체제** 상자에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 "Windows Server Datacenter 2014 R2"를 고려합니다.
-7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure 포털에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
+7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure Portal에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
 8. 버전을 입력합니다. 버전 필드는 제품 및 해당 업데이트를 식별하는 의미 체계 버전을 캡슐화합니다.
    * 버전은 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
    * 다른 SKU에서 이미지는 다른 주 버전과 부 버전을 가질 수 있습니다.
@@ -515,13 +517,13 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 |이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>다음 단계
 SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure Marketplace에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.  
 
 ## <a name="see-also"></a>참고 항목
-* [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

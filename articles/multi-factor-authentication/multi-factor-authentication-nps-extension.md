@@ -3,7 +3,7 @@ title: "기존 NPS 서버를 사용하여 Azure MFA 기능 제공 | Microsoft Do
 description: "Azure Multi-Factor Authentication용 NPS(네트워크 정책 서버) 확장은 기존 인증 인프라에 클라우드 기반 2단계 인증 기능을 추가하는 간단한 솔루션입니다."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -52,7 +52,7 @@ NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하�
 
 ### <a name="licenses"></a>라이선스
 
-Azure AD Premium, EMS 또는 MFA 구독에 포함된 [Azure Multi-Factor Authentication 라이선스](multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다.
+Azure AD Premium, EMS 또는 MFA 구독에 포함된 [Azure Multi-Factor Authentication 라이선스](multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 
 
 ### <a name="software"></a>소프트웨어
 
@@ -102,7 +102,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 2. **Azure Active Directory** > **Azure AD Connect** 선택
 3. 동기화 상태가 **사용**이고 마지막 동기화가 1시간 미만인지 확인합니다.
 
-동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: 스케줄러](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
+동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: Scheduler](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>사용자가 사용할 수 있는 인증 방법을 결정합니다.
 

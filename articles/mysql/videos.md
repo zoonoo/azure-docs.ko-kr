@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/05/2017
-ms.openlocfilehash: 49d81c5b449b9af7ac025296982aa5ff82aa8b09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>MySQL용 Azure Database 비디오
 
@@ -21,4 +21,4 @@ ms.lasthandoff: 10/11/2017
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8045/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
 
-2017년 5월 Microsoft //Build 컨퍼런스에서 가져온 이 비디오에서는 Microsoft의 Azure 내 관리되는 MySQL 제품에 대해 알아봅니다. Azure에서 오픈 소스 데이터베이스 시스템을 지원하기 위한 Microsoft의 전략을 살펴봅니다. Azure에서 MySQL을 사용하는 응용 프로그램을 개발하거나 배포하는 개발자에게 이러한 전략이 의미하는 바를 논의합니다. 서비스 아키텍처 개요를 표시하고 MySQL용 Azure Database가 다른 Azure 서비스(예: Web Apps)와 통합되어 있음을 보여 줍니다.
+2017년 5월 Microsoft //Build 컨퍼런스에서 가져온 이 비디오에서는 Microsoft의 Azure 내 관리되는 MySQL 제품에 대해 알아봅니다. 이 비디오는 Azure에서 오픈 소스 데이터베이스 시스템을 지원하기 위한 Microsoft의 전략을 알아봅니다. 또한 Azure에서 MySQL을 사용하는 응용 프로그램을 개발하거나 배포하는 개발자에게 이러한 전략이 의미하는 바를 논의합니다. 그뿐 아니라 서비스 아키텍처 개요를 표시하고 Azure Database for MySQL이 다른 Azure 서비스(예: Web Apps)와 통합되어 있음을 보여줍니다.

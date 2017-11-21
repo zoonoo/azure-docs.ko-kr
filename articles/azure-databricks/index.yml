@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Databricks 미리 보기 설명서
+metadata:
+  title: Azure Databricks 설명서 - 자습서 | Microsoft Docs
+  description: 빠른 시작 및 여기에서 제공된 다른 링크를 사용하여 Azure Databricks를 사용하는 방법에 대해 알아봅니다. Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다.
+  services: azure-databricks
+  author: nitinme
+  manager: cgronlun
+  ms.service: azure-databricks
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: nitinme
+abstract:
+  description: '빠른 시작 및 여기에서 제공된 다른 링크를 사용하여 Azure Databricks를 사용하는 방법에 대해 알아봅니다. Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. Apache Spark의 기반으로 설계된 Databricks는 Azure와 통합되어 원클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 공동 작업할 수 있도록 하는 대화형 작업 영역을 제공합니다.'
+sections:
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: Azure Databricks 작업 영역인 Spark 클러스터를 만들고 다음을 사용하여 작업을 실행하는 방법에 대해 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Azure 포털
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: Azure Databricks를 사용하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Azure Databricks 시작</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Azure Storage에서 데이터 가져오기</a>'
+          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Notebooks 작업</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Spark 작업 실행</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Spark 데이터 원본 사용</a>'

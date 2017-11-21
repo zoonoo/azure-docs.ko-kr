@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 개발자 지침
 
@@ -28,7 +28,7 @@ Azure AD(Active Directory)는 앱과 서비스를 보호하기 위한 여러 가
 * Intune 등록 장치만 특정 서비스에 액세스할 수 있도록 허용
 * 사용자 위치 및 IP 범위 제한
 
-조건부 액세스의 전체 기능에 자세한 내용은 [Azure 클래식 포털에서 조건부 액세스](../active-directory-conditional-access.md)를 참조하세요. 
+조건부 액세스의 전체 기능에 자세한 내용은 [Azure 클래식 포털에서 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요. 
 
 이 문서에서는 조건부 액세스가 Azure AD용 앱을 빌드하는 개발자에게 어떤 의미인지 중점적으로 설명합니다.  [단일](active-directory-integrating-applications.md) 및 [다중 테넌트](active-directory-devhowto-multi-tenant-overview.md) 앱과 [일반 인증 패턴](active-directory-authentication-scenarios.md)에 대한 지식이 있다고 가정합니다.
 
@@ -48,7 +48,7 @@ Azure AD(Active Directory)는 앱과 서비스를 보호하기 위한 여러 가
 * ADAL.js를 사용하는 단일 페이지 앱
 * 리소스를 호출하는 Web Apps
 
-조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스 시작](../active-directory-conditional-access-azuread-connected-apps.md)을 참조하세요.
+조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스 시작](../active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
 
 시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다.  새 정책이 적용될 때 앱이 계속 작동하도록 하려면 “챌린지” 처리를 구현해야 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다. 
 
@@ -218,7 +218,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>참고 항목
 
-* 기능에 대해 자세히 알아보려면 [Azure AD의 조건부 액세스](../active-directory-conditional-access.md)를 참조하세요.
+* 기능에 대해 자세히 알아보려면 [Azure AD의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플의 Github 리포지토리](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)를 참조하세요. 
 * ADAL SDK에 대한 자세한 내용을 보고 참조 설명서에 액세스하려면 [라이브러리 가이드](active-directory-authentication-libraries.md)를 참조하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](active-directory-devhowto-multi-tenant-overview.md)을 참조하세요.

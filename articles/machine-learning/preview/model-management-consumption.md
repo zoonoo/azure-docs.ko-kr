@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.
 
-Azure Machine Learning 웹 서비스를 사용하면 외부 응용 프로그램에서 서비스 URL에 대한 HTTP POST 호출을 통해 예측 모델과 동기적으로 통신합니다. 웹 서비스 호출을 만들려면 클라이언트 응용 프로그램에서 예측을 배포할 때 만드는 API 키를 지정하고 요청 데이터를 POST 요청 본문에 넣어야 합니다.
+[Azure Machine Learning 웹 서비스](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)를 사용하면 외부 응용 프로그램에서 서비스 URL에 대한 HTTP POST 호출을 통해 예측 모델과 동기적으로 통신합니다. 웹 서비스 호출을 만들려면 클라이언트 응용 프로그램에서 예측을 배포할 때 만드는 API 키를 지정하고 요청 데이터를 POST 요청 본문에 넣어야 합니다.
 
 API 키는 클러스터 배포 모드에서만 사용할 수 있습니다. 로컬 웹 서비스에는 키가 없습니다.
 

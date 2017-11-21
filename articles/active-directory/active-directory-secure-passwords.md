@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 
@@ -37,7 +37,7 @@ Azure AD는 암호를 보호하기 위해 다음과 같은 일반적인 접근 �
 * 암호 복잡성 요구 사항
 * 일반 및 정기적인 암호 만료
 
-Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정](active-directory-passwords.md) 항목을 참조하세요.
+Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정](active-directory-passwords-update-your-own-password.md) 항목을 참조하세요.
 
 ## <a name="azure-ad-password-protections"></a>Azure AD 암호 보호
 
@@ -74,7 +74,7 @@ Azure AD에서 사용자 암호를 해킹하려는 잠재적인 사이버 범죄
 
   ![Microsoft 계정에서 차단](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정](active-directory-passwords.md) 항목을 참조하세요.
+Azure Active Directory의 암호 재설정에 대한 자세한 내용은 [IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정](active-directory-passwords-update-your-own-password.md) 항목을 참조하세요.
 
   >[!NOTE]
   >Azure AD 관리자인 경우 [Windows Hello](https://www.microsoft.com/windows/windows-hello)를 사용하여 사용자가 기존 암호를 모두 만들지 않도록 할 수 있습니다.

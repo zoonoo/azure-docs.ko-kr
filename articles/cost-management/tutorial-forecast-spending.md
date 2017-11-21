@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e0b4bc196786ca4dfa3d57f3e89dd36ddc32acbc
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="forecast-future-spending"></a>향후 소비 예측
 
@@ -57,7 +57,7 @@ Cloudyn은 시간에 따른 사용량을 기반으로 소비를 예측하는 데
 > * 향후 소비 예측
 
 
-Cloudyn 문서로 진행하여 Cloudyn으로 시작하고 관련 기능 사용에 대해 자세히 알아보세요.
+다음 자습서를 진행하여 비용 할당 및 쇼백 보고서를 사용하여 비용을 관리하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Cloudyn 설명서](https://support.cloudyn.com/hc/)
+> [비용 할당 및 쇼백 보고서를 사용하여 비용 관리](tutorial-manage-costs.md)

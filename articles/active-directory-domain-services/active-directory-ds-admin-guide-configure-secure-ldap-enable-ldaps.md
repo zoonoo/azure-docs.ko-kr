@@ -4,7 +4,7 @@ description: "Azure AD 도메인 서비스 관리되는 도메인에 대해 보�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 10/11/2017
     ![보안 LDAP를 사용하도록 설정](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. 기본적으로 인터넷에서 관리되는 도메인에 대한 보안 LDAP 액세스는 사용하지 않도록 설정되어 있습니다. 필요한 경우 **Allow secure LDAP access over the internet**(인터넷을 통한 보안 LDAP 액세스 허용)을 **사용**으로 토글합니다. 
 
-    > [!TIP]
-    > 인터넷을 통한 보안 LDAP 액세스를 사용하는 경우 필요한 원본 IP 주소 범위에 대한 액세스를 잠그려면 NSG를 설정하는 것이 좋습니다. [인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet)에 대한 지침을 참조하세요.
+    > [!WARNING]
+    > 인터넷을 통해 보안 LDAP 액세스를 사용하도록 설정하면 도메인이 인터넷을 통한 무차별 암호 대입 공격(brute force attack)에 취약해질 수 있습니다. 따라서 필요한 원본 IP 주소 범위에 대한 액세스를 잠그도록 NSG를 설정하는 것이 좋습니다. [인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet)에 대한 지침을 참조하세요.
     >
 
 6. **보안 LDAP 인증서가 포함된 .PFX 파일** 뒤의 폴더 아이콘을 클릭합니다. 관리되는 도메인에 대한 보안 LDAP 액세스를 위해 인증서를 사용하여 PFX 파일의 경로를 지정합니다.
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 
 관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정했으면 클라이언트 컴퓨터가 관리되는 도메인을 찾을 수 있도록 DNS를 업데이트 야 합니다. 작업 3이 완료되면 외부 IP 주소가 **LDAPS 액세스를 위한 외부 IP 주소**의 **속성** 탭에 표시됩니다.
 
-관리되는 도메인의 DNS 이름(예: 'ldaps.contoso100.com')이 이 외부 IP 주소를 가리키도록 외부 DNS 공급자를 구성합니다. 이 예에서는 다음과 같은 DNS 항목을 만들어야 합니다.
+관리되는 도메인의 DNS 이름(예: 'ldaps.contoso100.com')이 이 외부 IP 주소를 가리키도록 외부 DNS 공급자를 구성합니다. 예를 들어 다음과 같은 DNS 항목을 만듭니다.
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ ms.lasthandoff: 10/11/2017
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>작업 5 - 인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>작업 5 - 인터넷을 통해 관리되는 도메인에 대한 보안 LDAPS 액세스 잠금
 > [!NOTE]
-> **선택적 작업** - 인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스를 사용하여 않는 경우 이 구성 작업을 건너뜁니다.
+> 인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스를 사용하지 않도록 설정한 경우 이 구성 작업을 건너뜁니다.
 >
 >
 
@@ -101,13 +101,28 @@ ms.lasthandoff: 10/11/2017
 
 인터넷을 통해 LDAPS 액세스가 가능하도록 관리되는 도메인을 노출하면 보안 위협이 됩니다. 관리되는 도메인은 보안 LDAP에 사용되는 포트(즉, 포트 636)에서 인터넷을 통해 접속할 수 있습니다. 따라서 관리되는 도메인에 대한 액세스를 알려진 특정 IP 주소로 제한할 수 있습니다. 보안이 향상되도록 NSG(네트워크 보안 그룹)를 만들고 Azure AD Domain Services를 사용하도록 설정된 서브넷과 연결합니다.
 
-다음 표에서는 구성 가능한 예제 NSG를 통해 인터넷을 통한 보안 LDAP 액세스를 잠그는 방법을 보여 줍니다. 이 NSG에는 지정된 IP 주소 집합에서만 TCP 포트 636을 통해 인바운드 LDAPS 액세스를 허용하는 규칙 집합이 포함되어 있습니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다. 지정된 IP 주소에서 인터넷을 통해 LDAPS 액세스를 허용하는 NSG 규칙은 DenyAll NSG 규칙보다 우선 순위가 높습니다.
+다음 표에서는 구성 가능한 예제 NSG를 통해 인터넷을 통한 보안 LDAP 액세스를 잠그는 방법을 보여 줍니다. 이 NSG에는 지정된 IP 주소 집합에서만 TCP 포트 636을 통해 인바운드 보안 LDAP 액세스를 허용하는 규칙 집합이 포함되어 있습니다. 기본 'DenyAll' 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용됩니다. 지정된 IP 주소에서 인터넷을 통해 LDAPS 액세스를 허용하는 NSG 규칙은 DenyAll NSG 규칙보다 우선 순위가 높습니다.
 
 ![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **자세한 정보** - [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
+
+## <a name="troubleshooting"></a>문제 해결
+보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 문제가 있으면 다음 문제 해결 단계를 수행하세요.
+* 보안 LDAP 인증서의 발급자 체인을 클라이언트에서 신뢰할 수 있는지 확인합니다. 트러스트를 설정하려면 클라이언트의 신뢰할 수 있는 루트 인증서 저장소에 루트 인증 기관을 추가할 수 있습니다.
+* 새 Windows 컴퓨터에서 기본적으로 신뢰할 수 없는 중간 인증 기관에서 보안 LDAP 인증서를 발급하지 않았는지 확인합니다.
+* LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 끝점에 연결되는지 확인합니다.
+* LDAP 클라이언트가 연결할 DNS 이름이 관리되는 도메인의 보안 LDAP에 대한 공용 IP 주소로 확인되는지 확인합니다.
+* 관리되는 도메인의 보안 LDAP 인증서의 주체 또는 주체 대체 이름 특성에 DNS 이름이 있는지 확인합니다.
+
+보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 계속 문제가 발생하면 [제품 팀에 도움을 요청](active-directory-ds-contact-us.md)하세요. 문제를 진단하는 데 도움이 되도록 다음 정보를 포함합니다.
+* 연결을 만들고 실패하는 ldp.exe의 스크린샷
+* Azure AD 테넌트 ID 및 관리되는 도메인의 DNS 도메인 이름
+* 바인딩하려는 정확한 사용자 이름
+
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)

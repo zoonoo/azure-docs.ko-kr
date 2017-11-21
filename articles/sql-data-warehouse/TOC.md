@@ -16,9 +16,10 @@
 ### [MPP 아키텍처](massively-parallel-processing-mpp-architecture.md)
 ### [성능 계층](performance-tiers.md)
 ### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [용량 제한](sql-data-warehouse-service-capacity-limits.md)
 ### [질문과 대답](sql-data-warehouse-overview-faq.md)
 
-## 백업 및 복원
+## Backup 및 복원
 
 ### [Backup 개요](sql-data-warehouse-backups.md)
 ### [복원 개요](sql-data-warehouse-restore-database-overview.md)
@@ -120,6 +121,8 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [계산 수준 자동화](manage-compute-with-azure-functions.md)
+
 ### 리소스 클래스
 #### [지침](resource-classes-for-workload-management.md)
 #### [워크로드 분석](analyze-your-workload.md)
@@ -145,7 +148,7 @@
 
 # 참조
 
-## [용량 제한](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [전체 참조](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)

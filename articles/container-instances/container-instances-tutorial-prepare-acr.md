@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: "Docker, 컨테이너, 마이크로 서비스, Kubernetes, DC/OS, Azure"
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -54,13 +54,19 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**. 다음 예제에서는 *mycontainerregistry082*라는 이름을 사용합니다.
+[az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리 이름은 Azure 내에서 **고유해야 하며**, 5-50자의 영숫자만 포함해야 합니다. `<acrName>`를 레지스트리의 고유한 이름으로 바꿉니다.
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+예를 들어 *mycontainerregistry082*라는 Azure Container Registry를 만들려면 다음을 수행합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-이 자습서의 나머지 부분에서는 선택한 컨테이너 레지스트리 이름의 자리 표시자로 `<acrname>`을 사용합니다.
+이 자습서의 나머지 부분에서는 선택한 컨테이너 레지스트리 이름의 자리 표시자로 `<acrName>`을 사용합니다.
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
@@ -70,7 +76,7 @@ ACR 인스턴스에 이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 
 az acr login --name <acrName>
 ```
 
-이 명령은 완료되면 ‘로그인했습니다.’ 메시지를 반환합니다.
+완료되면 이 명령은 `Login Succeeded` 메시지를 반환합니다.
 
 ## <a name="tag-container-image"></a>컨테이너 이미지 태그 지정
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-loginServer 이름을 가져오려면 다음 명령을 실행합니다.
+loginServer 이름을 가져오려면 다음 명령을 실행합니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꿉니다.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-*aci-tutorial-app* 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 `:v1`을 추가합니다. 이 태그는 이미지 버전 번호를 나타냅니다.
+예제 출력:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+*aci-tutorial-app* 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다. 또한 이미지 이름 끝에 `:v1`을 추가합니다. 이 태그는 이미지 버전 번호를 나타냅니다. `<acrLoginServer>`를 방금 실행한 `az acr show` 명령의 결과로 바꿉니다.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-*aci-tutorial-app* 이미지를 레지스트리에 푸시합니다.
-
-다음 예제를 사용하여 컨테이너 레지스트리 loginServer 이름을 사용자 환경의 loginServer로 바꿉니다.
+`docker push` 명령을 사용하여 *aci-tutorial-app* 이미지를 레지스트리에 푸시합니다. `<acrLoginServer>`를 이전 단계에서 얻은 전체 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+`push` 작업은 인터넷 연결에 따라 몇 초에서 몇 분 정도 걸리고 출력은 다음과 유사합니다.
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Azure Container Registry에서 이미지 나열

@@ -72,8 +72,7 @@
 
 ## [그룹 및 구성원 관리](active-directory-manage-groups.md)
 ### 그룹 관리
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [클래식 포털](active-directory-accessmanagement-manage-groups.md)
+#### [Azure 포털](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
@@ -87,7 +86,6 @@
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
-### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
 ### 그룹 설정 관리
@@ -95,7 +93,6 @@
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### 고급 규칙 만들기
 #### [Azure 포털](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [클래식 포털](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
@@ -136,6 +133,7 @@
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
 ### [SSPR 작동 방법](active-directory-passwords-how-it-works.md)
 ### [SSPR 배포 가이드](active-directory-passwords-best-practices.md)
+### [SSPR 및 Windows 10](active-directory-passwords-login.md)
 ### [SSPR 정책](active-directory-passwords-policy.md)
 ### [SSPR 사용자 지정](active-directory-passwords-customize.md)
 ### [SSPR 데이터 요구 사항](active-directory-passwords-data.md)
@@ -210,8 +208,8 @@
 #### 클래식 포털 사용
 ##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)
 ##### [앱 게시](active-directory-application-proxy-publish.md)
-##### [커넥터 사용](active-directory-application-proxy-connectors.md)
-##### [조건부 액세스](active-directory-application-proxy-conditional-access.md)
+##### [커넥터 사용](active-directory-application-proxy-connectors-azure-portal.md)
+##### [조건부 액세스](application-proxy-enable-remote-access-sharepoint.md)
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)
@@ -223,6 +221,7 @@
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML 앱에 대한 고급 인증서 서명](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [사용자의 환경에서 타사 앱 숨기기](active-directory-coreapps-hide-third-party-app.md)
+### [HRD 정책을 사용하여 로그인 자동 가속 구성](active-directory-auto-acceleration-using-hrd.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
@@ -249,14 +248,12 @@
 ## 디렉터리 관리
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
-#### [개요](active-directory-add-domain-concepts.md)
-#### [도메인 이름 관리](active-directory-domains-manage-azure-portal.md)
-##### [클래식 포털](active-directory-add-manage-domain-names.md)
+#### [빠른 시작](add-custom-domain.md)
+#### [사용자 지정 도메인 이름 추가](active-directory-domains-manage-azure-portal.md)
 ### [디렉터리 관리](active-directory-administer.md)
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
-### [O365 디렉터리](active-directory-manage-o365-subscription.md)
 ### [셀프 서비스 등록](active-directory-self-service-signup.md)
-#### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
+### [관리되지 않는 디렉터리 인수](domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
