@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: 끝점 게시
           href: azure-stack-integrate-endpoints.md
+        - name: 외부 모니터링
+          href: azure-stack-integrate-monitor.md
         - name: 보안
           href: azure-stack-integrate-security.md
     - name: 관리
