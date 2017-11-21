@@ -32,6 +32,7 @@
 ### [Runbook 입력 매개 변수](automation-runbook-input-parameters.md)
 ### [그래픽 Runbook에서 오류 처리](automation-runbook-graphical-error-handling.md)
 ### [Runbook 작업 추적](automation-runbook-execution.md)
+### [Watcher 작업 만들기](automation-watchers-tutorial.md)
 ### [Runbook 설정 변경](automation-runbook-settings.md)
 ### [Azure Automation 데이터 관리](automation-managing-data.md)
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)

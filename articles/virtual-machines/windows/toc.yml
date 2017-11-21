@@ -80,15 +80,21 @@
           href: sizes-general.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
-    - name: 저장소
+    - name: 디스크 저장소
       href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Premium Storage
           href: premium-storage.md
         - name: 프리미엄 저장소 성능
           href: premium-storage-performance.md
         - name: Standard Storage
           href: standard-storage.md
+        - name: 디스크에 대한 확장성 목표
+          href: disk-scalability-targets.md
+        - name: 디스크의 복구 및 재해 복구
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 응용 프로그램
@@ -113,6 +119,8 @@
       items:
         - name: 'C# 사용'
           href: csharp.md
+        - name: 특수화된 디스크 사용
+          href: create-vm-specialized.md
         - name: 'C#과 템플릿 사용'
           href: csharp-template.md
         - name: Chef로 VM 만들기
@@ -154,6 +162,8 @@
           href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM 관리
       items:
+        - name: VM 선불 - 예약된 인스턴스
+          href: prepay-reserved-vm-instances.md
         - name: 일반 PowerShell 작업
           href: ps-common-ref.md
         - name: VM 이동
@@ -186,12 +196,10 @@
           href: cli-ps-findimage.md
         - name: VM 업로드 준비
           href: prepare-for-upload-vhd-image.md
-        - name: 일반화된 이미지 사용
-          href: create-vm-generalized-managed.md
-        - name: 특수화된 디스크 사용
-          href: create-vm-specialized.md
         - name: VM을 이미지에 캡처
           href: capture-image-resource.md
+        - name: 일반화된 이미지 사용
+          href: create-vm-generalized-managed.md
         - name: Packer로 이미지 빌드
           href: build-image-with-packer.md
         - name: Windows 클라이언트 이미지 사용
@@ -241,8 +249,6 @@
               href: excel-cluster-hpcpack.md
     - name: 저장소 관리
       items:
-        - name: Managed Disks에 대한 자세한 정보
-          href: managed-disks-overview.md
         - name: 디스크 FAQ
           href: faq-for-disks.md
         - name: 디스크 추가
@@ -255,8 +261,6 @@
           href: detach-disk.md
         - name: 디스크 크기 조정
           href: expand-os-disk.md
-        - name: 디스크의 복구 및 재해 복구
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 디스크 스냅숏
           href: snapshot-copy-managed-disk.md
         - name: 관리되지 않는 디스크 백업

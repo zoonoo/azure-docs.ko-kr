@@ -55,6 +55,9 @@
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)
 ### [IP 구성 옵션 선택](devtest-lab-shared-ip.md)
 
+## 데이터 디스크 관리
+### [데이터 디스크 연결 및 분리](devtest-lab-attach-detach-data-disk.md)
+
 ## [랩 확장](devtest-lab-scale-lab.md)
 
 # 참조
