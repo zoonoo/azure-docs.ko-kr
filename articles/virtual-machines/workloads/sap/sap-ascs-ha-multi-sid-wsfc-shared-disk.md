@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Windows Server 장애 조치(failover) 클러스터링 및 공유 디스크를 사용하는 SAP (A)SCS 인스턴스 다중 SID 고가용성 | Microsoft Docs"
-description: "Azure에서 Windows Server 장애 조치(failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성"
+title: "Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성 | Microsoft Docs"
+description: "Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31892e334d649c66e86b6c9812ffb18b069f718b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -203,53 +203,52 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(failover) 클러스터링 및 공유 디스크를 사용하는 SAP (A)SCS 인스턴스 다중 SID 고가용성
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
 > ![Windows][Logo_Windows] Windows
 >
 
-2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
+2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다. 
 
-SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP ASCS/SCS에 대한 Windows 클러스터 구성을 만들어야 합니다.
+SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들어야 합니다.
 
-이 문서에서는 **공유 디스크**를 사용하는 기존 WSFC(Windows Server 장애 조치(failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치하여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동하는 방법을 중점적으로 설명합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
+이 문서에서는 공유 디스크를 사용하는 기존 WSFC(Windows Server 장애 조치(Failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치하여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동하는 방법을 중점적으로 설명합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
 
 > [!NOTE]
->
-> 이 기능은 **Azure Resource Manager** 배포 모델에만 사용할 수 있습니다.
+> 이 기능은 Azure Resource Manager 배포 모델에만 사용할 수 있습니다.
 >
 >각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 수에 제한이 있습니다.
 >
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 다이어그램처럼 **파일 공유**를 사용하는 **한** SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
+이 다이어그램처럼 **파일 공유**를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]
 
 > [!IMPORTANT]
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > * SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
-> * 각 DBMS SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
+> * 각 DBMS(데이터베이스 관리 시스템) SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
 > * 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
 
-## <a name="sap-ascs-multi-sid-architecture-with-shared-disk"></a>공유 디스크를 사용하는 SAP (A)SCS 다중 SID HA 아키텍처
+## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>공유 디스크를 사용하는 SAP ASCS/SCS 다중 SID 아키텍처
 
 목적은 여기에서 설명한 것처럼 동일한 WSAFC 클러스터에서 여러 SAP ABAP ASCS 또는 SAP Java SCS 클러스터링된 인스턴스를 설치하는 것입니다.
 
 ![Azure에서 여러 SAP ASCS/SCS 클러스터링된 인스턴스][sap-ha-guide-figure-6002]
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
 ![두 개의 SAP 시스템 SID를 포함한 SAP 고가용성 다중 SID 설치 프로그램][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> SAP 다중 SID 시나리오를 위한 인프라 준비
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> SAP 다중 SID 시나리오에 대한 인프라 준비
 
 인프라를 준비하기 위해 다음 매개 변수를 사용하여 추가 SAP ASCS/SCS 인스턴스를 설치할 수 있습니다.
 
@@ -286,8 +285,6 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP ASCS/SCS
 
 ![새로운 SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 정의된 DNS 항목을 강조 표시는 DNS 관리자 목록][sap-ha-guide-figure-6004]
 
-DNS 항목을 만드는 절차는 기본 [Windows VM에서 고가용성 SAP NetWeaver 가이드][sap-ha-guide-9.1.1]에서 자세히 설명합니다.
-
 > [!NOTE]
 > 추가 ASCS/SCS 인스턴스의 가상 호스트 이름에 할당하는 새 IP 주소는 SAP Azure Load Balancer에 할당한 새 IP 주소와 동일해야 합니다.
 >
@@ -318,30 +315,31 @@ $count = $ILB.FrontendIpConfigurations.Count + 1
 $FrontEndConfigurationName ="lbFrontendASCS$count"
 $LBProbeName = "lbProbeASCS$count"
 
-# Get the Azure VNet and subnet
+# Get the Azure virtual network and subnet
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName
 $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
-# Add second front-end and probe configuration
+# Add a second front-end and probe configuration
 Write-Host "Adding new front end IP Pool '$FrontEndConfigurationName' ..." -ForegroundColor Green
 $ILB | Add-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id
 $ILB | Add-AzureRmLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 10  | Set-AzureRmLoadBalancer
 
-# Get new updated configuration
+# Get a new updated configuration
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
-# Get new updated LP FrontendIP COnfig
+
+# Get an updated LP FrontendIpConfig
 $FEConfig = Get-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
 $HealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-# Add new back-end configuration into existing ILB
+# Add a back-end configuration into an existing ILB
 $BackEndConfigurationName  = "backendPoolASCS$count"
 Write-Host "Adding new backend Pool '$BackEndConfigurationName' ..." -ForegroundColor Green
 $BEConfig = Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB | Set-AzureRmLoadBalancer
 
-# Get new updated config
+# Get an updated config
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-# Assign VM NICs to backend pool
+# Assign VM NICs to the back-end pool
 $BEPool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 foreach($VMName in $VMNames){
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName
@@ -373,7 +371,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 스크립트를 실행한 후 다음 스크린샷에 표시된 것처럼 결과가 Azure Portal에 표시됩니다.
@@ -388,25 +386,25 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 1. 각 클러스터 노드에 추가 디스크 또는 동일한 크기의 디스크(스트라이프해야 하는)를 추가하고 서식을 지정합니다.
 2. SIOS DataKeeper를 사용하여 저장소 복제를 구성합니다.
 
-이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 자세한 프로세스는 [SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios] 챕터에 설명되어 있습니다.  
+이 절차는 WSFC 클러스터 컴퓨터에 SIOS DataKeeper를 이미 설치했다고 가정합니다. 설치한 경우 이제 컴퓨터 간의 복제를 구성해야 합니다. 자세한 프로세스는 [SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]에 설명되어 있습니다.  
 
 ![새 SAP ASCS/SCS 공유 디스크에 대한 DataKeeper 동기 미러링][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>SAP 응용 프로그램 서버 및 DBMS 클러스터에 대한 VM 배포
+### <a name="deploy-vms-for-sap-application-servers-and-the-dbms-cluster"></a>SAP 응용 프로그램 서버 및 DBMS 클러스터에 대한 VM 배포
 
 두 번째 SAP 시스템에 대한 인프라 준비를 완료하려면 다음을 수행합니다.
 
-1. SAP 응용 프로그램 서버에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
-2. DBMS 클러스터에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
+1. SAP 응용 프로그램 서버에 대한 전용 VM을 배포하고 각각을 고유한 전용 가용성 그룹에 배치합니다.
+2. DBMS 클러스터에 대한 전용 VM을 배포하고 각각을 고유한 전용 가용성 그룹에 배치합니다.
 
-## <a name="sap-netweaver-multi-sid-installation"></a>SAP NetWeaver 다중 SID 설치
+## <a name="install-an-sap-netweaver-multi-sid-system"></a>SAP NetWeaver 다중 SID 시스템 설치
 
-두 번째 SAP SID2 시스템을 설치하는 방법에 대한 전체 프로세스는 [SAP (A)SCS 인스턴스에 대한 Windows 장애 조치(failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk] 가이드에 설명되어 있습니다.
+두 번째 SAP SID2 시스템을 설치하는 방법에 대한 전체 프로세스는 [SAP ASCS/SCS 인스턴스에 대한 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]에 설명되어 있습니다.
 
 고급 절차는 다음과 같습니다.
 
 1. [고가용성 ASCS/SCS 인스턴스를 포함한 SAP 설치][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
- 이 단계에서는 **기존 WSFC 클러스터 노드 1**에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
+ 이 단계에서는 기존 WSFC 클러스터 노드 1에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다.
 
 2. [ASCS/SCS 인스턴스의 SAP 프로필 수정][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
@@ -420,22 +418,17 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
  이 단계에서는 기존 WSFC 클러스터 노드 2에 고가용성 ASCS/SCS 인스턴스를 포함한 SAP를 설치하고 있습니다. 두 번째 클러스터 노드를 설치하려면 SAP 설치 가이드의 단계를 따릅니다.
 
 6. SAP ASCS /SCS 인스턴스 및 ProbePort의 Windows 방화벽 포트를 엽니다.  
+    SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 SAP ASCS/SCS 인스턴스 포트는 [SAP ASCS/SCS 포트][sap-net-weaver-ports-ascs-scs-ports] 챕터에 나열되어 있습니다.
 
- SAP ASCS/SCS 인스턴스에 사용되는 두 클러스터 노드에서 SAP ASCS/SCS에서 사용하는 모든 Windows 방화벽 포트를 열고 있습니다. 이러한 SAP ASCS/SCS 인스턴스 포트는 [SAP ASCS/SCS 포트][sap-net-weaver-ports-ascs-scs-ports] 챕터에 나열되어 있습니다.
+    그 외의 모든 SAP 포트 목록은 [모든 SAP 제품의 TCP/IP 포트][sap-net-weaver-ports]를 참조하세요.  
 
- 그 외의 모든 SAP 포트 목록은 [모든 SAP 제품의 TCP/IP 포트][sap-net-weaver-ports]에 나열되어 있습니다.  
+    또한 62350 시나리오에서와 같이 Azure 내부 부하 분산 장치 프로브 포트를 엽니다. 이 내용은 [이 문서][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]에 설명되어 있습니다.
 
- 또한 [여기][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]에 설명된 것처럼 Azure 내부 부하 분산 장치 프로브 포트를 엽니다. 우리 시나리오에서는 62350입니다.
+7. [SAP ERS(입고 기준 자동 정산) Windows 서비스 인스턴스의 시작 유형 변경][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
-7. [SAP ERS Windows 서비스 인스턴스의 시작 유형 변경][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+8. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 기본 응용 프로그램 서버를 설치합니다.  
 
-8. SAP 기본 응용 프로그램 서버 설치
-
-   SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 기본 응용 프로그램 서버를 설치합니다.  
-
-9. SAP 추가 응용 프로그램 서버 설치
-
-   SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 응용 프로그램 서버를 설치합니다.
+9. SAP 설치 가이드의 설명에 따라 새로운 전용 VM에 SAP 추가 응용 프로그램 서버를 설치합니다.
 
 10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 

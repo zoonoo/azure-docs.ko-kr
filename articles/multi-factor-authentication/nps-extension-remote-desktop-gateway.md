@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -76,7 +76,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 **자세한 정보**: [Azure 빠른 시작으로 RDS 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) 및 [기본 RDS 인프라 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure) 
 
 ### <a name="azure-mfa-license"></a>Azure MFA 라이선스
-Azure AD Premium, EMS(Enterprise Mobility plus Security) 또는 MFA 구독을 통해 사용할 수 있는 Azure MFA에 대한 라이선스가 필요합니다. 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)을 참조하세요. 테스트를 위해 평가판 구독을 사용할 수 있습니다.
+Azure AD Premium, EMS(Enterprise Mobility plus Security) 또는 MFA 구독을 통해 사용할 수 있는 Azure MFA에 대한 라이선스가 필요합니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)을 참조하세요. 테스트를 위해 평가판 구독을 사용할 수 있습니다. 
 
 ### <a name="windows-server-software"></a>Windows Server 소프트웨어
 NPS 확장을 사용하려면 NPS 역할 서비스가 설치된 Windows Server 2008 R2 SP1 이상이 필요합니다. 이 섹션의 모든 단계는 Windows Server 2016에서 수행되었습니다.

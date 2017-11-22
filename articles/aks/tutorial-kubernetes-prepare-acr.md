@@ -1,5 +1,5 @@
 ---
-title: "Azure의 Kubernertes 자습서 - ACR 준비 | Microsoft Docs"
+title: "Azure의 Kubernetes 자습서 - ACR 준비 | Microsoft Docs"
 description: "AKS 자습서 - ACR 준비"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -32,22 +32,22 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 > * ACR에 대한 컨테이너 이미지 태그 지정
 > * ACR에 이미지 업로드
 
-이후 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합니다. 
+이후 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 [이전 자습서](./tutorial-kubernetes-prepare-app.md)에서는 간단한 Azure Voting 응용 프로그램에 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
 Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `westus2` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
+[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `eastus` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 [az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>레지스트리에 이미지 푸시
 
-레지스트리에 `azure-vote-front` 이미지를 푸시합니다. 
+레지스트리에 `azure-vote-front` 이미지를 푸시합니다.
 
 다음 예제를 사용하여 ACR loginServer 이름을 해당 환경의 loginServer로 바꿉니다.
 

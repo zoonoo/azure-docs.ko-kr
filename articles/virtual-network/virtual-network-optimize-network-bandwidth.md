@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 
@@ -51,11 +51,11 @@ Windows VM이 [가속화된 네트워킹](virtual-network-create-vm-accelerated-
 
 ## <a name="linux-vm"></a>Linux VM
 
-RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다. 2017년 1월 이후에 출시된 Linux 커널에는 Linux VM이 더 높은 네트워크 처리량을 얻도록 하는 새로운 네트워크 최적화 옵션이 포함되어 있습니다.
+RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다. 2017년 10월 이후에 출시된 Linux 커널에는 Linux VM이 더 높은 네트워크 처리량을 얻도록 하는 새로운 네트워크 최적화 옵션이 포함되어 있습니다.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>새 배포에 대한 Ubuntu
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 6월이면 다음과 같습니다.
+최적화를 얻으려면 먼저 지원되는 최신 버전의 16.04-LTS를 설치합니다. 예를 들면 다음과 같습니다.
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -75,35 +75,39 @@ apt-get -y upgrade
 선택적 명령:
 
 `apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Preview 커널
-> [!WARNING]
-> 이 Azure Linux Preview 커널은 일반 공급 릴리스 상태의 커널 및 Marketplace 이미지와 가용성 및 안정성 수준이 다를 수도 있습니다. 기능이 지원되지 않거나 제한될 수도 있으며, 기본 커널에 비해 안정성이 떨어질 수도 있습니다. 따라서 프로덕션 작업에는 이 커널을 사용하지 마세요.
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>기존 VM에 대한 Ubuntu Azure 커널 업그레이드
 
-여기서 제안하는 Azure Linux 커널을 설치하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널을 사용해 보려면 /etc/apt/sources.list에 아래 줄을 추가합니다.
+Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 그런 다음 아래 명령을 루트로 실행합니다.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-처리량을 최적화하려면 먼저 지원되는 최신 버전으로 업데이트합니다. 2017년 7월 현재 최신 버전은 다음과 같습니다.
+최신 최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들면 다음과 같습니다.
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
-처리량 최적화 기능은 LIS 4.2.2-2부터 포함됩니다. 다음 명령을 입력하여 LIS를 설치합니다.
+더 나중 버전에 추가 개선 기능이 포함되어 있더라도 처리량 최적화 기능은 LIS 4.2.2-2부터 포함됩니다. 다음 명령을 입력하여 최신 LIS를 설치합니다.
 
 ```bash
 sudo yum update
@@ -113,21 +117,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-처리량을 최적화하려면 먼저 지원되는 최신 버전으로 업데이트합니다. 2017년 7월 현재 최신 버전은 다음과 같습니다.
+최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들면 다음과 같습니다.
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
 처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

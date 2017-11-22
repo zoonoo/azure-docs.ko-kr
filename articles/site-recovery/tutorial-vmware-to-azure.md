@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -85,20 +85,14 @@ ms.lasthandoff: 11/01/2017
 구성 서버 VM에서 시스템 시계가 시간 서버와 동기화되었는지 확인합니다.
 시간은 15분 이내에 동기화되어야 합니다. 시간 차이가 15분보다 크면 설치가 실패합니다.
 
-구성 서버 VM에서 다음 URL에 액세스할 수 있는지 확인합니다.
+구성 서버에서 다음 URL에 액세스할 수 있는지 확인합니다.
 
-- *.accesscontrol.windows.net. 액세스 제어 및 ID 관리에 사용됩니다.
-- *.backup.windowsazure.com. 복제 데이터 전송 및 조정에 사용됩니다.
-- *.blob.core.windows.net. 복제된 데이터를 저장하는 저장소 계정에 액세스하는 데 사용됩니다.
-- *.hypervrecoverymanager.windowsazure.com. 복제 관리 작업 및 조정에 사용됩니다.
-- time.nist.gov and time.windows.com. 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - IP 주소 기반 방화벽 규칙은 Azure와의 통신을 허용해야 합니다.
 
-Azure Government 클라우드에 대한 URL:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.
+    - 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(액세스 제어 및 ID 관리에 사용됨).
 
 모든 IP 주소 기반 방화벽 규칙에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 443(HTTPS)/9443(데이터 복제) 포트에 대한 통신을 허용해야 합니다. 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용해야 합니다(Access Control 및 Identity Management에 사용됨).
 

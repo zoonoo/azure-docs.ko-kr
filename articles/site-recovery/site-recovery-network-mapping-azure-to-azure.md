@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>두 Azure 지역 간 네트워크 매핑
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="map-networks"></a>네트워크 매핑
 
-하나의 Azure 지역에서 다른 지역의 다른 가상 네트워크에 Azure 가상 네트워크를 매핑하려면 Site Recovery 인프라 -> 네트워크 매핑(Azure 가상 컴퓨터의 경우)으로 이동하여 네트워크 매핑을 만듭니다.
+하나의 Azure 지역에서 다른 지역의 다른 가상 네트워크에 Azure Virtual Network를 매핑하려면 Site Recovery 인프라 -> 네트워크 매핑(Azure Virtual Machines의 경우)으로 이동하여 네트워크 매핑을 만듭니다.
 
 ![네트워크 매핑](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="subnet-selection"></a>서브넷 선택
-원본 가상 컴퓨터의 서브넷의 이름에 따라 대상 가상 컴퓨터의 서브넷이 선택됩니다. 대상 네트워크에서 사용할 수 있는 원본 가상 컴퓨터의 이름과 동일한 이름의 서브넷이 있는 경우 대상 가상 컴퓨터에 대해 선택된 서브넷입니다. 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 선택됩니다. 가상 컴퓨터의 계산 및 네트워크 설정으로 이동하여 이 서브넷을 수정할 수 있습니다.
+원본 가상 컴퓨터의 서브넷의 이름에 따라 대상 가상 컴퓨터의 서브넷이 선택됩니다. 대상 네트워크에서 사용할 수 있는 원본 가상 컴퓨터의 이름과 동일한 이름의 서브넷이 있는 경우 대상 가상 컴퓨터에 대해 선택된 서브넷입니다. 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 선택됩니다. 가상 컴퓨터의 Compute 및 네트워크 설정으로 이동하여 이 서브넷을 수정할 수 있습니다.
 
 ![서브넷 수정](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 원본 서브넷과 대상 서브넷에 다른 주소 공간이 있으면 대상 IP가 대상 서브넷의 사용 가능한 IP로 설정됩니다.
 
-가상 컴퓨터의 계산 및 네트워크 설정으로 이동하여 각 네트워크 인터페이스의 대상 IP를 수정할 수 있습니다.
+가상 컴퓨터의 Compute 및 네트워크 설정으로 이동하여 각 네트워크 인터페이스의 대상 IP를 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

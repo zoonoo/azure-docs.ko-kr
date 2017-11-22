@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열의 소프트웨어 및 네트워킹 요�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
@@ -41,7 +41,10 @@ ms.lasthandoff: 11/06/2017
 | **하이퍼바이저** | **버전** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 이상 |
-| VMware ESXi |5.5 및 6.0 |
+| VMware ESXi |5.0, 5.5 및 6.0 <br> (6.5는 지원되지 않음) |
+
+> [!IMPORTANT]
+> StorSimple 가상 배열에는 VMware 도구를 설치하지 마세요. 이 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
 
 ### <a name="virtual-device-requirements"></a>가상 장치 요구 사항
 | **구성 요소** | **요구 사항** |
@@ -79,8 +82,8 @@ ms.lasthandoff: 11/06/2017
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마십시오. 그러면 지원되지 않는 구성이 발생합니다. 
-> 
+> Windows EFS(파일 시스템 암호화)에 의해 보호되는 파일을 StorSimple Virtual Array 파일 서버에 복사하거나 저장하지 마십시오. 그러면 지원되지 않는 구성이 발생합니다.
+
 
 ### <a name="supported-storage-format"></a>지원되는 저장소 형식
 Azure 블록 Blob Storage만 지원됩니다. 페이지 Blob은 지원되지 않습니다. [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.

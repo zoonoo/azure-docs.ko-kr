@@ -1,6 +1,6 @@
 ---
 title: "SQL Data Warehouse 용량 한도 | Microsoft Docs"
-description: "SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다."
+description: "SQL Data Warehouse의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="sql-data-warehouse-capacity-limits"></a>SQL 데이터 웨어하우스 용량 제한
+# <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 아래 표에는 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최대값이 나와 있습니다.
 
 ## <a name="workload-management"></a>워크로드 관리
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL 데이터 웨어하우스에 대한 최대 DWU |6000 |
-| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Server에 대한 최대 DWU |기본값 6000<br/><br/> 기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 45,000이 있으며 최대 6000DWU가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
-| 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>최대 1,024개의 활성 연결을 지원하며 각각에서 동시에 요청을 SQL 데이터 웨어하우스 데이터베이스에 제출할 수 있습니다. 실제로 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Data Warehouse에 대한 최대 DWU | 탄력성에 최적화됨 [성능 계층](performance-tiers.md): DW6000<br></br>계산에 최적화됨 [성능 계층](performance-tiers.md): DW30000c |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예:<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW600c x 9.0 = 54,000DTU<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>1024개의 활성 세션 각각이 동시에 SQL Data Warehouse 데이터베이스로 한 요청을 제출할 수 있습니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
-| [워크로드 관리][Workload management] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 보다 상위의 리소스 클래스에 할당되었거나 SQL Data Warehouse가 낮은 DWU로 구성된 경우 동시성 수준을 줄일 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |
-| [Tempdb][Tempdb] |Tempdb의 최대 크기 |DW100당 399GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
+| [워크로드 관리][Workload management] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당되거나 SQL Data Warehouse의 [서비스 수준](performance-tiers.md#service-levels)이 더 낮을 때 동시 쿼리 수가 감소될 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |
+| [tempdb][Tempdb] |최대 GB |DW100당 399GB입니다. 따라서 DWU1000에서 tempdb의 크기는 3.99TB로 조정됩니다. |
 
 ## <a name="database-objects"></a>데이터베이스 개체
 | Category | 설명 | 최대 |
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 | 테이블 |데이터베이스 당 테이블 |20억 |
 | 테이블 |테이블 당 열 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식][data type]에 따라 다릅니다.  char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
-| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열** 을 행 외부로 밀어 넣을 수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 MSDN 문서 [8KB를 초과하는 행 오버플로 데이터][Row-Overflow Data Exceeding 8 KB]를 참조하세요. |
+| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열**을 행 외부로 밀수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 [8KB를 초과하는 행 오버플로 데이터][Row-Overflow Data Exceeding 8 KB]를 참조하세요. |
 | 테이블 |테이블 당 파티션 |15,000<br/><br/>높은 성능을 위해서는 계속해서 비즈니스 요구사항을 지원하면서 파티션 수를 줄이는 것이 좋습니다. 파티션 수가 늘어나면 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 작업에 대한 오버헤드가 증가하고 성능이 저하됩니다. |
 | 테이블 |파티션 경계 값 당 문자. |4000 |
 | 인덱스 |테이블 당 비클러스터형 인덱스. |999<br/><br/>rowstore 테이블에만 적용됩니다. |
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="loads"></a>로드
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행당 MB |1<br/><br/>PolyBase 부하는 1MB보다 작고 VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드할 수 없는 행을 로드할 때만 사용됩니다.<br/><br/> |
+| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB보다 작은 행으로만 로드되고 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드될 수 없습니다.<br/><br/> |
 
 ## <a name="queries"></a>쿼리
 | Category | 설명 | 최대 |
@@ -67,13 +67,13 @@ ms.lasthandoff: 10/11/2017
 | 쿼리 |시스템 뷰에서 동시 쿼리입니다. |100 |
 | 쿼리 |시스템 뷰에서 쿼리된 쿼리입니다. |1000 |
 | 쿼리 |최대 매개 변수 |2098 |
-| 배치 |최대 크기 |65,536*4096 |
+| Batch |최대 크기 |65,536*4096 |
 | 결과 선택 |행 당 열 |4096<br/><br/>결과에는 행마다 4096개 이상의 열이 있어서는 안 됩니다. 항상 4096이 있다고 보장할 수 없습니다. 쿼리 계획에 임시 테이블이 필요한 경우 테이블 당 최대 1024 열이 적용될 수 있습니다. |
 | SELECT |중첩된 하위 쿼리 |32<br/><br/>SELECT 문에는 32개 보다 많은 중첩된 하위 쿼리가 있어서는 안 됩니다. 항상 32가 있다고 보장할 수 없습니다. 예를 들어 조인은 쿼리 계획에 하위 쿼리를 제공할 수 있습니다. 또한 사용 가능한 메모리에서 하위 쿼리의 수를 제한할 수 있습니다. |
 | SELECT |조인 당 열 |1024열<br/><br/>조인에는 1024개 이상의 열이 있어서는 안 됩니다. 항상 1024가 있다고 보장할 수 없습니다. 조인 계획에 조인 결과보다 많은 열을 가진 임시 테이블이 필요한 경우 1024 제한은 임시 테이블에 적용됩니다. |
 | SELECT |그룹화 기준 열 당 바이트. |8060<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
 | SELECT |정렬 기준 열 당 바이트 |8060 바이트.<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
-| 식별자 및 문 당 상수 |참조된 식별자 및 상수의 수. |65,535<br/><br/>SQL 데이터 웨어하우스는 쿼리의 단일 수식에 포함될 수 있는 식별자 및 상수의 수를 제한합니다. 이 제한은 65,535입니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
+| 식별자 및 문 당 상수 |참조된 식별자 및 상수의 수. |65,535<br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 식별자 및 상수의 수를 제한합니다. 이 제한은 65,535입니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
 
 ## <a name="metadata"></a>Metadata
 | 시스템 뷰 | 최대 행 |

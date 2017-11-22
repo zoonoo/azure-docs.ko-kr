@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 문서는 Azure Data Factory 서비스의 버전 2에 적용됩니다. Data Factory에 대한 질문과 대답입니다.  
@@ -152,7 +152,7 @@ Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세�
 Azure Data Factory에 대한 가격 정보는 [Data Factory 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-factory/)를 참조하세요.
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Azure Data Factory 버전 2를 지원하는 지역은 어디입니까?
-현재 미국 동부와 미국 동부 2 지역에서 버전 2의 Data Factory를 만들 수 있습니다. 하지만 Data Factory는 다른 지역의 Integration Runtime을 사용하여 데이터 저장소간 데이터를 이동하거나 Compute Services에 대한 활동을 디스패치하거나 SSIS 패키지를 디스패치할 수 있습니다. 자세한 내용은 [Data Factory 위치](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요.
+현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서 버전 2의 Data Factory를 만들 수 있습니다. 하지만 Data Factory는 다른 지역의 Integration Runtime을 사용하여 데이터 저장소간 데이터를 이동하거나 Compute Services에 대한 활동을 디스패치하거나 SSIS 패키지를 디스패치할 수 있습니다. 자세한 내용은 [Data Factory 위치](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요.
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Data Factory에 대한 최신 정보를 얻으려면 어떻게 해야 하나요?
 Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 이동하세요.

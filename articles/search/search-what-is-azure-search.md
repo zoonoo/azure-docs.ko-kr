@@ -3,7 +3,7 @@ title: "Azure Search이란? | Microsoft Docs"
 description: "Azure Search는 완벽하게 관리되는 호스트된 클라우드 Search 서비스입니다. 이 기능 개요에 대해 자세히 알아보세요."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램의 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
 
-기능은 검색 기술의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에 Azure Portal은 관리 및 프로토타입 생성 지원을 제공합니다. 인프라 및 가용성은 Microsoft에서 관리합니다.
+기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에도 Azure Portal에서 운영 및 콘텐츠 관리 지원과 인덱스 프로토타입 및 쿼리를 위한 도구를 제공합니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
 <a name="feature-drilldown"></a>
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -133,6 +133,11 @@ ms.lasthandoff: 10/31/2017
     다음 명령에서 `key1` 값을 저장소 키로 기록한 다음 명령을 실행하여 값을 저장합니다.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. 다음 명령을 사용하여 저장소 계정에 `baitshare`라는 파일 공유를 만듭니다.
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. 원하는 텍스트 편집기에서 Azure Machine Learning Workbench 프로젝트의 하위 디렉터리 "Code"로부터 `settings.cfg` 파일을 로드하고 표시된 대로 저장소 계정 이름과 키를 삽입합니다. `settings.cfg` 파일을 저장하고 닫습니다.
 1. [AzCopy](http://aka.ms/downloadazcopy) 유틸리티가 없으면 다운로드하여 설치합니다. "AzCopy" 입력 후 Enter 키를 눌러 설명을 표시하여 시스템 경로에 AzCopy 실행 파일이 있는지 확인합니다.

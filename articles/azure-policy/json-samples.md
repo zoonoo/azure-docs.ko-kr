@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Azure Policy에 대한 템플릿
 
-다음 표는 Azure Policy에 대한 json 템플릿 링크를 포함합니다.
+다음 표는 Azure Policy에 대한 json 템플릿 링크를 포함합니다. 이러한 샘플은 [Azure Policy 샘플 리포지토리](https://github.com/Azure/azure-policy)에 있습니다.
 
 | | |
 |---|---|
 |**Compute**||
 | [승인된 VM 이미지](scripts/allowed-custom-images.md) | 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다. 승인된 이미지 ID 배열을 지정합니다. |
-| [관리 디스크를 사용하여 VM 만들기](scripts/create-vm-managed-disk.md) | 관리 디스크를 사용하지 않는 가상 컴퓨터를 만들 때 감사합니다.|
+| [VM이 관리 디스크를 사용하지 않을 경우 감사](scripts/create-vm-managed-disk.md) | 관리 디스크를 사용하지 않는 가상 컴퓨터를 만들 때 감사합니다.|
 | [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md) | 확장이 가상 컴퓨터와 함께 배포되지 않은 경우 감사합니다. 확장 게시자를 지정하고 배포되었는지 여부를 확인하기 위해 입력합니다. |
 | [리소스 그룹으로부터 사용자 지정 VM 이미지 허용](scripts/allow-custom-vm-image.md) |  사용자 지정 이미지가 승인된 리소스 그룹으로부터 와야 합니다. 승인된 리소스 그룹의 이름을 지정합니다. |
 | [하이브리드 사용 혜택 거부](scripts/deny-hybrid-use.md) | AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다. 온-프레미스 라이선스 사용을 허용하기 원하지 않을 때 사용합니다. |
@@ -39,6 +39,11 @@ ms.lasthandoff: 11/04/2017
 | [관리 디스크를 사용하여 VM 만들기](scripts/use-managed-disk-vm.md) | 가상 컴퓨터가 관리 디스크를 사용해야 합니다.|
 |**모니터링**||
 | [진단 설정 감사](scripts/audit-diag-setting.md) | 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은 경우 감사합니다. 진단 설정이 사용되도록 설정되었는지 여부를 확인하려면 리소스 형식의 배열을 지정합니다. |
+|**이름 및 텍스트 규칙**||
+| [여러 이름 패턴 허용](scripts/allow-multiple-name-patterns.md) | 리소스에 여러 이름 패턴 중 하나를 사용할 수 있습니다. |
+| [유사 패턴 필요](scripts/enforce-like-pattern.md) | 리소스 이름 패턴에 대한 유사 조건을 충족하는지 확인합니다. |
+| [일치 패턴 필요](scripts/enforce-match-pattern.md) | 리소스 이름이 이름 지정 패턴과 일치하는지 확인합니다. |
+| [태그 일치 패턴 필요](scripts/enforce-tag-match-pattern.md) | 태그 값이 텍스트 패턴과 일치하는지 확인합니다. |
 |**네트워크**||
 | [허용되는 가상 네트워크 게이트웨이 SKU](scripts/allowed-app-gate-sku.md) | 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
 | [Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사](scripts/net-watch-not-enabled.md) | Network Watcher이 지역에 대해 사용되도록 설정되지 않은 경우 감사합니다. Network Watcher가 사용하도록 설정되었는지 여부를 확인하려면 지역의 이름을 지정합니다. |
@@ -62,6 +67,7 @@ ms.lasthandoff: 11/04/2017
 | [DB 수준 위협 감지 설정 감사](scripts/audit-db-threat-det-setting.md) | 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL 데이터베이스 보안 경고 정책을 감사합니다. 위협 감지가 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.  |
 | [Microsoft SQL Server 수준 감사 설정 감사](scripts/audit-sql-ser-leve-audit-setting.md) | 해당 설정이 지정한 설정과 일치하지 않는 경우 Microsoft SQL Server 감사 설정을 감사합니다. 감사 설정이 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다. |
 | [서버 수준 위협 감지 설정 감사](scripts/audit-sql-ser-threat-det-setting.md) | 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL 데이터베이스 보안 경고 정책을 감사합니다. 위협 감지가 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.  |
+| [Azure Active Directory 관리자가 없을 경우 감사](scripts/audit-no-aad-admin.md) | SQL Server에 할당된 Azure Active Directory 관리자가 없을 때 감사합니다. |
 | [허용되는 SQL DB SKU](scripts/allowed-sql-db-skus.md) | Microsoft Azure SQL Database는 승인된 SKU를 사용합니다. 허용되는 SKU ID 배열 또는 허용되는 SKU 이름 배열을 지정합니다. |
 |**저장소**||
 | [저장소 계정 및 가상 컴퓨터에 대해 허용된 SKU](scripts/allowed-skus-storage.md) | 저장소 계정 및 가상 컴퓨터는 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 컴퓨터 SKU 배열 및 승인된 저장소 계정 SKU 배열을 지정합니다. |

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -84,8 +84,25 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
 
 - RevoScalePy 라이브러리는 (Docker 컨테이너의) Windows 또는 Linux에서만 지원됩니다. macOS에서는 지원되지 않습니다.
 
-## <a name="delete-experimentation-account"></a>실험 계정 삭제
-CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다.
+## <a name="cant-update-workbench"></a>Workbench를 업데이트할 수 없음
+새 업데이트를 사용할 수 있는 경우 Workbench 앱 홈페이지에 새 업데이트에 대한 정보를 제공하는 메시지가 표시됩니다. 앱의 왼쪽 아래 구석에 있는 종 모양 아이콘에 업데이트 배지가 표시됩니다. 이 배지를 클릭하고 설치 마법사에 따라 업데이트를 설치합니다. 
+
+![이미지 업데이트](./media/known-issues-and-troubleshooting-guide/update.png)
+
+이러한 알림이 표시되지 않으면 앱을 다시 시작할 수 있습니다. 다시 시작한 후에도 여전히 업데이트 알림이 표시되지 않으면 몇 가지 원인이 있을 수 있습니다.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>작업 표시줄에 고정된 바로 가기에서 Workbench를 시작함
+업데이트를 이미 설치했을 수 있습니다. 하지만 고정된 바로 가기는 여전히 디스크의 이전 비트를 가리키고 있습니다. `%localappdata%/AmlWorkbench` 폴더로 이동하여 이를 확인하고 최신 버전이 설치되어 있는지 검토한 후, 고정된 바로 가기 속성이 가리키는 위치를 확인할 수 있습니다. 확인된 후에는 이전 바로 가기를 제거하고 시작 메뉴에서 Workbench를 시작한 후, 필요에 따라 작업 표시줄에 새 고정 바로 가기를 만들면 됩니다.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Windows DSVM의 "Azure ML Workbench 설치" 링크를 사용하여 Workbench를 설치했음
+이 경우에는 쉽게 해결할 수 있는 방법이 없습니다. 다음 단계에 따라 설치된 비트를 제거하고, 최신 설치 관리자를 다운로드하여 Workbench를 새로 설치해야 합니다. 
+   - 폴더 `C:\Users\<Username>\AppData\Local\amlworkbench` 제거
+   - 스크립트 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1` 제거
+   - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
+   - https://aka.ms/azureml-wb-msi에서 설치 관리자를 다운로드하고 다시 설치
+
+## <a name="cant-delete-experimentation-account"></a>실험 계정을 삭제할 수 없음
+CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다. 그렇지 않으면 오류가 발생합니다.
 
 ```azure-cli
 # delete a project
@@ -100,9 +117,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Workbench 앱 내에서 프로젝트 및 작업 영역을 삭제할 수도 있습니다.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>프로젝트가 OneDrive에 있는 경우 파일을 열 수 없음
+Windows 10 Fall Creators Update가 있으며 프로젝트를 OneDrive에 매핑된 로컬 폴더에 만든 경우 Workbench에서 파일을 열 수 없습니다. 이 문제는 Fall Creators Update에 의해 도입된 버그 때문에 node.js 코드가 OneDrive 폴더에서 실패하기 때문입니다. 이 버그는 Windows 업데이트를 통해 곧 해결될 예정이지만 그때까지는 OneDrive 폴더에 프로젝트를 만들지 마세요.
 
 ## <a name="file-name-too-long-on-windows"></a>Windows에서 파일 이름이 너무 깁니다.
-Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 다소 잘못된 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
+Windows에서 Workbench를 사용하는 경우 기본 최대 260자 파일 이름 길이 제한이 발생할 수 있습니다. 그러면 "시스템이 지정된 경로를 찾을 수 없습니다."라는 오류가 표시될 수 있습니다. 레지스트리 키 설정을 수정하여 긴 파일 경로 이름을 늘릴 수 있습니다. _MAX_PATH_ 레지스트리 키를 설정하는 방법에 대한 자세한 내용은 [이 문서](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath)를 검토하세요.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker 오류 “읽기: 연결이 거부되었습니다”
 로컬 Docker 컨테이너에 대해 실행할 때 경우에 따라 다음과 같은 오류가 표시될 수 있습니다. 

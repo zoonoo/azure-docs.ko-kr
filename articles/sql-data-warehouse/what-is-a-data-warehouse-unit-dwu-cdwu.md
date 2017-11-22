@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Data Warehouse에서 데이터 웨어하우스 단위(DWU, cDWU)란? | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스의 성능 확장 기능입니다. DWU, cDWU를 조정하여 규모를 확장하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
+description: "Azure SQL Data Warehouse의 성능 확장 기능입니다. DWU, cDWU를 조정하여 규모를 확장하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 Azure SQL Data Warehouse의 DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)에 대해 설명합니다. 이상적인 데이터 웨어하우스 단위 수를 선택하기 위한 권장 사항 및 데이터 웨어하우스 단위 수를 변경하는 방법도 설명합니다. 
@@ -52,16 +52,8 @@ DWU 및 cDWU 모두 계산을 확장 또는 축소할 수 있고 데이터 웨�
 데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. 계산에 최적화됨 성능 계층은 최상의 쿼리 성능과 최고의 확장성을 제공하지만 진입 가격이 높습니다. 지속적인 성능이 요구되는 비즈니스용으로 설계되었습니다. 이러한 시스템은 캐시를 최대한 이용합니다. 
 
 ### <a name="capacity-limits"></a>용량 제한
-기본적으로 각 서버(예: myserver.database.windows.net)에는 해당 인스턴스에서 데이터베이스의 크기 및 규모가 제한되는 할당량이 있습니다. 서버는 할당량을 만족해야 하는 SQL DW 및 SQL DB 데이터베이스를 모두 호스트할 수 있습니다. 이 할당량은 DTU(데이터베이스 트랜잭션 단위)로 측정되고 기본적으로 54,000으로 설정되며 최대 6000cDWU까지 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. 지원 티켓을 만들고 "할당량"을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다. 
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../sql-database/sql-database-what-is-a-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
-DTU 요구 사항을 계산하려면 DTU 계산에 다음 승수를 적용합니다.
-
-| 성능 계층 | 측정 단위 | DTU 승수 | 예제                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| 탄력성       |  DWU            | 7.5            | DW6000 x 7.5 = 45,000DTU |
-| 계산          | cDWU            | 9              | DW6000 x 7.5 = 54,000DTU |
-
-포털의 SQL Server 속성에서 현재 DTU 사용량을 볼 수 있습니다.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위
 이상적인 데이터 웨어하우스 단위 수는 워크로드 및 시스템에 로드한 데이터 양에 따라 매우 다릅니다.
@@ -88,7 +80,7 @@ SQL Data Warehouse는 데이터 양 조정이 가능한 대량의 계산 및 쿼
 현재 DWU 설정을 보려면:
 
 1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
-2. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
+2. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
 3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다. 
 
 ```sql
@@ -123,7 +115,7 @@ T-SQL을 사용하여 현재 DWU 또는 cDWU 설정을 보고, 설정을 변경�
 
 DWU 또는 cDWU를 변경하려면:
 
-1. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
+1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
 2. [ALTER DATABASE][ALTER DATABASE] TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 
 
 ```Sql
@@ -158,7 +150,7 @@ Azure Portal에서 스케일 아웃 작업에 대한 데이터베이스 상태�
 
 DWU 변경 상태를 확인하려면:
 
-1. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
+1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
 2. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
 
 

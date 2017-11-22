@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 
 
@@ -41,13 +41,13 @@ Azure Cosmos DB Table API를 사용하면 방대한 구조화된 비관계형 �
 
 이 예제에는 Azure PowerShell 모듈 버전 4.4.0 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
-Azure PowerShell 설치 또는 업데이트 후 엔터티 관리를 위한 명령이 있는 모듈 **AzureRmStorageTable**을 설치해야 합니다. 이 모듈을 설치하려면 관리자로 PowerShell을 실행하고 **Install-Module** 명령을 사용합니다.
+Azure PowerShell을 설치하거나 업데이트한 후에 엔터티 관리 명령이 있는 **AzureRmStorageTable** 모듈을 설치해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 
 ```powershell
 Install-Module AzureRmStorageTable
 ```
 
-Azure Cosmos DB Table API가 미리 보기 상태인 경우에는 이러한 PowerShell cmdlet을 사용하려면 로컬로 어셈블리도 설치해야 합니다. 이를 수행하는 방법에 대한 지침은 [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/)(Cosmos DB Table용 Azure RM 저장소 테이블 PowerShell 모듈)를 참조하세요.
+그런 후 이러한 PowerShell cmdlet을 사용하기 위해 Azure Cosmos DB 어셈블리를 로컬로 설치합니다. 이를 수행하는 방법에 대한 지침은 [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/)(Cosmos DB Table용 Azure RM 저장소 테이블 PowerShell 모듈)를 참조하세요.
 
 다음 연습을 사용하려면 Azure Cosmos DB 데이터베이스 계정이 필요합니다. 계정이 없는 경우 [Azure Portal](https://portal.azure.com)을 사용하여 새 Azure Cosmos DB 계정을 만듭니다. 새 데이터베이스 계정을 만드는 방법에 대한 자세한 내용은 [Azure Cosmos DB: 데이터베이스 계정 만들기](create-table-dotnet.md#create-a-database-account)를 참조하세요.
 
@@ -94,7 +94,7 @@ PowerShell은 Azure Cosmos DB에서 테이블 삭제를 지원하지 않습니�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-새 리소스 그룹과 해당 그룹에 새 Azure Cosmos DB 계정을 만든 후에는 리소스 그룹을 제거하여 이 연습에서 만든 모든 자산을 제거할 수 있습니다. 이 명령은 리소스 그룹 자체뿐만 아니라 그룹 내 포함된 모든 리소스를 삭제합니다.
+새 리소스 그룹과 해당 그룹에 새 Azure Cosmos DB 계정을 만든 후에는 리소스 그룹을 제거하여 이 연습에서 만든 모든 자산을 제거할 수 있습니다. 이 명령은 리소스 그룹 자체뿐만 아니라 해당 그룹에 포함된 모든 리소스를 삭제합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

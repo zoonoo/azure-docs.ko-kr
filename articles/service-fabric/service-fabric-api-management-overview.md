@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
@@ -108,7 +108,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작 가이드](service-fabric-api-management-quick-start.md)에 따라 API Management가 있는 첫 번째 Service Fabric 클러스터를 설정하고 API Management를 통해 서비스로 요청을 전달합니다.
+[자습서](service-fabric-tutorial-deploy-api-management.md)에 따라 API Management가 있는 첫 번째 Service Fabric 클러스터를 설정하고 API Management를 통해 서비스로 요청을 전달합니다.
 
 <!-- links -->
 

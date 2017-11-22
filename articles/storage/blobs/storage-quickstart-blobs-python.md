@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Python을 사용하여 Azure Blob Storage에서 개체 전송
 이 빠른 시작에서 Python을 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다. 
@@ -73,7 +73,11 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 파일을 확인한 후에 아무 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 example.py 파일을 열고 코드를 확인합니다. 
 
-## <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+## <a name="understand-the-sample-code"></a>샘플 코드 이해
+
+다음으로, 샘플 코드를 따라 진행하면서 작동 방식을 이해합니다.
+
+### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
 * 저장소 계정의 Blob 서비스를 가리키는 **CloudBlobClient** 개체를 인스턴스화합니다. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
+### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob는 가장 일반적으로 사용되므로 이 빠른 시작 가이드에서도 사용합니다.  
 
@@ -128,7 +132,7 @@ Blob 저장소에서 사용할 수 있는 몇 가지 업로드 메서드가 있�
 
 블록 blob 크기는 4.7TB까지 가능하며, Excel 스프레드시트에서 큰 비디오 파일까지 다양할 수 있습니다. 페이지 blob은 IaaS VM을 백업하는 데 사용되는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
 
-## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
+### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
 **list_blobs** 메서드를 사용하여 컨테이너의 파일 목록을 가져옵니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 Blob 목록을 검색하고, 이 과정을 반복하여 컨테이너에서 찾은 Blob의 이름을 표시합니다.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Blob 다운로드
+### <a name="download-the-blobs"></a>Blob 다운로드
 
 **get\_blob\_to\_path** 메서드를 사용하여 Blob를 로컬 디스크에 다운로드합니다. 다음 코드는 이전 섹션에서 업로드된 Blob를 다운로드합니다. 로컬 디스크에서 두 파일을 확인할 수 있게 "_DOWNLOADED"가 접미사로 Blob 이름에 추가됩니다. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>리소스 정리
+### <a name="clean-up-resources"></a>리소스 정리
 이 빠른 시작 가이드에서는 업로드된 blob이 더 이상 필요하지 않으므로 **delete\_container**를 사용하여 전체 컨테이너를 삭제해도 됩니다. 만든 파일이 더 이상 필요하지 않으면 **delete\_blob** 메서드를 사용하여 파일을 삭제합니다.
 
 ```python

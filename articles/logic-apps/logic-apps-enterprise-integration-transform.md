@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML 변환과 엔터프라이즈 통합
 ## <a name="overview"></a>개요
@@ -50,6 +50,11 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. **변환 XML** 작업을 선택합니다.   
 6. 변환할 XML **콘텐츠** 를 추가합니다. HTTP 요청에서 수신한 XML 데이터를 **콘텐츠**로 사용할 수 있습니다. 이 예제에서는 논리 앱을 트리거한 HTTP 요청의 본문을 선택합니다.
+
+   > [!NOTE]
+   > **XML 변환**의 콘텐츠가 XML인지 확인합니다. 콘텐츠가 xml이 아니거나 base64로 인코딩된 경우 콘텐츠를 처리하는 식을 지정해야 합니다. 예를 들어 콘텐츠를 디코딩하기 위한 ```@base64ToBinary``` 또는 콘텐츠를 XML로 처리하기 위한 ```@xml```과 같은 [함수](logic-apps-workflow-definition-language.md#functions)를 사용할 수 있습니다.
+ 
+
 7. 변환을 수행하는 데 사용하려는 **맵** 의 이름을 선택합니다. 맵이 이미 통합 계정에 있어야 합니다. 이전 단계에서 맵을 포함한 통합 계정에 논리 앱 액세스 권한을 이미 제공했습니다.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. 작업을 저장합니다.  

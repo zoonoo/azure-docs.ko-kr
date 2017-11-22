@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례
 
@@ -113,7 +113,7 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
   * Premium Storage를 사용하지 않는 경우(개발/테스트 시나리오) 해당 [VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 로 지원되는 최대 수의 데이터 디스크를 추가하고 디스크 스트라이프를 사용하는 것이 좋습니다.
 
-* **캐싱 정책**: Premium Storage 데이터 디스크의 경우 데이터 파일 및 TempDB만 호스트하는 데이터 디스크에서 읽기 캐싱을 사용하도록 설정합니다. Premium Storage를 사용하지 않는 경우 모든 데이터 디스크에서 모든 캐싱을 사용하도록 설정하지 마세요. 디스크 캐싱 구성에 대한 지침은 [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx) 항목을 참조하세요.
+* **캐싱 정책**: Premium Storage 데이터 디스크의 경우 데이터 파일 및 TempDB만 호스트하는 데이터 디스크에서 읽기 캐싱을 사용하도록 설정합니다. Premium Storage를 사용하지 않는 경우 모든 데이터 디스크에서 모든 캐싱을 사용하도록 설정하지 마세요. 디스크 캐싱 구성에 대한 지침은 다음 항목을 참조하세요. 클래식(ASM) 배포 모델의 경우 [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)를 참조하세요. Azure Resource Manager 배포 모델의 경우 [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 및 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)를 참조하세요.
 
   > [!WARNING]
   > 데이터베이스 손상 가능성을 방지하려면 Azure VM 디스크의 캐시 설정을 변경할 때 SQL Server 서비스를 중지합니다.
