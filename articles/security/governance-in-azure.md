@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -225,14 +225,14 @@ Resource Manager는 설치에 포함되지 않은 소프트웨어를 설치하�
 리소스 정책을 통해 조직의 표준 규칙을 만들 수 있습니다. 적절한 값으로 리소스에 태그가 지정되도록 정책을 만들 수 있습니다.
 
 > [!Note]
-> 자세한 내용은 [태그에 대한 리소스 정책 적용](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags)을 참조하세요.
+> 자세한 내용은 [청구 태그 정책 이니셔티브](../azure-policy/scripts/billing-tags-policy-init.md)를 참조하세요.
 
 Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
 
 구독에 대한 [사용 현황 보고서](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)는 태그 이름 및 값을 포함하며 이를 통해 태그별 비용을 알아낼 수 있습니다.
 
 > [!Note]
-> 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)을 참조하십시오.
+> 태그에 대한 자세한 내용은 [청구 태그 정책 이니셔티브](../azure-policy/scripts/billing-tags-policy-init.md)를 참조하세요.
 
 다음 제한 사항이 태그에 적용됩니다.
 

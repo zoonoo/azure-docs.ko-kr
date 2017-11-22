@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 11/07/2017
 ms.author: robinsh
-ms.openlocfilehash: 74f6e8eb6dd29633fbf518831b446a149fbbddc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbf818a023219e1673a8864e8bf9a8ecd6110b85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob Storage에 대한 Azure PowerShell 샘플
 
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 | | |
 |---|---|
 |**저장소 계정**||
-| [저장소 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fcli%2fazure%2ftoc.json)| Azure Storage 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. |
+| [저장소 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Storage 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. |
 |**Blob 저장소**||
-| [Blob Storage 컨테이너의 전체 크기 계산](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | 컨테이너에 있는 모든 Blob의 전체 크기를 계산합니다. |
-| [특정 접두사가 있는 컨테이너 삭제](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | 지정된 문자열로 시작되는 컨테이너를 삭제합니다. |
+| [Blob Storage 컨테이너의 전체 크기 계산](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 컨테이너에 있는 모든 Blob의 전체 크기를 계산합니다. |
+| [청구 목적으로 Blob Storage 컨테이너 크기 계산](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 청구 비용을 예측하기 위해 Blob Storage에 있는 컨테이너의 크기를 계산합니다. |
+| [특정 접두사가 있는 컨테이너 삭제](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 지정된 문자열로 시작되는 컨테이너를 삭제합니다. |

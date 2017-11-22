@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="vm-authentication-and-access-control"></a>VM 인증 및 액세스 제어
 
-VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정할 수 있게 하는 것입니다. [Azure Resource Manager 정책](../azure-resource-manager/resource-manager-policy.md)을 사용하여 조직의 리소스 표기 규칙을 정하고 사용자 지정된 정책을 생성하며 이러한 규칙을 [리소스 그룹](../azure-resource-manager/resource-group-overview.md) 등의 리소스에 적용할 수 있습니다.
+VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정할 수 있게 하는 것입니다. [Azure 정책](../azure-policy/azure-policy-introduction.md)을 사용하여 조직의 리소스 표기 규칙을 정하고 사용자 지정된 정책을 생성하며 이러한 규칙을 [리소스 그룹](../azure-resource-manager/resource-group-overview.md) 등의 리소스에 적용할 수 있습니다.
 
 리소스 그룹에 속한 VM에서 기본적으로 해당 정책을 상속합니다. VM을 관리하는 데 이 방법을 권장하지만 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용하여 개별 VM 정책에 대한 액세스를 제어할 수도 있습니다.
 
