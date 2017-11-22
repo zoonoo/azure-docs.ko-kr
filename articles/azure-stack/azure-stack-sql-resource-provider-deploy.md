@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -30,7 +30,7 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
 리소스 공급자의 모든 데이터베이스 관리 기능을 지원 하지 않습니다 [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)합니다. 예를 들어, 탄력적 데이터베이스 풀과 자동으로 데이터베이스 성능 및 축소 하는 기능이 사용할 수 없습니다. 그러나 유사한 리소스 공급자가 지원 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업. API는 SQL DB와 호환 되지 않습니다.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server 리소스 공급자 어댑터 아키텍처
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL 리소스 공급자 어댑터 아키텍처
 리소스 공급자는 세 가지 구성 요소가 구성 됩니다.
 
 - **SQL 리소스 공급자 어댑터 VM**되는 공급자 서비스를 실행 하는 Windows 가상 컴퓨터.
@@ -50,6 +50,9 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
     b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
 
 3. [SQL 리소스 공급자 이진 파일을 다운로드](https://aka.ms/azurestacksqlrp) 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기 실행 합니다.
+
+    > [!NOTE]
+    > 작성 하는 경우 Azure 스택에 실행 20170928.3 또는 이전 버전에서는 [이 버전을 다운로드](https://aka.ms/azurestacksqlrp1709)합니다.
 
 4. Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 매개 변수
@@ -141,27 +153,25 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
       ![SQL RP의 배포를 확인 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>SQL 어댑터 리소스 공급자를 제거합니다.
+## <a name="remove-the-sql-resource-provider-adapter"></a>SQL 리소스 공급자 어댑터 제거
 
 리소스 공급자를 제거 하려면 먼저 모든 종속성을 제거에 필수적입니다.
 
-1. 이 버전의 리소스 공급자에 대 한 다운로드 하는 원래 배포 패키지를 확인 합니다.
+1. 이 버전의 SQL 리소스 공급자 어댑터에 대 한 다운로드 하는 원래 배포 패키지를 확인 합니다.
 
 2. 리소스 공급자 (데이터 삭제 하지 않습니다)에서 모든 사용자 데이터베이스를 삭제 해야 합니다. 이 사용자가 직접 수행 해야 합니다.
 
-3. 관리자가 SQL 어댑터에서 호스팅 서버를 삭제 해야
+3. 관리자가 SQL 리소스 공급자 어댑터에서 호스팅 서버를 삭제 해야
 
-4. 관리자는 SQL 어댑터를 참조 하는 모든 계획을 삭제 해야 합니다.
+4. 관리자는 SQL 리소스 공급자 어댑터 참조 하는 모든 계획을 삭제 해야 합니다.
 
-5. 관리자는 Sku 및 SQL 어댑터에 연결 된 할당량 삭제 해야 합니다.
+5. 관리자는 Sku 및 SQL 리소스 공급자 어댑터에 연결 된 할당량 삭제 해야 합니다.
 
 6. 배포 스크립트를 다시 실행-매개 변수, Azure 리소스 관리자 끝점, DirectoryTenantID, 및 서비스 관리자 계정에 대 한 자격 증명을 제거 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
+[호스팅 서버 추가](azure-stack-sql-resource-provider-hosting-servers.md) 및 [데이터베이스를 만들](azure-stack-sql-resource-provider-databases.md)합니다.
 
 다른 시도 [PaaS 서비스](azure-stack-tools-paas-services.md) 같은 [MySQL Server 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md) 및 [응용 프로그램 서비스 리소스 공급자](azure-stack-app-service-overview.md)합니다.

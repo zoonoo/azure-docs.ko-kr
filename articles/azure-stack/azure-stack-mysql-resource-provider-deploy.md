@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -40,13 +40,14 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 - MySQL 서버가 자동 생성
 - 다운로드 하 여 시장에서 MySQL 서버를 배포 합니다.
 
-! [참고] 호스팅 서버에는 다중 노드 Azure 스택을 설치 하는 테 넌 트 구독에서 생성 되어야 합니다. 기본 공급자 구독에서 만들 수 없습니다. 즉, 만들어야 테 넌 트 포털 또는 PowerShell 세션을 적절 한 로그인 합니다. 모든 호스팅 서버가 유료 대의 vm 및 적절 한 라이선스가 있어야 합니다. 서비스 관리자가 해당 구독의 소유자가 될 수 있습니다.
+> [!NOTE]
+> 호스팅 서버에는 다중 노드 Azure 스택을 설치 하는 테 넌 트 구독에서 생성 되어야 합니다. 기본 공급자 구독에서 만들 수 없습니다. 즉, 만들어야 테 넌 트 포털 또는 PowerShell 세션을 적절 한 로그인 합니다. 모든 호스팅 서버가 유료 대의 vm 및 적절 한 라이선스가 있어야 합니다. 서비스 관리자가 해당 구독의 소유자가 될 수 있습니다.
 
 ### <a name="required-privileges"></a>필요한 권한
 시스템 계정에는 다음 권한이 있어야 합니다.
 
 1.  데이터베이스: 만들기, 삭제
-2.  로그인: 만들기, 설정, Drop, grant, Revoke
+2.  로그인: 만들기, 설정, 삭제, 권한을 부여, 취소
 
 ## <a name="deploy-the-resource-provider"></a>리소스 공급자를 배포
 
@@ -60,6 +61,9 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
     b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
 
 3. [MySQL 리소스 공급자 이진 파일을 다운로드](https://aka.ms/azurestackmysqlrp) 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기 실행 합니다.
+
+    > [!NOTE]
+    > 작성 하는 경우 Azure 스택에 실행 20170928.3 또는 이전 버전에서는 [이 버전을 다운로드](https://aka.ms/azurestackmysqlrp1709)합니다.
 
 4.  Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 매개 변수
 
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 매개 변수
 명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 모든 매개 변수 유효성 검사에 실패할 경우 필요한 것을 제공 하 라는 메시지가 표시 됩니다.
 
 | 매개 변수 이름 | 설명 | 주석이 나 기본값 |
@@ -153,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 시스템 성능 및 다운로드 속도 따라 설치 20 분 또는 long 512tb 같이 몇 시간 걸릴 수 있습니다. MySQLAdapter 블레이드를 사용할 수 없는 경우 관리 포털을 새로 고칩니다.
 
 > [!NOTE]
-> 설치 들어 이상 90 분이 걸리는 경우 실패할 수 있습니다 및 화면의 및 로그 파일에서 오류 메시지가 나타납니다. 배포는 실패 한 단계에서 다시 시도 됩니다. 시스템 메모리와 vCPU 권장된 사양을 충족 하지 않는 MySQL RP 배포할 수 수 있습니다.
+> 설치 들어 이상 90 분이 걸리는 경우 실패할 수 있습니다 및 화면의 및 로그 파일에서 오류 메시지가 나타납니다. 배포는 실패 한 단계에서 다시 시도 됩니다. 권장 되는 메모리 및 코어 사양을 충족 하지 않는 시스템 MySQL RP 배포할 수 수 있습니다.
 
 
 
@@ -189,14 +198,15 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - 데이터베이스 용량
     - 자동 백업
     - 개별 부서에 대 한 고성능 서버 예약
-    - 등에입니다.
-    테 넌 트 데이터베이스를 적절 하 게 배치할 수 있도록 SKU 이름 속성을 반영 해야 합니다. SKU의 모든 호스팅 서버와 동일한 기능 있어야 합니다.
+ 
 
-    ![MySQL SKU 만들기](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+테 넌 트 데이터베이스를 적절 하 게 배치할 수 있도록 SKU 이름 속성을 반영 해야 합니다. SKU의 모든 호스팅 서버와 동일한 기능 있어야 합니다.
+
+![MySQL SKU 만들기](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 만들어질 때까지 데이터베이스를 만들 수 없습니다.
+> Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 만들어질 때까지 데이터베이스를 만들 수 없습니다.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>배포를 테스트 하려면 첫 번째 MySQL 데이터베이스를 만듭니다.
@@ -231,17 +241,17 @@ Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU
 Azure 스택 포털에서 MySQL 서버를 추가 하 여 용량을 추가 합니다. 추가 서버를 기존 또는 새 SKU로 추가할 수 있습니다. 서버 특성은 동일 해야 합니다.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>테 넌 트에 MySQL 데이터베이스 사용 가능
+## <a name="make-mysql-databases-available-to-tenants"></a>테 넌 트에 MySQL 데이터베이스를 사용할 수 있도록
 계획 및 제안을 테 넌 트에 대 한 MySQL 데이터베이스를 사용할 수 있게 만듭니다. Microsoft.MySqlAdapter 서비스를 추가, 등 할당량을 추가 합니다.
 
 ![계획 및 데이터베이스를 포함 하도록 제안 만들기](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>관리자 암호를 업데이트합니다.
+## <a name="update-the-administrative-password"></a>관리자 암호를 업데이트 합니다.
 첫 번째 MySQL 서버 인스턴스에서 변경 하 여 암호를 수정할 수 있습니다. 찾아 **관리 리소스** &gt; **MySQL 호스팅 서버** &gt; 호스팅 서버에서을 클릭 합니다. 설정 패널에서 암호를 클릭 합니다.
 
 ![관리자 암호를 업데이트 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>어댑터 MySQL 리소스 공급자를 제거합니다.
+## <a name="remove-the-mysql-resource-provider-adapter"></a>MySQL 리소스 공급자 어댑터 제거
 
 리소스 공급자를 제거 하려면 먼저 모든 종속성을 제거에 필수적입니다.
 
@@ -263,6 +273,5 @@ Azure 스택 포털에서 MySQL 서버를 추가 하 여 용량을 추가 합니
 
 
 ## <a name="next-steps"></a>다음 단계
-
 
 다른 시도 [PaaS 서비스](azure-stack-tools-paas-services.md) 같은 [SQL Server 리소스 공급자](azure-stack-sql-resource-provider-deploy.md) 및 [응용 프로그램 서비스 리소스 공급자](azure-stack-app-service-overview.md)합니다.

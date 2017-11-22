@@ -157,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL 리소스 공급자 배포
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: SQL 데이터베이스 만들기
-              href: azure-stack-sql-resource-provider-databases.md
             - name: 호스팅 서버 추가
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: SQL 데이터베이스 만들기
+              href: azure-stack-sql-resource-provider-databases.md
         - name: App Service를 PaaS로 제공
           items:
             - name: Azure Stack 개요에 대한 App Service
@@ -183,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: 마켓플레이스 항목 다운로드
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Azure Stack용 Azure 마켓플레이스 항목
+            - name: Azure 스택에 대 한 azure 마켓플레이스 항목
               href: azure-stack-marketplace-azure-items.md
             - name: 마켓플레이스 항목 만들기 및 게시
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: 마켓플레이스 게시 도구 사용
+            - name: 마켓플레이스에 게시 도구를 사용 하 여
               href: azure-stack-marketplace-publisher.md
             - name: 사용자 지정 가상 컴퓨터 이미지 추가
               href: azure-stack-add-vm-image.md
