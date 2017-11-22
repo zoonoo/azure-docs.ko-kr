@@ -14,20 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f47e5dfb174a0c7b99111485cee74eb01df665c7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>Java에서 Azure Table Storage를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#Next-Steps) 섹션을 참조하십시오.
 
-SDK는 Android 장치에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
+> [!NOTE]
+> SDK는 Android 장치에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,7 +72,11 @@ String storageConnectionString =
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
 ## <a name="how-to-create-a-table"></a>방법: 테이블 만들기
-**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드에서는 한 **CloudTableClient** 개체를 만들고 이 개체를 사용하여 “people”이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. (참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 **Azure Storage 클라이언트 SDK 참조**에서 [CloudStorageAccount]를 참조하세요.)
+**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드에서는 한 **CloudTableClient** 개체를 만들고 이 개체를 사용하여 “people”이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 
+
+> [!NOTE]
+> **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에서 **CloudStorageAccout**를 참조하세요.
+>
 
 ```java
 try
@@ -567,7 +573,7 @@ catch (Exception e)
 
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Java용 Azure Storage SDK][Azure Storage SDK for Java]
-* [CloudStorageAccount][CloudStorageAccount]
+* [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage 팀 블로그][Azure Storage Team Blog]
 
@@ -576,7 +582,7 @@ catch (Exception e)
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[CloudStorageAccount]: http://dl.windowsazure.com/storage/javadoc/
+[Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

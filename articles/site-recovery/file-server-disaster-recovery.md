@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 다양한 워크로드의 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
-이 문서에서는 다양한 환경에 맞는 Azure Site Recovery 및 기타 권장 사항을 사용하여 파일 서버를 보호하는 방법을 설명합니다. 
+이 문서에서는 다양한 환경에 맞는 Azure Site Recovery 및 기타 권장 사항을 사용하여 파일 서버를 보호하는 방법을 설명합니다.     
 
 - [Azure IaaS 파일 서버 컴퓨터 보호](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [온-프레미스 파일 서버 보호](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/01/2017
 
 아래 다이어그램에서는 파일 서버 환경에 사용할 전략을 결정하는 것을 목표로 하는 그림 표현을 제공합니다.
 
-![의사 결정 트리](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>재해 복구를 결정하는 동안 고려해야 할 요소
