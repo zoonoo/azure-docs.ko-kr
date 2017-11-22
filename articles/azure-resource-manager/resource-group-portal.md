@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>포털을 통해 Azure 리소스 관리
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [포털](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-이 항목에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
-
-현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
+이 문서에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
 
 ## <a name="manage-resource-groups"></a>리소스 그룹 관리
 
@@ -58,7 +49,7 @@ ms.lasthandoff: 10/11/2017
    
     ![열 추가](./media/resource-group-portal/add-columns.png)
 7. 리소스를 새 리소스 그룹에 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
-8. 리소스 그룹에 대한 빠른 액세스의 경우 대시보드에 블레이드를 고정할 수 있습니다.
+8. 리소스 그룹에 대한 빠른 액세스의 경우 대시보드에 리소스 그룹을 고정할 수 있습니다.
    
     ![리소스 그룹 고정](./media/resource-group-portal/pin-group.png)
 9. 대시보드에 리소스 그룹과 해당 리소스가 표시됩니다. 리소스 그룹 또는 해당 리소스를 선택하여 항목을 탐색할 수 있습니다.
@@ -71,12 +62,12 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>리소스 모니터링
-리소스를 선택하면 리소스 종류를 모니터링하기 위한 기본 그래프 및 표가 리소스 블레이드에 표시됩니다.
+리소스를 선택하면 리소스 종류를 모니터링하기 위한 기본 그래프 및 표가 포털에 표시됩니다.
 
 1. 리소스를 선택하고 **모니터링** 섹션을 살펴봅니다. 이 섹션에는 리소스 유형과 관련된 그래프가 포함되어 있습니다. 다음은 저장소 계정의 기본 모니터링 데이터를 보여주는 이미지입니다.
    
     ![모니터링 표시](./media/resource-group-portal/show-monitoring.png)
-2. 섹션 위에 줄임표(...)를 선택하여 대시보드에 블레이드의 한 섹션을 고정할 수 있습니다. 블레이드의 섹션 크기를 사용자 지정하거나 완전히 제거할 수도 있습니다. 다음 이미지는 CPU 및 메모리 섹션을 고정, 사용자 지정 또는 제거하는 방법을 보여 줍니다.
+2. 섹션 위에 줄임표(...)를 선택하여 대시보드에 섹션을 고정할 수 있습니다. 섹션 크기를 사용자 지정하거나 완전히 제거할 수도 있습니다. 다음 이미지는 CPU 및 메모리 섹션을 고정, 사용자 지정 또는 제거하는 방법을 보여 줍니다.
    
     ![선택 고정](./media/resource-group-portal/pin-cpu-section.png)
 3. 대시보드에 섹션을 고정하면 대시보드에 요약이 표시됩니다. 그리고 즉시 선택하면 데이터에 대한 세부 정보로 이동합니다.
@@ -92,7 +83,7 @@ ms.lasthandoff: 10/11/2017
      대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 대시보드 만들기 및 공유](../azure-portal/azure-portal-dashboards.md)를 참조하세요.
 
 ## <a name="manage-resources"></a>리소스 관리
-리소스에 대한 블레이드에는 리소스 관리 옵션이 표시됩니다. 포털에는 해당 리소스 유형의 관리 옵션이 있습니다. 리소스 블레이드 상단과 왼쪽에는 관리 명령이 표시됩니다.
+포털에서 리소스를 볼 때 특정 리소스 관리 옵션이 표시됩니다.
 
 ![리소스 관리](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ ms.lasthandoff: 10/11/2017
 
 ![subscription](./media/resource-group-portal/select-subscription.png)
 
-구독 블레이드 내에 진행 속도가 표시됩니다.
+진행 속도가 표시됩니다.
 
 ![진행 속도](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 단계별 지침은 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 
 ## <a name="delete-resource-group-or-resources"></a>리소스 그룹 또는 리소스 삭제
-리소스 그룹을 삭제하면 그 안에 포함된 모든 리소스가 삭제됩니다. 리소스 그룹 내부의 개별 리소스를 삭제할 수도 있습니다. 삭제하려는 리소스 그룹에 다른 리소스 그룹의 리소스가 링크되었을 수 있으므로 리소스 그룹을 삭제할 때는 주의해야 합니다. Resource Manager는 링크된 리소스를 삭제하지 않지만 예상된 리소스가 없는 경우 올바르게 작동하지 않을 수 있습니다.
+리소스 그룹을 삭제하면 그 안에 포함된 모든 리소스가 삭제됩니다. 리소스 그룹 내부의 개별 리소스를 삭제할 수도 있습니다. 리소스 그룹을 삭제할 때에 주의합니다. 다른 리소스 그룹의 리소스가 종속된 리소스가 해당 리소스 그룹에 있을 수 있습니다.
 
 ![그룹 삭제](./media/resource-group-portal/delete-group.png)
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
-이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)에서 확인할 수 있습니다.
+이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)에서 확인할 수 있습니다.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus에 대한 일반적인 질문
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 [네임스페이스](service-bus-create-namespace-portal.md)는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Azure Service Bus 큐란?
-[Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 응용 프로그램 또는 분산된 응용 프로그램의 여러 부분이 있는 경우에 특히 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
+[Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 응용 프로그램 또는 분산된 응용 프로그램의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus 토픽 및 구독이란?
 토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub*)을 사용하면 여러 응용 프로그램에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 응용 프로그램을 활성화합니다.
@@ -39,14 +39,14 @@ ms.lasthandoff: 10/11/2017
 ### <a name="what-is-a-partitioned-entity"></a>분할된 엔터티란?
 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. [분할된 큐 또는 토픽](service-bus-partitioning.md)은 여러 메시지 broker에 의해 처리되고 여러 메시징 저장소에 저장됩니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다.
 
-분할 엔터티를 사용하는 경우 순서는 보장할 수 없습니다. 파티션을 사용할 수 없는 이벤트에서도 여전히 메세지를 보내고 다른 파티션에서 메시지를 수신할 수 있습니다.
+분할된 엔터티를 사용하는 경우 순서는 보장할 수 없습니다. 파티션을 사용할 수 없는 이벤트에서도 여전히 메세지를 보내고 다른 파티션에서 메시지를 수신할 수 있습니다.
 
 ## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
-* [Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
+[Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>엔터티를 만들기 전에 무엇을 알아야 하나요?
-큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 새 대체 엔터티를 만들지 않고 엔터티를 프로비전하는 경우 다음 항목을 수정할 수 없다는 점을 고려해야 합니다.
+큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 엔터티를 프로비전할 때 이러한 제한 사항을 고려하세요. 새 대체 엔터티를 만들지 않은 경우 이러한 속성을 수정할 수 없기 때문입니다.
 
 * 크기
 * 분할
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="pricing"></a>가격
 이 섹션은 Service Bus 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다.
 
-[Service Bus 가격 책정 및 청구](service-bus-pricing-billing.md) 문서에서는 Service Bus의 청구 미터에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 자세한 내용은 [Service Bus 가격 책정 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+[Service Bus 가격 및 대금 청구](service-bus-pricing-billing.md) 문서에서는 Service Bus의 요금 청구 기준에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 특정 정보는 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)에서 확인할 수 있습니다. 
 
@@ -75,7 +75,7 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조하세요.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus는 사용 할당량이 있나요?
-기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 제한 보다 사용자의 필요가 많을 수도 있다는 것을 이해하기 때문에 사용자의 요구를 이해하고 이러한 제한을 적절하게 조정할 수 있도록 언제든지 서비스에 문의하세요. Service Bus의 경우 집계 사용 할당량은 매월 5십억 개의 메시지입니다.
+기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 제한보다 사용자가 더 많이 필요할 수도 있다는 것을 이해하기 때문에 사용자의 요구 사항을 이해하고 이러한 제한을 적절하게 조정할 수 있도록 언제든지 고객 서비스에 문의할 수 있습니다. Service Bus의 경우 집계 사용 할당량은 매월 5십억 개의 메시지입니다.
 
 지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
@@ -113,7 +113,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Service Bus에 대한 자세한 내용은 다음 항목을 참조하세요.
+Service Bus에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Service Bus 프리미엄 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus 프리미엄 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

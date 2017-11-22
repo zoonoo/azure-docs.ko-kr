@@ -3,7 +3,7 @@ title: "Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 관리 | Mic
 description: "Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 CLI 2.0 명령입니다."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: subsarma
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
-ms.author: jonatul
-ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: subsarma
+ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -105,6 +105,12 @@ SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어
 
 ```azurecli
 az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-an-caa-record"></a>CAA 레코드 만들기
+
+```azurecli
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
 ### <a name="create-a-cname-record"></a>CNAME 레코드 만들기
@@ -208,9 +214,9 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 각 레코드 집합에는 [TTL(Time to Live)](dns-zones-records.md#time-to-live), [메타데이터](dns-zones-records.md#tags-and-metadata) 및 DNS 레코드가 포함됩니다. 다음 섹션에서는 이러한 각 속성을 수정하는 방법을 설명합니다.
 
-### <a name="to-modify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>A, AAAA, MX, NS, PTR, SRV 또는 TXT 레코드를 수정하려면
+### <a name="to-modify-an-a-aaaa-caa-mx-ns-ptr-srv-or-txt-record"></a>A, AAAA, CAA, MX, NS, PTR, SRV 또는 TXT 레코드를 수정하려면
 
-A, AAAA, MX, NS, PTR, SRV 또는 TXT 형식의 기존 레코드를 수정하려면 먼저 새 레코드를 추가한 후 기존 레코드를 삭제해야 합니다. 레코드를 삭제 및 추가하는 방법에 대한 자세한 내용은 이 문서의 이전 섹션을 참조하세요.
+A, AAAA, CAA, MX, NS, PTR, SRV 또는 TXT 형식의 기존 레코드를 수정하려면 먼저 새 레코드를 추가한 후 기존 레코드를 삭제해야 합니다. 레코드를 삭제 및 추가하는 방법에 대한 자세한 내용은 이 문서의 이전 섹션을 참조하세요.
 
 다음 예제에서는 IP 주소 1.2.3.4~IP 주소 5.6.7.8 범위에서 'A' 레코드를 수정하는 방법을 보여 줍니다.
 

@@ -49,7 +49,7 @@ sections:
         style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">.NET 응용 프로그램 배포</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">기존 .NET 응용 프로그램 컨테이너화</a>
+          - html: <a href="service-fabric-host-app-in-a-container">기존 .NET 응용 프로그램 컨테이너화</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Linux 컨테이너 응용 프로그램 만들기</a>
           - html: <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> 또는 <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> 클러스터 만들기 및 관리
   - title: Pluralsight 비디오 교육 체험

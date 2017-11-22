@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/06/2017
 
 쿼리 풀에 있는 쿼리 복제본의 수와 관계없이 처리 워크로드는 쿼리 복제본 간에 분산되지 않습니다. 단일 서버가 처리 서버 역할을 수행합니다. 쿼리 복제본은 쿼리 풀의 각 복제본 간에 동기화된 모델에 대한 쿼리만 제공합니다. 
 
-처리 작업이 완료되면 처리 서버와 쿼리 복제본 서버 간에 동기화를 수행해야 합니다. 처리 작업을 자동화할 때는 처리 작업이 성공적으로 완료될 때 동기화 작업을 구성하는 것이 중요합니다.
+처리 작업이 완료되면 처리 서버와 쿼리 복제본 서버 간에 동기화를 수행해야 합니다. 처리 작업을 자동화할 때는 처리 작업이 성공적으로 완료될 때 동기화 작업을 구성하는 것이 중요합니다. PowerShell 또는 REST API를 사용하거나 포털에서 수동으로 동기화를 수행할 수 있습니다.
 
 > [!NOTE]
 > 규모 확장은 표준 가격 책정 계층의 서버에서 사용할 수 있습니다. 각 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
@@ -58,12 +58,10 @@ ms.lasthandoff: 11/06/2017
 
 주 서버에서 테이블 형식 모델은 복제본 서버와 동기화됩니다. 동기화가 완료되면 쿼리 풀은 들어오는 쿼리를 복제본 서버 간에 배포하기 시작합니다. 
 
-### <a name="powershell"></a>PowerShell
-[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet을 사용합니다. `-Capacity` 매개 변수 값 > 1로 지정합니다.
 
 ## <a name="synchronization"></a>동기화 
 
-새 쿼리 복제본을 프로비전하면 Azure Analysis Services가 해당 모델을 모든 복제본 간에 자동으로 복제합니다. 또한 수동 동기화를 수행할 수도 있습니다. 모델을 처리할 때는 업데이트가 쿼리 복제본 간에 동기화되도록 동기화를 수행해야 합니다.
+새 쿼리 복제본을 프로비전하면 Azure Analysis Services가 해당 모델을 모든 복제본 간에 자동으로 복제합니다. 포털 또는 REST API를 사용하여 수동 동기화를 수행할 수도 있습니다. 모델을 처리할 때는 업데이트가 쿼리 복제본 간에 동기화되도록 동기화를 수행해야 합니다.
 
 ### <a name="in-azure-portal"></a>Azure Portal에서
 
@@ -72,12 +70,16 @@ ms.lasthandoff: 11/06/2017
 ![규모 확장 슬라이더](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+**동기화** 작업을 사용합니다.
 
-모델 동기화   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>모델 동기화   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-모델 동기화 상태를 가져오기  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>동기화 상태 가져오기  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+PowerShell에서 동기화를 실행하려면 AzureRM 모듈의 5.01 이상 [최신 버전으로 업데이트](https://github.com/Azure/azure-powershell/releases)합니다. [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)를 사용합니다.
 
 ## <a name="connections"></a>연결
 

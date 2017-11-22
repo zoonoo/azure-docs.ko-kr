@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>첫 번째 Azure SQL Database 디자인
 
-Azure SQL Database는 Microsoft Cloud("Azure")의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
+Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하는 방법을 알아봅니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터베이스 만들기

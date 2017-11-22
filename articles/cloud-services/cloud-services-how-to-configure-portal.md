@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Cloud Services를 구성하는 방법
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-configure-portal.md)
-> * [Azure 클래식 포털](cloud-services-how-to-configure.md)
->
->
-
 Azure Portal에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
 클라우드 서비스 역할의 인스턴스 또는 이에 대한 원격 데스크톱을 관리할 수도 있습니다.
@@ -77,9 +71,9 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 여기에서 타일에 사용되는 차트를 사용자 지정하거나 경고 규칙을 추가할 수 있습니다.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>다시 부팅, 이미지로 다시 설치 또는 원격 데스크톱
-지금은 **Azure Portal**을 사용하여 원격 데스크톱을 구성할 수 없습니다. 그러나 [Azure 클래식 포털](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 또는 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)를 통해 설정할 수 있습니다.
+[Azure Portal(원격 데스크톱 설정)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 또는 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)를 통해 원격 데스크톱을 설정할 수 있습니다.
 
-먼저 클라우드 서비스 인스턴스를 클릭합니다.
+다시 부팅, 이미지로 다시 설치 또는 클라우드 서비스에 원격으로 연결하려면 클라우드 서비스 인스턴스를 클릭합니다.
 
 ![클라우드 서비스 인스턴스](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

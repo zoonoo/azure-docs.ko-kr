@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
-ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: subsarma
+ms.openlocfilehash: 1a2a23fb5de5b5b491f061512a15f7acb6721446
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -139,6 +139,10 @@ Azure DNS는 Azure Resource Manager를 사용하여 관리되며 Azure Resource 
 ### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Azure DNS에서 SPF 레코드를 설정하려면 어떻게 해야 하나요?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
+
+### <a name="do-azure-dns-nameservers-resolve-over-ipv6-"></a>IPv6을 통해 Azure DNS 이름 서버가 확인하나요? 
+
+예. Azure DNS 이름 서버는 IPv4 및 IPv6 주소를 모두 포함하는 이중 스택입니다. DNS 영역에 할당된 Azure DNS 이름 서버에 대한 IPv6 주소를 찾으려면 nslookup과 같은 도구를 사용할 수 있습니다(예: `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### <a name="how-do-i-set-up-an-international-domain-name-idn-in-azure-dns"></a>Azure DNS에서 IDN(국제 도메인 이름)을 설정하려면 어떻게 해야 하나요?
 

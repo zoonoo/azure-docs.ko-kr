@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -54,6 +54,16 @@ Azure DNS에서 TTL은 각 레코드가 아니라 레코드 집합에 대해 지
 Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_DNS_record)를 지원합니다. 와일드카드 레코드는 쿼리에 대한 응답으로 일치하는 이름을 반환합니다(와일드카드가 아닌 레코드 집합에서 가까운 일치 항목이 없는 경우). Azure DNS는 NS 및 SOA를 제외한 모든 레코드 종류에 대해 와일드카드 레코드 집합을 지원합니다.
 
 와일드카드 레코드 집합을 만들려면 레코드 집합 이름 '\*'을 사용합니다. 또는 맨 왼쪽의 레이블로 '\*'가 포함된 이름을 사용할 수 있습니다(예: '\*.foo').
+
+### <a name="caa-records"></a>CAA 레코드
+
+CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA(인증 기관)를 지정할 수 있습니다. 이렇게 하면 일부 환경에서는 인증서가 착오 발급되는 것을 방지할 수 있습니다. CAA 레코드에는 다음 세 가지 속성이 있습니다.
+* **Flags**: [RFC](https://tools.ietf.org/html/rfc6844#section-3)마다 특별한 의미를 갖는 중요한 플래그를 나타내는 데 사용되는 0과 255 사이의 정수입니다.
+* **Tag**: ASCII 문자열이며 다음 중 하나일 수 있습니다.
+    * **issue**: 인증서(모든 유형)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
+    * **issuewild**: 인증서(와일드카드 인증서만 해당)를 발급할 권한이 있는 CA를 지정하려는 경우에 사용합니다.
+    * **iodef**: 권한이 없는 인증서 발급 요청에 대해 알릴 수 있는 메일 주소 또는 호스트 이름을 지정합니다.
+* **Value**: 선택한 특정 태그에 대한 값입니다.
 
 ### <a name="cname-records"></a>CNAME 레코드
 
