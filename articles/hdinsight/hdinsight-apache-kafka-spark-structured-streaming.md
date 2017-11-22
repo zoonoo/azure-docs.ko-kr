@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)에서 Spark 구조적 스트림 사용
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>HDInsight의 Kafka에서 Spark 구조적 스트리밍 사용
 
 Azure HDInsight의 Apache Kafka에서 데이터를 읽는 Spark 구조적 스트림을 사용하는 방법을 알아봅니다.
 
@@ -52,7 +52,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     이 템플릿은 다음과 같은 리소스를 만듭니다.
 
-    * HDInsight 3.5 클러스터의 Kafka
+    * HDInsight 3.6 클러스터의 Kafka
     * HDInsight 3.6 클러스터의 Spark
     * HDInsight 클러스터를 포함하는 Azure Virtual Network
 

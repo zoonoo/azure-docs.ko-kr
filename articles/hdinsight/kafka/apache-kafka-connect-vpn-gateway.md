@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight(미리 보기)의 Kafka에 연결
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Kafka에 연결
 
 Azure Virtual Network를 통해 HDInsight에서 Kafka에 직접 연결하는 방법을 알아봅니다. 이 문서는 다음 구성을 사용하여 Kafka에 연결하는 것에 관한 정보를 제공합니다.
 
@@ -32,7 +32,7 @@ Azure Virtual Network를 통해 HDInsight에서 Kafka에 직접 연결하는 방
 
 HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허용하지 않습니다. 대신, Kafka 클라이언트(생산자와 소비자)는 다음 연결 방법 중 하나를 사용해야 합니다.
 
-* 클라이언트를 동일한 가상 네트워크에서 Kafka로 HDInsight 상에서 실행합니다. 이 구성은 [HDInsight의 Apache Kafka(미리 보기)에서 시작](apache-kafka-get-started.md) 문서에서 사용됩니다. 클라이언트는 동일한 네트워크 내의 HDInsight 클러스터 노드나 또 다른 가상 컴퓨터에서 직접 실행합니다.
+* 클라이언트를 동일한 가상 네트워크에서 Kafka로 HDInsight 상에서 실행합니다. 이 구성은 [HDInsight의 Apache Kafka에서 시작](apache-kafka-get-started.md) 문서에서 사용됩니다. 클라이언트는 동일한 네트워크 내의 HDInsight 클러스터 노드나 또 다른 가상 컴퓨터에서 직접 실행합니다.
 
 * 온-프레미스 네트워크와 같은 개인 네트워크를 가상 네트워크에 연결합니다. 이 구성을 통해 온-프레미스 네트워크의 클라이언트들은 직접 Kafka를 사용할 수 있습니다. 이 구성을 사용하도록 설정하려면 다음 작업을 수행합니다.
 

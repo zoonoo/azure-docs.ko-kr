@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/11/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 856314cafde6059c35963b067287b66c566364a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 440133da32f4565aa247b273984b3affe18379ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="analyze-logs-for-apache-kafka-preview-on-hdinsight"></a>HDInsight의 Apache Kafka(미리 보기)에 대한 로그 분석
+# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
 Microsoft Operations Management Suite를 사용하여 HDInsight에서 Apache Kafka에 의해 생성된 로그를 분석하는 방법을 알아봅니다.
 

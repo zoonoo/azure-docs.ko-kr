@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: aa33800de82b27d4819fe0eade127c2a40e3a493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Azure BLOB 저장소에 센서 데이터를 포함한 IoT Hub 메시지 저장
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-you-learn"></a>학습 내용
 
-Azure Storage 계정 및 Azure 함수 앱을 만들어 Table Storage에 IoT Hub 메시지를 저장하는 방법에 대해 알아봅니다.
+Azure 저장소 계정 및 Azure Functions 앱을 만들어 BLOB 저장소에 IoT Hub 메시지를 저장하는 방법에 대해 알아봅니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 

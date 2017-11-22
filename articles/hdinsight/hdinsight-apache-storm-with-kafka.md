@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/12/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 97b89b9c6ef88c1611ccad7963a0aa8e7eb82318
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
+# <a name="use-apache-kafka-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka 사용
 
 Apache Storm을 사용하여 Apache Kafka에서 읽고 쓰는 방법에 대해 알아봅니다. 이 예제에서는 HDInsight를 사용하여 Storm 토폴로지의 데이터를 HDFS 호환 파일 시스템에 저장하는 방법도 설명합니다.
 
@@ -68,7 +68,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**에 있습니다. 이 템플릿은 다음 리소스를 만듭니다.
+    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**에 있습니다. 이 템플릿은 다음 리소스를 만듭니다.
     
     * Azure 리소스 그룹
     * Azure Virtual Network

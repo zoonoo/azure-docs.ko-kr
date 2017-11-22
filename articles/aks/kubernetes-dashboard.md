@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Azure Container Service(AKS)와 Kubernetes 대시보드
 
-Azure CLI를 사용하여 Kubernetes 대시보드를 시작할 수 있습니다. 이 문서는 Azure CLI를 사용하여 Kubernetes 대시보드를 시작하는 과정 및 기본적인 일부 대시보드 작업 과정도 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 참조하세요. 
+Azure CLI를 사용하여 Kubernetes 대시보드를 시작할 수 있습니다. 이 문서는 Azure CLI를 사용하여 Kubernetes 대시보드를 시작하는 과정 및 기본적인 일부 대시보드 작업 과정도 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 AKS 클러스터를 만들고 클러스터와의 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하세요.
+이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하세요.
 
-또한 Azure CLI 버전 2.0.20 이상이 설치 및 구성되어 있어야 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+또한 Azure CLI 버전 2.0.21 이상이 설치되고 구성되어 있어야 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="start-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
 
