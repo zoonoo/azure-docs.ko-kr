@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 70ddec1c7ba76ef7f42048896079e5c5fa2bf60c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>사용자 정의 경로 만들기 - PowerShell
 
@@ -340,6 +340,12 @@ PC에 최신 버전의 PowerShell [AzureRM](https://www.powershellgallery.com/pa
         - **Ubuntu**: `tracepath myvm-private` 명령을 실행합니다.
       트래픽은 10.0.1.4(사설 서브넷의 가상 컴퓨터)에 도달하기 전에 10.0.2.4(NVA)를 통해 전달합니다. 
     - *myVm-Private* 가상 컴퓨터에 연결하고 *myVm-Public* 가상 컴퓨터를 ping하여 이전 단계를 완료합니다. 추적 경로에서 10.0.0.4(공용 서브넷의 가상 컴퓨터)에 도달하기 전에 10.0.2.4를 통해 이동하는 통신을 보여 줍니다.
+    
+      > [!NOTE]
+      > 이전 단계에서는 Azure 개인 IP 주소 간의 라우팅을 확인할 수 있습니다. 네트워크 가상 어플라이언스를 통해 트래픽을 공용 IP 주소로 전달 또는 프록시하려는 경우
+      > - 어플라이언스는 네트워크 주소 변환 또는 프록시 기능을 제공해야 합니다. 네트워크 주소 변환의 경우 어플라이언스는 원본 IP 주소를 자체 주소로 변환한 후 해당 요청을 공용 IP 주소로 전달해야 합니다. 어플라이언스에서 네트워크 주소가 원본 주소로 변환되었거나 프록시되는 경우 Azure는 네트워크 가상 어플라이언스의 개인 IP 주소를 공용 IP 주소로 변환합니다. Azure에서 개인 IP 주소를 공용 IP 주소를 변환하는 데 사용하는 다양한 방법에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+      > - 경로 테이블에서 접두사가 0.0.0.0/0이고, 다음 홉 형식이 VirtualAppliance이고, 다음 홉 IP 주소가 10.0.2.4인 추가 경로(앞의 예제 스크립트 참조)를 참조하세요.
+      >
     - **선택 사항**: Azure Network Watcher의 다음 홉 기능을 사용하여 Azure 내 두 가상 컴퓨터 간의 다음 홉에 대한 유효성을 검사합니다. Network Watcher를 사용하기 전에 먼저 사용하려는 지역에 대한 [Azure Network Watcher 인스턴스를 만들어야 합니다](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 이 자습서에서는 미국 동부 지역을 사용합니다. 이 지역에 대한 Network Watcher 인스턴스를 사용 설정한 후 다음 명령을 입력하여 공개 및 비공개 서브넷에서 가상 컴퓨터 간의 다음 홉 정보를 확인합니다.
      
         ```azurecli-interactive

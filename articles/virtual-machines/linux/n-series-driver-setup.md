@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -70,11 +70,11 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 5. GRID 드라이버를 다운로드하여 설치합니다.
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
@@ -139,11 +139,11 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 5. GRID 드라이버를 다운로드하여 설치합니다.
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
 
@@ -165,7 +165,7 @@ NVIDIA GRID 드라이버를 NV VM에 설치하려면 각 VM에 대한 SSH 연결
 
 GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다. 
 
-그러면 다음과 같은 출력이 표시됩니다.
+그러면 다음과 같은 출력이 표시됩니다. 드라이버 버전 및 GPU 세부 정보가 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 장치 상태](./media/n-series-driver-setup/smi-nv.png)
  
@@ -229,7 +229,7 @@ lspci | grep -i NVIDIA
 
 1. CUDA 드라이버를 다운로드하여 설치합니다.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -352,7 +352,7 @@ RDMA 연결을 지원하는 Azure Marketplace의 다음 이미지 중 하나에�
 
 * Ubuntu 16.04 LTS에서 4.4.0-75 Linux 커널을 실행하는 Azure N 시리즈 VM의 CUDA 드라이버에 알려진 문제가 있습니다. 이전 커널 버전에서 업그레이드하는 경우 커널 버전 4.4.0-77 이상으로 업그레이드합니다.
 
-* nvidia-smi를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
+* `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

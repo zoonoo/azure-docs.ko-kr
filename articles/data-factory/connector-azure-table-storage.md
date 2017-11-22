@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: d7da4c3c4aa902cf9ccb97ebd13b7d16940f2c32
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,11 +187,11 @@ Azure 테이블 열이 날짜/시간 형식인 경우:
 
 ### <a name="azure-table-as-sink"></a>Azure Table을 싱크로
 
-Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureTableSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
+Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식을 **AzureTableSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **AzureTableSink**로 설정해야 합니다. |예 |
+| type | 복사 작업 싱크의 type 속성을 **AzureTableSink**로 설정해야 합니다. |예 |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아니요 |
 | azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |아니요 |
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니요 |

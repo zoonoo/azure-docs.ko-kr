@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 보조 사이트로 장애 조치(failover) 후 VM에 연결 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 보조 사이트로 장애 조치(failover)한 후 VM에 연결하기 위한 네트워킹 지침입니다."
+title: "Azure Site Recovery를 통해 보조 사이트로의 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs"
+description: "Azure Site Recovery를 사용하여 보조 사이트로 장애 조치(failover)한 후 VM에 연결하기 위해 IP 주소를 설정하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 6baeda08b1c41cc024a02f51ca27be2829c46962
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>보조 사이트로 장애 조치(failover) 후 VM에 연결
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-a-secondary-site"></a>보조 사이트로 장애 조치(Failover)한 후 연결할 IP 주소 설정
 
 배포 필수 구성 요소를 검토한 후 이 문서의 내용에 따라 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 Hyper-V VM(가상 컴퓨터)을 보조 사이트로 복제할 때의 네트워킹을 계획할 수 있습니다. 
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 11/06/2017
 
 복제 및 장애 조치(failover) 전략을 계획할 때 고려해야 하는 중요한 요소 중 하나는 장애 조치(failover) 이후 복제본에 연결할 방법입니다. 다음의 두 가지 방법 중에서 선택할 수 있습니다. 
 
-- **다른 IP 주소 사용**: 복제된 Azure VM에 대해 다른 IP 주소를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
-- **동일한 IP 주소 유지**: 복제본 VM에 대해 동일한 IP 주소를 사용할 수 있습니다. 동일한 IP 주소를 유지하면 장애 조치 후 네트워크 관련 문제가 줄어들어 복구가 간소화됩니다. 
+- **다른 IP 주소 사용**: 복제된 Azure VM에 대해 다른 IP 주소를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치(failover) 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
+- **동일한 IP 주소 유지**: 복제본 VM에 대해 동일한 IP 주소를 사용할 수 있습니다. 동일한 IP 주소를 유지하면 장애 조치(failover) 후 네트워크 관련 문제가 줄어들어 복구가 간소화됩니다. 
 
 ## <a name="retaining-ip-addresses"></a>IP 주소 유지
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/06/2017
 
 서브넷 장애 조치(failover)를 실행하면 서브넷을 실제로 확대하지 않고도 확대 서브넷의 이점을 활용할 수 있습니다. 이 솔루션에서는 원본 또는 대상 사이트 중 하나에서 서브넷을 사용할 수 있으며 두 사이트에서 동시에 사용할 수는 없습니다. 장애 조치(failover) 시 IP 주소 공간을 유지 관리하기 위해 라우터 인프라에 대해 프로그래밍 방식으로 정렬하여 한 사이트에서 다른 사이트로 서브넷을 이동할 수 있습니다. 장애 조치(failover) 후에는 서브넷이 연결된 VM과 함께 이동됩니다. 주요 단점은 오류 발생 시 전체 서브넷을 이동해야 한다는 점입니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 전체 서브넷 장애 조치(failover)의 예는 다음과 같습니다. 주 사이트에 서브넷 192.168.1.0/24에서 실행되는 응용 프로그램이 있습니다. 장애 조치(failover) 시 이 서브넷의 모든 VM은 보조 사이트로 장애 조치(failover)되며 IP 주소는 유지됩니다. 서브넷 192.168.1.0/24에 속하는 모든 VM(가상 컴퓨터)이 보조 사이트로 이동했음을 반영하여 경로를 수정해야 합니다.
 
@@ -102,7 +102,7 @@ VM을 보호하도록 설정한 후에는 다음 샘플 스크립트를 사용�
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
     
-### <a name="example"></a>예 
+### <a name="example"></a>예제 
 
 기본 사이트와 복구 사이트에서 서로 다른 IP 주소를 사용하려는 시나리오를 예로 들어 보겠습니다. 이 예에서는 기본 사이트와 보조 사이트의 IP 주소가 다릅니다. 그리고 기본 사이트 또는 복구 사이트에서 호스트되는 응용 프로그램이 액세스할 수 있는 세 번째 사이트도 있습니다.
 

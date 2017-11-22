@@ -4,7 +4,7 @@ description: "Azure의 SQL Server에서 데이터 샘플링"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
-이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여 줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure 기계 학습 스튜디오로 읽어 들여 Azure 기계 학습으로 이동하는 방법을 보여 줍니다.
+이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure 기계 학습 스튜디오로 읽어 들여 Azure 기계 학습으로 이동하는 방법을 보여 줍니다.
 
 Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
 
 > [!NOTE]
-> 이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [Azure의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md) 토픽을 참조하세요.
+> 이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [Azure의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md) 문서를 참조하세요.
 > 
 > 
 
-다음의 **메뉴** 는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
+다음 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 문서로 연결되는 링크입니다. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 ## <a name="SQL"></a>SQL 사용
 이 섹션에는 SQL을 사용하여 데이터베이스의 데이터에 대해 간단한 무작위 샘플링을 수행하는 몇 가지 방법을 설명합니다. 데이터 크기 및 해당 분포에 따라 방법을 선택하세요.
 
-아래 두 항목은 SQL Server에서 newid를 사용하여 샘플링을 수행하는 방법을 보여 줍니다. 선택하는 방법은 샘플링할 무작위 수준에 따라 달라집니다. 아래 샘플 코드의 pk_id는 자동으로 생성된 기본 키로 간주됩니다.
+다음 두 항목은 SQL Server에서 `newid`를 사용하여 샘플링을 수행하는 방법을 보여줍니다. 선택하는 방법은 샘플링할 무작위 수준에 따라 달라집니다. 다음 샘플 코드의 pk_id는 자동으로 생성된 기본 키로 간주됩니다.
 
 1. 낮은 수준 무작위 샘플
    
@@ -53,7 +53,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-아래 표시된 대로 Tablesample을 샘플링에 사용할 수 있습니다. 이는 데이터 크기가 큰 경우(여러 페이지의 데이터가 상관 관계가 없는 것으로 가정) 및 적당한 시간에 쿼리를 완료하는 데 보다 적합한 접근법일 수 있습니다.
+데이터를 샘플링하는 데도 Tablesample을 사용할 수 있습니다. 이는 데이터 크기가 큰 경우(여러 페이지의 데이터가 상관 관계가 없는 것으로 가정) 및 적당한 시간에 쿼리를 완료하는 데 보다 적합한 접근법일 수 있습니다.
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 > 
 
 ### <a name="sql-aml"></a>Azure 기계 학습에 연결
-Azure 기계 학습 [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 아래에 표시되어 있습니다.
+Azure 기계 학습 [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 여기에 표시되어 있습니다.
 
 ![판독기 sql][1]
 
@@ -76,7 +76,7 @@ Azure 기계 학습 [데이터 가져오기][import-data] 모듈에서 위의 �
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 아래 코드는 Azure SQL 데이터베이스의 테이블에서 0.1% 샘플 데이터를 Pandas 데이터로 읽습니다.
+Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 Azure SQL Database의 테이블에서 0.1% 샘플 데이터를 Pandas 데이터로 읽습니다.
 
     import pandas as pd
 
@@ -112,12 +112,12 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. 아래 화면에 표시된 대로 Azure 기계 학습 [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
+3. 다음 화면에 표시된 대로 Azure Machine Learning [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 
 ![판독기 blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>실행 중인 팀 데이터 과학 프로세스 예제
-공용 데이터 집합을 사용한 팀 데이터 과학 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합을 사용하여 팀 데이터 과학 프로세스 예제를 진행하려면 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

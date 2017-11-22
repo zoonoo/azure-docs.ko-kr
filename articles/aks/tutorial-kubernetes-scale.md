@@ -1,5 +1,5 @@
 ---
-title: "Azure의 Kubernertes 자습서 - 응용 프로그램 크기 조정 | Microsoft Docs"
+title: "Azure의 Kubernetes 자습서 - 응용 프로그램 크기 조정 | Microsoft Docs"
 description: "AKS 자습서 - 응용 프로그램 크기 조정"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c60bdf18f80f6922631e02855b83adeb876daa4c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: f060b37d5ae02dfd53f513b134692186024cf727
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Azure Container Service(AKS)에서 응용 프로그램 크기 조정
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/24/2017
 다음 예제에서는 *myK8sCluster*라는 Kubernetes 클러스터의 노드 수를 3개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 ```
 
 다음과 유사하게 출력됩니다.

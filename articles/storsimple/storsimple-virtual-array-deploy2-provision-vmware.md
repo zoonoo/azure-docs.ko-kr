@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열 배포 시리즈의 두 번째 자습서�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>개요
-이 자습서는 VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다. 이 문서는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
+이 자습서는 VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다. 이 문서는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 장치를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
 ## <a name="provisioning-prerequisites"></a>프로비전 필수 조건
-VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건은 다음과 같습니다.
+VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 장치 관리자 서비스의 경우
 시작하기 전에 다음 사항을 확인합니다.
@@ -64,7 +64,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.
 가상 장치를 만들려면 다음이 필요합니다.
 
-* VMware ESXi Server 5.5 이상을 실행하는 호스트 시스템에 대한 액세스
+* VMware ESXi Server 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 대한 액세스
 * ESXi 호스트를 관리하기 위한 시스템의 VMware vSphere 클라이언트
 
   * 코어 4개 이상
@@ -157,7 +157,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 27. **Ready to Complete** (완료 준비) 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 컴퓨터 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. **가상 컴퓨터 속성** 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
+28. **Virtual Machines 속성** 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
@@ -183,6 +183,9 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 가상 컴퓨터가 프로비전되어 있습니다. 다음 단계는 이 컴퓨터의 전원을 켜고 IP 주소를 가져오는 것입니다.
+
+> [!NOTE]
+> 가상 배열에는 VMware 도구를 설치하지 않는 것이 좋습니다(위에서 프로비전됨). VMware 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 장치를 시작하고 IP를 가져옵니다.
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.

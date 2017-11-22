@@ -1,5 +1,5 @@
 ---
-title: "Azure의 Kubernertes 자습서 - 클러스터 배포 | Microsoft Docs"
+title: "Azure의 Kubernetes 자습서 - 클러스터 배포 | Microsoft Docs"
 description: "AKS 자습서 - 클러스터 배포"
 services: container-service
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 69dea4ab748d88d18cf01dc9b3fc1bdddd562681
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 배포
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
 Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. AKS를 통해 프로덕션이 준비된 Kubernetes 클러스터를 간단하고 빠르게 프로비저닝할 수 있습니다. 총 8부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 완료되는 단계는 다음과 같습니다.
 
@@ -52,7 +52,7 @@ az provider register -n Microsoft.ContainerService
 다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myK8sCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서](./tutorial-kubernetes-prepare-acr.md)에서 만든 것입니다.
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 몇 분 후 배포가 완료되고 json 형식의 AKS 배포 관련 정보가 반환됩니다.

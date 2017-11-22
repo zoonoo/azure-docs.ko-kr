@@ -1,6 +1,6 @@
 ---
 title: "Azure Application Insights로 빠른 시작 | Microsoft Docs"
-description: "Application Insights 및 Mobile Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다."
+description: "Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다."
 services: application-insights
 keywords: 
 author: numberbycolors
@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a8af65a9a9f31200f833a47f811ae50a0a9d2f9b
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-analyzing-your-mobile-app-with-mobile-center-and-application-insights"></a>Mobile Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
+# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
-이 빠른 시작은 Application Insights에 앱의 Mobile Center 인스턴스를 연결하는 과정을 안내합니다. Application Insights를 사용하여, Mobile Center의 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) 서비스를 통해 제공되는 것보다 더 강력한 도구로 원격 분석을 쿼리하고 분할하며 필터링하고 분석할 수 있습니다.
+이 빠른 시작은 Application Insights에 앱의 App Center 인스턴스를 연결하는 과정을 안내합니다. Application Insights를 사용하여, App Center의 [Analytics](https://docs.microsoft.com/mobile-center/analytics/) 서비스를 통해 제공되는 것보다 더 강력한 도구로 원격 분석을 쿼리하고 분할하며 필터링하고 분석할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/26/2017
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="onboard-to-mobile-center"></a>Mobile Center에 등록
+## <a name="onboard-to-app-center"></a>App에 등록
 
-모바일 앱으로 Application Insights를 사용하려면 앱을 [Mobile Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 Mobile Center로 보냅니다. 그런 다음 Mobile Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
+모바일 앱으로 Application Insights를 사용하려면 앱을 [App Center](https://docs.microsoft.com/mobile-center/)에 등록해야 합니다. Application Insights는 모바일 앱에서 직접 원격 분석을 수신하는 것이 아니라, 앱이 사용자 지정 이벤트 원격 정보를 App Center로 보냅니다. 그런 다음 App Center는 이벤트가 수신되면 이러한 사용자 지정 이벤트의 사본을 Application Insights로 내보냅니다.
 
-응용 프로그램을 등록하려면 앱에서 지원하는 각 플랫폼에 대한 Mobile Center 빠른 시작을 따르세요. 각 플랫폼에 대해 별도의 Mobile Center 인스턴스를 만듭니다.
+응용 프로그램을 등록하려면 앱에서 지원하는 각 플랫폼에 대한 App Center 빠른 시작을 따르세요. 각 플랫폼에 대해 별도의 App Center 인스턴스를 만듭니다.
 
 * [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
 * [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
@@ -43,27 +43,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="track-events-in-your-app"></a>앱에서 이벤트 추적
 
-앱을 Mobile Center에 등록한 후에는 Mobile Center SDK를 사용하여 사용자 지정 이벤트 원격 분석을 보내도록 수정해야 합니다. 사용자 지정 이벤트는 Application Insights로 내보낸 유일한 형식의 Mobile Center 원격 분석입니다.
+앱을 App Center에 등록한 후에는 App Center SDK를 사용하여 사용자 지정 이벤트 원격 분석을 보내도록 수정해야 합니다. 사용자 지정 이벤트는 Application Insights로 내보낸 유일한 형식의 App Center 원격 분석입니다.
 
-iOS 앱에서 사용자 지정 이벤트를 보내려면 Mobile Center SDK에서 `trackEvent` 또는 `trackEvent:withProperties` 메서드를 사용하세요. [iOS 앱에서 추적 이벤트에 대해 자세히 알아보기](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+iOS 앱에서 사용자 지정 이벤트를 보내려면 App Center SDK에서 `trackEvent` 또는 `trackEvent:withProperties` 메서드를 사용하세요. [iOS 앱에서 추적 이벤트에 대해 자세히 알아보기](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-Android 앱에서 사용자 지정 이벤트를 보내려면 Mobile Center SDK에서 `trackEvent` 메서드를 사용하세요. [Android 앱에서 추적 이벤트에 대해 자세히 알아보기](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+Android 앱에서 사용자 지정 이벤트를 보내려면 App Center SDK에서 `trackEvent` 메서드를 사용하세요. [Android 앱에서 추적 이벤트에 대해 자세히 알아보기](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
 
-다른 앱 플랫폼에서 사용자 지정 이벤트를 보내려면 해당 Mobile Center SDK에서 `trackEvent` 메서드를 사용하세요.
+다른 앱 플랫폼에서 사용자 지정 이벤트를 보내려면 해당 App Center SDK에서 `trackEvent` 메서드를 사용하세요.
 
-사용자 지정 이벤트를 수신하고 있는지 확인하려면 Mobile Center의 **Analytics** 섹션에서 **이벤트** 탭으로 이동하세요. 앱에서 보낸 이벤트가 표시되는 데 1~2분 정도 걸릴 수 있습니다.
+사용자 지정 이벤트를 수신하고 있는지 확인하려면 App Center의 **Analytics** 섹션에서 **이벤트** 탭으로 이동하세요. 앱에서 보낸 이벤트가 표시되는 데 1~2분 정도 걸릴 수 있습니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-앱에서 사용자 지정 이벤트를 보내고 Mobile Center에서 이러한 이벤트를 수신하면 Azure Portal에서 Mobile Center 유형의 Application Insights 리소스를 만들어야 합니다.
+앱에서 사용자 지정 이벤트를 보내고 App Center에서 이러한 이벤트를 수신하면 Azure Portal에서 App Center 유형의 Application Insights 리소스를 만들어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. **새로 만들기** > **모니터링 + 관리** > **Application Insights**를 차례로 선택합니다.
@@ -75,7 +75,7 @@ Analytics.trackEvent("Video clicked")
     | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **응용 프로그램 유형** | Mobile Center 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
+   | **응용 프로그램 유형** | App Center 응용 프로그램 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
    | **위치**: | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -87,7 +87,7 @@ Analytics.trackEvent("Video clicked")
 
 맨 위 **Essentials** 섹션에 있는 **개요** 페이지의 새 Application Insights 리소스에 이 리소스에 대한 계측 키를 복사합니다.
 
-앱에 대한 Mobile Center 인스턴스:
+앱에 대한 App Center 인스턴스:
 
 1. **설정** 페이지에서 **내보내기**를 클릭합니다.
 2. **새 내보내기**, **Application Insights**를 차례로 선택한 다음 **사용자 지정**을 클릭합니다.
@@ -96,13 +96,13 @@ Analytics.trackEvent("Video clicked")
 
 앱에서 지원하는 각 플랫폼에 이 단계를 반복하세요.
 
-[내보내기](https://docs.microsoft.com/mobile-center/analytics/export)가 설정되면 Mobile Center에서 받은 각 사용자 지정 이벤트는 Application Insights로 복사됩니다. 이벤트가 Application Insights에 도달하는 데 몇 분이 소요될 수 있으므로, 즉시 나타나지 않아도 추가 진단을 수행하기 전에 잠시 기다려 주세요.
+[내보내기](https://docs.microsoft.com/mobile-center/analytics/export)가 설정되면 App Center에서 받은 각 사용자 지정 이벤트는 Application Insights로 복사됩니다. 이벤트가 Application Insights에 도달하는 데 몇 분이 소요될 수 있으므로, 즉시 나타나지 않아도 추가 진단을 수행하기 전에 잠시 기다려 주세요.
 
-처음 연결 시 더 많은 데이터를 제공하기 위해 Mobile Center에서 최근 48시간의 사용자 지정 이벤트는 Application Insights로 자동으로 내보내집니다.
+처음 연결 시 더 많은 데이터를 제공하기 위해 App Center에서 최근 48시간의 사용자 지정 이벤트는 Application Insights로 자동으로 내보내집니다.
 
 ## <a name="start-monitoring-your-app"></a>앱 모니터링 시작
 
-Application Insights는 분석 도구인 Mobile Center에서 제공하는 것 이상으로 앱에서 사용자 지정 이벤트 원격 분석을 쿼리, 분할, 필터링 및 분석할 수 있습니다.
+Application Insights는 분석 도구인 App Center에서 제공하는 것 이상으로 앱에서 사용자 지정 이벤트 원격 분석을 쿼리, 분할, 필터링 및 분석할 수 있습니다.
 
 1. **사용자 지정 이벤트 원격 분석을 쿼리합니다**. Application Insights **개요** 페이지에서 **Analytics**를 선택합니다. 
 
@@ -131,7 +131,7 @@ Application Insights는 분석 도구인 Mobile Center에서 제공하는 것 �
 
    ![사용자 도구 아이콘](./media/app-insights-mobile-center-quickstart/users-icon.png)
 
-   사용자 도구는 얼마나 많은 앱 사용자가 특정 단추를 클릭하고 특정 화면을 방문했거나, 또는 Mobile Center SDK를 통해 이벤트로 추적하고 있는 기타 작업을 수행했는지 보여줍니다. Mobile Center 이벤트를 분할하고 필터링하는 방법을 찾고 있다면 사용자 도구는 적합한 옵션입니다.
+   사용자 도구는 얼마나 많은 앱 사용자가 특정 단추를 클릭하고 특정 화면을 방문했거나, App Center SDK를 통해 이벤트로 추적하고 있는 기타 작업을 수행했는지 보여줍니다. App Center 이벤트를 분할하고 필터링하는 방법을 찾고 있다면 사용자 도구는 적합한 옵션입니다.
 
    ![사용자 도구](./media/app-insights-mobile-center-quickstart/users.png) 
 
@@ -152,11 +152,11 @@ Application Insights는 분석 도구인 Mobile Center에서 제공하는 것 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Mobile Center에서 Application Insights를 계속 사용하고 싶지 않다면 Mobile Center에서 내보내기 기능을 해제하고 Application Insights 리소스를 삭제하세요. 그러면 이 리소스에 대해 Application Insights에서 추가로 청구하지 않습니다.
+App Center에서 Application Insights를 계속 사용하고 싶지 않다면 App Center에서 내보내기 기능을 해제하고 Application Insights 리소스를 삭제하세요. 그러면 이 리소스에 대해 Application Insights에서 추가로 청구하지 않습니다.
 
-Mobile Center에서 내보내기를 해제하려면:
+App Center에서 내보내기를 해제하려면:
 
-1. Mobile Center에서 **설정**으로 이동하여 **내보내기**를 선택합니다.
+1. App Center에서 **설정**으로 이동하여 **내보내기**를 선택합니다.
 2. 삭제하려는 Application Insights 내보내기를 클릭한 다음, 맨 아래에서 **내보내기 삭제**를 클릭하고 확인합니다.
 
 Application Insights 리소스를 확장하려면:

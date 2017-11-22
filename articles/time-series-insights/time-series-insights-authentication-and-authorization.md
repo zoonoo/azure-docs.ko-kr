@@ -1,29 +1,26 @@
 ---
-title: "Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여 구성 | Microsoft Docs"
-description: "이 자습서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다."
-keywords: 
+title: "Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여 구성 방법 | Microsoft Docs"
+description: "이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
-이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램을 구성하는 방법을 설명합니다.
+이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에서 사용되는 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 
 ## <a name="service-principal"></a>서비스 주체
 
@@ -102,11 +99,9 @@ Time Series Insights에 액세스해야 하는 응용 프로그램이 있는 경
     string accessToken = token.AccessToken;
     ```
 
+응용 프로그램에서 응용 프로그램 ID 및 키를 사용하여 Azure Time Series Insight에서 인증을 받습니다. 
+
 ## <a name="next-steps"></a>다음 단계
-
-응용 프로그램에서 응용 프로그램 ID 및 키를 사용합니다. Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
-
-## <a name="see-also"></a>참고 항목
-
-* 전체 쿼리 API 참조는 [쿼리 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)를 참조하세요.
-* [Azure Portal에서 서비스 사용자 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Time Series Insights API를 호출하는 샘플 코드는 [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)를 참조하세요.
+- API 참조 정보에 대해서는 [쿼리 API 참조](/rest/api/time-series-insights/time-series-insights-reference-queryapi)를 참조하세요.
+- [Azure Portal에서 서비스 사용자 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)

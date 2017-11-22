@@ -1,6 +1,6 @@
 ---
 title: "REST를 사용하여 콘텐츠 키 인증 정책 구성 | Microsoft 문서"
-description: "미디어 서비스 REST API를 사용하여 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다."
+description: "Media Services REST API를 사용하여 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,33 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: ed20fca35070c190bb63925d0a57cf919bcdd96c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>개요
-Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 사용하는 AES(Advanced Encryption Standard) 및 PlayReady 또는 Widevine DRM으로 동적 암호화된 콘텐츠를 제공할 수 있습니다. 또한 미디어 서비스는 인증된 클라이언트에게 키 및 PlayReady/Widevine 라이선스를 배달하는 서비스를 제공합니다.
+Microsoft Azure Media Services를 사용하면 128비트 암호화 키를 사용하는 AES(Advanced Encryption Standard) 및 PlayReady 또는 Widevine DRM으로 동적 암호화된 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 키 및 PlayReady/Widevine 라이선스를 배달하는 서비스를 제공합니다.
 
 Media Services에서 자산을 암호화하려는 경우 [여기](media-services-rest-create-contentkey.md)서 설명한 대로 암호화 키(**CommonEncryption** 또는 **EnvelopeEncryption**)와 자산을 연결하고, 이 문서에서 설명한 대로 키 인증 정책도 구성해야 합니다.
 
-플레이어가 스트림을 요청하면 미디어 서비스는 지정된 키를 사용하고 AES 또는 PlayReady 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
+플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES 또는 PlayReady 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-미디어 서비스는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 권한 부여 정책에는 **열기** 또는 **토큰** 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다. Media Services는 [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)(**단순 웹 토큰**) 형식과 **JWT(**JSON Web Token) 형식의 토큰을 지원합니다.
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 권한 부여 정책에는 **열기** 또는 **토큰** 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다. 토큰 제한 정책은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다. Media Services는 [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)(**단순 웹 토큰**) 형식과 **JWT(**JSON Web Token) 형식의 토큰을 지원합니다.
 
-미디어 서비스는 보안 토큰 서비스를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Microsoft Azure ACS를 활용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 미디어 서비스 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
+Media Services는 보안 토큰 서비스를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Microsoft Azure ACS를 활용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다(이 문서에서 설명). 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 Media Services 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다.
 
 자세한 내용은 다음을 참조하세요.
 
 [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Azure Active Directory와 Azure 미디어 서비스 OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+[Azure Active Directory와 Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Azure ACS를 사용하여 토큰을 발급합니다](http://mingfeiy.com/acs-with-key-services).
 
@@ -53,11 +53,11 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 
 ## <a name="aes-128-dynamic-encryption"></a>AES 128 동적 암호화.
 > [!NOTE]
-> 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
+> Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 > 
-> 미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 > 
-> https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
+> https://media.windows.net에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 > 
 > 
 
@@ -185,6 +185,10 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 
 토큰 제한 옵션을 구성하려면 XML을 사용하여 토큰의 권한 부여 요구 사항을 설명해야 합니다. 토큰 제한 구성 XML은 다음 XML 스키마를 준수 해야 합니다.
 
+> [!NOTE]
+> 콘텐츠 키 인증 정책에 대한 토큰 제한은 아직 서비스에서 사용할 수 없습니다.
+
+
 #### <a id="schema"></a>토큰 제한 스키마
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -233,7 +237,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-**토큰** 제한 정책을 구성할 때는 기본** 확인 키**, **issuer** 및 **audience** 매개 변수를 지정해야 합니다. **기본 확인 키**는 토큰 서명 시 사용된 키를 포함하며, **issuer**는 토큰을 발급한 보안 토큰 서비스입니다. **대상**(때로는 **범위**라고도 함)은 토큰의 의도 또는 토큰에서 접근을 인증하는 대상 리소스를 설명합니다. 미디어 서비스 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다. 
+**토큰** 제한 정책을 구성할 때는 기본** 확인 키**, **issuer** 및 **audience** 매개 변수를 지정해야 합니다. **기본 확인 키**는 토큰 서명 시 사용된 키를 포함하며, **issuer**는 토큰을 발급한 보안 토큰 서비스입니다. **대상**(때로는 **범위**라고도 함)은 토큰의 의도 또는 토큰에서 접근을 인증하는 대상 리소스를 설명합니다. Media Services 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다. 
 
 다음 예제에서는 토큰 제한으로 인증 정책을 만듭니다. 이 예제에서는 서명 키(VerificationKey), 토큰 발급자 및 필요한 클레임을 포함하는 토큰을 제공해야 합니다.
 
@@ -424,7 +428,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1,
+        TokenRestricted = 1, // Not supported, reserved for future
         IPRestricted = 2,
     }
 
@@ -438,7 +442,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
     }
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

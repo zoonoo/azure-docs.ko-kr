@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 | 복사 시나리오 | 서비스에 따라 결정되는 기본 DMU |
 |:--- |:--- |
-| 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~16 |
+| 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~32 |
 | 그 밖의 모든 복사 시나리오 | 4 |
 
 기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
@@ -133,7 +133,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 | 복사 시나리오 | 서비스에 의해 결정되는 기본 병렬 복사 개수 |
 | --- | --- |
-| 파일 기반 저장소 간의 데이터 복사 |1에서 32 사이. 파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 자체 호스팅 Integration Runtime 컴퓨터의 물리적 구성에 사용됩니다. |
+| 파일 기반 저장소 간의 데이터 복사 |1~64 파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 자체 호스팅 Integration Runtime 컴퓨터의 물리적 구성에 사용됩니다. |
 | 원본 데이터 저장소의 데이터를 Azure Table Storage에 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 

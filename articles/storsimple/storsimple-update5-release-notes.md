@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 업데이트 5의 새로운 기능, 문�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 시리즈 업데이트 5 릴리스 정보
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 10/11/2017
 StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 포함된 정보를 검토하세요.
 
 > [!IMPORTANT]
+> * 업데이트 5는 필수 업데이트로, 즉시 설치해야 합니다. 자세한 내용은 [업데이트 5 적용](storsimple-8000-install-update-5.md) 방법을 참조하세요.
 > * 업데이트 5에는 장치 소프트웨어, 디스크 펌웨어, OS 보안 및 기타 OS 업데이트가 있습니다. 이 업데이트를 설치하는 데는 4시간 정도 걸립니다. 디스크 펌웨어 업데이트는 중단 업데이트이며 사용자 장치에 대한 가동 중지 시간이 발생합니다. 장치를 최신 상태로 유지하려면 업데이트 5를 적용하는 것이 좋습니다.
 > * 새 릴리스의 경우, 업데이트의 단계적 롤아웃을 수행하기 때문에 즉시 업데이트를 볼 수는 없습니다. 이러한 업데이트가 곧 제공될 예정이니 몇 일 후에 업데이트를 다시 검색하세요.
 

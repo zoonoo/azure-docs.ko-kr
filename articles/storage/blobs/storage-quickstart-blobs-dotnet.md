@@ -3,33 +3,30 @@ title: "Azure 빠른 시작 - .NET을 사용하여 Azure Blob Storage에서 개�
 description: ".NET을 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 간단히 알아봅니다."
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob Storage에서 개체 전송
 
-이 빠른 시작에서 C#.NET을 사용하여 Windows의 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
+이 빠른 시작에서 Azure Storage에 대해 .NET 클라이언트 라이브러리를 사용하여 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
-
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
+이 빠른 시작을 완료하려면 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
+    
     - **Azure 개발**
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
@@ -86,7 +83,11 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 파일을 확인한 후에 아무 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 Program.cs 파일을 열고 코드를 확인합니다. 
 
-## <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
+## <a name="understand-the-sample-code"></a>샘플 코드 이해
+
+다음으로, 샘플 코드를 따라 진행하면서 작동 방식을 이해합니다.
+
+### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
 
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
+### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 blob이 가장 일반적으로 사용되므로 이 빠른 시작 가이드에서도 사용합니다. 
 
@@ -148,7 +149,7 @@ Blob 저장소에서 사용할 수 있는 몇 가지 업로드 메서드가 있�
 
 블록 Blob은 모든 유형의 텍스트 또는 이진 파일이 될 수 있습니다. 페이지 blob은 IaaS VM을 백업하는 데 사용되는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
 
-## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
+### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
 [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync)를 사용하여 컨테이너의 파일 목록을 가져올 수 있습니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Blob 다운로드
+### <a name="download-blobs"></a>Blob 다운로드
 
 [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync)를 사용하여 blob을 로컬 디스크에 다운로드합니다.
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>리소스 정리
+### <a name="clean-up-resources"></a>리소스 정리
 
 이 빠른 시작 가이드에서는 업로드된 blob이 더 이상 필요하지 않으므로 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync)를 사용하여 전체 컨테이너를 삭제해도 됩니다. 만든 파일도 더 이상 필요하지 않으면 삭제합니다.
 
@@ -200,5 +201,7 @@ File.Delete(fileAndPath2);
 
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)
+
+다운로드하여 실행할 수 있는 추가 Azure Storage 코드 샘플에 대해서는 [.NET을 사용하는 Azure Storage 샘플](../common/storage-samples-dotnet.md) 목록을 확인하세요.
 
 Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>모델 관리 명령줄 인터페이스 참조
 
@@ -69,6 +69,8 @@ ms.lasthandoff: 11/09/2017
                      the active MLC env.
 
 **배포 환경 설정**
+
+설정 명령을 사용하려면 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
 
 배포에는 *로컬* 및 *클러스터*의 두 가지 옵션이 있습니다. `--cluster`(또는 `-c`) 플래그를 설정하면 ACS 클러스터를 프로비전하는 클러스터 배포를 사용할 수 있습니다. 기본 설정 구문은 다음과 같습니다.
 

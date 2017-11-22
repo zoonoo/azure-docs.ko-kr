@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 X12 메시지 디코딩
 
@@ -65,6 +65,16 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
     예:
 
     ![디코딩할 X12 플랫 파일 메시지를 선택합니다.](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > 실제 메시지 콘텐츠 또는 메시지 배열에 대한 페이로드(올바른 경우 또는 잘못된 경우) base64로 인코딩됩니다. 따라서 이 콘텐츠를 처리하는 식을 지정해야 합니다.
+   > 콘텐츠를 코드 뷰에서 또는 디자이너의 식 작성기를 사용하여 입력할 수 있는 XML로 처리하는 예제는 다음과 같습니다.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![콘텐츠 예제](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>X12 디코딩 세부 정보
 
