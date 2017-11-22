@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Azure Functions 프록시 사용(미리 보기)
-
-> [!NOTE] 
-> Azure Functions 프록시는 현재 미리 보기 상태입니다. 미리 보기에서는 무료로 사용할 수 있지만 프록시 실행에는 표준 함수 요금이 적용됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요.
+# <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
 이 문서에서는 Azure Functions 프록시를 구성하고 사용하는 방법을 설명합니다. 이 기능을 사용하면 다른 리소스에서 구현된 함수 앱에 끝점을 지정할 수 있습니다. 이러한 프록시를 사용하면 클라이언트에 대해 단일 API 화면을 계속 제공하면서 큰 API를 여러 개의 함수 앱으로 나눌 수 있습니다(마이크로 서비스 아키텍처 참조).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> 프록시 실행에는 표준 함수 요금이 적용됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요.
 
 ## <a name="create"></a>프록시 만들기
 

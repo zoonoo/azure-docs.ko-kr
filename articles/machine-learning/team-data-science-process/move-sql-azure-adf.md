@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 이 토픽에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
@@ -41,7 +41,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 데이터는 매일 온-프레미스 SQL 데이터베이스와 클라우드의 Azure SQL Database 간에 이동됩니다. 두 활동은 다음과 같습니다.
 
 * 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
-* Azure Blob 저장소 계정에서 Azure SQL 데이터베이스로 데이터 복사
+* Azure Blob Storage 계정에서 Azure SQL Database로 데이터 복사
 
 > [!NOTE]
 > 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
@@ -53,7 +53,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 * **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)를 참조하세요.
-* **Azure SQL 데이터베이스**에 대한 액세스. Azure SQL Database를 설정해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database 새 인스턴스를 프로비저닝하는 방법에 대해 알아보십시오.
+* **Azure SQL Database**에 대한 액세스. Azure SQL Database를 설정해야 하는 경우 [Microsoft Azure SQL Database 시작](../../sql-database/sql-database-get-started.md) 항목에서 Azure SQL Database 새 인스턴스를 프로비저닝하는 방법에 대해 알아보십시오.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
@@ -80,32 +80,14 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 데이터 관리 게이트웨이에 대한 설치 지침 및 세부 정보에 대한 내용은 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
-연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)에 제공됩니다.
+연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
 
-이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
+1. 온-프레미스 SQL Server
+2. Azure Blob Storage
+3. Azure SQL 데이터베이스
 
-1. [온-프레미스 SQL Server에 대한 연결된 서비스](#adf-linked-service-onprem-sql)
-2. [Azure Blob 저장소에 대한 연결된 서비스](#adf-linked-service-blob-store)
-3. [Azure SQL 데이터베이스에 대한 연결된 서비스](#adf-linked-service-azure-sql)
+연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)에 제공됩니다.
 
-### <a name="adf-linked-service-onprem-sql"></a>온-프레미스 SQL Server 데이터베이스에 대한 연결된 서비스
-온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행합니다.
-
-* Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소**를 클릭합니다.
-* **SQL**을 선택하고 온-프레미스 SQL Server에 대한 *사용자 이름* 및 *암호* 자격 증명을 입력합니다. servername을 **정규화된 서버 이름 백슬래시 인스턴스 이름(servername\instancename)**으로 입력해야 합니다. 연결된 서비스 이름을 *adfonpremsql*로 지정합니다.
-
-### <a name="adf-linked-service-blob-store"></a>Blob에 대한 연결된 서비스
-Azure Blob 저장소 계정에 대한 연결된 서비스를 만들려면
-
-* Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소** 를 클릭합니다.
-* **Azure Storage Account**
-* Azure Blob 저장소 계정 키 및 컨테이너 이름을 입력합니다. 연결된 서비스 이름을 *adfds*로 지정합니다.
-
-### <a name="adf-linked-service-azure-sql"></a>Azure SQL 데이터베이스에 대한 연결된 서비스
-Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면
-
-* Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소** 를 클릭합니다.
-* **Azure SQL**을 선택하고 Azure SQL Database에 대한 *사용자 이름* 및 *암호* 자격 증명을 입력합니다. *사용자 이름*은 *user@servername*으로 지정해야 합니다.   
 
 ## <a name="adf-tables"></a>데이터 집합에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
 다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](../../data-factory/v1/data-factory-create-datasets.md)을 참조하세요.
@@ -118,7 +100,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
 * 온-프레미스 SQL Server의 **테이블 이름**은 *nyctaxi_data*
-* the **컨테이너 이름** 은 *containername*  
+* Azure Blob Storage 계정의 **컨테이너 이름**은 *containername*  
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
 
@@ -311,9 +293,6 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시되는지 확인합니다(다이어그램을 클릭할 때).
-
-![ADF 파이프라인](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>파이프라인 시작
 이제 다음 명령을 사용하여 파이프라인을 실행할 수 있습니다.

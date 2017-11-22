@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights에서 가격 및 데이터 볼륨 관리
 
@@ -39,7 +39,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 새로 만든 Application Insights 리소스가 대부분의 고객에게 충분할 경우 기본적으로 기본 계획이 적합합니다.
 
 * 기본 계획에서는 데이터 볼륨(Application Insights에서 받은 원격 분석의 바이트 수)에 따라 요금이 청구됩니다. 데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다.
-For [분석으로 가져온 표 형식 데이터](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.  
+For [분석으로 가져온 표 형식 데이터](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.  
 * 각 앱마다 최초의 1GB는 무료이므로 실험 중이거나 개발 중이라면 비용을 지불하지 않아도 됩니다.
 * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
 * [연속 내보내기](app-insights-export-telemetry.md)는 기본 계획에서 GB당 추가 요금으로 사용할 수 있습니다.
@@ -110,7 +110,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 다음 세 가지 방법으로 데이터 전송 볼륨이 제한됩니다.
 
 * **샘플링:** 이 메커니즘은 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄이는 데 사용할 수 있습니다. 이것은 데이터 양을 조정해야 하는 기본 도구입니다. [샘플링 기능](app-insights-sampling.md)에 대해 자세히 알아보세요. 
-* **일일 한도:** Azure Portal에서 Application Insights 리소스를 만들 경우 하루 500GB로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 경우 테스트를 쉽게 하기 위해 기본값이 작습니다(하루 32.3MB). 이런 경우 앱을 프로덕션에 배포하기 전에 사용자가 일일 상한선을 높여야 합니다. 트래픽이 많은 응용 프로그램에 대해 더 높은 최대값을 요구하지 않는 한 최대 한도는 하루 500GB입니다. 일일 한도를 설정하는 경우 **일일 한도에 절대 도달하지 않도록** 주의해야 합니다. 만약 한도에 도달하면 그날은 나머지 시간 동안 데이터가 없어서 응용 프로그램을 모니터링할 수 없게 됩니다. 이 설정을 변경하려면 데이터 관리 블레이드에서 연결된 일일 볼륨 상한을 사용합니다(아래 참조). 일부 구독 유형에는 Application Insights에 사용할 수 없는 크레딧이 있으니 유의하세요. 구독에 지출 한도가 있는 경우 일일 상한 블레이드에 일일 상한을 제거하고 일일 한도가 하루 32.3MB가 넘도록 설정하는 지침이 표시됩니다.  
+* **일일 한도:** Azure Portal에서 Application Insights 리소스를 만들 때 하루 100GB로 설정됩니다. Visual Studio에서 Application Insights 리소스를 만들 경우 테스트를 쉽게 하기 위해 기본값이 작습니다(하루 32.3MB). 이런 경우 앱을 프로덕션에 배포하기 전에 사용자가 일일 상한선을 높여야 합니다. 트래픽이 많은 응용 프로그램에 대해 더 높은 최대값을 요구하지 않으면 최대 한도는 하루 1,000GB입니다. 일일 한도를 설정하는 경우 **일일 한도에 절대 도달하지 않도록** 주의해야 합니다. 만약 한도에 도달하면 그날은 나머지 시간 동안 데이터가 없어서 응용 프로그램을 모니터링할 수 없게 됩니다. 이 설정을 변경하려면 데이터 관리 블레이드에서 연결된 일일 볼륨 상한을 사용합니다(아래 참조). 일부 구독 유형에는 Application Insights에 사용할 수 없는 크레딧이 있으니 유의하세요. 구독에 지출 한도가 있는 경우 일일 상한 블레이드에 일일 상한을 제거하고 일일 한도가 하루 32.3MB가 넘도록 설정하는 지침이 표시됩니다.  
 * **제한**: 데이터 속도를 평균 1분 이상 초당 32,000개 이벤트로 제한합니다. 
 
 

@@ -16,9 +16,8 @@
 ### [4- 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## 기존 .NET 앱 컨테이너화
-### [1- Azure에서 보안 클러스터 만들기](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Docker Compose를 사용하여 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
-### [3 - 컨테이너 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Docker Compose를 사용하여 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
+### [2 - 컨테이너 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Linux 컨테이너 앱 만들기
 ### [1 - 컨테이너 이미지 만들기](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## 클러스터 만들기 및 관리
 ### Azure의 클러스터
 #### 생성
-##### [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
 #### 확장

@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Log Analytics(미리 보기)에 HDInsight 클러스터 관리 솔루션 추가
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Log Analytics에 HDInsight 클러스터 관리 솔루션 추가
 
 HDInsight는 Azure Log Analytics에 추가할 수 있는 클러스터와 관련된 관리 솔루션을 제공합니다. [관리 솔루션](../log-analytics/log-analytics-add-solutions.md)은 OMS에 기능을 추가하여 Log Analytics에 추가 데이터 및 분석 도구를 제공합니다. 이러한 솔루션은 HDInsight 클러스터에서 중요한 성능 메트릭을 수집하고, 메트릭을 검색할 수 있는 도구를 제공합니다. 또한 HDInsight에서 지원되는 대부분의 클러스터 유형에 대해 시각화 및 대시보드를 제공합니다. 솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 
 
@@ -33,25 +33,29 @@ HDInsight는 Azure Log Analytics에 추가할 수 있는 클러스터와 관련�
 
 ## <a name="add-cluster-specific-management-solutions"></a>클러스터와 관련된 관리 솔루션 추가
 
-이 섹션에서는 HBase 클러스터 관리 솔루션을 기존 OMS 작업 영역에 추가합니다. 다른 HDInsight 클러스터 유형에 대해서는 유사한 솔루션이 곧 제공될 예정입니다.
+이 섹션에서는 HBase 클러스터 관리 솔루션을 기존 OMS 작업 영역에 추가합니다.
 
-1. OMS 대시보드를 엽니다. Azure Portal에서 Azure Log Analytics와 연결된 HDInsight 클러스터 블레이드를 열고, 모니터링 탭을 클릭한 다음, **OMS 대시보드 열기**를 클릭합니다.
+1. Azure Portal에서 HDInsigt 클러스터를 열고 **모니터링**과 **OMS 대시보드 열기**를 차례로 클릭합니다.
 
     ![OMS 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "OMS 대시보드 열기")
 
-1. OMS 대시보드의 왼쪽 창에서 **솔루션 갤러리** 또는 [뷰 디자이너] 아이콘을 클릭합니다.
+1. OMS 대시보드의 왼쪽 창에서 **솔루션 갤러리** 또는 **뷰 디자이너** 아이콘을 클릭합니다.
 
     ![OMS에 관리 솔루션 추가](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "OMS에 관리 솔루션 추가")
 
-2. [솔루션 갤러리]에서 **HDInsight HBase 모니터링**을 찾은 다음 타일을 클릭합니다.
+2. 솔루션 갤러리에서 다음 타일 중 하나를 클릭합니다.
 
-    ![HBase 관리 솔루션 찾기](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "HBase 관리 솔루션 찾기")
+    - HDInsight Hadoop 모니터링
+    - HDInsight HBase 모니터링(미리 보기)
+    - HDInsight Kafka 모니터링
+    - HDInsight Storm 모니터링
+    - HDInsight Spark 모니터링
 
-3. 다음 화면에서 **추가**를 클릭합니다.
+3. 다음 화면에서 **추가**를 클릭합니다.  다음 스크린 샷은 HBase 모니터링의 추가 단추를 보여 줍니다.
 
      ![HBase 관리 솔루션 추가](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "HBase 관리 솔루션 추가")
 
-4. 이제 HBase 관리 솔루션에 대한 타일이 OMS 대시보드에 표시됩니다. OMS와 연결된 클러스터(이 문서에 대한 필수 조건의 일부)가 HBase 클러스터인 경우 타일에는 클러스터 이름과 해당 클러스터의 노드 수가 표시됩니다.
+4. HBase 관리 솔루션에 대한 타일이 OMS 대시보드에 표시됩니다. OMS와 연결된 클러스터(이 문서에 대한 필수 조건의 일부)가 HBase 클러스터인 경우 타일에는 클러스터 이름과 해당 클러스터의 노드 수가 표시됩니다.
 
     ![추가된 HBase 관리 솔루션](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "추가된 HBase 관리 솔루션")
 

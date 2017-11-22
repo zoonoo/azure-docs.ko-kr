@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -47,12 +47,12 @@ Azure File Storage 연결된 서비스에 다음 속성이 지원됩니다.
 | type | 형식 속성은 **FileServer**로 설정해야 합니다. | 예 |
 | host | Azure File Storage 끝점을 `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`로 지정합니다. | 예 |
 | userid | Azure File Storage에 `"userid": "AZURE\\<storage name>"`로 액세스할 사용자를 지정합니다. | 예 |
-| password | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시합니다.<br/> | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시합니다.<br/> | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |원본에는 아니요이고 싱크에는 예입니다 |
 
->[!TIP]
-> - Microsoft Azure Integration Runtime을 사용하여 Azure File Storage로 복사하려면 다음 예제와 같이 명시적으로 [Azure IR 만들기](create-azure-integration-runtime.md#create-azure-ir)를 File Storage의 위치를 사용해 하고 링크된 서비스와 연결합니다.
-> - Azure 외부에서 자체 호스팅된 통합 Integration Runtime을 사용하여 Azure File Storage 간에 복사하려면 로컬 네트워크에서 아웃바운드 TCP 포트 445를 열어야 합니다.
+>[!IMPORTANT]
+> - Microsoft Azure Integration Runtime을 사용하여 데이터를 Azure File Storage로 복사하려면 다음 예제와 같이 File Storage의 위치를 사용하여 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir) 링크된 서비스와 연결합니다.
+> - Azure 외부에서 자체 호스팅된 통합 Integration Runtime을 사용하여 Azure File Storage 간에 데이터를 복사하려면 로컬 네트워크에서 아웃바운드 TCP 포트 445를 열어야 합니다.
 
 **예제:**
 

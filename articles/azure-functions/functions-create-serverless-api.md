@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
@@ -67,7 +67,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 
 ## <a name="proxies-overview"></a>프록시 개요
 
-다음 섹션에서는 프록시를 통해 API를 노출합니다. Azure Functions 프록시는 기타 리소스로 요청을 전달할 수 있도록 하는 미리 보기 기능입니다. HTTP 트리거를 사용할 때처럼 HTTP 끝점을 정의하지만, 해당 끝점이 호출될 때 실행할 코드를 작성하지 않고 원격 구현에 대한 URL을 제공합니다. 이렇게 하면 여러 API 원본을 클라이언트가 쉽게 사용할 수 있는 단일 API 화면으로 작성할 수 있습니다. 이러한 방식은 API를 마이크로 서비스로 빌드하려는 경우에 특히 유용합니다.
+다음 섹션에서는 프록시를 통해 API를 노출합니다. Azure Functions 프록시를 사용하면 요청을 다른 리소스로 전달할 수 있습니다. HTTP 트리거를 사용할 때처럼 HTTP 끝점을 정의하지만, 해당 끝점이 호출될 때 실행할 코드를 작성하지 않고 원격 구현에 대한 URL을 제공합니다. 이렇게 하면 여러 API 원본을 클라이언트가 쉽게 사용할 수 있는 단일 API 화면으로 작성할 수 있습니다. 이러한 방식은 API를 마이크로 서비스로 빌드하려는 경우에 특히 유용합니다.
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
 - Azure 기능 
@@ -75,7 +75,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 - [Linux의 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)에 있는 Docker 컨테이너
 - 기타 호스트된 API
 
-프록시에 대해 자세한 알아보려면 [Azure Functions 프록시 사용(미리 보기)]을 참조하세요.
+프록시에 대한 자세한 내용은 [Azure Functions 프록시 사용]을 참조하세요.
 
 ## <a name="create-your-first-proxy"></a>첫 번째 프록시 만들기
 
@@ -97,7 +97,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 ### <a name="creating-a-proxy-on-the-frontend"></a>프런트 엔드에 프록시 만들기
 
 1. 포털의 프런트 엔드 함수 앱으로 다시 이동합니다.
-1. 왼쪽 탐색 영역에서 "프록시 (미리 보기)" 옆의 더하기 기호 '+'를 클릭합니다.
+1. 왼쪽 탐색 영역에서 "프록시" 옆에 있는 '+'(더하기) 기호를 클릭합니다.
     ![프록시 만들기](./media/functions-create-serverless-api/creating-proxy.png)
 1. 표에 지정된 것처럼 프록시 설정을 사용합니다. 
 
@@ -187,9 +187,9 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 다음 참조는 API를 추가로 개발하는 경우 유용할 수 있습니다.
 
 - [Azure Functions HTTP 및 웹후크 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Azure Functions 프록시 사용(미리 보기)]
+- [Azure Functions 프록시 사용]
 - [Azure Functions API 문서화(미리 보기)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Azure Functions 프록시 사용(미리 보기)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Azure Functions 프록시 사용]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

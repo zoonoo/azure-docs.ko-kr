@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
@@ -61,7 +61,7 @@ Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보�
 
 * **Blob 유형**: HDInsight는 블록 Blob만을 지원합니다. Application Insights의 기본값은 블록 Blob을 사용하므로 기본적으로 HDInsight와 함께 사용해야 합니다.
 
-기존 HDInsight 클러스터에 추가 저장소를 추가하는 방법에 대한 내용은 [추가 저장소 계정 추가](../hdinsight-hadoop-add-storage.md) 문서를 참조하세요.
+기존 클러스터에 저장소를 추가하는 방법에 대한 정보는 [추가 저장소 계정 추가](../hdinsight-hadoop-add-storage.md) 문서를 참조하세요.
 
 ### <a name="data-schema"></a>데이터 스키마
 
@@ -79,7 +79,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 ## <a name="analyze-the-data-pyspark"></a>데이터 분석: PySpark
 
-1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 블레이드에서 **Jupyter Notebook**을 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 섹션에서 **Jupyter Notebook**을 선택합니다.
 
     ![클러스터 대시보드](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 ## <a name="analyze-the-data-scala"></a>데이터 분석: Scala
 
-1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 블레이드에서 **Jupyter Notebook**을 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 섹션에서 **Jupyter Notebook**을 선택합니다.
 
     ![클러스터 대시보드](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala**를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.

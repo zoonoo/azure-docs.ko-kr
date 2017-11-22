@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 응용 프로그램을 개발할 때 시작점 역할을 합니다.   
@@ -39,7 +39,7 @@ Azure Cosmos DB는 광범위한 응용 프로그램 및 사용 사례에서 사�
 
 전역으로 분산하려는 고성능 응용 프로그램에 적합한 Azure Cosmos DB의 몇 가지 특성은 다음과 같습니다.
 
-* Azure Cosmos DB는 기본적으로 고가용성 및 확장성을 위해 데이터를 분할합니다. Azure Cosmos DB는 99.99%의 가용성, 처리량, 짧은 대기 시간 및 일관성을 보장합니다.
+* Azure Cosmos DB는 기본적으로 고가용성 및 확장성을 위해 데이터를 분할합니다. Azure Cosmos DB는 가용성, 처리량, 짧은 대기 시간 및 일관성에 대한 99.99% 보증을 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 제공하고, 99.999% 읽기 가용성을 모든 다중 지역 데이터베이스 계정에 제공합니다.
 * Azure Cosmos DB에는 낮은 대기 시간의 응답 시간(밀리초)을 지원하는 SSD 지원 저장소가 있습니다.
 * Azure Cosmos DB는 최종, 일관된 접두사, 세션, 제한된 부실 등의 일관성 수준을 지원하므로 완전한 유연성과 성능 대비 낮은 비용이 제공됩니다. 수준 일관성에서 Azure Cosmos DB만큼 큰 유연성을 제공하는 데이터베이스 서비스는 없습니다. 
 * Azure Cosmos DB에는 저장소 및 처리량을 독립적으로 측정하는, 유연하고 데이터 친화적인 가격 책정 모델이 있습니다.

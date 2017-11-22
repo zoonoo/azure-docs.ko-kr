@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57d9ebc5a9689a6f1d48464aa20ffdc7fa61b00f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/01/2017
 
     ![마스터 웹 페이지의 머리글에 스크립트를 복사합니다.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **모바일 앱 코드:** [이 가이드에 따라](app-insights-mobile-center-quickstart.md) 모바일 센터 SDK를 사용하여 앱에서 이벤트를 수집한 다음 이러한 이벤트의 복사본을 Application Insights로 전송하여 분석합니다.
+3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](app-insights-mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
 4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음 Application Insights의 개요 블레이드에서 결과를 찾습니다.
 

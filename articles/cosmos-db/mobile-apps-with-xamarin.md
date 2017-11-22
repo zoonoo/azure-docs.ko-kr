@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드
 대부분의 모바일 앱은 클라우드에 데이터를 저장해야 하며 Azure Cosmos DB는 모바일 앱용 클라우드 데이터베이스입니다. 이 기능에는 모바일 개발자에게 필요한 모든 항목이 있습니다. 필요에 따라 규모를 조정할 수 있는 Database as a Service입니다. 사용자가 전 세계 어디에 있든 데이터를 응용 프로그램으로 투명하게 가져올 수 있습니다. [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)를 사용하면 중간 계층 없이 Azure Cosmos DB와 직접 상호 작용하도록 Xamarin 모바일 앱을 활성화할 수 있습니다.
@@ -31,7 +31,7 @@ Azure Cosmos DB는 모바일 앱 개발자를 위해 다음과 같은 주요 기
 ![모바일 앱용 Azure Cosmos DB 기능](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
 * 스키마 없는 데이터에 대한 풍부한 쿼리 Azure Cosmos DB는 데이터를 유형이 다른 컬렉션에 스키마 없는 JSON 문서로 저장합니다. 스키마 또는 인덱스에 대한 걱정 없이 [풍부하고 빠른 쿼리](documentdb-sql-query.md)를 제공합니다.
-* 빠른 처리량. Azure Cosmos DB를 사용하여 문서를 읽고 쓰는 데 몇 밀리초밖에 걸리지 않습니다. 개발자는 필요한 처리량을 지정할 수 있고 Azure Cosmos DB는 개발자가 지정한 처리량을 99.99% SLA로 이행합니다.
+* 빠른 처리량. Azure Cosmos DB를 사용하여 문서를 읽고 쓰는 데 몇 밀리초밖에 걸리지 않습니다. 개발자들은 필요한 처리량을 지정할 수 있고, Azure Cosmos DB는 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 제공합니다.
 * 규모가 무제한입니다. Azure Cosmos DB 컬렉션은 [앱이 증가함에 따라 증가합니다](partition-data.md). 처음에는 소규모 데이터와 초당 요청 처리량 수백 개로 시작할 수 있습니다. 이후에 컬렉션 데이터가 페타바이트 단위로 증가함에 따라 초당 요청 처리량을 수억 개로 확장할 수 있습니다.
 * 전역적으로 분산됩니다. 모바일 앱 사용자는 이동이 잦으며 전 세계에 퍼져 있는 경우가 자주 있습니다. Azure Cosmos DB는 [전역적으로 분산되는 데이터베이스](distribute-data-globally.md)입니다. 지도를 클릭하여 사용자에게 데이터 액세스를 제공할 수 있습니다.
 * 풍부한 권한이 기본 제공됩니다. Azure Cosmos DB를 사용하면 복잡한 사용자 지정 권한 부여 코드 없이 [사용자별 데이터](https://aka.ms/documentdb-xamarin-todouser)와 같은 인기 있는 패턴 또는 다중 사용자 공유 데이터를 쉽게 구현할 수 있습니다.

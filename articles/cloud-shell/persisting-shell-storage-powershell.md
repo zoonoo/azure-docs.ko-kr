@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell에서 파일 유지(미리 보기) | Microsoft Docs"
+title: "Azure Cloud Shell의 PowerShell(미리 보기)에서 파일 유지 | Microsoft Docs"
 description: "Azure Cloud Shell에서 파일을 유지하는 방법의 연습입니다."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Cloud Shell 작동 방식
-Azure Cloud Shell은 다음 방법을 통해 파일을 유지합니다. 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Azure Cloud Shell의 PowerShell(미리 보기) 작동 방식
+Azure Cloud Shell의 PowerShell(미리 보기)은 다음 방법을 통해 파일을 유지합니다. 
 * 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다.
 
 ## <a name="list-cloud-drive-file-shares"></a>클라우드 드라이브 파일 공유 목록

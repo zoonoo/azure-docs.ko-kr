@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 보고서를 구성하고 Power BI를 사용하여 이러한 보고서에 액세스하는 단계를 설명합니다. 이러한 단계를 수행한 후 Power BI로 직접 이동하여 모든 보고서를 확인하고, 보고서를 사용자 지정 및 생성할 수 있습니다. 
@@ -27,8 +27,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 1. Azure Backup 보고서는 Azure Recovery Services 에이전트를 사용한 클라우드로 파일/폴더 백업 및 Azure 가상 컴퓨터 백업에 대해 지원됩니다.
 2. Azure SQL, DPM 및 Azure Backup Server에 대한 보고서는 현재 지원되지 않습니다.
-3. 각 자격 증명 모음에 대해 동일한 저장소 계정이 구성된 경우 여러 자격 증명 모음과 구독의 보고서를 볼 수 있습니다. 선택한 저장소 계정이 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+3. 각 자격 증명 모음에 대해 동일한 저장소 계정이 구성된 경우 여러 자격 증명 모음과 구독의 보고서를 볼 수 있습니다. 선택한 Storage 계정이 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 4. Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 임시 새로 고침을 수행할 수도 있으며, 이 경우 고객 저장소 계정의 최신 데이터가 보고서 렌더링에 사용됩니다. 
+5. Azure Backup 보고서는 현재 국가별 클라우드에서 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 1. [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 만들어 보고서에 대해 구성합니다. 이 저장소 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
@@ -37,32 +38,39 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="configure-storage-account-for-reports"></a>보고서에 대한 저장소 계정 구성
 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에 대한 저장소 계정을 구성하려면 다음 단계를 따르세요. 이는 일회성 구성이며 저장소 계정이 구성되면 Power BI로 직접 이동하여 콘텐츠 팩을 확인하고 보고서를 활용할 수 있습니다.
-1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. 복구 서비스 자격 증명 모음이 열려 있지 않지만 Azure 포털에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
+1. 이미 Recovery Services 자격 증명 모음이 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 허브 메뉴에서 **찾아보기**를 클릭합니다.
 
-   * 리소스 목록에서 **복구 서비스**를 입력합니다.
-   * 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **복구 서비스 자격 증명 모음**이 표시되면 클릭합니다.
+   * 리소스 목록에서 **Recovery Services**를 입력합니다.
+   * 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 클릭합니다.
 
-      ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+      ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-     복구 서비스 자격 증명 모음의 목록이 표시됩니다. 복구 서비스 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
+     Recovery Services 자격 증명 모음의 목록이 표시됩니다. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
 
      선택한 자격 증명 모음 대시보드가 열립니다.
-2. 자격 증명 모음 아래에 나타나는 항목 목록에서 모니터링 및 보고서 섹션 아래의 **백업 보고서**를 클릭하여 보고서에 대한 저장소 계정을 구성합니다.
+2. 자격 증명 모음 아래에 나타나는 항목 목록에서 모니터링 및 보고서 섹션 아래의 **Backup 보고서**를 클릭하여 보고서에 대한 저장소 계정을 구성합니다.
 
       ![백업 보고서 메뉴 항목 선택 2단계](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. 백업 보고서 블레이드에서 **구성** 단추를 클릭합니다. 고객 저장소 계정에 데이터를 푸시하는 데 사용되는 Azure Application Insights 블레이드가 열립니다.
+3. 백업 보고서 블레이드에서 **진단 설정** 링크를 클릭합니다. 그러면 고객 저장소 계정에 데이터를 푸시하는 데 사용되는 Diagnostics 설정 UI가 열립니다.
 
-      ![저장소 계정 구성 3단계](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. 상태 토글 단추를 **켜기**로 설정하고 **저장소 계정에 보관** 확인란을 선택하여 보고 데이터가 저장소 계정으로 흐르기 시작하도록 합니다.
+      ![진단 사용 3단계](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. **진단 사용** 링크를 클릭합니다. 그러면 저장소 계정을 구성하는 UI가 열립니다. 
 
-      ![진단 사용 4단계](./media/backup-azure-configure-reports/set-status-on.png)
-5. 저장소 계정 선택을 클릭하고 목록에서 보고 데이터를 저장하는 데 사용할 저장소 계정을 선택한 다음 **확인**을 클릭합니다.
+      ![진단 사용 4단계](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. **이름** 필드에 설정 이름을 입력하고 **Storage 계정에 보관** 확인란을 선택하여 보고 데이터가 저장소 계정으로 흐르기 시작하도록 합니다.
 
-      ![저장소 계정 선택 5단계](./media/backup-azure-configure-reports/select-storage-account.png)
-6. **AzureBackupReport** 확인란을 선택하고 슬라이더를 이동하여 이 보고 데이터의 보존 기간을 선택합니다. 저장소 계정의 보고 데이터는 이 슬라이더를 사용하여 선택한 기간 동안 유지됩니다.
+      ![진단 사용 5단계](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Storage 계정 선택을 클릭하고 목록에서 보고 데이터를 저장하는 데 사용할 관련 구독 및 저장소 계정을 선택한 다음 **확인**을 클릭합니다.
 
-      ![저장소 계정 선택 6단계](./media/backup-azure-configure-reports/save-configuration.png)
-7. 모든 변경 내용을 검토하고 위 그림에 표시된, 맨 위의 **저장** 단추를 클릭합니다. 이 작업을 수행하면 모든 변경 내용이 저장되며, 이제 보고 데이터를 저장하는 데 사용할 저장소 계정이 구성되었습니다.
+      ![저장소 계정 선택 6단계](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. 로그 섹션 아래에서 **AzureBackupReport** 확인란을 선택하고 슬라이더를 이동하여 이 보고 데이터의 보존 기간을 선택합니다. 저장소 계정의 보고 데이터는 이 슬라이더를 사용하여 선택한 기간 동안 유지됩니다.
+
+      ![저장소 계정 저장 7단계](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. 모든 변경 내용을 검토하고 위 그림에 표시된, 맨 위의 **저장** 단추를 클릭합니다. 이 작업을 수행하면 모든 변경 내용이 저장되며, 이제 보고 데이터를 저장하는 데 사용할 저장소 계정이 구성되었습니다.
+
+9. 이제 진단 설정 테이블에는 자격 증명 모음에 사용하도록 설정된 새 설정이 표시됩니다. 표시되지 않으면 업데이트된 설정을 확인하기 위해 테이블을 새로 고칩니다.
+
+      ![진단 설정 보기 9단계](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > 저장소 계정을 저장하여 보고서를 구성한 후에는 초기 데이터 푸시가 완료될 때까지 **24시간 동안 대기**해야 합니다. 이 시간 이후에만 Power BI에서 Azure Backup 콘텐츠 팩을 가져와야 합니다. 자세한 내용은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요. 
@@ -116,8 +124,8 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 2. **Power BI에서 Azure Backup 콘텐츠 팩 및 저장소 계정으로 데이터 푸시가 수행되는 빈도는 어느 정도인가요?**
 
    0일 사용자의 경우 저장소 계정에 데이터를 푸시하는 데 약 24시간 정도 걸립니다. 이 초기 푸시가 완료된 후에는 아래 그림에 표시된 빈도로 데이터가 새로 고쳐집니다. 
-      * **작업, 경고, 백업 항목, 자격 증명 모음, 보호된 서버 및 정책**과 관련된 데이터는 기록 시 고객 저장소 계정에 푸시됩니다.
-      * **저장소**와 관련된 데이터는 24시간마다 고객 저장소 계정에 푸시됩니다.
+      * **작업, 경고, Backup 항목, 자격 증명 모음, 보호된 서버 및 정책**과 관련된 데이터는 기록 시 고객 저장소 계정에 푸시됩니다.
+      * **저장소**와 관련된 데이터는 24시간마다 고객 Storage 계정에 푸시됩니다.
    
     ![Azure Backup 보고서 데이터 푸시 빈도](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 

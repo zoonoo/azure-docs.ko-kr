@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 호스팅 계획 비교
 
-## <a name="introduction"></a>소개
-
 Azure Functions는 소비 계획 및 Azure App Service 계획 두 가지 모드로 실행할 수 있습니다. 소비 계획은 코드가 실행 중일 때 계산 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음 코드가 실행되지 않을 때 축소합니다. 따라서 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 앱 모델을 중점적으로 살펴봅니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
+
+>[!NOTE]  
+> Linux 호스팅은 현재 App Service 계획에서만 사용할 수 있습니다.
 
 Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
@@ -53,9 +54,9 @@ App Service 계획에서는 계층 간에 크기 조정하여 서로 다른 양�
 - 함수를 실행 중인 경우에만 지불
 - 높은 부하 기간 동안에도 자동으로 규모 확장
 
-## <a name="app-service-plan"></a>앱 서비스 계획
+## <a name="app-service-plan"></a>App Service 계획
 
-App Service 계획에서 함수 앱은 Web Apps, API Apps 및 Mobile Apps와 마찬가지로 기본, 표준, 프리미엄, 격리된 SKU의 전용 VM에서 실행됩니다. 전용 VM은 App Service 앱에 할당됩니다. 즉, 함수 호스트는 항상 실행됩니다.
+App Service 계획에서 함수 앱은 Web Apps, API Apps 및 Mobile Apps와 마찬가지로 기본, 표준, 프리미엄, 격리된 SKU의 전용 VM에서 실행됩니다. 전용 VM은 App Service 앱에 할당됩니다. 즉, 함수 호스트는 항상 실행됩니다. App Service 계획은 Linux를 지원합니다.
 
 다음과 같은 경우에 App Service 계획을 고려합니다.
 - 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있습니다.
@@ -63,12 +64,13 @@ App Service 계획에서 함수 앱은 Web Apps, API Apps 및 Mobile Apps와 마
 - 소비 계획에서 제공하는 것보다 많은 CPU 또는 메모리 옵션이 필요합니다.
 - 소비 계획에서 허용되는 최대 실행 시간(10분)보다 오래 실행해야 합니다.
 - App Service 환경에 대한 지원, VNET/VPN 연결 및 더 큰 VM 크기와 같이 App Service 계획에서만 사용할 수 있는 기능이 필요합니다. 
+- Linux에서 함수 앱을 실행하거나 함수를 실행할 사용자 지정 이미지를 제공하려고 합니다.
 
 VM은 실행 횟수, 실행 시간 및 사용된 메모리에서 비용을 분리합니다. 결과적으로, 할당하는 VM 인스턴스의 비용보다 더 지불하지 않습니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
 
 App Service 계획을 사용하면 더 많은 VM 인스턴스를 추가하여 수동으로 확장하거나 자동 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/web-sites-scale.md)을 참조하세요. 
 
-App Service 계획에서 JavaScript 함수를 실행하려는 경우 코어 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [함수에 대한 JavaScript 참조](functions-reference-node.md#choose-single-core-app-service-plans)를 참조하세요.  
+App Service 계획에서 JavaScript 함수를 실행하려는 경우 vCPU 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [단일 코어 App Service 계획 선택](functions-reference-node.md#considerations-for-javascript-functions)을 참조하세요.  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -78,9 +80,9 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 
 무중단은 App Service 계획에서만 사용할 수 있습니다. 소비 계획에서 플랫폼은 함수 앱을 자동으로 활성화합니다.
 
-## <a name="storage-account-requirements"></a>저장소 계정 요구 사항
+## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. 내부적으로 Azure Functions는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Azure Storage를 사용합니다. Blob 전용 저장소 계정(Premium Storage 포함) 및 영역 중복 저장소 복제가 사용되는 범용 저장소 계정 같은 일부 저장소 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정은 함수 앱을 만들 때 **저장소 계정** 블레이드에서 필터링됩니다.
+소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. 내부적으로 Azure Functions는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Azure Storage를 사용합니다. Blob 전용 저장소 계정(Premium Storage 포함) 및 영역 중복 저장소 복제가 사용되는 범용 저장소 계정 같은 일부 저장소 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정은 함수 앱을 만들 때 **Storage 계정** 블레이드에서 필터링됩니다.
 
 저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
 
@@ -93,7 +95,7 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 > [!NOTE]
 > 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 되면 새 Blob 처리에 하루 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후 Blob이 즉시 처리됩니다. 이 초기 지연을 방지하려면 다음 옵션 중 하나를 고려합니다.
 > - Always On을 사용하도록 설정된 App Service 계획에 함수 앱을 호스팅합니다.
-> - Blob 이름을 포함하는 큐 메시지와 같은 다른 메커니즘을 사용하여 Blob 처리를 트리거합니다. 예를 들어 [Blob 입력 바인딩을 사용하여 큐 트리거](functions-bindings-storage-blob.md#input-sample)를 참조하세요.
+> - Blob 이름을 포함하는 큐 메시지와 같은 다른 메커니즘을 사용하여 Blob 처리를 트리거합니다. 예를 들어 [BLOB 입력 및 출력 바인딩에 대한 C# 스크립트 및 JavaScript 예제](functions-bindings-storage-blob.md#input--output---example)를 참조합니다.
 
 ### <a name="runtime-scaling"></a>런타임 크기 조정
 

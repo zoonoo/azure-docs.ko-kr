@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: .NET의 Graph API를 사용하여 개발
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
@@ -53,7 +53,6 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
-> * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
 > * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 > 
@@ -86,7 +85,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동하고 **키**를 클릭�
 
 포털에서 URI를 복사하고 `Endpoint` 끝점 속성 위에 붙여넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `AuthKey` 속성 위에 붙여넣습니다. 
 
-![자습서에서 C# 응용 프로그램을 만드는 데 사용하는 Azure Portal의 스크린샷입니다. Azure Cosmos DB 탐색에서 강조 표시된 키 단추 및 키 블레이드에서 강조 표시된 URI와 키 값이 있는 Azure Cosmos DB 계정을 보여 줍니다.][키] 
+![자습서에서 C# 응용 프로그램을 만드는 데 사용하는 Azure Portal의 스크린샷입니다. Azure Cosmos DB 탐색에서 강조 표시된 키 단추 및 키 블레이드에서 강조 표시된 URI와 PRIMARY KEY 값이 있는 Azure Cosmos DB 계정을 보여 줍니다.](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>DocumentClient 인스턴스화 
 다음으로 **DocumentClient**의 새 인스턴스를 만듭니다.  

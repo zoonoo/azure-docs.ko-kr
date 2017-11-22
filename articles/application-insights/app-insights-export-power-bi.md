@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터를 분석하는 데 도움을 주고 통찰력을 공유하는 비즈니스 분석 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Power BI에 Application Insights 데이터를 내보내는 세 가지 권장 방법이 있습니다. 개별적으로 또는 함께 사용할 수 있습니다.
 
 * [**Power BI 어댑터**](#power-pi-adapter) - 앱에서 원격 분석의 전체 대시보드를 설정 합니다. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
-* [**Analytics 쿼리 내보내기**](#export-analytics-queries) - Analytics를 사용하여 원하는 쿼리를 작성하고 Power BI로 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
+* [**Analytics 쿼리 내보내기**](#export-analytics-queries) - Analytics를 사용하거나 Usage Funnels에서 원하는 쿼리를 작성하고 Power BI로 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
 * [**연속 내보내기 및 Stream Analytics**](app-insights-export-stream-analytics.md) - 여기에서는 추가 작업을 설정해야 합니다. 데이터를 오랜 기간 유지하려는 경우에 유용합니다. 그렇지 않은 경우에는 다른 방법이 권장됩니다.
 
 ## <a name="power-bi-adapter"></a>Power BI 어댑터
@@ -48,7 +48,7 @@ Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 �
 초기 가져오기 후에는 대시보드와 보고서가 지속적으로 매일 업데이트됩니다. 데이터 집합에 대한 새로 고침 일정을 제어할 수 있습니다.
 
 ## <a name="export-analytics-queries"></a>Analytics 쿼리 내보내기
-이 경로를 사용하면 원하는 모든 Analytics 쿼리를 작성한 다음, Power BI 대시보드로 내보낼 수 있습니다. (어댑터에서 만든 대시보드를 추가할 수 있습니다.)
+이 경로를 사용하면 원하는 모든 Analytics 쿼리를 작성하거나 Usage Funnels에서 내보낸 다음 Power BI 대시보드로 내보낼 수 있습니다. (어댑터에서 만든 대시보드를 추가할 수 있습니다.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>한 번: Power BI Desktop을 설치합니다.
 Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI를 사용합니다. 하지만 또 웹이나 사용자의 Power BI 클라우드 작업 영역으로 게시할 수 있습니다. 
@@ -82,10 +82,32 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
     ![시각화 선택](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
 
+### <a name="export-a-funnel"></a>깔때기 내보내기
+1. [깔때기 만들기](usage-funnels.md)
+2. Power BI 단추 클릭 
+
+   ![PowerBI 단추](./media/app-insights-export-power-bi/button.png)
+   
+3. Power BI Desktop에서 **데이터 가져오기, 빈 쿼리**를 선택한 다음, 쿼리 편집기에서 **보기** 아래에 있는 **고급 쿼리 편집기**를 선택합니다.
+
+   ![빈 쿼리](./media/app-insights-export-power-bi/blankquery.png)
+
+   내보낸 M 언어 스크립트를 고급 쿼리 편집기에 복사합니다. 
+
+   ![고급 쿼리 편집기](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. 쿼리에서 항목을 선택하고 깔때기 시각화 선택
+
+   ![시퀀스 및 깔때기 선택](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. 제목을 더 의미 있게 변경하고 Power BI 클라우드 작업 영역에 보고서를 게시합니다. 
+
+   ![제목 변경](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="401-or-403-unauthorized"></a>401 또는 403 권한 없음 
-업데이트되지 않은 토큰을 새로 고치는 경우 발생할 수 있습니다. 여전히 액세스 권한이 있는지 확인하려면 다음 단계를 시도하십시오. 액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
+새로 고침 토큰이 업데이트되지 않은 경우에 발생할 수 있습니다. 여전히 액세스 권한이 있는지 확인하려면 다음 단계를 시도하십시오. 액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
 
 1. Azure Portal에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.
 2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.

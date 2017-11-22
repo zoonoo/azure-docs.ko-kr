@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell 기능 및 도구
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > 또한 [Bash](features.md)에 대한 기능 및 도구를 사용할 수 있습니다.
 
-Azure Cloud Shell의 PowerShell은 `Windows Server 2016`에서 실행됩니다.
+Azure Cloud Shell의 PowerShell(미리 보기)는 `Windows Server 2016`에서 실행됩니다.
 
 ## <a name="features"></a>기능
 
 ### <a name="secure-automatic-authentication"></a>안전한 자동 인증
 
-Azure Cloud Shell의 PowerShell은 Microsoft Azure PowerShell에 대한 계정 액세스를 안전하고 자동으로 인증합니다.
+Azure Cloud Shell의 PowerShell(미리 보기)은 Microsoft Azure PowerShell에 대한 계정 액세스를 안전하고 자동으로 인증합니다.
 
 ### <a name="files-persistence-across-sessions"></a>여러 세션에 걸친 파일 지속성
 
@@ -45,7 +45,7 @@ Azure Cloud Shell에 대한 요청은 제각기 임시 컴퓨터를 할당하므
 
 ### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
-Azure Cloud Shell의 PowerShell은 Azure 드라이브(`Azure:`)에서 시작됩니다.
+Azure Cloud Shell의 PowerShell(미리 보기)은 Azure 드라이브(`Azure:`)에서 시작됩니다.
 Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 즉시 반영됩니다.
@@ -109,6 +109,6 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md)
+[Azure Cloud Shell의 PowerShell(미리 보기) 빠른 시작](quickstart-powershell.md)
 
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/)

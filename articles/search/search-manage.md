@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 
 * 파티션 및 복제본의 할당을 변경하여 서비스 용량을 조정합니다.
 * 서비스 계층의 최대 한계를 기준으로 리소스 사용을 모니터링합니다.
 
-**이 문서에서 다루지 않는 내용** 
+*업그레이드*가 관리 작업으로 나열되지 않습니다. 서비스가 프로비저닝될 때 자원이 할당되기 때문에 다른 계층으로 이동하려면 새 서비스가 필요합니다. 자세한 내용은 [Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
-*콘텐츠 관리* (또는 인덱스 관리)는 쿼리 볼륨을 파악하기 위해 검색 트래픽 분석, 사용자가 검색하는 용어 파악, 성공적인 검색 결과가 인덱스의 특정 문서로 어떻게 고객을 안내하는지 살펴보는 등의 작업을 말합니다. 이 영역에 대한 도움말은 [Azure Search를 위한 검색 트래픽 분석](search-traffic-analytics.md)을 참조하십시오.
-
-*쿼리 성능* 역시 이 문서에서 다루지 않습니다. 자세한 내용은 [사용 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조합니다.
-
-*업그레이드*는 관리 작업이 아닙니다. 서비스가 프로비저닝될 때 자원이 할당되기 때문에 다른 계층으로 이동하려면 새 서비스가 필요합니다. 자세한 내용은 [Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+> [!Tip]
+> 검색 트래픽 또는 쿼리 성능을 분석하는 방법에 대한 도움말이 필요하십니까? 쿼리 볼륨, 사용자가 검색하는 용어 및 인덱스의 특정 문서로 고객을 안내하는 경우 검색 결과의 성공 정도에 대한 정보를 가져옵니다. 지침은 [Azure Search에 대한 검색 트래픽 분석](search-traffic-analytics.md), [사용량 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
 <a id="admin-rights"></a>
 
@@ -64,7 +61,7 @@ Azure Search에서는 RBAC 권한에 따라 다음 관리 작업이 결정됩니
 | 참여자 |RBAC 역할 관리를 제외하고 소유자와 같은 수준의 액세스 권한입니다. 예를 들어, 참여자는 `api-key`를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수 없습니다. |
 | 리더 |서비스 상태와 쿼리 키를 봅니다. 이 역할의 멤버는 서비스 구성을 변경할 수 없고 관리 키도 볼 수 없습니다. |
 
-역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 검색 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
+역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 Search 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>로깅 및 시스템 정보
@@ -113,15 +110,10 @@ api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽�
 ## <a name="monitor-resource-usage"></a>리소스 사용 모니터링
 대시보드에서는 리소스 모니터링이 서비스 대시보드에 표시되는 정보 및 서비스를 쿼리하여 얻을 수 있는 몇 개의 메트릭으로 제한됩니다. 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 응용 프로그램에 적합한지 신속하게 확인할 수 있습니다.
 
-검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 책정 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [검색 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요. 
+Search Service REST API를 사용하여 프로그래밍 방식으로 문서 및 인덱스 수를 가져올 수 있습니다. 
 
 * [인덱스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [문서 수 계산](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> 캐싱 동작 때문에 한도가 일시적으로 과장될 수 있습니다. 예를 들어 공유 서비스를 사용하는 경우 문서 수가 문서 10,000개 고정 한도보다 높게 표시될 수도 있습니다. 과장은 일시적이며 다음 한도 적용 확인 시 검색됩니다. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>재해 복구 및 서비스 중단
 
@@ -133,7 +125,7 @@ Microsoft의 통제 범위를 벗어나는 치명적인 장애가 발생하더�
 
 인덱서를 사용하지 않는 경우, 응용 프로그램 코드를 사용하여 개체 및 데이터를 여러 서비스에 동시에 푸시합니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
-## <a name="backup-and-restore"></a>백업 및 복원
+## <a name="backup-and-restore"></a>Backup 및 복원
 
 Azure Search는 기본 데이터 저장소 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대한 공식적인 메커니즘을 제공하지 않습니다. 인덱스를 만들고 채우는 데 사용되는 응용 프로그램 코드는 인덱스를 실수로 삭제하는 경우에 사실상 복원 옵션으로 사용됩니다. 
 

@@ -4,8 +4,12 @@
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843)(.exe) |
-| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844)(.exe)  |
+| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843)(.exe) |
+| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844)(.exe)  |
+
+> [!NOTE]
+> Microsoft는 NV VM용 NVIDIA GRID 드라이버 설치 관리자를 재배포합니다. Azure NV VM에 이 GRID 드라이버만 설치하십시오. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC 인스턴스-NVIDIA Tesla 드라이버
 

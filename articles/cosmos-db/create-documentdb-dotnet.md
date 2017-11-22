@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 295d3b8983484b33c69ebb5d0d68c451211102a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8ab132a3e90032c4d70c310a2dd88f7441c4f0a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET 및 Azure Portal에서 DocumentDB API 웹앱 작성
 
@@ -95,24 +95,29 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. DocumentDBRepository.cs 파일을 열어 보면 이들 코드 줄이 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* 73번 줄에서 DocumentClient가 초기화됩니다.
+* 78번 줄에서 DocumentClient가 초기화됩니다.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 88번 줄에서 새 데이터베이스가 만들어집니다.
+* 93번 줄에서 새 데이터베이스가 만들어집니다.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 107번 줄에서 새 컬렉션이 만들어집니다.
+* 112번 줄에서 새 컬렉션이 만들어집니다.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 

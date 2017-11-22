@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -36,11 +36,9 @@ ms.lasthandoff: 10/11/2017
 
     ![진단을 켜서 감사 및 요청 로그 수집](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. __진단 설정__에서 상태를 __켜기__로 설정하고 로깅 옵션을 선택합니다.
+3. __진단 설정__에서 이 로깅 구성에 __이름__을 입력하고 로깅 옵션을 선택합니다.
 
     ![진단을 켜서 감사 및 요청 로그 수집](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 활성화")
-
-   * 진단 로깅을 사용하려면 **상태**를 **켜기**로 설정합니다.
 
    * 세 가지 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
 
@@ -58,34 +56,14 @@ ms.lasthandoff: 10/11/2017
         > [!NOTE]
         > __저장__ 단추를 클릭하기 전에 __저장소 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.
 
-진단 설정을 사용하도록 설정했으면 __진단 로그__ 블레이드로 돌아가서 로그를 볼 수 있습니다.
-
-## <a name="view-logs"></a>로그 보기
-
-### <a name="use-the-data-lake-analytics-view"></a>Data Lake Analytics 보기 사용
-
-1. Data Lake Analytics 계정 블레이드의 **모니터링** 아래에서 **진단 로그**를 선택한 다음 로그를 표시할 항목을 선택합니다.
-
-    ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "진단 로그 보기")
-
-2. 로그는 **감사 로그**와 **요청 로그**로 분류됩니다.
-
-    ![로그 항목](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * 요청 로그는 Data Lake Analytics 계정에 대한 모든 API 요청을 캡처합니다.
-   * 감사 로그는 요청 로그와 비슷하지만 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
-
-3. 로그 항목에 대한 **다운로드** 링크를 클릭하여 해당 로그를 다운로드합니다.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Storage 계정 사용
 
-1. 로깅을 위한 Data Lake Analytics와 연결된 Azure Storage 계정 블레이드를 열고 __Blob__을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
-
-    ![진단 로깅 보기](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
+1. 로깅 데이터를 유지하는 Blob 컨테이너를 표시하려면 로깅을 위해 Data Lake Analytics에 사용되는 Azure Storage 계정을 열고 __Blob__을 클릭합니다.
 
    * **insights-logs-audit** 컨테이너는 감사 로그를 포함합니다.
    * **insights-logs-requests** 컨테이너는 요청 로그를 포함합니다.
-2. 이러한 컨테이너 내에서 로그는 다음 구조로 저장됩니다.
+
+2. 이러한 컨테이너 내에서 로그는 다음 파일 구조로 저장됩니다.
 
         resourceId=/
           SUBSCRIPTIONS/

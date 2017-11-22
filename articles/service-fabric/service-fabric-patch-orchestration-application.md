@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -51,14 +51,6 @@ ms.lasthandoff: 10/18/2017
 > 패치 오케스트레이션 앱은 Service Fabric 복구 관리자 시스템 서비스를 사용하여 노드를 사용하도록 또는 사용하지 않도록 설정하고 상태 검사를 수행합니다. 패치 오케스트레이션 앱에서 만든 복구 작업은 각 노드에 대한 Windows 업데이트 진행률을 추적합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>지원되는 최소 Service Fabric 런타임 버전
-
-#### <a name="azure-clusters"></a>Azure 클러스터
-패치 오케스트레이션 앱은 Service Fabric 런타임 버전 v5.5 이상이 설치된 Azure 클러스터에서 실행되어야 합니다.
-
-#### <a name="standalone-on-premises-clusters"></a>독립 실행형 온-프레미스 클러스터
-패치 오케스트레이션 앱은 Service Fabric 런타임 버전 v5.6 이상이 설치된 독립 실행형 클러스터에서 실행되어야 합니다.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>복구 관리자 서비스 사용(아직 실행되지 않은 경우)
 
@@ -135,59 +127,6 @@ ms.lasthandoff: 10/18/2017
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>모든 노드에서 자동 Windows 업데이트 사용 안 함
 
 자동 Windows 업데이트를 사용하면 여러 클러스터 노드를 동시에 다시 시작할 수 있으므로 가용성 손실이 발생할 수 있습니다. 패치 오케스트레이션 앱은 기본적으로 각 클러스터 노드에서 자동 Windows 업데이트를 사용하지 않으려 합니다. 그러나 설정이 관리자 또는 그룹 정책에 따라 관리되는 경우 명시적으로 Windows 업데이트 정책을 "다운로드하기 전에 알림"으로 설정하는 것이 좋습니다.
-
-### <a name="optional-enable-azure-diagnostics"></a>선택 사항: Azure 진단 사용
-
-Service Fabric 런타임 버전 `5.6.220.9494` 이상을 실행하는 클러스터는 Service Fabric 로그의 일부로 패치 오케스트레이션 앱 로그를 수집합니다.
-클러스터가 Service Fabric 런타임 버전 `5.6.220.9494` 이상에서 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
-
-Service Fabric 런타임 버전 `5.6.220.9494` 미만을 실행하는 클러스터의 경우 패치 오케스트레이션 앱에 대한 로그가 각 클러스터 노드에서 로컬로 수집됩니다.
-모든 노드에서 중앙 위치로 로그를 업로드하도록 Azure 진단을 구성하는 것이 좋습니다.
-
-Azure 진단을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure 진단을 사용하여 로그 수집](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)을 참조하세요.
-
-다음과 같은 고정된 공급자 ID에서 패치 오케스트레이션 앱의 로그가 생성됩니다.
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-Resource Manager 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Service Fabric 클러스터에 여러 노드 형식이 있는 경우 이전 섹션은 모든 `WadCfg` 섹션에 대해 추가되어야 합니다.
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
@@ -303,20 +242,16 @@ Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니�
 
 ## <a name="diagnosticshealth-events"></a>진단/상태 이벤트
 
-### <a name="collect-patch-orchestration-app-logs"></a>패치 오케스트레이션 앱 로그 수집
+### <a name="diagnostic-logs"></a>진단 로그
 
-런타임 버전 `5.6.220.9494` 이상에서는 Service Fabric 로그의 일부로 패치 오케스트레이션 앱 로그가 수집됩니다.
-`5.6.220.9494` 이하의 Service Fabric 런타임 버전을 실행하는 클러스터에서는 다음 방법 중 하나를 사용하여 로그를 수집할 수 있습니다.
+Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 로그가 수집됩니다.
 
-#### <a name="locally-on-each-node"></a>각 노드에 로컬로
+선택한 진단 도구/파이프라인을 통해 로그를 캡처하려고 합니다. 패치 오케스트레이션 응용 프로그램은 아래의 고정된 공급자 ID를 사용하여 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)를 통해 이벤트를 기록합니다.
 
-Service Fabric 런타임 버전이 `5.6.220.9494` 미만인 경우 각 Service Fabric 클러스터 노드에서 로그가 로컬로 수집됩니다. 로그에 액세스하는 위치는 \[Service Fabric\_설치\_드라이브\]:\\PatchOrchestrationApplication\\logs입니다.
-
-예를 들어 Service Fabric이 드라이브 D에 설치된 경우 경로는 D:\\PatchOrchestrationApplication\\logs입니다.
-
-#### <a name="central-location"></a>중앙 위치
-
-Azure 진단이 필수 구성 요소 단계의 일부로 구성된 경우 Azure Storage에서 패치 오케스트레이션 앱 로그를 사용할 수 있습니다.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>상태 보고서
 

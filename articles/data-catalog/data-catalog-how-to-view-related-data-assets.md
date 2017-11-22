@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 관련 데이터 자산을 보는 방법
 Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데이터 자산을 보고 관계를 확인할 수 있습니다. 
@@ -30,6 +30,9 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> 데이터 카탈로그에서 두 데이터 자산 간의 관계를 가져오려면 동시에 두 자산을 등록해야 합니다. 그 중 하나를 별도로 추가한 경우 해당 자산 및 다른 데이터 자산을 다시 추가하여 둘 간의 관계를 가져옵니다.
 
 ## <a name="view-related-data-assets"></a>관련된 데이터 자산 보기
 선택한 데이터 집합과 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 

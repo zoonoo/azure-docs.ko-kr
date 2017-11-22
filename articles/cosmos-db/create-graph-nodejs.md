@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Graph API를 사용하여 Node.js 응용 프로그램 빌드
 
@@ -75,9 +75,23 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
         });
     ```
 
-  구성은 모두 `config.js`에 있으며 다음 섹션에서 편집할 내용입니다.
+  구성은 모두 `config.js`에 있으며 [다음 섹션](#update-your-connection-string)에서 편집할 내용입니다.
 
-* `client.execute` 메서드를 사용하여 일련의 Gremlin 단계를 실행합니다.
+* 다른 Gremlin 작업을 실행할 일련의 함수가 정의됩니다. 다음은 그 중 하나입니다.
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* 각 함수는 Gremlin 쿼리 문자열 매개 변수로 `client.execute` 메서드를 실행합니다. 다음은 `g.V().count()`가 실행되는 예를 보여줍니다.
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
     });
     ```
 
+* 파일의 끝에는 모든 메서드가 `async.waterfall()` 메서드를 사용하여 호출됩니다. 그러면 하나씩 차례대로 실행됩니다.
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
 1. config.js 파일을 엽니다. 
 
-2. config.js에서는 Azure Portal의 **개요** 페이지에 있는 **Gremlin URI** 값을 config.endpoint 키에 입력합니다. 
+2. config.js에서는 Azure Portal의 **개요** 페이지에 있는 **Gremlin URI** 값을 `config.endpoint` 키에 입력합니다. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

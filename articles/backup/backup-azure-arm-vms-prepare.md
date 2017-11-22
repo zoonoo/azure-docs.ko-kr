@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 컴퓨터를 백업하기 위한 환경 준비
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/17/2017
 
 이 문서는 Resource Manager 배포 VM(가상 컴퓨터)을 백업하기 위한 환경을 준비하는 단계를 제공합니다. 절차에 나와있는 단계는 Azure 포털을 사용합니다.  
 
-Azure Backup 서비스에는 VM을 보호하는 두 가지 유형의 자격 증명 모음이(백업 자격 증명 모음 및 복구 서비스 자격 증명 모음) 있습니다. 백업 자격 증명 모음은 클래식 배포 모델을 사용하여 배포된 VM을 보호합니다. 복구 서비스 자격 증명 모음은 **클래식으로 배포되거나 Resource Manager 배포 VM을 양쪽 모두** 보호합니다. Resource Manager 배포 VM을 보호하려면 복구 서비스 자격 증명 모음을 사용해야 합니다.
+Azure Backup 서비스에는 VM을 보호하는 두 가지 유형의 자격 증명 모음이(백업 자격 증명 모음 및 복구 서비스 자격 증명 모음) 있습니다. 백업 자격 증명 모음은 클래식 배포 모델을 사용하여 배포된 VM을 보호합니다. 복구 서비스 자격 증명 모음은 **클래식으로 배포되거나 Resource Manager 배포 VM을 양쪽 모두** 보호합니다. Resource Manager 배포 VM을 보호하려면 Recovery Services 자격 증명 모음을 사용해야 합니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
@@ -48,7 +48,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 필수 구성 요소를 하나라도 설정하거나 확인해야 하는 경우에는, 이 문서를 참고하여 해당 필수 구성 요소를 준비하는 단계를 수행합니다.
 
 ##<a name="supported-operating-system-for-backup"></a>지원되는 백업용 운영 체제
- * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
+ * **Linux**: Azure Backup은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
  * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
@@ -56,10 +56,16 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 
 * 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
 * 데이터 디스크 크기가 1023GB보다 큰 가상 컴퓨터를 백업하는 것은 지원되지 않습니다.
+
+> [!NOTE]
+> >1TB 관리되지 않는 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
+>
+>
+
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 컴퓨터의 백업은 지원되지 않습니다.
-* 방금 BEK를 사용하여 암호화된 VM의 백업을 지원하지 않습니다. LUKS를 사용하여 암호화된 Linux VM의 백업을 지원하지 않습니다.
+* 방금 BEK를 사용하여 암호화된 VM의 Backup을 지원하지 않습니다. LUKS를 사용하여 암호화된 Linux VM의 Backup을 지원하지 않습니다.
 * CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM의 백업은 스냅숏 작업 중 클러스터 구성에 포함된 모든 VM을 포함해야 하므로 권장되지 않습니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다. 
-* 백업 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
+* Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 컴퓨터의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 컴퓨터를 백업할 수 있습니다(지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services) 참조). 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
@@ -75,29 +81,29 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 복구 서비스 자격 증명 모음을 만들려면:
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **복구 서비스**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
+2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**을 클릭합니다.
 
     ![찾아보기 단추를 클릭하고 Recovery Services를 입력합니다. Recovery Services 자격 증명 모음 옵션이 표시되면 Recovery Services 자격 증명 모음 블레이드를 클릭하여 엽니다.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-    복구 서비스 자격 증명 모음의 목록이 표시됩니다.
+    Recovery Services 자격 증명 모음의 목록이 표시됩니다.
 3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.
 
-    ![복구 서비스 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
+    ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-    복구 서비스 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
+    Recovery Services 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
 
-    ![복구 서비스 자격 증명 모음 만들기 5단계](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
+    ![Recovery Services 자격 증명 모음 만들기 5단계](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
 4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
 5. **구독** 을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
 6. **리소스 그룹**을 클릭하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 **반드시** 보호하려는 가상 컴퓨터와 동일한 지역에 있어야 합니다.
 
    > [!IMPORTANT]
-   > VM이 있는 위치를 정확히 알지 못하는 경우 자격 증명 모음 만들기 대화 상자를 닫고 포털에서 가상 컴퓨터의 목록으로 이동합니다. 가상 컴퓨터가 여러 지역에 있으면 각 지역에 복구 서비스 자격 증명 모음을 만들어야 합니다. 첫 번째 위치에서 다음 위치로 이동하기 전에 자격 증명 모음을 만듭니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. 복구 서비스 자격 증명 모음 및 Azure 백업 서비스가 자동으로 처리합니다.
+   > VM이 있는 위치를 정확히 알지 못하는 경우 자격 증명 모음 만들기 대화 상자를 닫고 포털에서 Virtual Machines의 목록으로 이동합니다. 가상 컴퓨터가 여러 지역에 있으면 각 지역에 Recovery Services 자격 증명 모음을 만들어야 합니다. 첫 번째 위치에서 다음 위치로 이동하기 전에 자격 증명 모음을 만듭니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스가 자동으로 처리합니다.
    >
    >
 
-8. **만들기**를 클릭합니다. 복구 서비스 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 복구 서비스 자격 증명 모음 목록에 나타납니다. 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
+8. **만들기**를 클릭합니다. Recovery Services 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 나타납니다. 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -113,7 +119,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 
     ![백업 자격 증명 모음 목록에서 사용자의 자격 증명 모음을 선택합니다.](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. **설정** 블레이드에서 세로 슬라이더를 사용하여 **관리** 섹션이 나올 때까지 아래로 스크롤합니다. **백업 인프라**를 클릭하여 해당 블레이드를 엽니다. **일반** 섹션에서 **백업 구성**을 클릭하여 해당 블레이드를 엽니다. **백업 구성** 블레이드에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 저장소 복제 유형을 변경한 경우 **저장**을 클릭합니다.
+2. **설정** 블레이드에서 세로 슬라이더를 사용하여 **관리** 섹션이 나올 때까지 아래로 스크롤합니다. **Backup 인프라**를 클릭하여 해당 블레이드를 엽니다. **일반** 섹션에서 **Backup 구성**을 클릭하여 해당 블레이드를 엽니다. **백업 구성** 블레이드에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 저장소 복제 유형을 변경한 경우 **저장**을 클릭합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
@@ -123,14 +129,14 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
 자격 증명 모음으로 VM을 등록하기 전에 검색 프로세스를 실행하여 구독에 추가된 새 가상 컴퓨터를 식별하도록 합니다. 프로세스는 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 구독의 가상 컴퓨터 목록을 Azure에 쿼리합니다. Azure 포털에서 시나리오란 복구 서비스 자격 증명 모음에 저장할 항목을 가리킵니다. 정책은 복구 지점이 발생하는 빈도 및 시기에 대한 일정입니다. 정책에는 복구 지점의 보존 범위도 포함됩니다.
 
-1. 복구 서비스 자격 증명 모음이 이미 열려 있으면 2단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않으면 [Azure Portal](https://portal.azure.com/)을 열고 허브 메뉴에서 **더 많은 서비스**를 클릭합니다.
+1. Recovery Services 자격 증명 모음이 이미 열려 있으면 2단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않으면 [Azure Portal](https://portal.azure.com/)을 열고 허브 메뉴에서 **더 많은 서비스**를 클릭합니다.
 
-   * 리소스 목록에서 **복구 서비스**를 입력합니다.
-   * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **복구 서비스 자격 증명 모음**이 표시되면 클릭합니다.
+   * 리소스 목록에서 **Recovery Services**를 입력합니다.
+   * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 클릭합니다.
 
-     ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-     복구 서비스 자격 증명 모음의 목록이 표시됩니다. 구독에 자격 증명 모음이 없으면 이 목록은 비어 있습니다.
+     Recovery Services 자격 증명 모음의 목록이 표시됩니다. 구독에 자격 증명 모음이 없으면 이 목록은 비어 있습니다.
 
     ![Recovery Services 자격 증명 모음 목록 보기](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -139,38 +145,38 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
      선택한 자격 증명 모음의 설정 블레이드 및 자격 증명 모음 대시보드가 열립니다.
 
      ![자격 증명 모음 블레이드 열기](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. 자격 증명 모음 대시보드 메뉴에서 **백업**을 클릭하여 백업 블레이드를 엽니다.
+2. 자격 증명 모음 대시보드 메뉴에서 **Backup**을 클릭하여 Backup 블레이드를 엽니다.
 
-    ![백업 블레이드 열기](./media/backup-azure-arm-vms-prepare/backup-button.png)
+    ![Backup 블레이드 열기](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    백업 및 백업 목표 블레이드가 열립니다.
+    Backup 및 Backup 목표 블레이드가 열립니다.
 
     ![시나리오 블레이드 열기](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. [백업 목표] 블레이드에서 **워크로드 실행 위치**를 Azure로 설정하고 **백업할 항목**을 가상 컴퓨터로 설정한 다음 **확인**을 클릭합니다.
+3. [Backup 목표] 블레이드에서 **워크로드 실행 위치**를 Azure로 설정하고 **백업할 항목**을 가상 컴퓨터로 설정한 다음 **확인**을 클릭합니다.
 
-    그러면 VM 확장이 자격 증명 모음에 등록됩니다. 백업 목표 블레이드가 닫히고 **백업 정책** 블레이드가 열립니다.
+    그러면 VM 확장이 자격 증명 모음에 등록됩니다. Backup 목표 블레이드가 닫히고 **Backup 정책** 블레이드가 열립니다.
 
     ![시나리오 블레이드 열기](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. 백업 정책 블레이드에서 자격 증명 모음에 적용할 백업 정책을 선택합니다.
+4. Backup 정책 블레이드에서 자격 증명 모음에 적용할 Backup 정책을 선택합니다.
 
     ![백업 정책 선택](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
     드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다. 새 정책을 만들려는 경우 드롭다운 메뉴에서 **새로 만들기** 를 선택합니다. 백업 정책 정의에 대한 지침은 [백업 정책 정의](backup-azure-vms-first-look-arm.md#defining-a-backup-policy)를 참조하세요.
     **확인**을 클릭하여 백업 정책을 자격 증명 모음과 연결합니다.
 
-    백업 정책 블레이드가 닫히고 **가상 컴퓨터 선택** 블레이드가 열립니다.
+    Backup 정책 블레이드가 닫히고 **가상 컴퓨터 선택** 블레이드가 열립니다.
 5. **가상 컴퓨터 선택** 블레이드에서, 지정된 정책과 연결할 가상 컴퓨터를 선택하고 **확인**을 클릭합니다.
 
     ![워크로드 선택](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     선택한 가상 컴퓨터의 유효성이 검사됩니다. 원하는 가상 컴퓨터가 표시되지 않으면 Recovery Services 자격 증명 모음과 같은 Azure 위치에 해당 가상 컴퓨터가 있고 다른 자격 증명 모음에서 보호되지 않는지 확인하세요. Recovery Services 자격 증명 모음의 위치는 자격 증명 모음 대시보드에 표시됩니다.
 
-6. 자격 증명 모음의 모든 설정을 정의했으니, 백업 블레이드에서 **백업 사용**을 클릭합니다. 그러면 정책이 자격 증명 모음 및 VM에 배포됩니다. 이렇게 해도 가상 컴퓨터의 초기 복구 지점이 만들어지지는 않습니다.
+6. 자격 증명 모음의 모든 설정을 정의했으니, Backup 블레이드에서 **Backup 사용**을 클릭합니다. 그러면 정책이 자격 증명 모음 및 VM에 배포됩니다. 이렇게 해도 가상 컴퓨터의 초기 복구 지점이 만들어지지는 않습니다.
 
-    ![백업 사용](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+    ![Backup 사용](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-백업을 성공적으로 활성화하면 백업 정책이 일정에 따라 실행됩니다. 가상 컴퓨터를 즉시 백업하는 주문형 백업 작업을 생성하려면 [백업 작업 트리거](./backup-azure-arm-vms.md#triggering-the-backup-job)를 참조하세요.
+백업을 성공적으로 활성화하면 백업 정책이 일정에 따라 실행됩니다. 가상 컴퓨터를 즉시 백업하는 주문형 백업 작업을 생성하려면 [Backup 작업 트리거](./backup-azure-arm-vms.md#triggering-the-backup-job)를 참조하세요.
 
 가상 컴퓨터를 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 컴퓨터를 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 컴퓨터를 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 컴퓨터가 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
@@ -185,10 +191,10 @@ Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 �
 | VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. 리포지토리에서 배포 에이전트를 업데이트하는 것이 좋습니다. GitHub에서 직접 Linux VM 에이전트를 업데이트하는 것은 **좋지 않습니다**.<br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
-### <a name="backup-extension"></a>백업 확장
-가상 컴퓨터에 VM 에이전트를 설치하면 Azure 백업 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. Azure 백업 서비스가 백업 확장을 원활하게 업그레이드하고 패치합니다.
+### <a name="backup-extension"></a>Backup 확장
+가상 컴퓨터에 VM 에이전트를 설치하면 Azure Backup 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. Azure Backup 서비스가 백업 확장을 원활하게 업그레이드하고 패치합니다.
 
-백업 확장은 VM의 실행 여부와 상관없이 백업 서비스에 의해 설치됩니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 오프라인 VM이라고 합니다. 이 경우 복구 지점은 *충돌 일치*가 됩니다.
+백업 확장은 VM의 실행 여부와 상관없이 Backup 서비스에 의해 설치됩니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure Backup 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 오프라인 VM이라고 합니다. 이 경우 복구 지점은 *충돌 일치*가 됩니다.
 
 ## <a name="network-connectivity"></a>네트워크 연결
 VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대한 연결이 필요합니다. 올바른 인터넷 연결이 없으면, 가상 컴퓨터의 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다. 배포에 액세스 제한이 있다면(예: 네트워크 보안 그룹(NSG)을 통해), 백업 트래픽에 대해 명확한 경로를 제공하기 위해 이 옵션 중 하나를 선택합니다.
@@ -213,7 +219,7 @@ VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대�
 > 저장소 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소에 대한 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
-VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저장소에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이므로, HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
+VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure Storage에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이므로, HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
 
 > [!NOTE]
 > 사용해야 할 프록시 소프트웨어에 대한 권장 사항은 없습니다. 아래의 구성 단계와 호환되는 프록시를 선택하도록 합니다.

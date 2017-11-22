@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell의 Bash(미리 보기)에 대한 파일 유지 | Microsoft Docs"
+title: "Azure Cloud Shell의 Bash에 대한 파일 유지 | Microsoft Docs"
 description: "Azure Cloud Shell의 Bash가 파일을 유지하는 방법에 대한 연습입니다."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 저장소 작동 방법 
-Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Cloud Shell의 Bash 작동 방법 
+Cloud Shell의 Bash는 다음 방법 모두를 통해 파일을 유지합니다. 
 * `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`에서 `acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
 * 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell 빠른 시작](quickstart.md) <br>
-[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
+[Microsoft Azure Files 저장소에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [저장소 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

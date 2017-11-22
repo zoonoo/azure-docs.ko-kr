@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Azure Container Instances를 사용하여 Azure 파일 공유 탑재
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Azure Container Instances를 사용하여 Azure 파일 공유 탑재
 
 Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에서는 Azure Container Instances에서 사용할 수 있도록 Azure 파일 공유를 탑재하는 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Storage 계정 액세스 세부 정보 저장
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Azure Key Vault를 사용하여 저장소 계정 액세스 세부 정보 저장
 
 Storage 계정 키는 데이터 액세스를 보호하므로 Azure Key Vault에 저장하는 것이 좋습니다.
 
@@ -185,16 +185,16 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 템플릿을 정의한 후에는 Azure CLI를 사용하여 컨테이너를 만들고 해당 볼륨을 탑재할 수 있습니다. 템플릿 파일 이름은 *azuredeploy.json*이고 매개 변수 파일 이름은 *azuredeploy.parameters.json*이라고 가정할 때의 명령줄은 다음과 같습니다.
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-컨테이너가 시작되면 **seanmckenna/aci-hellofiles** 이미지를 통해 사용자가 지정한 탑재 경로에서 Azure 파일 공유의 관리 파일로 배포된 간단한 웹앱을 사용할 수 있습니다. 다음과 같은 방법을 통해 웹앱에 대한 IP 주소를 가져옵니다.
+컨테이너가 시작되면 **seanmckenna/aci-hellofiles** 이미지를 통해 사용자가 지정한 탑재 경로에서 Azure 파일 공유의 관리 파일로 배포된 간단한 웹앱을 사용할 수 있습니다. [az container show](/cli/azure/container#az_container_show) 명령을 사용하여 웹앱의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-[Microsoft Azure Storage 탐색기](http://storageexplorer.com)와 같은 도구를 사용하여 파일 공유에 쓰여진 파일을 검색하고 검사할 수 있습니다.
+[Microsoft Azure Storage 탐색기](https://storageexplorer.com)와 같은 도구를 사용하여 파일 공유에 쓰여진 파일을 검색하고 검사할 수 있습니다.
 
 >[!NOTE]
 > Azure Resource Manager 템플릿과 매개 변수 파일을 사용하는 방법 및 Azure CLI를 사용한 배포 방법에 대해 자세히 알아보려면 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md)를 참조하세요.

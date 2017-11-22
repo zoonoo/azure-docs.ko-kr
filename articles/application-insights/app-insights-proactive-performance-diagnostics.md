@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -67,7 +67,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
 ## <a name="faq"></a>FAQ
 
-* *그렇다면, 내 데이터를 확인하고 있습니까?*
+* *그렇다면, 내 데이터를 확인하나요?*
   * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](app-insights-data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.

@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
-Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 Livy, Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)를 참조하세요.
+Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 Livy, Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)를 참조하세요.
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 끝점에 대한 REST API를 호출합니다.
 
@@ -189,6 +189,7 @@ Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경
 
 ## <a name="next-step"></a>다음 단계
 
+* [Livy REST API 설명서](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 

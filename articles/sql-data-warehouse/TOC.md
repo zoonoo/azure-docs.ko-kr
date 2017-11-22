@@ -5,7 +5,7 @@
 
 # 시작
 
-## [초보자를 위한 자습서](sql-data-warehouse-get-started-tutorial.md)
+## [로드 데이터 자습서](load-data-from-azure-blob-storage-using-polybase.md)
 ## [탄력적 쿼리 자습서](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)

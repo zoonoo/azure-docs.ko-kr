@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 R Server 및 오픈 소스 기능 소개
 
@@ -44,7 +44,9 @@ HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 저장소는 Az
 [Azure 파일](../../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure Storage에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 R Server에 대한 데이터 저장소 옵션에 대한 자세한 내용은 [HDInsight 클러스터의 R Server에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
 
 ## <a name="access-r-server-on-the-cluster"></a>클러스터에서 R 서버에 액세스
-프로비전 프로세스 중 RStudio Server를 포함하기로 선택한 경우 브라우저를 사용하여 에지 서버의 R Server에 연결할 수 있습니다. 클러스터 프로비전 시 설치하지 않았다면 나중에 추가할 수 있습니다. 클러스터를 만든 후에 RStudio Server를 설치하는 방법에 대한 자세한 내용은 [HDInsight 클러스터에 RStudio Server 설치](r-server-install-r-studio.md)를 참조하세요. SSH/PuTTY를 사용하여 R Server에 연결하여 R 콘솔에 액세스할 수도 있습니다. 
+브라우저를 사용하여 에지 노드의 R Server에 연결할 수 있습니다. 클러스터를 만드는 동안 기본적으로 설치됩니다. 자세한 내용은 [HDInsight에서 R Server 시작](r-server-get-started.md)을 참조하세요.
+
+R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 R Server에 연결할 수도 있습니다. 
 
 ## <a name="develop-and-run-r-scripts"></a>R 스크립트 개발 및 실행
 사용자가 만들고 실행하는 R 스크립트는 ScaleR 라이브러리에서 사용 가능한 병렬화된 분산 루틴 외에 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. 일반적으로 에지 노드의 R Server에서 실행되는 스크립트는 해당 노드의 R 인터프리터에서 실행됩니다. 예외는 Hadoop Map Reduce(RxHadoopMR) 또는 Spark(RxSpark)로 설정된 계산 컨텍스트를 사용하여 ScaleR 함수를 호출해야 하는 단계입니다. 이러한 경우 함수는 참조 데이터와 연결된 클러스터의 데이터(작업) 노드에서 분산된 방식으로 실행됩니다. 다양한 계산 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight에서 R Server의 Compute 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
@@ -87,7 +89,7 @@ OS 패치 및 기타 업데이트를 적용하는 유지 관리는 업무 외 �
 헤드 노드가 중복되어 있고 모든 데이터 노드가 영향을 받는 것은 아니므로 이 시간 중에 실행되는 작업은 속도가 느려질 수 있습니다. 하지만 완료될 때까지 계속 실행되어야 합니다. 모든 사용자 지정 소프트웨어 또는 로컬 데이터는 클러스터를 다시 빌드해야 하는 심각한 오류가 발생하지 않는 한 이러한 유지 관리에서 보존됩니다.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>HDInsight 클러스터의 R 서버에 대한 IDE 옵션에 대해 자세히 알아보기
-HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 최신 버전의 HDInsight는 에지 노드에 [RStudio Server](https://www.rstudio.com/products/rstudio-server/)의 커뮤니티 버전을 브라우저 기반 IDE로 설치하기 위한 기본 옵션을 제공합니다. R 스크립트의 개발과 실행을 위한 IDE로 RStudio Server를 사용하면 R 콘솔만 사용하는 것보다 훨씬 더 생산적일 수 있습니다. 클러스터를 만들 때 RStudio Server를 추가하지 않았지만 나중에 추가하려면 [HDInsight 클러스터에 RStudio Server 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio)를 참조하세요.+
+HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 최신 버전의 HDInsight는 에지 노드에 RStudio Server의 기본 설치를 브라우저 기반 IDE로 제공합니다. R 스크립트의 개발과 실행을 위한 IDE로 RStudio Server를 사용하면 R 콘솔만 사용하는 것보다 훨씬 더 생산적일 수 있습니다.
 
 또 하나의 전체 IDE 옵션은 데스크톱 IDE를 설치하고 원격 Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터에 액세스하는 것입니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/features/rtvs-vs.aspx)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet) 등의 옵션도 있습니다.
 
@@ -100,6 +102,5 @@ R Server가 포함된 HDInsight 클러스터와 연관된 요금은 표준 HDIns
 HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [HDInsight에서 R 서버 시작](r-server-get-started.md)
-* [HDInsight에 RStudio Server 추가(클러스터를 만드는 중에 설치되지 않은 경우)](r-server-install-r-studio.md)
 * [HDInsight의 R 서버에 대한 Compute 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](r-server-storage.md)

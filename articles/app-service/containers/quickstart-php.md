@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 웹앱 만들기
 
@@ -71,14 +71,14 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
+## <a name="create-a-web-app"></a>웹앱 만들기
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 사이트로 이동합니다. _&lt;앱 이름>_을 해당하는 웹앱 이름으로 바꿉니다.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![빈 웹앱 페이지](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ PHP 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행됩니
 
 ## <a name="update-locally-and-redeploy-the-code"></a>로컬로 코드 업데이트 및 다시 배포
 
-로컬 텍스트 편집기를 사용하여 PHP 앱 내에서 `index.php` 파일을 열고 `echo` 옆에 있는 문자열 내의 텍스트를 약간 변경합니다.
+로컬 디렉터리에서 PHP 앱 내 `index.php` 파일을 열고 `echo` 옆에 있는 문자열 내의 텍스트를 약간 변경합니다.
 
 ```php
 echo "Hello Azure!";

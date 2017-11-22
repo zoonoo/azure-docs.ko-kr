@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL의 서버 개념 | Microsoft Docs"
-description: "이 항목에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다."
+title: "PostgreSQL용 Azure 데이터베이스의 서버 개념 | Microsoft Docs"
+description: "이 항목에서는 Azure Database for PostgreSQL 서버를 구성하고 관리하는 고려 사항 및 지침을 제공합니다."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
+# <a name="azure-database-for-postgresql-servers"></a>PostgreSQL용 Azure 데이터베이스 서버
 이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
-## <a name="what-is-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버란?
-Azure Database for PostgreSQL 서버는 여러 데이터베이스에 대한 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
+## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버란?
+PostgreSQL용 Azure 데이터베이스 서버는 여러 데이터베이스에 대한 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
 
-Azure Database for PostgreSQL 서버:
+PostgreSQL용 Azure 데이터베이스 서버:
 
 - Azure 구독 내에서 만들어집니다.
 - 데이터베이스에 대한 부모 리소스입니다.
@@ -35,21 +35,28 @@ Azure Database for PostgreSQL 서버:
 
 PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, 계산 단위, 저장소(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [가격 책정 계층](./concepts-service-tiers.md)을 참조하세요.
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
 
 |||
 | :-- | :-- |
-| **인증 및 권한 부여** | Azure Database for PostgreSQL 서버는 네이티브 PostgreSQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
+| **인증 및 권한 부여** | PostgreSQL용 Azure 데이터베이스 서버는 네이티브 PostgreSQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 PostgreSQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
 | **TCP/IP** | 이 프로토콜은 TCP/IP 및 Unix 도메인 소켓을 통해 지원됩니다. |
-| **방화벽** | 데이터를 보호하기 위해, 방화벽 규칙은 권한이 있는 컴퓨터를 지정할 때까지 서버 및 해당 데이터베이스에 대한 모든 액세스를 금지합니다. [Azure Database for PostgreSQL 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요. |
+| **방화벽** | 데이터를 보호하기 위해, 방화벽 규칙은 권한이 있는 컴퓨터를 지정할 때까지 서버 및 해당 데이터베이스에 대한 모든 액세스를 금지합니다. [PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요. |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
-Azure Portal 또는 [Azure 명령줄 인터페이스](/cli/azure/postgres)를 사용하여 Azure Database for PostgreSQL 서버를 관리할 수 있습니다.
+[Azure Portal](https://portal.azure.com) 또는 [Azure CLI](/cli/azure/postgres)를 사용하여 Azure Database for PostgreSQL 서버를 관리할 수 있습니다.
+
+## <a name="server-parameters"></a>서버 매개 변수
+PostgreSQL 서버 매개 변수는 서버의 구성을 확인합니다. Azure Database for PostgreSQL에서 매개 변수 목록은 Azure Portal 또는 Azure CLI를 통해 보고 편집할 수 있습니다. 
+
+Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres의 관리되는 서비스이며 로컬 Postgres 인스턴스에 있는 매개 변수의 하위 집합입니다(Postgres 매개 변수에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.6/static/runtime-config.html)를 참조하세요). Azure Database for PostgreSQL 서버를 생성할 때 각 매개 변수의 기본값을 사용할 수 있습니다. 서버가 필요한 매개 변수가 다시 시작되거나 변경 내용이 적용될 superuser 액세스가 사용자에 의해 구성될 수 없습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스 개요를 보려면 [Azure Database for PostgreSQL 개요](overview.md)를 참조하세요.
+- 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](concepts-service-tiers.md)을 참조하세요.
-- 서비스 연결에 대한 자세한 내용은 [Azure Database for PostgreSQL에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
+- 서비스 연결에 대한 자세한 내용은 [PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
+- [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수를 보고 편집합니다.

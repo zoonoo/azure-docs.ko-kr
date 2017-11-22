@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -51,6 +51,15 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경. 
+* 직접 연결 모드로 전송된 요청의 응답에서 진단 정보 및 대기 시간을 표시합니다. 속성 이름은 ResourceResponse 클래스의 RequestDiagnosticsString 및 RequestLatency입니다.
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다. 
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Microsoft 친구 어셈블리에 대한 내부 변경입니다.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -261,6 +270,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |2017년 11월 10일 |--- |
+| [1.18.1](#1.18.1) |2017년 11월 7일 |--- |
 | [1.18.0](#1.18.0) |2017년 10월 17일 |--- |
 | [1.17.0](#1.17.0) |2017년 8월 10일 |--- |
 | [1.16.1](#1.16.1) |2017년 8월 7일 |--- |

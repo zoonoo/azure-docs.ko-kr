@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
 이 문서는 [Azure Portal](https://aka.ms/PSCloudPreview)에서 Azure Cloud Shell의 PowerShell을 사용하는 방법을 자세히 설명합니다.
 
@@ -227,7 +227,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ### <a name="discover-webapps"></a>WebApps 검색
 
-`WebApps` 폴더에 들어가면 저장소 리소스를 쉽게 탐색할 수 있습니다.
+`WebApps` 폴더에 들어가면 웹앱 리소스를 쉽게 탐색할 수 있습니다.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -282,7 +282,7 @@ Azure Cloud Shell에서 PowerShell에 대한 정보를 가져오려면 `Get-Help
 PS Azure:\> Get-Help
 ```
 
-특정 명령에 대해 여전히 Get-Help를 실행한 후 뒤이어 cmdlet를 실행할 수 있습니다.
+특정 명령에 대해 여전히 Get-Help를 실행한 후 뒤 이어 cmdlet를 실행할 수 있습니다.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Azure File Storage를 사용하여 데이터를 저장합니다.
 
-예를 들어 `helloworld.ps1`이란 스크립트를 만들어 clouddrive에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
+예를 들어 `helloworld.ps1`이란 스크립트를 만들어 `CloudDrive`에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ PowerShell 프로필 `profile.ps1` 또는 `Microsoft.PowerShell_profile.ps1`를 
 
 ## <a name="use-git"></a>Git 사용
 
-CloudShell에서 git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 그것을 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
+Cloud Shell에서 git 리포지토리를 복제하려면 [개인용 액세스 토큰][githubtoken]을 만들고 그것을 사용자 이름으로 사용합니다. 토큰이 있다면 다음과 같이 리포지토리를 복제합니다.
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-로그아웃하거나 세션 시간이 초과될 때 CloudShell에서 세션이 유지되지 않기 때문에, Git config 파일은 다음 로그온 시 존재하지 않습니다. Git config를 유지하려면 gitconfig를 `CloudDrive`에 저장하고 `CloudShell`이 시작될 때 그것을 복사하거나 symlink를 만들어야 합니다. 다음 코드 조각을 profile.ps1에 사용하여 `CloudDrive`에 symlink를 만듭니다.
+로그아웃하거나 세션 시간이 초과될 때 Cloud Shell에서 세션이 유지되지 않기 때문에, Git config 파일은 다음 로그온 시 존재하지 않습니다. Git config를 유지하려면 gitconfig를 `CloudDrive`에 저장하고 Cloud Shell이 시작될 때 symlink를 복사하거나 만들어야 합니다. 다음 코드 조각을 profile.ps1에 사용하여 `CloudDrive`에 symlink를 만듭니다.
 
  ``` PowerShell
  

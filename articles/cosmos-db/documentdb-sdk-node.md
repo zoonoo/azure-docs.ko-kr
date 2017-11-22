@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="1.14.0"/>1.14.0</a>
+* 세션 일관성에 대한 지원이 추가되었습니다.
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+
+### <a name="1.13.0"/>1.13.0</a>
+* 파티션 간 쿼리를 분할 검증했습니다.
+* 선행 및 후행 슬래시(및 해당 테스트)와의 리소스 링크 지원이 추가되었습니다.
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   npm 설명서가 수정되었습니다.
@@ -177,6 +185,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |2017년 11월 9일 |--- |
+| [1.13.0](#1.13.0) |2017년 10월 11일 |--- |
 | [1.12.2](#1.12.2) |2017년 8월 10일 |--- |
 | [1.12.1](#1.12.1) |2017년 8월 10일 |--- |
 | [1.12.0](#1.12.0) |2017년 5월 10일 |--- |

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -42,8 +42,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * 여러 언어에서 사용할 수 있는 SDK로 다음 데이터 모델의 API가 지원됩니다.
         * [DocumentDB API](documentdb-introduction.md): SQL 쿼리 기능을 갖춘 스키마 없는 JSON 데이터베이스 엔진입니다.
         * [MongoDB API](mongodb-introduction.md): Cosmos DB를 기반으로 빌드된 MongoDB 데이터베이스 서비스입니다. 기존 MongoDB 라이브러리, 드라이버, 도구 및 응용 프로그램과 호환됩니다.
-        * [테이블 API](table-introduction.md): Azure Table Storage 응용 프로그램에 프리미엄 기능을 제공하도록 빌드된 키-값 저장소 데이터베이스 서비스입니다.
+        * [테이블 API](table-introduction.md): Azure Table Storage 응용 프로그램에 프리미엄 기능을 제공하도록 빌드된 키-값 데이터베이스 서비스입니다.
         * [Graph(Gremlin) API](graph-introduction.md): [Apache TinkerPop 사양](http://tinkerpop.apache.org/)에 따라 빌드된 그래프 데이터베이스 서비스입니다.
+        * [Cassandra API](cassandra-introduction.md): [Apache Cassandra](https://cassandra.apache.org/) 구현을 기반으로 구축된 키/값 저장소입니다. 
         * 추가 데이터 모델 제공 예정
 
 * **전세계에서 필요 시 탄력적으로 처리량 및 저장소 확장**
@@ -55,7 +56,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * 일반 1KB 항목의 경우 Cosmos DB는 동일한 Azure 지역에서 백분위 99로 읽기 10ms 미만, 인덱스된 쓰기 15ms 미만의 종단 간 대기 시간을 보장합니다. 중간 대기 시간이 크게 낮아집니다(5ms 미만).
 
 * **"Always On" 가용성 보장**
-    * 단일 지역 내에서 99.99%의 가용성을 제공합니다.
+    * 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 제공합니다.
     * 원하는 만큼의 [Azure 지역](https://azure.microsoft.com/regions)에 배포하여 더 높은 가용성을 보장합니다.
     * 데이터 무손실 보장을 통해 하나 이상의 지역에서 [오류를 시뮬레이션](regional-failover.md)합니다. 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 JavaScript 함수로 작업하는 경우 다음 두 섹션에서 고려 사항을 알아야 합니다.
 
-### <a name="choose-single-core-app-service-plans"></a>단일 코어 App Service 계획 선택
+### <a name="choose-single-vcpu-app-service-plans"></a>단일 vCPU App Service 계획 선택
 
-App Service 계획을 사용하는 함수 앱을 만들 때 여러 코어가 있는 계획보다는 단일 코어 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 코어 VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용하면 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 코어 VM 인스턴스를 추가하여 수동으로 확장하거나 자동 크기 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)을 참조하세요.    
+App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가하여 수동으로 확장하거나 자동 크기 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)을 참조하세요.    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript 및 CoffeeScript 지원
 아직 런타임을 통해 TypeScript 또는 CoffeeScript 자동 컴파일에 대한 직접 지원이 없으므로 배포 시 런타임 외부에서 이러한 지원이 처리되어야 합니다. 

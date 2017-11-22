@@ -1,5 +1,5 @@
 ---
-title: "지속성 함수 개요 - Azure"
+title: "지속성 함수 개요 - Azure(미리 보기)"
 description: "Azure Functions의 지속성 함수 확장을 소개합니다."
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>지속성 함수 개요(Azure Functions)
+# <a name="durable-functions-overview-preview"></a>지속성 함수 개요(미리 보기)
 
 *지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](functions-overview.md) 및 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/13/2017
 * 함수에서 기다릴 때마다 자동으로 진행 상황 검사점을 설정합니다. 프로세스가 재활용되거나 VM이 다시 부팅되더라도 로컬 상태가 손실되지 않습니다.
 
 > [!NOTE]
-> 지속성 함수는 Azure Functions의 고급 확장이며 모든 응용 프로그램에 적합하지는 않습니다. 이 문서의 나머지 부분에서는 [Azure Functions](functions-overview.md) 개념과 서버를 사용하지 않는 응용 프로그램 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
+> 지속성 함수는 미리 보기로, Azure Functions의 고급 확장이며 모든 응용 프로그램에 적합하지는 않습니다. 이 문서의 나머지 부분에서는 [Azure Functions](functions-overview.md) 개념과 서버를 사용하지 않는 응용 프로그램 개발과 관련된 문제에 대해 잘 알고 있다고 가정합니다.
 
 지속성 함수에 대한 기본 사용 사례는 서버를 사용하지 않는 응용 프로그램에서 복잡한 상태 저장 조정 문제를 단순화하는 것입니다. 다음 섹션에서는 지속성 함수를 활용할 수 있는 몇 가지 일반적인 응용 프로그램 패턴에 대해 설명합니다.
 

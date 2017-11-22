@@ -4,7 +4,7 @@ description: "Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 �
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색
 이 문서에서는 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법을 다룹니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
@@ -69,6 +69,6 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 
 이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md)토픽에 설명된 대로 Pandas DataFrame으로 작업할 수 있습니다.
 
-## <a name="cortana-analytics-process-in-action-example"></a>실행 중인 Cortana 분석 프로세스 예
+## <a name="the-team-data-science-process-in-action-example"></a>실행 중인 팀 데이터 과학 프로세스 예제
 공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 
