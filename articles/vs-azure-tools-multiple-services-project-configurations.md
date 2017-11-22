@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>여러 서비스 구성을 사용하여 Azure 프로젝트 구성
 Azure 클라우드 서비스 프로젝트에는 ServiceDefinition.csdef 및 ServiceConfiguration.cscfg의 두 가지 구성 파일이 포함됩니다. 이러한 파일은 Azure 클라우드 서비스 응용 프로그램과 함께 패키지로 구성되고 Azure에 배포됩니다.
@@ -30,7 +30,7 @@ Azure Tools for Microsoft Visual Studio는 이러한 파일에 저장된 구성 
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-서비스 정의 및 서비스 구성 파일의 기본 스키마에 대한 정보는 [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398.aspx)를 참조하세요. 서비스 구성에 대한 자세한 내용은 [클라우드 서비스 구성 방법](cloud-services/cloud-services-how-to-configure.md)을 참조하세요.
+서비스 정의 및 서비스 구성 파일의 기본 스키마에 대한 자세한 내용은 [.csdef XML 스키마](cloud-services/schema-csdef-file.md) 및 [.cscfg XML 스키마](cloud-services/schema-cscfg-file.md) 문서를 참조하세요. 서비스 구성에 대한 자세한 내용은 [Cloud Services 구성 방법](cloud-services/cloud-services-how-to-configure-portal.md)을 참조하세요.
 
 ## <a name="configuring-role-properties"></a>역할 속성 구성
 다음 섹션에서 지적된 대로 몇 가지 차이점이 있지만 웹 역할 및 작업자 역할에 대한 속성 페이지는 비슷합니다.
@@ -44,7 +44,7 @@ Azure Tools for Microsoft Visual Studio는 이러한 파일에 저장된 구성 
 
 **인스턴스** 횟수 속성을 이 역할에 대해 서비스를 실행해야 하는 인스턴스 수로 설정합니다.
 
-**VM 크기** 속성을 **매우 작음**, **작음**, **보통**, **큼** 또는 **매우 큼**으로 설정합니다.  자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
+**VM 크기** 속성을 **매우 작음**, **작음**, **보통**, **큼** 또는 **매우 큼**으로 설정합니다.  자세한 내용은 [Cloud Services에 적합한 크기](cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 **시작 작업** (웹 역할만)
 
@@ -66,7 +66,7 @@ HTTPS 끝점을 이미 추가한 경우 HTTPS 끝점 옵션은 기본적으로 �
 
 Azure 저장소 계정을 가리키는 연결 문자열은 정의된 형식을 사용해야 합니다. 연결 문자열을 만드는 방법에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](storage/common/storage-configure-connection-string.md)을 참조하세요.
 
-Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었거나 Azure에 클라우드 서비스를 배포할 준비가 되었으면 Azure 저장소 계정을 가리키도록 연결 문자열의 값을 변경할 수 있습니다. (**...**)를 선택하고 **저장소 계정 자격 증명 입력**을 선택합니다. 계정 이름 및 계정 키를 포함한 계정 정보를 입력합니다. **저장소 계정 연결 문자열** 대화 상자에서 기본 HTTPS 끝점(기본 옵션), 기본 HTTP 끝점 또는 사용자 지정 끝점 사용 여부를 나타낼 수도 있습니다. [Azure 저장소 계정에서 Blob 데이터에 대한 사용자 지정 도메인 이름 구성](storage/blobs/storage-custom-domain-name.md)에 설명된 대로 서비스에 사용자 지정 도메인 이름을 등록한 경우 사용자 지정 끝점을 사용하도록 결정할 수 있습니다.
+Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었거나 Azure에 클라우드 서비스를 배포할 준비가 되었으면 Azure 저장소 계정을 가리키도록 연결 문자열의 값을 변경할 수 있습니다. (**...**)를 선택하고 **저장소 계정 자격 증명 입력**을 선택합니다. 계정 이름 및 계정 키를 포함한 계정 정보를 입력합니다. **Storage 계정 연결 문자열** 대화 상자에서 기본 HTTPS 끝점(기본 옵션), 기본 HTTP 끝점 또는 사용자 지정 끝점 사용 여부를 나타낼 수도 있습니다. [Azure 저장소 계정에서 Blob 데이터에 대한 사용자 지정 도메인 이름 구성](storage/blobs/storage-custom-domain-name.md)에 설명된 대로 서비스에 사용자 지정 도메인 이름을 등록한 경우 사용자 지정 끝점을 사용하도록 결정할 수 있습니다.
 
 > [!IMPORTANT]
 > 서비스를 배포하기 전에 Azure 저장소 계정을 가리키도록 연결 문자열을 수정해야 합니다. 이 작업을 수행하지 못하면 사용자의 역할이 시작되지 않거나 초기화 중, 사용 중 및 상태 중지 중 간에 전환될 수 있습니다.
@@ -88,7 +88,7 @@ Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었�
 ## <a name="certificates-page"></a>인증서 페이지
 **인증서** 페이지에서 인증서와 역할을 연결할 수 있습니다. 추가하는 인증서는 **끝점** 속성 페이지에서 HTTPS 끝점을 구성하는 데 사용할 수 있습니다.
 
-**인증서** 속성 페이지는 서비스 구성 인증서에 대한 정보를 추가합니다. 인증서는 서비스와 함께 패키징되지 않습니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 통해 Azure에 별도로 인증서를 업로드해야 합니다.
+**인증서** 속성 페이지는 서비스 구성 인증서에 대한 정보를 추가합니다. 인증서는 서비스와 함께 패키징되지 않습니다. [Azure Portal](http://portal.azure.com)을 통해 Azure에 별도로 인증서를 업로드해야 합니다.
 
 인증서를 역할에 연결하려면 인증서에 대한 이름을 입력합니다. 이 이름을 사용하여 **끝점** 속성 페이지에서 HTTPS 끝점을 구성할 때 인증서를 참고합니다. 그런 다음 인증서 저장소가 **로컬 컴퓨터** 또는 **현재 사용자** 및 저장소의 이름인지를 지정합니다. 마지막으로, 인증서의 손도장을 입력합니다. 인증서가 현재 사용자\개인(나의) 저장소에 있는 경우 채워진 목록에서 인증서를 선택하여 인증서의 손도장을 입력할 수 있습니다. 다른 위치에 상주하는 경우 손도장 값을 직접 입력합니다.
 

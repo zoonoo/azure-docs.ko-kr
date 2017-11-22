@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure Multi-Factor Authentication 구성 설정 - 공개 미리 보기
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/08/2017
 
 | 기능 | 설명 | 
 |:--- |:--- |
-| [사용자 차단/차단 해제](#block/unblock-users) |사용자 차단/차단 해제를 통해 사용자가 인증 요청을 받지 못하도록 방지할 수 있습니다. |
+| [사용자 차단 및 차단 해제](#block-and-unblock) |사용자 차단/차단 해제를 통해 사용자가 인증 요청을 받지 못하도록 방지할 수 있습니다. |
 | [사기 행위 경고](#fraud-alert) |사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 사기를 보고할 수 있습니다. |
 | [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 Multi-Factor Authentication "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다. |
 | [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 Multi-Factor Authentication으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. |
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/08/2017
 | [기억된 장치 및 브라우저용 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-that-users-trust) |사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다. |
 | [선택 가능한 확인 방법](#selectable-verification-methods) |사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. |
 
-## <a name="blockunblock-users"></a>사용자 차단/차단 해제
+## <a name="block-and-unblock"></a>차단 및 차단 해제
 사용자 차단/차단 해제를 사용하여 사용자가 인증 요청을 받지 못하도록 방지할 수 있습니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 차단된 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다.
 
 ### <a name="block-a-user"></a>사용자 차단
@@ -70,7 +70,7 @@ ms.lasthandoff: 11/08/2017
 
 ### <a name="configuration-options"></a>구성 옵션
 
-- **사기 행위가 보고되면 사용자 차단** - 사용자가 사기 행위를 보고하면 해당 계정은 차단됩니다.
+- **사기 행위가 보고되면 사용자 차단** - 사용자가 사기 행위로 신고된 경우 해당 계정은 90일 동안 또는 관리자가 계정을 차단 해제할 때까지 차단됩니다. 관리자는 로그인 보고서를 사용하여 로그인을 검토하고 향후 사기를 예방하기 위해 적절한 조치를 취할 수 있습니다. 그런 다음 관리자는 사용자의 계정을 [차단 해제](#unblock-a-user)할 수 있습니다.
 - **초기 인사말 중 사기 행위를 보고할 코드** - 사용자가 2단계 인증을 수행하라는 전화 통화를 받으면 일반적으로 #를 눌러 로그인을 확인합니다. 사기 행위를 보고하려는 경우 #를 누르기 전에 코드를 입력합니다. 이 코드의 기본값은 **0**이지만, 사용자가 지정할 수 있습니다.
 
 > [!NOTE]
