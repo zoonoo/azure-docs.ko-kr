@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다. 
@@ -105,7 +105,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 - **가용성 집합** - 가상 네트워크(vNet)를 Azure Resource Manager로 마이그레이션하려면, VM이 포함된 클래식 배포(즉, 클라우드 서비스)가 모두 하나의 가용성 집합에 있어야 하거나 VM이 모두 가용성 집합에 있지 않아야 합니다. 클라우드 서비스에 둘 이상의 가용성 집합이 있으면 Azure Resource Manager와 호환되지 않으므로 마이그레이션이 중지됩니다.  또한 가용성 집합에 일부 VM이 없는 한편 가용성 집합에 없는 일부 VM이 있을 수 있습니다. 이를 해결하려면 클라우드 서비스를 재구성하거나 재조정해야 합니다.  여기에는 시간이 오래 걸릴 수 있으므로 적절히 계획합니다. 
 
-- **웹/작업자 역할 배포** - 웹 및 작업자 역할이 포함된 Cloud Services는 Azure Resource Manager로 마이그레이션할 수 없습니다. 마이그레이션을 시작하려면 먼저 웹/작업자 역할을 가상 네트워크에서 제거해야 합니다.  일반적인 해결 방법은 웹/작업자 역할 인스턴스를 ExpressRoute 회로에 연결된 별도의 클래식 가상 네트워크로 이동하거나 코드를 최신 PaaS App Services로 마이그레이션하는 것입니다(이 문서의 범위를 벗어난 토론 내용임). 이전 재배포의 경우 새 클래식 가상 네트워크를 만들고, 웹/작업자 역할을 해당 가상 네트워크로 이동/재배포한 다음, 이동될 가상 네트워크에서 해당 배포를 삭제했습니다. 코드 변경이 필요 없습니다. 새 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md) 기능을 사용하여 웹/작업자 역할이 포함된 가상 네트워크와 마이그레이션될 가상 네트워크와 동일한 Azure 지역에 있는 다른 가상 네트워크를 피어링할 수 있으므로(**피어링된 가상 네트워크를 마이그레이션할 수 없으므로 가상 네트워크 마이그레이션이 완료된 후**), 성능 손실과 대기 시간/대역폭 패널티 없이 동일한 기능을 제공합니다. [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 추가하면 웹/작업자 역할 배포를 쉽게 완화할 수 있으며 Azure Resource Manager에서 마이그레이션을 차단할 수 없습니다.
+- **웹/작업자 역할 배포** - 웹 및 작업자 역할이 포함된 Cloud Services는 Azure Resource Manager로 마이그레이션할 수 없습니다. 마이그레이션을 시작하려면 먼저 웹/작업자 역할을 가상 네트워크에서 제거해야 합니다.  일반적인 해결 방법은 웹/작업자 역할 인스턴스를 ExpressRoute 회로에 연결된 별도의 클래식 가상 네트워크로 이동하거나 코드를 최신 PaaS App Services로 마이그레이션하는 것입니다(이 문서의 범위를 벗어난 토론 내용임). 이전 재배포의 경우 새 클래식 가상 네트워크를 만들고, 웹/작업자 역할을 해당 가상 네트워크로 이동/재배포한 다음, 이동될 가상 네트워크에서 해당 배포를 삭제했습니다. 코드 변경이 필요 없습니다. 새 [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md) 기능을 사용하여 웹/작업자 역할이 포함된 가상 네트워크와 마이그레이션될 가상 네트워크와 동일한 Azure 지역에 있는 다른 가상 네트워크를 피어링할 수 있으므로(**피어링된 가상 네트워크를 마이그레이션할 수 없으므로 가상 네트워크 마이그레이션이 완료된 후**), 성능 손실과 대기 시간/대역폭 패널티 없이 동일한 기능을 제공합니다. [Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md)을 추가하면 웹/작업자 역할 배포를 쉽게 완화할 수 있으며 Azure Resource Manager에서 마이그레이션을 차단할 수 없습니다.
 
 - **Azure Resource Manager 할당량** - Azure 지역에는 클래식 및 Azure Resource Manager 모두에 대해 별도의 할당량/제한이 있습니다. 마이그레이션 시나리오에서 새 하드웨어가 사용되지는 않지만*(기존의 VM을 클래식에서 Azure Resource Manager로 전환 중이므로)* Azure Resource Manager 할당량은 마이그레이션을 시작하기 전에 충분한 용량으로 계속 유지해야 합니다. 문제를 일으키는 주요 제한 사항은 아래와 같습니다.  할당량 지원 티켓을 열어 한도를 높입니다. 
 
@@ -123,19 +123,19 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
     Azure CLI 2.0의 최신 버전에서 다음 명령을 사용하여 현재 Azure Resource Manager 할당량을 확인할 수 있습니다.
 
-    **계산** *(코어, 가용성 집합)*
+    **Compute***(코어, 가용성 집합)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **네트워크** *(가상 네트워크, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
+    **네트워크***(Virtual Network, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **저장소** *(저장소 계정)*
+    **저장소***(Storage 계정)*
     
     ```bash
     az storage account show-usage
@@ -191,11 +191,11 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
-- [역할 기반 액세스 제어](../../azure-resource-manager/resource-group-overview.md#access-control)
+- [역할 기반 Access Control](../../azure-resource-manager/resource-group-overview.md#access-control)
 - [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [태그](../../azure-resource-manager/resource-group-using-tags.md).
 - [활동 제어](../../azure-resource-manager/resource-group-audit.md)
-- [리소스 정책](../../azure-resource-manager/resource-manager-policy.md)
+- [Azure 정책](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>문제 방지
 
