@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>원격 모니터링 사전 구성 솔루션 아키텍처
 
@@ -141,5 +141,6 @@ Cosmos DB 데이터베이스는 사전 구성 솔루션의 데이터를 저장�
 
 * [Azure IoT(.NET)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Azure IoT(Java)로 원격 모니터링을 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [원격 모니터링 아키텍처를 위해 미리 구성된 솔루션](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 원격 모니터링 사전 구성 솔루션에 대한 자세한 개념 정보는 [미리 구성된 솔루션 사용자 지정](iot-suite-remote-monitoring-customize.md)을 참조하세요.

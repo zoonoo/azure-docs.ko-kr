@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| API 관리 | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
-| 응용 프로그램 게이트웨이 |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
+| API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 진단 로깅](../batch/batch-diagnostics.md) |
 | Customer Insights | 스키마를 사용할 수 없음 |
@@ -49,27 +49,43 @@ ms.lasthandoff: 10/11/2017
 | 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | 서버 관리 | 스키마를 사용할 수 없음 |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL 데이터베이스 | [Azure SQL Database 진단 로깅](../sql-database/sql-database-metrics-diag-logging.md) |
-| 스트림 분석 |[작업 진단 로그](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| 가상 네트워크 | 스키마를 사용할 수 없음 |
+| SQL Database | [Azure SQL Database 진단 로깅](../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[작업 진단 로그](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Virtual Network | 스키마를 사용할 수 없음 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|엔진|엔진|
+|Microsoft.AnalysisServices/servers|서비스|서비스|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 게이트웨이 관련 로그|
 |Microsoft.Automation/automationAccounts|JobLogs|작업 로그|
 |Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|디스크 노드 상태|
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|끝점의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|파이프라인 작업 실행 로그|
+|Microsoft.DataFactory/factories|PipelineRuns|파이프라인 실행 로그|
+|Microsoft.DataFactory/factories|TriggerRuns|트리거 실행 로그|
 |Microsoft.DataLakeAnalytics/accounts|감사|감사 로그|
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.Devices/IotHubs|연결|연결|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|장치 ID 작업|
+|Microsoft.Devices/IotHubs|FileUploadOperations|파일 업로드 작업|
+|Microsoft.Devices/IotHubs|경로|경로|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D 쌍 작업|
+|Microsoft.Devices/IotHubs|TwinQueries|쌍 쿼리|
+|Microsoft.Devices/IotHubs|JobsOperations|작업 연산|
+|Microsoft.Devices/IotHubs|DirectMethods|직접 메서드|
 |Microsoft.Devices/provisioningServices|DeviceOperations|장치 작업|
 |Microsoft.Devices/provisioningServices|ServiceOperations|서비스 작동|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
 |Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|자동 크기 조정 로그|
@@ -78,6 +94,7 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 보호 알림|
@@ -85,6 +102,11 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|게이트웨이 진단 로그|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|터널 진단 로그|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|경로 진단 로그|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 작업|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 이벤트|
@@ -93,7 +115,6 @@ ms.lasthandoff: 10/11/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 복구 지점|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|
-|Microsoft.Sql/servers/databases|QueryStore|쿼리 저장소|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|쿼리 저장소 런타임 통계|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|쿼리 저장소 대기 통계|
 |Microsoft.Sql/servers/databases|오류|오류|

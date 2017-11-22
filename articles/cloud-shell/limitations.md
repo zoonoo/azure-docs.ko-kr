@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell(미리 보기) 제한 사항 | Microsoft Docs"
+title: "Azure Cloud Shell 제한 사항 | Microsoft Docs"
 description: "Azure Cloud Shell의 제한 사항 개요"
 services: azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -70,7 +70,7 @@ Cloud Shell 세션 중단 또는 동시 세션으로 인해 bash 명령의 기�
 
 ### <a name="slow-startup-time"></a>느린 시작 시간
 
-Azure Cloud Shell의 PowerShell은 미리 보기 중에 초기화하는 데 최대 60초가 걸릴 수 있습니다.
+Azure Cloud Shell의 PowerShell(미리 보기)은 미리 보기 중에 초기화하는 데 최대 60초가 걸릴 수 있습니다.
 
 ### <a name="no-home-directory-persistence"></a>$Home 디렉터리 지속성 없음
 

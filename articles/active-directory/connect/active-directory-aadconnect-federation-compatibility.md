@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 페더레이션 호환성 목록
 Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 Office 365용 Single Sign-On과 강화된 응용 프로그램 액세스 보안 및 하이브리드와 클라우드 전용 구현에 대한 기타 Microsoft Online Services를 제공합니다. 대부분의 Microsoft Online Services와 마찬가지로 Office 365는 디렉터리 서비스, 인증 및 권한 부여에 대해 Azure Active Directory와 통합되어 있습니다. 또한 Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에도 Single Sign-On을 제공합니다. 지원되는 SaaS 응용 프로그램에 대한 Azure Active Directory 응용 프로그램 갤러리를 참조하세요.
@@ -46,6 +46,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona 복합 인증](#digitalpersona-composite-authentication)
+* [ForgeRock ID 플랫폼 액세스 관리 V5.x](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation 버전 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -156,7 +157,7 @@ CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://ww
 | --- | --- | --- |
 | Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 |지원됨 |없음 |
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음 |
-| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |클라이언트 액세스 제어는 지원되지 않습니다. |
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |클라이언트 Access Control은 지원되지 않습니다. |
 
 Centrify에 대한 자세한 내용은 [Centrify](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)를 참조하세요.
 
@@ -186,6 +187,17 @@ Dell One Identity Cloud Access Manager에 대한 자세한 내용은 [Dell One I
 
 자세한 내용은 [DigitalPersona 복합 인증](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf)을 참조하세요.
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>ForgeRock ID 플랫폼 액세스 관리 V5.x
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+| 클라이언트 | 지원 | 예외 |
+| --- | --- | --- |
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 |지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
+
+자세한 내용은 [ForgeRock ID 플랫폼 액세스 관리 V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517)를 참조하세요.
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
 

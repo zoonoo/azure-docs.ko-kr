@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e9cb4b5b886cec46c0483287460c720855867f38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e75429d66a30bfc4588a3070e32d58eec0df4b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법
-
-이 문서에서는 Azure Portal을 사용하여 Azure Cosmos DB 전역 배포를 설정한 다음 Table API(미리 보기)를 사용하여 연결하는 방법을 보여 줍니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
@@ -36,13 +34,13 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Table API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이렇게 하려면 미리 보기 Azure Storage SDK의 앱 구성에서 `TablePreferredLocations` 구성 값을 설정합니다. Azure Storage SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 끝점을 선택합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이렇게 하려면 Azure Cosmos DB Table API SDK의 app.config에서 `TablePreferredLocations` 구성 값을 설정합니다. Azure Cosmos DB Table API SDK는 계정 구성, 현재 가용성 및 제공된 기본 설정 목록에 따라 최상의 끝점을 선택하여 통신합니다.
 
 `TablePreferredLocations`에는 읽기에 대해 기본 설정된(멀티 홈) 위치를 쉼표로 구분한 목록이 있어야 합니다. 각 클라이언트 인스턴스는 대기 시간이 짧은 읽기에 대해 기본 설정된 순서대로 이러한 지역의 하위 집합을 지정할 수 있습니다. 지역 이름은 [표시 이름](https://msdn.microsoft.com/library/azure/gg441293.aspx)(예: `West US`)을 사용하여 지정해야 합니다.
 
 모든 읽기는 `TablePreferredLocations` 목록에서 사용 가능한 첫 번째 지역으로 보내집니다. 요청이 실패하면 클라이언트는 목록의 다음 지역으로 옮겨갑니다.
 
-SDK는 `TablePreferredLocations`에 지정된 지역에서만 읽기를 시도합니다. 예를 들어 데이터베이스 계정이 세 지역에서 사용할 수 있지만, 클라이언트에서 `TablePreferredLocations`에 대해 쓰기에 해당하지 않는 영역 두 개만 지정하면 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
+SDK는 `TablePreferredLocations`에 지정된 지역에서 읽기를 시도합니다. 예를 들어 데이터베이스 계정이 세 지역에서 사용할 수 있지만, 클라이언트에서 `TablePreferredLocations`에 대해 쓰기에 해당하지 않는 영역 두 개만 지정하면 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
 
 SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
@@ -62,9 +60,5 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 전역 배포 구성
-> * DocumentDB API를 사용하여 전역 배포 구성
+> * Azure Cosmos DB Table API를 사용하여 전역 배포를 설정하는 방법
 
-이제 다음 자습서로 진행하여 Azure Cosmos DB 로컬 에뮬레이터를 사용하여 로컬로 개발하는 방법에 대해 자세히 알아볼 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)

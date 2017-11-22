@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 미리 집계된 메트릭 원격 분석은 집계 기간을 1분으로 가정합니다.
 
-Application Insights에서는 잘 알려진 몇 가지 메트릭 이름을 지원합니다. 
+Application Insights에서는 잘 알려진 몇 가지 메트릭 이름을 지원합니다. 이러한 메트릭은 performanceCounters 테이블에 배치되었습니다.
 
 시스템 및 프로세스 카운터를 나타내는 메트릭:
 
@@ -65,6 +65,8 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 집계된 메트릭 표준 편차입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
 ## <a name="custom-properties"></a>사용자 지정 속성
+
+`CustomPerfCounter` 사용자 지정 속성이 `true`로 설정된 메트릭은 Windows 성능 카운터를 나타냅니다. 이러한 메트릭은 performanceCounters 테이블에 배치되었습니다. customMetrics에 위치하지 않습니다. 또한 이 측정값의 이름은 구문 분석하여 범주, 카운터 및 인스턴스 이름을 추출합니다.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

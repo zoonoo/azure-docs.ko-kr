@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
@@ -119,13 +119,13 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
 
 1. [**Azure Portal**](https://portal.azure.com)에서 **Azure Cosmos DB**를 클릭한 다음 수정할 Cosmos DB 계정을 선택합니다. 
  
-    **Azure Cosmos DB**가 이동 표시줄에 없는 경우 >를 클릭하고 **데이터베이스**까지 스크롤한 다음 **Azure Cosmos DB**, DocumentDB 계정을 차례로 선택합니다.  
+    **Azure Cosmos DB**가 이동 표시줄에 없는 경우 >를 클릭하고 **데이터베이스**까지 스크롤한 다음 **Azure Cosmos DB**, 계정을 차례로 선택합니다.  
 
-2. 리소스 메뉴의 **컨테이너** 아래에서 **규모**를 클릭하고 드롭다운 목록에서 수정할 컬렉션을 선택한 다음 **가격 책정 계층**을 클릭합니다. 미리 정의된 처리량을 사용하는 계정은 S1, S2 또는 S3의 가격 책정 계층을 보유합니다.  **가격 책정 계층 선택** 블레이드에서 **표준**을 클릭하여 사용자 정의 처리량을 변경한 다음 **선택**을 클릭하여 변경 내용을 저장합니다.
+2. 리소스 메뉴의 **컨테이너** 아래에서 **규모**를 클릭하고 드롭다운 목록에서 수정할 컬렉션을 선택한 다음 **가격 책정 계층**을 클릭합니다. 미리 정의된 처리량을 사용하는 계정은 S1, S2 또는 S3의 가격 책정 계층을 보유합니다.  **가격 책정 계층 선택** 페이지에서 **표준**을 클릭하여 사용자 정의 처리량을 변경한 다음 **선택**을 클릭하여 변경 내용을 저장합니다.
 
-    ![처리량 값을 변경하는 위치를 보여 주는 설정 블레이드의 스크린 샷](./media/performance-levels/change-performance-set-thoughput.png)
+    ![처리량 값을 변경하는 위치를 보여 주는 설정 페이지의 스크린 샷](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. **규모** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자에 기본값인 400이 표시됩니다. 처리량을 400~10,000개 RU/s( [요청 단위](request-units.md)/초) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **월별 예상 비용**이 자동으로 업데이트됩니다. 
+3. **규모** 페이지로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자에 기본값인 400이 표시됩니다. 처리량을 400~10,000개 RU/s( [요청 단위](request-units.md)/초) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **월별 예상 비용**이 자동으로 업데이트됩니다. 
 
     >[!IMPORTANT] 
     > 변경 내용을 저장하고 표준 가격 책정 계층으로 이동하면 S1, S2 또는 S3 성능 수준으로 롤백할 수 없습니다.
@@ -141,7 +141,7 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
 
 **.NET SDK를 사용하여 단일 파티션 컬렉션으로 마이그레이션하려면**
 
-컬렉션의 성능 수준 변경에 대한 다른 옵션은 SDK를 통하는 것입니다. 이 섹션에서는 [DocumentDB .NET API](documentdb-sdk-dotnet.md)를 사용한 컬렉션의 성능 수준 변경에 대해서만 다루고 있으나, 다른 SDK의 경우에도 프로세스는 유사합니다.
+컬렉션의 성능 수준 변경에 대한 다른 옵션은 Azure Cosmos DB SDK를 통하는 것입니다. 이 섹션에서는 [DocumentDB .NET API](documentdb-sdk-dotnet.md)를 사용한 컬렉션의 성능 수준 변경에 대해서만 다루고 있으나, 다른 SDK의 경우에도 프로세스는 유사합니다.
 
 다음 코드 조각에서는 컬렉션 처리량을 5,000RU/s로 변경합니다.
     

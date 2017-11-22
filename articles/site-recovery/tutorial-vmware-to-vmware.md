@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버의 재해 복구 설정
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/12/2017
 2. **To recovery site(대상 복구 사이트)** > **Yes, with VMware vSphere Hypervisor(예, VMware vSphere 하이퍼바이저 포함)**를 차례로 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **Scout 설치**에서 InMage Scout 8.0.1 GA 소프트웨어 및 등록 키를 다운로드합니다. 모든 구성 요소에 대한 설치 파일은 다운로드한 zip 파일에 포함되어 있습니다.
 
-## <a name="install-component-updates"></a>구성 요소 업데이트 설치
+## <a name="download-and-install-component-updates"></a>구성 요소 업데이트 다운로드 및 설치
 
  최신 [업데이트](#updates)를 검토하고 설치합니다. 업데이트는 다음 순서로 서버에 설치해야 합니다.
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/12/2017
 ## <a name="enable-replication"></a>복제 활성화
 
 1. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
-2. 지침은 제품과 함께 다운로드된 InMage Scout 설명서를 사용합니다. 또는 다음과 같이 설명서에 액세스할 수 있습니다.
+2. 설치, 보호 및 복구에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
 
    * [릴리스 정보](https://aka.ms/asr-scout-release-notes)
    * [호환성 매트릭스](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ ms.lasthandoff: 10/12/2017
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
 업데이트 날짜: 2017년 10월 12일
+
+[Scout 업데이트 6](https://aka.ms/asr-scout-update6)를 다운로드합니다.
 
 Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 1에서 업데이트 5까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항 및 개선된 기능이 포함되어 있습니다. 
 

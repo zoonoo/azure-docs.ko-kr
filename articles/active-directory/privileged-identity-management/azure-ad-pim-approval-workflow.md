@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>승인(미리 보기)
+# <a name="approvals"></a>승인
 
 ## <a name="overview"></a>개요
 
 PIM(Privileged Identity Management)에 대한 승인을 사용하면, 활성화에 대한 승인이 필요한 역할을 구성하고 하나 이상의 사용자 또는 그룹을 위임된 승인자로 선택할 수 있습니다. 역할을 구성하고 승인자를 선택하는 방법을 알아보려면 계속 진행하세요.
 
->[!NOTE]
-이 기능은 아직 개발 중이므로 버그가 발생할 수 있음에 유의하세요. 텍스트 및 명명 규칙을 포함한 기능이 변경될 수 있으므로 최종본으로 간주해서는 안됩니다.
 
-
-## <a name="key-terminology"></a>주요 용어
+## <a name="new-terminology"></a>새 용어
 
 *적격 역할 사용자* – 적법한 Azure AD 역할(역할에 대한 활성화 필요)로 할당된 조직 내 사용자입니다.
 
-*위임된 승인자* – 역할 활성화 요청에 대한 승인을 담당하는 Azure AD 내 하나 이상의 개인 또는 그룹입니다.
+*위임된 승인자* – Azure AD 내에서 역할을 활성화하도록 요청을 승인하는 작업을 담당하는 하나 이상의 개인 또는 그룹입니다.
 
 ## <a name="scenarios"></a>시나리오
 

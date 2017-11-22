@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
@@ -60,13 +60,13 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 name | `Until` 작업의 이름입니다. | 문자열 | 예
 type | **Until**로 설정해야 합니다. | 문자열 | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
-시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. | 아니요
+시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1
 
 > [!NOTE]
-> 이 섹션에서는 JSON 정의 및 파이프라인을 실행하는 PowerShell 명령 샘플을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ### <a name="pipeline-with-until-activity"></a>Until 작업이 포함된 파이프라인
 이 예제의 파이프라인에는 **Until** 및 **Wait**라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
@@ -213,7 +213,7 @@ type | **Until**로 설정해야 합니다. | 문자열 | 예
 ```
 
 ### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 집합(BlobDataset.json)
-이 파이프라인에서 **folderPath**는 **outputPath1** 또는 **outputPath2** 파이프라인 매개 변수의 값으로 설정됩니다. 
+파이프라인은 **folderPath**를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
 
 ```json
 {

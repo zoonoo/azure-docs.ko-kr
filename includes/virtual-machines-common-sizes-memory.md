@@ -1,4 +1,6 @@
 
+메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 성능뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
+
 * M 시리즈는 클라우드의 VM 중에서 가장 높은 vCPU 수(최대 128개의 vCPU) 및 가장 큰 메모리(최대 2.0TiB)를 제공합니다.  높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 응용 프로그램에 이상적입니다.
 
 * Dv2 시리즈, D 시리즈, G 시리즈 및 DS/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다.  이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
@@ -74,7 +76,7 @@ ACU: 180-240
 | Standard_GS4 |16 |224 |448 |32 |80,000/800(2,112) |40,000/1,000 |8 / 6000 - 16000 &#8224; |
 | Standard_GS5** |32 |448 |896 |64 |160,000/1,600(4,224) |80,000/2,000 |8 / 20000 |
 
-*GS 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/common/storage-premium-storage.md)를 참조하세요. 
+*GS 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요. 
 
 **인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
@@ -109,7 +111,7 @@ ACU: 210-250
 | Standard_DS14_v2 |16 |112 |224 |32 |64,000/512(576) |51,200/768 |8 / 6000 - 12000 &#8224; |
 | Standard_DS15_v2** |20 |140 |280 |40 |80,000/640(720) |64,000/960 |8 / 20000***
 
-*DSv2 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/common/storage-premium-storage.md)를 참조하세요.
+*DSv2 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
 **인스턴스는 VM이 Intel Haswell 노드의 유일한 VM임을 보장하는 격리 노드입니다.
 
@@ -146,7 +148,7 @@ ACU: 160
 | Standard_DS13 |8 |56 |112 |16 |32,000/256(288) |25,600/256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |32 |64,000/512(576) |51,200/512 |8 / 6000 - 8000 &#8224; |
 
-*DS 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/common/storage-premium-storage.md)를 참조하세요.
+*DS 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
 
 ## <a name="d-series"></a>D 시리즈

@@ -1,26 +1,6 @@
----
-title: "Azure CLI 샘플 - Azure Functions | Microsoft Docs"
-description: "Azure CLI 샘플 - Azure Functions"
-services: functions
-documentationcenter: functions
-author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
-ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
-ms.date: 04/11/2017
-ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: f3c9fc67c082a759432f1db0b44b42513f2fb733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+-- 제목: Azure CLI 샘플 - Azure Functions | Microsoft Docs 설명: Azure CLI 샘플 - Azure Functions 서비스: functions 설명서 센터: functions 작성자: syntaxc4 관리자: cfowler 편집자: ggailey777 태그: azure-service-management
+
+ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0 ms.service: functions ms.devlang: na ms.topic: sample ms.tgt_pltfrm: na ms.workload: functions ms.date: 04/11/2017 ms.author: glenga ms.custom: mvc
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

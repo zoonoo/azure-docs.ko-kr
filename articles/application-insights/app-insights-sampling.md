@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -38,9 +38,9 @@ ms.lasthandoff: 11/07/2017
 ## <a name="types-of-sampling"></a>샘플링 유형
 다음은 세 가지 대체 샘플링 방법입니다.
 
-* **적응 샘플링** 은 ASP.NET 앱의 SDK에서 전송되는 원격 분석의 양을 자동으로 조정합니다. 기본 버전은 SDK v 2.0.0-beta3입니다. 현재 ASP.NET 서버 측 원격 분석만 사용할 수 있습니다. 
+* **적응 샘플링** 은 ASP.NET 앱의 SDK에서 전송되는 원격 분석의 양을 자동으로 조정합니다. SDK v 2.0.0-beta3부터는 기본 샘플링 방법입니다. 적응 샘플링은 현재 ASP.NET 서버 쪽 원격 분석에만 사용할 수 있습니다. 
 * **고정 비율 샘플링** 은 ASP.NET 서버와 사용자 브라우저에서 전송되는 원격 분석의 양을 줄입니다. 비율은 사용자가 설정합니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
-* **수집 샘플링**은 Azure Portal에서 작동합니다. 설정한 속도에 따라 앱에서 들어오는 원격 분석 중 일부를 삭제합니다. 원격 분석 트래픽을 줄이지는 않지만 월간 할당량 내로 유지하는 데 도움이 됩니다. 수집 샘플링의 가장 큰 장점은 앱을 다시 배포하지 않고 설정할 수 있으며, 모든 서버와 클라이언트에 균일하게 작동한다는 점입니다. 
+* **수집 샘플링**은 Azure Portal에서 작동합니다. 설정한 샘플링 주기에 따라 앱에서 보낸 원격 분석 중 일부를 삭제합니다. 앱에서 보낸 원격 분석 트래픽을 줄이지는 않지만 월별 할당량 내로 유지하는 데 도움이 됩니다. 수집 샘플링의 주요 이점은 앱을 다시 배포하지 않고 샘플링 주기를 설정할 수 있으며, 모든 서버와 클라이언트에 균일하게 작동한다는 것입니다. 
 
 적응 또는 고정 비율 샘플링이 작업 중인 경우 수집 샘플링은 비활성화됩니다.
 
@@ -67,15 +67,19 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="adaptive-sampling-at-your-web-server"></a>웹 서버의 적응 샘플링
 적응 샘플링은 ASP.NET v 2.0.0-beta3 이상용 Application Insights SDK에 사용할 수 있으며, 기본적으로 사용하도록 설정됩니다. 
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 끝점으로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
 
 적은 양의 원격 분석에서는 작동하지 않으므로 사용량이 적은 웹 사이트 또는 디버그 중인 앱은 영향을 받지 않습니다.
 
-목표 양을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다. 
+목표량을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다. 
 
 요청 빈도 및 예외 처리 빈도와 같은 메트릭 수는 샘플링 주기에 맞게 보정되도록 조정되므로 메트릭 탐색기에서 거의 정확한 값으로 표시됩니다.
 
-최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **시험판 포함**을 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
+### <a name="update-nuget-packages"></a>NuGet 패키지 업데이트 ###
+
+프로젝트의 NuGet 패키지를 최신 *시험판* 버전의 Application Insights로 업데이트합니다. Visual Studio의 [솔루션 탐색기]에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, [NuGet 패키지 관리]를 선택하고, **시험판 포함**을 선택한 다음, Microsoft.ApplicationInsights.Web을 검색합니다. 
+
+### <a name="configuring-adaptive-sampling"></a>적응 샘플링 구성 ###
 
 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)의 `AdaptiveSamplingTelemetryProcessor` 노드에서 여러 매개 변수를 조정할 수 있습니다. 표시된 수치는 기본값입니다.
 
@@ -116,7 +120,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 적응 샘플링을 **해제하려면** applicationinsights-config에서 AdaptiveSamplingTelemetryProcessor 노드를 제거합니다.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>대체: 코드에서 적응 샘플링 구성
-.config 파일의 샘플링을 조정하는 대신 코드를 사용할 수 있습니다. 이를 통해 샘플링 속도가 다시 계산될 때마다 호출되는 콜백 함수를 지정할 수 있습니다. 예를 들어 이를 사용하여 샘플링 속도를 사용하는 작업을 찾을 수 있습니다.
+.config 파일에서 샘플링 매개 변수를 설정하는 대신 프로그래밍 방식으로 이러한 값을 설정할 수 있습니다. 이를 통해 샘플링 속도가 다시 계산될 때마다 호출되는 콜백 함수를 지정할 수 있습니다. 예를 들어 이를 사용하여 샘플링 속도를 사용하는 작업을 찾을 수 있습니다.
 
 .config 파일에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거합니다.
 
@@ -168,7 +172,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="sampling-for-web-pages-with-javascript"></a>JavaScript를 사용하는 웹 페이지에 대한 샘플링
 서버에서 고정 비율 샘플링에 대한 웹 페이지를 구성할 수 있습니다. 
 
-[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻은 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 _Layout.cshtml로 이동합니다.)  계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
+[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻은 JavaScript 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 _Layout.cshtml로 이동합니다.)  계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
 
     <script>
     var appInsights= ... 
@@ -191,13 +195,15 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 서버에서도 고정 비율 샘플링을 사용하도록 설정하는 경우 클라이언트와 서버가 동기화되므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
 
 ## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>ASP.NET 웹 사이트에 대한 고정 비율 샘플링
-고정 비율 샘플링은 웹 서버와 웹 브라우저에서 전송되는 트래픽을 줄입니다. 적응 샘플링과 달리 사용자가 결정한 고정 비율로 원격 분석을 줄어듭니다. 또한 관련 항목이 유지되도록, 예를 들어 검색의 페이지 보기에서 관련 요청을 찾을 수 있도록 클라이언트와 서버의 샘플링을 동기화합니다.
+고정 비율 샘플링은 웹 서버와 웹 브라우저에서 전송되는 트래픽을 줄입니다. 적응 샘플링과 달리 사용자가 결정한 고정 비율로 원격 분석을 줄어듭니다. 또한 클라이언트와 서버 샘플링을 동기화하여 관련 항목이 유지되도록 합니다. 예를 들어 Search의 페이지 보기에서 관련 요청을 찾을 수 있습니다.
 
-샘플링 알고리즘에는 관련 항목이 유지됩니다. 각 HTTP 요청 이벤트에 대해 해당 이벤트와 관련 이벤트가 삭제되거나 전송됩니다. 
+샘플링 알고리즘에는 관련 항목이 유지됩니다. 각 HTTP 요청 이벤트에 대해 요청 및 관련 이벤트가 함께 삭제되거나 전송됩니다. 
 
 메트릭 탐색기에서 요청 및 예외 수와 같은 빈도는 거의 정확한 값이 되도록 계수가 곱해져 샘플링 주기에 맞게 보정됩니다.
 
-1. **시험판** 버전의 Application Insights로 *프로젝트의 NuGet 패키지를 업데이트* 합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **시험판 포함** 을 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
+### <a name="configuring-fixed-rate-sampling"></a>고정 비율 샘플링 구성 ###
+
+1. **시험판** 버전의 Application Insights로 *프로젝트의 NuGet 패키지를 업데이트* 합니다. Visual Studio의 [솔루션 탐색기]에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, [NuGet 패키지 관리]를 선택하고, **시험판 포함**을 선택한 다음, Microsoft.ApplicationInsights.Web을 검색합니다. 
 2. **적응 샘플링을 사용하지 않도록 설정**: [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거하거나 주석으로 처리합니다.
    
     ```xml
@@ -233,7 +239,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 > 
 
 ### <a name="alternative-enable-fixed-rate-sampling-in-your-server-code"></a>대체: 서버 코드에서 고정 비율 샘플링을 사용하도록 설정
-.config 파일에 샘플링 매개 변수를 설정하는 대신 코드를 사용할 수 있습니다. 
+.config 파일에서 샘플링 매개 변수를 설정하는 대신 프로그래밍 방식으로 이러한 값을 설정할 수 있습니다. 
 
 *C#*
 
@@ -256,9 +262,9 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ([원격 분석 프로세서에 대해 알아봅니다](app-insights-api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>언제 샘플링을 사용합니까?
-ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이 자동으로 사용되도록 설정됩니다. 사용하는 SDK 버전에 상관없이 서버에서 수집 샘플링을 사용할 수 있습니다.
+ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이 자동으로 사용되도록 설정됩니다. 사용하는 SDK 버전에 관계 없이 수집 샘플링을 사용하면 Application Insights에서 수집된 데이터를 샘플링할 수 있습니다.
 
-대부분의 중소 응용 프로그램은 샘플링하지 않아도 됩니다. 가장 유용한 진단 정보 및 가장 정확한 통계는 모든 사용자 활동에서 데이터를 수집하여 구합니다. 
+일반적으로 중소 규모의 응용 프로그램 대부분에서는 샘플링이 필요하지 않습니다. 가장 유용한 진단 정보 및 가장 정확한 통계는 모든 사용자 활동에서 데이터를 수집하여 구합니다. 
 
 샘플링의 주요 장점은 다음과 같습니다.
 
@@ -281,7 +287,7 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 **다음과 같은 경우 적응 샘플링을 사용합니다.**
 
-그렇지 않은 경우 적응 샘플링을 사용하는 것이 좋습니다. 이 샘플링은 ASP.NET 서버 SDK 버전 2.0.0-beta3 이상에서 기본적으로 사용하도록 설정됩니다. 특정 최소 속도까지 트래픽을 줄이지 않으므로 사용량이 적은 사이트에는 영향을 주지 않습니다.
+다른 형태의 샘플링을 사용하는 조건이 적용되지 않으면 적응 샘플링을 사용하는 것이 좋습니다. 이 샘플링은 ASP.NET 서버 SDK 버전 2.0.0-beta3 이상에서 기본적으로 사용하도록 설정됩니다. 특정 최소 주기에 도달할 때까지 트래픽이 감소되지 않으므로 사용 빈도가 낮은 사이트는 영향을 받지 않습니다.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>샘플링이 작업 중인지 어떻게 알 수 있나요?
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](app-insights-analytics.md) 를 사용합니다.
@@ -330,7 +336,7 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 * 한 가지 방법은 적응 샘플링으로 시작하고 안정적인 비율(위 질문 참조)을 찾은 다음 해당 비율을 사용하여 고정 비율 샘플링으로 전환하는 것입니다. 
   
-    그렇지 않으면 추측해야 합니다. AI에서 현재 원격 분석 사용량을 분석하고 발생하는 모든 제한을 관찰하며 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 가지 입력은 수집된 원격 분석의 볼륨을 얼마나 줄여야 할지 제안합니다. 그러나 사용자 수가 증가하거나 원격 분석의 양이 약간 다르게 변화되면 추정치가 무효화될 수도 있습니다.
+    그렇지 않으면 추측해야 합니다. Application Insights에서 현재 원격 분석 사용을 분석하고, 발생하는 모든 제한을 관찰하며, 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 가지 입력은 수집된 원격 분석의 볼륨을 얼마나 줄여야 할지 제안합니다. 그러나 사용자 수가 증가하거나 원격 분석의 양이 약간 다르게 변화되면 추정치가 무효화될 수도 있습니다.
 
 *샘플링 비율을 너무 낮게 구성하는 경우 어떻게 됩니까?*
 

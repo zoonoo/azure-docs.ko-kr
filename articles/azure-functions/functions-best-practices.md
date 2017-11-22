@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -66,8 +66,7 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
-Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거](functions-bindings-storage-queue.md#trigger)를 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요.
- 
+Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#trigger---poison-messages)을 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요. 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지
 
@@ -97,4 +96,3 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 Azure Functions에서는 Azure App Service를 사용하므로 App Service 지침도 알아야 합니다.
 * [패턴 및 사례 HTTP 성능 최적화](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

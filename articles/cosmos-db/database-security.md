@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 |Active Directory 통합(RBAC)| 이 표 다음의 스크린샷에 나와 있는 것처럼, Azure Portal에서 액세스 제어(IAM)를 사용하여 데이터베이스 계정에 대한 액세스도 제공할 수 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 다음 이미지처럼 개인 및 그룹에 대해 기본 제공 역할이나 사용자 지정 역할을 사용할 수 있습니다.|
 |글로벌 복제|Azure Cosmos DB는 단추 클릭만으로 Azure 전 세계 데이터 센터 중 어디로나 데이터를 복제할 수 있는 턴키 글로벌 배포 기능을 제공합니다. 글로벌 복제를 통해 전역적으로 크기를 조정하고 전 세계 데이터에 짧은 대기 시간으로 액세스할 수 있습니다.<br><br>보안 컨텍스트에서 글로벌 복제는 지역별 오류에 대해 데이터 보호를 보장해줍니다.<br><br>[데이터를 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보|
 |지역별 장애 조치|데이터를 둘 이상의 데이터 센터에 복제한 경우 지역 데이터 센터가 오프라인으로 전환되면 Azure Cosmos DB가 사용자 작업을 자동으로 롤오버합니다. 데이터가 복제된 지역을 사용하여 장애 조치 지역의 우선 순위가 지정된 목록을 만들 수 있습니다. <br><br>[Azure Cosmos DB의 지역별 장애 조치(Failover)](regional-failover.md)에서 자세히 알아보세요.|
-|로컬 복제|단일 데이터 센터 내에서도 Azure Cosmos DB는 고가용성을 위해 데이터를 자동으로 복제하여 [일관성 수준](consistency-levels.md)을 선택할 수 있도록 합니다. 이렇게 하면  [99.99% 작동 시간 가용성 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)가 보장되고 다른 데이터베이스 서비스가 제공할 수 없는 재정적 보장이 함께 제공됩니다.|
+|로컬 복제|단일 데이터 센터 내에서도 Azure Cosmos DB는 고가용성을 위해 데이터를 자동으로 복제하여 [일관성 수준](consistency-levels.md)을 선택할 수 있도록 합니다. 이를 통해 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% [가용성 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 보장합니다.|
 |자동 온라인 백업|Azure Cosmos DB 데이터베이스는 정기적으로 백업되며 georedundant 저장소에 저장됩니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|
 |중요한 데이터 보호 및 격리|이제 [새로운 기능](#whats-new)에 나열된 지역의 모든 데이터가 미사용 상태에서 암호화됩니다.<br><br>PII 및 기타 기밀 데이터를 특정 컬렉션 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|

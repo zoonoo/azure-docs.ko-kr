@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup 오류 문제 해결: 에이전트 및/또는 확장 관련 문제
 
-이 문서에서는 VM 에이전트와 통신 및 확장의 문제와 관련된 백업 실패를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
+이 문서에서는 VM 에이전트와 통신 및 확장의 문제와 관련된 Backup 실패를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -68,6 +68,11 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>지정된 디스크 구성은 지원되지 않습니다.
 
+> [!NOTE]
+> >1TB 관리되지 않는 디스크를 포함하는 VM에 대한 백업은 비공개 미리 보기 상태로 지원됩니다. 세부 정보는 [대형 디스크 VM 백업 지원에 대한 비공개 미리 보기](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)를 참조하세요.
+>
+>
+
 현재 Azure Backup은 [1,023GB보다 큰](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 디스크 크기를 지원하지 않습니다. 
 - 1TB보다 큰 디스크가 있는 경우 [1TB 미만의 새 디스크를 연결합니다](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal). <br>
 - 그런 다음 1TB보다 큰 디스크의 데이터를 새로 만든 1TB 미만의 디스크에 복사합니다. <br>
@@ -79,7 +84,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ### <a name="the-vm-has-no-internet-access"></a>VM이 인터넷에 연결되어 있지 않습니다.
 배포 요구 사항에 따라 VM이 인터넷에 연결되어 있지 않거나 Azure 인프라에 대한 액세스를 차단하는 위치에 제한 사항이 있습니다.
 
-제대로 작동하려면 백업 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
+제대로 작동하려면 백업 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 Backup은 결국 실패합니다.
 
 ####  <a name="solution"></a>해결 방법
 문제를 해결하려면 다음 방법 중 하나를 사용해 보세요.
@@ -108,7 +113,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 4. 프로그램 및 기능에서 볼 수 있는 경우 Windows 게스트 에이전트를 제거합니다.
 5. [최신 버전의 에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다.
 6. 그런 다음 서비스에서 Windows 게스트 에이전트 서비스를 볼 수 있어야 합니다.
-7. 포털에서 "지금 백업"을 클릭하여 요청 시/임시 백업을 실행해 봅니다.
+7. 포털에서 "지금 Backup"을 클릭하여 요청 시/임시 백업을 실행해 봅니다.
 
 또한 가상 컴퓨터가 **[시스템에 .NET 4.5를 설치](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**했는지 확인합니다. VM 에이전트가 서비스와 통신하는 데 필요합니다.
 
@@ -150,14 +155,14 @@ VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용
 
 | 원인 | 해결 방법 |
 | --- | --- |
-| VM에 구성된 SQL Server 백업이 있습니다. | 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다.<br><br>스냅숏 문제로 인해 백업이 실패한 경우 다음 레지스트리 키를 설정합니다.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| VM에 구성된 SQL Server 백업이 있습니다. | 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 실행합니다. SQL Server 기반 서버를 실행하고 SQL Server 백업이 구성된 VM에서 스냅숏 실행이 지연될 수 있습니다.<br><br>스냅숏 문제로 인해 Backup이 실패한 경우 다음 레지스트리 키를 설정합니다.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP(원격 데스크톱 프로토콜)에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
 | 동일한 클라우드 서비스에서 여러 VM이 동시에 백업하도록 구성됩니다. | 동일한 클라우드 서비스에서 VM의 백업 일정을 분산하는 것이 모범 사례입니다. |
 | VM이 사용량이 높은 CPU 또는 메모리에서 실행 중입니다. | VM이 사용량이 높은 CPU(90% 이상) 또는 메모리에서 실행 중인 경우 스냅숏 작업이 큐에 대기 및 지연되어 결국 시간 초과됩니다. 이 상황에서는 주문형 백업을 시도하세요. |
 | VM이 DHCP에서 호스트/패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다.  VM이 DHCP 응답 245에서 호스트/패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. 자세한 내용은 [고정 내부 개인 IP 설정](../virtual-network/virtual-networks-reserved-private-ip.md)을 참조하세요. |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>백업 확장을 업데이트 또는 로드할 수 없습니다.
-확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 백업이 실패합니다.
+확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 Backup이 실패합니다.
 
 #### <a name="solution"></a>해결 방법
 

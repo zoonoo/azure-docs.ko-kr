@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights의 Analytics 둘러보기
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -54,7 +54,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 ![테이블을 선택하고 열을 구성](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> 웹 브라우저에서 사용할 수 있는 결과의 순서를 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 항목을 안정적으로 정렬하려면 `top` 또는 `sort` 연산자를 사용합니다.
+> 웹 브라우저에서 사용할 수 있는 결과의 순서를 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 이렇게 정렬하면 반환된 결과 집합만 정렬되며 실제 최상위 또는 최하위 항목이 항상 표시되지는 아닙니다. 항목을 안정적으로 정렬하려면 `top` 또는 `sort` 연산자를 사용합니다.
 >
 >
 
@@ -92,7 +92,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 결과는 같지만 조금 더 느리게 실행될 수 있습니다. `sort`의 별칭인 `order`을(를) 작성할 수도 있습니다.
 
-테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을(를) 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
+테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 물론 `take` 또는 `top`을 사용하여 테이블의 일부만 검색하는 경우 열 머리글을 클릭하면 검색한 레코드의 순서만 바뀝니다.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): 조건에 대한 필터링
 
@@ -115,8 +115,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>올바른 형식 가져오기
-성공하지 못한 요청 찾기
+### <a name="find-unsuccessful-requests"></a>성공하지 못한 요청 찾기
+
+보다 큼 비교를 사용하려면 문자열 값을 정수로 변환합니다.
 
 ```AIQL
 
@@ -240,7 +241,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`은(는) 스트림의 데이터 요소를 `by` 절에서 동일하게 평가하는 그룹으로 수집합니다. `by` 식의 각 값(예: 위 예제의 경우 각 작업 이름)은 결과 테이블의 행이 됩니다.
+`Summarize`은(는) 스트림의 데이터 요소를 `by` 절에서 동일하게 평가하는 그룹으로 수집합니다. `by` 식의 각 값(예: 위 예제의 경우 각 고유 작업 이름)은 결과 테이블의 행이 됩니다.
 
 또는 하루 중 시간으로 결과를 그룹화할 수 있습니다.
 
@@ -402,7 +403,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-마지막 줄은 날짜/시간으로 변환해야 합니다. 현재 차트의 x축은 날짜/시간인 경우에만 스칼라로 표시됩니다.
+마지막 줄은 날짜/시간으로 변환해야 합니다. 현재 차트의 x-축은 날짜/시간인 경우에만 스칼라로 표시됩니다.
 
 `where` 절은 단발 세션(sessionDuration==0)을 제외하고 x축의 길이를 설정합니다.
 

@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell을 사용하여 SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화
 
 이 PowerShell 예제는 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간에 동기화를 수행하도록 데이터 동기화를 구성합니다. 
 
@@ -393,8 +393,9 @@ Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/pow
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](../sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화 시작](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 데이터 동기화 모범 사례](../sql-database-best-practices-data-sync.md)
+-   [OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
 -   [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:

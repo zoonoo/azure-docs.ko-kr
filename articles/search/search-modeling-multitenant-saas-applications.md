@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure Search에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure Search를 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
 
 ## <a name="azure-search-concepts"></a>Azure Search 개념
-Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](http://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
+Search-as-a-Service 솔루션인 Azure Search는 개발자가 인프라를 관리하거나 정보 검색 전문가가 아니더라도 응용 프로그램에 다양한 검색 환경을 추가할 수 있도록 합니다. 데이터는 서비스에 업로드된 후 클라우드에 저장됩니다. Azure Search API에 대한 간단한 요청을 사용하여 데이터를 수정 및 검색할 수 있습니다. 서비스의 개요는 [이 문서](http://aka.ms/whatisazsearch)에서 확인할 수 있습니다. 디자인 패턴에 대해 논의하기 전에 Azure Search의 일부 개념을 이해해야 합니다.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search 서비스, 인덱스, 필드 및 문서
 Azure Search를 사용하는 경우 *Search 서비스*를 구독하게 됩니다. 데이터가 Azure Search에 업로드되면 Search 서비스 내의 *인덱스* 에 저장됩니다. 하나의 서비스 내에 많은 수의 인덱스가 있을 수 있습니다. 데이터베이스의 익숙한 개념을 사용하기 위해 검색 서비스를 데이터베이스에, 서비스 내의 인덱스를 데이터베이스 내의 테이블에 비유할 수 있습니다.

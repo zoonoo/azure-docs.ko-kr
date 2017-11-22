@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개
 
@@ -44,7 +44,7 @@ Azure Cosmos DB Graph API에서는 다음을 제공합니다.
 - 읽기 대기 시간이 10ms 미만이고 99번째 백분위의 15ms 미만인 저장소 및 처리량의 탄력적인 크기 조정
 - 인스턴트 쿼리 가용성을 활용한 자동 인덱싱
 - 튜닝 가능한 일관성 수준
-- 99.99% 가용성을 포함한 포괄적인 SLA
+- 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성 등, 포괄적 SLA
 
 Azure Cosmos DB를 쿼리하려면 [Apache TinkerPop](http://tinkerpop.apache.org) 그래프 순회 언어, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 또는 [Apache Spark GraphX](spark-connector-graph.md) 같은 다른 TinkerPop 호환 그래프 시스템을 사용할 수 있습니다.
 

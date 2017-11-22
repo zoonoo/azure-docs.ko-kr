@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Table API(미리 보기)를 사용하여 테이블 데이터를 쿼리하는 방법
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Table API를 사용하여 테이블 데이터를 쿼리하는 방법
 
-Azure Cosmos DB의 [Table API](table-introduction.md)(미리 보기)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
+Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데이터에 대한 OData 및 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 쿼리를 지원합니다.  
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
@@ -38,13 +38,13 @@ Azure Cosmos DB의 [Table API](table-introduction.md)(미리 보기)는 키/값(
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Azure Cosmos DB는 Azure Table Storage API와 호환되므로 Table API를 사용하여 쿼리하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)를 참조하세요. 
+Table API를 사용하여 쿼리하는 방법에 대한 자세한 내용은 [테이블 및 엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)를 참조하세요. 
 
 Azure Cosmos DB에서 제공하는 프리미엄 기능에 대한 자세한 내용은 [Azure Cosmos DB: Table API](table-introduction.md) 및 [.NET에서 Table API를 통해 개발](tutorial-develop-table-dotnet.md)을 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 엔터티 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 빠른 시작](https://aka.ms/acdbtnetqs) 또는 [개발자 자습서](https://aka.ms/acdbtabletut)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요.
+이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 엔터티 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 빠른 시작](create-table-dotnet.md) 또는 [개발자 자습서](tutorial-develop-table-dotnet.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>PartitionKey 및 RowKey에 대한 쿼리
 PartitionKey 및 RowKey 속성은 엔터티의 기본 키를 구성하므로 다음과 같은 특수 구문을 사용하여 엔터티를 식별할 수 있습니다. 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
-> * Table API(미리 보기)를 사용하여 쿼리하는 방법 
+> * Table API를 사용하여 쿼리하는 방법
 
 이제 전 세계로 데이터를 배포하는 방법을 알아보려면 다음 자습서로 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [전 세계로 데이터 배포](tutorial-global-distribution-documentdb.md)
+> [전 세계로 데이터 배포](tutorial-global-distribution-table.md)

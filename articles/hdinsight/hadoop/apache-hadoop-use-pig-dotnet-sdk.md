@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 27ecba06f2251aaf742f2221982cad5cb9602769
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
@@ -57,7 +57,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 3. **확인** 을 클릭하여 프로젝트를 만듭니다.
 
-4. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **Nuget 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
+4. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **NuGet 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
 
 5. .NET SDK 패키지를 설치하려면 다음 명령을 사용합니다.
 
@@ -121,10 +121,6 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 7. 응용 프로그램을 시작하려면 **F5** 키를 누릅니다.
 
 8. 응용 프로그램을 종료하려면 **ENTER** 키를 누릅니다.
-
-## <a name="summary"></a>요약
-
-이처럼 Hadoop용 .NET SDK를 사용하면 Pig 작업을 HDInsight 클러스터를 제출하고, 작업 상태를 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

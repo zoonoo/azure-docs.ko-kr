@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -51,6 +51,9 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 집계 사전에 대한 버그 수정입니다.
 * 리소스 링크에서 슬래시 잘라내기에 대한 버그 수정입니다.
@@ -131,6 +134,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |2017년 11월 10일 |--- |
 | [2.2.1](#2.2.1) |2017년 9월 29일 |--- |
 | [2.2.0](#2.2.0) |2017년 5월 10일 |--- |
 | [2.1.0](#2.1.0) |2017년 5월 1일 |--- |

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/10/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
-Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 저장소 및 처리량의 독립적 확장, 예측 가능한 1자리 밀리초 단위 대기 시간, 자동 인덱싱 및 99.99% SLA가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
+Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 독립적인 저장소 및 처리량 크기 조정, 예측 가능한 1자리 밀리초 대기 시간, 자동 인덱싱, SLA, 둘 이상의 Azure 지역에 걸친 데이터베이스 계정에 대한 읽기 가용성이 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
 
 이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Graph API 지원 미리 보기에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
 

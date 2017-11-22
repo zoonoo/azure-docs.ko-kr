@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell 가격 책정(미리 보기) | Microsoft Docs"
+title: "Azure Cloud Shell 가격 책정 | Microsoft Docs"
 description: "Azure Cloud Shell의 가격 책정 개요"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: eddbc6e977b52e3a068a1b55792512b966a58c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="pricing"></a>가격
+다음은 Azure Cloud Shell의 Bash와 Azure Cloud Shell의 PowerShell(미리 보기)에 관한 정보입니다.
 
 ## <a name="compute-cost"></a>비용 계산
 Azure Cloud Shell은 추가 비용 없이 Azure에서 무료로 제공하는 컴퓨터에서 실행되지만, 사용하려면 Azure 파일 공유가 필요합니다. 

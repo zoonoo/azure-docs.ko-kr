@@ -1,5 +1,5 @@
 ---
-title: "PowerShell 예제 - 여러 Azure SQL Database 간 동기화 | Microsoft Docs"
+title: "PowerShell 예제 - 여러 Azure SQL Database 간 동기화 | Microsoft 문서"
 description: "이 문서에서는 여러 Azure SQL Database 간의 동기화를 수행하는 Azure PowerShell 예제 스크립트를 제공합니다."
 services: sql-database
 documentationcenter: sql-database
@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>PowerShell을 사용하여 여러 Azure SQL Database 간 동기화
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell을 사용하여 여러 SQL Databases 간 동기화
  
 이 PowerShell 예제는 여러 Azure SQL Database 간에 동기화를 수행하도록 데이터 동기화를 구성합니다.
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/08/2017
  
 `Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
 
-SQL 데이터 동기화의 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화(미리 보기)](../sql-database-sync-data.md)를 참조하세요.
+SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -367,8 +367,9 @@ Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/pow
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 -   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](../sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화 시작](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL 데이터 동기화 모범 사례](../sql-database-best-practices-data-sync.md)
+-   [OMS Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
 -   [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:

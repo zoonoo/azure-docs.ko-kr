@@ -1,5 +1,5 @@
 ---
-title: "Azure Cloud Shell의 Bash(미리 보기) 빠른 시작 | Microsoft Docs"
+title: "Azure Cloud Shell의 Bash 빠른 시작 | Microsoft Docs"
 description: "Azure Cloud Shell의 Bash에 대한 빠른 시작"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 1. Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 시작합니다. <br>
 ![](media/quickstart/shell-icon.png)
-2. 구독을 선택하여 저장소 계정 및 Azure 파일 공유 만들기
+2. 구독을 선택하여 저장소 계정 및 Microsoft Azure Files 공유 만들기
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> VM을 인증하는 데 사용된 공개 및 개인 키는 기본적으로 Azure CLI 2.0에 의해 `/User/.ssh/id_rsa` 및 `/User/.ssh/id_rsa.pub`에 배치됩니다. .ssh 폴더는 연결된 Azure 파일 공유의 5GB 이미지에서 유지됩니다.
+> VM을 인증하는 데 사용된 공개 및 개인 키는 기본적으로 Azure CLI 2.0에 의해 `/User/.ssh/id_rsa` 및 `/User/.ssh/id_rsa.pub`에 배치됩니다. .ssh 폴더는 연결된 Azure Files 공유의 5GB 이미지에서 유지됩니다.
 
 이 VM의 사용자 이름은 Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
 
@@ -79,4 +79,4 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>
 [Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
-[Azure File Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>
+[Azure Files Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>

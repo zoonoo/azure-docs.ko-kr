@@ -1,8 +1,8 @@
-Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다.
+Cloud Shell에서 [az appservice plan create](/cli/azure/appservice/plan#create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-다음 예제에서는 **표준** 가격 책정 계층 및 Linux 컨테이너에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+다음 예제에서는 **표준** 가격 책정 계층(`--sku S1`) 및 Linux 컨테이너(`--is-linux`)에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
@@ -165,7 +165,7 @@ Azure Cosmos DB에서 데이터를 복사하려면 복사 작업의 싱크 형�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |예 |
+| type | 복사 작업 싱크의 형식 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |예 |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 집합 구조에서 `Name.First`는 nestedSeparator가 점인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}` |아니요(기본값: 점 `.`) |
 | writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다.<br/><br/>허용되는 값은 시간 범위입니다. 예제: "00:30:00"(30분). |아니요 |
 

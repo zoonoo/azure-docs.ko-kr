@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="overview"></a>개요
-이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 App Service가 지원하는 ID 공급자를 사용하여 Xamarin.Forms 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
+이 항목에서는 클라이언트 응용 프로그램에서 App Service 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 App Service가 지원하는 ID 공급자를 사용하여 Xamarin.Forms 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 통한 최상의 결과를 얻기 위해 먼저 [Xamarin.Forms 앱 만들기][1] 자습서를 완료하는 것이 좋습니다. 이 자습서를 완료하면 다중 플랫폼 TodoList 앱인 Xamarin.Forms 프로젝트가 생깁니다.
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 응용 프로그램에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
 
-1. [Azure Portal]에서 해당 App Service를 선택합니다.
+1. [Azure Portal][8]에서 해당 App Service를 선택합니다.
 
 2. **인증/권한 부여** 메뉴 옵션을 클릭합니다.
 
@@ -166,9 +166,9 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 
     Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider][7]에 대해 다른 값을 선택합니다.
 
-6. AndroidManifest.xml의 <application> 노드 안에 다음 코드를 추가합니다.
+6. `<application>` 요소 내에 다음 XML을 추가하여**AndroidManifest.xml** 파일을 업데이트합니다.
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. `LoadApplication()`에 대한 호출 이전에 **MainActivity** 클래스의 **OnCreate** 메서드에 다음 코드를 추가합니다.
+    ```
+    `{url_scheme_of_your_app}`을 URL 스키마로 바꿉니다.
+7. `LoadApplication()`에 대한 호출 이전에 **MainActivity** 클래스의 **OnCreate** 메서드에 다음 코드를 추가합니다.
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     이 코드를 사용하면 앱이 로드되기 전에 인증자가 초기화됩니다.
-2. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
+8. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-authentication-to-the-ios-app"></a>iOS 앱에 인증 추가
 이 섹션에는 iOS 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. iOS 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
@@ -236,23 +236,23 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
         }
 
     Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider]에 대해 다른 값을 선택합니다.
-
-6. OpenUrl(UIApplication 앱, NSUrl url NSDictionary 옵션) 메서드 오버로드를 추가하여 AppDelegate 클래스 업데이트
+    
+6. 다음과 같이 **OpenUrl** 메서드 오버로드를 추가하여 **AppDelegate** 클래스를 업데이트합니다.
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. `LoadApplication()`에 대한 호출 이전에 **FinishedLaunching** 메서드에 다음 코드 줄을 추가합니다.
+   
+7. `LoadApplication()`에 대한 호출 이전에 **FinishedLaunching** 메서드에 다음 코드 줄을 추가합니다.
 
         App.Init(this);
 
     이 코드를 사용하면 앱이 로드되기 전에 인증자가 초기화됩니다.
 
-6. Info.plist의 URL 체계에 **{url_scheme_of_your_app}**을 추가합니다.
+8. Info.plist를 열고 **URL 형식**을 추가합니다. **식별자**를 선택한 이름으로 설정하고, **URL 스키마**를 앱의 URL 스키마로 설정하고, **역할**을 없음으로 설정합니다.
 
-7. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
+9. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Windows 10(Phone 포함) 앱 프로젝트에 인증 추가
 이 섹션에는 Windows 10 앱 프로젝트에서 **IAuthenticate** 인터페이스를 구현하는 방법을 보여 줍니다. 동일한 단계가 UWP(유니버설 Windows 플랫폼) 프로젝트에도 적용되지만 **UWP** 프로젝트(명시된 변경 내용 포함)를 사용합니다. Windows 장치를 지원하지 않는 경우 이 섹션을 건너뜁니다.
@@ -306,7 +306,7 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
             return success;
         }
 
-    Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider]에 대해 다른 값을 선택합니다.
+    Facebook 이외의 ID 공급자를 사용하는 경우 [MobileServiceAuthenticationProvider][7]에 대해 다른 값을 선택합니다.
 
 1. `LoadApplication()`에 대한 호출 이전에 **MainPage** 클래스에 대한 생성자에 다음 코드 줄을 추가합니다.
 
@@ -326,12 +326,9 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   메서드 재정의가 이미 있는 경우 위의 코드 조각에서 조건부 코드를 추가합니다.  이 코드는 유니버설 Windows 프로젝트에는 필요하지 않습니다.
-
-3. Package.appxmanifest에 **{url_scheme_of_your_app}**을 추가합니다. 
+3. Package.appxmanifest를 열고 **프로토콜** 선언을 추가합니다. **표시 이름**을 선택한 이름으로 설정하고, **이름**을 앱의 URL 스키마로 설정합니다.
 
 4. 앱을 다시 빌드하고 실행한 후 선택한 인증 공급자를 사용하여 로그인하고 인증된 사용자로 데이터에 액세스할 수 있는지 확인합니다.
 
@@ -355,3 +352,4 @@ Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 앱에 대한 
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

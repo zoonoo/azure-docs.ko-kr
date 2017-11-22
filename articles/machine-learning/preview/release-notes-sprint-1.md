@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>스프린트 1 - 2017년 11월 
 
@@ -127,13 +127,13 @@ ms.lasthandoff: 11/09/2017
 - 이미지 생성 서비스에서 Azure IoT 서비스/장치에 대한 이미지 빌드를 지원합니다.
 
 ### <a name="sample-projects"></a>샘플 프로젝트
-- _아이리스 분류_ 샘플 프로젝트:
+- [_아이리스 분류_](./tutorial-classifying-iris-part-1.md) 샘플 프로젝트:
     - `iris_pyspark.py`의 이름이 `iris_spark.py`(으)로 바뀌었습니다.
-    - `iris_score.py`의 이름이 `iris-score.py`(으)로 바뀌었습니다.
+    - `iris_score.py`의 이름이 `score_iris.py`(으)로 바뀌었습니다.
     - `iris.dprep` 및 `iris.dsource`은 최신 데이터 준비 엔진 업데이트를 반영하도록 업데이트되었습니다.
     - `iris.ipynb` Notebook이 HDInsight 클러스터에서 작동하도록 수정되었습니다.
     - `iris.ipynb` Notebook 셀에서 실행 기록은 켜져 있습니다.
-- _자전거 공유 데이터를 사용하여 고급 데이터 준비_ 샘플 프로젝트: "오류 값 처리" 단계가 수정되었습니다.
-- _성인 인구 조사 데이터에 대한 MMLSpark_ 샘플 프로젝트: `docker.runconfig` 형식이 JSON에서 YAML로 업데이트되었습니다.
-- 하이퍼 매개 변수 분산 튜닝 샘플 프로젝트: `docker.runconfig` 형식이 JSON에서 YAML로 업데이트되었습니다.
-- 새 샘플 프로젝트: _CNTK를 사용하여 이미지 분류_
+- [_자전거 공유 데이터를 사용하여 고급 데이터 준비_](./tutorial-bikeshare-dataprep.md) 샘플 프로젝트: "오류 값 처리" 단계가 수정되었습니다.
+- [_성인 인구 조사 데이터에 대한 MMLSpark_](https://github.com/Azure/MachineLearningSamples-mmlspark) 샘플 프로젝트 `docker.runconfig` 형식이 JSON에서 YAML로 업데이트되었습니다.
+- [_하이퍼 매개 변수 분산 튜닝_](./scenario-distributed-tuning-of-hyperparameters.md) 샘플 프로젝트 `docker.runconfig` 형식이 JSON에서 YAML로 업데이트되었습니다.
+- 새 샘플 프로젝트 [_CNTK를 사용하여 이미지 분류_](./scenario-image-classification-using-cntk.md)

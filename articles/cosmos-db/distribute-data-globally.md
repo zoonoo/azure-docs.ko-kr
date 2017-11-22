@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 30개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -40,10 +40,6 @@ Azure Cosmos DB는 세계 규모의 응용 프로그램을 손쉽게 작성할 �
 
 ### <a id="RegionalPresence"></a>어느 지역에나 존재 
 Azure는 [새 하위 지역](https://azure.microsoft.com/regions/)을 온라인으로 연결하여 지리적 존재 영역을 지속적으로 늘려가고 있습니다. Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다. 따라서 Azure가 새로운 비즈니스 영역을 개통하는 즉시 지리적 지역을 Azure Cosmos DB 데이터베이스 계정과 연결할 수 있습니다.
-
-**Azure Cosmos DB는 기본적으로 모든 새 Azure 하위 지역에 제공됩니다**.
-
-![Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다.](./media/distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>개수 제한 없이 지역을 원하는 만큼 Azure Cosmos DB 데이터베이스 계정에 연결
 Azure Cosmos DB를 사용하면 개수에 관계없이 Azure 지역을 원하는 만큼 Azure Cosmos DB 데이터베이스 계정에 연결할 수 있습니다. 지리적 펜스 제한(예: 중국, 독일)을 제외하고, Azure Cosmos DB 데이터베이스 계정에 연결할 수 있는 하위 지역 수에는 어떠한 제한도 없습니다. 다음 그림은 25개 Azure 지역을 아우르도록 구성된 데이터베이스 계정을 보여줍니다.  
@@ -104,7 +100,7 @@ Azure Cosmos DB는 [스키마에 구애받지 않습니다](http://www.vldb.org/
 Azure Cosmos DB처럼 전역에 분산되는 데이터베이스의 핵심 이점은 전 세계 어디서나 데이터 액세스 대기 시간이 짧다는 점입니다. Azure Cosmos DB는 다양한 데이터베이스 작업에 P99의 짧은 대기 시간을 보장합니다. Azure Cosmos DB에서 사용하는 복제 프로토콜은 데이터베이스 작업(이상적으로 읽기 및 쓰기 모두)이 항상 클라이언트에 로컬인 하위 지역에서 수행되도록 보장합니다. Azure Cosmos DB의 대기 시간 SLA에는 읽기 그리고 다양한 요청 및 응답 크기에 대해 (동기적으로) 인덱싱된 쓰기 및 쿼리에 대한 P99가 포함되어 있습니다. 쓰기에 대한 대기 시간 보장에는 로컬 데이터 센터 내에서 대부분의 쿼럼이 지속적으로 커밋하는 것이 포함되어 있습니다.
 
 ### <a id="LatencyAndConsistency"></a>대기 시간과 일관성의 관계 
-전역에 분산되는 서비스가 전역에 분산되는 설치에 강력한 일관성을 제공하려면 쓰기를 동기적으로 복제하거나 지역 간 읽기를 동기적으로 수행해야 합니다. 광속과 광역 네트워크의 안정성에 따라 일관성이 강력하면 데이터베이스 작업의 대기 시간이 높아지고 가용성이 낮아집니다. 따라서 P99의 짧은 대기 시간과 99.99 가용성을 보장하려면 서비스에서 비동기 복제를 사용해야 합니다. 그러려면 서비스에서 [잘 정의되고 완화된 일관성 선택권](consistency-levels.md)을 제공해야 합니다. 강력한 일관성보다는 약하고(짧은 대기 시간과 가용성을 보장하기 위해) "결과적" 일관성보다는 강한(직관적 프로그래밍 모델을 제공하기 위해) 것이 가장 이상적입니다.
+전 세계에 분산된 서비스에서 전역 분산 설정에 강력한 일관성을 제공하려면 쓰기를 동기적으로 복제하거나 지역 간 읽기를 동기적으로 수행해야 합니다. 이에 따라 광속 및 광역 네트워크의 안정성은 강력한 일관성으로 인해 데이터베이스 작업의 대기 시간을 늘리고 가용성을 낮추도록 합니다. 따라서 P99에서 보장되는 짧은 대기 시간, 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 보장하기 위해 서비스에서 비동기 복제를 사용해야 합니다. 그러려면 서비스에서 [잘 정의되고 완화된 일관성 선택권](consistency-levels.md)을 제공해야 합니다. 강력한 일관성보다는 약하고(짧은 대기 시간과 가용성을 보장하기 위해) "결과적" 일관성보다는 강한(직관적 프로그래밍 모델을 제공하기 위해) 것이 가장 이상적입니다.
 
 Azure Cosmos DB는 특정 일관성 수준을 보장하기 위해 읽기 작업이 여러 하위 지역의 복제본에 연결할 필요가 없습니다. 마찬가지로, 데이터가 모든 지역에 복제되는 동안(예: 쓰기가 모든 지역에 비동기적으로 복제) 쓰기 작업이 차단되지 않습니다. 다중 지역 데이터베이스 계정의 경우 여러 완화된 일관성 수준이 제공됩니다. 
 
@@ -117,7 +113,7 @@ Azure Cosmos DB는 특정 일관성 수준을 보장하기 위해 읽기 작업�
 Azure Cosmos DB는 사용자가 대기 시간과 처리량 사이에서 선택을 고민하게 만들지 않습니다. P99의 대기 시간에 대한 SLA를 준수하고 사용자가 프로비전한 처리량을 제공합니다. 
 
 ## <a id="ConsistencyGuarantees"></a>일관성 보증
-[강력한 일관성 모델](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)은 프로그래밍의 표준이지만 높은 대기 시간(정상 상태에서)과 가용성 손실(오류 발생 시)을 대가로 지불해야 합니다. 
+[강력한 일관성 모델](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)은 프로그래밍 기능에 대한 훌륭한 표준이지만, 긴 대기 시간(정상 상태)과 가용성 감소(오류 발생)를 감수해야 합니다. 
 
 Azure Cosmos DB는 복제된 데이터의 일관성에 대해 추론할 수 있는 잘 정의된 프로그래밍 모델을 제공합니다. 사용자가 멀티 호밍 응용 프로그램을 빌드할 수 있도록, Azure Cosmos DB에서 노출하는 일관성 모델은 하위 지역에 구애되지 않으며 읽기 및 쓰기가 처리되는 지역에 종속되지 않도록 설계됩니다. 
 
@@ -170,13 +166,13 @@ Azure Cosmos DB의 일관성 SLA는 모든 읽기 요청이 사용자가 요청�
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>일관성과 가용성의 관계
-[CAP 정리](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)의 [불가능성 결과](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)는 오류 발생 시 시스템이 가용성을 유지하고 선형화 가능한 일관성을 제공하기란 사실상 불가능하다는 것을 증명합니다. 데이터베이스 서비스는 CP 또는 AP 중에 선택해야 합니다. CP 시스템은 선형화 가능한 일관성을 위해 가용성을 포기하는 반면 AP 시스템은 가용성을 위해 [선형화 가능한 일관성](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)을 포기합니다. Azure Cosmos DB는 요청된 일관성 수준을 결코 위반하지 않으며, 따라서 형식적으로 CP 시스템이 됩니다. 그러나 실제로 일관성은 모 아니면 도의 문제가 아닙니다. 일관성 스펙트럼을 따라 선형화 가능한 일관성과 결과적 일관성 사이에는 잘 정의된 일관성 모델이 여러 개 있습니다. Azure Cosmos DB에서 우리는 실제 적용 가능성과 직관적 프로그래밍 모델을 제공하는 여러 완화된 일관성 모델을 식별하기 위해 노력해 왔습니다. Azure Cosmos DB는 [완화된 하지만 잘 정의된 여러 일관성 수준](consistency-levels.md)과 함께 99.99 가용성 SLA를 제공하여 일관성과 가용성을 절충할 방법을 탐색합니다. 
+[CAP 정리](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)의 [불가능성 결과](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)는 오류 발생 시 시스템이 가용성을 유지하고 선형화 가능한 일관성을 제공하기란 사실상 불가능하다는 것을 증명합니다. 데이터베이스 서비스는 CP 또는 AP 중에 선택해야 합니다. CP 시스템은 선형화 가능한 일관성을 위해 가용성을 포기하는 반면 AP 시스템은 가용성을 위해 [선형화 가능한 일관성](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)을 포기합니다. Azure Cosmos DB는 요청된 일관성 수준을 결코 위반하지 않으며, 따라서 형식적으로 CP 시스템이 됩니다. 그러나 실제로 일관성은 모 아니면 도의 문제가 아닙니다. 일관성 스펙트럼을 따라 선형화 가능한 일관성과 결과적 일관성 사이에는 잘 정의된 일관성 모델이 여러 개 있습니다. Azure Cosmos DB에서 우리는 실제 적용 가능성과 직관적 프로그래밍 모델을 제공하는 여러 완화된 일관성 모델을 식별하기 위해 노력해 왔습니다. Azure Cosmos DB는 [아직은 평범한 수준이지만 잘 정의된 여러 개의 일관성 수준](consistency-levels.md), 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 제공하여 일관성과 가용성 간의 교환을 처리합니다. 
 
 ### <a id="ConsistencyAndAvailability"></a>일관성과 대기 시간의 관계
 Daniel Abadi 교수는 [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)라고 하는 보다 포괄적인 CAP 변형을 제안했으며, 이 변형 역시 안정적인 상태에서 대기 시간과 일관성의 균형을 고려합니다. 안정적인 상태에서 데이터베이스 시스템은 일관성과 대기 시간 사이에서 선택해야 합니다. 완화된 일관성 모델(비동기 복제 및 로컬 읽기, 쓰기, 쿼럼을 통해 지원)이 여러 개 있는 Azure Cosmos DB는 모든 읽기 및 쓰기가 각각 읽기 및 쓰기 하위 지역에 로컬이도록 보장합니다.  따라서 Azure Cosmos DB는 일관성 수준에 대한 하위 지역 내에서 짧은 대기 시간을 보장합니다.  
 
 ### <a id="ConsistencyAndThroughput"></a>일관성과 처리량의 관계
-특정 일관성 모델의 구현은 선택하는 [쿼럼 유형](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)에 따라 결정되므로 처리량 역시 선택하는 일관성에 따라 결정됩니다. 예를 들어 Azure Cosmos DB에서 강력한 일관성 읽기의 처리량은 결과적 일관성 읽기의 약 절반 정도입니다. 
+특정 일관성 모델의 구현은 선택하는 [쿼럼 유형](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)에 따라 결정되므로 처리량 역시 선택하는 일관성에 따라 결정됩니다. 예를 들어 Azure Cosmos DB에서 강력한 일관성 읽기에 대한 RU 요금은 최종적인 일관성 읽기에 대한 RU 요금의 약 두 배입니다. 이 경우 동일한 처리량을 달성하려면 RU의 2배를 컬렉션에 프로비전해야 합니다.
  
 **Azure Cosmos DB에서 특정 일관성 수준에 대한 읽기 용량의 관계**
 
@@ -207,7 +203,7 @@ Azure Cosmos DB 컬렉션은 두 차원을 사용하여, 즉 하위 지역 내�
 Azure Cosmos DB는 처리량이 변경되어도 가용성을 계속 유지합니다. Azure Cosmos DB는 파티션을 투명하게 관리하며(예: 분할, 병합, 복제 작업), 작업이 성능 또는 가용성을 떨어트리지 않고 응용 프로그램이 처리량을 탄력적으로 늘리거나 줄일 수 있도록 보장합니다. 
 
 ## <a id="AvailabilityGuarantees"></a>가용성 보장
-Azure Cosmos DB는 각 데이터 및 제어 평면 작업에 대해 99.99% 작동 시간 가용성 SLA를 제공합니다. 앞서 설명했듯이, Azure Cosmos DB의 가용성 보장에는 모든 데이터 및 제어 평면 작업에 대한 대기 시간에 제공되는 절대 상한값이 포함됩니다. 가용성 보장은 변하지 않으며 지역 수 또는 지역 간의 지리적 거리에 따라 변경되지 않습니다. 가용성 보장은 수동 및 자동 장애 조치(failover)를 통해 적용됩니다. Azure Cosmos DB는 응용 프로그램이 논리 끝점에 대해 작동하고 장애 조치(failover) 시 요청을 새 하위 지역에 투명하게 라우팅할 수 있도록 보장하는 투명한 멀티 호밍 API를 제공합니다. 다르게 말해서, 지역 장애 조치(failover) 시 응용 프로그램을 배포할 필요가 없으며 가용성 SLA가 유지됩니다.
+Azure Cosmos DB는 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 제공합니다. 앞서 설명했듯이, Azure Cosmos DB의 가용성 보장에는 모든 데이터 및 제어 평면 작업에 대한 대기 시간에 제공되는 절대 상한값이 포함됩니다. 가용성 보장은 변하지 않으며 지역 수 또는 지역 간의 지리적 거리에 따라 변경되지 않습니다. 가용성 보장은 수동 및 자동 장애 조치(failover)를 통해 적용됩니다. Azure Cosmos DB는 응용 프로그램이 논리 끝점에 대해 작동하고 장애 조치(failover) 시 요청을 새 하위 지역에 투명하게 라우팅할 수 있도록 보장하는 투명한 멀티 호밍 API를 제공합니다. 다르게 말해서, 지역 장애 조치(failover) 시 응용 프로그램을 배포할 필요가 없으며 가용성 SLA가 유지됩니다.
 
 ### <a id="AvailabilityAndConsistency"></a>가용성과 일관성, 대기 시간 및 처리량의 관계
 가용성과 일관성, 대기 시간 및 처리량 사이의 관계는 [가용성과 일관성의 관계](#ConsistencyAndAvailability), [대기 시간과 가용성의 관계](#LatencyAndAvailability) 및 [처리량과 가용성의 관계](#ThroughputAndAvailability)에 설명되어 있습니다. 

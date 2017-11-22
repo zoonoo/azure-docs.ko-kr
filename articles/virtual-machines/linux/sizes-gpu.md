@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 5c9bf89feba519147b07f2810fe4da882664e89e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 645f69e71c5a13bb70edabfd22f51ed5df619693
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="gpu-linux-vm-sizes"></a>GPU Linux VM 크기
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 컴퓨터 크기
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Ubuntu NC VM에 최신 드라이버를 사용하는 X 서버 또는 기타 시스템을 설치하는 것은 권장하지 않습니다. NVIDIA GPU 드라이버를 설치하기 전에 최신 드라이버를 사용하지 않도록 설정 해야 합니다.  
+* Ubuntu NC VM에 `Nouveau` 드라이버를 사용하는 X 서버 또는 기타 시스템을 설치하지 않습니다. NVIDIA GPU 드라이버를 설치하기 전에 `Nouveau` 드라이버를 사용하지 않도록 설정해야 합니다.  
 
 ## <a name="other-sizes"></a>기타 크기
 - [범용](sizes-general.md)
