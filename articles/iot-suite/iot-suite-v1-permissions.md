@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -105,11 +105,7 @@ Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 �
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>서비스 관리자가 구독과 특정 AAD 테넌트 간의 디렉터리 매핑을 변경하고자 합니다. 이 태스크를 완료하려면 어떻게 해야 하나요?
 
-1. [Azure 클래식 포털][lnk-classic-portal]로 이동하여 왼쪽에 있는 서비스 목록에서 **설정**을 클릭합니다.
-2. 디렉터리 매핑을 변경할 구독을 선택합니다.
-3. **디렉터리 편집**을 클릭합니다.
-4. 드롭다운에서 사용할 **디렉터리** 를 선택합니다. 앞으로 화살표를 클릭합니다.
-5. 디렉터리 매핑과 영향을 받는 공동 관리자를 확인합니다. 다른 디렉터리에서 이동하는 경우에는 원래 디렉터리의 공동 관리자가 모두 제거됩니다.
+[Azure AD 디렉터리에 기존 구독을 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>AAD 테넌트의 도메인 사용자/회원이 미리 구성된 솔루션을 만들었습니다. 응용 프로그램에 대한 역할을 어떻게 할당하나요?
 
@@ -151,7 +147,6 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

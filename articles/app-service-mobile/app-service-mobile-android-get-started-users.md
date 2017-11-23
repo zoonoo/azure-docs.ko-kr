@@ -1,5 +1,5 @@
 ---
-title: "Mobile App을 사용하여 Android에 인증 추가 | Microsoft Docs"
+title: "Mobile Apps를 사용하여 Android에 인증 추가 | Microsoft Docs"
 description: "Azure App Service 기능의 Mobile Apps를 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Android 앱의 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: android
@@ -12,19 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Android 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>요약
-이 자습서에서는 지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [모바일 앱 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [Mobile Apps 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
 
 ## <a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -46,11 +46,11 @@ ms.lasthandoff: 10/11/2017
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* Android Studio에서 [모바일 앱 시작] 자습서를 완료한 프로젝트를 엽니다. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
+* Android Studio에서 [Mobile Apps 시작] 자습서를 완료한 프로젝트를 엽니다. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
      이 예외는 앱이 인증되지 않은 사용자로 백 엔드에 액세스하려고 시도하지만 *할 일 모음* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
-다음으로 앱을 업데이트하여 Mobile Apps 백 엔드에서 리소스를 요청하기 전에 사용자를 인증하도록 합니다. 
+다음으로 앱을 업데이트하여 Mobile Apps 백 엔드에서 리소스를 요청하기 전에 사용자를 인증하도록 합니다.
 
 ## <a name="add-authentication-to-the-app"></a>앱에 인증 추가
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -78,4 +78,5 @@ ms.lasthandoff: 10/11/2017
 
 
 <!-- URLs. -->
-[모바일 앱 시작]: app-service-mobile-android-get-started.md
+[Mobile Apps 시작]: app-service-mobile-android-get-started.md
+[Azure Portal]: https://portal.azure.com/

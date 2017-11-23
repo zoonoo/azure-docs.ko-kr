@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 228f3153f47e0b147688fe958a767660976b08be
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>원격 데스크톱을 사용하여 Microsoft Azure Linux VM에 연결
 > [!IMPORTANT] 
@@ -49,18 +49,23 @@ VM에 대한 끝점을 설정하는 방법을 모르는 경우 [이 지침](setu
 
 Ubuntu의 경우 다음을 사용합니다.
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 OpenSUSE의 경우 다음을 사용합니다.
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## <a name="install-xrdp"></a>xrdp 설치
 Ubuntu의 경우 다음을 사용합니다.
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 OpenSUSE의 경우 다음을 사용합니다.
 
@@ -69,15 +74,18 @@ OpenSUSE의 경우 다음을 사용합니다.
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>xrdp를 시작하고 부팅에 xdrp 서비스를 설정합니다.
 OpenSUSE의 경우 다음을 사용합니다.
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
 Ubuntu의 경우 설치 후 부팅 시 자동으로 xrdp가 시작되어 사용됩니다.
 
@@ -86,22 +94,29 @@ Ubuntu의 경우 설치 후 부팅 시 자동으로 xrdp가 시작되어 사용�
 
 `xfce`를 설치하려면 이 명령을 사용합니다.
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 그런 다음 이 명령을 사용하여 `xfce`를 활성화합니다.
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 구성 파일 `/etc/xrdp/startwm.sh`를 편집합니다.
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 `/etc/X11/Xsession` 줄 앞에 `xfce4-session` 줄을 추가합니다.
 
 xrdp 서비스를 다시 시작하려면 다음을 사용합니다.
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Windows 컴퓨터에서 Linux VM 연결
 Windows 컴퓨터에서 원격 데스크톱 클라이언트를 시작하고 Linux VM DNS 이름을 입력합니다. 또는 Azure Portal에서 VM의 대시보드로 이동하고 `Connect`를 클릭하여 Linux VM을 연결합니다. 이 경우 로그인 창이 다음과 같이 표시됩니다.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11fa0d01463e398ae4106e1a70dc4c51b8698ff4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -52,7 +52,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 |<br>응용 프로그램 액세스| <ul><li>[행 수준 보안](https://msdn.microsoft.com/library/dn765131) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|
 |**사전 모니터링**||  
 | <br>추적 및 검색| <ul><li>[감사](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
-|<br>Azure 보안 센터| <ul><li>[데이터 모니터링](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-databases) - SQL 및 기타 Azure 서비스에 대한 중앙 집중식 보안 모니터링 솔루션으로 Azure Security Center를 사용합니다.</li></ul>|     
+|<br>Azure Security Center| <ul><li>[데이터 모니터링](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-auditing-on-sql-databases) - SQL 및 기타 Azure 서비스에 대한 중앙 집중식 보안 모니터링 솔루션으로 Azure Security Center를 사용합니다.</li></ul>|     
 
 ## <a name="conclusion"></a>결론
 Azure 데이터베이스는 다양한 조직 및 규정 준수 요구 사항을 충족하는 모든 보안 기능을 갖춘 강력한 데이터베이스 플랫폼입니다. 데이터에 대한 물리적 액세스를 제어하고 투명한 데이터 암호화, 셀 수준 암호화 또는 행 수준 보안이 포함된 다양한 데이터 보안 옵션을 파일, 열 또는 행 수준에서 사용하여 데이터를 쉽게 보호할 수 있습니다. 또한 Always Encrypted를 사용하면 암호화된 데이터에 대한 작업을 수행하여 응용 프로그램 업데이트 프로세스를 간소화할 수 있습니다. 따라서 SQL Database 활동의 감사 로그에 액세스하면 필요한 정보를 얻을 수 있으므로 데이터에 액세스하는 방법과 시기를 알 수 있습니다.

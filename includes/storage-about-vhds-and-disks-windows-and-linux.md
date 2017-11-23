@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>VHD에 대하여
 
-Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [고성능 프리미엄 저장소와 Azure VM](../articles/storage/common/storage-premium-storage.md)을 참조하세요.
+Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [고성능 프리미엄 저장소와 Azure VM](../articles/virtual-machines/windows/premium-storage.md)을 참조하세요.
 
 Azure는 고정 디스크 VHD 형식을 지원합니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장되도록 파일 내에 선형적으로 논리적 디스크를 배치합니다. blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 고정 형식은 대부분의 디스크에서 사용되지 않는 공간 범위가 크기 때문에 공간이 낭비되는 경우가 많습니다. 하지만 Azure에서는 .vhd 파일을 스파스 형식으로 저장하기 때문에 고정 및 동적 디스크의 장점을 동시에 얻을 수 있습니다. 자세한 내용은 [가상 하드 디스크 시작](https://technet.microsoft.com/library/dd979539.aspx)을 참조하세요.
 
@@ -26,11 +26,11 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. Azure 디�
 
 Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 저장소를 제공합니다. Standard Storage는 하나의 데이터센터에 로컬로 복제되거나 기본 및 보조 데이터센터와 함께 지역 중복 저장소가 될 수 있습니다. 저장소 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요. 
 
-VM 디스크로 Standard Storage를 사용하는 방법에 대한 자세한 내용은 [Standard Storage 및 디스크](../articles/storage/common/storage-standard-storage.md)를 참조하세요.
+VM 디스크로 Standard Storage를 사용하는 방법에 대한 자세한 내용은 [Standard Storage 및 디스크](../articles/virtual-machines/windows/standard-storage.md)를 참조하세요.
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage는 SSD에 의해 지원되며 I/O 사용량이 많은 작업을 실행하는 VM을 위해 고성능의 낮은 대기 시간의 디스크를 지원합니다. Premium Storage는 DS, DSv2, GS, Ls 또는 FS 시리즈 Azure VM과 함께 사용할 수 있습니다. 자세한 내용은 [Premium Storage](../articles/storage/common/storage-premium-storage.md)를 참조하세요.
+Premium Storage는 SSD에 의해 지원되며 I/O 사용량이 많은 작업을 실행하는 VM을 위해 고성능의 낮은 대기 시간의 디스크를 지원합니다. Premium Storage는 DS, DSv2, GS, Ls 또는 FS 시리즈 Azure VM과 함께 사용할 수 있습니다. 자세한 내용은 [Premium Storage](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 

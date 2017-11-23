@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -32,14 +32,6 @@ ms.lasthandoff: 11/04/2017
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 문의하세요. 
 
 ClearDB에 대한 일반적인 질문과 답변은 [ClearDB FAQ](https://docs.microsoft.com/azure/store-cleardb-faq/)를 참조하세요.
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>내 ClearDB 데이터베이스가 포털에 나열되지 않는 이유는 무엇인가요?
-
-[Azure Portal](http://portal.azure.com/)에서 ClearDB 데이터베이스를 만들 경우 데이터베이스가 [Azure 클래식 포털](http://manage.windowsazure.com/)에 표시되지 않습니다. 이 문제를 해결하려면 데이터베이스를 웹앱에 수동으로 연결할 수 있습니다.
-
-마찬가지로 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 ClearDB 데이터베이스를 만드는 경우 [Azure Portal](http://portal.azure.com/)에 해당 데이터베이스가 표시되지 않습니다. 이 경우 해결 방법이 없습니다. 
-
-자세한 내용은 [Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ](https://docs.microsoft.com/azure/store-cleardb-faq/)를 참조하세요.
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>구독 마이그레이션 중에 내 ClearDB 데이터베이스가 마이그레이션되지 않은 이유는 무엇인가요?
 

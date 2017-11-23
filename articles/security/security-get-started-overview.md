@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a2ece3fc908963a6c8ea68f9746788278407fdc
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-security-overview"></a>Azure 보안 개요
 Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다. Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/default.aspx)를 방문하세요.

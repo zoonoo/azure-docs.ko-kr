@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: be23cd6b500fd186fdcbe6f5c2371f84e075e3e8
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 **싱크 Azure SQL Data Warehouse 준비**
 
-1. 아직 없는 경우 Azure SQL Data Warehouse를 만드는 단계는 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) 문서를 참조하세요.
+1. 아직 없는 경우 Azure SQL Data Warehouse를 만드는 단계는 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) 문서를 참조하세요.
 
 2. SQL Data Warehouse에 해당하는 테이블 스키마를 만듭니다. [마이그레이션 유틸리티](https://www.microsoft.com/download/details.aspx?id=49100)를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse로 **스키마를 마이그레이션할 수 있습니다**. Azure Data Factory를 사용하여 이후 단계에서 데이터를 마이그레이션/복사합니다.
 

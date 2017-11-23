@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -83,14 +83,14 @@ Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요
 
 실습 및 개발 환경에서 Azure를 사용하면 조직은 하드웨어 조달로 인한 시간 지연을 해소하여 테스트 및 개발을 민첩하게 진행할 수 있습니다. 아쉽게도 Azure에 익숙하지 못할 수도 있고 빠르게 채택하려고 하지 않을 수도 있으므로 관리자는 별 제한 없이 권한을 할당받을 수 있습니다. 이러한 위험으로 인해 조직은 의도치 않게 내부 공격에 노출될 수 있습니다. 일부 사용자는 필요한 것보다 더 많은 권한을 부여받을 수 있습니다.
 
-[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)를 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
+[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)을 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
 
 DevTest Lab에서는 RBAC를 사용하므로 추가 [사용자 지정 역할](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md)을 만들 수도 있습니다. DevTest Lab은 권한 관리를 간소화할 뿐만 아니라 환경이 프로비전되는 프로세스도 간소화합니다. 또한 개발 및 테스트 환경에서 작업하는 팀의 전형적인 문제점들을 처리하는 데도 도움이 됩니다. 몇 가지 준비가 필요하지만 장기적으로는 팀에 훨씬 편리한 결과를 가져옵니다.
 
 Azure DevTest Lab의 기능은 다음과 같습니다.
 
 - 사용자가 사용할 수 있는 옵션에 대한 관리 제어. 허용되는 VM 크기, 최대 VM 수 및 VM을 시작 및 종료할 수 있는 시기 등을 관리자가 중앙에서 관리할 수 있습니다.
-- 실습 환경 생성 자동화
+- 실습 환경 생성 Automation
 - 비용 추적
 - 임시 공동 작업을 위한 간편한 VM 배포
 - 셀프 서비스 기능을 통해 사용자가 템플릿을 사용하여 실습을 프로비전할 수 있음

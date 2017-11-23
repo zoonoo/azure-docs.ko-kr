@@ -3,7 +3,7 @@ title: "SQL Data Warehouse의 PolyBase 자습서 | Microsoft Docs"
 description: "PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: barbkess
+ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse에서 PolyBase를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
 > * [데이터 팩터리](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
@@ -43,14 +43,14 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-* SQL 데이터 웨어하우스 데이터베이스
-* 표준 로컬 중복 저장소(표준-LRS), 표준 지역 중복 저장소(표준-GRS) 또는 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS) 유형의 Azure 저장소 계정
+* SQL Data Warehouse 데이터베이스
+* 표준 로컬 중복 저장소(표준-LRS), 표준 지역 중복 저장소(표준-GRS) 또는 표준 Read-Access Geo Redundant Storage(표준-RAGRS) 유형의 Azure Storage 계정
 * AzCopy 명령줄 유틸리티. Microsoft Azure Storage 도구와 함께 설치되는 [AzCopy 최신 버전][latest version of AzCopy]을 다운로드하여 설치합니다.
   
-    ![Azure 저장소 도구](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
+    ![Azure Storage 도구](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>1단계: Azure Blob 저장소에 샘플 데이터 추가
-데이터를 로드하려면, Azure Blob 저장소에 샘플 데이터를 넣어야 합니다. 이 단계에서는 Azure Blob 저장소를 샘플 데이터로 채웁니다. 나중에 PolyBase를 사용하여 SQL 데이터 웨어하우스 데이터베이스로 이 샘플 데이터를 로드하게 됩니다.
+데이터를 로드하려면, Azure Blob 저장소에 샘플 데이터를 넣어야 합니다. 이 단계에서는 Azure Blob 저장소를 샘플 데이터로 채웁니다. 나중에 PolyBase를 사용하여 SQL Data Warehouse 데이터베이스로 이 샘플 데이터를 로드하게 됩니다.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. 샘플 텍스트 파일 준비
 샘플 텍스트 파일을 준비하려면:
@@ -77,12 +77,12 @@ Blob 서비스 끝점을 찾으려면:
 
 1. Azure Portal에서 **찾아보기** > **저장소 계정**을 선택합니다.
 2. 사용하려는 저장소 계정을 클릭합니다.
-3. 저장소 계정 블레이드에서 BLOB을 클릭합니다.
+3. Storage 계정 블레이드에서 BLOB을 클릭합니다.
    
     ![BLOB 클릭](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 4. 나중을 위해 Blob 서비스 끝점 URL을 저장합니다.
    
-    ![Blob 서비스 끝점](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
+    ![Blob service 끝점](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Azure 저장소 키 찾기
 Azure 저장소 키를 찾으려면:
@@ -113,7 +113,7 @@ Azure 저장소 키를 찾으려면:
 ### <a name="e-explore-your-blob-storage-container"></a>E. Blob 저장소 컨테이너 탐색
 Blob 저장소에 업로드한 파일을 보려면:
 
-1. Blob 서비스 블레이드로 돌아갑니다.
+1. Blob service 블레이드로 돌아갑니다.
 2. 컨테이너에서 **datacontainer**를 두 번 클릭합니다.
 3. 데이터가 있는 경로로 이동하려는 경우 **datedimension** 폴더를 클릭하면 업로드한 **DimDate2.txt** 파일이 표시됩니다.
 4. 속성을 보려면 **DimDate2.txt**를 클릭합니다.
@@ -124,7 +124,7 @@ Blob 저장소에 업로드한 파일을 보려면:
 ## <a name="step-2-create-an-external-table-for-the-sample-data"></a>2단계: 샘플 데이터에 대한 외부 테이블 만들기
 이 섹션에서는 샘플 데이터를 정의하는 외부 테이블을 만듭니다.
 
-PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터에 액세스합니다. 데이터가 SQL 데이터 웨어하우스 내에 저장되지 않기 때문에, PolyBase는 데이터베이스-범위 자격 증명을 사용하여 외부 데이터에 대한 인증을 처리합니다.
+PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터에 액세스합니다. 데이터가 SQL Data Warehouse 내에 저장되지 않기 때문에, PolyBase는 데이터베이스-범위 자격 증명을 사용하여 외부 데이터에 대한 인증을 처리합니다.
 
 이 단계의 예제는 다음 Transact-SQL 문을 사용하여 외부 테이블을 만듭니다.
 
@@ -134,7 +134,7 @@ PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터�
 * [외부 파일 형식 만들기(Transact-SQL)][Create External File Format (Transact-SQL)]: 데이터의 형식을 지정합니다.
 * [외부 테이블 만들기(Transact-SQL)][Create External Table (Transact-SQL)]: 테이블 정의 및 데이터의 위치를 지정합니다.
 
-SQL 데이터 웨어하우스 데이터베이스에 대해 이 쿼리를 실행합니다. Azure Blob 저장소의 샘플 데이터 DimDate2.txt를 가리키는 dbo 스키마에 DimDate2External이라는 이름의 외부 테이블이 생성됩니다.
+SQL Data Warehouse 데이터베이스에 대해 이 쿼리를 실행합니다. Azure Blob 저장소의 샘플 데이터 DimDate2.txt를 가리키는 dbo 스키마에 DimDate2External이라는 이름의 외부 테이블이 생성됩니다.
 
 ```sql
 -- A: Create a master key.
@@ -209,7 +209,7 @@ Visual Studio의 SQL Server 개체 탐색기에 외부 파일 형식, 외부 데
 
 ![외부 테이블 보기](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3-load-data-into-sql-data-warehouse"></a>3단계: SQL 데이터 웨어하우스에 데이터 로드
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>3단계: SQL Data Warehouse에 데이터 로드
 외부 테이블이 생성되면, 새 테이블에 데이터를 로드하거나 기존 테이블에 데이터를 삽입할 수 있습니다.
 
 * 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다.
@@ -229,7 +229,7 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4단계: 새로 로드한 데이터에 대한 통계 만들기
-SQL 데이터 웨어하우스는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
+SQL Data Warehouse는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
 
 이 예제는 새 DimDate2 테이블에 단일 열 통계를 만듭니다.
 

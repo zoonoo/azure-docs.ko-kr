@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 
 이 가이드에서는 Microsoft Azure 인프라의 배포 및 관리와 관련된 핵심 개념을 소개합니다. 클라우드 컴퓨팅 또는 Azure 자체를 처음 사용하는 경우 이 가이드를 통해 개념, 배포 및 관리 세부 정보를 빠르게 익힐 수 있습니다. 이 가이드의 여러 섹션에서는 가상 컴퓨터 배포 등의 작업을 설명한 후 심층 기술 정보에 대한 링크를 제공합니다.
@@ -323,11 +321,11 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 -   **SQL 보안 관리자**: 이 역할을 가진 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
 
--   **저장소 계정 참가자**: 이 역할을 가진 사용자는 저장소 계정을 관리할 수 있지만 저장소 계정에 대한 액세스는 관리할 수 없습니다.
+-   **Storage 계정 참가자**: 이 역할을 가진 사용자는 Storage 계정을 관리할 수 있지만 Storage 계정에 대한 액세스는 관리할 수 없습니다.
 
 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-## <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
+## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Azure Virtual Machines는 Azure의 중앙 IaaS 서비스 중 하나입니다. Azure Virtual Machines는 Microsoft Azure 데이터 센터의 Windows 또는 Linux 가상 컴퓨터 배포를 지원합니다. Azure Virtual Machines를 사용하면 사용자가 VM 구성을 완전히 제어할 수 있으며 모든 소프트웨어 설치, 구성 및 유지 관리를 담당하게 됩니다.
 
@@ -517,4 +515,3 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 - [Windows VM 만들기](/virtual-machines/windows/quick-create-portal.md)
 - [Linux VM 만들기](../../virtual-machines/linux/quick-create-portal.md)
-

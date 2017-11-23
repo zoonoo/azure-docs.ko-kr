@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
 
@@ -34,8 +34,8 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [.NET Core SDK 설치](https://www.microsoft.com/net/download/core) 
+* <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">.NET Core SDK 설치</a> 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -85,11 +85,11 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
+## <a name="create-a-web-app"></a>웹앱 만들기
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 해당하는 웹앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net

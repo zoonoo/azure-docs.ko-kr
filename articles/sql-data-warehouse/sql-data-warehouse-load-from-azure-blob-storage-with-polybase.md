@@ -1,9 +1,9 @@
 ---
 title: "Azure Blob에서 Azure 데이터 웨어하우스로 로드 | Microsoft Docs"
-description: "PolyBase를 사용하여 Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드하는 방법을 알아봅니다. 몇 개의 테이블을 공용 데이터에서 Contoso 소매 데이터 웨어하우스 스키마로 로드합니다."
+description: "PolyBase를 사용하여 Azure blob 저장소에서 SQL Data Warehouse로 데이터를 로드하는 방법을 알아봅니다. 몇 개의 테이블을 공용 데이터에서 Contoso 소매 데이터 웨어하우스 스키마로 로드합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: barbkess
 editor: 
 ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: barbkess
+ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드합니다(PolyBase).
+# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Azure blob 저장소에서 SQL Data Warehouse로 데이터를 로드합니다(PolyBase).
 > [!div class="op_single_selector"]
 > * [데이터 팩터리](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
 > * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 > 
 > 
 
-Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스로 데이터 로드하기 위해 PolyBase와 T-SQL 명령을 사용합니다. 
+Azure Blob 저장소에서 Azure SQL Data Warehouse로 데이터 로드하기 위해 PolyBase와 T-SQL 명령을 사용합니다. 
 
-간단히 말하자면, 이 자습서는 공용 Azure 저장소 Blob에서 두 테이블을 Contoso 소매 데이터 웨어하우스 스키마로 로드 합니다. 전체 데이터 집합을 로드하려면 Microsoft SQL Server 샘플 리포지토리에서 예제 [전체 Contoso 소매 데이터 웨어하우스 로드하기][Load the full Contoso Retail Data Warehouse]를 실행합니다.
+간단히 말하자면, 이 자습서는 공용 Azure Storage Blob에서 두 테이블을 Contoso 소매 데이터 웨어하우스 스키마로 로드 합니다. 전체 데이터 집합을 로드하려면 Microsoft SQL Server 샘플 리포지토리에서 예제 [전체 Contoso 소매 데이터 웨어하우스 로드하기][Load the full Contoso Retail Data Warehouse]를 실행합니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -39,10 +39,10 @@ Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스로 데이터 로�
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-이 자습서를 실행하려면 SQL 데이터 웨어하우스 데이터베이스를 이미 가지고 있는 Azure 계정이 필요합니다. 계정이 아직 없다면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
+이 자습서를 실행하려면 SQL Data Warehouse 데이터베이스를 이미 가지고 있는 Azure 계정이 필요합니다. 계정이 아직 없다면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
 
 ## <a name="1-configure-the-data-source"></a>1. 데이터 원본 구성
-PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL 데이터 웨어하우스에 저장됩니다. 데이터 자체는 외부에 저장됩니다.
+PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL Data Warehouse에 저장됩니다. 데이터 자체는 외부에 저장됩니다.
 
 ### <a name="11-create-a-credential"></a>1.1. 자격 증명 만들기
 **이 단계를 건너뜁니다** . 공용 데이터는 누구나 액세스할 수 있으므로 보안 액세스가 필요하지 않습니다.
@@ -128,7 +128,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. 외부 테이블을 만듭니다.
-DimProduct와 FactOnlineSales 외부 테이블을 만들려면 이 스크립트를 실행합니다. 여기에서는 열 이름과 데이터 형식을 정의하고 이들을 Azure blob 저장소 파일의 위치와 형식에 바인딩합니다. 정의는 SQL 데이터 웨어하우스에 저장되고 데이터는 여전히 Azure 저장소 Blob에 위치합니다.
+DimProduct와 FactOnlineSales 외부 테이블을 만들려면 이 스크립트를 실행합니다. 여기에서는 열 이름과 데이터 형식을 정의하고 이들을 Azure blob 저장소 파일의 위치와 형식에 바인딩합니다. 정의는 SQL Data Warehouse에 저장되고 데이터는 여전히 Azure Storage Blob에 위치합니다.
 
 **위치** 매개 변수는 Azure Storage Blob의 루트 폴더 아래에 있는 폴더입니다. 각 테이블은 서로 다른 폴더에 있습니다.
 
@@ -278,7 +278,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Columnstore 압축을 최적화합니다.
-기본적으로 SQL 데이터 웨어하우스는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes]를 참조하세요.
+기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes]를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다. 
 
@@ -342,7 +342,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
-이제 Azure SQL 데이터 웨어하우스에 공용 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
+이제 Azure SQL Data Warehouse에 공용 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
 
 다음과 같은 쿼리를 사용하여 테이블 쿼리를 시작할 수 있습니다.
 

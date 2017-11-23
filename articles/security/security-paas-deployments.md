@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f218fe7e59e46683b544fd83bfea505b7cbe2d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -100,9 +100,9 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database 및 Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure 저장소
+- Azure Storage
 - Azure REDIS Cache
-- Azure 서비스 버스
+- Azure Service Bus
 - 웹 응용 프로그램 방화벽
 
 <!--Image references-->

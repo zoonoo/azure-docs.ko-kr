@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크입니다.
@@ -26,7 +26,7 @@ Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, �
 이 Azure 운영 보안 개요 문서는 다음 영역에 중점을 둡니다.
 
 - Azure Operations Management Suite
--   Azure 보안 센터
+-   Azure Security Center
 -   Azure Monitor
 -   Azure Network Watcher
 -   Azure Storage 분석
@@ -42,17 +42,17 @@ OMS는 IT Automation, Security & Compliance, Log Analytics 및 Backup & Recovery
 OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 포함되는 서비스는 다음과 같습니다.
 
 -   Log Analytics
--   자동화
+-   Automation
 -   Backup
 -   사이트 복구
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리형 리소스의 데이터를 중앙 리포지토리로 수집하여 OMS에 대한 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)은 사용자가 클라우드 및 엔터프라이즈 환경에서 일반적으로 수행되는 한편 장기간 실행되고, 오류가 발생하기 쉬우며, 자주 반복되는 수동 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다.
 
-### <a name="backup"></a>백업
+### <a name="backup"></a>Backup
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)를 참조하세요.
 
 ### <a name="site-recovery"></a>Site Recovery
@@ -69,7 +69,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 
 Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
-## <a name="azure-security-center"></a>Azure 보안 센터
+## <a name="azure-security-center"></a>Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)를 사용하면 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방, 검색 및 대응할 수 있습니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine)를 사용하면 가상 컴퓨터의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 가상 컴퓨터 데이터를 보호할 수 있습니다. Security Center는 다음의 목적으로 가상 컴퓨터를 모니터링할 수 있습니다.
@@ -133,7 +133,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 -   [다음 홉](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
 -   [보안 그룹 보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) - VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
 -   [NSG 흐름 로깅](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) - 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
--   [가상 네트워크 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
+-   [Virtual Network 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
 -   [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 -   [진단 로그 구성](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) – 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
 

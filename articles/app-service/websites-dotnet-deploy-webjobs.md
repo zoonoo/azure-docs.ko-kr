@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
-ms.author: glenga
-ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 
 * 웹 앱의 해당 폴더에 런타임 파일을 복사합니다(연속 WebJob의 경우 *App_Data/jobs/continuous*, 예약된 주문형 WebJob의 경우 *App_Data/jobs/triggered*).
-* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure 스케줄러 작업](#scheduler) 을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
+* 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure Scheduler 작업](#scheduler) 을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
 
 WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
