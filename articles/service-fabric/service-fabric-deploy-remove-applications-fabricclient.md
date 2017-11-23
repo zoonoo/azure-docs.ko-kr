@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>FabricClient를 사용하여 응용 프로그램 배포 및 제거
 > [!div class="op_single_selector"]
+> * [리소스 관리자](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -42,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 1. 실행 중인 응용 프로그램 인스턴스 제거(또는 삭제)
 2. 더 이상 필요하지 않은 경우 응용 프로그램 유형 등록 취소
 
-로컬 개발 클러스터에서 [Visual Studio를 사용하여 응용 프로그램을 개발 및 배포](service-fabric-publish-app-remote-cluster.md)하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
+로컬 개발 클러스터에서 Visual Studio를 사용하여 응용 프로그램을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 응용 프로그램 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
  
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 이 문서의 코드 예제 중 하나를 실행하기 전에 [FabricClient](/dotnet/api/system.fabric.fabricclient) 인스턴스를 만들어 클러스터에 연결합니다. 로컬 개발 클러스터 또는 원격 클러스터나 Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용하여 보안된 클러스터에 연결하는 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis)을 참조하세요. 로컬 개발 클러스터에 연결하려면 다음을 실행합니다.

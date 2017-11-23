@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
 ## <a name="overview"></a>개요
 Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 채널로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 채널을 통과합니다. 이 방법을 *통과*라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Media Excel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. 라이브 인코더(Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek 및 TriCaster)는 RTMP를 출력합니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 채널로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 채널을 통과합니다. 이 방법을 *통과*라고 합니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
@@ -34,13 +34,13 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
-* **경로 통과**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 항목에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
-* **라이브 인코딩**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생한다는 점에 유의하세요. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
+* **경로 통과**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 문서에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
+* **Live Encoding**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생합니다. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
 > [!NOTE]
-> 이 항목에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+> 이 문서에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 >
->
+>권장되는 온-프레미스 인코더에 대한 자세한 내용은 [권장 온-프레미스 인코더](media-services-recommended-encoders.md)를 참조하세요.
 
 다음 다이어그램은 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하기 위해 온-프레미스 라이브 인코더를 사용하는 라이브 스트리밍 워크플로를 나타냅니다.
 
@@ -49,7 +49,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 ## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음 단계에서는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 데 포함되는 작업을 설명합니다.
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
     채널을 만든 후에도 이 단계를 수행할 수 있습니다.
 2. 채널을 만들고 시작합니다.
@@ -100,7 +100,7 @@ Media Services는 다중 비트 전송률 조각화된 MP4 및 다중 비트 전
 
     이 시나리오에서 두 인코더는 모두 기본 및 보조 URL에 모두 데이터를 푸시합니다. 이를 통해 최고의 안정성 및 내결함성과 데이터 중복성을 제공합니다. 이 시나리오에서는 하나의 인코더가 작동을 중지하는 경우에도 인코더 오류 및 연결 해제를 모두 허용할 수 있습니다. 여기서는 인코더가 시간 동기화된다고 가정하고 똑같은 데이터를 제공합니다.  
 
-RTMP 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+RTMP 라이브 인코더에 대한 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
 #### <a name="ingest-urls-endpoints"></a>수집 URL(끝점)
 채널이 라이브 인코더에서 지정하는 입력 끝점(수집 URL)을 제공하므로 해당 인코더는 채널에 스트림을 푸시할 수 있습니다.   
@@ -124,7 +124,7 @@ SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스�
 
 ChanneInput에서 KeyFrameInterval 속성을 설정하여 키 프레임 간격 값을 변경할 수도 있습니다. KeyFrameInterval을 명시적으로 설정하는 경우 HLS 세그먼트 패키징 비율 FragmentsPerSegment는 이전에 설명된 규칙을 통해 계산됩니다.  
 
-KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 경우 Media Services는 사용자가 설정한 값을 사용합니다.
+KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는 경우 Media Services는 사용자가 설정한 값을 사용합니다.
 
 #### <a name="allowed-ip-addresses"></a>허용된 IP 주소
 이 채널에 비디오를 게시하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소를 다음 중 하나로 지정할 수 있습니다.
@@ -154,7 +154,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 채널 출력에 대한 내용은 [키 프레임 간격](#keyframe_interval) 섹션을 참조하세요.
 
 ### <a name="channel-managed-programs"></a>채널 관리되는 프로그램
-채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어하는데 사용할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+채널은 라이브 스트림에서 세그먼트의 게시 및 저장소를 제어하는데 사용할 수 있는 프로그램과 연결되어 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 
 **보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
@@ -213,13 +213,15 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 * 기본적으로 Media Services 계정에 5개의 채널만을 추가할 수 있습니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
 * 채널이 **실행 중** 상태일 때만 비용이 청구됩니다. 자세한 내용은 [채널 상태 및 청구](media-services-live-streaming-with-onprem-encoders.md#states) 섹션을 참조하세요.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="feedback"></a>사용자 의견
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>관련된 항목
+[권장 온-프레미스 인코더](media-services-recommended-encoders.md)
+
 [Azure Media Services 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services 개요 및 일반적인 시나리오](media-services-overview.md)

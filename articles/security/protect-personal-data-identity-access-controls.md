@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory 및 Multi-Factor Authentication: ID 및 액세스 제어를 사용하여 개인 데이터 보호
 
@@ -81,13 +81,13 @@ Azure AD Privileged Identity Management를 설정하면 응용 프로그램을 �
 
 AAD PIM 시작에 대한 자세한 내용과 지침은 [Azure AD Privileged Identity Management 시작](https://docs.microsoft.com/active-directory/active-directory-privileged-identity-management-getting-started)을 참조하세요.
 
-### <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
+### <a name="azure-role-based-access-control"></a>Azure 역할 기반 Access Control
 
-[Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 사용하면 Azure 관리자가 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 팀 내에서 직무를 분리하고, 자신들의 작업을 수행하는 데 필요한 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한만 부여할 수 있습니다.
+[Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)을 사용하면 Azure 관리자가 사용자에게 할당된 역할에 따라 액세스 권한을 부여함으로써 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 팀 내에서 직무를 분리하고, 자신들의 작업을 수행하는 데 필요한 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한만 부여할 수 있습니다.
 
 Azure 포털, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스를 부여할 수 있습니다.
 
-Azure RBAC 기본 사항에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)을 참조하세요.
+Azure RBAC 기본 사항에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)을 참조하세요.
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>PowerShell을 사용하여 Azure RBAC를 관리하려면 어떻게 할까요?
 
@@ -121,23 +121,23 @@ Azure 클라우드에 MFA를 배포하려면 먼저 이를 사용하도록 설�
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Azure에서 MFA를 사용하도록 설정하려면 어떻게 할까요?
 
-사용자에게 Azure Multi-Factor Authentication을 포함하는 라이선스가 있으면 Azure MFA를 설정하는 작업을 수행할 필요가 없습니다. 그렇지 않으면 디렉터리에 Multi-Factor Auth 공급자를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+사용자에게 Azure Multi-Factor Authentication을 포함하는 라이선스가 있으면 사용자 또는 그룹 기준으로 Azure MFA를 구성하면 됩니다. 
 
-1. Azure 클래식 포털에서 **Active Directory**를 선택합니다(관리자 권한으로 로그인함).
+![MFA 사용 가능 사용자](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. **Multi-Factor Authentication 공급자**를 선택합니다.
+현재 라이선스가 없는 경우 시나리오에 가장 적합한 배포 유형을 결정하는 프로세스를 진행해야 합니다. 먼저 [사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md) 문서를 확인하세요. 이를 결정할 경우 Multi-Factor Authentication 서버를 만들어야 합니다. 다음 단계를 수행하여 시작할 수 있습니다.
 
-3. **새로 만들기**를 선택한 다음 **App Services** 아래에서 **Multi-Factor Auth 공급자**를 선택합니다.
+1. Azure Portal에서 **Active Directory**를 선택합니다(관리자 권한으로 로그인함).
 
-4. **빠른 생성**을 선택합니다.
+2. **MFA 서버**를 선택합니다.
 
-5. 이름 필드를 채우고 사용 모델(인증별 또는 활성화된 사용자별)을 선택합니다.
+3. 시간 제한 값을 지정합니다. 
 
-6. MFA 공급자와 연관된 디렉터리를 지정합니다.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. **만들기** 단추를 클릭합니다.
+4. 페이지 맨 아래에 있는 **저장**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+이 창에는 MFA 서버를 다운로드할 수 있는 옵션도 있습니다. 배포 규모를 지정하고 배포를 계획하는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication 서버로 시작하기](../multi-factor-authentication/multi-factor-authentication-get-started-server.md) 문서를 참조하세요.
 
 Multi-Factor Auth 공급자를 관리하는 방법에 대한 자세한 내용은 [Azure Multi-Factor Auth 공급자 시작](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)을 참조하세요.
 
@@ -158,7 +158,7 @@ Multi-Factor Auth 공급자를 관리하는 방법에 대한 자세한 내용은
 5. 사용자 이름 옆의 확인란을 선택합니다.
 6. 오른쪽의 빠른 단계 아래에서 **사용**을 선택합니다.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. 열리는 팝업 창에서 선택한 내용을 확인합니다.  MFA를 사용하도록 설정된 사용자에게는 다음에 로그인할 때 등록하도록 요구하는 메시지가 표시됩니다.
 
@@ -184,6 +184,6 @@ Multi-Factor Auth 공급자를 관리하는 방법에 대한 자세한 내용은
 
 - [Azure Multi-Factor Authentication에 대한 질문과 대답](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [역할 기반 액세스 제어 문제 해결](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [역할 기반 Access Control 문제 해결](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
 
 - [Azure Active Directory ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 05c5149ed6c8502c31539f31bfff046f98dc633d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 049fba28d0783a79331e8bc8de741f55e9caf828
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>지역 배포에 업데이트된 이미지 푸시
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/03/2017
 
 이 단계에서는 Azure Container Registry에 업데이트된 컨테이너 이미지를 푸시하면 항상 볼 수 있는 웹 응용 프로그램을 변경합니다.
 
-이전 자습서의 [GitHub에서 복제한](container-registry-tutorial-prepare-registry.md#get-application-code) 응용 프로그램 원본에서 `AcrHelloworld/Views/Home/Index.cshtml` 파일을 찾고 원하는 텍스트 편집기에서 엽니다. `<img>` 줄 위에 다음 줄을 추가합니다.
+이전 자습서의 [GitHub에서 복제한](container-registry-tutorial-prepare-registry.md#get-application-code) 응용 프로그램 원본에서 `AcrHelloworld/Views/Home/Index.cshtml` 파일을 찾고 원하는 텍스트 편집기에서 엽니다. 기존 `<h1>` 줄 아래에 다음 줄을 추가합니다.
 
 ```html
 <h1>MODIFIED</h1>
@@ -52,15 +52,27 @@ ms.lasthandoff: 11/03/2017
 @{
     ViewData["Title"] = "Azure Container Registry :: Geo-replication";
 }
+<style>
+    body {
+        background-image: url('images/azure-regions.png');
+        background-size: cover;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+</style>
+
+<h1 style="text-align:center;color:blue">Hello World from:  @ViewData["REGION"]</h1>
 <h1>MODIFIED</h1>
-<img width="700" src="~/images/@ViewData["MAPIMAGE"]" />
-<ul>
-<li>Registry URL: @ViewData["REGISTRYURL"]</li>
-<li>Registry IP: @ViewData["REGISTRYIP"]</li>
-<li>HostEntry: @ViewData["HOSTENTRY"]</li>
-<li>Region: @ViewData["REGION"]</li>
-<li>Map: @ViewData["MAPIMAGE"]</li>
-</ul>
+<div class="footer">
+    <ul>
+        <li>Registry URL: @ViewData["REGISTRYURL"]</li>
+        <li>Registry IP: @ViewData["REGISTRYIP"]</li>
+        <li>Registry Region: @ViewData["REGION"]</li>
+    </ul>
+</div>
 ```
 
 ## <a name="rebuild-the-image"></a>이미지 다시 빌드
@@ -70,18 +82,6 @@ ms.lasthandoff: 11/03/2017
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
-
-## <a name="run-the-container-locally"></a>컨테이너를 로컬로 실행
-
-Azure Container Registry에 배포하기 전에 이미지를 로컬로 실행하여 빌드에 성공했는지 확인합니다.
-
-```bash
-docker run -d -p 8080:80 <acrName>.azurecr.io/acr-helloworld:v1
-```
-
-웹 브라우저의 http://localhost:8080으로 이동하여 컨테이너가 나타나고 실행되는지, 수정 내용이 표시되는지 확인합니다.
-
-![로컬 컨테이너 이미지][local-container-01]
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
@@ -95,14 +95,14 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
-c003ed6fc8b8: Pushed
-02b11afef3fd: Layer already exists
-cf17b6f921be: Layer already exists
-c93ae914d31e: Layer already exists
-2eea44510cee: Layer already exists
-670f809bd6d5: Layer already exists
+5b9454e91555: Pushed
+d6803756744a: Layer already exists
+b7b1f3a15779: Layer already exists
+a89567dff12d: Layer already exists
+59c7b561ff56: Layer already exists
+9a2f9413d9e4: Layer already exists
 a75caa09eb1f: Layer already exists
-v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
 ## <a name="view-the-webhook-logs"></a>Webhook 로그 보기

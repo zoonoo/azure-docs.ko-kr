@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
-이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
+이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
 
 ## <a name="general"></a>일반
 ### <a name="what-does-site-recovery-do"></a>Site Recovery의 기능은 무엇입니까?
@@ -75,22 +75,7 @@ VMware VM을 보호하려면 vSphere 하이퍼바이저 및 VMware 도구를 실
 예. 지사에서 Site Recovery를 사용하여 복제를 오케스트레이션하고 장애 조치(failover)를 수행하면 중앙의 한 위치에 모든 지사 워크로드의 통합되지 않은 오케스트레이션 및 보기가 표시됩니다. 지사를 방문하지 않고 본사에서 간편하게 모든 지사의 장애 조치(failover)를 수행하고 재해 복구를 관리할 수 있습니다.
 
 ## <a name="pricing"></a>가격
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Azure Site Recovery를 사용하는 동안 어떤 요금이 발생하나요?
-Site Recovery를 사용하는 경우 Site Recovery 라이선스, Azure 저장소, 저장소 트랜잭션 및 아웃바운드 데이터 전송에 대한 요금이 발생합니다. [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery)을 확인하세요.
-
-Site Recovery 라이선스는 보호된 인스턴스당 요금이 청구되며, 여기서 인스턴스는 VM 또는 물리적 서버를 말합니다.
-
-- VM 디스크가 표준 저장소 계정에 복제하면 사용한 저장소만큼 Azure 저장소 비용이 청구됩니다. 예를 들어 원본 디스크 크기가 1TB이고, 400GB를 사용 중이고, Site Recovery가 Azure에 1TB VHD를 만드는 경우 400GB(그리고 복제 로그에 사용된 저장소 공간의 크기)에 대한 요금이 청구됩니다.
-- VM 디스크가 프리미엄 저장소 계정에 복제하는 경우 프로비전된 저장소 크기를 가장 가까운 Premium Storage 디스크 옵션으로 반올림하여 Azure 저장소 요금이 산정됩니다. 예를 들어 원본 디스크 크기가 50GB이고 Site Recovery가 Azure에 50GB를 만들면 Azure가 이를 가장 가까운 Premium Storage 디스크(P10)로 매핑합니다.  비용은 50GB 디스크 크기가 아닌 P10을 기준으로 산정됩니다.  [자세히 알아보세요](https://aka.ms/premium-storage-pricing)을 확인하세요.  Premium Storage를 사용하는 경우 복제 로깅을 위한 표준 저장소 계정도 필요하며, 이러한 로그에 사용되는 표준 저장소 공간의 양만큼 요금이 청구됩니다.
-- 테스트 장애 조치(failover) 또는 장애 조치(failover) 때까지 디스크가 만들어지지 않습니다. 복제 상태에서는 [저장소 가격 계산기](https://azure.microsoft.com/en-in/pricing/calculator/)에 따라 "페이지 Blob 및 디스크" 범주의 저장소 요금이 발생합니다. 이러한 요금은 프리미엄/표준 저장소 형식 및 데이터 중복 형식 -LRS, GRS, RA-GRS 등을 기준으로 청구됩니다.
-- 장애 조치(failover) 시 관리 디스크를 사용하는 옵션을 선택하면 장애 조치(failover)/테스트 장애 조치(failover) 후 [관리 디스크에 대한 요금](https://azure.microsoft.com/en-in/pricing/details/managed-disks/)이 적용됩니다. 복제 중에는 관리 디스크 비용이 적용되지 않습니다.
-- 장애 조치(failover) 시 관리 디스크를 사용하는 옵션을 선택하지 않으면 장애 조치(failover) 후 [저장소 가격 계산기](https://azure.microsoft.com/en-in/pricing/calculator/)에 따라 "페이지 Blob 및 디스크" 범주의 저장소 요금이 발생합니다. 이러한 요금은 프리미엄/표준 저장소 형식 및 데이터 중복 형식 -LRS, GRS, RA-GRS 등을 기준으로 청구됩니다.
-- 저장소 트랜잭션은 안정적 상태 복제 동안 및 장애 조치(failover)/테스트 장애 조치(failover) 후 기본 VM 작업에 대해 요금이 청구됩니다. 하지만 이러한 청구 요금은 무시할 수 있습니다.
-
-테스트 장애 조치(failover)를 수행하는 동안에도 비용이 발생하며 VM, 저장소, 전송 및 저장소 트랜잭션 비용이 적용됩니다.
-
-
+가격 관련 질문은 [Azure Site Recovery 가격](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) FAQ를 참조하세요.
 
 ## <a name="security"></a>보안
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 Site Recovery 서비스로 전송되나요?
@@ -131,7 +116,7 @@ Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked
 * [Hyper-V VM을 VMM 없이 Azure PowerShell Resource Manager로 복제](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
-LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
+LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
 
 ### <a name="how-often-can-i-replicate-data"></a>데이터를 얼마나 자주 복제할 수 있나요?
 * **Hyper-V:** Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
@@ -162,7 +147,7 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 ## <a name="failover"></a>장애 조치(failover)
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Azure로 장애 조치(failover)하는 경우 장애 조치(failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까?
-보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure Express 경로로 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure ExpressRoute로 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Azure로 장애 조치(failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
