@@ -3,7 +3,7 @@ title: "Azure Data Factory에서 자체 호스팅 통합 런타임 만들기 | M
 description: "데이터 팩터리가 개인 네트워크의 데이터 저장소에 액세스할 수 있게, Azure Data Factory에서 자체 호스팅 통합 런타임을 만드는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -63,7 +63,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 - **서로 다른 컴퓨터의 여러 자체 호스팅 통합 런타임이 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 자체 호스팅 통합 런타임이 두 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
 - 컴퓨터에 **Power BI** 시나리오를 처리할 게이트웨이가 이미 설치된 경우 **별도의 Azure Data Factory용 자체 호스팅 통합 런타임**을 다른 컴퓨터에 설치합니다.
 - 자체 호스팅 통합 런타임은 Azure Virtual Network 내에서 데이터 통합을 지원하는 데 사용되어야 합니다.
-- **Express 경로**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 자체 호스팅 통합 런타임을 사용하여 서비스와 데이터 원본 간의 연결을 설정합니다.
+- **ExpressRoute**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 자체 호스팅 통합 런타임을 사용하여 서비스와 데이터 원본 간의 연결을 설정합니다.
 - 클라우드의 데이터 저장소가 **Azure IaaS 가상 컴퓨터**에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -107,7 +107,7 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 1. Azure Data Factory와의 빅 데이터 솔루션이나 클라우드 데이터 통합에서 자체 호스팅 Integration Runtime의 고가용성으로 단일 실패 지점이 없어 최대 4개 노드의 연속성을 보장합니다.
 2. 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능 및 처리량을 향상시킵니다. 자세한 내용은 [성능 비교](copy-activity-performance.md)를 참조하세요.
 
-[자습서](tutorial-hybrid-copy-powershell.md)에서 설명한 대로 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 Integration Runtime을 설치하고 New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet에서 구한 인증 키를 등록하는 것만으로 간단히 여러 노드를 연결할 수 있습니다.
+[자습서](tutorial-hybrid-copy-powershell.md)에서 설명한 대로 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 Integration Runtime을 설치하고 New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet에서 얻은 인증 키를 등록하는 것만으로 간단히 여러 노드를 연결할 수 있습니다.
 
 > [!NOTE]
 > 각각의 노드를 연결하기 위해 새로운 자체 호스팅 Integration Runtime을 만들 필요는 없습니다.

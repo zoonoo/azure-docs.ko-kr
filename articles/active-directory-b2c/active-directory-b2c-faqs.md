@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -57,7 +57,7 @@ Azure AD B2C에서는 [사용자 지정 정책](https://docs.microsoft.com/en-us
 Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려는 디렉터리로 전환해야 합니다.  Azure Portal의 오른쪽 위에 있는 사용자 ID를 클릭하여 디렉터리를 전환한 후 나타나는 드롭다운에서 디렉터리를 선택합니다.  이미지를 포함하는 단계별 지침을 보려면 [Azure AD B2C 설정으로 이동](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)을 참조하세요.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Azure AD B2C에서 보낸 확인 메일(콘텐츠 및 "From:" 필드)을 어떻게 사용자 지정하나요?
-[회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
+[회사 브랜딩 기능](../active-directory/customize-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
 
 * **배너 로고**: 오른쪽 아래에 표시됩니다.
 * **배경색**: 맨 위에 표시됩니다.
@@ -66,11 +66,11 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 
 전자 메일 서명에는 B2C 테넌트를 처음 만들 때 제공한 B2C 테넌트의 이름이 포함됩니다. 다음 지침을 사용하여 이름을 변경할 수 있습니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com/) 에 구독 관리자로 로그인합니다.
-1. B2C 테넌트로 이동합니다.
-1. **구성** 탭을 클릭합니다.
-1. **디렉터리 속성** 섹션에서 **이름** 필드를 변경합니다.
-1. 페이지 맨 아래에서 **저장**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다.
+1. **Azure Active Directory** 블레이드를 엽니다.
+1. **속성** 탭을 클릭합니다.
+1. **이름** 필드를 변경합니다.
+1. 페이지 위쪽에서 **저장**을 클릭합니다.
 
 현재 전자 메일의 "받는 사람:" 필드를 변경할 방법은 없습니다. [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails)에서 확인 메일의 본문 사용자 지정에 관심이 있다고 투표하세요.
 
@@ -98,9 +98,9 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C가 제공하는 보고 및 감사 기능은 무엇인가요? Azure AD Premium과 동일한가요?
 아니요, Azure AD B2C는 Azure AD Premium과 동일한 보고서 집합을 지원하지 않습니다. 하지만 많은 공통점이 있습니다.
 
-* 로그인 보고서는 요약 정보와 함께 각 로그인 레코드를 제공합니다.
-* 감사 보고서는 Azure Portal의 Azure Active Directory> 작업-감사 로그>Choose B2C and apply filters as desired(필요에 따라 B2C 선택 및 필터 적용)에 제공됩니다. 관리 작업 및 응용 프로그램 작업을 모두 다룹니다. 
-* 사용자 수, 로그인 수 및 MFA 볼륨을 다루는 사용 보고는 [사용 보고 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)에서 제공됩니다.
+* **로그인 보고서**는 Azure Portal(Azure Active Directory > 활동 > 로그인)에서만 사용 가능하며 그래프 API로 제공되지 않습니다. 요약 정보와 함께 각 로그인 레코드를 제공합니다.
+* **감사 보고서**는 Azure Portal(Azure Active Directory > 활동 > 감사 로그)에서만 사용 가능하며 그래프 API로 제공되지 않습니다. 관리 작업 및 응용 프로그램 작업을 모두 포함합니다. 
+* **사용 현황 보고서**는 [사용 현황 보고 API](active-directory-b2c-reference-usage-reporting-api.md)를 통해서만 제공되며 Azure Portal을 통해 사용할 수 없습니다. 사용자 수, 로그인 수 및 MFA 크기가 포함됩니다. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C에서 제공하는 페이지의 UI를 지역화할 수 있습니까? 어떤 언어가 지원되나요?
 예!  공개 미리 보기로 제공되는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 참조하세요.  36개 언어에 대한 번역이 제공되며, 모든 문자열을 요구에 맞게 재정의할 수 있습니다.

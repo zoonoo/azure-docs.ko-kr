@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: ce0268f800dcf1900730d6ad9c476fb06320a79e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2ca290dfcb23215ffd727500e76076ae8b14fa6f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 응용 프로그램을 배포하고 탐색합니다.
 
-이 자습서에서는 Wingtip 티켓 SaaS 응용 프로그램을 배포하고 탐색합니다. 응용 프로그램은 SaaS 시나리오를 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
+이 자습서에서는 Wingtip 티켓 SaaS 독립 실행형 응용 프로그램을 배포하고 탐색합니다. 응용 프로그램은 SaaS 시나리오를 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
 독립형 응용 프로그램 패턴은 단일 테넌트 응용 프로그램이 포함된 Azure 리소스 그룹과 각 테넌트에 대한 단일 테넌트 데이터베이스를 배포합니다.  다중 테넌트 솔루션을 제공하기 위해 응용 프로그램의 여러 인스턴스를 프로비전할 수 있습니다.
 

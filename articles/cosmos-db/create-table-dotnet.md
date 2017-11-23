@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
@@ -67,7 +67,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. 그런 다음 Visual Studio에서 TableStorage 솔루션 파일을 엽니다. 
@@ -78,22 +78,25 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
-    화면의 오른쪽에서 복사 단추를 사용하여 연결 문자열을 복사합니다.
+    화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
-    ![연결 문자열 창에서 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
+    ![연결 문자열 창에서 기본 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
 
 2. Visual Studio에서 App.config 파일을 엽니다. 
 
-3. App.config 파일에 AzureCosmosDBTableAPIConnectionString의 값으로 연결 문자열 값을 붙여넣습니다. 
+3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. 8줄에서 StorageConnectionString 값에 기본 연결 문자열 값을 붙여넣습니다. 
 
-    > [!NOTE]
-    > Azure Table Storage에서 이 앱을 사용하려면 `App.config file`에서 연결 문자열을 변경해야 합니다. 계정 이름을 Table 계정 이름으로, 키를 Azure Storage 기본 키로 사용합니다. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    줄 8은 다음과 같이 보일 것입니다.
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. App.config 파일을 저장합니다.
 

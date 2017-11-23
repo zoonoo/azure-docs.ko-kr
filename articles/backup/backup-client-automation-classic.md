@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21e84d6dd7d5064908555a2f7c64f39816c2956f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 워크스테이션 데이터를 백업 자격 증명 모음으로 백업하는 방법을 설명합니다. 모든 새 배포에 Recovery Services 자격 증명 모음을 사용하는 것이 좋습니다. 새 Azure Backup 사용자이며 구독에 백업 자격 증명 모음을 만들지 않은 경우 [PowerShell을 사용하여 Data Protection Manager 데이터를 Azure로 배포 및 관리](backup-client-automation.md) 문서를 사용하여 Recovery Services 자격 증명 모음에 데이터를 저장합니다. 
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 11월 30일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
@@ -48,7 +48,7 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 
 ## <a name="create-a-backup-vault"></a>백업 자격 증명 모음 만들기
 > [!WARNING]
-> 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> 처음으로 Azure Backup을 사용하는 고객의 경우, 구독과 함께 사용할 Azure Backup 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 >
 >
 
@@ -61,8 +61,8 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 **Get-AzureRMBackupVault** cmdlet을 사용하여 구독에서 백업 자격 증명 모음을 나열합니다.
 
-## <a name="installing-the-azure-backup-agent"></a>Azure 백업 에이전트 설치
-Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
+## <a name="installing-the-azure-backup-agent"></a>Azure Backup 에이전트 설치
+Azure Backup 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
 
 에이전트를 설치하려면 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -88,8 +88,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | 옵션 | 세부 정보 | 기본값 |
 | --- | --- | --- |
 | /q |자동 설치 |- |
-| /p:"위치" |Azure 백업 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"위치" |Azure 백업 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"위치" |Azure Backup 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Microsoft 업데이트에 옵트인 |- |
 | /nu |설치가 완료된 후 업데이트에 대한 검사 안 함 |- |
 | /d |Microsoft Azure Recovery Services 에이전트를 제거합니다. |- |
@@ -98,8 +98,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pu |프록시 호스트 사용자 이름 |- |
 | /pw |프록시 암호 |- |
 
-## <a name="registering-with-the-azure-backup-service"></a>Azure 백업 서비스 등록
-Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-configure-vault.md)이 충족되어야 합니다. 다음이 필요합니다.
+## <a name="registering-with-the-azure-backup-service"></a>Azure Backup 서비스 등록
+Azure Backup 서비스에 등록하려면 먼저 [필수 조건](backup-configure-vault.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 * 유효한 Azure 구독이 있어야 함
 * 백업 자격 증명 모음
@@ -148,7 +148,7 @@ Server properties updated successfully.
 ```
 
 ## <a name="encryption-settings"></a>암호화 설정
-Azure 백업에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
+Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
@@ -161,7 +161,7 @@ Server properties updated successfully
 >
 
 ## <a name="back-up-files-and-folders"></a>파일 및 폴더 백업
-Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
+Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
 
 1. 백업을 수행하고 서비스와 동기화해야 할 시기를 지정하는 **백업 일정** .
 2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정** 입니다.
@@ -194,7 +194,7 @@ PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>보존 정책 구성
-보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet을 사용하여 새 보존 정책을 만들 때 Azure 백업을 사용하여 백업 복구 지점을 유지해야 할 일수를 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
+보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet을 사용하여 새 보존 정책을 만들 때 Azure Backup을 사용하여 백업 복구 지점을 유지해야 할 일수를 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -325,7 +325,7 @@ PolicyState     : Valid
 ```
 
 ### <a name="applying-the-policy"></a>정책 적용
-이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure 백업에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
+이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure Backup에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 ```-Confirm:$false``` 플래그를 cmdlet과 함께 사용합니다.
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
@@ -432,8 +432,8 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## <a name="restore-data-from-azure-backup"></a>Azure 백업에서 데이터 복원
-이 섹션에서는 Azure 백업에서 데이터 복구를 자동화하는 방법을 단계별로 안내합니다. 다음 단계를 수행하여 작업을 진행합니다.
+## <a name="restore-data-from-azure-backup"></a>Azure Backup에서 데이터 복원
+이 섹션에서는 Azure Backup에서 데이터 복구를 자동화하는 방법을 단계별로 안내합니다. 다음 단계를 수행하여 작업을 진행합니다.
 
 1. 원본 볼륨 선택
 2. 복원할 백업 시점 선택
@@ -441,7 +441,7 @@ The backup operation completed successfully.
 4. 복원 프로세스 트리거
 
 ### <a name="picking-the-source-volume"></a>원본 볼륨 선택
-Azure 백업에서 항목을 복원하려면 먼저 항목의 원본을 식별해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
+Azure Backup에서 항목을 복원하려면 먼저 항목의 원본을 식별해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -554,8 +554,8 @@ The recovery operation completed successfully.
 ```
 
 
-## <a name="uninstalling-the-azure-backup-agent"></a>Azure 백업 에이전트 제거
-Azure 백업 에이전트 제거는 다음 명령을 사용하여 수행할 수 있습니다.
+## <a name="uninstalling-the-azure-backup-agent"></a>Azure Backup 에이전트 제거
+Azure Backup 에이전트 제거는 다음 명령을 사용하여 수행할 수 있습니다.
 
 ```
 PS C:\> .\MARSAgentInstaller.exe /d /q
@@ -570,7 +570,7 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
 ## <a name="remote-management"></a>원격 관리
-Azure 백업 에이전트, 정책, 데이터 원본과 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
+Azure Backup 에이전트, 정책, 데이터 원본과 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
 기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
@@ -606,7 +606,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
+Windows Server/Client용 Azure Backup에 대한 자세한 정보는 다음을 참조하세요.
 
-* [Azure 백업 소개](backup-introduction-to-azure-backup.md)
+* [Azure Backup 소개](backup-introduction-to-azure-backup.md)
 * [Windows 서버 백업](backup-configure-vault.md)

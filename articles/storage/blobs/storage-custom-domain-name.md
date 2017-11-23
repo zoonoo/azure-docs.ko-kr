@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
 
@@ -32,7 +32,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 | 리소스 종류 | 기본 URL | 사용자 지정 도메인 URL |
 | --- | --- | --- |
-| 저장소 계정 | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Storage 계정 | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | 루트 컨테이너 | http://mystorageaccount.blob.core.windows.net/myblob 또는 http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob 또는 http://www.contoso.com/$root/myblob |
 
@@ -55,7 +55,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 중간 방법은 [*asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록](#register-a-custom-domain-using-the-asverify-subdomain)에서 설명합니다.
 
 ## <a name="register-a-custom-domain"></a>사용자 지정 도메인 등록
-사용자가 도메인을 잠시 사용할 수 없더라도 괜찮은 경우나 사용자 지정 도메인에서 현재 응용 프로그램을 호스트하지 않는 경우에 이 절차에 따라 사용자 지정 도메인을 등록하세요.
+사용자가 도메인을 잠시 사용할 수 없더라도 괜찮은 경우나 사용자 지정 도메인에서 현재 응용 프로그램을 호스트하지 않는 경우에 이 절차에 따라 사용자 지정 도메인을 등록하세요. Azure DNS를 사용하여 Azure Blob 저장소에 대한 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage)을 참조하세요.
 
 사용자 지정 도메인이 가동 중지 시간이 없어야 하는 응용 프로그램을 현재 지원하고 있다면 [*asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록](#register-a-custom-domain-using-the-asverify-subdomain)에서 설명한 절차를 따르세요.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: a0b8ff6894a1f30fd8d18beef234737573691af9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Azure Active Directory를 사용하여 Node.js Web API 보안 유지
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/19/2017
 
 ### <a name="configure-the-project-to-use-active-directory"></a>Active Directory를 사용하도록 프로젝트 구성
 
-응용 프로그램 구성을 시작하기 위해 Azure CLI를 가져올 수는 몇 가지 계정 관련 값 있습니다. CLI을 시작하는 가장 쉬운 방법은 Azure Cloud Shell을 사용하는 것입니다.
+응용 프로그램 구성을 시작하기 위해 Azure CLI에서 가져올 수는 몇 가지 계정 관련 값 있습니다. CLI을 시작하는 가장 쉬운 방법은 Azure Cloud Shell을 사용하는 것입니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

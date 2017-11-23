@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c1f49e2c7836a56f37aafcaad0cb74278213a720
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 테넌트 관리자로 액세스 권한 상승
 
@@ -43,6 +43,30 @@ ms.lasthandoff: 11/07/2017
 > 이 기능이 Azure Active Directory의 전역 속성인 것처럼 보이지만 현재 로그온한 사용자에 대해 사용자 기준으로 작동합니다. Azure Active Directory에서 전역 관리자 권한이 있는 경우 Azure Active Directory 관리 센터를 현재 로그인한 사용자에게 elevateAccess 기능을 호출할 수 있습니다.
 
 ![Azure AD 관리 센터 - 속성 - Globaladmin은 Azure 구독을 관리할 수 있습니다. - 스크린샷](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="view-role-assignments-at-the--scope-using-powershell"></a>PowerShell을 사용하여 "/" 범위에서 역할 할당 보기
+**/** 범위에서 **사용자 액세스 관리자** 할당을 보려면 `Get-AzureRmRoleAssignment` PowerShell cmdlet를 사용합니다.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**예제 출력**:
+
+RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Scope              : /    
+DisplayName        : username    
+SignInName         : username@somedomain.com    
+RoleDefinitionName : User Access Administrator    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType         : User    
+
+## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>PowerShell을 사용하여 "/" 범위에서 역할 할당 삭제:
+다음 PowerShell cmdlet를 사용하여 할당을 삭제할 수 있습니다.
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
 
 ## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>REST API를 사용하여 테넌트 액세스 권한을 부여하기 위해 elevateAccess 사용
 

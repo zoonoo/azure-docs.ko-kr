@@ -1,6 +1,6 @@
 ---
 title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기"
+description: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기
+# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 
 이 문서에서는 표준 SKU가 있는 **메시징** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
+템플릿 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하세요.
 
 전체 템플릿은 GitHub에서 [Service Bus 네임스페이스 템플릿][Service Bus namespace template]을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다. 
 > 
-> * [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
-> * [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
-> * [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+> * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
+> * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
+> * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 최신 템플릿을 확인하려면 Service Bus에 대한 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리 및 검색을 방문하세요.
@@ -53,7 +53,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 이 템플릿은 다음 매개 변수를 정의합니다.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-만들 서비스 버스 네임스페이스 이름입니다.
+만들 Service Bus 네임스페이스 이름입니다.
 
 ```json
 "serviceBusNamespaceName": {
@@ -65,7 +65,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
-만들 서비스 버스 [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 이름입니다.
+만들 Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 이름입니다.
 
 ```json
 "serviceBusSku": { 
@@ -81,25 +81,25 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ```
 
-이 매개 변수에 허용되는 값(표준 또는 프리미엄)을 정의하고, 값이 지정되지 않은 경우에는 기본값(표준)을 할당하는 템플릿입니다.
+템플릿은 이 매개 변수에 허용되는 값(표준 또는 프리미엄)을 정의합니다. 값을 지정하지 않으면 리소스 관리자가 기본값(표준)을 할당합니다.
 
 Service Bus 가격에 대한 자세한 내용은 [Service Bus 가격 및 대금 청구][Service Bus pricing and billing]를 참조하세요.
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-템플릿의 서비스 버스 API 버전입니다.
+템플릿의 Service Bus API 버전입니다.
 
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 
 ```
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
-### <a name="service-bus-namespace"></a>서비스 버스 네임스페이스
-**메시징**형식의 표준 서비스 버스 네임스페이스를 만듭니다.
+### <a name="service-bus-namespace"></a>Service Bus 네임스페이스
+**메시징**형식의 표준 Service Bus 네임스페이스를 만듭니다.
 
 ```json
 "resources": [
@@ -137,8 +137,8 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
-* [PowerShell을 사용하여 서비스 버스 관리](service-bus-manage-with-ps.md)
-* [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [PowerShell을 사용하여 Service Bus 관리](service-bus-manage-with-ps.md)
+* [Service Bus 탐색기로 Service Bus 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/

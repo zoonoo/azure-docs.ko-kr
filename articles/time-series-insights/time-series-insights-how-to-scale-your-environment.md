@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
 
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 주어진 가격 책정 SKU 내에서 용량을 늘
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. **용량** 슬라이더를 조정하여 수신 속도 및 저장소 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. 수신 속도, 저장소 용량 및 예상 비용 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다. 
+3. **용량** 슬라이더를 조정하여 수신 속도 및 저장소 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **저장소 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다. 
 
    ![슬라이더](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ Azure Portal을 사용하여 주어진 가격 책정 SKU 내에서 용량을 늘
 4. **저장**을 선택하여 환경을 확장할 수 있습니다. 진행률 표시기에는 변경 내용이 커밋될 때까지 일시적으로 표시됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
-새 용량이 제한을 방지하기에 충분한지 확인합니다. 자세한 내용은 [사용자 환경이 제한적인 경우](time-series-insights-diagnose-and-solve-problems.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [새 용량이 제한을 방지하기에 충분한지 확인합니다](time-series-insights-diagnose-and-solve-problems.md).

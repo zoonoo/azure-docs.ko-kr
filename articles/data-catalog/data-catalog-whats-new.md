@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
+
+## <a name="whats-new-for-november-2017"></a>2017년 11월의 새로운 기능 
+2017년 11월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
+
+* 데이터 카탈로그 포털에서 특정 비즈니스 용어에 대한 직접 연결을 지원합니다. 사용자가 비즈니스 용어의 링크를 복사하여 문서, 이메일, 보고서 또는 기타 위치에 포함시켜 용어 정의에 직접 연결할 수 있습니다.
+* Azure Active Directory 서비스 주체를 지원합니다. 데이터 카탈로그 관리자는 서비스 주체를 사용하여 카탈로그에 액세스하도록 클라이언트 응용 프로그램을 인증하고, 사용자 및 보안 그룹에 권한을 부여하는 것처럼 그러한 응용 프로그램에게도 특정 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요.
+* 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse 데이터 원본에 연결할 때 Azure Active Directory 인증을 지원합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md)을 참조하세요.
+
 
 ## <a name="whats-new-for-september-2017"></a>2017년 9월의 새로운 기능 
 2017년 9월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.

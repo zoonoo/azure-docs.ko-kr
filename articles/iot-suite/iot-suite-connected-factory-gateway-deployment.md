@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포
 
@@ -65,9 +65,9 @@ Windows 기반 게이트웨이 장치에 [Windows용 Docker]를 설치합니다.
 
 1. 다음을 사용하여 명령 프롬프트에서 두 게이트웨이 모듈을 **한번에** 실행하여 IoT Hub에 대한 게이트웨이를 구성합니다.
 
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;**은 **게시자.&lt;정규화된 도메인 이름&gt;** 형식으로 OPC UA 게시자에 지정하는 이름입니다. 예를 들어 팩터리 네트워크 이름이 **myfactorynetwork.com**일 경우 **ApplicationName** 값은 **publisher.myfactorynetwork.com**입니다.
     * **&lt;IoTHubOwnerConnectionString&gt;**은 이전 단계에서 복사한 **iothubowner** 연결 문자열입니다. 이 연결 문자열은 이 단계에서만 사용하며 다음 단계에서 다시 필요하지 않습니다.
@@ -78,9 +78,9 @@ Windows 기반 게이트웨이 장치에 [Windows용 Docker]를 설치합니다.
 
 1. 다음 명령을 사용하여 게이트웨이를 다시 시작합니다.
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. 보안상의 이유로 D:\\docker 폴더에 유지되는 두 X.509 인증서는 개인 키를 포함합니다. 이 폴더에 대한 액세스는 Docker 컨테이너를 실행하는 데 사용된 자격 증명(일반적으로 **Administrators**)으로 제한됩니다. D:\\docker 폴더를 마우스 오른쪽 단추로 클릭하고 **속성**, **보안**, **편집**을 차례로 선택합니다. **Administrators**에 모든 권한을 제공하고 다른 모든 사용자를 제거합니다.
 
@@ -117,9 +117,9 @@ Linux 게이트웨이 장치에서 [Docker를 설치]합니다.
 
 1. 다음을 사용하여 셸에서 두 게이트웨이 모듈을 **한번에** 실행하여 IoT Hub에 대한 게이트웨이를 구성합니다.
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** 은 게이트웨이가 **게시자.&lt;정규화된 도메인 이름&gt;** 형식으로 만드는 OPC UA 응용 프로그램의 이름입니다. 예를 들면 **publisher.microsoft.com**과 같습니다.
     * **&lt;IoTHubOwnerConnectionString&gt;**은 이전 단계에서 복사한 **iothubowner** 연결 문자열입니다. 이 연결 문자열은 이 단계에서만 사용하며 다음 단계에서 다시 필요하지 않습니다.
@@ -130,9 +130,9 @@ Linux 게이트웨이 장치에서 [Docker를 설치]합니다.
 
 1. 다음 명령을 사용하여 게이트웨이를 다시 시작합니다.
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. 보안상의 이유로 **/shared** 폴더에 유지되는 두 X.509 인증서는 개인 키를 포함합니다. 이 폴더에 대한 액세스는 Docker 컨테이너를 실행하는 데 사용된 자격 증명으로 제한됩니다. **루트**에 대해서만 사용 권한을 설정하려면 해당 폴더에 대해 `chmod` 셸 명령을 사용합니다.
 

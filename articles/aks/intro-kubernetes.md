@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service(AKS) 소개
 
@@ -29,8 +29,20 @@ AKS(Azure Container Service)를 사용하면 컨테이너화된 응용 프로그
 
 AKS를 사용하면 Kubernetes 및 Docker 이미지 형식을 통해 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
+## <a name="managed-kubernetes-in-azure"></a>Azure의 Managed Kubernetes
+
+AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes 클러스터 관리의 복잡성과 운영 과부하를 줄입니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. 또한 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다. Managed Kubernetes 서비스 형태인 AKS는 다음을 제공합니다.
+
+> [!div class="checklist"]
+> * 자동화된 Kubernetes 버전 업그레이드 및 패치
+> * 간편한 클러스터 크기 조정
+> * 자체 치료 호스팅된 컨트롤 평면(마스터)
+> * 비용 절감 - 실행 중인 에이전트 풀 노드에 대해서만 지불
+
+AKS 클러스터의 노드 관리를 Azure가 처리하므로 클러스터 업그레이드 등의 여러 작업을 수행할 필요가 없어집니다. Azure가 이렇게 중요한 유지 관리를 대신 수행하므로 AKS는 클러스터에 대한 직접 액세스(예: SSH 사용)를 제공하지 않습니다.
+
 ## <a name="using-azure-container-service-aks"></a>Azure Container Service(AKS) 사용
-AKS를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 표준 Kubernetes API 끝점을 공개합니다. 이러한 표준 끝점을 사용하면 Kubernetes 클러스터와 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) 또는 [draft](https://github.com/Azure/draft)를 선택할 수 있습니다.
+AKS의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 표준 Kubernetes API 끝점을 공개합니다. 이러한 표준 끝점을 사용하면 Kubernetes 클러스터와 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) 또는 [draft](https://github.com/Azure/draft)를 선택할 수 있습니다.
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하여 Kubernetes 클러스터 만들기
 AKS를 사용하기 시작하려면 [Azure CLI](./kubernetes-walkthrough.md) 또는 포털(**Azure Container Service**에 대한 Marketplace 검색)을 통해 AKS 클러스터를 배포합니다. Azure Resource Manager 템플릿을 통해 더 많은 제어를 필요로 하는 고급 사용자인 경우 오픈 소스 [acs-engine](https://github.com/Azure/acs-engine) 프로젝트를 사용하여 사용자 지정 Kubernetes 클러스터를 빌드하여 `az` CLI를 통해 배포할 수 있습니다.

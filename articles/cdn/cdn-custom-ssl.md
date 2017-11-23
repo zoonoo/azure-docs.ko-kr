@@ -1,5 +1,5 @@
 ---
-title: "Azure Content Delivery Network 사용자 지정 도메인에서 HTTPS 활성화 또는 비활성화 | Microsoft Docs"
+title: "Azure Content Delivery Network 사용자 지정 도메인에서 HTTPS 구성 | Microsoft Docs"
 description: "사용자 지정 도메인의 Azure CDN 끝점에서 HTTPS를 활성화하거나 비활성화하도록 설정하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Azure Content Delivery Network 사용자 지정 도메인에서 HTTPS 활성화 또는 비활성화
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Azure Content Delivery Network 사용자 지정 도메인에서 HTTPS 구성 
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft Azure CDN(Content Delivery Network) 사용자 지정 도메인에 대한 HTTPS 지원을 사용하면, 사용자 고유의 도메인 이름을 사용하여 SSL을 통해 보안 콘텐츠를 제공함으로써 전송 중 데이터 보안을 향상시킬 수 있습니다. 사용자 지정 도메인에 대해 HTTPS를 사용하는 종단 간 워크플로는 클릭 한 번 사용, 완전한 인증서 관리를 통해 간소화되며 이 모든 것을 추가 비용 없이 수행할 수 있습니다.
+Microsoft는 Azure CDN(Content Delivery Network)에서 사용자 지정 도메인에 대해 HTTPS 프로토콜을 지원합니다. HTTPS 사용자 지정 도메인을 지원하므로 자신의 고유한 도메인 이름을 사용하는 SSL로 안전한 콘텐츠를 제공하고 전송 중에 데이터 보안을 강화할 수 있습니다. 사용자 지정 도메인에 대해 HTTPS를 사용하는 워크플로는 클릭 한 번 사용, 완전한 인증서 관리를 통해 간소화되며 이 모든 것을 추가 비용 없이 수행할 수 있습니다.
 
-전송 중에 모든 웹 응용 프로그램의 중요한 데이터에 대해 프라이버시 및 무결성을 보장하는 것이 중요합니다. HTTPS 프로토콜을 사용하면 인터넷 간에 전송되는 중요한 데이터를 암호화할 수 있습니다. 신뢰할 수 있는 인증을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다. Azure CDN은 기본적으로 CDN 끝점에서 HTTPS를 지원합니다. 예를 들어 Azure CDN(예: `https://contoso.azureedge.net`)에서 CDN 끝점을 만들면 자동으로 HTTPS를 사용하도록 설정됩니다. 또한 사용자 지정 도메인 HTTPS 지원을 통해 사용자 지정 도메인(예: `https://www.contoso.com`)에 대해서도 안전한 전달을 사용할 수 있습니다. 
+전송 중에 웹 응용 프로그램의 중요한 데이터에 대해 프라이버시 및 무결성을 보장하는 것이 중요합니다. HTTPS 프로토콜을 사용하면 인터넷 간에 전송되는 중요한 데이터를 암호화할 수 있습니다. 신뢰할 수 있는 인증을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다. Azure CDN은 기본적으로 CDN 끝점에서 HTTPS를 지원합니다. 예를 들어 Azure CDN(예: `https://contoso.azureedge.net`)에서 CDN 끝점을 만들면 자동으로 HTTPS를 사용하도록 설정됩니다. 또한 사용자 지정 도메인 HTTPS 지원을 통해 사용자 지정 도메인(예: `https://www.contoso.com`)에 대해서도 안전한 전달을 사용할 수 있습니다. 
 
 HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
@@ -41,7 +41,7 @@ HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
 ## <a name="enabling-https"></a>HTTPS 활성화
 
-HTTPS를 활성화하려면 다음 단계를 따르세요.
+사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
 ### <a name="step-1-enable-the-feature"></a>1단계: 기능 활성화 
 
@@ -66,7 +66,7 @@ HTTPS를 활성화하려면 다음 단계를 따르세요.
 사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA(인증 기관)에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 
 
 >[!NOTE]
->DNS 공급자가 포함된 CAA(Certificate Authority Authorization) 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다. CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA를 DNS 공급자로 지정할 수 있습니다. CA에서 CAA 레코드가 있는 도메인에 대한 인증서 주문을 받고 해당 CA가 인증된 발급자로 나열되지 않은 경우 해당 도메인 또는 하위 도메인에 인증서를 발급할 수 없습니다.
+>DNS 공급자가 포함된 CAA(Certificate Authority Authorization) 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다. CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA를 DNS 공급자로 지정할 수 있습니다. CA에서 CAA 레코드가 있는 도메인에 대한 인증서 주문을 받고 해당 CA가 인증된 발급자로 나열되지 않은 경우 해당 도메인 또는 하위 도메인에 인증서를 발급할 수 없습니다. CAA 레코드 관리에 대한 내용은 [CAA 레코드 관리](https://support.dnsimple.com/articles/manage-caa-record/)를 참조하세요. CAA 레코드 도구는 [CAA 레코드 도우미](https://sslmate.com/caa/)를 참조하세요.
 
 ![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>HTTPS 비활성화
 
-HTTPS를 활성화한 후 나중에 비활성화할 수 있습니다. HTTPS를 비활성화하려면 다음 단계를 따르세요.
+사용자 지정 도메인에서 HTTPS를 활성화한 후 나중에 비활성화할 수 있습니다. HTTPS를 비활성화하려면 다음 단계를 따르세요.
 
 ### <a name="step-1-disable-the-feature"></a>1단계: 기능 비활성화 
 

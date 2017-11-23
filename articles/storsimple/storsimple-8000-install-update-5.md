@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5 설치
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 11/04/2017
 업데이트 5는 장치 소프트웨어, Storport 및 Spaceport, OS 보안 업데이트 및 기타 OS 업데이트, 디스크 펌웨어 업데이트를 포함합니다.  장치 소프트웨어, Spaceport, Storport, 보안 및 기타 OS 업데이트는 무중단 업데이트입니다. Azure Portal을 통해 또는 핫픽스 메서드를 통해 무중단 또는 정기적인 업데이트를 적용할 수 있습니다. 디스크 펌웨어 업데이트는 작업 중단 업데이트이며 장치의 Windows PowerShell 인터페이스를 사용하여 핫픽스 메서드를 통해 유지 관리 모드에 있을 때 적용됩니다.
 
 > [!IMPORTANT]
+> * 업데이트 5는 필수 업데이트로, 즉시 설치해야 합니다. 자세한 내용은 [업데이트 5 릴리스 정보](storsimple-update5-release-notes.md)를 참조하세요.
 > * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 장치 상태를 확인합니다. Azure Portal에서 업데이트를 적용하는 경우 이러한 사전 검사를 수행합니다.
 > * 업데이트 3 이전 버전을 실행하는 장치를 업데이트할 때는 핫픽스 방법을 사용하여 업데이트를 설치하는 것이 좋습니다. 문제가 발생할 경우 [지원 티켓을 로그](storsimple-8000-contact-microsoft-support.md)합니다.
 > * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. 포털에서 사전 업데이트 게이트웨이 검사가 실패한 경우 (업데이트를 설치하려면) 장치의 Windows PowerShell 인터페이스로 이동해야 합니다. 업데이트하는 버전에 따라 업데이트 설치에 4시간(이상)이 걸릴 수 있습니다. 장치의 Windows PowerShell 인터페이스를 통해 유지 관리 모드 업데이트를 설치해야 합니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 이는 장치에 중단 시간을 발생시킵니다.

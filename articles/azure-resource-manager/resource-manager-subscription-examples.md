@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure 엔터프라이즈 스캐폴드 구현 예제
 이 항목에서는 기업에서 [Azure 엔터프라이즈 스캐폴드](resource-manager-subscription-governance.md)에 대한 권장 사항을 구현하는 방법에 대한 예를 제공합니다. Contoso라는 가상의 회사를 사용하여 일반적인 시나리오의 모범 사례를 보여 줍니다.
@@ -68,7 +68,7 @@ Dave는 구독에서 리소스 관리를 위해 다음을 요구 사항으로 �
 * 그는 비용에 대해 고민합니다. 따라서 응용 프로그램 소유자가 불필요하게 비용이 드는 가상 컴퓨터를 만들지 않도록 하려고 합니다.  
 * 이 응용 프로그램은 많은 사업부의 개발자에게 제공되므로 각 리소스에 사업부 및 응용 프로그램 소유자로 태그를 지정하고자 합니다. ETS는 다음 태그를 사용하여 적절한 팀에 요금을 청구할 수 있습니다.
 
-다음 [Resource Manager 정책](resource-manager-policy.md)을 만듭니다.
+그는 다음과 같은 [Azure 정책](../azure-policy/azure-policy-introduction.md)을 만듭니다.
 
 | 필드 | 결과 | 설명 |
 | --- | --- | --- |
@@ -96,8 +96,8 @@ Contoso ETS 정보 보안 및 위험 관리 팀은 응용 프로그램을 Azure�
 
 | 리소스 종류 | 이름 | 설명 |
 | --- | --- | --- |
-| 가상 네트워크 |internal-vnet |BitBucket 응용 프로그램에 사용되며 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다.  서브넷(`bitbucket`)에서 응용 프로그램에 특정 IP 주소 공간을 제공합니다. |
-| 가상 네트워크 |external-vnet |공용 끝점이 필요한 미래의 응용 프로그램에 사용할 수 있습니다. |
+| Virtual Network |internal-vnet |BitBucket 응용 프로그램에 사용되며 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다.  서브넷(`bitbucket`)에서 응용 프로그램에 특정 IP 주소 공간을 제공합니다. |
+| Virtual Network |external-vnet |공용 끝점이 필요한 미래의 응용 프로그램에 사용할 수 있습니다. |
 | 네트워크 보안 그룹 |bitbucket-nsg |응용 프로그램이 있는 서브넷(`bitbucket`)에 대한 443 포트에서만 연결을 허용하여 이 워크로드의 공격에 대한 취약성이 최소화되도록 합니다. |
 
 ### <a name="resource-locks"></a>리소스 잠금
@@ -112,7 +112,7 @@ Dave는 난해한 스크립트나 실수로 인한 삭제로부터 Contoso 회�
 ### <a name="azure-automation"></a>Azure Automation
 Dave는 이 응용 프로그램을 자동화할 일이 없습니다. Azure Automation 계정을 만들기는 했지만 아예 사용하지 않습니다.
 
-### <a name="azure-security-center"></a>Azure 보안 센터
+### <a name="azure-security-center"></a>Azure Security Center
 Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 처리해야 합니다. 또한 어떤 문제가 존재할 수 있는지도 파악하려고 합니다.  
 
 이러한 요구 사항을 충족하기 위해 Dave는 [Azure Security Center](../security-center/security-center-intro.md)를 사용하도록 설정하고 보안 관리자 역할에 대한 액세스를 제공합니다.
@@ -166,13 +166,13 @@ Contoso ETS 정보 보안 및 위험 관리 팀은 응용 프로그램을 Azure�
 
 | 리소스 종류 | 이름 | 설명 |
 | --- | --- | --- |
-| 가상 네트워크 |internal-vnet |Contoso 로열티 카드 개발 환경을 제공하고 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다. |
+| Virtual Network |internal-vnet |Contoso 로열티 카드 개발 환경을 제공하고 ExpressRoute를 통해 Contoso의 회사 네트워크에 연결됩니다. |
 
 **프로덕션 구독**을 위해 다음을 만듭니다.
 
 | 리소스 종류 | 이름 | 설명 |
 | --- | --- | --- |
-| 가상 네트워크 |external-vnet |로열티 카드 응용 프로그램을 호스트하고 Contoso의 ExpressRoute에 직접 연결되지 않습니다. 코드는 소스 코드 시스템을 통해 PaaS 서비스에 직접 푸시됩니다. |
+| Virtual Network |external-vnet |로열티 카드 응용 프로그램을 호스트하고 Contoso의 ExpressRoute에 직접 연결되지 않습니다. 코드는 소스 코드 시스템을 통해 PaaS 서비스에 직접 푸시됩니다. |
 | 네트워크 보안 그룹 |loyaltycard-nsg |TCP 443에서 인바운드 통신만 허용하여 이 워크로드의 공격 취약성이 최소화되도록 합니다.  또한 Contoso는 웹 응용 프로그램 방화벽을 사용하여 추가 보호를 조사하고 있습니다. |
 
 ### <a name="resource-locks"></a>리소스 잠금
@@ -189,7 +189,7 @@ Alice와 개발 팀은 이 응용 프로그램에 대한 환경을 관리할 수
 
 이러한 runbook을 사용하려면 [Automation](../automation/automation-intro.md)을 사용하도록 설정합니다.
 
-### <a name="azure-security-center"></a>Azure 보안 센터
+### <a name="azure-security-center"></a>Azure Security Center
 Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 처리해야 합니다. 또한 어떤 문제가 존재할 수 있는지도 파악하려고 합니다.  
 
 이러한 요구 사항을 충족하기 위해 Dave는 Azure Security Center를 사용하도록 설정합니다. 그는 Azure Security Center에서 리소스를 모니터링하고 있고 DevOps 및 보안 팀에 대한 액세스를 제공하는지 확인합니다.

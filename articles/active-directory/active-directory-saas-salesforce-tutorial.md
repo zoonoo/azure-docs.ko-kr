@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -121,9 +121,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
-
-    ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. **저장** 단추를 클릭합니다. ![Single Sign-On 구성](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. **Salesforce 구성** 섹션에서 **Salesforce 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다. 
 
@@ -154,7 +152,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 필드에 이 구성에 대한 이름을 입력합니다. **이름**에 값을 제공하면 **API 이름** 입력란이 자동으로 채워집니다.
 
-    b. **SMAL 엔터티 ID** 값을 Salesforce의 **발급자** 필드에 붙여넣습니다.
+    b. Salesforce의 **발급자** 필드에 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
     c. **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
       

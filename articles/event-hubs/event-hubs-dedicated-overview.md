@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 | 게시자 정책 | 예 | 예 |   
 | 소비자 그룹 | 20 | 20 |
 | 메시지 재생 | 예 | 예 |
-| 최대 처리량 단위 | 20(100까지 유연하게 구성 가능)   | 1 CU≈200 |
+| 최대 처리량 단위 | 20(100까지 유연하게 구성 가능)   | 1 CU≈50 |
 | 조정된 연결 | 1,000개 포함 | 100,000개 포함 |
 | 추가 조정된 연결 | 예 | 예 |
 | 메시지 보존 | 1일 포함 | 최대 7일 포함 |
@@ -48,18 +48,25 @@ Event Hubs Dedicated를 사용하는 경우 다음과 같은 이점이 제공됩
 * 메시지 크기가 256KB인 Standard에 비해 1MB로 증가
 * 매번 반복 가능한 성능
 * 폭발적인 요구를 충족하는 보장된 용량
-* 1-8 CU(용량 단위) 사이에서 확장 가능 - 초당 최대 2백만 개 이벤트 수신
-  * CU는 Event Hubs Dedicated의 규모를 관리하며 각 CU는 TU(처리량 단위) 약 200개에 해당하는 용량 제공 가능
+* 마이크로 일괄 처리 및 장기 보존 통합을 제공하기 위해 Azure Event Hubs의 [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) 기능 포함
 * 유지 관리 시간 없음: 부하 분산, 운영 체제 업데이트, 보안 패치 및 분할을 Microsoft에서 관리
-* 고정 월 요금
+* 시간당 가격 고정
+* 추가 비용 없이 메시지 보존 최대 7일
 
 또한 Event Hubs Dedicated는 Standard 제품의 처리량 제한 중 일부를 제거합니다. 표준 계층의 처리량 단위는 초당 1000개 이벤트 또는 TU당 1MBps를 수신하고 그 두 배를 송신할 수 있습니다. Dedicated 제품은 수신 및 송신 이벤트 수에 제한이 없습니다. 이러한 제한은 구입한 이벤트 허브의 처리 용량에 따라서만 적용됩니다.
+
+이 예약된 전담 환경은 이 계층에만 다음과 같이 고유한 다른 기능을 제공합니다.
+
+* 클러스터에 있는 네임스페이스 수 제어
+* 각 네임스페이스의 처리량 제한 지정
+* 각 네임스페이스에서 Event Hubs 수 구성
+* 파티션 수 제한 결정
 
 이 서비스는 가장 규모가 큰 원격 분석 사용자를 대상으로 하며 기업계약을 맺은 고객에게 제공됩니다.
 
 ## <a name="how-to-onboard"></a>등록 방법
 
-Event Hubs Dedicated 플랫폼은 기업계약을 통해 다양한 크기의 CU로 제공됩니다. 각 CU는 대략 처리량 단위 200개와 동일한 처리량을 제공합니다. 언제든지 요구 사항에 맞게 CU를 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 
+언제든지 요구 사항에 맞게 CU를 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 이 SKU를 사용하려면 [https://ms.portal.azure.com/#create/Microsoft.Support](요금 문의)나 Microsoft 담당자에게 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs Dedicated 용량에 대한 추가 정보를 얻으려면 Microsoft 영업 담당자 또는 Microsoft 지원에 문의하세요. 다음 링크에서도 Event Hubs에 대한 자세한 내용을 확인할 수 있습니다.
