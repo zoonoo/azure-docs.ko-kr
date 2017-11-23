@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: 데이터 마이그레이션 도구
 
@@ -210,7 +210,7 @@ CSV 가져오기에 대한 명령줄 샘플은 다음과 같습니다.
 ## <a id="AzureTableSource"></a>Azure 테이블 저장소에서 가져오기
 Azure Table Storage 원본 가져오기 옵션을 사용하면 개별 Azure Table Storage 테이블에서 가져올 수 있습니다. 필요에 따라 가져올 테이블 엔터티를 필터링할 수 있습니다. 
 
-Azure Table Storage에서 가져온 데이터는 Table API와 함께 사용할 Azure Cosmos DB 테이블 및 엔터티 또는 DocumentDB API와 함께 사용할 컬렉션 및 문서에 대한 출력일 수 있습니다.  
+Azure Table Storage에서 가져온 데이터는 Table API와 함께 사용할 Azure Cosmos DB 테이블 및 엔터티 또는 DocumentDB API와 함께 사용할 컬렉션 및 문서에 대한 출력일 수 있습니다. 하지만 테이블 API는 명령줄 유틸리티의 대상으로만 사용할 수 있으며, 데이터 마이그레이션 도구 사용자 인터페이스를 사용하여 테이블 API로 내보낼 수 없습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요. 
 
 ![Azure 테이블 저장소 원본 옵션의 스크린샷](./media/import-data/azuretablesource.png)
 
@@ -522,20 +522,6 @@ Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>Table API로 내보내기(대량 가져오기)
-
-Azure Cosmos DB Table API 내보내기를 사용하면 정보를 Azure Table Storage 원본에서 Azure Cosmos DB Table API 데이터베이스로 내보낼 수 있습니다. 
-
-내보낼 Azure Cosmos DB Table API 계정에 대한 연결 문자열을 연결 문자열 페이지의 Azure Portal에서 검색할 수 있습니다. 복사 단추 사용 ![Azure Portal에서 연결 문자열의 스크린샷](./media/import-data/copy-button.png) 화면의 오른쪽에서 전체 문자열을 복사하려면
-
-![Azure Portal에서 연결 문자열의 스크린샷](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Table API로 내보내기(순차적 레코드 가져오기)
-
-Azure Cosmos DB Table API 내보내기를 사용하면 정보를 Azure Table Storage 원본에서 Azure Cosmos DB Table API 데이터베이스로 내보낼 수 있습니다.
-
-위의 [Table API로 내보내기(대량 가져오기)](#tableapibulkexport)에 있는 이미지에서 보여준 대로 내보낼 Azure Cosmos DB Table API 계정에 대한 연결 문자열을 연결 문자열 페이지의 Azure Portal에서 검색할 수 있습니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 고급 구성 화면에서 원하는 모든 오류가 기록된 로그 파일의 위치를 지정합니다. 이 페이지에는 다음 규칙이 적용됩니다.

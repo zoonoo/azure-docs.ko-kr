@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 이 문서에서는 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [시계열 정보](https://insights.timeseries.azure.com)에서 환경을 봅니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 
 3. 해당 이름을 클릭하여 이벤트 허브를 선택합니다.
 
-4. 중간 구성 창의 엔터티 아래에서 **이벤트 허브**를 다시 클릭합니다.
+4. 중간 구성 창의 **엔터티** 아래에서 **Event Hubs**를 다시 클릭합니다.
 
 5. 구성할 이벤트 허브의 이름을 선택합니다.
 
@@ -244,4 +244,5 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>다음 단계
-[Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경 보기
+> [!div class="nextstepaction"]
+> [Time Series Insights 탐색기에서 환경을 봅니다](https://insights.timeseries.azure.com).

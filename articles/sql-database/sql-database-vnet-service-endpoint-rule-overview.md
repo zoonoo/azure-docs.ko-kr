@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -141,6 +141,9 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 - 각 Azure SQL Database 서버에는 특정 가상 네트워크에 대해 최대 128개 ACL 항목이 포함될 수 있습니다.
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][arm-deployment-model-568f] 네트워크에는 적용되지 않습니다.
+
+- 가상 네트워크 서비스 끝점을 Azure SQL Database로 실행하면 MySQL 및 PostGres Azure 서비스에 대한 끝점도 활성화됩니다. 그러나 끝점을 실행한 상태에서 끝점을 MySQL 또는 Postgres 인스턴스에 연결하려는 시도는 실패합니다.
+    - 기본 이유는 MySQL 및 PostGres가 현재 ACLing를 지원하지 않기 때문입니다.
 
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]

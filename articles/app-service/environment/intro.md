@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>App Service Environment 소개 #
  
@@ -48,13 +48,13 @@ ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 AS
 
 작업자는 고객 앱을 호스트하는 역할입니다. 작업자는 3가지 고정된 크기로 사용할 수 있습니다.
 
-* 1 코어/3.5GB RAM
-* 2 코어/7GB RAM
-* 4 코어/14GB RAM
+* vCPU/3.5GB RAM 1개
+* vCPU/7GB RAM 2개
+* vCPU/14GB RAM 4개
 
 고객은 프런트 엔드와 작업자를 관리할 필요가 없습니다. 모든 인프라는 고객이 App Service 계획을 스케일 아웃함에 따라 자동으로 추가됩니다. ASE에서 App Service 계획을 생성하거나 규모를 변경함에 따라 필요한 인프라가 적절하게 추가되거나 제거됩니다.
 
-인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 거기에 App Service 계획 코어당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. ASE에 대한 가격 책정에 대한 정보는 [App Service 가격 책정][Pricing] 페이지를 참조하고 ASE에 대한 사용 가능한 옵션을 검토하세요.
+인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 거기에 App Service 계획 vCPU당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. ASE에 대한 가격 책정에 대한 정보는 [App Service 가격 책정][Pricing] 페이지를 참조하고 ASE에 대한 사용 가능한 옵션을 검토하세요.
 
 ## <a name="virtual-network-support"></a>가상 네트워크 지원 ##
 
@@ -68,13 +68,15 @@ ASE는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부
 
 ASE가 가상 네트워크 및 온-프레미스 네트워크와 함께 어떻게 작동하는지에 대한 자세한 내용은 [App Service Environment 네트워크 고려 사항][ASENetwork]을 참조하세요.
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
 
 App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다. 
 
 ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기에는 IP 기반 SSL에 사용된 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 스케일 아웃하기 전에 호스트할 작업자 풀을 먼저 스케일 아웃해야 합니다.
 
-ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 코어에 대한 비용을 지불해야 합니다. 여기에는 워크로드를 호스트하지 않는 프런트 엔드 또는 작업자에 사용된 코어가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
+ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 vCPU에 대한 비용을 지불합니다. 여기에는 워크로드를 호스트하지 않는 프런트 엔드 또는 작업자에 사용된 vCPU가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
 
 <!--Links-->
 [Intro]: ./intro.md

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -22,7 +22,13 @@ CSP 파트너인 사용자는 Cloudyn에서 개발한 Azure Cost Management에 �
 
 
 >[!NOTE]
->등록을 완료하려면 파트너 센터 API에 액세스할 수 있는 파트너 프로그램 관리자여야 합니다. 파트너 센터 API의 구성은 인증과 데이터 액세스에 필요합니다. 자세한 내용은 [파트너 센터 API에 연결](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx)을 참조하세요. 또한 간접 CSP 사용자는 직접 CSP 재판매인이 Cloudyn에 등록하여 고객 및 구독에 대한 액세스 권한을 제공할 때만 Cloudyn을 사용할 수 있습니다.
+
+>CSP 직접 파트너와 CSP 간접 공급자는 Cloudyn 등록을 완료할 수 있습니다.
+>
+>파트너 센터 API의 구성은 인증과 데이터 액세스에 필요합니다. API 액세스를 프로비전하려면 파트너 센터 전역 관리자 계정이 필요합니다.
+자세한 내용은 [파트너 센터 API에 연결](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx)을 참조하세요.
+>
+>Cloudyn 액세스는 CSP 간접 공급자가 Cloudyn에 등록한 후 CSP 간접 대리점에 제공될 수 있습니다. 그러면 CSP 간접 대리점이 Azure 고객 및 구독에 Cloudyn 액세스를 제공할 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 

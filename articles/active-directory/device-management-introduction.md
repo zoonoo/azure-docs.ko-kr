@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
 
@@ -135,12 +135,31 @@ Azure AD의 장치 관리를 사용하면 다음과 같은 작업을 수행할 �
 
 thumb의 규칙으로 인해 다음을 사용해야 합니다.
 
-- 개인 장치를 위한 Azure AD 등록 장치
+- Azure AD 등록 장치:
 
-- 온-프레미스 AD에 가입되지 않은 장치를 위한 Azure AD 가입 장치 
+    - 개인 장치 
+
+    - 수동으로 Azure AD에 장치를 등록하려면
+
+- Azure AD 조인 장치: 
+
+    - 조직에서 소유한 장치
+
+    - 온-프레미스 AD에 조인하지 **않은** 장치
+
+    - 수동으로 Azure AD에 장치를 등록하려면
+
+    - 장치의 로컬 상태를 변경하려면
 
 - 온-프레미스 AD에 가입된 장치를 위한 하이브리드 Azure AD 가입 장치     
 
+    - 조직에서 소유한 장치
+
+    - 온-프레미스 AD에 조인한 장치
+
+    - 자동으로 Azure AD에 장치를 등록하려면
+
+    - 장치의 로컬 상태를 변경하려면
 
 
 

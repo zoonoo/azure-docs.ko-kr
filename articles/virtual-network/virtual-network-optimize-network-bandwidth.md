@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure Virtual Machine에 대한 네트워크 처리량 최적화
 
@@ -33,7 +33,7 @@ Windows VM이 [가속화된 네트워킹](virtual-network-create-vm-accelerated-
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. 다음 명령을 입력하여 RSS를 사용하도록 설정합니다.
 
@@ -44,7 +44,7 @@ Windows VM이 [가속화된 네트워킹](virtual-network-create-vm-accelerated-
 3. `Get-NetAdapterRss` 명령을 다시 입력하여 VM에서 RSS가 사용되도록 설정되어 있는지 확인합니다. 성공하면 다음 예제 출력이 반환됩니다.
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
@@ -55,26 +55,35 @@ RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다.
 
 ### <a name="ubuntu-for-new-deployments"></a>새 배포에 대한 Ubuntu
 
-최적화를 얻으려면 먼저 지원되는 최신 버전의 16.04-LTS를 설치합니다. 예를 들면 다음과 같습니다.
+Ubuntu Azure 커널은 Azure에서 최고의 네트워크 성능을 제공하며 2017년 9월 21일부터 계속 기본 커널로 사용되었습니다. 이 커널을 받으려면 먼저 아래에 설명된 대로 지원되는 최신 버전의 16.04-LTS를 설치합니다.
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-업데이트가 완료되면 다음 명령을 입력하여 최신 커널을 가져옵니다.
+생성이 완료되면 다음 명령을 입력하여 최신 업데이트를 받습니다. 이 단계는 현재 Ubuntu Azure 커널을 실행 중인 VM에도 유효합니다.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Azure 커널이 이미 설치되어 있지만 오류로 인해 추가 업데이트 설치에 실패한 기존의 Ubuntu 배포에는 다음과 같은 선택적 명령 집합이 유용할 수 있습니다.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-선택적 명령:
-
-`apt-get -y dist-upgrade`
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>기존 VM에 대한 Ubuntu Azure 커널 업그레이드
 
 Azure Linux 커널로 업그레이드하면 처리량 성능을 대폭 개선할 수 있습니다. 이 커널이 있는지 확인하려면 커널 버전을 확인합니다.
@@ -87,7 +96,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-그런 다음 아래 명령을 루트로 실행합니다.
+VM에 Azure 커널이 없으면 버전 번호가 일반적으로 "4.4"로 시작됩니다. 이 경우 루트로 다음 명령을 실행합니다.
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -99,14 +108,14 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-최신 최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들면 다음과 같습니다.
+최신 최적화 기능을 사용하려면 다음 매개 변수를 지정하여 지원되는 최신 버전으로 VM을 만드는 것이 가장 좋습니다.
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
+신규 및 기존 VM에 최신 LIS(Linux Integration Services)를 설치하면 이점을 얻을 수 있습니다.
 더 나중 버전에 추가 개선 기능이 포함되어 있더라도 처리량 최적화 기능은 LIS 4.2.2-2부터 포함됩니다. 다음 명령을 입력하여 최신 LIS를 설치합니다.
 
 ```bash
@@ -117,14 +126,14 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들면 다음과 같습니다.
+최적화 기능을 사용하려면 다음 매개 변수를 지정하여 지원되는 최신 버전으로 VM을 만드는 것이 가장 좋습니다.
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
+신규 및 기존 VM에 최신 LIS(Linux Integration Services)를 설치하면 이점을 얻을 수 있습니다.
 처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
 
 ```bash

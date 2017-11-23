@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/09/2017
    
    ![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램**을 선택합니다. 
+6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램(MVC)**을 선택합니다. 
    
    ![ASP.NET 프로젝트 형식 선택](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

@@ -1,6 +1,6 @@
 ---
 title: "PowerShell을 사용하여 Azure VM의 배포 및 백업 관리 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
+description: "PowerShell을 사용하여 Azure Backup을 배포 및 관리하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/2/2017
+ms.date: 11/9/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88ca71f83696c5865405799cddc3645778261408
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.Backup cmdlet을 사용하여 가상 컴퓨터 백업
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-이 문서에서는 Azure VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여 줍니다. Azure는 리소스를 만들고 작업하기 위한 두 가지 배포 모델로 리소스 관리자와 클래식을 제공합니다. 이 문서에서는 클래식 배포 모델을 사용하여 백업 자격 증명 모음으로 데이터 백업에 대해 설명합니다. 구독에서 백업 자격 증명 모음을 만들지 않은 경우 이 문서의 리소스 관리자 버전, [AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md)을 참조하세요. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+이 문서에서는 Azure VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여 줍니다. Azure는 리소스를 만들고 작업하기 위한 두 가지 배포 모델로 리소스 관리자와 클래식을 제공합니다. 이 문서에서는 클래식 배포 모델을 사용하여 Backup 자격 증명 모음으로 데이터 백업에 대해 설명합니다. 구독에서 백업 자격 증명 모음을 만들지 않은 경우 이 문서의 리소스 관리자 버전, [AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업](backup-azure-vms-automation.md)을 참조하세요. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 11월 30일 이후에는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다.<br/> **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 가상 컴퓨터를 백업하는 데 사용되는 PowerShell cmdlet 관련 정보를 제공합니다. Azure VM을 보호하는 방법에 대한 소개 정보는 [Azure에서 VM 백업 인프라 계획](backup-azure-vms-introduction.md)을 참조하세요.
 
 > [!NOTE]
-> 시작하기 전에 먼저 Azure 백업 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 백업 솔루션의 [제한](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)을 읽어보세요.
+> 시작하기 전에 먼저 Azure Backup 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 백업 솔루션의 [제한](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)을 읽어보세요.
 >
 >
 
@@ -54,7 +54,7 @@ PowerShell을 효과적으로 사용하려면 개체의 계층 구조와 시작�
 시작하려면
 
 1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases) 합니다(필요한 최소 버전: 1.0.0).
-2. 다음 명령을 입력하여 사용할 수 있는 Azure 백업 PowerShell cmdlet을 찾습니다.
+2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
 
 ```
 PS C:\> Get-Command *azurermbackup*
@@ -90,11 +90,11 @@ Cmdlet          Wait-AzureRmBackupJob                              1.0.1      Az
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
 * 백업 자격 증명 모음 만들기
-* Azure 백업 서비스에 VM 등록
+* Azure Backup 서비스에 VM 등록
 
 ### <a name="create-a-backup-vault"></a>백업 자격 증명 모음 만들기
 > [!WARNING]
-> 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+> 처음으로 Azure Backup을 사용하는 고객의 경우, 구독과 함께 사용할 Azure Backup 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
 >
 >
 
@@ -108,14 +108,14 @@ PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg”
 **Get-AzureRmBackupVault** cmdlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
 
 > [!NOTE]
-> 백업 저장소 개체를 변수에 저장하면 편리합니다. 저장소 개체는 많은 Azure 백업 cmdlet에 대한 입력으로서 필요합니다.
+> 백업 저장소 개체를 변수에 저장하면 편리합니다. 저장소 개체는 많은 Azure Backup cmdlet에 대한 입력으로서 필요합니다.
 >
 >
 
 ### <a name="registering-the-vms"></a>VM 등록
-Azure 백업으로 백업을 구성하는 첫 번째 단계는 Azure 백업 저장소에 사용자 컴퓨터 또는 VM을 등록하는 것입니다. **Register-AzureRmBackupContainer** cmdlet은 Azure IaaS 가상 컴퓨터의 입력 정보를 받아 지정된 자격 증명 모음에 등록합니다. 등록 작업은 Azure 가상 컴퓨터를 백업 저장소와 연결하고 백업 수명 주기를 통해 VM을 추적합니다.
+Azure Backup으로 백업을 구성하는 첫 번째 단계는 Azure Backup 저장소에 사용자 컴퓨터 또는 VM을 등록하는 것입니다. **Register-AzureRmBackupContainer** cmdlet은 Azure IaaS 가상 컴퓨터의 입력 정보를 받아 지정된 자격 증명 모음에 등록합니다. 등록 작업은 Azure 가상 컴퓨터를 백업 저장소와 연결하고 백업 수명 주기를 통해 VM을 추적합니다.
 
-Azure 백업 서비스와 VM을 등록하면 최상위 컨테이너 개체가 만들어집니다. 컨테이너에는 일반적으로 백업할 수 있는 여러 항목이 있지만, VM의 경우 해당 컨테이너에 대해 단 하나의 백업 항목만 있게 됩니다.
+Azure Backup 서비스와 VM을 등록하면 최상위 컨테이너 개체가 만들어집니다. 컨테이너에는 일반적으로 백업할 수 있는 여러 항목이 있지만, VM의 경우 해당 컨테이너에 대해 단 하나의 백업 항목만 있게 됩니다.
 
 ```
 PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
@@ -138,7 +138,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 >
 >
 
-백업 정책은 하나 이상의 보존 정책과 연관됩니다. 보존 정책은 Azure 백업의 복구 지점을 얼마나 오래 유지할지를 정의합니다. **New-AzureRmBackupRetentionPolicy** cmdlet은 보존 정책 정보를 포함하는 PowerShell 개체를 만듭니다. 이러한 보존 정책 개체는 *New-AzureRmBackupProtectionPolicy* cmdlet에 대한 입력으로 사용되거나 *Enable-AzureRmBackupProtection* cmdlet과 함께 직접 사용됩니다.
+백업 정책은 하나 이상의 보존 정책과 연관됩니다. 보존 정책은 Azure Backup의 복구 지점을 얼마나 오래 유지할지를 정의합니다. **New-AzureRmBackupRetentionPolicy** cmdlet은 보존 정책 정보를 포함하는 PowerShell 개체를 만듭니다. 이러한 보존 정책 개체는 *New-AzureRmBackupProtectionPolicy* cmdlet에 대한 입력으로 사용되거나 *Enable-AzureRmBackupProtection* cmdlet과 함께 직접 사용됩니다.
 
 백업 정책은 항목의 백업 수행 시점과 빈도를 정의합니다. **New-AzureRmBackupProtectionPolicy** cmdlet은 백업 정책 정보를 포함하는 PowerShell 개체를 만듭니다. 백업 정책은 *Enable-AzureRmBackupProtection* cmdlet에 대한 입력으로서 사용됩니다.
 
@@ -177,7 +177,7 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 >
 
 ### <a name="monitoring-a-backup-job"></a>백업 작업 모니터링
-Azure 백업의 장기 실행 작업 대부분은 하나의 작업으로 모델링됩니다. 이는 Azure 포털이 항상 열려 있지 않아도 진행률을 쉽게 추적할 수 있게 해줍니다.
+Azure Backup의 장기 실행 작업 대부분은 하나의 작업으로 모델링됩니다. 이는 Azure 포털이 항상 열려 있지 않아도 진행률을 쉽게 추적할 수 있게 해줍니다.
 
 진행 중인 작업의 최신 상태를 가져오려면 **Get-AzureRmBackupJob** cmdlet을 사용합니다.
 
@@ -310,7 +310,7 @@ Transfer data to Backup vault                               InProgress
 ```
 
 ### <a name="2-create-a-dailyweekly-report-of-backup-jobs"></a>2. 백업 작업의 일별/주별 보고서 만들기
-일반적으로 관리자는 지난 24시간 동안 실행된 백업 작업과 해당 작업의 상태를 파악하려고 합니다. 또한 전송된 데이터의 양을 통해 관리자는 월별 데이터 사용량을 예측합니다. 아래의 스크립트는 Azure 백업 서비스에서 원시 데이터를 가져오고 PowerShell 콘솔에 정보를 표시합니다.
+일반적으로 관리자는 지난 24시간 동안 실행된 백업 작업과 해당 작업의 상태를 파악하려고 합니다. 또한 전송된 데이터의 양을 통해 관리자는 월별 데이터 사용량을 예측합니다. 아래의 스크립트는 Azure Backup 서비스에서 원시 데이터를 가져오고 PowerShell 콘솔에 정보를 표시합니다.
 
 ```
 param(  [Parameter(Mandatory=$True,Position=1)]
@@ -356,4 +356,4 @@ $DAILYBACKUPSTATS | Out-GridView
 이 보고서 출력에 차트 기능을 추가하려는 경우 TechNet 블로그 게시물에서 [PowerShell을 사용한 차트 작성](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 Windows Server를 보호하기 위한 PowerShell 문서, [Windows Server에 대한 백업 배포 및 관리](backup-client-automation-classic.md)를 확인하세요. DPM 백업을 관리하기 위한 PowerShell 문서, [DPM에 대한 백업 배포 및 관리](backup-dpm-automation-classic.md)도 있습니다. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.
+PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 Windows Server를 보호하기 위한 PowerShell 문서, [Windows Server에 대한 백업 배포 및 관리](backup-client-automation-classic.md)를 확인하세요. DPM 백업을 관리하기 위한 PowerShell 문서, [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation-classic.md)도 있습니다. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.

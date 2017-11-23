@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN에서 Azure Storage Blob의 만료 관리 | Microsoft Docs"
+title: "Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 | Microsoft Docs"
 description: "Azure CDN 캐싱의 Blob에 대한 TTL(Time-To-Live)을 제어하기 위한 옵션에 대해 알아봅니다."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Azure CDN에서 Azure Storage Blob의 만료 관리
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET 또는 IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-[Azure Storage](../storage/common/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/common/storage-introduction.md)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다.  TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다.  TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 에 의해 결정됩니다.
+[Azure Storage](../storage/common/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/common/storage-introduction.md)는 Azure CDN(Content Delivery Network)과 통합된 여러 Azure 기반 원본 중 하나입니다. TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다. TTL은 Azure Storage의 HTTP 응답에 있는 [`Cache-Control` 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)에 의해 결정됩니다.
 
 > [!TIP]
-> Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
+> BLOB에 TTL을 설정하지 않을 수도 있습니다. 이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
 > 
-> Blob 및 다른 파일에 대한 액세스 속도를 가속하기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
+> BLOB와 다른 파일에 대한 액세스 속도를 높이기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN(Content Delivery Network) 개요](cdn-overview.md)를 참조하세요.
 > 
-> Azure Storage Blob 서비스에 대한 자세한 내용은 [Blob 서비스 개념](https://msdn.microsoft.com/library/dd179376.aspx)을 참조하세요. 
-> 
-> 
+> 자세한 내용은 [Blob Storage 소개](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)를 참조하세요.
+ 
 
 이 자습서에서는 Azure Storage에서 Blob에 TTL을 설정할 수 있는 여러 가지 방법을 보여 줍니다.  
 
@@ -62,7 +61,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 > 
 
-## <a name="azure-storage-client-library-for-net"></a>.NET용 Azure 저장소 클라이언트 라이브러리
+## <a name="azure-storage-client-library-for-net"></a>.NET용 Azure Storage 클라이언트 라이브러리
 .NET을 사용하여 Blob의 TTL을 설정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
 
 ```csharp
@@ -93,29 +92,29 @@ class Program
 ```
 
 > [!TIP]
-> [.NET용 Azure Blob 저장소 샘플](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)에서 사용할 수 있는 추가 .NET 코드 샘플이 있습니다.
+> [.NET용 Azure Blob Storage 샘플](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)에서 사용할 수 있는 추가 .NET 코드 샘플이 있습니다.
 > 
 > 
 
 ## <a name="other-methods"></a>다른 방법
 * [Azure 명령줄 인터페이스](../cli-install-nodejs.md)
   
-    Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을 1시간(3600초)으로 설정합니다.
+    Blob을 업로드하는 경우 `-p` 스위치를 사용하여 *cacheControl* 속성을 설정합니다. 이 예제에서는 TTL을 1시간(3600초)으로 설정합니다.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
     ```
-* [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
   
     [Blob 배치](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx), [블록 목록 배치](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx) 또는 [Blob 속성 설정](https://msdn.microsoft.com/library/azure/ee691966.aspx) 요청에 *x-ms-blob-cache-control* 속성을 명시적으로 설정합니다.
 * 타사 저장소 관리 도구
   
     일부 타사 Azure Storage 관리 도구를 사용하면 Blob에 *CacheControl* 속성을 설정할 수 있습니다. 
 
-## <a name="testing-the-cache-control-header"></a>*캐시 제어* 헤더 테스트
-Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 Blob에 *캐시 제어* 응답 헤더가 포함되어 있는지 테스트합니다.  **wget**, [Postman](https://www.getpostman.com/) 또는 [Fiddler](http://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
+## <a name="testing-the-cache-control-header"></a>Cache-Control 헤더 테스트
+Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 Blob에 `Cache-Control` 응답 헤더가 포함되어 있는지 테스트합니다. **wget**, [Postman](https://www.getpostman.com/) 또는 [Fiddler](http://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [*캐시 제어* 헤더에 대해 참고하기](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [`Cache-Control` 헤더에 대해 읽어봅니다.](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](cdn-manage-expiration-of-cloud-service-content.md)
 

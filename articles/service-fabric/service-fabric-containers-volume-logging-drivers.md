@@ -14,19 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 7464611e669165d9ec1f0de7422b20b3f3b8c2b5
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>컨테이너의 볼륨 플러그 인 및 로깅 드라이버 사용
+Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 및 [Docker 로깅 드라이버](https://docs.docker.com/engine/admin/logging/overview/) 지정을 지원합니다.  이로 인해 컨테이너를 이동하거나 다른 호스트에서 다시 시작한 경우에도 [Azure Files](https://azure.microsoft.com/en-us/services/storage/files/)에 데이터를 유지할 수 있습니다.
 
-Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 및 [Docker 로깅 드라이버](https://docs.docker.com/engine/admin/logging/overview/) 지정을 지원합니다. 
+현재는 아래에 표시된 것처럼 Linux 컨테이너용 볼륨 드라이버만 있습니다.  Windows 컨테이너를 사용하는 경우, Windows Server의 최신 1709 버전을 사용하면 볼륨 드라이버 없이 Azure Files [SMB3 공유](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/)에 볼륨을 매핑할 수 있습니다. 이 경우 클러스터의 Virtual Machines를 Windows Server 1709 버전으로 업데이트해야 합니다.
+
 
 ## <a name="install-volumelogging-driver"></a>볼륨/로깅 드라이버 설치
 
-Docker 볼륨/로깅 드라이버가 컴퓨터에 설치되어 있지 않으면 RDP/SSH-ing를 통해 컴퓨터에 수동으로 설치하거나 VMSS 시작 스크립트를 통해 설치합니다. 예를 들어 Docker 볼륨 드라이버를 설치하려면 컴퓨터로 SSH를 수행한 후 다음을 실행합니다.
+Docker 볼륨/로깅 드라이버가 컴퓨터에 설치되어 있지 않으면 RDP/SSH-ing를 통해 컴퓨터에 수동으로 설치하거나 [VMSS 시작 스크립트](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/)를 통해 또는 [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service) 스크립트를 사용하여 설치합니다. 언급된 방법 중 하나를 선택하여 [Azure용 Docker 볼륨 드라이버](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)를 설치하는 스크립트를 작성합니다.
+
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -72,7 +75,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 </ApplicationManifest>
 ```
 
-앞의 예제에서 `Volume`에 대한 `Source` 태그는 원본 폴더를 나타냅니다. 원본 폴더는 컨테이너 또는 영구 원격 저장소를 호스트하는 VM의 폴더일 수 있습니다. `Destination` 태그는 실행 중인 컨테이너에서 `Source`가 매핑되는 위치입니다. 
+앞의 예제에서 `Volume`에 대한 `Source` 태그는 원본 폴더를 나타냅니다. 원본 폴더는 컨테이너 또는 영구 원격 저장소를 호스트하는 VM의 폴더일 수 있습니다. `Destination` 태그는 실행 중인 컨테이너에서 `Source`가 매핑되는 위치입니다.  따라서 대상은 컨테이너 내의 기존 위치가 될 수 없습니다.
 
 볼륨 플러그 인을 지정할 때 Service Fabric은 지정된 매개 변수를 사용하여 볼륨을 자동으로 만듭니다. `Source` 태그는 볼륨의 이름이며 `Driver` 태그는 볼륨 드라이버 플러그 인을 지정합니다. 다음 코드 조각에 나와 있는 대로 `DriverOption` 태그를 사용하여 옵션을 지정할 수 있습니다.
 
@@ -81,7 +84,6 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-
 Docker 로그 드라이버가 지정된 경우 클러스터의 로그를 처리할 에이전트(또는 컨테이너)를 배포해야 합니다.  `DriverOption` 태그를 사용하여 로그 드라이버 옵션을 지정할 수 있습니다.
 
 Service Fabric 클러스터에 컨테이너를 배포하려면 다음 문서를 참조하세요.

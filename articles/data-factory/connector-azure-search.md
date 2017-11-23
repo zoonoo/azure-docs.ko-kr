@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -51,7 +51,7 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 > [!IMPORTANT]
-> 클라우드 데이터 저장소에서 Azure Search 인덱스로 데이터를 복사하는 경우 Azure Search 연결된 서비스에서 connectVia의 명시적 영역으로 Azure 통합 런타임을 참조해야 합니다. Azure Search가 있는 지역을 설정합니다. [Azure 통합 런타임](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
+> 클라우드 데이터 저장소에서 Azure Search 인덱스로 데이터를 복사하는 경우 Azure Search 연결된 서비스에서 connectVia의 명시적 영역으로 Azure 통합 런타임을 참조해야 합니다. Azure Search가 있는 지역을 설정합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
 
 **예제:**
 

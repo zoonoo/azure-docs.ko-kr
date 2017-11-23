@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Azure의 Linux 가상 컴퓨터 부하를 분산하여 고가용성 응용 프로그램을 만드는 방법
 부하 분산은 들어오는 요청을 여러 가상 컴퓨터에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+세 가상 NIC를 모두 만들었으면 다음 단계를 진행합니다.
+
+
 ## <a name="create-virtual-machines"></a>가상 컴퓨터 만들기
 
 ### <a name="create-cloud-init-config"></a>cloud-init 구성 만들기
-[처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다.
+[처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 다음 단계에서는 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다. 작동 중인 부하 분산 장치를 보기 위해 이 자습서의 끝 부분에서 웹 브라우저를 통해 이 간단한 앱에 액세스하게 됩니다.
 
 현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 앱이 실행되는 나머지 2개의 VM에서 부하 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다. 이제 OS 업데이트 설치 또는 VM 다시 부팅을 수행 등의 유지 관리 작업을 VM에서 수행할 수 있습니다.
 
+부하 분산 장치에 연결된 가상 NIC가 있는 VM 목록을 보기 위해 [az network lb address-pool show](/cli/azure/network/lb/address-pool#show)를 사용합니다. 가상 NIC의 ID에 대해 다음과 같이 쿼리 및 필터링합니다.
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+출력은 다음 예제와 유사합니다. 여기서 VM 2의 가상 NIC는 더 이상 백엔드 주소 풀의 일부가 아닙니다.
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>부하 분산 장치에 VM 추가
 VM 유지 관리를 수행한 이후 또는 용량을 확장해야 할 경우 [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add)를 사용하여 백 엔드 주소 풀에 VM을 추가할 수 있습니다. 다음 예제에서는 *myLoadBalancer*에서 **myVM2**용 가상 NIC를 제거합니다.
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool#show)를 다시 사용합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

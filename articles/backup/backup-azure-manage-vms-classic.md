@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3d3de79c7f2465791ec68f850df2fc6317880f9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>클래식 포털에서 일반적인 Azure Backup 작업 및 트리거 경고 관리
 > [!div class="op_single_selector"]
@@ -34,9 +34,9 @@ ms.lasthandoff: 10/11/2017
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 클래식 배포 모델 VM 작업에 대한 자세한 내용은 [Azure 가상 컴퓨터를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md) 를 참조하세요.
 >
 > [!IMPORTANT]
->2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다.
+>2017년 3월부터는 Backup 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다.
 >
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 11월 30일 이후에는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 
@@ -44,14 +44,14 @@ ms.lasthandoff: 10/11/2017
 보호된 가상 컴퓨터 관리하려면
 
 1. 가상 컴퓨터에 대한 백업 설정을 보고 관리하려면 **보호된 항목** 탭을 클릭합니다.
-2. **백업 세부 정보** 탭을 볼 보호된 항목의 이름을 클릭하면 마지막 백업에 대한 정보가 표시됩니다.
+2. **Backup 세부 정보** 탭을 볼 보호된 항목의 이름을 클릭하면 마지막 백업에 대한 정보가 표시됩니다.
 
     ![가상 컴퓨터 백업](./media/backup-azure-manage-vms/backup-vmdetails.png)
 3. 가상 컴퓨터에 대한 백업 정책 설정을 보고 관리하려면 **정책** 탭을 클릭합니다.
 
     ![가상 컴퓨터 정책](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
-    **백업 정책** 탭에는 기존 정책이 표시됩니다. 필요에 따라 수정할 수 있습니다. 새 정책을 만들어야 하는 경우 **정책** 페이지에서 **만들기**를 클릭합니다. 정책을 제거하려는 경우 해당 정책과 연결된 가상 컴퓨터가 없어야 합니다.
+    **Backup 정책** 탭에는 기존 정책이 표시됩니다. 필요에 따라 수정할 수 있습니다. 새 정책을 만들어야 하는 경우 **정책** 페이지에서 **만들기**를 클릭합니다. 정책을 제거하려는 경우 해당 정책과 연결된 가상 컴퓨터가 없어야 합니다.
 
     ![가상 컴퓨터 정책](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 4. 가상 컴퓨터의 동작 또는 상태에 대한 자세한 정보는 **작업** 페이지에서 확인할 수 있습니다. 자세한 정보를 보려면 목록에서 작업을 클릭하거나 특정 가상 컴퓨터에 대한 작업을 필터링하세요.
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 1. **보호 항목** 페이지로 이동하고 **Azure 가상 컴퓨터**를 **형식**으로 선택한(선택되지 않은 경우) 다음 **선택** 단추를 클릭합니다.
 
     ![VM 유형](./media/backup-azure-manage-vms/vm-type.png)
-2. 주문형 백업을 수행할 가상 컴퓨터를 선택하고 페이지 맨 아래에 있는 **지금 백업** 단추를 클릭합니다.
+2. 주문형 백업을 수행할 가상 컴퓨터를 선택하고 페이지 맨 아래에 있는 **지금 Backup** 단추를 클릭합니다.
 
     ![지금 백업](./media/backup-azure-manage-vms/backup-now.png)
 
@@ -85,13 +85,13 @@ ms.lasthandoff: 10/11/2017
    >
 3. 작업이 생성된 후에는 알림 표시줄의 **작업 보기** 단추를 클릭하여 작업 페이지에서 해당 작업을 확인할 수 있습니다.
 
-    ![백업 작업 생성됨](./media/backup-azure-manage-vms/created-job.png)
+    ![Backup 작업 생성됨](./media/backup-azure-manage-vms/created-job.png)
 4. 작업이 성공적으로 완료되면 가상 컴퓨터를 복원하는 데 사용할 수 있는 복구 지점이 생성됩니다. 또한 **보호되는 항목** 페이지에서 복구 지점 열 값이 1씩 증가합니다.
 
 ## <a name="stop-protecting-virtual-machines"></a>가상 컴퓨터 보호 중지
 다음 옵션으로 가상 컴퓨터의 향후 백업을 중지하도록 선택할 수 있습니다.
 
-* Azure 백업 자격 증명 모음에 가상 컴퓨터와 연결된 백업 데이터 유지
+* Azure Backup 자격 증명 모음에 가상 컴퓨터와 연결된 백업 데이터 유지
 * 가상 컴퓨터와 연결된 백업 데이터 삭제
 
 가상 컴퓨터와 연결된 백업 데이터를 유지하도록 선택한 경우 백업 데이터를 사용하여 가상 컴퓨터를 복원할 수 있습니다. 이러한 가상 컴퓨터의 가격 정보를 보려면 [여기](https://azure.microsoft.com/pricing/details/backup/)를 클릭하세요.
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 2. 가상 컴퓨터를 선택하고 페이지 맨 아래에 있는 **보호 중지** 를 클릭합니다.
 
     ![보호 중지](./media/backup-azure-manage-vms/stop-protection.png)
-3. 기본적으로 Azure 백업은 가상 컴퓨터와 연결된 백업 데이터를 삭제하지 않습니다.
+3. 기본적으로 Azure Backup은 가상 컴퓨터와 연결된 백업 데이터를 삭제하지 않습니다.
 
     ![보호 중지 확인](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
@@ -112,12 +112,12 @@ ms.lasthandoff: 10/11/2017
 
     ![확인란](./media/backup-azure-manage-vms/checkbox.png)
 
-    백업을 중지하는 이유를 선택합니다. 선택 사항이지만, 이유를 제공하면 Azure 백업이 피드백에 따라 작동하고 고객 시나리오의 우선 순위를 지정하는 데 도움이 됩니다.
+    백업을 중지하는 이유를 선택합니다. 선택 사항이지만, 이유를 제공하면 Azure Backup이 피드백에 따라 작동하고 고객 시나리오의 우선 순위를 지정하는 데 도움이 됩니다.
 4. **제출** 단추를 클릭하여 **보호 중지** 작업을 제출합니다. **작업 보기**를 클릭하여 **작업** 페이지에서 해당 작업을 확인합니다.
 
     ![보호 중지](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    **보호 중지** 마법사에서 **연결된 백업 데이터 삭제** 옵션을 선택하지 않은 경우 작업 완료 후 보호 상태는 **보호 중지됨**으로 바뀝니다. 명시적으로 삭제될 때까지 Azure 백업을 사용하여 데이터를 유지합니다. **보호 항목** 페이지에서 가상 컴퓨터를 선택하고 **삭제**를 클릭하면 언제든지 데이터를 삭제할 수 있습니다.
+    **보호 중지** 마법사에서 **연결된 백업 데이터 삭제** 옵션을 선택하지 않은 경우 작업 완료 후 보호 상태는 **보호 중지됨**으로 바뀝니다. 명시적으로 삭제될 때까지 Azure Backup을 사용하여 데이터를 유지합니다. **보호 항목** 페이지에서 가상 컴퓨터를 선택하고 **삭제**를 클릭하면 언제든지 데이터를 삭제할 수 있습니다.
 
     ![보호 중지됨](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
@@ -146,13 +146,13 @@ ms.lasthandoff: 10/11/2017
 
     ![보호 사용 안 함](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## <a name="delete-backup-data"></a>백업 데이터 삭제
+## <a name="delete-backup-data"></a>Backup 데이터 삭제
 다음 중 하나에 가상 컴퓨터와 연결된 백업 데이터를 삭제할 수 있습니다.
 
 * 보호 중지 작업 중
 * 가상 컴퓨터에서 보호 중지 작업이 완료된 후
 
-*백업 중지* 작업이 성공적으로 완료된 후 **보호 중지됨** 상태인 백업 데이터를 가상 컴퓨터에서 삭제하려면
+*Backup 중지* 작업이 성공적으로 완료된 후 **보호 중지됨** 상태인 백업 데이터를 가상 컴퓨터에서 삭제하려면
 
 1. **보호 항목** 페이지로 이동하고 **Azure 가상 컴퓨터**를 *형식*으로 선택한 다음 **선택** 단추를 클릭합니다.
 
@@ -204,7 +204,7 @@ Azure 백업은  백업 자격 증명 모음에서 관리 작업이 무엇을 �
 1. Azure Portal에서 **관리 서비스**로 이동한 다음 **작업 로그** 탭을 클릭합니다.
 
     ![작업 로그](./media/backup-azure-manage-vms/ops-logs.png)
-2. 필터에서 **백업**을 *형식*으로 선택하고 *서비스 이름*에서 백업 자격 증명 모음 이름을 지정한 다음 **제출**을 클릭합니다.
+2. 필터에서 **Backup**을 *형식*으로 선택하고 *서비스 이름*에서 백업 자격 증명 모음 이름을 지정한 다음 **제출**을 클릭합니다.
 
     ![작업 로그 필터](./media/backup-azure-manage-vms/ops-logs-filter.png)
 3. 작업 로그에서 작업을 선택하고 **세부 정보**를 클릭하여 작업에 해당하는 세부 정보를 확인합니다.

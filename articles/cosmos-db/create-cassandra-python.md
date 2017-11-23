@@ -15,27 +15,28 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 0048dde11b2ddb4f09e94e20b5b252998205cf18
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>빠른 시작: Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
-이 빠른 시작은 GitHub에서 예제를 복제하여 프로필 앱을 빌드하기 위해 Python과 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)를 사용하는 방법을 보여줍니다. 이 빠른 시작은 웹 기반 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 과정을 안내합니다.
+이 빠른 시작은 GitHub에서 예제를 복제하여 프로필 앱을 빌드하기 위해 Python과 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)를 사용하는 방법을 보여줍니다. 이 빠른 시작에서는 또한 웹 기반 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 과정을 안내합니다.
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.   
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
-    * [Python](https://www.python.org/downloads/) 버전 v2.7.14
-    * [Git](http://git-scm.com/)
-    * [Apache Cassandra용 Python 드라이버](https://github.com/datastax/python-driver)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
+Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 아직 액세스를 신청하지 않은 경우 [지금 등록하세요](cassandra-introduction.md#sign-up-now).
 
+또한,
+* [Python](https://www.python.org/downloads/) 버전 v2.7.14
+* [Git](http://git-scm.com/)
+* [Apache Cassandra용 Python 드라이버](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -132,7 +133,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
-    다음을 사용합니다. ![복사 단추](./media/create-cassandra-python/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
+    화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-python/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
     ![Azure Portal, 연결 문자열 블레이드에서 액세스 사용자 이름, 암호 및 접점 보기 및 복사](./media/create-cassandra-python/keys.png)
 
@@ -187,7 +188,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 3. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
 
-    프로그램의 실행을 중지하고 콘솔 창을 닫으려면 CTRL + C를 누릅니다. 
+    프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL + C를 누릅니다. 
+
+    ![출력 보기 및 확인](./media/create-cassandra-python/output.png)
     
     이제 Azure Portal에서 데이터 탐색기를 열어 쿼리를 보고 수정하고 이 새로운 데이터로 작업할 수 있습니다. 
 

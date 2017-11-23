@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -52,9 +52,11 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 4. 전용 GPU - 1부에서 SVM 학습을 실행하는 데에는 필요하지 않지만, 2부에서 설명하는 DNN을 구체화하는 데에는 필요합니다. 강력한 GPU가 부족하거나, 여러 GPU에서 학습하려거나, Windows 컴퓨터가 없는 경우 Windows 운영 체제에서 Azure의 Deep Learning Virtual Machine을 사용하는 것이 좋습니다. 한 번 클릭으로 배포 가이드에 대해서는 [여기](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)를 참조하세요. 배포가 완료되면 원격 데스크톱 연결을 통해 VM에 연결하고, Workbench를 설치한 다음, VM에서 로컬로 코드를 실행합니다.
 5. OpenCV와 같은 다양한 Python 라이브러리를 설치해야 합니다. Workbench의 *파일* 메뉴에서 *명령 프롬프트 열기*를 클릭하고 다음 명령을 실행하여 이러한 종속 항목을 설치합니다.  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` - http://www.lfd.uci.edu/~gohlke/pythonlibs/에서 OpenCV 휠 파일을 다운로드한 후(정확한 파일 이름과 버전은 변경될 수 있음)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` - http://www.lfd.uci.edu/~gohlke/pythonlibs/에서 OpenCV 휠 파일을 다운로드한 후(정확한 파일 이름과 버전은 변경될 수 있음)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>문제 해결/알려진 버그
 - 2부에는 GPU가 필요합니다. 그렇지 않으면 DNN을 수정하려고 할 때 "CPU에서 정규화 학습 일괄 처리가 아직 구현되지 않았습니다"라는 오류가 발생합니다.
@@ -91,12 +93,10 @@ DNN은 이미지 분류뿐만 아니라 개체 검색 및 이미지 유사성과
 
 `0_downloadData.py` 스크립트는 모든 이미지를 *DATA_DIR/images/fashionTexture/* 디렉터리에 다운로드합니다. 428개 URL 중 일부가 손상되었을 수도 있습니다. 이 경우 그다지 문제가 되지 않으며, 학습 및 테스트에 맞게 이미지 수가 약간 줄었음을 의미합니다.
 
-다음 그림에서는 점 무늬(왼쪽 두 열), 줄 무늬(가운데 두 열) 및 표범 무늬(오른쪽 두 열)에 대한 예제를 보여 줍니다. 주석은 상반신 의류 항목에 따라 처리되었습니다.
+다음 그림에서는 점 무늬(왼쪽), 줄 무늬(가운데) 및 표범 무늬(오른쪽)에 대한 예제를 보여 줍니다. 주석은 상반신 의류 항목에 따라 처리되었습니다.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

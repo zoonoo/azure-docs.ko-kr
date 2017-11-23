@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 1ce764a3395b0ddb9e78f1247fd55fabbeecb04e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -193,6 +193,8 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 2. `node uprofile.js`를 실행하여 노드 응용 프로그램을 시작합니다.
 
 3. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
+
+    ![출력 보기 및 확인](./media/create-cassandra-nodejs/output.png)
 
     프로그램의 실행을 중지하고 콘솔 창을 닫으려면 CTRL + C를 누릅니다. 
 

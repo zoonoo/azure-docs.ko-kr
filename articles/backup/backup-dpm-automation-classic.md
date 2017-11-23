@@ -1,6 +1,6 @@
 ---
-title: "Azure 백업: PowerShell을 사용하여 DPM 워크로드 백업 | Microsoft Docs"
-description: "PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
+title: "Azure Backup: PowerShell을 사용하여 DPM 워크로드 백업 | Microsoft Docs"
+description: "PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
 author: Nkolli1
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: nkolli;trinadhk;anuragm;markgal
-ms.openlocfilehash: 943a12dcba49a114d206b9dab968da332ea99926
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa327036151361caa8bbd803bc53305e562f4466
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 PowerShell을 사용하여 백업 자격 증명 모음에서 DPM 데이터를 백업 및 복구하는 방법에 대해 설명합니다. 모든 새 배포에 Recovery Services 자격 증명 모음을 사용하는 것이 좋습니다. 새 Azure Backup 사용자인 경우 [PowerShell을 사용하여 Data Protection Manager 데이터를 Azure로 배포 및 관리](backup-dpm-automation.md) 문서를 사용하여 Recovery Services 자격 증명 모음에 데이터를 저장합니다.
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다. 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
@@ -57,7 +57,7 @@ Sample DPM scripts: Get-DPMSampleScript
 시작하려면
 
 1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0).
-2. 다음과 같은 *Switch-azuremode* commandlet을 통해 **AzureResourceManager** 모드로 전환하여 Azure 백업 commandlet을 사용하도록 설정합니다.
+2. 다음과 같은 *Switch-azuremode* commandlet을 통해 **AzureResourceManager** 모드로 전환하여 Azure Backup commandlet을 사용하도록 설정합니다.
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -66,14 +66,14 @@ PS C:\> Switch-AzureMode AzureResourceManager
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
 * 백업 자격 증명 모음 만들기
-* Azure 백업 에이전트 설치
-* Azure 백업 서비스 등록
+* Azure Backup 에이전트 설치
+* Azure Backup 서비스 등록
 * 네트워킹 서비스
 * 암호화 설정
 
 ### <a name="create-a-backup-vault"></a>백업 자격 증명 모음 만들기
 > [!WARNING]
-> 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> 처음으로 Azure Backup을 사용하는 고객의 경우, 구독과 함께 사용할 Azure Backup 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 >
 >
 
@@ -86,8 +86,8 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 **Get-AzureRMBackupVault** commandlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
 
-### <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>DPM 서버에 Azure 백업 에이전트 설치
-Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
+### <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>DPM 서버에 Azure Backup 에이전트 설치
+Azure Backup 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads\*)에 설치 관리자를 저장합니다.
 
 에이전트를 설치하려면 **DPM 서버**의 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -113,8 +113,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | 옵션 | 세부 정보 | 기본값 |
 | --- | --- | --- |
 | /q |자동 설치 |- |
-| /p:"위치" |Azure 백업 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"위치" |Azure 백업 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"위치" |Azure Backup 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Microsoft 업데이트에 옵트인 |- |
 | /nu |설치가 완료된 후 업데이트에 대한 검사 안 함 |- |
 | /d |Microsoft Azure Recovery Services 에이전트를 제거합니다. |- |
@@ -123,8 +123,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pu |프록시 호스트 사용자 이름 |- |
 | /pw |프록시 암호 |- |
 
-### <a name="registering-with-the-azure-backup-service"></a>Azure 백업 서비스 등록
-Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-azure-dpm-introduction.md)이 충족되어야 합니다. 다음이 필요합니다.
+### <a name="registering-with-the-azure-backup-service"></a>Azure Backup 서비스 등록
+Azure Backup 서비스에 등록하려면 먼저 [필수 조건](backup-azure-dpm-introduction.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 * 유효한 Azure 구독이 있어야 함
 * 백업 자격 증명 모음
@@ -153,20 +153,20 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 >
 
 ### <a name="initial-configuration-settings"></a>초기 구성 설정
-DPM 서버를 Azure 백업 저장소에 등록하면 기본 구독 설정으로 시작됩니다. 이러한 구독 설정에는 네트워킹, 암호화 및 스테이징 영역이 포함됩니다. 구독 설정을 변경하려면 우선 [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet을 사용하여 기존(기본) 설정에 대한 핸들을 가져와야 합니다.
+DPM 서버를 Azure Backup 저장소에 등록하면 기본 구독 설정으로 시작됩니다. 이러한 구독 설정에는 네트워킹, 암호화 및 스테이징 영역이 포함됩니다. 구독 설정을 변경하려면 우선 [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet을 사용하여 기존(기본) 설정에 대한 핸들을 가져와야 합니다.
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-[Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure 백업에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure 백업에서 사용할 수 없습니다.
+[Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure Backup에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure Backup에서 사용할 수 없습니다.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
 ### <a name="networking"></a>네트워킹
-프록시 서버를 통해 DPM 컴퓨터를 인터넷상의 Azure 백업 서비스에 연결하는 경우 백업에 성공하려면 프록시 서버 설정을 제공해야 합니다. 이 작업은 ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` 및 ```ProxyPassword``` 매개 변수를 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 함께 사용하여 수행합니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
+프록시 서버를 통해 DPM 컴퓨터를 인터넷상의 Azure Backup 서비스에 연결하는 경우 백업에 성공하려면 프록시 서버 설정을 제공해야 합니다. 이 작업은 ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` 및 ```ProxyPassword``` 매개 변수를 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 함께 사용하여 수행합니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -179,7 +179,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 ### <a name="configuring-the-staging-area"></a>스테이징 영역 구성
-DPM 서버에서 실행 중인 Azure 백업 에이전트에는 클라우드로부터 복원된 데이터를 위한 임시 저장소가 필요합니다(로컬 스테이징 영역). [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 ```-StagingAreaPath``` 매개 변수를 사용하여 스테이징 영역을 구성합니다.
+DPM 서버에서 실행 중인 Azure Backup 에이전트에는 클라우드로부터 복원된 데이터를 위한 임시 저장소가 필요합니다(로컬 스테이징 영역). [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 ```-StagingAreaPath``` 매개 변수를 사용하여 스테이징 영역을 구성합니다.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
@@ -188,7 +188,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 위의 예제에서 스테이징 영역은 PowerShell 개체 ```$setting```에서 *C:\StagingArea*로 설정됩니다. 지정된 폴더가 이미 있어야 하며, 그렇지 않으면 구독 설정의 최종 커밋에 실패합니다.
 
 ### <a name="encryption-settings"></a>암호화 설정
-Azure 백업에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다. 이 정보를 설정한 후에 안전하게 보관하는 것이 중요합니다.
+Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다. 이 정보를 설정한 후에 안전하게 보관하는 것이 중요합니다.
 
 아래 예제에서 첫 번째 명령은 ```passphrase123456789``` 문자열을 보안 문자열로 변환하고 보안 문자열을 ```$Passphrase```(이)라는 변수에 할당합니다. 두 번째 명령은 암호화 백업의 암호로 ```$Passphrase```에서 보안 문자열을 설정합니다.
 
@@ -209,8 +209,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="protect-data-to-azure-backup"></a>Azure 백업에 데이터 보호
-이 섹션에서는 DPM에 프로덕션 서버를 추가한 후 데이터를 로컬 DPM 저장소에 보호한 다음 Azure 백업에 보호합니다. 예제에서 파일과 폴더를 백업하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
+## <a name="protect-data-to-azure-backup"></a>Azure Backup에 데이터 보호
+이 섹션에서는 DPM에 프로덕션 서버를 추가한 후 데이터를 로컬 DPM 저장소에 보호한 다음 Azure Backup에 보호합니다. 예제에서 파일과 폴더를 백업하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
 
 1. **그룹 멤버**는 동일한 보호 그룹 내에서 보호하려는 모든 보호 개체(DPM에서는 *데이터 원본*)의 목록입니다. 예를 들어, 백업 요구 사항이 다르기 때문에 하나의 보호 그룹에서는 프로덕션 VM을 보호하고 다른 보호 그룹에서는 SQL Server 데이터베이스를 보호할 수 있습니다. 프로덕션 서버에 데이터 원본을 백업할 수 있으려면 DPM 에이전트가 서버에 설치되어 있고 DPM에 의해 관리되는지 확인해야 합니다. [DPM 에이전트를 설치](https://technet.microsoft.com/library/bb870935.aspx)하고 해당 DPM 서버에 링크하는 단계를 따릅니다.
 2. **데이터 보호 방법**은 대상 백업 위치(테이프, 디스크 및 클라우드)를 지정합니다. 이 예에서는 데이터를 로컬 디스크와 클라우드에 보호합니다.
@@ -334,7 +334,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ## <a name="restore-data-protected-on-azure"></a>Azure에 보호된 데이터 복원
 데이터 복원은 ```RecoverableItem``` 개체와 ```RecoveryOption``` 개체의 조합입니다. 이전 섹션에서 데이터 원본의 백업 시점 목록을 가져왔습니다.
 
-아래 예제에서는 백업 시점과 복구 대상을 결합하여 Hyper-V 가상 컴퓨터를 Azure 백업에서 복원하는 방법을 설명합니다. 다음 내용이 포함됩니다.
+아래 예제에서는 백업 시점과 복구 대상을 결합하여 Hyper-V 가상 컴퓨터를 Azure Backup에서 복원하는 방법을 설명합니다. 다음 내용이 포함됩니다.
 
 * [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet을 사용하여 복구 옵션 만들기
 * ```Get-DPMRecoveryPoint``` cmdlet을 사용하여 백업 시점 배열 가져오기
@@ -353,4 +353,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 명령은 모든 데이터 원본 유형에 대해 쉽게 확장할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* DPM에 대한 Azure 백업에 대한 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)
+* DPM에 대한 Azure Backup에 대한 자세한 정보는 [DPM Backup 소개](backup-azure-dpm-introduction.md)

@@ -13,27 +13,27 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca3fb650a133efb67c0ad2cd96847c6a0e21c876
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Azure Virtual Machines 백업(클래식 포털)
 > [!div class="op_single_selector"]
-> * [복구 서비스 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md)
-> * [백업 자격 증명 모음에 VM 백업](backup-azure-vms.md)
+> * [Recovery Services 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md)
+> * [Backup 자격 증명 모음에 VM 백업](backup-azure-vms.md)
 >
 >
 
-이 문서는 클래식 배포 Azure VM(가상 컴퓨터)을 백업 자격 증명 모음에 백업하기 위한 절차를 제공합니다. Azure 가상 컴퓨터를 백업하기 전에 몇 가지 처리해야 하는 작업이 있습니다. 아직 수행하지 않은 경우 먼저 VM 백업용 환경을 준비하기 위한 [필수 구성 요소](backup-azure-vms-prepare.md) 를 완료합니다.
+이 문서는 클래식 배포 Azure VM(가상 컴퓨터)을 Backup 자격 증명 모음에 백업하기 위한 절차를 제공합니다. Azure 가상 컴퓨터를 백업하기 전에 몇 가지 처리해야 하는 작업이 있습니다. 아직 수행하지 않은 경우 먼저 VM 백업용 환경을 준비하기 위한 [필수 구성 요소](backup-azure-vms-prepare.md) 를 완료합니다.
 
 자세한 내용은 [Azure에서 VM 백업 인프라 계획](backup-azure-vms-introduction.md) 및 [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)에 대한 문서를 참조하세요.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 백업 자격 증명 모음은 클래식 배포 VM만 보호할 수 있습니다. 백업 자격 증명 모음을 사용하여 Resource Manager 배포 VM을 보호할 수 없습니다. 복구 서비스 자격 증명 모음을 사용하는 방법에 대한 자세한 내용은 [복구 서비스 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md) 을 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. Backup 자격 증명 모음은 클래식 배포 VM만 보호할 수 있습니다. Backup 자격 증명 모음을 사용하여 Resource Manager 배포 VM을 보호할 수 없습니다. Recovery Services 자격 증명 모음을 사용하는 방법에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md) 을 참조하세요.
 >
 >
 
@@ -45,8 +45,8 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 > 가상 컴퓨터 백업은 로컬 프로세스입니다. 한 지역에서 다른 지역의 백업 자격 증명 모음에 가상 컴퓨터를 백업할 수 없습니다. 따라서 백업할 VM이 있는 각 Azure 지역에 백업 자격 증명 모음을 만들어야 합니다.
 >
 > [!IMPORTANT]
-> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다.
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 2017년 3월부터는 Backup 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다.
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 11월 30일 이후에는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
@@ -55,9 +55,9 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 등록하기 전에 구독에 추가된 새 VM(가상 컴퓨터)이 식별되도록 하려면 검색 프로세스를 실행합니다. 프로세스는 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 구독의 가상 컴퓨터 목록을 Azure에 쿼리합니다.
 
 1. [클래식 포털](http://manage.windowsazure.com/)
-2. Azure 서비스 목록에서 **복구 서비스**를 클릭하여 백업 및 사이트 복구 자격 증명 모음 목록을 엽니다.
+2. Azure 서비스 목록에서 **Recovery Services**를 클릭하여 백업 및 사이트 복구 자격 증명 모음 목록을 엽니다.
     ![자격 증명 모음 목록 열기](./media/backup-azure-vms/choose-vault-list.png)
-3. 백업 자격 증명 모음 목록에서 VM을 백업할 자격 증명 모음을 선택합니다.
+3. Backup 자격 증명 모음 목록에서 VM을 백업할 자격 증명 모음을 선택합니다.
 
     새 자격 증명 모음인 경우 포털에서 **빠른 시작** 페이지가 열립니다.
 
@@ -84,7 +84,7 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
     새 항목을 검색했으면 2단계로 이동하여 VM을 등록합니다.
 
 ## <a name="step-2---register-azure-virtual-machines"></a>2단계 - Azure 가상 컴퓨터 등록
-Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다. 일반적으로 일회성 작업입니다.
+Azure 가상 컴퓨터를 등록하여 Azure Backup 서비스와 연결합니다. 일반적으로 일회성 작업입니다.
 
 1. Azure Portal의 **Recovery Services**에 있는 백업 저장소로 이동한 다음, **등록된 항목**을 클릭합니다.
 2. 드롭다운 메뉴에서 **Azure 가상 컴퓨터** 를 선택합니다.
@@ -115,7 +115,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 ## <a name="step-3---protect-azure-virtual-machines"></a>3단계 - Azure 가상 컴퓨터 보호
 이제 가상 컴퓨터에 대한 백업 및 보존 정책을 설정할 수 있습니다. 단일 보호 작업을 사용하여 여러 가상 컴퓨터를 보호할 수 있습니다.
 
-2015년 5월 이후에 만든 Azure 백업 자격 증명 모음은 자격 증명 모음에 기본 제공되는 기본 정책을 사용합니다. 이 기본 정책을 30일의 기본 보존 기간 및 하루 한 번 백업 일정과 함께 제공됩니다.
+2015년 5월 이후에 만든 Azure Backup 자격 증명 모음은 자격 증명 모음에 기본 제공되는 기본 정책을 사용합니다. 이 기본 정책을 30일의 기본 보존 기간 및 하루 한 번 백업 일정과 함께 제공됩니다.
 
 1. Azure Portal의 **Recovery Services**에 있는 백업 저장소로 이동한 다음, **등록된 항목**을 클릭합니다.
 2. 드롭다운 메뉴에서 **Azure 가상 컴퓨터** 를 선택합니다.
@@ -156,7 +156,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
     이 예제 이미지에서
 
    * **일 단위 보존 정책**: 매일 수행된 백업이 30일 동안 저장됩니다.
-   * **주 단위 보존 정책**: 매주 일요일에 수행된 백업이 104주 동안 유지됩니다.
+   * **주 단위 보존 정책**: 매주 일요일에 수행된 Backup이 104주 동안 유지됩니다.
    * **월 단위 보존 정책**: 매달 마지막 주 일요일에 수행된 백업이 120개월 동안 유지됩니다.
    * **월 단위 보존 정책**: 매년 1월 첫째 주 일요일에 수행된 백업이 99년 동안 유지됩니다.
 
@@ -170,12 +170,12 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
 보호를 구성한 후에 즉시 초기 백업을 트리거하려면.
 
-1. **보호된 항목** 페이지 아래쪽에서 **지금 백업**을 클릭합니다.
+1. **보호된 항목** 페이지 아래쪽에서 **지금 Backup**을 클릭합니다.
 
-    Azure 백업 서비스는 초기 백업 작업에 대한 백업 작업을 만듭니다.
+    Azure Backup 서비스는 초기 백업 작업에 대한 백업 작업을 만듭니다.
 2. **작업** 탭을 클릭하여 작업 목록을 봅니다.
 
-    ![진행 중인 백업](./media/backup-azure-vms/protect-inprogress.png)
+    ![진행 중인 Backup](./media/backup-azure-vms/protect-inprogress.png)
 
 > [!NOTE]
 > 백업 작업 동안 Azure Backup 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기 작업을 플러시하고 일관된 스냅숏을 만듭니다.

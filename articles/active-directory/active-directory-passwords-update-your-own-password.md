@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Azure AD 암호를 잊어버렸어요. 도와주세요!
+# <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
-암호를 잊어버린 경우, IT 부서에서 암호를 받지 못한 경우, 계정에서 암호가 잠긴 경우 또는 암호를 변경하려는 경우 저희에게 도움을 요청할 수 있습니다. 알고 있는 암호를 변경해야 하는 경우 아래 [암호 변경](#change-my-password) 섹션으로 이동합니다.
+암호를 잊어버린 경우, 회사 지원에서 암호를 받지 못한 경우, 계정의 암호가 잠긴 경우 또는 암호를 변경하려는 경우 도움이 될 수 있습니다. 알고 있는 암호를 변경해야 하는 경우 아래 [암호 변경](#change-my-password) 섹션으로 이동합니다.
 
    > [!NOTE]
    > Xbox, hotmail.com 또는 outlook.com 같은 개인 계정에 다시 액세스하려면 [이 문서의 권장 사항](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)을 시도해 보세요.
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/31/2017
    ![인증 데이터 확인][Verification]
 
 4. IT 담당자가 추가 확인이 필요할 수 있으며, 그에 따라 사용자가 다른 옵션을 선택하여 3단계를 반복해야 할 수도 있습니다.
-5. **새 암호 선택** 페이지에서 새 암호를 입력하고 암호를 확인한 다음 **마침**을 클릭합니다. 대문자와 소문자, 숫자 및 특수 문자가 포함된 8-16자 암호가 좋습니다.
+5. **새 암호 선택** 페이지에서 새 암호를 입력하고 암호를 확인한 다음 **마침**을 클릭합니다. 회사 또는 학교 암호에는 특정 요구 사항이 있을 수 있습니다. 암호는 대/소문자, 숫자 및 특수 문자가 포함된 8-16자여야 합니다.
 6. **암호가 재설정되었습니다.**가 표시되면 새 암호로 로그인할 수 있습니다.
 
     ![암호가 재설정되었습니다.][Complete]
@@ -95,6 +95,27 @@ ms.lasthandoff: 10/31/2017
 3. **암호 변경**을 클릭합니다.
 4. 이전 암호를 입력하고, 새 암호를 입력하고 확인한 후 **제출**을 클릭합니다.
 
+## <a name="reset-password-at-login"></a>로그인 시 암호 재설정
+
+관리자가 이 기능을 사용하도록 설정한 경우 Windows 10 Fall Creators Update 로그인 화면에서 **암호 재설정**에 대한 링크가 표시됩니다.
+
+![로그인 화면][LoginScreen]
+
+**암호 재설정** 링크를 클릭하면 로그인 화면에서 SSPR 환경이 열리며, 여기서 일반 웹 기반 환경에 액세스하기 위해 로그인할 필요 없이 암호를 다시 설정할 수 있습니다.
+
+1. 사용자 ID를 확인하고 **다음**을 클릭합니다.
+2. 확인을 위해 연락 방법을 선택하고 확인합니다. IT 직원이 추가로 확인해야 할 수 있으며, 다른 선택 항목으로 이 단계를 다시 반복해야 할 수도 있습니다.
+
+   ![연락 방법][ContactMethod]
+
+3. **새 암호 만들기** 페이지에서 새 암호를 입력하고 해당 암호를 확인한 후 **다음**을 클릭합니다. 대문자와 소문자, 숫자 및 특수 문자가 포함된 8-16자 암호가 좋습니다.
+
+   ![암호 재설정][ResetPassword]
+
+4. **암호가 재설정되었습니다.**를 확인하고 **마침**을 클릭합니다.
+
+이제 계정에 액세스할 수 있을 것입니다. 만약 액세스할 수 없으면 조직의 IT 담당자에게 연락하여 추가 도움을 요청해야 합니다.
+
 ## <a name="common-problems-and-their-solutions"></a>일반적인 문제 및 해결 방법
 
  다음은 일반적인 오류 사례 및 해결 방법입니다.
@@ -116,3 +137,6 @@ ms.lasthandoff: 10/31/2017
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "인증 데이터 확인"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "암호 변경"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "암호가 재설정되었습니다."
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update 로그인 화면 - 암호 재설정 링크"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "인증 데이터 확인"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "암호 변경"

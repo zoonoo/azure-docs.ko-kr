@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 
@@ -120,7 +120,7 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
 **자격 증명 모음을 곧 업그레이드할 계획이 없다면 어떻게 되나요?**</br>
-새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. Microsoft는 클래식 포털에서 사용할 수 없게 됩니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. Microsoft는 2017년 11월 30일까지 업그레이드 프로세스를 완료합니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
+새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. Microsoft는 클래식 포털에서 사용할 수 없게 됩니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 더 이상 Backup 자격 증명 모음을 만들 수 없습니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
 
 **이 업그레이드로 기존 도구는 어떻게 되나요?**</br>
 도구를 Resource Manager 배포 모델로 업데이트합니다. Recovery Services 자격 증명 모음은 Resource Manager 배포 모델에서 사용하기 위해 만들었습니다. Resource Manager 배포 모델을 계획하고 자격 증명 모음의 차이점을 고려하는 것이 중요합니다. 

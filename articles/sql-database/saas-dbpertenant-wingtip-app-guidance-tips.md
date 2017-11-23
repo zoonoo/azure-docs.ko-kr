@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Azure SQL Database 다중 테넌트 SaaS 앱 예제에 대한 지침 및 팁
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Wingtip SaaS 스크립트 다운로드 및 차단 해제
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Wingtip Tickets SaaS 테넌트당 데이터베이스 스크립트 다운로드 및 차단 해제
 
 zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 경우 ***아래 단계에 따라 추출하기 전에 .zip 파일을 차단 해제***하세요. 이렇게 하면 스크립트를 실행할 수 있습니다.
 
-1. [Wingtip SaaS GitHub 리포지토리](https://github.com/Microsoft/WingtipSaaS)로 이동합니다.
+1. [Wingtip Tickets SaaS 테넌트당 데이터베이스 GitHub 리포지토리](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)로 이동합니다.
 2. **복제 또는 다운로드**를 클릭합니다.
 3. **ZIP 다운로드**를 클릭하고 파일을 저장합니다.
-4. **WingtipSaaS-master.zip** 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+4. **WingtipTicketsSaaS-DbPerTenant-master.zip** 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 5. **일반** 탭에서 **차단 해제**를 선택합니다.
 6. **확인**을 클릭합니다.
 7. 파일의 압축을 풉니다.
 
-스크립트는 *..\\WingtipSaaS-master\\Learning Modules* 폴더에 있습니다.
+스크립트는 *..\\Learning Modules* 폴더에 있습니다.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Wingtip SaaS PowerShell 스크립트 작업
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Wingtip Tickets SaaS 테넌트당 PowerShell 스크립트 사용
 
 샘플을 최대한 활용하려면 제공된 스크립트를 자세히 살펴보아야 합니다. 중단점을 사용하고 스크립트를 단계별로 실행하면서 다양한 SaaS 패턴이 구현된 방식을 자세히 살펴보세요. 가장 잘 이해할 수 있도록 제공된 스크립트 및 모듈을 손쉽게 단계별로 실행하려면 [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise)를 사용하는 것이 좋습니다.
 
@@ -73,10 +73,10 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 응용 프로그램 서버 및 데이터베이스에 연결하고 탐색합니다.
 
-초기에 배포에는 연결할 두 SQL Database 서버가 있는데 *tenants1-&lt;User&gt;* 서버 및 *catalog-&lt;User&gt;* 서버입니다. 성공적인 데모 연결을 위해 두 서버 모두에 모든 IP의 통과를 허용하는 [방화벽 규칙](sql-database-firewall-configure.md)이 있습니다.
+초기에 배포에는 연결할 두 SQL Database 서버가 있는데 *tenants1-dpt-&lt;User&gt;* 서버 및 *catalog-dpt-&lt;User&gt;* 서버입니다. 성공적인 데모 연결을 위해 두 서버 모두에 모든 IP의 통과를 허용하는 [방화벽 규칙](sql-database-firewall-configure.md)이 있습니다.
 
 
-1. *SSMS*를 열고 *tenants1-&lt;User&gt;.database.windows.net* 서버에 연결합니다.
+1. *SSMS*를 열고 *tenants1-dpt-&lt;User&gt;.database.windows.net* 서버에 연결합니다.
 2. **연결** > **데이터베이스 엔진...**을 클릭합니다.
 
    ![카탈로그 서버](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
    ![connection](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. 2-3단계를 반복하고 *catalog-&lt;User&gt;.database.windows.net* 서버에 연결합니다.
+4. 2-3단계를 반복하고 *catalog-dpt&lt;User&gt;.database.windows.net* 서버에 연결합니다.
 
 
 성공적으로 연결된 후 두 서버가 표시됩니다. 프로비전한 테넌트에 따라 데이터베이스 목록이 다를 수 있습니다.
@@ -96,5 +96,5 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 ## <a name="next-steps"></a>다음 단계
 
-[Wingtip SaaS 응용 프로그램 배포](saas-dbpertenant-get-started-deploy.md)
+[Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램 배포](saas-dbpertenant-get-started-deploy.md)
 

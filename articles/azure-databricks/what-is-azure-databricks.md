@@ -1,6 +1,6 @@
 ---
 title: "Azure Databricks란? | Microsoft Docs"
-description: "Azure Databricks는 Apache Spark 위에 구축된 데이터 분석 플랫폼입니다."
+description: "Azure Databricks란 무엇이고 Databricks의 Spark를 Azure로 가져오는 방법은 무엇인지 알아보세요. Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 4361c29f81aae3e22e00f4cd854306c27adc2dbc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7ced38cda2669cf03e51f50fbbbeea0344da9277
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 

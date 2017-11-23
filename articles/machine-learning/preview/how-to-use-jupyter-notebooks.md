@@ -2,19 +2,19 @@
 title: "Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법 | Microsoft Docs"
 description: "Azure Machine Learning Workbench의 Jupyter Notebook 기능 사용에 대한 가이드"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법
 
@@ -49,6 +49,9 @@ Azure Machine Learning Workbench는 Jupyter Notebook 통합을 통해 대화형 
 ### <a name="local-python-kernel"></a>로컬 Python 커널
 이 Python 커널은 로컬 컴퓨터에서 실행을 지원합니다. Azure Machine Learning의 실행 기록 지원과 통합되었습니다. 커널 이름은 일반적으로 "my_project_name local"입니다.
 
+>[!NOTE]
+>"Python 3" 커널은 사용하지 마십시오. Jupyter에 기본 제공되는 독립 실행형 커널입니다. Azure Machine Learning 기능과 통합되어 있지 않습니다.
+
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Docker의 Python 커널(로컬 또는 원격)
 이 Python 커널은 로컬 컴퓨터 또는 원격 Linux VM의 Docker 컨테이너에서 실행됩니다. 커널 이름은 일반적으로 "my_project docker"입니다. 연결된 `docker.runconfig` 파일에는 `Python`으로 설정된 `Framework` 필드가 있습니다.
 
@@ -59,7 +62,7 @@ Azure Machine Learning Workbench는 Jupyter Notebook 통합을 통해 대화형 
 이 커널은 프로젝트의 계산 대상으로 연결된 원격 HDInsight 클러스터에서 실행됩니다. 커널 이름은 일반적으로 "my_project my_hdi"입니다. 
 
 >[!IMPORTANT]
->이 커널을 사용 하려면 HDI 계산 대상의 `.compute` 파일에서 `yarnDeployMode` 필드를 `client`로 변경해야 합니다(기본값은 `cluster`). 
+>이 커널을 사용하려면 HDI 계산 대상의 `.compute` 파일에서 `yarnDeployMode` 필드를 `client`로 변경해야 합니다(기본값은 `cluster`). 
 
 ## <a name="start-jupyter-server-from-the-workbench"></a>Workbench에서 Jupyter 서버 시작
 Azure Machine Learning Workbench에서 Workbench의 **Notebook** 탭을 통해 Notebook에 액세스할 수 있습니다. _조리개 분류_ 샘플 프로젝트에는 `iris.ipynb` 샘플 Notebook이 포함되어 있습니다.
@@ -104,6 +107,33 @@ $ az ml notebook start
 이제 `.ipynb` Notebook 파일을 클릭하여 열고, 커널을 설정하고(아직 설정되지 않은 경우), 대화형 세션을 시작할 수 있습니다.
 
 ![프로젝트 대시보드](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>매직 명령을 사용하여 실험 관리
+
+Notebook 셀에서 [매직 명령](http://ipython.readthedocs.io/en/stable/interactive/magics.html)을 사용하여 실행 기록을 추적하고 모델 또는 데이터 집합과 같은 출력을 저장할 수 있습니다.
+
+개별 Notebook 셀 실행을 추적하려면 "%azureml history on" 매직 명령을 사용합니다. 기록을 켜면 각 셀 실행이 실행 기록의 항목으로 표시됩니다.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+셀 실행 추적을 끄려면 "%azureml history off" 매직 명령을 사용합니다.
+
+"%azureml upload" 매직 명령을 사용하여 실행 중인 모델 및 데이터 파일을 저장할 수 있습니다. 저장된 개체는 지정된 실행에 대한 실행 기록 보기의 출력으로 나타납니다.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>출력은 "outputs" 폴더에 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Jupyter Notebook 사용 방법은 [Jupyter 공식 설명서](http://jupyter-notebook.readthedocs.io/en/latest/)를 참조하세요.    

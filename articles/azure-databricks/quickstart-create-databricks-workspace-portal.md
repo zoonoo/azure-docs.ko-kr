@@ -1,6 +1,6 @@
 ---
-title: "빠른 시작: Azure Portal을 사용하여 Azure Databricks 작업 영역 만들기 | Microsoft Docs"
-description: "빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역 및 Apache Spark 클러스터를 만드는 방법을 보여줍니다."
+title: "빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 첫 번째 Spark 작업 실행 | Microsoft Docs"
+description: "빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks 시작
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
 빠른 시작은 Azure Databricks 작업 영역과 해당 작업 영역 내에 Apache Spark 클러스터를 만드는 방법을 보여줍니다. 마지막으로, Databricks 클러스터에서 Spark 작업을 실행하는 방법을 알아봅니다. Azure Databricks에 대한 자세한 내용은 [Azure Databricks란?](what-is-azure-databricks.md)을 참조하세요.
 
@@ -31,7 +31,11 @@ ms.lasthandoff: 11/15/2017
 
 이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
 
-1. Azure Portal에서 **+**를 클릭하고, **데이터 + 분석**을 클릭한 다음, **Azure Databricks(미리 보기)**를 클릭합니다. **Azure Databricks** 아래에 있는 **만들기**를 클릭합니다.
+1. Azure Portal에서 **+**를 클릭하고, **데이터 + 분석**을 클릭한 다음, **Azure Databricks(미리 보기)**를 클릭합니다. 
+
+    ![Azure Portal의 Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Azure Portal의 Databricks")
+
+2. **Azure Databricks(미리 보기)** 아래에 있는 **만들기**를 클릭합니다.
 
     > [!NOTE]
     > Azure Databricks는 현재 제한된 미리 보기로 제공됩니다. Azure 구독을 미리보기 허용 목록으로 간주하려면 [등록 양식](https://databricks.azurewebsites.net/)을 작성해야 합니다.

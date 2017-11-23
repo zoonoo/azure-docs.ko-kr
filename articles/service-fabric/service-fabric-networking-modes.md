@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
-컨테이너 서비스에 대해 Service Fabric 클러스터에서 제공되는 기본 네트워킹 모드는 `nat` 네트워킹 모드입니다. `nat` 네트워킹 모드에서 동일한 포트에 수신 대기하는 둘 이상의 컨테이너 서비스가 있는 경우 배포 오류가 발생합니다. 동일한 포트에서 여러 서비스가 수신 대기하도록 하기 위해 Service Fabric은 `open` 네트워킹 모드(버전 5.7 이상)을 지원합니다. `open` 네트워킹 모드에서 각 컨테이너 서비스는 내부적으로 여러 서비스를 동일한 포트에서 수신 대기할 수 있는 동적으로 할당된 IP 주소를 가져옵니다.   
+컨테이너 서비스에 대해 Service Fabric 클러스터에서 제공되는 기본 네트워킹 모드는 `nat` 네트워킹 모드입니다. `nat` 네트워킹 모드에서 동일한 포트에 수신 대기하는 둘 이상의 컨테이너 서비스가 있는 경우 배포 오류가 발생합니다. 동일한 포트에서 여러 서비스가 수신 대기하도록 하기 위해 Service Fabric은 `Open` 네트워킹 모드(버전 5.7 이상)을 지원합니다. `Open` 네트워킹 모드에서 각 컨테이너 서비스는 내부적으로 여러 서비스를 동일한 포트에서 수신 대기할 수 있는 동적으로 할당된 IP 주소를 가져옵니다.   
 
-따라서 서비스 매니페스트에 정의된 고정 끝점을 갖는 단일 서비스 형식으로 `open` 네트워킹 모드를 사용하여 배포 오류 없이 새로운 서비스를 만들고 삭제할 수 있습니다. 마찬가지로 여러 서비스를 만들기 위해 고정 포트 매핑을 포함한 동일한 `docker-compose.yml` 파일을 사용할 수 있습니다.
+따라서 서비스 매니페스트에 정의된 고정 끝점을 갖는 단일 서비스 형식으로 `Open` 네트워킹 모드를 사용하여 배포 오류 없이 새로운 서비스를 만들고 삭제할 수 있습니다. 마찬가지로 여러 서비스를 만들기 위해 고정 포트 매핑을 포함한 동일한 `docker-compose.yml` 파일을 사용할 수 있습니다.
 
 서비스를 다시 시작하거나 다른 노드로 이동하는 경우 IP 주소를 변경하기 때문에 서비스를 검색하는 데 동적으로 할당된 IP를 사용하는 것은 좋지 않습니다. 서비스 검색을 위해 **Service Fabric 명명 서비스** 또는 **DNS 서비스**만을 사용합니다. 
 
 
 > [!WARNING]
-> 총 4096개의 IP가 Azure의 vNET에서 허용됩니다. 따라서 노드 수 및 컨테이너 서비스 인스턴스 수의 합계(`open` 네트워킹을 포함)는 vNET 내에서 4096개를 초과할 수 없습니다. 이러한 고밀도 시나리오에는 `nat` 네트워킹 모드를 사용하는 것이 좋습니다.
+> 총 4096개의 IP가 Azure의 vNET에서 허용됩니다. 따라서 노드 수 및 컨테이너 서비스 인스턴스 수의 합계(`Open` 네트워킹을 포함)는 vNET 내에서 4096개를 초과할 수 없습니다. 이러한 고밀도 시나리오에는 `nat` 네트워킹 모드를 사용하는 것이 좋습니다.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
@@ -178,12 +178,12 @@ ms.lasthandoff: 10/11/2017
 
 3. Windows 클러스터의 경우에만 다음 값을 갖는 vNET에 UDP/53 포트를 여는 NSG 규칙을 설정합니다.
 
-   | 우선 순위 |    이름    |    원본      |  대상   |   부여    | 동작 |
+   | 우선 순위 |    이름    |    원본      |  대상   |   서비스    | 동작 |
    |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS(UDP/53) | 허용  |
 
 
-4. 각 `<NetworkConfig NetworkType="open">` 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다.  `open` 모드에서는 서비스가 전용 IP 주소를 가져오도록 합니다. 모드를 지정하지 않으면 기본 `nat` 모드를 기본값으로 합니다. 따라서 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2`는 동일한 포트를 각각 수신할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 중).
+4. 각 `<NetworkConfig NetworkType="Open">` 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다.  `Open` 모드에서는 서비스가 전용 IP 주소를 가져오도록 합니다. 모드를 지정하지 않으면 기본 `nat` 모드를 기본값으로 합니다. 따라서 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2`는 동일한 포트를 각각 수신할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 중). `Open` 네트워킹 모델을 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ ms.lasthandoff: 10/11/2017
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ ms.lasthandoff: 10/11/2017
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트워킹 모드를 혼합하고 일치시킬 수 있습니다. 따라서 `open` 모드에 일부 서비스가 있고 `nat` 네트워킹 모드에 일부 서비스가 있을 수 있습니다. `nat`로 서비스를 구성한 경우 수신하는 포트는 고유해야 합니다. 다른 서비스에 네트워킹 모드를 혼합하는 작업은 Linux 클러스터에서 지원되지 않습니다. 
+Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트워킹 모드를 혼합하고 일치시킬 수 있습니다. 따라서 `Open` 모드에 일부 서비스가 있고 `nat` 네트워킹 모드에 일부 서비스가 있을 수 있습니다. `nat`로 서비스를 구성한 경우 수신하는 포트는 고유해야 합니다. 다른 서비스에 네트워킹 모드를 혼합하는 작업은 Linux 클러스터에서 지원되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

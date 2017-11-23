@@ -4,7 +4,7 @@ description: "Azure AD 도메인 서비스에 대한 문제 해결 가이드"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Azure AD 디렉터리에 대해 Azure AD Domain Services를 사용할 수 없습니다.
-이 섹션에서는 디렉터리에 대해 Azure AD Domain Services를 사용하도록 설정할 때 발생한 오류를 해결하는 데 도움이 되며 실패하거나 [사용 안 함]으로 다시 전환됩니다.
+이 섹션에서는 디렉터리에 Azure AD Domain Services를 사용하도록 설정하려고 할 때 발생하는 오류를 해결하는 데 도움이 됩니다.
 
 발생하는 오류 메시지에 해당하는 문제 해결 단계를 선택합니다.
 
@@ -81,7 +81,7 @@ Azure AD 디렉터리에 'AzureActiveDirectoryDomainControllerServices'(응용 �
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Azure AD 테넌트에서는 제거되지만 관리되는 도메인에서는 제거되지 않는 사용자
 Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호합니다. Azure AD 테넌트에서 사용자 계정을 삭제하면 해당 사용자 개체가 휴지통으로 이동합니다. 이 삭제 작업이 관리되는 도메인과 동기화하면 해당 사용자 계정을 사용할 수 없는 것으로 표시됩니다. 이 기능을 사용하면 나중에 사용자 계정을 복구하거나 삭제를 취소할 수 있습니다.
 
-Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 다시 만든 경우에도 사용자 계정은 관리되는 도메인에서 사용할 수 없는 상태로 유지됩니다. 관리되는 도메인에서 사용자 계정을 제거하려면 Azure AD 테넌트에서 사용자를 강제로 삭제해야 합니다.
+Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 다시 만든 경우에도 사용자 계정은 관리되는 도메인에서 사용할 수 없는 상태로 유지됩니다. 관리되는 도메인에서 사용자 계정을 제거하려면 Azure AD 테넌트에서 해당 사용자를 강제로 삭제해야 합니다.
 
 관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](https://msdn.microsoft.com/library/azure/dn194132.aspx)에서 설명한 대로 '-RemoveFromRecycleBin' 옵션을 포함한 Remove-MsolUser PowerShell cmdlet을 사용합니다.
 

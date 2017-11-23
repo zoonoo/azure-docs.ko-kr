@@ -1,6 +1,6 @@
 ---
-title: "Azure 클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리 | Microsoft Docs"
-description: "이 자습서를 사용하여 Azure 백업 저장소 및 서버를 관리하는 방법을 알아봅니다."
+title: "Azure 클래식 배포 모델을 사용하여 Azure Backup 자격 증명 모음 및 서버 관리 | Microsoft Docs"
+description: "이 자습서를 사용하여 Azure Backup 저장소 및 서버를 관리하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,35 +12,35 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 11/10/2017
 ms.author: markgal;
-ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc2eb996546810dad169dc25175ab10ebb164aa
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Azure 백업 자격 증명 모음 및 서버 관리
+# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Azure Backup 자격 증명 모음 및 서버 관리
 > [!div class="op_single_selector"]
 > * [리소스 관리자](backup-azure-manage-windows-server.md)
 > * [클래식](backup-azure-manage-windows-server-classic.md)
 >
 >
 
-이 문서에서는 Azure 클래식 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
+이 문서에서는 Azure 클래식 포털 및 Microsoft Azure Backup 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 10월 15일 이후부터는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 1일까지**:
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> 2017년 11월 30일 이후에는 PowerShell을 사용하여 Backup 자격 증명 모음을 만들 수 없습니다. **2017년 11월 30일까지**:
 >- 남아 있는 모든 Backup 자격 증명 모음이 Recovery Services 자격 증명 모음으로 자동 업그레이드됩니다.
 >- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
 >
 
 ## <a name="management-portal-tasks"></a>관리 포털 작업
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. **복구 서비스**를 클릭한 후 백업 저장소의 이름을 클릭하여 빠른 시작 페이지를 표시합니다.
+2. **Recovery Services**를 클릭한 후 백업 저장소의 이름을 클릭하여 빠른 시작 페이지를 표시합니다.
 
     ![복구 서비스](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 * **인증서 관리** - 서버를 등록하는 데 인증서가 사용된 경우 이 옵션을 통해 인증서를 업데이트합니다. 저장소 자격 증명을 사용하는 경우에는 **인증서 관리**를 사용해서는 안 됩니다.
 * **삭제** - 현재 백업 저장소를 삭제합니다. 백업 저장소가 더 이상 사용되지 않는 경우 삭제하여 저장소 공간을 확보할 수 있습니다. **삭제**는 등록된 모든 서버가 저장소에서 삭제된 후에만 사용할 수 있습니다.
 
-![백업 대시보드 작업](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
+![Backup 대시보드 작업](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
 ## <a name="registered-items"></a>등록된 항목
 **등록된 항목**을 선택하여 이 저장소에 등록된 서버의 이름을 표시합니다.
@@ -94,16 +94,16 @@ ms.lasthandoff: 10/11/2017
 
 [저장소 중복](../storage/common/storage-redundancy.md)에 대한 자세한 내용은 이 문서를 참조하세요.
 
-## <a name="microsoft-azure-backup-agent-tasks"></a>Microsoft Azure 백업 에이전트 작업
+## <a name="microsoft-azure-backup-agent-tasks"></a>Microsoft Azure Backup 에이전트 작업
 ### <a name="console"></a>콘솔
-**Microsoft Azure 백업 에이전트**를 엽니다(*Microsoft Azure 백업*에 대한 컴퓨터를 검색하여 찾을 수 있음).
+**Microsoft Azure Backup 에이전트**를 엽니다(*Microsoft Azure Backup*에 대한 컴퓨터를 검색하여 찾을 수 있음).
 
-![백업 에이전트](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
+![Backup 에이전트](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
 백업 에이전트 콘솔의 오른쪽에 있는 **작업**에서 다음 관리 작업을 수행할 수 있습니다.
 
 * 서버 등록
-* 백업 예약
+* Backup 예약
 * 지금 백업
 * 속성 변경
 
@@ -115,9 +115,9 @@ ms.lasthandoff: 10/11/2017
 >
 
 ### <a name="modify-an-existing-backup"></a>기존 백업 수정
-1. Microsoft Azure 백업 에이전트에서 **백업 예약**을 클릭합니다.
+1. Microsoft Azure Backup 에이전트에서 **Backup 예약**을 클릭합니다.
 
-    ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
+    ![Windows Server Backup 예약](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 2. **백업 예약 마법사**에서 **백업 항목 또는 시간 변경** 옵션을 선택된 상태로 두고 **다음**을 클릭합니다.
 
     ![예약된 백업 수정](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
@@ -131,7 +131,7 @@ ms.lasthandoff: 10/11/2017
 
     매일(하루에 최대 3회) 또는 매주 백업을 예약할 수 있습니다.
 
-    ![백업 일정 변경](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
+    ![Backup 일정 변경](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
 
    > [!NOTE]
    > 백업 일정을 지정하는 방법은 [문서](backup-azure-backup-cloud-as-tape.md)에 자세히 설명되어 있습니다.
@@ -146,11 +146,11 @@ ms.lasthandoff: 10/11/2017
     보호를 수정한 후 **작업** 탭으로 이동해 변경 내용이 백업 작업에 반영되는지 확인하여 백업이 올바르게 트리거되는지 확인할 수 있습니다.
 
 ### <a name="enable-network-throttling"></a>네트워크 제한 사용
-Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 사용되는 방식을 제어할 수 있는 제한 탭을 제공합니다. 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 데이터 전송 제한은 백업 및 복원 작업에 적용됩니다.  
+Azure Backup 에이전트는 데이터 전송 중에 네트워크 대역폭이 사용되는 방식을 제어할 수 있는 제한 탭을 제공합니다. 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 데이터 전송 제한은 백업 및 복원 작업에 적용됩니다.  
 
 제한을 사용하려면
 
-1. **백업 에이전트**에서 **속성 변경**을 클릭합니다.
+1. **Backup 에이전트**에서 **속성 변경**을 클릭합니다.
 2. **백업 작업에 인터넷 대역폭 사용 제한 사용** 확인란을 선택합니다.
 
     ![네트워크 제한](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
@@ -160,13 +160,13 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 4. **확인**을 클릭합니다.
 
 ## <a name="exclusion-settings"></a>제외 설정
-1. **Microsoft Azure 백업 에이전트**를 엽니다(*Microsoft Azure 백업*에 대한 컴퓨터를 검색하여 찾을 수 있음).
+1. **Microsoft Azure Backup 에이전트**를 엽니다(*Microsoft Azure Backup*에 대한 컴퓨터를 검색하여 찾을 수 있음).
 
     ![백업 에이전트 열기](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
-2. Microsoft Azure 백업 에이전트에서 **백업 예약**을 클릭합니다.
+2. Microsoft Azure Backup 에이전트에서 **Backup 예약**을 클릭합니다.
 
-    ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
-3. 백업 예약 마법사에서 **백업 항목 또는 시간 변경** 옵션을 선택된 상태로 두고 **다음**을 클릭합니다.
+    ![Windows Server Backup 예약](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
+3. Backup 예약 마법사에서 **백업 항목 또는 시간 변경** 옵션을 선택된 상태로 두고 **다음**을 클릭합니다.
 
     ![일정 수정](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 4. **제외 설정**을 클릭합니다.
@@ -190,11 +190,11 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 
     ![다른 파일 형식 예](./media/backup-azure-manage-windows-server-classic/exclude-jpg.png)
 8. 모든 확장을 추가했으면 **확인**을 클릭합니다.
-9. **확인 페이지**가 나타날 때까지 **다음**을 클릭하여 백업 예약 마법사를 계속 진행한 후 **마침**을 클릭합니다.
+9. **확인 페이지**가 나타날 때까지 **다음**을 클릭하여 Backup 예약 마법사를 계속 진행한 후 **마침**을 클릭합니다.
 
     ![제외 확인](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
-* Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)
-* [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Azure Backup에 대한 자세한 내용은 [Azure Backup 개요](backup-introduction-to-azure-backup.md)
+* [Azure Backup 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)

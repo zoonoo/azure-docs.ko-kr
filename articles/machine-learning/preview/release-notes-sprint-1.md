@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="sprint-1---november-2017"></a>스프린트 1 - 2017년 11월 
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="operationalization"></a>운영화
 - 이름에 "score"가 있는 웹 서비스가 더 이상 실패하지 않습니다.
-- 사용자가 Azure 리소스 그룹에 대한 소유자 액세스 권한만으로도 배포 환경을 만들 수 있습니다. 전체 구독에 대한 소유자 액세스 권한이 더 이상 필요하지 않습니다.
+- 사용자가 Azure 리소스 그룹 또는 구독에 대한 참여자 액세스 권한만으로도 배포 환경을 만들 수 있습니다. 전체 구독에 대한 소유자 액세스 권한이 더 이상 필요하지 않습니다.
 - 조작화 CLI는 이제 Linux에서 탭 자동 완성 기능을 사용할 수 있습니다.
 - 이미지 생성 서비스에서 Azure IoT 서비스/장치에 대한 이미지 빌드를 지원합니다.
 
