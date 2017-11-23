@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 파일 공유를 사용하여 SAP (A) SCS 인스턴스를 Windows 장애 조치(failover) 클러스터에 클러스터링 | Microsoft Docs"
-description: "파일 공유를 사용하여 SAP (A)SCS 인스턴스를 Windows 장애 조치(failover) 클러스터에 클러스터링"
+title: "Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링 | Microsoft Docs"
+description: "Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하는 방법을 알아봅니다."
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 8cb339c9ecffbbc711aa6ea55d6f357fe0f4cfd0
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -201,179 +201,162 @@ ms.lasthandoff: 10/27/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+[1869038]:https://launchpad.support.sap.com/#/notes/1869038 
 
-# <a name="clustering-sap-ascs-instance-on-windows-failover-cluster-using-file-share-on-azure"></a>Azure에서 파일 공유를 사용하여 SAP (A)SCS 인스턴스를 Windows 장애 조치(failover) 클러스터에 클러스터링
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Windows Server 장애 조치 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
+Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
 
-장애 조치 클러스터는 함께 작동하여 응용 프로그램 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치 클러스터링은 응용 프로그램 및 서비스를 제공하기 위해 정상 클러스터를 유지 관리하는 동안 발생할 수 있는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
+장애 조치 클러스터는 함께 작동하여 응용 프로그램 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 응용 프로그램 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
-이 문서를 시작하기 전에 다음 문서를 검토해야 합니다.
+## <a name="prerequisites"></a>필수 조건
+이 문서에서 설명하는 작업을 시작하기 전에 먼저 다음 문서를 검토하세요.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
 
 > [!IMPORTANT]
->파일 공유를 사용하여 SAP (A)SCS 인스턴스를 클러스터링하는 것은 **SAP 커널 7.49 이상**의 **SAP NetWeaver 7.40 이상**에서 지원됩니다.
+> 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 클러스터링하는 것은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.
 >
 
 
-## <a name="windows-server-failover-clustering-in-azure"></a>Azure의 Windows Server 장애 조치(failover) 클러스터링
+## <a name="windows-server-failover-clustering-in-azure"></a>Azure의 Windows Server 장애 조치(Failover) 클러스터링
 
-운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. 클러스터를 빌드할 때 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
+운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치(Failover) 클러스터링을 구성하기 위한 추가 단계가 필요합니다. 클러스터를 빌드할 때 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
 
-### <a name="name-resolution-in-azure-and-cluster-virtual-host-name"></a>Azure 및 클러스터 가상 호스트 이름에서 이름 확인
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Azure 및 클러스터 가상 호스트 이름에서 이름 확인
 
-Azure 클라우드 플랫폼은 부동 IP 주소와 같은 가상 IP 주소를 구성하는 옵션을 제공하지 않습니다. 클라우드의 클러스터 리소스에 연결하도록 가상 IP 주소를 설정하기 위한 대체 솔루션이 필요합니다. Azure의 Azure Load Balancer 서비스에는 **내부 부하 분산 장치**가 있습니다. 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포해야 합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
+Azure 클라우드 플랫폼은 부동 IP 주소와 같은 가상 IP 주소를 구성하는 옵션을 제공하지 않습니다. 클라우드의 클러스터 리소스에 연결하도록 가상 IP 주소를 설정하기 위한 대체 솔루션이 필요합니다. 
+
+Azure Load Balancer 서비스는 Azure에서 *내부 부하 분산 장치*를 제공합니다. 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 
+
+클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
 ![그림 1: 공유 디스크를 사용하지 않는 Azure의 Windows Server 장애 조치(failover) 클러스터링 구성][sap-ha-guide-figure-1001]
 
-_**그림 1:** 공유 디스크를 사용하지 않는 Azure의 Windows Server 장애 조치(failover) 클러스터링 구성_
+_**그림 1:** 공유 디스크를 사용하지 않는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성_
 
-## <a name="sap-ascs-ha-with-file-share"></a>파일 공유를 사용하는 SAP (A)SCS HA
+## <a name="sap-ascsscs-ha-with-file-share"></a>파일 공유를 사용하는 SAP ASCS/SCS HA
 
-SAP는 Windows 장애 조치(failover) 클러스터에 SAP (A)SCS 인스턴스를 클러스터링하기 위한 새로운 접근 방법을 개발했습니다. 이것은 클러스터 공유 디스크의 대안이 됩니다.
-
-여기에서 사용된 **SMB 파일 공유**는 **SAP GLOBAL HOST 파일**을 배포하기 위한 옵션입니다.
+SAP는 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 새로운 접근 방법을 개발했습니다. 이것은 클러스터 공유 디스크의 대안이 됩니다. 클러스터 공유 디스크 대신 SMB 파일 공유를 사용하여 SAP 글로벌 호스트 파일을 배포할 수 있습니다.
 
 > [!NOTE]
->SMB 파일 공유는 SAP (A)SCS 인스턴스를 클러스터링하기 위한 추가적인 공유 디스크 클러스터링 옵션입니다.  
+> SMB 파일 공유는 SAP ASCS/SCS 인스턴스를 클러스터링할 때 클러스터 공유 디스크를 사용하는 방식의 대안이 됩니다.  
 >
 
-이 아키텍처의 고유 특징은 다음과 같습니다.
+이 아키텍처는 다음과 같은 특징을 같습니다.
 
-* **(자체 파일 구조와 메시지 및 큐에 넣기 프로세스를 갖는 )SAP 중앙 서비스가 SAP GLOBAL Host 파일과 분리됨**
-* **SAP 중앙 서비스가 SAP (A)SCS 인스턴스 아래에서 실행됨**
-* SAP (A)SCS 인스턴스를 가상 호스트 이름 **<(A)SCSVirtualHostName>**을 사용하여 클러스터링되고 액세스 가능함
-* SAP GLOBAL 파일이 SMB 파일 공유에 배치되고 <SAPGLOBALHost> 호스트 이름 \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 액세스됨
-* SAP (A)SCS 인스턴스가 양 클러스터 노드에서 로컬 디스크에 설치됨
-* **<(A)SCSVirtualHostName>** 네트워크 이름이 **&lt;SAPGLOBALHost&gt;**와 다름
+* (자체 파일 구조와 메시지 및 큐에 넣기 프로세스를 갖는) SAP 중앙 서비스가 SAP GLOBAL 호스트 파일과 분리됨
+* SAP 중앙 서비스가 SAP ASCS/SCS 인스턴스 아래에서 실행됨
+* SAP ASCS/SCS 인스턴스를 \<ASCS/SCS virtual host name\> 가상 호스트 이름을 사용하여 클러스터링 및 액세스
+* SAP 글로벌 파일이 SMB 파일 공유에 배치되고 \<SAP global host name\> 호스트 이름: \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\...를 사용하여 액세스됨
+* SAP ASCS/SCS 인스턴스가 양 클러스터 노드에서 로컬 디스크에 설치됨
+* \<ASCS/SCS virtual host name\> 네트워크 이름이 &lt;SAP global host&gt;와 다름.
 
-![그림 2: SMB 파일 공유를 사용하는 새로운 SAP (A)SCS HA 아키텍처][sap-ha-guide-figure-8004]
+![그림 2: SMB 파일 공유를 사용하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8004]
 
-_**그림 2:** SMB 파일 공유를 사용하는 새로운 SAP (A)SCS HA 아키텍처_
+_**그림 2:** SMB 파일 공유를 사용하는 새로운 SAP ASCS/SCS HA 아키텍처_
 
 SMB 파일 공유의 필수 조건:
 
 * SMB 3.0 이상의 프로토콜
-* **AD 사용자 그룹** 및 **컴퓨터 개체 컴퓨터$**에 대해 AD(Active Directory) ACL(액세스 제어 목록)을 설정할 수 있어야 함
+* AD 사용자 그룹 및 `computer$` 컴퓨터 개체에 대해 AD(Active Directory) ACL(액세스 제어 목록)을 설정할 수 있어야 함
 * 파일 공유에서 HA를 사용하도록 설정되어 있어야 함:
     * 파일 저장에 사용되는 디스크는 단일 실패 지점이 될 수 없음
-    * 서버/VM의 가동 중지 시간이 파일 공유의 가동 중지 시간을 유발하지 않도록 해야 함
+    * 서버 또는 VM이 파일 공유의 가동 중지 시간을 유발하지 않아야 함
 
-**SAP &lt;SID&gt;** 클러스터 역할에 클러스터 공유 디스크 또는 일반 파일 공유 클러스터 리소스가 포함되어 있지 않습니다.
-
-
-![그림 3: 파일 공유를 사용하는 경우 SAP <SID> 클러스터 역할 리소스][sap-ha-guide-figure-8005]
-
-_**그림 3:** 파일 공유를 사용하는 경우 **SAP &lt;SID&gt;** 클러스터 역할 리소스_
+SAP \<SID\> 클러스터 역할은 클러스터 공유 디스크 또는 일반 파일 공유 클러스터 리소스를 포함하지 않습니다.
 
 
-## <a name="scale-out-file-share-sofs-with-storage-spaces-direct-s2d-on-azure-as-sapmnt-file-share"></a>S2D(저장소 공간 다이렉트)가 적용된 Azure의 SOFS(Scale-Out File Share)를 SAPMNT 파일 공유로 사용
+![그림 3: 파일 공유를 사용하는 경우 SAP \<SID\> 클러스터 역할 리소스][sap-ha-guide-figure-8005]
 
-SAP GLOBAL 호스트 파일을 호스트 및 보호하고 고가용성 SAPMNT 파일 공유 서비스를 제공하기 위해 SOFS를 사용할 수 있습니다.
+_**그림 3:** 파일 공유를 사용하는 경우 SAP &lt;SID&gt; 클러스터 역할 리소스_
 
-![그림 4: SAP GLOBAL 호스트 파일을 보호하는 데 사용된 SOFS 파일 공유][sap-ha-guide-figure-8006]
 
-_**그림 4:** SAP GLOBAL 호스트 파일을 보호하는 데 사용된 SOFS 파일 공유_
+## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Azure에서 저장소 공간 다이렉트를 사용하여 파일 공유를 SAPMNT 파일 공유로 스케일 아웃
 
-> [!IMPORTANT]
->SOFS 파일 공유는 Microsoft Azure 클라우드와 온-프레미스 환경에서 모두 지원됩니다.
->
+스케일 아웃 파일 공유를 사용하여 SAP 글로벌 호스트 파일을 호스트하고 보호할 수 있습니다. 스케일 아웃 파일 공유는 고가용성 SAPMNT 파일 공유 서비스를 제공합니다.
 
-**SOFS**는 수평 확장 가능한 고가용성 SAPMNT 파일 공유를 제공하고 있습니다.
+![그림 4: SAP 글로벌 호스트 파일을 보호하는 데 사용되는 스케일 아웃 파일 공유][sap-ha-guide-figure-8006]
 
-**S2D(저장소 공간 다이렉트)**를 SOFS의 **공유 디스크**로 사용하면 로컬 저장소가 있는 서버를 사용하여 확장성 있는 고가용성 저장소를 구축할 수 있습니다. 따라서 SOFS에 사용되는 공유 저장소(예: SAP GLOBALHOST 파일의 경우)는 단일 실패 지점(SPOF)이 아닙니다.
+_**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 스케일 아웃 파일 공유_
 
 > [!IMPORTANT]
->재해 복구를 설정할 계획이라면 Azure의 고가용성 파일 공유를 위해 SOFS를 사용하는 것이 좋습니다.
+> 스케일 아웃 파일 공유는 Microsoft Azure 클라우드와 온-프레미스 환경에서 모두 지원됩니다.
 >
 
-### <a name="sap-prerequisites-for-sofs-in-azure"></a>Azure에서 SOFS를 위한 SAP 필수 조건
+스케일 아웃 파일 공유는 수평 확장 가능한 고가용성 SAPMNT 파일 공유를 제공합니다.
 
-SOFS를 사용하려면 다음이 필요합니다.
+스케일 아웃 파일 공유의 공유 디스크로 저장소 공간 다이렉트가 사용됩니다. 저장소 공간 다이렉트를 사용하여 서버와 로컬 저장소로 확장 가능한 고가용성 저장소를 구축할 수 있습니다. SAP 글로벌 호스트 파일과 같이 스케일 아웃 파일 공유로 사용되는 공유 저장소는 단일 실패 지점이 아닙니다.
 
-* SOFS에 사용할 둘 이상의 클러스터 노드
+> [!IMPORTANT]
+>재해 복구를 설정하지 *않을* 계획이라면 Azure의 고가용성 파일 공유 솔루션으로서 스케일 아웃 파일 공유를 사용하는 것이 좋습니다.
+>
 
+### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Azure의 스케일 아웃 파일 공유를 위한 SAP 필수 조건
+
+스케일 아웃 파일 공유를 사용하려면 시스템이 아래와 같은 요구 사항을 충족해야 합니다.
+
+* 스케일 아웃 파일 공유에 사용할 둘 이상의 클러스터 노드.
 * 각 노드는 둘 이상의 로컬 디스크를 가져야 합니다.
-
-* 성능상의 이유로 **미러링 복원**을 사용해야 합니다.
-    * **2방향** 미러링: 2개의 클러스터 노드를 갖는 SOFS
-    * **3방향** 미러링: 3개 이상의 클러스터 노드를 갖는 SOFS
-
-
-* **3방향 미러링의 경우 SOFS가 3개 이상의 (클러스터) 노드를 갖는 것이 좋습니다**.
-이 설정은 2개의 클러스터 노드와 2방향 미러링을 갖는 SOFS 설정보다 확장성과 저장소 복원력이 좋습니다.
-
-* **Azure Premium 디스크**를 사용해야 합니다.
-
-* **Azure Managed Disks**가 **권장**됩니다. 
-
-* 새 **ReFS(Resilient File System)**를 이용하여 볼륨을 포맷하는 것이 **권장**됩니다.
-    * [SAP 참고 1869038 - SAP의 ReFs 파일 시스템 지원][1869038]
-    * 저장소 공간 다이렉트에서의 볼륨 계획에 대한 자세한 내용은 [파일 시스템 선택][planning-volumes-s2d-choosing-filesystem] 장을 참조하세요.
-    * 이 [MS **KB4025334** 누적 업데이트][kb4025334]를 설치해야 합니다.
-
-
-* **DS-시리즈** 또는 **DSv2-시리즈** Azure VM 크기를 사용할 수 있습니다.
-
-* 저장소 공간 다이렉트 디스크 동기화에 필요한 양질의 VM간 네트워크 성능을 실현하려면 **“높음” 이상의 네트워크 대역폭**을 갖는 VM 유형을 사용해야 합니다.
-자세한 내용은 [DSv2-시리즈][dv2-series] 및 [DS-시리즈][ds-series] 사양을 참조하세요.
-
-* **할당되지 않은 저장소 풀에 일부 용량을 남겨 두고 예약하는 것**이 **권장**됩니다. 이렇게 하면 드라이브에 장애가 발생하는 경우 “원본 위치”에 복구를 위한 공간이 확보되기 때문에 데이터 안전과 성능이 개선됩니다.
-
- 자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
-
-
-* SOFS Azure VM은 **자체 Azure 가용성 집합**에 배포되어야 합니다.
-
-* SOFS 파일 공유 네트워크 이름(예: <SAPGlobalHostName>)에 대해 Azure Internal Load Balancer를 구성할 필요는 없습니다. SAP (A)SCS 인스턴스의 <(A)SCSVirtualHostname> 또는 DBMS에 대해 구성되기 때문입니다. SOFS는 모든 클러스터 노드로 부하를 분산하기 때문에 <SAPGlobalHostName>이 모든 클러스터 노드의 로컬 IP를 사용합니다.
+* 성능상의 이유로 *미러링 복원*을 사용해야 합니다.
+    * 2방향 미러링: 클러스터 노드가 2개인 스케일 아웃 파일 공유
+    * 3방향 미러링: 클러스터 노드가 3개 이상인 스케일 아웃 파일 공유
+* 스케일 아웃 파일 공유에는 3방향 미러링이 사용된 3개 이상의 클러스터 노드를 사용하는 것이 좋습니다.
+    이 설정은 2방향 미러링이 사용된 2개의 클러스터 노드를 갖는 스케일 아웃 파일 공유 설정보다 확장성과 저장소 복원력이 좋습니다.
+* Azure Premium 디스크를 사용해야 합니다.
+* Azure Managed Disks를 사용하는 것이 좋습니다.
+* ReFS(Resilient File System)를 사용하여 볼륨을 포맷하는 것이 권장됩니다.
+    * 자세한 내용은 [SAP 참고 1869038 - SAP의 ReFs 파일 시스템 지원][1869038] 및 저장소 공간 다이렉트 볼륨 계획 문서의 [파일 시스템 선택][planning-volumes-s2d-choosing-filesystem] 장을 참조하세요.
+    * [Microsoft KB4025334 누적 업데이트][kb4025334]를 설치해야 합니다.
+* DS-시리즈 또는 DSv2-시리즈 Azure VM 크기를 사용할 수 있습니다.
+* 저장소 공간 다이렉트 디스크 동기화에 필요한 VM 간의 양호한 네트워크 성능을 보장하려면 “높음” 네트워크 대역폭 이상의 VM 유형을 사용해야 합니다.
+    자세한 내용은 [DSv2-시리즈][dv2-series] 및 [DS-시리즈][ds-series] 사양을 참조하세요.
+* 저장소 풀에 할당되지 않은 용량을 일부 남겨 두는 것이 좋습니다. 저장소 풀에 할당되지 않은 용량을 남겨 두면 드라이브에 장애가 발생하는 경우 “원본 위치”에서 복구하는 데 필요한 볼륨 용량이 확보됩니다. 이렇게 하면 데이터 안정과 성능이 향상됩니다.  자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
+* 스케일 아웃 파일 공유 Azure VM은 자체 Azure 가용성 집합에 배포되어야 합니다.
+* \<SAP global host\>와 같은 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다. 이 작업은 SAP ASCS/SCS 인스턴스의 \<ASCS/SCS virtual host name\> 또는 DBMS를 위해 수행됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\>는 모든 클러스터 노드에서 로컬 IP 주소를 사용합니다.
 
 
 > [!IMPORTANT]
->SAPGLOBALHOST를 가리키는 SAPMNT 파일 공유는 변경할 수 없습니다. SAP는 다른 공유 이름을 sapmnt로서 지원하지 않습니다.
->[SAP 참고 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]
+> \<SAP global host\>를 가리키는 SAPMNT 파일 공유는 이름을 변경할 수 없습니다. SAP는 공유 이름 “sapmnt”만 지원합니다.
 
-### <a name="configuring-sap-ascs-instances-and-sofs-in-two-clusters"></a>2개의 클러스터에서 SAP (A)SCS 인스턴스와 SOFS 구성
+> 자세한 내용은 [SAP Note 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]를 참조하세요.
 
-하나의 클러스터에서 자체 SAP <SID> 클러스터 역할을 갖는 SAP (A)SCS 인스턴스를 배포할 수 있습니다. SOFS 파일 공유는 다른 클러스터 역할을 갖는 다른 클러스터에서 구성됩니다.
+### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>2개의 클러스터에서 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유 구성
 
-> [!IMPORTANT]
->이 시나리오에서 SAP (A)SCS 인스턴스가 UNC 경로 \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 SAP GLOBALHost를 액세스하도록 구성됩니다.
->
-
-![그림 5: 두 클러스터에 배포된 SAP (A)SCS 인스턴스 및 SOFS][sap-ha-guide-figure-8007]
-
-_**그림 5**: 두 클러스터에 배포된 SAP (A)SCS 인스턴스 및 SOFS_
+하나의 클러스터에서 자체 SAP \<SID\> 클러스터 역할을 갖는 SAP ASCS/SCS 인스턴스를 배포할 수 있습니다. 이 경우 다른 클러스터 역할을 갖는 다른 클러스터에 스케일 아웃 파일 공유를 구성합니다.
 
 > [!IMPORTANT]
->Azure 클라우드에서 SAP 및 SOFS 파일 공유에 사용되는 각 클러스터는 클러스터 VM이 기반 Azure 인프라에 분산 배치되도록 자체 Azure 가용성 집합에 배포되어야 합니다.
+>이 시나리오에서 SAP ASCS/SCS 인스턴스는 UNC 경로 \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.를 사용하여 SAP 글로벌 호스트에 액세스하도록 구성되었습니다.
 >
 
-## <a name="generic-file-share-with-sios-as-cluster-shared-disks"></a>SIOS를 클러스터 공유 디스크로 사용하는 일반 파일 공유
+![그림 5: 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유][sap-ha-guide-figure-8007]
+
+_**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유_
+
+> [!IMPORTANT]
+> Azure 클라우드에서 SAP 및 스케일 아웃 파일 공유를 위해 사용된 각 클러스터는 자체 Azure 가용성 집합에 배포되어야 합니다. 이렇게 해야 기반이 되는 Azure 인프라 전체에 걸쳐 클러스터 VM을 분산하여 배치할 수 있습니다.
+>
+
+## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>SIOS DataKeeper를 클러스터 공유 디스크로 사용하는 일반 파일 공유
 
 
 > [!IMPORTANT]
->고가용성 파일 공유를 위해서는 SOFS를 사용하는 것이 좋습니다.
+> 고가용성 파일 공유에는 스케일 아웃 파일 공유 솔루션을 사용하는 것이 좋습니다.
 >
->그러나 고가용성 파일 공유에 **재해 복구**를 설정할 계획이라면 클러스터 공유 디스크 기술로 SISO와 일반 파일 공유를 사용해야 합니다.
+> 고가용성 파일 공유에 재해 복구도 설정할 계획이라면 클러스터 공유 디스크에 일반 파일 공유와 SISO DataKeeper를 사용해야 합니다.
 >
 
-일반 파이 공유는 고가용성 파일 공유를 달성할 수 있는 또 다른 옵션입니다.
+일반 파일 공유는 고가용성 파일 공유를 달성하는 또 다른 방법입니다.
 
-여기서는 타사 SIOS 솔루션을 클러스터 공유 디스크로 사용할 수 있습니다.
+이 경우 타사 SIOS 솔루션을 클러스터 공유 디스크로 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP (A)SCS 인스턴스에 Windows 장애 조치(failover) 클러스터 및 파일 공유를 사용하여 SAP HA를 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-file-share]
-
-* [SAP (A)SCS 인스턴스에 대한 Windows 장애 조치(failover) 클러스터 및 파일 공유에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
-
+* [Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-file-share]
+* [Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
 * [Azure에서 UPD 저장소에 대해 2노드 저장소 공간 다이렉트 스케일아웃 파일 서버 배포][deploy-sofs-s2d-in-azure]
-
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
-
 * [심층 조사: 저장소 공간 다이렉트의 볼륨][deep-dive-volumes-in-s2d]

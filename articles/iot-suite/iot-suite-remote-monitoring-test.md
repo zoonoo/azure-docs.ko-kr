@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>시뮬레이트된 장치로 솔루션 테스트
 
@@ -39,6 +39,10 @@ ms.lasthandoff: 10/31/2017
 | 이름   | 값      |
 | ------ | ----------- |
 | 가동 상태 | "켜짐", "꺼짐" |
+| 온라인 | true, false |
+
+> [!NOTE]
+> **온라인** 원격 분석 값은 모든 시뮬레이트된 형식에 필수입니다.
 
 *메서드*
 
@@ -268,6 +272,10 @@ ms.lasthandoff: 10/31/2017
 변경 내용을 로컬로 테스트 및 디버그하려면 [장치 시뮬레이션 개요](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
 
 출력 디렉터리에 새 **전구** 장치 파일을 복사하도록 프로젝트를 구성합니다.
+
+* Visual Studio를 사용하는 경우 이전 섹션에서 만든 3개의 새 전구 파일을 솔루션의 **서비스** 프로젝트에 추가해야 합니다. 그런 다음 **솔루션 탐색기**를 사용하여 이를 출력 디렉터리에 복사하도록 표시합니다.
+
+* Visual Studio Code를 사용하는 경우 **Services.csproj** 파일을 열고 이전 섹션에서 만든 3개의 새 전구 파일을 추가합니다. 예제로 **Services.csproj** 파일의 기존 장치 모델 파일 항목을 참조하세요.
 
 배포된 솔루션에서 새 장치를 테스트하려면 다음 중 하나를 참조하세요.
 

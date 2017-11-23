@@ -1,6 +1,6 @@
 ---
 title: ".NET을 사용하여 Media Encoder Standard로 자산 인코딩 | Microsoft 문서"
-description: "이 항목에서는 .NET을 사용하여 미디어 인코더 표준으로 자산을 인코딩하는 방법을 설명합니다."
+description: "이 문서에서는 .NET을 사용하여 미디어 인코더 표준으로 자산을 인코딩하는 방법을 설명합니다."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩
-인코딩 작업은 미디어 서비스에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코딩할 때는 미디어 서비스 기본 제공 미디어 인코더를 사용할 수 있습니다. 또한 미디어 서비스 파트너가 제공하는 인코더를 사용할 수도 있습니다. 타사 인코더는 Azure 마켓플레이스를 통해 사용할 수 있습니다. 
+Encoding 작업은 Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코딩할 때는 Media Services 기본 제공 미디어 인코더를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수도 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 
 
-이 항목에서는 .NET을 사용하여 MES(미디어 인코더 표준)로 자산을 인코딩하는 방법을 설명합니다. 미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
+이 문서에서는 .NET을 사용하여 MES(Media Encoder Standard)로 자산을 인코딩하는 방법을 설명합니다. Media Encoder Standard는 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
 항상 원본 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 [형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES 기본 설정
-미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
+Media Encoder Standard는 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
 ### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 성공적으로 완료되면 출력 자산을 얻게 됩니다. 출력 자산에는 사용하는 인코딩 기본 설정에 따라 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다.
@@ -47,21 +47,21 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 
 출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 <source_file_name>_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml). 이 출력 메타데이터 XML의 스키마는 [여기](media-services-output-metadata-schema.md)에 설명됩니다.
 
-두 메타데이터 파일 중 하나를 검사하려는 경우 SAS 로케이터를 만들고 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. SAS 로케이터를 만들고 미디어 서비스 .NET SDK 확장을 사용하여 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.
+두 메타데이터 파일 중 하나를 검사하려는 경우 SAS 로케이터를 만들고 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. SAS 로케이터를 만들고 Media Services .NET SDK 확장을 사용하여 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.
 
 ## <a name="download-sample"></a>샘플 다운로드
 MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 가져와 실행할 수 있습니다.
 
 ## <a name="net-sample-code"></a>.NET 샘플 코드
 
-다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.
+다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 * [적응 스트리밍](media-services-autogen-bitrate-ladder-with-mes.md) 사전 설정을 사용하도록 지정합니다. 
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
-* 인코딩된 자산을 포함할 출력 자산을 만듭니다.
+* 인코딩된 자산을 포함하는 출력 자산을 만듭니다.
 * 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
 * 작업을 제출합니다.
 
@@ -182,7 +182,15 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
             }
         }
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+
+## <a name="advanced-encoding-features-to-explore"></a>탐색할 고급 인코딩 기능
+* [썸네일을 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [인코딩 중에 썸네일 생성](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [인코딩 중에 비디오 자르기](media-services-crop-video.md)
+* [인코딩 기본 설정 사용자 지정](media-services-custom-mes-presets-with-dotnet.md)
+* [이미지를 사용하여 비디오 오버레이 또는 워터마크 지정](media-services-advanced-encoding-with-mes.md#overlay)
+
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
@@ -190,5 +198,5 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 
 ## <a name="next-steps"></a>다음 단계
 [.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services 인코딩 개요](media-services-encode-asset.md)
+[Media Services Encoding 개요](media-services-encode-asset.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](http://aka.ms/byodcg) 장치 및 클라우드 응용 프로그램이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
@@ -93,17 +93,16 @@ Azure AD SSO에 대한 자세한 내용은 [Azure AD Connect를 통한 AD FS 관
 Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요.
 
 ## <a name="use-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어) 사용
-[알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 권한을 할당할 수 있습니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
+[알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. Azure 역할 기반 Access Control(RBAC)을 사용하여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 권한을 할당할 수 있습니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
 
-Azure의 [기본 제공 RBAC 역할](../active-directory/role-based-access-built-in-roles.md)을 활용하여 사용자에게 권한을 할당할 수 있습니다. 저장소 계정을 관리해야 하는 클라우드 운영자를 위한 *저장소 계정 참여자* 및 *클래식 저장소 계정 참여자* 역할을 사용하여 클래식 저장소 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM 및 저장소 계정을 관리해야 하는 클라우드 운영자의 경우 *가상 컴퓨터 참여자* 역할에 계정을 추가하는 방법을 고려해 보세요.
+Azure의 [기본 제공 RBAC 역할](../active-directory/role-based-access-built-in-roles.md)을 활용하여 사용자에게 권한을 할당할 수 있습니다. Storage 계정을 관리해야 하는 클라우드 운영자를 위한 *Storage 계정 참여자* 및 *클래식 Storage 계정 참여자* 역할을 사용하여 클래식 Storage 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM 및 저장소 계정을 관리해야 하는 클라우드 운영자의 경우 *가상 컴퓨터 참여자* 역할에 계정을 추가하는 방법을 고려해 보세요.
 
 RBAC와 같은 기능을 활용하여 데이터 액세스 제어를 적용하지 않는 조직은 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 이로 인해 사용자가 처음에는 없어야 했던 특정 유형(예: 높은 비즈니스 영향)의 데이터에 액세스할 수 있도록 함으로써 데이터 손상을 초래할 수 있습니다.
 
-Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서를 참조하세요.
+Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md) 문서를 참조하세요.
 
 ## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>리소스 관리자를 사용하여 리소스를 만드는 위치 제어
-클라우드 운영자가 조직의 리소스를 관리하는 데 필요한 규칙을 위반하지 않으면서도 작업을 수행할 수 있도록 하는 것이 아주 중요합니다.
- 리소스가 만들어지는 위치를 제어하고자 하는 조직은 이러한 위치를 하드 코딩해야 합니다.
+클라우드 운영자가 조직의 리소스를 관리하는 데 필요한 규칙을 위반하지 않으면서도 작업을 수행할 수 있도록 하는 것이 아주 중요합니다. 리소스가 만들어지는 위치를 제어하고자 하는 조직은 이러한 위치를 하드 코딩해야 합니다.
 
 이 목적을 달성하기 위해 조직이 작업을 설명하는 정의 또는 명시적으로 거부된 리소스가 포함된 보안 정책을 만들 수 있습니다. 구독, 리소스 그룹 또는 개별 리소스와 같이 원하는 범위에서 해당 정책 정의를 할당합니다.
 
@@ -116,7 +115,7 @@ Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](
 
 리소스를 만드는 방법을제어하지 않는 조직은 사용자가 필요 이상으로 많은 리소스를 만들어 서비스를 남용할 수 있는 상황에 직면할 가능성이 더 높습니다. 리소스 만들기 프로세스의 강화는 멀티 테넌트 시나리오를 보호하기 위한 중요한 단계입니다.
 
-Azure Resource Manager를 사용하여 정책 만들기에 대한 자세한 내용은 [정책을 사용하여 리소스 관리 및 액세스 제어](../azure-resource-manager/resource-manager-policy.md) 문서를 참조하세요.
+Azure Resource Manager를 사용하여 정책 만들기에 대한 자세한 내용은 [Azure Policy란?](../azure-policy/azure-policy-introduction.md) 문서를 참조하세요.
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>SaaS 앱에 ID 기능을 활용하도록 개발자 안내
 사용자 ID는 사용자가 온-프레미스 또는 클라우드 디렉터리와 통합할 수 있는 [SaaS 앱](https://azure.microsoft.com/marketplace/active-directory/all/)에 액세스하는 많은 시나리오에 활용됩니다. 무엇보다도 개발자가 [SDL(Microsoft Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)과 같은 안전한 방법을 사용하여 이러한 앱을 개발하는 것이 좋습니다. Azure AD는 Identity-as-a-service를 제공하며 [OAuth 2.0](http://oauth.net/2/) 및 [OpenID Connect](http://openid.net/connect/) 등의 업계 표준 프로토콜뿐만 아니라 신속하게 여러 플랫폼용 오픈 소스 라이브러리를 지원하여 개발자의 인증 작업을 간소화합니다.

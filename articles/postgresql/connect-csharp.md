@@ -11,11 +11,11 @@ ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b20e459c2c24bfa16a2f24fed07f2f214c45099a
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9dc187b17471abe67abc49674b70889c1aca840e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: .NET(C#)을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 C# 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 C#을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 다음과 같은 작업도 필요합니다.
 - [.NET Framework](https://www.microsoft.com/net/download)를 설치합니다. 연결된 문서의 단계에 따라 사용하는 플랫폼(Windows, Ubuntu Linux 또는 macOS)에 맞는 .NET을 설치합니다. 
 - [Visual Studio](https://www.visualstudio.com/downloads/) 또는 Visual Studio Code를 설치하여 코드를 입력하고 편집합니다.
-- [Npgsql](https://github.com/npgsql/Npgsql/releases) 라이브러리를 다운로드한 후 설치합니다.
+- [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget 패키지에 대한 참조를 추가합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.

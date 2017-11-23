@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bb9a5087ead309ab24128594c53ae313cd4b63c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
-정책에 대한 소개는 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
+정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
 
 ## <a name="permitted-virtual-machines"></a>허용되는 Virtual Machines
 조직에 대한 가상 컴퓨터가 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Windows Server 2012 R2 Datacenter Virtual Machines만 만드는 것을 허용합니다.
@@ -105,7 +105,7 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 }
 ```
 
-정책 필드에 대한 자세한 내용은 [정책 별칭](../../azure-resource-manager/resource-manager-policy.md#aliases)을 참조하세요.
+정책 필드에 대한 자세한 내용은 [정책 별칭](../../azure-policy/policy-definition.md#aliases)을 참조하세요.
 
 ## <a name="managed-disks"></a>관리 디스크
 
@@ -250,6 +250,6 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-create-assign.md)를 참조하세요.
-* 리소스 정책에 대한 소개는 [리소스 정책 개요](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../azure-policy/assign-policy-definition.md), [PowerShell을 사용하여 정책 할당](../../azure-policy/assign-policy-definition-ps.md) 또는 [Azure CLI를 사용하여 정책 할당](../../azure-policy/assign-policy-definition-cli.md)을 참조하세요.
+* 리소스 정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](../../azure-resource-manager/resource-manager-subscription-governance.md)를 참조하세요.
