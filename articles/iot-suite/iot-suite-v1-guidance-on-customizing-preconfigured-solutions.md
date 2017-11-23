@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>미리 구성된 솔루션 사용자 지정
 
@@ -228,55 +228,6 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 
 기본값은 10분입니다. [TelmetryApiController.cs][lnk-telemetry-api-controller-02]에서 이 값을 변경할 수 있습니다.
 
-## <a name="manually-set-up-application-roles"></a>수동으로 응용 프로그램 역할 설정
-
-다음 절차에서는 미리 구성된 솔루션에 **관리** 및 **읽기 전용** 응용 프로그램 역할을 추가하는 방법을 설명합니다. azureiotsuite.com 사이트에서 프로비전되는 미리 구성된 솔루션에는 **관리** 및 **읽기 전용** 역할이 이미 포함되어 있습니다.
-
-**ReadOnly** 역할의 구성원은 대시보드 및 장치 목록을 볼 수는 있지만 장치를 추가하거나 장치 특성을 변경하거나 명령을 전송할 수는 없습니다.  **Admin** 역할의 구성원에게는 솔루션의 모든 기능에 대한 모든 권한이 있습니다.
-
-1. [Azure 클래식 포털][lnk-classic-portal]로 이동합니다.
-2. **Active Directory**를 선택합니다.
-3. 솔루션을 프로비전할 때 사용한 AAD 테넌트의 이름을 클릭합니다.
-4. **응용 프로그램**을 클릭합니다.
-5. 미리 구성된 솔루션 이름과 일치하는 응용 프로그램의 이름을 클릭합니다. 목록에 응용 프로그램이 표시되지 않으면 **표시** 드롭다운에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
-6. 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 다운로드**를 차례로 클릭합니다.
-7. 이 절차는 .json 파일을 로컬 컴퓨터에 다운로드합니다. 이 파일을 편집할 수 있도록 원하는 텍스트 편집기에서 엽니다.
-8. .json 파일의 세 번째 줄에는 다음 내용을 확인할 수 있습니다.
-
-   ```json
-   "appRoles" : [],
-   ```
-   이 줄을 다음 코드로 바꿉니다.
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. 업데이트한 .json 파일을 저장합니다. 기존 파일을 덮어쓰면 됩니다.
-10. Azure 클래식 포털 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
-11. 이제 **관리** 및 **읽기 전용** 역할이 응용 프로그램에 추가되었습니다.
-12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 권한][lnk-permissions]을 참조하세요.
-
 ## <a name="feedback"></a>사용자 의견
 
 이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 입력해 주시기 바랍니다. 
@@ -300,6 +251,5 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

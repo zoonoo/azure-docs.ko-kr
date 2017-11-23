@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 16c9926d44f972d2b38028cb6ab1420de6b60533
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>OMS를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
-- Azure에 클러스터가 있거나, [이 자습서에 따라 새로 만들어야](service-fabric-tutorial-create-cluster-azure-ps.md) 합니다.
+- Azure에 클러스터가 있거나, [이 자습서에 따라 새로 만들어야](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 합니다.
 - [컨테이너화된 응용 프로그램을 배포](service-fabric-host-app-in-a-container.md)해야 합니다.
 
 ## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Resource Manager 템플릿에서 클러스터를 사용하여 OMS 설정

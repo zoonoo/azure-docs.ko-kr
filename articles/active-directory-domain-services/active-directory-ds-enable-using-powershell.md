@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 667e68ad444386a5fe29f9909042fdfa7ca66581
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 79a165e3c4c8c2c2e212c6b95da3aed2d47cf6eb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
@@ -76,11 +76,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 다음 PowerShell 명령을 입력하여 리소스 그룹을 만듭니다.
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
+$AzureLocation = "westus"
 
 # Create the resource group.
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location westus
+  -Location $AzureLocation
 ```
 
 이 리소스 그룹에 가상 네트워크 및 Azure AD Domain Services의 관리되는 도메인을 만들 수 있습니다.
@@ -118,9 +119,15 @@ $Vnet=New-AzureRmVirtualNetwork `
 다음 PowerShell 명령을 입력하여 디렉터리에 대해 Azure AD Domain Services를 사용하도록 설정합니다.
 
 ```powershell
+$AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+$ManagedDomainName = "contoso100.com"
+$ResourceGroupName = "ContosoAaddsRg"
+$VnetName = "DomainServicesVNet_WUS"
+$AzureLocation = "westus"
+
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location "westus" `
+  -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
   -ApiVersion 2017-06-01 -Force -Verbose

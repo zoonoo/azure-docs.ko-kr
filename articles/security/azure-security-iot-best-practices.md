@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>사물 인터넷 보안 모범 사례
 IoT(사물 인터넷) 인프라 보안 유지는 IoT 솔루션과 관계된 사람들에게 중요한 일입니다. 관련된 장치 수 및 이들 장치의 분산 특성 때문에 보안 사건으로 수백만 개의 IoT 장치가 손상되는 일이 발생 할 경우 그 영향은 심상치 않으며 광범위한 영향을 미칠 수 있습니다.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>로그인 및 토큰 획득에 대한 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Azure VM에서 MSI를 설정한 후에 로그인에 MSI를 사용하여 액세스 토큰을 요청할 수 있습니다. 이 문서에서는 로그인에 MSI [서비스 주체](develop/active-directory-dev-glossary.md#service-principal-object)를 사용하고 다른 리소스에 액세스하기 위해 [앱 전용 액세스 토큰](develop/active-directory-dev-glossary.md#access-token)을 획득하는 다음과 같은 다양한 방법을 보여줍니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 이 문서에서 PowerShell 예제를 사용하려는 경우 [Azure PowerShell 버전 4.3.1](https://www.powershellgallery.com/packages/AzureRM) 이상을 설치해야 합니다. 이 문서에서 Azure CLI 예제를 사용하려는 경우 다음과 같은 세 가지 옵션이 있습니다.
 - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.

@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 951980eeba61e53c983d5b23c301c81eee9528bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 SAP NetWeaver 응용 프로그램 배포 보호 
 
@@ -72,7 +72,7 @@ Azure Site Recovery는 (A)SCS를 포함한 응용 프로그램 계층에 권장�
 ## <a name="replicate-virtual-machines"></a>가상 컴퓨터 복제
 [이 지침](azure-to-azure-walkthrough-enable-replication.md)에 따라 모든 SAP 응용 프로그램 가상 컴퓨터를 Azure DR 데이터 센터로 복제합니다.
 
-고정 IP를 사용하는 경우 계산 및 네트워크 설정의 네트워크 인터페이스 카드 섹션에서 가상 컴퓨터가 사용할 IP를 지정합니다.
+고정 IP를 사용하는 경우 Compute 및 네트워크 설정의 네트워크 인터페이스 카드 섹션에서 가상 컴퓨터가 사용할 IP를 지정합니다.
 
 ![대상 IP](./media/site-recovery-sap/sap-static-ip.png)
 

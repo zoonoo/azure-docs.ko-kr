@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 고급 위협 검색
 ## <a name="introduction"></a>소개
@@ -147,19 +147,19 @@ Log Analytics와의 상호 작용은 대부분 모든 브라우저에서 실행�
 
 
 
-### <a name="automation--control-alert-on-security-configuration-drifts"></a>자동화 및 제어: 보안 구성 표류에 대한 경고
+### <a name="automation--control-alert-on-security-configuration-drifts"></a>Automation 및 제어: 보안 구성 표류에 대한 경고
 
 Azure Automation은 PowerShell을 기반으로 하며 Azure 클라우드에서 실행되는 Runbook을 사용하여 관리 프로세스를 자동화합니다. 또한 Runbook을 로컬 데이터 센터의 서버에서 실행하여 로컬 리소스를 관리할 수 있습니다. Azure Automation은 PowerShell DSC(필요한 상태 구성)를 사용하여 구성 관리를 제공합니다.
 
-![Azure 자동화](./media/azure-threat-detection/azure-threat-detection-fig7.png)
+![Azure Automation](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
 Azure에서 호스팅되는 DSC 리소스를 만들고 관리하며, 클라우드 및 온-프레미스 시스템에 적용하여 구성을 정의하고 자동으로 적용하거나, 표류에 대한 보고서를 가져와서 보안 구성이 정책 내에 유지되도록 할 수 있습니다.
 
-## <a name="azure-security-center"></a>Azure 보안 센터
+## <a name="azure-security-center"></a>Azure Security Center
 
 Azure Security Center는 Azure 리소스를 보호하는 데 도움이 됩니다. Azure 구독에서 통합된 보안 모니터링 및 정책 관리를 제공합니다. 서비스 내에서 Azure 구독에 대한 정책뿐만 아니라 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)에 대한 정책도 정의할 수 있으므로 더욱 세분화할 수 있습니다.
 
-![Azure 보안 센터](./media/azure-threat-detection/azure-threat-detection-fig8.png)
+![Azure Security Center](./media/azure-threat-detection/azure-threat-detection-fig8.png)
 
 Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스에 존재하는 Microsoft의 글로벌 서비스에서 얻은 원격 분석의 포괄적인 집합에 액세스할 수 있습니다. 이 광범위하고 다양한 데이터 집합의 컬렉션을 통해 Microsoft는 온라인 서비스 뿐만 아니라 해당 온-프레미스 소비자 및 엔터프라이즈 제품에서도 새로운 공격 패턴 및 추세를 검색할 수 있습니다.
 
@@ -179,7 +179,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 ![위협 인텔리전스](./media/azure-threat-detection/azure-threat-detection-fig10.jpg)
 
-또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure 보안 센터는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
+또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure Security Center는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
 
 -   **강력한 기계 학습 기능 활용** - Azure Security Center는 Azure 배포를 대상으로 하는 위협을 검색하는 데 사용할 수 있는 방대한 양의 클라우드 네트워크 활동 데이터에 액세스할 수 있습니다. 예:
 
@@ -215,7 +215,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
-Azure 보안 센터는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
+Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
 
 -   **인바운드 RDP/SSH 무차별 암호 대입 공격**: 배포에는 매일 많은 로그인이 있는 바쁜 가상 컴퓨터와 로그인이 거의 없는 다른 가상 컴퓨터가 있을 수 있습니다. Azure Security Center는 이러한 가상 컴퓨터에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
 

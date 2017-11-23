@@ -1,6 +1,6 @@
 ---
 title: "Linux에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs"
-description: "Linux에서 AzCopy 유틸리티를 사용하여 Blob 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
+description: "Linux에서 AzCopy 유틸리티를 사용하여 Blob 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 Linux에서 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob 및 File Storage에(로부터) 복사하도록 디자인된 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
@@ -311,7 +311,7 @@ azcopy \
 ```
 
 ## <a name="blob-copy"></a>Blob: 복사
-### <a name="copy-single-blob-within-storage-account"></a>저장소 계정 내 단일 Blob 복사
+### <a name="copy-single-blob-within-storage-account"></a>Storage 계정 내 단일 Blob 복사
 
 ```azcopy
 azcopy \
@@ -324,7 +324,7 @@ azcopy \
 
 --sync-copy 옵션 없이 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
-### <a name="copy-single-blob-across-storage-accounts"></a>저장소 계정 간 단일 Blob 복사
+### <a name="copy-single-blob-across-storage-accounts"></a>Storage 계정 간 단일 Blob 복사
 
 ```azcopy
 azcopy \
@@ -350,7 +350,7 @@ azcopy \
 
 지역 중복 저장소가 사용된 읽기 액세스가 있어야 합니다.
 
-### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>저장소 계정 간 단일 Blob 및 스냅숏 복사
+### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Storage 계정 간 단일 Blob 및 스냅숏 복사
 
 ```azcopy
 azcopy \
@@ -370,7 +370,7 @@ abc (2013-02-25 080757).txt
 abc (2014-02-21 150331).txt
 ```
 
-### <a name="synchronously-copy-blobs-across-storage-accounts"></a>저장소 계정 간 Blob 비동기 복사
+### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Storage 계정 간 Blob 비동기 복사
 기본적으로 AzCopy는 두 저장소 끝점 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행됩니다. 
 
 `--sync-copy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
@@ -496,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `--blob-type page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다. 사용 가능한 형식은 `page | block | append`입니다.
+File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `--blob-type page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다. 사용 가능한 형식은 `page | block | append`입니다.
 
 `--sync-copy`는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-AzCopy는 현재 [계정 SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1)만 지원합니다.
+AzCopy는 현재 [계정 SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)만 지원합니다.
 
 ### <a name="journal-file-folder"></a>저널 파일 폴더
 AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일이 있는지 또는 이 옵션을 통해 지정한 폴더에 있는지 확인합니다. 저널 파일이 이 두 위치에 없으면 AzCopy는 이 작업을 새 작업으로 취급하고 새 저널 파일을 생성합니다.
@@ -670,19 +670,19 @@ AzCopy는 데이터 전송 속도를 높이기 위해 컴퓨터 리소스를 최
 ## <a name="next-steps"></a>다음 단계
 Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-### <a name="azure-storage-documentation"></a>Azure 저장소 설명서
-* [Azure 저장소 소개](../storage-introduction.md)
+### <a name="azure-storage-documentation"></a>Azure Storage 설명서
+* [Azure Storage 소개](../storage-introduction.md)
 * [저장소 계정을 만드는](../storage-create-storage-account.md)
-* [저장소 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [저장소 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Azure Storage에서 Azure CLI 2.0 사용](../storage-azure-cli.md)
 * [C++에서 Blob 저장소를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java에서 Blob 저장소를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js에서 Blob 저장소를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Python에서 Blob 저장소를 사용하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
 
-### <a name="azure-storage-blog-posts"></a>Azure 저장소 블로그 게시물:
+### <a name="azure-storage-blog-posts"></a>Azure Storage 블로그 게시물:
 * [Linux 미리 보기에서 AzCopy 발표](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
-* [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [Azure Storage 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)

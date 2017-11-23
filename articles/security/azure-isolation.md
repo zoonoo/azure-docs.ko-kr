@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -79,8 +79,8 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
-### <a name="azure-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
-[RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
+### <a name="azure-role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
+[RBAC(역할 기반 Access Control)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
 
@@ -90,7 +90,7 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 - **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
 
-![Azure 역할 기반 액세스 제어](./media/azure-isolation/azure-isolation-fig3.png)
+![Azure 역할 기반 Access Control](./media/azure-isolation/azure-isolation-fig3.png)
 
 Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 가상 컴퓨터 참여자 역할을 사용하면 사용자가 가상 컴퓨터를 만들고 관리할 수 있습니다. 가상 컴퓨터가 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
 
@@ -126,7 +126,7 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
-Azure의 계산 플랫폼은 Hyper-V 가상 컴퓨터에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(가상 컴퓨터)으로 나누어집니다.
+Azure의 계산 플랫폼은 Hyper-V 가상 컴퓨터에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
 
 
 ![루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리](./media/azure-isolation/azure-isolation-fig4.jpg)
@@ -161,7 +161,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 ![패브릭 컨트롤러](./media/azure-isolation/azure-isolation-fig7.png)
 
-격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 계산 노드는 보호를 강화하기 위해 저장소 노드로부터 격리됩니다.
+격리는 게스트 VM/루트 VM 간과 게스트 VM 간으로 확장됩니다. 또한 Compute 노드는 보호를 강화하기 위해 저장소 노드로부터 격리됩니다.
 
 
 하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 컴퓨터에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 끝점으로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
@@ -174,7 +174,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 -   **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 컴퓨터가 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 컴퓨터에서 "공용" 인터넷에 트래픽을 보내고, 동일한 Azure Virtual Network 및 OS 정품 인증 서버 내에서 다른 가상 컴퓨터로 트래픽을 보낼 수도 있습니다. 가상 컴퓨터의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 및 기타 Microsoft 속성이 포함되어 있지 않습니다.
 
--   **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(액세스 제어 목록)을 정의합니다.
+-   **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다.
 
 ### <a name="vlan-isolation"></a>VLAN 격리
 각 클러스터에는 다음과 같이 3개의 VLAN이 있습니다.
@@ -196,11 +196,11 @@ FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 
 
 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. [이](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)는 가상 디스크를 만들 때 디스크 공간이 전체 용량으로 할당되지 않음을 의미합니다. 대신 가상 디스크의 주소를 실제 디스크의 영역에 매핑하는 테이블이 만들어지며, 이 테이블은 처음에는 비어 있습니다. **고객이 처음으로 가상 디스크에 데이터를 쓰면 실제 디스크의 공간이 할당되고 해당 공간에 대한 포인터가 테이블에 배치됩니다.**
 ### <a name="isolation-using-storage-access-control"></a>저장소 액세스 제어를 사용한 격리
-**Azure Storage의 액세스 제어**에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 저장소 계정을 만들 수 있습니다. 각 저장소 계정에는 해당 저장소 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
+**Azure Storage의 Access Control**에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 Storage 계정을 만들 수 있습니다. 각 Storage 계정에는 해당 Storage 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
 
 ![저장소 액세스 제어를 사용한 격리](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Azure Storage 데이터(테이블 포함)**는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(저장소 계정 키)](https://msdn.microsoft.com/library/azure/ee460785.aspx)로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 저장소 서비스를 요청할 수 있습니다. SAS를 사용하면 저장소 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
+**Azure Storage 데이터(테이블 포함)**는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(Storage 계정 키)](https://msdn.microsoft.com/library/azure/ee460785.aspx)로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 저장소 서비스를 요청할 수 있습니다. SAS를 사용하면 저장소 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
 
 SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 이러한 제한된 권한을 부여할 수 있습니다.
 
@@ -218,7 +218,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 #### <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure Storage를 사용하면 다음을 사용하여 데이터를 보호할 수 있습니다.
 
--   [전송 수준 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit)(예: Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS)
+-   [전송 수준 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit)(예: Azure Storage 안팎으로 데이터를 전송하는 경우 HTTPS)
 
 -   [실시간 암호화](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)(예: Azure 파일 공유에 대한 SMB 3.0 암호화)
 
@@ -227,7 +227,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 #### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
--   [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 를 사용하면 저장소 서비스가 Azure 저장소에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
+-   [Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
 
 -   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) 는 휴지 상태의 암호화 기능을 제공합니다.
 
@@ -239,7 +239,7 @@ VM(가상 컴퓨터)에 대해 [Azure Disk Encryption](https://docs.microsoft.co
 Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
 
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
--   Azure 주요 자격 증명 모음과 통합
+-   Azure Key Vault와 통합
 
 -   표준 계층 VM: A, D, DS, G, GS 등 계열의 IaaS VM
 
@@ -339,7 +339,7 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 끝점에 연결할 수 있도록 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
 
-- [계산 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
+- [Compute 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다.
 

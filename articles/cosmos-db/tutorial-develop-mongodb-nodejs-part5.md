@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 5부: Mongoose를 사용하여 Azure Cosmos DB에 연결
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ ms.lasthandoff: 10/11/2017
 5. 다음 코드를 **environment.js**에 복사하도록 mongo.js 파일에서 `dbName`, `key` 및 `cosmosPort`을 포함해야 합니다.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>연결 문자열 정보 가져오기
 
-1. **environment.js**에서 `cosmosPort` 값을 10255로 변경합니다. (Azure Portal에서 Cosmos DB 포트를 찾을 수 있습니다.)
+1. **environment.js**에서 `port` 값을 10255로 변경합니다. (Azure Portal에서 Cosmos DB 포트를 찾을 수 있습니다.)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. **environment.js**에서 `dbName` 값을 [4단계](tutorial-develop-mongodb-nodejs-part4.md)에서 만든 Azure Cosmos DB 계정의 이름으로 변경합니다. 
+2. **environment.js**에서 `accountName` 값을 [4단계](tutorial-develop-mongodb-nodejs-part4.md)에서 만든 Azure Cosmos DB 계정의 이름으로 변경합니다. 
 
 3. 터미널 창에서 다음 CLI 명령을 사용하여 Azure Cosmos DB 계정에 대한 기본 키를 검색합니다. 
 

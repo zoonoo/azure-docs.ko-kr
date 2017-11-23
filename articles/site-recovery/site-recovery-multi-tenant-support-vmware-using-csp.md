@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>CSP를 통해 VMware 가상 컴퓨터를 Azure에 복제하기 위해 Azure Site Recovery에서 다중 테넌트 지원
 
@@ -50,7 +50,7 @@ Azure Site Recovery는 테넌트 구독을 위해 다중 테넌트 환경을 지
 데이터 격리 요구 사항은 모든 민감한 인프라 정보(예: 액세스 자격 증명)를 테넌트에 공개하지 않는 상태로 유지하는 것이 필요합니다. 이러한 이유로 관리 서버의 모든 구성 요소는 파트너가 독점적으로 통제하도록 하는 것이 좋습니다. 관리 서버 구성 요소는 다음과 같습니다.
 * 구성 서버(CS)
 * 프로세스 서버(PS)
-* 마스터 대상 서버(MT) 
+* 마스터 대상 서버(MT)
 
 스케일 아웃 PS 역시 파트너가 통제합니다.
 
@@ -82,7 +82,7 @@ vCenter 계정 액세스 절차는 다음과 같습니다.
 
     * **작업**: 만들기 작업, 업데이트 작업
 
-    * **가상 컴퓨터**: 
+    * **가상 컴퓨터**:
         * 구성 > 모두
         * 상호 작용 -> 질문 응답, 장치 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
         * 인벤토리 > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
@@ -138,8 +138,8 @@ VM 필수 구성 요소는 [Azure Site Recovery 설명서](site-recovery-vmware-
 
 ### <a name="step-1-create-a-tenant-account"></a>1단계: 테넌트 계정 만들기
 
-1. [Microsoft 파트너 센터](https://partnercenter.microsoft.com/)를 통해 CSP 계정에 로그인합니다. 
- 
+1. [Microsoft 파트너 센터](https://partnercenter.microsoft.com/)를 통해 CSP 계정에 로그인합니다.
+
 2. **대시보드** 메뉴에서 **고객**을 선택합니다.
 
     ![Microsoft 파트너 센터 고객 링크](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ VM 필수 구성 요소는 [Azure Site Recovery 설명서](site-recovery-vmware-
 
     ![[검토] 페이지](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    테넌트 계정을 만들면 확인 페이지가 나타나며 여기에 구독에 대한 기본 계정 및 암호 정보가 표시됩니다. 
+    테넌트 계정을 만들면 확인 페이지가 나타나며 여기에 구독에 대한 기본 계정 및 암호 정보가 표시됩니다.
 
 7. 정보를 저장하고 나중에 필요하면 Azure Portal 로그인 페이지를 통해 암호를 변경합니다.  
- 
+
     이 정보를 테넌트와 있는 그대로 공유하거나 필요할 경우 별도의 계정을 만들고 공유할 수 있습니다.
 
 ### <a name="step-2-access-the-tenant-account"></a>2단계: 테넌트 계정 액세스
 
-“1단계: 테넌트 계정 만들기”에 설명된 대로 Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스할 수 있습니다. 
+“1단계: 테넌트 계정 만들기”에 설명된 대로 Microsoft 파트너 센터 대시보드를 통해 테넌트 구독에 액세스할 수 있습니다.
 
 1. **고객** 페이지로 이동한 후 테넌트 계정의 이름을 클릭합니다.
 
 2. 테넌트 계정의 **구독** 페이지에서 기존 계정 구독을 모니터링하고 필요에 따라 구독을 더 추가할 수 있습니다. 테넌트의 재해 복구 작업을 관리하려면 **모든 리소스(Azure Portal)**를 선택합니다.
 
     ![모든 리소스 링크](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     **모든 리소스**를 클릭하면 테넌트의 Azure 구독에 대한 액세스 권한이 부여됩니다. Azure Portal의 맨 위 오른쪽에 있는 Azure Active Directory 링크를 클릭하여 액세스를 확인할 수 있습니다.
 
     ![Azure Active Directory 링크](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ VM 필수 구성 요소는 [Azure Site Recovery 설명서](site-recovery-vmware-
 이제 Azure Portal을 통해 테넌트에 대한 모든 사이트 복구 작업을 수행하고 재해 복구 작업을 관리할 수 있습니다. 관리 재해 복구를 위해 CSP를 통해 테넌트 구독에 액세스하려면 이전에 설명된 과정을 따릅니다.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>3단계: 리소스를 테넌트 구독에 배포
-1. Azure Portal에서 리소스 그룹을 만들고 일반 프로세스에 대한 Recovery Services 자격 증명 모음을 배포합니다. 
- 
+1. Azure Portal에서 리소스 그룹을 만들고 일반 프로세스에 대한 Recovery Services 자격 증명 모음을 배포합니다.
+
 2. 자격 증명 모음 등록 키를 다운로드합니다.
 
 3. 자격 증명 모음 등록 키를 사용하여 테넌트용 CS를 등록합니다.
@@ -214,7 +214,7 @@ VM 필수 구성 요소는 [Azure Site Recovery 설명서](site-recovery-vmware-
 
 2. 새 사용자를 만든 후 Azure Portal로 돌아가 **구독** 블레이드에서 관련 구독을 선택합니다.
 
-3. 열리는 새 블레이드에서 **액세스 제어(IAM)**를 선택하고 **추가**를 클릭하여 관련 액세스 수준을 가진 사용자를 추가합니다.      
+3. 열리는 새 블레이드에서 **Access Control(IAM)**을 선택하고 **추가**를 클릭하여 관련 액세스 수준을 가진 사용자를 추가합니다.      
     CSP 포털을 통해 만들어진 사용자는 액세스 수준을 클릭하면 열리는 블레이드에 자동으로 표시됩니다.
 
     ![사용자 추가](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)

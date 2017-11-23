@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -87,7 +87,7 @@ Azure 구독에 적용되는 가격 책정, 신용 및 관련 조건입니다.
 [Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털입니다.  포털에는 두 가지, 즉 [Azure portal](http://portal.azure.com/) 및 [클래식 포털](http://manage.windowsazure.com/)이 있습니다. 일부 서비스는 두 포털 모두에서 사용할 수 있는 반면 다른 서비스는 둘 중 하나의 포털에서만 사용할 수 있습니다. [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/) 에 포털 중 하나에서 사용할 수 있는 서비스가 나열되어 있습니다.
+Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털입니다.
 
 ## <a name="region"></a>region
 국경을 넘지 않으면서 하나 이상의 데이터 센터를 포함하는 지역 내의 영역입니다. 가격 책정, 지역 서비스 및 제공 사항 유형은 지역 수준에서 노출됩니다. 지역은 일반적으로 최대 수백 킬로미터까지도 떨어질 수 있는 다른 지역과 쌍으로 연결되어 있습니다. 지역 쌍은 재해 복구 및 고가용성 시나리오에 대한 메커니즘으로 사용할 수 있습니다. *위치*라고도 합니다.  
@@ -146,7 +146,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 [가상 컴퓨터 확장 및 기능 정보(Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [가상 컴퓨터 확장 및 기능 정보(Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="vnet"></a>가상 네트워크
-다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN 게이트웨이](vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 가상 네트워크 간 연결과 [가상 네트워크 및 온-프레미스 네트워크 간](vpn-gateway/vpn-gateway-plan-design.md) 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
+다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 가상 네트워크 간 연결과 [가상 네트워크 및 온-프레미스 네트워크 간](vpn-gateway/vpn-gateway-plan-design.md) 연결을 설정할 수 있습니다. 사용자는 가상 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다.  
 [Virtual Network 개요](virtual-network/virtual-networks-overview.md)를 참조하세요.  
 
 ## <a name="web-app"></a>웹앱

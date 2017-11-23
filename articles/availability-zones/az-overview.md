@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
+ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c6225d368044ee2b2ab24136c854f81ae473c9e1
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Azure(미리 보기)의 가용성 영역 개요
 
 가용성 영역은 데이터 센터 수준 오류로부터 사용자를 보호하는 데 도움이 됩니다. 이 기능은 Azure 지역 내에 있으며 각각 자체 독립적인 원본, 네트워크 및 냉각을 갖습니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역을 물리적 및 논리적으로 분리하면 응용 프로그램 및 데이터를 영역 수준 오류로부터 보호할 수 있습니다. 
@@ -67,4 +65,3 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="next-steps"></a>다음 단계
 - [빠른 시작 템플릿](http://aka.ms/azqs)
-

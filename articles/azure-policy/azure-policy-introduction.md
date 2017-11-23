@@ -3,18 +3,18 @@ title: "Azure Policy 개요 | Microsoft Docs"
 description: "Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark; nini
+author: bandersmsft
+ms.author: banders; nini
 ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
-manager: jochan
+manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 

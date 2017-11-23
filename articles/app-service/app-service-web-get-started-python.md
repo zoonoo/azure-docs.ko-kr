@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ae410c7fabac6d23a69922804a0a87fde63594a2
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
 
@@ -33,8 +33,8 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-1. [Git 설치](https://git-scm.com/)
-1. [Python 설치](https://www.python.org/downloads/)
+* <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+* <a href="https://www.python.org/downloads/" target="_blank">Python 설치</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

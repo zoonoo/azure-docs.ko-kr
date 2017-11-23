@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 보안 시작
 IT 자산을 작성하거나 클라우드 공급자에 마이그레이션하는 경우 해당 조직이 제공하는 서비스와 컨트롤을 통해 응용 프로그램 및 데이터를 보호할 수 있는 해당 조직의 역량에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
@@ -65,7 +65,7 @@ Azure는 전송 중인 데이터와 미사용 데이터 보호를 위한 다수�
 * Azure Blob Storage에 대한 클라이언트측 암호화를 사용하여 키를 완전히 제어할 수 있습니다. 저장소 서비스는 키를 표시하지 못하고 데이터를 해독할 수 없습니다.
 * [Azure RMS(Azure Rights Management)](https://technet.microsoft.com/library/jj585026.aspx)([RMS SDK](https://msdn.microsoft.com/library/dn758244.aspx) 포함)는 정책 기반 액세스 관리를 통해 파일 및 데이터 수준 암호화와 데이터 누수 방지를 제공합니다.
 * Azure는 SQL Server 가상 컴퓨터에서 [테이블 수준 및 열 수준 암호화(TDE/CLE)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database.aspx)를 지원하고 데이터 센터에서 타사 온-프레미스 키 관리 서버를 지원합니다.
-* 저장소 계정 키, 공유 액세스 서명, 관리 인증서 및 다른 키는 각각 Azure 테넌트에 대해 고유합니다.
+* Storage 계정 키, 공유 액세스 서명, 관리 인증서 및 다른 키는 각각 Azure 테넌트에 대해 고유합니다.
 * Azure [StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/overview.aspx) 하이브리드 저장소는 데이터를 Azure Storage에 업로드하기 전에 128비트 공개/개인 키 쌍을 통해 암호화합니다.
 * Azure는 데이터 형식, 컨테이너 및 전송에 따라 SSL/TLS, IPsec 및 AES를 포함하는 다양한 암호화 메커니즘을 지원하고 사용합니다.
 
@@ -154,7 +154,7 @@ Azure에서는 온-프레미스 데이터 센터를 클라우드로 안전하게
 ### <a name="how-azure-implements-secure-remote-access"></a>Azure가 안전한 원격 액세스를 구현하는 방법
 Azure Portal에 대한 연결은 항상 인증되어야 하며 SSL/TLS이 필요합니다. 관리 인증서를 구성하여 보안 관리를 사용할 수 있습니다. [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) 및 [IPsec](https://en.wikipedia.org/wiki/IPsec)과 같은 보안 업계 표준 프로토콜은 완벽하게 지원됩니다.
 
-[Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 일반적인 인터넷 기반 연결보다 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안성을 제공합니다. 경우에 따라 ExpressRoute 연결을 사용하여 온-프레미스 위치와 Azure 간에 데이터를 전송하면 상당한 비용 혜택을 얻을 수 있습니다.
+[Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 일반적인 인터넷 기반 연결보다 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안성을 제공합니다. 경우에 따라 ExpressRoute 연결을 사용하여 온-프레미스 위치와 Azure 간에 데이터를 전송하면 상당한 비용 혜택을 얻을 수 있습니다.
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 Azure는 감사 내역을 생성하는 보안 관련 이벤트의 인증된 로깅을 제공하고 정보 훼손에 강하도록 엔지니어링됩니다. Azure 인프라 가상 컴퓨터 및 Azure AD에서 보안 이벤트 로그와 같은 시스템 정보가 포함됩니다. 보안 이벤트 모니터링은 DHCP 또는 DNS 서버 IP 주소와 같은 이벤트를 수집하고 설계에서 차단되는 포트, 프로토콜 또는 IP 주소에 액세스를 시도하며 보안 정책 또는 방화벽 설정, 계정 또는 그룹 만들기, 예기치 않은 프로세스 또는 드라이버 설치를 변경하는 작업을 포함합니다.

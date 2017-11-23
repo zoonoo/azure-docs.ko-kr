@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: f4128b6b049aa876e170c56dcf2e40720644dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26a2d63aef21bd470d65d79e1abf8cefd2828419
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>실제 장치로 시작하는 Azure IoT Hub 자습서
 
@@ -33,12 +33,6 @@ ms.lasthandoff: 10/11/2017
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 
-또한 IoT Edge 게이트웨이를 사용하여 장치를 IoT Hub에 연결할 수 있습니다.
-
-| 게이트웨이 장치               | 프로그래밍 언어 | 플랫폼         |
-|------------------------------|----------------------|------------------|
-| Intel NUC(모델 DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
@@ -51,4 +45,3 @@ ms.lasthandoff: 10/11/2017
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
 [Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
 [M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md

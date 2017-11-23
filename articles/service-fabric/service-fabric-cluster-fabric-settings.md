@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -340,8 +340,8 @@ ms.lasthandoff: 11/03/2017
 ### <a name="section-name-faultanalysisservice"></a>섹션 이름: FaultAnalysisService
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |int, 기본값: 0 |허용되지 않음|NOT_PLATFORM_UNIX_START. FaultAnalysisService의 TargetReplicaSetSize입니다. |
-| MinReplicaSetSize |int, 기본값: 0 |허용되지 않음|FaultAnalysisService의 MinReplicaSetSize입니다. |
+| TargetReplicaSetSize |int, 기본값: 0 |정적|NOT_PLATFORM_UNIX_START. FaultAnalysisService의 TargetReplicaSetSize입니다. |
+| MinReplicaSetSize |int, 기본값: 0 |정적|FaultAnalysisService의 MinReplicaSetSize입니다. |
 | ReplicaRestartWaitDuration |time(초), 기본값: 60분|정적|시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue |정적|시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration| time(초), 기본값: 60*24*7분 |정적|시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 StandByReplicaKeepDuration입니다. |
@@ -390,8 +390,8 @@ ms.lasthandoff: 11/03/2017
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 | 사용 |bool, 기본값: false |정적|ImageStoreService의 Enabled 플래그입니다. 기본값: false |
-| TargetReplicaSetSize | int, 기본값: 7 |허용되지 않음|ImageStoreService의 TargetReplicaSetSize입니다. |
-| MinReplicaSetSize | int, 기본값: 3 |허용되지 않음|ImageStoreService의 MinReplicaSetSize입니다. |
+| TargetReplicaSetSize | int, 기본값: 7 |정적|ImageStoreService의 TargetReplicaSetSize입니다. |
+| MinReplicaSetSize | int, 기본값: 3 |정적|ImageStoreService의 MinReplicaSetSize입니다. |
 | ReplicaRestartWaitDuration | time(초), 기본값: 60.0 * 30 |정적|시간 간격은 초 단위로 지정합니다. ImageStoreService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue |정적| 시간 간격은 초 단위로 지정합니다. ImageStoreService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration | time(초), 기본값: 3600.0 * 2 |정적| 시간 간격은 초 단위로 지정합니다. ImageStoreService의 StandByReplicaKeepDuration입니다. |
@@ -414,8 +414,8 @@ ms.lasthandoff: 11/03/2017
 ### <a name="section-name-upgradeorchestrationservice"></a>섹션 이름: UpgradeOrchestrationService
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |int, 기본값: 0 |허용되지 않음|UpgradeOrchestrationService의 TargetReplicaSetSize입니다. |
-| MinReplicaSetSize |int, 기본값: 0 |허용되지 않음|UpgradeOrchestrationService 용 MinReplicaSetSize입니다.
+| TargetReplicaSetSize |int, 기본값: 0 |정적 |UpgradeOrchestrationService의 TargetReplicaSetSize입니다. |
+| MinReplicaSetSize |int, 기본값: 0 |정적 |UpgradeOrchestrationService 용 MinReplicaSetSize입니다.
 | ReplicaRestartWaitDuration | time(초), 기본값: 60분|정적| 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue |정적| 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration | time(초), 기본값: 60*24*7분 |정적| 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 StandByReplicaKeepDuration입니다. |

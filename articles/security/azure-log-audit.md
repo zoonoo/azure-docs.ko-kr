@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 ## <a name="introduction"></a>소개
@@ -71,7 +71,7 @@ Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합
 |[Azure 진단 로그](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈도 데이터|   리소스 자체에서 수행한 작업에 대한 정보를 제공합니다.| Azure Monitor, [스트림](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD 보고](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|로그 및 보고서|사용자 로그인 활동 및 사용자와 그룹 관리에 대한 시스템 활동 정보|[그래프 API](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[가상 컴퓨터 및 Cloud Services](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows 이벤트 로그 및 Linux Syslog|  가상 컴퓨터에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 해당 데이터를 전송합니다.|   Azure 모니터에서 [MAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics)(Microsoft Azure 진단 저장소)와 Linux를 사용하는 Windows|
-|[저장소 분석](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅을 수행하고, 저장소 계정에 대한 메트릭 데이터를 제공합니다.|추적 요청에 대한 정보를 제공하고, 사용 추세를 분석하며, 저장소 계정으로 문제를 진단합니다.|  REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[저장소 분석](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅을 수행하고, Storage 계정에 대한 메트릭 데이터를 제공합니다.|추적 요청에 대한 정보를 제공하고, 사용 추세를 분석하며, 저장소 계정으로 문제를 진단합니다.|  REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 형식이며, 규칙에 따라 아웃바운드 및 인바운드 흐름을 보여 줍니다.|네트워크 보안 그룹을 통한 수신 및 송신 IP 트래픽에 대한 정보를 보여 줍니다.|[Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|  여러 플랫폼의 웹 개발자를 위한 APM(Application Performance Management) 서비스| REST API, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
 |데이터 처리/보안 경고| Azure Security Center 경고, OMS 경고| 보안 정보 및 경고입니다.|   REST API, JSON|
@@ -93,7 +93,7 @@ Azure Portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli),
 
 -   [PowerBI 콘텐츠 팩](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
 
--   [보관 또는 수동 검사를 위해 저장소 계정에 저장합니다.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log) 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+-   [보관 또는 수동 검사를 위해 Storage 계정에 저장합니다.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log) 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 
 -   Azure Portal에서 쿼리하고 봅니다.
 
@@ -110,7 +110,7 @@ Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번�
 Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API를 사용하여 Azure Portal과 같은 여러 가지 구성 옵션을 제공합니다.
 
 **통합 시나리오**
--   감사 또는 수동 검사를 위해 [저장소 계정](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) 에 저장합니다. [진단 설정]을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+-   감사 또는 수동 검사를 위해 [Storage 계정](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) 에 저장합니다. [진단 설정]을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 
 -   타사 서비스 또는 사용자 지정 분석 솔루션(예: [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/))에서 수집하도록 [Event Hubs로 스트리밍합니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs).
 
@@ -125,25 +125,25 @@ Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API�
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |네트워크 보안 그룹|[NSG(네트워크 보안 그룹)에 대한 로그 분석](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
-|응용 프로그램 게이트웨이|[응용 프로그램 게이트웨이에 대한 진단 로깅](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|Application Gateway|[Application Gateway에 대한 진단 로깅](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|키 자격 증명 모음|[Azure 키 자격 증명 모음 로깅](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
-|Azure 검색|[검색 트래픽 분석 설정 및 사용](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|키 자격 증명 모음|[Azure Key Vault 로깅](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Azure Search|[검색 트래픽 분석 설정 및 사용](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |데이터 레이크 저장소|[Azure Data Lake Store에 대한 진단 로그에 액세스](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|감사|
 |데이터 레이크 분석|[Azure Data Lake Analytics에 대한 진단 로그에 액세스](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|감사|
 |||Microsoft.DataLakeAnalytics/accounts|요청|
 |||Microsoft.DataLakeStore/accounts|요청|
 |Logic Apps|[Logic Apps B2B 사용자 지정 추적 스키마](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
-|Azure 배치|[Azure 배치 진단 로깅](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure 자동화|[Azure Automation에 대한 Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
+|Azure Batch|[Azure Batch 진단 로깅](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
+|Azure Automation|[Azure Automation에 대한 Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
 |Event Hubs|[Azure Event Hubs 진단 로그](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|스트림 분석|[작업 진단 로그](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|실행|
+|Stream Analytics|[작업 진단 로그](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|실행|
 |||Microsoft.StreamAnalytics/streamingjobs|작성|
-|서비스 버스|[Azure Service Bus 진단 로그](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
+|Service Bus|[Azure Service Bus 진단 로그](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Azure Active Directory 보고
 Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. [Azure Active Directory 감사 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)를 사용하면 고객이 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다.
@@ -184,20 +184,20 @@ Microsoft Windows를 실행하는 [Azure Virtual Machines](https://azure.microso
 
 -   [Azure Virtual Machine에서 원격으로 Azure 진단 설정](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
 
--   [PowerShell을 사용하여 Azure Virtual Machine에서 진단 설정](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+-   [PowerShell을 사용하여 Azure Virtual Machines에서 진단 설정](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 -   [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능으로 Windows 가상 컴퓨터 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>저장소 분석
-[Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. 저장소 분석 로깅은 [Blob, 큐 및 테이블 서비스](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 저장소 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
+[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. Storage 분석 로깅은 [Blob, 큐 및 Table service](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 끝점에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정의 활동이 Blob 끝점에는 있지만 테이블 또는 큐 끝점에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
 저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. 이 작업은 [Azure portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [서비스 속성 설정] 작업을 사용하여 각 서비스에 대해 개별적으로 저장소 분석을 사용하도록 설정합니다.
 
-집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob 서비스 및 테이블 서비스 API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
+집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob service 및 Table service API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
-저장소 분석에 저장되는 데이터의 양은 총 저장소 계정의 총 한도와 관계없이 20TB로 제한됩니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장되며, 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 만들어집니다.
+저장소 분석에 저장되는 데이터의 양은 총 Storage 계정의 총 한도와 관계없이 20TB로 제한됩니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장되며, Storage 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 만들어집니다.
 
 > [!Note]
 > 청구 및 데이터 보존 정책에 대한 자세한 내용은 [저장소 분석 및 청구](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)를 참조하세요.
@@ -260,7 +260,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 -   [보안 그룹 보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) - VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
 
--   [가상 네트워크 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
+-   [Virtual Network 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
 
 -   [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits) - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 
@@ -317,7 +317,7 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 
 보안 센터 위협 감지는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 보안 정보를 자동으로 수집하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 보안 경고는 위협을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에서 우선 순위가 지정됩니다.
 
-![Azure 보안 센터](./media/azure-log-audit/azure-log-audit-fig7.png)
+![Azure Security Center](./media/azure-log-audit/azure-log-audit-fig7.png)
 
 보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 수동 접근 방법을 사용하여 식별할 수 없는 위협을 검색하고 공격의 진화를 예측하는 대규모 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/)의 혁신적인 기술을 적용하여 클라우드 패브릭 전체에 대한 이벤트를 평가합니다. 이러한 보안 분석은 다음과 같습니다.
 
@@ -346,7 +346,7 @@ Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리�
 [Azure 서비스에 대한 로그 및 메트릭을 수집](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)하는 방법에는 다음 네 가지가 있습니다.
 1.  Azure 진단에서 Log Analytics로 직접 연결(다음 표의 진단)
 
-2.  Azure 진단, Azure 저장소, Log Analytics 순서로 연결(다음 표의 저장소)
+2.  Azure 진단, Azure Storage, Log Analytics 순서로 연결(다음 표의 저장소)
 
 3.  Azure 서비스에 대한 커넥터(다음 표의 커넥터)
 
@@ -356,8 +356,8 @@ Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리�
 | :------ | :------------ | :--- | :------ | :------- |
 |응용 프로그램 게이트웨이|  Microsoft.Network/<br>applicationGateways|  진단|진단|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application insights||     커넥터|  커넥터|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [커넥터(미리 보기)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|자동화 계정|   Microsoft.Automation/<br>AutomationAccounts|    진단||       [자세한 정보](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|배치 계정|    Microsoft.Batch/<br>batchAccounts|  진단|    진단||
+|Automation 계정|   Microsoft.Automation/<br>AutomationAccounts|    진단||       [자세한 정보](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Batch 계정|    Microsoft.Batch/<br>batchAccounts|  진단|    진단||
 |클래식 Cloud Services||       저장소||       [자세한 정보](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>계정|       진단|||
 |Data Lake Analytics|   Microsoft.DataLakeAnalytics/<br>계정|   진단|||
@@ -371,14 +371,14 @@ Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리�
 |네트워크 보안 그룹|   Microsoft.Network/<br>networksecuritygroups|진단||   [Azure 네트워크 보안 그룹 분석](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |복구 자격 증명|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Search 서비스|   Microsoft.Search/<br>searchServices|    진단|    진단||
-|서비스 버스 네임스페이스| Microsoft.ServiceBus/<br>namespaces|    진단|진단|    [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus 네임스페이스| Microsoft.ServiceBus/<br>namespaces|    진단|진단|    [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       저장소||    [Service Fabric 분석(미리 보기)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
 |SQL(v12)| Microsoft.Sql/<br>servers/<br>데이터베이스||       진단||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
 |저장소|||         스크립트| [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|가상 컴퓨터|  Microsoft.Compute/<br>virtualMachines|  내선 번호|  내선 번호||
+|Virtual Machines|  Microsoft.Compute/<br>virtualMachines|  내선 번호|  내선 번호||
 ||||진단||
-|가상 컴퓨터 크기 집합|   Microsoft.Compute/<br>virtualMachines    ||진단||
+|Virtual Machines 크기 집합|   Microsoft.Compute/<br>virtualMachines    ||진단||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |웹 서버 팜|Microsoft.Web/<br>serverfarms||   진단
 |웹 사이트| Microsoft.Web/<br>sites ||      진단|    [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|

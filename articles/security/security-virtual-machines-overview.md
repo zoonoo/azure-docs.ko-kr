@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d10b9fde99867a218c4368f0be6bee00bc44dc1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 Azure Virtual Machines를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services 지원을 통해 거의 모든 운영 체제에 모든 작업과 언어를 배포할 수 있습니다.
@@ -55,7 +55,7 @@ Microsoft 맬웨어 방지 프로그램은 응용 프로그램 및 테넌트 환
 
 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 같은 핵심 기능을 사용할 수 있습니다.
 
-* 실시간 보호 - Cloud Services 및 가상 컴퓨터에서 작업을 모니터링하여 악성 프로그램 실행을 검색 및 차단합니다.
+* 실시간 보호 - Cloud Services 및 Virtual Machines에서 작업을 모니터링하여 악성 프로그램 실행을 검색 및 차단합니다.
 * 예약된 검색 - 주기적으로 대상으로 지정된 검색을 수행하여 적극적으로 실행 중인 프로그램을 포함하여 맬웨어를 검색합니다.
 * 맬웨어 치료 - 자동으로 검색된 맬웨어에서 악성 파일을 삭제 또는 격리하고 악성 레지스트리 항목을 정리하는 것과 같은 작업을 수행합니다.
 * 서명 업데이트 - 자동으로 최신 보호 시그니처(바이러스 정의)를 설치하여 보호가 미리 결정된 빈도에 최신 상태가 되도록 합니다.
@@ -64,7 +64,7 @@ Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 
 * 활성 보호 - 신속한 응답을 확인하기 위해 검색된 위협 및 의심스러운 리소스에 대한 Azure 원격 분석 메타데이터를 보고하며 Microsoft 활성 보호 시스템(MAPS)을 통해 실시간 동기 서명 전달을 사용하도록 설정합니다.
 * 샘플 보고 - Microsoft 맬웨어 방지 서비스에 샘플을 제공하고 보고하여 서비스를 구체화하고 문제를 해결하는 데 사용합니다.
 * 제외 – 응용 프로그램 및 서비스 관리자로 특정 파일, 프로세스, 드라이브를 구성하여 성능 및 기타 이유로 보호 및 검색에서 제외합니다.
-* 맬웨어 방지 이벤트 수집 - 운영 체제 이벤트 로그에서 수행된 맬웨어 방지 서비스 상태, 의심스러운 활동 및 수정 작업을 기록하고 고객의 Azure 저장소 계정에 수집합니다.
+* 맬웨어 방지 이벤트 수집 - 운영 체제 이벤트 로그에서 수행된 맬웨어 방지 서비스 상태, 의심스러운 활동 및 수정 작업을 기록하고 고객의 Azure Storage 계정에 수집합니다.
 
 자세한 정보: 가상 컴퓨터를 보호하는 맬웨어 방지 소프트웨어에 대해 자세히 알아보려면 다음을 참조하세요.
 
@@ -75,18 +75,18 @@ Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 
 * [Azure Marketplace의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
-키 보안을 증대하여 암호화 및 인증 보호를 높일 수 있습니다. 중요한 키와 암호 정보를 Azure 주요 자격 증명 모음에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
+키 보안을 증대하여 암호화 및 인증 보호를 높일 수 있습니다. 중요한 키와 암호 정보를 Azure Key Vault에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
 자세한 정보:
 
-* [Azure 주요 자격 증명 모음이란?](../key-vault/key-vault-whatis.md)
-* [Azure 주요 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)
-* [Azure 주요 자격 증명 모음 블로그](https://blogs.technet.microsoft.com/kv/)
+* [Azure Key Vault란?](../key-vault/key-vault-whatis.md)
+* [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)
+* [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 컴퓨터 디스크 암호화
 Azure 디스크 암호화는 Windows 및 Linux Azure 가상 컴퓨터 디스크를 암호화할 수 있도록 하는 새로운 기능입니다. Azure Disk Encryption는 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다.
 
-이 솔루션은 Azure 주요 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
+이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
 
 자세한 정보:
 
@@ -99,7 +99,7 @@ Azure Backup은 자본 투자 없이 최소의 비용으로 응용 프로그램 
 
 자세한 정보:
 
-* [이란?](../backup/backup-introduction-to-azure-backup.md)
+* [Azure Backup이란?](../backup/backup-introduction-to-azure-backup.md)
 * [Azure Backup 학습 경로](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Azure Backup 서비스 - FAQ](../backup/backup-azure-backup-faq.md)
 

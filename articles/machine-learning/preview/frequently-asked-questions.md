@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -130,7 +130,7 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
+아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
 
 **명령줄 기능을 지원하나요?**
 
@@ -165,7 +165,6 @@ Workbench의 데이터 준비 도구는 현재 다음 형식에서의 수집을 
 공용 미리 보기의 경우 Workbench는 다음 위치에서의 데이터 수집을 지원합니다. 
 - 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치
 - Azure BLOB 또는 Azure Storage(Azure 구독 필요)
-- Azure Data Lake 또는 Azure Data Lake Storage(Azure 구독 필요)
 - Azure SQL Server
 - Microsoft SQL Server에 대한 연결 문자열
 
@@ -213,9 +212,9 @@ Azure Portal 또는 CLI를 사용하여 단위 수를 높거나 낮게 변경할
 - HDInsight
 - Azure Container Service
 - Azure Container Registry 
-- 데이터 이동
+- Azure Blob Storage
 - Application Insights
-- Azure 키 자격 증명 모음
+- Azure Key Vault
 - Visual Studio Team Services
 - Azure Event Hub
 - Azure Stream Analytics 자세한 내용을 확인하려면 또는 샘플 청구서를 보려면 당사 가격 책정 페이지를 방문하세요. 

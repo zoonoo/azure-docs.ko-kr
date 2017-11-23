@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
 
@@ -37,7 +37,7 @@ Azure Functions는 스크립트 파일 외에도 하나 이상의 함수 구현�
 
 Visual Studio에서 새 Azure Functions 프로젝트를 만듭니다. 새 프로젝트 템플릿은 *host.json* 및 *local.settings.json* 파일을 만듭니다. [host.json에서 Azure Functions 런타임 설정을 사용자 지정](functions-host-json.md)할 수 있습니다. 
 
-*local.settings.json* 파일은 Azure Functions Core Tools에 대한 앱 설정, 연결 문자열 및 설정을 저장합니다. 구조에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md#local-settings)를 참조하세요.
+*local.settings.json* 파일은 Azure Functions Core Tools에 대한 앱 설정, 연결 문자열 및 설정을 저장합니다. 구조에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md#local-settings-file)를 참조하세요.
 
 ### <a name="functionname-attribute"></a>FunctionName 특성
 

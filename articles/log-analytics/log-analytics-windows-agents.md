@@ -3,7 +3,7 @@ title: "Azure Log Analytics에 Windows 컴퓨터 연결 | Microsoft Docs"
 description: "이 문서에서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 Log Analytics 서비스에 연결하는 단계를 보여 줍니다."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
 이 문서에서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 OMS 작업 영역에 연결하는 단계를 보여 줍니다. 에이전트에서 Log Analytics 서비스에 데이터를 보내고 해당 데이터를 보고 사용할 수 있도록 등록하려는 전체 컴퓨터에 대한 에이전트를 설치 및 연결해야 합니다. 각 에이전트는 여러 작업 영역에 보고할 수 있습니다.
 
-Azure 자동화에서 설정, 명령줄 또는 DSC(필요한 상태 구성)를 사용하여 에이전트를 설치할 수 있습니다.  
+Azure Automation에서 설정, 명령줄 또는 DSC(필요한 상태 구성)를 사용하여 에이전트를 설치할 수 있습니다.  
 
 >[!NOTE]
-Azure에서 실행되는 가상 컴퓨터의 경우 [가상 컴퓨터 확장](log-analytics-azure-vm-extension.md)을 사용하여 설치를 간소화할 수 있습니다.
+Azure에서 실행되는 가상 컴퓨터의 경우 [가상 컴퓨터 확장](../virtual-machines/windows/extensions-oms.md)을 사용하여 설치를 간소화할 수 있습니다.
 
 에이전트는 인터넷 연결이 가능한 컴퓨터에서 연결을 사용하여 인터넷에 연결하고 OMS로 데이터를 전송합니다. 인터넷 연결이 없는 컴퓨터의 경우 프록시 또는 [OMS Gateway](log-analytics-oms-gateway.md)를 사용할 수 있습니다.
 
@@ -199,7 +199,7 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 이전에 명령줄 또는 스크립트를 사용하여 에이전트를 설치 또는 구성한 경우 `EnableAzureOperationalInsights`가 `AddCloudWorkspace`로 바뀌었습니다.
 
-## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure 자동화에서 DSC를 사용하여 에이전트 설치
+## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
 
 다음 스크립트 예제를 사용하여 Azure Automation에 DSC를 사용하여 에이전트를 설치합니다. 예제는 64비트 에이전트를 설치하고 `URI` 값으로 식별됩니다. 또한 URI 값을 바꿔 32비트 버전을 사용할 수 있습니다. 두 버전에 대한 URL
 
@@ -210,10 +210,10 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 이 절차 및 스크립트 예제는 기존 에이전트를 업그레이드하지 않습니다.
 
-1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 에서 Azure 자동화로 xPSDesiredStateConfiguration DSC 모듈을 가져옵니다.  
+1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 에서 Azure Automation으로 xPSDesiredStateConfiguration DSC 모듈을 가져옵니다.  
 2.  *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 OMS Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
 3.  다음 스크립트를 사용하고 MMAgent.ps1로 저장합니다.
-4.  다음 예제를 수정 및 사용하여 Azure 자동화에 DSC를 사용하여 에이전트를 설치합니다. Azure 자동화 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure 자동화로 가져옵니다.
+4.  다음 예제를 수정 및 사용하여 Azure Automation에 DSC를 사용하여 에이전트를 설치합니다. Azure Automation 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure Automation으로 가져옵니다.
 5.  구성에 노드를 할당합니다. 15분 이내에 노드가 구성을 점검하고 MMA가 노드로 푸시됩니다.
 
 ```PowerShell

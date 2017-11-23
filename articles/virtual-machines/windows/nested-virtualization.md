@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -49,7 +49,7 @@ Dv3 또는 Ev3 시리즈 가상 컴퓨터의 지역별 가용성은 [여기](htt
 이러한 설정을 수동으로 구성하거나 PowerShell 스크립트를 제공하여 구성을 자동화할 수 있습니다.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>옵션 1: PowerShell 스크립트를 사용하여 중첩된 가상화 구성
-Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog
+Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>옵션 2: 수동으로 중첩된 가상화 구성
 

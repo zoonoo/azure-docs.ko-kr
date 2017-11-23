@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 834a81c36557feffaa01c256dad0338617486773
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: e138241139329b8bb956157ab55b7d22dc2a9b67
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합 
 
@@ -77,7 +77,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>리소스 관리자에 대한 리소스 그룹 만들기
 
-Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](https://docs.microsoft.com/en-us/azure/azure-resource-manager/powershell-azure-resource-manager)을 참조하세요.
 
 ### <a name="step-1"></a>1단계:
 
@@ -329,7 +329,7 @@ WAF를 "방지" 모드로 구성합니다.
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
-## <a name="create-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-application-gateway"></a>Application Gateway 만들기
 
 이전 단계의 모든 구성 개체를 사용하여 Application Gateway를 만듭니다.
 
@@ -352,7 +352,7 @@ VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우�
 
 ##<a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보
-  * [응용 프로그램 게이트웨이 개요](../application-gateway/application-gateway-introduction.md)
+  * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway 웹 응용 프로그램 방화벽](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
   * [경로 기반 라우팅을 사용하는 Application Gateway](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * API Management 및 VNET에 대한 자세한 정보
