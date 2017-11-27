@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS로 보호 되는 연결이 끊어진된 Azure 스택 환경에 앱 서비스 리소스 공급자 추가
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/11/2017
         - Active Directory Federation Services (AD FS)를 사용 하 여 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local. 암호를 입력 하 고 클릭 **로그인**합니다.
     2. 에 **Azure 스택 구독** 상자에서 구독을 선택 합니다.
     3. 에 **Azure 스택 위치** 상자에 배포 하는 영역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure 스택 개발 키트를 배포 합니다.
-    4. 입력 한 **리소스 그룹 이름은** 앱 서비스 배포에 대 한 합니다. 기본적으로 설정은 **APPSERVICE\<모바일\>**합니다.
+    4. 입력 한 **리소스 그룹 이름은** 앱 서비스 배포에 대 한 합니다. 기본적으로 설정은 **APPSERVICE 로컬**합니다.
     5. 입력은 **저장소 계정 이름** 원하는 설치의 일부로 만들려면 앱 서비스입니다. 기본적으로 설정은 **appsvclocalstor**합니다.
     6. **다음**을 누릅니다.
 

@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>로그인 화면에서 Azure AD 암호 재설정
 
 Azure AD SSPR(셀프 서비스 암호 재설정)을 이미 배포했지만 사용자는 암호를 잊어버린 경우 여전히 기술 지원팀을 호출할 수 있습니다. 사용자는 웹 브라우저를 사용하여 SSPR에 액세스할 수 없기 때문에 기술 지원팀을 호출합니다.
 
-새로운 Windows 10 Fall Creators Update에서는 Azure AD 가입 장치를 사용하는 사용자의 로그인 화면에 "암호 재설정" 링크가 표시됩니다. 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다. 
+새로운 Windows 10 Fall Creators Update에서는 Azure AD 가입 장치를 사용하는 사용자의 로그인 화면에 "암호 재설정" 링크가 표시됩니다. 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다.
 
 사용자가 Windows 10 로그인 화면에서 Azure AD 암호를 재설정할 수 있게 하려면 다음 요구 사항을 충족해야 합니다.
 
-* Azure AD 도메인에 가입된 Windows 10 버전 1709 이상 클라이언트.
+* [Azure AD에 가입된](device-management-azure-portal.md) Windows 10 버전 1709 이상 클라이언트.
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
 * 다음 방법 중 하나를 통해 암호 재설정 링크를 사용하도록 설정을 구성하고 배포.
    * [Intune 장치 구성 프로필](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Intune을 사용하여 로그온 화면에 암호 재설정 링크를 사용하�
 
 설정 변경을 테스트할 때에는 이 메서드를 사용하는 것이 좋습니다.
 
-1. 관리 자격 증명을 사용하여 Azure AD 도메인 가입 장치에 로그인
+1. 관리 자격 증명을 사용하여 Azure AD 가입 장치에 로그인
 2. 관리자 권한으로 **regedit** 실행
 3. 다음 레지스트리 키를 설정
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Intune을 사용하여 로그온 화면에 암호 재설정 링크를 사용하�
 
 이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
-이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md#reset-password-at-login)에서 찾을 수 있습니다.
+이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b360d5a08abed7d65d8c39f7a957412656f7825
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Node를 사용하여 IoT Hub에 시뮬레이션된 장치 연결
 
@@ -297,7 +297,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 
 * [장치 연결][lnk-connect-device]
 * [장치 관리 시작][lnk-device-management]
-* [Azure IoT Hub 시작][lnk-iot-edge]
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iot-edge]
 
 IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리하는 방법을 알아보려면 [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서를 참조하세요.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -322,5 +322,5 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

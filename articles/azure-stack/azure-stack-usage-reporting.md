@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure 스택 사용 현황 데이터를 보고 합니다. 
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="view-usage---csp-subscriptions"></a>사용-CSP 구독 보기
 
-Azure 스택 CSP 구독을 사용 하 여 등록 한 경우 같은 방식으로 Azure 사용량을 볼 수 있는 사용 현황 및 요금을 볼 수 있습니다. Azure 스택 사용 조정 파일을 통해 사용할 수 있는 및 청구서에 포함 됩니다. [파트너 센터](https://partnercenter.microsoft.com/en-us/partner/home)합니다. 조정 파일 매월 업데이트 됩니다. 최근 Azure 스택 사용 정보에 액세스 해야 할 경우에 파트너 센터 Api를 사용할 수 있습니다.
+Azure 스택 CSP 구독을 사용 하 여 등록 한 경우 같은 방식으로 Azure 사용량을 볼 수 있는 사용 현황 및 요금을 볼 수 있습니다. Azure 스택 사용 조정 파일을 통해 사용할 수 있는 및 청구서에 포함 됩니다. [파트너 센터](https://partnercenter.microsoft.com/partner/home)합니다. 조정 파일 매월 업데이트 됩니다. 최근 Azure 스택 사용 정보에 액세스 해야 할 경우에 파트너 센터 Api를 사용할 수 있습니다.
 
    ![파트너 센터](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Azure 스택 개발 키트에 대 한 Azure 스택 리소스는 가격이 $0.00�
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Azure 스택에서 사용 하려는 하는 경우 Windows Server 라이선스 아니오, 어떻게 하나요?
 
-기존 라이선스를 사용 하 여 사용 미터 생성을 방지 합니다. "Azure 스택 기존 소프트웨어 사용" 섹션에 설명 된 대로 Azure 스택에서 기존 Windows Server 라이선스를 사용할 수 있습니다 [Azure 스택 라이선스 가이드](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)합니다. 고객에 설명 된 대로 Windows Server 가상 컴퓨터를 배포할 필요가 [Windows Server 라이선스에 대 한 하이브리드 혜택](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 하 여 기존 라이선스를 사용 하려면 항목입니다.
+기존 라이선스를 사용 하 여 사용 미터 생성을 방지 합니다. "Azure 스택 기존 소프트웨어 사용" 섹션에 설명 된 대로 Azure 스택에서 기존 Windows Server 라이선스를 사용할 수 있습니다 [Azure 스택 라이선스 가이드](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)합니다. 고객에 설명 된 대로 Windows Server 가상 컴퓨터를 배포할 필요가 [Windows Server 라이선스에 대 한 하이브리드 혜택](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) 하 여 기존 라이선스를 사용 하려면 항목입니다.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>구독 리소스를 사용 요금이 부과 됩니다.
 때 제공 되는 구독 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md) 요금이 부과 됩니다.
@@ -97,7 +97,7 @@ Azure 스택 개발 키트 사용 데이터 보고 글로벌 Azure 시스템에�
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>사용자 수는 Azure 결제 포털에서 Azure 스택 사용 현황 데이터를 식별 하는 방법
 
-사용 현황 세부 정보 파일에 Azure 스택 사용 현황 데이터를 볼 수 있습니다. 사용 현황 세부 정보 파일을 가져오는 방법에 대해 알아야 참조는 [Azure 계정 센터 문서에서 사용 현황 파일 다운로드](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)합니다. 사용 현황 세부 정보 파일에는 Vm 및 Azure 스택 저장소 식별 하는 Azure 스택 미터 포함 되어 있습니다. "Azure 스택 합니다." 라는 지역에서 Azure 스택에서 사용 되는 모든 리소스는 보고 되는
+사용 현황 세부 정보 파일에 Azure 스택 사용 현황 데이터를 볼 수 있습니다. 사용 현황 세부 정보 파일을 가져오는 방법에 대해 알아야 참조는 [Azure 계정 센터 문서에서 사용 현황 파일 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)합니다. 사용 현황 세부 정보 파일에는 Vm 및 Azure 스택 저장소 식별 하는 Azure 스택 미터 포함 되어 있습니다. "Azure 스택 합니다." 라는 지역에서 Azure 스택에서 사용 되는 모든 리소스는 보고 되는
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Azure 스택에 보고를 사용 하지 않는 r e 계정 센터에서 생성 된 보고서를 일치 하는 이유
 

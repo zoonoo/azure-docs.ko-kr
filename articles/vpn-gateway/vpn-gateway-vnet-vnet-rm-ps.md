@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 이 문서의 단계는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [쉬운 테이블](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -59,13 +59,17 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ## <a name="which-set-of-steps-should-i-use"></a>어느 단계 집합을 사용해야 합니까?
 
-이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. 일련의 단계는 [동일한 구독에 상주하는 VNet](#samesub)이고 다른 단계는 [다른 구독에 상주하는 VNet](#difsub)입니다. 둘 사이의 주요 차이점은 동일한 PowerShell 세션 내에서 모든 가상 네트워크 및 게이트웨이 리소스를 생성하고 구성할 수 있는지 여부입니다.
-
-이 문서의 단계는 각 섹션의 시작 부분에 선언된 변수를 사용합니다. 기존 VNet을 이미 사용하는 경우 변수를 수정하여 고유한 환경에 설정을 적용합니다. 가상 네트워크의 이름 확인을 원하는 경우 [이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
-
-## <a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
+이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. [동일한 구독에 상주하는 VNet](#samesub)에 대한 단계 집합. 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
 
 ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+[다른 구독에 상주하는 VNet](#difsub)에 대한 별도의 문서가 있습니다. 그 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
+
+![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+둘 사이의 주요 차이점은 동일한 PowerShell 세션 내에서 모든 가상 네트워크 및 게이트웨이 리소스를 생성하고 구성할 수 있는지 여부입니다. 다른 구독에 상주하는 VNet에 대한 연결을 구성할 때 별도의 PowerShell 세션을 사용합니다. 좋아하는 구성을 결합하거나 또는 단지 사용하려는 것을 선택할 수 있습니다.
+
+## <a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
@@ -90,7 +94,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 * 공용 IP: VNet1GWIP
 * VpnType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
-* 연결(1 대 5): VNet1 대 VNet5
+* 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
 * 연결 유형: VNet 간
 
 **TestVNet4에 대한 값:**
@@ -279,8 +283,6 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
 4. 연결을 확인합니다. [연결을 확인하는 방법](#verify)섹션을 참조하세요.
 
 ## <a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
-
-![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 이 시나리오에서는 TestVNet1 및 TestVNet5를 연결합니다. TestVNet1 및 TestVNet5는 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 이러한 단계와 이전 집합의 차이점은 일부 구성 단계가 두 번째 구독 환경에서 별도의 PowerShell 세션으로 수행되어야 한다는 것입니다. 특히 두 구독이 다른 조직에 속한 경우입니다.
 

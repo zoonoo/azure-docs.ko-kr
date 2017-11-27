@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35c9da37a3e21a0b98928f6c1a7c6df1630e69c1
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure portal
 
-이 문서에서는 Resource Manager 배포 모델에서 PowerShell을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성에서는 인증에 인증서를 사용합니다. 이 구성에서 Azure VPN Gateway는 RADIUS 서버 대신 인증서의 유효성 검사를 수행합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델에서 Azure Portal을 사용하여 지점 및 사이트 간 연결로 VNet을 만드는 방법을 보여줍니다. 이 구성에서는 인증에 인증서를 사용합니다. 이 구성에서 Azure VPN Gateway는 RADIUS 서버 대신 인증서의 유효성 검사를 수행합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [쉬운 테이블](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >

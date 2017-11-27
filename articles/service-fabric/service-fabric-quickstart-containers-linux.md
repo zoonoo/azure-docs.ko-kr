@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 참조하세요.
+CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure 명령줄 인터페이스 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="get-application-package"></a>응용 프로그램 패키지 가져오기
 Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 응용 프로그램에 대해 설명하는 매니페스트 파일(응용 프로그램 정의)의 집합이 필요합니다.
@@ -59,7 +59,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 유지 관리합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
 
-사용자 고유의 클러스터를 만드는 방법은 [Azure에서 첫 번째 Service Fabric 클러스터 만들기](service-fabric-get-started-azure-cluster.md)를 참조하세요.
+사용자 고유의 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 > [!Note]
 > 웹 프런트 엔드 서비스는 들어오는 트래픽에 대해 포트 80에서 수신 대기하도록 구성됩니다. 클러스터에 대해 포트가 열려 있는지 확인합니다. 파티 클러스터를 사용하는 경우 이 포트가 열려 있습니다.

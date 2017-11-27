@@ -35,4 +35,5 @@
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[웹 테이블(HTML 테이블)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
