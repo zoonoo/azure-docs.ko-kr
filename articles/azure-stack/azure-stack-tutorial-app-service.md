@@ -1,6 +1,6 @@
 ---
-title: "사용자에 게 웹, 모바일 및 API 앱 사용할 수 있는 Azure 스택 | Microsoft Docs"
-description: "앱 서비스 리소스 공급자를 설치 하 고 만드는 자습서 웹, 모바일, 만들 수 있는 기능 및 API 앱에 Azure 스택 사용자가 제공 하는 것을 제공 합니다."
+title: "사용자에 게 웹 및 API 앱 사용할 수 있는 Azure 스택 | Microsoft Docs"
+description: "앱 서비스 리소스 공급자를 설치 하 고 만드는 자습서에서는 Azure 스택 사용자를 제공 하는 웹 및 API 앱을 만들 수를 제공 합니다."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>사용자에 게 웹, 모바일 및 API 앱 사용할 수 있는 Azure 스택
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>사용자에 게 웹 및 API 앱 사용할 수 있는 Azure 스택
 
-Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있습니다 (테 넌 트) Azure 함수 및 웹, 모바일 및 API 응용 프로그램을 만듭니다. 사용자에 게 이러한 주문형, 클라우드 기반 앱에 대 한 액세스를 제공 함으로써 시간과 리소스가 저장할 수 있습니다. 이 설정 하려면 다음을 수행 합니다.
+Azure 스택 클라우드 관리자로 서 사용자가 제공을 만들 수 있습니다 (테 넌 트) Azure 함수 및 웹 및 API 응용 프로그램을 만듭니다. 사용자에 게 이러한 주문형, 클라우드 기반 앱에 대 한 액세스를 제공 함으로써 시간과 리소스가 저장할 수 있습니다. 이 설정 하려면 다음을 수행 합니다.
 
 > [!div class="checklist"]
 > * 앱 서비스 리소스 공급자를 배포

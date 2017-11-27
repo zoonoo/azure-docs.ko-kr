@@ -13,33 +13,101 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [버전 2 - 미리 보기](quickstart-create-data-factory-dot-net.md)
 
-Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다. 
-
-이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리의 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 복사합니다.
+이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요. 
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 시작](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요.
+>
+> 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하여 하나 만듭니다. 
-* Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
-* **Visual Studio** 2013, 2015 또는 2017 - 이 문서의 연습에서는 Visual Studio 2017을 사용합니다.
-* **[Azure .NET SDK](http://azure.microsoft.com/downloads/)를 다운로드 및 설치합니다**.
-* [이러한 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중에 사용하는 다음 값을 기록해 둡니다. **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID**. 동일한 문서의 지침에 따라 응용 프로그램을 “**참가자**” 역할에 할당합니다. 
-*  
+
+### <a name="azure-subscription"></a>Azure 구독
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+### <a name="azure-roles"></a>Azure 역할
+Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다. Azure Portal에서 오른쪽 위 모서리에 있는 **사용자 이름**을 클릭한 다음 **권한**을 선택하면 구독에 따른 사용자 권한을 볼 수입니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 사용자를 역할에 추가하는 방법에 대한 샘플 지침은 [역할 추가](../billing/billing-add-change-azure-subscription-administrator.md) 문서를 참조하세요.
+
+### <a name="azure-storage-account"></a>Azure Storage 계정
+이 빠른 시작에서는 범용 Azure Storage 계정(특히 Blob Storage)을 **원본** 및 **대상** 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하여 새로 만듭니다. 
+
+#### <a name="get-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
+이 빠른 시작에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음 프로시저에서는 저장소 계정 이름 및 키를 가져오는 단계를 제공합니다. 
+
+1. 웹 브라우저를 시작하고 [Azure Portal](https://portal.azure.com)로 이동합니다. Azure 사용자 이름과 암호를 사용하여 로그인합니다. 
+2. 왼쪽 메뉴에서 **더 많은 서비스>**를 클릭하고 **저장소** 키워드를 사용하여 필터링하고 **저장소 계정**을 선택합니다.
+
+    ![저장소 계정 검색](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
+3. 저장소 계정 목록에서 저장소 계정(필요한 경우)을 필터링한 다음 **저장소 계정**을 선택합니다. 
+4. **저장소 계정** 페이지의 메뉴에서 **액세스 키**를 선택합니다.
+
+    ![저장소 계정 이름 및 키 가져오기](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
+5. **저장소 계정 이름** 및 **key1** 필드의 값을 클립보드에 복사합니다. 메모장이나 다른 편집기에 붙여넣고 저장합니다.  
+
+#### <a name="create-input-folder-and-files"></a>입력 폴더 및 파일 만들기
+이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다. 그런 다음 컨테이너에 **입력**이라는 폴더를 만든 다음 입력 폴더에 샘플 파일을 업로드합니다. 
+
+1. **저장소 계정** 페이지에서 **개요**로 전환한 다음, **Blobs**을 클릭합니다. 
+
+    ![Blob 옵션 선택](media/quickstart-create-data-factory-dot-net/select-blobs.png)
+2. **Blob service** 페이지의 도구 모음에서 **+ 컨테이너**를 클릭합니다. 
+
+    ![컨테이너 단추 추가](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. **새 컨테이너** 대화 상자에서 **adftutorial**을 이름으로 입력하고 **확인**을 클릭합니다. 
+
+    ![컨테이너 이름 입력](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. 컨테이너 목록에서 **adftutorial**을 클릭합니다. 
+
+    ![컨테이너를 선택합니다.](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. **컨테이너** 페이지의 도구 모음에서 **업로드**를 클릭합니다.  
+
+    ![업로드 단추](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
+6. **BLOB 업로드** 페이지에서 **고급**을 클릭합니다.
+
+    ![고급 링크 클릭합니다.](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
+7. **메모장**을 시작하고 다음과 같은 내용으로 **emp.txt**이라는 파일을 만듭니다: 그것을 **c:\ADFv2QuickStartPSH** 폴더에 저장합니다: **ADFv2QuickStartPSH** 폴더가 아직 없는 경우 새로 만듭니다.
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+8. Azure Portal의 **BLOB 업로드** 페이지에서 **파일** 필드에 대해 **emp.txt** 파일을 탐색 및 선택합니다. 
+9. **입력**을 **폴더로 업로드** 필드 값으로 입력합니다. 
+
+    ![BLOB 업로드 설정](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
+10. 폴더는 **입력**이고 파일은 **emp.txt**인지 확인한 후 **업로드**를 클릭합니다.
+11. 목록에서 **emp.txt** 파일 및 업로드 상태를 참조하세요. 
+12. 모서리에 있는 **X**를 클릭하여 **BLOB 업로드** 페이지를 닫습니다. 
+
+    ![BLOB 업로드 닫기](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
+1. **컨테이너** 페이지를 열린 상태로 유지합니다. 이 빠른 시작의 끝부분에서 출력을 확인하는 데 사용합니다.
+
+### <a name="visual-studio"></a>Visual Studio
+이 문서의 연습에서는 Visual Studio 2017을 사용합니다. 또한 Visual Studio 2013 또는 2015를 사용할 수 있습니다.
+
+### <a name="azure-net-sdk"></a>Azure .NET SDK
+[Azure .NET SDK](http://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
+다음 작업을 수행하기 위해 [이 문서](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)의 지침을 따름: 
+
+1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 응용 프로그램을 나타내는 Microsoft Azure Active Directory에 응용 프로그램을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
+2. 문서의 **응용 프로그램 ID 및 인증 키 가져오기** 섹션에 나오는 지침을 사용하여 **응용 프로그램 ID** 및 **인증 키****를 가져옵니다. 이 자습서에서 나중에 사용할 이러한 값을 적어둡니다. 
+3. 문서의 **테넌트 ID 가져오기** 섹션에 나오는 지침을 사용하여 **테넌트 ID**를 가져옵니다. 이 값을 적어둡니다. 
+4. 응용 프로그램이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 응용 프로그램을 **참여자** 역할에 할당합니다. 문서의 **응용 프로그램을 역할에 할당하기** 섹션에 나오는 지침을 따릅니다. 
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -253,7 +321,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>파이프라인 실행 모니터링
 
-1. **Main** 메서드에 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행의 상태를 검사합니다.
+1. **Main** 메서드에 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 상태를 검사합니다.
 
     ```csharp
     // Monitor the pipeline run
@@ -397,8 +465,18 @@ Checking copy activity run details...
 }
 
 Press any key to exit...
-
 ```
+
+## <a name="verify-the-output"></a>출력 확인
+파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
+
+1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 출력 폴더를 보려면 **새로 고침**을 클릭합니다. 
+    
+    ![새로 고침](media/quickstart-create-data-factory-dot-net/output-refresh.png)
+2. 폴더 목록에서 **출력**을 클릭합니다. 
+2. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
+
+    ![새로 고침](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 데이터 팩터리를 프로그래밍 방식으로 삭제하려면 프로그램에 다음 코드 줄을 추가합니다. 

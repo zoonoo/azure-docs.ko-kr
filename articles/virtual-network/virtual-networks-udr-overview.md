@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -118,7 +118,7 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 온-프레미스 네트워크 게이트웨이는 BGP(Border Gateway Protocol)를 사용하여 Azure 가상 네트워크 게이트웨이와 경로를 교환할 수 있습니다. Azure 가상 네트워크 게이트웨이에서 BGP를 사용하는 것은 게이트웨이를 만들 때 선택한 유형에 따라 다릅니다. 선택한 유형이 다음과 같을 경우:
 
-- **ExpressRoute**: Microsoft Edge 라우터에 경로를 보급하려면 BGP를 사용해야 합니다. ExpressRoute 유형으로 배포된 가상 네트워크 게이트웨이를 배포하는 경우 사용자 정의 경로를 만들 수 없습니다.
+- **ExpressRoute**: Microsoft Edge 라우터에 온-프레미스 경로를 보급하려면 BGP를 사용해야 합니다. ExpressRoute 유형으로 배포된 가상 네트워크 게이트웨이를 배포하는 경우 ExpressRoute 가상 네트워크 게이트웨이로 트래픽을 강제하기 위해 사용자 정의 경로를 만들 수 없습니다. Express Route에서 트래픽을 예를 들어 Network Virtual Appliance로 강제 적용하려면 사용자 정의 경로를 사용할 수 있습니다. 
 - **VPN**: 필요에 따라 BGP를 사용할 수 있습니다. 자세한 내용은 [사이트 간 VPN 연결에서 BGP 사용](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 대한 별도의 경로가 가상 네트워크에 있는 모든 서브넷의 경로 테이블에 추가됩니다. 원본 및 다음 홉 유형으로 나열되는 *가상 네트워크 게이트웨이*가 포함된 경로가 추가됩니다. 
@@ -200,7 +200,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet1*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|ID  |원본 |시스템 상태  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
+|ID  |원본 |state  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |기본값|올바르지 않음|10.0.0.0/16         |가상 네트워크        |                   |              |
 |2   |사용자   |Active |10.0.0.0/16         |가상 어플라이언스      |10.0.100.4         |Within-VNet1  |
@@ -234,7 +234,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet2*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|원본  |시스템 상태  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
+|원본  |state  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
 |------- |-------|------              |-------                   |--------           
 |기본값 |Active |10.0.0.0/16         |가상 네트워크           |                   |
 |기본값 |Active |10.1.0.0/16         |VNet 피어링              |                   |

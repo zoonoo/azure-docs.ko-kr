@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB 테이블 API 소개 | Microsoft Docs"
 description: "인기 있는 OSS MongoDB API를 사용하여 대기 시간이 짧은 엄청난 양의 키-값 데이터를 저장하고 쿼리하는 데 Azure Cosmos DB를 사용하는 방법을 알아봅니다."
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 87e5555b282ca8efb8d8d3ed7938df94faffb102
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/20/2017
+ms.author: mimig1
+ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 테이블 API 소개
 
@@ -55,6 +55,10 @@ Aravind Ramachandran이 Azure Cosmos DB 테이블 API를 시작하는 방법을 
 ## <a name="get-started"></a>시작
 
 [Azure Portal](https://portal.azure.com)에서 새 Azure Cosmos DB 계정을 만듭니다. 그런 다음 [.NET을 사용하여 테이블 API에 대한 빠른 시작](create-table-dotnet.md)을 시작합니다. 
+
+> [!IMPORTANT]
+> 미리 보기 도중에 Table API 계정을 만든 경우 일반 공급되는 Table API SDK와 작동하는 [새 Table API 계정](create-table-dotnet.md#create-a-database-account)을 만드세요.
+>
 
 ## <a name="next-steps"></a>다음 단계
 

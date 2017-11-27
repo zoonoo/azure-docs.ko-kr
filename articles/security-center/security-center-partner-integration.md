@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -44,7 +44,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
 | Trend Micro - 모든 버전         | Windows Server 제품군                 | 확장을 통해                | 예                       |
-| Symantec v12+                     | Windows Server 제품군                 | 아니요                           | 예                        |
+| Symantec v12.1.1100+                     | Windows Server 제품군                 | 아니요                           | 예                        |
 | MacAfee                           | Windows Server 제품군                 | 아니요                           | 아니요                        |
 | Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
 | Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |

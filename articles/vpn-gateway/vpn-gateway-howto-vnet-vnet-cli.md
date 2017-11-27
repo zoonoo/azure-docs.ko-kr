@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 이 문서의 단계는 Resource Manager 배포 모델에 적용되며 Azure CLI를 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [쉬운 테이블](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -59,11 +59,17 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ### <a name="which-set-of-steps-should-i-use"></a>어느 단계 집합을 사용해야 합니까?
 
-이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. 일련의 단계는 [동일한 구독에 상주하는 VNet](#samesub)이고 다른 단계는 [다른 구독에 상주하는 VNet](#difsub)입니다.
-
-## <a name="samesub"></a>같은 구독에 있는 VNet 연결
+이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. [동일한 구독에 상주하는 VNet](#samesub)에 대한 단계 집합. 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
 
 ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+[다른 구독에 상주하는 VNet](#difsub)에 대한 별도의 문서가 있습니다. 그 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
+
+![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+좋아하는 구성을 결합하거나 또는 단지 사용하려는 것을 선택할 수 있습니다.
+
+## <a name="samesub"></a>같은 구독에 있는 VNet 연결
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
@@ -88,7 +94,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 * 공용 IP: VNet1GWIP
 * VpnType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
-* 연결(1 대 5): VNet1 대 VNet5
+* 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
 * 연결 유형: VNet 간
 
 **TestVNet4에 대한 값:**
@@ -255,8 +261,6 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ## <a name="difsub"></a>다른 구독에 있는 VNet 연결
 
-![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 이 시나리오에서는 TestVNet1 및 TestVNet5를 연결합니다. VNet이 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 이 구성 단계에서는 TestVNet1을 TestVNet5에 연결하기 위해 VNet 간 연결을 추가합니다.
 
 ### <a name="TestVNet1diff"></a>5단계 - TestVNet1 만들기 및 구성
@@ -362,7 +366,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 ## <a name="verify"></a>연결 확인
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet 간 FAQ
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

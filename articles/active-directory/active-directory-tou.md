@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory 사용 약관 기능(미리 보기)
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다.  이렇게 하면 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있습니다.
@@ -43,7 +43,8 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 2. 디렉터리에 Azure AD Premium P1, P2, EMS E3 또는 EMS E5 구독이 있는지 확인합니다.  [Azure AD Premium 다운로드](active-directory-get-started-premium.md) 또는 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 수행하지 않는 경우
 3. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure AD 사용 약관 대시보드를 확인합니다.
 
-
+>[!IMPORTANT]
+>조건부 액세스 정책 제어(사용 조건 포함)는 서비스 계정에 적용을 지원하지 않습니다.  우리는 조건부 액세스 정책에서 모든 서비스 계정을 배제하도록 추천합니다.
 
 ## <a name="add-company-terms-of-use"></a>회사 사용 약관 추가
 사용 약관을 완성했으면 다음 절차에 따라 추가합니다.
@@ -92,7 +93,6 @@ Azure AD 사용 약관은 누가, 언제 사용 약관에 동의했는지를 볼
 
 ## <a name="additional-information"></a>추가 정보
 다음 정보를 알고 있어야 하며 사용 약관을 사용하는 데 도움이 될 수 있습니다.
-
 
 범위에 있는 사용자는 다음과 같은 경우 새 정책을 충족하기 위해 로그아웃 및 로그인해야 합니다.
  - 사용 약관에 조건부 액세스 정책이 설정된 경우

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure 스택 Azure 구독에 등록
 
@@ -42,22 +42,6 @@ Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.
 이러한 요구 사항을 충족 하는 Azure 구독에 없으면 다음을 할 수 있습니다 [여기 무료 Azure 계정을 만들](https://azure.microsoft.com/en-us/free/?b=17.06)합니다. Azure 스택 등록 무료로 Azure 구독에서 발생 합니다.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Azure에서 Azure 스택 리소스 공급자 등록
-> [!NOTE] 
-> 이 단계는 Azure 스택 환경에서 한 번만 완료 해야 합니다.
->
-
-1. 관리자 권한으로 Powershell 세션을 시작 합니다.
-2. Azure 구독 (로그인 하 고 로그인 할 때는-EnvironmentName 매개 변수 "azure 클라우드"를 설정 했는지 확인 하려면 로그인 AzureRmAccount cmdlet 사용 가능)의 소유자가 있는 Azure 계정에 로그인 합니다.
-3. "Microsoft.AzureStack" Azure 리소스 공급자 등록
-
-**예제:** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Azure 스택 Azure 등록
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. 관리자 권한으로 PowerShell 콘솔을 열고 및 [Azure 스택에 대 한 PowerShell을 설치](azure-stack-powershell-install.md)합니다.  
 
-2. Azure 스택을 등록 하는 데 사용할 Azure 계정을 추가 합니다. 이 작업을 수행 하려면 실행의 `Add-AzureRmAccount` 매개 변수 없이 cmdlet. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다.  
+2. Azure 스택을 등록 하는 데 사용할 Azure 계정을 추가 합니다. 이 작업을 수행 하려면 실행의 `Add-AzureRmAccount` EnvironmentName 매개 변수를 사용 하 여 cmdlet "azure"클라우드로 설정 합니다. Azure 계정 자격 증명을 입력 하는 메시지가 및 사용자 계정 구성에 따라 2 단계 인증을 사용 하 여 할 수 있습니다. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. 여러 구독이 있는 경우 사용 하려는 목록을 선택 하려면 다음 명령을 실행 합니다.  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. 등록에 해당 하는 Powershell 모듈의 기존 버전을 모두 삭제 하 고 [GitHub에서 최신 버전을 다운로드](azure-stack-powershell-download.md)합니다.  
+4. Azure 구독에서 AzureStack 리소스 공급자를 등록 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
-5. 이전 단계에서 만든 "AzureStack 도구 마스터" 디렉터리에서 "등록" 폴더로 이동 하 고 ".\RegisterWithAzure.psm1" 모듈을 가져옵니다.  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. 등록에 해당 하는 Powershell 모듈의 기존 버전을 모두 삭제 하 고 [GitHub에서 최신 버전을 다운로드](azure-stack-powershell-download.md)합니다.  
+
+6. 이전 단계에서 만든 "AzureStack 도구 마스터" 디렉터리에서 "등록" 폴더로 이동 하 고 ".\RegisterWithAzure.psm1" 모듈을 가져옵니다.  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. 동일한 PowerShell 세션에서 다음 스크립트를 실행 합니다. 자격 증명을 묻는 메시지가 나타나면 지정 `azurestack\cloudadmin` 사용자 및 암호 기능 중에 사용한 로컬 관리자에 대 한 배포 하는 것과 같습니다.  
+7. 동일한 PowerShell 세션에서 다음 스크립트를 실행 합니다. 자격 증명을 묻는 메시지가 나타나면 지정 `azurestack\cloudadmin` 사용자 및 암호 기능 중에 사용한 로컬 관리자에 대 한 배포 하는 것과 같습니다.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | 미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능은 배포 작업입니다. 개발 키트에 대 한 권한 있는 끝점 "AzS ERCS01" 가상 컴퓨터에서 호스팅됩니다. 통합된 시스템을 사용 하는 경우이 값을 가져오기 귀하가 Azure 스택 운영자를 게 문의 하십시오. 자세한 내용은를 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md) 항목입니다.|
    | BillingModel | 구독을 사용 하는 청구 모델입니다. 이 매개 변수는 "Capacity" 차원, "PayAsYouUse" 및 "개발"에 대 한 값을 허용 합니다. 개발 키트에 대 한이 값은 "개발"로 설정 됩니다. 통합된 시스템을 사용 하는 경우이 값을 가져오기 귀하가 Azure 스택 운영자를 게 문의 하십시오. |
 
-7. 스크립트가 완료 되는 메시지가 나타납니다. "활성 중 Azure 스택 (이 단계를 완료 하려면 최대 10 분까지 걸릴 수 있음)." 
+8. 스크립트가 완료 되는 메시지가 나타납니다. "활성 중 Azure 스택 (이 단계를 완료 하려면 최대 10 분까지 걸릴 수 있음)." 
 
 ## <a name="verify-the-registration"></a>등록 확인
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: d4a216b612274ff1de499bd4892ff7422c66b4d0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="network-security"></a>네트워크 보안
 
@@ -50,11 +50,11 @@ ms.lasthandoff: 11/16/2017
 |---------|---------|
 |이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
-|원본 또는 대상| 모두 또는 개별 IP 주소, CIDR 블록(예: 예제 10.0.0.0/24), 서비스 태그 또는 응용 프로그램 보안 그룹입니다. [태그 서비스](#service-tags) 및 [응용 프로그램 보안 그룹](#application-security-groups)에 대해 자세히 알아봅니다. 범위, 서비스 태그 또는 응용 프로그램 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)은 미리 보기 릴리스 상태이며 보강된 보안 규칙이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다.|
+|원본 또는 대상| 모두 또는 개별 IP 주소, CIDR 블록(예: 예제 10.0.0.0/24), 서비스 태그 또는 응용 프로그램 보안 그룹입니다. [태그 서비스](#service-tags) 및 [응용 프로그램 보안 그룹](#application-security-groups)에 대해 자세히 알아봅니다. 범위, 서비스 태그 또는 응용 프로그램 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)은 보강된 보안 규칙이라고 합니다. [보강된 보안 규칙](#augmented-security-rules)에 관해 자세히 알아보세요. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다.|
 |프로토콜     | TCP, UDP 또는 TCP, UDP 및 ICMP를 포함하는 모두입니다. 단독으로 ICMP를 지정할 수 없으므로 ICMP가 필요한 경우 모두를 사용합니다. |
 |방향| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 포트와 포트 범위를 지정하는 기능은 미리 보기 릴리스 상태이며 보강된 보안 규칙으로 참조됩니다. 보강된 보안 규칙을 사용하기 전에 중요한 정보는 [미리 보기 기능](#preview-features)을 참고하세요. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
-|동작     | 허용 또는 거부        |
+|작업     | 허용 또는 거부        |
 
 보안 규칙은 상태 저장입니다. 예를 들어 포트 80을 통해 모든 주소에 대한 아웃바운드 보안 규칙을 지정하는 경우 아웃바운드 트래픽에 대한 응답에 인바운드 보안 규칙을 지정하지 않아도 됩니다. 통신이 외부에서 시작된 경우 인바운드 보안 규칙을 지정하기만 하면 됩니다. 반대의 경우도 마찬가지입니다. 포트를 통해 인바운드 트래픽이 허용되는 경우 포트를 통해 트래픽에 응답하도록 아웃바운드 보안 규칙을 지정하지 않아도 됩니다. 보안 규칙을 만들 경우 제한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/16/2017
 
 보강된 규칙은 가상 네트워크에 대한 보안 정의를 간소화하여 더 적은 규칙으로 크고 복잡한 네트워크 보안 정책을 정의할 수 있도록 합니다. 여러 개의 포트, 여러 개의 명시적 IP 주소, 서비스 태그 및 응용 프로그램 보안 그룹을 이해하기 쉬운 단일 보안 규칙으로 결합할 수 있습니다. 규칙의 원본, 대상 및 포트 필드에서 보강된 규칙을 사용합니다. 규칙을 만들 때 여러 명시적 IP 주소, CIDR 범위 및 포트를 지정할 수 있습니다. 보안 규칙 정의를 간단히 유지 관리하려면 보강된 보안 규칙을 서비스 태그 또는 응용 프로그램 보안 그룹과 결합합니다. 
 
-보강된 보안 규칙은 미리 보기 릴리스에서 사용할 수 있습니다. 보강된 보안 규칙을 만들 경우 제한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 이 기능은 다음 지역에서만 사용할 수 있습니다. 미국 동부, 미국 서부, 미국 서부 2, 미국 중서부, 오스트레일리아 동부, 오스트레일리아 동남부 및 영국 남부
+보강된 보안 규칙을 만들 경우 제한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
 ## <a name="default-security-rules"></a>기본 보안 규칙
 
@@ -119,15 +119,12 @@ ms.lasthandoff: 11/16/2017
 * **VirtualNetwork**(*Resource Manager) (클래식의 경우* *VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링된](virtual-network-peering-overview.md) 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
 * **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, 태그는 Azure의 상태 검색이 시작되는 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
 * **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
-* **AzureTrafficManager**(Resource Manager에만 해당): 이 태그는 Azure Traffic Manager 서비스의 IP 주소 공간을 나타냅니다.
-* **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 사용할 수 있는 추가 지역 서비스 태그: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS 및 Storage.WestUS2 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다.
-* **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 이 서비스 태그에 특정 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 모든 Azure 지역에 Sql을 지정할 수 없습니다. 지역을 개별적으로 지정해야 합니다. 사용 가능한 다른 지역 서비스 태그: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS, and Sql.WestUS2 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure SQL Database가 아닌 Azure SQL Database 서비스를 나타냅니다.
-
-> [!WARNING]
-> AzureTrafficManager, Storage 및 Sql 서비스 태그는 미리 보기 릴리스에서 제공됩니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 서비스 태그는 다음 지역에서만 사용할 수 있습니다. 미국 동부, 미국 서부, 미국 서부 2, 미국 중서부, 오스트레일리아 동부, 오스트레일리아 동남부 및 영국 남부
+* **AzureTrafficManager**(Resource Manager에만 해당): 이 태그는 Azure Traffic Manager 서비스의 IP 주소 공간을 나타냅니다. 이 태그는 미리 보기에서 사용할 수 있습니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다.
+* **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그는 미리 보기에서 사용할 수 있습니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다.
+* **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 미리 보기에서 사용할 수 있습니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다.
 
 > [!NOTE]
-> Azure Storage 또는 Azure SQL Database와 같은 서비스에 가상 네트워크 서비스 끝점을 구현하는 경우 Azure는 서비스의 가상 네트워크 서브넷에 경로를 추가합니다. 경로의 주소 접두사는 해당하는 서비스 태그와 동일한 주소 접두사 또는 CIDR 범위입니다.
+> Azure Storage 또는 Azure SQL Database와 같은 서비스에 [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 구현하는 경우 Azure는 서비스의 가상 네트워크 서브넷에 경로를 추가합니다. 경로의 주소 접두사는 해당하는 서비스 태그와 동일한 주소 접두사 또는 CIDR 범위입니다.
 
 ## <a name="application-security-groups"></a>응용 프로그램 보안 그룹
 
@@ -144,13 +141,11 @@ ms.lasthandoff: 11/16/2017
  
 응용 프로그램 보안 그룹을 만들고 보안 규칙에서 지정하는 경우 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md#powershell)의 1~5단계를 완료하여 사용하도록 등록하고 중요한 정보는 [미리 보기 기능](#preview-features)을 참고해야 합니다. 응용 프로그램 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
+응용 프로그램 보안 그룹은 미리 보기 릴리스에서 사용할 수 있습니다. 미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 응용 프로그램 보안 그룹을 사용하기 전에 [응용 프로그램 보안 그룹에서 네트워크 보안 그룹 만들기](create-network-security-group-preview.md)의 Azure 또는 PowerShell에서 1~5단계를 완료하여 사용하도록 등록해야 합니다. 응용 프로그램 보안 그룹에는 다음과 같은 제약 사항이 있습니다.
 
 -   응용 프로그램 보안 그룹 내의 모든 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 서로 다른 가상 네트워크의 네트워크 인터페이스를 동일한 응용 프로그램 보안 그룹에 추가할 수 없습니다. 응용 프로그램 보안 그룹에 할당된 첫 번째 네트워크 인터페이스가 있는 가상 네트워크는 이후 할당된 모든 네트워크 인터페이스가 있어야 하는 가상 네트워크를 정의합니다.
 - 응용 프로그램 보안 그룹을 보안 규칙의 원본 및 대상으로 지정하는 경우 두 응용 프로그램 보안 그룹에 있는 네트워크 인터페이스는 동일한 가상 네트워크에 있어야 합니다. 예를 들어, ASG1이 VNet1에서 네트워크 인터페이스를 포함하고 ASG2가 VNet2에서 네트워크 인터페이스를 포함하는 경우 규칙에서 ASG1을 원본으로 ASG2를 대상으로 할당할 수 없으며 모든 네트워크 인터페이스는 VNet1에 있어야 합니다. 
-
-미리 보기의 기능은 일반 릴리스의 기능과 동일한 수준의 가용성 및 안정성을 제공하지 않습니다. 응용 프로그램 보안 그룹을 사용하기 전에 먼저 사용하도록 등록해야 합니다. 기능은 미국 중서부 지역에서만 사용할 수 있습니다.
-
+- 미국 중서부 지역에서만 사용할 수 있습니다.
 
 ## <a name="azure-platform-considerations"></a>Azure 플랫폼 고려 사항
 

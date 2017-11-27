@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
 이 문서에서는 Azure Portal을 사용하여 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway 연결을 만드는 방법을 보여줍니다. 이 문서의 단계는 Resource Manager 배포 모델에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [쉬운 테이블](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -50,15 +50,13 @@ ms.lasthandoff: 10/27/2017
 이 문서의 예제에서는 다음 값을 사용합니다. 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다. 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
 * **VNet 이름:** TestVNet1
-* **주소 공간:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16(이 연습의 선택 사항)
-* **서브넷:**
-  * 프런트 엔드: 10.11.0.0/24
-  * 백 엔드: 10.12.0.0/24(이 연습의 선택 사항)
-* **게이트웨이 서브넷:** 10.11.255.0/27
+* **주소 공간:** 10.11.0.0/16 및 10.12.0.0/16(이 연습의 선택 사항)
+* **구독:** 사용할 구독을 선택합니다.
 * **리소스 그룹:** TestRG1
 * **위치:** 미국 동부
+* **서브넷:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24(이 연습의 선택 사항)
+* **게이트웨이 서브넷 이름:** GatewaySubnet(포털에서 자동으로 채워짐)
+* **게이트웨이 서브넷 주소 범위:** 10.11.255.0/27
 * **DNS 서버:** 선택 사항입니다. DNS 서버의 IP 주소입니다.
 * **Virtual Network 게이트웨이 이름:** VNet1GW
 * **공용 IP:** VNet1GWIP
@@ -67,6 +65,7 @@ ms.lasthandoff: 10/27/2017
 * **게이트웨이 유형:** VPN
 * **로컬 네트워크 게이트웨이 이름:** Site2
 * **연결 이름:** VNet1toSite2
+* **공유 키:** 이 예제에서는 abc123을 사용합니다. 그러나 VPN 하드웨어와 호환이 되는 것이면 무엇이든 사용할 수 있습니다. 중요한 점은 값이 연결의 양쪽 모두에 일치합니다.
 
 ## <a name="CreatVNet"></a>1. 가상 네트워크 만들기
 
@@ -125,10 +124,21 @@ Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 �
 
 게이트웨이 SKU를 변경하는 단계는 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
+## <a name="addconnect"></a>VPN 게이트웨이에 추가 연결을 추가하는 방법
+
+어떤 주소 공간도 연결 간에 겹치지 않는다면 추가 연결을 추가할 수 있습니다.
+
+1. 추가 연결을 추가하려면 VPN 게이트웨이로 이동한 다음 **연결**을 클릭하여 연결 페이지를 엽니다.
+2. 사용자 연결을 추가하려면 **+ 추가**를 클릭합니다. VNet 간(다른 VNet 게이트웨이에 연결하는 경우) 또는 사이트 간을 reflect하려면 연결 유형을 조정합니다.
+3. 사이트 간을 이용하여 연결하고 연결하려는 사이트에 대한 로컬 네트워크 게이트웨이를 아직 만들지 않았다면, 새 게이트웨이를 만들 수 있습니다.
+4. 사용하려는 공유 키를 지정한 다음 연결을 만들려면 **확인**을 클릭합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 * 강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
 * 항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
+* 가상 네트워크에서 리소스에 네트워크 트래픽을 제한하는 방법에 관한 정보는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+* Azure에서 트래픽을 Azure, 온-프레미스 및 인터넷 리소스간에 라우팅하는 방법에 대한 정보는 [가상 네트워크 트래픽 라우팅](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 * Azure Resource Manager 템플릿을 사용하여 사이트 간 VPN 연결을 만드는 방법은 [사이트 간 VPN 연결 만들기](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)를 참조하세요.
 * Azure Resource Manager 템플릿을 사용하여 VNet 간 VPN 연결을 만드는 방법은 [HBase 지역 복제 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)를 참조하세요.

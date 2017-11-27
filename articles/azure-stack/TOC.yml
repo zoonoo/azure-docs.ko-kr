@@ -46,7 +46,7 @@
         - name: 배포
           href: azure-stack-run-powershell-script.md
         - name: 'PowerShell 설치 '
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: 등록
           href: azure-stack-register.md
         - name: Azure Stack에 연결

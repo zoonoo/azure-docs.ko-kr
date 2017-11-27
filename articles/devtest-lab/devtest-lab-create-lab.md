@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
 Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다. 이 문서는 Azure Portal을 사용하여 랩을 만드는 과정을 안내합니다.
@@ -49,7 +49,7 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
     4. **자동 종료** 를 선택하여 사용하려는지를 지정하고 랩의 VM을 모두 자동 종료하는 매개 변수를 정의할 수 있습니다. 자동 종료 기능은 주로 VM을 자동으로 종료하려는 경우를 지정할 수 있는 비용 절감 기능입니다. [Azure DevTest Labs에서 랩에 대한 모든 정책 관리](./devtest-lab-set-lab-policy.md#set-auto-shutdown) 문서에 간략히 나와 있는 단계에 따라 랩을 만든 후 자동 종료 설정을 변경할 수 있습니다.
     1. 랩에서 만들 모든 리소스에 추가되는 사용자 지정 태그를 만들려는 경우 **태그**에 대한 **이름** 및 **값** 정보를 입력합니다. 태그는 랩 리소스를 범주별으로 관리하고 구성하는 데 유용합니다. 랩에서 만든 후에 태그를 추가하는 방법을 포함하여 태그에 대한 자세한 내용은 [랩에 태그 추가](devtest-lab-add-tag.md)를 참조하세요.
     5. 랩 바로 가기를 포털 대시보드에 표시하려면 **대시보드에 고정**을 선택합니다.
-    6. 구성 자동화를 위한 Azure Resource Manager 템플릿을 가져오려면 **자동화 옵션**을 선택합니다. 
+    6. 구성 자동화를 위한 Azure Resource Manager 템플릿을 가져오려면 **Automation 옵션**을 선택합니다. 
     7. **만들기**를 선택합니다. **알림** 영역을 확인하여 랩 만들기 프로세스 상태를 모니터링할 수 있습니다. 완료되면 페이지를 새로 고쳐 랩 목록에서 새로 만들어진 랩을 볼 수 있습니다.  
     
     ![DevTest Labs의 랩 만들기 섹션](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
@@ -59,9 +59,9 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 ## <a name="next-steps"></a>다음 단계
 랩을 만들었으면 다음 단계를 고려 합니다.
 
-* [랩에 안전하게 액세스](devtest-lab-add-devtest-user.md).
-* [랩 정책 설정](devtest-lab-set-lab-policy.md).
-* [랩 템플릿 만들기](devtest-lab-create-template.md).
-* [VM에 대한 사용자 지정 아티팩트  만들기](devtest-lab-artifact-author.md).
-* [아티팩트가 지정된 VM을 랩에 추가](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
+* [랩에 대한 보안 액세스](devtest-lab-add-devtest-user.md)
+* [랩 정책 설정](devtest-lab-set-lab-policy.md)
+* [랩 템플릿 만들기](devtest-lab-create-template.md)
+* [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
+* [랩에 VM 추가](devtest-lab-add-vm.md)
 

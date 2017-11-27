@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning 미리 보기 계정 만들기 및 Azure Machine Learning Workbench 설치
-Azure Machine Learning은 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
+Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
 
 이 빠른 시작은 Azure Machine Learning 미리 보기에서 실험 및 모델 관리 계정을 만드는 방법을 보여줍니다. 또한 Azure Machine Learning Workbench 데스크톱 응용 프로그램 및 CLI 도구를 설치하는 방법을 보여 줍니다. 그런 다음 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/iris_flower_data_set)을 사용하여 일부 물리적 특성을 기반으로 아이리스 종류를 예측하는 모델을 만드는 Azure Machine Learning 미리 보기 기능을 둘러봅니다.  
 
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 Azure Machine Learning 계정을 프로비전합니
    리소스 그룹 | _리소스 그룹_ | 새 리소스 그룹 이름을 만들거나 구독에서 기존 이름을 사용할 수 있습니다.
    위치 | _사용자와 가장 가까운 지역_ | 사용자 및 데이터 리소스에 가장 가까운 위치를 선택합니다.
    사용자 수 | 2 | 사용자 수를 입력합니다. 이 선택 영역은 [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에 영향을 미칩니다. 처음 두 사용자는 무료입니다. 이 빠른 시작의 목적상 사용자 2명을 사용합니다. 나중에 Azure Portal에 필요한 대로 사용자 수를 업데이트할 수 있습니다.
-   Storage 계정 | _고유한 이름_ | **새로 만들기**를 선택하고 이름을 입력하여 Azure Storage 계정을 만듭니다. 또는 **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 저장소 계정을 선택합니다. 저장소 계정은 필수이며 프로젝트 아티팩트를 보유하고 기록 데이터를 실행하는 데 사용됩니다. 
+   저장소 계정 | _고유한 이름_ | **새로 만들기**를 선택하고 이름을 입력하여 Azure Storage 계정을 만듭니다. 또는 **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 저장소 계정을 선택합니다. 저장소 계정은 필수이며 프로젝트 아티팩트를 보유하고 기록 데이터를 실행하는 데 사용됩니다. 
    실험 계정에 대한 작업 영역 | _고유한 이름_ | 새 작업 영역의 이름을 입력합니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다.
    작업 영역에 대한 소유자 할당 | _사용자 계정_ | 자신의 계정을 작업 영역 소유자로 선택합니다.
    모델 관리 계정 만들기 | *확인* | 실험 계정 만들기 경험의 일부로 Machine Learning 모델 관리 계정을 만드는 옵션도 있습니다. 이 리소스는 모델을 실시간 웹 서비스로 배포하고 관리할 준비가 될 때 사용됩니다. 모델 관리 계정을 실험 계정과 동시에 만드는 것이 좋습니다.
@@ -108,7 +108,7 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 
 4. 이제 Azure Machine Learning Workbench가 다음 디렉터리에 설치되었습니다. 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>Azure Machine Learning Workbench를 실행하여 처음으로 로그인
 1. 설치 프로세스가 완료된 후에 설치 관리자의 마지막 화면에서 **Workbench 시작** 버튼을 선택합니다. 설치 관리자를 닫은 경우 화면에서 Machine Learning Workbench에 대한 바로 가기를 찾고 **Azure Machine Learning Workbench**라는 **시작** 메뉴에서 앱을 시작합니다.
@@ -130,12 +130,12 @@ macOS Sierra 이상을 실행하는 컴퓨터에 Azure Machine Learning Workbenc
 3. **프로젝트 이름** 및 **프로젝트 디렉터리** 상자를 채웁니다. **프로젝트 설명**은 옵션이지만 유용합니다. **Visualstudio.com GIT 리포지토리 URL** 상자는 지금은 비워 둡니다. 작업 영역을 선택하고 프로젝트 템플릿으로 **아이리스 분류**를 선택합니다.
 
    >[!TIP]
-   >또는 Git 리포지토리 텍스트 상자를 [Visual Studio Team Service](https://www.visualstudio.com)에서 호스팅하는 Git 리포지토리의 URL로 채울 수 있습니다. 이 Git 리포지토리는 이미 존재해야 하며 마스터 분기가 없이 비어 있어야 합니다. 그리고 그에 대한 쓰기 액세스 권한이 있어야 합니다. Git 리포지토리를 지금 추가하면 나중에 시나리오를 로밍 및 공유할 수 있습니다. [자세히 알아보기](using-git-ml-project.md).
+   >또는 Git 리포지토리 텍스트 상자를 [Visual Studio Team Service](https://www.visualstudio.com)에서 호스팅하는 Git 리포지토리의 URL로 채울 수 있습니다. 이 Git 리포지토리는 이미 존재해야 하며 마스터 분기가 없이 비어 있어야 합니다. 그리고 그에 대한 쓰기 액세스 권한이 있어야 합니다. Git 리포지토리를 지금 추가하면 나중에 시나리오를 로밍 및 공유할 수 있습니다. [자세히 알아보세요](using-git-ml-project.md).
 
 4. **만들기** 단추를 선택하여 프로젝트를 만듭니다. 새 프로젝트가 만들어지고 열립니다. 이 시점에서 프로젝트 홈페이지, 데이터 소스, 노트북 및 소스 코드 파일을 탐색할 수 있습니다. 
 
     >[!TIP]
-    >또한 IDE(통합 개발 환경) 링크를 구성하고 그 안에서 프로젝트 디렉터리를 열어서 Visual Studio Code 또는 다른 편집기에서 프로젝트를 열 수 있습니다. [자세히 알아보기](how-to-configure-your-IDE.md). 
+    >또한 IDE(통합 개발 환경) 링크를 구성하고 그 안에서 프로젝트 디렉터리를 열어서 Visual Studio Code 또는 다른 편집기에서 프로젝트를 열 수 있습니다. [자세히 알아보세요](how-to-configure-your-IDE.md). 
 
 ## <a name="run-a-python-script"></a>Python 스크립트 실행
 로컬 컴퓨터에서 스크립트를 실행해 보겠습니다. 

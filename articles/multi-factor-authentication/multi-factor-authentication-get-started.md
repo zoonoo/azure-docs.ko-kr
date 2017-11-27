@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>사용자를 위한 Azure Multi-Factor Authentication 솔루션 선택
 Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 질문에 답해야 합니다.  해당 질문은 다음과 같습니다.
@@ -60,7 +60,7 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 | 두 번째 단계로 모바일 앱 확인 코드 | ● | ● |
 | 두 번째 단계로 전화 통화 | ● | ● |
 | 두 번째 단계로 단방향 SMS | ● | ● |
-| 두 번째 단계로 양방향 SMS | | ● |
+| 두 번째 단계로 양방향 SMS | | ● (사용되지 않음)| 
 | 두 번째 단계로 하드웨어 토큰 | | ● |
 | MFA를 지원하지 않는 Office 365 클라이언트에 대한 앱 암호 | ● | |
 | 인증 방법에 대한 관리자 제어 | ● | ● |

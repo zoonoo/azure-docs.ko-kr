@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network 서비스 끝점(미리 보기)
 
@@ -28,7 +28,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 미리 보기 상태로 제공됩니다.
 
 - **Azure Storage**: Azure 공용 클라우드에서 모든 지역입니다.
-- **Azure SQL Database**: WestCentralUS, WestUS2 및 EastUS
+- **Azure SQL**: Azure 공용 클라우드에서 모든 지역입니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -122,4 +122,5 @@ Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리�
 - [가상 네트워크에 대한 Azure Storage 계정을 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용
+-  빠른 시작: VNet의 서브넷에 서비스 엔드포인트를 설정하고 해당 서브넷에 Azure Storage 계정을 보호하기 위한 [Azure 리소스 관리자 템플릿](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
 

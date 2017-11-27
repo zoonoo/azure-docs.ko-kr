@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>아이리스 분류 2부: 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -291,7 +291,7 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
    `run.py`가 완료되면 Workbench의 실행 기록 목록 보기에서 그래프가 표시됩니다.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>원격 컴퓨터의 Docker 컨테이너에서 실행
-원격 Linux 컴퓨터의 Docker 컨테이너에서 스크립트를 실행하려면 해당 원격 컴퓨터에 대한 SSH 액세스(사용자 이름 및 암호) 권한이 있어야 합니다. 또한 원격 컴퓨터에는 Docker 엔진이 설치되어 실행되어야 합니다. 이러한 Linux 컴퓨터를 얻는 가장 쉬운 방법은 Azure에서 [Ubuntu 기반 DSVM(데이터 과학 가상 컴퓨터)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)을 만드는 것입니다. 
+원격 Linux 컴퓨터의 Docker 컨테이너에서 스크립트를 실행하려면 해당 원격 컴퓨터에 대한 SSH 액세스(사용자 이름 및 암호) 권한이 있어야 합니다. 또한 원격 컴퓨터에는 Docker 엔진이 설치되어 실행되어야 합니다. 이러한 Linux 컴퓨터를 얻는 가장 쉬운 방법은 Azure에서 Ubuntu 기반 DSVM(데이터 과학 가상 컴퓨터)을 만드는 것입니다. [Azure ML Workbench에서 사용하는 Ubuntu DSVM를 만드는 방법](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)을 알아봅니다.
 
 >[!NOTE] 
 >CentOS 기반 DSVM은 지원되지 *않습니다*.
@@ -343,7 +343,9 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>HDInsight 클러스터에서 스크립트 실행
-이 스크립트는 실제 Spark 클러스터에서도 실행할 수 있습니다. 
+이 스크립트는 HDInsight Spark 클러스터에서도 실행할 수 있습니다. [Azure ML Workbench에서 사용하는 HDInsight Spark Cluster를 만드는 방법](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)을 알아봅니다.
+
+>![참고] HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. Azure Data Lake 저장소 사용은 아직 지원되지 않습니다.
 
 1. Azure HDInsight용 Spark 클러스터에 액세스할 수 있으면 다음과 같이 HDInsight 실행 구성 명령을 생성합니다. HDInsight 클러스터 이름, HDInsight 사용자 이름 및 암호를 매개 변수로 제공합니다. 다음 명령을 사용합니다.
 
