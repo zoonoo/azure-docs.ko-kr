@@ -243,6 +243,7 @@
 ### [VS에서 .NET 서비스 디버그](service-fabric-debugging-your-application.md)
 ### [일반적인 오류 및 예외](service-fabric-errors-and-exceptions.md)
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Windows에서 Linux 클러스터 설정](service-fabric-local-linux-cluster-windows.md)
 
 ## Linux 개발 환경에서 작업
 ### [Java 개발을 위해 Eclipse 플러그인 시작](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [테스트 시나리오 사용](service-fabric-testability-scenarios.md)
 ##### [노드 전환 API 소개](service-fabric-node-transition-apis.md)
 
-### [Jenkins를 사용하여 Linux Java 응용 프로그램 배포](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### 연속 통합 설정
+#### [VSTS를 사용하여 연속 통합 설정](service-fabric-set-up-continuous-integration.md)
+#### [Jenkins를 사용하여 Linux 응용 프로그램 배포](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## 클러스터 만들기 및 관리
 ### Azure의 클러스터
