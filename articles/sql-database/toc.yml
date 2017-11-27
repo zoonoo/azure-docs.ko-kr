@@ -337,8 +337,10 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: 다중 테넌트 SaaS
       items:
-        - name: Wingtips 시작
+        - name: Wingtip Tickets 샘플
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: 일반 지침
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: 독립 실행형 응용 프로그램
           items:
             - name: 예제 앱 배포
