@@ -32,9 +32,9 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 마이그레이션 중에는 리소스가 클래식에서 Resource Manager로 전환됩니다. 따라서 마이그레이션 후 필요한 RBAC 정책 업데이트를 계획하는 것이 좋습니다.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Backup 자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요? 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Backup 자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요?
 
-클래식 모드에서 Resource Manager 모드로 VM을 바꾸는 경우 백업 자격 증명 모음에 있는 클래식 VM 복구 시점은 Recovery Services 자격 증명 모음에 자동으로 마이그레이션되지 않습니다. VM 백업을 전송하려면 다음 단계를 수행합니다.
+클래식 모드에서 Resource Manager 모드로 VM을 바꾸는 경우 백업 자격 증명 모음에 있는 <a name="vault">클래식</a> VM 복구 시점은 Recovery Services 자격 증명 모음에 자동으로 마이그레이션되지 않습니다. VM 백업을 전송하려면 다음 단계를 수행합니다.
 
 1. Backup 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. [보호 중지](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
 2. VM에서 백업/스냅숏 확장을 삭제합니다.
@@ -61,6 +61,6 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 구독 간 권한 부여 링크를 사용하는 ExpressRoute 회로는 가동 중지 시간 없이 자동으로 마이그레이션할 수 없습니다. 여기에서는 수동 단계를 사용하여 마이그레이션하는 방법을 소개합니다. 해당 단계와 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../articles/expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
 
-## <a name="i-got-a-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated-"></a>*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비로 보고하는지 확인하십시오."* 또는 *"VM에는 VM가 보고하지 않은 상태의 확장명이 포함되어 있습니다. 따라서 이 VM은 마이그레이션할 수 없습니다."라는 메시지를 받았습니다. *
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비된 상태"*로 보고하고 있는지 또는 *"VM에서 보고되지 않은 상태의 확장이 VM에 포함되어 있는지 확인합니다. 따라서 이 VM은 마이그레이션할 수 없습니다."*라는 메시지를 받았습니다.
 
 VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure Storage 계정에 연결해 5분 마다 에이전트 상태를 업데이트합니다.
