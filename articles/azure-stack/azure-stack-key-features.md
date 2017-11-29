@@ -1,4 +1,4 @@
----
+﻿---
 title: "주요 기능 및 Azure 스택에 대 한 개념 | Microsoft Docs"
 description: "Azure Stack의 주요 기능 및 개념에 대해 알아봅니다."
 services: azure-stack
@@ -29,7 +29,7 @@ Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설�
 ## <a name="personas"></a>가상 사용자
 Microsoft Azure Stack에는 클라우드 운영자(공급자)와 테넌트(소비자)라는 두 가지 유형의 사용자가 있습니다.
 
-* **클라우드 운영자** 는 Azure Stack을 구성하고 제안, 계획, 서비스, 할당량 및 가격을 관리하여 테넌트에게 리소스를 제공할 수 있습니다.  또한 클라우드 운영자는 용량을 관리하고 경고에 응답합니다.  
+**클라우드 운영자**는 Azure Stack을 구성하고 제안, 계획, 서비스, 할당량 및 가격을 관리하여 테넌트에게 리소스를 제공할 수 있습니다. 또한 클라우드 운영자는 용량을 관리하고 경고에 응답합니다.  
 * A **테 넌 트** (사용자 라고도 함) 클라우드 관리자에서 제공 하는 서비스를 사용 합니다. 테넌트는 Web Apps, Storage 및 Virtual Machines와 같은 구독하는 서비스를 프로비전, 모니터링 및 관리할 수 있습니다.
 
 ## <a name="portal"></a>포털
