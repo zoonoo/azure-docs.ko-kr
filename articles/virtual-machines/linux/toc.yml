@@ -83,7 +83,7 @@
         - name: 고성능 계산
           href: sizes-hpc.md
         - name: Azure 계산 단위(ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: 보증 배포
       href: endorsed-distros.md
     - name: 유지 관리 및 업데이트

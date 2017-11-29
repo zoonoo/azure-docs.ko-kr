@@ -77,7 +77,7 @@
         - name: 고성능 계산
           href: sizes-hpc.md
         - name: Azure 계산 단위(ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 디스크 저장소
