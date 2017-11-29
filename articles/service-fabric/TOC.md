@@ -185,19 +185,10 @@
 #### [컨테이너 네트워킹 모드](service-fabric-networking-modes.md)
 
 ### Reliable Services 서비스 빌드
-#### [개요](service-fabric-reliable-services-introduction.md)
-#### 개념
-##### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### 신뢰할 수 있는 컬렉션
-##### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
-##### [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
-##### [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)

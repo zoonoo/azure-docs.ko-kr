@@ -35,8 +35,8 @@ sections:
         style: ordered
         items:
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Azure Databricks 시작</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Azure Storage에서 데이터 가져오기</a>'
-          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Azure Storage에서 데이터 가져오기</a>'
+          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Notebooks 작업</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Spark 작업 실행</a>'
           - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Spark 데이터 원본 사용</a>'
