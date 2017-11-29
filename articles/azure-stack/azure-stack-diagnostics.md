@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure 스택 진단 도구
 
@@ -29,43 +29,11 @@ Azure 스택은 큰 컬렉션 함께 작동 하 고 서로 상호 작용 하는 
  
 ## <a name="trace-collector"></a>추적 수집기
  
-추적 수집기는 기본적으로 사용 됩니다. 지속적으로 백그라운드에서 실행 하 고 Azure 스택에 구성 요소 서비스에서 모든 이벤트가 추적에 대 한 ETW (Windows) 로그를 수집 하 고 일반적인 로컬 공유에 저장 합니다. 
+추적 수집기는 기본적으로 사용 하 고 Azure 스택 구성 요소 서비스에서 모든 이벤트가 추적에 대 한 ETW (Windows) 로그를 수집 하는 백그라운드에서 계속 실행 합니다. ETW 로그 5 일 사용 기간 제한으로 일반적인 로컬 공유에 저장 됩니다. 이 한도 도달 하면 가장 오래 된 파일은 새로 만들어지는 삭제 됩니다. 각 파일에 대해 허용 되는 기본 최대 크기 사항은 200MB입니다. 크기 검사가 주기적으로 나타나는 (2 분 마다) 하 고 현재 파일 경우 > = 200mb로 저장 되 고 새 파일이 생성 됩니다. 이벤트 세션 별로 생성 된 총 파일 크기에도 8GB로 제한이 됩니다. 
 
-다음은 추적 수집기에 대 한 알아야 할 중요 한 사항입니다.
- 
-* 추적 수집기 기본 크기 제한 계속 실행 됩니다. 최대 허용 크기 (200MB) 각 파일에 대 한 기본값은 **하지** 크기를 구분 합니다. 크기 검사가 주기적으로 나타나는 (현재 2 분 마다) 하 고 현재 파일 경우 > = 200mb로 저장 되 고 새 파일이 생성 됩니다. 이벤트 세션 별로 생성 된 총 파일 크기에도 8GB (구성 가능)로 제한이 됩니다. 이 한도 도달 하면 가장 오래 된 파일은 새로 만들어지는 삭제 됩니다.
-* 로그에 5 일의 보존 기간 제한이 있습니다. 이 제한을 구성할 수 이기도합니다. 
-* 각 구성 요소는 JSON 파일을 통해 추적 구성 속성을 정의합니다. JSON 파일에 저장 됩니다 **C:\TraceCollector\Configuration**합니다. 필요에 따라 수집 된 로그의 보존 기간 및 크기 제한을 변경 하려면 이러한 파일을 편집할 수 있습니다. 이러한 파일에 변경 내용을 다시 시작 해야는 *Microsoft Azure 스택 추적 수집기* 변경 내용을 적용 하려면에 대 한 서비스입니다.
-
-다음 예제는 XRP VM에서 FabricRingServices 작업에 대 한 추적 구성 JSON 파일: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**합니다. 이 매개 변수는 유지 하는 파일의 보존 기간을 제어 합니다. 이전 로그 파일이 삭제 됩니다.
-* **MaxSizeInMB**합니다. 이 매개 변수는 단일 파일에 대 한 크기 임계값을 제어합니다. 크기에 도달 하면 새.etl 파일이 생성 됩니다.
-* **TotalSizeInMB**합니다. 이 매개 변수는 이벤트 세션에서 생성 된.etl 파일의 전체 크기를 제어 합니다. 총 파일 크기가이 매개 변수 값 보다 큰 경우에 오래 된 파일이 삭제 됩니다.
-  
 ## <a name="log-collection-tool"></a>로그 수집 도구
  
-PowerShell 명령 **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구성 요소에서 로그를 수집 하는 데 사용할 수 있습니다. 사용자 정의 위치에 있는 zip 파일에 저장 합니다. 기술 지원 팀에서 문제를 해결 하려면 로그를 필요한 경우이 도구를 실행 하도록 요청 받을 수 있습니다.
+PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구성 요소에서 로그를 수집 하는 데 사용할 수 있습니다. 사용자 정의 위치에 있는 zip 파일에 저장 합니다. 기술 지원 팀에서 문제를 해결 하려면 로그를 필요한 경우이 도구를 실행 하도록 요청 받을 수 있습니다.
 
 > [!CAUTION]
 > 이러한 로그 파일에는 개인 식별이 가능한 정보 (PII) 포함할 수 있습니다. 모든 로그 파일을 공개적으로 게시 하기 전에이를 고려 합니다.
@@ -78,38 +46,38 @@ PowerShell 명령 **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구
 *   **진단 로그 저장소**
 *   **ETW 로그**
 
-이러한 파일 추적 수집기에 의해 수집 되 고 어디에서 공유에 저장 된 **Get AzureStackLog** 를 검색 합니다.
+이러한 파일에 수집 되 고 추적 수집기에서 공유에 저장 됩니다. **Get AzureStackLog** PowerShell cmdlet 다 필요한 경우 사용할 수 있습니다.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure 스택 개발 키트 (ASDK) 시스템에서 AzureStackLog Get을 실행 하려면
 1. 로 로그인 **AzureStack\CloudAdmin** 호스트 합니다.
 2. 관리자 권한으로 PowerShell 창을 엽니다.
 3. 실행 된 **Get AzureStackLog** PowerShell cmdlet.
 
-   **예**
+**예제:**
 
-    모든 역할에 대 한 모든 로그를 수집 합니다.
+  모든 역할에 대 한 모든 로그를 수집 합니다.
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
+  VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    날짜가 지난 8 시간에 대 한 로그 파일에 대 한 필터링 VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
+  날짜가 지난 8 시간에 대 한 로그 파일에 대 한 필터링 VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    8 시간 전 및 2 시간 전 사이 시간 간격에 대 한 로그 파일에 대 한 필터링 된 날짜와 VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
+  8 시간 전 및 2 시간 전 사이 시간 간격에 대 한 로그 파일에 대 한 필터링 된 날짜와 VirtualMachines 및 BareMetal 역할에서 로그를 수집 합니다.
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>통합 시스템 Azure 스택에 AzureStackLog Get을 실행 하려면
 
@@ -158,7 +126,7 @@ if($s)
    | 도메인                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | 게이트웨이                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | VirtualMachines    |  
    | 했습니다.                     | WASPUBLIC              | WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
+Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 http://aka.ms/AzureStackTools에서 주요 Azure 스택 도구 GitHub 리포지토리에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 있습니다.
+
+**ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 확인 하도록 설정 하면 스크립트 기본적 됩니다.
+
+스크립트 ERCS_AzureStackLogs.ps1 PowerShell에 대 한 자세한 내용을 보려면 시청할 수 [짧은 동영상](https://www.youtube.com/watch?v=Utt7pLsXEBc) 스크립트의 보거나 [추가 정보 파일](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure 스택 도구 GitHub 리포지토리에 있는 합니다. 
 
 ### <a name="additional-considerations"></a>추가 고려 사항
 
