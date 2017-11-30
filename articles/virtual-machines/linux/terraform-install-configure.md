@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
 Terraform은 [간단한 템플릿 언어](https://www.terraform.io/docs/configuration/syntax.html)를 사용하여 클라우드 인프라를 정의, 미리 보기 및 배포하는 쉬운 방법을 제공합니다. 이 문서에서는 Terraform을 사용하여 Azure의 리소스를 프로비전하는 데 필요한 단계를 설명합니다. 
 
 > [!TIP]
-Azure에서 Terraform을 사용하는 방법에 대한 자세한 내용은 [Terraform 허브](/azure/terraform)를 참조하세요. Terraform은 기본적으로 [Cloud Shell](/terraform/terraform-cloud-shell)에 설치됩니다. Cloud Shell을 사용하여 이 문서의 설치/설정 부분을 건너뛸 수 있습니다.
+Azure에서 Terraform을 사용하는 방법에 대한 자세한 내용은 [Terraform 허브](/azure/terraform)를 참조하세요. Terraform은 기본적으로 [Cloud Shell](/azure/terraform/terraform-cloud-shell)에 설치됩니다. Cloud Shell을 사용하여 이 문서의 설치/설정 부분을 건너뛸 수 있습니다.
 
 ## <a name="install-terraform"></a>Terraform 설치
 

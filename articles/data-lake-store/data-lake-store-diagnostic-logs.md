@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 진단 로그에 액세스
 Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정에 대해 수집된 로그를 보는 방법에 대해 알아봅니다.
@@ -43,7 +43,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
    * **이름**으로 진단 로그 구성에 대한 값을 입력합니다.
    * 다양한 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
      
-        * Azure Storage 계정에 로그를 저장하려면 **저장소 계정에 보관** 옵션을 선택합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure 저장소 계정을 제공하여 로그를 저장해야 합니다.
+        * Azure Storage 계정에 로그를 저장하려면 **저장소 계정에 보관** 옵션을 선택합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure Storage 계정을 제공하여 로그를 저장해야 합니다.
         
         * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
@@ -59,7 +59,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 두 가지 방법으로 Data Lake Store 계정에 대한 로그 데이터를 볼 수 있습니다.
 
 * Data Lake Store 계정 설정 보기에서
-* 데이터가 저장된 Azure 저장소 계정에서
+* 데이터가 저장된 Azure Storage 계정에서
 
 ### <a name="using-the-data-lake-store-settings-view"></a>Data Lake Store 설정 보기 사용
 1. Data Lake Store 계정 **설정** 블레이드에서 **진단 로그**를 클릭합니다.
@@ -71,8 +71,8 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
    * 감사 로그는 요청 로그와 비슷하지만 Data Lake Store 계정에 수행된 작업의 훨씬 더 세부적인 분석 결과를 제공합니다. 예를 들어, 요청 로그에서 단일 업로드 API 호출은 감사 로그에서 여러 "추가" 작업을 발생시킬 수 있습니다.
 3. 로그를 다운로드하려면 각 로그 항목에 대한 **다운로드** 링크를 클릭합니다.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure 저장소 계정에서
-1. 로깅을 위한 Data Lake Store와 연결된 Azure 저장소 계정 블레이드를 열고 Blob을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure Storage 계정에서
+1. 로깅을 위한 Data Lake Store와 연결된 Azure Storage 계정 블레이드를 열고 Blob을 클릭합니다. **Blob service** 블레이드는 두 개의 컨테이너를 나열합니다.
    
     ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
    

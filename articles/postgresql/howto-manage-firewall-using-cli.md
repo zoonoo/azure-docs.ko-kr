@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: c3cb598825477bd588a6680d5c6ddb07b72eca79
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Azure CLI를 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 PostgreSQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. PostgreSQL용 Azure Database 방화벽 규칙에 대한 개요는 [PostgreSQL용 Azure Database 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 [az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) 명령은 방화벽 규칙을 구성하는 데 사용됩니다.
 
 ## <a name="list-firewall-rules"></a>방화벽 규칙 나열 
-기존 서버 방화벽 규칙을 나열하려면 [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule#list) 명령을 실행합니다.
+기존 서버 방화벽 규칙을 나열하려면 [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list) 명령을 실행합니다.
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
@@ -37,7 +37,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
 ## <a name="create-firewall-rule"></a>방화벽 규칙 만들기
-서버에 새 방화벽 규칙을 만들려면 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) 명령을 실행합니다. 
+서버에 새 방화벽 규칙을 만들려면 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) 명령을 실행합니다. 
 
 다음 예제에서는 0.0.0.0을 `--start-ip-address` 범위로, 255.255.255.255를 `--end-ip-address` 범위로 지정하여 모든 IP 주소 범위에서 **mypgserver-20170401.postgres.database.azure.com** 서버에 액세스하도록 허용합니다.
 ```azurecli-interactive
@@ -51,7 +51,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup
 성공하면 명령 출력은 사용자가 만든 방화벽 규칙의 세부 정보를 기본적으로 JSON 형식으로 나열합니다. 오류가 있는 경우 출력에는 오류 메시지가 대신 표시됩니다.
 
 ## <a name="update-firewall-rule"></a>방화벽 규칙 업데이트 
-[az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#update) 명령을 사용하여 서버에서 기존 방화벽 규칙을 업데이트합니다. 기존 방화벽 규칙의 이름과 업데이트할 시작 IP 및 끝 IP 특성을 입력합니다.
+[az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) 명령을 사용하여 서버에서 기존 방화벽 규칙을 업데이트합니다. 기존 방화벽 규칙의 이름과 업데이트할 시작 IP 및 끝 IP 특성을 입력합니다.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
@@ -60,14 +60,14 @@ az postgres server firewall-rule update --resource-group myresourcegroup --serve
 > 방화벽 규칙이 존재하지 않는 경우 업데이트 명령으로 생성됩니다.
 
 ## <a name="show-firewall-rule-details"></a>방화벽 규칙 세부 정보 표시
-[az postgres server firewall-rule show](/cli/azure/postgres/server/firewall-rule#show) 명령을 실행하여 기존 서버 수준 방화벽 규칙 세부 정보를 표시할 수도 있습니다.
+[az postgres server firewall-rule show](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show) 명령을 실행하여 기존 서버 수준 방화벽 규칙 세부 정보를 표시할 수도 있습니다.
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
 성공하면 명령 출력은 지정한 방화벽 규칙의 세부 정보를 기본적으로 JSON 형식으로 나열합니다. 오류가 있는 경우 출력에는 오류 메시지가 대신 표시됩니다.
 
 ## <a name="delete-firewall-rule"></a>방화벽 규칙 삭제
-IP 범위의 서버에 대한 액세스를 해지하려면 [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#delete) 명령을 실행하여 기존 방화벽 규칙을 삭제합니다. 기존 방화벽 규칙의 이름을 제공합니다.
+IP 범위의 서버에 대한 액세스를 해지하려면 [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) 명령을 실행하여 기존 방화벽 규칙을 삭제합니다. 기존 방화벽 규칙의 이름을 제공합니다.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 308de5c90f1c06ed1dfe2981960a24beee066cf3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure에서 Azure Service Fabric Linux 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -33,11 +33,11 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 > * Service Fabric에서 컨테이너 크기 조정 및 장애 조치
 
 ## <a name="prerequisite"></a>필수 요소
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/en-us/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure 명령줄 인터페이스 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 참조하세요.
+CLI(명령줄 인터페이스)를 로컬로 설치하고 사용하도록 선택한 경우 Azure CLI 버전 2.0.4 이상을 실행하도록 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="get-application-package"></a>응용 프로그램 패키지 가져오기
 Service Fabric에 컨테이너를 배포하려면 개별 컨테이너 및 응용 프로그램에 대해 설명하는 매니페스트 파일(응용 프로그램 정의)의 집합이 필요합니다.

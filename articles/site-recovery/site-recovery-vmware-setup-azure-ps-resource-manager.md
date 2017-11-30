@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/29/2017
+ms.date: 11/23/2017
 ms.author: anoopkv
-ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Azure에서 실행되는 프로세스 서버 관리(Resource Manager)
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 |-|-|
 |서버 이름|프로세스 서버 가상 컴퓨터에 대한 표시 이름/호스트 이름|
 | 사용자 이름|해당 가상 컴퓨터에서 관리자가 되는 사용자 이름|
-|저장소 계정|가상 컴퓨터의 가상 디스크가 배치되는 저장소 계정의 이름|
+|Storage 계정|가상 컴퓨터의 가상 디스크가 배치되는 Storage 계정의 이름|
 |서브넷|가상 컴퓨터가 연결되는 Azure VNet의 서브넷|
 | IP 주소|프로세스 서버가 부팅될 경우 간주되는 IP 주소|
 5. 확인 단추를 클릭하여 프로세스 서버 가상 컴퓨터 배포를 시작합니다.

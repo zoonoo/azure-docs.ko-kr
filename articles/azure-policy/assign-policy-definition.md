@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 Managed Disks를 사용하지 않는 가상 컴퓨터를 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다.
@@ -62,7 +62,7 @@ Azure Policy는 공개 미리 보기에서 사용할 수 있으며 액세스를 
 5. 정책 할당에 대한 표시 **이름**을 제공합니다. 이 경우 *Managed Disks를 사용하지 않는 VM 감사*를 사용합니다. 선택적인 **설명**을 추가할 수도 있습니다. 이 설명은 이 정책 할당이 Managed Disks를 사용하지 않는 이 환경에서 작성된 모든 가상 컴퓨터를 식별하는 방법에 대한 세부 정보를 제공합니다.
 6. 정책이 기존 리소스에 적용되도록 하려면 가격 책정 계층을 **표준**으로 변경합니다.
 
-   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)을 참조하세요.
+   Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조하세요.
 
 7. 정책을 적용할 **범위**를 선택합니다.  범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 범위에 포함될 수 있습니다.
 8. 이전에 Azure Policy에 옵트인할 때 등록한 구독(또는 리소스 그룹)을 선택합니다. 이 예제에서는 **Azure Analytics 용량 개발** 구독을 사용하겠습니다. 하지만 옵션은 달라질 수 있습니다.

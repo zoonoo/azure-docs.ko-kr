@@ -3,8 +3,8 @@ title: "Azure로 장애 조치(failover) 문제 해결 | Microsoft Docs"
 description: "이 문서에서는 Azure로 장애 조치(failover) 시 일반적인 오류 문제를 해결하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/24/2017
+ms.date: 11/22/2017
 ms.author: pratshar
-ms.openlocfilehash: 0e50433e1ccdcbc0010070eec110914f0d33b5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f9a0298c2abd542d7687778716f644a1d0a47
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>가상 컴퓨터를 Azure로 장애 조치 시 오류 문제 해결
 가상 컴퓨터를 Azure로 장애 조치하는 동안 다음 오류 중 하나가 나타날 수 있습니다. 문제를 해결하려면 각 오류 조건에 대해 설명된 단계를 따르세요.
@@ -30,7 +30,7 @@ Site Recovery가 Azure에서 장애 조치된 가상 컴퓨터를 만들 수 없
 
 * 가상 컴퓨터를 만드는 데 사용할 수 있는 할당량이 충분하지 않습니다. [구독] -> [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](http://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
      
-* 동일한 가용성 집합에 다른 크기 제품군의 가상 컴퓨터를 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 컴퓨터에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 컴퓨터의 계산 및 네트워크 설정으로 이동하여 크기를 변경한 후 장애 조치를 다시 시도합니다.
+* 동일한 가용성 집합에 다른 크기 제품군의 가상 컴퓨터를 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 컴퓨터에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 컴퓨터의 Compute 및 네트워크 설정으로 이동하여 크기를 변경한 후 장애 조치를 다시 시도합니다.
   
 * 구독에는 가상 컴퓨터의 생성을 방지하는 정책이 있습니다. 가상 컴퓨터의 생성을 허용하도록 정책을 변경한 후 장애 조치를 다시 시도합니다. 
 
@@ -42,7 +42,7 @@ Site Recovery가 장애 조치된 가상 컴퓨터에 대해 네트워크 인터
 
 Site Recovery가 Azure에서 장애 조치된 클래식 가상 컴퓨터를 만들 수 없습니다. 다음 때문에 발생할 수 있습니다.
 
-* 만들 가상 컴퓨터에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 컴퓨터의 계산 및 네트워크 설정에 제공된 대로 가상 네트워크를 만들거나 이미 존재하는 가상 네트워크로 설정을 수정한 다음 장애 조치를 다시 시도합니다. 
+* 만들 가상 컴퓨터에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 컴퓨터의 Compute 및 네트워크 설정에 제공된 대로 가상 네트워크를 만들거나 이미 존재하는 가상 네트워크로 설정을 수정한 다음 장애 조치를 다시 시도합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

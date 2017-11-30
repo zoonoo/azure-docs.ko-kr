@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 11/22/2017
 ms.author: krnese
-ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
 Operations Management Suite에서는 무중단 업무 방식 계획의 일부분으로 사용 가능한 포괄적인 백업 및 재해 복구 솔루션이 제공됩니다.
@@ -27,7 +27,7 @@ Operations Management Suite에서는 무중단 업무 방식 계획의 일부분
 
 현재 VMware 작업 및/또는 실제 서버를 실행 중인 경우 관리 서버가 환경 내의 모든 Azure Site Recovery 구성 요소를 실행하여 Azure와의 통신 및 데이터 복제를 처리합니다(Azure가 대상인 경우).
 
-## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>자동화 DSC를 사용하여 Site Recovery 모바일 서비스 배포
+## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>Automation DSC를 사용하여 Site Recovery 모바일 서비스 배포
 먼저 이 관리 서버가 수행하는 작업을 간략하게 살펴보겠습니다.
 
 관리 서버는 다양한 서버 역할을 실행합니다. 이러한 역할 중 하나인 *구성*은 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리합니다.
@@ -42,7 +42,7 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
 
 몇 가지 Operations Management Suite 구성 요소를 활용하면 안정적인 보호 설정이 적용되어 있는지를 최적화된 방식으로 확인할 수 있습니다.
 
-이 문서에서는 Azure 자동화 DSC(필요한 상태 구성)를 Site Recovery와 함께 사용하여 다음을 확인하는 방법의 예를 제공합니다.
+이 문서에서는 Azure Automation DSC(필요한 상태 구성)를 Site Recovery와 함께 사용하여 다음을 확인하는 방법의 예를 제공합니다.
 
 * 모바일 서비스와 Azure VM 에이전트가 보호하려는 Windows 컴퓨터에 배포되어 있습니다.
 * Azure가 복제 대상일 때 모바일 서비스와 Azure VM 에이전트가 항상 실행됩니다.
@@ -55,7 +55,7 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
   > 각 관리 서버에 대해 고유한 암호가 생성됩니다. 여러 관리 서버를 배포하려는 경우 올바른 암호가 passphrase.txt 파일에 저장되어 있는지 확인해야 합니다.
   >
   >
-* 보호할 수 있도록 설정하려는 컴퓨터에 WMF(Windows Management Framework) 5.0 설치(자동화 DSC의 요구 사항)
+* 보호할 수 있도록 설정하려는 컴퓨터에 WMF(Windows Management Framework) 5.0 설치(Automation DSC의 요구 사항)
 
   > [!NOTE]
   > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](## Use DSC in disconnected environments) 섹션을 참조하세요.
@@ -91,7 +91,7 @@ zip 폴더와 암호를 모두 Azure 저장소 계정의 전용 컨테이너에 
 이러한 파일은 네트워크의 공유에 보관해도 됩니다. 나중에 사용할 DSC 리소스에 액세스할 수 있으며 설치 프로그램과 암호를 가져올 수 있는지 확인하기만 하면 됩니다.
 
 ## <a name="step-2-create-the-dsc-configuration"></a>2단계: DSC 구성 만들기
-설치에서는 WMF 5.0을 사용합니다. 컴퓨터가 자동화 DSC를 통해 구성을 올바르게 적용하도록 하려면 WMF 5.0이 있어야 합니다.
+설치에서는 WMF 5.0을 사용합니다. 컴퓨터가 Automation DSC를 통해 구성을 올바르게 적용하도록 하려면 WMF 5.0이 있어야 합니다.
 
 이 환경에서는 다음과 같은 예제 DSC 구성을 사용합니다.
 
@@ -207,10 +207,10 @@ configuration ASRMobilityService {
 >
 >
 
-## <a name="step-3-upload-to-automation-dsc"></a>3단계: 자동화 DSC 업로드
-이전 단계에서 작성한 DSC 구성은 필수 DSC 리소스 모듈(xPSDesiredStateConfiguration)을 가져오므로 DSC 구성을 업로드하기 전에 자동화에서 해당 모듈을 가져와야 합니다.
+## <a name="step-3-upload-to-automation-dsc"></a>3단계: Automation DSC 업로드
+이전 단계에서 작성한 DSC 구성은 필수 DSC 리소스 모듈(xPSDesiredStateConfiguration)을 가져오므로 DSC 구성을 업로드하기 전에 Automation에서 해당 모듈을 가져와야 합니다.
 
-자동화 계정에 로그인하여 **자산** > **모듈**로 이동한 다음 **갤러리 찾아보기**를 클릭합니다.
+Automation 계정에 로그인하여 **자산** > **모듈**로 이동한 다음 **갤러리 찾아보기**를 클릭합니다.
 
 여기서 모듈을 검색하고 계정으로 가져올 수 있습니다.
 
@@ -219,13 +219,13 @@ configuration ASRMobilityService {
 이 작업이 완료되면 Azure Resource Manager 모듈이 설치된 컴퓨터로 이동하여 새로 만든 DSC 구성 가져오기를 계속 진행합니다.
 
 ### <a name="import-cmdlets"></a>Cmdlet 가져오기
-PowerShell에서 Azure 구독에 로그인합니다. 그런 다음 실제 환경을 반영하도록 cmdlet을 수정하고 변수에서 자동화 계정 정보를 캡처합니다.
+PowerShell에서 Azure 구독에 로그인합니다. 그런 다음 실제 환경을 반영하도록 cmdlet을 수정하고 변수에서 Automation 계정 정보를 캡처합니다.
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-다음 cmdlet을 사용하여 구성을 자동화 DSC에 업로드합니다.
+다음 cmdlet을 사용하여 구성을 Automation DSC에 업로드합니다.
 
 ```powershell
 $ImportArgs = @{
@@ -236,8 +236,8 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### <a name="compile-the-configuration-in-automation-dsc"></a>자동화 DSC의 구성 컴파일
-다음으로는 노드를 구성에 등록할 수 있도록 자동화 DSC의 구성을 컴파일해야 합니다. 다음 cmdlet을 실행하여 이 목적을 달성합니다.
+### <a name="compile-the-configuration-in-automation-dsc"></a>Automation DSC의 구성 컴파일
+다음으로는 노드를 구성에 등록할 수 있도록 Automation DSC의 구성을 컴파일해야 합니다. 다음 cmdlet을 실행하여 이 목적을 달성합니다.
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
@@ -249,22 +249,22 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 
 ![작업 검색](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-이제 DSC 구성을 자동화 DSC에 게시 및 업로드했습니다.
+이제 DSC 구성을 Automation DSC에 게시 및 업로드했습니다.
 
-## <a name="step-4-onboard-machines-to-automation-dsc"></a>4단계: 자동화 DSC에 컴퓨터 등록
+## <a name="step-4-onboard-machines-to-automation-dsc"></a>4단계: Automation DSC에 컴퓨터 등록
 > [!NOTE]
 > 이 시나리오를 완료하기 위한 필수 구성 요소 중 하나는 WMF의 최신 버전을 설치하여 Windows 컴퓨터를 업데이트하는 것입니다. [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=50395)에서 사용 중인 플랫폼에 적합한 버전을 다운로드하여 설치할 수 있습니다.
 >
 >
 
-이제 노드에 적용할 DSC용 metaconfig를 만듭니다. 이 작업에 성공하려면 Azure에서 선택한 자동화 계정에 대한 끝점 URL과 기본 키를 검색해야 합니다. 이러한 값은 자동화 계정 **모든 설정** 블레이드의 **키** 아래에 나와 있습니다.
+이제 노드에 적용할 DSC용 metaconfig를 만듭니다. 이 작업에 성공하려면 Azure에서 선택한 Automation 계정에 대한 끝점 URL과 기본 키를 검색해야 합니다. 이러한 값은 Automation 계정 **모든 설정** 블레이드의 **키** 아래에 나와 있습니다.
 
 ![키 값](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 이 예제에서는 Windows Server 2012 R2 실제 서버를 Site Recovery로 보호하려고 합니다.
 
 ### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>레지스트리에서 보류 중인 파일 이름 바꾸기 작업 확인
-자동화 DSC 끝점과 서버 연결을 시작하기 전에 레지스트리에서 보류 중인 파일 이름 바꾸기 작업이 있는지 확인하는 것이 좋습니다. 이러한 작업이 있으면 보류 중인 다시 부팅으로 인해 설치 프로그램을 완료하지 못할 수 있습니다.
+Automation DSC 끝점과 서버 연결을 시작하기 전에 레지스트리에서 보류 중인 파일 이름 바꾸기 작업이 있는지 확인하는 것이 좋습니다. 이러한 작업이 있으면 보류 중인 다시 부팅으로 인해 설치 프로그램을 완료하지 못할 수 있습니다.
 
 다음 cmdlet을 실행하여 서버에 보류 중인 다시 부팅이 없는지 확인:
 
@@ -273,7 +273,7 @@ Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Sel
 ```
 결과에 아무 항목도 표시되지 않으면 계속 진행해도 됩니다. 그렇지 않은 경우 유지 관리 기간 동안 서버를 다시 부팅하여 이 상황을 해소해야 합니다.
 
-서버에서 구성을 적용하려면 PowerShell ISE(통합 스크립팅 환경)를 시작하고 다음 스크립트를 실행합니다. 이 스크립트는 기본적으로 로컬 구성 관리자 엔진에 대해 자동화 DSC 서비스에 등록하고 특정 구성(ASRMobilityService.localhost)을 검색하도록 지시하는 DSC 로컬 구성입니다.
+서버에서 구성을 적용하려면 PowerShell ISE(통합 스크립팅 환경)를 시작하고 다음 스크립트를 실행합니다. 이 스크립트는 기본적으로 로컬 구성 관리자 엔진에 대해 Automation DSC 서비스에 등록하고 특정 구성(ASRMobilityService.localhost)을 검색하도록 지시하는 DSC 로컬 구성입니다.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -314,9 +314,9 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-이 구성을 사용하는 경우 로컬 구성 관리자 엔진이 자동화 DSC에 등록됩니다. 이 스크립트는 엔진 작동 방식, 구성 드리프트 발생 시에 수행할 작업(ApplyAndAutoCorrect), 그리고 다시 부팅이 필요한 경우 구성을 진행할 방법도 결정합니다.
+이 구성을 사용하는 경우 로컬 구성 관리자 엔진이 Automation DSC에 등록됩니다. 이 스크립트는 엔진 작동 방식, 구성 드리프트 발생 시에 수행할 작업(ApplyAndAutoCorrect), 그리고 다시 부팅이 필요한 경우 구성을 진행할 방법도 결정합니다.
 
-이 스크립트를 실행하고 나면 자동화 DSC에 노드가 등록되기 시작합니다.
+이 스크립트를 실행하고 나면 Automation DSC에 노드가 등록되기 시작합니다.
 
 ![노드 등록 진행 중](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
@@ -351,7 +351,7 @@ Get-DscConfigurationStatus
 ## <a name="use-dsc-in-disconnected-environments"></a>연결이 끊어진 환경에서 DSC 사용
 컴퓨터가 인터넷에 연결되어 있지 않은 경우에도 DSC를 사용하여 보호하려는 작업에 대해 모바일 서비스를 배포하고 구성할 수 있습니다.
 
-환경에서 자체 DSC 끌어오기 서버를 인스턴스화하면 궁극적으로는 자동화 DSC에서 제공되는 것과 같은 기능을 제공할 수 있습니다. 즉, 클라이언트가 등록된 구성을 DSC 끝점으로 끌어옵니다. DSC 구성을 로컬로 또는 원격으로 컴퓨터에 수동으로 밀어넣는 옵션도 있습니다.
+환경에서 자체 DSC 끌어오기 서버를 인스턴스화하면 궁극적으로는 Automation DSC에서 제공되는 것과 같은 기능을 제공할 수 있습니다. 즉, 클라이언트가 등록된 구성을 DSC 끝점으로 끌어옵니다. DSC 구성을 로컬로 또는 원격으로 컴퓨터에 수동으로 밀어넣는 옵션도 있습니다.
 
 이 예제에는 컴퓨터에 이름에 해당하는 매개 변수가 추가됩니다. 현재 원격 파일은 보호하려는 컴퓨터에서 액세스할 수 있어야 하는 원격 공유에 있습니다. 스크립트가 종료되면 구성이 작동하며, 그러면 대상 컴퓨터에 대한 DSC 구성 적용이 시작됩니다.
 
@@ -471,16 +471,16 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-자동화 DSC에서 제공되는 것과 비슷한 기능을 제공하기 위해 회사 네트워크에서 자체 DSC 끌어오기 서버를 인스턴스화하려는 경우 [DSC 웹 끌어오기 서버 설정](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396)을 참조하세요.
+Automation DSC에서 제공되는 것과 비슷한 기능을 제공하기 위해 회사 네트워크에서 자체 DSC 끌어오기 서버를 인스턴스화하려는 경우 [DSC 웹 끌어오기 서버 설정](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396)을 참조하세요.
 
 ## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>선택 사항: Azure Resource Manager 템플릿을 사용하여 DSC 구성 배포
-이 문서의 앞부분에서는 고유한 DSC 구성을 만들어 모바일 서비스 및 Azure VM 에이전트를 자동으로 배포하고, 보호하려는 컴퓨터에서 모바일 서비스와 에이전트가 실행되고 있는지를 확인하는 방법을 중점적으로 설명했습니다. 이 DSC 구성을 신규 또는 기존 Azure 자동화 계정으로 배포하는 Azure Resource Manager 템플릿도 제공됩니다. 이 템플릿은 입력 매개 변수를 사용하여 실제 환경에 맞는 변수를 포함하는 자동화 자산을 만듭니다.
+이 문서의 앞부분에서는 고유한 DSC 구성을 만들어 모바일 서비스 및 Azure VM 에이전트를 자동으로 배포하고, 보호하려는 컴퓨터에서 모바일 서비스와 에이전트가 실행되고 있는지를 확인하는 방법을 중점적으로 설명했습니다. 이 DSC 구성을 신규 또는 기존 Azure Automation 계정으로 배포하는 Azure Resource Manager 템플릿도 제공됩니다. 이 템플릿은 입력 매개 변수를 사용하여 실제 환경에 맞는 변수를 포함하는 Automation 자산을 만듭니다.
 
 템플릿을 배포한 후에는 이 가이드의 4단계를 참조해 컴퓨터를 등록하면 됩니다.
 
 템플릿은 다음 작업을 수행합니다.
 
-1. 기존 자동화 계정을 사용하거나 새로운 계정을 만듭니다.
+1. 기존 Automation 계정을 사용하거나 새로운 계정을 만듭니다.
 2. 다음에 해당하는 입력 매개 변수를 가져옵니다.
    * ASRRemoteFile - 모바일 서비스 설치 프로그램을 저장한 위치
    * ASRPassphrase - passphrase.txt 파일을 저장한 위치

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 6da89b7b63231fe5886c82e84e06abc2ee7b3e38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
 Interactive Query(Hive LLAP 또는 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 
@@ -49,7 +49,7 @@ Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
 
 * Visual Studio 사용
 
-    [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)을 참조하세요.
+    [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)을 참조하세요.
 
 * Visual Studio Code 사용
 
@@ -79,7 +79,7 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 * [HDInsight에서 Interactive Query 클러스터를 만드는 방법](../hdinsight-hadoop-provision-linux-clusters.md)에 대해 알아봅니다.
 * [Azure HDInsight에서 Power BI를 사용하여 빅 데이터를 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)하는 방법에 대해 알아봅니다.
 * [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리를 실행](../hdinsight-connect-hive-zeppelin.md)하는 방법에 대해 알아봅니다.
-* [Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리를 실행하는 방법](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)에 대해 알아봅니다.
+* [Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리를 실행하는 방법](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)에 대해 알아봅니다.
 * [HDInsight Tools for Visual Studio Code를 사용](../hdinsight-for-vscode.md)하는 방법에 대해 알아봅니다.
 * [HDInsight에서 Hadoop과 Hive 보기 사용](../hadoop/apache-hadoop-use-hive-ambari-view.md) 방법에 대해 알아봅니다.
 * [Beeline을 사용하여 HDInsight에서 Hive 쿼리를 제출하는 방법](../hadoop/apache-hadoop-use-hive-beeline.md)을 알아봅니다.

@@ -1,6 +1,6 @@
 ---
 title: "저장소 탐색기(미리 보기) 시작 | Microsoft Docs"
-description: "저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리"
+description: "저장소 탐색기(미리 보기)를 사용하여 Azure Storage 리소스 관리"
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure S
 * [저장소 탐색기(미리 보기) 다운로드 및 설치](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>저장소 계정 또는 서비스에 연결
-저장소 탐색기(미리 보기)는 저장소 계정에 연결하는 여러 방법을 제공합니다. 예를 들어 다음을 수행할 수 있습니다.
+저장소 탐색기(미리 보기)는 Storage 계정에 연결하는 여러 방법을 제공합니다. 예를 들어 다음을 수행할 수 있습니다.
 * Azure 구독과 연결된 저장소 계정에 연결합니다.
 * 다른 Azure 구독에서 공유되는 저장소 계정 및 서비스에 연결합니다.
 * Azure Storage 에뮬레이터를 사용하여 로컬 저장소에 연결하고 관리합니다. 
@@ -74,11 +74,11 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 저장소 탐색기(미리 보기)를 사용하면 Azure Storage 에뮬레이터를 사용하여 로컬 저장소에서 작업할 수 있습니다. 이 방식은 Azure에 저장소 계정을 배포하지 않고도 저장소에 대한 코드를 작성하고 테스트할 수 있습니다. 저장소 계정이 Azure Storage 에뮬레이터에서 에뮬레이트되기 때문입니다.
 
 > [!NOTE]
-> Azure 저장소 에뮬레이터는 현재 Windows에 대해서만 지원됩니다.
+> Azure Storage 에뮬레이터는 현재 Windows에 대해서만 지원됩니다.
 >
 >
 
-1. 저장소 탐색기(미리 보기)의 왼쪽 창에서 **(로컬 및 연결된)** > **저장소 계정** > **(개발)** 노드를 확장합니다.
+1. 저장소 탐색기(미리 보기)의 왼쪽 창에서 **(로컬 및 연결된)** > **Storage 계정** > **(개발)** 노드를 확장합니다.
 
     ![로컬 개발 노드][21]
 
@@ -94,7 +94,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
     * Azure 테이블 저장소 리소스 관리: *서비스 예정*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>외부 저장소 계정 연결 또는 분리
-저장소 탐색기(미리 보기)를 사용하면 외부 저장소 계정에 연결하여 저장소 계정을 쉽게 공유할 수 있습니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
+저장소 탐색기(미리 보기)를 사용하면 외부 Storage 계정에 연결하여 Storage 계정을 쉽게 공유할 수 있습니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
 
 ### <a name="get-the-storage-account-credentials"></a>저장소 계정 자격 증명 가져오기
 외부 저장소 계정을 공유하려면 해당 계정의 소유자는 먼저 계정에 대한 자격 증명(계정 이름 및 키)을 가져온 다음 해당 정보를 해당(외부) 계정에 연결하려는 사용자와 공유해야 합니다. 다음을 수행하여 Azure Portal을 통해 저장소 계정 자격 증명을 얻을 수 있습니다.
@@ -103,15 +103,15 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 
 2. **찾아보기**를 선택합니다.
 
-3. **저장소 계정**을 선택합니다.
+3. **Storage 계정**을 선택합니다.
 
-4. **저장소 계정** 블레이드에서 원하는 저장소 계정을 선택합니다.
+4. **Storage 계정** 블레이드에서 원하는 Storage 계정을 선택합니다.
 
 5. 선택한 저장소 계정에 대한 **설정** 블레이드에서 **액세스 키**를 선택합니다.
 
     ![액세스 키 옵션][5]
 
-6. **액세스 키** 블레이드에서 저장소 계정에 연결할 때 사용할 **저장소 계정 이름** 및 **key1** 값을 복사합니다.
+6. **액세스 키** 블레이드에서 Storage 계정에 연결할 때 사용할 **Storage 계정 이름** 및 **key1** 값을 복사합니다.
 
     ![액세스 키][6]
 
@@ -136,7 +136,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 
     ![Azure Storage에 연결 대화 상자][24]
 
-3. **외부 저장소 연결** 대화 상자의 **계정 이름** 상자에서 저장소 계정 이름을 입력하고, 원하는 다른 설정을 지정하고, **다음**을 선택합니다.
+3. **외부 저장소 연결** 대화 상자의 **계정 이름** 상자에서 Storage 계정 이름을 입력하고, 원하는 다른 설정을 지정하고, **다음**을 선택합니다.
 
     ![외부 저장소 연결 대화 상자][8]
 
@@ -167,7 +167,7 @@ Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure S
 3. 사용자 B는 저장소 탐색기(미리 보기)를 통해 제공된 SAS를 사용하여 사용자 A에 속한 계정에 연결합니다.
 
 ### <a name="get-an-sas-for-the-account-you-want-to-share"></a>공유하려는 계정의 SAS 가져오기
-1. 저장소 탐색기(미리 보기)에서 공유하려는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기**를 선택합니다.
+1. 저장소 탐색기(미리 보기)에서 공유하려는 Storage 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기**를 선택합니다.
 
     ![SAS 상황에 맞는 메뉴 옵션 가져오기][13]
 
@@ -230,7 +230,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
     ![연결 문자열을 사용하여 Azure Cosmos DB에 연결][33]
 
-2. Azure Cosmos DB API를 선택하고 **연결 문자열**을 붙여 넣은 후 **확인**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
+2. Azure Cosmos DB API를 선택하고 **연결 문자열**을 붙여 넣은 후 **확인**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
 
     ![connection-string][32]
 
@@ -239,7 +239,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
 검색 상자에 내용을 입력하면 왼쪽 창에 해당 시점까지 사용자가 입력한 검색 값과 일치하는 저장소 계정이 표시됩니다. 예를 들어 이름에 **tarcher**가 포함된 모든 저장소 계정을 검색하면 다음 스크린샷처럼 표시됩니다.
 
-![저장소 계정 검색][11]
+![Storage 계정 검색][11]
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 탐색기(미리 보기)를 사용하여 Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)

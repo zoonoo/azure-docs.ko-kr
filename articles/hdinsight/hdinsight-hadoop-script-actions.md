@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -245,7 +245,8 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 ## <a name="debug-custom-scripts"></a>사용자 지정 스크립트 디버그
 스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\cluster-name-fragment><\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다.
-로그를 확인하는 쉬운 방법은 Visual Studio용 HDInsight 도구를 사용하는 것입니다. 도구 설치에 대해서는 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+
+로그를 확인하는 쉬운 방법은 Visual Studio용 HDInsight 도구를 사용하는 것입니다. 도구 설치에 대해서는 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
 
 **Visual Studio를 사용하여 로그를 확인하려면**
 

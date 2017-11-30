@@ -3,8 +3,8 @@ title: "Azure Site Recovery에서 테스트 장애 조치(failover)(VMM에서 VM
 description: "Azure Site Recovery는 가상 컴퓨터 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다."
 services: site-recovery
 documentationcenter: 
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
-ms.author: pratshar
-ms.openlocfilehash: afc4790d5714ce7145c8f4291a05acc2e9882a9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: ponatara
+ms.openlocfilehash: 2730cebc1cdc47db283ae851560d93fdbf50ee48
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Site Recovery에서 테스트 장애 조치(failover)(VMM에서 VMM으로)
 
@@ -80,7 +80,7 @@ DHCP를 정의하는 경우 대상 VMM 서버가 DHCP 서버 역할을 하며, �
 
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
-이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **가상 컴퓨터** 탭에서 단일 가상 컴퓨터에 대한 장애 조치를 실행할 수 있습니다.
+이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **Virtual Machines** 탭에서 단일 Virtual Machines에 대한 장애 조치를 실행할 수 있습니다.
 
 ![테스트 장애 조치(Failover) 블레이드](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
 

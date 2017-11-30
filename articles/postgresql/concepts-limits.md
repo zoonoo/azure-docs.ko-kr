@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: af42d4b59b428e96bdd1280a5ee5073842ede4c2
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 PostgreSQL용 Azure 데이터베이스 서비스는 공개 미리 보기 상태입니다. 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -24,7 +24,7 @@ PostgreSQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 
 
 다음과 같이 서비스 미리 보기 동안 각 서비스 계층에는 연결, Compute 단위 및 저장소의 최대 수가 지정되어 있습니다. 
 
-|                            |                   |
+| | |
 | :------------------------- | :---------------- |
 | **최대 연결**        |                   |
 | 기본 50 Compute 단위     | 50개 연결    |

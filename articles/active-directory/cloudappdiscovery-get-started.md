@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD에서 Cloud App Discovery 설정
 
@@ -37,7 +37,7 @@ Azure AD의 Cloud App Discovery는 이제 Microsoft Cloud App Security에서 사
 
 2. [연속 보고](https://docs.microsoft.com/cloud-app-security/discovery-docker)를 Cloud App Security 로그 수집기를 통해 네트워크에서 전달된 모든 로그를 분석하도록 설정합니다. 이를 통해 새 앱과 사용량 추세를 파악할 수 있습니다.
 
-3. 로그가 현재 지원되지 않는 경우 Cloud App Discovery가 로그를 분석하도록 [사용자 지정 로그 파서를 설정](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser)합니다.
+3. 로그가 현재 지원되지 않는 경우 Cloud App Discovery가 로그를 분석하도록 [사용자 지정 로그 파서를 설정](https://docs.microsoft.com/cloud-app-security/custom-log-parser)합니다.
   
 ## <a name="log-processing-flow"></a>로그 처리 흐름
 
