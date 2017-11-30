@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/30/2017
-ms.openlocfilehash: 6a63cccee5be89a1da8f9656c6e7d4c7422702ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/28/2017
+ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -39,7 +39,7 @@ Azure Database for MySQL을 사용하는 경우 데이터베이스 서비스에�
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Azure CLI를 사용하여 이전 특정 시점으로 데이터베이스 복원
 Azure Database for MySQL을 사용하여 서버를 과거 특정 시점으로 복원합니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다. 
 
-서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#restore) 명령을 사용합니다.
+서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) 명령을 사용합니다.
 
 ### <a name="run-the-restore-command"></a>복원 명령 실행
 

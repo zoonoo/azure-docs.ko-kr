@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
-이 문서에서는 Azure SQL Database 연결 아키텍처에 대해 설명하고 다양한 구성 요소가 Azure SQL Database의 인스턴스에 트래픽을 전달하는 방법에 대해 설명합니다. 이러한 Azure SQL Database 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure 데이터베이스에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다. 이 문서를 읽은 후에 질문이 있는 경우에 dmalik@microsoft.com에서 Dhruv에 문의하세요. 
+이 문서에서는 Azure SQL Database 연결 아키텍처에 대해 설명하고 다양한 구성 요소가 Azure SQL Database의 인스턴스에 트래픽을 전달하는 방법에 대해 설명합니다. 이러한 Azure SQL Database 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure 데이터베이스에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다. 
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
-다음 다이어그램은 Azure SQL Database 연결 아키텍처의 대략적인 개요를 제공합니다. 
+다음 다이어그램은 Azure SQL Database 연결 아키텍처의 대략적인 개요를 제공합니다.
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | --- | --- |--- |
 | 오스트레일리아 동부 | 191.238.66.109 | 13.75.149.87 |
 | 오스트레일리아 동남부 | 191.239.192.109 | 13.73.109.251 |
-| 브라질 남부 | 104.41.11.5 | |    
-| 캐나다 중부 | 40.85.224.249 | |    
+| 브라질 남부 | 104.41.11.5 | |
+| 캐나다 중부 | 40.85.224.249 | |
 | 캐나다 동부 | 40.86.226.166 | |
 | 미국 중부 | 23.99.160.139 | 13.67.215.62 |
 | 동아시아 | 191.234.2.139 | 52.175.33.150 |
 | 미국 동부 1 | 191.238.6.43 | 40.121.158.30 |
 | 미국 동부 2 | 191.239.224.107 | 40.79.84.180 |
-| 인도 중부 | 104.211.96.159  | |   
+| 인도 중부 | 104.211.96.159  | |
 | 인도 남부 | 104.211.224.146  | |
 | 인도 서부 | 104.211.160.80 | |
 | 일본 동부 | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
 | 영국 북부 | 13.87.97.210 | |
-| 영국 남부 1 | 51.140.184.11 | |    
+| 영국 남부 1 | 51.140.184.11 | |
 | 영국 남부 2 | 13.87.34.7 | |
 | 영국 서부 | 51.141.8.11  | |
 | 미국 중서부 | 13.78.145.25 | |
@@ -95,12 +95,12 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 
 ## <a name="change-azure-sql-database-connection-policy"></a>SQL Database 연결 정책 변경
 
-Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx)를 사용합니다. 
+Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx)를 사용합니다.
 
-- 연결 정책을 **프록시**로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. **프록시** 설정을 사용하면 **리디렉션** 설정보다 대기 시간이 길어집니다. 
-- 연결 정책을 **리디렉션**으로 설정하는 경우 모든 네트워크 패킷은 미들웨어 프록시에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다. 
+- 연결 정책을 **프록시**로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. **프록시** 설정을 사용하면 **리디렉션** 설정보다 대기 시간이 길어집니다.
+- 연결 정책을 **리디렉션**으로 설정하는 경우 모든 네트워크 패킷은 미들웨어 프록시에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트 
+## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-azurerm-ps)이 필요합니다.
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0을 통해 연결 설정을 변경하는 스크립트 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0을 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)이 필요합니다.
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

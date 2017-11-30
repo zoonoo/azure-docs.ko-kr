@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4 - 비용 관리
       href: tutorial-manage-costs.md
+- name: 개념
+  items:
+    - name: 비용 보고서 이해
+      href: understading-cost-reports.md
 - name: 리소스
   items:
     - name: 비용 관리 비디오

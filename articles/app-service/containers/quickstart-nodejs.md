@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 웹앱 만들기
 
@@ -33,8 +33,8 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [Node.js 및 NPM 설치](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+* <a href="https://nodejs.org/" target="_blank">Node.js 및 NPM 설치</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -78,11 +78,11 @@ npm start
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>기본 제공 이미지로 웹앱 만들기
+## <a name="create-a-web-app"></a>웹앱 만들기
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 해당하는 웹앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ Node.js 샘플 코드가 기본 제공 이미지가 있는 웹앱에서 실행�
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
-텍스트 편집기를 사용하여 Node.js 앱에서 `index.js` 파일을 열고 `response.end`에 대한 호출에서 텍스트를 약간 변경합니다.
+로컬 디렉터리에서 Node.js 앱의 `index.js` 파일을 열고 `response.end` 호출의 인자 텍스트를 다음과 같이 변경합니다.
 
 ```nodejs
 response.end("Hello Azure!");

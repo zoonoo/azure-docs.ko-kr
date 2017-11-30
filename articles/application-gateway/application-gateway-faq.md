@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -288,7 +288,7 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 * 보트, 크롤러 및 스캐너 방지
 
-* 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
+ * 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
 
 **Q. WAF에서 DDoS 방지도 지원하나요?**
 

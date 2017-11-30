@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
 
@@ -43,8 +43,14 @@ ms.lasthandoff: 10/11/2017
 **Q: SLD(단일 레이블 도메인)가 지원되나요?**  
 아니요 Azure AD Connect는 SLD를 사용하는 온-프레미스 포리스트/도메인을 지원하지 않습니다.
 
+**Q: 비연속 AD 도메인을 갖는 포리스트가 지원되나요?**  
+아니요. Azure AD Connect는 비연속 네임스페이스를 갖는 온-프레미스 포리스트를 지원하지 않습니다.
+
 **Q: "마침표"를 포함하는 NetBios 이름이 지원되나요?**  
 아니요, Azure AD Connect는 NetBios 이름에 마침표 "."를 포함하는 온-프레미스 포리스트/도메인을 지원하지 않습니다.
+
+**Q: 순수한 IPv6 환경이 지원되나요?**  
+아니요. Azure AD Connect는 순수한 IPv6 환경을 지원하지 않습니다.
 
 ## <a name="federation"></a>페더레이션
 **Q: 내 Office 365 인증서를 갱신하라는 메일을 받는 경우 어떻게 해야 하나요?**  

@@ -4,6 +4,7 @@
 # 시작
 ## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Contact.java](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,7 @@
 ### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
-### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Visual Studio Code용 U-SQL 사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 응용 프로그램 프록시 배포
 Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 응용 프로그램을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 응용 프로그램을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 응용 프로그램 프록시를 사용하는 이러한 응용 프로그램을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
@@ -56,7 +56,7 @@ Azure AD 응용 프로그램 프록시를 처음 사용하는 경우 다음에 �
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>작업 2 - 도메인에 가입된 Windows 서버를 프로비전하여 Azure AD 응용 프로그램 프록시 커넥터를 배포
-Azure AD 응용 프로그램 프록시 커넥터를 설치할 수 있는 도메인에 가입된 Windows Server 가상 컴퓨터가 필요합니다. 게시되는 응용 프로그램에 따라 커넥터가 설치된 여러 서버를 프로비전하도록 선택할 수도 있습니다. 이 배포 옵션을 선택하면 가용성이 높아지고 더 많은 인증 부하를 처리하는 데 도움이 됩니다.
+Azure AD 응용 프로그램 프록시 커넥터를 설치할 수 있는 도메인에 가입된 Windows Server 가상 컴퓨터가 필요합니다. 응용 프로그램에 따라 커넥터가 설치된 여러 서버를 프로비전하도록 선택할 수도 있습니다. 이 배포 옵션을 선택하면 가용성이 높아지고 더 많은 인증 부하를 처리하는 데 도움이 됩니다.
 
 Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크(또는 연결/피어링된 가상 네트워크)에서 커넥터 서버를 프로비전합니다. 마찬가지로, 응용 프로그램 프록시를 통해 게시한 응용 프로그램을 호스팅하는 서버는 동일한 Azure 가상 네트워크에 설치해야 합니다.
 
@@ -64,7 +64,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>작업 3 - Azure AD 응용 프로그램 프록시 커넥터 설치 및 등록
-사전에 Windows Server 가상 컴퓨터를 프로비전하고 관리되는 도메인에 가입했습니다. 이 작업에서는 이 가상 컴퓨터에 Azure AD 응용 프로그램 프록시 커넥터를 설치할 것입니다.
+사전에 Windows Server 가상 컴퓨터를 프로비전하고 관리되는 도메인에 가입했습니다. 이 작업에서는 이 가상 머신에 Azure AD 응용 프로그램 프록시 커넥터를 설치합니다.
 
 1. Azure AD 웹 응용 프로그램 프록시 커넥터를 설치하는 VM에 커넥터 설치 패키지를 복사합니다.
 
@@ -113,12 +113,12 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 >
 
 Get-ADComputer PowerShell cmdlet을 사용하여 Azure AD 응용 프로그램 프록시 커넥터가 설치된 컴퓨터에 대한 설정을 검색합니다.
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 그 후 Set-ADComputer cmdlet을 사용하여 리소스 서버에 대한 리소스 기반 KCD를 설정합니다.
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

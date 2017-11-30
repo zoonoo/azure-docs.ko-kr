@@ -4,7 +4,7 @@ description: "기본 Java 앱을 배포하여 App Service에서 웹앱을 실행
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
 Azure [Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
+
+이 빠른 시작을 완료하면 웹 브라우저에서 응용 프로그램을 봤을 때 다음 그림과 같이 표시됩니다.
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -31,8 +33,8 @@ Azure [Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 
 
 이 빠른 시작을 완료하려면 다음을 설치합니다.
 
-* 무료 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). 이 빠른 시작은 Eclipse Neon을 사용합니다.
-* [Eclipse용 Azure 도구 키트](/azure/azure-toolkit-for-eclipse-installation).
+* 무료 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. 이 빠른 시작은 Eclipse Neon을 사용합니다.
+* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse용 Azure 도구 키트</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,11 +92,11 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
 
 ![웹앱 배포 대화 상자](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-### <a name="create-app-service-dialog-box"></a>앱 서비스 만들기 대화 상자
+### <a name="create-app-service-dialog-box"></a>App Service 만들기 대화 상자
 
 기본 값으로 **App Service 만들기** 대화 상자가 나타납니다. 다음 이미지에 표시된 숫자 **170602185241**은 대화 상자에 따라 달라집니다.
 
-![앱 서비스 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
+![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/cas1.png)
 
 **App Service 만들기** 대화 상자에서:
 
@@ -107,7 +109,7 @@ Azure 계정에 로그인하면 **웹앱 배포** 대화 상자가 나타납니�
   * **위치**: **유럽 서부** 또는 인접 위치를 선택합니다.
   * **가격 책정 계층**: 무료 옵션을 선택합니다. 기능의 경우 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 참조하세요.
 
-   ![앱 서비스 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+   ![App Service 만들기 대화 상자](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -167,9 +169,9 @@ Azure 도구 키트는 웹앱을 만들고 진행률 대화 상자를 표시합�
 
 **웹앱 배포** 대화 상자가 표시되고 이전에 만든 앱 서비스를 보여 줍니다. 
 
-> [!NOTE]
-> 게시할 때마다 **루트에 배포**를 선택합니다.
->
+> [!NOTE] 
+> 게시할 때마다 **루트에 배포**를 선택합니다. 
+> 
 
 웹앱을 선택하고 변경 사항을 게시하는 **배포**를 선택합니다.
 

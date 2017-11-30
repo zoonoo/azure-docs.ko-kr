@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>자동 크기 조정 규칙을 사용하여 서비스 패브릭 클러스터 크기 조정
 가상 컴퓨터 확장 집합은 가상 컴퓨터의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 컴퓨터 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [서비스 패브릭 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 컴퓨터 확장 집합으로 구성되므로 각 노드 형식/가상 컴퓨터 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
@@ -72,8 +72,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 한 번에 한 VM 인스턴스에 대해 다음 단계를 실행해야 합니다. 이렇게 해야 제거하려는 VM 인스턴스에서 시스템 서비스(및 상태 저장 서비스)를 정상적으로 종료할 수 있으며 다른 노드에서 새 복제본이 생성됩니다.
 
-1. 내재된 'RemoveNode'를 사용하여 [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) 를 실행하여 제거하려는 노드를 사용하지 않도록 설정합니다(해당 노드 형식에서 가장 높은 인스턴스).
-2. [Get-servicefabricnode](https://msdn.microsoft.com/library/mt125856.aspx) 를 실행하여 노드가 실제로 사용 안 함으로 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 이 단계는 서두를 수 없습니다.
+1. 내재된 'RemoveNode'를 사용하여 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 를 실행하여 제거하려는 노드를 사용하지 않도록 설정합니다(해당 노드 형식에서 가장 높은 인스턴스).
+2. [Get-servicefabricnode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 를 실행하여 노드가 실제로 사용 안 함으로 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 이 단계는 서두를 수 없습니다.
 3. [빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 의 샘플/지침에 따라 해당 노드 형식에서 VM 수를 하나씩 변경합니다. 제거된 인스턴스는 가장 높은 VM 인스턴스입니다. 
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요. 
 
@@ -85,8 +85,8 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 
 한 번에 한 VM 인스턴스에 대해 다음 단계를 실행해야 합니다. 이렇게 해야 제거하려는 VM 인스턴스에서 시스템 서비스(및 상태 저장 서비스)를 정상적으로 종료할 수 있으며 다른 위치에서 새 복제본이 생성됩니다.
 
-1. 내재된 'RemoveNode'를 사용하여 [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) 를 실행하여 제거하려는 노드를 사용하지 않도록 설정합니다(해당 노드 형식에서 가장 높은 인스턴스).
-2. [Get-servicefabricnode](https://msdn.microsoft.com/library/mt125856.aspx) 를 실행하여 노드가 실제로 사용 안 함으로 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 이 단계는 서두를 수 없습니다.
+1. 내재된 'RemoveNode'를 사용하여 [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) 를 실행하여 제거하려는 노드를 사용하지 않도록 설정합니다(해당 노드 형식에서 가장 높은 인스턴스).
+2. [Get-servicefabricnode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 를 실행하여 노드가 실제로 사용 안 함으로 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 이 단계는 서두를 수 없습니다.
 3. [빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 의 샘플/지침에 따라 해당 노드 형식에서 VM 수를 하나씩 변경합니다. 이렇게 하면 가장 높은 VM 인스턴스가 제거됩니다. 
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. [여기에서 안정성 계층에 대한 세부 정보](service-fabric-cluster-capacity.md)를 참조하세요.
 

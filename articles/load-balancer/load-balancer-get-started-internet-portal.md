@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
-ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure 포털을 사용하여 인터넷 연결 부하 분산 장치 만들기
 
@@ -32,8 +32,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다.
 
@@ -70,7 +68,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ## <a name="create-a-back-end-address-pool"></a>백 엔드 주소 풀 만들기
 
 1. 부하 분산 장치가 성공적으로 배포되면 리소스 내에서 선택합니다. 설정에서 백 엔드 풀을 선택합니다. 백 엔드 풀의 이름을 입력합니다. 표시되는 블레이드 위쪽의 **추가** 단추를 클릭합니다.
-2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web 1** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
+2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 Virtual Machines 섹션에서 **Virtual Machines 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web1** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
 
     ![백 엔드 주소 풀에 추가 ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 

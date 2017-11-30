@@ -1,52 +1,56 @@
 # 개요
 
-## [SQL Data Warehouse란 무엇입니까?](sql-data-warehouse-overview-what-is.md)
-## [데이터 웨어하우스 워크로드](sql-data-warehouse-overview-workload.md)
+## [SQL Data Warehouse 정보](sql-data-warehouse-overview-what-is.md)
 
-# 시작
+# 빠른 시작
 
-## [로드 데이터 자습서](load-data-from-azure-blob-storage-using-polybase.md)
-## [탄력적 쿼리 자습서](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [모범 사례](sql-data-warehouse-best-practices.md)
-## [관리](sql-data-warehouse-overview-manage.md)
+## [만들기 및 연결 - 포털](create-data-warehouse-portal.md)
 
-# 방법
+# 자습서
+## [1 - blob에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
 
+# 개념
 ## 서비스 기능
 ### [MPP 아키텍처](massively-parallel-processing-mpp-architecture.md)
 ### [성능 계층](performance-tiers.md)
 ### [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [데이터 웨어하우스 백업](sql-data-warehouse-backups.md)
+### [감사](sql-data-warehouse-auditing-overview.md)
 ### [용량 제한](sql-data-warehouse-service-capacity-limits.md)
-### [질문과 대답](sql-data-warehouse-overview-faq.md)
+### [FAQ](sql-data-warehouse-overview-faq.md)
 
-## Backup 및 복원
+## 보안
+### [개요](sql-data-warehouse-overview-manage-security.md)
+### [인증](sql-data-warehouse-authentication.md)
 
-### [Backup 개요](sql-data-warehouse-backups.md)
-### [복원 개요](sql-data-warehouse-restore-database-overview.md)
-#### [Azure 포털](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST (영문)](sql-data-warehouse-restore-database-rest-api.md)
 
-## 연결
+## SQL Data Warehouse로 마이그레이션
+### [개요](sql-data-warehouse-overview-migrate.md)
+### [마이그레이션 유틸리티](sql-data-warehouse-migrate-migration-utility.md)
+### [마이그레이션 스키마](sql-data-warehouse-migrate-schema.md)
+### [코드 마이그레이션](sql-data-warehouse-migrate-code.md)
+### [데이터 마이그레이션](sql-data-warehouse-migrate-data.md)
 
-### [개요](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Visual Studio 설치](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [연결 문자열](sql-data-warehouse-connection-strings.md)
+## 데이터 로드 및 이동
+### [개요](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## 생성
-### [Azure 포털](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## 개발
+## 통합
+### [개요](sql-data-warehouse-overview-integrate.md)
 
+
+## 모니터링 및 튜닝
+### [지침](resource-classes-for-workload-management.md)
+### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [모니터](sql-data-warehouse-manage-monitor.md)
+### [문제 해결](sql-data-warehouse-troubleshoot.md)
+
+## 데이터 웨어하우스 개발
 ### [개요](sql-data-warehouse-overview-develop.md)
+### [데이터 웨어하우스 구성 요소](sql-data-warehouse-overview-workload.md)
 
 ### 테이블
-
 #### [개요](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [데이터 형식](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [임시](sql-data-warehouse-tables-temporary.md)
 
 ### 쿼리
-
 #### [동적 SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [옵션으로 그룹화](sql-data-warehouse-develop-group-by-options.md)
 #### [레이블](sql-data-warehouse-develop-label.md)
 
 ### T-SQL 언어 요소
-
 #### [루프](sql-data-warehouse-develop-loops.md)
 #### [저장 프로시저](sql-data-warehouse-develop-stored-procedures.md)
 #### [트랜잭션](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [변수 할당](sql-data-warehouse-develop-variable-assignment.md)
 #### [뷰](sql-data-warehouse-develop-views.md)
 
-## 통합
-
-### [개요](sql-data-warehouse-overview-integrate.md)
-### [데이터 팩터리](sql-data-warehouse-integrate-azure-data-factory.md)
-### [기계 학습](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Machine Learning 자습서](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [SQL Database 및 SQL Data Warehouse에서의 탄력적 쿼리](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## 로드
-
-### 개념
-#### [개요](sql-data-warehouse-overview-load.md)
-#### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
-
-### 자습서
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### 방법 가이드
-#### [샘플 데이터](sql-data-warehouse-load-sample-databases.md)
-#### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
-#### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [SQL server에서 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## 마이그레이션
-
-### [개요](sql-data-warehouse-overview-migrate.md)
-### [마이그레이션 유틸리티](sql-data-warehouse-migrate-migration-utility.md)
-### [마이그레이션 스키마](sql-data-warehouse-migrate-schema.md)
-### [코드 마이그레이션](sql-data-warehouse-migrate-code.md)
-### [데이터 마이그레이션](sql-data-warehouse-migrate-data.md)
-### [프리미엄 저장소로 마이그레이션](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## 관리 계산
-
-### [개요](sql-data-warehouse-manage-compute-overview.md)
-### [쉬운 테이블](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [계산 수준 자동화](manage-compute-with-azure-functions.md)
-
-### 리소스 클래스
-#### [지침](resource-classes-for-workload-management.md)
-#### [워크로드 분석](analyze-your-workload.md)
-
-## 성능
-
-### [개요](sql-data-warehouse-overview-manage-user-queries.md)
-### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [모니터](sql-data-warehouse-manage-monitor.md)
+# 방법 가이드
+## 서비스 기능
+### [데이터 웨어하우스 복원 - 포털](sql-data-warehouse-restore-database-portal.md)
+### [데이터 웨어하우스 복원 - PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [데이터 웨어하우스 복원 - REST API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## 보안
-
-### [개요](sql-data-warehouse-overview-manage-security.md)
-### [감사](sql-data-warehouse-auditing-overview.md)
-### [하위 수준 클라이언트에 대한 감사](sql-data-warehouse-auditing-downlevel-clients.md)
-### [인증](sql-data-warehouse-authentication.md)
-### [암호화](sql-data-warehouse-encryption-tde.md)
-### [T-SQL을 사용하여 암호화](sql-data-warehouse-encryption-tde-tsql.md)
+### [암호화 사용 - 포털](sql-data-warehouse-encryption-tde.md)
+### [암호화 사용 - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [위협 감지](sql-data-warehouse-security-threat-detection.md)
 
-## 문제 해결
-### [문제 해결](sql-data-warehouse-troubleshoot.md)
+
+## 데이터 로드 및 이동
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
+### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [SQL server에서 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## 통합
+###  [SQL Database에서 탄력적 쿼리 구성](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Azure Stream Analytics 작업 추가](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [탄력적 쿼리 구성](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [Machine Learning 사용](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Power BI를 사용하여 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## 모니터링 및 튜닝
+### [워크로드 분석](analyze-your-workload.md)
+
+## 확장
+### [계산 관리 - 포털](sql-data-warehouse-manage-compute-portal.md)
+### [계산 관리 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [계산 관리 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [계산 수준 자동화](manage-compute-with-azure-functions.md)
+
 
 # 참조
 

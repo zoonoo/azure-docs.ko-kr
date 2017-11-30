@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
-ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-microsoft-graph-bindings"></a>Azure Functions Microsoft Graph 바인딩
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다.
 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://graph.microsoft.io)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
@@ -1062,3 +1061,8 @@ public class UserSubscription {
 
 [HTTP 트리거]: functions-bindings-http-webhook.md
 [Microsoft Graph에서 웹후크 작업]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)

@@ -3,7 +3,7 @@ title: "Azure CLI를 사용하여 Azure Blob Storage(개체 저장소)에서 작
 description: "Azure Blob Storage에서 Blob을 업로드 및 다운로드하는 방법과, 저장소 계정에서 Blob에 대한 액세스를 관리하기 위해 SAS(공유 액세스 서명)를 생성하는 방법을 알아봅니다."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.openlocfilehash: b4e99793d45b90411a068dd44a981cf24aa67d43
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 58313148f20c6680b131cf7a9f3f5aa015ca4add
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 작업 수행
 
@@ -34,7 +34,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 �
 > * Blob 속성 및 메타데이터 표시 및 수정
 > * SAS(공유 액세스 서명)로 보안 관리
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure 명령줄 인터페이스 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -288,7 +288,7 @@ az group delete --name myResourceGroup
 
 다음 리소스는 저장소 계정의 리소스 작업뿐만 아니라 Azure CLI로 작업하는 방법에 대한 추가 정보를 제공합니다.
 
-* Azure 명령줄 인터페이스
+* Azure CLI
   * [Azure CLI 2.0으로 로그인](/cli/azure/authenticate-azure-cli) - 무인 Azure CLI 스크립트를 실행하기 위해 [서비스 사용자](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal)를 통한 비대화식 로그인을 포함하여 CLI로 인증하는 다양한 방법에 대해 알아보세요.
   * [Azure CLI 2.0 명령 참조](/cli/azure/)
 * Microsoft Azure Storage 탐색기

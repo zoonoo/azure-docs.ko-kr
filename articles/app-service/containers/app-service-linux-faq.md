@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -66,6 +66,15 @@ Azure Container Registry 또는 DockerHub 이미지에 대한 연속 통합/배�
 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
 
 ## <a name="language-support"></a>언어 지원
+
+**Node.js 응용 프로그램에서 웹 소켓을 사용하려고 합니다. 특별한 설정이나 구성이 필요한가요?**
+
+예. 서버 쪽 Node.js 코드에서 `perMessageDeflate`를 비활성화해야 합니다. 예를 들어, socket.io를 사용하고 있다면 다음을 수행합니다.
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
 
 **컴파일되지 않은 .NET Core 앱을 지원하나요?**
 

@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: 분할
       href: partition-data.md
+    - name: 고유 키
+      href: unique-keys.md
     - name: 일관성
       href: consistency-levels.md
     - name: 처리량

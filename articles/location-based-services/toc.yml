@@ -1,0 +1,51 @@
+- name: Azure Location Based Services 설명
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Location Based Services 정보
+      href: about-location-based-services.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Location Based Services를 사용하여 앱 매핑
+      href: quick-demo-map-app.md
+- name: 자습서
+  items:
+    - name: 1 - 관심 지점 검색
+      href: tutorial-search-location.md
+    - name: 2 - 관심 지점에 대한 경로
+      href: tutorial-route-location.md
+    - name: 3 - 여행 모드별 여러 경로
+      href: tutorial-prioritized-routes.md
+- name: 개념
+  items:
+    - name: 지오코딩 검사
+      href: geocoding-coverage.md
+    - name: 트래픽 검사
+      href: traffic-coverage.md
+- name: 방법 가이드
+  items:
+    - name: 계정 및 키 관리
+      href: how-to-manage-account-keys.md
+    - name: 맵 컨트롤을 사용하는 방법
+      href: how-to-use-map-control.md
+- name: 참조
+  items:
+    - name: Azure IoT 개발자 센터
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: 스택 오버플로
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: 기술 사례 연구
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: 비디오
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

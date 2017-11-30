@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a421327ab8794315005327833b873dc5ebd57e9e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -75,4 +75,4 @@ ms.lasthandoff: 10/11/2017
 
 ##<a name="next-steps"></a>다음 단계
 
-- [랩에 VM 추가](./devtest-lab-add-vm-with-artifacts.md)
+- [랩에 VM 추가](./devtest-lab-add-vm.md)

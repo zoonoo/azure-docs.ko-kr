@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6f6f89d62f1442198f80247cc5c433aa0c54030b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure Functions에서 .NET 클래스 라이브러리 사용
 
@@ -429,10 +429,8 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 ## <a name="next-steps"></a>다음 단계
 
-C# 스크립팅에서 Azure Functions 사용에 대한 자세한 내용은 [Azure Functions C\# 스크립트 개발자 참조](functions-reference-csharp.md)를 참조하세요.
-
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
+> [!div class="nextstepaction"]
+> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1

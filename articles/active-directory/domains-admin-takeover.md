@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 등록이란?]()을 참조하세요.
@@ -67,7 +67,7 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
   
 6. Microsoft Azure AD 테넌트에 대한 전역 관리자인 계정으로 [Microsoft Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
   
-7. **도메인 이름**을 선택한 후, 그 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
+7. **사용자 지정 도메인 이름**을 선택하고 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
   
   ![Microsoft Azure AD에 추가하는 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -122,7 +122,7 @@ Cmdlet | 사용
 
 ### <a name="powershell-example"></a>PowerShell 예제
 
-1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Microsoft Azure Active Directory에 연결합니다.
+1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Azure AD에 연결합니다.
   ````
     import-module MSOnline
     $msolcred = get-credential
@@ -164,7 +164,7 @@ Cmdlet | 사용
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure AD에 사용자 지정 도메인 이름 추가](add-custom-domain.md)
-* [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
+* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

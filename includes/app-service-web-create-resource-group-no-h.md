@@ -1,4 +1,4 @@
-Cloud Shell에서 [az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다.
+Cloud Shell에서 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

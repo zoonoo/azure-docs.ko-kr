@@ -5,7 +5,7 @@
 변경할 때마다 변경하려는 접두사뿐 아니라 전체 접두사 목록을 지정해야 합니다. 계속 유지할 접두사만 지정합니다. 이 예에서는 10.0.0.0/24 및 20.0.0.0/24입니다.
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 기존 게이트웨이 연결
@@ -15,5 +15,5 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 변경할 때마다 변경하려는 접두사뿐 아니라 전체 접두사 목록을 지정해야 합니다. 이 예제에서는 10.0.0.0/24 및 20.0.0.0/24가 이미 있습니다. 접두사 30.0.0.0/24 및 40.0.0.0/24를 추가하고 업데이트할 때 접두사 4개를 모두 지정합니다.
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

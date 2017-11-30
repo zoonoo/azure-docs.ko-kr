@@ -3,7 +3,7 @@ title: "Azure 빠른 시작 - PowerShell을 사용하여 저장소 계정 만들
 description: "PowerShell을 사용하여 새 저장소 계정을 만드는 방법을 간단히 알아봅니다."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.author: robinsh
-ms.openlocfilehash: c9175cce0cb93e73009fb8d751e54f631603d482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: tamram
+ms.openlocfilehash: b4b917adfb3644cca71b6696df005fbf9e295240
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-a-storage-account-using-powershell"></a>PowerShell을 사용하여 저장소 계정 만들기
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 |**저장소 계정의 유형**|**범용 표준**|**범용 프리미엄**|**Blob Storage, 핫 및 쿨 액세스 계층**|
 |-----|-----|-----|-----|
-|**지원되는 서비스**| Blob, File, Table, Queue 서비스 | Blob 서비스 | Blob 서비스|
+|**지원되는 서비스**| Blob, File, Table, Queue 서비스 | Blob service | Blob service|
 |**지원되는 Blob 유형**|블록 Blob, 페이지 Blob, 추가 Blob | 페이지 Blob | 블록 Blob 및 추가 Blob|
 
 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 모든 네 가지 서비스에 사용할 수 있는 범용 표준 저장소 계정을 만듭니다. 저장소 계정 이름을 *contosomvcstandard*로 지정하고 로컬 중복 저장소 및 Blob 암호를 사용하도록 구성합니다.

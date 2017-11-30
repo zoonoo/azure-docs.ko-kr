@@ -20,7 +20,7 @@
 
 ## 작업 만들기
 ### [입력 만들기](stream-analytics-define-inputs.md)
-### [샘플 입력 데이터](stream-analytics-sample-data-input.md)
+### [쿼리 및 샘플 입력된 데이터 테스트](stream-analytics-sample-data-input.md)
 ### [일반적인 쿼리 패턴](stream-analytics-stream-analytics-query-patterns.md)
 ### [창 함수](stream-analytics-window-functions.md)
 
