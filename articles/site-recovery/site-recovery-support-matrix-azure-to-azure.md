@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure 간에 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -164,9 +164,10 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 컴퓨터 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network)  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다. 
 
 >[!IMPORTANT]
-> 성능 문제를 방지하려면 원본 Azure Virtual Machines에 대한 [저장소 지침](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)을 따라야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM으로 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)를 따라야 합니다.
+> [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 컴퓨터에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 원본 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
 
 ## <a name="support-for-network-configuration"></a>네트워크 구성 지원
 **구성** | **지원됨/지원되지 않음** | **설명**

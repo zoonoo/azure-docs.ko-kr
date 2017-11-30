@@ -3,26 +3,26 @@ title: "Azure AD에 사용자 지정 도메인 추가 | Microsoft Docs"
 description: "Azure Active Directory에서 사용자 지정 도메인을 추가하는 방법을 설명합니다."
 services: active-directory
 author: curtand
-manager: femila
+manager: michael.tillman
 ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/14/2017
 ms.author: curtand
-ms.reviewer: jsnow
+ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 27e7449f039da8f7661d113999e1c4e5d76c3cf6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>빠른 시작: Azure Active Directory에 사용자 지정 도메인 이름 추가
 
-모든 Azure AD 디렉터리는 *domainname*.onmicrosoft.com 양식의 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수 없지만 Azure AD에 회사 도메인 이름을 추가할 수 있습니다. 예를 들어, 조직에는 비즈니스를 하는 데 사용하는 다른 도메인 이름 및 회사 도메인 이름을 사용하여 로그인하는 사용자가 있을 수 있습니다. Azure AD에 사용자 지정 도메인 이름을 추가하면 사용자에게 ‘alice@contoso.com’ 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. 'alice@*<domain name>*.onmicrosoft.com' 대신입니다. 프로세스는 간단합니다.
+모든 Azure AD 디렉터리는 *domainname*.onmicrosoft.com 양식의 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수 없지만 Azure AD에 회사 도메인 이름을 추가할 수 있습니다. 예를 들어, 조직에는 비즈니스를 하는 데 사용하는 다른 도메인 이름 및 회사 도메인 이름을 사용하여 로그인하는 사용자가 있을 수 있습니다. Azure AD에 사용자 지정 도메인 이름을 추가하면 사용자에게 ‘alice@contoso.com’ 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. (‘alice@*domain name*.onmicrosoft.com’ 대신) 프로세스는 간단합니다.
 
 1. 디렉터리에 사용자 지정 도메인 이름 추가
 2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가
@@ -30,11 +30,11 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="add-the-custom-domain-name-to-your-directory"></a>디렉터리에 사용자 지정 도메인 이름 추가
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
-2. 왼쪽에서 **도메인 이름**을 선택합니다.
-3. ***디렉터리-이름* - 도메인 이름**에서 **추가**를 선택합니다.
+2. 왼쪽에서 **사용자 지정 도메인 이름**을 선택합니다.
+3. **사용자 지정 도메인 추가**를 선택합니다.
    
-   ![[추가] 명령 선택](./media/active-directory-domains-add-azure-portal/add-command.png)
-5. **도메인 이름**에서 상자에 사용자 지정 도메인 이름(예: 'contoso.com')을 입력한 다음 **도메인 추가**를 선택합니다. .com, .net 또는 그 외 최상위 확장명을 포함해야 합니다.
+   ![[추가] 명령 선택](./media/add-custom-domain/add-custom-domain.png)
+5. **사용자 지정 도메인 이름**에서 상자에 사용자 지정 도메인 이름(예: ‘contoso.com’)을 입력하고 **도메인 추가**를 선택합니다. .com, .net 또는 그 외 최상위 확장명을 포함해야 합니다.
 6. ***domainname***(즉, 새 도메인 이름은 제목)에서 Azure AD에서 사용자 지정 도메인 이름을 확인하기 위해 나중에 사용할 DNS 항목 정보를 수집합니다.
    
    ![DNS 항목 정보 가져오기](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
@@ -51,12 +51,10 @@ ms.lasthandoff: 11/14/2017
 ## <a name="verify-the-custom-domain-name-in-azure-ad"></a>Azure AD에서 사용자 지정 도메인 이름 확인
 DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 준비가 되었습니다. DNS 레코드가 전파된 후에 도메인 이름을 확인할 수 있습니다. 이 전파는 보통 몇 초 밖에 걸리지 않지만 한 시간 이상이 걸릴 경우도 있습니다. 확인이 처음에 작동하지 않으면 나중에 재시도하세요.
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
-2. 왼쪽에서 **도메인 이름**을 선택합니다.
-3. ***디렉터리-이름* - 도메인 이름**에서 **도메인 이름 추가** 명령을 선택합니다. 
-  ![[추가] 명령 선택](./media/active-directory-domains-add-azure-portal/add-command.png)
-3. ***디렉터리-이름* - 도메인 이름**에서 확인하려는 확인되지 않은 도메인 이름을 선택합니다.
-4. ***domainname***(즉, 선택한 도메인 이름은 제목)에서 **확인**을 선택하여 확인을 완료합니다.
+1. 테넌트의 전역 관리자 계정으로 [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+2. **사용자 지정 도메인 이름**을 선택합니다.
+3. 확인하려는 확인되지 않은 도메인 이름을 선택합니다.
+4. 입력한 내용을 확인하고 **확인** 을 선택하여 확인을 완료합니다.
 
 이제 [사용자 지정 도메인 이름을 포함하는 사용자 이름을 할당](active-directory-users-create-azure-portal.md)할 수 있습니다. 사용자 지정 도메인 이름을 사용하여 클라우드 기반 사용자 계정을 만들거나 이전에 동기화된 온-프레미스 사용자 계정 정보를 업데이트합니다. [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 또는 [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)를 사용하여 동기화된 사용자 계정 도메인 접미사 정보를 변경할 수도 있습니다.
 
@@ -74,10 +72,9 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
   도메인 이름 등록 기관에서 도메인에 대한 DNS 레코드를 업데이트하기 위한 액세스 권한이 없는 경우 조직에서 이 액세스 권한이 있는 사람이나 팀과 DNS 항목을 공유하고 DNS 항목을 추가하도록 요청합니다.
 3. **Azure AD에서 도메인 이름을 다른 디렉터리에서 삭제합니다**. 단일 디렉터리에서 도메인 이름을 확인할 수 있습니다. 현재 다른 디렉터리에서 도메인 이름이 확인되지 않은 경우 다른 디렉터리에서 삭제될 때까지 새 디렉터리에서 확인할 수 없습니다. 도메인 이름을 삭제하는 방법에 대해 자세히 알아보려면 [사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)를 참고합니다.    
 
-## <a name="add-more-custom-domain-names"></a>사용자 지정 도메인 이름 더 추가하기
-조직에서 사용자 지정 도메인 이름을 여러 개 사용하는 경우(예: ‘contoso.com’ 및 ‘contosobank.com’), 최대 900개의 도메인에 해당 이름을 추가할 수 있습니다. 이 문서의 단계를 사용하여 각 도메인 이름을 추가할 수 있습니다.
+이 문서의 단계를 반복하여 각 도메인 이름을 추가합니다.
 
-### <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세한 정보
 [Azure AD에서 사용자 지정 도메인 이름의 개념적 개요](active-directory-domains-manage-azure-portal.md)
 
 [사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)

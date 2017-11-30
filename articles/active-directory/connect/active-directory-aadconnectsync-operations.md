@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect Sync: 운영 작업 및 고려 사항
 이 항목은 Azure AD Connect Sync에 대한 관리 작업을 설명하는 것을 목표로 합니다.
@@ -33,6 +33,11 @@ ms.lasthandoff: 11/08/2017
 스테이징 모드에 있는 서버로 서버를 활성화하기 전에 구성을 변경하고 변경을 미리 볼 수 있습니다. 또한 프로덕션 환경에 해당 변경 사항을 적용하기 전에 필요한지를 확인하기 위해 전체 가져오기 및 동기화를 실행할 수 있습니다.
 
 설치 중에 서버를 선택하여 **스테이징 모드**로 둘 수 있습니다. 이 작업은 서버가 가져오기 및 동기화에 대해 활성화하도록 하지만 내보내기는 수행하지 않습니다. 설치 중에 이러한 기능을 선택하더라도 스테이징 모드에 있는 서버는 암호 동기화 또는 비밀번호 쓰기 저장을 실행하지 않습니다. 스테이징 모드를 해제하면 서버가 내보내기를 시작하고 암호 동기화 및 비밀번호 쓰기 저장을 사용하도록 설정합니다.
+
+> [!NOTE]
+> 암호 해시 동기화 기능이 사용되도록 설정된 Azure AD Connect를 사용한다고 가정합니다. 준비 모드에서 서버는 온-프레미스 AD의 암호 변경에 대한 동기화를 중지합니다. 준비 모드를 사용되지 않도록 설정하면 서버는 마지막에 중단한 암호 변경부터 동기화를 다시 시작합니다. 서버가 오랫 동안 준비 모드를 유지할 경우 서버가 해당 기간 동안 발생한 모든 암변호 경 내용을 동기화하는 데 다소 시간이 걸릴 수 있습니다.
+>
+>
 
 여전히 동기화 서비스 관리자를 사용하여 강제로 내보낼 수 있습니다.
 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
-ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,12 +56,12 @@ ms.lasthandoff: 10/11/2017
 ### <a name="verify-android-sdk-version"></a>Android SDK 버전 확인
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
+다음 단계에서는 Google Play Services를 설치합니다. Firebase Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트의 최소 API 수준 요구 사항이 있습니다.
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]을 참조하세요.
+오래된 장치로 테스트하는 경우 [Android 프로젝트에 Firebase 추가]에서 이 값의 허용되는 최소값과 제대로 설정하는 방법을 참조하세요.
 
-### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>프로젝트에 Firebase Cloud Messaging 추가
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>코드 추가
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -79,5 +79,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 <!-- URLs -->
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
-
-[Google Play Services SDK 설정]:https://developers.google.com/android/guides/setup
+[Android 프로젝트에 Firebase 추가]:https://firebase.google.com/docs/android/setup

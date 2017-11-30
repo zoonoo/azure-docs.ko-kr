@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -72,6 +72,10 @@ Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Comm
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
 Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.  
+ 
+> [!IMPORTANT]  
+> 일반 공급 Table API SDK를 사용하려면 새 Table API 계정을 만들어야 합니다. 미리 보기 중에 만들어진 Table API 계정은 일반 공급 SDK에서 지원되지 않습니다. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -88,7 +92,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. 그런 다음 Visual Studio에서 솔루션을 엽니다. 
@@ -99,24 +103,32 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
-    화면의 오른쪽에서 복사 단추를 사용하여 연결 문자열을 복사합니다.
+    화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
     ![연결 문자열 창에서 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
 
 2. Visual Studio에서 app.config 파일을 엽니다. 
 
-3. app.config 파일에 CosmosDBStorageConnectionString의 값으로 연결 문자열 값을 붙여넣습니다. 
+3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Azure Table Storage에서 이 앱을 사용하려면 `app.config file`에서 연결 문자열을 변경해야 합니다. 계정 이름을 Table 계정 이름으로, 키를 Azure Storage 기본 키로 사용합니다. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. 8줄에서 StorageConnectionString 값에 포털의 기본 연결 문자열 값을 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다.
+   
+    > [!IMPORTANT]
+    > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
     >
 
-4. app.config 파일을 저장합니다.
+    줄 8은 다음과 같이 보일 것입니다.
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. app.config 파일을 저장합니다.
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
@@ -316,12 +328,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>리소스 정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
-이 응용 프로그램을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 자습서에서 만든 리소스를 모두 삭제합니다.   
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

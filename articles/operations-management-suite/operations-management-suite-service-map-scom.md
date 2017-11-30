@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -30,7 +30,7 @@ Operations Management Suite 서비스 맵은 Windows 및 Linux 시스템에서 �
 서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 응용 프로그램 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* 일련의 서버를 관리하는 Operations Manager 관리 그룹
+* 일련의 서버를 관리하는 Operations Manager 관리 그룹(2012 R2 이상)
 * 서비스 맵 솔루션이 사용하도록 설정된 Operations Management Suite 작업 영역
 * Operations Manager로 관리되고 있고 서비스 맵으로 데이터를 전송하는 서버 집합(하나 이상의 서버) Windows 및 Linux 서버가 지원됩니다.
 * Operations Management Suite 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.

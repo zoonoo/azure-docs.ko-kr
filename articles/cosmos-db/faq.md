@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -431,7 +431,7 @@ Azure Cosmos DB는 테이블을 만드는 위치, 포털 또는 CQL에 따라 �
 처리량 개념은 [Azure Cosmos DB의 요청 단위](request-units.md)에 설명되어 있습니다. 테이블에 대한 처리량은 기본 실제 파티션에 동일하게 분산됩니다.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>CQL을 통해 만들 때 테이블의 기본 RU/s는 얼마인가요? 변경해야 하는 경우 어떻게 해야 하나요?
-Azure Cosmos DB는 처리량을 제공하는 기준으로 초당 요청 단위(RU/s)를 사용합니다. CQL을 통해 생성된 테이블의 경우 400RU입니다. 포털에서 이 RU를 10,000RU로 변경할 수 있습니다. 비공개 미리 보기에서 10,000RU 이상이 필요할 경우 먼저 포털에서 만들 수 있습니다. 또는 CQL에 이 기능이 필요한 경우 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)에 문의하세요. 
+Azure Cosmos DB는 처리량을 제공하는 기준으로 초당 요청 단위(RU/s)를 사용합니다. CQL을 통해 생성된 테이블의 경우 400RU입니다. 포털에서 이 RU를 변경할 수 있습니다. 
 
 CQL
 ```

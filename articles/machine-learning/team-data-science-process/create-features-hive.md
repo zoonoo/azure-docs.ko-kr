@@ -4,7 +4,7 @@ description: "Azure HDInsight Hadoop 클러스터에 저장된 데이터의 기�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
 이 문서에는 Hive 쿼리를 사용하여 Azure HDInsight Hadoop 클러스터에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. 이러한 Hive 쿼리는 제공된 스크립트인 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
 기능을 만드는 데 필요한 작업은 메모리 집약적일 수 있습니다. 이 경우 Hive 쿼리의 성능이 더욱 중요해지며 특정 매개 변수를 조정하여 성능을 향상시킬 수 있습니다. 이러한 매개 변수를 조정하는 내용은 마지막 섹션에 설명되어 있습니다.
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/09/2017
 
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 * 사용자 지정된 Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다.  지침이 필요한 경우 [고급 분석을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md)을 참조하세요.
-* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](move-hive-tables.md) 의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](move-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드합니다.
 * 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md)를 참조하세요.
 
 ## <a name="hive-featureengineering"></a>기능 생성
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/09/2017
 
 
 ### <a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
-사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 그러려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(log odds)을 계산하는 몇 가지 일반적인 Hive 쿼리를 보여 줍니다.
+사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 이렇게 변환하려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(log odds)을 계산하는 몇 가지 일반적인 Hive 쿼리를 보여 줍니다.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -134,7 +134,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat_or_lon*pi/180*일 뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat_or_lon*pi/180*일 뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기](./media/create-features-hive/atan2new.png)
 
@@ -143,24 +143,34 @@ Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/conflue
 ## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
-1. **Java 힙 공간**: 대용량 데이터 집합을 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
+1. **Java 힙 공간**: 대용량 데이터 집합을 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이 오류를 피할 수 있습니다. 다음은 예제입니다.
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     이 매개 변수는 Java 힙 공간에 4GB 메모리를 할당하고 정렬에 추가 메모리를 할당하여 정렬 작업의 효율성을 높입니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
 
-1. **DFS 블록 크기**: 이 매개 변수는 파일 시스템에 저장되는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB이면 크기가 128MB 이하인 모든 데이터가 단일 블록에 저장되고 128MB보다 큰 데이터에는 추가 블록이 할당됩니다. 블록 크기를 너무 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상)의 데이터를 처리할 때 권장되는 설정은 다음과 같습니다.
-   
+1. **DFS 블록 크기**: 이 매개 변수는 파일 시스템에 저장되는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB인 경우 128MB 이하의 모든 데이터는 단일 블록에 저장됩니다. 128MB보다 큰 데이터는 추가 블록에 할당됩니다. 
+2. 블록 크기를 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상)의 데이터를 처리할 때 권장되는 설정은 다음과 같습니다.
+
         set dfs.block.size=128m;
+
 2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. Hive에서 가능할 때마다 이 작업을 수행하도록 지시하려면 다음과 같이 설정합니다.
    
-        set hive.auto.convert.join=true;
+       set hive.auto.convert.join=true;
+
 3. **Hive에 매퍼 수 지정**: Hadoop을 사용하면 사용자가 리듀서 수를 설정할 수 있지만, 매퍼 수는 일반적으로 사용자가 설정하지 않습니다. 한 가지 팁으로, 맵 작업 각각의 크기가 다음과 같은 방법으로 결정되므로 *mapred.min.split.size* 및 *mapred.max.split.size* Hadoop 변수를 선택하여 매퍼 수를 어느 정도 조절할 수 있습니다.
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    일반적으로 *mapred.min.split.size*의 기본값은 0, *mapred.max.split.size*의 기본값은 **Long.MAX**, *dfs.block.size*의 기본값은 64MB입니다. 보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
+    일반적으로 기본값은 다음과 같습니다.
+    
+    - *mapred.min.split.size*: 0
+    - *mapred.max.split.size*: **Long.MAX** 
+    - *dfs.block.size*: 64MB
+
+    보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
+
 4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용하여 맵 및 감소 작업에 할당된 메모리를 설정할 수 있으며 성능 조정 시 유용하게 활용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
    
         set mapreduce.map.memory.mb = 2048;

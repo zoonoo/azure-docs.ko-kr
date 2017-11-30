@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -62,13 +62,16 @@ Azure Stream Analytics에 대한 자세한 내용은 [Stream Analytics 설명서
     ![새 저장소 계정][1]
 
 3. Azure Portal에서 방금 만든 저장소 계정으로 이동합니다. **Blob Service**에서 **Blob 찾아보기**를 클릭합니다. 
-1. ASA 모듈에서 데이터를 저장할 새 컨테이너를 만듭니다. 액세스 수준을 _컨테이너_로 설정합니다. **확인**을 클릭합니다.
+4. ASA 모듈에서 데이터를 저장할 새 컨테이너를 만듭니다. 액세스 수준을 _컨테이너_로 설정합니다. **확인**을 클릭합니다.
 
     ![저장소 설정][10]
 
-1. Azure Portal에서 **리소스 만들기** > **사물 인터넷**으로 이동한 후 **Stream Analytics 작업**을 선택합니다.
+5. Azure Portal에서 **리소스 만들기** > **사물 인터넷**으로 이동한 후 **Stream Analytics 작업**을 선택합니다.
 
-1. 이름 **를 입력하고 호스팅 환경으로 "Edge"를 선택한 후** 나머지 기본값을 그대로 사용합니다.  **만들기**를 클릭합니다.
+2. 이름을 입력하고 호스팅 환경으로 **Edge**를 선택한 후 나머지 기본값은 그대로 사용합니다.  **만들기**를 클릭합니다.
+
+    >[!NOTE]
+    >현재, IoT Edge의 ASA 작업은 미국 서부 2 지역에서 지원되지 않습니다. 다른 위치를 선택하세요.
 
     ![ASA 만들기][5]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/15/2017
 
 고객 관점과 Microsoft 작업 관점 모두에서 Microsoft Azure에서 구현된 거버넌스 배열을 더 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 거버넌스 기능을 포괄적으로 살펴볼 수 있는 "Azure의 거버넌스" 문서가 작성되었습니다.
 
-## <a name="azure-platform"></a>Azure Platform
+## <a name="azure-platform"></a>Azure 플랫폼
 
 Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 장치용 백 엔드를 빌드할 수 있습니다. Azure 공용 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 

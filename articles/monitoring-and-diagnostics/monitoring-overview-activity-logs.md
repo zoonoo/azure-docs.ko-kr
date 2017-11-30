@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 **Azure 활동 로그**는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 관리 범주에서 구독의 제어 평면 이벤트를 보고하므로, 이전에는 활동 로그의 명칭이 "감사 로그" 또는 "작업 로그"였습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
@@ -49,7 +49,8 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * **경고** - 이 범주에는 모든 Azure 경고 활성화의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
 * **자동 크기 조정** - 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
 * **권장 사항** - 이 범주에는 웹 사이트 및 SQL Server와 같은 특정 리소스 종류의 권장 이벤트가 포함됩니다. 이러한 이벤트는 리소스를 보다 효율적으로 사용하는 권장 방법을 제공합니다. 권장 사항을 내보내는 리소스가 있는 경우에만 이러한 형식의 이벤트가 수신됩니다.
-* **정책, 보안 및 리소스 상태** - 이러한 범주는 이벤트를 포함하지 않으며 나중에 사용하도록 예약됩니다.
+* **보안** - 이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
+* **정책 및 리소스 상태** - 이러한 범주는 이벤트를 포함하지 않으며 나중에 사용하도록 예약됩니다.
 
 ## <a name="event-schema-per-category"></a>범주별 이벤트 스키마
 [범주별 활동 로그 이벤트 스키마를 파악하려면 이 문서를 참조하세요.](monitoring-activity-log-schema.md)
@@ -64,7 +65,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * [활동 로그 이벤트에서 경고 만들기](monitoring-activity-log-alerts.md)
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
 * [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
-* [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* [보관 또는 수동 검사를 위해 **Storage 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * PowerShell Cmdlet, CLI 또는 REST API를 통해 쿼리합니다.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure Portal에서 활동 로그 쿼리
@@ -97,9 +98,9 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 * 활동 로그를 보낼 위치(Storage 계정 또는 Event Hubs)
 * 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 및 활동 로그 이벤트에서 "범주"의 의미는 다릅니다. 로그 프로필에서 "범주"는 작업 유형(쓰기, 삭제 작업)을 나타냅니다. 활동 로그 이벤트에서 "범주" 속성은 원본 또는 이벤트의 유형(예: 관리, ServiceHealth, 경고 등)을 나타냅니다.*
 * 내보낼 하위 지역(위치). 활동 로그의 많은 이벤트가 전역 이벤트이므로 “전역”이 포함되었는지 확인합니다.
-* 활동 로그를 저장소 계정에 유지해야 하는 기간
+* 활동 로그를 Storage 계정에 유지해야 하는 기간
     - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
-    - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+    - 보존 정책이 설정되었지만 Storage 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
@@ -107,7 +108,7 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure Portal을 사용하여 로그 프로필 구성
-활동 로그를 이벤트 허브로 스트림하거나 Azure Portal의 "내보내기" 옵션을 사용하여 저장소 계정에 저장할 수 있습니다.
+활동 로그를 Event Hub로 스트림하거나 Azure Portal의 "내보내기" 옵션을 사용하여 Storage 계정에 저장할 수 있습니다.
 
 1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
 
@@ -117,7 +118,7 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
     ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
   * 이벤트를 내보내려는 지역
-  * 이벤트를 저장하려는 저장소 계정
+  * 이벤트를 저장하려는 Storage 계정
   * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
   * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
 
@@ -138,7 +139,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | 속성 | 필수 | 설명 |
 | --- | --- | --- |
 | 이름 |예 |로그 프로필의 이름입니다. |
-| StorageAccountId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
@@ -167,7 +168,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | 속성 | 필수 | 설명 |
 | --- | --- | --- |
 | name |예 |로그 프로필의 이름입니다. |
-| storageId |아니요 |활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
+| storageId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |

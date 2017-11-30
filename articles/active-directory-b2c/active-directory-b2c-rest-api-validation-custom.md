@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2572c618f6ad27f57603d8e8a2ff04de6846c6ca
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
 
@@ -119,7 +119,7 @@ IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니�
 
 1. TrustFrameworkBase 파일을 열고 `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`를 검색합니다.
 2. 이 기술 프로필의 구성을 검토합니다. 사용자와의 교환이 사용자에게 요청할 클레임(입력 클레임) 및 자체 어설션된 공급자에서 반환될 클레임(출력 클레임)으로 정의되는 방식을 검토합니다.
-3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색하고 이 프로필이 `<UserJourney Id="ProfileEdit">`의 6 오케스트레이션 단계로 호출되었는지 확인합니다.
+3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색합니다. 이 프로필이 `<UserJourney Id="ProfileEdit">`의 오케스트레이션 4단계로 호출된다는 것을 확인합니다.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4단계 - 프로필 편집 RP 정책 파일 업로드 및 테스트
 

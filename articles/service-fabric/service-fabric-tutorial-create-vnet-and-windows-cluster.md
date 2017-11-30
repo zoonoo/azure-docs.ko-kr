@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
-이 자습서는 시리즈의 1부입니다. PowerShell을 사용하여 기존 Azure VNET(가상 네트워크)에 Windows Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
+이 자습서는 시리즈의 1부입니다. PowerShell을 사용하여 기존 Azure VNET(가상 네트워크) 및 하위 네트워크에 Windows를 실행 중인 Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -47,6 +47,22 @@ ms.lasthandoff: 11/15/2017
 
 다음 절차에서는 5노드 Service Fabric 클러스터를 만듭니다. Azure에서 Service Fabric 클러스터를 실행할 때 발생하는 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
 
+## <a name="introduction"></a>소개
+이 자습서에서는 단일 노드 형식인 5개 노드의 클러스터를 Azure에 있는 가상 네트워크에 배포합니다.
+
+[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다. 클러스터의 일부인 컴퓨터나 VM을 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다.
+
+클러스터의 가상 머신 집합에 대한 크기, 번호 및 속성이 노드 형식에 정의됩니다. 모든 정의된 노드 형식은 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)으로 설정되며, 이는 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용하는 Azure 계산 리소스입니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. 노드 형식은 "프런트 엔드" 또는 "백 엔드"와 같은 클러스터 노드 집합에 대한 역할을 정의하는 데 사용됩니다.  클러스터에 둘 이상의 노드 형식이 있을 수 있지만 주 노드 형식에는 프로덕션 클러스터에 대한 최소 5개의 VM(또는 테스트 클러스터에 대한 최소 3개의 VM)이 있어야 합니다.  [Service Fabric 시스템 서비스](service-fabric-technical-overview.md#system-services)는 주 노드 형식의 노드에 배치됩니다.
+
+## <a name="cluster-capacity-planning"></a>클러스터 용량 계획
+이 자습서에서는 단일 노드 형식인 5개 노드의 클러스터를 배포합니다.  프로덕션 클러스터 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 할 몇 가지 사항입니다.
+
+- 클러스터에 필요한 노드 형식 수 
+- 각 노드 유형의 속성(예: 크기, 기본, 인터넷 연결 및 VM 수)
+- 클러스터의 안정성 및 지속성 특성
+
+자세한 내용은 [클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 참조하세요.
+
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure에 로그인 및 구독 선택
 이 가이드에서는 Azure PowerShell을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
  
@@ -68,7 +84,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>네트워크 토폴로지를 배포합니다.
-다음으로, API Management 및 Service Fabric 클러스터가 배포될 네트워크 토폴로지를 설정합니다. [network.json][network-arm] Resource Manager 템플릿은 VNET(가상 네트워크), Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹), API Management에 대한 서브넷 및 NSG를 만들도록 구성되었습니다. VNET, 서브넷 및 NSG에 대한 자세한 내용은 [여기](../virtual-network/virtual-networks-overview.md)를 참조하세요.
+다음으로, API Management 및 Service Fabric 클러스터가 배포될 네트워크 토폴로지를 설정합니다. [network.json][network-arm] Resource Manager 템플릿은 VNET(가상 네트워크), Service Fabric에 대한 서브넷 및 NSG(네트워크 보안 그룹), API Management에 대한 서브넷 및 NSG를 만들도록 구성되었습니다. API Management는 이 자습서의 뒷부분에서 배포됩니다. VNET, 서브넷 및 NSG에 대한 자세한 내용은 [여기](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 [network.parameters.json][network-parameters-arm] 매개 변수 파일에는 Service Fabric 및 API Management가 배포되는 서브넷 및 NSG의 이름이 포함되어 있습니다.  API Management는 [다음 자습서](service-fabric-tutorial-deploy-api-management.md)에서 배포됩니다. 이 가이드에서는 매개 변수 값을 변경할 필요가 없습니다. 이러한 값은 Service Fabric Resource Manager 템플릿에서 사용됩니다.  여기서 값은 수정하는 경우 이 자습서 및 [API Management 배포 자습서](service-fabric-tutorial-deploy-api-management.md)에서 사용된 다른 Resource Manager 템플릿에서 수정해야 합니다. 
 

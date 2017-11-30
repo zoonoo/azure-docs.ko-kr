@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 문서 데이터베이스 만들기
 
@@ -97,13 +97,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 DocumentDB API 앱을 복제하고 연결 문자열을 설정하며 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다. 
+1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
+3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. git 터미널 창에서 `mvn package`를 입력하여 필요한 Java 패키지를 설치합니다.
+2. git 터미널 창에서 다음 명령을 사용하여 필요한 Java 패키지를 설치합니다.
 
-3. Git 터미널 창에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 응용 프로그램을 시작합니다.
+    ```
+    mvn package
+    ```
 
-    터미널 창은 FamilyDB 데이터베이스가 만들어졌다는 알림을 표시합니다. 키를 눌러 컬렉션을 생성한 다음 데이터 탐색기로 전환하면 FamilyDB 데이터베이스가 포함되어 있음을 확인할 수 있습니다.
+3. git 터미널 창에서 다음 명령을 사용하여 Java 응용 프로그램을 시작합니다.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    터미널 창은 FamilyDB 데이터베이스가 만들어졌다는 알림을 표시합니다. 
     
-    키를 눌러 문서를 만든 다음 쿼리를 수행합니다.
+4. 아무 키나 눌러 컬렉션을 만듭니다. 
+
+5. 데이터 탐색기로 전환하면 FamilyDB 데이터베이스가 포함되어 있음을 확인할 수 있습니다.
+    
+6. 콘솔 창에서 계속 키를 눌러 코드가 문서를 생성하도록 하고 쿼리를 수행합니다.
     
     프로그램의 끝에서 앱의 모든 리소스는 계정에서 삭제됩니다. 따라서 비용이 발생하지 않습니다. 
 

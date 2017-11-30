@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 끝점 제거
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 이 자습서는 끝점의 모든 가장자리 노드에서 자산을 제거하는 과정을 안내합니다.
 
 ## <a name="walkthrough"></a>연습
-1. [Azure 포털](https://portal.azure.com)에서 제거하려는 끝점을 포함하는 CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 제거하려는 끝점을 포함하는 CDN 프로필로 이동합니다.
 2. CDN 프로필 블레이드에서 제거 단추를 클릭합니다.
    
     ![CDN 프로필 블레이드](./media/cdn-purge-endpoint/cdn-profile-blade.png)
@@ -68,7 +68,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     ![제거 단추](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 제거 요청은 **Verizon의 Azure CDN**(Standard 및 Premium)으로 처리하려면 약 2-3분, **Akamai의 Azure CDN**으로 처리하려면 약 7분이 소요됩니다.  Azure CDN은 동시 제거 요청이 항상 50개로 제한됩니다. 
+> 제거 요청은 **Verizon의 Azure CDN**(Standard 및 Premium)으로 처리하려면 약 2-3분, **Akamai의 Azure CDN**으로 처리하려면 약 7분이 소요됩니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 50개로 제한됩니다. 
 > 
 > 
 

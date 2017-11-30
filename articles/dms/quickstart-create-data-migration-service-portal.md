@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Azure Portal을 사용하여 Database Migration Service 인스턴스 만들기
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.  서비스를 만든 후에는 이 서비스를 사용하여 온-프레미스 SQL Server에서 Azure SQL 데이터베이스로 데이터를 마이그레이션할 수 있습니다.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.  서비스를 만든 후에는 이 서비스를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database로 데이터를 마이그레이션할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 먼저 웹 브라우저를 열고 [Microsoft Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
+
+## <a name="register-the-resource-provider"></a>리소스 공급자 등록
+첫 번째 Database Migration Service를 만들기 전에 Microsoft.DataMigration 리소스 공급자를 등록해야 합니다.
+
+1. Azure Portal에서 **모든 서비스**를 선택한 후 **구독**을 선택합니다.
+
+1. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자**를 선택합니다.
+
+1. 마이그레이션을 검색한 다음 Microsoft.DataMigration의 오른쪽에서 **등록**을 선택합니다.
+
+![리소스 공급자 등록](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Azure Database Migration Service 만들기
 1. **+**를 클릭하여 새 서비스를 만듭니다.  Database Migration Service는 아직 미리 보기입니다.  

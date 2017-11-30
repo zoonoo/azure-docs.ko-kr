@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -108,7 +108,7 @@ Windows Server 2012 이상에서 네트워크 정책 및 액세스 서비스 역
 
 ### <a name="azure-mfa-license"></a>Azure MFA 라이선스
 
-Azure Multi-Factor Authentication에는 라이선스가 필요하며 이 라이선스는 Azure AD Premium, Enterprise Mobility + Security 또는 Multi-Factor Authentication 구독을 통해 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)을 참조하세요. 테스트를 위해 평가판 구독을 사용할 수 있습니다.
+Azure Multi-Factor Authentication에는 라이선스가 필요하며 이 라이선스는 Azure AD Premium, Enterprise Mobility + Security 또는 Multi-Factor Authentication 독립 실행형 라이선스를 통해 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)을 참조하세요. 테스트를 위해 평가판 구독을 사용할 수 있습니다.
 
 ### <a name="windows-server-software"></a>Windows Server 소프트웨어
 

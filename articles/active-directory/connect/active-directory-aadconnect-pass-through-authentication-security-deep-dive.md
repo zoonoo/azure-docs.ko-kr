@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/20/2017
 - 인증 에이전트에서 Azure AD로의 아웃바운드 통신에는 표준 포트(80 및 443)만 사용됩니다. 방화벽에서 인바운드 포트를 열지 않아도 됩니다. 
   - 인증된 모든 아웃바운드 통신에는 포트 443이 사용됩니다.
   - 포트 80은 통과 인증에서 해지된 인증서가 사용되지 않도록 CRL(인증서 해지 목록)을 다운로드하는 데만 사용됩니다.
-  - 자세한 네트워크 요구 사항은 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites)을 참조하세요.
+  - 자세한 네트워크 요구 사항은 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites)을 참조하세요.
 - 사용자가 로그인 시 입력하는 암호는 먼저 클라우드에서 암호화된 뒤에 Active Directory에 대한 유효성 검사를 위해 온-프레미스 인증 에이전트에서 수신됩니다.
 - Azure AD 및 온-프레미스 인증 에이전트 간의 HTTPS 채널은 상호 인증으로 보호됩니다.
 - 통과 인증 기능은 조건부 액세스 정책(Azure Multi-Factor Authentication 등), ID 보호, 스마트 잠금과 같은 Azure AD의 클라우드 보호 기능과 원활하게 통합됩니다.

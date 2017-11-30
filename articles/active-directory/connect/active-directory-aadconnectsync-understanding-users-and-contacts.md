@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.
@@ -42,15 +42,15 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
 
 * Active Directory 그룹을 Azure AD에 메일 사용이 가능한 그룹으로 동기화하려면
 
-    * 그룹의 *proxyAddress* 속성이 비어 있는 경우 *mail* 속성에 값이 있어야 합니다. 또는 
+    * 그룹의 *proxyAddress* 속성이 비어 있는 경우 *mail* 속성에 값이 있어야 합니다.
 
-    * 그룹의 *proxyAddress* 속성이 비어 있지 않았다면 주 SMTP 프록시 주소 값(**SMTP** 접두사에 대문자로 표기)도 포함해야 합니다. 다음은 몇 가지 예입니다.
+    * 그룹의 *proxyAddress* 특성이 비어 있지 않은 경우 SMTP 프록시 주소 값이 하나 이상 포함되어야 합니다. 다음은 몇 가지 예입니다.
     
-      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}*인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. 주 SMTP 주소가 없습니다.
-      
-      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}*인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 있지만 주가 아닙니다.
+      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}*인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 없습니다.
       
       * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}*인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 있습니다.
+      
+      * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup","smtp:johndoe@contoso.com"}*인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수도 있습니다.
 
 ## <a name="contacts"></a>연락처
 연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이것은 **In from AD – 연락처 조인**규칙에서 구성됩니다. **AD에서 들어오기 – 연락처 일반**이라는 규칙도 있는데 **sourceObjectType** 메타 버스 특성에 대한 특성 흐름과 **연락처** 상수를 가지고 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 어떤 사용자 개체가 동일한 메타버스 개체에 조인된 경우에는 **In from AD – 사용자 일반** 규칙이 User 값을 이 특성에 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.

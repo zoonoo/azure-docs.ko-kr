@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!NOTE]
@@ -49,6 +49,8 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ![성능 매트릭스](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>Azure Data Factory 버전 1에서 클라우드 간 복사를 위한 최소 클라우드 데이터 이동 단위는 2입니다. 지정되지 않은 경우 [클라우드 데이터 이동 단위](#cloud-data-movement-units)에서 사용 중인 기본 데이터 이동 단위를 참조하세요.
 
 **주의할 사항:**
 * 처리량은 다음 수식을 사용하여 계산됩니다. [원본에서 읽은 데이터의 크기]/[복사 작업 실행 기간]
@@ -90,9 +92,16 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 이 예제의 **concurrency** 값이 2로 설정되면 **작업 실행 1** 및 **작업 실행 2**에서 두 작업 기간의 데이터를 **동시에** 복사하여 데이터 이동 성능을 향상시킬 수 있습니다. 하지만, 작업 실행 1에 관련된 파일이 여러 개이면, 데이터 이동 서비스는 원본에서 대상으로 한 번에 하나의 파일을 복사합니다.
 
 ### <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
-**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. 클라우드-클라우드 복사 작업에 DMU를 사용할 수 있으며 하이브리드 복사에는 사용할 수 없습니다.
+**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. DMU는 클라우드 간 복사 작업에 적용되지만 하이브리드 복사에는 적용되지 않습니다.
 
-기본적으로, Data Factory는 단일 클라우드 DMU를 사용하여 단일 복사 작업 실행을 수행합니다. 기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
+**복사 작업 실행을 위한 최소 클라우드 데이터 이동 단위는 2입니다.** 지정하지 않은 경우 다음 표의 다양한 복사 시나리오에서 사용되는 기본 DMU의 목록을 참조하세요.
+
+| 복사 시나리오 | 서비스에 따라 결정되는 기본 DMU |
+|:--- |:--- |
+| 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 2~16 |
+| 그 밖의 모든 복사 시나리오 | 2 |
+
+기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
     }
 ]
 ```
-**cloudDataMovementUnits** 속성에 **허용되는 값**은 1(기본값), 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
 
 > [!NOTE]
 > 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.

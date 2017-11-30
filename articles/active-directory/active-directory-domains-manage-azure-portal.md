@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 도메인 이름 관리에 대한 관
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 도메인 이름은 많은 디렉터리 리소스에 대한 식별자의 중요한 부분입니다. 사용자의 경우 사용자 이름 또는 메일 주소 부분이고 그룹의 경우 주소 부분이며 응용 프로그램의 경우 앱 ID URI 부분일 수 있습니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 이미 확인된 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인 관리 작업을 수행할 수 있습니다.
@@ -29,18 +29,18 @@ ms.lasthandoff: 10/11/2017
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory**를 선택합니다.
-   
-   ![사용자 관리 열기](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. **도메인 이름**을 선택합니다.
-4. 주 도메인으로 지정하려는 도메인 이름을 선택합니다.
+3. **사용자 지정 도메인 이름**을 선택합니다.
+     
+   ![사용자 관리 열기](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. 기본 도메인으로 사용할 도메인의 이름을 선택합니다.
 5. **Make primary** 명령을 선택합니다. 메시지가 표시되면 선택을 확인합니다.
    
-   ![주 도메인 이름 만들기](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![주 도메인 이름 만들기](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 페더레이션되지 않은 모든 확인된 사용자 지정 도메인이 되도록 디렉터리에 대한 주 도메인 이름을 변경할 수 있습니다. 디렉터리에 대한 주 도메인을 변경해도 기존 사용자에 대한 사용자 이름은 변경되지 않습니다.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Azure AD에 사용자 지정 도메인 이름 추가
-> 최대 900개의 관리되는 도메인 이름을 추가할 수 있습니다. 온-프레미스 Active Directory와의 페더레이션을 위해 모든 도메인을 구성하려는 경우 각 디렉터리에서 최대 450개의 도메인 이름을 추가할 수 있습니다. 자세한 내용은 [페더레이션 및 관리되는 도메인 이름](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)을 참조하세요.
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Azure AD 테넌트에 사용자 지정 도메인 이름 추가
+최대 900개의 관리되는 도메인 이름을 추가할 수 있습니다. 온-프레미스 Active Directory와의 페더레이션을 위해 모든 도메인을 구성하려는 경우 각 디렉터리에서 최대 450개의 도메인 이름을 추가할 수 있습니다. 자세한 내용은 [페더레이션 및 관리되는 도메인 이름](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)을 참조하세요.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>사용자 지정 도메인의 하위 도메인 추가
 디렉터리에 'europe.contoso.com'과 같은 세 번째 수준 도메인 이름을 추가하려면 먼저 contoso.com과 같은 두 번째 수준 도메인을 추가 및 확인해야 합니다. Azure AD에서 자동으로 하위 도메인을 확인합니다. 방금 추가한 하위 도메인이 확인되었는지 보려면 도메인을 나열하는 브라우저의 페이지를 새로 고칩니다.

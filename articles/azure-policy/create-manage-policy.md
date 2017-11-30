@@ -3,17 +3,17 @@ title: "Azure Policy를 사용하여 조직의 규정 준수를 적용하는 정
 description: "Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -386,7 +386,7 @@ az policy definition list
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>규정 비준수 또는 거부된 리소스 해결
 
-위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 버전으로 만든 SQL Server는 거부됩니다. 이 섹션에서는 다른 버전의 SQL 서버를 만들 때 거부된 시도를 해결하는 방법을 단계별로 안내합니다.
+위의 예제에 따라 SQL Server 버전 12.0을 요구하도록 정책 정의를 할당한 후에는 다른 버전으로 만든 SQL Server는 거부됩니다. 이 섹션에서는 제외를 요청하여 다른 버전의 SQL Server를 만들 때 거부된 시도를 해결하는 방법을 단계별로 안내합니다.
 
 1. 왼쪽 창에서 **할당**을 선택합니다.
 2. 모든 정책 할당을 검색하고 *SQL Server 버전 12.0 필요* 할당을 시작합니다.

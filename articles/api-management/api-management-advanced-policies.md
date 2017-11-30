@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
-이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
 ##  <a name="AdvancedPolicies"></a> 고급 정책  
   
@@ -268,26 +268,26 @@ ms.lasthandoff: 10/11/2017
 -   **정책 범위:** 모든 범위  
   
 ##  <a name="LimitConcurrency"></a> 동시성 제한  
- `limit-concurrency` 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다. 임계값을 초과할 때 최대 큐 길이가 될 때까지 새 요청이 큐에 추가됩니다. 큐가 고갈되면 새 요청은 즉시 실패합니다.
+ `limit-concurrency` 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다. 해당 숫자를 초과할 경우 새 요청이 “429 요청이 너무 많음” 상태 코드를 나타내며 즉시 실패합니다.
   
 ###  <a name="LimitConcurrencyStatement"></a> 정책 문  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>예  
   
-####  <a name="ChooseExample"></a> 예  
+#### <a name="example"></a>예제  
  다음 예제에서는 컨텍스트 변수 값에 따라 백 엔드로 전달되는 요청 수를 제한하는 방법을 보여 줍니다.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ ms.lasthandoff: 10/11/2017
 |---------------|-----------------|--------------|--------------|  
 |key|문자열입니다. 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다.|예|해당 없음|  
 |max-count|정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.|예|해당 없음|  
-|시간 제한|정수입니다. 허용되는 식입니다. 요청이 "429 너무 많은 요청"을 표시하며 실패하기 전에 범위에 포함되기 위해 대기해야 하는 시간(초)을 지정합니다.|아니요|Infinity|  
-|max-queue-length|정수입니다. 허용되는 식입니다. 최대 큐 길이를 지정합니다. 큐가 고갈되는 즉시, 이 정책에 들어오려고 하는 수신 요청은 "429 너무 많은 요청"을 나타내며 종료됩니다.|아니요|Infinity|  
   
-###  <a name="ChooseUsage"></a> 사용 방법  
+### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
@@ -1014,5 +1012,5 @@ status code and media type. If no example or schema found, the content is empty.
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
--   [API 관리의 정책](api-management-howto-policies.md) 
+-   [API Management의 정책](api-management-howto-policies.md) 
 -   [정책 식](api-management-policy-expressions.md)

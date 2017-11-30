@@ -1,5 +1,5 @@
 ---
-title: "빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 첫 번째 Spark 작업 실행 | Microsoft Docs"
+title: "빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행 | Microsoft Docs"
 description: "빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다."
 services: azure-databricks
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/16/2017
     저장소 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [저장소 액세스 키 관리](../storage/common/storage-create-storage-account.md#manage-your-storage-account)를 참조하세요.
 
     > [!NOTE]
-    > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)을 참조하세요.
+    > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://go.microsoft.com/fwlink/?linkid=864084)을 참조하세요.
 
 4. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 저장소 계정 이름으로 대체합니다. 노트북의 코드 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 누릅니다. 코드 조각에서 `path`는 Azure 저장소 계정에 업로드한 샘플 JSON 파일의 위치를 나타냅니다.
 
@@ -159,4 +159,4 @@ Spark 클러스터를 생성하는 동안  **___ 분 후 작업 종료 확인란
 이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. Azure Data Lake Store를 Azure Databricks와 함께 사용하는 방법을 배우려면 다음 문서로 넘어가세요.
 
 > [!div class="nextstepaction"]
->[Azure Databricks에 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
+>[Azure Databricks에 Data Lake Store 사용](https://go.microsoft.com/fwlink/?linkid=864084)

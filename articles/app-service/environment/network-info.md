@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -78,8 +78,8 @@ IP 주소가 할당된 앱을 사용하는 경우 앱에 할당된 IP에서 ASE 
 
 | 사용 | 원본 | 받는 사람 |
 |-----|------|----|
-| Azure 저장소 | ASE 서브넷 | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445(445는 ASEv1의 경우에만 필요함) |
-| Azure SQL 데이터베이스 | ASE 서브넷 | database.windows.net: 1433, 11000-11999, 14000-14999(자세한 내용은 [SQL Database V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md) 참조)|
+| Azure Storage | ASE 서브넷 | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445(445는 ASEv1의 경우에만 필요함) |
+| Azure SQL Database | ASE 서브넷 | database.windows.net: 1433, 11000-11999, 14000-14999(자세한 내용은 [SQL Database V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md) 참조)|
 | Azure 관리 | ASE 서브넷 | management.core.windows.net, management.azure.com: 443 
 | SSL 인증서 확인 |  ASE 서브넷            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ASE 서브넷            |  인터넷: 443
@@ -164,7 +164,7 @@ ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 �
 
 ![아웃바운드 보안 규칙][5]
 
-NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는 서브넷을 기억하지 못하는 경우 ASE 관리 포털에서 확인할 수 있습니다. 서브넷에 NSG를 할당하려면 서브넷 UI로 이동한 다음 NSG를 선택합니다.
+NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는 서브넷을 기억하지 못하는 경우 ASE 포털 페이지에서 확인할 수 있습니다. 서브넷에 NSG를 할당하려면 서브넷 UI로 이동한 다음 NSG를 선택합니다.
 
 ## <a name="routes"></a>경로 ##
 

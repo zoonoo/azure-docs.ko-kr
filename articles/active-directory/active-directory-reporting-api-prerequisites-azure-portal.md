@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Azure AD Reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -55,7 +55,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
 **Azure Active Directory 응용 프로그램을 등록하려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
    
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **도메인 이름을 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
    
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. **Azure Active Directory** 블레이드에서 **도메인 이름**을 클릭합니다.
+2. **Azure Active Directory** 블레이드에서 **사용자 지정 도메인 이름**을 클릭합니다.
 
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **응용 프로그램의 클라이언트 ID를 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
    
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 **응용 프로그램의 클라이언트 비밀을 가져오려면**
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 클릭합니다.
    
     ![응용 프로그램 등록](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

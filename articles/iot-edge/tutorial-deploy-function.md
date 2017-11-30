@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure 함수를 IoT Edge 모듈로 배포 - 미리 보기
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 “[Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin]에서 시뮬레이트된 장치에 Azure IoT Edge 배포” 자습서에서 만든 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/15/2017
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ ms.lasthandoff: 11/15/2017
 1. Docker 이미지를 빌드합니다.
     1. VS Code 탐색기에서 **Docker** 폴더를 클릭하여 엽니다. 그런 다음 컨테이너 플랫폼의 폴더를 선택합니다(**linux-x64** 또는 **windows-nano**). 
     2. **Dockerfile** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 모듈 Docker 이미지 빌드**를 클릭합니다. 
-    3. **폴더 선택** 상자에서 **Docker/linux-x64** 폴더로 이동한 후 **EXE_DIR로 폴더 선택**을 클릭합니다. 
+    3. **폴더 선택** 상자에서 프로젝트 폴더, **FilterFunction**으로 이동한 후 **EXE_DIR로 폴더 선택**을 클릭합니다. 
     4. VS Code 창의 맨 위에 있는 팝업 텍스트 상자에 이미지 이름을 입력합니다. 예를 들어 `<docker registry address>/filterfunction:latest`에서 *docker registry address*는 Docker Hub를 사용하는 경우 Docker ID이고, Azure Container Registry를 사용하는 경우 `<your registry name>.azurecr.io`와 유사합니다.
  
 4. Docker에 로그인합니다. 통합 터미널에서 다음 명령을 입력합니다. 
@@ -225,7 +225,7 @@ IoT Edge 장치에서 IoT Hub로 보낸 장치-클라우드 메시지를 모니�
 이 자습서에서는 IoT Edge 장치에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure 함수를 만들었습니다. Azure IoT Edge을 계속 탐색하려면 IoT Edge 장치를 게이트웨이로 사용하는 방법을 알아보세요. 
 
 > [!div class="nextstepaction"]
-> [IoT Edge 게이트웨이 장치 만들기](how-to-create-gateway-device.md)
+> [IoT Edge 게이트웨이 장치 만들기](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

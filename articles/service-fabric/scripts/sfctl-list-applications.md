@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: adegeo
 ms.custom: 
-ms.openlocfilehash: b99c54e85f22c5745a852e10bb66368da3b5d8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8a3e4b1f63cf220e360c1351c7bccc3dab96ee
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 인증서 추가
+# <a name="list-applications-running-in-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 실행 중인 응용 프로그램 목록
 
 이 샘플 스크립트는 Service Fabric 클러스터에 연결되고 모든 프로비전된 응용 프로그램을 나열합니다.
 

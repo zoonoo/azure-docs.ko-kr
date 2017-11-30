@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: tarcher
-ms.openlocfilehash: 4b4c91805a7d5cbf37c8ba3fa3248e7cb0eb02b0
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
-[아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md)문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 예를 들어 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 할 수 있습니다.
+[랩에 VM 추가](devtest-lab-add-vm.md) 문서에 설명된 대로 랩에 VM을 만들 때 구성된 가상 네트워크를 지정할 수 있습니다. 예를 들어 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 VM에서 회사 네트워크 리소스에 액세스해야 할 수 있습니다.
 
 이 문서에서는 VM을 만들 때 선택할 수 있도록 랩의 Virtual Network 설정으로 기존 가상 네트워크를 추가하는 방법을 설명합니다.
 

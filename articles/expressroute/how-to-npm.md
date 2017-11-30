@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성(미리 보기)
 
@@ -96,7 +96,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 1. 리소스에 대한 **네트워크 성능 모니터 구성 - TCP 설치 페이지**의 **OMS 에이전트 설치** 섹션에서 서버의 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 
   >[!NOTE]
-  >현재 Linux 에이전트에 대해서는 ExpressRoute 모니터링이 지원되지 않습니다.
+  >Windows Server(2008 SP1 이상)에 에이전트를 설치해야 합니다. Windows Desktop OS 및 Linux OS를 사용한 ExpressRoute 회로 모니터링은 지원되지 않습니다. 
   >
   >
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
@@ -105,6 +105,8 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
   ![PowerShell 스크립트](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: 각 모니터링 서버에서 모니터링 에이전트 설치
+
+중복성을 위해 ExpressRoute 연결의 각 끝(즉, 온-프레미스, Azure VNET)에 두 개 이상의 에이전트를 설치하는 것이 좋습니다. 다음 단계를 사용하여 에이전트를 설치합니다.
 
 1. **설치**를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.

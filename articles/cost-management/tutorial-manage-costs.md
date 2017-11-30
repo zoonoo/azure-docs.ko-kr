@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Azure Cost Management를 사용한 비용 관리
 
@@ -80,6 +80,23 @@ Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **범주 관
 
 ![예제 범주](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>원본 및 보고서에 태그 지정
+
+Cloudyn 보고서에 표시되는 데이터에 태그를 지정하면 다음 세 곳에서 만들어집니다.
+
+- 클라우드 공급자 리소스 API
+- 클라우드 공급자 청구 API
+- 다음 원본에서 수동으로 만든 태그:
+    - Cloudyn 엔터티 태그 - Cloudyn 엔터티에 적용된 사용자 정의 메타데이터
+    - 범주 관리자 - 기존 태그에 적용되는 규칙을 기반으로 새 태그를 만드는 데이터 정리 도구
+
+Cloudyn 비용 보고서에서 클라우드 공급자 태그를 보려면 비용 할당 360을 사용하여 사용자 지정 비용 할당 모델을 만들어야 합니다. 이렇게 하려면 **비용** > **비용 관리** > **비용 할당 360**으로 이동하여 원하는 태그를 선택한 다음 태그가 지정되지 않은 비용을 처리하는 규칙을 정의합니다. 그런 다음 새 비용 모델을 만듭니다. 나중에 비용 할당 분석에서 보고서를 확인하여 Azure 리소스 태그를 확인하고 필터링 및 정렬할 수 있습니다.
+
+Azure 리소스 태그는 **비용 할당 분석** 보고서에만 나타납니다.
+
+클라우드 공급자 청구 태그는 모든 비용 보고서에 나타납니다.
+
+Cloudyn 엔터티 태그 및 수동으로 만든 태그는 모든 비용 보고서에 나타납니다.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>쇼백 및 차지백 보고서 만들기

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -80,16 +80,6 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 ## <a name="sync-req-lim"></a>요구 사항 및 제한 사항
 
-### <a name="general-requirements"></a>일반 요구 사항
-
--   각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 기본 키 값을 변경해야 하는 경우 해당 행을 삭제한 다음 새 기본 키 값을 사용하여 행을 다시 만듭니다. 
-
--   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
-
--   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
-
--   스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
-
 ### <a name="general-considerations"></a>일반적인 고려 사항
 
 #### <a name="eventual-consistency"></a>결과적 일관성
@@ -98,7 +88,19 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 #### <a name="performance-impact"></a>성능에 미치는 영향
 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
 
+### <a name="general-requirements"></a>일반 요구 사항
+
+-   각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 기본 키 값을 변경해야 하는 경우 해당 행을 삭제한 다음 새 기본 키 값을 사용하여 행을 다시 만듭니다. 
+
+-   스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
+
 ### <a name="general-limitations"></a>일반적인 제한 사항
+
+-   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
+
+-   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
+
+-   Azure Active Directory 인증은 지원되지 않습니다.
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
 

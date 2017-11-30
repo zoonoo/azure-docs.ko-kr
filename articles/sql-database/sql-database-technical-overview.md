@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
@@ -133,7 +133,7 @@ SQL Database는 [Always Encrypted](https://docs.microsoft.com/sql/relational-dat
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication
 
-SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md))을 제공하여 단일 로그인 프로세스를 지원하는 동시에 데이터 및 응용 프로그램 보안을 향상시킵니다.
+SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md))을 제공하여 SSO(Single Sign-On) 프로세스를 지원하는 동시에 데이터 및 응용 프로그램 보안을 향상시킵니다.
 
 ### <a name="compliance-certification"></a>규정 준수 인증
 

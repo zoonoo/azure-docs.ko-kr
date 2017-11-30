@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
@@ -72,13 +72,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Graph API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.  
 
-1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다.  
+1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
+3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted 폴더의 `Program.java` 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted 폴더의 `Program.java` 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-information)로 건너뛸 수 있습니다. 
 
 * Gremlin `Client`는 `src/remote.yaml`의 구성에서 초기화됩니다.
 
@@ -148,11 +154,23 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. git 터미널 창에서 `mvn package`를 입력하여 필요한 Java 패키지를 설치합니다.
+2. git 터미널 창에서 다음 명령을 사용하여 필요한 Java 패키지를 설치합니다.
 
-3. Git 터미널 창에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 응용 프로그램을 시작합니다.
+   ```
+   mvn package
+   ```
 
-    그래프에 추가된 꼭짓점이 터미널 창에 표시됩니다. 프로그램이 중지되면 인터넷 브라우저에서 Azure Portal로 다시 전환하세요. 
+3. git 터미널 창에서 다음 명령을 사용하여 Java 응용 프로그램을 시작합니다.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    그래프에 추가된 꼭짓점이 터미널 창에 표시됩니다. 
+    
+    시간 제한 오류가 발생하는 경우 [연결 정보 업데이트](#update-your-connection-information)에서 연결 정보를 올바르게 업데이트했는지 확인한 후 마지막 명령을 다시 실행해보세요. 
+    
+    프로그램이 중지되면 Enter 키를 누르고 인터넷 브라우저에서 Azure Portal로 다시 전환하세요. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>샘플 데이터 검토 및 추가
@@ -200,7 +218,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 10. **확인**을 클릭합니다. 
 
-11. 기본 `g.V()` 필터를 포함하는 **필터 적용**을 클릭하여 그래프에 있는 모든 값을 표시합니다. 이제 **결과** 목록에 모든 사용자가 표시됩니다. 
+11. 기본 `g.V()` 필터를 포함하는 **필터 적용** 단추를 클릭하여 그래프에 있는 모든 값을 표시합니다. 이제 **결과** 목록에 모든 사용자가 표시됩니다. 
 
     더 많은 데이터를 추가하면서 필터를 사용하여 결과를 한정할 수 있습니다. 기본적으로 데이터 탐색기는 `g.V()`를 사용하여 그래프에 있는 모든 꼭짓점을 검색합니다. `g.V().count()`와 같은 다른 [그래프 쿼리](tutorial-query-graph.md)를 변경하여 JSON 형식으로 그래프의 모든 꼭짓점 수를 반환할 수 있습니다. 필터를 변경한 경우 필터를 다시 `g.V()`로 변경하고 **필터 적용**을 클릭하여 모든 결과를 다시 표시합니다.
 

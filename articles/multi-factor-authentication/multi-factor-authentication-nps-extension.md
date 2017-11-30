@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ebd6109fdae00da9e6dc1fc456573327d521e7e9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -52,7 +52,7 @@ NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하�
 
 ### <a name="licenses"></a>라이선스
 
-Azure AD Premium, EMS 또는 MFA 구독에 포함된 [Azure Multi-Factor Authentication 라이선스](multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 
+Azure AD Premium, EMS 또는 MFA 독립 실행형 라이선스에 포함된 [Azure Multi-Factor Authentication 라이선스](multi-factor-authentication.md)를 가진 고객은 Azure MFA용 NPS 확장을 사용할 수 있습니다. 사용자 기준 또는 인증 기준 라이선스와 같은 Azure MFA에 대한 사용량 기반 라이선스는 NPS 확장과 호환되지 않습니다. 
 
 ### <a name="software"></a>소프트웨어
 
@@ -81,7 +81,7 @@ NPS 확장을 설치하기 전에 인증 트래픽을 처리하는 환경을 준
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>도메인에 가입된 서버에서 NPS 역할 사용
 
-NPS 서버는 Azure Active Directory에 연결하고 MFA 요청을 인증합니다. 이 역할에 대한 서버를 한 개 선택하세요. NPS 확장이 RADIUS가 아닌 모든 요청에 대해 오류를 throw하므로 다른 서비스의 요청을 처리하지 않는 서버를 선택하는 것이 좋습니다.
+NPS 서버는 Azure Active Directory에 연결하고 MFA 요청을 인증합니다. 이 역할에 대한 서버를 한 개 선택하세요. NPS 확장이 RADIUS가 아닌 모든 요청에 대해 오류를 throw하므로 다른 서비스의 요청을 처리하지 않는 서버를 선택하는 것이 좋습니다. NPS 서버를 사용자 환경에 대한 기본 및 보조 인증 서버로 설정해야 합니다. RADIUS 요청을 다른 서버로 프록시할 수 없습니다.
 
 1. 서버의 서버 관리자 빠른 시작 메뉴에서 **역할 및 기능 추가 마법사**를 엽니다.
 2. 설치 유형에 대한 **역할 기반 또는 기능 기반 설치**를 선택합니다.
@@ -193,7 +193,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
-이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 키가 없거나, 설정되지 않았거나, TRUE로 설정되고 사용자가 등록되지 않은 경우 확장은 MFA 요청에 실패합니다. 키가 FALSE로 설정되고 사용자가 등록되지 않은 경우 MFA를 수행하지 않은 채 인증이 진행됩니다.
+이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 키가 없거나, 설정되지 않았거나, TRUE로 설정되고 사용자가 등록되지 않은 경우 확장은 MFA 요청에 실패합니다. 키가 FALSE로 설정되고 사용자가 등록되지 않은 경우 MFA를 수행하지 않은 채 인증이 진행됩니다. 사용자가 MFA에 등록된 경우 REQUIRE_USER_MATCH가 FALSE로 설정된 경우에도 MFA로 인증해야 합니다.
 
 사용자가 등록 중이지만 Azure MFA에 아직 등록되지 않은 상태에서 이 키를 만들고 FALSE로 설정하도록 선택할 수 있습니다. 그렇지만 키를 설정하면 MFA에 등록되지 않은 사용자가 로그인할 수 있으므로 프로덕션 환경으로 이동하기 전에 이 키를 제거해야 합니다.
 

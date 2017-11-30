@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
@@ -95,7 +95,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 **Q: 내 조직은 ID를 사용하고 동기화하여 Azure Multi-Factor Authentication을 사용해야 합니까?**
 
-조직에서 사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory는 선택 사항이며 필수가 아닙니다. MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않은 경우 Azure Multi-factor Authentication 서버 또는 Azure Multi-factor Authentication SDK 온-프레미스만 배포할 수 있습니다.
+조직에서 사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory는 선택 사항이며 필수가 아닙니다. MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않은 경우 Azure Multi-Factor Authentication 서버 온-프레미스만 배포할 수 있습니다.
 
 라이선스를 구입하고 디렉터리의 사용자에게 할당할 때 라이선스가 Azure AD 테넌트에 추가되기 때문에 라이선스 모델에 대해 Azure Active Directory가 필요합니다.
 

@@ -1,8 +1,6 @@
 Cloud Shell에서 [az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../articles/app-service/app-service-web-overview.md)을 만듭니다. 
 
-웹앱은 코드에 대한 호스팅 공간을 제공하고, 배포된 앱을 확인하도록 URL을 제공합니다.
-
-다음 명령에서 *\<app_name>*을 고유한 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). `<app_name>`이 고유하지 않으면 "지정된 이름이 <app_name>인 웹 사이트가 이미 있습니다."라는 오류 메시지가 표시됩니다. 웹앱의 기본 URL은 `https://<app_name>.azurewebsites.net`입니다. 
+다음 예제에서 *\<app_name>*을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,7 +30,7 @@ git 배포를 활성화하여 빈 웹앱을 만들었습니다.
 > Git 원격의 URL은 `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
 >
 
-사이트로 이동하여 새로 만든 웹앱을 봅니다.
+새로 만든 웹앱으로 이동합니다.
 
 ```bash
 http://<app_name>.azurewebsites.net

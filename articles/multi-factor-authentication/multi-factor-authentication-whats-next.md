@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure Multi-Factor Authentication 구성 설정 - 공개 미리 보기
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/15/2017
 6. 서비스 설정 페이지의 맨 아래에서 **포털로 이동**을 선택합니다.
 7. Azure Multi-Factor Authentication 관리 포털의 보고서 보기 아래에 **사기 행위 경고**를 클릭합니다.
 8. 보고서에서 보려는 날짜 범위를 지정합니다. 또한 사용자 이름, 전화번호 및 사용자 상태를 지정할 수 있습니다.
-9. **실행**을 클릭합니다. 그러면 사기 행위 경고 보고서가 열립니다. 보고서를 내보내려면 **CSV로 내보내기**를 클릭합니다.
+9. 사기 행위 경고 보고서를 불러오려면 **실행**을 클릭합니다. 보고서를 내보내려면 **CSV로 내보내기**를 클릭합니다.
 
 ## <a name="one-time-bypass"></a>일회성 바이패스
 일회성 바이패스를 통해 사용자는 2단계 인증을 수행하지 않고 한 번에 인증할 수 있습니다. 바이패스는 임시적이며 지정된 시간(초) 이후 만료됩니다. 모바일 앱 또는 전화가 알림 또는 전화 통화를 받지 못하는 경우 일회성 바이패스를 사용하여 사용자가 원하는 리소스에 액세스하도록 할 수 있습니다.
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/15/2017
    ![일회성 바이패스](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. **추가**를 선택합니다.
 4. 필요한 경우 이 바이패스에 대한 복제 그룹을 선택합니다.
-5. 사용자 이름(username@domain.com 형식), 바이패스가 유지될 시간(초), 바이패스가 필요한 이유를 입력합니다. 
+5. 사용자 이름(username@domain.com 형식), 바이패스가 유지되어야 하는 시간(초), 바이패스가 필요한 이유를 입력합니다. 
 6. **추가**를 선택합니다. 시간 제한이 즉시 적용되기 때문에 사용자는 일회성 바이패스가 만료되기 전에 로그인해야 합니다. 
 
 ### <a name="view-the-one-time-bypass-report"></a>일회성 바이패스 보고서 보기
@@ -110,16 +110,16 @@ ms.lasthandoff: 11/15/2017
 6. 서비스 설정 페이지의 맨 아래에서 **포털로 이동**을 선택합니다.
 7. Azure Multi-factor Authentication 관리 포털의 보고서 보기 아래에서 **일회성 바이패스**를 클릭합니다.
 8. 보고서에서 보려는 날짜 범위를 지정합니다. 또한 사용자 이름, 전화번호 및 사용자 상태를 지정할 수 있습니다.
-9. **실행**을 클릭합니다. 그러면 바이패스 보고서가 열립니다. 보고서를 내보내려면 **CSV로 내보내기**를 클릭합니다.
+9. 바이패스 보고서를 불러오려면 **실행**을 클릭합니다. 보고서를 내보내려면 **CSV로 내보내기**를 클릭합니다.
 
 ## <a name="custom-voice-messages"></a>사용자 지정 음성 메시지
 사용자 지정 음성 메시지를 사용하면 2단계 인증으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. Microsoft 기록을 추가하거나 바꾸는 데 사용할 수 있습니다.
 
-이 작업을 수행하려면 다음을 고려하십시오.
+이 작업을 시작하기 전에 다음 제한 사항을 고려하세요.
 
 * 지원되는 파일 형식은 .wav 및 .mp3입니다.
 * 파일 크기는 5MB로 제한됩니다.
-* 인증 메시지 길이는 20초 미만이어야 합니다. 이보다 길면 메시지가 끝나기 전에 사용자가 응답하지 않고 확인 시간이 초과되기 때문에 확인이 실패할 수 있습니다.
+* 인증 메시지 길이는 20초 미만이어야 합니다. 20초보다 길면 메시지가 끝나기 전에 사용자가 응답하지 않고 확인 시간이 초과되기 때문에 확인이 실패할 수 있습니다.
 
 ### <a name="set-up-a-custom-message"></a>사용자 지정 메시지 설정
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/15/2017
 6. **추가**를 선택합니다.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 캐싱
-캐싱을 사용하면 특정 시간 기간을 설정하여 해당 시간 내에 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. 첫 번째 요청이 진행 중인 동안 VPN과 같은 온-프레미스 시스템이 여러 확인 요청을 전송하는 경우 주로 사용됩니다. 이렇게 하면 사용자가 진행 중인 첫 번째 확인에 성공한 후에 자동으로 후속 요청이 성공할 수 있습니다. 
+캐싱을 사용하면 특정 시간 기간을 설정하여 해당 시간 내에 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. 첫 번째 요청이 진행 중인 동안 VPN과 같은 온-프레미스 시스템이 여러 확인 요청을 전송하는 경우 주로 사용됩니다. 캐싱을 통해 사용자가 진행 중인 첫 번째 확인에 성공한 후에 자동으로 후속 요청이 성공할 수 있습니다. 
 
 캐싱은 Azure AD 로그인에 사용하기 위한 것이 아닙니다.
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/15/2017
 5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
 6. 서비스 설정 페이지의 신뢰할 수 있는 IP에는 두 가지 옵션이 있습니다.
    
-   * **내 인트라넷에서 발생하는 페더레이션된 사용자의 요청** - 확인란을 선택합니다. 회사 네트워크에서 로그인 중인 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하여 2단계 인증을 바이패스합니다. AD FS에 적절한 트래픽에 인트라넷 클레임을 추가하는 규칙이 있는지 확인합니다. 아직 없는 경우 AD FS에서 다음 규칙을 만들어야 합니다. "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+   * **내 인트라넷에서 발생하는 페더레이션된 사용자의 요청** - 확인란을 선택합니다. 회사 네트워크에서 로그인 중인 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하여 2단계 인증을 바이패스합니다. AD FS에 적절한 트래픽에 인트라넷 클레임을 추가하는 규칙이 있는지 확인합니다. 규칙이 아직 없는 경우 AD FS에서 다음 규칙을 만듭니다. "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
 
 
@@ -203,7 +203,7 @@ Office 2010 이전 및 Apple 메일 등의 일부 앱은 2단계 인증을 지�
 * 실제 암호는 자동으로 생성되고 사용자가 제공하지 않습니다. 자동으로 생성된 암호를 공격자가 추측하기 어렵고 더 안전하기 때문입니다.
 * 사용자당 40개의 암호로 제한되어 있습니다. 
 * 암호를 캐시하고 온-프레미스 시나리오에서 사용하는 앱은 앱 암호가 조직 ID 외부에서 알려질 수 없으므로 실패할 수도 있습니다. 예제는 온-프레미스에 있는 Exchange 전자 메일이지만 보관된 메일은 클라우드에 있습니다. 동일한 암호는 작동하지 않습니다.
-* 사용자 계정에 Multi-Factor Authentication을 사용하도록 설정되었으면 대부분의 브라우저가 아닌 클라이언트(예: Outlook 및 Lync)에 앱 암호를 사용할 수 있지만, Windows PowerShell과 같은 브라우저가 아닌 응용 프로그램을 통해서는 사용자에게 관리 계정이 있어도 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다.  강력한 암호로 PowerShell 스크립트를 실행할 서비스 계정을 만들고 해당 계정에 2단계 인증을 사용하지 않도록 설정해야 합니다.
+* 사용자 계정에서 다단계 인증을 사용하도록 설정하면 Outlook 및 Lync 등 대부분의 비 브라우저 클라이언트에서 앱 암호를 사용할 수 있습니다. 해당 사용자에게 관리자 계정이 있는 경우에도 Windows PowerShell과 같은 비 브라우저 응용 프로그램을 통해 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다.  강력한 암호로 PowerShell 스크립트를 실행할 서비스 계정을 만들고 해당 계정에 2단계 인증을 사용하지 않도록 설정합니다.
 
 > [!WARNING]
 > 앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않습니다. 도메인 암호가 온-프레미스를 인증하는 데 필요하고 앱 암호가 클라우드를 사용하여 인증하는 데 필요하기 때문입니다.
@@ -217,7 +217,7 @@ Microsoft는 응용 프로그램별로 하나의 앱 암호보다는 장치별�
 Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD DS)로 페더레이션(Single Sign-On)을 지원합니다. 조직이 Azure AD를 사용하여 페더레이션되고 Azure Multi-Factor Authentication을 사용하려는 경우 앱 암호에 대해 다음과 같은 정보가 중요합니다. 이 섹션은 페더레이션된 고객(SSO)에게만 적용됩니다.
 
 * Azure AD에서 앱 암호를 확인하기 때문에 페더레이션을 바이패스합니다. 앱 암호를 설정할 때 페더레이션이 능동적으로 사용됩니다.
-* 페더레이션된(SSO) 사용자의 경우 수동 흐름과 달리 ID 공급자(IdP)로 이동하지 않습니다. 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
+* 페더레이션된(SSO) 사용자의 경우 수동 흐름과 달리 ID 공급자(IdP)에 연결되지 않습니다. 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 Access Control 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅/감사 기능은 앱 암호에 사용할 수 없습니다
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호의 조합이 필요합니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
@@ -254,7 +254,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 사용자는 등록 후에도 Azure Portal, Office 365 포털에서 설정을 변경하여 앱 암호를 만들 수 있습니다 사용자에 대한 자세한 내용과 세부 단계는 [Azure Multi-factor Authentication에서 앱 암호란](./end-user/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>사용자가 신뢰하는 장치에 대한 Multi-Factor Authentication 기억
-사용자가 신뢰하는 장치 및 브라우저에 대한 Multi-Factor Authentication 기억은 모든 MFA 사용자에 대해 무료로 사용할 수 있는 기능입니다. 이를 통해 사용자에게 MFA를 사용하여 성공적으로 로그인한 후 설정된 일수 동안 MFA를 바이패스하는 옵션을 제공할 수 있습니다. 이는 사용자가 동일한 장치에서 2단계 인증을 수행하는 횟수를 최소화함으로써 유용성을 향상시킬 수 있습니다.
+사용자가 신뢰하는 장치 및 브라우저에 대한 Multi-Factor Authentication 기억은 모든 MFA 사용자에 대해 무료로 사용할 수 있는 기능입니다. 이 설정을 통해 MFA를 사용하여 성공적으로 로그인한 후 설정된 일수 동안 MFA를 바이패스하는 옵션이 사용자에게 제공됩니다. 이는 사용자가 동일한 장치에서 2단계 인증을 수행하는 횟수를 최소화함으로써 유용성을 향상시킬 수 있습니다.
 
 그러나 계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 MFA를 기억해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다. 이 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하고 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 MFA를 복원하도록 지시할 수도 있습니다.
 
@@ -288,16 +288,16 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 ![다시 묻지 않음 - 스크린샷](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## <a name="selectable-verification-methods"></a>선택 가능한 확인 방법
-사용자에 대해 어떤 인증 방법을 사용할지를 선택할 수 있습니다. 아래 테이블은 각 방법의 간략한 개요를 제공합니다.
+사용자에 대해 어떤 인증 방법을 사용할지를 선택할 수 있습니다. 다음 표에서는 각 방법의 간략한 개요를 제공합니다.
 
 사용자가 자신의 계정을 MFA를 등록하는 경우 사용하도록 설정한 옵션에서 해당하는 기본 확인 방법을 선택합니다. 등록 프로세스에 대한 지침은 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)에서 다룹니다.
 
 | 메서드 | 설명 |
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
-| 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 사용자는 확인 코드로 문자 메시지에 응답하거나 또는 로그인 인터페이스에 확인 코드를 입력하도록 요구됩니다. |
+| 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 사용되지 않으며 2018년 11월 14일부터 더 이상 지원되지 않습니다. 이때 양방향 SMS로 구성된 사용자는 "휴대폰에 전화 걸기" 인증으로 자동 전환됩니다.|
 | 모바일 앱을 통한 알림 |휴대폰이나 등록된 장치로 푸시 알림을 보냅니다. 사용자는 알림을 보고 **확인**을 선택하여 인증을 완료합니다. <br>[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
-| 모바일 앱의 확인 코드 |Microsoft 인증 앱은 30초마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 이 확인 코드를 입력합니다.<br>[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
+| 모바일 앱의 확인 코드 |Microsoft Authenticator 앱은 30초마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 이 확인 코드를 입력합니다.<br>[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>인증 방법을 활성화/비활성화하는 방법
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.

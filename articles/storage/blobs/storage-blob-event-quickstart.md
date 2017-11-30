@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅(미리 보기)
 
@@ -33,6 +33,8 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 최신 버전의 Azure CLI(2.0.14 이상)을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
+Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
+
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
@@ -49,7 +51,7 @@ az group create --name <resource_group_name> --location westcentralus
 
 Azure Storage를 사용하려면 저장소 계정이 필요합니다.  Blob 저장소 이벤트는 현재 Blob 저장소 계정에서만 사용할 수 있습니다.
 
-Blob 저장소 계정은 Azure 저장소에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 저장소 계정입니다. Blob 저장소 계정은 기존 범용 저장소 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.
+Blob Storage 계정은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob 저장소 계정은 기존 범용 저장소 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다.
 
 > [!NOTE]
 > Event Grid는 현재 미리 보기 상태이며 **westcentralus** 및 **westus2** 지역의 저장소 계정에만 제공됩니다.

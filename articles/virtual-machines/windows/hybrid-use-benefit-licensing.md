@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server용 Azure Hybrid Benefit을 사용하여 모든 Azure 지원 플랫폼 Windows Server 이미지나 Windows 사용자 지정 이미지에서 새로운 가상 컴퓨터를 배포할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
@@ -28,7 +28,7 @@ Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 �
 >
 
 > [!NOTE]
-> SQL Server 또는 타사 마켓플레이스 이미지 등과 같은 추가 소프트웨어에 대해 청구되는 VM에서 Windows Server용 Azure 하이브리드 혜택을 사용하는 기능이 배포되고 있습니다. ‘LicenseType’ 속성 변경 허용 안 됨 등의 409 오류가 발생하는 것은 해당 지역에서 지원되지 않을 수 있는, 추가 소프트웨어 비용이 있는 새 Windows Server VM을 변환하거나 배포하고 있는 것입니다.
+> SQL Server 또는 타사 마켓플레이스 이미지 등과 같은 추가 소프트웨어에 대해 청구되는 VM에서 Windows Server용 Azure 하이브리드 혜택을 사용하는 기능이 배포되고 있습니다. ‘LicenseType’ 속성 변경 허용 안 됨 등의 409 오류가 발생하는 것은 해당 지역에서 지원되지 않을 수 있는, 추가 소프트웨어 비용이 있는 새 Windows Server VM을 변환하거나 배포하고 있는 것입니다. 변환을 수행하기 위해 포털 구성 옵션을 찾으려고 하지만 해당 VM에 대한 구성 옵션을 찾을 수 없는 경우에도 동일합니다.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>포털
 Portal VM 블레이드에서 “구성” 옵션을 선택하여 Azure 하이브리드 혜택을 사용하고 “Azure 하이브리드 혜택”을 토글하도록 VM을 업데이트할 수 있습니다.
+
+> [!NOTE]
+> "구성" 아래 "Azure 하이브리드 혜택"을 토글하는 옵션이 보이지 않으면 선택한 VM 유형(예: SQL Sever 또는 Azure Marketplace 타사 소프트웨어와 같이 추가적인 유료 소프트웨어가 있는 이미지 또는 사용자 지정 이미지에서 빌드한 VM)에 대해 아직 지원되지 않기 때문입니다.
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Windows Server VHD 업로드
 Azure에서 Windows Server VM을 배포하려면 먼저 기본 Windows 빌드를 포함하는 VHD를 만들어야 합니다. 이 VHD는 Azure에 업로드하기 전에 Sysprep을 통해 적절하게 준비되어야 합니다. 자세한 내용은 [VHD 요구 사항 및 Sysprep 프로세스](upload-generalized-managed.md) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다. 
@@ -182,10 +186,12 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 ## <a name="next-steps"></a>다음 단계
 [Azure 하이브리드 혜택을 사용하여 비용을 절감하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/)에 대해 자세히 알아봅니다.
 
-[Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](http://go.microsoft.com/fwlink/?LinkId=859786)에 대해 자세히 알아봅니다.
+[Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
 
 [Resource Manager 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
 
-[Windows Server용 Azure Hybrid Benefit 및 Azure Site Recovery를 사용하여 응용 프로그램을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
+[Windows Server용 Azure 하이브리드 혜택 및 Azure Site Recovery를 사용하여 응용 프로그램을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
+
+[다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
 
 [질문과 대답](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)을 자세히 알아봅니다.

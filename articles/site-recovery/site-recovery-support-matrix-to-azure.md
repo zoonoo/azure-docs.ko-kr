@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
@@ -145,6 +145,7 @@ Traffic Manager | 예 | 예
 예약된 IP | 예 | 예
 IPv4 | 예 | 예
 원본 IP 유지 | 예 | 예
+Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
 
 
 ## <a name="support-for-storage"></a>저장소에 대한 지원
@@ -188,9 +189,11 @@ GRS | 예 | 예
 RA-GRS | 예 | 예
 쿨 저장소 | 아니요 | 아니요
 핫 저장소| 아니요 | 아니요
+블록 Blob | 아니요 | 아니요
 휴지 상태의 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
+복제 데이터를 저장하는 데 사용되는 대상 저장소 계정 또는 캐시 저장소 계정에 구성된 Virtual Network 서비스 끝점(Azure Storage 방화벽 및 Virtual Network) | 아니요 | 아니요
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원

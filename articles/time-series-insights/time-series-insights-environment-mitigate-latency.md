@@ -1,5 +1,5 @@
 ---
-title: "Azure Time Series Insights에서 성능 모니터링, 제한 축소 및 대기 시간 방지 방법 | Microsoft Docs"
+title: "Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간을 방지하는 방법 | Microsoft Docs"
 description: "이 문서에서는 Azure Time Series Insights에서 대기 시간과 제한을 발생시키는 성능 문제를 모니터링, 진단 및 완화하는 방법에 대해 설명합니다."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 5af5589922ded802703b9ba8f3b0aa8c5524bbad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="improve-performance-reduce-latency-and-mitigate-throttling-in-azure-time-series-insights"></a>Azure Time Series Insights에서 성능 향상, 대기 시간 감소 및 제한 완화
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 들어오는 데이터의 양이 사용자의 환경 구성을 초과하면 Azure Time Series Insights에서 대기 시간 또는 제한이 발생할 수 있습니다.
 
 분석하려는 데이터의 양에 맞게 환경을 적절히 구성하여 대기 시간 및 제한을 방지할 수 있습니다.

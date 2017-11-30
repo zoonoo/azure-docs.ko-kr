@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
 
@@ -32,7 +32,30 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 - Azure Portal을 사용하여 장치 관리에 대한 정보를 제공합니다.
 
+## <a name="manage-devices"></a>장치 관리 
 
+Azure Portal에서는 장치를 관리하는 중앙 위치를 제공합니다. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하거나 다음 수동 단계를 수행하여 이 위치로 이동할 수 있습니다.
+
+1. 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+2. 왼쪽 탐색 모음에서 **Active Directory**를 클릭합니다.
+
+    ![장치 설정 구성](./media/device-management-azure-portal/01.png)
+
+3. **관리** 섹션에서 **장치**를 클릭합니다.
+
+    ![장치 설정 구성](./media/device-management-azure-portal/11.png)
+ 
+**장치** 페이지에서 다음을 수행할 수 있습니다.
+
+- 장치 관리 설정 구성
+
+- 장치 찾기
+
+- 장치 관리 작업 수행
+
+- 장치 관리 관련 감사 로그 검토  
+  
 
 ## <a name="configure-device-settings"></a>장치 설정 구성
 

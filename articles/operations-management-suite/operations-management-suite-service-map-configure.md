@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite의 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -28,8 +28,8 @@ ms.lasthandoff: 11/09/2017
 ## <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
 
 
 ## <a name="connected-sources"></a>연결된 소스
@@ -228,14 +228,14 @@ Node localhost
 관리자는 %Programfiles%\Microsoft Dependency Agent\Uninstall.exe를 실행하여 종속성 에이전트를 제거할 수도 있습니다.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux의 종속성 에이전트 제거
-Linux에서 종속성 에이전트를 완전히 제거하려면 에이전트 자체와 에이전트와 함께 자동으로 설치된 커넥터를 제거해야 합니다. 다음 단일 명령을 사용하여 둘 다 제거할 수 있습니다.
+다음 명령을 사용하여 Linux에서 종속성 에이전트를 제거할 수 있습니다.
 <br>RHEL, CentOs 또는 Oracle:
 ```
-sudo rpm -e dependency-agent dependency-agent-connector
+sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>문제 해결
 서비스 맵을 설치하거나 실행하는 데 문제가 있으면 이 섹션이 도움이 될 수 있습니다. 그래도 문제를 해결할 수 없으면 Microsoft 지원에 문의해 주세요.

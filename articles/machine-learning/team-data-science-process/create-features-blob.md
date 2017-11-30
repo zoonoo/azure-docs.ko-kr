@@ -4,7 +4,7 @@ description: "Panda Python 패키지를 사용하여 Azure blob 컨테이너에 
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기
 이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. Panda 데이터 프레임에 데이터를 로드하는 방법을 설명한 후, 표시기 값과 범주화 기능과 함께 Python 스크립트를 사용하여 범주 기능을 생성하는 방법을 보여줍니다.
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 Azure blob 저장소 계정을 만들고 여기에 데이터를 저장했다고 가정합니다. 계정을 설정하는 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Pandas 데이터 프레임에 데이터 로드
-데이터 집합을 탐색 및 조작하려면 Blob 원본에서 로컬 파일로 다운로드한 다음 Pandas 데이터 프레임에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
+데이터 집합을 탐색하고 조작하려면 Blob 원본에서 로컬 파일로 다운로드합니다. 그런 후 Pandas 데이터 프레임에 로드합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
 
-1. blob 서비스를 사용하여 다음 샘플 Python 코드로 Azure blob에서 데이터를 다운로드합니다. 아래의 코드 변수를 사용자가 원하는 값으로 대체합니다.
+1. blob 서비스를 사용하여 다음 샘플 Python 코드로 Azure blob에서 데이터를 다운로드합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다.
    
         from azure.storage.blob import BlobService
         import tables
@@ -93,8 +93,8 @@ ms.lasthandoff: 10/11/2017
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
-데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다.
+## <a name="sql-featuregen"></a>Azure Blob에 데이터를 다시 쓰고 Azure Machine Learning에서 데이터 사용
+탐색하거나, 샘플링하거나, 특성화된 Azure Machine Learning의 데이터를 사용하려면 데이터를 Azure Blob에 업로드합니다. Azure Machine Learning Studio에서도 추가 기능을 만들 수 있습니다. 다음 단계에서는 데이터를 업로드하는 방법을 보여 줍니다.
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
    
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. 이제 아래 그림과 같이 Azure 기계 학습 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
+3. 이제 다음 스크린샷과 같이 Azure Machine Learning [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
 
 ![판독기 blob](./media/data-blob/reader_blob.png)
 

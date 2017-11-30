@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Salesforce Sandbox 구성
 
@@ -35,9 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다.
 
-프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Salesforce Sandbox 앱에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Salesforce Sandbox 앱에 할당할 수 있습니다.
-
-[엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Salesforce Sandbox 앱에 대한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정해야 합니다. 결정했으면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침에 따라 해당 사용자를 Salesforce Sandbox 앱에 할당할 수 있습니다.
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Salesforce Sandbox에 사용자를 할당하기 위한 주요 팁
 
@@ -55,7 +53,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 >[!Tip]
 >[Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 Salesforce Sandbox에 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>자동 사용자 계정 프로비전을 구성하려면:
+### <a name="configure-automatic-user-account-provisioning"></a>자동 사용자 계정 프로비전 구성
 
 이 섹션은 Salesforce Sandbox에 Active Directory 사용자 계정을 사용자 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
@@ -65,7 +63,8 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. Salesforce Sandbox의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다. 
+4. **프로비전 모드**를 **자동**으로 설정합니다.
+
     ![프로비전](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
@@ -74,17 +73,21 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
-6. Salesforce Sandbox 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce Sandbox 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **내 설정**을 클릭합니다.
+6. Salesforce Sandbox 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce Sandbox 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정**을 클릭합니다.
 
      ![자동 사용자 프로비저닝 사용](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비저닝 사용")
-7. 왼쪽 탐색 창에서 **개인**을 클릭하여 관련된 섹션을 확장한 다음 **내 보안 토큰 재설정**을 클릭합니다.
+
+7. 왼쪽 탐색 창에서 **내 개인 정보**를 클릭하여 관련된 섹션을 확장한 다음 **내 보안 토큰 재설정**을 클릭합니다.
   
     ![자동 사용자 프로비저닝 사용](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비저닝 사용")
-8. **내 보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
+
+8. **보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
 
     ![자동 사용자 프로비저닝 사용](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비저닝 사용")
+
 9. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce Sandbox.com에서 새 보안 토큰이 포함된 이메일을 찾습니다.
-10. 토큰을 복사하고 Azure AD 창으로 이동하여 **소켓 토큰** 필드에 붙여넣습니다.
+
+10. 토큰을 복사하고 Azure AD 창으로 이동하여 **비밀 토큰** 필드에 붙여넣습니다.
 
 11. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Salesforce Sandbox 앱에 연결할 수 있는지 확인합니다.
 
@@ -100,7 +103,6 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 17. **저장**을 클릭합니다.
 
-
 사용자 및 그룹 섹션에서 Salesforce Sandbox에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Salesforce Sandbox 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 보고서에 연결된 링크를 이용할 수 있습니다.
 
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Salesforce에 동기화되었는지 확인합니다.
@@ -109,4 +111,4 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-* [Single Sign-On 구성](active-directory-saas-salesforcesandbox-tutorial.md)
+* [Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

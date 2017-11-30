@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 11/04/2017
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 지원되는 파일 및 압축 형식](v1//data-factory-supported-file-and-compression-formats.md)을 참조하세요.
+
+> [!TIP]
+> 파일 형식 설정에 따라 메타데이터가 결정되는 방법과 [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) 섹션을 지정해야 하는 경우에 대한 팁을 비롯하여 복사 작업이 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)에서 싱크로 원본 데이터를 매핑하는 방법을 알아봅니다.
 
 ## <a name="text-format"></a>텍스트 형식
 

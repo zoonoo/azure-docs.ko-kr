@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: ba9c28f0e6df25b101b45edf836d0b95056cbc6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2021b5b7602605a7c264e9cd575399077691da34
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings---premium"></a>쿼리 문자열을 사용하여 Azure Content Delivery Network 캐싱 동작 제어 - Premium
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>개요
-Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 `?` 문자 다음에 나오는 요청 부분입니다. 쿼리 문자열은 하나 이상의 매개 변수를 `&` 문자로 구분하여 포함할 수 있습니다. 예: `http://www.domain.com/content.mov?data1=true&data2=false`. 요청에 쿼리 문자열 매개 변수가 둘 이상 있는 경우 매개 변수의 순서는 중요하지 않습니다. 
+Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예: `http://www.contoso.com/content.mov?field1=value1&field2=value2`. 요청의 쿼리 문자열에 둘 이상의 키-값 쌍이 있는 경우 해당 순서는 중요하지 않습니다. 
 
 > [!IMPORTANT]
 > 표준 및 프리미엄 CDN 제품은 동일한 쿼리 문자열 캐싱 기능을 제공하지만 사용자 인터페이스는 다릅니다.  이 문서는 **Verizon의 Azure CDN Premium**에 대한 인터페이스를 설명합니다. **Akamai의 Azure CDN Standard** 및 **Verizon의 Azure CDN Standard**를 사용한 쿼리 문자열 캐싱에 대해서는 [쿼리 문자열이 포함된 CDN 요청의 캐싱 동작 제어](cdn-query-string.md)를 참조하세요.

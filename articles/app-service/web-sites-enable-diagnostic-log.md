@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱에 대한 진단 로깅 설정
 ## <a name="overview"></a>개요
@@ -60,14 +60,13 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 >
 >
 
-[클래식 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에서 **웹 서버 로깅**에 대한 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단** 에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
+**응용 프로그램 로깅**의 경우 디버그를 위해 파일 시스템 옵션을 일시적으로 켤 수 있습니다. 이 옵션은 12시간 후에 자동으로 꺼집니다. 또한 Blob 저장소 옵션을 켜서 로그를 쓸 Blob 컨테이너를 선택할 수도 있습니다.
 
-[클래식 포털](https://manage.windowsazure.com) 웹앱 구성 탭은 또한 응용 프로그램 진단에 대한 추가 **구성** 이 포함됩니다.
+**웹 서버 로깅**의 경우 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. 
 
-* **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
-* **Table Storage** - 지정된 Azure Storage 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
-* **Blob Storage** - 지정된 Azure Storage 계정 및 Blob 컨테이너에 응용 프로그램 진단 정보를 저장합니다.
-* **보존 기간** - 기본적으로 로그는 **Blob Storage**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention** 을 선택하고 로그를 보관할 기간(일)을 입력합니다.
+파일 시스템에 로그를 저장하는 경우 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
+
+기본적으로 로그는 자동으로 삭제되지 않습니다(**응용 프로그램 로깅(파일 시스템)** 제외). 로그를 자동으로 삭제하려면 **보존 기간(일)** 필드를 설정합니다.
 
 > [!NOTE]
 > [저장소 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
@@ -101,12 +100,10 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 * **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure 웹 앱에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다.
 
 ### <a name="ftp"></a>FTP
-FTP를 사용하여 진단 정보에 액세스하려면, **클래식 포털** 에서 웹앱의 [대시보드](https://manage.windowsazure.com)를 참조합니다. **간략 상태** 섹션에서 **FTP 진단 로그** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
 
-> [!NOTE]
-> **배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **간략 상태** 섹션에서 **배포 자격 증명 다시 설정** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
->
->
+앱의 FTP 서버에 대한 FTP 연결을 열려면 [FTPFTP/S를 사용하여 앱에 Azure App Service에 배포](app-service-deploy-ftp.md)를 참조하세요.
+
+웹앱의 FTP/S 서버에 연결되면 로그 파일이 저장되어 있는 **LogFiles** 폴더를 엽니다.
 
 ### <a name="download-with-azure-powershell"></a>Azure PowerShell로 다운로드
 로그 파일을 다운로드하려면 새 인스턴스의 Azure PowerShell을 시작하고 다음 명령을 사용합니다.
@@ -145,7 +142,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 [Application Insights로 추적되는 성능에 대해 알아보기](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 방법: 스트림 로그
-응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. 이는 Azure PowerShell 또는 Azure 명령줄 인터페이스 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍하도록 하면 가능합니다.
+응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > 일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
@@ -207,7 +204,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-예를 들어 오류 이벤트는 다음과 비슷하게 나타납니다.
+예를 들어 오류 이벤트는 다음 샘플과 비슷하게 나타납니다.
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -224,7 +221,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 | Timestamp |이벤트가 발생한 날짜 및 시간 |
 | EventTickCount |이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도) |
 | ApplicationName |웹 앱 이름 |
-| 수준 |이벤트 수준(예: 오류, 경고, 정보) |
+| Level |이벤트 수준(예: 오류, 경고, 정보) |
 | EventId |이 이벤트의 이벤트 ID<p><p>지정하지 않을 경우 0으로 기본 설정됨 |
 | InstanceId |이벤트가 발생한 웹앱의 인스턴스 |
 | Pid |프로세스 ID |
@@ -238,7 +235,7 @@ Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 
 | 속성 이름 | 값/형식 |
 | --- | --- |
 | Date |이벤트가 발생한 날짜 및 시간 |
-| 수준 |이벤트 수준(예: 오류, 경고, 정보) |
+| Level |이벤트 수준(예: 오류, 경고, 정보) |
 | ApplicationName |웹 앱 이름 |
 | InstanceId |이벤트가 발생한 웹앱의 인스턴스 |
 | EventTickCount |이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도) |
@@ -247,7 +244,7 @@ Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 
 | Tid |이벤트가 생성된 스레드의 스레드 ID |
 | Message |이벤트 세부 정보 메시지 |
 
-Blob에 저장된 데이터는 다음과 비슷합니다.
+Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 >
 
 ### <a name="failed-request-traces"></a>실패한 요청 추적
-실패한 요청 추적은 **fr######.xml**이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 **freb.xsl**이라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 Internet Explorer는 XSL 스타일시트를 사용하여 서식이 지정된 추적 정보를 표시합니다. 그러면 다음과 유사합니다.
+실패한 요청 추적은 **fr######.xml**이라는 XML 파일에 저장됩니다. 로깅된 정보를 더 쉽게 볼 수 있도록 **freb.xsl**이라는 XSL 스타일시트가 XML 파일과 동일한 디렉터리에 제공됩니다. Internet Explorer에서 XML 파일 중 하나를 열면 Internet Explorer는 다음 예제와 비슷하게 XSL 스타일시트를 사용하여 서식이 지정된 추적 정보를 표시합니다.
 
 ![브라우저에 표시된 실패한 요청](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

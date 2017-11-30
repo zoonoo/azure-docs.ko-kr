@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리
 
-이 문서에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 C# 샘플 코드에 대해 설명합니다.
+이 항목에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 C# 샘플 코드에 대해 설명합니다.
 
-샘플 코드를 컴파일하고 실행하기 전에 다음 단계를 완료했는지 확인합니다.
-1. [이 문서](time-series-insights-add-reference-data-set.md)를 사용하여 참조 데이터 집합을 만들었습니다.
+샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
+1. [참조 데이터 집합을 만듭니다](time-series-insights-add-reference-data-set.md).
 
-2. 인증을 받을 응용 프로그램에서 사용할 수 있게 액세스 토큰을 구성합니다. Azure Active Directory API를 통해 토큰을 가져와야 합니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달해야 합니다. 비대화형 응용 프로그램을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md) 문서를 참조하세요.
+2. 응용 프로그램에 대한 인증 액세스 토큰을 구성합니다. Azure Active Directory API를 통해 토큰을 가져와야 합니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다. 
+ 
+   비대화형 응용 프로그램을 설정하는 방법에 대한 내용은 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요.
 
 3. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#**에 지정된 예제 상수를 바꿉니다. 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>다음 단계
-전체 REST API 참조를 보려면 [참조 데이터 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)를 참조하세요.
+[참조 데이터 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

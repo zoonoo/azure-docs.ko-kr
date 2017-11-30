@@ -3,7 +3,7 @@ title: "빠른 시작: Table API와 .NET - Azure Cosmos DB | Microsoft Docs"
 description: "이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다."
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,17 +13,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/20/2017
+ms.author: mimig
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
-이 빠른 시작은 GitHub에서 예제를 복제하여 앱을 빌드하기 위해 Java와 Azure Cosmos DB [Table API](table-introduction.md)를 사용하는 방법을 보여줍니다. 이 빠른 시작은 Azure Cosmos DB 계정을 만드는 방법과 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법을 보여줍니다.
+이 빠른 시작은 GitHub에서 예제를 복제하여 앱을 빌드하기 위해 Java와 Azure Cosmos DB [Table API](table-introduction.md)를 사용하는 방법을 보여줍니다. 또한 Azure Cosmos DB 계정을 만드는 방법 및 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법도 보여줍니다.
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
@@ -34,6 +34,10 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+
+> [!IMPORTANT] 
+> 일반 공급 Table API SDK를 사용하려면 새 Table API 계정을 만들어야 합니다. 미리 보기 중에 만들어진 Table API 계정은 일반 공급 SDK에서 지원되지 않습니다.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,21 +88,26 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 2. Visual Studio에서 App.config 파일을 엽니다. 
 
-3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 
-
-3. 8줄에서 StorageConnectionString 값에 기본 연결 문자열 값을 붙여넣습니다. 
+3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    줄 8은 다음과 같이 보일 것입니다.
+4. 8줄에서 StorageConnectionString 값에 포털의 기본 연결 문자열 값을 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다. 
+
+    > [!IMPORTANT]
+    > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
+    > 
+
+    8줄은 다음과 같이 표시됩니다.
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. App.config 파일을 저장합니다.
+5. App.config 파일을 저장합니다.
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
@@ -110,11 +119,25 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 3. 결과에서 **Microsoft.Azure.CosmosDB.Table** 라이브러리를 설치합니다. 그러면 Azure Cosmos DB Table API 패키지뿐만 아니라 모든 종속성도 설치됩니다.
 
-4. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+4. BasicSamples.cs를 열고 30줄과 52줄에 중단점을 추가합니다.
 
-    콘솔 창에는 Azure Cosmos DB에서 새 테이블 데이터베이스에 추가된 테이블 데이터가 표시됩니다.
+5. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-    이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다.
+    Azure Cosmos DB에서 새 테이블 데이터베이스에 추가되는 테이블 데이터가 콘솔 창에 표시됩니다. 
+    
+    종속성에 대한 오류가 발생할 경우 [문제 해결](table-sdk-dotnet.md#troubleshooting)을 참조하세요.
+
+    첫 번째 중단점에 도달하면 Azure Portal의 데이터 탐색기로 다시 이동하여 demo* 테이블을 확장하고 **엔터티**를 클릭합니다. 오른쪽의 **엔터티** 탭에 추가된 새 엔터티가 표시되고 사용자의 전화 번호는 425-555-0101입니다.
+    
+6. 데이터 탐색기에서 엔터티 탭을 닫습니다.
+    
+7. 다음 중단점까지 계속해서 앱을 실행합니다.
+
+    중단점에 도달하면 다시 포털로 전환하고 엔터티를 다시 클릭하여 엔터티 탭을 엽니다. 전화 번호가 425-555-0105로 업데이트되었습니다.
+
+8. 콘솔 창으로 돌아와서 CTRL + C를 눌러 앱 실행을 종료합니다. 
+
+    이제 다시 데이터 탐색기로 이동하여 엔터티를 추가 또는 수정하고 데이터를 쿼리할 수 있습니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

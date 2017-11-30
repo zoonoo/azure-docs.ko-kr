@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
 Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
@@ -72,7 +72,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 고급 규칙 본문의 총 길이는 2048자를 초과할 수 없습니다.
 
 > [!NOTE]
-> 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다. $null을 상수로 사용하여 Null 확인을 수행할 수도 있습니다(예: user.department -eq $null).
+> 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다. *null*을 상수로 사용하여 Null 확인을 수행할 수도 있습니다(예: user.department -eq *null*).
 > 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
 
 ## <a name="supported-expression-rule-operators"></a>지원되는 식 규칙 연산자
@@ -158,31 +158,31 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 | 속성 | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
-| city |임의의 문자열 값 또는 $null입니다. |(user.city -eq "value") |
-| country |임의의 문자열 값 또는 $null입니다. |(user.country -eq "value") |
-| companyName | 임의의 문자열 값 또는 $null입니다. | (user.companyName -eq "value") |
-| department |임의의 문자열 값 또는 $null입니다. |(user.department -eq "value") |
+| city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
+| country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
+| companyName | 임의의 문자열 값 또는 *null*입니다. | (user.companyName -eq "value") |
+| department |임의의 문자열 값 또는 *null*입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값입니다. |(user.displayName -eq "value") |
-| facsimileTelephoneNumber |임의의 문자열 값 또는 $null입니다. |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |임의의 문자열 값 또는 $null입니다. |(user.givenName -eq "value") |
-| jobTitle |임의의 문자열 값 또는 $null입니다. |(user.jobTitle -eq "value") |
-| mail |임의의 문자열 값 또는 $null(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
+| facsimileTelephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
+| jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
+| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
-| mobile |임의의 문자열 값 또는 $null입니다. |(user.mobile -eq "value") |
+| mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |임의의 문자열 값 또는 $null입니다. |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |임의의 문자열 값 또는 $null입니다. |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |임의의 문자열 값 또는 *null*입니다. |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |임의의 문자열 값 또는 *null*입니다. |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 코드 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |임의의 문자열 값 또는 $null입니다. |(user.sipProxyAddress -eq "value") |
-| state |임의의 문자열 값 또는 $null입니다. |(user.state -eq "value") |
-| streetAddress |임의의 문자열 값 또는 $null입니다. |(user.streetAddress -eq "value") |
-| surname |임의의 문자열 값 또는 $null입니다. |(user.surname-eq "value") |
-| telephoneNumber |임의의 문자열 값 또는 $null입니다. |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |임의의 문자열 값 또는 *null*입니다. |(user.sipProxyAddress -eq "value") |
+| state |임의의 문자열 값 또는 *null*입니다. |(user.state -eq "value") |
+| streetAddress |임의의 문자열 값 또는 *null*입니다. |(user.streetAddress -eq "value") |
+| surname |임의의 문자열 값 또는 *null*입니다. |(user.surname-eq "value") |
+| telephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.telephoneNumber -eq "value") |
 | usageLocation |두 자로 된 국가 코드 |(user.usageLocation -eq "US") |
 | userPrincipalName |임의의 문자열 값입니다. |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest $null |(user.userType -eq "Member") |
+| userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 허용되는 연산자
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Null 값 사용
 
-규칙에 null 값을 지정하려면 "null" 또는 $null을 사용하면 됩니다. 예제:
+규칙에 null 값을 지정하려면 *null* 값을 사용할 수 있습니다. 단어 *null* 주위에 따옴표를 사용하지 않도록 주의합니다. 이렇게 하면 리터럴 문자열 값으로 해석됩니다. null 값을 참조하는 올바른 방법은 다음과 같습니다.
 ```
    user.mail –ne null
 ```
-이는 다음과 동등합니다.
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>확장 특성 및 사용자 지정 특성
 확장 특성 및 사용자 지정 특성은 동적 멤버 자격 규칙에서 지원됩니다.

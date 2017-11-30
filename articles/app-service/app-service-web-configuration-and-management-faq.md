@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하기 위해 하이브리드 연결 관리자 업데이트가 진행되고 있습니다. 해결 방법은 [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/)(SQL Server의 하이브리드 연결 오류: System.OverflowException: 산술 연산으로 인해 오버플로가 발생했습니다.)를 참조하세요.
+이 예외는 수정된 하이브리드 연결 관리자의 문제로 인해 야기되었습니다. 이 문제를 해결하려면 [하이브리드 연결 관리자를 업데이트](https://go.microsoft.com/fwlink/?LinkID=841308)해야 합니다.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 어떻게 추가하거나 편집할 수 있나요?
 
@@ -319,4 +319,4 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>온-프레미스 환경에서 App Service로 마이그레이션하려면 어떻게 하나요?
 
-Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://www.movemetothecloud.net/)를 참조하세요.
+Windows 및 Linux 웹 서버에서 App Service로 마이그레이션하려면 Azure App Service Migration Assistant를 사용하면 됩니다. 이 마이그레이션 도구는 필요에 따라 Azure에서 웹앱 및 데이터베이스 만들고 나서 콘텐츠를 게시합니다. 자세한 내용은 [Azure App Service Migration Assistant](https://www.migratetoazure.net/)를 참조하세요.

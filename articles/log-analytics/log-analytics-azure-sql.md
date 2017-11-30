@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -29,6 +29,11 @@ Azure Log Analytics의 Azure SQL 분석 솔루션은 중요한 SQL Azure 성능 
 현재, 이 미리 보기 솔루션은 작업 영역당 최대 150,000개의 Azure SQL Database 및 5,000개의 SQL 탄력적 풀을 지원합니다.
 
 Log Analytics에 대해 제공되는 다른 도구처럼 Azure SQL 분석 솔루션은 Azure 리소스의 상태에 대한 알림(이 경우, Azure SQL Database)을 모니터링하고 수신할 수 있습니다. Microsoft Azure SQL Database는 Azure 클라우드에서 실행되는 응용 프로그램에 친숙한 SQL Server와 유사한 기능을 제공하는 확장성 있는 관계형 데이터베이스 서비스입니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
+
+Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적인 사용 시나리오에 대해서는 포함된 비디오를 참조하세요.
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>연결된 소스
 
@@ -115,7 +120,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 보고서
 
-수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다. 
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md)는 사용자의 데이터베이스 성능을 알려줍니다. 수집된 모든 Intelligent Insights를 시각화하고 Insights 관점에서 액세스할 수 있습니다.
 
 ![Azure SQL 분석 정보](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
+
+> [!IMPORTANT]
+> Azure Multi-Factor Authentication SDK(소프트웨어 개발 키트) 사용 중단이 발표되었습니다. 이 기능은 새 고객에게 더 이상 지원되지 않습니다. 현재 고객은 2018년 11월 14일까지 계속 SDK를 사용할 수 있습니다. 해당 시점 이후에는 SDK에 대한 호출에 실패합니다. 
 
 Azure Multi-Factor Authentication 소프트웨어 개발 키트(SDK)를 사용하면 Azure AD 테넌트에 응용 프로그램의 로그인 또는 트랜잭션 프로세스로 직접 2단계 검증을 빌드할 수 있습니다.
 
@@ -35,30 +38,7 @@ Azure Active Directory에 등록된 사용자에 대한 액세스 권한이 API�
 
 
 ## <a name="download-the-sdk"></a>SDK 다운로드
-Azure Multi-Factor SDK를 다운로드하려면 [Azure Multi-Factor Auth 공급자](multi-factor-authentication-get-started-auth-provider.md)가 필요합니다.  따라서 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있는 경우에도 전체 Azure 구독이 필요합니다.  SDK를 다운로드하려면 다단계 관리 포털로 이동합니다. Multi-Factor Auth 공급자를 직접 관리하거나 MFA 서비스 설정 페이지에서 **"포털로 이동"** 링크를 클릭하여 포털로 이동할 수 있습니다.
-
-### <a name="download-from-the-azure-classic-portal"></a>Azure 클래식 포털에서 다운로드
-1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. Active Directory 페이지의 위쪽에서 **Multi-Factor Auth 공급자**를 선택합니다.
-4. 아래쪽에서 **관리**를 선택합니다. 새 페이지가 열립니다.
-5. 왼쪽 아래에서 **SDK**를 클릭합니다.
-   <center>![다운로드](./media/multi-factor-authentication-sdk/download.png)</center>
-6. 원하는 언어를 누르고 관련된 다운로드 링크를 하나 클릭합니다.
-7. 다운로드 파일을 저장합니다.
-
-### <a name="download-from-the-service-settings"></a>서비스 설정에서 다운로드
-1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. Azure AD 인스턴스를 두 번 클릭합니다.
-4. 위쪽에서 **구성**
-5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**
-   ![다운로드](./media/multi-factor-authentication-sdk/download2.png)를 선택합니다.
-6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. 새 페이지가 열립니다.
-   ![다운로드](./media/multi-factor-authentication-sdk/download3a.png)
-7. 왼쪽 아래에서 **SDK**를 클릭합니다.
-8. 원하는 언어를 누르고 관련된 다운로드 링크를 하나 클릭합니다.
-9. 다운로드 파일을 저장합니다.
+Azure Multi-Factor SDK를 다운로드하려면 [Azure Multi-Factor Auth 공급자](multi-factor-authentication-get-started-auth-provider.md)가 필요합니다.  따라서 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있는 경우에도 전체 Azure 구독이 필요합니다. SDK가 사용 중단된 이후 SDK 다운로드에 대한 공개 방법이 해제되었습니다. SDK를 다운로드해야 하는 경우 Microsoft에 지원 사례를 열어야 합니다.
 
 ## <a name="whats-in-the-sdk"></a>SDK의 새로운 기능
 SDK에는 다음 항목이 포함되어 있습니다.

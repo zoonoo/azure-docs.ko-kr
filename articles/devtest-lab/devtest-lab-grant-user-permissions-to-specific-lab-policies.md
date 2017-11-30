@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
 이 문서에서는 PowerShell을 사용하여 특정 랩 정책에 사용자 권한을 부여하는 방법을 보여줍니다. 이런 방식으로 각 사용자의 요구 사항에 따라 권한을 적용할 수 있습니다. 예를 들어 특정 사용자에게 VM 정책 설정을 변경할 수 있는 기능은 부여하지만 비용 정책에 대해서는 부여하지 않을 수 있습니다.
 
 ## <a name="policies-as-resources"></a>리소스인 정책
-[Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서에 설명된 대로 RBAC를 사용하면 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+[Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md) 문서에 설명된 대로 RBAC를 사용하면 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/**를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
@@ -87,9 +87,9 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 ## <a name="next-steps"></a>다음 단계
 특정 랩 정책에 사용자 권한을 부여한 경우 다음 몇 가지 단계를 고려해야 합니다.
 
-* [랩에 안전하게 액세스](devtest-lab-add-devtest-user.md).
-* [랩 정책 설정](devtest-lab-set-lab-policy.md).
-* [랩 템플릿 만들기](devtest-lab-create-template.md).
-* [VM에 대한 사용자 지정 아티팩트  만들기](devtest-lab-artifact-author.md).
-* [아티팩트가 지정된 VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md).
+* [랩에 대한 보안 액세스](devtest-lab-add-devtest-user.md)
+* [랩 정책 설정](devtest-lab-set-lab-policy.md)
+* [랩 템플릿 만들기](devtest-lab-create-template.md)
+* [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
+* [랩에 VM 추가](devtest-lab-add-vm.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs"
+title: "Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs"
 description: "이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법
 이 문서에서는 Azure Portal을 사용하여 IoT Hub에서 데이터를 읽는 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 다룹니다.

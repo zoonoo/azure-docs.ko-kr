@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>인텔리전스 Insights
 
@@ -49,8 +49,6 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 데이터베이스 성능 문제를 측정하고 검색하는 데 사용되는 메트릭은 쿼리 기간, 시간 제한 요청, 과도한 대기 시간, 오류 발생 요청을 기반으로 합니다. 메트릭에 대한 자세한 내용은 이 문서의 [검색 메트릭](sql-database-intelligent-insights.md#detection-metrics) 섹션을 참조하세요.
 
-## <a name="degradations-detected"></a>성능 저하 검색
-
 확인된 SQL Database 성능 저하는 다음 속성으로 구성된 지능형 항목과 함께 진단 로그에 기록됩니다.
 
 | 속성             | 세부 정보              |
@@ -64,36 +62,49 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 | 근본 원인 분석 | 인간이 읽을 수 있는 형식으로 식별된 문제의 근본 원인 분석입니다. 가능한 경우 일부 정보에는 성능 개선 권장 사항이 있을 수 있습니다. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>문제 상태 수명 주기: “활성”, “확인 중”, “완료됨”
-
 진단 로그에 기록된 성능 문제는 세 가지 문제 상태 수명 주기(“활성”, “확인 중” 및 “완료됨”) 중 하나와 함께 플래그 지정됩니다. 성능 문제가 검색되고 SQL Database 기본 제공 인텔리전스에서 해당 문제가 존재하는 것으로 판단하는 경우 해당 문제는 “활성”으로 플래그 지정됩니다. 문제가 완화됨으로 간주되는 경우에는 문제가 확인되고 문제 상태는 “확인 중”으로 변경됩니다. SQL 기본 제공 인텔리전스에서 문제가 해결된 것으로 간주하면 문제 상태는 “완료됨”으로 플래그 지정됩니다.
 
 ## <a name="use-intelligent-insights"></a>Intelligent Insights 사용
 
-Intelligent Insights 진단 로그를 Azure Log Analytics, Azure Event Hubs, Azure Storage로 전송할 수 있습니다. 자세한 내용은 [Azure SQL Database 메트릭 및 진단 로깅](sql-database-metrics-diag-logging.md)을 참조하세요. 로그를 이러한 대상 중 하나로 전송한 후에는 Microsoft 또는 타사 도구를 사용하여 사용자 지정 경고 및 모니터링 개발을 위해 이 로그를 사용할 수 있습니다. 
+Intelligent Insights는 스마트 성능 진단 로그를 사용합니다. 이 기능은 사용되는 기타 제품 및 특정 응용 프로그램(예: Azure Log Analytics, Azure Event Hubs, Azure Storage 또는 타사 제품)과 통합될 수 있습니다. 
 
-Intelligent Insights를 사용하여 SQL Database 성능 문제를 해결하는 방법에 대한 자세한 내용은 [Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결](sql-database-intelligent-insights-troubleshoot-performance.md)을 참조하세요.
+Intelligent Insights와 Azure Log Analytics는 일반적으로 웹 브라우저를 통해 기본적인 사항을 이해하는 데 사용되며, 제품 사용을 시작하는 가장 쉬운 방법 중 하나일 것입니다. Intelligent Insights와 Azure Event Hubs는 일반적으로 사용자 지정 모니터링 및 경고 시나리오를 구성하는 데 사용됩니다. Intelligent Insights와 Azure Storage는 예를 들어 사용자 지정 보고 또는 데이터 보관 및 검색과 같은 사용자 지정 응용 프로그램 개발에 일반적으로 사용됩니다.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Log Analytics을 사용하여 기본 제공 Intelligent Insights 분석 
+Intelligent Insights를 Azure Log Analytics, Azure Event Hubs, Azure Storage 또는 사용되는 타사 제품과 통합하려면 먼저 Intelligent Insights 로깅(SQLInsights 로그)을 사용하도록 설정한 다음, 이러한 제품 중 하나로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성합니다. Intelligent Insights 로깅을 사용하도록 설정하고 로그 데이터가 사용 중인 제품에 스트리밍되도록 구성하는 방법에 대한 자세한 내용은 [Azure SQL Database 메트릭 및 진단 로깅](sql-database-metrics-diag-logging.md)을 참조하세요. 
 
-Log Analytics 솔루션은 Intelligent Insights 진단 로그 데이터를 바탕으로 보고 및 경고 기능을 제공합니다. 아래는 Azure SQL Analytics에서 Intelligent Insights 보고서의 예입니다.
+Azure Log Analytics에서 Intelligent Insights를 사용하는 방법에 대한 실무 중심 개요와 일반적인 사용 시나리오에 대해서는 포함된 비디오를 참조하세요.
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent Insights는 SQL Database 성능 문제를 검색하고 해결할 때 특히 유용합니다. Intelligent Insights를 사용하여 SQL Database 성능 문제를 해결하는 방법에 대한 자세한 내용은 [Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결](sql-database-intelligent-insights-troubleshoot-performance.md)을 참조하세요.
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Log Analytics를 사용하여 Intelligent Insights 설정 
+
+Log Analytics 솔루션은 Intelligent Insights 진단 로그 데이터를 바탕으로 보고 및 경고 기능을 제공합니다.
+
+Log Analytics에서 Intelligent Insights를 사용하고 Log Analytics으로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Azure SQL Database 메트릭 및 진단 로깅](sql-database-metrics-diag-logging.md)을 참조하세요. 
+
+아래는 Azure SQL Analytics에서 Intelligent Insights 보고서의 예입니다.
 
 ![Intelligent Insights 보고서](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Intelligent Insights 진단 로그에서 SQL Analytics에 데이터를 스트리밍하도록 구성한 후에는 [SQL Analytics를 사용하여 SQL Database를 모니터링](../log-analytics/log-analytics-azure-sql.md)할 수 있습니다.
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>인텔리전스 Insights 로그의 사용자 지정 통합
-
-Microsoft 또는 타사 도구를 사용하여 사용자 지정 경고 및 모니터링 개발에 대한 자세한 내용은 [Intelligent Insights 데이터베이스 성능 진단 로그 사용](sql-database-intelligent-insights-use-diagnostics-log.md)을 참조하세요.
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Event Hubs를 사용하여 Intelligent Insights 설정
 
-- Intelligent Insights를 구성하여 로그 이벤트를 Event Hubs에 스트리밍하려면 [Azure 진단 로그를 Event Hubs에 스트리밍](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)을 참조합니다.
-- 사용자 지정 모니터링 및 경고에 대해 Event Hub를 사용하려면 [Event Hubs에서 메트릭 및 진단 로그로 할 수 있는 일](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)을 참조하세요. 
+Event Hubs에서 Intelligent Insights를 사용하고 Event Hubs로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Event Hubs로 Azure 진단 로그 스트리밍](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)을 참조하세요.
+
+Event Hubs를 사용하여 사용자 지정 모니터링 및 경고를 설정하려면 [Event Hubs에서 메트릭 및 진단 로그로 할 수 있는 일](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)을 참조하세요. 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Storage를 사용하여 Intelligent Insights 설정
 
-- Storage를 사용하여 저장할 Intellient Insights를 구성하려면 [Azure Storage로 스트리밍](sql-database-metrics-diag-logging.md#stream-into-storage)을 참조하세요.
+Storage에서 Intelligent Insights를 사용하고 Storage로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Azure Storage로 스트리밍](sql-database-metrics-diag-logging.md#stream-into-storage)을 참조하세요.
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>인텔리전스 Insights 로그의 사용자 지정 통합
+
+타사 도구와 함께 또는 사용자 지정 경고 및 모니터링 개발을 위해 Intelligent Insights를 사용하려면 [Intelligent Insights 데이터베이스 성능 진단 로그 사용](sql-database-intelligent-insights-use-diagnostics-log.md)을 참조하세요.
 
 ## <a name="detection-metrics"></a>검색 메트릭
 

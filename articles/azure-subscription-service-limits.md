@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -64,6 +64,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [데이터 팩터리](#data-factory-limits)
 * [데이터 레이크 분석](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT 허브](#iot-hub-limits)
@@ -262,6 +263,9 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 
 ### <a name="data-lake-store-limits"></a>Data Lake Store 제한
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
+### <a name="database-migration-service-limits"></a>Database Migration Service 제한
+[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Stream Analytics 제한
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -135,6 +135,17 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 ```
 
 이 시점 이후에 만든 TelemetryClients는 프로세서를 사용합니다.
+
+다음 코드는 ASP.NET Core에서 원격 분석 이니셜라이저를 추가하는 방법을 보여줍니다.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var initializer = new SuccessfulDependencyFilter();
+    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+    configuration.TelemetryInitializers.Add(initializer);
+}
+```
 
 ### <a name="example-filters"></a>예제 필터
 #### <a name="synthetic-requests"></a>가상 요청

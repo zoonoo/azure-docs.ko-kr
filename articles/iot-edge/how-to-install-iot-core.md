@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
@@ -25,8 +25,22 @@ Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 �
 1. 호스트 시스템에 [Windows 10 IoT Core 대시보드][lnk-core]를 설치합니다.
 1. [장치 설정][lnk-board]의 단계에 따라 MinnowBoard Turbot/MAX Build 16299 이미지로 보드를 구성합니다. 
 1. 장치를 켠 다음 [PowerShell을 사용하여 원격으로 로그인][lnk-powershell]합니다.
-1. PowerShell 콘솔에서 [Docker 이진 파일을 설치][lnk-docker-install]합니다.
-1. PowerShell 콘솔에서 다음 명령을 실행하여 IoT Edge 런타임을 설치하고 구성을 확인합니다.
+1. PowerShell 콘솔에서 컨테이너 런타임을 설치합니다. 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >이 컨테이너 런타임은 Moby 프로젝트 빌드 서버에서 가져온 것이며 평가 목적으로만 제공됩니다. Docker에서 테스트, 보증 또는 지원되지 않습니다.
+
+1. IoT Edge 런타임을 설치하고 구성을 확인합니다.
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -26,38 +26,74 @@ Azure Logic Apps은 통합이 견고하고 오류로부터 복구되도록 지�
 
 ## <a name="retry-policies"></a>재시도 정책
 
-재시도 정책은 가장 기본적인 예외 및 오류 처리 형식입니다. 초기 요청이 시간 초과되거나 실패한 경우(429 또는 5xx 응답이 발생하는 모든 요청) 이 정책은 작업을 재시도해야 하는지를 정의합니다. 기본적으로 모든 작업은 20초 간격에 걸쳐 추가로 4회 재시도합니다. 따라서 첫 번째 요청이 `500 Internal Server Error` 응답을 수신하는 경우 워크플로 엔진은 20초 동안 일시 중지되고 요청을 다시 시도합니다. 모든 재시도 후에도 응답으로 예외 또는 오류가 발생하는 경우 워크플로가 계속 진행되고 작업 상태가 `Failed`로 표시됩니다.
+재시도 정책은 가장 기본적인 예외 및 오류 처리 형식입니다. 초기 요청이 시간 초과되거나 실패한 경우(429 또는 5xx 응답이 발생하는 모든 요청) 이 정책은 작업을 재시도해야 하는지 여부 및 재시도 방법을 정의합니다. 3가지 유형의 다시 시도 정책, `exponential`, `fixed` 및 `none`이 있습니다. 다시 시도 정책이 워크플로에 제공되면 기본 정책이 사용됩니다. 재시도가 가능한 경우 특정 작업 또는 트리거의 **입력**에서 재시도 정책을 구성할 수 있습니다. 마찬가지로, 지정된 블록에 대한 **설정** 아래에서 Logic Apps 디자이너 다시 시도 정책을 구성할 수 있습니다(해당되는 경우).
 
-특정 작업의 **입력**에서 재시도 정책을 구성할 수 있습니다. 예를 들어 1시간 간격에 4번 시도하도록 재시도 정책을 구성할 수 있습니다. 입력 속성에 대한 자세한 내용은 [워크플로 작업 및 트리거][retryPolicyMSDN]를 참조하세요.
+다시 시도 정책 제한 사항에 대한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하고, 지원되는 구문에 대한 자세한 내용은 [워크플로 작업 및 트리거의 다시 시도 정책 섹션][retryPolicyMSDN]을 참조하세요.
+
+### <a name="exponential-interval"></a>기하급수적 간격
+`exponential` 정책 유형은 기하급수적으로 증가하는 범위의 임의 시간 간격 후에 실패한 요청을 다시 시도합니다. 각 다시 시도는 **minimumInterval**보다 크고 **maximumInterval**보다 작은 임의 간격으로 전송되도록 보장됩니다. 아래 범위의 균일한 임의 변수는 다시 시도가 **count** 이하로 수행되도록 보장합니다.
+<table>
+<tr><th> 임의 변수 범위 </th></tr>
+<tr><td>
+
+| 다시 시도 횟수 | 최소 간격 | 최대 간격 |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+`exponential` 유형 정책의 경우 **count** 및 **interval**이 필요하지만 **minimumInterval** 및 **maximumInterval**은 필요에 따라 각각 PT5S 및 PT1D의 기본값으로 재정의되어 제공될 수 있습니다.
+
+| 요소 이름 | 필수 | 형식 | 설명 |
+| ------------ | -------- | ---- | ----------- |
+| type | 예 | 문자열 | `exponential` |
+| count | 예 | Integer | 다시 시도 횟수는 1에서 90 사이여야 합니다.  |
+| interval | 예 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 다시 시도 간격은 PT5S에서 PT1D 사이여야 합니다. |
+| minimumInterval | 아니요| 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 다시 시도 간격은 PT5S에서 **interval** 사이여야 합니다. |
+| maximumInterval | 아니요| 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 최소 다시 시도 간격은 **interval**에서 PT1D 사이여야 합니다. |
+
+### <a name="fixed-interval"></a>고정 간격
+
+`fixed` 정책 유형은 다음 요청을 전송하기 전에 제공된 간격 동안 대기했다가 실패한 요청을 다시 시도합니다.
+
+| 요소 이름 | 필수 | 형식 | 설명 |
+| ------------ | -------- | ---- | ----------- |
+| type | 예 | 문자열 | `fixed`|
+| count | 예 | Integer | 다시 시도 횟수는 1에서 90 사이여야 합니다. |
+| interval | 예 | 문자열 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)의 다시 시도 간격은 PT5S에서 PT1D 사이여야 합니다. |
+
+### <a name="none"></a>없음
+`none` 정책 유형은 실패한 요청을 다시 시도하지 않습니다.
+
+| 요소 이름 | 필수 | 형식 | 설명 |
+| ------------ | -------- | ---- | ----------- |
+| type | 예 | 문자열 | `none`|
+
+### <a name="default"></a>기본값
+다시 시도 정책을 지정하지 않으면 기본 정책이 사용됩니다. 기본 정책은 5초에서 45초 사이에 간격을 7.5초만큼 기하급수적으로 늘려 최대 4번의 다시 시도를 전송하는 기하급수적 간격 정책입니다. 이 기본 정책(**retryPolicy**가 정의되지 않을 때 사용)은 이 예제 HTTP 워크플로 정의의 정책에 해당합니다.
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 경우 다음 정의를 사용합니다.
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-지원되는 구문에 대한 자세한 내용은 [워크플로 작업 및 트리거에서 재시도 정책 섹션][retryPolicyMSDN]을 참조하세요.
 
 ## <a name="catch-failures-with-the-runafter-property"></a>RunAfter 속성을 사용하여 오류 Catch
 
@@ -207,12 +243,12 @@ HTTP 작업을 4회 재시도하고 각 시도 사이에 10분 대기하려는 �
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure 진단 및 원격 분석
 
 이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. 
-[Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md) 은 모든 워크플로 이벤트(모든 실행 및 작업 상태 포함)를 Azure Storage 계정 또는 Azure 이벤트 허브로 보내는 간단한 방법을 제공합니다. 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모니터링 도구로 게시할 수 있습니다. 한 가지 잠재적인 옵션은 Azure 이벤트 허브를 통해 모든 이벤트를 [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)으로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그에서 모든 잘못된 부분, 평균 또는 오류를 가려내는 라이브 쿼리를 작성할 수 있습니다. Stream Analytics는 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 기타 데이터 원본에 쉽게 출력할 수 있습니다.
+[Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md) 은 모든 워크플로 이벤트(모든 실행 및 작업 상태 포함)를 Azure Storage 계정 또는 Azure 이벤트 허브로 보내는 간단한 방법을 제공합니다. 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모니터링 도구로 게시할 수 있습니다. 한 가지 잠재적인 옵션은 Azure Event Hub를 통해 모든 이벤트를 [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)으로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그에서 모든 잘못된 부분, 평균 또는 오류를 가려내는 라이브 쿼리를 작성할 수 있습니다. Stream Analytics는 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 기타 데이터 원본에 쉽게 출력할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [고객이 Azure Logic Apps의 오류 처리를 빌드하는 방법을 참조하세요.](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [논리 앱 예제 및 시나리오 더 찾아보기](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Logic Apps 예제 및 시나리오 더 찾아보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [논리 앱에 자동화된 배포를 만드는 방법 알아보기](../logic-apps/logic-apps-create-deploy-template.md)
 * [Visual Studio에서 논리 앱 빌드 및 배포](logic-apps-deploy-from-vs.md)
 

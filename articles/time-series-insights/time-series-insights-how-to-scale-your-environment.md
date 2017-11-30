@@ -12,8 +12,8 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/16/2017
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/16/2017
 
 이 문서에서는 Azure Portal을 사용하여 Time Series Insights 환경의 환경 용량을 변경하는 방법에 대해 설명합니다. 용량은 선택한 SKU와 관련된 입력 속도, 저장 용량 및 비용에 적용되는 승수입니다. 
 
-Azure Portal을 사용하여 주어진 가격 책정 SKU 내에서 용량을 늘리거나 줄일 수 있습니다. 
+Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘리거나 줄일 수 있습니다. 
 
 그러나 가격 책정 계층 SKU의 변경은 허용되지 않습니다. 예를 들어, S1 가격 책정 SKU가 있는 환경은 S2로 변환될 수 없으며 그 반대의 경우도 마찬가지입니다. 
 
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 주어진 가격 책정 SKU 내에서 용량을 늘
 ## <a name="change-the-capacity-of-your-environment"></a>사용자 환경의 용량 변경
 1. Azure Portal에서 Time Series Insights 환경을 찾아 선택합니다. 
 
-2. **설정** 제목 아래에서 **구성**을 선택합니다.
+2. Time Series Insights 환경에 대한 메뉴에서 **구성**을 선택합니다.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

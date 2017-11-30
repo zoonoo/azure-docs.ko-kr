@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
 이 문서에는 Azure AD에 대한 응용 프로그램 개발에 관해 알아보고자 할 때 유용한 핵심 Azure Active Directory(AD) 개발자 개념 함 합니다.
@@ -33,6 +33,9 @@ ms.lasthandoff: 11/07/2017
 * ["클라이언트 자격 증명" 권한 부여](#authorization-grant) - 클라이언트에서 리소스 소유자의 인증/권한 부여 없이 작동하는 유일한 인증을 제공하므로 때로는 토큰을 “앱 전용” 토큰이라고도 할 수 있습니다.
 
 자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+
+## <a name="application-id-client-id"></a>응용 프로그램 ID(클라이언트 ID)
+Azure AD가 응용 프로그램 등록 시 부여하는 고유 식별자로, 해당 응용 프로그램과 그 구성을 식별하는 데 사용됩니다.  응용 프로그램 ID([클라이언트 ID](https://tools.ietf.org/html/rfc6749#page-15))는 인증 요청을 수행할 때 사용되며, 개발 시 인증 라이브러리에 제공됩니다. 응용 프로그램 ID(클라이언트 ID)는 비밀이 아닙니다. 
 
 ## <a name="application-manifest"></a>응용 프로그램 매니페스트
 [Azure Portal][AZURE-portal]이 제공하는 기능, 응용 프로그램 ID 구성의 JSON 표현을 생성하며 연결된 [응용 프로그램][AAD-Graph-App-Entity] 및 [ServicePrincipal][AAD-Graph-Sp-Entity] 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해][AAD-App-Manifest]를 참조하세요.
@@ -174,7 +177,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 웹 서버에 대한 모든 코드를 실행하고 서버에서 해당 자격 증명을 안전하게 저장하여 "기밀" 클라이언트로 작동하도록 하는 [클라이언트 응용 프로그램](#client-application) 유형입니다. 더 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 개발자 가이드][AAD-Dev-Guide]는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본을 포함하는 Azure AD 개발 관련 모든 항목에 대해 사용하는 포털입니다.
+[Azure AD 개발자 가이드][AAD-Dev-Guide]는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본 사항을 포함하는, Azure AD 개발 관련 모든 항목에 대해 사용되는 랜딩 페이지입니다.  [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서도 코드 샘플과 빠른 시작 자습서를 확인할 수 있습니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 콘텐츠를 구체화하고 형성하는 데 도움을 주시기 바랍니다.
 

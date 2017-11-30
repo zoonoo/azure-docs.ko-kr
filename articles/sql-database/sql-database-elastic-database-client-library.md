@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>확장성 있는 클라우드 데이터베이스 빌드
 Azure SQL Database의 확장성 있는 도구 및 기능을 사용하여 데이터베이스 규모 확장을 쉽게 달성할 수 있습니다. 특히, **Elastic Database 클라이언트 라이브러리** 를 사용하여 규모 확장된 데이터베이스를 만들고 관리할 수 있습니다. 이 기능을 통해 수백 또는 수천 개의 Azure SQL 데이터베이스를 사용하여 분할된 응용 프로그램을 쉽게 개발할 수 있습니다. [탄력적 작업](sql-database-elastic-jobs-powershell.md) 을 사용할 수 있습니다.
 
-라이브러리를 설치하려면 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)의 NuGet으로 이동합니다. 
+다운로드하려면:
+* 라이브러리의 .NET 버전은 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 참조하세요.
+* 라이브러리의 Java 버전은 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)를 참조하세요.
 
 ## <a name="documentation"></a>설명서
 1. [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md)
@@ -58,15 +60,11 @@ Azure SQL Database의 확장성 있는 도구 및 기능을 사용하여 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Elastic Database 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - NuGet을 사용하여 라이브러리를 **설치합니다**.
+- Elastic Database 클라이언트 라이브러리([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - 라이브러리를 **다운로드**합니다.
 
 - [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md) - 클라이언트 함수를 설명하는 **샘플 앱**을 사용해 봅니다.
 
-- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) - 라이브러리는 오픈 소스 소프트웨어입니다.
-    - Elastic Database 도구 클라이언트 라이브러리를 통해 ADO.NET 개발자들이 Azure SQL Database에서 분할된 데이터베이스라고 하는 패턴을 구현하여 사용할 수 있습니다.
-
-- [탄력적 데이터베이스 클라이언트 라이브러리는 이제 소스가 공개되었습니다!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - Elastic Database 클라이언트 라이브러리에 관한 **블로그 포스트**, 2015/09/09.
-
+- GitHub([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - 코드를 개선합니다.
 - [Azure SQL Database 탄력적 쿼리](sql-database-elastic-query-overview.md) - 탄력적 쿼리 사용
 
 - [확장 클라우드 데이터베이스 간  데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md) - **split-merge 도구** 사용 지침

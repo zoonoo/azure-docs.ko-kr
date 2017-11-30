@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
 [Azure Portal]에 Azure Functions 개발 및 테스트를 위한 도구가 완벽히 제공되지만 많은 개발자는 지역 개발 환경을 선호합니다. Azure Functions를 사용하면 원하는 코드 편집기와 로컬 개발 도구를 쉽게 사용하여 로컬 컴퓨터에서 함수를 개발하고 테스트 할 수 있습니다. 함수로 Azure에서 이벤트를 트리거할 수 있으며 로컬 컴퓨터에서 C# 및 JavaScript 함수를 디버깅할 수 있습니다. 
 
 Visual Studio C# 개발자인 경우 Azure Functions은 [Visual Studio 2017과도 통합](functions-develop-vs.md)됩니다.
+
+>[!IMPORTANT]  
+> 로컬 개발과 포털 개발을 동일한 함수 앱에 혼합하지 않도록 합니다. 로컬 프로젝트에서 함수를 만들고 게시할 경우 포털에서 프로젝트 코드를 유지하거나 수정하려고 하지 않아야 합니다.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
@@ -83,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-로컬로 실행하는 경우 Functions 프로젝트는 [host.json](functions-host-json.md) 및 [local.settings.json](#local-settings) 파일이 있는 디렉터리입니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Azure Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
+로컬로 실행하는 경우 Functions 프로젝트는 [host.json](functions-host-json.md) 및 [local.settings.json](#local-settings-file) 파일이 있는 디렉터리입니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Azure Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
 
 터미널 창이나 명령 프롬프트에서 다음 명령을 실행하여 프로젝트 및 로컬 Git 리포지토리를 만듭니다.
 
@@ -102,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 로컬 Git 리포지토리 없이 프로젝트를 만들려면 `--no-source-control [-n]` 옵션을 사용합니다.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>로컬 설정 파일
 

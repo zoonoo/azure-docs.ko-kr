@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/14/2017
 
 **App Service 계획 변경**이 열리면서 **App Service 계획** 선택 기능이 열립니다. 이 앱을 이동할 기존 계획을 선택합니다. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **App Service 계획 선택** 페이지는 다음 기준으로 필터링됩니다. 
 > - 동일한 리소스 그룹에 존재 
 > - 동일한 지리적 지역에 존재 

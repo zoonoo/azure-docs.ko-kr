@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -207,7 +207,18 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 ## <a name="on-premises-integration"></a>온-프레미스 통합
 
-Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미스 통합을 위해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](active-directory-passwords-writeback.md#configuring-password-writeback)을 참조하세요.
+Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미스 통합을 위해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](active-directory-passwords-writeback.md#configure-password-writeback)을 참조하세요.
+
+![쓰기 저장][Writeback]
+
+이 페이지에서는 현재 구성에 따라 다음 메시지 중 하나가 표시되는 온-프레미스 쓰기 저장 클라이언트의 빠른 상태를 제공합니다.
+
+* 온-프레미스 쓰기 저장 클라이언트가 실행 중입니다.
+* Azure AD는 온라인 상태이며 온-프레미스 쓰기 저장 클라이언트에 연결되어 있습니다. 그러나 설치된 Azure AD Connect 버전이 만료된 것 같습니다. 최신 연결 기능을 사용하고 중요한 버그가 수정되도록 [Azure AD Connect 업그레이드](./connect/active-directory-aadconnect-upgrade-previous-version.md)를 수행하는 것이 좋습니다.
+* Azure AD Connect의 설치 버전이 오래된 버전이므로 온-프레미스 쓰기 저장 클라이언트 상태를 확인할 수 없습니다. 연결 상태를 확인할 수 있도록 [Azure AD Connect를 업그레이드](./connect/active-directory-aadconnect-upgrade-previous-version.md)합니다.
+* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.
+* 비밀번호 쓰기 저장이 올바르게 구성되지 않았으므로 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [비밀번호 쓰기 저장 구성](active-directory-passwords-writeback.md#configure-password-writeback)으로 연결을 복원합니다.
+* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. 일시적인 문제로 인한 것일 수 있습니다. 문제가 지속되면 [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 
@@ -253,3 +264,4 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "사용 가능한 Azure AD 인증 방법 및 필요한 수량"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "온-프레미스 통합 비밀번호 쓰기 저장 구성 및 문제 해결 정보"
