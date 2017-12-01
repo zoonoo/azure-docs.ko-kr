@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -184,9 +184,6 @@ Media Services는 보안 토큰 서비스를 제공하지 않습니다. 사용�
 이 섹션에서는 콘텐츠 키 인증 정책을 만들고 콘텐츠 키와 연결하는 방법을 설명합니다. 인증 정책은 사용자가 키를 받도록 인증받는지 여부를 결정하기 위해 어떤 인증 요구 사항이 충족돼야 하는지 설명합니다(예: “확인 키”목록은 토큰 서명에 사용된 키를 포함).
 
 토큰 제한 옵션을 구성하려면 XML을 사용하여 토큰의 권한 부여 요구 사항을 설명해야 합니다. 토큰 제한 구성 XML은 다음 XML 스키마를 준수 해야 합니다.
-
-> [!NOTE]
-> 콘텐츠 키 인증 정책에 대한 토큰 제한은 아직 서비스에서 사용할 수 없습니다.
 
 
 #### <a id="schema"></a>토큰 제한 스키마
@@ -428,9 +425,14 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
+
+
+> [!NOTE]
+> 콘텐츠 키 인증 정책에 대한 IP 제한은 아직 서비스에서 사용할 수 없습니다.
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
@@ -139,21 +139,7 @@ ms.lasthandoff: 10/18/2017
 
 [Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md)에 대한 구성 설정입니다.
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|속성  |기본값 | 설명 |
-|---------|---------|---------| 
-|maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
-|prefetchCount|해당 없음|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.| 
-|batchCheckpointFrequency|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>functions
 
@@ -179,23 +165,7 @@ ms.lasthandoff: 10/18/2017
 
 [http 트리거 및 바인딩](functions-bindings-http-webhook.md)에 대한 구성 설정입니다.
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|속성  |기본값 | 설명 |
-|---------|---------|---------| 
-|routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |
-|maxOutstandingRequests|-1|지정된 시간에 보유할 미해결 요청의 최대 수입니다(-1은 무한함을 의미). 한도에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 호출자는 응답을 사용하여 시간 기반 재시도 전략을 채택할 수 있습니다. 이 설정은 작업 호스트 실행 경로 내에서 발생하는 큐만 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 이 설정의 영향을 받지 않습니다. |
-|maxConcurrentRequests|-1|병렬로 실행될 HTTP 함수의 최대 수입니다(-1은 무한함을 의미). 예를 들어 동시성이 높을 때 HTTP 함수가 시스템 리소스를 너무 많이 사용하는 경우 한도를 설정할 수 있습니다. 또는 함수가 타사 서비스에 아웃바운드 요청을 하는 경우 해당 호출의 속도가 제한될 수 있습니다.|
-|dynamicThrottlesEnabled|false|요청 처리 파이프라인이 시스템 성능 카운터를 주기적으로 확인하도록 합니다. 카운터에는 연결, 스레드, 프로세스, 메모리 및 CPU가 포함됩니다. 카운터 중 하나라도 기본 제공 임계값(80%)을 초과하면 카운터가 정상 수준으로 돌아올 때까지 429 "Too Busy" 응답으로 요청이 거부됩니다.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
@@ -260,21 +230,7 @@ ms.lasthandoff: 10/18/2017
 
 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)에 대한 구성 설정입니다.
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|속성  |기본값 | 설명 |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. | 
-|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
-|autoRenewTimeout|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 

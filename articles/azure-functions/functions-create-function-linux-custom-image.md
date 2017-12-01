@@ -5,17 +5,17 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/08/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 40fbbd0ec020320b26ed343aec8ac31d60b646dc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 67ee02df2c42ba39c2f186cc95fa886a3d735ed2
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -145,7 +145,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0.21 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -229,4 +229,4 @@ AzureWebJobsStorage=$storageConnectionString
 Azure Functions 핵심 도구를 사용하여 Azure Functions를 로컬로 개발하는 방법에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"] 
-> [Azure Functions를 로컬로 코딩 및 테스트](functions-run-local.md)
+> [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)

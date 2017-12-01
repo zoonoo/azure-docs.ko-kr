@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Azure 스택 포털과 Linux 가상 컴퓨터 만들기
 
@@ -26,7 +26,7 @@ Azure 스택 포털을 통해 azure 스택 가상 컴퓨터를 만들 수 있습
 
 * **Azure 스택 마켓플레이스에서 Linux 이미지**
 
-   Azure 스택 마켓플레이스 기본적으로 Linux 이미지를 포함 하지 않습니다. 따라서 Linux 가상 컴퓨터를 만들기 전에 확인 Azure 스택 연산자가 다운로드는 **Ubuntu Server 16.04 LT** 에 설명 된 단계를 사용 하 여 이미지는 [Azure에서 Azure 마켓플레이스 항목을 다운로드 스택](../azure-stack-download-azure-marketplace-item.md) 항목입니다.
+   Azure 스택 마켓플레이스 기본적으로 Linux 이미지를 포함 하지 않습니다. 따라서 Linux 가상 컴퓨터를 만들기 전에 확인 Azure 스택 연산자가 다운로드는 **Ubuntu Server 16.04 LTS** 에 설명 된 단계를 사용 하 여 이미지는 [Azure에서 Azure 마켓플레이스 항목을 다운로드 스택](../azure-stack-download-azure-marketplace-item.md) 항목입니다.
 
 * **SSH 클라이언트에 대 한 액세스**
 

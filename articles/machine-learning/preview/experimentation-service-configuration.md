@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 
@@ -220,6 +220,8 @@ _**Python 스크립트를 위한 원격 VM 실행 개요:**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 스크립트 실행
 HDInsight는 Apache Spark를 지원하는 인기 있는 빅 데이터 분석용 플랫폼입니다. Workbench를 사용하면 HDInsight Spark 클러스터를 사용하여 빅 데이터에 대해 실험할 수 있습니다. 
+
+>![참고] HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
 
 다음 명령을 사용하여 HDInsight Spark 클러스터에 대한 계산 대상 및 실행 구성을 만들 수 있습니다.
 

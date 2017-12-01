@@ -1,6 +1,6 @@
 ---
-title: "SAP (A)SCS 인스턴스에 Windows 장애 조치(failover) 클러스터 및 파일 공유를 사용하여 SAP HA를 위한 Azure 인프라 준비 | Microsoft Docs"
-description: "SAP (A)SCS 인스턴스에 Windows 장애 조치(failover) 클러스터 및 파일 공유를 사용하여 SAP HA를 위한 Azure 인프라 준비"
+title: "SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비 | Microsoft Docs"
+description: "SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2468b5d0996fee5e0106d0d314c16654558e9f4
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-infrastructure-preparation-for-sap-ha-using-windows-failover-cluster-and-file-share-for-sap-ascs-instance"></a>SAP (A)SCS 인스턴스에 Windows 장애 조치(failover) 클러스터 및 파일 공유를 사용하여 SAP HA를 위한 Azure 인프라 준비
+# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,32 +206,32 @@ ms.lasthandoff: 10/25/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-이 문서에서는 SAP (A)SCS 인스턴스를 클러스터링하는 옵션으로 **스케일 아웃 파일 공유**를 사용하여 **WSFC(Windows 장애 조치(failover) 클러스터)**에 고가용성 SAP 시스템을 설치하고 구성하는 데 필요한 Azure 인프라 준비 단계를 설명합니다.
+이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 스케일 아웃 파일 공유를 사용하여 WSFC(Windows 장애 조치(failover) 클러스터)에서 고가용성 SAP 시스템을 설치하고 구성하는 데 필요한 Azure 인프라 준비 단계를 설명합니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
-설치를 시작하기 전에 다음 문서를 검토해야 합니다.
+설치를 시작하기 전에 다음 문서를 검토하세요.
 
-* [아키텍처 가이드 - **파일 공유**][를 사용하여 SAP (A)SCS 인스턴스를 **Windows 장애 조치(failover) 클러스터**에 클러스터링sap-high-availability-guide-wsfc-shared-disk]
+* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
 
 
 ## <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
 
 | 가상 호스트 이름 역할 | 가상 호스트 이름 | 고정 IP 주소 | 가용성 집합 |
 | --- | --- | --- | --- |
-| 첫 번째 클러스터 노드 (A)SCS 클러스터 | ascs-1 | 10.0.6.4 | ascs-as |
-| 두 번째 클러스터 노드 (A)SCS 클러스터 | ascs-2 | 10.0.6.5 | ascs-as |
-| 클러스터 네트워크 이름 |ascs-cl | 10.0.6.6 | n.a |
-| SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | n.a |
+| 첫 번째 클러스터 노드 ASCS/SCS 클러스터 | ascs-1 | 10.0.6.4 | ascs-as |
+| 두 번째 클러스터 노드 ASCS/SCS 클러스터 | ascs-2 | 10.0.6.5 | ascs-as |
+| 클러스터 네트워크 이름 |ascs-cl | 10.0.6.6 | 해당 없음 |
+| SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | 해당 없음 |
 
 
-**테이블 1:** (A)SCS 클러스터
+**테이블 1**: ASCS/SCS 클러스터
 
-| SAP &lt;SID&gt; | SAP (A)SCS 인스턴스 번호 |
+| SAP \<SID> | SAP ASCS/SCS 인스턴스 번호 |
 | --- | --- |
 | PR1 | 00 |
 
-**테이블 2:** SAP (A)SCS 인스턴스 세부 정보
+**테이블 2:** SAP ASCS/SCS 인스턴스 세부 정보
 
 
 | 가상 호스트 이름 역할 | 가상 호스트 이름 | 고정 IP 주소 | 가용성 집합 |
@@ -239,53 +239,56 @@ ms.lasthandoff: 10/25/2017
 | 첫 번째 클러스터 노드 | sofs-1 | 10.0.6.10 | sofs-as |
 | 두 번째 클러스터 노드 | sofs-2 | 10.0.6.11 | sofs-as |
 | 세 번째 클러스터 노드 | sofs-3 | 10.0.6.12 | sofs-as |
-| 클러스터 네트워크 이름 | sofs-cl | 10.0.6.13 | n.a |
-| SAP 전역 호스트 이름 | sapglobal | 모든 클러스터 노드의 IP 사용 | n.a |
+| 클러스터 네트워크 이름 | sofs-cl | 10.0.6.13 | 해당 없음 |
+| SAP 전역 호스트 이름 | sapglobal | 모든 클러스터 노드의 IP 사용 | 해당 없음 |
 
-**테이블 3:** SOFS 클러스터
+**표 3**: 스케일 아웃 파일 서버 클러스터
 
 
-## <a name="deploy-vms-for-sap-ascs-cluster-dbms-cluster-and-sap-application-servers"></a>SAP (A)SCS 클러스터, DBMS 클러스터 및 SAP 응용 프로그램 서버용 VM 배포
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>SAP ASCS/SCS 클러스터, DBMS(데이터베이스 관리 시스템) 클러스터 및 SAP 응용 프로그램 서버 인스턴스에 대한 VM을 배포합니다.
 
-Azure 인프라를 준비하려면 다음 단계를 수행합니다.
-* [아키텍처 템플릿 1, 2, 3에 대한 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+Azure 인프라를 준비하려면 다음을 완료합니다.
 
-* [Azure 가상 네트워크][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
+* [아키텍처 템플릿 1, 2 및 3에 대한 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [DNS IP 주소][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
+* [Azure 가상 네트워크 만들기][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
 
-* [SAP 가상 컴퓨터의 고정 IP 주소 설정][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
+* [필수 DNS IP 주소 설정][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
+
+* [SAP 가상 머신의 고정 IP 주소 설정][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
 
 * [Azure 내부 부하 분산 장치의 고정 IP 주소 설정][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]
 
-* [Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
+* [Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 설정][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
 
 * [Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]
 
-*  [도메인에 Windows 가상 컴퓨터 추가 SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 레지스트리 항목 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
+* [도메인에 Windows 가상 머신 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
-* Windows Server 2016을 사용하는 경우 [Azure Cloud 감시][deploy-cloud-witness]를 구성하는 것이 좋습니다.
+* [SAP ASCS/SCS 인스턴스의 클러스터 노드 모두에 레지스트리 항목 추가][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
+
+* Windows Server 2016을 사용하는 경우 [Azure Cloud Witness][deploy-cloud-witness]를 구성하는 것이 좋습니다.
 
 
-## <a name="deploy-scale-out-file-server-manually"></a>수동으로 스케일 아웃 파일 서버 배포 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>수동으로 스케일 아웃 파일 서버 클러스터 배포 
 
-[Azure의 저장 공간 다이렉트][ms-blog-s2d-in-azure] 블로그의 설명대로 SOFS 클러스터를 수동으로 배포할 수 있습니다.  
+다음 코드를 실행하여 [Azure의 저장소 공간 다이렉트][ms-blog-s2d-in-azure] 블로그에 설명된 대로 Microsoft 스케일 아웃 파일 서버 클러스터를 수동으로 배포할 수 있습니다.  
 
 
 ```PowerShell
-# Set on Execution Policy  ALL cluster nodes!
+# Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
-# Defines SOFS cluster nodes
+# Define Scale-Out File Server cluster nodes
 $nodes = ("sofs-1", "sofs-2", "sofs-3")
 
-# Add cluster and SOFS features
+# Add cluster and Scale-Out File Server features
 Invoke-Command $nodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools -Verbose}
 
 # Test cluster
 Test-Cluster -node $nodes -Verbose
 
-#Install cluster
+# Install cluster
 $ClusterNetworkName = "sofs-cl"
 $ClusterIP = "10.0.6.13"
 New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress $ClusterIP -Verbose
@@ -293,10 +296,10 @@ New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress
 # Set Azure Quorum
 Set-ClusterQuorum –CloudWitness –AccountName gorcloudwitness -AccessKey <YourAzureStorageAccessKey>
 
-# Enable Storage Spaces Direct S2D
+# Enable Storage Spaces Direct
 Enable-ClusterS2D
 
-# Create SOFS with SAP Global Host Name
+# Create Scale-Out File Server with an SAP global host name
 # SAPGlobalHostName
 $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
@@ -304,36 +307,40 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## <a name="deploy-scale-out-file-server-automatically"></a>자동으로 스케일 아웃 파일 서버 배포
 
-또한 기존 VNET 및 Active Directory 환경에서 Azure Resource Manager 템플릿을 사용하여 SOFS 배포를 **자동화**할 수 있습니다.
+기존 가상 네트워크 및 Active Directory 환경에서 Azure Resource Manager 템플릿을 사용하여 스케일 아웃 파일 서버 배포를 자동화할 수도 있습니다.
 
 > [!IMPORTANT]
->3방향 미러링을 사용하는 SOFS에는 3개의(또는 이상의 클러스터) 노드가 있는 것이 좋습니다.
+> 3방향 미러링을 사용하는 스케일 아웃 파일 서버에 3개 이상의 클러스터 노드가 있는 것이 좋습니다.
 >
->따라서 SOFS Resource Manager 템플릿 UI에서 VM 수에 지정해야 합니다.
+> 스케일 아웃 파일 서버 Resource Manager 템플릿 UI에서 VM 수를 지정해야 합니다.
 >
 
-### <a name="using-managed-disks"></a>Managed Disks 사용
+### <a name="use-managed-disks"></a>관리 디스크 사용
 
-S2D(저장소 공간 다이렉트) 및 Azure Managed Disks로 SOFS(스케일 아웃 파일 서버)를 배포하는 Azure Resource Manager 템플릿은 [Github][arm-sofs-s2d-managed-disks]에서 사용할 수 있습니다.
+저장소 공간 다이렉트 및 Azure Managed Disks를 사용하여 스케일 아웃 파일 서버를 배포하는 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-managed-disks]에서 사용할 수 있습니다.
 
 Managed Disks를 사용하는 것이 좋습니다.
 
-![그림 1: Managed Disks가 있는 SOFS Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
+![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1:** Managed Disks가 있는 SOFS Resource Manager 템플릿의 UI 화면_
+_**그림 1**: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면_
 
-VM 수는 최소 2, 디스크 수는 최소 2 + 1, 예비 디스크 = 3, SAP GLOBAL 호스트 네트워크 이름은 **sapglobalhost**이고 파일 공유는 **sapmnt**입니다.
+템플릿에서 다음 작업을 수행합니다.
+1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
+2. **VM 디스크 수** 상자에 **3**이라는 최소 디스크 수를 입력합니다(2개 디스크 + 1개 예비 디스크 = 3개 디스크).
+3. **SOFS 이름**에 SAP 전역 호스트 네트워크 이름인 **sapglobalhost**를 입력합니다.
+4. **공유 이름** 상자에 파일 공유 이름인 **sapmnt**를 입력합니다.
 
-### <a name="using-non-managed-disks"></a>Non-Managed Disks 사용
+### <a name="use-unmanaged-disks"></a>관리되지 않는 디스크 사용
 
-S2D(저장소 공간 다이렉트) 및 Azure Non-Managed Disks로 SOFS(스케일 아웃 파일 서버)를 배포하는 Azure Resource Manager 템플릿은 [Github][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
+저장소 공간 다이렉트 및 Azure 관리되지 않는 디스크를 사용하여 스케일 아웃 파일 서버를 배포하는 Azure Resource Manager 템플릿은 [GitHub][arm-sofs-s2d-non-managed-disks]에서 사용할 수 있습니다.
 
-![그림 2: Managed Disks가 없는 SOFS Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
+![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2:** Managed Disks가 없는 SOFS Azure Resource Manager 템플릿의 UI 화면_
+_**그림 2**: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
 
-저장소 계정 유형으로 **Premium Storage**를 선택해야 합니다. 다른 설정은 Managed Disks와 동일합니다.
+**저장소 계정 형식** 상자에서 **프리미엄 저장소**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP (A)SCS 인스턴스에 대한 Windows 장애 조치(failover) 클러스터 및 파일 공유에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-file-share]
+* [SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에서 SAP NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-file-share]

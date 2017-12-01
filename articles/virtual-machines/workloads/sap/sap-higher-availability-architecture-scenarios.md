@@ -1,6 +1,6 @@
 ---
 title: "Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 \"고가용성\" 확보 | Microsoft Docs"
-description: "Azure 인프라 VM 다시 시작을 활용하여 SAP 응용 프로그램의 \"고가용성\" 확보"
+description: "Azure 인프라 VM 다시 시작을 활용하여 SAP 응용 프로그램의 고가용성 확보"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,14 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ebdc79d240a1250150d8ec2ef1d41b9a65ea0ee
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: be0792affba1eba32c2643344b7e284858adb9d6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 "고가용성" 확보
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -207,70 +208,79 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> 이 챕터는 둘 다에 적용됩니다.
+> 이 섹션은 다음에 적용됩니다.
 >
 > ![Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
 >
 
-WSFC(Windows 서버 장애 조치(failover) 클러스터링) 또는 Linux의 Peacemaker(현재 SLES 12 이상에서만 지원됨) 등의 기능을 사용하지 않기로 결정하는 경우 Azure VM 다시 시작 기능을 활용하여 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 예정되었거나 갑작스러운 가동 중지 시간으로부터 SAP 시스템을 보호합니다.
+Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 Pacemaker와 같은 기능을 사용하지 않기로 결정한 경우(현재 SLES[SUSE Linux Enterprise Server] 12 이상에서만 지원) Azure VM 다시 시작이 사용됩니다. 이 기능은 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 계획되었거나 계획되지 않은 가동 중지 시간에서 SAP 시스템을 보호합니다.
 
 > [!NOTE]
-> Azure VM 다시 시작 기능은 응용 프로그램이 아닌 VM을 일차적으로 보호합니다. VM 다시 시작 기능은 SAP 응용 프로그램의 고가용성을 제공하지 않지만 특정 수준의 인프라 가용성을 제공하므로 간접적으로 SAP 시스템의 "고가용성"을 제공합니다. 또한 예정되었거나 갑작스러운 호스트 중단 후 VM을 다시 시작하는 데 걸리는 시간에 대한 SLA는 없습니다. 따라서 이러한 방식의 '고가용성'은 (A)SCS 또는 DBMS와 같은 SAP 시스템의 중요한 구성 요소에 적합하지 않습니다.
+> Azure VM 다시 시작 기능은 응용 프로그램이 *아닌* VM을 일차적으로 보호합니다. VM 다시 시작 기능이 SAP 응용 프로그램에 대한 고가용성을 제공하지 않지만 특정 수준의 인프라 가용성을 제공합니다. 또한 SAP 시스템의 "고가용성"을 직접 제공합니다. 계획되거나 계획되지 않은 호스트 중단 이후에 VM을 다시 시작하는 데 걸리는 시간 동안 SLA가 제공되지 않습니다. 따라서 고가용성인 이 메서드는 SAP 시스템의 중요 구성 요소에 적합하지 않습니다. 중요 구성 요소의 예로 ASCS/SCS 인스턴스 또는 DBMS(데이터베이스 관리 시스템)을 들 수 있습니다.
 >
 >
 
-고가용성을 위한 또 다른 중요한 인프라 요소는 저장소입니다. 예를 들어 Azure Storage SLA에 따른 가용성은 99.9%입니다. 디스크가 있는 모든 VM을 단일 Azure 저장소 계정에 배포하는 경우 Azure 저장소를 사용할 수 없게 되어 해당 Azure 저장소 계정에 배치된 모든 VM을 사용할 수 없게 되고 해당 VM 내에서 실행되는 모든 SAP 구성 요소로 사용할 수 없게 될 수 있습니다.  
+고가용성을 위한 또 다른 중요한 인프라 요소는 저장소입니다. 예를 들어 Azure Storage SLA는 99.9% 사용 가능합니다. 모든 VM 및 해당 디스크를 단일 Azure Storage 계정에 배포하는 경우 잠재적으로 Azure Storage를 사용할 수 없게 되어 해당 저장소 계정에 배치된 모든 VM 및 해당 VM 내에서 실행되는 모든 SAP 구성 요소를 사용할 수 없게 됩니다.  
 
-모든 VM을 단일 Azure 저장소 계정에 두는 대신, 각 VM에 대해 전용 저장소 계정을 사용할 수 있습니다. 이러한 방식에서는 여러 독립적인 Azure 저장소 계정을 사용하여 전반적인 VM 및 SAP 응용 프로그램 가용성이 증가하게 됩니다.
+단일 Azure Storage 계정에 모든 VM을 배치하는 대신 각 VM에 대한 전용 저장소 계정을 사용할 수 있습니다. 여러 독립 Azure Storage 계정을 사용하여 전반적인 VM 및 SAP 응용 프로그램 가용성을 증가시킵니다.
 
-Azure 관리 디스크는 연결된 가상 컴퓨터의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 컴퓨터 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. Premium Storage를 사용하려는 경우에는 관리 디스크도 사용하는 것이 좋습니다.
+Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. 프리미엄 저장소 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
 
-Azure 인프라 HA 및 Storage 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같습니다.
+Azure 인프라 고가용성 및 저장소 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
-![HA Azure 인프라를 활용하여 SAP 응용 프로그램의 "더 높은" 가용성 확보][planning-guide-figure-2900]
+![Azure 인프라 고가용성을 활용하여 SAP 응용 프로그램 "고가용성" 확보][planning-guide-figure-2900]
 
-Azure 인프라 HA 및 관리 디스크를 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같습니다.
+Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
-![HA Azure 인프라를 활용하여 SAP 응용 프로그램의 "더 높은" 가용성 확보][planning-guide-figure-2901]
+![Azure 인프라 고가용성을 활용하여 SAP 응용 프로그램 "고가용성" 확보][planning-guide-figure-2901]
 
-중요한 SAP 구성 요소에 대해 현재까지 다음이 지원됩니다.
+중요한 SAP 구성 요소에서 현재까지 다음을 수행했습니다.
 
-* SAP AS(응용 프로그램 서버)의 고가용성
+* SAP 응용 프로그램 서버의 고가용성
 
-  SAP 응용 프로그램 서버 인스턴스는 중복 구성 요소입니다. 각 SAP AS 인스턴스는 다른 Azure 장애 도메인 및 업그레이드 도메인([장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 장 참조)에서 실행되는 자체 VM에 배포됩니다. 이는 Azure 가용성 집합을 사용하여 보장됩니다([Azure 가용성 집합][planning-guide-3.2.3] 장 참조). 각 SAP AS 인스턴스는 자체 Azure 저장소 계정에 배치됩니다.
+    SAP 응용 프로그램 서버 인스턴스는 중복 구성 요소입니다. 각 SAP 응용 프로그램 서버 인스턴스는 다른 Azure 장애 및 업그레이드 도메인에서 실행되는 고유한 VM에 배포됩니다. 자세한 내용은 [장애 도메인][planning-guide-3.2.1] 및 [업그레이드 도메인][planning-guide-3.2.2] 섹션을 참조하세요. 
 
-  Azure 저장소 계정 하나를 사용할 수 없게 되면 해당 SAP AS가 있는 단일 VM을 사용할 수 없게 됩니다. 그러나 단일 Azure 구독 내에서는 Azure 저장소 계정 수가 제한됩니다. VM을 다시 부팅한 후 (A)SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 자동 시작 사용][planning-guide-11.5] 장에서 설명한 대로 (A)SCS 인스턴스의 시작 프로필에 Autostart 매개 변수를 설정해야 합니다.
-  자세한 내용은 [SAP 응용 프로그램 서버의 고가용성][planning-guide-11.4.1] 장을 참조하세요.
+    Azure 가용성 집합을 사용하여 이 구성을 확인할 수 있습니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조하세요. 
 
-  관리 디스크를 사용하더라도 해당 디스크는 Azure Storage 계정에도 저장되므로 Storage가 중단되면 사용이 불가능해질 수 있습니다.
+    Azure 장애 및 업그레이드 도메인이 계획되거나 계획되지 않게 잠재적으로 사용할 수 없게 되면 각 SAP 응용 프로그램 서버 인스턴스를 포함한 제한된 수의 VM도 사용할 수 없게 됩니다.
 
-* *더 높은* 가용성
+    각 SAP 응용 프로그램 서버 인스턴스는 고유한 Azure Storage 계정에 배치됩니다. 하나의 Azure Storage 계정을 잠재적으로 사용할 수 없게 되면 해당 SAP 응용 프로그램 서버 인스턴스를 포함한 하나의 VM도 사용할 수 없게 됩니다. 그러나 단일 Azure 구독 내에서 Azure Storage 계정 수는 제한됩니다. VM을 다시 부팅한 후 ASCS/SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 Autostart 사용][planning-guide-11.5] 섹션에서 설명한 대로 ASCS/SCS 인스턴스 시작 프로필에 Autostart 매개 변수를 설정합니다.
+  
+    자세한 내용은 [SAP 응용 프로그램 서버의 고가용성][planning-guide-11.4.1]을 참조하세요.
 
-  여기서는 Azure VM 다시 시작 기능을 활용하여 SAP (A)SCS 인스턴스가 설치된 VM을 보호합니다. Azure 서버의 예정되었거나 갑작스러운 가동 중지 시간의 경우 VM은 사용 가능한 다른 서버에서 다시 시작됩니다. 앞서 언급한 것처럼 Azure VM 다시 시작 기능은 응용 프로그램(이 경우 (A)SCS 인스턴스)이 아닌 VM을 주로 보호합니다. VM 다시 시작을 통해 SAP (A)SCS 인스턴스의 "높은 가용성"에 간접적으로 도달하게 됩니다. VM을 다시 부팅한 후 (A)SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 자동 시작 사용][planning-guide-11.5] 장에서 설명한 대로 (A)SCS 인스턴스의 시작 프로필에 Autostart 매개 변수를 설정해야 합니다. 즉, 단일 VM에서 SPOF(단일 실패 지점)로 실행되는 (A)SCS 인스턴스는 전체 SAP 지형의 가용성을 결정하는 요소가 됩니다.
+    관리 디스크를 사용하더라도 해당 디스크는 Azure Storage 계정에도 저장되므로 저장소가 중단되면 사용이 불가능해질 수 있습니다.
 
-* *더 높은* 가용성
+* SAP ASCS/SCS 인스턴스의 *고가용성*
 
-  여기서는 SAP (A)SCS 인스턴스 사용 사례와 마찬가지로 Azure VM 다시 시작을 활용하여 DBMS 소프트웨어가 설치된 VM을 보호하고, VM 다시 시작을 통해 DBMS 소프트웨어의 "높은 가용성"을 획득합니다.
-  단일 VM에서 실행되는 DBMS는 SPOF이기도 하며 전체 SAP 지형의 가용성을 결정하는 중요한 요소가 됩니다.
+    이 시나리오에서는 Azure VM 다시 시작 기능을 활용하여 SAP ASCS/SCS 인스턴스가 설치된 VM을 보호합니다. Azure 서버가 계획되거나 계획되지 않게 가동 중지되는 경우 VM은 사용 가능한 다른 서버에서 다시 시작됩니다. 앞서 언급한 것처럼 Azure VM 다시 시작 기능은 응용 프로그램(이 경우 ASCS/SCS 인스턴스)이 *아닌* VM을 기본적으로 보호합니다. VM 다시 시작 기능을 통해 SAP ASCS/SCS 인스턴스의 "고가용성"을 간접적으로 달성하게 됩니다. 
 
-## <a name="using-autostart-for-sap-instances"></a>SAP 인스턴스에 대해 자동 시작 사용
-  SAP는 VM 내에서 운영 체제가 시작된 후 즉시 SAP 인스턴스를 시작하기 위한 기능을 제공합니다. 정확한 단계는 SAP 기술 자료 문서 [1909114]에 설명되어 있습니다. 그러나 SAP는 인스턴스 다시 시작 순서가 제어되지 않고 둘 이상의 VM이 영향을 받거나 VM당 여러 인스턴스가 실행되었다고 가정하므로 이러한 설정을 사용하는 것을 더 이상 권장하지 않습니다. VM 하나에 단일 SAP 응용 프로그램 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, 자동 시작은 실제로 중요하지 않으며 이 매개 변수를 다음에 추가하여 사용되도록 설정할 수 있습니다.
+    VM을 다시 부팅한 후 ASCS/SCS 인스턴스가 자동으로 시작되도록 하려면 [SAP 인스턴스에 대해 Autostart 사용][planning-guide-11.5] 섹션에서 설명한 대로 ASCS/SCS 인스턴스 시작 프로필에 Autostart 매개 변수를 설정합니다. 이 설정으로 인해 단일 VM에서 SPOF(단일 실패 지점)로 실행되는 ASCS/SCS 인스턴스는 전체 SAP 지형의 가용성을 결정합니다.
+
+* DBMS 서버의 *고가용성*
+
+    앞서 SAP ASCS/SCS 인스턴스 사용 사례와 마찬가지로 Azure VM 다시 시작 기능을 활용하여 DBMS 소프트웨어가 설치된 VM을 보호하고, VM 다시 시작 기능을 통해 DBMS 소프트웨어의 "높은 가용성"을 획득합니다.
+  
+    단일 VM에서 실행되는 DBMS는 SPOF이기도 하며 전체 SAP 지형의 가용성을 결정하는 중요한 요소가 됩니다.
+
+## <a name="using-autostart-for-sap-instances"></a>SAP 인스턴스에 Autostart 사용
+SAP는 VM 내에서 OS가 시작된 이후에 즉시 SAP 인스턴스를 시작할 수 있는 설정을 제공합니다. 지침은 SAP 기술 자료 문서 [1909114]에 설명되어 있습니다. 그러나 SAP는 더 이상 설정을 사용하도록 권장하지 않습니다. 둘 이상인 VM의 영향을 받는 경우 또는 VM당 여러 인스턴스가 실행 중인 경우 인스턴스 다시 시작의 순서를 제어하도록 허용하지 않기 때문입니다. 
+
+VM 하나에 단일 SAP 응용 프로그램 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, Autostart는 중요하지 않습니다. 하지만 SAP ABAP(고급 비즈니스 응용 프로그램 프로그래밍) 또는 Java 인스턴스의 시작 프로필에 다음 매개 변수를 추가하여 활성화할 수 있습니다.
 
       Autostart = 1
 
-  SAP ABAP 및/또는 Java 인스턴스의 시작 프로필
 
   > [!NOTE]
-  > Autostart 매개 변수에도 일부 단점이 있을 수 있습니다. 구체적으로 말하면, 이 매개 변수는 인스턴스의 관련 Windows/Linux 서비스가 시작될 때 SAP ABAP 또는 Java 인스턴스가 시작되도록 트리거합니다. 운영 체제가 부팅될 때가 가장 대표적인 예입니다. 그러나 SAP 서비스를 다시 시작하는 것도 SUM이나 기타 업데이트 또는 업그레이드와 같은 SAP 소프트웨어 수명 주기 관리 기능의 일반적인 측면에 해당합니다. 이러한 기능에서 항상 인스턴스가 자동으로 다시 시작될 것으로 예상되지는 아닙니다. 따라서 이러한 작업을 실행하기 전에 Autostart 매개 변수를 사용하지 않도록 설정해야 합니다. Autostart 매개 변수를 ASCS/SCS/CI 같이 클러스터링되는 SAP 인스턴스에는 사용하지 말아야 합니다.
+  > Autostart 매개 변수에는 단점도 있습니다. 구체적으로 말하면 이 매개 변수는 인스턴스의 관련 Windows 또는 Linux 서비스가 시작될 때 SAP ABAP 또는 Java 인스턴스가 시작되도록 트리거합니다. 해당 시퀀스는 운영 체제가 부팅된 경우에 발생합니다. 그러나 SAP 서비스를 다시 시작하는 것도 SUM(소프트웨어 업데이트 관리자)이나 기타 업데이트 또는 업그레이드와 같은 SAP 소프트웨어 수명 주기 관리 기능에서 공통으로 발생합니다. 이러한 기능에서 인스턴스가 자동으로 다시 시작되지는 않습니다. 따라서 이러한 작업을 실행하기 전에 Autostart 매개 변수를 사용하지 않도록 설정해야 합니다. Autostart 매개 변수를 ASCS/SCS/CI와 같이 클러스터링되는 SAP 인스턴스에는 사용하지 말아야 합니다.
   >
   >
 
-  SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목을 참조하세요.
+  SAP 인스턴스의 Autostart에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-  * [Unix 서버 시작/중지에 따른 SAP 시작/중지](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Unix 서버 시작/중지에 따른 SAP 시작 또는 중지](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [SAP NetWeaver 관리 에이전트 시작 및 중지](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
   * [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## <a name="next-steps"></a>다음 단계
 
-완전한 SAP NetWeaver 응용 프로그램 인식 고가용성에 대한 내용은 [Azure IaaS의 SAP 응용 프로그램 고가용성][sap-high-availability-architecture-scenarios-sap-app-ha]을 참조하세요.
+전체 SAP NetWeaver 응용 프로그램 인식 고가용성에 대한 정보는 [Azure IaaS의 SAP 응용 프로그램 고가용성][sap-high-availability-architecture-scenarios-sap-app-ha]을 참조하세요.

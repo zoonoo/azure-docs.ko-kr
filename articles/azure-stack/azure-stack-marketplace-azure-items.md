@@ -3,8 +3,8 @@ title: "Azure 스택 사용할 수 있는 azure 마켓플레이스 항목 | Micr
 description: "Azure 스택에 이러한 Azure 마켓플레이스 항목을 사용할 수 있습니다."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: JeffGoldner
+manager: bradleyb
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: erikje
-ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.date: 11/29/2017
+ms.author: JeffGoldner
+ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 

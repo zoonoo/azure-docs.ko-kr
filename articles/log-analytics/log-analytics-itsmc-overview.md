@@ -1,6 +1,6 @@
 ---
 title: "Azure Log Analytics의 IT Service Management Connector | Microsoft Docs"
-description: "IT Service Management Connector를 사용하여 Azure Log Analytics에서 ITSM 작업 항목을 중앙에서 모니터링 및 관리하고 문제를 빠르게 해결합니다."
+description: "이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 OMS Log Analytics의 ITSM작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>IT Service Management Connector(미리 보기)를 사용하여 ITSM 작업 항목을 중앙에서 관리
 
 ![IT Service Management Connector 기호](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-ITSMC(IT Service Management Connector)는 지원되는 ITSM(IT Service Management) 제품/서비스와 Log Analytics 간의 양방향 통합을 제공합니다.  이 연결을 통해 Log Analytics 경고 또는 로그 레코드에 따라 ITSM 제품에서 인시던트, 경고 또는 이벤트를 만들 수 있습니다. 또한 이 커넥터는 인시던트와 같은 데이터를 가져오며, ITSM 제품에서 OMS Log Analytics로 요청을 변경합니다.
+ITSMC(IT Service Management Connector)는 지원되는 ITSM(IT Service Management) 제품/서비스와 Log Analytics 간의 양방향 통합을 제공합니다.  이 연결을 통해 Log Analytics 경고, 로그 레코드 또는 Azure 경고에 따라 ITSM 제품에서 인시던트, 경고 또는 이벤트를 만들 수 있습니다. 또한 이 커넥터는 인시던트와 같은 데이터를 가져오며, ITSM 제품에서 OMS Log Analytics로 요청을 변경합니다.
 
 ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
@@ -56,7 +56,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
  ![ITSMC 새로 고침](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>ITSM 소프트웨어와의 연결 구성
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>ITSM 제품/서비스와 ITSMC 연결 구성
 
 ITSMC는 **System Center Service Manager**, **ServiceNow**, **Provance** 및 **Cherwell**에 대한 연결을 지원합니다.
 
@@ -258,6 +258,7 @@ ITSM 솔루션을 사용하면 연결된 ITSM 도구에서 작업 항목 만들�
 4. **연락처 유형**, **영향**, **긴급도**, **범주** 및 **하위 범주** 텍스트 상자에 적절한 값을 입력하고 **만들기**를 클릭합니다.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure Alerts에서 ITSM 작업 항목 만들기
+
 ITSMC는 작업 그룹에 통합되어 있습니다.
 
 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)은 Azure Alerts를 위해 모듈 방식으로 다시 사용할 수 있는 방법을 제공합니다. 작업 그룹의 ITSM 작업을 사용하여 ITSM Connector 솔루션에 대해 기존 연결이 있는 ITSM 제품에 작업 항목을 만들 수 있습니다.
@@ -286,7 +287,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 >[!NOTE]
 
-> 현재 활동 로그 경고만 ITSM 작업을 지원합니다. 다른 Azure 경고는 ITSM 작업을 지원하지 않습니다.
+> 현재 활동 로그 경고는 ITSM 작업을 지원합니다. 다른 Azure 경고는 해당 작업을 지원하지 않습니다.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>OMS에서 ITSM 연결 문제 해결

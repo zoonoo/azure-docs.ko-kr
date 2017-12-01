@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 작업 실행
 
@@ -147,7 +147,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 예를 들어 다른 명령줄을 지정하여 예제 컨테이너가 *Hamlet* 이외의 텍스트를 분석하도록 할 수 있습니다. *wordcount.py* 컨테이너에서 실행하는 Python 스크립트는 URL을 인수로 받아들이고 기본값 대신 해당 페이지의 콘텐츠를 처리합니다.
 
-예를 들어 *Romeo and Juliet*에서 상위 3개의 5글자 단어를 결정하려면 다음과 같이 수행합니다.
+예를 들어 *Romeo and Juliet*에서 상위 3개의 5글자 단어를 결정하려면 다음을 수행합니다.
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
+### <a name="persist-task-output"></a>작업 출력 유지
 
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 
