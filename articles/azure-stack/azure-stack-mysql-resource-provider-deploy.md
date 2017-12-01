@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -60,10 +60,16 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
     b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
 
-3. [MySQL 리소스 공급자 이진 파일을 다운로드](https://aka.ms/azurestackmysqlrp) 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기 실행 합니다.
+3. 이진 MySQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기 프로그램을 실행 합니다.
 
-    > [!NOTE]
-    > 작성 하는 경우 Azure 스택에 실행 20170928.3 또는 이전 버전에서는 [이 버전을 다운로드](https://aka.ms/azurestackmysqlrp1709)합니다.
+    >[!NOTE] 
+    > 리소스 공급자 빌드 Azure 스택 빌드에 해당합니다. Azure 스택 실행 되는 버전에 대 한 올바른 이진을 다운로드 해야 합니다.
+
+    | Azure 스택 빌드 | MySQL RP 설치 관리자 |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP 1.1.10.0 버전](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP 1.1.8.0 버전](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP 1.1.3.0 버전](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
@@ -116,7 +122,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
