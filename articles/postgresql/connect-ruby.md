@@ -23,7 +23,7 @@ ms.lasthandoff: 11/06/2017
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 - [DB 만들기 - 포털](quickstart-create-server-database-portal.md)
-- [DB 만들기 - Azure 명령줄 인터페이스](quickstart-create-server-database-azure-cli.md)
+- [DB 만들기 - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-ruby"></a>Ruby 설치
 사용자의 컴퓨터에 Ruby를 설치합니다. 

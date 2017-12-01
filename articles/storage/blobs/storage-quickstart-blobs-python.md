@@ -75,7 +75,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
-다음으로, 샘플 코드를 따라 진행하면서 작동 방식을 이해합니다.
+다음으로, 작동 방식을 이해하도록 샘플 코드를 따라 진행합니다.
 
 ### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
 가장 먼저 할 일은 Blob Storage의 액세스 및 관리에 사용되는 개체에 대한 참조를 만드는 것입니다. 이러한 개체는 서로를 기준으로 작성됩니다. 즉, 각 개체가 목록의 다음 개체에 사용됩니다.

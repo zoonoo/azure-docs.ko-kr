@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 다음 다이어그램에 표시된 대로 값을 설정합니다.
 
-    ![포털 패널에서 논리 앱 트리거 구성](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png)에서도 확인할 수 있습니다. 
+    ![포털 패널에서 논리 앱 트리거 구성](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. 디자이너에서 **되풀이** 트리거를 선택합니다.
 

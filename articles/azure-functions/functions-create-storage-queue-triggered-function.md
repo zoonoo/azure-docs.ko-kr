@@ -59,8 +59,8 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
     | 설정 | 제안 값 | 설명 |
     |---|---|---|
     | **함수 이름 지정** | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
-    | **큐 이름**   | myqueue-items    | 저장소 계정에서 연결할 큐의 이름입니다. |
-    | **저장소 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |    
+    | **큐 이름**   | myqueue-items    | Storage 계정에서 연결할 큐의 이름입니다. |
+    | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |    
 
 3. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 
@@ -70,11 +70,11 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 1. 함수에서 **통합**을 클릭하고 **설명서**를 확장하여 **계정 이름** 및 **계정 키**를 모두 복사합니다. 이러한 자격 증명을 사용하여 Azure Storage 탐색기에서 저장소 계정에 연결합니다. 저장소 계정에 이미 연결된 경우 4단계로 건너뜁니다.
 
-    ![저장소 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
+    ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
 1. [Microsoft Azure Storage 탐색기](http://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
 
-    ![저장소 계정 탐색기 도구 실행.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    ![Storage 계정 탐색기 도구 실행.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
 1. 1단계에서 **계정 이름** 및 **계정 키**를 입력하고 **다음**을 클릭한 후 **연결**을 클릭합니다.
 

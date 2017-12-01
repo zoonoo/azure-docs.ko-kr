@@ -85,7 +85,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
-다음으로, 샘플 코드를 따라 진행하면서 작동 방식을 이해합니다.
+다음으로, 작동 방식을 이해하도록 샘플 코드를 따라 진행합니다.
 
 ### <a name="get-references-to-the-storage-objects"></a>저장소 개체에 대한 참조 가져오기
 

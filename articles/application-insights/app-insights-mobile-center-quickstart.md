@@ -65,7 +65,7 @@ Analytics.trackEvent("Video clicked")
 
 앱에서 사용자 지정 이벤트를 보내고 App Center에서 이러한 이벤트를 수신하면 Azure Portal에서 App Center 유형의 Application Insights 리소스를 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **모니터링 + 관리** > **Application Insights**를 차례로 선택합니다.
 
     ![Application Insights 리소스 추가](./media/app-insights-mobile-center-quickstart/add.png)
