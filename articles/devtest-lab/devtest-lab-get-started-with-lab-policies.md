@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 기본 정책 관리
 
-Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) 문서를 참조하세요.  
+Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)를 참조하세요.  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩 정책에 액세스
 다음 단계에서는 Azure DevTest Labs에서 랩에 대한 정책을 설정하는 과정을 안내합니다.
@@ -37,9 +37,9 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 1. **구성 및 정책**을 선택합니다.
 
-    ![정책 설정 블레이드](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![정책 설정 창](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. **구성 및 정책** 블레이드에는 지정할 수 있는 설정의 메뉴가 들어 있습니다. 이 문서에서는 **사용자당 가상 컴퓨터** 및 **자동 종료**에 대한 설명만 다룹니다. 나머지 설정에 대해 알아보려면 [Azure DevTest Labs에서 랩에 대한 모든 정책 관리](./devtest-lab-set-lab-policy.md)를 참조하세요. 
+1. **구성 및 정책** 창에는 지정할 수 있는 설정 메뉴가 있습니다. 이 문서에는 **사용자당 가상 머신 수**, **자동 종료** 및 **자동 시작**에 대한 설정만 포함되어 있습니다. 나머지 설정에 대해 알아보려면 [Azure DevTest Labs에서 랩에 대한 모든 정책 관리](./devtest-lab-set-lab-policy.md)를 참조하세요. 
    
 ## <a name="set-virtual-machines-per-user"></a>사용자당 가상 컴퓨터를 설정합니다.
 **사용자당 가상 컴퓨터** 에 대한 정책을 사용하면 개별 사용자가 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 사용자 제한에 도달하면 사용자가 VM을 만들거나 클레임하는 경우 VM을 만들거나 클레임할 수 없다는 오류 메시지가 표시됩니다. 
@@ -57,7 +57,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 ## <a name="set-auto-shutdown"></a>자동 종료 설정
 자동 종료 정책에서는 이 랩의 VM이 종료되는 시간을 지정하여 랩 낭비를 최소화할 수 있도록 돕습니다.
 
-1. 랩의 **구성 및 정책** 블레이드에서 **자동 종료**를 선택합니다.
+1. 랩의 **구성 및 정책** 창에서 **자동 종료**를 선택합니다.
    
     ![자동 종료](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -65,16 +65,18 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 1. 이 정책을 사용하도록 설정한 경우 현재 랩의 모든 VM을 종료하는 시간(및 표준 시간대)을 지정합니다.
 
-1. 지정된 자동 종료 시간 15분 전에 알림을 보내는 옵션으로 **예** 또는 **아니요**를 지정합니다. **예**를 지정한 경우 알림을 받을 웹후크 URL 끝점을 입력합니다. 웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
+1. 지정된 자동 종료 시간 15분 전에 알림을 보내는 옵션으로 **예** 또는 **아니요**를 지정합니다. **예**를 선택할 경우 알림을 게시하거나 보낼 위치를 지정하는 이메일 주소 또는 웹후크 URL 엔드포인트를 입력합니다. 사용자에게 알림이 전송되고 종료를 지연할 수 있는 옵션이 제공됩니다.
+
+   웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
 
 1. **저장**을 선택합니다.
 
-    기본적으로 이 정책을 사용하도록 설정하면 현재 랩의 모든 VM에 적용됩니다. 특정 VM에서 이 설정을 제거하려면 VM의 블레이드를 열고 해당 **자동 종료** 설정을 변경합니다. 
+기본적으로 이 정책을 사용하도록 설정하면 현재 랩의 모든 VM에 적용됩니다. 특정 VM에서 이 설정을 제거하려면 VM의 관리 창을 열고 해당 **자동 종료** 설정을 변경합니다.
 
 ## <a name="set-auto-start"></a>자동 시작 설정
 자동 시작 정책을 사용하면 현재 랩의 VM을 시작할 시기를 지정할 수 있습니다.  
 
-1. 랩의 **구성 및 정책** 블레이드에서 **자동 시작**을 선택합니다.
+1. 랩의 **구성 및 정책** 창에서 **자동 시작**을 선택합니다.
    
     ![자동 시작](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -84,8 +86,8 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 4. **저장**을 선택합니다.
 
-    사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용하려면 VM의 블레이드를 열고 해당 **자동 시작** 설정을 변경합니다. 
+사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 기존 VM에 적용하려면 VM의 관리 창을 열고 해당 **자동 시작** 설정을 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) - 다른 랩 정책을 수정하는 방법 알아보기 
+- [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) - 다른 랩 정책을 수정하는 방법을 알아봅니다.

@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
 > [!IMPORTANT]
 > 이 기능은 미리 보기 상태입니다. 프로덕션 환경에서는 사용하지 않는 것이 좋습니다.
  
-IoT Edge의 ASA(Azure Stream Analytics)는 개발자가 IoT 장치에 보다 가깝게 거의 실시간으로 분석 인텔리전스를 배포하여 장치 생성 데이터의 가치를 극대화할 수 있도록 합니다. 짧은 대기 시간, 복원력, 대역폭의 효율적 사용 및 규정 준수를 요구하는 고객을 위해 고안된 이 기능을 사용하여 이제 기업에서는 업계 운영과 밀접한 컨트롤 논리를 배포하고, 클라우드에서 수행된 빅 데이터 분석을 보완할 수 있습니다.  
-IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 프레임워크 내에서 실행되며, ASA에서 작업이 생성되면 IoT Hub를 사용하여 ASA 작업의 배포와 관리를 수행할 수 있습니다.
+IoT Edge의 ASA(Azure Stream Analytics)는 개발자가 IoT 장치에 보다 가깝게 거의 실시간으로 분석 인텔리전스를 배포하여 장치 생성 데이터의 가치를 극대화할 수 있도록 합니다. 짧은 대기 시간, 복원력, 대역폭의 효율적 사용 및 규정 준수를 위해 고안된 이 기능을 사용하여 이제 기업에서는 업계 운영과 밀접한 컨트롤 논리를 배포하고, 클라우드에서 수행된 빅 데이터 분석을 보완할 수 있습니다.  
+IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 프레임워크 내에서 실행됩니다. ASA에서 작업을 만든 후, Azure IoT Hub를 사용하여 ASA 작업을 배포 및 관리합니다.
 이 기능은 미리 보기로 제공되며, 질문이나 의견이 있는 경우 [이 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)를 사용하여 제품 팀에 문의할 수 있습니다. 
 
 ## <a name="scenarios"></a>시나리오
-![대략적인 다이어그램](media/stream-analytics-edge/ASAedge_highlevel.png) Edge에서 ASA를 실행하는 과정이 특히 흥미로운 몇 가지 일반적인 시나리오는 다음과 같습니다.
-* **대기 시간이 짧은 명령 및 컨트롤**: 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답하는 데 필요합니다. IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
+![높은 수준의 다이어그램](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **대기 시간이 짧은 명령 및 컨트롤**: 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답해야 합니다. Azure IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
 *   **클라우드에 대한 연결 제한**: 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 저장을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
 * **제한된 대역폭**: 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 미리 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
 * **규정 준수**: 규정 준수에 따라 일부 데이터를 클라우드로 전송하기 전에 로컬로 익명화하거나 집계해야 할 수 있습니다. ASA를 사용하면 이러한 작업이 가능합니다. 

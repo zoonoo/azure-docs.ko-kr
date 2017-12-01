@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -168,8 +168,8 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
       
       작업 출력에 액세스하는 방법을 알아보려면 이 문서의 뒷부분에 나오는 "IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리" 섹션을 참조하세요.
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 실행 또는 디버그
-Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버깅 
+Spark 응용 프로그램을 클러스터에 제출하는 또 다른 권장되는 방법이 있습니다. **구성 실행/디버그** IDE에서 매개 변수를 설정하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 수 있습니다.
@@ -211,50 +211,6 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 1. Azure 탐색기에서 **Azure** 루트 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 선택합니다. 
 
 2. 대화 상자에서 액세스하지 않으려는 구독 옆의 확인란을 선택 취소하고 **닫기**를 선택합니다. Azure 구독에서 로그아웃하려는 경우 **로그아웃**을 선택할 수도 있습니다.
-
-## <a name="run-a-spark-scala-application-locally"></a>로컬로 Spark Scala 응용 프로그램 실행
-IntelliJ용 Azure 도구 키트를 사용하여 워크스테이션에서 Spark Scala 응용 프로그램을 로컬로 실행할 수 있습니다. 일반적으로 이러한 응용 프로그램은 저장소 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
-
-### <a name="prerequisite"></a>필수 요소
-Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다. 
-
-이 오류를 해결하려면 [실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils**로 설정합니다.
-
-### <a name="run-a-local-spark-scala-application"></a>로컬 Spark Scala 응용 프로그램 실행
-1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. 
-
-2. **새 프로젝트** 대화 상자에서 다음을 수행합니다.
-   
-    a. **HDInsight** > **HDInsight의 Spark 로컬 실행 샘플(Scala)**을 선택합니다.
-
-    b. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
-
-      * Scala 프로젝트 만들기 마법사 지원에 대해 **Maven**
-      * 종속성 관리 및 Scala 프로젝트에 대한 빌드에 대해 **SBT**
-
-    ![새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. **다음**을 선택합니다.
- 
-4. 다음 창에서 다음을 수행합니다.
-   
-    a. 프로젝트 이름 및 위치를 입력합니다.
-
-    b. **프로젝트 SDK** 드롭다운 목록에서 1.7 버전보다 최신인 Java 버전을 선택합니다.
-
-    c. **Spark 버전** 드롭다운 목록에서 사용하려는 Scala 버전을 선택합니다. Spark 2.0의 경우는 Scala 2.11.x를, Spark 1.6의 경우는 Scala 2.10.x를 선택합니다.
-
-    ![새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. **마침**을 선택합니다.
-
-6. 템플릿은 컴퓨터에서 로컬로 실행할 수 있는 샘플 코드(**LogQuery**)를 **src** 폴더 아래에 추가합니다.
-   
-    ![LogQuery 위치](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. **LogQuery** 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **"'LogQuery' 실행"**을 선택합니다. 아래쪽의 **실행** 탭에 다음과 같은 출력이 표시됩니다.
-   
-   ![Spark 응용 프로그램 로컬 실행 결과](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하도록 기존 IntelliJ IDEA 응용 프로그램 변환
 IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용 Azure 도구 키트와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 응용 프로그램을 제출할 수 있습니다.

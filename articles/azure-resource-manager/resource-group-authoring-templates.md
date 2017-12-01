@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 85fff4c8c5a68a4ebaa63b263e90d0220c273e23
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
-이 항목에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 템플릿 만들기에 관한 단계별 연습은 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조하세요.
+이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 템플릿 만들기에 관한 단계별 연습은 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조하세요.
 
 ## <a name="template-format"></a>템플릿 형식
 가장 간단한 구조의 템플릿에 포함되는 요소는 다음과 같습니다.
@@ -66,11 +66,31 @@ ms.lasthandoff: 11/09/2017
             }
         }
     },
-    "variables": {  
+    "variables": {
         "<variable-name>": "<variable-value>",
-        "<variable-name>": { 
-            <variable-complex-type-value> 
-        }
+        "<variable-object-name>": {
+            <variable-complex-type-value>
+        },
+        "<variable-object-name>": {
+            "copy": [
+                {
+                    "name": "<name-of-array-property>",
+                    "count": <number-of-iterations>,
+                    "input": {
+                        <properties-to-repeat>
+                    }
+                }
+            ]
+        },
+        "copy": [
+            {
+                "name": "<variable-array-name>",
+                "count": <number-of-iterations>,
+                "input": {
+                    <properties-to-repeat>
+                }
+            }
+        ]
     },
     "resources": [
       {
@@ -117,7 +137,7 @@ ms.lasthandoff: 11/09/2017
 }
 ```
 
-템플릿의 섹션에 대해서는 이 항목의 뒷부분에서 더 자세히 설명합니다.
+이 기사에서는 템플릿의 섹션에 대해 자세히 설명합니다.
 
 ## <a name="expressions-and-functions"></a>식 및 함수
 템플릿의 기본 구문은 JSON이지만, 식 및 함수를 사용하면 템플릿에서 사용할 수 있는 JSON 값을 확장할 수 있습니다.  식은 JSON 문자열 리터럴 내에서 작성되며, 첫 번째 및 마지막 문자가 각각 대괄호 `[` 및 `]`입니다. 식의 값은 템플릿을 배포할 때 평가됩니다. 문자열 리터럴로 작성되지만 식의 평가 결과는 실제 식에 따라 다른 JSON 형식(예: 배열 또는 정수)일 수 있습니다.  리터럴 문자열을 대괄호 `[`로 시작하되, 식으로 해석되지 않게 하려면 문자 `[[`로 시작하도록 추가 대괄호를 추가합니다.
@@ -332,6 +352,33 @@ ms.lasthandoff: 11/09/2017
     }
   }
 }
+```
+
+복사를 사용하여 변수를 만들 때 개체를 둘 이상 지정할 수도 있습니다. 다음 예제에서는 두 개의 배열을 변수로 정의합니다. 하나는 **disks-top-level-array**이며 5개의 요소가 있습니다. 다른 하나는 **a-different-array**이며 3개의 요소가 있습니다.
+
+```json
+"variables": {
+    "copy": [
+        {
+            "name": "disks-top-level-array",
+            "count": 5,
+            "input": {
+                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('disks-top-level-array')]"
+            }
+        },
+        {
+            "name": "a-different-array",
+            "count": 3,
+            "input": {
+                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('a-different-array')]"
+            }
+        }
+    ]
+},
 ```
 
 ## <a name="resources"></a>리소스

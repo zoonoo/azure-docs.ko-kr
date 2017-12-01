@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
 
@@ -309,7 +309,7 @@ Blob Storage 입력 및 출력 바인딩을 사용하여 Blob 읽기 및 쓰기
 
 ### <a name="input--output---c-example"></a>입력 및 출력 - C# 예제
 
-다음 예제는 하나의 입력과 두 개의 출력 Blob 바인딩을 사용하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 함수입니다. *샘플 이미지* 컨테이너에서 이미지 Blob을 만들어서 함수를 트리거합니다. 그러면 이미지 Blob의 소량 및 중간 크기 복사본을 만듭니다. 
+다음 예제는 하나의 Blob 트리거와 두 개의 출력 Blob 바인딩을 사용하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 함수입니다. *샘플 이미지* 컨테이너에서 이미지 Blob을 만들어서 함수를 트리거합니다. 그러면 이미지 Blob의 소량 및 중간 크기 복사본을 만듭니다. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>입력 및 출력 - C# 스크립트 예제
 
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 Blob 트리거 바인딩을 보여줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 
@@ -380,7 +380,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>입력 및 출력 - JavaScript 예제
 
-다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 Blob 트리거 바인딩을 보여줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
+다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 Blob 입력 및 출력 바인딩을 보여줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 *{originalblobname}-Copy*입니다.
 
 *function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
 

@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>문제 해결 서비스 배포 및 환경 설정
 다음 정보는 모델 관리 환경을 설정할 때 오류의 원인을 확인하는 데 도움이 될 수 있습니다.
 
 ## <a name="model-management-environment"></a>모델 관리 환경
-### <a name="owner-permission-required"></a>소유자 권한 필요
-Machine Learning Compute를 등록하려면 Azure 구독에 대한 소유자 권한이 있어야 합니다.
-
-웹 서비스 배포를 위한 클러스터를 설정하려면 소유자 권한도 필요합니다.
+### <a name="contributor-permission-required"></a>참여자 권한 필요
+웹 서비스의 배포를 위한 클러스터를 설정하려면 구독 또는 리소스 그룹에 대한 참여자 액세스 권한이 필요합니다.
 
 ### <a name="resource-availability"></a>리소스 가용성
 환경 리소스를 프로비전할 수 있도록 구독에서 사용 가능한 리소스가 충분히 있어야 합니다.
@@ -89,6 +87,7 @@ Python 예제:
 ```
 
 ## <a name="other-common-problems"></a>다른 일반적인 문제
+- azure-cli-ml의 pip 설치가 Windows 컴퓨터에서 `cannot find the path specified` 오류와 함께 실패하는 경우 긴 경로 지원을 사용하도록 설정해야 합니다. https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/을 참조하세요. 
 - `env setup` 명령이 `LocationNotAvailableForResourceType`을 나타내며 실패하면 Machine Learning 리소스에 대해 잘못된 위치(지역)를 사용하고 있는 것일 수 있습니다. `-l` 매개 변수로 지정된 위치가 `eastus2`, `westcentralus` 또는 `australiaeast`인지 확인하세요.
 - `env setup` 명령이 `Resource quota limit exceeded`를 나타내며 실패하면 구독에서 사용할 수 있는 충분한 코어가 있는지와 리소스가 다른 프로세스에서 사용되고 있지 않은지 확인합니다.
 - `env setup` 명령이 `Invalid environment name. Name must only contain lowercase alphanumeric characters`를 나타내며 실패하면 서비스 이름에 대문자, 기호 또는 밑줄(_)이 포함되어 있지 않은지 확인합니다(예: *my_environment*).

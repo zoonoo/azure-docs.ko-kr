@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
+이 문서에서는 Azure Database for MySQL과 호환되는 드라이버 및 관리 도구를 설명합니다.
+
 ## <a name="mysql-drivers"></a>MySQL 드라이버
 Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 버전의 MySQL 데이터베이스를 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. 세 가지 최신 버전의 MySQL 드라이버를 지원하는 것이 목표이며, MySQL 드라이버의 기능 및 사용 편의를 개선하기 위해 지속적으로 오픈 소스 커뮤니티의 작성자와 협력하고 있습니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 드라이버 목록이 정리되어 있습니다.
 

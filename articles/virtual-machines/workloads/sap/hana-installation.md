@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 280001f9057825b9dcd98c5180340a54e2e239cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
@@ -172,7 +172,7 @@ SLES 12에서 SAP HANA 구현에 적용할 수 있는 SAP Support Note:
 - [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
-[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. 
+[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 기본 Azure VM에 비해 HANA Large Instances는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 버전을 사용하는 것이 좋습니다.
 
 Red Hat 관련 링크에 있는 유용한 추가 SAP 정보:
 - [Red Hat Linux 사이트의 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
 
@@ -79,7 +79,9 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 
 1. 이 정책을 사용하도록 설정한 경우 현재 랩의 모든 VM을 종료하는 시간(및 표준 시간대)을 지정합니다.
 
-1. 지정된 자동 종료 시간 15분 전에 알림을 보내는 옵션으로 **예** 또는 **아니요**를 지정합니다. **예**를 지정할 경우 알림을 게시 또는 전송할 메일 주소 또는 웹후크 URL 끝점을 입력합니다. 웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
+1. 지정된 자동 종료 시간 15분 전에 알림을 보내는 옵션으로 **예** 또는 **아니요**를 지정합니다. **예**를 선택할 경우 알림을 게시하거나 보낼 위치를 지정하는 이메일 주소 또는 웹후크 URL 엔드포인트를 입력합니다. 사용자에게 알림이 전송되고 종료를 지연할 수 있는 옵션이 제공됩니다.
+
+   웹후크에 대한 자세한 내용은 [웹후크 또는 API Azure Function 만들기](../azure-functions/functions-create-a-web-hook-or-api-function.md)를 참조하세요. 
 
 1. **저장**을 선택합니다.
 

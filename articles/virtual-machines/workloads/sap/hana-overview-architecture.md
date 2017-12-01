@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -291,7 +291,10 @@ HANA 큰 인스턴스에 대한 크기 조정은 일반적인 HANA에 대한 크
 - Azure VM에서 Azure에 배포된 Red Hat Subscription Manager. Red Hat Subscription Manager는.Azure(큰 인스턴스)에서 SAP HANA가 Red Hat에 의해 등록되고 각각 업데이트될 수 있는 기능을 제공합니다(Azure 큰 인스턴스 스탬프에 배포된 테넌트 내에서는 직접적인 인터넷 액세스가 불가능하므로).
 - SAP를 사용하려면 Linux 공급자와도 지원 계약을 체결해야 합니다. 이 요구 사항은 HANA 큰 인스턴스 솔루션이나 Azure에서 Linux를 실행한다고 해도 적용됩니다. 일부 Linux Azure 갤러리 이미지와 달리 HANA 큰 인스턴스의 솔루션 제품에는 서비스 요금이 포함되지 않습니다. Linux 배포자와 지원 계약과 관련하여 SAP의 요구 사항을 충족시키는 것은 고객의 책임입니다.   
    - SUSE Linux의 경우 [SAP Note #1984787 - SUSE LINUX Enterprise Server 12: 설치 참고](https://launchpad.support.sap.com/#/notes/1984787) 및 [SAP Note #1056161 - SAP 응용 프로그램에 대한 SUSE 우선 지원](https://launchpad.support.sap.com/#/notes/1056161)에서 지원 계약의 요구 사항을 살펴봅니다.
-   - Red Hat Linux의 경우 지원 및 서비스(HANA 큰 인스턴스의 운영 체제 업데이트)를 포함하는 올바른 구독 수준을 마련해야 합니다. Red Hat은 "RHEL for SAP Business Applications"를 구독할 것을 권장합니다. 지원 및 서비스와 관련하여 자세한 내용은 [SAP Note #2002167 - Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/2002167) 및 [SAP Note #1496410 - Red Hat Enterprise Linux 6.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/1496410)를 확인하세요.
+   - Red Hat Linux의 경우 지원 및 서비스(HANA 큰 인스턴스의 운영 체제 업데이트)를 포함하는 올바른 구독 수준을 마련해야 합니다. Red Hat은 "HEL for [SAP Solutions](https://access.redhat.com/solutions/3082481)"를 구독할 것을 권장합니다. 
+
+서로 다른 Linux 버전을 사용하는 다른 SAP HANA 버전의 지원 매트릭스에 대해서는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
+
 
 **데이터베이스:**
 

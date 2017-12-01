@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
-
 
 이 문서에서는 Azure Cost Management(Cloudyn이라고도 함)에 대한 몇 가지 일반적인 질문을 다룹니다. Cost Management에 대한 질문이 있는 경우 [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)(Cloudyn의 Azure Cost Management에 대한 질문과 대답)에서 질문할 수 있습니다.
 
@@ -125,3 +124,15 @@ Azure에서 Cloudyn으로 데이터를 보내는 데 지연이 발생하면 데�
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>직접 CSP가 간접 CSP 고객 또는 파트너를 위해 Cloudyn 액세스를 구성하는 방법은 무엇인가요?
 
 지침은 [Cloudyn에서 간접 CSP 액세스 구성](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn)을 참조하세요.
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>최적화 프로그램 메뉴 항목이 나타나는 이유는 무엇입니까?
+
+Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에는 **최적화 프로그램** 옵션이 표시됩니다. Azure Resource Manager 액세스를 활성화하려면 [Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법](#how-do-i-activate-unactivated-accounts-with-azure-credentials)을 참조하세요.
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Cost Management/Cloudyn 에이전트 기반인가요?
+
+아니요. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
+
+예. 보유한 각 AD 테넌트에 대해 [해당 클라우드 계정 엔터티를 만들 수 있습니다](tutorial-user-access.md#create-entities). 그런 다음 Amazon Web Services 및 Google Cloud Platform을 포함하여 모든 Azure AD 테넌트 데이터와 기타 클라우드 플랫폼 공급자를 볼 수 있습니다.

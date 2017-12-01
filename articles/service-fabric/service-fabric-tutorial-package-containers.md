@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -218,7 +218,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 유지 관리하며 여기에서 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](http://aka.ms/tryservicefabric). 
 
-사용자 고유의 클러스터를 만드는 방법은 [Azure에서 첫 번째 Service Fabric 클러스터 만들기](service-fabric-get-started-azure-cluster.md)를 참조하세요.
+자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>응용 프로그램 빌드 및 클러스터에 배포
 Service Fabric CLI를 사용하여 Azure 클러스터에 응용 프로그램을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다. 

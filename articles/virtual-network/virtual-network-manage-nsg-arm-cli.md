@@ -1,10 +1,10 @@
 ---
-title: "네트워크 보안 그룹 관리 - Azure CLI 2.0 | Microsoft Docs"
-description: "Azure CLI(명령줄 인터페이스) 2.0을 사용하여 네트워크 보안 그룹을 관리하는 방법에 대해 알아봅니다."
+title: "네트워크 보안 그룹 관리 - Azure CLI | Microsoft Docs"
+description: "Azure 명령줄 인터페이스를 사용하여 네트워크 보안 그룹을 관리하는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 네트워크 보안 그룹 관리
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 관리
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전 
-
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다. 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI 
-- [Azure CLI 2.0](#View-existing-NSGs) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisite"></a>필수 요소
 아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다. 
-
 
 ## <a name="view-existing-nsgs"></a>기존 NSG 보기
 특정 리소스 그룹에서 NSG 목록을 보려면 `-o table` 출력 형식으로 [az network nsg list](/cli/azure/network/nsg#list) 명령을 실행합니다.
@@ -84,18 +75,18 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> [az network nsg rule list](/cli/azure/network/nsg/rule#list)를 사용하여 NSG에서 사용자 지정 규칙을 나열할 수도 있습니다.
+> [az network nsg rule list](/cli/azure/network/nsg/rule#list)를 사용하여 NSG에서 사용자 지정 규칙만 나열할 수도 있습니다.
 >
 
 ## <a name="view-nsg-associations"></a>NSG 연결 보기
 
-**NSG-FrontEnd** NSG가 연결된 리소스를 보려면 아래와 같이 `az network nsg show` 명령을 실행합니다. 
+**NSG-FrontEnd** NSG가 연결된 리소스를 보려면 `az network nsg show` 명령을 실행합니다. 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-아래와 같이 **NetworkInterfaces** 및 **서브넷** 속성을 찾아봅니다.
+아래의 예제 출력에 표시된 것과 같이 **networkInterfaces** 및 **subnets** 속성을 찾아봅니다.
 
 ```json
 [
@@ -117,7 +108,7 @@ az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterface
 ]
 ```
 
-위의 예에서 NSG는 NIC(네트워크 인터페이스)에 연결되지 않고 **FrontEnd**라는 서브넷에 연결됩니다.
+이전 예에서 NSG는 NIC(네트워크 인터페이스)에 연결되지 않으며 **FrontEnd**라는 서브넷에 연결됩니다.
 
 ## <a name="add-a-rule"></a>규칙 추가
 컴퓨터에서 **NSG-FrontEnd** NSG에 포트 **443**에 대한 **인바운드** 트래픽을 허용하는 규칙을 추가하려면 다음 명령을 입력합니다.
@@ -160,7 +151,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>규칙 변경
-**인터넷**에서만 인바운드 트래픽을 허용하도록 위에서 만든 규칙을 변경하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 실행합니다.
+**인터넷**에서만 인바운드 트래픽을 허용하도록 이전에 만든 규칙을 변경하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 실행합니다.
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ az network vnet subnet update \
   ```
 
 ## <a name="delete-an-nsg"></a>NSG 삭제
-리소스에 연결되지 않은 경우 NSG를 삭제할 수 있습니다. NSG를 삭제하려면 다음 단계를 수행합니다.
+리소스에 연결되지 않은 경우 NSG를 삭제할 수 있습니다. NSG를 삭제하려면 다음 단계를 완료합니다.
 
 1. NSG에 연결된 리소스를 확인하려면 [NSG 연결 보기](#View-NSGs-associations)에서처럼 `azure network nsg show`을 실행합니다.
 2. NSG가 NIC에 연결된 경우 각 NIC에 대한 [NIC에서 NSG 분리](#Dissociate-an-NSG-from-a-NIC)에서처럼 `azure network nic set`을 실행합니다. 

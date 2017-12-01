@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM에 MongoDB를 설치하고 구성하는 방법
 [MongoDB](http://www.mongodb.org)는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서는 리소스 관리자 배포 모델을 사용하여 Azure에서 Linux VM에 MongoDB를 설치하고 구성하는 방법을 보여줍니다. 표시된 예제는 다음과 같은 방법을 자세히 보여줍니다.
@@ -163,7 +163,7 @@ GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합�
 * [CentOS의 MongoDB 분할 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> 이러한 복합적인 MongoDB 분할된 클러스터를 배포하려면 20개가 넘는 코어가 필요하며, 일반적으로 이 수치는 구독에 대한 지역당 기본 코어 수입니다. 코어 수를 늘리려면 Azure 지원 요청을 생성하십시오.
+> 이러한 복합적인 MongoDB 분할된 클러스터를 배포하려면 20개가 넘는 vCPU가 필요하며, 일반적으로 이 수치는 구독에 대한 지역당 기본 vCPU 수입니다. vCPU 수를 늘리려면 Azure 지원 요청을 생성하십시오.
 
 다음 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 다음과 같이 사용자 고유의 값을 입력합니다.
 
@@ -183,5 +183,5 @@ azure group create \
 
 템플릿을 사용하여 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
-Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사용하여 VM에 스크립트를 다운로드하고 실행합니다. 자세한 내용은 [Linux 가상 컴퓨터에서 Azure 사용자 지정 스크립트 확장 사용](extensions-customscript.md)을 참조하세요.
+Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사용하여 VM에 스크립트를 다운로드하고 실행합니다. 자세한 내용은 [Linux Virtual Machines에서 Azure 사용자 지정 스크립트 확장 사용](extensions-customscript.md)을 참조하세요.
 

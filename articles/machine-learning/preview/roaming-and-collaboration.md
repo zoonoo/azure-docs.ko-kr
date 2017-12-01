@@ -2,19 +2,19 @@
 title: "Azure Machine Learning Workbench에서 로밍 및 공동 작업 | Microsoft Docs"
 description: "알려진 문제 목록 및 문제 해결에 도움이 되는 가이드"
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 로밍 및 공동 작업
 이 문서는 Azure Machine Learning Workbench를 활용하여 프로젝트를 컴퓨터 간에 로밍하는 것은 물론 팀 동료와 공동 작업을 할 수 있는 방법을 안내합니다. 
@@ -28,10 +28,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>새 Azure Machine Learning 프로젝트 만들기
 Azure Machine Learning Workbench를 시작하고 새 프로젝트를 만듭니다 (예를 들어 _아이리스_) 유효한 VSTS Git 리포지토리 URL로 **Visualstudio.com GIT 리포지토리 URL** 텍스트 상자에 채웁니다. 
->[!IMPORTANT]
->Git 리포지토리에 읽기/쓰기 권한이 없고, Git 리포지토리 비어 있지 않다, 즉, 이미 마스터 분기가 있다면 프로젝트 만들기는 실패입니다.
+
+> [!IMPORTANT]
+> 빈 프로젝트 템플릿을 선택한 경우 선택한 Git 리포지토리에 _master_ 분기가 이미 있어도 괜찮습니다. Azure ML은 _master_ 분기를 로컬에서 복제만 하고 `aml_config` 폴더와 다른 프로젝트 메타데이터 파일을 로컬 프로젝트 폴더에 추가합니다. 하지만 다른 프로젝트 템플릿을 선택하면 Git 리포지토리에 _master_ 분기가 반드시 없어야 하며 그렇지 않으면 오류가 표시됩니다. 대안은 프로젝트를 만들도록 `az ml project create` 명령줄 도구를 사용하고 `--force` 스위치를 제공하는 것입니다. 이렇게 하면 원래 master 분기의 파일이 삭제되고 선택한 템플릿의 새 파일로 대체됩니다.
 
 프로젝트를 만들었다면 프로젝트 내에서 모든 스크립트를 몇 차례 실행해 봅니다. 이 작업은 원격 Git 리포지토리의 실행 기록 분기로 프로젝트 상태를 커밋합니다. 
+
+> [!NOTE] 
+> 스크립트만 실행 기록 분기에 대한 트리거 커밋을 실행합니다. 데이터 준비 실행 또는 Notebook 실행은 실행 기록 분기에서 프로젝트 스냅숏을 트리거하지 않습니다.
 
 Git 인증을 설정한 경우, 명시적으로 마스터 분기에서 작동하거나 새 분기를 만들 수 있습니다. 
 
@@ -71,7 +75,8 @@ MacOS에서는 여기입니다.`/home/<username>/Documents/AzureML`
 
 향후 릴리스에서는 대상 폴더를 선택할 수 있도록 하는 기능을 강화할 계획입니다. 
 
->Azure ML 디렉터리에 프로젝트와 정확히 같은 이름을 가진 폴더가 있을 경우 다운로드를 할 수 없다는 점에 주의합니다. 당분간은 이 문제를 해결하기 위해 기존 폴더의 이름을 바꿀 필요가 있습니다.
+> [!NOTE]
+> Azure ML 디렉터리에 프로젝트와 정확히 같은 이름을 가진 폴더가 있을 경우 다운로드가 실패합니다. 당분간은 이 문제를 해결하기 위해 기존 폴더의 이름을 바꿀 필요가 있습니다.
 
 
 ### <a name="work-on-the-downloaded-project"></a>다운로드한 프로젝트에서 작업 
@@ -90,23 +95,16 @@ Alice는 **파일** 메뉴를 클릭하여 **명령 프롬프트**를 선택한 
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 직접 또는 상속으로 역할 할당을 하고나면 Bob이 워크벤치 프로젝트 목록에서 그 프로젝트를 볼 수 있습니다. 프로젝트를 보려면 응용 프로그램을 다시 시작해야 할 수도 있습니다. 그런 후 Bob은 [로밍 섹션](#roaming)에 설명된 대로 프로젝트를 다운로드하고 Alice와 공동 작업을 할 수 있습니다. 
@@ -124,3 +122,81 @@ Azure Machine Learning 실험 계정, 작업 영역 및 프로젝트는 Azure Re
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## <a name="sample-collaboration-workflow"></a>샘플 공동 작업 워크플로
+공동 작업 흐름을 설명하기 위해 예제를 살펴보겠습니다. Contoso의 직원인 Alice와 Bob은 Azure ML Workbench를 사용하여 데이터 과학 프로젝트에서 공동 작업을 하려고 합니다. 이들의 ID는 동일한 Contoso Azure AD 테넌트에 속합니다.
+
+1. Alice는 먼저 VSTS 프로젝트에 빈 Git 리포지토리를 만듭니다. 이 VSTS 프로젝트는 Contoso AAD 테넌트 아래에 만들어진 Azure 구독에 있습니다. 
+
+2. 그런 다음 Alice가 자신의 컴퓨터에 Azure ML 실험 계정, 작업 영역 및 Azure ML Workbench 프로젝트를 만듭니다. 프로젝트를 만들 때 Git 리포지토리 URL을 제공합니다.
+
+3. Alice가 프로젝트 작업을 시작합니다. 몇 가지 스크립트를 작성하고 몇 가지 실행을 수행합니다. 각각의 실행에 대해 전체 프로젝트 폴더의 스냅숏이 Workbench에서 만든 VSTS Git 리포지토리의 실행 기록 분기에 커밋으로 자동 푸시됩니다.
+
+4. Alice는 현재 진행 중인 작업에 만족합니다. 변경 내용을 로컬 _master_ 분기에 커밋하고 VSTS Git 리포지토리 _master_ 분기에 푸시하려고 합니다. 이를 위해 프로젝트를 열어 놓고 Azure ML Workbench에서 명령 프롬프트 창을 시작하여 다음 명령을 실행합니다.
+    
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # stage all changes
+    $ git add -A
+
+    # commit changes with a comment
+    $ git commit -m "this is a good milestone"
+
+    # push the commit to the master branch of the remote Git repo in VSTS
+    $ git push
+    ```
+
+5. 그런 다음 Alice가 Bob을 작업 영역에 Contributor로 추가합니다. 이 작업은 Azure Portal에서 수행하거나 위에서 설명한 `az role assignment` 명령을 사용하여 수행할 수 있습니다. 또한 Bob에게 VSTS Git 리포지토리에 대한 읽기/쓰기 권한을 부여합니다.
+
+6. 이제 Bob이 자신의 컴퓨터에서 Azure ML Workbench에 로그인합니다. Alice가 공유해준 작업 영역과 그 작업 영역에 나열된 프로젝트를 볼 수 있습니다. 
+
+7. Bob이 프로젝트 이름을 클릭하면 프로젝트가 컴퓨터로 다운로드됩니다.
+    
+    a. 다운로드한 프로젝트 파일은 실행 기록에 기록된 최신 실행에 대한 스냅숏의 복제본입니다. master 분기의 마지막 커밋은 아닙니다.
+    
+    b. 로컬 프로젝트 폴더가 스테이징이 취소된 변경 내용으로 _master_ 분기에 설정되어 있습니다.
+
+8. 이제 Bob은 Alice가 수행한 실행을 찾아보고 이전 실행의 스냅숏을 복원할 수 있습니다.
+
+9. Bob은 Alice가 푸시한 최신 변경 사항을 가져와서 다른 분기에서 작업을 시작하려고 합니다. 그래서 Azure ML Workbench에서 명령 프롬프트 창을 열고 다음 명령을 실행합니다.
+
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # get the latest commit in VSTS Git master branch and overwrite current files
+    $ git pull --force
+
+    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. 이제 Bob이 프로젝트를 수정하고 새 실행을 제출합니다. 변경이 _bob_ 분기에서 수행됩니다. 그리고 Bob의 실행이 Alice에게도 보입니다.
+
+11. 이제 Bob이 변경 사항을 원격 Git 리포지토리에 푸시할 준비가 되었습니다. Alice가 작업 중인 _master_ 분기와의 충돌을 피하기 위해 _bob_이라는 새로운 원격 분기에 자신의 작업을 푸시하기로 결정합니다.
+
+    ```sh
+    # verify that the current branch is "bob" and it has unstaged changes
+    $ git status
+    
+    # stage all changes
+    $ git add -A
+
+    # commit them with a comment
+    $ git commit -m "I found a cool new trick."
+
+    # create a new branch on the remote VSTS Git repo, and push changes
+    $ git push origin bob
+    ```
+
+12. 이제 Bob은 Alice에게 자신의 코드에 있는 멋진 새 요령을 알릴 수 있고, 원격 Git 리포지토리에 _bob_ 분기에서 _master_ 분기로 끌어오기 요청을 만들 수 있습니다. 그런 다음 Alice는 끌어오기 요청을 _master_ 분기에 병합할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+Azure ML Workbench에 Git를 사용하는 방법은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.

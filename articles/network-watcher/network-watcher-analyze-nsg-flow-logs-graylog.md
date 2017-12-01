@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -148,9 +148,9 @@ Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화
     ```
 제공되는 Logstash 구성 파일은 input, filter 및 output의 세 부분으로 구성됩니다. input 섹션은 Logstash에서 처리할 로그의 입력 원본을 지정합니다. 이 경우 Blob 저장소에 저장된 네트워크 보안 그룹 흐름 로그 JSON 파일에 액세스할 수 있게 하는 Azure 블로그 입력 플러그 인(다음 단계에서 설치됨)을 사용합니다.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+그런 후 필터 섹션은 각 개별 흐름 튜플 및 연결된 속성이 별도의 Logstash 이벤트가 되도록 각 흐름 로그 파일을 평면화합니다.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+마지막으로 출력 섹션은 Graylog 서버에 각 Logstash 이벤트를 전달합니다. 필요에 따라 특정 요구에 맞게 Logstash 구성 파일을 수정합니다.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 2.0을 사용하여 여러 IP 주소가 있는 VM | Microsoft Docs"
-description: "Azure CLI 2.0 | Resource Manager를 사용하여 가상 컴퓨터에 여러 IP 주소를 할당하는 방법을 알아봅니다."
+title: "Azure CLI를 사용하여 여러 IP 주소가 있는 VM | Microsoft Docs"
+description: "Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 컴퓨터에 여러 IP 주소 할당
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-이 문서는 Azure CLI 2.0을 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
+이 문서는 Azure CLI를 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
-Azure CLI 2.0(이 문서) 또는 [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)을 사용하여 이 태스크를 완료할 수 있습니다. 사용자 환경에 적절한 값으로 변경합니다. 다음 단계는 시나리오에 설명된 대로 여러 IP 주소를 가진 예시 VM을 만드는 방법을 설명합니다. ""의 변수 값과 IP 주소 유형을 구현에 필요한 대로 변경합니다. 
+다음 단계는 시나리오에 설명된 대로 여러 IP 주소를 가진 예시 가상 머신을 만드는 방법을 설명합니다. ""의 변수 값과 IP 주소 유형을 구현에 필요한 대로 변경합니다. 
 
 1. [Azure CLI 2.0](/cli/azure/install-az-cli2)을 아직 설치하지 않은 경우 설치합니다.
 2. [Linux VM에 SSH 공용 및 개인 키 쌍 만들기](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료하여 Linux VM에 SSH 공용 및 개인 키 쌍을 만듭니다.

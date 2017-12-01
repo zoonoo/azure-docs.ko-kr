@@ -15,26 +15,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: cebbe2a0e28d49c93d0ebf12cc04b3d201dcec97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="debug-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 Spark 응용 프로그램 디버그
+# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그
 
 이 문서에서는 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight 클러스터에서 응용 프로그램을 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 프로젝트를 디버그하려는 경우 [IntelliJ용 Azure 도구 키트로 HDInsight Spark 응용 프로그램 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) 비디오를 시청할 수도 있습니다.
 
 **필수 구성 요소**
+* **IntelliJ용 Azure 도구 키트의 HDInsight 도구** 이 도구는 IntelliJ용 Azure 도구 키트의 일부입니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)를 참조하세요. **IntelliJ용 Azure 도구 키트**. 이 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램을 만듭니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)의 지침을 따르세요.
 
-* **IntelliJ용 Azure 도구 키트의 HDInsight 도구** 이 도구는 IntelliJ용 Azure 도구 키트의 일부입니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)를 참조하세요.
-* **IntelliJ용 Azure 도구 키트** 이 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램을 만듭니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)의 지침을 따르세요.
 * **사용자 이름 및 암호 관리를 포함한 HDInsight SSH 서비스**. 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [SSH 터널링을 사용하여 Ambari 웹 UI, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel)를 참조하세요. 
  
-
-## <a name="create-a-spark-scala-application-and-configure-it-for-remote-debugging"></a>Spark Scala 응용 프로그램을 만들고 원격 디버깅을 위해 구성합니다.
+## <a name="learn-how-to-perform-local-run-and-debugging"></a>로컬 실행 및 디버깅을 수행하는 방법에 대해 알아봅니다
+### <a name="scenario-1-create-a-spark-scala-application"></a>시나리오 1: Spark Scala 응용 프로그램 만들기 
 
 1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다.
 
@@ -46,9 +45,9 @@ ms.lasthandoff: 11/03/2017
 
       - **HDInsight의 Spark(Java)**
 
-      - **HDInsight의 Spark 클러스터 실행 샘플(Scala)** 
+      - **HDInsight 샘플의 Spark(Scala)**
 
-      이 예제에서는 **HDInsight의 Spark 클러스터 실행 샘플(Scala)** 템플릿을 사용합니다.
+      이 예제에서는 **HDInsight 샘플의 Spark(Scala)** 템플릿을 사용합니다.
 
    c. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 11/03/2017
 
    d. **다음**을 선택합니다.     
  
-3. 다음 **새 프로젝트** 창에서 다음을 수행합니다.
+2. 다음 **새 프로젝트** 창에서 다음을 수행합니다.
 
    ![Spark SDK 선택](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
@@ -72,145 +71,93 @@ ms.lasthandoff: 11/03/2017
 
    d. **마침**을 선택합니다.
 
-4. **src** > **main** > **scala**를 선택하여 프로젝트에서 코드를 엽니다. 이 예제에서는 **SparkCore_wasbloTest** 스크립트를 사용합니다.
+3. **src** > **main** > **scala**를 선택하여 프로젝트에서 코드를 엽니다. 이 예제에서는 **SparkCore_wasbloTest** 스크립트를 사용합니다.
 
-5. **구성 편집** 메뉴에 액세스하려면 오른쪽 위 구석에 있는 아이콘을 선택합니다. 이 메뉴에서 원격 디버깅에 대한 구성을 만들거나 편집할 수 있습니다.
+### <a name="prerequisite-for-windows"></a>Windows에 대한 필수 구성 요소
+Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다. 
+
+이 오류를 해결하려면 [실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
+
+### <a name="scenario-2-perform-local-run"></a>시나리오 2: 로컬 실행 수행
+1. **SparkCore_wasbloTest** 스크립트를 열고 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **'[Spark 작업] XXX' 실행** 옵션을 선택하여 로컬 실행을 수행합니다.
+2. 로컬 실행이 완료되면 현재 프로젝트 탐색기 **data** > **__default__**에 저장된 출력 파일을 볼 수 있습니다.
+
+    ![로컬 실행 결과](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+3. 해당 도구는 로컬 실행 및 로컬 디버그를 수행하면 기본 로컬 실행 구성을 자동으로 설정합니다. 맨 위 모서리에서 **[Spark 작업] XXX** 구성을 열고 **Azure HDInsight Spark 작업** 아래에 이미 만들어진 **[Spark 작업]XXX**를 볼 수 있습니다. **로컬로 실행** 탭으로 전환합니다.
+
+    ![로컬 실행 구성](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    - [환경 변수](#prerequisite-for-windows): 시스템 환경 변수 **HADOOP_HOME**을 **C:\WinUtils**로 이미 설정한 경우 자동으로 감지되므로 수동으로 추가할 필요가 없습니다.
+    - [WinUtils.exe 위치](#prerequisite-for-windows): 시스템 환경 변수를 설정하지 않은 경우 해당 단추를 클릭하여 위치를 찾을 수 있습니다.
+    - 두 옵션 중 하나를 선택하면 됩니다. 단, MacOS 및 Linux에서는 필요하지 않습니다.
+4. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호(**+**)를 선택합니다. 그 다음, **Azure HDInsight Spark 작업** 옵션을 선택합니다. 저장할 **이름**, **주 클래스 이름**에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
+
+### <a name="scenario-3-perform-local-debugging"></a>시나리오 3: 로컬 디버그 수행
+1. **SparkCore_wasbloTest** 스크립트를 열고 중단점을 설정합니다.
+2. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **'[Spark 작업] XXX' 디버그** 옵션을 선택합니다.   
+
+
+
+## <a name="learn-how-to-perform-remote-run-and-debugging"></a>원격 실행 및 디버깅 수행 방법 알아보기
+### <a name="scenario-1-perform-remote-run"></a>시나리오 1: 원격 실행 수행
+
+1. **구성 편집** 메뉴에 액세스하려면 오른쪽 위 구석에 있는 아이콘을 선택합니다. 이 메뉴에서 원격 디버깅에 대한 구성을 만들거나 편집할 수 있습니다.
 
    ![구성 편집](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-6. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **Spark 작업 제출** 옵션을 선택합니다.
+2. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그 다음, **Azure HDInsight Spark 작업** 옵션을 선택합니다.
 
    ![새 구성 추가](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-7. **이름**, **Spark 클러스터** 및 **주 클래스 이름**에 정보를 입력합니다. 그런 다음 **고급 구성**을 선택합니다. 
+3. **클러스터에서 원격으로 실행** 탭으로 전환합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름**에 정보를 입력합니다. 그런 다음 **고급 구성**을 선택합니다. 이 도구는 **실행기**를 사용하여 디버그를 지원합니다. **numExectors**의 기본값은 5입니다. 3보다 큰 값을 설정하지 않는 것이 좋습니다.
 
    ![디버그 구성 실행](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-8. **Spark 제출 고급 구성** 대화 상자에서 **Spark 원격 디버그 설정**을 선택합니다. SSH 사용자 이름을 입력하고 암호를 입력하거나 개인 키 파일을 사용합니다. 구성을 저장하려면 **확인**을 선택합니다.
+4. **Spark 제출 고급 구성** 대화 상자에서 **Spark 원격 디버그 설정**을 선택합니다. SSH 사용자 이름을 입력하고 암호를 입력하거나 개인 키 파일을 사용합니다. 구성을 저장하려면 **확인**을 선택합니다. 원격 디버그를 수행하려는 경우 설정해야 합니다. 원격 실행만 사용하려는 경우는 설정할 필요가 없습니다.
 
    ![Spark 원격 디버그 설정](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-9. 이제 사용자가 입력한 이름으로 구성이 저장됩니다. 구성 세부 정보를 보려면 구성 이름을 선택합니다. 변경하려면 **구성 편집**을 선택합니다. 
+5. 이제 사용자가 입력한 이름으로 구성이 저장됩니다. 구성 세부 정보를 보려면 구성 이름을 선택합니다. 변경하려면 **구성 편집**을 선택합니다. 
 
-10. 구성 설정을 완료한 후에 원격 클러스터에 대해 프로젝트를 실행하거나 원격 디버깅을 수행할 수 있습니다.
+6. 구성 설정을 완료한 후에 원격 클러스터에 대해 프로젝트를 실행하거나 원격 디버깅을 수행할 수 있습니다.
+   
+   ![원격 실행 단추](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-## <a name="learn-how-to-perform-remote-debugging"></a>원격 디버깅을 수행하는 방법 알아보기
-### <a name="scenario-1-perform-remote-run"></a>시나리오 1: 원격 실행 수행
+7. 오른쪽 패널에 실행 중인 로그를 표시하지 않으려면 **연결 끊기** 단추를 클릭할 수 있습니다. 그러나 백엔드에서는 계속 실행 중이며 결과가 왼쪽 패널에 표시됩니다.
 
-이 섹션에서는 드라이버 및 실행기를 디버그하는 방법을 보여 줍니다.
-
-    import org.apache.spark.{SparkConf, SparkContext}
-
-    object LogQuery {
-      val exampleApacheLogs = List(
-        """10.10.10.10 - "FRED" [18/Jan/2013:17:56:07 +1100] "GET http://images.com/2013/Generic.jpg
-          | HTTP/1.1" 304 315 "http://referall.com/" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
-          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
-          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
-          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.350 "-" - "" 265 923 934 ""
-          | 62.24.11.25 images.com 1358492167 - Whatup""".stripMargin.lines.mkString,
-        """10.10.10.10 - "FRED" [18/Jan/2013:18:02:37 +1100] "GET http://images.com/2013/Generic.jpg
-          | HTTP/1.1" 304 306 "http:/referall.com" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
-          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
-          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
-          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.352 "-" - "" 256 977 988 ""
-          | 0 73.23.2.15 images.com 1358492557 - Whatup""".stripMargin.lines.mkString
-      )
-      def main(args: Array[String]) {
-        val sparkconf = new SparkConf().setAppName("Log Query")
-        val sc = new SparkContext(sparkconf)
-        val dataSet = sc.parallelize(exampleApacheLogs)
-        // scalastyle:off
-        val apacheLogRegex =
-          """^([\d.]+) (\S+) (\S+) \[([\w\d:/]+\s[+\-]\d{4})\] "(.+?)" (\d{3}) ([\d\-]+) "([^"]+)" "([^"]+)".*""".r
-        // scalastyle:on
-        /** Tracks the total query count and number of aggregate bytes for a particular group. */
-        class Stats(val count: Int, val numBytes: Int) extends Serializable {
-          def merge(other: Stats): Stats = new Stats(count + other.count, numBytes + other.numBytes)
-          override def toString: String = "bytes=%s\tn=%s".format(numBytes, count)
-        }
-        def extractKey(line: String): (String, String, String) = {
-          apacheLogRegex.findFirstIn(line) match {
-            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
-              if (user != "\"-\"") (ip, user, query)
-              else (null, null, null)
-            case _ => (null, null, null)
-          }
-        }
-        def extractStats(line: String): Stats = {
-          apacheLogRegex.findFirstIn(line) match {
-            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
-              new Stats(1, bytes.toInt)
-            case _ => new Stats(1, 0)
-          }
-        }
-        
-        dataSet.map(line => (extractKey(line), extractStats(line)))
-          .reduceByKey((a, b) => a.merge(b))
-          .collect().foreach{
-          case (user, query) => println("%s\t%s".format(user, query))}
-
-        sc.stop()
-      }
-    }
+   ![원격 실행 단추](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
-1. 중단점을 설정한 다음 **디버그** 아이콘을 선택합니다.
+
+### <a name="scenario-2-perform-remote-debugging"></a>시나리오 2: 원격 디버깅 수행
+1. 중단점을 설정한 다음 **원격 디버그** 아이콘을 클릭합니다. 원격 제출과의 차이점은 SSH 사용자 이름/암호를 구성해야 한다는 것입니다.
 
    ![디버그 아이콘 선택](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
-2. 프로그램 실행이 중단점에 도달하면 **디버거** 창에 1개의 **드라이버** 탭과 2개의 **실행기** 탭이 표시됩니다. **프로그램 다시 시작** 아이콘을 선택하여 코드를 계속 실행합니다. 그런 다음 중단점에 도달하면 해당 **실행기** 탭에 초점이 맞춰집니다. 해당 **콘솔** 탭에서 실행 로그를 검토할 수 있습니다.
+2. 프로그램 실행이 중단점에 도달하면 **디버거** 창에 1개의 **드라이버** 탭과 2개의 **실행기** 탭이 표시됩니다. **프로그램 다시 시작** 아이콘을 선택하여 코드를 계속 실행합니다. 그러면 다음 중단점에 도달합니다. 디버깅할 대상 실행기를 찾으려면 올바른 **실행기** 탭으로 전환해야 합니다. 해당 **콘솔** 탭에서 실행 로그를 검토할 수 있습니다.
 
    ![디버깅 탭](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
-### <a name="scenario-2-perform-remote-debugging-and-bug-fixing"></a>시나리오 2: 원격 디버깅 및 버그 수정 수행
-이 섹션에서는 간단한 수정을 위해 IntelliJ 디버깅 기능을 사용하여 변수 값을 동적으로 업데이트하는 방법을 보여줍니다. 다음 코드 예제에서는 대상 파일이 이미 있기 때문에 예외가 throw됩니다.
-  
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-
-        object SparkCore_WasbIOTest {
-          def main(arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
-            val sc = new SparkContext(conf)
-            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-            // Find the rows that have only one digit in the sixth column.
-            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-
-            try {
-              var target = "wasb:///HVACout2_testdebug1";
-              rdd1.saveAsTextFile(target);
-            } catch {
-              case ex: Exception => {
-                throw ex;
-              }
-            }
-          }
-        }
-
-
-#### <a name="to-perform-remote-debugging-and-bug-fixing"></a>원격 디버깅 및 버그 수정을 수행하려면
+### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>시나리오 3: 원격 디버깅 및 버그 수정 수행
 1. 두 개의 중단점을 설정하고 **디버그** 아이콘을 선택하여 원격 디버깅 프로세스를 시작합니다.
 
 2. 첫 번째 중단점에서 코드가 중지되고 **변수** 창에 매개 변수 및 변수 정보가 표시됩니다. 
 
 3. **프로그램 다시 시작** 아이콘을 선택하여 계속합니다. 두 번째 지점에서 코드가 중지됩니다. 예상대로 예외가 catch됩니다.
 
-  ![오류 throw](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
+   ![오류 throw](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
 
 4. **프로그램 다시 시작** 아이콘을 다시 선택합니다. **HDInsight Spark 제출** 창에 “작업 실행 실패” 오류가 표시됩니다.
 
-  ![오류 전송](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
+   ![오류 전송](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
 
 5. IntelliJ 디버깅 기능을 사용하여 변수 값을 동적으로 업데이트하려면 **디버그**를 다시 선택합니다. **변수** 창이 다시 나타납니다. 
 
 6. **디버그** 탭에서 대상을 마우스 오른쪽 단추로 클릭한 다음 **값 설정**을 선택합니다. 다음으로 변수의 새 값을 입력합니다. 그런 다음 **Enter** 키를 선택하여 값을 저장합니다. 
 
-  ![값 설정](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![값 설정](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 7. **프로그램 다시 시작** 아이콘을 선택하여 프로그램을 계속 실행합니다. 이번에는 예외가 catch되지 않습니다. 예외 없이 프로젝트가 성공적으로 실행되는지 확인할 수 있습니다.
 
-  ![예외 없이 디버그](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
+   ![예외 없이 디버그](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>다음 단계
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)

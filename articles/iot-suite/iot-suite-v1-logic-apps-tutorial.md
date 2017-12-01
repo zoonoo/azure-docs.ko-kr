@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>자습서: 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결
 미리 구성된 [Microsoft Azure IoT Suite][lnk-internetofthings] 원격 모니터링 솔루션은 IoT 솔루션의 예를 보여 주는 종단 간 기능 집합으로 신속하게 시작할 수 있는 훌륭한 방법입니다. 이 자습서에서는 미리 구성된 Microsoft Azure IoT Suite 원격 모니터링 솔루션에 논리 앱을 추가하는 방법을 안내합니다. 이러한 단계에서는 IoT 솔루션을 비즈니스 프로세스에 연결하여 추가로 활용할 수 있는 방법을 설명합니다.
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/06/2017
 
 이 자습서를 완료하려면 미리 구성된 솔루션 백 엔드에서 동작을 수정하기 위해 Visual Studio 2015 또는 Visual Studio 2017이 필요합니다.
 
-미리 구성된 원격 모니터링 솔루션을 이미 프로비전했다고 가정하고 [Azure Portal][lnk-azureportal]에서 해당 솔루션에 대한 리소스 그룹으로 이동합니다. 리소스 그룹 이름이 원격 모니터링 솔루션을 프로비전할 때 선택한 솔루션 이름과 같습니다. 리소스 그룹에서 Azure 클래식 포털에서 찾을 수 있는 Azure Active Directory 응용 프로그램을 제외하고 솔루션에 대해 프로비전된 모든 Azure 리소스를 볼 수 있습니다. 다음 스크린샷은 미리 구성된 원격 모니터링 솔루션에 대한 예제 **리소스 그룹** 블레이드를 보여 줍니다.
+미리 구성된 원격 모니터링 솔루션을 이미 프로비전했다고 가정하고 [Azure Portal][lnk-azureportal]에서 해당 솔루션에 대한 리소스 그룹으로 이동합니다. 리소스 그룹 이름이 원격 모니터링 솔루션을 프로비전할 때 선택한 솔루션 이름과 같습니다. 리소스 그룹에서 솔루션에 대해 프로비전된 모든 Azure 리소스를 볼 수 있습니다. 다음 스크린샷은 미리 구성된 원격 모니터링 솔루션에 대한 예제 **리소스 그룹** 블레이드를 보여 줍니다.
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

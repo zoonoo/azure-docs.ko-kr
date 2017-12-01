@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: f5dfecd1f5aafc1b7117433ef1bdb1805be2c57b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 전체 Linux 가상 컴퓨터 환경 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 컴퓨터)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 기본 VM을 만드는](ansible-create-vm.md) 방법을 배울 수 있습니다.
@@ -29,7 +29,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 Ansible을 사용하여 Azure 리소스를 관리하려면 다음이 필요합니다.
 
 - 호스트 시스템에 설치된 Ansible 및 Azure Python SDK 모듈
-    - [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) 및 [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)에 Ansible 설치
+    - [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) 및 [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)에 Ansible 설치
 - Azure 자격 증명 및 이를 사용하도록 구성된 Ansible
     - [Azure 자격 증명 만들기 및 Ansible 구성](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI 버전 2.0.4 이상 `az --version`을 실행하여 버전을 찾습니다. 

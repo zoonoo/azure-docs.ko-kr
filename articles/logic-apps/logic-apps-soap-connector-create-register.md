@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Azure Logic Apps에서 SOAP 커넥터 만들기 및 등록
 
@@ -149,6 +149,12 @@ SOAP 커넥터를 등록하려면 다음 항목이 필요합니다.
 이러한 경계 외부의 사용자(예: 모든 Logic Apps 사용자)와 커넥터를 공유하려면 [Microsoft 인증을 위해 커넥터를 제출하세요](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>FAQ
+
+**Q:** SOAP 커넥터를 일반적으로 사용(GA)할 수 있나요? </br>
+**A:** SOAP 커넥터는 **미리 보기** 상태이며 아직 GA 서비스가 지원되지 않습니다.
+
+**Q:** SOAP 커넥터에 대한 제한 사항 및 알려진 문제점이 있나요? </br>
+**A:** 예, [SOAP 커넥터의 제한 사항 및 알려진 문제](../api-management/api-management-api-import-restrictions.md#wsdl)를 참조하세요.
 
 **Q:** 사용자 지정 커넥터에 제한이 있나요? </br>
 **A:** 예, [여기에서 사용자 지정 커넥터 제한](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits)을 참조하세요.

@@ -10,7 +10,7 @@
 
 **프리미엄 관리되지 않는 가상 컴퓨터 디스크: 디스크 한도당**
 
-| 프리미엄 저장소 디스크 유형 | P10 | P20 | P30 | P40 | P50 |
+| Premium Storage 디스크 유형 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
 | 디스크 크기 |128GiB |512GiB |1,024GiB(1TB) |2,048GiB(2TB)|4,095GiB(4TB)|
 | 디스크당 최대 IOPS |500 |2,300 |5,000 |7,500 |7,500 |
@@ -21,8 +21,6 @@
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| VM당 최대 IOPS |GS5 VM에서 80,000 IOPS<sup>1</sup> |
-| VM당 최대 처리량 |GS5 VM에서 2,000MB/s<sup>1</sup> |
-
-<sup>1</sup>다른 VM 크기에 대한 한도는 [VM 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+| VM당 최대 IOPS |GS5 VM에서 80,000 IOPS |
+| VM당 최대 처리량 |GS5 VM에서 2,000MB/s |
 

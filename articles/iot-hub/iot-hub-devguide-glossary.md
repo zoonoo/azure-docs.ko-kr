@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [장치 앱](#device-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 장치 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 장치 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통신할 수 있도록 해주는 응용 프로그램을 작성할 수 있습니다. IoT Edge 자습서는 이 서비스를 사용하는 방법을 보여줍니다. 이 GitHub [리포지토리](https://github.com/Azure/iot-edge)에서 Azure IoT Edge에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
+Azure IoT Edge는 조직에서 데이터 관리 대신 비즈니스 통찰력에 집중할 수 있도록 클라우드 분석 및 사용자 지정 비즈니스 논리를 장치로 이동합니다. IoT 소프트웨어를 구성하고, 표준 컨테이너를 통해 장치에 배포하고, 클라우드에서 모니터링하여 솔루션을 진정으로 확장합니다. [Linux](../iot-edge/tutorial-simulate-device-linux.md)나 [Windows](../iot-edge/tutorial-simulate-device-windows.md) 장치에 Azure IoT Edge를 설치하고 사용하는 방법을 보여주는 자습서를 시작합니다.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [백 엔드 앱](#back-end-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 서비스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 서비스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
@@ -54,7 +54,7 @@ IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통�
 ## <a name="azure-service-bus"></a>Azure Service Bus
 [Service Bus](../service-bus/index.md)에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 일부 IoT Hub 자습서는 Service Bus [큐](../service-bus-messaging/service-bus-messaging-overview.md)를 활용합니다.
 
-## <a name="azure-storage"></a>Azure 저장소
+## <a name="azure-storage"></a>Azure Storage
 [Azure Storage](../storage/common/storage-introduction.md)는 클라우드 저장소 솔루션입니다. 여기에는 구조화되지 않은 개체 데이터를 저장하는 데 사용할 수 있는 Blob Storage 서비스가 포함됩니다. 일부 IoT Hub 자습서는 Blob Storage를 사용합니다.
 
 ## <a name="back-end-app"></a>백 엔드 앱
@@ -189,7 +189,7 @@ Azure IoT Suite는 Azure 서비스를 미리 구성된 솔루션과 함께 패�
 [작업 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi)는 IoT Hub에서 실행되는 [작업](#job)을 관리할 수 있게 해줍니다.
 
 ## <a name="module"></a>모듈
-[Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md)에서 [모듈](iot-hub-linux-iot-edge-get-started.md)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Edge에는 일련의 샘플 모듈이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
+[Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)에서 [모듈](../iot-edge/iot-edge-modules.md)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Edge에는 일련의 샘플 모듈이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 장치와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.

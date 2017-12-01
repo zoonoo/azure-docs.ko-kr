@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 5d795a8aaaa8db5b4b5705b0c6ffd303ea1985c0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/06/2017
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure 포털에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 미리 구성된 솔루션에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
 * [azureiotsuite.com][lnk-azureiotsuite]에서 미리 구성된 솔루션을 삭제하면, 미리 구성된 솔루션을 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다. 
-* [Azure Portal][lnk-azure-portal]에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹에서 리소스만 삭제합니다. 또한 [Azure 클래식 포털][lnk-classic-portal]에 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
+* [Azure Portal][lnk-azure-portal]에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹에서 리소스만 삭제합니다. 또한 [Azure Portal][lnk-azure-portal]에 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 IoT Hub 인스턴스는 몇 개인가요?
 
@@ -111,7 +111,6 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/

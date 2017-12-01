@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/15/2017
 >    * Windows Server 1709(빌드 16299) 또는
 >    * x64 기반 장치에서 Windows IoT Core(빌드 16299)
 >
-> Windows IoT Core의 경우[Windows IoT Core에 IoT Edge 런타임 설치][lnk-install-iotcore]의 지침을 따릅니다. 아니면 [Windows 컨테이너를 사용하도록 Docker를 구성][lnk-docker-containers]하고, 선택적으로 다음과 같은 powershell 명령을 사용하여 필수 조건을 검증합니다.
+> Windows IoT Core의 경우 [Windows IoT Core에 IoT Edge 런타임 설치][lnk-install-iotcore]의 지침을 따릅니다. 아니면 [Windows 컨테이너를 사용하도록 Docker를 구성][lnk-docker-containers]하고, 선택적으로 다음과 같은 powershell 명령을 사용하여 필수 조건을 검증합니다.
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -94,6 +94,8 @@ Docker를 확인하여 IoT Edge 에이전트가 모듈로 실행되고 있는지
 docker ps
 ```
 
+![Docker의 edgeAgent 보기](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>모듈 배포
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 이 빠른 시작에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
 
-tempSensor 모듈에서 전송되는 메시지를 봅니다.
+시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![장치에서 세 가지 모듈 보기](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+tempSensor 모듈에서 클라우드로 전송되는 메시지를 봅니다. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![모듈의 데이터 보기](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -138,6 +150,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
 4. **Save**를 클릭합니다.  
 
 > [!NOTE]
-> Linux 파일 추적에는 디렉터리 추적, 디렉터리 재귀 및 와일드 카드 추적과 같은 부가 기능이 포함됩니다.
+> Linux 파일 추적에는 디렉터리 추적, 디렉터리를 통한 재귀 및 와일드 카드 추적과 같은 추가적인 기능이 포함됩니다.
 
 ### <a name="configure-windows-files-to-track"></a>추적할 Windows 파일 구성
 다음 단계를 사용하여 Windows 컴퓨터에서 추적할 파일을 구성합니다.
@@ -96,12 +96,16 @@ ms.lasthandoff: 10/11/2017
 * 네트워크 트래픽이 많을 경우 변경 레코드를 표시하는 데 최대 6시간이 걸릴 수 있습니다.
 * 컴퓨터를 종료하는 동안 구성을 수정하면 컴퓨터는 이전 구성에 속한 파일 변경 내용을 게시할 수 있습니다.
 
+### <a name="known-issues"></a>알려진 문제
+변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
+* 핫픽스 업데이트가 Windows 10 크리에이터 업데이트 및 Windows Server 2016 Core RS3 컴퓨터에 대해 수집되지 않습니다.
+
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
 변경 내용 추적 기능은 설정된 에이전트를 사용하여 소프트웨어 인벤토리 및 Windows 서비스 메타데이터를 수집합니다.
 
 다음 표에서는 데이터 수집 방법 및 변경 내용 추적에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Linux 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Linux 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows 및 Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 변경 유형에 따라 5분부터 50분 자세한 내용은 다음 테이블을 참조하세요. |
 

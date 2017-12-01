@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -51,6 +51,11 @@ ms.lasthandoff: 11/13/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
+
+* DocumentCollection에 UniqueKeyPolicy 속성을 사용하여 문서의 고유 인덱스를 지정하는 기능을 추가합니다.
+* 일부 쿼리 및 저장 프로시저 실행에 대해 사용자 지정 JsonSerializer 설정이 적용되지 않는 버그가 수정되었습니다.
+
 ### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
 
 * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경. 
@@ -270,6 +275,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.19.1](#1.19.1) |2017년 11월 16일 |--- |
 | [1.19.0](#1.19.0) |2017년 11월 10일 |--- |
 | [1.18.1](#1.18.1) |2017년 11월 7일 |--- |
 | [1.18.0](#1.18.0) |2017년 10월 17일 |--- |

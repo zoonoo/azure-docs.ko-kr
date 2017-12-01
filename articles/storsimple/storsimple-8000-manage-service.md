@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 장치에 StorSimple 장치 관리자 서비스 배포
 
@@ -113,6 +113,7 @@ Azure Portal로 서비스를 전환하려면 다음 단계를 수행합니다.
 
 전환이 완료되면 Azure Portal에서 StorSimple 장치 관리자 서비스를 통해 장치를 관리할 수 있습니다. Azure Portal로 마이그레이션하지만 이동하려는 옵션이 보이지 않으면 [요청을 제출](https://aka.ms/ss8000-cx-signup)할 수 있습니다.
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>업데이트 3.0 이전 버전을 실행하는 장치에서 지원되는 작업
 Azure Portal에서는 업데이트 3.0 이상을 실행하는 StorSimple 장치만이 지원됩니다. 이전 버전을 실행하는 장치에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트3.0 이전 버전을 실행하는 장치에서 지원되는 작업을 알아볼 수 있습니다.
 
 | 작업                                                                                                                       | 지원됨      |

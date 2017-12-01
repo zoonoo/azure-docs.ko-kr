@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/13/2017
 >
 >
 
-이 문서는 Azure PowerShell cmdlet을 사용하여 복구 서비스 자격 증명 모음으로부터 Azure VM(가상 컴퓨터)을 복원하고 백업하는 방법을 보여 줍니다. 복구 서비스 자격 증명 모음은 Azure Resource Manager 리소스이며 Azure 백업 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하여 Azure Resource Manager 배포 VM은 물론, Azure 서비스 관리자 배포 VM도 보호할 수 있습니다.
+이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 컴퓨터)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Resource Manager 리소스이며 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하여 Azure Resource Manager 배포 VM은 물론, Azure 서비스 관리자 배포 VM도 보호할 수 있습니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서는 리소스 관리자 모델을 사용하여 생성된 VM 사용에 대해 설명합니다.
@@ -38,11 +38,11 @@ ms.lasthandoff: 10/13/2017
 이 문서는 PowerShell을 사용하여 VM을 보호하고, 복구 지점으로부터 데이터를 복원하는 단계를 안내합니다.
 
 ## <a name="concepts"></a>개념
-Azure Backup Service를 잘 모르는 경우, [Azure 백업이란?](backup-introduction-to-azure-backup.md)에서 서비스에 대한 개요를 확인하세요. 시작하기 전에 먼저 Azure 백업 작업에 필요한 필수 조건 및 현재 VM 솔루션의 제한에 관한 기본 사항을 다루었는지 확인합니다.
+Azure Backup Service를 잘 모르는 경우, [Azure 백업이란?](backup-introduction-to-azure-backup.md)에서 서비스에 대한 개요를 확인하세요. 시작하기 전에 먼저 Azure Backup 작업에 필요한 필수 조건 및 현재 VM 솔루션의 제한에 관한 기본 사항을 다루었는지 확인합니다.
 
 PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시작하는 위치를 이해하는 데 필요합니다.
 
-![복구 서비스 개체 계층 구조](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Recovery Services 개체 계층 구조](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라이브러리의 [Azure Backup - Recovery Services cmdlet](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup)을 참조하세요.
 
@@ -50,7 +50,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 시작하려면
 
 1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (필요한 최소 버전: 1.4.0)
-2. 다음 명령을 입력하여 사용할 수 있는 Azure 백업 PowerShell cmdlet을 찾습니다.
+2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
 
 ```
 PS C:\> Get-Command *azurermrecoveryservices*
@@ -89,14 +89,14 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 
 다음 작업은 PowerShell로 자동화할 수 있습니다.
 
-* 복구 서비스 자격 증명 모음 만들기
+* Recovery Services 자격 증명 모음 만들기
 * Azure VM 백업
 * 백업 작업 트리거
 * 백업 작업 모니터링
 * Azure VM 복원
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
-다음 단계는 복구 서비스 자격 증명 모음을 만드는 과정을 안내합니다. 복구 서비스 자격 증명 모음은 백업 자격 증명 모음과 다릅니다.
+다음 단계는 Recovery Services 자격 증명 모음을 만드는 과정을 안내합니다. Recovery Services 자격 증명 모음은 Backup 자격 증명 모음과 다릅니다.
 
 1. 처음으로 Azure Backup을 사용하는 경우 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
 
@@ -121,7 +121,7 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     ```
 
    > [!TIP]
-   > 많은 Azure 백업 cmdlet에는 복구 서비스 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 복구 서비스 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
+   > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
    >
    >
 
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Azure VM 복원
-Azure 포털을 사용하여 VM을 복원하는 방식과 PowerShell을 사용하여 VM을 복원하는 방식 간에는 주요 차이점이 있습니다. PowerShell을 사용하면 복구 지점에서 디스크 및 구성 정보가 만들어질 때 복원 작업이 완료됩니다.
+Azure 포털을 사용하여 VM을 복원하는 방식과 PowerShell을 사용하여 VM을 복원하는 방식 간에는 주요 차이점이 있습니다. PowerShell을 사용하면 복구 지점에서 디스크 및 구성 정보가 만들어질 때 복원 작업이 완료됩니다. Azure VM 백업에서 몇 개의 파일을 복원하거나 복구하려면 [파일 복구](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup) 섹션을 참조하세요.
 
 > [!NOTE]
 > 복원 작업 중에 가상 컴퓨터는 만들어지지 않습니다.
@@ -282,7 +282,7 @@ Azure 포털을 사용하여 VM을 복원하는 방식과 PowerShell을 사용�
 
 다음 그래픽에서는 RecoveryServicesVault에서 BackupRecoveryPoint까지로 내려가는 개체 계층 구조를 보여 줍니다.
 
-![BackupContainer를 표시하는 복구 서비스 개체 계층 구조](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+![BackupContainer를 표시하는 Recovery Services 개체 계층 구조](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 백업 데이터를 복원하려면 백업 항목 및 지정 시간 데이터가 포함된 복구 지점을 식별합니다. **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet을 사용하여 자격 증명 모음에서 고객의 계정으로 데이터를 복원합니다.
 
@@ -508,5 +508,75 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
+## <a name="restore-files-from-an-azure-vm-backup"></a>Azure VM 백업에서 파일 복원
+
+디스크를 복원하는 것 외에 Azure VM 백업에서 개별 파일을 복원할 수도 있습니다. 복원 파일 기능은 복구 지점에 있는 모든 파일에 대한 액세스 권한을 제공하며 일반 파일에서와 마찬가지로 파일 탐색기를 통해 파일을 관리할 수 있습니다.
+
+Azure VM 백업에서 파일을 복원하는 기본 단계는 다음과 같습니다.
+
+* VM 선택
+* 복구 지점 선택
+* 복구 지점의 디스크 탑재
+* 필요한 파일 복사
+* 디스크 분리
+
+
+### <a name="select-the-vm"></a>VM 선택
+올바른 백업 항목을 식별하는 PowerShell 개체를 가져오려면, 자격 증명 모음에 있는 컨테이너에서 시작하여, 개체 계층 구조를 따라 내려가는 방식으로 작업해야 합니다. VM을 나타내는 컨테이너를 선택하려면 **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet을 사용하고 **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet으로 파이프합니다.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>복구 지점 선택
+**[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** cmdlet을 사용하여 백업 항목에 대한 모든 복구 지점을 나열합니다. 그런 후 복원할 복구 지점을 선택합니다. 사용할 복구 지점을 잘 모를 경우 목록에서 가장 최근의 RecoveryPointType = AppConsistent 지점을 선택하는 것이 좋습니다.
+
+다음 스크립트에서 변수 **$rp**는 과거 7일부터 선택한 백업 항목에 대한 복구 지점의 배열입니다. 배열은 인덱스 0의 가장 최근 복구 지점부터 역 시간순으로 정렬됩니다. 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다. 예에서, $rp[0]은 최신 복구 지점을 선택합니다.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>복구 지점의 디스크 탑재
+
+**[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)** cmdlet을 사용하여 복구 지점의 모든 디스크를 탑재하는 스크립트를 가져옵니다.
+
+> [!NOTE]
+> 디스크는 스크립트가 실행되는 컴퓨터에 iSCSI 연결 디스크로 탑재됩니다. 따라서 순간적으로 작업이 이루어지고 요금이 발생하지 않습니다.
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+파일을 복구할 컴퓨터에서 스크립트를 실행합니다. 스크립트를 실행하려면 위에 표시된 암호를 입력해야 합니다. 디스크가 연결된 후에 Windows 파일 탐색기를 사용하여 새 볼륨 및 파일을 검색합니다. 자세한 내용은 [파일 복구 설명서](backup-azure-restore-files-from-vm.md)를 참조하세요.
+
+### <a name="unmount-the-disks"></a>디스크 분리
+필요한 파일을 복사한 후 **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** cmdlet을 사용하여 디스크를 분리합니다. 복구 지점의 파일에 대한 액세스가 제거되도록 하므로 이 작업은 매우 권장됩니다.
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
+
 ## <a name="next-steps"></a>다음 단계
-PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 [Windows Server용 백업 배포 및 관리](backup-client-automation.md) PowerShell 문서를 참조하세요. DPM 백업을 관리하는 경우 [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation.md) 문서를 참조하세요. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.  
+PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 [Windows Server용 Backup 배포 및 관리](backup-client-automation.md) PowerShell 문서를 참조하세요. DPM 백업을 관리하는 경우 [DPM에 대한 Backup 배포 및 관리](backup-dpm-automation.md) 문서를 참조하세요. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.  

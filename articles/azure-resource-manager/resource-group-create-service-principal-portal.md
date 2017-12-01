@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/14/2017
 * 책임이 변경되면 앱의 자격 증명을 변경할 필요가 없습니다. 
 * 무인 스크립트를 실행할 때 인증서를 사용하여 인증을 자동화할 수 있습니다.
 
-이 토픽에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
+이 문서에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-이 토픽을 완료하려면 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure 구독의 역할에 응용 프로그램을 할당하기 위한 충분한 권한이 있어야 합니다. 이러한 단계를 수행하기 위한 올바른 권한이 있는지 확인해보겠습니다.
+이 문서를 완료하려면 Microsoft Azure Active Directory 테넌트에 응용 프로그램을 등록하고 Azure 구독의 역할에 응용 프로그램을 할당하기 위한 충분한 권한이 있어야 합니다. 이러한 단계를 수행하기 위한 올바른 권한이 있는지 확인해보겠습니다.
 
 ### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory 권한 확인
 
@@ -104,7 +104,7 @@ Azure 구독 권한을 확인하려면
 
    ![앱 추가](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
+1. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API**를 선택합니다. **Native** 응용 프로그램에 대한 자격 증명을 만들 수 없으므로 해당 유형은 자동화된 응용 프로그램에 대해 작동하지 않습니다. 값을 설정한 후 **만들기**를 선택합니다.
 
    ![응용 프로그램 이름 지정](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -164,7 +164,7 @@ Azure 구독 권한을 확인하려면
 
    ![할당을 위한 구독 선택](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-1. **액세스 제어(IAM)**를 선택합니다.
+1. **Access Control(IAM)**을 선택합니다.
 
    ![액세스 선택](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
@@ -197,5 +197,5 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="next-steps"></a>다음 단계
 * 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
-* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.  
+* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.  
 * 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../active-directory/role-based-access-control-resource-provider-operations.md)을 참조하세요.

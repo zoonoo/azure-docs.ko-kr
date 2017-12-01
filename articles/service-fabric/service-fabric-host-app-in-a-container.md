@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric에 Windows 컨테이너로 .NET 응용 프로그램 배포
 
@@ -39,11 +39,14 @@ ms.lasthandoff: 10/11/2017
 4. [Azure PowerShell][link-azure-powershell-install]을 설치합니다.
 5. [Visual Studio 2017용 지속적인 업데이트 도구 확장][link-visualstudio-cd-extension]을 설치합니다.
 6. [Azure 구독][link-azure-subscription] 및 [Visual Studio Team Services 계정][link-vsts-account]을 만듭니다. 
-7. [Azure에서 클러스터 만들기](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Azure에서 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Azure에서 클러스터 만들기
+Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다. 응용 프로그램을 만들어서 배포하기 전에 [Azure에서 실행되는 Service Fabric 클러스터를 설정합니다](service-fabric-tutorial-create-vnet-and-windows-cluster.md). 클러스터를 만들 때 컨테이너 실행을 지원하는 SKU를 선택합니다(예: 컨테이너가 있는 Windows Server 2016 Datacenter).
 
 ## <a name="containerize-the-application"></a>응용 프로그램 컨테이너화
 
-[Azure에서 실행되는 Service Fabric 클러스터](service-fabric-tutorial-create-cluster-azure-ps.md)를 만들었으므로 이제 컨테이너화된 응용 프로그램을 만들고 배포할 준비가 되었습니다. 컨테이너에서 응용 프로그램 실행을 시작하려면 Visual Studio에서 **Docker 지원**을 프로젝트에 추가해야 합니다. 응용 프로그램에 **Docker 지원**을 추가하면 두 가지 동작이 수행됩니다. 첫째, _Dockerfile_ 파일이 프로젝트에 추가됩니다. 이 새로운 파일은 컨테이너 이미지를 빌드하는 방법을 설명합니다. 둘째, 새로운 _docker-compose_ 프로젝트가 솔루션에 추가됩니다. 새 프로젝트에는 몇 가지 docker-compose 파일이 포함되어 있습니다. Docker-compose 파일을 사용하여 컨테이너가 실행되는 방법을 설명할 수 있습니다.
+이제 Azure에서 실행되는 서비스 패브릭 클러스터가 있으니, 컨테이너화된 응용 프로그램을 만들고 배포할 준비가 되었습니다. 컨테이너에서 응용 프로그램 실행을 시작하려면 Visual Studio에서 **Docker 지원**을 프로젝트에 추가해야 합니다. 응용 프로그램에 **Docker 지원**을 추가하면 두 가지 동작이 수행됩니다. 첫째, _Dockerfile_ 파일이 프로젝트에 추가됩니다. 이 새로운 파일은 컨테이너 이미지를 빌드하는 방법을 설명합니다. 둘째, 새로운 _docker-compose_ 프로젝트가 솔루션에 추가됩니다. 새 프로젝트에는 몇 가지 docker-compose 파일이 포함되어 있습니다. Docker-compose 파일을 사용하여 컨테이너가 실행되는 방법을 설명할 수 있습니다.
 
 [Visual Studio 컨테이너 도구][link-visualstudio-container-tools] 작업에 대한 자세한 정보
 

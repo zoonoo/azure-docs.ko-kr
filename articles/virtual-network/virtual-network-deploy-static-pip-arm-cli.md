@@ -1,10 +1,10 @@
 ---
-title: "고정 공용 IP가 있는 VM 만들기 - Azure CLI 2.0 | Microsoft Docs"
-description: "Azure CLI(명령줄 인터페이스) 2.0을 사용하여 고정 공용 IP 주소가 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: "고정 공용 IP가 있는 VM 만들기 - Azure CLI | Microsoft Docs"
+description: "Azure CLI(명령줄 인터페이스)를 사용하여 고정 공용 IP 주소가 있는 VM을 만드는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 고정 공용 IP 주소가 있는 VM 만들기
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI를 사용하여 고정 공용 IP 주소가 있는 VM 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](
 
 ## <a name = "create"></a>VM 만들기
 
-Azure CLI 2.0(이 문서) 또는 [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)을 사용하여 이 태스크를 완료할 수 있습니다. 다음 단계에서 변수에 대한 ""의 값은 시나리오의 설정을 사용하여 리소스를 만듭니다. 사용자 환경에 적절한 값으로 변경합니다.
+다음 단계에서 변수에 대한 ""의 값은 시나리오의 설정을 사용하여 리소스를 만듭니다. 사용자 환경에 적절한 값으로 변경합니다.
 
 1. [Azure CLI 2.0](/cli/azure/install-az-cli2)을 아직 설치하지 않은 경우 설치합니다.
 2. [Linux VM에 SSH 공용 및 개인 키 쌍 만들기](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료하여 Linux VM에 SSH 공용 및 개인 키 쌍을 만듭니다.

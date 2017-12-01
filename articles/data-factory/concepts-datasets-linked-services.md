@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: ko-kr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory의 데이터 집합 및 연결된 서비스 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-create-datasets.md)
@@ -185,9 +183,9 @@ format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할
 [스키마 및 형식 매핑]( copy-activity-schema-and-type-mapping.md)에서 데이터 팩터리에서 원본 데이터를 싱크로 매핑하는 방법 및 구조 정보를 지정하는 시기에 대해 알아봅니다.
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이러한 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다. [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal
+[.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal 등의 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다.
 
-## <a name="v1-vs-v2-datasets"></a>V1과 V2 데이터 집합 비교 
+## <a name="v1-vs-v2-datasets"></a>V1 및 V2 데이터 집합
 
 Data Factory v1 및 v2 데이터 집합 사이에 몇 가지 차이점은 다음과 같습니다. 
 
@@ -202,4 +200,3 @@ Data Factory v1 및 v2 데이터 집합 사이에 몇 가지 차이점은 다음
 - [빠른 시작: PowerShell을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)
 - [빠른 시작: REST API를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md)
 - 빠른 시작: Azure Portal을 사용하여 데이터 팩터리 만들기
-

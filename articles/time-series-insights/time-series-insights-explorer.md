@@ -3,7 +3,7 @@ title: "Azure Time Series Insights 탐색기로 데이터 탐색 | Microsoft Doc
 description: "이 문서에서는 웹 브라우저에서 Azure Time Series Insights 탐색기를 사용하여 빅 데이터의 글로벌 보기를 한눈에 확인하고 IoT 환경을 검증하는 방법을 설명합니다."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.
@@ -50,10 +50,10 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
       - **분할 기준**: 이 드롭다운에는 범주(문자열) 열이 표시됩니다.
       - 측정값 옆에 있는 제어판에서 단계 보간을 사용하도록 설정하고, 최대값과 최소값을 표시하고, Y축을 조정할 수 있습니다.  데이터를 개수, 평균, 데이터의 합계 중 무엇으로 표시할지 조정할 수도 있습니다.
       - 하나의 X축에서 최대 5개의 기간을 더할 수 있습니다.  **copy-down** 단추를 사용하여 기간을 추가하거나 **추가** 단추를 클릭하여 새 기간을 추가합니다.
+     
+        ![기간 편집기 패널](media/time-series-insights-explorer/explorer2.png)
 
-      ![기간 편집기 패널](media/time-series-insights-explorer/explorer2.png)
-
-      - **조건자**: 조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.  지원되는 연산자는 다음과 같습니다.
+      - **조건자**: 조건자 옵션을 사용하면 아래와 같은 연산자를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 선택/클릭하여 검색을 수행하면 검색을 바탕으로 조건자가 자동으로 업데이트됩니다.      지원되는 연산자는 다음과 같습니다.
 
          |작업  |지원되는 형식  |참고 사항  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 지금까지 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봤습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Reliable Services로 서비스 원격 호출
 특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 원격 호출 프레임워크는 서비스에 throw된 예외를 클라이언트에 전파합니다. 따라서 `ServiceProxy` 을 사용하여 클라이언트에서 논리를 예외 처리하는 작업은 서비스가 throw하는 예외를 직접 처리할 수 있습니다.
 
 ## <a name="service-proxy-lifetime"></a>서비스 프록시 수명
-ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만큼 만들 수 있습니다. 서비스 프록시는 사용자가 필요할 때까지 다시 사용할 수 있습니다. Remote Api가 Exception을 발생할 경우 사용자는 여전히 동일한 프록시를 다시 사용할 수 있습니다. 각 서비스 프록시는 유선으로 메시지를 보내는 데 사용되는 통신 클라이언트를 포함합니다. API를 호출하는 동안 사용된 통신 클라이언트가 유효한지 내부적으로 확인합니다. 그 결과에 따라 통신 클라이언트를 다시 만듭니다. 따라서 Exception이 발생하면 사용자는 serviceproxy를 다시 만들 필요가 없습니다.
+ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만큼 만들 수 있습니다. 서비스 프록시 인스턴스는 사용자가 필요할 때까지 다시 사용할 수 있습니다. 원격 프로시저 호출에서 Exception이 발생하는 경우 사용자가 동일한 프록시 인스턴스를 계속 다시 사용할 수 있습니다. 각 서비스 프록시는 유선으로 메시지를 보내는 데 사용되는 통신 클라이언트를 포함합니다. 원격 호출을 수행하는 동안 내부적으로 통신 클라이언트가 유효한지 확인합니다. 그 결과에 따라 필요한 경우 통신 클라이언트를 다시 만듭니다. 따라서 예외가 발생하는 경우 사용자는 서비스 프록시를 다시 만들 필요가 없지만 투명하게 수행됩니다.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 수명
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory)는 다른 원격 인터페이스를 위한 프록시를 만드는 팩터리입니다. API ServiceProxy.Create를 사용하여 프록시를 만들 경우 프레임워크는 단일 ServiceProxyFactory를 만듭니다.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory)는 다른 원격 인터페이스를 위한 프록시 인스턴스를 만드는 팩터리입니다. 프록시를 만들기 위해 api `ServiceProxy.Create`를 사용하는 경우 프레임워크는 단일 ServiceProxy를 만듭니다.
 [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
-팩터리는 비용이 많이 드는 작업입니다. ServiceProxyFactory는 통신 클라이언트의 캐시를 유지 관리합니다.
+팩터리 생성은 비용이 많이 드는 작업입니다. ServiceProxyFactory는 통신 클라이언트의 내부 캐시를 유지 관리합니다.
 ServiceProxyFactory를 가능한 한 오랫동안 캐시하는 것이 가장 좋습니다.
 
 ## <a name="remoting-exception-handling"></a>원격 예외 처리

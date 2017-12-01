@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell을 사용하여 Azure 디스크 관리
 
@@ -58,7 +58,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-응용 프로그램을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 1테라바이트입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM 코어에 대해 두 개의 데이터 디스크를 연결할 수 있습니다. 
+응용 프로그램을 설치하고 데이터를 저장하기 위해 데이터 디스크를 더 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 1테라바이트입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다. 
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
 

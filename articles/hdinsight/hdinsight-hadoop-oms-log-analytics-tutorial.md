@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
@@ -31,7 +31,7 @@ Azure Log Analytics를 사용하여 HDInsight에서 Hadoop 클러스터 작업�
 
 * **Azure 구독** - 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
-* **Azure HDInsight 클러스터**. Azure OMS는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
+* **Azure HDInsight 클러스터**. Azure Operations Management Suite는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
 
     * Hadoop은
     * HBase
@@ -56,7 +56,7 @@ Azure Log Analytics를 사용하여 HDInsight에서 Hadoop 클러스터 작업�
 
     설정을 저장하는 데 몇 분 정도 걸립니다.  완료되면 맨 위에서 **OMS 대시보드 열기** 단추를 볼 수 있습니다. 
 
-    ![OMS 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS 대시보드 열기")
+    ![Operations Management Suite 대시보드 열기](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS 대시보드 열기")
 
 5. **OMS 대시보드 열기**를 클릭합니다.
 6. 메시지가 표시되면 Azure 자격 증명을 입력합니다.

@@ -18,7 +18,7 @@
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |무제한 SNI SSL 연결 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |
 | 통합 부하 분산 장치 | |X |X |X |X |
 | [무중단](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [예약된 Backup](../articles/app-service/web-sites-backup.md) | | | |하루에 1회 |5분마다 1회<sup>8</sup> |
+| [예약된 Backup](../articles/app-service/web-sites-backup.md) | | | |일일 12 |5분마다 1회<sup>8</sup> |
 | [자동 크기 조정](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) 지원 | |X |X |X |X |

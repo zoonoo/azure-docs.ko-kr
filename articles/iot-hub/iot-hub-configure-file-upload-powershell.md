@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
 
@@ -99,7 +99,7 @@ Get-AzureRmStorageAccountKey `
 
 구성에는 다음 값이 필요합니다.
 
-**저장소 컨테이너**: 현재 Azure 구독에 있는 Azure 저장소 계정의 Blob 컨테이너로 IoT Hub와 연결됩니다. 이전 섹션에서 필요한 저장소 계정 정보를 검색했습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 장치에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
+**저장소 컨테이너**: 현재 Azure 구독에 있는 Azure Storage 계정의 Blob 컨테이너로 IoT Hub와 연결됩니다. 이전 섹션에서 필요한 저장소 계정 정보를 검색했습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 장치에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
 
 **업로드된 파일에 대한 알림 받기**: 파일 업로드 알림을 사용하거나 사용하지 않도록 설정합니다.
 
@@ -136,7 +136,7 @@ Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
 * [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
@@ -146,7 +146,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

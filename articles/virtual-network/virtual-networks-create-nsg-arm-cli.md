@@ -1,11 +1,11 @@
 ---
-title: "네트워크 보안 그룹 만들기 - Azure CLI 2.0 | Microsoft Docs"
-description: "Azure CLI 2.0을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
+title: "네트워크 보안 그룹 만들기 - Azure CLI | Microsoft Docs"
+description: "Azure CLI를 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -16,28 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 네트워크 보안 그룹 만들기
+# <a name="create-network-security-groups-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 만들기
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전 
-
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다. 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-다음 샘플 Azure CLI 2.0 명령에는 앞의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 
+다음 샘플 Azure CLI 명령에는 이전 시나리오에 기반한 기존 단순 환경이 필요합니다. 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>`FrontEnd` 서브넷에 대한 NSG 만들기
 

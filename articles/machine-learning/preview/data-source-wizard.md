@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>데이터 원본 마법사 #
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ![1단계](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>3 단계: 데이터 파일을 선택합니다 ##
-파일/디렉터리에 대한 파일 경로를 지정합니다. 드롭다운에서 데이터의 위치를 선택합니다-그 위치는 로컬 파일 경로나 Azure Blob Storage 또는 Azure Data Lake가 될 수 있습니다. 
+파일/디렉터리에 대한 파일 경로를 지정합니다. 드롭다운에서 데이터의 위치를 선택합니다 - 그 위치는 로컬 파일 경로나 Azure Blob Storage가 될 수 있습니다. 
 
 입력하여 경로를 지정하거나 **찾아보기...** 단추를 클릭하여 검색합니다. 디렉터리 또는 하나 이상의 파일을 찾아볼 수 있습니다.
 

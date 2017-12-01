@@ -7,6 +7,9 @@ Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치
 1. **이름** 필드에 `tempSensor`를 입력합니다. 
 1. **이미지 URI** 필드에 `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`를 입력합니다. 
 1. 다른 설정은 변경하지 않고 **저장**을 선택합니다.
+
+   ![이름 및 이미지 URI 입력 후 IoT Edge 모듈 저장](./media/iot-edge-deploy-module/name-image.png)
+
 1. **모듈 추가** 단계로 돌아가서 **다음**을 선택합니다.
 1. **경로 지정** 단계에서 **다음**을 선택합니다.
 1. **템플릿 검토** 단계에서 **제출**을 선택합니다.

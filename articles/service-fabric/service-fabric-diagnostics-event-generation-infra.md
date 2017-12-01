@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>플랫폼 수준 이벤트 및 로그 생성
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 하드웨어와 클러스터가 예상대로 동작하는지 확인하려면 플랫폼 수준에서 모니터링해야 합니다. Service Fabric은 하드웨어 오류 시에도 응용 프로그램을 계속 실행할 수 있지만, 응용 프로그램이나 기본 인프라에서 오류가 발생하는지를 여전히 진단해야 합니다. 하드웨어 추가 또는 제거에 대한 결정 시 도움이 되도록 용량 계획을 개선하려면 클러스터를 모니터링해야 합니다.
 
-Service Fabric은 다음 이벤트를 생성하는 다섯 가지 기본 제공 로그 채널을 제공합니다.
-
-* 작동 채널: 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램 또는 SF 업그레이드 롤백 등이 포함된 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업
+Service Fabric에는 다음 로그 채널이 기본 제공됩니다.
+* 작동 채널: 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램 또는 업그레이드 롤백 등이 포함된 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업
 * 작동 채널 - 상세: 상태 보고서 및 부하 분산 결정
 * 데이터 및 메시징 채널: 메시징(현재는 ReverseProxy만) 및 데이터 경로(신뢰할 수 있는 서비스 모델)에서 생성된 중요한 로그 및 이벤트
 * 데이터 및 메시징 채널 - 상세: 클러스터의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널(이 채널은 상당한 양의 이벤트 포함)   
+
+이들 외에 2개의 구조화된 EventSource 채널이 제공되고 지원을 위해 수집한 로그가 있습니다.
 * [Reliable Services 이벤트](service-fabric-reliable-services-diagnostics.md): 프로그래밍 모델 특정 이벤트
 * [Reliable Actors 이벤트](service-fabric-reliable-actors-diagnostics.md): 프로그래밍 모델 특정 이벤트 및 성능 카운터
 * 지원 로그: 지원을 제공할 때만 사용되는 Service Fabric에서 생성된 시스템 로그

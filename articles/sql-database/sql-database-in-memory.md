@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -118,8 +118,6 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 *기본/표준으로 다운그레이드*: 메모리 내 OLTP는 표준 또는 기본 계층에 있는 데이터베이스에서 지원되지 않습니다. 또한 메모리 내 OLTP 개체가 있는 데이터베이스를 표준 또는 기본 계층에 이동할 수 없습니다.
 
-데이터베이스를 표준/기본으로 다운그레이드하기 전에 모든 메모리 최적화된 테이블 및 테이블 형식뿐만 아니라 고유하게 컴파일된 모든 T-SQL 모듈을 제거합니다.
-
 지정된 데이터베이스가 메모리 내 OLTP를 지원하는지 여부를 프로그래밍 방식으로 이해할 수 있습니다. 다음 Transact-SQL 쿼리를 실행할 수 있습니다.
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 쿼리가 **1**을 반환하는 경우 메모리 내 OLTP는 이 데이터베이스에서 지원됩니다.
 
+데이터베이스를 표준/기본으로 다운그레이드하기 전에 모든 메모리 최적화된 테이블 및 테이블 형식뿐만 아니라 고유하게 컴파일된 모든 T-SQL 모듈을 제거합니다. 다음 쿼리는 데이터베이스를 표준/기본으로 다운그레이드하기 전에 제거해야 하는 모든 개체를 식별합니다.
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *하위 프리미엄 계층으로 다운그레이드*: 메모리 최적화된 테이블의 데이터는 데이터베이스의 가격 책정 계층과 연결되거나 탄력적 풀에서 사용할 수 있는 메모리 내 OLTP 저장소 내에 담겨야 합니다. 가격 책정 계층을 줄이려고 하거나 충분히 사용 가능한 메모리 내 OLTP 저장소가 없는 풀로 데이터베이스를 이동하려는 경우 작업은 실패합니다.
 

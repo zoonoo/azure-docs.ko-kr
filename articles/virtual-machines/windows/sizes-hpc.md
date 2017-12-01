@@ -1,6 +1,6 @@
 ---
 title: "Azure Windows VM 크기 - HPC | Microsoft Docs"
-description: "Azure의 Windows 고성능 컴퓨팅 가상 컴퓨터에 사용할 수 있는 다양한 크기를 나열합니다."
+description: "Azure의 Windows 고성능 컴퓨팅 가상 컴퓨터에 사용할 수 있는 다양한 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: a0596d134e9c26877848f93d72f35bfd2c957570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="high-performance-compute-vm-sizes"></a>고성능 계산 VM 크기
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
   > 현재 Windows Server 2016은 Azure에서 RDMA 연결을 지원하지 않습니다.
   >
 
-* **가용성 집합 또는 클라우드 서비스** – RDMA 지원 VM을 동일한 가용성 집합(Azure Resource Manager 배포 모델을 사용하는 경우) 또는 동일한 클라우드 서비스(클래식 배포 모델을 사용하는 경우)에서 배포합니다. Azure 배치를 사용하는 경우 RDMA 지원 VM이 동일한 풀에 있어야 합니다.
+* **가용성 집합 또는 클라우드 서비스** – RDMA 지원 VM을 동일한 가용성 집합(Azure Resource Manager 배포 모델을 사용하는 경우) 또는 동일한 클라우드 서비스(클래식 배포 모델을 사용하는 경우)에서 배포합니다. Azure Batch를 사용하는 경우 RDMA 지원 VM이 동일한 풀에 있어야 합니다.
 
 * **MPI** - Microsoft MPI(MS-MPI) 2012 R2 이상, Intel MPI Library 5.x
 

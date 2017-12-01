@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-[오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화](network-watcher-using-open-source-tools.md)를 방문하여 탄력적 스택으로 NSG 흐름 로그를 시각화하는 방법 알아보기
+[오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)를 방문하여 탄력적 스택으로 NSG 흐름 로그를 시각화하는 방법 알아보기
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

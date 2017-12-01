@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: 1f335b8b04821e1c0ab26af3df20c3318e9c26cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>작업 예약 및 브로드캐스트(.NET/Node.js)
 
@@ -257,7 +257,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
 IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법][lnk-fwupdate]을 참조하세요
 
-계속해서 IoT Hub를 시작하려면 [IoT Edge 시작][lnk-iot-edge]을 참조하세요.
+Azure IoT Edge로 AI를 에지 장치에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작][lnk-iot-edge]을 참조하세요.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
@@ -269,7 +269,7 @@ IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 �
 [lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

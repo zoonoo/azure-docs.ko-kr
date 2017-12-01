@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Linux VM에 대한 디스크 및 VHD 정보 | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터용 디스크 및 VHD의 기본 사항에 대해 알아봅니다."
+title: "Microsoft Azure Linux VM용 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소 정보 | Microsoft Docs"
+description: "Azure에서 Linux 가상 머신의 관리되지 않는(페이지 Blob) 디스크 및 관리 디스크 저장소의 기본 사항에 대해 알아봅니다."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: be5f09af275142590ec6ade02562e914d5726e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>Azure Linux VM용 디스크 및 VHD 정보
+# <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux VM용 디스크 저장소 정보
 다른 컴퓨터와 마찬가지로, Azure에서 가상 컴퓨터는 운영 체제, 응용 프로그램 및 데이터를 저장하는 장소로 디스크를 사용합니다. 모든 Azure 가상 컴퓨터는 적어도 2개의 디스크(Linux 운영 체제 디스크 및 임시 디스크)를 갖습니다. 운영 체제 디스크는 이미지에서 만들어지며, 운영 체제 디스크 및 이미지 모두는 실제로 Azure 저장소 계정에 저장된 가상 하드 디스크(VHD)입니다. 가상 컴퓨터에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다. 
 
 이 문서에서는 디스크의 여러 가지 사용법에 대해 설명한 후 사용자가 만들고 사용할 수 있는 다양한 디스크 형식에 대해 설명합니다. 이 문서는 [Windows 가상 컴퓨터](../windows/about-disks-and-vhds.md)에도 적용됩니다.
@@ -39,7 +39,7 @@ VM에서 디스크를 사용하는 방법에 대해 살펴보겠습니다.
 
 Linux 가상 컴퓨터에서 디스크는 일반적으로 **/dev/sdb**이며, Azure Linux 에이전트에 의해 **/mnt**로 포맷되고 마운트됩니다. 임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Linux 가상 컴퓨터의 크기](../windows/sizes.md)를 참조하세요.
 
-Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure Virtual Machines에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="data-disk"></a>데이터 디스크 
 데이터 디스크는 응용 프로그램 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 컴퓨터에 연결된 VHD입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 4095GB입니다. 가상 컴퓨터의 크기에 따라 사용자가 해당 가상 컴퓨터에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
@@ -59,6 +59,6 @@ Azure는 사용자가 이미지에서 가상 컴퓨터를 만들 때 운영 체�
 
 ## <a name="next-steps"></a>다음 단계
 * [디스크를 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 하여 VM에 다른 저장소를 추가합니다.
-* 중복성에 대해 [소프트웨어 RAID를 구성](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
-* [Linux 가상 컴퓨터를 캡처](./classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)하여 추가 VM을 신속하게 배포할 수 있습니다.
+* [스냅숏 만들기](snapshot-copy-managed-disk.md).
+* [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md).
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>빠른 시작: Azure Portal에서 Linux 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -66,24 +66,26 @@ IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 �
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 두 개의 모듈로 구성됩니다. 첫째, IoT Edge 에이전트는 IoT Edge 장치에서 모듈의 배포 및 모니터링을 지원합니다. 둘째, IoT Edge 허브는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
 IoT Edge 장치를 실행할 컴퓨터에서 IoT Edge 컨트롤 스크립트를 다운로드합니다.
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 이전 섹션의 IoT Edge 장치 연결 문자열로 런타임을 구성합니다.
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 런타임을 시작합니다.
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Docker를 확인하여 IoT Edge 에이전트가 모듈로 실행되고 있는지 알아봅니다.
-```python
+```cmd
 sudo docker ps
 ```
+
+![Docker의 edgeAgent 보기](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>모듈 배포
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 이 빠른 시작에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
 
-tempSensor 모듈에서 전송되는 메시지를 봅니다.
+시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![장치에서 세 가지 모듈 보기](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+tempSensor 모듈에서 클라우드로 전송되는 메시지를 봅니다.
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![모듈의 데이터 보기](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공합니다.
@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 > * 128바이트 초과.
 > * 1MB 미만.
 > 
-> 이러한 프로필은 **gzip**(GNU zip) **deflate**, **bzip2** 또는 **br**(Brotli) 인코딩을 지원합니다. Brotli 인코딩의 경우 에지에서만 압축이 수행됩니다. 클라이언트/브라우저는 Brotli 인코딩에 대한 요청을 전송해야 하고 압축된 자산은 처음에 원본 쪽에서 먼저 압축되었을 것입니다. 
+> 이러한 프로필은 **gzip**(GNU zip) **deflate**, **bzip2** 또는 **br**(Brotli) 인코딩을 지원합니다. Brotli 인코딩의 경우 원점에서만 압축을 수행하면 됩니다. 클라이언트/브라우저는 Brotli 인코딩에 대한 요청을 전송해야 하고 압축된 자산은 처음에 원본 쪽에서 먼저 압축되었을 것입니다. 
 
 > [!IMPORTANT]
 > **Akamai의 Azure CDN** 프로필의 경우, 모든 파일이 압축에 적합합니다. 그러나 파일은 [압축용으로 구성된](#enabling-compression) MIME 형식이어야 합니다.
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 | 미압축 |미압축 |미압축 | |
 | 미압축 |캐시되지 않음 |미압축 | |
 
-## <a name="media-services-cdn-compression"></a>미디어 서비스 CDN 압축
+## <a name="media-services-cdn-compression"></a>Media Services CDN 압축
 미디어 서비스 CDN 사용 스트리밍 끝점의 경우 압축은 다음 콘텐츠 형식에 대해 기본적으로 사용할 수 있습니다. 
 - application/vnd.ms-sstr+xml 
 - application/dash+xml

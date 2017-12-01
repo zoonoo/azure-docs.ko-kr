@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.openlocfilehash: bca7eea5f44bbed3b784b56edaac235161b43e5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -180,7 +180,7 @@ Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
 * [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -198,6 +198,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

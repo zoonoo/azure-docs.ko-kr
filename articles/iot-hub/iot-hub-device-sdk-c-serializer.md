@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-ms.openlocfilehash: aa03c29c54d75538b1fdf987cac5f09d5d344f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 장치 SDK - 직렬 변환기에 대한 자세한 정보
 이 시리즈의 [첫 번째 문서](iot-hub-device-sdk-c-intro.md)에서는 **C용 Azure IoT 장치 SDK**에 대해 소개했습니다. 다음 문서에서 [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md)에 대해 보다 자세히 설명했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
@@ -671,8 +671,8 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

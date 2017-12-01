@@ -1,6 +1,6 @@
 ---
 title: "Azure Linux VM 크기 - 범용 | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 범용 크기를 나열합니다."
+description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 범용 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 6a79e7e091151bbd3b0a92381edd0d3bda603732
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a426efebb3b68f419498839d0cfb1ce796abc9e0
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 컴퓨터 크기
 

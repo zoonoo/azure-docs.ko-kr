@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -56,6 +56,11 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](documentdb-sdk-do
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)(으)로 전자 메일을 보내세요.
+
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+ 
+ * DocumentCollection에 UniqueKeyPolicy 속성을 사용하여 문서의 고유 인덱스를 지정하는 기능을 추가합니다.
+ * 일부 쿼리 및 저장 프로시저 실행에 대해 사용자 지정 JsonSerializer 설정이 적용되지 않는 버그가 수정되었습니다.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
@@ -150,6 +155,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](documentd
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.7.1](#1.7.1) |2017년 11월 16일 |--- |
 | [1.7.0](#1.7.0) |2017년 11월 10일 |--- |
 | [1.6.0](#1.6.0) |2017년 10월 17일 |--- |
 | [1.5.1](#1.5.1) |2017년 10월 2일 |--- |

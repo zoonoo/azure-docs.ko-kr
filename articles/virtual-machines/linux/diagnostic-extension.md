@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -319,7 +319,7 @@ displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결
 
 counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고 기능과 같이 메트릭의 소비자는 counterSpecifier를 메트릭 또는 메트릭 인스턴스를 식별하는 "키"로 사용합니다. `builtin` 메트릭의 경우 `/builtin/`으로 시작하는 counterSpecifier 값을 사용하는 것이 좋습니다. 특정 메트릭 인스턴스를 수집하는 경우 counterSpecifier 값에 인스턴스 식별자를 연결하는 것이 좋습니다. 일부 사례:
 
-* `/builtin/Processor/PercentIdleTime` - 모든 코어의 평균 유휴 시간
+* `/builtin/Processor/PercentIdleTime` - 모든 vCPU의 평균 유휴 시간
 * `/builtin/Disk/FreeSpace(/mnt)` - /mnt 파일 시스템의 사용 가능한 공간
 * `/builtin/Disk/FreeSpace` - 탑재된 모든 파일 시스템의 평균 사용 가능한 공간
 
@@ -424,7 +424,7 @@ sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 �
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>프로세서 클래스의 기본 제공 메트릭
 
-메트릭의 프로세서 클래스는 VM의 프로세서 사용량에 대한 정보를 제공합니다. 백분율을 집계하는 경우 결과는 모든 CPU에서의 평균입니다. 2 코어 VM에서 하나의 코어가 100% 사용 중이고 다른 코어가 100% 유휴 상태인 경우 보고되는 PercentIdleTime은 50입니다. 같은 기간 동안 각 코어가 50% 사용 중인 경우에도 보고되는 결과는 50입니다. 4 코어 VM에서 하나의 코어가 100% 사용 중이고 나머지가 유휴 상태인 경우 보고되는 PercentIdleTime은 75입니다.
+메트릭의 프로세서 클래스는 VM의 프로세서 사용량에 대한 정보를 제공합니다. 백분율을 집계하는 경우 결과는 모든 CPU에서의 평균입니다. 2 vCPU VM에서 하나의 vCPU가 100% 사용 중이고 다른 vCPU가 100% 유휴 상태인 경우 보고되는 PercentIdleTime은 50입니다. 같은 기간 동안 각 vCPU가 50% 사용 중인 경우에도 보고되는 결과는 50입니다. 하나의 vCPU는 100% 사용 중이고 다른 vCPU는 유휴 상태인 4 vCPU VM에서 보고되는 PercentIdleTime은 75입니다.
 
 counter | 의미
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | 비 유휴 시간 동안 특권(커널) 모드에서 소
 
 처음 4개 카운터의 합계가 100%가 되어야 합니다. 마지막 3개 카운터의 합계도 100%이고 PercentProcessorTime, PercentIOWaitTime 및 PercentInterruptTime의 합계도 100%가 되어야 합니다.
 
-모든 프로세서에 대해 집계된 단일 메트릭을 얻으려면 `"condition": "IsAggregate=TRUE"`를 설정합니다. 특정 프로세서(예: 4 코어 VM의 두 번째 논리 프로세서)에 대한 메트릭을 얻으려면 `"condition": "Name=\\"1\\""`를 설정합니다. 논리 프로세서 수는 `[0..n-1]` 범위에 있습니다.
+모든 프로세서에 대해 집계된 단일 메트릭을 얻으려면 `"condition": "IsAggregate=TRUE"`를 설정합니다. 특정 프로세서(예: 4 vCPU VM의 두 번째 논리 프로세서)에 대한 메트릭을 얻으려면 `"condition": "Name=\\"1\\""`를 설정합니다. 논리 프로세서 수는 `[0..n-1]` 범위에 있습니다.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>메모리 클래스의 기본 제공 메트릭
 

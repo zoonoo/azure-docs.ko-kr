@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: 3fabfee169c3ebedc7bca81a6a6d9a44171daf20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Azure에서 가상 컴퓨터를 관리하기 위한 Ansible 설치 및 구성
 이 문서에는 가장 일반적인 Linux 배포판 중 일부에 대해 Ansible 및 필요한 Azure Python SDK 모듈을 설치하는 방법을 자세히 설명합니다. 설치된 패키지를 특정 플랫폼에 맞게 조정하여 다른 배포판에 Ansible을 설치할 수 있습니다. Azure 리소스를 안전하게 만들기 위해 Ansible에 대한 자격 증명을 만들고 정의하는 방법도 알아봅니다. 
@@ -38,7 +38,7 @@ az group create --name myResourceGroupAnsible --location eastus
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
-- [SLES 12.2 SP2](#sles-122-sp2)
+- [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 다음 예제에서는 *myVMAnsible*이라는 VM을 만듭니다.
@@ -103,7 +103,7 @@ sudo pip install ansible[azure]
 이제 계속해서 [Azure 자격 증명 만들기](#create-azure-credentials) 작업을 수행합니다.
 
 
-### <a name="sles-122-sp2"></a>SLES 12.2 SP2
+### <a name="sles-12-sp2"></a>SLES 12 SP2
 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 다음 예제에서는 *myVMAnsible*이라는 VM을 만듭니다.
 
 ```bash

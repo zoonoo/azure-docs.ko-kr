@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="pen-testing"></a>펜 테스트
-응용 프로그램 테스트 및 배포를 위해 Microsoft Azure를 사용하는 장점은 응용 프로그램을 개발하고, 테스트하고, 배포하기 위해 온-프레미스 인프라를 준비할 필요가 없다는 것입니다. 모든 인프라는 Microsoft Azure Platform 서비스에서 처리합니다. 자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
+응용 프로그램 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다.  자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.
 
 이것은 좋은 일입니다 – 그렇지만 여전히 일반적인 보안 실사는 수행해야 합니다. 수행해야 할 일 중 하나는 Azure에서 배포하는 응용 프로그램에 대한 침투 테스트를 하는 것입니다.
 
-Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 수행하는 것에 관해 어쩌면 이미 알고 계실 것입니다. 이는 보안 제어를 개선하고, 신규 보안 제어를 소개하고, 보안 프로세스를 개선하는 관점에서 우리 작업을 이끌고 플랫폼을 개선하는데 도움이 됩니다.
+Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 수행하는 것에 관해 어쩌면 이미 알고 계실 것입니다. 이는 Azure 개선에 많은 도움이 됩니다. 
 
 우리는 여러분을 위해 응용 프로그램을 펜 테스트하지는 않지만, 여러분이 자신의 응용 프로그램에 펜 테스트를 수행하기를 원하며 그럴 필요가 있다는 것을 이해합니다. 응용 프로그램의 보안을 강화할 때 Azure 전체 에코시스템을 보다 안전하게 보호하는데 도움이 되기 때문에 그렇게 하는 것이 좋습니다.
 
@@ -33,7 +33,8 @@ Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.mi
 
 그렇다면 어떻게 해야 할까요?
 
-Azure 호스팅 응용 프로그램을 펜 테스트할 준비가 되면 [Microsoft에 알려주시기 바랍니다](https://portal.msrc.microsoft.com/en-us/engage/pentest). 특정 테스트를 수행할 것이라고 알게 되면 [Microsoft Cloud 통합 침투 테스트 참여 규칙(영문)](https://technet.microsoft.com/en-us/mt784683)에서 설명한 대로 테스트에서 Azure 펜 테스트 조건을 따르는 한 테스트가 실수로 종료되지 않을 것입니다(예: 여러분이 테스트 중인 IP 주소 차단).
+Azure 호스팅 응용 프로그램을 펜 테스트할 준비가 되면 [Microsoft에 알려주시기 바랍니다](https://portal.msrc.microsoft.com/en-us/engage/pentest). 알림을 받으면 Microsoft가 실수로 사용자를 종료하는 일이 없습니다(예: 사용자가 테스트 중인 IP 주소를 차단). 테스트가 [Microsoft 클라우드 통합 침투 테스트 참여 규칙](https://technet.microsoft.com/en-us/mt784683)에 설명된 Azure 펜 테스트 사용 조건을 따라야 합니다.
+
 여러분이 수행할 수 있는 표준 테스트는 다음과 같습니다.
 
 * [OWASP(Open Web Application Security Project) 취약점 상위 10개](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -42,4 +43,6 @@ Azure 호스팅 응용 프로그램을 펜 테스트할 준비가 되면 [Micros
 
 여러분이 수행할 수 없는 한가지 유형의 테스트는 모든 종류의 [서비스 거부 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이는 DoS 공격 자체를 시작하거나, 모든 종류의 DoS 공격을 결정, 시연 또는 시뮬레이션할 수도 있는 관련 테스트를 수행하는 것을 포함합니다.
 
-Microsoft Azure에서 호스팅된 응용 프로그램의 펜 테스트를 시작할 준비가 되셨습니까? 그렇다면, [침투 테스트 개요](https://technet.microsoft.com/library/mt784683.aspx) 페이지를 참조하고 (페이지 맨 아래에 있는 테스트 요청 만들기 버튼을 클릭합니다. 또한 펜 테스트 조건에 대한 더 많은 정보와 Azure 또는 다른 모든 Microsoft 서비스와 관련된 보안 결함을 보고할 수 방법에 대한 유용한 링크도 있습니다.
+## <a name="next-steps"></a>다음 단계
+
+- Microsoft Azure에서 호스팅된 응용 프로그램의 펜 테스트를 시작할 준비가 되셨습니까? 그렇다면, [침투 테스트 개요](https://technet.microsoft.com/library/mt784683.aspx) 페이지를 참조하고 (페이지 맨 아래에 있는 테스트 요청 만들기 버튼을 클릭합니다. 

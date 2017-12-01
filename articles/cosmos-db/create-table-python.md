@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>빠른 시작: Python 및 Azure Cosmos DB를 사용하여 테이블 API 응용 프로그램 빌드
 
-이 빠른 시작은 GitHub에서 예제를 복제하여 앱을 빌드하기 위해 Python과 Azure Cosmos DB [테이블 API](table-introduction.md)를 사용하는 방법을 보여 줍니다. 이 빠른 시작은 Azure Cosmos DB 계정을 만드는 방법과 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법을 보여 줍니다.
+이 빠른 시작은 GitHub에서 예제를 복제하여 앱을 빌드하기 위해 Python과 Azure Cosmos DB [테이블 API](table-introduction.md)를 사용하는 방법을 보여 줍니다. 또한 Azure Cosmos DB 계정을 만드는 방법 및 데이터 탐색기를 사용하여 웹 기반 Azure Portal에 테이블과 엔터티를 만드는 방법도 보여줍니다.
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값, 와이드 열 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평 크기 조정 기능의 이점을 모두 활용하여 문서, 키/값, 전체 열 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,6 +38,10 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * [python.org](https://www.python.org/downloads/release/python-2712/)의 Python 2.7
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+
+> [!IMPORTANT] 
+> 일반 공급 Table API SDK를 사용하려면 새 Table API 계정을 만들어야 합니다. 미리 보기 중에 만들어진 Table API 계정은 일반 공급 SDK에서 지원되지 않습니다.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![연결 문자열 창에서 연결 문자열 보기 및 복사](./media/create-table-python/connection-string.png)
 
-2. config.py 파일을 열고 필요한 연결 문자열 속성을 구성 파일에 복사합니다.
+2. 오른쪽에 있는 단추를 사용하여 계정 이름을 복사합니다.
+
+3. config.py 파일을 열고 포털의 계정 이름을 19번째 줄의 STORAGE_ACCOUNT_NAME 값에 붙여넣습니다.
+
+4. 포털로 돌아가서 기본 키를 복사합니다.
+
+5. 포털의 기본 키를 20번째 줄의 STORAGE_ACCOUNT_KEY 값에 붙여넣습니다.
 
 3. config.py 파일을 저장합니다.
 
@@ -111,4 +121,4 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 테이블을 만들고, 앱을 실행하는 방법을 알아보았습니다.  이제 테이블 API를 사용하여 데이터를 쿼리할 수 있습니다.  
 
 > [!div class="nextstepaction"]
-> [테이블 API로 테이블 데이터 가져오기](table-import.md)
+> [Table API로 테이블 데이터 가져오기](table-import.md)

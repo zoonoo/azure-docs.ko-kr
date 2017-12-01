@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: e4ee80826a710bde9483d130a4d1c986a72645ca
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 쿼리하여 HDInsight 클러스터 모니터링
 
@@ -33,7 +33,7 @@ Azure HDInsight 클러스터에서 Azure Log Analytics를 사용하는 방법에
 
 * HDInsight 클러스터에서 Azure Log Analytics를 사용하도록 구성되어 있어야 합니다. 지침은 [HDInsight 클러스터에서 Azure Log Analytics 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조하세요.
 
-* [Log Analytics에 HDInsight 클러스터 관리 솔루션 추가](hdinsight-hadoop-oms-log-analytics-management-solutions.md)에서 설명한 대로 OMS 작업 영역에 HDInsight 클러스터와 관련된 관리 솔루션이 추가되어 있어야 합니다.
+* [Log Analytics에 HDInsight 클러스터 관리 솔루션 추가](hdinsight-hadoop-oms-log-analytics-management-solutions.md)에서 설명한 대로 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md) 작업 영역에 HDInsight 클러스터와 관련된 관리 솔루션이 추가되어 있어야 합니다.
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight 클러스터 메트릭 분석
 
@@ -152,5 +152,5 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 ## <a name="see-also"></a>참고 항목
 
-* [OMS Log Analytics 작업(영문)](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Operations Management Suite Log Analytics 작업](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Log Analytics에서 경고 규칙 만들기](../log-analytics/log-analytics-alerts-creating.md)

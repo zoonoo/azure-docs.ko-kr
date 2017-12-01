@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: ae896bc5d795a733357ac08d370433d7475d2eb2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -35,6 +35,10 @@ ms.lasthandoff: 11/15/2017
 |**자습서**|[Azure Cosmos DB: .NET의 Table API를 사용하여 개발](tutorial-develop-table-dotnet.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
+> [!IMPORTANT]
+> 미리 보기 도중에 Table API 계정을 만든 경우 일반 공급되는 Table API SDK와 작동하는 [새 Table API 계정](create-table-dotnet.md#create-a-database-account)을 만드세요.
+>
+
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -44,7 +48,7 @@ ms.lasthandoff: 11/15/2017
 * 초기 미리 보기 릴리스
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
-Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
+Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
 
@@ -56,7 +60,26 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | [1.0.0](#1.0.0) |2017년 11월 15일|--- |
 | [0.9.0-preview](#0.1.0-preview) |2017년 11월 11일 |--- |
 
+## <a name="troubleshooting"></a>문제 해결
+
+Microsoft.Azure.CosmosDB.Table NuGet 패키지를 사용하려고 할 때, 오류가 발생하면 
+
+```
+Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
+'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
+```
+
+문제를 해결할 수 있는 두 가지 옵션이 있습니다.
+
+* 패키지 관리 콘솔을 사용하여 Microsoft.Azure.CosmosDB.Table 패키지와 해당 종속성을 설치합니다. 이렇게 하려면 솔루션의 패키지 관리자 콘솔에 다음을 입력합니다. 
+    ```
+    Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
+    ```
+    
+* 원하는 Nuget 패키지 관리 도구를 사용하여 Microsoft.Azure.CosmosDB.Table을 설치하기 전에 Microsoft.Azure.Storage.Common Nuget 패키지를 설치합니다.
+
 ## <a name="faq"></a>FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>참고 항목

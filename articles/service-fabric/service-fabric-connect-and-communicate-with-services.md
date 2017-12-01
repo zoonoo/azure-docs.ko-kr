@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>서비스 패브릭에서 서비스와 연결 및 통신
 서비스 패브릭에서 서비스는 일반적으로 여러 VM에 배포된 서비스 패브릭 클러스터의 임의 위치에서 실행됩니다. 서비스 소유자에 의해 한 위치에서 다른 위치로 이동하거나 서비스 패브릭에 의해 자동으로 이동할 수 있습니다. 서비스는 특정 컴퓨터 또는 주소에 정적으로 연결되지 않습니다.

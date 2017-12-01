@@ -1,6 +1,6 @@
 ---
 title: "Linux Azure VM 크기 - 메모리 | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 메모리 최적화 크기를 나열합니다."
+description: "Azure의 Linux 가상 컴퓨터에 사용할 수 있는 다양한 메모리 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 61ab4e818c4152104769a547c6f8af064278b948
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 컴퓨터 크기
 

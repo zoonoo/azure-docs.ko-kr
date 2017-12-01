@@ -1,6 +1,8 @@
 ---
 title: "Azure Time Series Insights에서 문제 진단 및 해결 | Microsoft Docs"
 description: "이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 일반적인 문제를 진단하고 해결하는 방법을 설명합니다."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -26,7 +28,7 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>가능한 원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 * IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다.
 
-   ![Iot Hub 서비스 연결 사용 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   ![Iot Hub 서비스 연결 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    위의 이미지에 표시된 것처럼 **iothubowner** 및 **서비스** 정책에는 모두 **서비스 연결** 사용 권한이 있으므로 둘 중 하나가 작동합니다.
    

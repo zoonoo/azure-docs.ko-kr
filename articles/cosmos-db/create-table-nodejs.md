@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -38,6 +38,10 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+
+> [!IMPORTANT] 
+> 일반 공급 Table API SDK를 사용하려면 새 Table API 계정을 만들어야 합니다. 미리 보기 중에 만들어진 Table API 계정은 일반 공급 SDK에서 지원되지 않습니다.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -74,8 +78,6 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. 그런 다음 Visual Studio에서 솔루션을 엽니다. 
-
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
@@ -84,7 +86,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![[연결 문자열] 창에서 필요한 연결 문자열 정보 보기 및 복사](./media/create-table-nodejs/connection-string.png)
 
-2. app.config 파일을 열고, 필요한 연결 문자열 속성을 구성 파일에 복사합니다.
+2. 오른쪽의 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
+
+3. app.config 파일을 열고 세 번째 줄의 connectionString에 값을 붙여 넣습니다. 
+
+    > [!IMPORTANT]
+    > 엔드포인트에 documents.azure.com을 사용하면 미리 보기 계정이 있다는 의미이며 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다.
+    >
 
 3. app.config 파일을 저장합니다.
 
@@ -94,14 +102,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. git 터미널 창에서 storage-table-java-getting-started 폴더로 `cd`를 실행합니다.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. git 터미널 창에서 다음 명령을 실행하여 Java 응용 프로그램 시작을 실행합니다.
+2. 다음 명령을 실행하여 [azure], [node-uuid], [nconf] 및 [async] 모듈을 로컬에 설치하고 해당 모듈의 항목을 package.json 파일에 저장합니다.
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. git 터미널 창에서 다음 명령을 실행하여 Node 응용 프로그램 시작을 실행합니다.
+
+    ```
     node ./tableSample.js 
     ```
 
