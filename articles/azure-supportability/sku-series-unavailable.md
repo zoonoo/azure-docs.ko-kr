@@ -3,41 +3,76 @@ title: "SKU 시리즈 사용할 수 없음 | Microsoft Docs"
 description: "이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없습니다."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>SKU 시리즈 사용할 수 없음
-일부 지역에서는 특정 SKU를 새 구독에서 자동으로 사용할 수 없습니다.  이러한 현상은 [지역에 더 강력한 SKU가 도입되고](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) 레거시 SKU의 인지도가 감소할 때 발생할 수 있습니다.
-계산 코어 할당량을 늘리는 지원 요청을 생성할 때 "*Some SKU series are unavailable for the selected subscription for this region(이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없습니다)*" 메시지가 표시됩니다.
+# <a name="region-or-sku-unavailable"></a>지역 또는 SKU 사용할 수 없음
+이 문서에서는 Azure 구독에 지역 또는 VM SKU에 대한 액세스 권한이 없는 문제를 해결하는 방법을 설명합니다.
 
-[지역별 Azure 서비스](https://azure.microsoft.com/regions/#services) 페이지에서 SKU 가용성을 검토할 수 있습니다. 
+## <a name="symptoms"></a>증상
 
-구독에서 제한된 SKU로 액세스를 요청하려면 "구독 관리" 지원 요청을 생성합니다.
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>가상 머신을 배포할 때 다음 메시지 중 하나가 표시됩니다.
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* 기본 페이지에서 문제 유형으로 "구독 관리"를 선택하고 "다음"을 클릭합니다.
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>예약 가상 머신 인스턴스를 구입할 때 다음 메시지 중 하나가 표시됩니다.
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>계산 코어 할당량을 늘리도록 지원을 요청할 때 지역 또는 SKU 제품군을 선택할 수 없습니다.
+
+## <a name="solution"></a>해결 방법
+먼저 비즈니스 요구를 충족하는 대체 지역 또는 SKU를 사용하는 것이 좋습니다. 적합한 지역 또는 SKU를 찾을 수 없다면 다음 단계를 수행하여 "구독 관리" [지원을 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)합니다.
+
+
+- 기본 페이지에서 문제 유형을 "구독 관리"로 선택하고, 구독을 선택한 후 "다음"을 클릭합니다.
 
 ![기본 사항 블레이드](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* 문제 페이지에서 문제 유형으로 "기타 일반 질문"을 선택하고 표시되지 않는 정확한 지역 및 SKU를 입력합니다.
-  그러면 지원 과정을 신속하게 처리할 수 있습니다.
+
+-   문제 페이지에서 문제 유형을 "기타 일반적인 질문"으로 선택합니다.
+- 세부 정보 섹션에서:
+  - 가상 머신을 배포하거나 예약 가상 머신 인스턴스를 구입하려고 하는지를 알려주세요.
+  - 배포하거나 구입하려고 계획 중인 지역, SKU 및 가상 머신 인스턴스 수를 지정하세요
+
 
 ![문제](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* 연락처 정보 페이지에서 연락처 세부 정보를 입력하고 "만들기"를 클릭합니다.
+-   연락처 정보를 입력하고 "만들기"를 클릭합니다.
 
 ![연락처 정보](./media/SKU-series-unavailable/ContactInformation.png)
 

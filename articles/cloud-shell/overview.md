@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
@@ -82,12 +82,12 @@ Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 �
 [Azure Cloud Shell 저장소, 파일 공유 업데이트 및 파일 업로드/다운로드에 대해 자세히 알아봅니다.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>개념
-* Cloud Shell은 세션 별, 사용자 단위 기준으로 제공된 임시 컴퓨터에서 실행됩니다.
+* Cloud Shell은 세션 별, 사용자 단위 기준으로 제공된 임시 호스트에서 실행됩니다.
 * Cloud Shell은 대화형 작업 없이 20분 후에 시간이 초과됩니다.
-* Cloud Shell은 첨부된 파일 공유를 사용하여 액세스할 수 있습니다.
-* Azure Cloud Shell은 Bash와 PowerShell 모두에 대해 동일한 파일 공유를 사용합니다.
+* Cloud Shell은 파일 공유를 탑재해야 합니다.
+* Cloud Shell은 Bash 및 PowerShell 모두에 동일한 파일 공유를 사용합니다.
 * Cloud Shell은 사용자 계정 별로 하나의 컴퓨터를 할당합니다.
-* 사용 권한은 일반적인 Linux 사용자로 설정됩니다.
+* 사용 권한은 Bash의 일반적인 Linux 사용자로 설정됩니다.
 
 [Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell(미리 보기)](features-powershell.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
 
@@ -102,5 +102,5 @@ Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 �
 탑재된 Azure Files 공유의 필수 구성 요소를 포함하여 Azure Cloud Shell을 호스트하는 컴퓨터는 추가 비용 없이 사용할 수 있습니다. 일반 저장소 비용이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell의 Bash 빠른 시작](quickstart.md)
+[Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
 [Cloud Shell의 PowerShell(미리 보기) 빠른 시작](quickstart-powershell.md)

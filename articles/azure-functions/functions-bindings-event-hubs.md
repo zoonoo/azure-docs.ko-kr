@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions Event Hubs 바인딩 | Microsoft Docs"
+title: "Azure Functions Event Hubs 바인딩"
 description: "Azure Functions에서 Azure Event Hubs 바인딩을 사용하는 방법을 이해합니다."
 services: functions
 documentationcenter: na
@@ -14,57 +14,74 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 85eb6985ef3579b1b2313db3ce5f91c3471da72f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure Functions Event Hubs 바인딩
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 바인딩을 구성하고 코딩하는 방법에 대해 설명합니다.
-Azure Functions는 이벤트 허브에 대한 트리거 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 바인딩을 사용하는 방법에 대해 설명합니다. Azure Functions는 Event Hubs에 대한 트리거 및 출력 바인딩을 지원합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Azure Event Hubs를 처음 사용하는 경우 [Event Hubs 개요](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
+## <a name="event-hubs-trigger"></a>Event Hubs 트리거
 
-<a name="trigger"></a>
-
-## <a name="event-hub-trigger"></a>Event Hubs 트리거
 Event Hubs 트리거를 사용하여 이벤트 허브 이벤트 스트림으로 보낸 이벤트에 응답합니다. 트리거를 설정하려면 이벤트 허브에 대한 읽기 권한이 있어야 합니다.
 
-Event Hubs 함수 트리거는 function.json의 `bindings` 배열에 있는 다음 JSON 개체를 사용합니다.
+Event Hubs 트리거 함수를 트리거하는 경우 트리거되는 메시지가 함수에 문자열로 전달됩니다.
 
-```json
+## <a name="trigger---example"></a>트리거 - 예제
+
+언어 관련 예제를 참조하세요.
+
+* [미리 컴파일된 C#](#trigger---c-example)
+* [C# 스크립트](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>트리거 - C# 예제
+
+다음 예제에서는 이벤트 허브 트리거의 메시지 본문을 기록하는 [미리 컴파일된 C#](functions-dotnet-class-library.md) 코드를 보여줍니다.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
 {
-    "type": "eventHubTrigger",
-    "name": "<Name of trigger parameter in function signature>",
-    "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
-    "connection": "<Name of app setting with connection string - see below>"
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
-`consumerGroup`은 선택적 속성으로, 허브의 이벤트를 구독하는 데 사용되는 [소비자 그룹](../event-hubs/event-hubs-features.md#event-consumers)을 설정합니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다.  
-`connection`은 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름이어야 합니다.
-이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.
+이벤트 메타데이터에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 `using` 문이 필요함).
 
-host.json 파일에 [추가 설정](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 제공하여 Event Hubs 트리거를 더 세밀하게 튜닝할 수 있습니다.  
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+일괄 처리에서 이벤트를 수신하려면 `string` 또는 `EventData` 배열을 만듭니다.
 
-<a name="triggerusage"></a>
+```cs
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
 
-## <a name="trigger-usage"></a>트리거 사용
-Event Hubs 트리거 함수를 트리거하는 경우 트리거되는 메시지가 함수에 문자열로 전달됩니다.
+### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
-<a name="triggersample"></a>
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
 
-## <a name="trigger-sample"></a>트리거 샘플
-function.json의 `bindings` 배열에 다음과 같은 Event Hubs 트리거가 있다고 가정합니다.
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
 ```json
 {
@@ -75,16 +92,7 @@ function.json의 `bindings` 배열에 다음과 같은 Event Hubs 트리거가 �
   "connection": "myEventHubReadConnectionString"
 }
 ```
-
-이벤트 허브 트리거의 메시지 본문을 기록하는 언어별 샘플을 참조하세요.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.JS](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>C#에서 트리거 샘플 #
+C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System;
@@ -95,7 +103,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-또한 해당 이벤트를 이벤트 메타데이터에 액세스할 수 있도록 하는 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체로도 수신할 수 있습니다.
+이벤트 메타데이터에 대한 액세스를 얻으려면 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 개체에 바인딩합니다(`Microsoft.ServiceBus.Messaging`에 using 문이 필요함).
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +116,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-이벤트를 일괄로 수신하려면 메서드 서명을 `string[]` 또는 `EventData[]`로 변경합니다.
+일괄 처리에서 이벤트를 수신하려면 `string` 또는 `EventData` 배열을 만듭니다.
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -120,18 +128,46 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>트리거 - F# 예제
 
-### <a name="trigger-sample-in-f"></a>F#에서 트리거 샘플 #
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+F# 코드는 다음과 같습니다.
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
     log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
-### <a name="trigger-sample-in-nodejs"></a>Node.js에서 트리거 샘플
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
 
 ```javascript
 module.exports = function (context, myEventHubMessage) {
@@ -140,39 +176,68 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>트리거 - 미리 컴파일된 C#의 특성
+
+[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
+
+특성의 생성자는 이벤트 허브의 이름, 소비자 그룹의 이름 및 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [트리거 구성 섹션](#trigger---configuration)을 참조하세요. `EventHubTriggerAttribute` 특성 예제는 다음과 같습니다.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+```
+
+## <a name="trigger---configuration"></a>트리거 - 구성
+
+다음 표에서는 *function.json* 파일 및 `EventHubTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+
+|function.json 속성 | 특성 속성 |설명|
+|---------|---------|----------------------|
+|**type** | 해당 없음 | `eventHubTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 이벤트 항목을 나타내는 변수의 이름입니다. | 
+|**path** |**EventHubName** | 이벤트 허브의 이름입니다. | 
+|**consumerGroup** |**ConsumerGroup** | 허브에서 이벤트를 구독하는 데 사용되는 [소비자 그룹](../event-hubs/event-hubs-features.md#event-consumers)을 설정하는 선택적 속성입니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다. | 
+|**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.<br/>로컬로 개발하는 경우 앱 설정은 [local.settings.json 파일](functions-run-local.md#local-settings-file) 값으로 이동합니다.|
+
+## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
+
+[host.json](functions-host-json.md#eventhub) 파일에는 Event Hubs 트리거 동작을 제어하는 설정이 포함됩니다.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="event-hubs-output-binding"></a>Event Hubs 출력 바인딩
-Event Hubs 출력 바인딩을 사용하여 이벤트 허브 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
 
-출력 바인딩은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
+Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
 
-```json
+## <a name="output---example"></a>출력 - 예제
+
+언어 관련 예제를 참조하세요.
+
+* [미리 컴파일된 C#](#output---c-example)
+* [C# 스크립트](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>출력 - C# 예제
+
+다음 예제에서는 메서드 반환 값을 출력으로 사용하여 이벤트 허브로 메시지를 쓰는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
-    "type": "eventHub",
-    "name": "<Name of output parameter in function signature>",
-    "path": "<Name of event hub>",
-    "connection": "<Name of app setting with connection string - see below>"
-    "direction": "out"
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    return $"{DateTime.Now}";
 }
 ```
 
-`connection`은 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름이어야 합니다.
-이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.
+### <a name="output---c-script-example"></a>출력 - C# 스크립트 예제
 
-## <a name="output-usage"></a>출력 사용
-이 섹션에서는 함수 코드에서 Event Hubs 출력 바인딩을 사용하는 방법을 보여 줍니다.
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
-다음 매개 변수 형식의 구성된 이벤트 허브로 메시지를 출력할 수 있습니다.
-
-* `out string`
-* `ICollector<string>`(여러 메시지 출력)
-* `IAsyncCollector<string>`(비동기 버전의 `ICollector<T>`)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>출력 샘플
-function.json의 `bindings` 배열에 다음과 같은 Event Hubs 출력 바인딩이 있다고 가정합니다.
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
 ```json
 {
@@ -184,15 +249,7 @@ function.json의 `bindings` 배열에 다음과 같은 Event Hubs 출력 바인�
 }
 ```
 
-짝수 스트림에 이벤트를 작성하는 언어별 샘플을 참조하세요.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.JS](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
+단일 메시지를 만드는 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System;
@@ -205,7 +262,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-또는 여러 메시지 만들려면 다음을 수행합니다.
+여러 메시지를 만드는 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -217,9 +274,23 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>출력 - F# 예제
 
-### <a name="output-sample-in-f"></a>F#에서 출력 샘플 #
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+F# 코드는 다음과 같습니다.
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -228,9 +299,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     outputEventHubMessage <- msg;
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>출력 - JavaScript 예제
 
-### <a name="output-sample-for-nodejs"></a>Node.js에서 출력 샘플
+다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+단일 메시지를 보내는 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -241,7 +326,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-또는 여러 메시지를 전송하려면 다음을 수행합니다.
+여러 메시지를 보내는 JavaScript 코드는 다음과 같습니다.
 
 ```javascript
 module.exports = function(context) {
@@ -256,5 +341,37 @@ module.exports = function(context) {
 };
 ```
 
+## <a name="output---attributes-for-precompiled-c"></a>출력 - 미리 컴파일된 C#의 특성
+
+[미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지에 정의되어 있는 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 특성을 사용합니다.
+
+특성의 생성자는 이벤트 허브의 이름 및 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [출력 - 구성](#output---configuration)을 참조하세요. `EventHub` 특성 예제는 다음과 같습니다.
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+```
+
+## <a name="output---configuration"></a>출력 - 구성
+
+다음 표에서는 *function.json* 파일 및 `EventHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
+
+|function.json 속성 | 특성 속성 |설명|
+|---------|---------|----------------------|
+|**type** | 해당 없음 | "eventHub"로 설정해야 합니다. |
+|**direction** | 해당 없음 | "out"으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
+|**name** | 해당 없음 | 이벤트를 나타내는 함수 코드에서 사용되는 변수 이름입니다. | 
+|**path** |**EventHubName** | 이벤트 허브의 이름입니다. | 
+|**연결** |**연결** | 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 이 연결 문자열에는 이벤트 스트림으로 메시지를 보내기 위해 보내기 사용 권한이 있어야 합니다.<br/>로컬로 개발하는 경우 앱 설정은 [local.settings.json 파일](functions-run-local.md#local-settings-file) 값으로 이동합니다.|
+
+## <a name="output---usage"></a>출력 - 사용
+
+C# 및 C# 스크립트에서는 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+
+JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 액세스합니다. `<name>`은 *function.json*의 `name` 속성에 지정된 값입니다.
+
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)

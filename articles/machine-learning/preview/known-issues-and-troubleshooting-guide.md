@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
 
-> [!IMPORTANT]
-> 지원 팀과 논의할 때는 빌드 번호가 있어야 합니다. **도움말** 메뉴를 클릭하여 앱의 빌드 번호를 찾을 수 있습니다. 빌드 번호를 클릭하면 클립보드에 복사됩니다. 전자 메일 또는 지원 포럼에 붙여넣어 문제를 보고하는 데 도움이 될 수 있습니다.
-
-![버전 번호 확인](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Workbench 빌드 번호 찾기
+지원 팀과 논의할 때는 Workbench 앱의 빌드 번호가 있어야 합니다. **도움말** 메뉴를 클릭하여 Windows에서 빌드 번호를 확인하고 **Azure ML Workbench 정보**를 선택할 수 있습니다. MacOS 등에서 **Azure ML Workbench** 메뉴를 클릭하고 **Azure ML Workbench**를 선택할 수 있습니다.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN 포럼
 질문을 게시할 수 있는 MSDN 포럼이 있습니다. 제품 팀에서 포럼을 적극적으로 모니터링합니다. 포럼 URL은 [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum)입니다. 
@@ -75,10 +73,13 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
     >이 제한은 `.git`, `docs` 및 `outputs` 폴더에는 적용되지 않습니다. 이러한 폴더 이름은 대/소문자를 구분합니다. 큰 파일을 사용하는 경우 [변경 내용 유지 및 큰 파일 처리](how-to-read-write-files.md)를 참조하세요.
 
 - 최대 허용 실험 실행 시간: 7일
+
 - 실행 후 `outputs` 폴더에서 추적된 파일의 최대 크기: 512MB
   - 즉, 스크립트에서 출력 폴더에 512MB보다 큰 파일을 생성하는 경우 수집되지 않습니다. 큰 파일을 사용하는 경우 [변경 내용 유지 및 큰 파일 처리](how-to-read-write-files.md)를 참조하세요.
 
 - SSH를 통해 원격 컴퓨터 또는 Spark 클러스터에 연결할 때 SSH 키는 지원되지 않습니다. 현재는 사용자 이름/암호 모드만 지원됩니다.
+
+- HDInsight 클러스터를 계산 대상으로 사용할 때 Azure Blob을 기본 저장소로 사용해야 합니다. Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
 
 - 텍스트 클러스터링 변환은 Mac에서 지원되지 않습니다.
 

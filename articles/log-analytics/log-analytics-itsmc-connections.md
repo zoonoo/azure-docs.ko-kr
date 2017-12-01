@@ -1,6 +1,6 @@
 ---
 title: "Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs"
-description: "ITSM 제품/서비스를 Azure Log Analytics의 IT Service Management Connector와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리합니다."
+description: "이 문서에서는 ITSM 제품/서비스를 OMS Log Analytics의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
-이 문서에서는 ITSM 제품/서비스를 OMS의 ITSMC(IT Service Management Connector)에 연결하고 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [ITSMC 개요](log-analytics-itsmc-overview.md)를 참조하세요.
+이 문서에서는 ITSM 제품/서비스를 OMS의 ITSMC(IT Service Management Connector)에 연결하고 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
 
-다음 제품/서비스는 지원되지 않습니다.
+다음 ITSM 제품/서비스는 지원되지 않습니다. 제품을 ITSMC에 연결하는 방법에 대한 자세한 정보를 보려면 제품을 선택합니다.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 > 하이브리드 연결이 만들어진 후 배포된 Service Manager 웹앱을 방문하여 연결을 확인한 후 테스트합니다. OMS에서 ITSMC에 연결을 시도하기 전에 연결이 성공적으로 설정되었는지 확인합니다.
 
-다음 이미지는 성공적으로 설정된 연결의 세부 정보를 보여 줍니다.
+다음 샘플 이미지는 성공적으로 설정된 연결의 세부 정보를 보여줍니다.
 
 ![하이브리드 연결 테스트](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

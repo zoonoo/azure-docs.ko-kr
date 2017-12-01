@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -51,6 +51,13 @@ ms.lasthandoff: 10/24/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+* JSON Serialization 성능이 향상되었습니다.
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+* Microsoft 친구 라이브러리에 대한 내부 변경입니다.
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
 * 단일 파티션 키 범위 읽기 문제가 해결되었습니다.
@@ -174,6 +181,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |2017년 11월 14일 |--- |
+| [1.14.0](#1.14.0) |2017년 10월 28일 |--- |
 | [1.13.0](#1.13.0) |2017년 8월 25일 |--- |
 | [1.12.0](#1.12.0) |2017년 7월 11일 |--- |
 | [1.11.0](#1.11.0) |2017년 5월 10일 |--- |
