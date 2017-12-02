@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.  
 
@@ -51,7 +51,7 @@ Set-PSRepository `
 
 다음 섹션에서는 Azure 스택에 대 한 PowerShell을 설치 하는 데 필요한 단계를 설명 합니다. 연결 된, 부분적으로 연결에서 운영 하는 Azure 스택 또는 연결이 끊긴된 시나리오에서 PowerShell은 설치할 수 있습니다. 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>연결 된 시나리오에서 PowerShell을 설치 합니다. 
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>인터넷 연결) (에 연결 된 시나리오에서 PowerShell 설치
 
 Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니다. Azure 스택 필요는 **2017-03-09-프로필** AzureRM.Bootstrapper 모듈을 설치 하 여 액세스할 수 있는 API 버전 프로필입니다. API 버전 프로필 및 이들 프로그램에서 제공 하는 cmdlet에 대 한 자세한 내용은 참조는 [API 버전 프로필을 관리](azure-stack-version-profiles.md)합니다. AzureRM 모듈 외에 Azure 스택 관련 PowerShell 모듈을 설치 해야 합니다. 개발 워크스테이션에 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
@@ -80,7 +80,7 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
   ```
   설치에 성공한 경우 AzureRM 및 AzureStack 모듈 출력에 표시 됩니다.
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>연결이 끊긴 또는 부분적으로 연결 된 시나리오에서 PowerShell을 설치 합니다.
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>제한 된 인터넷 연결) (에 연결 되어 있지 않거나 부분적으로 연결 된 시나리오에서 PowerShell을 설치
 
 연결 되어 있지 않거나 부분적으로 연결 된 시나리오에서는 먼저 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure 스택 개발 키트를 전송 해야 합니다.
 

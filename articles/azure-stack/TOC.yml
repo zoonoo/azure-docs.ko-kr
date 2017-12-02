@@ -213,6 +213,10 @@
           items:
             - name: VPN을 사용하여 연결
               href: azure-stack-connect-vpn.md
+            - name: VPN 게이트웨이에 대 한
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: VPN 게이트웨이 설정
+              href: azure-stack-vpn-gateway-settings.md
             - name: ExpressRoute를 사용하여 연결
               href: azure-stack-connect-expressroute.md
     - name: 문제 해결

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>이미지를 사용자 지정 가상 컴퓨터에서에서 사용할 수 있도록 Azure 스택
 
@@ -184,7 +184,7 @@ Remove-AzsVMImage `
 
 2. 연산자와 Azure 스택에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스** > **리소스 공급자**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
 
-3. 아래 **VM 이미지를 추가할**, 게시자, 제품, SKU, 가상 컴퓨터 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트는 리소스 관리자 템플릿에서 VM 이미지를 참조 하십시오. 선택 하는 **osType** 올바르게 값입니다. 에 대 한 **OD 디스크 Blob URI**를 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지 만들기를 시작할 수 있습니다.
+3. 아래 **VM 이미지를 추가할**, 게시자, 제품, SKU, 가상 컴퓨터 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트는 리소스 관리자 템플릿에서 VM 이미지를 참조 하십시오. 선택 하는 **osType** 올바르게 값입니다. 에 대 한 **OS 디스크 Blob URI**를 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지 만들기를 시작할 수 있습니다.
    
    ![이미지를 만들기 시작 합니다.](./media/azure-stack-add-vm-image/image4.png)
 
