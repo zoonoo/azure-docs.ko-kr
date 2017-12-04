@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>자습서: Google Apps와 Azure Active Directory 통합
 
@@ -136,11 +136,11 @@ Google Apps에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     | |
     |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
     | `google.com`|
-
+    | `http://google.com`|
+    | `google.com/<yourdomain.com>`|
+    | `http://google.com/a/<yourdomain.com>`|
+       
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Google Apps 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요. 
 

@@ -6,7 +6,7 @@ keywords:
 documentationcenter: 
 author: barlanmsft
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 6230256d16af0ef2b924d345ae86d5d44ecb6738
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: b91902b13e7633a0724a57ff7fceb68e50abd13a
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 11/20/2017
 
 ## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호 재설정 또는 잠금 해제
 
-다음 이유 중 하나로 Azure AD(Azure Active Directory) 계정에 액세스하지 못할 수 있습니다.
+다음 이유 중 하나로 Azure AD (Azure Active Directory) 계정에 액세스하지 못할 수 있습니다.
 
 * 암호가 작동하지 않아 암호를 재설정하려고 합니다.
 * 암호를 알지만 계정이 잠겨 있어 계정을 잠금 해제하려고 합니다.
 
-다음 단계를 사용하여 Azure AD SSPR(셀프 서비스 암호 재설정)에 액세스하고 계정에 다시 액세스합니다.
+다음 단계를 사용하여 Azure AD SSPR (셀프 서비스 암호 재설정)에 액세스하고 계정에 다시 액세스합니다.
 
 1. 회사 또는 학교 **로그인** 페이지에서 **계정에 액세스할 수 없으세요?** 링크를 선택한 다음 **회사 또는 학교 계정**을 선택하거나 [암호 재설정 페이지](https://passwordreset.microsoftonline.com/)로 직접 이동합니다.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/20/2017
    > [!NOTE]
    > IT 직원이 이 기능을 사용하도록 설정하지 않은 경우 IT 직원이 자체 메일 또는 웹 포털을 통해 도움을 줄 수 있도록 "관리자에게 문의" 링크가 나타납니다.
    >
-   > 계정 잠금을 해제해야 하는 경우 지금은 **암호를 알고 있지만, 여전히 로그인할 수 없습니다.** 옵션을 선택합니다.
+   > 계정 잠금을 해제해야 하는 경우 지금은 **암호를 알고 있지만, 여전히 로그인할 수 없습니다** 옵션을 선택합니다.
    >
 
 3. IT 직원이 SSPR을 어떻게 구성하느냐에 따라 다음 인증 방법 중 하나 이상이 표시됩니다. 사용자 또는 IT 담당자가 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 문서의 단계에 따라 이 정보 중 일부를 입력했습니다.
