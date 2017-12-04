@@ -13,16 +13,16 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell을 사용하여 Azure Data Factory 만들기 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1-GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [버전 2- 미리 보기](quickstart-create-data-factory-powershell.md)
+> * [버전 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [버전 2 - 미리 보기](quickstart-create-data-factory-powershell.md)
 
 이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요. 
 
@@ -31,122 +31,37 @@ ms.lasthandoff: 11/20/2017
 >
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-### <a name="azure-subscription"></a>Azure 구독
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-### <a name="azure-roles"></a>Azure 역할
-Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다. Azure Portal에서 오른쪽 위 모서리에 있는 **사용자 이름**을 클릭한 다음 **권한**을 선택하면 구독에 따른 사용자 권한을 볼 수입니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 사용자를 역할에 추가하는 방법에 대한 샘플 지침은 [역할 추가](../billing/billing-add-change-azure-subscription-administrator.md) 문서를 참조하세요.
-
-### <a name="azure-storage-account"></a>Azure Storage 계정
-이 빠른 시작에서는 범용 Azure Storage 계정(특히 Blob Storage)을 **원본** 및 **대상** 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하여 새로 만듭니다. 
-
-#### <a name="get-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
-이 빠른 시작에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음 프로시저에서는 저장소 계정 이름 및 키를 가져오는 단계를 제공합니다. 
-
-1. 웹 브라우저를 시작하고 [Azure Portal](https://portal.azure.com)로 이동합니다. Azure 사용자 이름과 암호를 사용하여 로그인합니다. 
-2. 왼쪽 메뉴에서 **더 많은 서비스>**를 클릭하고 **저장소** 키워드를 사용하여 필터링하고 **저장소 계정**을 선택합니다.
-
-    ![저장소 계정 검색](media/quickstart-create-data-factory-powershell/search-storage-account.png)
-3. 저장소 계정 목록에서 저장소 계정(필요한 경우)을 필터링한 다음 **저장소 계정**을 선택합니다. 
-4. **저장소 계정** 페이지의 메뉴에서 **액세스 키**를 선택합니다.
-
-    ![저장소 계정 이름 및 키 가져오기](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. **저장소 계정 이름** 및 **key1** 필드의 값을 클립보드에 복사합니다. 메모장이나 다른 편집기에 붙여넣고 저장합니다.  
-
-#### <a name="create-input-folder-and-files"></a>입력 폴더 및 파일 만들기
-이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다. 그런 다음 컨테이너에 **입력**이라는 폴더를 만든 다음 입력 폴더에 샘플 파일을 업로드합니다. 
-
-1. **저장소 계정** 페이지에서 **개요**로 전환한 다음, **Blobs**을 클릭합니다. 
-
-    ![Blob 옵션 선택](media/quickstart-create-data-factory-powershell/select-blobs.png)
-2. **Blob service** 페이지의 도구 모음에서 **+ 컨테이너**를 클릭합니다. 
-
-    ![컨테이너 단추 추가](media/quickstart-create-data-factory-powershell/add-container-button.png)    
-3. **새 컨테이너** 대화 상자에서 **adftutorial**을 이름으로 입력하고 **확인**을 클릭합니다. 
-
-    ![컨테이너 이름 입력](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
-4. 컨테이너 목록에서 **adftutorial**을 클릭합니다. 
-
-    ![컨테이너를 선택합니다.](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
-1. **컨테이너** 페이지의 도구 모음에서 **업로드**를 클릭합니다.  
-
-    ![업로드 단추](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
-6. **BLOB 업로드** 페이지에서 **고급**을 클릭합니다.
-
-    ![고급 링크 클릭합니다.](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
-7. **메모장**을 시작하고 다음과 같은 내용으로 **emp.txt**이라는 파일을 만듭니다: 그것을 **c:\ADFv2QuickStartPSH** 폴더에 저장합니다: **ADFv2QuickStartPSH** 폴더가 아직 없는 경우 새로 만듭니다.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. Azure Portal의 **BLOB 업로드** 페이지에서 **파일** 필드에 대해 **emp.txt** 파일을 탐색 및 선택합니다. 
-9. **입력**을 **폴더로 업로드** 필드 값으로 입력합니다. 
-
-    ![BLOB 업로드 설정](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
-10. 폴더는 **입력**이고 파일은 **emp.txt**인지 확인한 후 **업로드**를 클릭합니다.
-11. 목록에서 **emp.txt** 파일 및 업로드 상태를 참조하세요. 
-12. 모서리에 있는 **X**를 클릭하여 **BLOB 업로드** 페이지를 닫습니다. 
-
-    ![BLOB 업로드 닫기](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-1. **컨테이너** 페이지를 열린 상태로 유지합니다. 이 빠른 시작의 끝부분에서 출력을 확인하는 데 사용합니다. 
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-#### <a name="install-azure-powershell"></a>Azure Powershell 설치
-컴퓨터에 최신 Azure PowerShell이 없는 경우 설치합니다. 
-
-1. 웹 브라우저에서 [Azure SDK 다운로드 및 SDKS](https://azure.microsoft.com/downloads/) 페이지로 이동합니다. 
-2. **명령줄 도구** -> **PowerShell** 섹션에서 **Windows 설치**를 클릭합니다. 
-3. Azure PowerShell을 설치하려면 **MSI** 파일을 실행합니다. 
-
-자세한 지침은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
-
-#### <a name="log-in-to-azure-powershell"></a>Azure PowerShell에 로그인합니다.
-
-1. 컴퓨터에서 **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-
-    ![PowerShell 시작](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 동일한 Azure사용자 이름 및 암호를 입력합니다.
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
+[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"`
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. 데이터 팩터리 이름에 대한 변수를 정의합니다. 
+
+    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
+2. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
+3. 데이터 팩터리 이름에 대한 변수를 정의합니다. 
+
+    > [!IMPORTANT]
+    >  데이터 팩터리 이름을 전역적으로 고유한 이름으로 업데이트합니다. 예를 들어 ADFTutorialFactorySP1127이라는 이름을 사용합니다. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. 데이터 팩터리의 위치에 대한 변수를 정의합니다. 
 
     ```powershell
     $location = "East US"
     ```
-4. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
 5. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
@@ -170,7 +85,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.) 
 
     > [!IMPORTANT]
-    > 파일을 저장하기 전에 &lt;accountName&gt; 및 &lt;accountKey&gt;를 Azure Storage 계정의 이름 및 키로 바꿉니다.
+    > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure 저장소 계정의 이름과 키로 바꿉니다.
 
     ```json
     {
@@ -186,8 +101,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
         }
     }
     ```
-
-2. **Azure PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
+2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
 3. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 
 
@@ -437,30 +352,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     "billedDuration": 14
     ```
 
-## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
-
-1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 출력 폴더를 보려면 **새로 고침**을 클릭합니다. 
-    
-    ![새로 고침](media/quickstart-create-data-factory-powershell/output-refresh.png)
-2. 폴더 목록에서 **출력**을 클릭합니다. 
-2. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
-
-    ![새로 고침](media/quickstart-create-data-factory-powershell/output-file.png)
-
-## <a name="clean-up-resources"></a>리소스 정리
-빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.
-
-리소스 그룹을 삭제하면 그 안에 포함된 데이터 팩터리를 포함한 모든 리소스가 삭제됩니다. 다음 명령을 실행하여 전체 리소스 그룹을 삭제합니다. 
-```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-전체 리소스 그룹이 아니라 데이터 팩터리만 삭제하려면 다음 명령을 실행 합니다. 
-
-```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## <a name="next-steps"></a>다음 단계
 이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>인증서 인증(클래식)을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure Portal
 
@@ -35,8 +35,10 @@ ms.lasthandoff: 10/20/2017
 
 지점 및 사이트 간(P2S) VPN Gateway를 통해 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우에 사이트 간 VPN 대신 P2S VPN을 사용하는 것도 유용한 솔루션입니다. 클라이언트 컴퓨터에서 시작하여 P2S VPN 연결을 설정합니다.
 
-클래식 배포 모델은 Windows VPN 클라이언트만을 지원하고 SSTP(Secure Socket Tunneling Protocol), SSL 기반 VPN 프로토콜을 사용합니다. 비-Windows VPN 클라이언트를 지원하기 위해 VNet은 리소스 관리자 배포 모델을 사용하여 생성되어야 합니다. 리소스 관리자 배포 모델은 SSTP 외에도 IKEv2 VPN을 지원합니다. 자세한 내용은 [P2S 연결 정보](point-to-site-about.md)를 참조하세요.
-
+> [!IMPORTANT]
+> 클래식 배포 모델은 Windows VPN 클라이언트만을 지원하고 SSTP(Secure Socket Tunneling Protocol), SSL 기반 VPN 프로토콜을 사용합니다. 비-Windows VPN 클라이언트를 지원하기 위해 VNet은 리소스 관리자 배포 모델을 사용하여 생성되어야 합니다. 리소스 관리자 배포 모델은 SSTP 외에도 IKEv2 VPN을 지원합니다. 자세한 내용은 [P2S 연결 정보](point-to-site-about.md)를 참조하세요.
+>
+>
 
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

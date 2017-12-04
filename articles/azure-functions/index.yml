@@ -34,7 +34,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: media/index/http.svg
+              src: 'https://docs.microsoft.com/en-us/media/common/i_http.svg'
             text: http
             href: /azure/azure-functions/functions-create-first-azure-function
           - image:
@@ -95,4 +95,4 @@ sections:
           - title: REST (영문)
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: 바인딩
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">이벤트 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">외부 파일</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 및 webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">모바일 앱</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">알림 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">큐 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">서비스 버스</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">타이머</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 출력 바인딩</a></p>
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">이벤트 허브</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">외부 파일</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 및 webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">큐 저장소</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">타이머</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 출력 바인딩</a></p>

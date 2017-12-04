@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/20/2017
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기.
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
@@ -51,7 +51,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 컴퓨터에서 **Microsoft SQL Server Management Studio**를 시작합니다. 컴퓨터에 Microsoft SQL Server Management Studio가 없는 경우 [다운로드 센터](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)에서 받아 설치합니다. 
 2. 자격 증명을 사용하여 SQL server에 연결합니다. 
 3. 샘플 데이터베이스 만들기 트리 뷰에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭합니다. **새 데이터베이스** 대화 상자에서 데이터베이스의 **이름**을 입력하고 **확인**을 클릭합니다. 
-4. 데이터베이스에 대해 다음 쿼리 스크립트를 실행하면 **emp** 테이블이 생성됩니다. 트리 뷰에서 생성된 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 
+4. 데이터베이스에 대해 다음 쿼리 스크립트를 실행하면 **emp** 테이블이 생성되고 일부 샘플 데이터가 이 테이블에 삽입됩니다. 트리 뷰에서 생성된 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. 테이블에 몇 가지 샘플 데이터를 삽입하는 데이터베이스에 대해 다음 명령을 실행합니다.
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
@@ -105,20 +102,20 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ![컨테이너 페이지](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Azure Powershell 설치
-컴퓨터에 최신 Azure PowerShell이 없는 경우 설치합니다. 
+#### <a name="install-powershell"></a>PowerShell 설치 
+컴퓨터에 아직 최신 PowerShell이 없는 경우 설치합니다. 
 
 1. 웹 브라우저에서 [Azure SDK 다운로드 및 SDK](https://azure.microsoft.com/downloads/) 페이지로 이동합니다. 
 2. **명령줄 도구** -> **PowerShell** 섹션에서 **Windows 설치**를 클릭합니다. 
 3. Azure PowerShell을 설치하려면 **MSI** 파일을 실행합니다. 
 
-자세한 지침은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
+자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
 
-#### <a name="log-in-to-azure-powershell"></a>Azure PowerShell에 로그인합니다.
+#### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
-1. 컴퓨터에서 **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+1. 컴퓨터에서 **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 PowerShell 창을 열어 둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 
     ![PowerShell 시작](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 Azure 사용자 이름 및 암호를 입력합니다.
@@ -142,25 +139,28 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. 나중에 PowerShell 명령에서 사용할 수 있는 데이터 팩터리 이름에 대한 변수를 정의합니다. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. 데이터 팩터리의 위치에 대한 변수를 정의합니다. 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
+2. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.   
+    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
+3. 나중에 PowerShell 명령에서 사용할 수 있는 데이터 팩터리 이름에 대한 변수를 정의합니다. 이름은 문자 또는 숫자로 시작해야 하며 문자, 숫자 및 대시(-) 문자를 포함할 수 있습니다.
+
+    > [!IMPORTANT]
+    >  데이터 팩터리 이름을 전역적으로 고유한 이름으로 업데이트합니다. 예를 들어 ADFTutorialFactorySP1127이라는 이름을 사용합니다. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. 데이터 팩터리의 위치에 대한 변수를 정의합니다. 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
@@ -182,12 +182,12 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 이 섹션에서는 자체 호스팅 통합 런타임을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅된 통합 런타임은 사용자 컴퓨터의 Microsoft SQL Server에서 Azure Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
 
-1. Integration Runtime의 이름에 대한 변수를 만듭니다. 이 이름을 적어둡니다. 이 자습서의 뒷부분에서 사용합니다. 
+1. Integration Runtime의 이름에 대한 변수를 만듭니다. 고유한 이름을 사용하고 이름을 기록해 둡니다. 이 자습서의 뒷부분에서 사용합니다. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. 자체 호스팅 통합 런타임을 만듭니다. 동일한 이름의 다른 통합 런타임이 있는 경우 고유한 이름을 사용합니다.
+1. 자체 호스팅 통합 런타임을 만듭니다. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
    State                     : NeedRegistration
    ```
 
-3. 다음 명령을 실행하여 **인증 키**를 검색하여 자체 호스팅 통합 런타임을 클라우드의 Data Factory 서비스에 등록합니다. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 통합 런타임을 등록하기 위한 키(따옴표 제외) 중 하나를 복사합니다.  
+3. 다음 명령을 실행하여 **인증 키**를 검색하여 자체 호스팅 통합 런타임을 클라우드의 Data Factory 서비스에 등록합니다. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 통합 런타임을 등록하기 위한 키(따옴표 제외) 중 하나를 복사합니다.  
 
 ## <a name="install-integration-runtime"></a>Integration Runtime 설치
 1. 로컬 Windows 컴퓨터에서 자체 호스팅된 Integration Runtime을 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)하고 설치를 실행합니다. 
@@ -283,6 +284,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     - **사용자** 이름을 입력합니다. 
     - 사용자 이름에 대한 **암호**를 입력합니다.
     - 통합 런타임을 Microsoft SQL Server에 연결할 수 있는지 확인하려면 **테스트**를 클릭합니다. 연결이 성공적인 경우 녹색 확인 표시가 나타납니다. 그렇지 않다면 실패와 관련된 오류 메시지가 나타납니다. 모든 문제를 해결하고 통합 런타임을 Microsoft SQL Server에 연결할 수 있는지 확인합니다.
+    - 이러한 값(인증 형식, 서버, 데이터베이스, 사용자, 암호)을 적어 둡니다. 이 자습서의 뒷부분에서 사용됩니다. 
     
       
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -294,7 +296,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. **C:\ADFv2Tutorial** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다. ADFv2Tutorial 폴더가 아직 없는 경우 만듭니다.  
 
     > [!IMPORTANT]
-    > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure Storage 계정의 이름과 키로 바꿉니다.
+    > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 **Azure 저장소 계정**의 이름과 키로 바꿉니다. 앞에서 [필수 구성 요소](#get-storage-account-name-and-account-key)로 적어 두었습니다.
 
    ```json
     {
@@ -310,6 +312,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다. 
 2. **Azure PowerShell**에서 **C:\ADFv2Tutorial** 폴더로 전환합니다.
 
    **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 
@@ -326,6 +330,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    "파일을 찾을 수 없음" 오류가 발생하는 경우. `dir` 명령을 실행하여 파일이 있는지 확인합니다. 파일 이름에 `.txt` 확장명이 있으면(예: AzureStorageLinkedService.json.txt) 확장명을 제거하고 PowerShell 명령을 다시 실행합니다. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server 연결된 서비스(원본) 만들기 및 암호화
 이 단계에서 온-프레미스 SQL Server를 데이터 팩터리에 연결합니다.
@@ -366,7 +372,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"
@@ -632,7 +638,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리 만들기.
+> * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
 > * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.

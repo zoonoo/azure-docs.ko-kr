@@ -41,8 +41,12 @@ sections:
             href: /azure/data-factory/quickstart-create-data-factory-rest-api
           - image:
               src: /azure/data-factory/media/index/portal.svg
-            text: Azure portal
+            text: Azure 포털
             href: /azure/data-factory/quickstart-create-data-factory-portal
+          - image:
+              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+            text: Resource Manager 템플릿
+            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: 단계별 자습서
     items:
       - type: paragraph

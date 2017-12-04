@@ -1,6 +1,6 @@
 ---
-title: "가상 네트워크를 다른 VNet에 연결: Azure CLI | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager 및 Azure CLI를 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다."
+title: "VNet-VNet 연결을 사용하여 가상 네트워크를 다른 VNet에 연결: Azure CLI | Microsoft Docs"
+description: "이 문서에서는 VNet-VNet 연결 및 Azure CLI를 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
-이 문서에서는 가상 네트워크 간에 VPN Gateway 연결을 만드는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 
+이 문서에서는 VNet-VNet 연결 형식을 사용하여 가상 네트워크를 연결하는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다.
 
 이 문서의 단계는 Resource Manager 배포 모델에 적용되며 Azure CLI를 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -37,13 +37,15 @@ ms.lasthandoff: 11/18/2017
 >
 >
 
-가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+## <a name="about"></a>VNet 연결 정보
 
-VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
+VNet2VNet 연결 형식을 사용하여 한 가상 네트워크를 다른 가상 네트워크에 연결하는 것은 온-프레미스 사이트 위치에 대한 IPsec 연결을 설정하는 것과 비슷합니다. 두 연결 형식 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공하며 둘 다 동일한 방식으로 통신합니다. 두 연결 형식의 차이점은 로컬 네트워크 게이트웨이 구성 방법입니다. VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 표시되지 않습니다. 자동으로 생성되어 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet은 업데이트된 주소 공간에 라우팅해야 한다는 것을 자동으로 알게 됩니다.
 
-![연결 정보](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+복잡한 구성을 사용하는 경우 VNet-VNet보다 IPsec 연결 형식을 사용하는 것이 더 좋을 것입니다. 트래픽을 라우팅할 수 있도록 로컬 네트워크 게이트웨이에 대한 추가 주소 공간을 지정할 수 있습니다. IPsec 연결 형식을 사용하여 Vnet을 연결하는 경우 로컬 네트워크 게이트웨이를 수동으로 만들고 구성해야 합니다. 자세한 내용은 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-cli.md)을 참조하세요.
 
-### <a name="why"></a>가상 네트워크에 연결하는 이유
+또한 여러 VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 가격 책정 방식과 기능이 약간 다릅니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+
+### <a name="why"></a>VNet-VNet 연결을 만드는 이유
 
 다음과 같은 이유로 가상 네트워크에 연결할 수 있습니다.
 
@@ -55,19 +57,22 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
 
-VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq)를 참조하세요.
+VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
 ### <a name="which-set-of-steps-should-i-use"></a>어느 단계 집합을 사용해야 합니까?
 
-이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. [동일한 구독에 상주하는 VNet](#samesub)에 대한 단계 집합. 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
+이 문서에서는 VNet-VNet 연결 형식을 사용하여 연결하는 방법을 안내합니다. 이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. 한 단계 집합은 [동일한 구독에 상주하는 VNet](#samesub)과 관련이 있고 다른 단계 집합은 [서로 다른 구독에 상주하는 VNet](#difsub)과 관련이 있습니다. 
 
-![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
-[다른 구독에 상주하는 VNet](#difsub)에 대한 별도의 문서가 있습니다. 그 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
+* [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
 
-![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-좋아하는 구성을 결합하거나 또는 단지 사용하려는 것을 선택할 수 있습니다.
+* [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
+
+  ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>같은 구독에 있는 VNet 연결
 
@@ -261,7 +266,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ## <a name="difsub"></a>다른 구독에 있는 VNet 연결
 
-이 시나리오에서는 TestVNet1 및 TestVNet5를 연결합니다. VNet이 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 이 구성 단계에서는 TestVNet1을 TestVNet5에 연결하기 위해 VNet 간 연결을 추가합니다.
+이 시나리오에서는 TestVNet1과 TestVNet5를 연결합니다. VNet이 다른 구독에 상주합니다. 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 이 구성 단계에서는 TestVNet1을 TestVNet5에 연결하기 위해 VNet 간 연결을 추가합니다.
 
 ### <a name="TestVNet1diff"></a>5단계 - TestVNet1 만들기 및 구성
 
@@ -327,7 +332,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ### <a name="connections5"></a>8단계 - 연결 만들기
 
-게이트웨이가 다른 구독에 있으므로 이 단계를 **[구독 1]** 및 **[구독 5]**로 표시된 두 개의 CLI 세션으로 분할합니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
+게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]**로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
 
 1. **[구독 1]** 로그인하고 구독 1에 연결합니다. 다음 명령을 실행하여 출력에서 게이트웨이의 이름과 ID를 가져옵니다.
 

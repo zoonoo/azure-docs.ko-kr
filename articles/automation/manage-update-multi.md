@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -87,6 +87,16 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 비Azure Windows 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agents.md)을 참조하세요.
 
 비Azure Linux 가상 머신 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Log Analytics에 Linux 머신 연결](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
+
+## <a name="view-computers-attached-to-your-automation-account"></a>자동화 계정에 연결된 컴퓨터 보기
+컴퓨터에 대한 업데이트 관리를 설정하면 **컴퓨터**를 클릭하여 해당 정보를 볼 수 있습니다. *이름*, *준수*, *환경*, *OS 유형*, *중요 및 보안 업데이트* , *다른 업데이트* 같은 컴퓨터 정보를 사용할 수 있습니다. 
+
+  ![컴퓨터 보기 탭](./media/manage-update-multi/update-computers-tab.png)
+
+최근에 업데이트 관리가 설정된 컴퓨터의 경우 아직 평가를 받지 않았을 수도 있습니다. 이러한 컴퓨터의 규정 준수 상태는 *평가되지 않음*입니다.  다음은 규정 준수 상태 값의 목록입니다.
+* 준수 - 중요 또는 보안 업데이트가 누락되지 않은 컴퓨터.
+* 비호환 - 중요 또는 보안 업데이트가 하나 이상 누락된 컴퓨터.
+* 평가되지 않음 - 예상 기간 내에 컴퓨터의 업데이트 평가 데이터를 받지 못했습니다.  Linux 컴퓨터의 경우 최근 3시간, Windows 컴퓨터의 경우 최근 12시간입니다.  
 
 ## <a name="view-an-update-assessment"></a>업데이트 평가 보기
 

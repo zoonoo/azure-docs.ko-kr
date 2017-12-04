@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
-이 문서에서는 가상 네트워크 간에 VPN Gateway 연결을 만드는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 
+이 문서에서는 VNet-VNet 연결 형식을 사용하여 가상 네트워크를 연결하는 방법을 보여 줍니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다. 
 
 이 문서의 단계는 Resource Manager 배포 모델에 적용되며 Azure Portal을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -39,15 +39,15 @@ ms.lasthandoff: 11/21/2017
 
 ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. VNet 간 보다는 VNet 간의 사이트 간(IPsec) 연결을 만드는 것이 가능합니다. 두 연결 형식은 모두 통신할 때 동일하게 작동합니다. 그러나 하나의 VNet에 대한 주소 공간을 업데이트하는 경우 VNet 간 연결을 만들 때 다른 VNet은 업데이트된 주소 공간에 라우팅할 것을 자동적으로 알게 됩니다. 사이트 간(IPsec) 연결을 만들 경우 로컬 네트워크 게이트웨이에 대한 주소 공간을 수동으로 구성해야 합니다. 복잡한 구성을 사용하는 경우 VNet 간 보다는 IPsec 연결을 만드는 것을 선호할 수도 있습니다. 이렇게 하면 로컬 네트워크 게이트웨이에 대해 추가 주소 공간을 수동으로 지정할 수 있습니다.
+## <a name="about"></a>VNet 연결 정보
 
-VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+VNet-VNet-VNet 연결 형식을 사용하여 한 가상 네트워크를 다른 가상 네트워크에 연결하는 것은 온-프레미스 사이트 위치에 대한 IPsec 연결을 설정하는 것과 비슷합니다. 두 연결 형식 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공하며 둘 다 동일한 방식으로 통신합니다. 두 연결 형식의 차이점은 로컬 네트워크 게이트웨이 구성 방법입니다. VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 표시되지 않습니다. 자동으로 생성되어 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet은 업데이트된 주소 공간에 라우팅해야 한다는 것을 자동으로 알게 됩니다.
 
-VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
+복잡한 구성을 사용하는 경우 VNet-VNet보다 IPsec 연결 형식을 사용하는 것이 더 좋을 것입니다. 트래픽을 라우팅할 수 있도록 로컬 네트워크 게이트웨이에 대한 추가 주소 공간을 지정할 수 있습니다. IPsec 연결 형식을 사용하여 Vnet을 연결하는 경우 로컬 네트워크 게이트웨이를 수동으로 만들고 구성해야 합니다. 자세한 내용은 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 참조하세요.
 
-![연결 정보](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+또한 여러 VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 가격 책정 방식과 기능이 약간 다릅니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
-### <a name="why-connect-virtual-networks"></a>가상 네트워크에 연결하는 이유
+### <a name="why"></a>VNet-VNet 연결을 만드는 이유
 
 다음과 같은 이유로 가상 네트워크에 연결할 수 있습니다.
 
@@ -59,7 +59,11 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
 
-연습으로 이러한 단계를 사용하는 경우 예제 설정 값을 사용할 수 있습니다. 예제에서는 가상 네트워크가 동일한 구독에 있지만 다른 리소스 그룹에 있습니다. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 사용할 수 있습니다. VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq)를 참조하세요.
+VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 다음 다이어그램에 표시된 것처럼 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
+
+![연결 정보](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+
+이 문서에서는 VNet-VNet 연결 형식을 사용하여 연결하는 방법을 안내합니다. 연습으로 이러한 단계를 사용하는 경우 예제 설정 값을 사용할 수 있습니다. 예제에서는 가상 네트워크가 동일한 구독에 있지만 다른 리소스 그룹에 있습니다. VNet이 다른 구독에 있으면 포털에서 연결을 만들 수 없습니다. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 또는 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)를 사용할 수 있습니다. VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 FAQ](#faq)를 참조하세요.
 
 ### <a name="values"></a>예제 설정
 

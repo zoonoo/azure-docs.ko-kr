@@ -11,6 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: 리소스
   items:
+    - name: 일반적인 질문
+      href: frequently-asked-questions-databricks.md
+    - name: 릴리스 정보
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Databricks 설명서
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure 로드맵

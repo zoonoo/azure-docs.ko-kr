@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -163,7 +163,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
 3. 환경을 만듭니다. 환경당 한 번씩 이 단계를 실행해야 합니다. 예를 들어, 개발 환경에 대해 한 번, 프로덕션에 대해 한 번씩 실행합니다. 첫 번째 환경에는 _로컬 모드_를 사용합니다. 나중에 다음 명령에서 `-c` 또는 `--cluster` 스위치를 사용하여 환경을 _클러스터 모드_로 설정할 수 있습니다.
 
-다음 설정 명령에서는 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
+   다음 설정 명령에서는 구독에 대한 참가자 액세스 권한이 있어야 합니다. 해당 권한이 없는 경우 적어도 배포하는 리소스 그룹에 대한 참가자 액세스 권한이 필요합니다. 후자를 수행하려면 `-g` 플래그를 사용하여 설치 명령의 일부로 리소스 그룹 이름을 지정해야 합니다. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
 실행 중인 **irisapp** 웹 서비스를 테스트하려면 4개의 난수가 있는 배열을 포함한 JSON 인코딩 레코드를 사용합니다.
 
-1. 웹 서비스는 샘플 데이터를 포함합니다. 로컬 모드에서 실행할 때는 **az ml service show realtime** 명령을 호출할 수 있습니다. 이 호출은 서비스를 테스트하는 데 사용하는 유용한 샘플 실행 명령을 검색합니다. 호출은 또한 고유한 사용자 지정 앱에 서비스를 통합하는 데 사용할 수 있는 점수 매기기 URL도 검색합니다.
+1. 웹 서비스는 샘플 데이터를 포함합니다. 로컬 모드에서 실행할 때는 **az ml service usage realtime** 명령을 호출할 수 있습니다. 이 호출은 서비스를 테스트하는 데 사용하는 유용한 샘플 실행 명령을 검색합니다. 호출은 또한 고유한 사용자 지정 앱에 서비스를 통합하는 데 사용할 수 있는 점수 매기기 URL도 검색합니다.
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. 서비스를 테스트하려면 반환된 서비스 실행 명령을 실행합니다.

@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure CDN(Content Delivery Network) 개요
+Azure CDN(Content Delivery Network)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 
+
 > [!NOTE]
-> 이 문서에서는 Azure CDN(Content Delivery Network)이 무엇이고 어떻게 작동하며 각 Azure CDN 제품의 기능은 무엇인지에 대해 설명합니다.  이 정보를 건너뛰고 CDN 끝점을 만드는 방법에 대한 자습서로 바로 이동하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요.  현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
+> 이 문서에서는 Azure CDN, 작동 원리 및 각 Azure CDN 제품의 기능을 설명합니다. 이 정보를 건너뛰고 CDN 엔드포인트를 만드는 방법에 대한 자습서를 보려면 [Azure CDN 시작](cdn-create-new-endpoint.md)을 참조하세요. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
 > 
-> 
 
-Azure CDN(Content Delivery Network)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다.  CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 
+CDN을 사용하여 웹 사이트 자산을 캐시하면 다음과 같은 이점이 있습니다.
 
-CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음과 같습니다.
+* 콘텐츠를 로드하기 위해 많은 왕복이 필요한 응용 프로그램을 사용 중인 최종 사용자의 성능 및 사용자 환경 향상.
+* 제품 런칭 이벤트 시작 시와 같이 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 크기 조정.
+* 사용자 요청을 분산하고 에지 서버에서 바로 콘텐츠를 제공하므로 원본으로 전송되는 트래픽 양이 감소.
 
-* 콘텐츠를 로드하기 위해 많은 왕복이 필요한 응용 프로그램을 사용 중인 최종 사용자의 성능 및 사용자 환경 향상
-* 제품 런칭 이벤트 시작 시와 같이 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 조정
-* 사용자 요청을 분산하고 에지 서버에서 콘텐츠를 제공하여 원본으로 전송되는 트래픽 양이 감소합니다.
 
 ## <a name="how-it-works"></a>작동 방법
 ![CDN 개요](./media/cdn-overview/cdn-overview.png)
@@ -90,13 +90,13 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 > 
 
 ## <a name="next-steps"></a>다음 단계
-CDN을 시작하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요.
+CDN을 시작하려면 [Azure CDN 시작](cdn-create-new-endpoint.md)을 참조하세요.
 
 기존 CDN 고객인 경우 이제 [Microsoft Azure Portal](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 끝점을 관리할 수 있습니다.
 
-작동 중인 CDN 작업을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참조하세요.
+작동 중인 CDN 작업을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 확인하세요.
 
 [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
-가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
+가격 책정 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 

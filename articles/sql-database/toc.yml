@@ -25,12 +25,14 @@
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: .NET core
           href: sql-database-connect-query-dotnet-core.md
-        - name: PHP
-          href: sql-database-connect-query-php.md
-        - name: Node.js
-          href: sql-database-connect-query-nodejs.md
+        - name: Go
+          href: sql-database-connect-query-go.md
         - name: Java
           href: sql-database-connect-query-java.md
+        - name: Node.js
+          href: sql-database-connect-query-nodejs.md
+        - name: PHP
+          href: sql-database-connect-query-php.md
         - name: Python
           href: sql-database-connect-query-python.md
         - name: 루비
@@ -350,8 +352,6 @@
           items:
             - name: 자습서 소개
               href: saas-dbpertenant-wingtip-app-overview.md
-            - name: 앱 지침
-              href: saas-dbpertenant-wingtip-app-guidance-tips.md
             - name: 예제 앱 배포
               href: saas-dbpertenant-get-started-deploy.md
             - name: 테넌트 프로비전

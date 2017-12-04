@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Machine Learning용 Visual Studio Code 도구 빠른 시작 문서 | Microsoft Docs"
-description: "이 문서에서는 Machine Learning용 Visual Studio Code 도구를 사용하여 실험 만들기, 모델 교육 및 웹 서비스 운영 가능화를 시작하는 방법을 설명합니다."
+title: "Azure의 Visual Studio Tools for Machine Learning에 대한 빠른 시작 문서 | Microsoft Docs"
+description: "이 문서에서는 Visual Studio Tools for Machine Learning을 사용하여 실험 만들기, 모델 교육 및 웹 서비스 운영 가능화를 시작하는 방법을 설명합니다."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>AI용 Visual Studio Code 도구
-AI용 Visual Studio Code 도구는 심층 학습 / AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 
+# <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
+Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/en-us/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
  
 ## <a name="getting-started"></a>시작 
-시작하려면 먼저 [Visual Studio Code](https://code.visualstudio.com/Download)를 다운로드해서 설치해야 합니다. Visual Studio Code를 연 후 다음 단계를 수행합니다.
-1. 작업 표시줄에서 확장 아이콘을 클릭합니다. 
-2. "AI용 Visual Studio Code 도구"를 검색합니다. 
-3. **설치** 단추를 클릭합니다. 
-4. 설치 후 **다시 로드** 단추를 클릭합니다. 
+시작하려면 먼저 [Visual Studio](https://www.visualstudio.com/downloads/)를 다운로드하여 설치해야 합니다. Visual Studio를 연 후 다음 단계를 수행합니다.
+1. Visual Studio에서 메뉴 모음을 클릭하고 "확장 및 업데이트..."를 선택합니다.
+2. "온라인" 탭을 클릭하고 "Visual Studio Marketplace 검색"을 선택합니다.
+3. "Visual Studio for AI"를 검색합니다. 
+3. **다운로드** 단추를 클릭합니다. 
+4. 설치 후 Visual Studio를 다시 시작합니다. 
 
-Visual Studio Code가 다시 로드된 후 확장이 활성화됩니다. [확장 설치에 대해 자세히 알아봅니다](https://code.visualstudio.com/docs/editor/extension-gallery).
-
-## <a name="exploring-project-samples"></a>프로젝트 샘플 탐색
-AI용 Visual Studio Code 도구는 샘플 탐색기와 함께 제공됩니다. 샘플 탐색기를 사용하면 클릭 몇 번만으로 쉽게 샘플을 검색하고 실행해 볼 수 있습니다. 탐색기를 열려면 다음을 수행합니다.   
-1. 명령 팔레트를 엽니다(보기 > **명령 팔레트** 또는 **Ctrl+Shift+P**).
-2. "AI 샘플"을 입력합니다. 
-3. "AI: Azure ML 샘플 탐색기 열기"에 대한 권장 사항을 찾아서 선택하고 Enter를 누릅니다. 
-
-또는 샘플 탐색기 아이콘을 클릭할 수 있습니다.
-
-## <a name="creating-a-new-project-from-the-sample-explorer"></a>샘플 탐색기에서 새 프로젝트 만들기 
-다른 샘플을 탐색하여 그에 관한 자세한 정보를 얻을 수 있습니다. "아이리스 분류" 샘플을 찾을 때까지 탐색해 보겠습니다. 이 샘플을 기반으로 새 프로젝트를 만들려면 다음을 수행합니다.
-1. 프로젝트 샘플에 대한 설치 단추를 클릭하고 메시지에 표시되는 명령을 확인하면서 새 프로젝트 만들기의 단계를 차례로 수행합니다. 
-2. 프로젝트에 대한 이름, 예를 들어 "아이리스"를 선택합니다.
-3. 프로젝트를 만들 폴더 경로를 선택하고 Enter를 누릅니다. 
-4. 기존 작업 영역을 선택하고 Enter를 누릅니다.
-
-프로젝트가 만들어집니다.
-
-> [!TIP]
-> Azure 리소스에 액세스하기 위해 로그인해야 합니다. 포함된 터미널에서 "az login"을 입력하고 지시를 따릅니다. 
-
-## <a name="submitting-experiment-with-the-new-project"></a>새 프로젝트를 사용한 실험 제출
-새 프로젝트가 Visual Studio Code에 열린 상태에서 다른 계산 대상(로컬 및 Docker 포함 VM)에 작업을 제출합니다.
-AI용 Visual Studio Code 도구는 실험을 제출하는 여러 가지 방법을 제공합니다. 
-1. 상황에 맞는 메뉴(마우스 오른쪽 단추 클릭) - **AI: 작업 제출**.
-2. 명령 팔레트에서: "AI: 작업 제출".
-3. 또는 포함된 터미널을 사용하면 Azure CLI, Machine Learning 명령을 사용하여 직접 명령을 실행할 수 있습니다.
-
-iris_sklearn.py를 열고 마우스 오른쪽 단추를 클릭하고 **AI: 작업 제출**을 선택합니다.
-1. 플랫폼: "Azure Machine Learning"을 선택합니다.
-2. 실행 구성: "Docker-Python"을 선택합니다.
+Visual Studio가 다시 로드되면 확장이 활성화됩니다. [확장 찾기에 대해 자세히 알아보세요](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
-> 작업을 처음 제출하는 경우 "Machine Learning 구성이 없습니다. 만드는 중..." 메시지가 표시됩니다. JSON 파일이 열리면 저장합니다(**Ctrl+S**).
+> Visual Studio Tools for AI를 사용하려면 Visual Studio 2015 또는 2017, Professional 또는 Enterprise 버전이 필요합니다. Apple OSX 버전은 지원되지 않습니다. 
 
-작업이 제출된 후 포함된 터미널에 실행 진행률이 표시됩니다. 
+
+## <a name="exploring-project-samples"></a>프로젝트 샘플 탐색
+Visual Studio Tools for AI는 샘플 탐색기가 함께 제공됩니다. 샘플 탐색기를 사용하면 클릭 몇 번만으로 쉽게 샘플을 검색하고 실행해 볼 수 있습니다. 탐색기를 열려면 다음 단계를 수행합니다.   
+1. 메뉴 모음에서 **AI 도구**를 클릭합니다.
+2. "Azure Machine Learning 갤러리"를 클릭합니다.
+
+모든 Azure ML 샘플이 포함된 탭이 열립니다.
+
+## <a name="creating-a-new-project-from-the-sample-explorer"></a>샘플 탐색기에서 새 프로젝트 만들기 
+다른 샘플을 탐색하여 그에 관한 자세한 정보를 얻을 수 있습니다. "아이리스 분류" 샘플을 찾을 때까지 탐색해 보겠습니다. 이 샘플을 기반으로 새 프로젝트를 만들려면 다음 단계를 수행합니다.
+1. 프로젝트 샘플에서 **설치**를 클릭하면 새 대화 상자가 열립니다. 
+2. 리소스 그룹, 계정 및 작업 영역을 선택합니다.
+3. 프로젝트 형식은 일반으로 두어도 됩니다.
+4. 프로젝트 경로 및 프로젝트 이름을 입력하고 Enter 키를 누릅니다. 
+5. 솔루션을 저장하라는 메시지가 표시되면 [저장]을 클릭합니다. 
+
+여기까지 완료하면 새로운 Visual Studio 인스턴스에서 새 프로젝트가 열립니다. 
+
+> [!TIP]
+> Azure 리소스에 액세스하려면 로그인해야 합니다. 포함된 터미널에서 "az login"을 입력하고 지시를 따릅니다. 
+
+## <a name="submitting-experiment-with-the-new-project"></a>새 프로젝트를 사용한 실험 제출
+Visual Studio에서 새 프로젝트를 열어 놓은 상태로, 계산 대상(로컬 또는 Docker 포함 VM)에 작업을 제출합니다.
+작업을 제출하려면 다음 단계를 수행합니다. 
+1. 솔루션 탐색기에서 제출할 파일을 마우스 오른쪽 단추로 클릭하고 **시작 파일로 설정**을 선택합니다.
+2. 프로젝트 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **작업 제출...**을 선택합니다.
+3. 스크립트를 실행할 클러스터(또는 대상 계산)를 선택할 수 있는 새로운 대화 상자가 열립니다.
+4. **제출**을 클릭합니다.
+
+작업이 제출된 후 포함된 터미널에 실행 진행률이 표시됩니다.
 
 ## <a name="view-list-of-jobs"></a>작업 목록 보기
 작업이 제출된 후 실행 기록에서 해당 작업을 나열할 수 있습니다.
-1. 명령 팔레트를 엽니다(보기 > **명령 팔레트** 또는 **Ctrl+Shift+P**).
-2. "AI 목록"을 입력합니다.
-3. "AI: 작업 나열"에 대한 권장 사항을 찾아서 선택하고 Enter를 누릅니다.
+1. **서버 탐색기**에서 **AI 도구**를 클릭합니다.
+2. 그런 다음 **Azure Machine Learning**을 선택합니다.
+3. **작업** 메뉴를 클릭합니다.
 
-작업 목록 보기가 열리고 모든 실행 및 몇몇 관련 정보가 표시됩니다.
+작업 탐색기에는 이 프로젝트에 대해 제출된 모든 실험이 나열됩니다. 
 
 ## <a name="view-job-details"></a>작업 세부 정보 보기
-작업 목록 보기가 여전히 열려 있는 상태에서 목록의 첫 번째 실행을 클릭합니다.
-작업 결과를 심층 분석하려면 맨 위의 **작업 ID**를 클릭하고 자세한 정보를 봅니다. 
+작업 탐색기 보기를 열어 놓은 상태로, 목록의 첫 번째 실행을 클릭합니다.
+그러면 작업 요약 패널과 로그 및 출력 패널이 로드됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

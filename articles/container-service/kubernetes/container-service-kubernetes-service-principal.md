@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -36,7 +36,7 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 
 다음 요구 사항을 충족하는 기존 Azure AD 서비스 주체를 사용하거나 새 서비스 주체를 만들 수 있습니다.
 
-* **범위**: 클러스터를 배포하는 데 사용하는 구독입니다.
+* **범위**: 클러스터를 배포하는 데 사용되는 리소스 그룹.
 
 * **역할**: **참여자**
 

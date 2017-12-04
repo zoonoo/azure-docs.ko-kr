@@ -21,8 +21,8 @@
 ## 관리
 ### [Azure PowerShell로 관리](cdn-manage-powershell.md)
 ### TTL(Time to Live) 구성
-#### [Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage Blob service 콘텐츠](cdn-manage-expiration-of-blob-content.md)
+#### [Azure 웹 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
 ### [국가별 액세스 제한](cdn-restrict-access-by-country.md)
 ### [파일을 압축하여 성능 향상](cdn-improve-performance.md)
 ### 쿼리 문자열별 캐시 콘텐츠
