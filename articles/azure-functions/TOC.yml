@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: 개념
   items:
-    - name: 호스팅 계획 비교
+    - name: 비율 크기 조정 및 호스팅
       href: functions-scale.md
     - name: 트리거 및 바인딩
       href: functions-triggers-bindings.md

@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: 웹후크 스키마
+      href: container-registry-webhook-reference.md
 - name: 리소스
   items:
     - name: 지역 가용성

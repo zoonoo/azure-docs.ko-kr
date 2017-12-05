@@ -40,8 +40,6 @@
 - name: 관리되는 서비스 ID
   href: msi-overview.md
   items:
-    - name: 로그인하거나 토큰을 획득하는 방법
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM에 대한 MSI 구성
       items:
         - name: Azure Portal 사용
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI 사용
           href: msi-howto-assign-access-cli.md
+    - name: VM MSI 사용 방법
+      items:
+        - name: 액세스 토큰 획득
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'PowerShell, Azure CLI에 로그인'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Azure SDK와 함께 사용
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: VM MSI를 사용하여 Azure Data Lake Store에 액세스
       items:
         - name: Windows VM에서

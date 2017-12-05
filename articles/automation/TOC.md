@@ -70,6 +70,7 @@
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포](automation-deploy-template-runbook.md)
 ## 솔루션
+### [등록 업데이트 및 변경 내용 추적](automation-onboard-solutions.md)
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
 #### [여러 VM에 대한 업데이트 관리](manage-update-multi.md)
 #### [OMS 업데이트 관리와 SCCM 통합](oms-solution-updatemgmt-sccmintegration.md)

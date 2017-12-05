@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: 프로젝트 구조
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: 프로젝트 계획 및 실행
+- name: 프로젝트 계획
+  href: team-data-science-process-project-templates.md
+- name: 프로젝트 실행
   items:
-    - name: 프로젝트 계획
-      href: team-data-science-process-project-templates.md
-    - name: 프로젝트 실행
-      items:
-        - name: 데이터 과학 프로젝트
-          href: project-execution.md
+    - name: 기민한 개발
+      href: agile-development.md
+    - name: Git를 사용하여 공동 코딩
+      href: collaborative-coding-with-git.md
+    - name: 데이터 과학 작업 실행
+      href: execute-data-science-tasks.md
+    - name: 진행률 추적
+      href: track-progress.md
 - name: 예
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: PySpark 및 Scala를 사용하는 Spark
       href: walkthroughs-spark.md
       items:
-        - name: 데이터 탐색
+        - name: 탐색 및 모델 데이터
           href: spark-data-exploration-modeling.md
+        - name: 고급 데이터 탐색 및 모델링
+          href: spark-advanced-data-exploration-modeling.md
         - name: 점수 매기기 모델
           href: spark-model-consumption.md
-        - name: 데이터 탐색
-          href: spark-advanced-data-exploration-modeling.md
     - name: HDInsight Hadoop을 사용하는 Hive
       href: walkthroughs-hdinsight-hadoop.md
     - name: Azure Data Lake를 사용하는 U-SQL
@@ -136,7 +140,8 @@
             - name: AzCopy 사용
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Python 사용
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: SSIS 사용
               href: move-data-to-azure-blob-using-ssis.md
             - name: VM으로 이동
@@ -211,14 +216,8 @@
             - name: 알고리즘 치트 시트
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: 모델 배포
-      items:
-        - name: 웹 서비스 사용
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: 웹 서비스 사용
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: 프로덕션 환경에서 모델 배포
+      href: deploy-models-in-production.md
 - name: 관련 항목
   items:
     - name: Microsoft Cognitive 도구 키트 - CNTK

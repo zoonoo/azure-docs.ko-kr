@@ -31,6 +31,8 @@
 ### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 ### [Visual Studio Code용 U-SQL 사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [U-SQL 데이터베이스 내보내기](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

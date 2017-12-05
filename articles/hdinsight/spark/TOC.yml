@@ -104,6 +104,8 @@
           href: apache-spark-streaming-overview.md
         - name: 스트리밍 이벤트 프로세스
           href: apache-spark-eventhub-streaming.md
+        - name: Event Hubs를 사용하는 구조적 스트리밍
+          href: apache-spark-eventhub-structured-streaming.md
         - name: Kafka를 사용하는 구조적 스트림
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

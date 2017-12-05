@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: 맵 컨트롤을 사용하는 방법
       href: how-to-use-map-control.md
+    - name: 주소 검색 방법
+      href: how-to-search-for-address.md
 - name: 참조
   items:
     - name: Azure IoT 개발자 센터

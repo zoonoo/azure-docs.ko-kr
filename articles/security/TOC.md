@@ -133,6 +133,7 @@
 ## [사이버 보안 컨설팅](azure-security-cyber-services.md)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Azure Marketplace의 보안 권장 사항 이미지](security-recommendations-azure-marketplace-images.md)
+## [보안 이벤트 지원 티켓을 로그하는 방법](azure-security-event-support-ticket.md)
 ## 시나리오
 ### [Azure에서 개인 데이터 관리](manage-personal-data-azure.md)
 ### [Azure에서 개인 데이터 검색, 식별 및 분류](how-to-discover-classify-personal-data-azure.md)

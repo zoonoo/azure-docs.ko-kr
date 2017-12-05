@@ -3,7 +3,7 @@
 - name: 개요
   expanded: true
   items:
-    - name: Azure Machine Learning이란 무엇인가요?
+    - name: Azure Machine Learning이란?
       href: overview-what-is-azure-ml.md
     - name: 모델 관리 개요
       href: model-management-overview.md
@@ -39,12 +39,14 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: 로밍 및 공동 작업
           href: roaming-and-collaboration.md
-    - name: IDE 확장
+    - name: IDE 확장 사용
       items:
         - name: AI용 Visual Studio Tools 사용
           href: quickstart-visual-studio-tools.md
         - name: AI용 Visual Studio Code 도구 사용
           href: quickstart-visual-studio-code-tools.md
+    - name: Azure IoT Edge AI 도구 키트 사용
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: 계산 환경 구성
       items:
         - name: 실험 구성
@@ -92,6 +94,8 @@
           href: how-to-scale-clusters.md
         - name: 웹 서비스 배포
           href: model-management-service-deploy.md
+        - name: IoT Edge 장치에 배포
+          href: deploy-to-iot-edge-device.md
         - name: 웹 서비스 사용
           href: model-management-consumption.md
         - name: 모델 데이터 수집

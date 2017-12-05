@@ -7,8 +7,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: AKS 클러스터 만들기
+    - name: AKS 클러스터 만들기 - CLI
       href: kubernetes-walkthrough.md
+    - name: AKS 클러스터 만들기 - 포털
+      href: kubernetes-walkthrough-portal.md
 - name: 자습서
   items:
     - name: 1 - AKS를 위한 응용 프로그램 준비

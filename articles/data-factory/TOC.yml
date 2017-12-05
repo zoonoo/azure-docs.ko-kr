@@ -4,6 +4,8 @@
   items:
     - name: Data Factory 소개
       href: introduction.md
+    - name: 버전 1과 2 비교
+      href: compare-versions.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: 포털
           href: quickstart-create-data-factory-portal.md
+        - name: Resource Manager 템플릿
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: 자습서
   items:
     - name: 1 - Azure에 SSIS 패키지 배포

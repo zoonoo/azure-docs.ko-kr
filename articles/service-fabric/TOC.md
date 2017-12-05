@@ -6,7 +6,9 @@
 ## [.NET 응용 프로그램 만들기](service-fabric-quickstart-dotnet.md)
 ## [Linux 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers-linux.md)
 ## [Windows 컨테이너 응용 프로그램 배포](service-fabric-quickstart-containers.md)
-## [Java 응용 프로그램 배포](service-fabric-quickstart-java.md)
+## Java 빠른 시작
+### [Spring Boot 응용 프로그램 배포](service-fabric-quickstart-java-spring-boot.md)
+### [Reliable Services 응용 프로그램 배포](service-fabric-quickstart-java-reliable-services.md)
 
 # 자습서
 ## .NET 앱 배포
@@ -29,7 +31,9 @@
 #### [1a- Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2-클러스터 크기 조정](service-fabric-tutorial-scale-cluster.md)
-### [3- Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+### [3- 클러스터 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # 샘플

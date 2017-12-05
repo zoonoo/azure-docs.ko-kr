@@ -224,6 +224,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: Visual Studio에서 웹앱 게시
+          href: publish-web-app-from-visual-studio.md
     - name: 응용 프로그램 실행
       items:
         - name: SQL Server

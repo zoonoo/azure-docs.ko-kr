@@ -27,6 +27,10 @@
   items:
     - name: 비용 보고서 이해
       href: understading-cost-reports.md
+- name: 방법 가이드
+  items:
+    - name: 비용 관리 보고서 사용
+      href: use-reports.md
 - name: 리소스
   items:
     - name: 비용 관리 비디오

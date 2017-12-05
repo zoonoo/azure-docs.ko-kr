@@ -67,26 +67,20 @@
 
 ## 문제 해결
 ### [일반적인 배포 오류](resource-manager-common-deployment-errors.md)
-### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
-### 오류 해결
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux 배포 문제](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### 가상 컴퓨터 배포 오류
-#### Linux
-##### [배포 문제](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [프로비저닝 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [일반적인 오류 메시지](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [프로비저닝 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [일반적인 오류 메시지](../virtual-machines/windows/error-messages.md)
+#### [Windows 배포 문제](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
 
 # 참조
 ## [템플릿 형식](/azure/templates/)

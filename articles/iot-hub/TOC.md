@@ -70,9 +70,10 @@
 ### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
 #### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
 #### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
-### 장치-클라우드 메시지 처리
+### 메시지 라우팅
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.JS](iot-hub-node-node-process-d2c.md)
 ### 클라우드-장치 메시지 보내기
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

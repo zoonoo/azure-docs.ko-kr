@@ -247,6 +247,8 @@
       items:
         - name: .NET에 대한 데이터 없음
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: 스냅숏 디버거
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: 분석
           href: app-insights-analytics-troubleshooting.md
         - name: Java

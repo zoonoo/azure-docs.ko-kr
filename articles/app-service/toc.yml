@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: 관리되는 서비스 ID 사용
           href: app-service-managed-service-identity.md
+        - name: 응용 프로그램 코드에서 SSL 인증서 사용
+          href: app-service-web-ssl-cert-load.md
         - name: TLS 상호 인증 구성
           href: app-service-web-configure-tls-mutual-auth.md
     - name: 앱 크기 조정
