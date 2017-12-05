@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure 스택 1711 업데이트
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/30/2017
 
 ## <a name="build-reference"></a>빌드 참조
 
-Azure 스택 1711 업데이트 빌드 번호는 **20171122.1**합니다.
+Azure 스택 1711 업데이트 빌드 번호는 **171201.3**합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -85,7 +85,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
 
-이 섹션에서는 사후 설치의 알려진된 문제는 빌드에 **20171122.1**합니다.
+이 섹션에서는 사후 설치의 알려진된 문제는 빌드에 **20171201.3**합니다.
 
 #### <a name="portal"></a>포털
 

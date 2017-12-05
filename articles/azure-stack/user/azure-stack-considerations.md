@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 1e170f320292e3dbe920907a4ed81ab0d1eb388b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 7a385ae50ad3403f41bd31f0676e019ee42d181f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: Azure 스택에 대 한 앱을 빌드 또는 서비스를 사용 하 여
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure 스택 개발 키트 릴리스 정보
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/29/2017
    마지막 두 개의 문제를 해결 하려면 구독 또는 리소스 그룹 (경우 것)의 이름을 입력할 수 있습니다 또는 PowerShell을 대신 사용할 수 있습니다.
 
 - 표시 됩니다는 **활성화 필요** Azure 스택 개발 키트를 등록 해야 한다는 경고 성 알림입니다. 이 동작은 사용할 수 있습니다.
-- 에 **활성화 필요** 경고 세부 정보, 경고에 대 한 링크를 클릭 하지 마십시오는 **AzureBridge** 구성 요소입니다. 이렇게 하면는 **개요** 블레이드는를 로드 하려고 실패 및 시간 초과 되지 않습니다.
+- 경우는 **구성 요소** 에서 링크를 클릭 하면 **인프라 역할** 경고 결과 **개요** 블레이드를 로드 하려고 하 고 실패 합니다. 또한는 * * 개요 * * 블레이드 시간이 제한 되지 않습니다.
 - 분리 된 리소스에서 사용자 구독 결과 삭제 합니다. 이 문제를 해결 먼저 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
 - Azure 스택 포털을 사용 하 여 구독에 대 한 사용 권한을 볼 수 없는 합니다. 이 문제를 해결 PowerShell을 사용 하 여 사용 권한을 확인할 수 있습니다.
  
