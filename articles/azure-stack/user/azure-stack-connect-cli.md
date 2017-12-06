@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>설치 하 고 Azure 스택과 함께 사용 하기 위해 CLI를 구성
 
 이 문서에서는 우리 안내해 Azure CLI (명령줄 인터페이스) 리소스를 관리할 Azure 스택 개발 키트에서 Linux 및 Mac 클라이언트 플랫폼을 사용 하는 과정입니다. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure 스택 CA 루트 인증서 내보내기
-
-Azure 스택 개발 키트 환경 내에서 실행 중인 가상 컴퓨터에서 CLI를 사용 하는 경우 직접 검색할 수 있도록 Azure 스택 루트 인증서가 이미 가상 컴퓨터에 설치 합니다. 개발 키트 외부 워크스테이션에서 CLI를 사용 하는 경우에 개발 키트에서 Azure 스택 CA 루트 인증서를 내보낸을 개발 워크스테이션 (외부 Linux 또는 Mac 플랫폼)의 Python 인증서 저장소에 추가 해야 합니다. 
-
-PEM 형식으로 Azure 스택 루트 인증서를 내보내려면 개발 키트에 로그인 하 고 다음 스크립트를 실행 합니다.
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>CLI 설치
 
@@ -59,7 +36,7 @@ az --version
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure 스택 CA 루트 인증서를 신뢰 합니다.
 
-Azure 스택 CA 루트 인증서를 신뢰 하도록 기존 Python 인증서를 추가 합니다. Azure 스택 환경 내에서 만든 Linux 컴퓨터에서 CLI를 실행 하는 경우에 다음 bash 명령을 실행 합니다.
+Azure 스택 연산자에서 Azure 스택 CA 루트 인증서를 가져오고 신뢰 합니다. Azure 스택 CA 루트 인증서를 신뢰 하도록 기존 Python 인증서를 추가 합니다. Azure 스택 환경 내에서 만든 Linux 컴퓨터에서 CLI를 실행 하는 경우에 다음 bash 명령을 실행 합니다.
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>가상 컴퓨터 별칭 끝점을 설정 합니다.
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>가상 컴퓨터 별칭 끝점 가져오기
 
-사용자는 CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 클라우드 관리자는 가상 컴퓨터 이미지 별칭을 포함 하는 공개적으로 액세스할 수 있는 끝점을 설정 하 고 클라우드로이 끝점을 등록 해야 합니다. `endpoint-vm-image-alias-doc` 에서 매개 변수는 `az cloud register` 명령은이 목적을 위해 사용 됩니다. 클라우드 관리자 더 이미지 별칭 끝점에 추가 하기 전에 Azure 스택 마켓플레이스 이미지를 다운로드 해야 합니다.
+사용자는 CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 스택 운영자에 게 문의 하 고 가상 컴퓨터 별칭 끝점 URI를 가져올 해야 이러한 합니다. Azure는 다음 URI를 사용 하는 예를 들어: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json 합니다. 클라우드 관리자 Azure 스택 시장에서 사용할 수 있는 이미지와 Azure 스택에 대 한 유사한 끝점을 설정 해야 합니다. 사용자가 끝점 URI를 통과 해야 하는 `endpoint-vm-image-alias-doc` 매개 변수를는 `az cloud register` 다음 섹션에 나와 있는 것 처럼 명령입니다. 
    
-Azure는 다음 URI를 사용 하는 예를 들어: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json 합니다. 클라우드 관리자 Azure 스택 시장에서 사용할 수 있는 이미지와 Azure 스택에 대 한 유사한 끝점을 설정 해야 합니다.
 
 ## <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
