@@ -139,7 +139,7 @@
 ### [일정](../connectors/connectors-native-recurrence.md)
 ### [Service Bus](../connectors/connectors-create-api-servicebus.md)
 ### [SharePoint Online](../connectors/connectors-create-api-sharepointonline.md)
-### [SharePoint Server](../connectors/connectors-create-api-sharepointonline.md)
+### [SharePoint Server](../connectors/connectors-create-api-sharepointserver.md)
 ### [SQL Server](../connectors/connectors-create-api-sqlazure.md)
 ### [XML 변환](logic-apps-enterprise-integration-transform.md)
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
