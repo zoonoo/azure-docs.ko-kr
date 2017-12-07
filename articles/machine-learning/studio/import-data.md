@@ -5,7 +5,7 @@ keywords: "데이터 가져오기, 데이터 형식, 데이터 유형, 데이터
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 98a8fa15922ef100a7f8cadd92fb7ffef0d3bcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
 다음을 수행하면 기계 학습 스튜디오에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다. 

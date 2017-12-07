@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -112,7 +112,6 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 | Windows Storage Server 2012 및 최신 SP |64비트 |Standard, Workgroup |
 | Windows Server 2012 R2 및 최신 SP |64비트 |Essential |
 | Windows Server 2008 R2 SP1 |64비트 |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64비트 |Standard, Enterprise, Datacenter, Foundation |
 
 **Azure VM 백업의 경우:**
 
@@ -153,7 +152,7 @@ Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가�
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>오후 6시에 "백업을 예약"하고 다른 시간에 "보존 정책"을 지정할 수 있나요?<br/>
 아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 다음 이미지에서는 보존 정책이 오전 12시와 오후 6시에 수행되는 백업에 지정됩니다. <br/>
 
-![백업 일정 및 보존](./media/backup-azure-backup-faq/Schedule.png)
+![Backup 일정 및 보존](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
 
 ### <a name="if-a-backup-is-retained-for-a-long-duration-does-it-take-more-time-to-recover-an-older-data-point-br"></a>오랜 시간 동안 백업을 유지하면 오래된 데이터 지점을 복구하는 데 시간이 더 걸리나요? <br/>
@@ -163,7 +162,7 @@ Azure VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가�
 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다. 전체 지점은 저장소를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다. 증분 복사본은 저장소를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다. Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 저장소 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 데이터 저장소 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 저장소와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)이 얼마나 효율적인지 자세히 알아보세요.
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?<br/>
-보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 자세한 내용은 [백업 및 보존](./backup-introduction-to-azure-backup.md#backup-and-retention)과 [보호된 인스턴스란 무엇인가요](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?의 설명을 참조하세요.
+보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 자세한 내용은 [Backup 및 보존](./backup-introduction-to-azure-backup.md#backup-and-retention)과 [보호된 인스턴스란 무엇인가요](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?의 설명을 참조하세요.
 
 ### <a name="how-many-recoveries-can-i-perform-on-the-data-that-is-backed-up-to-azurebr"></a>Azure에 백업된 데이터는 몇 번 복구할 수 있나요?<br/>
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 
@@ -30,7 +30,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
 ## <a name="accessing-verizon-custom-reports"></a>Verizon 사용자 지정 보고서 액세스
 1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
    
-    ![CDN 프로필 블레이드 관리 단추](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN 프로필 관리 단추](./media/cdn-reports/cdn-manage-btn.png)
    
     CDN 관리 포털이 열립니다.
 2. **분석** 탭을 마우스로 가리킨 후 **핵심 보고서** 플라이아웃을 마우스로 가리킵니다. **에지 CNAME**을 클릭합니다.

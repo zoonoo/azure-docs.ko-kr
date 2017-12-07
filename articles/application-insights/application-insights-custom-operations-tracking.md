@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -33,7 +33,7 @@ Azure Application Insights SDK는 들어오는 HTTP 요청과 종속 서비스�
 ## <a name="overview"></a>개요
 작업은 응용 프로그램에서 실행하는 활동의 논리적 부분입니다. 여기에는 이름, 시작 시간, 기간, 결과 및 실행 컨텍스트(예: 사용자 이름, 속성 및 결과)가 있습니다. 작업 B에서 작업 A를 시작한 경우 작업 B는 A의 부모로 설정됩니다. 작업에는 하나의 부모만 있을 수 있지만 많은 자식 작업이 있을 수 있습니다. 작업 및 원격 분석 상관 관계에 대한 자세한 내용은 [Azure Application Insights 원격 분석 상관 관계](application-insights-correlation.md)를 참조하세요.
 
-Application Insights .NET SDK에서 작업은 [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) 추상 클래스 및 해당하는[RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) 및 [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs) 하위 항목으로 설명됩니다.
+Application Insights .NET SDK에서 작업은 [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) 추상 클래스 및 해당하는[RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) 및 [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs) 하위 항목으로 설명됩니다.
 
 ## <a name="incoming-operations-tracking"></a>들어오는 작업 추적 
 Application Insights 웹 SDK는 IIS 파이프라인과 모든 ASP.NET Core 응용 프로그램에서 실행되는 ASP.NET 응용 프로그램에 대한 HTTP 요청을 자동으로 수집합니다. 다른 플랫폼과 프레임워크에 대해서 커뮤니티 지원 솔루션이 있습니다. 그러나 응용 프로그램에서 표준 또는 커뮤니티 지원 솔루션으로 지원되지 않으면 수동으로 계측할 수 있습니다.

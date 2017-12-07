@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>TB 단위의 데이터에 대한 서버 작업 예측
 
@@ -71,7 +71,7 @@ DSVM IP 주소 | xxx|
 
  필드 이름| 값 |  
  |------------|------|
- 저장소 계정 이름| xxx|
+ Storage 계정 이름| xxx|
  액세스 키  | xxx|
 
 
@@ -203,7 +203,7 @@ DSVM IP 주소 | xxx|
 
 **파일** > **명령 프롬프트 열기**를 선택하여 Machine Learning Workbench에서 명령줄을 시작합니다. 그런 후 다음을 실행합니다. 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 다음 두 파일은 프로젝트의 aml_config 폴더에 만들어집니다.
 
@@ -266,7 +266,7 @@ DSVM Docker에서 `train.py` 스크립트를 실행합니다.
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. HDInsight 클러스터를 위한 Machine Learning Workbench에서 계산 대상 만들기
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 다음 두 파일은 aml_config 폴더에 만들어집니다.
     

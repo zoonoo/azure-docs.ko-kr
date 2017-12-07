@@ -1,10 +1,10 @@
 ---
 title: "SQL Data Warehouse의 테이블 배포 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스에서 테이블 배포 시작"
+description: "Azure SQL Data Warehouse에서 테이블 배포 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="distributing-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 배포
+# <a name="distributing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 배포
 > [!div class="op_single_selector"]
 > * [개요][Overview]
 > * [데이터 형식][Data Types]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-SQL 데이터 웨어하우스는 방대한 병렬 처리(MPP) 분산 데이터베이스 시스템입니다.  여러 노드에 걸쳐 데이터와 처리 용량을 구분하여 SQL 데이터 웨어하우스는 모든 단일 시스템을 넘어서는 매우 큰 확장성을 제공할 수 있습니다.  SQL 데이터 웨어하우스 내에서 데이터를 배포하는 방법을 결정하는 일은 최적의 성능을 달성하는 데 있어서 가장 중요한 요소 중 하나입니다.   성능을 최적화하기 위한 핵심 요인은 데이터 이동을 최소화하는 것이며, 데이터 이동을 최소화하는 핵심 요인은 올바른 배포 전략을 선택하는 것입니다.
+SQL Data Warehouse는 방대한 병렬 처리(MPP) 분산 데이터베이스 시스템입니다.  여러 노드에 걸쳐 데이터와 처리 용량을 구분하여 SQL Data Warehouse는 모든 단일 시스템을 넘어서는 매우 큰 확장성을 제공할 수 있습니다.  SQL Data Warehouse 내에서 데이터를 배포하는 방법을 결정하는 일은 최적의 성능을 달성하는 데 있어서 가장 중요한 요소 중 하나입니다.   성능을 최적화하기 위한 핵심 요인은 데이터 이동을 최소화하는 것이며, 데이터 이동을 최소화하는 핵심 요인은 올바른 배포 전략을 선택하는 것입니다.
 
 ## <a name="understanding-data-movement"></a>데이터 이동 이해
 MPP 시스템에서 각 테이블의 데이터는 여러 기본 데이터베이스 간에 분할됩니다.  MPP 시스템에서 가장 최적화된 쿼리는 다른 데이터베이스 간의 상호 작용 없이 개별 분산 데이터베이스에서 실행하기 위해 간단히 전달될 수 있습니다.  예를 들어 영업과 고객이란 두 테이블을 포함하는 판매 데이터를 가진 데이타베이스가 있다고 가정해 보겠습니다.  영업 테이블을 고객 테이블에 조인해야 하는 쿼리 있고 영업 및 고객 테이블을 고객 번호별로 나눠 각 고객이 다른 데이터베이스에 들어가게 한다면 영업과 고객을 조인하는 쿼리는 다른 데이터베이스에 대해 알지 못해도 각 데이터베이스 내에서 해결될 수 있습니다.  반면, 영업 데이터를 주문 번호별로 그리고 고객 데이터를 고객 번호별로 분할한 경우 지정된 데이터베이스는 각 고객에 대해 해당 데이터를 갖지 않으므로 영업 데이터를 고객 데이터에 조인하려는 경우 다른 데이터베이스에서 각 고객에 대한 데이터를 가져와야 합니다.  이 두 번째 예제에서는 두 테이블을 조인할 수 있도록 고객 데이터를 영업 데이터로 이동하기 위해 데이터 이동이 일어나야 합니다.  
@@ -41,7 +41,7 @@ MPP 시스템에서 각 테이블의 데이터는 여러 기본 데이터베이�
 데이터 이동이 항상 나쁜 것은 아닙니다. 때로 쿼리를 해결하기 위해 필요합니다.  그러나 이 추가 단계를 피할 수 있다면, 자연스럽게 쿼리는 빠르게 실행됩니다.  데이터 이동은 테이블이 조인되거나 집계가 수행될 때 흔히 발생합니다.  조인과 같은 한 가지 시나리오에 대한 최적화를 할 수 있는 한편 집계와 같은 다른 시나리오를 해결하기 위해 데이터 이동이 여전히 필요하므로 흔히 두 작업을 모두 해야 합니다.  어느 쪽이 더 적은 작업을 하는지 파악하는 것이 중요합니다.  대부분의 경우 일반적으로 조인된 열에 대형 팩트 테이블을 분산하는 것이 대부분의 데이터 이동을 줄이는 가장 효과적인 방법입니다.  조인 열에서의 데이터 배포는 집계와 관련된 열에서 데이터를 배포하는 것보다 데이터 이동을 줄이기 위한 훨씬 더 일반적인 메서드입니다.
 
 ## <a name="select-distribution-method"></a>배포 방법 선택
-내부적으로 SQL 데이터 웨어하우스는 데이터를 60개의 데이터베이스로 나눕니다.  각 개별 데이터베이스를 **배포**라고 합니다.  데이터가 각 테이블에 로드되면 SQL 데이터 웨어하우스는 데이터를 이러한 60개 배포로 나누는 방법을 알아야 합니다.  
+내부적으로 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  각 개별 데이터베이스를 **배포**라고 합니다.  데이터가 각 테이블에 로드되면 SQL Data Warehouse는 데이터를 이러한 60개 배포로 나누는 방법을 알아야 합니다.  
 
 배포 방법은 테이블 수준에서 정의되며 현재 두 가지 방법이 있습니다.
 
@@ -157,7 +157,7 @@ null 값은 모두 같은 분산에 할당되므로 null이 많은 열에는 데
 좋은 후보 열이 없으면 배포 방법으로 라운드 로빈을 사용하는 것을 고려합니다.
 
 ### <a name="select-distribution-column-which-will-minimize-data-movement"></a>데이터 이동을 최소화하는 배포 열 선택
-올바른 배포 열을 선택하여 데이터 이동을 최소화하는 일은 SQL 데이터 웨어하우스의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.  데이터 이동은 테이블이 조인되거나 집계가 수행될 때 흔히 발생합니다.  `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` 및 `HAVING` 절에 사용한 열이 모두 해시 분산 후보로 **적합**합니다.
+올바른 배포 열을 선택하여 데이터 이동을 최소화하는 일은 SQL Data Warehouse의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.  데이터 이동은 테이블이 조인되거나 집계가 수행될 때 흔히 발생합니다.  `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` 및 `HAVING` 절에 사용한 열이 모두 해시 분산 후보로 **적합**합니다.
 
 반면 `WHERE` 절의 열은 쿼리에 참여하는 배포를 제한하여 처리 오차를 발생시키므로 해시 열 후보로 적합하지 **않습니다** .  데이터를 분산시키기에 적합해 보이지만 이와 같은 처리 오차를 발생시키기가 많은 열의 대표적인 예로 날짜 열이 있습니다.
 
@@ -181,7 +181,7 @@ null 값은 모두 같은 분산에 할당되므로 null이 많은 열에는 데
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-그러나 SQL 데이터 웨어하우스 DMV(동적 관리 뷰)를 쿼리하는 경우 보다 자세한 분석을 수행할 수 있습니다.  분석을 시작하려면 [테이블 개요][Overview] 문서의 SQL을 사용하여 [dbo.vTableSizes][dbo.vTableSizes] 뷰를 만듭니다.  뷰가 생성되면 이 쿼리를 실행하여 데이터 오차가 10%보다 큰 테이블을 식별합니다.
+그러나 SQL Data Warehouse DMV(동적 관리 뷰)를 쿼리하는 경우 보다 자세한 분석을 수행할 수 있습니다.  분석을 시작하려면 [테이블 개요][Overview] 문서의 SQL을 사용하여 [dbo.vTableSizes][dbo.vTableSizes] 뷰를 만듭니다.  뷰가 생성되면 이 쿼리를 실행하여 데이터 오차가 10%보다 큰 테이블을 식별합니다.
 
 ```sql
 select *

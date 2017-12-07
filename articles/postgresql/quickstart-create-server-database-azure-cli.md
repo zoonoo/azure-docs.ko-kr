@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 PostgreSQL용  Azure Database 만들기
 PostgreSQL용  Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에서 PostgreSQL용 Azure Database 서버를 만드는 방법을 살펴봅니다.
@@ -30,7 +30,7 @@ CLI를 로컬로 실행 중인 경우 [az login](/cli/azure/authenticate-azure-c
 az login
 ```
 
-구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account#set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
+구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az_account_set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 
-[az postgres server create](/cli/azure/postgres/server#create) 명령을 사용하여 [PostgreSQL용 Azure Database 서버](overview.md)를 만듭니다. 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 
+[az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) 명령을 사용하여 [PostgreSQL용 Azure Database 서버](overview.md)를 만듭니다. 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 
 
 다음 예제에서는 `mylogin` 서버 관리자 로그인을 사용하여 `myresourcegroup` 리소스 그룹에 이름이 `mypgserver-20170401`인 서버를 만듭니다. 서버 이름은 DNS 이름에 매핑되므로 Azure에서 전역적으로 고유해야 합니다. `<server_admin_password>`를 자신의 고유한 값으로 직접 바꿉니다.
 ```azurecli-interactive

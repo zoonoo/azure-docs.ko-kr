@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
@@ -27,7 +27,6 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 다음과 같이 **속성** 창을 찾을 수 있습니다.
 
 * Azure 포털에서 클라우드 서비스의 배포, **모든 설정**, **속성**을 차례로 클릭합니다.
-* Azure 클래식 포털에서: 클라우드 서비스의 배포, **대시보드**를 차례로 클릭하고 페이지의 오른쪽 아래로 이동합니다(**간략 상태** 아래). 이 창에 대한 "속성" 레이블이 없습니다.
 
 > [!NOTE]
 > 창의 오른쪽 위 모서리에 있는 아이콘을 클릭하여 **속성** 창의 내용을 클립보드에 복사할 수 있습니다.

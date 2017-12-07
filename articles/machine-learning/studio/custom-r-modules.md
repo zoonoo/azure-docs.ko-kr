@@ -4,7 +4,7 @@ description: "Azure 기계 학습에서 사용자 지정 R 모듈을 작성하�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/24/2017
-ms.author: bradsev;ankarlof
-ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;ankarlof;garye
+ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure 기계 학습에서 사용자 지정 R 모듈 작성
 이 항목에서는 Azure 기계 학습에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 기계 학습 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 

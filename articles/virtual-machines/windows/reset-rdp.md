@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: e962016a96cbbdafabc512b055248900b2c68a69
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 7690dd6d830b104e6f4c20affbfcc2384abe5eab
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
 Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다. 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azure/overview)하고 Azure 구독에 로그인해야 합니다. [클래식 배포 모델을 사용하여 만든 VM에 대해 이러한 단계를 수행](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/reset-rdp)할 수도 있습니다.
@@ -68,17 +68,14 @@ $cred=Get-Credential
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 지정된 자격 증명으로 업데이트합니다.
 
 ```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" `
-    -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().Username `
-    -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**원격 데스크톱 서비스 구성을 다시 설정**
 [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 VM에 대한 원격 액세스를 다시 설정합니다. 다음 예제에서는 리소스 그룹 `myVMAccess`의 VM `myVM`에서 `myResourceGroup` 진단 확장을 다시 설정합니다.
 
 ```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `
-    -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
 ```
 
 > [!TIP]

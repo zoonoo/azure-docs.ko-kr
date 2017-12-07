@@ -1,10 +1,10 @@
 ---
 title: "SQL Data Warehouse의 테이블에 대한 통계 관리 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스에서 테이블에 대한 통계 시작"
+description: "Azure SQL Data Warehouse에서 테이블에 대한 통계 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블에 대한 통계 관리
+# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블에 대한 통계 관리
 > [!div class="op_single_selector"]
 > * [개요][Overview]
 > * [데이터 형식][Data Types]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-SQL 데이터 웨어하우스가 데이터에 대해 더 많이 알수록 데이터에 대해 더 빠르게 쿼리를 실행할 수 있습니다.  SQL 데이터 웨어하우스에 데이터에 대한 정보를 전달하는 방법은 데이터에 대한 통계를 수집하는 것입니다.  데이터에 대해 통계를 수집하는 것이 쿼리를 최적화하는 데 있어서 가장 중요한 방법입니다.  통계는 SQL 데이터 웨어하우스가 최적의 쿼리 계획을 만드는 데 도움을 줍니다.  SQL 데이터 웨어하우스 쿼리 최적화 프로그램이 비용 기반 최적화 프로그램이기 때문입니다.  즉, 다양한 쿼리 계획의 비용과 비교한 후 최저 비용이면서 가장 빠르게 실행되는 계획을 선택합니다.
+SQL Data Warehouse가 데이터에 대해 더 많이 알수록 데이터에 대해 더 빠르게 쿼리를 실행할 수 있습니다.  SQL Data Warehouse에 데이터에 대한 정보를 전달하는 방법은 데이터에 대한 통계를 수집하는 것입니다.  데이터에 대해 통계를 수집하는 것이 쿼리를 최적화하는 데 있어서 가장 중요한 방법입니다.  통계는 SQL Data Warehouse가 최적의 쿼리 계획을 만드는 데 도움을 줍니다.  SQL Data Warehouse 쿼리 최적화 프로그램이 비용 기반 최적화 프로그램이기 때문입니다.  즉, 다양한 쿼리 계획의 비용과 비교한 후 최저 비용이면서 가장 빠르게 실행되는 계획을 선택합니다.
 
 단일 열, 여러 열 또는 테이블의 인덱스에 대해 통계를 만들 수 있습니다.  통계는 범위 및 값의 선택도를 캡처하는 히스토그램에 저장됩니다.  최적화 프로그램이 쿼리에서 JOIN, GROUP BY, HAVING 및 WHERE 절을 평가해야 하는 경우 더욱 흥미롭습니다.  예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 1개의 행을 반환할 것으로 예측할 경우 사용자가 선택한 날짜가 1백만 개의 행을 반환할 것으로 예측할 때와는 다른 계획을 선택할 수 있습니다.  통계를 만드는 것은 매우 중요하지만 마찬가지로 통계가 테이블의 현재 상태를 *정확하게* 반영하는 것도 중요합니다.  최신 통계가 있으면 최적화 프로그램에서 적합한 계획을 선택할 수 있습니다.  최적화 프로그램으로 만든 계획은 데이터에 대한 통계만큼 훌륭합니다.
 
@@ -43,7 +43,7 @@ SQL 데이터 웨어하우스가 데이터에 대해 더 많이 알수록 데이
  모든 열에 샘플링된 통계를 만드는 것이 통계로 시작하는 쉬운 방법입니다.  통계를 최신 상태로 유지하는 것도 마찬가지로 중요하므로 보존적인 접근 방법은 매일 또는 각 로드 후 통계를 업데이트하는 것일 수 있습니다. 통계를 작성하고 업데이트하는 성능 및 비용 간의 장단점은 항상 있습니다.  모든 통계를 유지하는 데 시간이 너무 오래 소요되는 경우 어떤 열에 통계가 있고 어떤 열에서 자주 업데이트가 필요한지 더 선별적으로 시도해볼 수 있습니다.  예를 들어 매 로드 이후에만 새 값이 추가될 수 있는 것은 아니므로 매일 날짜 열을 업데이트하려고 합니다. JOIN, GROUP BY, HAVING 및 WHERE 절에 사용된 열에서 통계를 유지하면 가장 큰 이점을 얻게 됩니다.  많은 열이 SELECT 절에서만 사용되는 열이 테이블에 있으면 이러한 열에 대한 통계는 도움이 되지 않을 수 있으며, 좀 더 노력해서 통계가 도움이 될만한 열을 찾으면 통계를 유지 관리하는 시간도 단축할 수 있습니다.
 
 ## <a name="multi-column-statistics"></a>여러 열 통계
-단일 열에서 통계를 생성하는 것 외에, 여러 열 통계를 사용하면 쿼리에 도움이 될 수 있습니다.  여러 열 통계는 열 목록에 대해 만든 통계입니다.  목록에서 첫 번째 열에 대한 단일 열 통계를 포함하며 또한 밀도라는 일부 열 간 상관 관계 정보를 포함합니다.  예를 들어 두 열에서 다른 테이블에 조인하는 테이블이 있는 경우 SQL 데이터 웨어하우스가 두 열 사이의 관계를 이해할 경우 계획을 더욱 최적화할 수 있다는 것을 알 수 있습니다.   여러 열 통계는 복합 조인 및 그룹 기준과 같은 일부 작업에 대한 쿼리 성능을 향상시킬 수 있습니다.
+단일 열에서 통계를 생성하는 것 외에, 여러 열 통계를 사용하면 쿼리에 도움이 될 수 있습니다.  여러 열 통계는 열 목록에 대해 만든 통계입니다.  목록에서 첫 번째 열에 대한 단일 열 통계를 포함하며 또한 밀도라는 일부 열 간 상관 관계 정보를 포함합니다.  예를 들어 두 열에서 다른 테이블에 조인하는 테이블이 있는 경우 SQL Data Warehouse가 두 열 사이의 관계를 이해할 경우 계획을 더욱 최적화할 수 있다는 것을 알 수 있습니다.   여러 열 통계는 복합 조인 및 그룹 기준과 같은 일부 작업에 대한 쿼리 성능을 향상시킬 수 있습니다.
 
 ## <a name="updating-statistics"></a>통계 업데이트
 통계 업데이트는 사용자 데이터베이스 관리 루틴의 중요한 부분입니다.  데이터베이스의 데이터 배포가 변경된 경우, 통계를 업데이트해야 합니다.  통계가 오래되면 차선의 쿼리 성능이 유지됩니다.
@@ -54,7 +54,7 @@ SQL 데이터 웨어하우스가 데이터에 대해 더 많이 알수록 데이
 
 이 질문은 데이터의 기간에 따라 응답할 수 있는 질문은 아닙니다. 기본 데이터에 중요한 변화가 없었다면 최신 통계 개체도 아주 오래되었을 수 있습니다. 행 수가 변경되었거나 지정된 된 열에 대한 값의 분포에 중요한 변화가 있다면 *이때* 통계를 업데이트해야 합니다.  
 
-참고로 **SQL Server** (SQL 데이터 웨어하우스 아님)는 다음 상황에서 자동으로 통계를 업데이트합니다.
+참고로 **SQL Server** (SQL Data Warehouse 아님)는 다음 상황에서 자동으로 통계를 업데이트합니다.
 
 * 테이블에 0개 행이 있을 때 행을 추가하면 통계가 자동 업데이트됩니다.
 * 500개보다 적은 수의 행을 가진 테이블에 500개 이상의 행을 추가하면(예: 499개 행에 500개 행을 추가하여 999개 행이 될 때) 자동 업데이트됩니다. 
@@ -122,7 +122,7 @@ WHERE
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. 기본 옵션으로 단일 열 통계 만들기
 열에서 통계를 만들려면, 통계 개체에 대한 이름과 열 이름을 제공하면 됩니다.
 
-이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL 데이터 웨어하우스가 통계를 만들 때 테이블의 20%를 샘플링합니다.
+이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL Data Warehouse가 통계를 만들 때 테이블의 20%를 샘플링합니다.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -219,7 +219,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### <a name="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H 저장된 프로시저를 사용하여 데이터베이스의 모든 열에서 통계를 만듭니다.
-SQL 데이터 웨어하우스는 SQL Server에서 [sp_create_stats][]에 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
+SQL Data Warehouse는 SQL Server에서 [sp_create_stats][]에 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
 
 데이터베이스 디자인으로 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
@@ -347,7 +347,7 @@ UPDATE STATISTICS dbo.table1;
 이 명령문은 사용하기 쉽습니다. 테이블에 대한 모든 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능이 중요하지 않은 경우, 통계가 최신임을 보증하는 가장 완전하고 쉬운 방법입니다.
 
 > [!NOTE]
-> 테이블의 모든 통계를 업데이트하면 SQL 데이터 웨어하우스는 각 통계에 대한 테이블을 스캔하여 샘플링합니다. 테이블이 크고 열이 많고 통계가 많은 경우, 필요에 따라 개별 통계를 업데이트하는 것이 더욱 효율적일 수 있습니다.
+> 테이블의 모든 통계를 업데이트하면 SQL Data Warehouse는 각 통계에 대한 테이블을 스캔하여 샘플링합니다. 테이블이 크고 열이 많고 통계가 많은 경우, 필요에 따라 개별 통계를 업데이트하는 것이 더욱 효율적일 수 있습니다.
 > 
 > 
 
@@ -454,7 +454,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() 차이점
-DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우스에서 보다 엄격하게 구현됩니다.
+DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL Data Warehouse에서 보다 엄격하게 구현됩니다.
 
 1. 문서화되지 않은 기능은 지원되지 않습니다.
 2. Stats_stream를 사용할 수 없습니다.

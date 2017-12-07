@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 8c307bbe2ab9b917f46d93ce11ba8573be8fe419
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Storm 토폴로지 및 구성 요소 예제
 
@@ -32,7 +32,6 @@ ms.lasthandoff: 11/03/2017
 | [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |자바 |
 | [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] |Maven |자바 |
 | [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |Visual Studio용 HDInsight 도구 |C#, Java |
-| [C# Storm 토폴로지에서 여러 데이터 스트림 만들기][ec5a4064] |여러 스트림 |C# |
 | [HDInsight의 Storm(C#)에서 Azure Event Hubs의 이벤트 처리][844d1d81] |Event Hubs |C# 및 Java |
 | [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [HDInsight에서 Apache Storm 및 HBase를 사용하여 센서 데이터 분석][ab894747] |Event Hubs, HBase, Socket.IO, 웹 대시보드 |C#, Java, JavaScript, HTML |
@@ -52,7 +51,6 @@ ms.lasthandoff: 11/03/2017
 [6eb0d3b8]:apache-storm-deploy-monitor-topology.md "배포 및 웹 기반 Storm 대시보드 및 Storm UI 또는 HDInsight 도구를 사용하여 Visual Studio에 대한 토폴로지를 관리하는 방법에 알아봅니다."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 [5797064f]:apache-storm-develop-java-topology.md "기본 단어 개수 토폴로지를 만들어 Maven을 사용하여 Java로 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
-[ec5a4064]: https://github.com/Blackmist/csharp-storm-example "C#으로 구현된 단어 개수를 수행하는 기본 Storm 토폴로지를 보여 줍니다. 또한 C# 토폴로지 내에서 여러 데이터 스트림을 만드는 방법을 보여 줍니다."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "HDInsight의 Storm을 사용하여 Azure Event Hub에서 데이터를 읽고 쓰는 방법에 대해 알아봅니다."
 [ab894747]:apache-storm-sensor-data-analysis.md "HDInsight의 Apache Storm을 사용하여 Azure Event Hub에서 센서 데이터를 처리하고, D3.js를 사용하여 시각화하고, 필요한 경우 HBase에 저장하는 방법에 대해 알아봅니다."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Storm 토폴로지를 사용하여 Azure Event Hub에서 메시지를 읽고, 데이터 참조를 위해 Azure Cosmos DB에서 문서를 읽고, Azure Storage에 데이터를 저장하는 방법에 대해 알아봅니다."

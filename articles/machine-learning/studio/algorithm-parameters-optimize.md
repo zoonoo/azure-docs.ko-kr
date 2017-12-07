@@ -4,7 +4,7 @@ description: "Azure 기계 학습에서 알고리즘에 대한 최적 매개 변
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 8f1d9b48e505bef0ebd622267705c3e7e26a3a47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;garye
+ms.openlocfilehash: 664ab97cdfb663d9c8a4cc6c7b748eebfbdf580c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수 선택
 이 토픽에서는 Azure Machine Learning에서 알고리즘에 대한 올바른 하이퍼 매개 변수 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.

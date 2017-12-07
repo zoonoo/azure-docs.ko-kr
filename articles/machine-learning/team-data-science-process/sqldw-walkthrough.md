@@ -4,7 +4,7 @@ description: "활성 중인 고급 분석 프로세스 및 기술"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
-ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/24/2017
+ms.author: bradsev;weig
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용
-이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL 데이터 웨어하우스(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
+# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
+이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
 이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure 기계 학습으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
@@ -72,24 +72,24 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 * 고유한 Azure Blob 저장소를 프로비전할 때 Azure Blob 저장소에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. 데이터는 공용 Blob 저장소 컨테이너에서 AzCopy를 사용하여 자체 저장소 계정의 컨테이너로 복사됩니다. Azure Blob 저장소가 미국 중남부에 가까울수록 이 작업(4단계)이 완료가 더 빨라집니다.
 * 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
   
-  * **저장소 계정 이름**
-  * **저장소 계정 키**
+  * **Storage 계정 이름**
+  * **Storage 계정 키**
   * **컨테이너 이름** (데이터를 저장하려는 Azure Blob 저장소)
 
 **Azure SQL DW 인스턴스를 프로비전합니다.**
-[SQL 데이터 웨어하우스 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
+[SQL Data Warehouse 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL Data Warehouse 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL Data Warehouse 자격 증명에 표기하도록 합니다.
 
 * **서버 이름**: <server Name>.database.windows.net
 * **SQLDW(데이터베이스) 이름**
 * **사용자 이름**
 * **암호**
 
-**Visual Studio 및 SQL Server 데이터 도구 설치** 자세한 지침은 [SQL 데이터 웨어하우스에 Visual Studio 2015 및/또는 SSDT(SQL Server Data Tools) 설치](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)에 요약된 단계를 수행합니다.
+**Visual Studio 및 SQL Server 데이터 도구 설치** 자세한 지침은 [SQL Data Warehouse에 Visual Studio 2015 및/또는 SSDT(SQL Server Data Tools) 설치](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)에 요약된 단계를 수행합니다.
 
 **Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL Data Warehouse에 연결](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md)의 1단계 및 2단계를 참조하세요.
 
 > [!NOTE]
-> SQL 데이터 웨어하우스에 만든 데이터베이스에 다음 SQL 쿼리(연결 토픽의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
+> SQL Data Warehouse에 만든 데이터베이스에 다음 SQL 쿼리(연결 토픽의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
 > 
 > 
 
@@ -103,7 +103,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 **Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure 기계 학습 작업 영역 만들기](../studio/create-workspace.md)에 요약된 단계를 수행합니다.
 
-## <a name="getdata"></a>SQL 데이터 웨어하우스에 데이터 로드
+## <a name="getdata"></a>SQL Data Warehouse에 데이터 로드
 Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실행하여 GitHub에서 *-DestDir* 매개 변수를 사용하여 지정한 로컬 디렉터리에 공유하는 예제 SQL 스크립트 파일을 다운로드합니다. 매개 변수 *-DestDir* 의 값을 로컬 디렉터리로 변경할 수 있습니다. *-DestDir* 이 존재하지 않는 경우 PowerShell 스크립트를 통해 생성됩니다.
 
 > [!NOTE]
@@ -256,7 +256,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
                 REJECT_VALUE = 12         
             )
 
-    - Azure Blob 저장소의 외부 테이블에서 SQL 데이터 웨어하우스에 데이터 로드
+    - Azure Blob 저장소의 외부 테이블에서 SQL Data Warehouse에 데이터 로드
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
@@ -338,7 +338,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
 ![][20]
 
-## <a name="dbexplore"></a>Azure SQL 데이터 웨어하우스에서 데이터 탐색 및 기능 엔지니어링
+## <a name="dbexplore"></a>Azure SQL Data Warehouse에서 데이터 탐색 및 기능 엔지니어링
 이 섹션에서는 **Visual Studio Data Tools**에서 바로 Azure SQL DW에 대해 SQL 쿼리를 실행하여 데이터를 탐색하고 기능을 생성합니다. 이 섹션에서 사용되는 모든 SQL 쿼리는 *SQLDW_Explorations.sql*이라는 샘플 스크립트에서 찾을 수 있습니다. 이 파일은 이미 PowerShell 스크립트에 의해 로컬 디렉터리에 다운로드되었습니다. 또한 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql)에서 검색할 수 있습니다. 하지만 GitHub의 파일은 플러그 인된 Azure SQL DW 정보를 갖지 않습니다.
 
 Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL DW에 연결하고 **SQL 개체 탐색기** 를 열어 데이터베이스와 테이블을 가져왔는지 확인합니다. *SQLDW_Explorations.sql* 파일을 검색합니다.
@@ -653,7 +653,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 * 총 행 수 = 173179759  
 * 총 열 수 = 11
 
-### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>SQL 데이터 웨어하우스에서 소량의 데이터 샘플 읽기
+### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>SQL Data Warehouse에서 소량의 데이터 샘플 읽기
     t0 = time.time()
 
     query = '''
@@ -830,7 +830,7 @@ and
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
-이 연습에서는 이미 SQL 데이터 웨어하우스에서 데이터를 탐색 및 엔지니어링하고 Azure ML에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
+이 연습에서는 이미 SQL Data Warehouse에서 데이터를 탐색 및 엔지니어링하고 Azure ML에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
 
 1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
    
@@ -839,10 +839,9 @@ and
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. **데이터베이스 이름** 을 해당 필드에 입력합니다.
 5. **서버 사용자 계정 이름**에 *SQL 사용자 이름*을 입력하고, **서버 사용자 계정 암호**에 *암호*를 입력합니다.
-6. **모든 서버 인증서 허용** 옵션을 선택합니다.
 7. **데이터베이스 쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드를 추출하는 쿼리(레이블과 같은 모든 계산된 필드 포함)를 붙여 넣고 데이터를 원하는 샘플 크기로 다운 샘플링합니다.
 
-SQL 데이터 웨어하우스 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험의 예는 아래 그림에 있습니다.(연습에서 사용한 스키마 이름 및 테이블 이름으로 테이블 이름 nyctaxi_trip 및 nyctaxi_fare를 교체해야 함) 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
+SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험의 예는 아래 그림에 있습니다.(연습에서 사용한 스키마 이름 및 테이블 이름으로 테이블 이름 nyctaxi_trip 및 nyctaxi_fare를 교체해야 함) 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
 
 ![Azure 기계 학습][10]
 

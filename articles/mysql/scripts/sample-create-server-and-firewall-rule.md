@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 11/02/2017
-ms.openlocfilehash: 50893a2265fcb9a610564748ba316a70c5205b4a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee0d7e1d060492cabc78eeff098057bf9c09c6d1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Azure CLI를 사용하여 MySQL 서버 만들기 및 방화벽 규칙 구성
 이 샘플 CLI 스크립트는 MySQL 서버용 Azure Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 MySQL 서버에 액세스할 수 있습니다.
@@ -37,10 +37,10 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 | **명령** | **참고 사항** |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az mysql server create](/cli/azure/mysql/server#create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#create) | 입력한 IP 주소 범위의 서버에서 서버 및 서버의 데이터베이스에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
-| [az group delete](/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
+| [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) | 입력한 IP 주소 범위의 서버에서 서버 및 서버의 데이터베이스에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.

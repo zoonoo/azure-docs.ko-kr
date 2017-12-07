@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 14ab60a5bb6059794d730151193aad36bc2a969e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 
 Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 환경에서 코드를 실행할 수 있습니다.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
 이 항목에서는 Visual Studio 2017 tools for Azure Functions를 사용하여 로컬에서 "hello world" 함수를 만들고 테스트하는 방법에 대해 알아봅니다. 그런 다음 함수 코드를 Azure에 게시합니다. 이러한 도구는 Visual Studio 2017 버전 15.3 이상에서 Azure 개발 워크로드의 일부로 제공됩니다.
 

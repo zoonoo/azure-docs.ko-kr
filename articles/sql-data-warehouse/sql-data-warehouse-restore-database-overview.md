@@ -1,10 +1,10 @@
 ---
 title: "Azure 데이터 웨어하우스 - 로컬 및 지역 중복 복원 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다."
+description: "Azure SQL Data Warehouse의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 10/31/2016
-ms.author: lakshmir;barbkess
-ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: abf8f0b1005aec71812dc8ebfd12fe65250d7a0e
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>SQL Data Warehouse 복원
 > [!div class="op_single_selector"]

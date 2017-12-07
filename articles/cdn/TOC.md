@@ -20,16 +20,19 @@
  
 ## 관리
 ### [Azure PowerShell로 관리](cdn-manage-powershell.md)
+### [국가별 액세스 제한](cdn-restrict-access-by-country.md)
+### [파일을 압축하여 성능 향상](cdn-improve-performance.md)
+### 캐싱 동작 제어
+#### [캐싱 동작 방식](cdn-how-caching-works.md)
+#### [캐싱 규칙을 사용하여 캐싱 동작 제어](cdn-caching-rules.md)
+#### 쿼리 문자열별 캐시 콘텐츠
+##### [표준 계층](cdn-query-string.md)
+##### [프리미엄 계층](cdn-query-string-premium.md)
+#### [캐시된 자산 제거](cdn-purge-endpoint.md)
+#### [캐시된 자산 미리 로드](cdn-preload-endpoint.md)
 ### TTL(Time to Live) 구성
 #### [Azure 웹 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
-### [국가별 액세스 제한](cdn-restrict-access-by-country.md)
-### [파일을 압축하여 성능 향상](cdn-improve-performance.md)
-### 쿼리 문자열별 캐시 콘텐츠
-#### [표준 계층](cdn-query-string.md)
-#### [프리미엄 계층](cdn-query-string-premium.md)
-### [캐시된 자산 제거](cdn-purge-endpoint.md)
-### [캐시된 자산 미리 로드](cdn-preload-endpoint.md)
 ### [토큰 인증](cdn-token-auth.md)
 ### [리소스 모니터링](cdn-resource-health.md)
 ### [규칙을 사용하여 동작 재정의](cdn-rules-engine.md)

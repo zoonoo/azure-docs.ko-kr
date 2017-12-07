@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: ff857e83a37b95bceb751539bb34e9fb7f202931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>연습 1단계: 기계 학습 작업 영역 만들기
 [Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)연습의 첫 번째 단계입니다.
@@ -34,15 +34,6 @@ ms.lasthandoff: 10/11/2017
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 기계 학습 스튜디오를 사용하려면 Microsoft Azure 기계 학습 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
-
-<!--
-## To create a workspace
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. In the  Azure services panel, click **MACHINE LEARNING**.  
-   ![Create workspace][1]
-3. Click **CREATE AN ML WORKSPACE**.
-4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
--->
 
 Azure 구독에 대한 관리자는 작업 영역을 만들고 소유자 또는 참가자로 추가해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 

@@ -13,8 +13,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: .NET 앱 만들기
+    - name: .NET Core 앱 만들기
       href: app-service-web-get-started-dotnet.md
+    - name: .NET Framework 앱 만들기
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Node.js 앱 만들기
       href: app-service-web-get-started-nodejs.md
     - name: PHP 앱 만들기

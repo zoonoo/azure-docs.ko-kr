@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
@@ -102,8 +102,11 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Azure에서 사용할 SQL Server 라이선스 수를 10일 이내에 알려주세요. 이전 이미지의 링크에는 이 작업을 수행하는 방법에 대한 지침이 있습니다.
+
+> [!NOTE]
+> 사용자 고유의 라이선스를 사용하기 위해 분 단위로 요금이 부과되는 SQL Server VM의 라이선스 모델을 변경할 수 없습니다. 이 경우에 새 BYOL VM을 만들고 새 VM에 데이터베이스를 마이그레이션해야 합니다. 
 
 ## <a name="avoid-unnecessary-costs"></a>불필요한 비용 방지
 

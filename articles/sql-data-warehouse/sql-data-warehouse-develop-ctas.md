@@ -1,10 +1,10 @@
 ---
 title: "SQL Data Warehouse의 CTAS(Create Table As Select) | Microsoft Docs"
-description: "솔루션 개발을 위해 Azure SQL 데이터 웨어하우스의 CTAS(Create Table As Select) 문으로 코딩에 대한 팁."
+description: "솔루션 개발을 위해 Azure SQL Data Warehouse의 CTAS(Create Table As Select) 문으로 코딩에 대한 팁."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
-ms.date: 01/30/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: a885ba4f455fecd158696faaee38c83c1e4ec0bf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
+# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL Data Warehouse의 CTAS(Create Table As Select)
 `CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. `CTAS`는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
 
 ## <a name="selectinto-vs-ctas"></a>SELECT..INTO 및 CTAS
@@ -126,12 +126,12 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][Statistics] 항목을 참조하세요.
+> Azure SQL Data Warehouse는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][Statistics] 항목을 참조하세요.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>CTAS를 사용하여 지원되지 않는 기능 해결
-`CTAS` 를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
+`CTAS` 를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL Data Warehouse에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
 
 * UPDATE에 대한 ANSI JOINS
 * DELETE에 대한 ANSI JOIN
@@ -185,7 +185,7 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-SQL 데이터 웨어하우스는 `UPDATE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않으므로 이 코드를 약간 변경해야 복사할 수 있습니다.
+SQL Data Warehouse는 `UPDATE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않으므로 이 코드를 약간 변경해야 복사할 수 있습니다.
 
 `CTAS` 와 암시적 조인의 조합을 사용하여 이 코드를 대체할 수 있습니다.
 
@@ -435,7 +435,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 따라서 CTAS에 대한 형식 일관성 및 null 허용 여부 속성 유지가 좋은 엔지니어링 모범 사례임을 알 수 있습니다. 이 방법은 계산의 무결성을 유지하는 데 도움이 되며 파티션 전환을 확실히 가능하게 해 줍니다.
 
-[CTAS][CTAS] 사용에 대한 자세한 내용은 MSDN을 참조하세요. 이는 Azure SQL 데이터 웨어하우스의 매우 중요한 문 중 하나이므로, 완전하게 이해해야 합니다.
+[CTAS][CTAS] 사용에 대한 자세한 내용은 MSDN을 참조하세요. 이는 Azure SQL Data Warehouse의 매우 중요한 문 중 하나이므로, 완전하게 이해해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.

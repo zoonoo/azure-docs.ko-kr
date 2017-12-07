@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: 참조
   items:
+    - name: 기능 API - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: 관리 API - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: 맵 컨트롤 API - Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: 리소스
+  items:
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 로드맵

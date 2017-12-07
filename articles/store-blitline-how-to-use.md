@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
-ms.author: support@blitline.com
-ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 254af305592ebef755ccfcb3ae4367b27fb0fc4a
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Azure 및 Azure 저장소로 Blitline을 사용하는 방법
+# <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Azure 및 Azure Storage로 Blitline을 사용하는 방법
 이 가이드는 Blitline 서비스를 액세스하는 방법 및 작업을 Blitline에 전송하는 방법을 설명합니다.
 
 ## <a name="what-is-blitline"></a>Blitline 정의
@@ -35,7 +35,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 * Blitline에는 이미지를 업로드할 HTML 위젯이 없습니다. 공개적으로 사용할 수 있는 이미지를 가지고 있거나 Blitline가 접근할 수 있는 제한된 권한을 가진 이미지를 가지고 있어야 합니다.
 * Blitline은 Aviary.com처럼 라이브로 이미지를 처리하지 않습니다.
-* Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure 저장소에 푸시하거나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어 가져올 수 있게 해야 합니다.
+* Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure Storage에 푸시하거나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어 가져올 수 있게 해야 합니다.
 * Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
 
 ## <a name="create-a-blitline-account"></a>Blitline 계정 만들기
@@ -84,8 +84,8 @@ JSON이 있으면 `http://api.blitline.com/job`에 **게시**하기만 하면 �
 
 이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다. **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a name="how-to-save-an-image-to-your-azure-storage-account"></a>Azure 저장소 계정에 이미지를 저장하는 방법
-Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
+## <a name="how-to-save-an-image-to-your-azure-storage-account"></a>Azure Storage 계정에 이미지를 저장하는 방법
+Azure Storage 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
 
 다음은 예제입니다.
 
@@ -115,7 +115,7 @@ SAS에는 대상 파일의 파일 이름을 포함하여 전체 SAS URL이 포�
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitline.com/docs/azure_storage)에서 읽을 수도 있습니다.
+Blitline의 Azure Storage 문서의 최신 버전을 [여기](http://www.blitline.com/docs/azure_storage)에서 읽을 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다른 모든 기능에 대한 내용을 보려면 다음 blitline.com을 방문하십시오.

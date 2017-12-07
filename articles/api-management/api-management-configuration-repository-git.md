@@ -1,6 +1,6 @@
 ---
 title: "Git를 사용하여 API Management 서비스 구성 - Azure | Microsoft Docs"
-description: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
+description: "Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 > 
 > 
 
-각 API 관리 서비스 인스턴스는 구성에 관한 정보 및 서비스 인스턴스에 대한 메타데이터를 포함하고 있는 구성 데이터베이스를 유지관리합니다. PowerShell cmdlet을 사용하거나 REST API를 호출하여 게시자 포털의 설정을 변경하면 서비스 인스턴스를 변경할 수 있습니다. 이러한 방법 이외에 다음과 같은 서비스 관리 시나리오를 통해 Git를 사용하여 서비스 인스턴스 구성을 관리할 수도 있습니다.
+각 API Management 서비스 인스턴스는 구성에 관한 정보 및 서비스 인스턴스에 대한 메타데이터를 포함하고 있는 구성 데이터베이스를 유지관리합니다. PowerShell cmdlet을 사용하거나 REST API를 호출하여 게시자 포털의 설정을 변경하면 서비스 인스턴스를 변경할 수 있습니다. 이러한 방법 이외에 다음과 같은 서비스 관리 시나리오를 통해 Git를 사용하여 서비스 인스턴스 구성을 관리할 수도 있습니다.
 
 * 구성 버전 관리 - 서비스 구성의 서로 다른 버전 다운로드 및 저장
 * 대량 구성 변경 - 로컬 저장소에 있는 서비스 구성의 여러 부분을 변경하고 단일 작업으로 변경 내용을 서버에 다시 통합
 * 친숙한 Git 도구 체인 및 워크플로 - 이미 익숙해진 Git 도구 및 워크플로 사용
 
-다음 다이어그램에서는 API 관리 서비스 인스턴스를 구성하는 다양한 방법을 간략하게 보여 줍니다.
+다음 다이어그램에서는 API Management 서비스 인스턴스를 구성하는 다양한 방법을 간략하게 보여 줍니다.
 
 ![Git 구성][api-management-git-configure]
 
 게시자 포털, PowerShell cmdlet 또는 REST API를 사용하여 서비스를 변경할 때 다이어그램의 오른쪽과 같이 `https://{name}.management.azure-api.net` 끝점을 사용하여 서비스 구성 데이터베이스를 관리합니다. 다이어그램의 왼쪽은 `https://{name}.scm.azure-api.net`에 있는 서비스에 Git 및 Git 리포지토리를 사용하여 서비스 구성을 관리할 수 있는 방법을 보여 줍니다.
 
-다음 단계는 Git를 이용한 API 관리 서비스 인스턴스 관리를 간략하게 보여 줍니다.
+다음 단계는 Git을 이용한 API Management 서비스 인스턴스 관리를 간략하게 보여 줍니다.
 
 1. 서비스의 Git 구성에 액세스
 2. Git 리포지토리에 서비스 구성 데이터베이스 저장
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/16/2017
 이 문서에서는 Git를 사용하도록 설정하고 이를 사용하여 서비스 구성을 관리하는 방법을 설명하며 Git 리포지토리의 파일 및 폴더에 대한 참조를 제공합니다.
 
 ## <a name="access-git-configuration-in-your-service"></a>서비스의 Git 구성에 액세스
-게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 상태 메시지는 리포지토리에 대해 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
+게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 상태 메시지는 리포지토리에 대해 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API Management 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
 
 ![Git 상태][api-management-git-icon-enable]
 
@@ -56,7 +56,7 @@ Git 구성 설정을 확인 및 구성하려면 Git 아이콘을 클릭하거나
 ![GIT 사용][api-management-enable-git]
 
 > [!IMPORTANT]
-> 속성으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 속성은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API 관리 정책에 속성을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
+> 속성으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 속성은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API Management 정책에 속성을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
 > 
 > 
 
@@ -128,7 +128,7 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 참조](#file-and-folder-structure-reference-of-local-git-repository)를 참조하세요.
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
-게시자 포털에서 또는 REST API를 사용하여 API 관리 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 게시자 포털의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 후 로컬 리포지토리에서 다음 명령을 실행합니다.
+게시자 포털에서 또는 REST API를 사용하여 API Management 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 게시자 포털의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 후 로컬 리포지토리에서 다음 명령을 실행합니다.
 
 ```
 git pull
@@ -154,8 +154,8 @@ git commit -m "Description of your changes"
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>서비스 구성 변경 내용을 API 관리 서비스 인스턴스에 배포하려면
-로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API 관리 서비스 인스턴스에 배포할 수 있습니다.
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>서비스 구성 변경 내용을 API Management 서비스 인스턴스에 배포하려면
+로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API Management 서비스 인스턴스에 배포할 수 있습니다.
 
 ![배포][api-management-configuration-deploy]
 
@@ -183,7 +183,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 | xml |정책 설명 |
 | css |개발자 포털 사용자 지정에 대한 스타일 시트 |
 
-이 파일을 로컬 파일 시스템에서 생성, 삭제, 편집 및 관리할 수 있으며 변경 내용을 API 관리 서비스 인스턴스에 다시 배포할 수 있습니다.
+이 파일을 로컬 파일 시스템에서 생성, 삭제, 편집 및 관리할 수 있으며 변경 내용을 API Management 서비스 인스턴스에 다시 배포할 수 있습니다.
 
 > [!NOTE]
 > 다음 엔터티는 Git 리포지토리에 포함되지 않으며 Git를 사용하여 구성할 수 없습니다.
@@ -284,9 +284,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
   * [서비스 배포 PowerShell cmdlet 참조](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [서비스 관리 PowerShell cmdlet 참조](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * 게시자 포털에서 서비스 인스턴스 관리
-  * [첫 번째 API 관리](api-management-get-started.md)
+  * [첫 번째 API 관리](import-and-publish.md)
 * REST API를 사용하여 서비스 인스턴스 관리
-  * [API 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
 ## <a name="watch-a-video-overview"></a>비디오 개요 보기
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]

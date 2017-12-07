@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb8fe1ea6d4de066744a6277c1aec96073c1703c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -96,8 +96,6 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 9. [만들기]를 클릭하면 VNet의 진행 상황을 반영하는 타일이 대시보드에 표시됩니다. 타일은 VNet이 생성되면서 변경됩니다.
 
   ![가상 네트워크 타일 만들기](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "가상 네트워크 만들기")
-
-가상 네트워크를 만들면 Azure 클래식 포털의 네트워크 페이지에 있는 **상태** 아래에 **만들어짐**이 표시됩니다.
 
 ## <a name="additionaladdress"></a>2. 다른 주소 공간 추가
 

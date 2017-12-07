@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba47f3e3f331929b884f27f49bf6e484ff363765
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 

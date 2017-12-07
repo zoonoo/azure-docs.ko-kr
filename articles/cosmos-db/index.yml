@@ -6,14 +6,14 @@ metadata:
   title: 'Azure Cosmos DB 설명서 - 자습서, API 참조'
   description: 'Azure Cosmos DB를 사용하여 전역적으로 분산된 다중 모델 데이터베이스를 사용하는 방법을 알아봅니다. 자습서는 문서, 키/값 및 그래프 데이터베이스를 빌드 및 쿼리하는 방법을 보여 줍니다.'
   services: cosmos-db
-  author: czeumault
-  manager: carolz
+  author: mimig
+  manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/29/2017
-  ms.author: carolz
+  ms.date: 12/05/2017
+  ms.author: mimig
 abstract:
   description: 'Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서비스입니다. 널리 사용되는 API 및 프로그래밍 모델을 사용하여 문서, 키-값, 전체-열 및 그래프 데이터베이스를 개발하기 위해 이 빠른 시작, 자습서 및 샘플을 사용합니다. 포괄적인 SLA를 사용하는 동안 여러 Azure 지역에 걸쳐 데이터를 복제하고 저장소에서 독립적으로 처리량의 크기를 조정하는 방법을 알아봅니다.'
   aside:
@@ -56,14 +56,14 @@ sections:
               - href: /azure/cosmos-db/create-mongodb-java
               - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-mongodb-flask
               - href: null
           - title: 그래프 API
             values:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: /azure/cosmos-db/create-graph-python
+              - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: 테이블 API
             values:

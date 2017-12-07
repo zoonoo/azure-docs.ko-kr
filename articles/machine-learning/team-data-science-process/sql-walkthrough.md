@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -115,7 +115,7 @@ AzCopy를 사용하여 데이터를 복사하려면
    * 왼쪽의 **페이지 선택** 목록에서 **데이터베이스 설정**을 선택합니다.
    * **데이터베이스 기본 위치**가 선택한 **데이터 디스크** 위치인지 확인하고 아닌 경우 변경합니다. 기본 위치 설정을 사용하여 만든 새 데이터베이스는 여기에 상주합니다.
      
-       ![SQL 데이터베이스 기본값][15]  
+       ![SQL Database 기본값][15]  
 5. 새 데이터베이스 및 파일 그룹 집합을 만들어 분할된 테이블을 유지하려면 **create\_db\_default.sql** 샘플 스크립트를 엽니다. 이 스크립트는 **TaxiNYC** 라는 새 데이터베이스를 만들고 기본 데이터 위치에 12개의 파일 그룹을 만듭니다. 각 파일 그룹에는 한 달 분량의 trip\_data 및 trip\_fare 데이터가 유지됩니다. 필요한 경우 데이터베이스 이름을 수정합니다. **!실행** 을 클릭하여 스크립트를 실행합니다.
 6. 이제 trip\_data와 trip\_fare에 대해 각각 하나씩 두 개의 파티션 테이블을 만듭니다. 다음 작업을 수행하는 **create\_partitioned\_table.sql** 샘플 스크립트를 엽니다.
    
@@ -217,7 +217,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 여정 거리 계산 및 비교
+#### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 여정 거리 Compute 및 비교
 이 예제에서는 승차 및 하차 경도/위도를 SQL 지리 지점으로 변환하고, SQL 지리 지점 차이를 사용하여 여정 거리를 계산한 다음, 비교를 위해 무작위 결과 샘플을 반환합니다. 앞서 설명한 데이터 품질 평가 쿼리를 사용하여 유효한 좌표로만 결과가 제한됩니다.
 
     SELECT
@@ -581,7 +581,6 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. **데이터베이스 이름** 을 해당 필드에 입력합니다.
 5. **서버 사용자 계정 이름에 **SQL 사용자 이름**을 입력하고 **서버 사용자 계정 암호**에 암호를 입력합니다.
-6. **모든 서버 인증서 허용** 옵션을 선택합니다.
 7. **데이터베이스 쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드를 추출하는 쿼리(레이블과 같은 모든 계산된 필드 포함)를 붙여 넣고 데이터를 원하는 샘플 크기로 다운 샘플링합니다.
 
 SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험 예제는 아래 그림에 나와 있습니다. 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.

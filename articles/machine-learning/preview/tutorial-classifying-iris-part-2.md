@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>아이리스 분류 2부: 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -300,7 +300,7 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
  
    ```azurecli
    REM creates an myvm compute target
-   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
+   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
    ```
    
    >[!NOTE]
@@ -345,13 +345,13 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>HDInsight 클러스터에서 스크립트 실행
 이 스크립트는 HDInsight Spark 클러스터에서도 실행할 수 있습니다. [Azure ML Workbench에서 사용하는 HDInsight Spark Cluster를 만드는 방법](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)을 알아봅니다.
 
->![참고] HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. Azure Data Lake 저장소 사용은 아직 지원되지 않습니다.
+>![참고] HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
 
 1. Azure HDInsight용 Spark 클러스터에 액세스할 수 있으면 다음과 같이 HDInsight 실행 구성 명령을 생성합니다. HDInsight 클러스터 이름, HDInsight 사용자 이름 및 암호를 매개 변수로 제공합니다. 다음 명령을 사용합니다.
 
    ```azurecli
    REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach --name myhdi --address <cluster head node FQDN> --username <username> --password <password> --type cluster
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
 
    REM prepares the HDInsight cluster
    az ml experiment prepare -c myhdi

@@ -38,7 +38,7 @@
 #### [리소스 배포](resource-group-template-deploy-portal.md)
 #### [템플릿 내보내기](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [크로스 리소스 그룹 배포](resource-manager-cross-resource-group-deployment.md)
+### [여러 리소스 그룹 또는 구독](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 

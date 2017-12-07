@@ -12,15 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
-ms.custom: 
-ms.openlocfilehash: db4e1392acaeb2431d29a851113b7bc5a6dc1e9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure에서 대규모로 Azure 가상 컴퓨터 백업
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > 이 자습서에서는 리소스 그룹 및 Azure 가상 컴퓨터를 이미 만들었다고 가정합니다.
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)은 백업 중인 항목에 대한 복구 지점을 포함하는 컨테이너입니다. Recovery Services 자격 증명 모음은 Azure 리소스 그룹의 일부로 배포 및 관리할 수 있는 Azure 리소스입니다. 이 자습서에서는 보호되는 가상 컴퓨터와 동일한 리소스 그룹에 Recovery Services 자격 증명 모음을 만듭니다.
 
@@ -46,7 +46,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-많은 Azure 백업 cmdlet에는 복구 서비스 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 복구 서비스 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage)로 설정합니다. 
+많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다. 그런 다음 **Set-AzureRmRecoveryServicesBackupProperties**를 사용해 **-BackupStorageRedundancy** 옵션을 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage)로 설정합니다. 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault

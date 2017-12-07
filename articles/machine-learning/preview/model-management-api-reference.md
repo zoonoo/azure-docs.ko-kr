@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 모델 관리 계정 API 참조
 
-배포 환경 설정에 대한 정보는 [모델 관리 계정 설정](model-management-configuration.md)을 참조하세요.
+배포 환경 설정에 대한 정보는 [모델 관리 계정 설정](deployment-setup-configuration.md)을 참조하세요.
 
 Azure Machine Learning 모델 관리 계정 API는 다음과 같은 작업을 구현합니다.
 
@@ -699,7 +699,7 @@ Azure Machine Learning 배포 인스턴스입니다.
 
 |이름|설명|스키마|
 |---|---|---|
-|**code**  <br>*필수*|오류 코드입니다.|string|
+|**code**  <br>*필수*|오류 코드|string|
 |**message**  <br>*필수*|오류 메시지입니다.|string|
 
 
@@ -710,7 +710,7 @@ Azure Machine Learning 배포 인스턴스입니다.
 
 |이름|설명|스키마|
 |---|---|---|
-|**code**  <br>*필수*|오류 코드입니다.|string|
+|**code**  <br>*필수*|오류 코드|string|
 |**details**  <br>*선택 사항*|오류 세부 정보 개체의 배열입니다.|<[ErrorDetail](#errordetail)> 배열|
 |**message**  <br>*필수*|오류 메시지입니다.|string|
 |**statusCode**  <br>*선택 사항*|HTTP 상태 코드입니다.|정수|

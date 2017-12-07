@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a1e56a6d31568d1d36e713b9a1000d84c6446bac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
@@ -63,10 +63,9 @@ Media Services 솔루션을 빌드하려면 다음을 사용할 수 있습니다
 
 **Azure 코드 샘플** 갤러리: [Azure Media Services 코드 샘플](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)에서 여러 코드 샘플을 찾습니다.
 
-## <a name="concepts-and-overview"></a>개념 및 개요
-Azure Media Services 개념은 [개념](media-services-concepts.md)을 참조하세요.
+## <a name="concepts"></a>개념
 
-Azure Media Services의 모든 주요 구성 요소를 소개하는 사용 방법 시리즈는 [Azure Media Services 단계별 자습서](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series)를 참조하세요. 이 시리즈에는 개념에 대한 훌륭한 개요가 포함되어 있으며 AMSE 도구를 사용하여 AMS 작업을 보여 줍니다. AMSE 도구는 Windows 도구입니다. 이 도구는 [.NET용 AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java) 또는 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)를 사용하여 프로그래밍 방식으로 수행할 수 있는 대부분의 작업을 지원합니다.
+Azure Media Services 개념은 [개념](media-services-concepts.md)을 참조하세요.
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>지원되는 시나리오 및 데이터 센터에서 Media Services의 사용 가용성
 

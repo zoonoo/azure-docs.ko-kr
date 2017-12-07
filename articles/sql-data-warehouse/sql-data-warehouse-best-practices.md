@@ -3,8 +3,8 @@ title: "Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs"
 description: "Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
 이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
@@ -84,7 +84,7 @@ SQL Data Warehouse에서 일시적으로 데이터를 방문하는 경우 힙 �
 ## <a name="optimize-clustered-columnstore-tables"></a>클러스터형 Columnstore 테이블 최적화
 columnstore 클러스터형 인덱스는 Azure SQL Data Warehouse에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 SQL Data Warehouse의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스][Table indexes] 문서의 [Columnstore 인덱스 품질 저하 원인][Causes of poor columnstore index quality] 섹션을 참조하세요.  고품질 columnstore 세그먼트가 중요하기 때문에 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [서비스 수준](performance-tiers.md#service-levels)을 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
-columnstore 테이블은 일반적으로 테이블당 100개 이상의 행이 있고 각 SQL Data Warehouse 테이블이 60개 테이블로 파티션될 때까지 데이터를 압축된 columnstore 세그먼트에 푸시하지 않으므로 경험에 따르면 테이블에서 행 수가 6천만 개를 초과하지 않는다면 columnstore 테이블은 쿼리에 이점을 제공하지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  또한 데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 각 파티션에는 100개의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore에서 이점을 얻으려면 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 행).  이 예에서 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.  또한 실험을 통해 columnstore 테이블 대신 보조 인덱스가 있는 힙 테이블로 더 나은 성능을 얻을 수 있는지도 확인할 수 있습니다.  Columnstore 테이블은 보조 인덱스를 아직 지원하지 않습니다.
+columnstore 테이블은 일반적으로 테이블당 100개 이상의 행이 있고 각 SQL Data Warehouse 테이블이 60개 테이블로 파티션될 때까지 데이터를 압축된 columnstore 세그먼트에 푸시하지 않으므로 경험에 따르면 테이블에서 행 수가 6천만 개를 초과하지 않는다면 columnstore 테이블은 쿼리에 이점을 제공하지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  또한 데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 각 파티션에는 100개의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore에서 이점을 얻으려면 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 행).  이 예에서 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.  또한 실험을 통해 columnstore 테이블 대신 보조 인덱스가 있는 힙 테이블로 더 나은 성능을 얻을 수 있는지도 확인할 수 있습니다.
 
 columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.  
 

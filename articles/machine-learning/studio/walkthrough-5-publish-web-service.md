@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure 기계 학습 웹 서비스 배포
 [Azure 기계 학습에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할
 
 
 ## <a name="manage-the-web-service"></a>웹 서비스 관리
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 기존 웹 서비스 관리
-
-기존 웹 서비스를 배포한 후에는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 관리할 수 있습니다.
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. Microsoft Azure 서비스 패널에서 **Machine Learning**을 클릭합니다.
-3. 작업 영역을 클릭합니다.
-4. **웹 서비스** 탭을 클릭합니다.
-5. 만든 웹 서비스를 클릭합니다.
-6. "기본" 끝점을 클릭합니다.
-
-여기에서 웹 서비스를 수행하는 방법을 모니터링하고 서비스에서 처리할 수 있는 동시 호출 수를 변경하여 성능을 조정하는 등의 작업을 수행할 수 있습니다.
-
-자세한 내용은 다음을 참조하세요.
-
-* [끝점 만들기](create-endpoint.md)
-* [웹 서비스 확장](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 기존 또는 새 웹 서비스 관리
 
 기존 또는 신규의 웹 서비스를 배포한 후에는 [Microsoft Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/quickstart)에서 관리할 수 있습니다.
 

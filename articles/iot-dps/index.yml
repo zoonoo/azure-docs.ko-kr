@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure IoT Hub Device Provisioning 서비스(미리 보기) 설명서
+title: Azure IoT Hub Device Provisioning 서비스 설명서
 metadata:
-  title: 'Azure IoT Hub Device Provisioning 서비스(미리 보기) 설명서 - 자습서, API 참조'
+  title: 'Azure IoT Hub Device Provisioning 서비스 설명서 - 자습서, API 참조'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'IoT Hub Device Provisioning Service(미리 보기)는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 IoT Hub에 장치를 프로비전하는 방법을 알아봅니다.'
+  description: 'IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 IoT Hub에 장치를 프로비전하는 방법을 알아봅니다.'
 sections:
   - title: 5분 빠른 시작
     items:
@@ -34,7 +34,7 @@ sections:
   - title: 단계별 자습서
     items:
       - type: paragraph
-        text: IoT Hub 장치 프로비전 서비스(미리 보기)를 사용하여 단일 또는 여러 IoT Hub에 보안이 활성화된 장치를 자동으로 프로비전하는 방법을 알아봅니다.
+        text: IoT Hub Device Provisioning Service를 사용하여 단일 또는 여러 IoT Hub에 보안이 활성화된 장치를 자동으로 프로비전하는 방법을 알아봅니다.
       - type: list
         style: ordered
         items:

@@ -135,13 +135,29 @@
         - name: Azure로 VMware 복제를 위한 용량 계획
           href: site-recovery-plan-capacity-vmware.md
         - name: Azure로 VMware 복제를 위한 Deployment Planner 도구
-          href: site-recovery-deployment-planner.md
-        - name: Azure로 Hyper-V 복제를 위한 용량 계획
-          href: site-recovery-capacity-planner.md
-        - name: Azure로 Hyper-V 복제를 위한 Capacity Planner 도구
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: 개요 및 필수 구성 요소
+              href: site-recovery-deployment-planner.md
+            - name: Deployment Planner 실행
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: 생성된 보고서 분석
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: 재해 복구 비용 예측 보고서 분석
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: VMware 복제를 위한 프로세스 서버 확장
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Azure로 Hyper-V 복제를 위한 배포 계획 및 도구
+          href: null
+          items:
+            - name: 개요 및 필수 구성 요소
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Deployment Planner 실행
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: 생성된 보고서 분석
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: 재해 복구 비용 예측 보고서 분석
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: 온-프레미스 사이트 간에 Hyper-V 복제를 위한 성능 크기 조정 테스트
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: 구성

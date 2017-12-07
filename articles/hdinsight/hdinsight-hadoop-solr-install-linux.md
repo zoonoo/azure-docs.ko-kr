@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
@@ -116,7 +116,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    이 명령은 **\*:\*** (쿼리 문자열에서 \*%3A\* 로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
+    이 명령은 **\*:\***(쿼리 문자열에서 \*%3A\*로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
 
             "response": {
                 "numFound": 2,
@@ -274,7 +274,7 @@ sudo stop solr
 sudo start solr
 ```
 
-## <a name="backup-indexed-data"></a>인덱싱된 데이터 백업
+## <a name="backup-indexed-data"></a>인덱싱된 데이터 Backup
 
 Solr 데이터를 클러스터의 기본 저장소로 백업하려면 다음 단계를 사용합니다.
 

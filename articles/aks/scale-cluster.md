@@ -1,27 +1,19 @@
 ---
-title: "Azure Container Service(AKS) 클러스터 크기 조정 | Microsoft Docs"
+title: "Azure Container Service(AKS) 클러스터 크기 조정"
 description: "Azure Container Service(AKS) 클러스터의 크기를 조정합니다."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, 컨테이너, 마이크로 서비스, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 299eb74686f00dc6d5eb9a1c6127aa134dcd9b77
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 크기 조정
 

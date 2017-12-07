@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 9aa21beb8963462b1cb6bdad6079b01e4d2e9c34
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -47,7 +47,7 @@ ExpressRoute 연결 모델(Cloud Exchange Co-location, 지점 간 이더넷 연�
 3.  PE(CE 연결): 고객 에지 라우터에 연결되는 공급자 에지 라우터/스위치입니다. 이 문서에서는 PE-CE라고 합니다.
 4.  PE(MSEE 연결): MSEE에 연결되는 공급자 에지 라우터/스위치입니다. 이 문서에서는 PE-MSEE라고 합니다.
 5.  MSEE: MSEE(Microsoft Enterprise Edge) ExpressRoute 라우터
-6.  VNet(가상 네트워크) 게이트웨이
+6.  VNet(Virtual Network) 게이트웨이
 7.  Azure VNet의 계산 장치
 
 연결 모델로 Cloud Exchange Co-location 또는 지점 간 이더넷 연결을 사용하는 경우 고객 에지 라우터(2)에서 MSEE(5)와의 BGP 피어링을 설정합니다. 네트워크 지점 3과 4는 여전히 존재하지만 계층 2 장치로 다소 투명하게 됩니다.
@@ -192,7 +192,7 @@ Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴�
 Azure 개인 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 성공적으로 구성된 개인 피어링에 대한 샘플 응답은 다음과 같습니다.
 

@@ -11,16 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: bwren
-ms.openlocfilehash: 783223a37c2a13c9affbf382209ca2aa4f1ba4c7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 017a1da233827f19489a99b234ee9009fd9f6fe3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Azure Log Analytics에서 변경된 기능
 쿼리 언어 자체 외에도 Log Analytics 작업 영역을 [새로운 쿼리 언어로 업그레이드](log-analytics-log-search-new.md)할 때 알고 있어야 하는 일부 향상된 기능과 변경 내용이 있습니다.  이 문서에서는 각각의 자세한 내용에 대한 링크를 통해 레거시와 업그레이드된 작업 영역 간의 변경 내용을 간략하게 설명합니다. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Whats-changed-in-Azure-Log-Analytics/player]
 
 공통 질문에 대한 업그레이드 및 대답에 관해 알려진 문제에 대한 설명은 [Log Analytics 새 로그 검색 FAQ 및 알려진 문제](log-analytics-log-search-faq.md)를 참조하세요.  
 

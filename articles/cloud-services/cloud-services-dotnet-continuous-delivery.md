@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure Cloud Services의 지속적인 전송
 이 문서에서 설명하는 프로세스에서는 Azure 클라우드 앱에 대해 지속적인 전송을 설정하는 방법을 보여 줍니다. 이 프로세스를 통해 각 코드 체크 인 이후에 자동으로 패키지를 만들어 Azure에 배포할 수 있습니다. 이 문서에서 설명하는 패키지 빌드 프로세스는 Visual Studio의 **패키지** 명령과 동일하며 게시 단계는 Visual Studio의 **게시** 명령과 동일합니다.
@@ -310,7 +310,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 12. 빌드를 큐에 대기시켜 패키지 빌드와 게시를 모두 실행합니다. 트리거를 지속적인 통합으로 설정한 경우 이 동작이 체크 인할 때마다 실행됩니다.
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 스크립트 템플릿
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

@@ -8,15 +8,15 @@ editor:
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -49,11 +49,11 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
 Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 리소스 그룹에 별도의 일반 저장소 계정을 만듭니다.
 
-저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
+Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
 
 다음 명령에서 `<general_storage_account>` 자리 표시자는 일반 저장소 계정에 대한 전역적으로 고유한 이름으로 바꿉니다. 
 
@@ -128,7 +128,7 @@ BLOB이 만든 이벤트에 대한 이벤트 구독에 의해 이미지 크기 �
     | 설정      | 제안 값  | 설명                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. | 
-    | **항목 유형** |  저장소 계정 | 저장소 계정 이벤트 공급자를 선택합니다. | 
+    | **항목 유형** |  Storage 계정 | 저장소 계정 이벤트 공급자를 선택합니다. | 
     | **구독** | 사용자의 구독 | 기본적으로 현재 구독을 선택해야 합니다.   |
     | **리소스 그룹** | myResourceGroup | **기존 항목 사용**을 선택하고 이 항목에서 사용한 리소스 그룹을 선택합니다.  |
     | **인스턴스** |  `<blob_storage_account>` |  만든 BLOB 저장소 계정을 선택합니다. |

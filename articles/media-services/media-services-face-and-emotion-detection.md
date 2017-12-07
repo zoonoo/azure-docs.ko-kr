@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 ## <a name="overview"></a>개요
@@ -334,6 +334,8 @@ ms.lasthandoff: 10/11/2017
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
+
+
 #### <a name="example"></a>예제
 
     using System;
@@ -493,7 +495,7 @@ ms.lasthandoff: 10/11/2017
         }
     }
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

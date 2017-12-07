@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: VM에 태그 지정
           href: tag.md
-        - name: cloud-init 사용
-          href: using-cloud-init.md
         - name: VM에서 스크립트 실행
           href: extensions-customscript.md
         - name: 원격 데스크톱 사용
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: 완전한 VM 만들기
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Cloud-init 개요
+              href: using-cloud-init.md
+            - name: VM 호스트 이름 구성
+              href: cloudinit-update-vm-hostname.md
+            - name: VM에서 패키지 업데이트
+              href: cloudinit-update-vm.md
+            - name: VM에 사용자 추가
+              href: cloudinit-add-user.md
+            - name: 스왑 파일 구성
+              href: cloudinit-configure-swapfile.md
+            - name: 기존 Bash 스크립트 실행
+              href: cloudinit-bash-script.md
+            - name: Cloud-init를 위해 기존 VM 준비
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

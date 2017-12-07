@@ -13,21 +13,13 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: 37c096199f4217e31d075fb5b6ee584936e9011b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bda2be15cdd4347d726f835ff49bb1a989282269
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Azure에 SQL Server Integration Services 패키지 배포
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>이 자습서
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
@@ -36,6 +28,9 @@ ms.lasthandoff: 11/29/2017
 > * Azure-SSIS 통합 런타임 시작
 > * SSIS 패키지 배포
 > * 전체 스크립트 검토
+
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
 

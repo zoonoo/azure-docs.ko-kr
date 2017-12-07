@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.custom: mvc
-ms.openlocfilehash: a03f2e862305ed0ada49de086c59716d6e58f9d5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f2b9df09135ae922f617c21cc5b9e32556d515f6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기 
 이 빠른 시작에서는 약 5분 안에 Azure CLI를 사용하여 Azure 리소스 그룹에서 MySQL용 Azure Database 서버를 만드는 방법을 살펴봅니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
@@ -50,7 +50,7 @@ az mysql server create --resource-group myresourcegroup --name myserver4demo --l
 ```
 
 ## <a name="configure-firewall-rule"></a>방화벽 규칙 구성
-**[az mysql server firewall-rule create](/cli/azure/mysql/firewall-rule#az_mysql_server_firewall_rule_create)** 명령을 사용하여 MySQL용 Azure Database 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 **mysql.exe** 명령줄 도구 또는 MySQL Workbench와 같은 외부 응용 프로그램에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+**[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)** 명령을 사용하여 MySQL용 Azure Database 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 **mysql.exe** 명령줄 도구 또는 MySQL Workbench와 같은 외부 응용 프로그램에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
 
 다음 예제에서는 미리 정의된 주소 범위(이 예제에서는 전체 가능한 IP 주소 범위)에 대해 방화벽 규칙을 만듭니다.
 

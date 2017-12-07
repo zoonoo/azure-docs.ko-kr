@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -76,9 +76,6 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
         > HDInsight는 __범용__ Azure Storage 계정만 지원합니다. 현재 __Blob 저장소__ 계정 유형은 지원하지 않습니다.
 
 * 헤드 노드 또는 작업자 노드와 같은 **특정 노드 유형에서만 실행**되도록 제한할 수 있습니다.
-
-  > [!NOTE]
-  > HDInsight Premium에서 사용할 경우 스크립트를 에지 노드에서 사용해야 한다고 지정할 수 있습니다.
 
 * **지속형** 또는 **임시** 스크립트일 수 있습니다.
 

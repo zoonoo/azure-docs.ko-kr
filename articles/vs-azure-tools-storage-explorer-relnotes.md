@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage 탐색기(미리 보기) 릴리스 정보
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/06/2017
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/06/2017
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/06/2017
     sudo apt-get install libgconf-2-4
     ```
 
-### <a name="version-0814"></a>0.8.14 버전
+### <a name="version-0814"></a>버전 0.8.14
 06/22/2017
 
 ### <a name="new"></a>새로 만들기
@@ -230,7 +230,7 @@ ms.lasthandoff: 11/06/2017
 
 * Linux에서 마우스를 클릭해도 폴더 삭제 확인 대화 상자의 단추가 등록되지 않습니다. 이 문제를 해결하려면 Enter 키를 사용하세요.
 * 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage 탐색기를 다시 시작해야 합니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
@@ -243,7 +243,7 @@ ms.lasthandoff: 11/06/2017
     sudo apt-get dist-upgrade
     ```
 
-### <a name="version-0813"></a>0.8.13 버전
+### <a name="version-0813"></a>버전 0.8.13
 05/12/2017
 
 #### <a name="new"></a>새로 만들기
@@ -264,7 +264,7 @@ ms.lasthandoff: 11/06/2017
 
 * 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage 탐색기를 다시 시작해야 합니다.
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
@@ -307,7 +307,7 @@ ms.lasthandoff: 11/06/2017
 
 * 0.8.10으로 업그레이드한 후에는 모든 자격 증명을 새로 고쳐야 합니다.
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
@@ -352,10 +352,10 @@ ms.lasthandoff: 11/06/2017
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
 * 빠른 액세스는 구독 기반 항목에만 작동합니다. 로컬 리소스 또는 키나 SAS 토큰을 통해 연결된 리소스는 이번 릴리스에서 지원되지 않습니다.
 * 보유하고 있는 리소스 수에 따라 빠른 액세스 기능으로 대상 리소스에 액세스하는 데 몇 초 정도 걸릴 수 있습니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 
 12/16/2016
-### <a name="version-087"></a>0.8.7 버전
+### <a name="version-087"></a>버전 0.8.7
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -379,12 +379,12 @@ ms.lasthandoff: 11/06/2017
 
 * 빠른 액세스는 구독 기반 항목에만 작동합니다. 로컬 리소스 또는 키나 SAS 토큰을 통해 연결된 리소스는 이번 릴리스에서 지원되지 않습니다.
 * 보유하고 있는 리소스 수에 따라 빠른 액세스 기능으로 대상 리소스로 이동하는 데 몇 초 정도 걸릴 수 있습니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 검색 기능이 약 50,000개 노드에서 검색을 처리하지만 이러한 검색 후에 성능이 저하되거나 처리되지 않은 예외가 발생할 수 있습니다.
 * Mac OS에서 Storage 탐색기를 처음 사용할 때 사용자의 키 집합 액세스 권한을 묻는 메시지가 여러 번 표시될 수 있습니다. 확인 메시지가 다시 표시되지 않도록 항상 허용을 선택하는 것이 좋습니다.
 
 11/18/2016
-### <a name="version-086"></a>0.8.6 버전
+### <a name="version-086"></a>버전 0.8.6
 
 #### <a name="new"></a>새로 만들기
 
@@ -418,11 +418,11 @@ ms.lasthandoff: 11/06/2017
 * 같은 리소스에 대해 여러 탭을 열려는 경우 같은 리소스를 계속해서 클릭하지 마세요. 다른 리소스를 클릭한 후에 다시 돌아가서 원래 리소스를 클릭하여 다른 탭에서 다시 열어야 합니다.
 * 빠른 액세스는 구독 기반 항목에만 작동합니다. 로컬 리소스 또는 키나 SAS 토큰을 통해 연결된 리소스는 이번 릴리스에서 지원되지 않습니다.
 * 보유하고 있는 리소스 수에 따라 빠른 액세스 기능으로 대상 리소스로 이동하는 데 몇 초 정도 걸릴 수 있습니다.
-* 3개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
+* 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 검색 기능이 약 50,000개 노드에서 검색을 처리하지만 이러한 검색 후에 성능이 저하되거나 처리되지 않은 예외가 발생할 수 있습니다.
 
 10/03/2016
-### <a name="version-085"></a>0.8.5 버전
+### <a name="version-085"></a>버전 0.8.5
 
 #### <a name="new"></a>새로 만들기
 
@@ -443,7 +443,7 @@ ms.lasthandoff: 11/06/2017
 * Azure Stack은 현재 파일을 지원하지 않으므로 파일을 확장하려고 하면 오류가 표시됩니다.
 
 09/12/2016
-### <a name="version-084"></a>0.8.4 버전
+### <a name="version-084"></a>버전 0.8.4
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -464,7 +464,7 @@ ms.lasthandoff: 11/06/2017
 * 검색 기능이 약 50,000개 노드에서 검색을 처리하지만 이러한 검색 후에 성능이 저하될 수 있습니다.
 
 08/03/2016
-### <a name="version-083"></a>0.8.3 버전
+### <a name="version-083"></a>버전 0.8.3
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -490,7 +490,7 @@ ms.lasthandoff: 11/06/2017
 * SAS에 연결된 계정 내에서는 리소스 복사 또는 이름 바꾸기가 작동하지 않습니다.
 
 07/07/2016
-### <a name="version-082"></a>0.8.2 버전
+### <a name="version-082"></a>버전 0.8.2
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -513,7 +513,7 @@ ms.lasthandoff: 11/06/2017
 * macOS 설치 시 관리자 권한이 필요할 수 있습니다.
 
 06/15/2016
-### <a name="version-080"></a>0.8.0 버전
+### <a name="version-080"></a>버전 0.8.0
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -542,7 +542,7 @@ ms.lasthandoff: 11/06/2017
 * Base64 인코딩을 사용하여 인코딩된 큐 메시지를 프로그래밍 방식으로 추가하면 올바르게 표시되지 않을 수 있습니다.
 
 05/17/2016
-### <a name="version-07201605090"></a>0.7.20160509.0 버전
+### <a name="version-07201605090"></a>버전 0.7.20160509.0
 
 #### <a name="new"></a>새로 만들기
 
@@ -558,7 +558,7 @@ ms.lasthandoff: 11/06/2017
 
 03/31/2016
 
-### <a name="version-07201603250"></a>0.7.20160325.0 버전
+### <a name="version-07201603250"></a>버전 0.7.20160325.0
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
 
@@ -587,7 +587,7 @@ ms.lasthandoff: 11/06/2017
 
 02/03/2016
 
-### <a name="version-07201601291"></a>0.7.20160129.1 버전
+### <a name="version-07201601291"></a>버전 0.7.20160129.1
 
 #### <a name="fixes"></a>수정 프로그램
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/06/2017
 
 01/14/2016
 
-### <a name="version-07201601050"></a>0.7.20160105.0 버전
+### <a name="version-07201601050"></a>버전 0.7.20160105.0
 
 #### <a name="new"></a>새로 만들기
 
@@ -625,7 +625,7 @@ ms.lasthandoff: 11/06/2017
     * `sudo apt-get dist-upgrade`
 
 11/18/2015
-### <a name="version-07201511160"></a>0.7.20151116.0 버전
+### <a name="version-07201511160"></a>버전 0.7.20151116.0
 
 #### <a name="new"></a>새로 만들기
 

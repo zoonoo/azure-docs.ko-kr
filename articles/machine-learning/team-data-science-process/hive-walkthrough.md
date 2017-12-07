@@ -4,7 +4,7 @@ description: "HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 11/29/2017
+ms.author: bradsev
+ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 [TDSP(팀 데이터 과학 프로세스)](overview.md)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.

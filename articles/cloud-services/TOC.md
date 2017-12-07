@@ -41,7 +41,6 @@
 ### [포털에서 클라우드 서비스 만들기 및 배포](cloud-services-how-to-create-deploy-portal.md)
 ### [PowerShell에서 빈 클라우드 서비스 컨테이너 만들기](cloud-services-powershell-create-cloud-container.md)
 ### [사용자 지정 도메인 이름 구성](cloud-services-custom-domain-name-portal.md)
-### [클라우드 서비스 배포 스테이징(Node.js)](cloud-services-nodejs-stage-application.md)
 ### [사용자 지정 도메인 컨트롤러에 연결](cloud-services-connect-to-custom-domain.md)
 
 ## 서비스 관리

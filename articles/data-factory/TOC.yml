@@ -34,7 +34,14 @@
     - name: 4 - 대량 데이터 복사
       href: tutorial-bulk-copy.md
     - name: 5 - 증분 방식으로 데이터 복사
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 - 한 테이블에서 복사
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 - 여러 테이블에서 복사
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 - 변경 내용 추적 기능 사용
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - 클라우드에서 데이터 변환
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 - 가상 네트워크에서 데이터 변환
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: VNET에 Azure SSIS 통합 런타임 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Azure에서 SSIS 패키지 실행
+      items:
+        - name: Azure SSIS 통합 런타임 만들기
+          href: create-azure-ssis-integration-runtime.md
+        - name: VNET에 Azure SSIS 통합 런타임 조인
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure SSIS 통합 런타임 관리
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS 통합 런타임 성능 구성
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: 참조
   items:
     - name: .NET

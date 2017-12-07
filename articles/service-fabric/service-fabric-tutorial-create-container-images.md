@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-container-images-for-service-fabric"></a>Service Fabric에 대한 컨테이너 이미지 만들기
 
@@ -53,9 +53,9 @@ ms.lasthandoff: 10/11/2017
 Git을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 'container-tutorial' 디렉터리는 'azure-vote'라는 폴더를 포함합니다. 'azure-vote' 폴더는 프런트 엔드 소스 코드와 프런트 엔드를 빌드하는 Dockerfile을 포함합니다. 또한 'container-tutorial' 디렉터리는 redis 이미지를 빌드하는 Dockerfile이 있는 'redis' 디렉터리를 포함합니다. 이러한 디렉터리는 이 자습서 집합에 필요한 자산을 포함합니다. 

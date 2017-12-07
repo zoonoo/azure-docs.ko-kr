@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/02/2017
-ms.openlocfilehash: e37e706c3c12b87cc4b49315589582ae7ab8b015
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 517208b76757655990f82f50677267320eb1393c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL용 Azure Database 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 MySQL 서버용 단일 Azure Database를 다양한 성능 수준으로 확장합니다.
@@ -35,10 +35,10 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 | **명령** | **참고 사항** |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az mysql server create](/cli/azure/mysql/server#create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#list) | 리소스에 대한 메트릭 값을 나열합니다. |
-| [az group delete](/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | 리소스에 대한 메트릭 값을 나열합니다. |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.

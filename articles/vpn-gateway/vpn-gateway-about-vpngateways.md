@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway 정보
 
@@ -87,9 +87,6 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 장치가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
->[!NOTE]
->P2S RADIUS 인증 및 IKEv2는 현재 미리 보기로 제공되고 있습니다.
->
 
 ![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

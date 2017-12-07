@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 저장소 구성
 Azure에서 SQL Server 가상 컴퓨터 이미지를 구성하는 경우 포털에서는 저장소 구성을 자동화할 수 있습니다. 저장소를 VM에 연결하고 해당 저장소를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.
@@ -30,7 +30,7 @@ Azure에서 SQL Server 가상 컴퓨터 이미지를 구성하는 경우 포털�
 ## <a name="prerequisites"></a>필수 조건
 자동화된 저장소 구성 설정을 사용하려면 가상 컴퓨터에는 다음과 같은 특성이 필요합니다.
 
-* [SQL Server 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing)로 프로비전합니다.
+* [SQL Server 갤러리 이미지](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)로 프로비전합니다.
 * [Resource Manager 배포 모델](../../../azure-resource-manager/resource-manager-deployment-model.md)을 사용합니다.
 * [Premium Storage](../premium-storage.md)를 사용합니다.
 

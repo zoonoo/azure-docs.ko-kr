@@ -49,5 +49,7 @@ sections:
         items:
           - title: 명령줄
             html: '<p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
+          - title: 언어
+            html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.JS</a></p>
           - title: REST (영문)
-            html: <p><a href="/rest/api/container-instances">REST API 참조</a></p>
+            html: <p><a href="/rest/api/container-instances">REST API 참조</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager 템플릿</a></p>

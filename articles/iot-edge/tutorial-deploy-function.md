@@ -3,17 +3,18 @@ title: "Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs"
 description: "Azure 함수를 모듈로 Edge 장치에 배포"
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.custom: mvc
+ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure 함수를 IoT Edge 모듈로 배포 - 미리 보기
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 “[Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin]에서 시뮬레이트된 장치에 Azure IoT Edge 배포” 자습서에서 만든 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     

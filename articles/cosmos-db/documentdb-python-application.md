@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0629b0aa7e7981cf04330b407604e4612a58b168
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/18/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* **Azure 개발** 및 **Python 개발**을 사용하도록 설정된 [Visual Studio 2017]((https://www.visualstudio.com/downloads/)). **Visual Studio 설치 관리자** 로컬로 열어 이러한 필수 구성이 설치되었는지 확인하고 설치할 수 있습니다.   
+* **Azure 개발** 및 **Python 개발**을 사용하도록 설정된 [Visual Studio 2017](https://www.visualstudio.com/downloads/). **Visual Studio 설치 관리자** 로컬로 열어 이러한 필수 구성이 설치되었는지 확인하고 설치할 수 있습니다.   
 * [Python 2.7용 Microsoft Azure SDK](https://azure.microsoft.com/downloads/) 
 * [Python 2.7](https://www.python.org/downloads/windows/). 32비트 또는 64비트 설치를 사용할 수 있습니다.
 
@@ -394,7 +394,7 @@ def vote():
     ![강조 표시된 Microsoft Azure App Service가 포함된 웹 게시 창의 스크린샷](./media/documentdb-python-application/cosmos-db-python-publish.png)
 7. **App Service 만들기** 대화 상자에서 웹앱에 대한 이름과 함께 **구독**, **리소스 그룹** 및 **앱 서비스 계획**을 입력하고 **만들기**를 클릭합니다.
    
-    ![Microsoft Azure 웹앱 창 창의 스크린샷](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
+    ![Microsoft Azure Web Apps 창 창의 스크린샷](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
 8. 몇 초 후에 Visual Studio가 파일을 서버에 복사한 다음 “내부 서버 오류가 발생하여 페이지를 표시할 수 없습니다.”를 `http://<your app service>.azurewebsites.net/` 페이지에 표시합니다.
 
 9. Azure Portal에서 새 App Service 계정을 열고 탐색 메뉴에서 **개발 도구** 섹션까지 아래로 스크롤한 다음 **확장**을 선택하고 **+ 추가**를 클릭합니다.

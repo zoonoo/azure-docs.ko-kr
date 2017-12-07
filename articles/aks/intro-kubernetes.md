@@ -1,27 +1,19 @@
 ---
-title: "Kubernetes용 Azure Container Service 소개 | Microsoft Docs"
+title: "Kubernetes용 Azure Container Service 소개"
 description: "Kubernetes용 Azure Container Service를 통해 Azure에서 컨테이너 기반 응용 프로그램을 간단히 배포 및 관리할 수 있습니다."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, 컨테이너, 마이크로 서비스, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 62cd20474e7770c30353fc74dfc67086593fca7a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service(AKS) 소개
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 7ceb4bf97c29a18d6879af55615eea46037c51ce
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
@@ -58,15 +59,15 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 > 
 > 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인하고 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
     ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment1.png)
 2. 템플릿 배포 항목을 선택하고 **만들기** ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
 3. **템플릿 편집**을 클릭하고 DocDBWebsiteTodo.json 템플릿 파일의 내용을 붙여 넣고 **저장**을 클릭합니다.
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment3.png)
 4. **매개 변수 편집**을 클릭하고 각 필수 매개 변수 값을 제공하고 **확인**을 클릭합니다.  매개 변수는 다음과 같습니다.
    
-   1. SITENAME: 앱 서비스 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
-   2. HOSTINGPLANNAME: 만들려는 앱 서비스 호스팅 계획의 이름을 지정합니다.
+   1. SITENAME: App Service 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
+   2. HOSTINGPLANNAME: 만들려는 App Service 호스팅 계획의 이름을 지정합니다.
    3. LOCATION: Azure Cosmos DB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
    4. DATABASEACCOUNTNAME: 만들 Azure Cosmos DB 계정의 이름을 지정합니다.   
       
@@ -98,15 +99,15 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 > 
 > 
 
-1. [Azure 포털](https://portal.azure.com)에서 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
+1. [Azure Portal](https://portal.azure.com)에서 새로 만들기를 클릭하고 "템플릿 배포"를 검색합니다.
     ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment1.png)
 2. 템플릿 배포 항목을 선택하고 **만들기** ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment2.png)을 클릭합니다.
 3. **템플릿 편집**을 클릭하고 DocDBWebSite.json 템플릿 파일의 내용을 붙여 넣고 **저장**을 클릭합니다.
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment3.png)
 4. **매개 변수 편집**을 클릭하고 각 필수 매개 변수 값을 제공하고 **확인**을 클릭합니다.  매개 변수는 다음과 같습니다.
    
-   1. SITENAME: 앱 서비스 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
-   2. HOSTINGPLANNAME: 만들려는 앱 서비스 호스팅 계획의 이름을 지정합니다.
+   1. SITENAME: App Service 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
+   2. HOSTINGPLANNAME: 만들려는 App Service 호스팅 계획의 이름을 지정합니다.
    3. LOCATION: Azure Cosmos DB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
    4. DATABASEACCOUNTNAME: 만들 Azure Cosmos DB 계정의 이름을 지정합니다.   
       
@@ -130,11 +131,11 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 축하합니다. Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB, App Service 웹앱 및 샘플 웹 응용 프로그램을 배포했습니다.
 
 * Azure Cosmos DB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
-* Azure 앱 서비스 웹앱에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
+* Azure App Service Web Apps에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
 * Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
 ## <a name="whats-changed"></a>변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Websites에서 App Service로의 변경에 대한 지침은 [Azure App Service와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

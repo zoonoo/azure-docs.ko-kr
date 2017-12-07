@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c00d50817e40de0a43d05eb85662b494247d8fa
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6a9b7cff1341bd898b76a226ca413b8135eec408
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>PowerShell을 사용하여 Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -30,19 +30,6 @@ Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="opt-in-to-azure-policy"></a>Azure Policy에 옵트인
-
-Azure Policy는 공개 미리 보기에서 사용할 수 있으며 액세스를 요청하려면 등록해야 합니다.
-
-1. https://aka.ms/getpolicy에 있는 Azure Policy로 이동하고 왼쪽 창에서 **등록**을 선택합니다.
-
-   ![정책 검색](media/assign-policy-definition/sign-up.png)
-
-2. **구독** 목록에서 사용하려는 구독을 선택하여 Azure Policy에 옵트인합니다. 그런 다음 **등록**을 선택합니다.
-
-   ![Azure Policy를 사용하여 옵트인](media/assign-policy-definition/preview-opt-in.png)
-
-   요청은 미리 보기에 대해 자동으로 승인됩니다. 시스템에서 등록을 처리하는 데 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 

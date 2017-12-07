@@ -1,10 +1,10 @@
 ---
 title: "SQL Data Warehouse의 테이블 개요 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스 테이블로 시작"
+description: "Azure SQL Data Warehouse 테이블로 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2016
-ms.author: shigu;jrj
-ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 개요
+# <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 개요
 > [!div class="op_single_selector"]
 > * [개요][Overview]
 > * [데이터 형식][Data Types]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-SQL 데이터 웨어하우스에서 테이블을 만드는 과정은 간단합니다.  기본 [CREATE TABLE][CREATE TABLE] 구문은 다른 데이터베이스를 사용하면서 가장 익숙해졌을 수 있는 일반적인 구문을 따릅니다.  테이블을 만들려면 테이블 및 열에 이름을 지정하고 각 열의 데이터 형식을 정의하면 됩니다.  다른 데이터베이스에서 테이블을 작성했으므로 이 작업은 아주 익숙해 보일 수도 있습니다.
+SQL Data Warehouse에서 테이블을 만드는 과정은 간단합니다.  기본 [CREATE TABLE][CREATE TABLE] 구문은 다른 데이터베이스를 사용하면서 가장 익숙해졌을 수 있는 일반적인 구문을 따릅니다.  테이블을 만들려면 테이블 및 열에 이름을 지정하고 각 열의 데이터 형식을 정의하면 됩니다.  다른 데이터베이스에서 테이블을 작성했으므로 이 작업은 아주 익숙해 보일 수도 있습니다.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
@@ -48,22 +48,22 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>분산 테이블
-SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  테이블에 적은 양의 데이터가 있는 경우 **복제** 배포 유형을 사용하여 테이블을 만들도록 선택하면 데이터가 각 계산 노드로 복사되므로 쿼리 실행 시에 데이터 이동 작업이 줄어듭니다. 배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute] 를 참조하세요.
+SQL Data Warehouse와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  테이블에 적은 양의 데이터가 있는 경우 **복제** 배포 유형을 사용하여 테이블을 만들도록 선택하면 데이터가 각 계산 노드로 복사되므로 쿼리 실행 시에 데이터 이동 작업이 줄어듭니다. 배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute] 를 참조하세요.
 
 ## <a name="indexing-and-partitioning-tables"></a>테이블 인덱싱 및 분할
-더욱 수준 높은 방식으로 SQL 데이터 웨어하우스를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다.  자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition]에 대한 문서를 참조하세요.
+더욱 수준 높은 방식으로 SQL Data Warehouse를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다.  자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition]에 대한 문서를 참조하세요.
 
 ## <a name="table-statistics"></a>테이블 통계
-통계는 SQL 데이터 웨어하우스의 성능을 극대화하는 데 매우 중요합니다.  Azure SQL Database에서 예상할 수 있는 것처럼 SQL Data Warehouse는 통계를 아직 자동으로 만들고 업데이트하지 않으므로 쿼리의 성능을 극대화하기 위해 [통계][Statistics]에 대한 문서를 반드시 읽어야 합니다.
+통계는 SQL Data Warehouse의 성능을 극대화하는 데 매우 중요합니다.  Azure SQL Database에서 예상할 수 있는 것처럼 SQL Data Warehouse는 통계를 아직 자동으로 만들고 업데이트하지 않으므로 쿼리의 성능을 극대화하기 위해 [통계][Statistics]에 대한 문서를 반드시 읽어야 합니다.
 
 ## <a name="temporary-tables"></a>임시 테이블
 임시 테이블은 로그온 중에만 존재하고 다른 사용자는 볼 수 없는 테이블입니다.  임시 테이블은 다른 사람들이 일시적인 결과를 보지 못하도록 하여 정리할 필요를 없애주는 유용한 방법일 수 있습니다.  임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다.  임시 테이블에 대한 자세한 내용은 [임시 테이블][Temporary] 문서를 참조하세요.
 
 ## <a name="external-tables"></a>외부 테이블
-Polybase 테이블이라고도 하는 외부 테이블은 SQL 데이터 웨어하우스에서 쿼리될 수 있지만 SQL 데이터 웨어하우스 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob 저장소의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Load data with Polybase]를 참조하세요.  
+Polybase 테이블이라고도 하는 외부 테이블은 SQL Data Warehouse에서 쿼리될 수 있지만 SQL Data Warehouse 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob Storage의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Load data with Polybase]를 참조하세요.  
 
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
-SQL 데이터 웨어하우스에는 다른 데이터베이스에서 제공하는 동일한 테이블 기능을 많이 포함하지만 아직 지원되지 않는 기능도 일부 있습니다.  다음은 아직 지원되지 않는 일부 테이블 기능 목록입니다.
+SQL Data Warehouse에는 다른 데이터베이스에서 제공하는 동일한 테이블 기능을 많이 포함하지만 아직 지원되지 않는 기능도 일부 있습니다.  다음은 아직 지원되지 않는 일부 테이블 기능 목록입니다.
 
 | 지원되지 않는 기능 |
 | --- |

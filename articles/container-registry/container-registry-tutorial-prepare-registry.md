@@ -2,25 +2,18 @@
 title: "Azure Container Registry 자습서 - 지리적 복제 Azure Container Registry 준비"
 description: "Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: acr, azure-container-registry, geo-replication
-keywords: "Docker, 컨테이너, 레지스트리, Azure"
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 02bb792ddc017efd3be6e14d951eca1d5671f719
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: mvc
+ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>지리적 복제 Azure Container Registry 준비
 

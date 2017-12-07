@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: 8a51ba22c6fea7a866815c33d164d72af08db8f0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>이 자습서
+이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 작업이 성공하면 성공 전자 메일로 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 보내려고 합니다. 복사 작업이 실패하면 실패 전자 메일로 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 보내려고 합니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
-이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 작업이 성공하면 성공 전자 메일로 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 보내려고 합니다. 복사 작업이 실패하면 실패 전자 메일로 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 보내려고 합니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
 
 대략적인 시나리오 개요: ![개요](media/tutorial-control-flow/overview.png)
 

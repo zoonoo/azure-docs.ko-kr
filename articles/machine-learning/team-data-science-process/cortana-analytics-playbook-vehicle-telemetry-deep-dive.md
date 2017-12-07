@@ -4,7 +4,7 @@ description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 �
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/24/2017
 ms.author: bradsev
-ms.openlocfilehash: cdde0c8dc2fd1189970c0782769a609ca8142372
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 이 메뉴는 다음 플레이 북의 섹션에 연결됩니다. 

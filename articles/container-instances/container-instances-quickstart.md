@@ -4,17 +4,16 @@ description: "Azure Container Instances 배포 및 시작"
 services: container-instances
 author: seanmck
 manager: timlt
-editor: mmacy
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: f6c809698bed4f91a7121c4515b4375b3cad6d70
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
 Azure Container Instances를 사용하면 가상 컴퓨터를 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에서 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 몇 초 내에 브라우저에 다음과 같은 화면이 표시됩니다.

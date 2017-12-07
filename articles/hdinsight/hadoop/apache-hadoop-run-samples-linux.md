@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 
@@ -67,10 +67,7 @@ HDInsight의 Hadoop에 포함된 MapReduce 예제를 실행하는 방법을 알�
 * `wordmedian`: 입력 파일의 단어 길이에 대한 중앙값을 계산하는 mapreduce 프로그램
 * `wordstandarddeviation`: 입력 파일의 단어 길이에 대한 표준 편차를 계산하는 mapreduce 프로그램
 
-**소스 코드**: 이러한 샘플의 소스 코드는 HDInsight 클러스터의 `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`에 있습니다.
-
-> [!NOTE]
-> 경로의 `2.2.4.9-1`은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 클러스터에 따라 다를 수 있습니다.
+**소스 코드**: 이러한 샘플의 소스 코드는 HDInsight 클러스터의 `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`에 있습니다.
 
 ## <a name="run-the-wordcount-example"></a>wordcount 예제 실행
 

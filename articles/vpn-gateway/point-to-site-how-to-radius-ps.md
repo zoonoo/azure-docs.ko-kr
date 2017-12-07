@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 2afaf869af36c98f86feba238c6e1a30d3939ef8
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 12/04/2017
+ms.author: anzaman
+ms.openlocfilehash: c78b3fe37a874fa25c7825046d91af62c39ab0d6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell(미리 보기)
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
 이 문서에서는 RADIUS 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet을 만드는 방법에 대해 설명합니다. 이 구성은 Resource Manager 배포 모델에서만 사용할 수 있습니다.
-
->[!NOTE]
->P2S RADIUS 인증은 현재 미리 보기로 제공되고 있습니다.
->
 
 지점 및 사이트 간(P2S) VPN Gateway를 통해 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우에 사이트 간 VPN 대신 P2S VPN을 사용하는 것도 유용한 솔루션입니다.
 

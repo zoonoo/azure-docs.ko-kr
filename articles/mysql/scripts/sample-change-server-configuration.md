@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/03/2017
-ms.openlocfilehash: 286b16148d28509714862714dcc5986496d9af44
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9a94f257e5cd3534127e8594ddee3c5f837876df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL 서버용 Azure Database의 구성 나열 및 업데이트
 이 샘플 CLI 스크립트는 사용 가능한 모든 구성 매개 변수와 MySQL 서버용 Azure Database에 대해 허용되는 값을 나열하고 *innodb_lock_wait_timeout*을 기본값 이외의 값으로 설정합니다.
@@ -37,12 +37,12 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 | **명령** | **참고 사항** |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az mysql server create](/cli/azure/mysql/server#create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) | MySQL 서버용 Azure Database의 구성을 나열합니다. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#set) | MySQL 서버용 Azure Database의 구성을 업데이트합니다. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) | MySQL 서버용 Azure Database의 구성을 보여 줍니다. |
-| [az group delete](/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | MySQL 서버용 Azure Database의 구성을 나열합니다. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | MySQL 서버용 Azure Database의 구성을 업데이트합니다. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | MySQL 서버용 Azure Database의 구성을 보여 줍니다. |
+| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure/overview)를 참조하세요.
