@@ -16,7 +16,7 @@
     설정|제안 값|설명
     ---|---|---
     ID|*고유 값*|Azure Cosmos DB 계정을 식별하기 위해 선택하는 고유한 이름입니다. *documents.azure.com*은 URI를 만들기 위해 제공하는 ID에 추가됩니다. 따라서 고유하지만 식별 가능한 ID를 사용합니다. ID는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
-    API|MongoDB|[MongoDB API](../articles/cosmos-db/mongodb-introduction.md)에 대한 프로그래밍은 이 문서의 뒷부분에 나옵니다.|
+    API|MongoDB|API는 만들 계정의 형식을 결정합니다. Azure Cosmos DB는 응용 프로그램의 요구 사항을 충족하기 위해 SQL(문서 데이터베이스), Gremlin(그래프 데이터베이스), MongoDB(문서 데이터베이스), Azure Table 및 Cassandra라는 다섯 가지 API를 제공합니다. 현재 각각에는 별도의 계정이 필요합니다. <br><br>이 빠른 시작에서는 MongoDB 구문을 사용하여 쿼리할 수 있는 문서 데이터베이스를 만들기 때문에 **MongoDB**를 선택합니다.<br><br>[MongoDB API에 대한 자세한 정보](../articles/cosmos-db/mongodb-introduction.md)|
     구독|*사용자의 구독*|Azure Cosmos DB 계정에 사용할 Azure 구독입니다. 
     리소스 그룹|*ID와 동일한 값*|계정의 새 리소스 그룹 이름입니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다. 
     위치|*사용자와 가장 가까운 지역*|Azure Cosmos DB 계정을 호스트할 지리적 위치입니다. 데이터에 빠르게 액세스할 수 있도록 사용자와 가장 가까운 위치를 선택합니다.

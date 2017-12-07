@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -159,7 +159,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 6. 모든 기본값을 유지한 채 마법사가 완료될 때까지 **다음**을 클릭한 다음 **마침**을 클릭합니다.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>옵션 2: 게스트 가상 컴퓨터에서 수동으로 고정 IP 주소 설정
-게스트 가상 컴퓨터에 IP 주소를 동적으로 할당하도록 DHCP를 구성하지 않은 경우 다음 단계에 따라 고정 IP 주소를 설정합니다.
+게스트 가상 머신에 IP 주소를 동적으로 할당하도록 DHCP를 구성하지 않은 경우 다음 단계에 따라 고정 IP 주소를 설정합니다.
 
 1. Azure VM에서 관리자 권한으로 PowerShell을 엽니다.
 

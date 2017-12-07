@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
 Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확장이 NuGet 패키지 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)에서 제공됩니다. 이 문서에서는 다음 개발 환경을 위한 패키지 및 샘플 집합을 설치하는 방법을 보여 줍니다.
 
 * Visual Studio 2017(권장) 
-* Azure portal
+* Azure 포털
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
@@ -33,7 +33,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)(버전 15.3 이상)를 설치합니다. 설치 옵션에 Azure 도구를 포함합니다.
+* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)(버전 15.3 이상)를 설치합니다. 설정 옵션에 **Azure 배포** 워크로드를 포함합니다.
 
 ### <a name="start-with-sample-functions"></a>샘플 함수로 시작
 
@@ -53,7 +53,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
    ```
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure 포털
 
 원하는 경우 지속성 함수 개발을 위해 Azure Portal을 사용할 수 있습니다.
 
@@ -61,7 +61,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 1. [functions.azure.com](https://functions.azure.com/signin)에서 새 함수 앱을 만듭니다.
 2. [2.0 런타임 버전을 사용](functions-versions.md)하도록 함수 앱을 구성합니다.
-3. 새 함수를 만들고 **지속성 함수 오케스트레이터 - C#** 템플릿을 선택합니다.
+3. 언어로 "C#", 시나리오로 “모두"를 선택하여 새 함수를 만듭니다. 그런 다음 **지속성 함수 오케스트레이터 - C#** 템플릿을 선택합니다.
 4. **Extensions not installed(설치되지 않은 확장)** 아래에서 **설치**를 클릭하여 NuGet.org에서 확장을 다운로드합니다.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>함수 앱에 샘플 코드 복사

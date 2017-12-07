@@ -1,10 +1,10 @@
 ---
-title: "Azure Stream Analytics의 입력 샘플링 | Microsoft Docs"
+title: "Azure Stream Analytics에서 쿼리 테스트 | Microsoft Docs"
 description: "Stream Analytics 작업의 문제를 해결할 때 문제를 정확히 찾아냅니다."
 keywords: "입력, 입력 샘플링 문제 해결"
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Azure Stream Analytics 입력 스트림 샘플링
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics 쿼리 테스트 및 입력 스트림 샘플링
 
 Azure Stream Analytics를 사용하면 작업을 시작 또는 중지할 필요 없이 파일에서 제공하는 입력 이벤트를 샘플링하고, 포털에서 쿼리를 테스트할 수 있습니다.
 
@@ -62,6 +62,6 @@ Stream Analytics 작업 세부 정보 창에서 **쿼리** 아래에 있는 쿼�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

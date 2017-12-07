@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure CDN(Content Delivery Network)에서 Azure Blob Storage 만료 관리 
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ $context = New-AzureStorageContext -StorageAccountName "<storage account name>" 
 $blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
-$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+$blob.ICloudBlob.Properties.CacheControl = "max-age=3600"
 
 # Send the update to the cloud
 $blob.ICloudBlob.SetProperties()
@@ -85,7 +85,7 @@ class Program
         CloudBlob blob = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "public, max-age=3600";
+        blob.Properties.CacheControl = "max-age=3600";
 
         // Update the blob's properties in the cloud
         blob.SetProperties();
@@ -102,12 +102,20 @@ class Program
 ### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
 
+Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려면
+   1. Blob를 선택하고 바로 가기 메뉴에서 **속성**을 선택합니다. 
+   2. *CacheControl* 속성까지 아래로 스크롤합니다.
+   3. 값을 입력하고 **저장**을 클릭합니다.
+
+
+![Azure Storage Explorer 속성](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
+
 ### <a name="azure-command-line-interface"></a>Azure 명령줄 인터페이스
 Blob을 업로드할 때 [Azure 명령줄 인터페이스](../cli-install-nodejs.md)에서 `-p` 스위치를 사용하여 *cacheControl* 속성을 설정할 수 있습니다. 다음 예제에서는 TTL을 1시간(3600초)으로 설정하는 방법을 보여 줍니다.
   
-    ```text
-    azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-    ```
+```command
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure Storage 서비스 REST API
 [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)를 사용하면 요청에 다음 작업을 사용하여 *x-ms-blob-cache-control* 속성을 명시적으로 설정할 수 있습니다.

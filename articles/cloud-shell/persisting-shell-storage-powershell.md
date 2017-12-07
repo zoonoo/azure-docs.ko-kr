@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Azure Cloud Shell의 PowerShell(미리 보기) 작동 방식
 Azure Cloud Shell의 PowerShell(미리 보기)은 다음 방법을 통해 파일을 유지합니다. 
-* 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다.
+* 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 Azure 파일 공유를 `clouddrive`로 마운트합니다.
 
-## <a name="list-cloud-drive-file-shares"></a>클라우드 드라이브 파일 공유 목록
-`Get-CloudDrive` 명령은 Azure Cloud Shell에서 클라우드 드라이브에 현재 탑재된 파일 공유 정보를 검색합니다. <br>
+## <a name="list-cloud-drive-azure-file-shares"></a>클라우드 드라이브 Azure 파일 공유 목록
+`Get-CloudDrive` 명령은 Azure Cloud Shell에서 클라우드 드라이브에 현재 탑재된 Azure 파일 공유 정보를 검색합니다. <br>
 ![Get-CloudDrive 실행](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ## <a name="unmount-cloud-drive"></a>클라우드 드라이브를 탑재 해제
-언제든지 Cloud Shell에 마운트된 파일 공유의 마운트를 해제할 수 있습니다. 파일 공유가 제거된 경우 다음 세션에서 새 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
+언제든지 Cloud Shell에 마운트된 Azure 파일 공유의 마운트를 해제할 수 있습니다. Azure 파일 공유가 제거된 경우 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 
-`Dismount-CloudDrive` 명령은 현재 저장소 계정에서 파일 공유를 탑재 해제합니다. 클라우드 드라이브를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
+`Dismount-CloudDrive` 명령은 현재 저장소 계정에서 Azure 파일 공유를 탑재 해제합니다. 클라우드 드라이브를 탑재 해제하면 현재 세션이 종료됩니다. 사용자에게 다음 세션에서 새 Azure 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 ![CloudDrive 탑재 해제 실행](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>다음 단계
 [PowerShell에 대한 빠른 시작](quickstart-powershell.md) <br>
-[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Azure Files에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [저장소 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

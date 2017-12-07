@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 장치용 지원 패키지를 만들고,
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -58,14 +58,14 @@ StorSimple 지원 패키지는 StorSimple 장치 문제를 해결하는 데 있�
    
    * 암호로 보호된 네트워크 공유에 다음을 입력합니다.
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       암호, 네트워크 공유 폴더의 경로 및 암호화 암호에 대해 묻는 메시지가 나타납니다.(지원 패키지가 암호화 되었기 때문) 그런 다음 지원 패키지는 지정된 폴더에 생성됩니다.
+       암호 및 암호화 암호에 대해 묻는 메시지가 나타납니다(지원 패키지가 암호화 되었기 때문에). 그러면 기본 폴더에 지원 패키지가 생성됩니다(장치 이름에 현재 날짜 및 시간이 추가됨).
    * 암호로 보호되지 않은 공유의 경우 `-Credential` 매개 변수가 필요하지 않습니다. 다음을 입력합니다.
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       지정된 네트워크 공유 폴더에 두 컨트롤러를 위한 지원 패키지를 만들 수 있습니다. 문제해결을 위한 Microsoft 기술 지원 서비스에 보낼 수 있는 암호화되고 압축된 파일입니다. 자세한 내용은 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)를 참조하세요.
+       기본 폴더에 두 컨트롤러의 지원 패키지가 생성됩니다. 패키지는 문제 해결을 위해 Microsoft 지원으로 보낼 수 있는 암호화되고 압축된 파일입니다. 자세한 내용은 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)를 참조하세요.
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Export-HcsSupportPackage cmdlet 매개 변수
 

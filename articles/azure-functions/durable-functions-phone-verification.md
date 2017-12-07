@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/13/2017
 
 이 샘플에서는 [Twilio](https://www.twilio.com/) 서비스를 사용하여 SMS 메시지를 휴대폰으로 보냅니다. Azure Functions는 이미 [Twilio 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)을 통해 Twilio를 지원하며, 샘플에서 이 기능을 사용합니다.
 
-가장 먼저 필요한 것은 Twilio 계정입니다. https://www.twilio.com/try-twilio에서 추가 비용 없이 만들 수 있습니다. 계정이 있으면 다음 세 가지 **앱 설정**을 프로젝트에 추가합니다.
+가장 먼저 필요한 것은 Twilio 계정입니다. https://www.twilio.com/try-twilio에서 추가 비용 없이 만들 수 있습니다. 계정이 있으면 다음 세 가지 **앱 설정**을 함수 앱에 추가합니다.
 
 | 앱 설정 이름 | 값 설명 |
 | - | - |

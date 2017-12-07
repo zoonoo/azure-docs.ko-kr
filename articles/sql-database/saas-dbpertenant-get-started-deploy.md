@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database에서 테넌트당 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 응용 프로그램을 배포하고 탐색합니다.
 
@@ -173,7 +173,7 @@ ms.lasthandoff: 11/15/2017
 
 몇 분 동안 부하 생성기를 실행한 경우 풀 및 데이터베이스에 기본 제공되는 모니터링 기능 중 몇 가지를 시작할 정도의 충분한 데이터를 이용할 수 있습니다.
 
-1. **tenants1-dpt-&lt;USER&gt;** 서버로 이동한 후 **Pool1**을 클릭하여 풀의 리소스 사용률을 확인합니다(다음 차트에서는 부하 생성기가 1시간 동안 실행됨).
+**tenants1-dpt-&lt;USER&gt;** 서버로 이동한 후 **Pool1**을 클릭하여 풀의 리소스 사용률을 확인합니다(다음 차트에서는 부하 생성기가 1시간 동안 실행됨).
 
    ![풀 모니터링](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

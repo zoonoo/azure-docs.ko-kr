@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
  
@@ -41,7 +41,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 ## <a name="indexing-operations"></a>인덱싱 작업
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>인덱스나 인덱스 스냅숏의 백업 및 복원(또는 다운로드 및 이동)
+### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>인덱스나 인덱스 스냅숏의 Backup 및 복원(또는 다운로드 및 이동)
 
 언제든 [인덱스 정의를 가져올 수](https://docs.microsoft.com/rest/api/searchservice/get-index) 있지만 클라우드 시스템에서 실행되는 *채워진* 인덱스를 로컬 시스템에 다운로드하거나 다른 Azure Search 서비스로 이동하기 위한 인덱스 추출, 스냅숏 또는 백업-복원 기능은 없습니다. 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -309,7 +309,9 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 근사치의 정확도는 주로 구성된 샘플링 비율에 따라 다릅니다. 또한 아주 많은 사용자에게서 많은 양의 일반적으로 비슷한 요청을 처리하는 응용 프로그램에 대해 정확도가 증가합니다. 반면에 상당한 부하가 있을 때 작동하지 않는 응용 프로그램의 경우 이러한 응용 프로그램이 일반적으로 할당량 내에 있으면서 제한에서 데이터 손실이 발생하지 않고 해당 원격 분석을 모두 보낼 수 있기에 샘플링은 필요하지 않습니다. 
 
-이러한 자릿수의 형식 감소가 매우 바람직하지 않을 수 있기 때문에 Application Insights는 메트릭 및 세션 원격 분석 형식을 샘플링하지 않습니다. 
+> [!WARNING]
+> Application Insights는 메트릭 및 세션 원격 분석 유형을 샘플링하지 않습니다. 정밀도 하락은 이러한 원격 분석 유형에 매우 좋지 못할 수 있습니다.
+> 
 
 ### <a name="adaptive-sampling"></a>적응 샘플링
 적응 샘플링은 SDK에서 현재의 전송 속도를 모니터링하는 구성 요소를 추가하여 샘플링 비율이 대상 최대 비율 안에서 유지되도록 조정합니다. 조정은 정기적으로 다시 계산되고 발신 전송 속도의 이동 평균에 기반합니다.

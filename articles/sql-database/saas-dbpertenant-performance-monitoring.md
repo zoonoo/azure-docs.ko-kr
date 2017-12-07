@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: a74a439eab3698e14e5b8e2db0d45a86e9f55f0e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -40,7 +40,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
@@ -62,9 +62,9 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics(OMS)](saas-dbpertenant-log-analytics.md)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets SaaS 테넌트당 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. [Wingtip Tickets SaaS 테넌트당 데이터베이스 스크립트를 다운로드하는 단계](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -220,7 +220,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 비용을 줄이기 위해 contosoconcerthall 데이터베이스에 대해 높은 부하가 진정되면 지체 없이 풀로 반환해야 합니다. 이러한 상황이 일어나는 시기를 확실히 모르는 경우 DTU 사용량이 풀의 데이터베이스별 최대값보다 낮게 떨어질 때 트리거되는 데이터베이스에 대한 경고를 설정할 수 있습니다. 풀로 데이터베이스 이동은 연습 5에서 설명합니다.
 
-## <a name="other-performance-management-patterns"></a>다른 성능 관리 패턴
+## <a name="other-performance-management-patterns"></a>기타 성능 관리 패턴
 
 **선제적 크기 조정** 위 연습에서는 찾는 데이터베이스가 어느 것인지 알고 있는 격리된 데이터베이스를 크기 조정하는 방법을 탐색했습니다. Contoso 콘서트 홀의 관리 부서에서 티켓 판매가 임박했음을 Wingtips에 알리면 데이터베이스가 선제적으로 풀에서 밖으로 이동될 수 있습니다. 그렇지 않으면 풀 또는 데이터베이스에 무슨 일이 일어나고 있는지 파악하라는 경고가 필요했을 가능성이 있습니다. 성능 저하에 대해 불평하는 풀에 있는 다른 테넌트에서 이에 관하여 알아보기를 원하지 않을 수 있습니다. 테넌트가 추가 리소스를 필요로 하는 기간을 예측할 수 있는 경우 Azure Automation Runbook을 설정하여 데이터베이스를 풀에서 밖으로 이동한 다음 정의된 일정에 다시 안으로 이동할 수 있습니다.
 

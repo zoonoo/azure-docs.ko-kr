@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 응용 프로그램에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/16/2017
 CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너뛰고 이동하세요](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services의 경우 [이것](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [이것](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
+> 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services의 경우 [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. 저장소 계정의 경우 [Azure Blob 저장소 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../storage/blobs/storage-custom-domain-name.md)을 참조하세요.
 > 
 > 
 

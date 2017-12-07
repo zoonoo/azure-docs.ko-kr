@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 5d376ea0bce1088206aa369decf92b1b7523918a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
 
@@ -32,7 +32,7 @@ Azure Cloud Shell 도구 모음에서 환경 선택기를 사용하여 Bash 및 
 ## <a name="restart-cloud-shell"></a>Cloud Shell 다시 시작
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Cloud Shell을 다시 시작하면 컴퓨터 상태가 다시 설정되고 파일 공유에서 유지하지 않는 파일은 모두 손실됩니다.
+> Cloud Shell을 다시 시작하면 컴퓨터 상태가 다시 설정되고 Azure 파일 공유에서 유지하지 않는 파일은 모두 손실됩니다.
 
 * 컴퓨터 상태를 다시 설정하려면 Azure Cloud Shell 도구 모음에서 다시 시작 아이콘을 클릭합니다.
 

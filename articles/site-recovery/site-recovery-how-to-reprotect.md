@@ -3,7 +3,7 @@ title: "Azure에서 온-프레미스 사이트로 다시 보호 | Microsoft Docs
 description: "VM을 Azure로 장애 조치(failover)한 후에 장애 복구를 시작하여 VM을 온-프레미스로 복구할 수 있습니다. 장애 복구(failback)하기 전에 다시 보호하는 방법을 알아봅니다."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 다시 보호
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 이 문서에서는 Azure 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호하는 방법에 대해 설명합니다. 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구할 준비가 되면 이 문서의 지침을 따릅니다([Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-failover.md)에 설명됨).
 
 > [!WARNING]
-> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)했거나, 가상 컴퓨터를 다른 리소스 그룹으로 이동했거나, Azure 가상 컴퓨터를 삭제한 후에 장애 복구(failback)를 수행할 수 없습니다. 가상 컴퓨터의 보호를 사용하지 않으면 장애 복구를 수행할 수 없습니다.
+> [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)했거나, 가상 컴퓨터를 다른 리소스 그룹으로 이동했거나, Azure 가상 컴퓨터를 삭제한 후에 장애 복구(failback)를 수행할 수 없습니다. 가상 컴퓨터의 보호를 사용하지 않으면 장애 복구를 수행할 수 없습니다. 가상 머신을 먼저 Azure(클라우드 기반)에서 만든 경우 다시 온-프레미스로 보호할 수 없습니다. 컴퓨터가 다시 보호되기 전에 처음에 온-프레미스로 보호되고 Azure로 장애 조치(failover)되었어야 합니다. 
 
 
 다시 보호가 완료되고 보호된 가상 컴퓨터에서 복제하는 경우 가상 컴퓨터에서 장애 복구를 시작하여 온-프레미스 사이트로 가져올 수 있습니다.
@@ -62,17 +62,24 @@ ms.lasthandoff: 10/11/2017
   * **마스터 대상 서버**: 마스터 대상 서버는 장애 복구 데이터를 받습니다. 만든 온-프레미스 관리 서버에는 기본적으로 마스터 대상 서버가 설치되어 있습니다. 그러나 장애 복구된 트래픽의 양에 따라 장애 복구를 위한 별도의 마스터 대상 서버를 만들어야 할 수도 있습니다.
     * [Linux 가상 컴퓨터에는 Linux 마스터 대상 서버가 필요합니다](site-recovery-how-to-install-linux-master-target.md).
     * Windows 가상 컴퓨터에는 Windows 마스터 대상 서버가 필요합니다. 온-프레미스 프로세스 서버와 마스터 대상 컴퓨터를 다시 사용할 수 있습니다.
+    * 마스터 대상에는 [다시 보호하기 전에 마스터 대상에서 확인할 일반적 내용](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)에서 나열하는 다른 필수 조건이 있습니다.
 
-    마스터 대상에는 [다시 보호하기 전에 마스터 대상에서 확인할 일반적 내용](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)에서 나열하는 다른 필수 조건이 있습니다.
+> [!NOTE]
+> 복제 그룹의 모든 가상 머신은 동일한 운영 체제 유형이어야 합니다(모두 Windows 또는 모두 Linux). 운영 체제가 혼합된 복제 그룹은 현재 다시 보호 및 온-프레미스로 장애 복구(failback)가 지원되지 않습니다. 마스터 대상이 가상 머신과 동일한 운영 체제를 갖고 복제 그룹의 모든 가상 머신이 동일한 마스터 대상을 가져야 하기 때문입니다. 
+
+    
 
 * 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 장애 복구하는 동안 가상 컴퓨터가 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다. 
 
 > [!IMPORTANT]
 > 정기적으로 예정된 구성 서버 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동하도록 동일한 IP 주소로 서버를 복원합니다.
 
+> [!WARNING]
+> 복제 그룹은 Windows VM 또는 Linux VM만 가질 수 있고 둘을 혼합할 수는 없습니다. 복제 그룹의 모든 VM은 동일한 마스터 대상 서버를 사용하고 Linux VM은 Windows VM처럼 Linux 마스터 대상 서버를 필요로 하기 때문입니다.
+
 * VMware의 마스터 대상 가상 컴퓨터의 구성 매개 변수에서 `disk.EnableUUID=true` 설정을 지정합니다. 이 행이 존재하지 않는 경우 추가합니다. 이 설정은 VMDK(가상 컴퓨터 디스크)에 일관성 있는 UUID를 제공하여 올바르게 탑재하기 위해 필요합니다.
 
-* *마스터 대상 서버에 저장소 vMotion을 사용할 수 없습니다*. 이 때문에 장애 복구에 오류가 발생할 수 있습니다. 디스크를 사용할 수 없으므로 가상 컴퓨터를 시작할 수 없습니다. 이 문제를 방지하려면 vMotion 목록에서 마스터 대상 서버를 제외합니다.
+* *마스터 대상 서버에 Storage vMotion을 사용할 수 없습니다*. 이 때문에 장애 복구에 오류가 발생할 수 있습니다. 디스크를 사용할 수 없으므로 가상 컴퓨터를 시작할 수 없습니다. 이 문제를 방지하려면 vMotion 목록에서 마스터 대상 서버를 제외합니다.
 
 * 마스터 대상 서버(보존 드라이브)에 새 드라이브를 추가합니다. 새 디스크를 추가하고 드라이브를 포맷합니다.
 
@@ -170,6 +177,8 @@ Azure 기반 프로세스 서버를 설치하는 방법에 대한 자세한 내�
 * 마스터 대상 서버의 디스크에는 스냅숏이 있을 수 없습니다. 스냅숏이 있으면 다시 보호 및 장애 복구가 실패합니다.
 
 * 마스터 대상에는 Paravirtual SCSI 컨트롤러가 있을 수 없습니다. 컨트롤러는 LSI Logic 컨트롤러 일 수 있습니다. LSI Logic 컨트롤러가 없으면 다시 보호가 실패합니다.
+
+* 지정된 인스턴스에서 마스터 대상은 최대 60개의 디스크를 연결할 수 있습니다.  온-프레미스 마스터 대상으로 다시 보호될 가상 머신의 수에서 총 디스크 수가 60개를 넘으면 마스터 대상에 대한 다시 보호가 실패하기 시작합니다. 마스터 대상 디스크 슬롯이 충분한지 확인하거나 추가 마스터 대상 서버를 배포합니다.
 
 <!--
 ### Failback policy

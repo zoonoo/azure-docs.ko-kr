@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/13/2017
 4. 모든 업로드가 완료될 때까지 기다립니다.
 5. Azure Blob Storage에 업로드된 총 바이트 수를 반환합니다.
 
-`await Task.WhenAll(tasks);` 줄에 유의하세요. `E2_CopyFileToBlob` 함수에 대한 모든 호출이 *대기하지 않았습니다*. 이 줄은 병렬로 실행할 수 있도록 하기 위해 의도적으로 작성되었습니다. 이 작업 배열을 `Task.WhenAll`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
+`await Task.WhenAll(tasks);` 줄에 유의하세요. `E2_CopyFileToBlob` 함수에 대한 모든 호출이 *대기하지 않았습니다*. 이 줄은 병렬로 실행할 수 있도록 하기 위해 의도적으로 작성되었습니다. 이 작업 배열을 `Task.WhenAll`에 전달하면 *모든 복사 작업이 완료될 때까지* 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
 
 `Task.WhenAll`에서 기다린 후에 모든 함수 호출이 완료되고 값을 다시 반환했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/13/2017
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-이 구현은 디스크에서 파일을 로드하고 동일한 이름의 Blob에 콘텐츠를 비동기적으로 스트림합니다. 반환 값은 저장소에 복사된 바이트 수이며 오케스트레이터 함수에서 집계 합계를 계산하는 데 사용됩니다.
+이 구현은 디스크에서 파일을 로드하고 "backups" 컨테이너에서 동일한 이름의 Blob에 콘텐츠를 비동기적으로 스트림합니다. 반환 값은 저장소에 복사된 바이트 수이며 오케스트레이터 함수에서 집계 합계를 계산하는 데 사용됩니다.
 
 > [!NOTE]
 > 이 예제는 I/O 작업을 `activityTrigger` 함수로 이동하는 완벽한 예제입니다. 작업을 여러 VM에 분산할 수 있을 뿐만 아니라 진행 상황에 대한 검사점 설정의 이점을 얻을 수도 있습니다. 어떤 이유로든 호스트 프로세스가 종료되면 이미 완료된 업로드를 알 수 있습니다.

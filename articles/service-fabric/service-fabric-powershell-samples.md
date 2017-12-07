@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e255382b1263c162bfc80cf41f9e8d362be55a8e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 738677def8b0eb70cfcab46e6fe57f9a344867a5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 
@@ -32,10 +32,13 @@ ms.lasthandoff: 11/16/2017
 |-|-|
 | **클러스터 만들기** ||
 | [클러스터 만들기(Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Azure Service Fabric 클러스터를 만듭니다. |
-| **클러스터 관리** ||
+| **클러스터, 노드 및 인프라 관리** ||
 | [응용 프로그램 인증서 추가](./scripts/service-fabric-powershell-add-application-certificate.md) .| 클러스터의 모든 노드에 응용 프로그램 X.509 인증서를 추가합니다. |
+| [클러스터 VM에서 RDP 포트 범위 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)|배포된 클러스터에서 클러스터 노드 VM의 RDP 포트 범위를 변경합니다.|
+| [클러스터 노드 VM에 대한 관리자 사용자 및 암호 업데이트](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | 클러스터 노드 VM에 대한 관리자 사용자 및 암호를 업데이트합니다. |
+| [Load Balancer에서 포트 열기](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | 특정 포트에서 인바운드 트래픽을 허용하도록 Azure Load Balancer에서 응용 프로그램 포트를 엽니다. |
+| [인바운드 네트워크 보안 그룹 규칙 만들기](./scripts/service-fabric-powershell-add-nsg-rule.md) | 특정 포트에서 클러스터에 대한 인바운드 트래픽을 허용하는 인바운드 네트워크 보안 그룹 규칙을 만듭니다. |
 | **응용 프로그램 관리** ||
 | [응용 프로그램 배포](./scripts/service-fabric-powershell-deploy-application.md)| 클러스터에 응용 프로그램을 배포합니다.|
-| [응용 프로그램 업그레이드](./scripts/service-fabric-powershell-upgrade-application.md)| 응용 프로그램 업그레이드 |
+| [응용 프로그램 업그레이드](./scripts/service-fabric-powershell-upgrade-application.md)| 응용 프로그램을 업그레이드합니다.|
 | [응용 프로그램 제거](./scripts/service-fabric-powershell-remove-application.md)| 클러스터에서 응용 프로그램을 제거합니다.|
-| [Load Balancer에서 포트 열기](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Azure Load Balancer에서 응용 프로그램 포트를 엽니다. |

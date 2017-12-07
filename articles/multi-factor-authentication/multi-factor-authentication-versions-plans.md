@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/23/2017
 | 두 번째 단계로 SMS |● |● |● |
 | MFA를 지원하지 않는 클라이언트에 대한 앱 암호 |● |● |● |
 | 확인 방법에 대한 관리자 제어 |● |● |● |
-| MFA를 사용하여 비관리자 계정 보호 | | |● |
+| MFA를 사용하여 비관리자 계정 보호 |● (Office 365 응용 프로그램만 해당) | |● |
 | PIN 모드 | | |● |
 | 사기 행위 경고 | | |● |
 | MFA 보고서 | | |● |

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>자습서: 사용자 프로비전에 대한 DocuSign 구성
 
@@ -41,9 +41,12 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>DocuSign에 사용자를 할당하기 위한 주요 팁
 
-*   프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 DocuSign에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+*   프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 DocuSign에 할당하는 것이 좋습니다. 추가 사용자를 나중에 할당할 수 있습니다.
 
 *   DocuSign에 사용자를 할당할 때 유효한 사용자 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
+
+> [!NOTE]
+> Azure AD는 Docusign 응용 프로그램을 통한 그룹 프로비저닝을 지원하지 않으며 사용자만 프로비저닝할 수 있습니다.
 
 ## <a name="enable-user-provisioning"></a>사용자 프로비저닝 사용
 
@@ -86,7 +89,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 12. **저장**을 클릭합니다.
 
-[사용자 및 그룹] 섹션에서 DocuSign에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 DocuSign 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 보고서에 연결된 링크를 이용할 수 있습니다.
+사용자 및 그룹 섹션에서 DocuSign에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 20분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 DocuSign 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 보고서에 연결된 링크를 이용할 수 있습니다.
 
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 DocuSign에 동기화되었는지 확인합니다.
 

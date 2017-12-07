@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
@@ -45,6 +45,22 @@ Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온
 Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습니다.
 
 인증 결과(성공 또는 거부) 및 거부 사유는 인증 데이터와 함께 저장됩니다. 이 데이터는 인증 및 사용 보고서에서 사용할 수 있습니다.
+
+**Q: 사용자에게 SMS 메시지를 보낼 때 사용되는 SMS 짧은 코드는 무엇인가요?**
+
+미국에서 Microsoft는 다음과 같은 SMS 짧은 코드를 사용합니다.
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+캐나다에서 Microsoft는 다음과 같은 SMS 짧은 코드를 사용합니다.
+
+   * 759731 
+   * 673801
+
+Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가에는 짧은 코드를 지원하지 않습니다.
 
 ## <a name="billing"></a>결제
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](multi-factor-authentication-versions-plans.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.

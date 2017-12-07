@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
 
@@ -135,3 +135,17 @@ Azure에서 장애 조치된 가상 컴퓨터를 제거하려면 커밋이 필�
 
 ## <a name="common-issues"></a>일반적인 문제
 장애 복구를 수행 하기 전에 vCenter가 연결되었는지 확인합니다. 연결되지 않은 경우 디스크의 연결을 끊고 가상 컴퓨터를 다시 연결하는 작업이 실패합니다.
+
+### <a name="common-error-codes"></a>일반적인 오류 코드
+
+#### <a name="error-code-8038"></a>오류 코드 8038
+
+*오류로 인해 온-프레미스 가상 머신을 불러오지 못했습니다.*
+
+다음과 같은 경우에 발생합니다. 
+1. 메모리가 충분히 프로비전되지 않은 호스트에 온-프레미스 가상 머신을 불러 왔습니다.
+
+이 문제를 해결하려면
+1. ESXi 호스트에 메모리를 더 많이 프로비전합니다.
+2. 가상 머신을 부팅하기에 충분한 메모리가 있는 다른 ESXi 호스트로 VM을 vMotion합니다.
+

@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/11/2017
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 컴퓨터|N|N|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 컴퓨터, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |VMware VM|VMware 서버 5.5 또는 6.0 또는 6.5 |온-프레미스 Hyper-V 가상 컴퓨터|Y|Y(UR1 포함)|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> Windows에만 사용할 수 있는 파일 및 폴더의 항목 수준 복구<br /> VMware vApp은 지원되지 않음|
-|Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 컴퓨터<br /><br />복구: 전체 가상 컴퓨터|
+|Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|온-프레미스 Hyper-V 가상 컴퓨터|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 컴퓨터<br /><br />복구: 전체 가상 컴퓨터 <br/><br/> 지원되는 Linux 배포 및 버전의 전체 목록은 [Azure 보증 배포판의 Linux](../virtual-machines/linux/endorsed-distros.md)를 참조하세요.|
 
 ## <a name="cluster-support"></a>클러스터 지원
 Azure Backup Server는 다음과 같은 클러스터 된 응용 프로그램에서 데이터를 보호할 수 있습니다.

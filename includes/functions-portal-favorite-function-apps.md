@@ -12,6 +12,6 @@
 
 3. 메뉴를 닫은 후 맨 아래로 스크롤하면 Functions 아이콘이 표시됩니다. 이 아이콘을 클릭하면 모든 함수 앱 목록이 표시됩니다. 이 앱에서 함수로 작업하려면 함수 앱을 클릭합니다. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![즐겨찾기의 함수 앱](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

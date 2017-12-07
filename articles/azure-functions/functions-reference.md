@@ -3,7 +3,7 @@ title: "Azure Functions 개발 지침 | Microsoft Docs"
 description: "프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 함수를 개발하는 데 필요한 Azure Functions 개념 및 기술에 대해 알아봅니다."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.author: tdykstra
+ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -58,7 +58,7 @@ function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합�
 | `name` |string |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
 
 ## <a name="function-app"></a>함수 앱
-함수 앱은 Azure 앱 서비스에서 함께 관리되는 하나 이상의 개별 함수 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 여러 언어로 작성된 함수는 동일한 함수 앱을 공유할 수 있습니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 
+함수 앱은 Azure App Service에서 함께 관리되는 하나 이상의 개별 함수 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 여러 언어로 작성된 함수는 동일한 함수 앱을 공유할 수 있습니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 
 
 ## <a name="runtime-script-host-and-web-host"></a>런타임(스크립트 호스트 및 웹 호스트)
 런타임 또는 스크립트 호스트는 이벤트를 수신하고, 데이터를 수집하여 보내고, 최종적으로 코드를 실행하는 기본 WebJobs SDK 호스트입니다. 
@@ -68,7 +68,7 @@ HTTP 트리거를 용이하게 하기 위해 프로덕션 시나리오에서 스
 ## <a name="folder-structure"></a>폴더 구조
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. 배포 시 패키지 설치 또는 코드 transpilation 수행을 위하여 지속적인 통합 및 배포 같은 기존 툴 또는 사용자 지정 배포 스크립트를 사용할 수 있습니다.
+Azure App Service에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. 배포 시 패키지 설치 또는 코드 transpilation 수행을 위하여 지속적인 통합 및 배포 같은 기존 툴 또는 사용자 지정 배포 스크립트를 사용할 수 있습니다.
 
 > [!NOTE]
 > `host.json` 파일과 함수 폴더를 `wwwroot` 폴더에 직접 배포해야 합니다. 배포에 `wwwroot` 폴더를 포함하지 마세요. 그렇지 않으면 `wwwroot\wwwroot` 폴더가 만들어집니다. 
@@ -80,12 +80,9 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/app-service-deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
 
-#### <a name="to-use-app-service-editor"></a>앱 서비스 편집기 사용하기
-1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.
-2. **고급 설정** 섹션에서 **App Service 설정으로 이동**을 클릭합니다.
-3. **개발 도구** 아래 앱 메뉴 탐색 창에서 **App Service 편집기**를 클릭합니다.
-4. **이동**을 클릭합니다.
-   
+#### <a name="to-use-app-service-editor"></a>App Service 편집기 사용하기
+1. Azure Functions 포털에서 **플랫폼 기능**을 클릭합니다.
+2. **개발 도구** 섹션에서 **App Service 편집기**를 클릭합니다.   
    App Service 편집기가 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다. 
 5. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
 
@@ -132,5 +129,5 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-* [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
+* [Azure Functions: Azure App Service](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
 

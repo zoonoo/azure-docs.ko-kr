@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Microsoft SQL Server의 연결 라이브러리 및 프레임워크
 
@@ -47,12 +47,25 @@ ms.lasthandoff: 10/31/2017
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | 파이썬 | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>관련 링크
 - 클라이언트 응용 프로그램에서 연결하기 위한 [SQL Server 드라이버](http://msdn.microsoft.com/library/mt654049.aspx)
-- [.NET(C#)을 사용하여 SQL Database에 연결](sql-database-connect-query-dotnet.md)
-- [PHP를 사용하여 SQL Database에 연결](sql-database-connect-query-php.md)
-- [Node.js를 사용하여 SQL Database에 연결](sql-database-connect-query-nodejs.md)
-- [Java를 사용하여 SQL Database에 연결](sql-database-connect-query-java.md)
-- [Python을 사용하여 SQL Database에 연결](sql-database-connect-query-python.md)
-- [Ruby를 사용하여 SQL Database에 연결](sql-database-connect-query-ruby.md)
+- SQL Database에 연결:
+    - [.NET(C#)을 사용하여 SQL Database에 연결](sql-database-connect-query-dotnet.md)
+    - [PHP를 사용하여 SQL Database에 연결](sql-database-connect-query-php.md)
+    - [Node.js를 사용하여 SQL Database에 연결](sql-database-connect-query-nodejs.md)
+    - [Java를 사용하여 SQL Database에 연결](sql-database-connect-query-java.md)
+    - [Python을 사용하여 SQL Database에 연결](sql-database-connect-query-python.md)
+    - [Ruby를 사용하여 SQL Database에 연결](sql-database-connect-query-ruby.md)
+- 다시 시도 논리 코드 예제:
+    - [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [PHP로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2dec744b512a86a30cec1f334e265572fa7acc3e
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -47,9 +47,12 @@ ms.lasthandoff: 10/24/2017
 ## <a name="enable-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 사용
 Azure에 이미 배포된 Windows 및 Linux 가상 컴퓨터에 대해, Log Analytics VM 확장을 사용하여 Log Analytics 에이전트를 설치합니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 
+>[!NOTE]
+>Linux용 OMS 에이전트는 여러 Log Analytics 작업 공간에 보고하도록 구성할 수 없습니다. 
+
 포털의 Log Analytics 리소스 페이지 맨 위에는 업그레이드를 위해 사용자를 초대하는 배너가 표시될 수 있습니다.  이 빠른 시작 가이드에서는 업그레이드가 필요하지 않습니다.<br>
 
-![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)에서도 확인할 수 있습니다.    
+![Azure Portal의 Log Analytics 업그레이드 알림](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 이전에 만든 *DefaultLAWorkspace*를 선택합니다.
 3. 왼쪽 메뉴의 작업 영역 데이터 원본에서 **가상 컴퓨터**를 클릭합니다.  

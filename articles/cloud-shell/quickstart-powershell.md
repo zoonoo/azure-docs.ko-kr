@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-연결 문자열과 함께 다음 명령을 사용하여 Azure 파일 공유를 탑재할 수 있습니다.
+연결 문자열과 함께 다음 명령을 사용하여 Azure Files 공유를 탑재할 수 있습니다.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스][azmount]를 참조하세요.
+자세한 내용은 [Azure Files 공유를 탑재하고 Windows에서 공유에 액세스][azmount]를 참조하세요.
 
-또한 Azure File 공유에서 디렉터리를 다음과 같이 탐색할 수 있습니다.
+또한 Azure Files 공유에서 디렉터리를 다음과 같이 탐색할 수 있습니다.
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ PS Azure:\> Get-Help
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Azure File Storage를 사용하여 데이터를 저장합니다.
+## <a name="use-azure-files-to-store-your-data"></a>Azure Files를 사용하여 데이터 저장
 
 예를 들어 `helloworld.ps1`이란 스크립트를 만들어 `CloudDrive`에 저장하고 셸 세션 전반에 걸쳐 사용할 수 있습니다.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure 파일 공유를 탑재한 `CloudDrive` 폴더에 존재할 것입니다.
+다음에 Azure Cloud Shell의 PowerShell을 사용할 때 `helloworld.ps1` 파일은 Azure Files 공유를 탑재한 `CloudDrive` 폴더에 존재할 것입니다.
 
 ## <a name="use-custom-profile"></a>사용자 지정 프로필 사용
 

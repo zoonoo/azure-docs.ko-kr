@@ -3,7 +3,7 @@ title: "Azure에서 온-프레미스로 장애 조치하기 위해 Linux 마스�
 description: "Linux 가상 컴퓨터를 다시 보호하려면 Linux 마스터 대상 서버가 필요합니다. 설치 방법에 대해 알아봅니다."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 가상 컴퓨터를 장애 조치(failover)한 후 가상 컴퓨터를 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -206,7 +206,7 @@ Linux 가상 컴퓨터에 있는 각 SCSI 하드 디스크의 SCSI ID를 가져�
 
 #### <a name="disable-kernel-upgrades"></a>커널 업그레이드 비활성화
 
-Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요합니다. 가상 컴퓨터에 커널 업그레이드를 비활성화합니다.
+Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요합니다. 가상 머신에 커널 업그레이드를 비활성화합니다.
 
 커널 업그레이드를 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다.
 

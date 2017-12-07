@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -50,7 +50,7 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
 ### <a name="existing-function-app"></a>기존 함수 앱
 
-계측 키를 가져와서 함수 앱에 저장:
+계측 키를 가져와서 함수 앱에 저장합니다.
 
 1. Application Insights 인스턴스를 만듭니다. 응용 프로그램 형식을 **일반**으로 설정합니다.
 
@@ -60,7 +60,7 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
    ![Application Insights 계측 키 복사](media/functions-monitoring/copy-ai-key.png)
 
-1. 함수 앱의 **응용 프로그램 설정** 페이지에서 APPINSIGHTS_INSTRUMENTATIONKEY라는 [앱 설정을 추가](functions-how-to-use-azure-function-app-settings.md#settings)하고 계측 키를 붙여넣습니다.
+1. 함수 앱의 **응용 프로그램 설정** 페이지에서 [새 설정 추가](functions-how-to-use-azure-function-app-settings.md#settings)를 클릭하여 **새 설정을 추가**합니다. 새 설정의 이름을 APPINSIGHTS_INSTRUMENTATIONKEY로 지정하고 복사한 계측 키를 붙여넣습니다.
 
    ![앱 설정에 계측 키 추가](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Functions도 Application Insights를 사용하지 않는 기본 모니터링을 
 
 ## <a name="view-telemetry-data"></a>원격 분석 데이터 보기
 
-포털의 함수 앱에서 Application Insights로 이동하려면 함수 앱의 **개요** 페이지에서 **Application Insights** 연결을 선택합니다.
+포털의 함수 앱에서 연결된 Application Insights 인스턴스로 이동하려면 함수 앱의 **개요** 페이지에서 **Application Insights** 연결을 선택합니다.
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요. 이 섹션에서는 Application Insights에서 데이터를 보는 방법에 대한 몇 가지 예를 보여줍니다. 이미 Application Insights에 익숙한 경우 [원격 분석 데이터 구성 및 사용자 지정에 대한 섹션](#configure-categories-and-log-levels)으로 바로 넘어가도 됩니다.
 
@@ -84,7 +84,7 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 ![성능](media/functions-monitoring/performance.png)
 
-**서버** 탭에는 서버당 리소스 사용률 및 처리량이 표시됩니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. 서버를 *클라우드 역할 인스턴스*라고도 합니다. 
+**서버** 탭에는 서버당 리소스 사용률 및 처리량이 표시됩니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. 서버를 **클라우드 역할 인스턴스**라고도 합니다.
 
 ![서버](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 ## <a name="query-telemetry-data"></a>원격 분석 데이터 쿼리
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md)를 사용하면 모든 원격 분석 데이터를 데이터베이스의 테이블 형태로 사용할 수 있습니다. Analytics는 데이터를 추출 및 조작하는 쿼리 언어를 제공합니다.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md)를 사용하면 모든 원격 분석 데이터를 데이터베이스의 테이블 형태로 사용할 수 있습니다. Analytics는 데이터를 추출, 조작 및 시각화하는 쿼리 언어를 제공합니다.
 
 ![Analytics 선택](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ traces
 
 ## <a name="configure-categories-and-log-levels"></a>범주 및 로그 수준 구성
 
-Application Insights를 사용자 지정 구성 없이 사용할 수 있지만, 기본 구성을 사용하면 데이터 볼륨이 커질 수 있습니다. Visual Studio Azure 구독을 사용하는 경우 App Insights에 대한 데이터 제한에 도달할 수 있습니다. 이 문서의 나머지 부분에서는 함수가 Application Insights로 보내는 데이터를 구성 및 사용자 지정하는 방법을 보여줍니다.
+Application Insights를 사용자 지정 구성 없이 사용할 수 있지만, 기본 구성을 사용하면 데이터 볼륨이 커질 수 있습니다. Visual Studio Azure 구독을 사용하는 경우 Application Insights에 대한 데이터 제한에 도달할 수 있습니다. 이 문서의 나머지 부분에서는 함수가 Application Insights로 보내는 데이터를 구성 및 사용자 지정하는 방법을 보여줍니다.
 
 ### <a name="categories"></a>범주
 
@@ -178,7 +178,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 이 예제에서는 다음 규칙을 설정합니다.
 
-1. 범주가 "Host.Results" 또는 "Function"인 로그의 경우 `Error` 수준 이상만 Application Insights로 보냅니다. `Information` 수준 이하 로그는 무시됩니다.
+1. 범주가 "Host.Results" 또는 "Function"인 로그의 경우 `Error` 수준 이상만 Application Insights로 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
 2. 범주가 Host. Aggregator인 로그의 경우 `Information` 수준 이상만 Application Insights로 보냅니다. `Debug` 수준 이하 로그는 무시됩니다.
 3. 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
@@ -217,7 +217,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 이러한 로그는 [구성 가능한](#configure-the-aggregator) 기간 동안의 함수 호출 수 및 평균을 제공합니다. 기본 기간은 30초 또는 결과 1,000개 중 먼저 도착하는 것입니다. 
 
-이 로그는 Application Insights에 "customMetrics"로 표시됩니다. 실행 수, 성공률 및 기간을 예로 들 수 있습니다.
+로그는 Application Insights의 **customMetrics** 테이블에서 제공합니다. 실행 수, 성공률 및 기간을 예로 들 수 있습니다.
 
 ![customMetrics 쿼리](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 ### <a name="other-categories"></a>기타 범주
 
-이미 나열된 범주 이외의 범주에 대한 모든 로그는 Application Insights에서 "traces"로 표시됩니다.
+이미 나열된 범주 이외의 범주에 대한 모든 로그는 Application Insights의 **traces** 테이블에서 제공합니다.
 
 ![추적 쿼리](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 구조적 로깅을 수행할 수 있도록 자리 표시자는 이러한 방식으로 처리됩니다. Application Insights는 메시지 문자열 외에도 매개 변수 이름-값 쌍을 저장합니다. 그 결과로 메시지 인수는 사용자가 쿼리할 수 있는 필드가 됩니다.
 
-예를 들어 로거 메서드 호출이 이전 예제와 같은 경우 `customDimensions.prop__rowKey` 필드를 쿼리할 수 있습니다. 런타임에서 추가하는 필드와 함수 코드에서 추가하는 필드가 서로 충돌하지 않도록 접두사가 추가됩니다.
+예를 들어 로거 메서드 호출이 이전 예제와 같은 경우 `customDimensions.prop__rowKey` 필드를 쿼리할 수 있습니다. 런타임에서 추가하는 필드와 함수 코드에서 추가하는 필드가 서로 충돌하지 않도록 `prop__` 접두사가 추가됩니다.
 
 `customDimensions.prop__{OriginalFormat}` 필드를 참조하여 원래 메시지 문자열을 쿼리할 수도 있습니다.  
 
@@ -454,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>종속성
 
-종속성이 자동으로 표시되지는 않지만 종속성을 표시하는 사용자 지정 코드를 작성할 수 있습니다. [C# 사용자 지정 원격 분석 섹션](#custom-telemetry-in-c-functions)의 샘플 코드에 방법이 나와 있습니다. 샘플 코드의 결과는 다음과 같은 Application Insights의 *응용 프로그램 맵*입니다.
+함수가 다른 서비스에 대해 가져야 하는 종속성이 자동으로 표시되지는 않지만 종속성을 표시하는 사용자 지정 코드를 작성할 수 있습니다. [C# 사용자 지정 원격 분석 섹션](#custom-telemetry-in-c-functions)의 샘플 코드에 방법이 나와 있습니다. 샘플 코드의 결과는 다음과 같은 Application Insights의 *응용 프로그램 맵*입니다.
 
 ![응용 프로그램 맵](media/functions-monitoring/app-map.png)
 
@@ -473,7 +473,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ### <a name="real-time-monitoring"></a>실시간 모니터링
 
-함수 **모니터** 탭에서 **라이브 이벤트 스트림**을 클릭하면 실시간 모니터링을 사용할 수 있습니다. 라이브 이벤트 스트림은 브라우저의 새 탭에 그래프로 표시됩니다.
+함수 **모니터** 탭에서 **라이브 이벤트 스트림**을 클릭하면 실시간 모니터링을 사용할 수 있습니다. 라이브 이벤트 스트림은 새 브라우저 탭에 그래프로 표시됩니다.
 
 > [!NOTE]
 > 데이터를 채우지 못하게 하는 알려진 문제점이 있습니다. 라이브 이벤트 스트림을 포함하고 있는 브라우저 탭을 닫은 다음 **라이브 이벤트 스트림**을 다시 클릭하여 이벤트 스트림 데이터를 제대로 채울 수 있도록 해야 합니다. 

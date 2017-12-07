@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
@@ -68,9 +68,9 @@ SQL 스크립트 실행, bacpac 배포 또는 템플릿 데이터베이스 복�
 Wingtip Tickets SaaS 테넌트별 데이터베이스 앱은 카탈로그 서버에 배포된 _basetenantdb_라는 템플릿 데이터베이스를 복사하여 새 테넌트를 프로비전합니다.  프로비전은 등록 환경의 일부로 응용 프로그램 및/또는 스크립트를 사용하여 지원되는 오프라인으로 통합될 수 있습니다. 이 자습서는 PowerShell을 사용하는 프로비전을 살펴봅니다. 프로비전 스크립트는 basetenantdb 데이터베이스를 복사하여 탄력적 풀에 새 테넌트 데이터베이스를 만든 다음 테넌트 관련 정보를 사용하여 초기화하고 카탈로그 분할 맵에 등록합니다.  Wingtip Tickets SaaS 테넌트별 데이터베이스 앱에서 데이터베이스는 테넌트 이름을 기반으로 이름이 지정되지만 이는 패턴의 중요한 부분이 아닙니다. 카탈로그를 사용하면 테넌트 데이터베이스에 모든 이름을 할당할 수 있습니다.+ 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) 리포지토리에서 사용할 수 있습니다. [Wingtip Tickets SaaS 스크립트를 다운로드하는 단계](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>자세한 연습 프로비전 및 카탈로그

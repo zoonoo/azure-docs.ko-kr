@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -154,6 +154,21 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 ### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 [Linux에서 Azure 파일 탑재 오류에 대한 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)를 사용합니다. 이 도구를 사용하여 클라이언트 실행 환경의 유효성을 검사하고, Azure 파일에 대한 액세스 오류를 발생시키는 호환되지 않는 클라이언트 구성을 검색할 수 있으며, 자체 수정에 대한 규범적인 지침을 제공하고, 진단 추적을 수집합니다.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류
+
+ls 명령을 사용하여 Azure 파일 공유의 파일을 나열하려고 시도하면 받은 파일을 나열할 때 ls 명령이 중지되고 다음과 같은 오류가 나타납니다.
+
+**ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류**
+
+
+### <a name="solution"></a>해결 방법
+이 문제가 수정된 다음 버전으로 Linux 커널을 업그레이드합니다.
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- 4.13 이상 모든 버전
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 

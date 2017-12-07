@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트를 구성하는 방법
 
@@ -41,13 +41,10 @@ ms.lasthandoff: 11/04/2017
 
 ## <a name="preview-sign-up"></a>미리 보기 등록
 
-Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 Azure CLI 2.0 또는 PowerShell을 사용하여 액세스 권한을 얻도록 구독을 등록합니다.  다음 구독을 등록하세요.
-
-1. [Load Balancer 표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up) 
-2. [HA 포트 미리 보기](https://aka.ms/haports#preview-sign-up)
+Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 Azure CLI 2.0 또는 PowerShell을 사용하여 액세스 권한을 얻도록 구독을 등록합니다. [Load Balancer Standard 미리 보기](https://aka.ms/lbpreview#preview-sign-up)에 대해 구독을 등록합니다.
 
 >[!NOTE]
->이 기능을 사용하려면 HA 포트 외에 Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)에도 등록해야 합니다. HA 포트 또는 Load Balancer 표준 미리 보기 등록에는 최대 1시간이 걸릴 수 있습니다.
+>Load Balancer Standard 미리 보기를 등록하는 데는 최대 한 시간이 소요될 수 있습니다.
 
 ## <a name="configuring-ha-ports"></a>HA 포트 구성
 

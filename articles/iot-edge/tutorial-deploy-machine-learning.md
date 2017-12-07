@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -49,7 +49,7 @@ Azure ML 컨테이너를 만들려면 [Azure IoT Edge용 AI 도구 키트](https
 1. **Save**를 클릭합니다.
 1. **모듈 추가** 단계로 돌아가서 **다음**을 클릭합니다.
 1. 모듈 경로를 업데이트합니다.
-1. **경로 지정** 단계에서 다음 JSON을 텍스트 상자에 복사합니다. 모듈은 모든 메시지를 Edge 런타임에 게시합니다. 런타임의 선언적 규칙은 해당 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 모든 Azure Machine Learning 모듈이 사용하는 끝점인 "mlInput" 끝점을 통해 온도 센서에서 Machine Learning 모듈로 메시지를 전송합니다. 두 번째 경로는 Machine Learning 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 'mlOutput'은 모든 Azure Machine Learning 모듈이 데이터를 출력하는 데 사용하는 endput이고 'upstream'은 IoT Hub로 메시지를 전송하도록 Edge Hub에 알려주는 특별한 대상입니다. 
+1. **경로 지정** 단계에서 다음 JSON을 텍스트 상자에 복사합니다. 모듈은 모든 메시지를 Edge 런타임에 게시합니다. 런타임의 선언적 규칙은 해당 메시지가 어디로 흐르는지를 정의합니다. 이 자습서에서는 두 개의 경로가 필요합니다. 첫 번째 경로는 모든 Azure Machine Learning 모듈이 사용하는 끝점인 "amlInput" 끝점을 통해 온도 센서에서 Machine Learning 모듈로 메시지를 전송합니다. 두 번째 경로는 Machine Learning 모듈에서 IoT Hub로 메시지를 전송합니다. 이 경로에서 “amlOutput”은 모든 Azure Machine Learning 모듈이 데이터를 출력하는 데 사용하는끝점이고 '$upstream'은 IoT Hub로 메시지를 전송하도록 Edge Hub에 알려주는 특별한 대상입니다. 
 
     ```json
     {

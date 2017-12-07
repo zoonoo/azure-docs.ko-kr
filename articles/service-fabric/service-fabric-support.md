@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -68,15 +68,15 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
  
 다음은 지원되는 Service Fabric 버전과 지원 종료 날짜 목록입니다.
 
-| **Service Fabric 런타임 클러스터** | **호환 가능한 SDK / NuGet 패키지 버전** | **지원 종료 날짜** |
-| --- | --- | --- |
-| 5.3.121 이전의 모든 클러스터 버전 |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
-| 5.3.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
-| 5.4.* |버전 2.4보다 작거나 같음 |2017년 5월 10일       |
-| 5.5.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
-| 5.6.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
-| 5.7.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
-| 6.0.* |버전 2.8보다 작거나 같음 |현재 버전 및 종료 날짜
+| **클러스터의 Service Fabric 런타임** | **클러스터 버전에서 직접 업그레이드할 수 있습니다.** |**호환 가능한 SDK / NuGet 패키지 버전** | **지원 종료 날짜** |
+| --- | --- |--- | --- |
+| 5.3.121 이전의 모든 클러스터 버전 | 5.1.158* |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
+| 5.3.* | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
+| 5.4.* | 5.1.158.* |버전 2.4보다 작거나 같음 |2017년 5월 10일       |
+| 5.5.* | 5.4.164.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
+| 5.6.* | 5.4.164.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
+| 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
+| 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |현재 버전 및 종료 날짜 |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 종종 피드백이 필요한 중요한 기능이 포함된 버전이 미리 보기로 릴리스됩니다. 이러한 미리 보기 버전은 테스트 용도로만 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되면 해당 릴리스 버전은 테스트 클러스터에서만 미리 보기로 사용됩니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric)에서 발표됩니다.

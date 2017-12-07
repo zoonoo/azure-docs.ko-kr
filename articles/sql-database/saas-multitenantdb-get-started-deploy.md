@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/23/2017
 
 응용 프로그램은 세 개의 샘플 테넌트에 대한 데이터를 사용하여 배포됩니다. 테넌트는 하나의 다중 테넌트 데이터베이스에 함께 저장됩니다.
 
-누구나 [Github 리포지토리][link-github-wingtip-multitenantdb-55g]에서 Wingtip Tickets에 대한 C# 및 PowerShell 소스 코드를 다운로드할 수 있습니다.
+누구나 [GitHub 리포지토리][link-github-wingtip-multitenantdb-55g]에서 Wingtip Tickets에 대한 C# 및 PowerShell 소스 코드를 다운로드할 수 있습니다.
 
 #### <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/23/2017
 > [!IMPORTANT]
 > zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 경우 다음 단계에 따라 추출하기 전에 .zip 파일을 차단 해제하세요. .zip 파일을 차단 해제하면 스크립트를 실행할 수 있습니다.
 
-1. [WingtipTicketsSaaS-MultiTenantDb github 리포지토리](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)로 이동합니다.
+1. [WingtipTicketsSaaS-MultiTenantDb GitHub 리포지토리](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)로 이동합니다.
 2. **복제 또는 다운로드**를 클릭합니다.
 3. **ZIP 다운로드**를 클릭하고 파일을 저장합니다.
 4. **WingtipTicketsSaaS-MultiTenantDb-master.zip** 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 중앙 **이벤트 허브**는 특정 배포에 있는 테넌트의 링크 목록을 제공합니다.
 
 1. 웹 브라우저에서 *이벤트 허브*를 엽니다.
-    - http://events.wingtip-mt.&lt;사용자&gt;.trafficmanager.net &nbsp; *(배포의 사용자 값으로 바꿈)*
+    - http://events.wingtip.&lt;사용자&gt;.trafficmanager.net &nbsp; *(배포의 사용자 값으로 바꿈)*
 
     ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/23/2017
 
 들어오는 요청의 배포를 제어하기 위해 앱에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 테넌트와 관련된 이벤트 페이지의 경우 테넌트 이름이 URL에 포함됩니다. 또한 URL에는 특정 User 값이 다음과 같은 형식으로 포함됩니다.
 
-- http://events.wingtip-mt.&lt;사용자&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;사용자&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 이벤트 앱이 URL에서 테넌트 이름을 구문 분석하고 이를 해시하여 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 사용하는 카탈로그에 액세스하기 위한 키를 만듭니다. 카탈로그는 테넌트의 데이터베이스 위치에 키를 매핑합니다. **이벤트 허브**는 카탈로그에 등록된 모든 테넌트를 나열합니다. **이벤트 허브**는 URL을 구성하기 위해 카탈로그의 확장 메타데이터를 사용하여 각 매핑과 연결된 테넌트의 이름을 검색합니다.
 
@@ -156,7 +156,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 초기 배포 시에는 *Tenants1* 데이터베이스에 세 개의 샘플 테넌트가 포함됩니다. 또 다른 테넌트를 만들어 이것이 배포된 응용 프로그램에 어떻게 영향을 미치는지 확인해 보겠습니다. 이 단계에서는 신속하게 새 테넌트를 만들 수 있습니다.
 
-1. *PowerShell ISE*에서 …\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 엽니다.
+1. *PowerShell ISE*에서 ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1*을 엽니다.
 2. **F5** 키를 눌러 스크립트를 실행합니다(지금은 기본값을 그대로 사용).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 이번에는 자체 데이터베이스에서 다른 테넌트를 프로비전합니다.
 
-1. ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*에서 *$TenantName*을 **Salix Salsa**로 수정하고, *$VenueType*을 **dance**로 수정하고, *$Scenario*를 **2**로 수정합니다.
+1. ...\\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1*에서 *$TenantName*을 **Salix Salsa**로 수정하고, *$VenueType*을 **dance**로 수정하고, *$Scenario*를 **2**로 수정합니다.
 
 2. **F5** 키를 눌러 스크립트를 다시 실행합니다.
     - 이 F5 키를 누르면 새 테넌트가 별도의 데이터베이스에서 프로비전됩니다. 데이터베이스 및 테넌트가 카탈로그에 등록됩니다. 그러면 브라우저가 테넌트의 이벤트 페이지로 열립니다.
@@ -239,7 +239,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 > - 풀 사용률을 검토하여 테넌트 작업을 모니터링하는 방법
 > - 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-이제 [테넌트 프로비전 자습서](sql-database-saas-tutorial-provision-and-catalog.md)를 사용해 보세요.
+이제 [프로비전 및 카탈로그 자습서](sql-database-saas-tutorial-provision-and-catalog.md)를 사용해 보세요.
 
 
 

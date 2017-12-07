@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 관리하는 방법
 Azure Portal에서 전역 일관성을 설정하고, 키로 작업하고, Azure Cosmos DB 계정을 삭제하는 방법에 대해 알아봅니다.
@@ -33,10 +33,10 @@ Azure Portal에서 전역 일관성을 설정하고, 키로 작업하고, Azure 
 3. **기본 일관성** 페이지에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
     ![기본 일관성 세션][5]
 
-## <a id="keys"></a>선택키 보기, 복사 및 다시 생성
-Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. Azure Cosmos DB에서는 2개의 액세스 키를 제공해서 사용자가 Azure Cosmos DB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 
+## <a id="keys"></a>액세스 키 및 암호 보기, 복사 및 다시 생성
+Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키(또는 MongoDB API 계정용 암호 2개)가 생성됩니다. Azure Cosmos DB에서는 2개의 액세스 키를 제공해서 사용자가 Azure Cosmos DB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 
 
-[Azure Portal](https://portal.azure.com/)에서 **Azure Cosmos DB 계정** 페이지의 리소스 메뉴에 있는 **키** 페이지에 액세스하여 Azure Cosmos DB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
+[Azure Portal](https://portal.azure.com/)에서 **Azure Cosmos DB 계정** 페이지의 리소스 메뉴에 있는 **키** 페이지에 액세스하여 Azure Cosmos DB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다. MongoDB API 계정의 경우 리소스 메뉴에서 **연결 문자열** 페이지에 액세스하여 계정 액세스에 사용되는 암호를 보고, 복사하고, 다시 생성합니다.
 
 ![Azure Portal 스크린샷, 키 페이지](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계�
 
 읽기 전용 키도 이 페이지에서 사용할 수 있습니다. 읽기 및 쿼리는 읽기 전용 작업이며 만들기, 삭제 및 바꾸기는 읽기 전용 작업이 아닙니다.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Azure Portal에서 선택키 복사
-**키** 페이지에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Azure Portal에서 액세스 키 또는 암호 복사
+**키** 페이지(또는 MongoDB API 계정의 **연결 문자열** 페이지)에서 복사하려는 키나 암호 오른쪽의 **복사** 단추를 클릭합니다.
 
 ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>액세스 키 다시 생성
-저장소 연결을 더욱 안전하게 유지할 수 있도록 정기적으로 Azure Cosmos DB 계정의 액세스 키를 변경해야 합니다. 두 개의 액세스 키가 할당되므로 액세스 키 하나를 다시 생성하는 동안 다른 액세스 키를 사용하여 Azure Cosmos DB 계정에 대한 연결을 유지할 수 있습니다.
+### <a name="regenerate-access-keys-and-passwords"></a>액세스 키 및 암호 다시 생성
+저장소 연결을 더욱 안전하게 유지할 수 있도록 정기적으로 Azure Cosmos DB 계정의 액세스 키(및 MongoDB API 계정의 암호)를 변경해야 합니다. 두 개의 액세스 키/암호가 할당되므로 액세스 키 하나를 다시 생성하는 동안 다른 액세스 키를 사용하여 Azure Cosmos DB 계정에 대한 연결을 유지할 수 있습니다.
 
 > [!WARNING]
 > 액세스 키를 다시 생성하면 현재 키에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 Azure Cosmos DB 계정에 액세스하는 모든 클라이언트가 새 키를 사용하도록 업데이트되어야 합니다.
 > 
 > 
 
-Azure Cosmos DB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서비스가 있는 경우 키를 롤링하지 않고 다시 생성하면 연결이 끊어집니다. 다음 단계에서는 키 롤링에 관련된 프로세스를 간략하게 설명합니다.
+Azure Cosmos DB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서비스가 있는 경우 키를 롤링하지 않고 다시 생성하면 연결이 끊어집니다. 다음 단계에서는 키/암호 롤링에 관련된 프로세스를 간략하게 설명합니다.
 
 1. Azure Cosmos DB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
 2. Azure Cosmos DB 계정의 기본 액세스 키를 다시 생성합니다. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정에 액세스합니다.
-3. **Azure Cosmos DB 계정** 페이지에서 **키**를 클릭합니다.
-4. **키** 페이지에서 다시 생성 단추를 클릭한 다음 **확인**을 클릭하여 새 키를 생성할 것임을 확인합니다.
+3. **Azure Cosmos DB 계정** 페이지에서 **키**(또는 MongoDB 계정의**연결 문자열****)를 클릭합니다.
+4. **키**/**연결 문자열** 페이지에서 다시 생성 단추를 클릭한 다음 **확인**을 클릭하여 새 키를 생성할 것임을 확인합니다.
     ![액세스 키 다시 생성](./media/manage-account/regenerate-keys.png)
 5. 키를 다시 생성하고 약 5분 후에 새 키를 사용할 수 있는지 확인한 후 응용 프로그램 코드에서 새 기본 액세스 키를 참조하도록 액세스 키를 업데이트합니다.
 6. 보조 액세스 키를 다시 생성합니다.
@@ -77,11 +77,11 @@ Azure Cosmos DB 계정을 사용하는 웹 응용 프로그램이나 클라우�
 > 
 > 
 
-## <a name="get-the--connection-string"></a>연결 문자열 가져오기
+## <a name="get-the-connection-string"></a>연결 문자열 가져오기
 연결 문자열을 검색하려면 다음을 수행합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정에 액세스합니다.
-2. 리소스 메뉴에서 **키**를 클릭합니다.
+2. 리소스 메뉴에서 **키**(또는 MongoDB API 계정의 **연결 문자열**)를 클릭합니다.
 3. **기본 연결 문자열** 또는 **보조 연결 문자열** 상자 옆의 **복사** 단추를 클릭합니다. 
 
 [Azure Cosmos DB 데이터베이스 마이그레이션 도구](import-data.md)에서 연결 문자열을 사용하는 경우 연결 문자열 끝에 데이터베이스 이름을 추가합니다. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

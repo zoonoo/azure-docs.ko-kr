@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>해결 방법 3
 
-할당량 한도를 높이려면 포털로 이동하고, 배포하려는 지역의 할당량을 올리기 위한 지원 문제를 제출합니다.
+할당량 증가를 요청하려면 포털로 이동한 후 지원 문제를 제출합니다. 지원 문제에서는 배포하려는 지역에 대한 할당량 증가를 요청합니다.
 
 > [!NOTE]
 > 리소스 그룹에 대한 할당량은 구독 전체가 아니라 각 개별 지역에 대한 할당량입니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의의 지역에서 30개 코어를 배포해야 하는 경우 모든 지역에 대해 30개 Resource Manager 코어를 요청해야 합니다.
 >
 >
+
+1. **구독**을 선택합니다.
+
+   ![구독](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. 할당량을 늘려야 하는 구독을 선택합니다.
+
+   ![구독 선택](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. **사용량 + 할당량**을 선택합니다.
+
+   ![사용량 + 할당량 선택](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. 오른쪽 위 모서리에서 **증가 요청**을 선택합니다.
+
+   ![증가 요청](./media/resource-manager-quota-errors/request-increase.png)
+
+5. 늘려야 할 할당량 형식에 대한 양식을 작성합니다.
+
+   ![양식 작성](./media/resource-manager-quota-errors/forms.png)

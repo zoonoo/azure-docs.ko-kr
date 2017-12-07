@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Azure Log Analytics 새로운 쿼리 언어로 전환
 Log Analytics는 최근에 새로운 쿼리 언어를 구현했습니다.  이 문서는 이미 레거시 언어에 잘 알고 있고 약간의 도움이 필요한 사용자에게 Log Analytics에 대한 이 언어로 전환하기 위한 지원을 제공합니다.
+
+## <a name="resources"></a>리소스
+
 
 ## <a name="language-converter"></a>언어 변환기
 
 레거시 Log Analytics 쿼리 언어에 익숙한 경우 새 언어로 동일한 쿼리를 만드는 가장 쉬운 방법은 작업 영역을 변환할 때 로그 검색 포털에 설치된 언어 변환기를 사용하는 것입니다.  변환기를 사용하는 작업은 상위 텍스트 상자에 레거시 쿼리로 입력한 다음 **변환**을 클릭하기만 하면 됩니다.  검색 단추를 클릭하여 쿼리를 실행하거나, 다른 위치에서 사용하도록 복사하여 붙여넣을 수 있습니다.
 
 ![언어 변환기](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>리소스
+[Log Analytics 쿼리 언어에 대한 설명서 사이트](https://docs.loganalytics.io)에는 새 언어를 신속히 습득하는 데 필요한 모든 리소스가 있습니다.  여기에는 자습서, 예제 및 전체 언어 참조가 포함됩니다.
 
 
 ## <a name="cheat-sheet"></a>참고 자료

@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -42,24 +42,24 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    > [!NOTE]
    > 8081 포트가 클러스터의 사용자 지정 끝점으로 지정되었는지 확인합니다.
    >
-2. 다음 단계를 사용하여 응용 프로그램을 복제합니다.
 
+2. 다음 단계를 사용하여 응용 프로그램을 복제합니다.
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. 다음과 같이 파일 공유에서 Jenkins 컨테이너의 상태를 유지합니다.
   * 클러스터와 **동일한 지역**에서 Azure 저장소 계정을 ``sfjenkinsstorage1``과 같은 이름으로 만듭니다.
   * ``sfjenkins`` 같은 이름의 저장소 계정에서 **파일 공유**를 만듭니다.
   * 파일 공유에 대한 **연결**을 클릭하고 **Linux에서 연결** 아래에 표시된 값을 적어둡니다. 이 값은 다음과 비슷합니다.
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다.         
->
+  > [!NOTE]
+  > cifs 공유를 마운트하려면 클러스터 노드에 cifs-utils 패키지를 설치해야 합니다.       
+  >
 
 4. ```setupentrypoint.sh``` 스크립트의 자리 표시자 값을 3단계의 Azure 저장소 세부 정보로 업데이트합니다.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * ``[REMOTE_FILE_SHARE_LOCATION]``을 위 3단계의 연결 출력 값인 ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins``로 바꿉니다.
   * ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``을 위 3단계의 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 값으로 바꿉니다.
 
-5. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-그러면 클러스터에 Jenkins 컨테이너를 설치하고 Service Fabric Explorer를 사용하여 모니터링할 수 있습니다.
+5. **보안 클러스터에만 해당:** Jenkins에서 보안 클러스터에 응용 프로그램 배포를 구성하려면 Jenkins 컨테이너 내에서 인증서에 액세스할 수 있어야 합니다. Linux 클러스터의 경우 인증서(PEM)가 X509StoreName으로 지정된 저장소에서 컨테이너로 단순히 복사됩니다. ContainerHostPolicies 아래의 ApplicationManifest에서 이 인증서 참조를 추가하고 지문 값을 업데이트합니다. 지문 값은 노드에 위치한 인증서의 값이어야 합니다.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > 지문 값은 보안 클러스터에 연결하는 데 사용되는 인증서와 일치해야 합니다. 
+  >
 
-   > [!NOTE]
-   > 클러스터에 Jenkins 이미지를 다운로드하는 데 몇 분이 걸릴 수 있습니다.
-   >
+6. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
+
+  **보안 클러스터**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **안전하지 않은 클러스터**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  그러면 클러스터에 Jenkins 컨테이너를 설치하고 Service Fabric Explorer를 사용하여 모니터링할 수 있습니다.
+
+    > [!NOTE]
+    > 클러스터에 Jenkins 이미지를 다운로드하는 데 몇 분이 걸릴 수 있습니다.
+    >
 
 ### <a name="steps"></a>단계
 1. 브라우저에서 ``http://PublicIPorFQDN:8081``으로 이동합니다. 로그인하는 데 필요한 초기 관리자 암호의 경로가 제공됩니다. 
@@ -112,8 +129,8 @@ Docker를 설치해야 합니다. 다음 명령을 사용하여 터미널에서 
 이렇게 하면 터미널에서 ``docker info``를 실행할 때 출력에서 Docker 서비스가 실행되는 것을 확인할 수 있습니다.
 
 ### <a name="steps"></a>단계
-  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull raunakpandya/jenkins:9``
-  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull sayantancs/jenkins:v9``
+  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
   3. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
   4. 다음 단계에 따라 Jenkins 포털에 로그인합니다.
 
@@ -176,13 +193,19 @@ Jenkins 컨테이너 이미지가 호스팅되는 클러스터 또는 컴퓨터�
 
     ![Service Fabric Jenkins 빌드 작업][build-step-dotnet]
   
-   h. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 또한 응용 프로그램을 배포하는 데 사용된 추가 응용 프로그램 세부 정보를 제공할 수 있습니다. 이 기능을 표시한 예제는 다음 스크린샷을 참조하세요.
+   h. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 응용 프로그램을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로는 컨테이너 내에서 Certificates_JenkinsOnSF_Code_MyCert_PEM 환경 변수의 값을 반환하여 찾을 수 있습니다. 이 경로는 클라이언트 키 및 클라이언트 인증서 필드에 사용할 수 있습니다.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    또한 응용 프로그램을 배포하는 데 사용된 추가 응용 프로그램 세부 정보를 제공할 수 있습니다. 이 기능을 표시한 예제는 다음 스크린샷을 참조하세요.
 
     ![Service Fabric Jenkins 빌드 작업][post-build-step]
 
-    > [!NOTE]
-    > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 응용 프로그램을 호스팅하는 것과 동일할 수 있습니다.
-    >
+      > [!NOTE]
+      > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 응용 프로그램을 호스팅하는 것과 동일할 수 있습니다.
+      >
 
 ## <a name="next-steps"></a>다음 단계
 이제 GitHub 및 Jenkins가 구성되었습니다. 리포지토리 예제의 ``MyActor`` 프로젝트에서 일부 샘플을 변경하는 것을 고려합니다. https://github.com/sayantancs/SFJenkins 원격 ``master`` 분기(또는 사용하도록 구성된 분기)에 변경 내용을 푸시합니다. 사용자가 구성한 Jenkins 작업 ``MyJob``이 트리거됩니다. 그러면 GitHub에서 변경 내용을 가져오고, 해당 내용을 빌드하고, 빌드 후 작업에서 지정한 클러스터 끝점으로 응용 프로그램을 배포합니다.  

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/14/2017
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
 
-* Wingtip Tickets SaaS 테넌트별 데이터베이스 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -55,9 +55,9 @@ SaaS 응용 프로그램을 사용했을 때의 큰 장점 중 하나는 응용 
 
 탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분 및 반환되는 데이터의 양을 확인할 수 있습니다. 때때로 테넌트 데이터를 분석 쿼리에 최적화된 전용 데이터베이스 또는 데이터 웨어하우스로 추출하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. 이 패턴은 [테넌트 분석 자습서](saas-tenancy-tenant-analytics.md)에서 설명됩니다. 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets SaaS 테넌트별 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) GitHub 리포지토리에서 사용할 수 있습니다. 추가 정보에 설명된 차단 해제 단계를 수행해야 합니다.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -73,7 +73,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
 이 패턴을 시뮬레이션하기 위해 '전역' 뷰 집합이 전역적으로 쿼리되는 각 테이블에 테넌트 ID를 프로젝션하는 테넌트 데이터베이스에 추가됩니다. 예를 들어 *VenueEvents* 보기는 계산된 *VenueId*를 *이벤트* 테이블에서 프로젝션된 열에 추가합니다. 마찬가지로 *VenueTicketPurchases* 및 *VenueTickets* 뷰는 해당 테이블로부터 계산된 *VenueId* 열을 추가합니다. *VenueId* 열이 있으면 쿼리를 병렬화하여 적합한 원격 테넌트 데이터베이스에 푸시하기 위해 Elastic 쿼리에서 사용하는 뷰입니다. 이렇게 하면 반환되는 데이터의 양이 크게 줄어듭니다. 그 결과 많은 쿼리의 성능이 크게 증가합니다. 이러한 전역 보기는 모든 테넌트 데이터베이스에서 미리 생성됩니다.
 
-1. SSMS를 열고 [테넌트1-&lt;사용자&gt; 서버에 연결](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms)합니다.
+1. SSMS를 열고 [테넌트1-&lt;사용자&gt; 서버에 연결](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms)합니다.
 2. **데이터베이스**를 확장하고 **contosoconcerthall**을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 3. 다음 쿼리를 실행하여 단일 테넌트 테이블과 전역 뷰 간의 차이를 탐색합니다.
 
@@ -95,7 +95,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
 *부문* 보기의 정의를 확인하려면:
 
-1. **개체 탐색기**에서 **contosoconcethall** > **뷰**를 확장합니다.
+1. **개체 탐색기**에서 **contosoconcethall** > **보기**를 확장합니다.
 
    ![뷰](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
 1. SQL Server Management Studio를 열고 이전 단계에서 만든 임시 보고 데이터베이스에 연결합니다. 데이터베이스의 이름은 *adhocreporting*입니다.
 2. SSMS에서 \학습 모듈\운영 분석\임시 보고\ *Initialize-AdhocReportingDB.sql*을 엽니다.
-3. SQL 스크립트를 검토하고 다음을 참고합니다.
+3. SQL 스크립트를 검토하고 다음 사항을 참고합니다.
 
    탄력적인 쿼리는 데이터베이스 범위 자격 증명을 사용하여 각 테넌트 데이터베이스에 액세스합니다. 이 자격 증명은 모든 데이터베이스에서 사용할 수 있어야 하며 일반적으로 이러한 임시 쿼리를 사용하는 데 필요한 최소 권한이 부여되어야 합니다.
 
     ![자격 증명 만들기](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   카탈로그 데이터베이스에서 테넌트 Shard Map을 사용하도록 정의된 외부 데이터 원본. 이것을 외부 데이터 원본으로 사용하면 쿼리가 실행되는 경우 카탈로그에 등록된 모든 데이터베이스에 쿼리가 배포됩니다. 각 배포에 대한 서버 이름이 다르기 때문에 이 초기화 스크립트는 스크립트가 실행되는 현재 서버(@@servername)를 검색하여 카탈로그 데이터베이스의 위치를 가져옵니다.
+   이 카탈로그 데이터베이스를 외부 데이터 원본으로 사용하면 쿼리가 실행되는 경우 카탈로그에 등록된 모든 데이터베이스에 쿼리가 배포됩니다. 각 배포에 대한 서버 이름이 다르기 때문에 이 초기화 스크립트는 스크립트가 실행되는 현재 서버(@@servername)를 검색하여 카탈로그 데이터베이스의 위치를 가져옵니다.
 
     ![외부 데이터 원본 만들기](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-기억할 점은 외부 데이터 소스를 정의하는 경우 **DISTRIBUTION = SHARDED(VenueId)**를 설정하는 것입니다. 그러면 다양한 시나리오의 성능이 향상됩니다. 각 *VenueId*가 단일 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
+기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)**를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId*가 단일 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
 
 1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.
@@ -160,7 +160,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
    쿼리는 전체 부문 목록을 반환하고 모든 테넌트에 쉽고 빠르게 쿼리하는 방법 및 각 테넌트의 데이터를 반환하는 방법을 보여줍니다.
 
-   각 테넌트 데이터베이스로 이동하고 부문 정보를 선택하기 때문에 계획을 검사하고 전체 비용이 원격 쿼리인지를 확인합니다.
+   계획을 검사하여 각 테넌트 데이터베이스가 자체 쿼리를 처리하고 장소 정보를 반환하기 때문에 전체 비용이 원격 쿼리 때문에 발생하는지 확인합니다.
 
    ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
    이 쿼리는 테넌트 데이터베이스 및 로컬 *VenueTypes* 테이블의 데이터를 조인합니다(로컬인 *adhocreporting* 데이터베이스의 테이블임).
 
-   각 테넌트의 부문 정보(dbo.Venues)를 쿼리한 다음 *VenueTypes* 테이블과 빠르게 로컬 조인하여 친숙한 이름을 표시하기 때문에 계획을 검사하고 비용의 대부분이 원격 쿼리인지 확인합니다.
+   계획을 검사하여 비용의 상당 부분이 원격 쿼리 때문에 발생하는지 확인합니다. 각 테넌트 데이터베이스는 해당 장소 정보를 반환하고 *VenueTypes* 테이블에 로컬 조인을 수행하여 익숙한 이름을 표시합니다.
 
    ![원격 및 로컬 데이터에 조인](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. 이제 *가장 많은 티켓을 판매한 날짜* 쿼리를 선택하고 **F5** 키를 누릅니다.
 
-   이 쿼리는 좀 더 복잡한 조인 및 집계를 수행합니다. 대부분 처리를 원격으로 수행하는 것이 중요합니다. 또한 여기서는 다시 필요한 행만을 가져오고 일당 각 부문의 집계 티켓 판매 개수의 단일 행만을 반환합니다.
+   이 쿼리는 좀 더 복잡한 조인 및 집계를 수행합니다. 대부분의 처리 작업은 원격으로 수행되며, 다시 강조하지만 필요한 행만 반환합니다. 즉, 각 장소의 집계 티켓 판매 개수에 대한 단일 행만을 반환합니다.
 
    ![쿼리](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
