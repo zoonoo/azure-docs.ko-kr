@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: dc73c052ad9e0fe12af5042289f304a0e48ae413
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>예측 유지 관리 실제 시나리오.
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 
 Linux(Ubuntu)용 데이터 과학 가상 컴퓨터에서 실행하는 것이 좋습니다. DSVM이 구성되면 다음 두 가지 명령을 실행합니다.
 
-`az ml computetarget attach --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword] --type remotedocker`
+`az ml computetarget attach remotedocker --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]`
 
 `az ml experiment prepare --target [Desired_Connection_Name] --run-configuration [Desired_Connection_Name]`
 

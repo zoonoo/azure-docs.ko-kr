@@ -19,7 +19,7 @@ VM을 만들기 전이나 만드는 중에 VNet을 만들 수 있습니다. 다�
 
 [NIC(네트워크 인터페이스)](../articles/virtual-network/virtual-network-network-interface.md)는 VM과 VNet 간의 상호 연결입니다. VM마다 NIC가 하나 이상 있어야 하지만, 만드는 VM의 크기에 따라 NIC가 둘 이상 있을 수 있습니다. [Windows](../articles/virtual-machines/windows/sizes.md) 또는 [Linux](../articles/virtual-machines/linux/sizes.md)에 대해 각 VM 크기에서 지원하는 NIC 수에 대해 알아보세요.
 
-여러 개의 NIC가 있는 VM을 만들거나 VM 수명 주기 동안 NIC를 추가 또는 제거할 수 있습니다. NIC를 여러 개 사용하면 VM에서 서로 다른 서브넷에 연결하고 가장 적절한 인터페이스를 통해 트래픽을 보내거나 받을 수 있습니다. [Windows](../articles/virtual-machines/windows/multiple-nics.md) 또는 [Linux](../articles/virtual-machines/linux/multiple-nics.md) VM에서 여러 개의 NIC를 사용하는 방법에 대해 자세히 알아보세요.
+여러 개의 NIC가 있는 VM을 만들거나 VM 수명 주기 동안 NIC를 추가 또는 제거할 수 있습니다. NIC를 여러 개 사용하면 VM에서 서로 다른 서브넷에 연결하고 가장 적절한 인터페이스를 통해 트래픽을 보내거나 받을 수 있습니다.
 
 VM을 가용성 집합에 추가하면 가용성 집합 내의 모든 VM에는 NIC가 하나 이상 있어야 합니다. NIC가 둘 이상 있는 VM에 동일한 수의 NIC가 있을 필요는 없지만 모두에 둘 이상의 NIC가 있어야 합니다.
 
@@ -30,8 +30,8 @@ VM에 연결된 각각의 NIC는 해당 VM과 동일한 위치와 구독에 있�
 | 메서드 | 설명 |
 | ------ | ----------- |
 | Azure 포털 | Azure Portal에서 VM을 만들 때 NIC가 자동으로 만들어집니다(별도로 만든 NIC는 사용할 수 없음). 포털에서는 NIC 하나만 사용하는 VM을 만듭니다. NIC가 둘 이상 있는 VM을 만들려면 다른 방법으로 VM을 만들어야 합니다. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | **-PublicIpAddressId** 매개 변수와 함께 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
-| [Azure CLI](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | **--public-ip-address** 매개 변수와 함께 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | **-PublicIpAddressId** 매개 변수와 함께 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
+| [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | **--public-ip-address** 매개 변수와 함께 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
 | [템플릿](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | 템플릿을 사용하여 네트워크 인터페이스를 배포하기 위한 지침으로 [공용 IP 주소를 사용하는 Virtual Network의 네트워크 인터페이스](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet)를 사용합니다. |
 
 ## <a name="ip-addresses"></a>IP 주소 
@@ -79,7 +79,7 @@ VNet을 설정할 때 사용 가능한 주소 공간과 서브넷을 포함하�
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 
-[NSG(네트워크 보안 그룹)](../articles/virtual-network/virtual-networks-nsg.md)에는 서브넷, NIC 또는 둘 모두에 대한 네트워크 트래픽을 허용하거나 거부하는 ACL(액세스 제어 목록) 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 서브넷에 연결된 개별 NIC와 연결될 수 있습니다. NSG를 서브넷과 연결하는 경우 ACL 규칙이 해당 서브넷의 모든 VM에 적용됩니다. 또한 NSG를 NIC에 직접 연결하여 개별 NIC에 대한 트래픽을 제한할 수 있습니다.
+[NSG(네트워크 보안 그룹)](../articles/virtual-network/virtual-networks-nsg.md)에는 서브넷, NIC 또는 둘 모두에 대한 네트워크 트래픽을 허용하거나 거부하는 ACL(Access Control 목록) 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 서브넷에 연결된 개별 NIC와 연결될 수 있습니다. NSG를 서브넷과 연결하는 경우 ACL 규칙이 해당 서브넷의 모든 VM에 적용됩니다. 또한 NSG를 NIC에 직접 연결하여 개별 NIC에 대한 트래픽을 제한할 수 있습니다.
 
 NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함되어 있습니다. 규칙에 대한 우선 순위는 각 집합 내에서 고유해야 합니다. 각 규칙에는 프로토콜, 원본 및 대상 포트 범위, 주소 접두사, 트래픽 방향, 우선 순위 및 액세스 유형에 관한 속성이 있습니다. 
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d6cddf54827d44e41add9e1e6b1a4323e03879e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 미국 중남부 | 미국 중남부 |
 | &nbsp; | 미국 중서부 | 미국 중서부 |
 | &nbsp; | 미국 서부 | 미국 서부 |
-| &nbsp; | 미국 서부 2 | 미국 서부 |
+| &nbsp; | 미국 서부 2 | 미국 서부 2 |
 | 캐나다 | 캐나다 동부 | 캐나다 중부 |
 | &nbsp; | 캐나다 중부 | 캐나다 중부 |
 | 브라질 | 브라질 남부 | 브라질 남부 |

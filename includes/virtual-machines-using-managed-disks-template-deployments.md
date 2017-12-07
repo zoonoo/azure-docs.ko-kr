@@ -214,6 +214,6 @@ REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST A
     * [관리 디스크가 있는 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [관리 디스크 템플릿의 전체 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * 관리 디스크에 대해 자세히 알아보려면 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md) 문서를 참조하세요.
-* [Microsoft.Compute/virtualMachines 템플릿 참조](/templates/microsoft.compute/virtualmachines) 문서를 방문하여 가상 컴퓨터 리소스에 대한 템플릿 참조 설명서를 검토하세요.
-* [Microsoft.Compute/disks 템플릿 참조](/templates/microsoft.compute/disks) 문서를 방문하여 디스크 리소스에 대한 템플릿 참조 설명서를 검토하세요.
+* [Microsoft.Compute/virtualMachines 템플릿 참조](/azure/templates/microsoft.compute/virtualmachines) 문서를 방문하여 가상 컴퓨터 리소스에 대한 템플릿 참조 설명서를 검토하세요.
+* [Microsoft.Compute/disks 템플릿 참조](/azure/templates/microsoft.compute/disks) 문서를 방문하여 디스크 리소스에 대한 템플릿 참조 설명서를 검토하세요.
  

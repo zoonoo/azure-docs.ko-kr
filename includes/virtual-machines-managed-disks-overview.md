@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Azure Managed Disks 개요
 
-Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](../articles/storage/common/storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([프리미엄](../articles/storage/common/storage-premium-storage.md) 또는 [표준](../articles/storage/common/storage-standard-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
+Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](../articles/storage/common/storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([프리미엄](../articles/virtual-machines/windows/premium-storage.md) 또는 [표준](../articles/virtual-machines/windows/standard-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
 
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -24,7 +24,7 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure 역할 기반 액세스 제어(RBAC)](../articles/active-directory/role-based-access-control-what-is.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure 역할 기반 Access Control(RBAC)](../articles/active-directory/role-based-access-control-what-is.md)을 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원
 Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재 Azure Backup에서는 최대 1TB의 데이터 디스크 크기를 백업하도록 지원합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
@@ -44,7 +44,7 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 좀 더 자세히 살펴보겠습니다.
 
-**저장소 유형:** Managed Disks에는 [프리미엄](../articles/storage/common/storage-premium-storage.md)(SSD 기반) 및 [표준](../articles/storage/common/storage-standard-storage.md)(HDD 기반)이라는 2개의 성능 계층이 제공됩니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
+**저장소 유형:** Managed Disks에는 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)(SSD 기반) 및 [표준](../articles/virtual-machines/windows/standard-storage.md)(HDD 기반)이라는 2개의 성능 계층이 제공됩니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
 
 
 **디스크 크기**: 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GB로 지정하면 S20 디스크 유형의 가격에 따라 요금이 청구됩니다.
@@ -100,9 +100,9 @@ VM의 디스크가 5개이고 스트라이프된 경우는 어떨까요? 각 디
 
 ## <a name="managed-disks-and-encryption"></a>Managed Disks 및 암호화
 
-Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다. 첫 번째는 저장소 서비스에서 수행하는 SSE(저장소 서비스 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 Azure Disk Encryption입니다.
+Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다. 첫 번째는 Storage 서비스에서 수행하는 SSE(Storage 서비스 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 Azure Disk Encryption입니다.
 
-### <a name="storage-service-encryption-sse"></a>SSE(저장소 서비스 암호화)
+### <a name="storage-service-encryption-sse"></a>SSE(Storage 서비스 암호화)
 
 [Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 Managed Disks에 기록되는 모든 새 Managed Disks/스냅숏/이미지 및 새 데이터는 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다.  자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
@@ -131,9 +131,9 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 ### <a name="compare-managed-disks-storage-options"></a>Managed Disks 저장소 옵션 비교
 
-* [프리미엄 저장소 및 디스크](../articles/storage/common/storage-premium-storage.md)
+* [프리미엄 저장소 및 디스크](../articles/virtual-machines/windows/premium-storage.md)
 
-* [표준 저장소 및 디스크](../articles/storage/common/storage-standard-storage.md)
+* [표준 저장소 및 디스크](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>운영 가이드
 

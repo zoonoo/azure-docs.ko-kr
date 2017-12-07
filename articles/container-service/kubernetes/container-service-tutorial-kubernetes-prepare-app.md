@@ -1,27 +1,19 @@
 ---
-title: "Azure Container Service 자습서 - 앱 준비 | Microsoft Docs"
+title: "Azure Container Service 자습서 - 앱 준비"
 description: "Azure Container Service 자습서 - 앱 준비"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, 컨테이너, 마이크로 서비스, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2297d688e07d662acba0070c423c56dcb95f42ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 3dcfc0d454926d6040692b0e8a9d44b13e7603c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Azure Container Service에 사용할 컨테이너 이미지 만들기
 

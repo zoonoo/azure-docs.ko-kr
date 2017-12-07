@@ -22,19 +22,26 @@ PowerShell 사용하여 netcfg 파일을 포함한 가상 네트워크를 만들
 4. 이 시나리오에서 설명하는 가상 네트워크를 만들려면 **<VirtualNetworkSites>** 요소 바로 아래에 다음 XML을 추가합니다.
 
    ```xml
-        <VirtualNetworkSite name="TestVNet" Location="East US">
-          <AddressSpace>
-            <AddressPrefix>192.168.0.0/16</AddressPrefix>
-          </AddressSpace>
-          <Subnets>
-            <Subnet name="FrontEnd">
-              <AddressPrefix>192.168.1.0/24</AddressPrefix>
-            </Subnet>
-            <Subnet name="BackEnd">
-              <AddressPrefix>192.168.2.0/24</AddressPrefix>
-            </Subnet>
-          </Subnets>
-        </VirtualNetworkSite>
+         <?xml version="1.0" encoding="utf-8"?>
+         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+           <VirtualNetworkConfiguration>
+             <VirtualNetworkSites>
+                 <VirtualNetworkSite name="TestVNet" Location="East US">
+                   <AddressSpace>
+                     <AddressPrefix>192.168.0.0/16</AddressPrefix>
+                   </AddressSpace>
+                   <Subnets>
+                     <Subnet name="FrontEnd">
+                       <AddressPrefix>192.168.1.0/24</AddressPrefix>
+                     </Subnet>
+                     <Subnet name="BackEnd">
+                       <AddressPrefix>192.168.2.0/24</AddressPrefix>
+                     </Subnet>
+                   </Subnets>
+                 </VirtualNetworkSite>
+             </VirtualNetworkSites>
+           </VirtualNetworkConfiguration>
+         </NetworkConfiguration>
    ```
    
 5. 네트워크 구성 파일을 저장합니다.

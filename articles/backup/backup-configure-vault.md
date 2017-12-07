@@ -1,6 +1,6 @@
 ---
 title: "Azure Backup 에이전트를 사용하여 파일 및 폴더 백업 | Microsoft Docs"
-description: "Microsoft Azure Backup 에이전트를 사용하여 Windows 파일과 폴더를 Azure에 백업합니다. Recovery Services 자격 증명 모음을 만들고, 백업 에이전트를 설치하고, 백업 정책을 정의하고, 파일 및 폴더에 초기 백업을 실행합니다."
+description: "Microsoft Azure Backup 에이전트를 사용하여 Windows 파일과 폴더를 Azure에 백업합니다. Recovery Services 자격 증명 모음을 만들고, Backup 에이전트를 설치하고, 백업 정책을 정의하고, 파일 및 폴더에 초기 백업을 실행합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e3ea323e00d64e6848850c22073f5948dd0b7e2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 > [!div class="op_single_selector"]
@@ -28,31 +28,31 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-이 문서는 Resource Manager 배포 모델을 사용하여 Azure 백업이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
+이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
-![백업 프로세스 단계](./media/backup-configure-vault/initial-backup-process.png)
+![Backup 프로세스 단계](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>시작하기 전에
 서버 또는 클라이언트를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
-복구 서비스 자격 증명 모음은 시간이 경과되면서 만든 모든 백업과 복구 지점을 저장하는 엔터티입니다. 복구 서비스 자격 증명 모음에는 보호된 파일과 폴더에 적용된 백업 정책이 포함됩니다. 복구 서비스 자격 증명 모음을 만들 때는 적절한 저장소 중복 옵션도 선택해야 합니다.
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
+Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 파일과 폴더에 적용된 백업 정책이 포함됩니다. Recovery Services 자격 증명 모음을 만들 때는 적절한 저장소 중복 옵션도 선택해야 합니다.
 
-### <a name="to-create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음을 만들려면
-1. [Azure 포털](https://portal.azure.com/) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
+### <a name="to-create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 만들려면
+1. [Azure Portal](https://portal.azure.com/) 에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
 2. [허브] 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력한 다음 **Recovery Services 자격 증명 모음**을 클릭합니다.
 
-    ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     구독에 복구 서비스 자격 증명 모음이 있는 경우 자격 증명 모음이 나열됩니다.
 
 3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.
 
-    ![복구 서비스 자격 증명 모음 만들기 2단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
+    ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    복구 서비스 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
+    Recovery Services 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
 
     ![Recovery Services 자격 증명 모음 만들기 3단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 
 8. Recovery Services 자격 증명 모음 블레이드의 하단에서 **만들기**를 클릭합니다.
 
-  Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 복구 서비스 자격 증명 모음 목록에 나타납니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
+  Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 나타납니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
 
   ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="set-storage-redundancy"></a>저장소 중복 설정
-처음으로 복구 서비스 자격 증명 모음을 만들 때 저장소가 복제되는 방식을 결정합니다.
+처음으로 Recovery Services 자격 증명 모음을 만들 때 저장소가 복제되는 방식을 결정합니다.
 
 1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다.
 
@@ -90,11 +90,11 @@ ms.lasthandoff: 10/11/2017
 
     ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
 
-2. 새 자격 증명 모음의 설정 블레이드에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하여 **백업 인프라**를 클릭합니다.
+2. 새 자격 증명 모음의 설정 블레이드에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하여 **Backup 인프라**를 클릭합니다.
 
-  [백업 인프라] 블레이드가 열립니다.
+  [Backup 인프라] 블레이드가 열립니다.
 
-3. [백업 인프라] 블레이드에서 **백업 구성**을 클릭하여 **백업 구성** 블레이드를 엽니다.
+3. [Backup 인프라] 블레이드에서 **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다.
 
   ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 
@@ -108,11 +108,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="configure-the-vault"></a>자격 증명 모음 구성
 
-1. Recovery Services 자격 증명 모음(방금 만든 자격 증명 모음) 블레이드의 [시작] 섹션에서 **백업**을 클릭한 다음 **백업 시작** 블레이드에서 **백업 목표**를 선택합니다.
+1. Recovery Services 자격 증명 모음(방금 만든 자격 증명 모음) 블레이드의 [시작] 섹션에서 **Backup**을 클릭한 다음 **Backup 시작** 블레이드에서 **Backup 목표**를 선택합니다.
 
   ![백업 목표 블레이드 열기](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  **백업 목표** 블레이드가 열립니다. Recovery Services 자격 증명 모음을 이전에 구성한 경우 Recovery Services 자격 증명 모음에서 **백업**을 클릭하면 **백업 목표** 블레이드가 열립니다.
+  **Backup 목표** 블레이드가 열립니다. Recovery Services 자격 증명 모음을 이전에 구성한 경우 Recovery Services 자격 증명 모음에서 **Backup**을 클릭하면 **Backup 목표** 블레이드가 열립니다.
 
   ![백업 목표 블레이드 열기](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 
   [확인]을 클릭하면 **백업 목표** 옆에 확인 표시가 나타나고 **인프라 준비** 블레이드가 열립니다.
 
-  ![백업 목표 구성, 다음으로 인프라 준비](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
+  ![Backup 목표 구성, 다음으로 인프라 준비](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
 4. **인프라 준비** 블레이드에서 **Windows Server 또는 Windows Client용 에이전트 다운로드**를 클릭합니다.
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/11/2017
 
   ![Recovery Services 에이전트 설치 관리자 자격 증명을 실행](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Microsoft Azure 복구 서비스 에이전트 설치 마법사를 완료합니다. 마법사를 완료하려면 다음 작업을 수행해야 합니다.
+2. Microsoft Azure Recovery Services 에이전트 설치 마법사를 완료합니다. 마법사를 완료하려면 다음 작업을 수행해야 합니다.
 
   * 설치 및 캐시 폴더의 위치를 선택합니다.
   * 프록시 서버를 사용하여 인터넷에 연결하는 경우에는 프록시 서버 정보를 입력합니다.
@@ -186,44 +186,44 @@ ms.lasthandoff: 10/11/2017
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 
 ## <a name="create-the-backup-policy"></a>백업 정책 만들기
 백업 정책은 복구 지점이 만들어지는 일정이고 복구 지점이 유지되는 시간입니다. Microsoft Azure Backup 에이전트를 사용하여 파일과 폴더에 대한 백업 정책을 만듭니다.
 
 ### <a name="to-create-a-backup-schedule"></a>백업 일정을 만들려면
-1. Microsoft Azure 백업 에이전트를 엽니다. **Microsoft Azure 백업**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.
+1. Microsoft Azure Backup 에이전트를 엽니다. **Microsoft Azure Backup**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.
 
-    ![Azure 백업 에이전트 시작](./media/backup-configure-vault/snap-in-search.png)
+    ![Azure Backup 에이전트 시작](./media/backup-configure-vault/snap-in-search.png)
 2. Backup 에이전트의 **작업** 창에서 **백업 일정**을 클릭하여 백업 예약 마법사를 시작합니다.
 
     ![Windows Server 백업 예약](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. 백업 예약 마법사의 **시작** 페이지에서 **다음**을 클릭합니다.
+3. Backup 예약 마법사의 **시작** 페이지에서 **다음**을 클릭합니다.
 4. **백업할 항목 선택** 페이지에서 **항목 추가**를 클릭합니다.
 
   항목 선택 대화 상자가 열립니다.
 
 5. 보호하려는 파일 및 폴더를 선택한 다음 **확인**을 클릭합니다.
-6. **백업할 항목 선택** 페이지에서 **다음**을 클릭합니다.
-7. **백업 일정 지정** 페이지에서 백업 일정을 지정하고 **다음**을 클릭합니다.
+6. **Backup할 항목 선택** 페이지에서 **다음**을 클릭합니다.
+7. **Backup 일정 지정** 페이지에서 백업 일정을 지정하고 **다음**을 클릭합니다.
 
     매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
 
-    ![Windows Server 백업에 대한 항목](./media/backup-configure-vault/specify-backup-schedule-close.png)
+    ![Windows Server Backup에 대한 항목](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > 백업 일정을 지정하는 방법은 [Azure 백업을 사용하여 테이프 인프라 대체](backup-azure-backup-cloud-as-tape.md)문서를 참조하세요.
+   > 백업 일정을 지정하는 방법은 [Azure Backup을 사용하여 테이프 인프라 대체](backup-azure-backup-cloud-as-tape.md)문서를 참조하세요.
    >
    >
 
 8. **보존 정책 선택** 페이지에서 백업 복사본에 대한 특정 보존 정책을 선택하고 **다음**을 클릭합니다.
 
     보존 정책은 백업이 저장되는 기간을 나타냅니다. 모든 백업 지점에 대한 "일반 정책"을 지정하는 대신 백업이 발생하는 시기에 따라 다른 보존 정책을 지정할 수 있습니다. 매일, 매주, 매월 및 매년 보존 정책을 요구 사항에 맞게 수정할 수 있습니다.
-9. 초기 백업 유형 선택 페이지에서 초기 백업 유형을 선택합니다. **네트워크를 통해 자동으로** 옵션이 선택된 상태로 두고 **다음**을 클릭합니다.
+9. 초기 Backup 유형 선택 페이지에서 초기 백업 유형을 선택합니다. **네트워크를 통해 자동으로** 옵션이 선택된 상태로 두고 **다음**을 클릭합니다.
 
-    네트워크를 통해 자동으로 백업하거나 오프라인으로 백업할 수 있습니다. 이 문서의 나머지 부분은 자동 백업 프로세스를 설명합니다. 오프라인 백업을 선호하는 경우 [Azure 백업의 오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서에서 자세한 내용을 참조하세요.
+    네트워크를 통해 자동으로 백업하거나 오프라인으로 백업할 수 있습니다. 이 문서의 나머지 부분은 자동 백업 프로세스를 설명합니다. 오프라인 백업을 선호하는 경우 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서에서 자세한 내용을 참조하세요.
 10. 확인 페이지에서 정보를 검토한 다음 **마침**을 클릭합니다.
 11. 마법사가 백업 일정 생성을 완료하면 **닫기**를 클릭합니다.
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 10/11/2017
 Microsoft Azure Backup 에이전트는 네트워크 제한 기능을 제공합니다. 제한 기능은 데이터 전송 중에 사용되는 네트워크 대역폭의 양을 제어합니다. 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 제한은 백업 및 복원 작업에 적용됩니다.
 
 > [!NOTE]
-> 네트워크 제한은 Windows Server 2008 R2 SP1, Windows Server 2008 SP2 또는 Windows 7(서비스 팩 포함)에서 사용할 수 없습니다. Azure 백업 네트워크 제한 기능은 로컬 운영 체제에 대한 QoS(서비스 품질)에 영향을 줍니다. Azure 백업이 이러한 운영 체제를 보호할 수 있지만 이러한 플랫폼에서 사용할 수 있는 QoS의 버전은 Azure 백업 네트워크 제한과 함께 작동하지 않습니다. 네트워크 제한은 다른 모든 [지원되는 운영 체제](backup-azure-backup-faq.md)에서 사용할 수 있습니다.
+> 네트워크 제한은 Windows Server 2008 R2 SP1, Windows Server 2008 SP2 또는 Windows 7(서비스 팩 포함)에서 사용할 수 없습니다. Azure Backup 네트워크 제한 기능은 로컬 운영 체제에 대한 QoS(서비스 품질)에 영향을 줍니다. Azure Backup이 이러한 운영 체제를 보호할 수 있지만 이러한 플랫폼에서 사용할 수 있는 QoS의 버전은 Azure Backup 네트워크 제한과 함께 작동하지 않습니다. 네트워크 제한은 다른 모든 [지원되는 운영 체제](backup-azure-backup-faq.md)에서 사용할 수 있습니다.
 >
 >
 
@@ -255,7 +255,7 @@ Microsoft Azure Backup 에이전트는 네트워크 제한 기능을 제공합�
 2. 확인 페이지에서 컴퓨터를 백업하는 데 지금 백업 마법사가 사용할 설정을 검토합니다. 그런 다음 **백업**을 클릭합니다.
 3. **닫기** 를 클릭하여 마법사를 닫습니다. 백업 프로세스가 완료되기 전에 이를 수행한 경우 마법사는 백그라운드에서 계속해서 실행할 수 있습니다.
 
-초기 백업 작업이 완료되면 백업 콘솔에 **작업 완료** 상태가 표시됩니다.
+초기 백업 작업이 완료되면 Backup 콘솔에 **작업 완료** 상태가 표시됩니다.
 
 ![IR 완료](./media/backup-configure-vault/ircomplete.png)
 

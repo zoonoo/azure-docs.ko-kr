@@ -44,7 +44,7 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
 
 확장 집합의 용량을 변경하여 VM을 추가하거나 제거할 수 있습니다. Azure Portal에서 크기 조정 화면의 재정의 조건 표시줄을 왼쪽이나 오른쪽으로 밀어 확장 집합의 VM 수를 줄이거나 늘릴 수 있습니다(**인스턴스 수**로 표시됨).
 
-Azure PowerShell을 사용하면 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)를 통해 확장 집합 개체를 가져와야 합니다. 그런 다음 **sku.capacity** 속성을 원하는 VM 수로 설정하고 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)를 통해 확장 집합을 업데이트합니다. Azure CLI를 사용하면 [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) 명령에 대한 **--new-capacity** 매개 변수를 통해 용량을 변경합니다.
+Azure PowerShell을 사용하면 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)를 통해 확장 집합 개체를 가져와야 합니다. 그런 다음 **sku.capacity** 속성을 원하는 VM 수로 설정하고 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)를 통해 확장 집합을 업데이트합니다. Azure CLI를 사용하면 [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) 명령에 대한 **--new-capacity** 매개 변수를 통해 용량을 변경합니다.
 
 ### <a name="vertical"></a>Vertical
 

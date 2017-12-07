@@ -1,29 +1,28 @@
 ---
 title: "Azure Active Directory를 사용하여 개발자 계정에 권한 부여 - Azure API Management | Microsoft Docs"
-description: "API 관리에서 Azure Active Directory를 사용하여 권한을 부여하는 방법"
+description: "API Management에서 Azure Active Directory를 사용하여 권한을 부여하는 방법"
 services: api-management
 documentationcenter: API Management
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2e8bc33ddf38657fe2d0d84a7bf64d4177d51572
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 > [!WARNING]
 > Azure Active Directory 통합은 [개발자 및 프리미엄](https://azure.microsoft.com/en-us/pricing/details/api-management/) 계층에서만 사용 가능합니다.
 
-# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
+# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure Active Directory의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여 줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 10/16/2017
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
-시작하려면 Azure Portal에서 API Management 서비스에 대한 **게시자 포털**을 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+시작하려면 Azure Portal에서 API Management 서비스에 대한 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -109,7 +108,7 @@ Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **�
 
 ![클라이언트 암호][api-management-client-secret]
 
-**허용된 테넌트** 는 어느 디렉터리를 API 관리 서비스 인스턴스의 API에 액세스할지 지정합니다. 액세스 권한을 부여하려는 Azure Active Directory 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
+**허용된 테넌트**는 어느 디렉터리를 API Management 서비스 인스턴스의 API에 액세스할지 지정합니다. 액세스 권한을 부여하려는 Azure Active Directory 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
 
 ![허용된 테넌트][api-management-client-allowed-tenants]
 
@@ -133,7 +132,7 @@ Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **�
 > 
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>외부 Azure Active Directory 그룹을 추가하는 방법
-Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API 관리에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
+Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API Management에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
 
 > 외부 Azure Active Directory 그룹을 구성하려면 이전 섹션의 과정을 수행하여 ID 탭에서 먼저 Azure Active Directory가 구성되어야 합니다. 
 > 
@@ -186,7 +185,7 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 ![등록][api-management-complete-registration]
 
-사용자는 이제 API 관리 서비스 인스턴스에 대한 개발자 포털에 로그인됩니다.
+사용자는 이제 API Management 서비스 인스턴스에 대한 개발자 포털에 로그인됩니다.
 
 ![등록 완료][api-management-registration-complete]
 
@@ -227,10 +226,10 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

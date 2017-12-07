@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -74,7 +74,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 > * [VM 만들기 - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [VM 만들기 - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
-1. [Azure Portal](https://portal.azure.com)에서 __+__, __계산__ 및 __Ubuntu Server 16.04 LTS__를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 __+__, __Compute__ 및 __Ubuntu Server 16.04 LTS__를 선택합니다.
 
     ![Ubuntu 가상 컴퓨터 만들기](./media/connect-on-premises-network/create-ubuntu-vm.png)
 

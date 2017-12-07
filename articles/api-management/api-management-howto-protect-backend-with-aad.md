@@ -1,30 +1,29 @@
 ---
 title: "Azure Active Directory 및 API Management로 Web API 백 엔드 보호 | Microsoft Docs"
-description: "Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
+description: "Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
-다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API 관리로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
+# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management로 Web API 백 엔드를 보호하는 방법
+다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API Management로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다.  이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
 
 * Web API 백 엔드 빌드 및 AAD로 보안 유지 - 1시 30분에 시작
-* API를 API 관리로 가져오기 - 7시 10분에 시작
+* API를 API Management로 가져오기 - 7시 10분에 시작
 * API를 호출하도록 개발자 포털 구성 - 9시 9분에 시작
 * API를 호출하도록 데스크톱 응용 프로그램 구성 - 18시 8분에 시작
 * 미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성 - 20시 47분에 시작
@@ -182,11 +181,11 @@ public class CalcController : ApiController
 > 
 > 
 
-Azure AD 응용 프로그램이 API 관리 개발자 포털에 대해 구성된 경우, 다음 단계에서 사용하도록 **앱 ID URI** 를 기록합니다.
+Azure AD 응용 프로그램이 API Management 개발자 포털에 대해 구성된 경우, 다음 단계에서 사용하도록 **앱 ID URI** 를 기록합니다.
 
 ![앱 ID URI][api-management-aad-sso-uri]
 
-## <a name="import-the-web-api-into-api-management"></a>Web API를 API 관리로 가져오기
+## <a name="import-the-web-api-into-api-management"></a>Web API를 API Management로 가져오기
 API는 Azure Portal을 통해 액세스할 수 있는 API 게시자 포털에서 구성됩니다. 이 위치로 이동하려면 API Management 서비스의 도구 모음에서 **게시자 포털**을 클릭하세요. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [첫 번째 API Management][Manage your first API] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
@@ -353,7 +352,7 @@ API는 Azure Portal을 통해 액세스할 수 있는 API 게시자 포털에서
 API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시됩니다.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>개발자 포털에서 API 호출 실패
-이 시점에서 API를 API 관리로 가져오지만, 백 엔드 서비스는 Azure AD 인증으로 보호되어야 하기 때문에 개발자 포털에서 호출할 수 없습니다. 다음 단계를 통해 7분 40초부터 시작되는 비디오에서 볼 수 있습니다.
+이 시점에서 API를 API Management로 가져오지만, 백 엔드 서비스는 Azure AD 인증으로 보호되어야 하기 때문에 개발자 포털에서 호출할 수 없습니다. 다음 단계를 통해 7분 40초부터 시작되는 비디오에서 볼 수 있습니다.
 
 게시자 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털** 을 클릭합니다.
 
@@ -394,14 +393,14 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal-2]
 
-## <a name="configure-an-api-management-oauth-20-authorization-server"></a>API 관리 OAuth 2.0 권한 부여 서버 구성
-다음 단계는 API 관리에서의 OAuth 2.0 권한 부여 서버 구성입니다. 이 단계는 9분 43초에 시작되는 비디오에서 보여 줍니다.
+## <a name="configure-an-api-management-oauth-20-authorization-server"></a>API Management OAuth 2.0 권한 부여 서버 구성
+다음 단계는 API Management에서의 OAuth 2.0 권한 부여 서버 구성입니다. 이 단계는 9분 43초에 시작되는 비디오에서 보여 줍니다.
 
 왼쪽의 API Management 메뉴에서 **보안**을 클릭하고 **OAuth 2.0**을 클릭한 다음 **권한 부여 서버 추가**를 클릭합니다.
 
 ![권한 부여 서버 추가][api-management-add-authorization-server]
 
-**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다. 이러한 필드는 API 관리 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용됩니다. 이 예에서 **권한 부여 서버 데모** 가 사용됩니다. 나중에 API에 대한 인증으로 사용되도록 OAuth 2.0 서버를 지정하면 이 이름을 선택합니다.
+**이름** 필드에 이름을 입력하고 원하는 경우 **설명** 필드에 설명을 입력합니다. 이러한 필드는 API Management 서비스 인스턴스 내에서 OAuth 2.0 권한 부여 서버를 식별하는 데 사용됩니다. 이 예에서 **권한 부여 서버 데모** 가 사용됩니다. 나중에 API에 대한 인증으로 사용되도록 OAuth 2.0 서버를 지정하면 이 이름을 선택합니다.
 
 **클라이언트 등록 페이지 URL**로 `http://localhost`와 같은 자리 표시자 값을 입력합니다.  **클라이언트 등록 페이지 URL** 은 사용자가 계정의 사용자 관리를 지원하는 OAuth 2.0 공급자에 대한 계정을 만들고 구성하는 데 사용할 수 있는 페이지를 가리킵니다. 이 예에서 자리 표시자를 사용하도록 사용자는 자신의 계정을 만들거나 구성하지 않습니다.
 
@@ -496,7 +495,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 비디오의 다음 절차는 16분 30초부터 시작하며 API를 호출하는 간단한 데스크톱 응용 프로그램을 구성합니다. Azure AD에서 데스크톱 응용 프로그램을 등록하고 디렉터리와 백 엔드 서비스에 액세스 권한을 부여하는 것이 첫 번째 단계입니다. 18분 25초에 계산기 API에 대한 작업을 호출하는 데스크톱 응용 프로그램의 데모가 시작됩니다.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성
-이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API 관리로 차단되며 백 엔드를 따라 전달되지 않습니다.
+이 비디오에서 최종 절차는 20분 48초에 시작하며 [JWT의 유효성 검사](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) 정책을 사용하여 들어오는 각 요청의 액세스 토큰의 유효성을 검사하는 방법을 보여 줍니다. 요청의 유효성을 JWT 정책으로 검사하지 않은 경우, 요청은 API Management로 차단되며 백 엔드를 따라 전달되지 않습니다.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -509,10 +508,10 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 </validate-jwt>
 ```
 
-이 정책 구성 및 사용에 대한 다른 데모는 [클라우드 표지 에피소드 177: 추가 API 관리 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) 을 참고하여 13분 50초로 빨리 감기합니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.
+이 정책 구성 및 사용에 대한 다른 데모는 [클라우드 표지 에피소드 177: 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) 을 참고하여 13분 50초로 빨리 감기합니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* API 관리에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
+* API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
 * 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
@@ -561,5 +560,5 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

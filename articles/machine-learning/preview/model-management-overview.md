@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 모델 관리
 
@@ -124,4 +124,4 @@ Azure Machine Learning 모델 관리는 모델을 다시 학습하는 데 사용
    그렇습니다. 동일한 클러스터에서 서비스/끝점 수의 100배까지 실행할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-모델 관리를 시작하려면 [모델 관리 구성](model-management-configuration.md)을 참조하세요.
+모델 관리를 시작하려면 [모델 관리 구성](deployment-setup-configuration.md)을 참조하세요.
