@@ -1,5 +1,5 @@
 ---
-title: "Azure Time Series Insights에서 인증 및 권한 부여 API를 구성하는 방법"
+title: "Azure Time Series Insights에서 API로 인증하고 권한을 부여하는 방법"
 description: "이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 응용 프로그램에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -32,7 +32,7 @@ Time Series Insights에 액세스해야 하는 응용 프로그램이 있는 경
 * 책임이 변경되면 앱의 자격 증명을 변경할 필요가 없습니다.
 * 무인 스크립트를 실행할 때 인증서 또는 응용 프로그램 키를 사용하여 인증을 자동화할 수 있습니다.
 
-이 항목에서는 Azure Portal을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
+이 문서에서는 Azure Portal을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
 
 설정 흐름은 크게 세 단계로 구성됩니다.
 

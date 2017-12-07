@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -277,7 +277,7 @@ Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정
 
 각 끝점의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
 
-Azure는 지난 끝점 상태에 대한 기록 정보를 제공하지 않으며 끝점 상태 변경에 대한 경고를 생성하는 기능도 없습니다.
+Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)를 참조하세요.
 
 ### <a name="can-i-monitor-https-endpoints"></a>HTTPS 끝점을 모니터링할 수 있나요?
 
@@ -288,6 +288,10 @@ Traffic Manager는 다음을 포함하는 인증서 유효성 검사를 제공�
 * 서버 쪽 인증서의 유효성이 검사되지 않습니다.
 * SNI 서버 쪽 인증서가 지원되지 않습니다.
 * 클라이언트 인증서는 지원되지 않습니다.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Traffic Manager 프로필에서 Azure 클라우드 서비스/웹 응용 프로그램 엔드포인트를 중지했지만 다시 시작한 후에도 트래픽을 받지 못하고 있습니다. 이 문제를 어떻게 해결할 수 있나요?
+
+Azure 클라우드 서비스/웹 응용 프로그램 엔드포인트가 중지되면 Traffic Manager는 상태 검사를 중지하고 엔드포인트가 다시 시작된 것을 감지한 후에만 상태 검사를 다시 시작합니다. 이러한 지연을 방지하려면 엔드포인트를 다시 시작한 후에 Traffic Manager 프로필에서 해당 엔드포인트를 사용하지 않도록 설정한 후 다시 사용하도록 설정합니다.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>응용 프로그램에 HTTP 또는 HTTPS에 대한 지원이 없는 경우에도 Traffic Manager를 사용할 수 있나요?
 

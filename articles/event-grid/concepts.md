@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -20,7 +20,7 @@ Azure Event Grid의 주요 개념은 다음과 같습니다.
 
 ## <a name="events"></a>이벤트
 
-이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다.  모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다.  또한 모든 이벤트에는 특정 이벤트에만 관련된 특정 정보가 있습니다. 예를 들어 Azure Storage에서 만들어지는 새 파일에 대한 이벤트에는 lastTimeModified 값과 같이 파일에 대한 세부 정보가 포함되어 있습니다. 또는 가상 컴퓨터 다시 부팅에 대한 이벤트에는 가상 컴퓨터의 이름 및 다시 부팅에 대한 이유가 포함됩니다. 각 이벤트는 64KB의 데이터로 제한됩니다.
+이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다.  모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다.  또한 모든 이벤트에는 특정 유형의 이벤트에만 관련된 특정 정보도 있습니다. 예를 들어 Azure Storage에서 만드는 새 파일에 대한 이벤트에는 `lastTimeModified` 값과 같은 파일에 대한 세부 정보가 포함되어 있습니다. 또는 가상 컴퓨터 다시 부팅에 대한 이벤트에는 가상 컴퓨터의 이름 및 다시 부팅에 대한 이유가 포함됩니다. 각 이벤트는 64KB의 데이터로 제한됩니다.
 
 ## <a name="event-sourcespublishers"></a>이벤트 원본/게시자
 
@@ -46,7 +46,7 @@ Event Grid 측면에서 볼 때 이벤트 처리기는 이벤트가 전송된 �
 
 ## <a name="security"></a>보안
 
-이벤트는 토픽 구독 및 토픽 게시에 대한 보안을 제공합니다. 구독할 때 리소스 또는 토픽에 대해 적절한 사용 권한이 있어야 합니다. 게시할 때 토픽에 대한 SAS 토큰 또는 키 인증이 있어야 합니다. 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
+Event Grid는 토픽 구독 및 게시에 대한 보안을 제공합니다. 구독할 때 리소스 또는 토픽에 대해 적절한 사용 권한이 있어야 합니다. 게시할 때 토픽에 대한 SAS 토큰 또는 키 인증이 있어야 합니다. 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
 
 ## <a name="failed-delivery"></a>배달 실패
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
@@ -37,7 +37,7 @@ Azure Cloud Shell의 PowerShell(미리 보기)은 Microsoft Azure PowerShell에 
 
 ### <a name="files-persistence-across-sessions"></a>여러 세션에 걸친 파일 지속성
 
-세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
+세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Microsoft Azure 파일 공유 연결을 안내합니다.
 작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 저장소(`$home\clouddrive`로 장착됨)를 자동으로 연결합니다.
 Azure Cloud Shell에 대한 요청은 제각기 임시 컴퓨터를 할당하므로 `$home\clouddrive` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 유지되지 않습니다.
 

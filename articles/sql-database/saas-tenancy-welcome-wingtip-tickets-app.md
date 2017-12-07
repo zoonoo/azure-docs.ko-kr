@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 응용 프로그램
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/20/2017
 
 테넌트별 데이터베이스 패턴은 테넌트 격리에 관심이 있고 공유 리소스를 비용 효율적으로 사용할 수 있는 중앙 집중식 서비스를 실행하려는 서비스 공급자에게 효과적입니다. 데이터베이스는 각 장소(또는 테넌트)에 대해 만들어지며, 모든 데이터베이스가 중앙에서 관리됩니다. 데이터베이스가 탄력적 풀에 호스트되어 비용 효율적이고 쉽게 성능을 관리할 수 있으며, 이는 테넌트의 예측할 수 없는 워크로드 패턴을 활용합니다. 카탈로그 데이터베이스는 테넌트와 해당 데이터베이스 간의 매핑을 포함합니다. 이 매핑은 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 분할 맵 관리 기능을 사용하여 관리되며, 이를 통해 응용 프로그램에 대한 연결을 효율적으로 관리할 수 있습니다.
 
-[자습서][docs-tutorials-for-wingtip-dpt] 및 GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt]의 코드를 확인합니다.
+GitHub[.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt]에서 [자습서][docs-tutorials-for-wingtip-dpt] 및 코드를 확인하세요.
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>분할된 다중 테넌트 데이터베이스 패턴
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/20/2017
 
 또한 이 패턴을 통해 여러 테넌트를 하나의 데이터베이스에서 사용하여 비용을 최적화하거나 단일 테넌트를 해당 자체 데이터베이스에서 사용하여 격리를 최적화하는 하이브리드 모델을 사용할 수 있습니다. 테넌트가 프로비전될 때 또는 그 후에 테넌트별로 응용 프로그램에 영향을 미치지 않고 적용할 수 있습니다.
 
-[자습서][docs-tutorials-for-wingtip-mt] 및 GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt]의 코드를 확인합니다.
+GitHub[.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt]에서 [자습서][docs-tutorials-for-wingtip-mt] 및 코드를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -63,15 +63,15 @@ ms.lasthandoff: 11/20/2017
 
 - 독립 실행형 앱:
     - [독립 실행형 앱에 대한 자습서][docs-tutorials-for-wingtip-sa].
-    - [독립 실행형에 대한 코드, Github][github-code-for-wingtip-sa].
+    - [독립 실행형에 대한 코드, GitHub][github-code-for-wingtip-sa].
 
 - 테넌트당 데이터베이스:
     - [테넌트별 데이터베이스에 대한 자습서][docs-tutorials-for-wingtip-dpt].
-    - [테넌트별 데이터베이스에 대한 코드, Github][github-code-for-wingtip-dpt].
+    - [테넌트별 데이터베이스에 대한 코드, GitHub][github-code-for-wingtip-dpt].
 
 - 분할된 다중 테넌트:
     - [분할된 다중 테넌트에 대한 자습서][docs-tutorials-for-wingtip-mt].
-    - [분할된 다중 테넌트에 대한 코드, Github][github-code-for-wingtip-mt].
+    - [분할된 다중 테넌트에 대한 코드, GitHub][github-code-for-wingtip-mt].
 
 
 

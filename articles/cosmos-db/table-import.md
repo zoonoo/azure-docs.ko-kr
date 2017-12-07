@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API를 사용하여 데이터 가져오기
 
@@ -32,11 +32,11 @@ ms.lasthandoff: 11/16/2017
 
 ## <a name="data-migration-tool"></a>데이터 마이그레이션 도구
 
-명령줄 Azure Cosmos DB 데이터 마이그레이션 도구(dt.exe)를 사용하여 기존의 Azure Table Storage 데이터를 테이블 API GA 계정으로 가져오거나 테이블 API(미리 보기) 계정에서 테이블 API GA 계정으로 데이터를 마이그레이션할 수 있습니다. 다른 원본은 현재 지원되지 않습니다.
+명령줄 Azure Cosmos DB 데이터 마이그레이션 도구(dt.exe)를 사용하여 기존의 Azure Table Storage 데이터를 테이블 API GA 계정으로 가져오거나 테이블 API(미리 보기) 계정에서 테이블 API GA 계정으로 데이터를 마이그레이션할 수 있습니다. 다른 원본은 현재 지원되지 않습니다. UI 기반 데이터 마이그레이션 도구(dtui.exe)는 현재 Table API 계정에 대해 지원되지 않습니다. 
 
 테이블 데이터 마이그레이션을 수행하려면 다음 작업을 완료하세요.
 
-1. [Microsoft 다운로드 센터](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) 또는 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)에서 마이그레이션 도구를 다운로드합니다.
+1. 마이그레이션 도구를 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)에서 다운로드합니다.
 2. 시나리오에 맞는 명령줄 인수를 사용하여 `dt.exe`를 실행합니다.
 
 dt.exe는 다음과 같은 형식의 명령을 받습니다.
@@ -92,7 +92,7 @@ Azure Cosmos DB 테이블 API를 마이그레이션 대상으로 정의할 때�
 Azure Table Storage에서 테이블 API로 가져오는 방법을 보여주는 명령줄 예제는 다음과 같습니다.
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>명령 예제: 원본이 Azure Cosmos DB 테이블 API(미리 보기)인 경우

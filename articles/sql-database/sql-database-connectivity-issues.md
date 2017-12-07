@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방
 이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
@@ -40,16 +40,17 @@ ms.lasthandoff: 11/04/2017
 * **연결 시도 중 일시적 오류가 발생할 경우**: 몇 초 지연한 후에 연결을 다시 시도해야 합니다.
 * **SQL 쿼리 명령 중에 일시적 오류가 발생할 경우**: 명령을 즉시 다시 시도하면 안 됩니다. 대신, 지연 후에 연결을 새로 고쳐야 합니다. 그런 다음 명령을 다시 시도할 수 있습니다.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>일시적인 오류에 대한 재시도 논리
+## <a name="retry-logic-for-transient-errors"></a>일시적인 오류에 대한 재시도 논리
 간혹 일시적 오류가 발생하는 클라이언트 프로그램에 재시도 논리가 포함된 경우 더욱 견고해질 수 있습니다.
 
 프로그램이 타사 미들웨어를 통해 Azure SQL Database와 통신하는 경우 공급업체에 문의하여 미들웨어에 일시적 오류에 대한 재시도 논리가 포함되어 있는지 여부를 확인해야 합니다.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>재시도 원칙
+### <a name="principles-for-retry"></a>재시도 원칙
 * 오류가 일시적인 경우 연결을 다시 시도해야 합니다.
 * 일시적 오류로 실패하는 SQL SELECT 문은 직접 다시 시도하면 안 됩니다.
   
@@ -58,30 +59,31 @@ ms.lasthandoff: 11/04/2017
   
   * 재시도 논리는 전체 데이터베이스 트랜잭션이 완료되었는지 또는 전체 트랜잭션이 롤백되었는지 여부를 확인해야 합니다.
 
-#### <a name="other-considerations-for-retry"></a>재시도에 대한 기타 고려 사항
+### <a name="other-considerations-for-retry"></a>재시도에 대한 기타 고려 사항
 * 업무 시간 후 자동으로 시작되어 아침 전까지 완료되는 배치 프로그램은 재시도 간격을 길게 설정할 수 있습니다.
 * 사용자 인터페이스 프로그램은 기다리는 시간이 길 때 사용자가 포기하는 경향이 있는지를 고려해야 합니다.
   
   * 하지만 몇 초마다 재시도하는 정책을 사용할 경우 시스템의 요청 수가 너무 많아지므로 사용하지 않아야 합니다.
 
-#### <a name="interval-increase-between-retries"></a>재시도 간격 증가
+### <a name="interval-increase-between-retries"></a>재시도 간격 증가
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
 ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
-#### <a name="code-samples-with-retry-logic"></a>재시도 논리가 포함된 코드 샘플
-재시도 논리가 포함된 코드 샘플은 다음에서 다양한 언어로 다운로드할 수 있습니다.
+### <a name="code-samples-with-retry-logic"></a>재시도 논리가 포함된 코드 샘플
+재시도 논리가 포함된 코드 예제는 다음에 있습니다.
 
-* [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
+- [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [PHP로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>재시도 논리 테스트
+### <a name="test-your-retry-logic"></a>재시도 논리 테스트
 재시도 논리를 테스트하려면 프로그램이 실행 중인 동안 수정할 수 있는 오류를 일으키거나 시뮬레이션해야 합니다.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>네트워크에서 연결을 끊고 테스트
+#### <a name="test-by-disconnecting-from-the-network"></a>네트워크에서 연결을 끊고 테스트
 재시도 논리를 테스트할 수 있는 한 가지 방법은 프로그램이 실행되는 동안 네트워크에서 클라이언트 컴퓨터 연결을 끊는 것입니다. 오류는 다음과 같습니다.
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
    * **Console.ReadLine** 메서드 또는 확인 단추가 포함된 대화 상자를 사용하여 추가 실행을 일시 정지합니다. 사용자가 컴퓨터와 네트워크 간 케이블을 연결한 다음 Enter 키를 누릅니다.
 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>연결 시 틀린 철자의 데이터베이스 이름을 사용하여 테스트
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>연결 시 틀린 철자의 데이터베이스 이름을 사용하여 테스트
 프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 오류는 다음과 같습니다.
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 4. 사용자 이름에서 'WRONG_'을 제거합니다.
 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL Database에 연결되면 .NET 4.6.1 이상(또는 .NET Core)을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 [SqlConnection](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 개체에 대한 **연결 문자열** 을 작성하는 경우 다음 매개 변수 중에서 값을 조정해야 합니다.
 
@@ -138,7 +140,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>연결과 명령 비교
+## <a name="connection-versus-command"></a>연결과 명령 비교
 **ConnectRetryCount** 및 **ConnectRetryInterval** 매개 변수를 사용하면 **SqlConnection** 개체는 프로그램에 제어를 반환하는 등 프로그램에 전달하거나 신경 쓰지 않고 연결 작업을 다시 시도합니다. 다시 시도는 다음과 같은 상황에서 발생할 수 있습니다.
 
 * mySqlConnection.Open 메서드 호출
@@ -146,8 +148,9 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 미묘한 문제가 있습니다. 임시 오류가 발생할 경우 *쿼리* 가 실행되는 동안 **SqlConnection** 개체는 연결 작업을 다시 시도하지 않고 확실히 쿼리를 다시 시도하지 않습니다. 그러나 **SqlConnection** 는 매우 신속하게 실행에 쿼리를 보내기 전에 연결을 검사합니다. 빠른 검사가 연결 문제를 감지하면 **SqlConnection** 은 연결 작업을 다시 시도합니다. 다시 시도가 성공하면 쿼리는 실행을 위해 전송됩니다.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount가 응용 프로그램 다시 시도 논리와 결합해야 합니까?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount가 응용 프로그램 다시 시도 논리와 결합해야 합니까?
 응용 프로그램에는 강력한 사용자 지정 다시 시도 논리가 있다고 가정합니다. 연결 작업을 4번 다시 시도할 수 있습니다. **ConnectRetryInterval** 및 **ConnectRetryCount** =3을 연결 문자열에 추가하는 경우 다시 시도 횟수가 4 * 3 = 12로 늘어납니다. 이러한 많은 수의 다시 시도를 할 의도가 아닐 수 있습니다.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Enterprise Library 6(EntLib60)은 Azure SQL Database를 포함한 견고한 클�
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient 메서드 소스 코드
 다음으로, **SqlDatabaseTransientErrorDetectionStrategy** 클래스에는 **IsTransient** 메서드에 대한 C# 소스 코드가 있습니다. 소스 코드는 2013년 4월처럼 일시적 오류로 간주할 오류와 재시도할 만한 오류를 명확히 구분합니다.
 
-이 복사본에서 가독성을 위해 많은 **//** 줄이 제거되었습니다.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>다음 단계
 * 다른 일반적인 Azure SQL Database 연결 문제를 해결하는 경우, [Azure SQL Database에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
-* [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
+* [SQL Server 연결 풀링(ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

@@ -14,74 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 03ae6245e83c1f26546ec2a33c74dc9519847d7b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
-## <a name="important"></a>**중요**
-이 문서는 더 이상 사용되지 않습니다. 내용은 여전히 당면한 문제 즉, 항공 우주 분야에서의 예측 유지 관리와 관련되어 있지만 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)에서 현재 정보를 참조할 수 있습니다.
+>[!Important]
+이 문서는 더 이상 사용되지 않습니다. 항공 우주 분야에서의 예측 유지 관리와 관련된 논의가 여전히 있지만, 최신 정보는 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)를 참조하세요.
 
-## <a name="acknowledgements"></a>**승인**
-이 문서는 데이터 과학자 Yan Zhang, Gauher Shaheen, Fidan Boylu Uz 및 Microsoft의 소프트웨어 엔지니어 Dan Grecoe가 작성하였습니다.
 
-## <a name="overview"></a>**개요**
-솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다. 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 자격 증명을 기록합니다.  
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전한 다음 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 응용 프로그램의 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기의 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
 
-이 문서의 목표는 참조 아키텍처 및 이 솔루션 템플릿의 일부로 구독에서 프로비전된 구성 요소를 설명하고, 사용자 고유 데이터로 샘플 데이터를 바꾸는 방법을 보여주고, 솔루션 템플릿을 수정하는 방법을 보여주는 것입니다.  
+배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 자격 증명을 기록합니다. 
+
+
+이 문서의 목표는 다음과 같습니다.
+- 구독에 프로비전된 참조 아키텍처 및 구성 요소를 설명합니다.
+- 샘플 데이터를 자신의 데이터로 바꾸는 방법을 보여줍니다. 
+- 솔루션 템플릿을 수정하는 방법을 보여줍니다.  
 
 > [!TIP]
-> [이 문서의 PDF 버전](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드 및 인쇄할 수 있습니다.
+> [이 문서의 PDF 버전](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드하여 인쇄할 수 있습니다.
 > 
 > 
 
-## <a name="overview"></a>**개요**
+## <a name="overview"></a>개요
 ![예측 유지 관리 아키텍처](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-솔루션을 배포하면 Cortana Analytics Suite 내의 Azure 서비스(즉, Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning, *기타*)가 활성화됩니다. 아키텍처 다이어그램에서는 항공 솔루션 템플릿에 대한 예측 유지 관리가 생성되는 방법을 보여 줍니다. 이러한 서비스는 솔루션을 배포할 때 생성된 솔루션 템플릿 다이어그램에서 해당 서비스를 클릭하여 Azure Portal에서 조사할 수 있습니다(관련 파이프라인 작업을 실행하고 나중에 삭제해야 할 때 요청 시 프로비전되는 HDInsight 제외).
+솔루션을 배포하면 Cortana Analytics Suite 내의 Azure 서비스(Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning 등)가 활성화됩니다. 아키텍처 다이어그램에서는 항공 솔루션 템플릿에 대한 예측 유지 관리가 생성되는 방법을 보여 줍니다. 이러한 서비스는 솔루션을 배포할 때 생성된 솔루션 템플릿 다이어그램에서 해당 서비스를 클릭하여 Azure Portal에서 조사할 수 있습니다(관련 파이프라인 작업을 실행하고 나중에 삭제해야 할 때 요청 시 프로비전되는 HDInsight 제외).
 [다이어그램의 전체 크기 버전](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)을 다운로드합니다.
 
 다음 섹션은 솔루션 부분을 설명합니다.
 
-## <a name="data-source-and-ingestion"></a>**데이터 원본 및 수집**
+## <a name="data-source-and-ingestion"></a>데이터 원본 및 수집
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
-이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 응용 프로그램에서 생성됩니다. 솔루션 템플릿 다이어그램에서 예측 유지 관리 데이터 생성기라는 첫 번째 노드를 선택하면 속성 모음에서 이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾을 수 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
+이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 응용 프로그램에서 생성됩니다.
+
+이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
 
 이벤트 생성 응용 프로그램은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.
 
-### <a name="azure-event-hub"></a>Azure 이벤트 허브
+### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.
 
-## <a name="data-preparation-and-analysis"></a>**데이터 준비 및 분석**
+## <a name="data-preparation-and-analysis"></a>데이터 준비 및 분석
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에서 거의 실시간으로 분석을 제공하는 데 사용되며 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에서 나중에 처리할 들어오는 모든 원시 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관할 뿐만 아니라 [Power BI](https://powerbi.microsoft.com) 대시보드에 결과를 게시합니다.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에 대한 분석을 거의 실시간으로 제공합니다. 그런 다음 결과를 [Power BI](https://powerbi.microsoft.com) 대시보드에 게시하고 모든 원시 수신 이벤트를 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에 의해 나중에 처리하기 위해 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관합니다.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 HDInsight를 사용하여 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행합니다.
 
 ### <a name="azure-machine-learning"></a>Azure 기계 학습
-[Azure Machine Learning 서비스](https://azure.microsoft.com/services/machine-learning/)(Azure Data Factory에서 오케스트레이션됨)를 사용하여 수신된 입력이 제공된 특정 항공기 엔진의 잔여 수명(RUL)을 예측합니다. 
+[Azure Machine Learning 서비스](https://azure.microsoft.com/services/machine-learning/)(Azure Data Factory에서 오케스트레이션됨)로 수신된 입력을 사용하여 특정 항공기 엔진의 잔여 수명(RUL)을 예측합니다. 
 
-## <a name="data-publishing"></a>**데이터 게시**
-### <a name="azure-sql-database-service"></a>Azure SQL Database 서비스
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 [Power BI](https://powerbi.microsoft.com) 대시보드에서 사용되는 Azure Machine Learning 서비스에서 수신된 예측을 저장하는 데 사용됩니다(Azure Data Factory에서 관리됨).
+## <a name="data-publishing"></a>데이터 게시
+### <a name="azure-sql-database"></a>Azure SQL Database
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)를 사용하여 [Power BI](https://powerbi.microsoft.com) 대시보드에서 사용되는 Azure Machine Learning 서비스에서 수신된 예측을 저장합니다.
 
-## <a name="data-consumption"></a>**데이터 사용량**
+## <a name="data-consumption"></a>데이터 사용
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) 서비스는 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스를 사용하여 생성된 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 저장된 RUL 예측 뿐만 아니라 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스에서 제공된 집계 및 경고를 포함하는 대시보드를 표시하는 데 사용됩니다.
+[Power BI](https://powerbi.microsoft.com)를 사용하여 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)가 제공하는 집계 및 경고뿐만 아니라 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)을 통해 생성된 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 저장된 RUL 예측을 포함하는 대시보드를 표시합니다.
 
-## <a name="how-to-bring-in-your-own-data"></a>**사용자 고유 데이터를 가져오는 방법**
+## <a name="how-to-bring-in-your-own-data"></a>사용자 고유 데이터를 가져오는 방법
 이 섹션은 Azure에 사용자 고유 데이터를 가져오는 방법 및 이 아키텍처에 가져오는 데이터에 대한 변경 내용이 필요한 영역을 설명합니다.
 
 데이터 집합은 이 솔루션 템플릿에 사용되는 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)에서 사용하는 데이터 집합과 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. 
 
-다음 섹션에서는 새 데이터 집합을 도입할 때 수정해야 하는 템플릿의 섹션을 설명합니다.
+다음 섹션에서는 새 데이터 집합을 도입할 때 수정해야 하는 템플릿의 일부분을 설명합니다.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
-Azure Event Hub 서비스는 매우 일반적으로, CSV 또는 JSON 형식 중 하나로 허브에 데이터를 게시할 수 있습니다. Azure 이벤트 허브에서 특별한 처리가 발생하지 않지만 공급되는 데이터를 이해하는 것이 중요합니다.
+Azure Event Hub는 매우 일반적으로, CSV 또는 JSON 형식 중 하나로 허브에 데이터를 게시할 수 있습니다. Azure 이벤트 허브에서 특별한 처리가 발생하지 않지만 공급되는 데이터를 이해하는 것이 중요합니다.
 
 이 문서는 데이터를 수집하는 방법을 설명하지 않지만 이벤트 허브 API를 사용하여 Azure 이벤트 허브에 이벤트 또는 데이터를 손쉽게 보낼 수 있습니다.
 
@@ -142,7 +147,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
 
-## <a name="monitor-progress"></a>**진행률 모니터링**
+## <a name="monitor-progress"></a>진행률 모니터링
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
 
 1. Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob Storage 구성 요소를 클릭하고 오른쪽 패널에서 열기를 클릭하면 [Azure Portal](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 csv 파일이 표시됩니다.
@@ -152,7 +157,7 @@ Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관�
    
     여기에서는 새 쿼리를 클릭하고 행 수를 쿼리(예: PMResult의 select count(*))할 수 있습니다. 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 합니다.
 
-## <a name="power-bi-dashboard"></a>**Power BI 대시보드**
+## <a name="power-bi-dashboard"></a>Power BI 대시보드
 
 Azure Machine Learning(콜드 경로)의 배치 예측 결과와 Azure Stream Analytics 데이터(실행 부하 과다 경로)를 시각화하도록 Power BI 대시보드를 설정합니다.
 
@@ -227,10 +232,10 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 이 꺾은선형 차트의 오른쪽 위 모퉁이에서 **시각화 고정** 아이콘을 클릭합니다. "대시보드에 고정" 창이 대시보드를 선택하도록 표시될 수 있습니다. "예측 유지 관리 데모"를 선택한 다음 "고정"을 클릭합니다.
    * 대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "센서 11의 Fleet 보기 vs.  임계값 48.26"으로, 부제목을 "시간이 지남에 Fleet의 평균"으로 변경합니다.
 
-## <a name="how-to-delete-your-solution"></a>**솔루션을 삭제하는 방법**
-데이터 생성기를 실행하면 비용이 더 높아지므로 솔루션을 활발히 사용하지 않을 때 데이터 생성기를 중지하십시오. 솔루션을 사용하지 않는 경우 삭제하십시오. 솔루션을 삭제하면 솔루션을 배포할 때 구독에 프로비전된 모든 구성 요소가 삭제됩니다. 솔루션을 삭제하려면 솔루션 템플릿 왼쪽 패널의 솔루션 이름을 클릭하고 삭제를 클릭합니다.
+## <a name="delete-your-solution"></a>솔루션 삭제
+데이터 생성기를 실행하면 비용이 더 높아지므로 솔루션을 활발히 사용하지 않을 때 데이터 생성기를 중지하도록 합니다. 솔루션을 사용하지 않는 경우에는 삭제합니다. 솔루션을 삭제하면 솔루션을 배포할 때 구독에 프로비전된 모든 구성 요소가 삭제됩니다. 솔루션을 삭제하려면 솔루션 템플릿 왼쪽 패널의 솔루션 이름을 클릭한 다음 **삭제**를 클릭합니다.
 
-## <a name="cost-estimation-tools"></a>**비용 예측 도구**
+## <a name="cost-estimation-tools"></a>비용 예측 도구
 다음 두 가지 도구는 구독에서 항공 솔루션 템플릿에 대한 예측 유지 관리를 실행하는 데 필요한 총 비용을 더욱 잘 이해할 수 있도록 사용할 수 있습니다.
 
 * [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)

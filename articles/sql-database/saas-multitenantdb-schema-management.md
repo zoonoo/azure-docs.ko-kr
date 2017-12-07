@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 * 최신 버전의 SSMS(SQL Server Management Studio)가 설치되어 있습니다. [SSMS 다운로드 및 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.*
+> 이 자습서에서는 제한된 미리 보기(Elastic Database 작업)에 있는 SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행하려는 경우 subject=탄력적인 작업 미리 보기를 사용하여 구독 ID를 SaaSFeedback@microsoft.com에 제공하세요. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적으로만 제공되므로 관련 질문이 있거나 지원이 필요한 경우 SaaSFeedback@microsoft.com에 문의해야 합니다.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
@@ -58,9 +58,9 @@ ms.lasthandoff: 11/15/2017
 
 현재 Azure SQL Database(추가 서비스 또는 구성 요소 불필요)의 통합 기능인 새로운 탄력적 작업 버전이 있습니다. 이 새로운 탄력적 작업 버전은 현재 제한된 미리 보기 상태입니다. 이 제한된 미리 보기에서는 현재 작업 계정을 만드는 PowerShell 및 작업을 만들고 관리하는 T-SQL을 지원합니다.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 사용할 수 있습니다. <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>작업 계정 데이터베이스 및 새 작업 계정 만들기
 
@@ -89,13 +89,14 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 6. 문을 set @User = &lt;user&gt;로 수정하고 Wingtip Ticket SaaS 다중 테넌트 데이터베이스 응용 프로그램을 배포할 때 사용된 사용자 값을 바꿉니다.
 7. **F5** 키를 눌러 스크립트를 실행합니다.
 
-    * **sp\_add\_target\_group**은 대상 그룹 이름 DemoServerGroup을 만듭니다. 이제 대상 멤버를 그룹에 추가합니다.
-    * **sp\_add\_target\_group\_member**는 *server* 대상 멤버 유형을 추가하는데, 작업 실행 시 해당 서버(테넌트 데이터베이스를 포함하고 있는 tenants1-&lt;user&gt; 서버) 내의 모든 데이터베이스가 작업에 포함되어야 합니다. *database* 대상 멤버 유형이 추가됩니다. 이 유형은 catalog-mt-&lt;user&gt; 서버에 있는 'golden' 데이터베이스(basetenantdb)입니다. 그리고 마지막으로 자습서 뒷부분에서 사용되는 adhocreporting 데이터베이스를 포함하는 *database* 대상 그룹 멤버 유형이 추가됩니다.
-    * **sp\_add\_job**은 "참조 데이터 배포"라는 작업을 만듭니다.
-    * **sp\_add\_jobstep**은 VenueTypes 참조 테이블을 업데이트하기 위한 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
-    * 스크립트의 남은 보기에서 개체의 존재 여부를 표시하고 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 테넌트 데이터베이스와 참조 테이블이 포함된 추가 데이터베이스 2개에서 작업이 정상적으로 완료된 시기를 확인합니다.
+*DeployReferenceData.sql* 스크립트에서 다음을 살펴봅니다.
+* **sp\_add\_target\_group**은 대상 그룹 이름 DemoServerGroup을 만듭니다. 이제 대상 멤버를 그룹에 추가합니다.
+* **sp\_add\_target\_group\_member**는 *server* 대상 멤버 유형을 추가하는데, 작업 실행 시 해당 서버(테넌트 데이터베이스를 포함하고 있는 tenants1-&lt;user&gt; 서버) 내의 모든 데이터베이스가 작업에 포함되어야 합니다. *database* 대상 멤버 유형이 추가됩니다. 이 유형은 catalog-mt-&lt;user&gt; 서버에 있는 'golden' 데이터베이스(basetenantdb)입니다. 그리고 마지막으로 자습서 뒷부분에서 사용되는 adhocreporting 데이터베이스를 포함하는 *database* 대상 그룹 멤버 유형이 추가됩니다.
+* **sp\_add\_job**은 "참조 데이터 배포"라는 작업을 만듭니다.
+* **sp\_add\_jobstep**은 VenueTypes 참조 테이블을 업데이트하기 위한 T-SQL 명령 텍스트가 포함된 작업 단계를 만듭니다.
+* 스크립트의 남은 보기에서 개체의 존재 여부를 표시하고 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 테넌트 데이터베이스와 참조 테이블이 포함된 추가 데이터베이스 2개에서 작업이 정상적으로 완료된 시기를 확인합니다.
 
-1. SSMS에서 *tenants1-mt-&lt;user&gt;* 서버의 테넌트 데이터베이스로 이동한 후 *VenueTypes* 테이블을 쿼리하여 이제 *Motorcycle Racing* 및 *Swimming Club*이 테이블에 **추가*되었는지 확인합니다.
+SSMS에서 *tenants1-mt-&lt;user&gt;* 서버의 테넌트 데이터베이스로 이동한 후 *VenueTypes* 테이블을 쿼리하여 이제 *Motorcycle Racing* 및 *Swimming Club*이 테이블에 **추가*되었는지 확인합니다.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>참조 테이블 인덱스를 관리하는 작업 만들기
@@ -107,9 +108,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 2. SSMS에서 ...\\Learning Modules\\Schema Management\\OnlineReindex.sql 파일을 엽니다.
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 
-    * **sp\_add\_job**은 "Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885"라는 새 작업을 만듭니다.
-    * **sp\_add\_jobstep**은 인덱스를 업데이트할 T-SQL 명령 텍스트를 포함하는 작업 단계를 만듭니다.
-    * 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
+*OnlineReindex.sql* 스크립트에서 다음을 살펴봅니다.
+* **sp\_add\_job**은 "Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885"라는 새 작업을 만듭니다.
+* **sp\_add\_jobstep**은 인덱스를 업데이트할 T-SQL 명령 텍스트를 포함하는 작업 단계를 만듭니다.
+* 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -121,7 +123,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 > * 모든 테넌트 데이터베이스의 데이터 업데이트
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-[임시 분석 자습서](saas-multitenantdb-adhoc-reporting.md)
+다음으로, [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md)를 시도해 보세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스

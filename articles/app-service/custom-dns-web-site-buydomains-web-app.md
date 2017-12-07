@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
 
@@ -31,6 +31,7 @@ App Service 도메인(미리 보기)은 Azure에서 직접 관리되는 최상�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서를 위해 만든 앱을 사용합니다.
+* [구독에 대한 지출 한도를 삭제합니다](../billing/billing-spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
 
@@ -86,11 +87,21 @@ App Service 계획이 **평가판** 계층이 아닌 경우 **가격 책정 계�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> **App Service 도메인** 섹션이 표시되지 않으면 Azure 계정에 대한 지출 한도를 제거해야 합니다([필수 구성 요소](#prerequisites) 참조).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>도메인 구매 구성
 
-**App Service 도메인** 페이지의 **도메인 검색** 상자에 구입할 도메인 이름을 입력하고 `Enter`를 입력합니다. 사용 가능한 도메인이 텍스트 상자 아래에 나타납니다. 구입하려는 도메인을 하나 이상 선택합니다. 
+**App Service 도메인** 페이지의 **도메인 검색** 상자에 구입할 도메인 이름을 입력하고 `Enter`를 입력합니다. 사용 가능한 도메인이 텍스트 상자 아래에 나타납니다. 구입하려는 도메인을 하나 이상 선택합니다.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> App Service 도메인에서 지원되는 [최상위 도메인](https://wikipedia.org/wiki/Top-level_domain)은 _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ 및 _co.in_입니다.
+>
+>
 
 **연락처 정보**를 클릭하고 도메인의 연락처 정보 양식을 작성합니다. 완료한 후 **확인**을 클릭하면 App Service 도메인 페이지로 돌아갑니다.
    
@@ -100,8 +111,7 @@ App Service 계획이 **평가판** 계층이 아닌 경우 **가격 책정 계�
 
 | 설정 | 제안 값 | 설명 |
 |-|-|-|
-|자동 갱신 | **사용** | 매년 App Service 도메인을 자동으로 갱신합니다. 갱신 시 신용 카드로 동일한 구매 가격이 청구됩니다. |
-|개인 정보 보호 | 사용 | _평가판_ 구매 가격에 포함된 "개인 정보 보호"에 참여합니다(_.co.in_, _.co.uk_ 등과 같이 레지스트리가 개인 정보 보호를 지원하지 않는 최상위 도메인은 제외). |
+|개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 웹앱에 액세스할 수 있습니다. 웹앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
 
 ### <a name="accept-terms-and-purchase"></a>조건에 동의하고 구매
@@ -125,7 +135,7 @@ App Service 계획이 **평가판** 계층이 아닌 경우 **가격 책정 계�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-선택한 호스트 이름이 **호스트 이름** 섹션의 **사용자 지정 도메인** 페이지에도 표시됩니다. 
+또한 선택한 호스트 이름도 **사용자 지정 도메인** 페이지의 **사용자 지정 호스트 이름** 섹션에서 표시됩니다. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ App Service 도메인에서 다른 웹앱으로 호스트 이름을 할당할 �
 
 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 _abc.kontoso.net_으로 이동해 봅니다.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>도메인 갱신
+
+구입한 App Service 도메인은 구입 시점으로부터 1년 동안 유효합니다. 도메인은 기본적으로 다음 해의 결제 방법을 부과하여 자동으로 갱신되도록 구성됩니다. 자동 갱신을 해제하거나 도메인을 수동으로 갱신하려면 다음 단계를 따릅니다.
+
+**Web Apps** 탭에서 웹앱의 이름을 클릭하고, **설정**을 선택한 다음, **사용자 지정 도메인**을 선택합니다.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+**App Service 도메인** 섹션에서 구성하려는 도메인을 선택합니다.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+도메인의 왼쪽 탐색 영역에서 **도메인 갱신**을 선택합니다. 도메인에 대한 자동 갱신을 중지하려면 **끄기**를 선택한 다음 **저장**을 선택합니다. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나 이 단추는 도메인 만료 이전 90일 동안만 활성화되어 있습니다.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>사용자 지정 DNS 레코드 관리
 
@@ -236,6 +264,14 @@ Azure Portal의 왼쪽 메뉴에서 **추가 서비스** > **App Service 도메�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-**확인**을 선택하여 작업을 확인합니다. 계속하지 않으려면 확인 대화 상자 외부의 아무 곳이나 클릭합니다.
+작업을 확인하려면 **예**를 선택합니다.
 
 작업이 완료되면 구독에서 도메인이 해제되어 누구든지 다시 구매할 수 있게 됩니다. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>사용자 지정 디렉터리로 기본 URL 전달
+
+App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.
+
+## <a name="more-resources"></a>추가 리소스
+
+[FAQ: App Service 도메인(미리 보기) 및 사용자 지정 도메인](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

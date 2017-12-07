@@ -1,5 +1,5 @@
 ---
-title: "사용자 지정 역할 기반 액세스 제어 역할 만들기 및 Azure에서 내부 및 외부 사용자에게 할당 | Microsoft Docs"
+title: "사용자 지정 역할 기반 Access Control 역할 만들기 및 Azure에서 내부 및 외부 사용자에게 할당 | Microsoft Docs"
 description: "내부 및 외부 사용자에게 PowerShell 및 CLI를 사용하여 만든 사용자 지정 RBAC 역할 할당"
 services: active-directory
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>역할 기반 액세스 제어 소개
+# <a name="intro-on-role-based-access-control"></a>역할 기반 액세스 제어 소개
 
 역할 기반 액세스 제어는 구독의 소유자가 해당 환경에서 특정 리소스 범위를 관리할 수 있는 다른 사용자에게 세분화된 역할을 할당하는 Azure Portal에만 있는 기능입니다.
 
@@ -32,8 +32,7 @@ Azure 환경에서 RBAC를 사용하려면 다음 항목이 필요합니다.
 * 소유자인 사용자에게 할당된 독립 실행형 Azure 구독(구독 역할)
 * Azure 구독의 소유자 역할
 * [Azure Portal](https://portal.azure.com)에 대한 액세스 권한
-* 사용자 구독에 등록된 다음과 같은 리소스 공급자: **Microsoft.Authorization** 리소스 공급자를 등록하는 방법에 대해 자세히 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](/azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* 사용자 구독에 등록된 다음과 같은 리소스 공급자: **Microsoft.Authorization** 리소스 공급자를 등록하는 방법에 대해 자세히 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
 
 > [!NOTE]
 > O365 포털에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Azure Active Directory에 액세스)는 RBAC를 사용할 자격이 없습니다.
@@ -62,7 +61,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 이 예제에서 "기본 테넌트 Azure" 디렉터리에는 도메인 이름 "@alflanigan.onmicrosoft.com"을 가진 사용자만이 포함됩니다.
 
-관리 사용자는 구독을 선택한 후에 **액세스 제어(IAM)** 및 **새 역할 추가**를 차례로 클릭해야 합니다.
+관리 사용자는 구독을 선택한 후에 **Access Control(IAM)** 및 **새 역할 추가**를 차례로 클릭해야 합니다.
 
 
 
@@ -76,10 +75,9 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 ![Azure Portal의 액세스 제어 IAM 기능에서 새 사용자 추가](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 해당 할당 가능한 범위에 대한 자세한 설명은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](/active-directory/role-based-access-built-in-roles.md)을 참조하세요.
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 해당 할당 가능한 범위에 대한 자세한 설명은 [Azure 역할 기반 Access Control의 기본 제공 역할](role-based-access-built-in-roles.md)을 참조하세요.
 
-관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **구독 > 액세스 제어(IAM)**를 표시합니다.
+관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **구독 > Access Control(IAM)**을 표시합니다.
 
 
 
@@ -123,8 +121,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 * Azure Portal에서 다른 아이콘 형식
 * 클래식 포털에서 다른 소싱 지점
 
-그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 구성원은 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](/active-directory/active-directory-b2b-admin-add-users)을 참조하세요.
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 구성원은 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)을 참조하세요.
 
 > [!NOTE]
 > 포털에서 자격 증명을 입력한 후에 외부 사용자가 올바른 디렉터리에 로그인하는지 확인합니다. 동일한 사용자는 여러 디렉터리에 대한 액세스 권한이 있을 수 있고 Azure Portal의 오른쪽 위에 있는 사용자 이름을 클릭 그 중 하나를 선택한 다음 드롭다운 목록에서 적절한 디렉터리를 선택할 수 있습니다.
@@ -165,7 +162,7 @@ Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구
 
 
 
-![Azure Portal에서 가상 컴퓨터 참가자 역할 개요](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![Azure Portal에서 가상 머신 참여자 역할 개요](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>구독 수준에서 동일한 디렉터리의 사용자에 대한 액세스 권한 부여
 RBAC 역할을 부여하는 관리자 관점뿐만 아니라 역할에 대한 액세스 권한이 부여된 사용자 관점에서도 프로세스 흐름은 외부 사용자를 추가하는 것과 동일합니다. 여기서 차이점은 구독 내의 모든 리소스 범위를 로그인한 후에 대시보드에서 사용할 수 있는 경우 초대받은 사용자가 구독 내에서 어떤 이메일 초대도 수신하지 않는다는 것입니다.
@@ -306,7 +303,7 @@ Mac에서 및 PowerShell에 액세스하지 않고 실행하려면 Azure CLI를 
 
 CLI를 사용하여 JSON 템플릿에서 역할을 다운로드할 수 없지만 CLI에서 볼 수 있다는 예외를 제외하면 사용자 지정 역할을 만드는 단계는 동일합니다.
 
-이 예제에서 **백업 판독기**의 기본 제공 역할을 선택했습니다.
+이 예제에서 **Backup 판독기**의 기본 제공 역할을 선택했습니다.
 
 ```
 

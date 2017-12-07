@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
@@ -55,9 +55,9 @@ Cloud Shell은 Azure Portal뿐 아니라 여러 방법으로 액세스할 수 �
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Azure File Storage 연결
+### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 저장소 연결
 Cloud Shell 컴퓨터는 임시이며 결과적으로 Azure Files 공유를 `clouddrive`로 탑재하도록 하여 $Home 디렉터리를 유지합니다.
-Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 및 파일 공유를 만들라는 메시지가 자동으로 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Azure Cloud Shell의 Bash 및 PowerShell(미리 보기) 모두에 의해 단일 파일 공유가 매핑될 수 있으며 사용될 것입니다.
+Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 및 Azure 파일 공유를 만들라는 메시지가 자동으로 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. Cloud Shell의 Bash 및 PowerShell(미리 보기) 모두에 의해 단일 Azure 파일 공유가 매핑될 수 있으며 사용될 것입니다.
 
 #### <a name="create-new-storage"></a>새 저장소 만들기
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 �
 3. 파일 공유: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> 또한 Azure Cloud Shell의 Bash는 `$Home`을 유지하도록 기본 5GB 디스크 이미지를 만듭니다. SSH 키와 같이 $Home 디렉터리의 모든 파일은 탑재된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. $Home 디렉터리 및 탑재된 파일 공유에서 파일을 저장하는 경우 모범 사례를 적용합니다.
+> 또한 Azure Cloud Shell의 Bash는 `$Home`을 유지하도록 기본 5GB 디스크 이미지를 만듭니다. SSH 키와 같이 $Home 디렉터리의 모든 파일은 탑재된 Azure 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. $Home 디렉터리 및 탑재된 Azure 파일 공유에서 파일을 저장하는 경우 모범 사례를 적용합니다.
 
 #### <a name="use-existing-resources"></a>기존 리소스 사용
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 �
 저장소 설정 프롬프트에서 "고급 설정 표시"를 클릭하면 추가 옵션이 표시됩니다.
 드롭다운이 필터링되면서 할당된 Cloud Shell 하위 지역 및 로컬/전역 중복 저장소 계정이 표시됩니다.
 
-[Azure Cloud Shell 저장소, 파일 공유 업데이트 및 파일 업로드/다운로드에 대해 자세히 알아봅니다.](persisting-shell-storage.md)
+[Azure Cloud Shell 저장소, Azure 파일 공유 업데이트 및 파일 업로드/다운로드에 대해 자세히 알아봅니다.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>개념
 * Cloud Shell은 세션 별, 사용자 단위 기준으로 제공된 임시 호스트에서 실행됩니다.
 * Cloud Shell은 대화형 작업 없이 20분 후에 시간이 초과됩니다.
-* Cloud Shell은 파일 공유를 탑재해야 합니다.
-* Cloud Shell은 Bash 및 PowerShell 모두에 동일한 파일 공유를 사용합니다.
+* Cloud Shell은 Azure 파일 공유를 탑재해야 합니다.
+* Cloud Shell은 Bash 및 PowerShell 모두에 동일한 Azure 파일 공유를 사용합니다.
 * Cloud Shell은 사용자 계정 별로 하나의 컴퓨터를 할당합니다.
 * 사용 권한은 Bash의 일반적인 Linux 사용자로 설정됩니다.
 

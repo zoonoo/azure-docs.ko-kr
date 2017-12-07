@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API 설명서
 
@@ -36,7 +36,7 @@ Azure Cosmos DB용 DocumentDB API에 대한 학습을 시작하기 위해 일거
 
 ## <a name="quickstarts"></a>빠른 시작
 
-빠른 시작 항목은 Azure Cosmos DB를 사용하여 응용 프로그램을 만드는 가장 빠른 방법입니다. 각 빠른 시작에서는 UI 기반 Azure Portal 및 즐겨 찾는 코딩 언어를 사용하여 Azure Cosmos DB를 사용하여 데이터베이스 솔루션을 만드는 방법에 대해 설명합니다. 각 빠른 시작에 사용할 수 있는 GitHub 영역에서 복제 가능한 웹앱입니다. 
+빠른 시작 항목은 Azure Cosmos DB를 사용하여 응용 프로그램을 만드는 가장 빠른 방법입니다. 각 빠른 시작에서는 UI 기반 Azure Portal 및 즐겨 찾는 코딩 언어를 사용하여 Azure Cosmos DB를 사용하여 데이터베이스 솔루션을 만드는 방법에 대해 설명합니다. GitHub에서 복제 가능한 웹앱은 각 빠른 시작에서 사용할 수 있습니다. 
 
 - [.NET + Azure Portal + 웹앱](create-documentdb-dotnet.md)
 - [Java + Azure Portal + 웹앱](create-documentdb-java.md)

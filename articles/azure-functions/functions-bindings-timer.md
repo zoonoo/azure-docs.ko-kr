@@ -1,13 +1,13 @@
 ---
-title: "Azure Functions 타이머 트리거"
+title: "Azure Functions의 타이머 트리거"
 description: "Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
+keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Azure Functions 타이머 트리거
+# <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
 이 문서에서는 Azure Functions에서 타이머 트리거를 사용하는 방법을 설명합니다. 타이머 트리거를 사용하면 일정에 따라 함수를 실행할 수 있습니다. 
 
@@ -118,7 +118,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-F# 스크립트 코드는 다음과 같습니다.
+JavaScript 스크립트 코드는 다음과 같습니다.
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>미리 컴파일된 C#의 특성
+## <a name="attributes"></a>특성
 
 [미리 컴파일된 C#](functions-dotnet-class-library.md) 함수의 경우 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)를 사용하며 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지에 정의됩니다.
 
@@ -143,9 +143,14 @@ module.exports = function (context, myTimer) {
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 함수 앱이 App Service 계획(소비 계획 아님)에서 실행되는 경우 CRON 식 대신 `TimeSpan`을 지정할 수 있습니다.
+
+전체 예제는 [미리 컴파일된 C# 예제](#c-example)를 참조하세요.
 
 ## <a name="configuration"></a>구성
 
@@ -156,7 +161,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**type** | 해당 없음 | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
-|**schedule**|**ScheduleExpression**|소비 계획에서 CRON 식을 사용하여 일정을 정의할 수 있습니다. App Service 계획을 사용하는 경우 `TimeSpan` 문자열을 사용할 수도 있습니다. 다음 섹션에서는 CRON 식을 설명합니다. "%NameOfAppSettingWithCRONExpression%" 예제와 같이 앱 설정에서 일정 식을 설정하고 이 속성을 **%** 기호에서 래핑된 값으로 설정할 수 있습니다. 로컬로 개발하는 경우 앱 설정은 [local.settings.json 파일](functions-run-local.md#local-settings-file) 값으로 이동합니다.|
+|**schedule**|**ScheduleExpression**|소비 계획에서 CRON 식을 사용하여 일정을 정의할 수 있습니다. App Service 계획을 사용하는 경우 `TimeSpan` 문자열을 사용할 수도 있습니다. 다음 섹션에서는 CRON 식을 설명합니다. "%NameOfAppSettingWithCRONExpression%" 예제와 같이 앱 설정에서 일정 식을 설정하고 이 속성을 **%** 기호에서 래핑된 값으로 설정할 수 있습니다. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>CRON 형식 
 

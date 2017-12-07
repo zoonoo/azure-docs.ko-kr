@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,11 +35,11 @@ Oracle 데이터베이스에서 지원되는 싱크 데이터 저장소로 또�
 
 특히, 이 Oracle 커넥터는 Oracle 데이터베이스의 다음 버전을 지원하고 기본 또는 OID 인증을 지원합니다.
 
-    - Oracle 12c R1(12.1)
-    - Oracle 11g R1, R2(11.1, 11.2)
-    - Oracle 10g R1, R2(10.1, 10.2)
-    - Oracle 9i R1, R2(9.0.1, 9.2)
-    - Oracle 8i R3(8.1.7)
+- Oracle 12c R1(12.1)
+- Oracle 11g R1, R2(11.1, 11.2)
+- Oracle 10g R1, R2(10.1, 10.2)
+- Oracle 9i R1, R2(9.0.1, 9.2)
+- Oracle 8i R3(8.1.7)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -207,7 +207,7 @@ Oracle 간에 데이터를 복사할 경우 Oracle 데이터 형식에서 Azure 
 | Oracle 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(Oracle 10g 이상에서만 지원됨) |
 | CHAR |문자열 |
 | CLOB |문자열 |
 | DATE |DateTime |

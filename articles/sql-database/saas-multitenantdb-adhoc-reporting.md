@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/15/2017
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * SSMS(SQL Server Management Studio)가 설치되었습니다. SSMS를 다운로드하고 설치하려면 [SSMS(SQL Server Management Studio) 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
 
@@ -52,12 +52,11 @@ SaaS 응용 프로그램은 클라우드에 중앙 집중식으로 저장되는 
 
 탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분을 확인합니다. 또한 반환되는 데이터의 양을 평가합니다. 추출한 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스에 저장하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. SQL Database 및 SQL Data Warehouse는 이러한 분석 데이터베이스를 호스트할 수 있습니다.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+분석에 대한 이 패턴은 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)에서 설명되어 있습니다.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB github 리포지토리](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB)에서 사용할 수 있습니다. 추가 정보에 설명된 차단 해제 단계를 수행해야 합니다.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -96,7 +95,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에�
 
     ![자격 증명 만들기](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   카탈로그 데이터베이스에서 테넌트 Shard Map을 사용하도록 정의된 외부 데이터 원본. 이것을 외부 데이터 원본으로 사용하면 쿼리가 실행되는 경우 카탈로그에 등록된 모든 데이터베이스에 쿼리가 배포됩니다. 각 배포에 대한 서버 이름이 다르기 때문에 이 초기화 스크립트는 스크립트가 실행되는 현재 서버(@@servername)를 검색하여 카탈로그 데이터베이스의 위치를 가져옵니다.
+   이 카탈로그 데이터베이스를 외부 데이터 원본으로 사용하면 쿼리가 실행되는 경우 카탈로그에 등록된 모든 데이터베이스에 쿼리가 배포됩니다. 각 배포에 대한 서버 이름이 다르기 때문에 이 초기화 스크립트는 스크립트가 실행되는 현재 서버(@@servername)를 검색하여 카탈로그 데이터베이스의 위치를 가져옵니다.
 
     ![외부 데이터 원본 만들기](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에�
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
+1. *SSMS*에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.
 3. **쿼리** 메뉴를 선택하고 **실제 실행 계획 포함**을 클릭합니다.
 4. *현재 등록된 부문* 쿼리를 강조 표시하고 **F5** 키를 누릅니다.
@@ -155,9 +154,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에�
 > * 모든 테넌트 데이터베이스에서 분산 쿼리 실행
 > * 임시 보고 데이터베이스를 배포하고 스키마를 추가하여 배포된 쿼리를 실행합니다.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+이제 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)를 시도하여 복잡한 분석을 처리하기 위해 별도 분석 데이터베이스에 추출하는 데이터를 탐색합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>개발자 작업용 팀 데이터 과학 프로세스
 
-이 문서는 고급 분석 및 Cognitive Services 솔루션 구현에 관련된 DevOps(개발자 작업) 함수를 탐색합니다. 데이터 과학 프로세스 및 플랫폼, DevOps 프로세스 및 데이터 과학, AI 프로젝트 및 솔루션에 관련된 DevOps 도구 체인 이해를 다루는 항목을 참조합니다.
+이 문서는 고급 분석 및 Cognitive Services 솔루션 구현에 관련된 DevOps(개발자 작업) 함수를 탐색합니다. 이러한 교육 자료는 TDSP(Team Data Science Process) 및 Microsoft와 오픈 소스 소프트웨어 및 도구 키트와 관련이 있으며 데이터 과학 솔루션을 구상, 실행 및 전달하는 데 유용합니다. 데이터 과학과 AI 프로젝트 및 솔루션과 관련된 DevOps 도구 체인을 설명하는 토픽을 참조합니다.
 
 ## <a name="lesson-path"></a>단원 경로
 다음 표에서는 Azure 기술로 데이터 과학 솔루션을 구현하는 데 필요한 DevOps 목표를 완료하기 위해 도움을 주는 지정된 수준에서 지침을 제공합니다.

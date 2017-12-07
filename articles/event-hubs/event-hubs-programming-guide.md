@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Event Hubs 프로그래밍 가이드
 
@@ -117,10 +117,10 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-단일 배치가 이벤트의 256KB 제한을 넘지 않아야 한다는 것에 유의해야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다.
+단일 배치가 이벤트의 256KB 제한을 넘지 않아야 한다는 것에 유의해야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다. 도우미 메서드 [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch)를 사용하면 일괄 처리가 256KB를 초과하지 않도록 할 수 있습니다. [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API에서 빈 [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch)를 얻은 다음 [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_)를 사용하여 이벤트를 추가하여 일괄 처리를 구성합니다. 마지막으로 [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable)을 사용하여 기본 이벤트를 [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API로 전달합니다.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
-또한 비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킬 수 있습니다. [보내기](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) 및 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 메서드는 모두 [태스크](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 개체를 반환하는 비동기 버전에서 사용할 수 있습니다. 이 기술은 처리량을 늘릴 수 있는 반면 Event Hubs 서비스에 의해 제한되는 동안 이벤트를 보내기 위해 클라이언트를 계속 발생시킬 수 있고 제대로 구현되지 않은 경우 클라이언트에 오류 또는 손실 메시지가 발생할 수 있습니다. 또한 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) 속성을 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
+또한 비동기적으로 이벤트를 이벤트 허브로 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킬 수 있습니다. [보내기](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) 및 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) 메서드는 모두 [태스크](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 개체를 반환하는 비동기 버전에서 사용할 수 있습니다. 이 기술은 처리량을 늘릴 수 있는 반면 Event Hubs 서비스에 의해 제한되는 동안 이벤트를 보내기 위해 클라이언트를 계속 발생시킬 수 있고 제대로 구현되지 않은 경우 클라이언트에 오류 또는 손실 메시지가 발생할 수 있습니다. 또한 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) 속성을 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
 
 ## <a name="create-a-partition-sender"></a>파티션 발신자 만들기
 파티션 키 없이 이벤트 허브에 이벤트를 보내는 방법이 가장 일반적이지만 지정된 파티션에 직접 이벤트를 보낼 수 있는 경우도 있습니다. 예:

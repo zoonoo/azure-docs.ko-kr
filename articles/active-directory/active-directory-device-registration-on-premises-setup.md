@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -115,7 +115,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
    
    또한 [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md)에서 설명한 대로 AD FS를 사용하여 페더레이션을 구성합니다.
 
-## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory 도메인 서비스 스키마 업그레이드
+## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory Domain Services 스키마 업그레이드
 > [!NOTE]
 > Active Directory 스키마를 업그레이드한 후에는 프로세스를 취소할 수 없습니다. 먼저 테스트 환경에서 업그레이드를 수행하는 것이 좋습니다.
 > 
@@ -166,9 +166,9 @@ Azure Active Directory 장치 등록은 iOS 장치에 대한 공중파 프로필
 4. 메시지가 표시되면 자격 증명으로 로그인합니다. 이제 장치가 연결되었습니다.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 Windows 7 장치 연결
-Windows 7 도메인 가입 장치를 등록하려면 장치 등록 소프트웨어 패키지를 배포해야 합니다. 이 소프트웨어 패키지는 Windows 7용 작업 공간 연결이라고 하며, [Microsoft Connect 웹 사이트](https://connect.microsoft.com/site1164)에서 다운로드할 수 있습니다. 
+Windows 7 도메인 가입 장치를 등록하려면 [장치 등록 소프트웨어 패키지](https://www.microsoft.com/download/details.aspx?id=53554)를 배포해야 합니다.
 
-패키지를 사용하는 방법에 대한 지침은 [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+패키지를 사용하는 방법에 대한 지침은 [비 Windows 10 컴퓨터용 Windows Installer 패키지](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers)를 참조하십시오.
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>등록된 장치가 Active Directory에 쓰기 저장되었는지 확인
 LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 쓰기 저장되었는지 확인할 수 있습니다. 둘 다 Active Directory 관리자 도구에서 사용할 수 있습니다.

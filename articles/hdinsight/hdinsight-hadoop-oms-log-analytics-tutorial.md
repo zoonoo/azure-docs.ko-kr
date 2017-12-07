@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: nitinme
-ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ca2cf642cfff2961dcb0dd18f0e712f61d6915c2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
@@ -44,7 +44,7 @@ Azure Log Analytics를 사용하여 HDInsight에서 Hadoop 클러스터 작업�
 
 * **Log Analytics 작업 영역** - 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경으로 생각할 수 있습니다. Azure HDInsight 클러스터와 연결할 수 있는 작업 영역 하나가 이미 만들어져 있어야 합니다. 지침은 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
 
-## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Log Analytics를 사용하도록 HDInsight 클러스터 구성
+## <a name="enable-log-analytics-by-using-the-portal"></a>포털을 사용하여 Log Analytics 사용
 
 이 섹션에서는 Azure Log Analytics 작업 영역을 사용하여 작업, 디버그 로그 등을 모니터링하도록 기존 HDInsight Hadoop 클러스터를 구성합니다.
 
@@ -62,6 +62,25 @@ Azure Log Analytics를 사용하여 HDInsight에서 Hadoop 클러스터 작업�
 6. 메시지가 표시되면 Azure 자격 증명을 입력합니다.
 
     ![Operations Management Suite 포털](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite 포털")
+
+## <a name="enable-log-analytics-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Log Analytics 사용
+
+Azure PowerShell을 사용하여 Log Analytics를 사용할 수 있습니다. cmdlet는 다음과 같습니다.
+
+```powershell
+Enable-AzureRmHDInsightOperationsManagementSuite
+```
+
+[Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0)를 참조하세요.
+
+사용하지 않으려면 cmdlet는 다음과 같습니다. 
+
+```powershell
+Disable-AzureRmHDInsightOperationsManagementSuite
+```
+
+[Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에 HDInsight 클러스터 관리 솔루션 추가](hdinsight-hadoop-oms-log-analytics-management-solutions.md)

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/19/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
-[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다.  
+[Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다.   
 
-이 토픽에서는 조건부 액세스 정책의 다음 구성 옵션에 대한 지원 정보를 제공합니다. 
+이 문서에서는 조건부 액세스 정책의 다음 구성 옵션에 대한 지원 정보를 제공합니다. 
 
 - 클라우드 응용 프로그램 할당
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 
 ## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
 
-조건부 액세스 정책을 구성할 경우 [정책을 사용할 클라우드 앱](active-directory-conditional-access-azure-portal.md#who)을 선택해야 합니다. 
+조건부 액세스 정책을 사용하면 사용자가 [클라우드 앱](active-directory-conditional-access-azure-portal.md#who)에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성할 경우 하나 이상의 클라우드 앱을 선택해야 합니다. 
 
 ![정책에 대한 클라우드 앱 선택](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ ms.lasthandoff: 11/20/2017
 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다.
 
 - Azure Information Protection - [자세한 정보](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ## <a name="client-apps-condition"></a>클라이언트 앱 조건 
 
-조건부 액세스 정책을 구성할 경우 클라이언트 앱 조건에 대해 [클라이언트 앱](active-directory-conditional-access-azure-portal.md#client-apps)을 선택할 수 있습니다. 다음과 같은 종류의 클라이언트 앱에서 액세스를 시도할 때 액세스를 차단하거나 부여하는 클라이언트 앱 조건을 설정합니다.
+조건부 액세스 정책에서 액세스 시도를 시작한 클라이언트 앱에 정책을 연결하도록 [클라이언트 앱](active-directory-conditional-access-azure-portal.md#client-apps) 조건을 구성할 수 있습니다. 다음과 같은 종류의 클라이언트 앱에서 액세스를 시도할 때 액세스를 차단하거나 부여하는 클라이언트 앱 조건을 설정합니다.
 
 - 브라우저
 - 모바일 앱 및 데스크톱 앱
@@ -112,11 +113,11 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ### <a name="supported-browsers"></a>지원되는 브라우저 
 
-조건부 액세스 정책에서 **브라우저** 옵션을 사용하여 브라우저 액세스를 제어합니다. 지원되는 브라우저에서 액세스를 시도해야만 액세스가 부여됩니다. 지원되지 않는 브라우저에서 액세스하는 경우 시도가 차단됩니다.
+조건부 액세스 정책에서 **브라우저**를 클라이언트 앱으로 선택할 수 있습니다.
 
 ![지원되는 브라우저의 액세스 제어](./media/active-directory-conditional-access-technical-reference/05.png)
 
-조건부 액세스 정책에서 다음 브라우저가 지원됩니다. 
+이 설정은 다음 브라우저에서 수행하는 액세스 시도에 영향을 미칩니다. 
 
 
 | OS                     | 브라우저                            | 지원     |
@@ -140,42 +141,43 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>지원되는 모바일 응용 프로그램 및 데스크톱 클라이언트
 
-조건부 액세스 정책의 **모바일 앱 및 데스크톱 클라이언트** 옵션을 사용하여 앱 및 클라이언트 액세스를 제어합니다. 지원되는 모바일 앱 또는 데스크톱 클라이언트에서 액세스를 시도해야만 액세스가 부여됩니다. 지원되지 않는 앱이나 클라이언트에서 액세스하는 경우 시도가 차단됩니다.
+조건부 액세스 정책에서 **모바일 앱 및 데스크톱 클라이언트**를 클라이언트 앱으로 선택할 수 있습니다.
+
 
 ![지원되는 모바일 앱 또는 데스크톱 클라이언트에 대한 액세스 제어](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 조건부 액세스를 지원하는 모바일 앱 및 데스크톱 클라이언트는 다음과 같습니다.
+
+이 설정은 다음 모바일 앱 및 데스크톱 클라이언트에서 수행하는 액세스 시도에 영향을 미칩니다. 
 
 
-| 클라이언트 앱| 대상 서비스| 플랫폼 |
-| --- | --- | --- |
-| Azure 원격 앱| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
-| Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online| Windows 10|
-| 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS|
-| Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.| Office 365 SharePoint Online| Windows 10|
-| macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| Mac OS X|
-| Office 모바일 앱| Office 365 SharePoint Online| iOS, Android|
-| Office Yammer 앱| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016(macOS용 Office)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Outlook 모바일 앱| Office 365 Exchange Online| iOS|
-| PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7 및 iOS|
-| 비즈니스용 Skype| Office 365 Exchange Online| Android, iOS|
-| Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
-
+|클라이언트 앱|대상 서비스|플랫폼|
+|---|---|---|
+|Azure 원격 앱|Azure 원격 앱 서비스|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
+|Dynamics CRM 앱|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+|메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)|Office 365 Exchange Online|Windows 10|
+|앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
+|Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|Microsoft 팀|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
+|Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|Windows 10|
+|macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원|Office 365 SharePoint Online|Mac OS X|
+|Office 모바일 앱|Office 365 SharePoint Online|Android, iOS|
+|Office Yammer 앱|Office 365 Yammer|Windows 10, iOS, Android|
+|Outlook 2016(macOS용 Office)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 모바일 앱|Office 365 Exchange Online|Android, iOS|
+|PowerBI 앱. Android용 Power BI 앱은 장치 기반 조건부 액세스를 현재 지원하지 않습니다.|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7 및 iOS|
+|비즈니스용 Skype|Office 365 Exchange Online|Android, iOS |
+|Visual Studio Team Services 앱|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 
 
 
 ## <a name="approved-client-app-requirement"></a>승인된 클라이언트 앱 요구 사항 
 
-조건부 액세스 정책에서 **승인된 클라이언트 앱 필요** 옵션을 사용하여 클라이언트 연결을 제어합니다. 승인된 클라이언트 앱으로 연결하는 경우에만 액세스가 부여됩니다.
+조건부 액세스 정책에서 선택한 클라우드 앱에 대한 액세스 시도가 승인된 클라이언트 앱에서 수행되도록 요구할 수 있습니다. 
 
 ![승인된 클라이언트 앱에 대한 액세스 제어](./media/active-directory-conditional-access-technical-reference/21.png)
 
-승인된 클라이언트 응용 프로그램 요구 사항에 다음 클라이언트 앱을 사용할 수 있습니다.
+이 설정은 다음 클라이언트 앱에 적용됩니다.
 
 
 - Microsoft Azure Information Protection

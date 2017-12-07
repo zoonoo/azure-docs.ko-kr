@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 컴퓨터 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 1. 장애 조치된 가상 컴퓨터에 만족하면 장애 조치를 **커밋**할 수 있습니다. 커밋은 서비스에서 사용할 수 있는 복구 지점을 모두 삭제하고 **복구 지점 변경** 옵션을 더 이상 사용할 수 없게 됩니다.
 
 ## <a name="planned-failover"></a>계획된 장애 조치
-Site Recovery를 사용하여 보호되는 가상 컴퓨터/물리적 서버는 **계획된 장애 조치**도 지원합니다. 계획된 장애 조치(failover)는 데이터 무손실 장애 조치 옵션입니다. 계획된 장애 조치가 트리거되면 먼저 원본 가상 컴퓨터가 종료되고, 아직 동기화할 데이터가 동기화되지 않은 다음 장애 조치가 트리거됩니다.
+Site Recovery를 사용하여 보호되는 가상 컴퓨터/물리적 서버는 **계획된 장애 조치**도 지원합니다. 계획된 장애 조치(failover)는 데이터 무손실 장애 조치 옵션입니다. 계획된 장애 조치(failover)가 트리거되면 먼저 원본 가상 머신이 종료되고, 최신 데이터가 동기화된 다음, 장애 조치(failover)가 트리거됩니다.
 
 > [!NOTE]
 > 하나의 온-프레미스 사이트에서 다른 온-프레미스 사이트로 Hyper-V 가상 컴퓨터를 장애 조치하는 경우 기본 온-프레미스 사이트로 다시 돌아가려면 먼저 가상 컴퓨터를 기본 사이트로 **역방향 복제**한 다음 장애 조치를 트리거해야 합니다. 기본 가상 컴퓨터를 사용할 수 없는 경우 **역방향 복제**를 시작하기 전에 백업에서 가상 컴퓨터를 복원해야 합니다.   

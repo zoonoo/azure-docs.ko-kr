@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: ec753027c8ce8040cbc574279a44eb24590fcb05
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-sql-database"></a>공유 다중 테넌트 SQL 데이터베이스를 사용하여 SaaS 응용 프로그램에 새 테넌트를 프로비전하고 카탈로그로 만들기
 
@@ -78,19 +78,18 @@ SQL 스크립트를 실행하거나 bacpac을 배포하거나 템플릿 데이�
 * Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
-## <a name="get-the-wingtip-tickets-management-scripts"></a>Wingtip Tickets 관리 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 소스 코드 및 스크립트 가져오기
 
-관리 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 받을 수 있습니다. <!--See [Steps to download the Wingtip SaaS scripts](saas-tenancy-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).-->
-
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요. 
 
 ## <a name="provision-a-tenant-in-a-shared-database-with-other-tenants"></a>다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전
 
 Wingtip Tickets 응용 프로그램이 공유 데이터베이스에 새 테넌트를 프로비전하는 방법을 이해하려면 중단점을 추가하여 워크플로를 단계별로 실행합니다.
 
-1. _PowerShell ISE_에서 ...\\학습 모듈\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_을 열고 다음 매개 변수를 설정합니다.
+1. _PowerShell ISE_에서 ...\\학습 모듈\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_을 열고 다음 매개 변수를 설정합니다.
    * **$TenantName** = **Bushwillow 블루스**: 새 장소의 이름.
-   * **$VenueType** = **블루스**: 미리 정의된 장소 유형 중 하나: *블루스*, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
-   * **$Scenario** = **1**: *다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전*.
+   * **$VenueType** = **블루스**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
+   * **$DemoScenario** = **1**: *다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전*.
 
 1. 커서를 38행(*New-Tenant `*)의 아무 위치에 두고 중단점을 추가한 다음 **F9**를 누릅니다.
 
@@ -121,10 +120,10 @@ Wingtip Tickets 응용 프로그램이 공유 데이터베이스에 새 테넌�
 
 이제 자체 데이터베이스에 테넌트를 만드는 프로세스를 단계별로 알아보겠습니다.
 
-1. 여전히 ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_에서 다음 매개 변수를 설정합니다.
+1. ...\\학습 모듈\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_을 열고 다음 매개 변수를 설정합니다.
    * **$TenantName** = **Sequoia Soccer**: 새 장소의 이름.
-   * **$VenueType** = **축구**: 미리 정의된 장소 유형 중 하나: *블루스*, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
-   * **$Scenario** = **2**: *다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전*.
+   * **$VenueType** = **축구**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
+   * **$DemoScenario** = **2**: *자체 데이터베이스에 테넌트 프로비전*.
 
 1. 커서를 57행(*&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*)의 아무 위치에 두고 새로운 중단점을 추가한 다음 **F9**를 누릅니다.
 
@@ -152,30 +151,31 @@ Wingtip Tickets 응용 프로그램이 공유 데이터베이스에 새 테넌�
 
 이 연습에서는 17개의 테넌트의 배치를 프로비전합니다. 데이터베이스가 여러 개 있도록 다른 Wingtip Tickets 자습서를 시작하기 전에 이 테넌트의 일괄 처리를 프로비전하는 것이 좋습니다.
 
-1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*을 열고 *$Scenario* 매개 변수를 3으로 변경합니다.
-   * **$Scenario** = **3**: *테넌트 일괄 처리를 공유 데이터베이스에 프로비전*합니다.
+
+1. *PowerShell ISE*에서 ...\\학습 모듈\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 열고 *$DemoScenario* 매개 변수를 4로 변경합니다.
+   * **$DemoScenario** = **4**: *공유 데이터베이스에 테넌트 일괄 처리 프로비전*.
 1. **F5**를 누르고 스크립트를 실행합니다.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>배포된 테넌트 집합 확인 
-이 단계에서는 공유 데이터베이스에 혼합 테넌트가 배포되었고, 테넌트가 자체 데이터베이스에 배포되었습니다. Azure Portal을 사용하여 생성된 데이터베이스를 검사할 수 있습니다.  
-
-* [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동하여 **tenants1-mt-\<USER\>** 서버를 엽니다.  **SQL 데이터베이스** 목록에 공유 데이터베이스 **tenants1** 및 자체 데이터베이스에 있는 테넌트의 데이터베이스가 표시될 것입니다.
+이 단계에서는 공유 데이터베이스에 혼합 테넌트가 배포되었고, 테넌트가 자체 데이터베이스에 배포되었습니다. Azure Portal을 사용하여 생성된 데이터베이스를 검사할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동하여 **tenants1-mt-\<USER\>** 서버를 엽니다.  **SQL 데이터베이스** 목록에 공유 데이터베이스 **tenants1** 및 자체 데이터베이스에 있는 테넌트의 데이터베이스가 표시될 것입니다.
 
    ![데이터베이스 목록](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터베이스 *내부*의 테넌트는 볼 수 없습니다. 테넌트 전체 목록은 Wingtip 티켓 이벤트 허브 페이지에서 카탈로그를 탐색하여 확인할 수 있습니다.   
 
-1. 브라우저에서 이벤트 허브 페이지 열기(http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+**Wingtip 티켓 이벤트 허브 페이지 사용** <br>
+브라우저에서 이벤트 허브 페이지 열기(http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
 
-   테넌트 및 해당 데이터베이스의 전체 목록은 카탈로그에서 사용할 수 있습니다. Tenants 테이블에 저장된 테넌트 이름을 Shard Management 테이블의 데이터베이스 이름에 조인하는 tenantcatalog 데이터베이스에 SQL 보기가 제공됩니다. 이 보기는 카탈로그에 저장된 메타데이터를 확장하면 어떤 가치가 있는지 아주 잘 보여 줍니다.
+**카탈로그 데이터베이스 사용** <br>
+테넌트 및 해당 데이터베이스의 전체 목록은 카탈로그에서 사용할 수 있습니다. Tenants 테이블에 저장된 테넌트 이름을 Shard Management 테이블의 데이터베이스 이름에 조인하는 tenantcatalog 데이터베이스에 SQL 보기가 제공됩니다. 이 보기는 카탈로그에 저장된 메타데이터를 확장하면 어떤 가치가 있는지 아주 잘 보여 줍니다.
 
-2. *SSMS(SQL Server Management Studio)*에서 로그인 **developer**, 암호 **P@ssword1**를 사용하여 테넌트 서버 **tenants1-mt.\<USER\>.database.windows.net**에 연결합니다.
+1. *SSMS(SQL Server Management Studio)*에서 로그인: **developer**, 암호: **P@ssword1**를 사용하여 **catalog-mt.\<USER\>.database.windows.net**에서 테넌트 서버에 연결합니다.
 
     ![SSMS 연결 대화 상자](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. *개체 탐색기*에서 *tenantcatalog* 데이터베이스의 보기를 찾습니다.
-2. *TenantsExtended* 보기를 마우스 오른쪽 단추로 클릭하고 **상위 1000개 행 선택**을 선택합니다. 테넌트 이름과 다른 테넌트의 데이터베이스 간 매핑을 확인합니다.
+1. *개체 탐색기*에서 *tenantcatalog* 데이터베이스의 보기를 찾습니다.
+1. *TenantsExtended* 보기를 마우스 오른쪽 단추로 클릭하고 **상위 1000개 행 선택**을 선택합니다. 테넌트 이름과 다른 테넌트의 데이터베이스 간 매핑을 확인합니다.
 
     ![SSMS의 ExtendedTenants 보기](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

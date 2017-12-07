@@ -1,6 +1,6 @@
 ---
 title: "Azure Functions 런타임 버전을 대상으로 지정하는 방법"
-description: "Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅하는 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다."
+description: "Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -44,9 +44,11 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="bindings"></a>바인딩 
 
-런타임 1.x에서 지원하는 실험적 바인딩은 지원 2.x에서 사용할 수 없습니다. 바인딩 지원 및 2.x의 다른 기능 차이에 대한 자세한 내용은 [런타임 2.0의 알려진 문제점](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)을 참조하세요.
-
 런타임 2.x를 사용하면 사용자 지정 [바인딩 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)을 만들 수 있습니다. 이 확장성 모델을 사용하는 기본 제공 바인딩은 2.x에서만 사용할 수 있으며 그 중 첫 번째는 [Microsoft Graph 바인딩](functions-bindings-microsoft-graph.md)입니다.
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+바인딩 지원 및 2.x의 다른 기능 차이에 대한 자세한 내용은 [런타임 2.0의 알려진 문제점](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)을 참조하세요.
 
 ### <a name="cross-platform-development"></a>교차 플랫폼 개발
 

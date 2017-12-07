@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure Multi-Factor Authentication 구성 설정 - 공개 미리 보기
 
@@ -170,21 +170,40 @@ ms.lasthandoff: 11/23/2017
 
 신뢰할 수 있는 IP 사용 여부에 관계없이 브라우저 흐름에 2단계 인증이 필요하고 이전 리치 클라이언트 앱에 앱 암호가 필요합니다. 
 
-### <a name="to-enable-trusted-ips"></a>신뢰할 수 있는 IP를 활성화하려면
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. 관리하려는 디렉터리를 선택합니다. 
-4. **구성**을 선택합니다.
-5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
-6. 서비스 설정 페이지의 신뢰할 수 있는 IP에는 두 가지 옵션이 있습니다.
+### <a name="enable-named-locations-using-conditional-access"></a>조건부 액세스를 사용하여 명명된 위치를 사용하도록 설정
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 선택합니다.
+3. **새 위치**를 선택합니다.
+4. 위치에 대한 이름을 제공합니다.
+5. **신뢰할 수 있는 위치로 표시**를 선택합니다.
+6. CIDR 표기법으로 IP 범위를 지정합니다(예: 192.168.1.1/24).
+7. **만들기**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>조건부 액세스를 사용하여 신뢰할 수 있는 IP를 사용하도록 설정
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 선택합니다.
+3. **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
+4. 서비스 설정 페이지의 신뢰할 수 있는 IP에는 두 가지 옵션이 있습니다.
    
    * **내 인트라넷에서 발생하는 페더레이션된 사용자의 요청** - 확인란을 선택합니다. 회사 네트워크에서 로그인 중인 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하여 2단계 인증을 바이패스합니다. AD FS에 적절한 트래픽에 인트라넷 클레임을 추가하는 규칙이 있는지 확인합니다. 규칙이 아직 없는 경우 AD FS에서 다음 규칙을 만듭니다. "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
+   * **공용 IP 중 특정 범위의 요청** - CIDR 표기법으로 제공된 텍스트 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 50개의 IP 주소 범위를 입력할 수 있습니다. 이러한 IP 주소에서 로그인한 사용자는 2단계 인증을 바이패스합니다.
+5. **저장**을 선택합니다.
 
+### <a name="enable-trusted-ips-using-service-settings"></a>서비스 설정을 사용하여 신뢰할 수 있는 IP를 사용하도록 설정
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+3. **Multi-Factor Authentication**을 선택합니다.
+4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
+5. 서비스 설정 페이지의 신뢰할 수 있는 IP에는 두 가지 옵션이 있습니다.
+   
+   * **내 인트라넷에서 발생하는 페더레이션된 사용자의 요청** - 확인란을 선택합니다. 회사 네트워크에서 로그인 중인 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하여 2단계 인증을 바이패스합니다. AD FS에 적절한 트래픽에 인트라넷 클레임을 추가하는 규칙이 있는지 확인합니다. 규칙이 아직 없는 경우 AD FS에서 다음 규칙을 만듭니다. "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
    * **공용 IP 중 특정 범위의 요청** - CIDR 표기법으로 제공된 텍스트 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 50개의 IP 주소 범위를 입력할 수 있습니다. 이러한 IP 주소에서 로그인한 사용자는 2단계 인증을 바이패스합니다.
-7. **Save**를 클릭합니다.
-8. 업데이트를 적용하면 **닫기**를 클릭합니다.
+6. **저장**을 선택합니다.
 
 ![신뢰할 수 있는 IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 ### <a name="allow-app-password-creation"></a>앱 암호 만들기 허용
 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 이 기능을 사용하도록 설정해야 합니다. 사용자가 앱 암호를 만들 수 있으려면 다음 절차를 수행합니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. 관리하려는 디렉터리를 선택합니다. 
-4. **구성**을 선택합니다.
-5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+3. **Multi-Factor Authentication**을 선택합니다.
+4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 6. **사용자가 비 브라우저 앱에 로그인하도록 앱 암호를 만들 수 있습니다** 옆의 라디오 단추가 선택합니다.
 
 ![앱 암호 만들기](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 >이 기능은 사용자가 Azure MFA Server 또는 타사 MFA 솔루션을 통해 AD FS에 대해 2단계 인증을 수행할 때 AD FS의 "로그인 유지" 기능과는 호환되지 않습니다. 사용자가 AD FS에서 "로그인 유지"를 선택하고 장치를 MFA에 대해 신뢰할 수 있는 것으로 표시한 경우 "MFA 기억" 일 수가 만료된 후에는 확인할 수 없습니다. Azure AD는 새로운 2단계 인증을 요청하지만 AD FS는 2단계 인증을 다시 수행하는 대신, 원본 MFA 클레임 및 날짜와 함께 토큰을 반환합니다. 그러면 Azure AD 및 AD FS 간의 확인 루프가 해제 설정됩니다. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 기억 사용
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. 관리하려는 디렉터리를 선택합니다. 
-4. **구성**을 선택합니다.
-5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
-6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 신뢰하는 장치에 Multi-Factor Authentication을 기억하도록 허용** 상자를 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+3. **Multi-Factor Authentication**을 선택합니다.
+4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
+5. 서비스 설정 페이지의 **Multi-Factor Authentication 저장 관리** 아래에서 **사용자가 신뢰하는 장치에 대한 다단계 인증을 저장하도록 허용** 상자를 선택합니다.
+
    ![장치 기억](./media/multi-factor-authentication-whats-next/remember.png)
-7. 신뢰할 수 있는 장치가 2단계 인증을 바이패스하는 일수를 설정합니다. 기본값은 14일입니다.
-8. **저장**을 클릭합니다.
-9. **닫기**를 클릭합니다.
+
+6. 신뢰할 수 있는 장치가 2단계 인증을 바이패스하는 일수를 설정합니다. 기본값은 14일입니다.
+7. **저장**을 선택합니다.
 
 ### <a name="mark-a-device-as-trusted"></a>장치를 신뢰할 수 있음으로 표시
 
@@ -300,13 +318,12 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 | 모바일 앱의 확인 코드 |Microsoft Authenticator 앱은 30초마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 이 확인 코드를 입력합니다.<br>[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>인증 방법을 활성화/비활성화하는 방법
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. 관리하려는 디렉터리를 선택합니다. 
-4. **구성**을 선택합니다.
-5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
-6. 서비스 설정 페이지의 확인 옵션에서 사용할 옵션을 선택/선택 취소합니다.
-   ![확인 옵션](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. **저장**을 클릭합니다.
-8. **닫기**를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+3. **Multi-Factor Authentication**을 선택합니다.
+4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
+5. 서비스 설정 페이지의 **확인 옵션**에서 사용할 옵션을 선택/선택 취소합니다.
 
+   ![확인 옵션](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. **Save**를 클릭합니다.

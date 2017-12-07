@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
@@ -61,6 +61,11 @@ ASA는 IoT Hub를 사용하여 장치에 Edge 작업을 배포합니다. [IoT Ed
 
 #### <a name="create-an-asa-edge-job"></a>ASA Edge 작업 만들기
 1. Azure Portal에서 새 "Stream Analytics 작업"을 만듭니다. [새 ASA 작업을 만들기 위한 직접 링크](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)
+
+> [!Note]
+> **"미국 서부 2" 지역**을 제외하고 ASA가 지원하는 모든 지역에서 Edge 작업을 작성할 수 있습니다.
+> 이러한 제한 사항은 곧 없어집니다.
+
 2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조). ![작업 생성](media/stream-analytics-edge/ASAEdge_create.png)
 3. 작업 정의
     1. **입력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.

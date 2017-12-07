@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -65,69 +65,10 @@ HA 포트 기능은 [Load Balancer 표준과 같은 지역](https://aka.ms/lbpre
 
 ## <a name="preview-sign-up"></a>미리 보기 등록
 
-Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 액세스 권한을 얻도록 구독을 등록합니다. Azure CLI 2.0 또는 PowerShell 중 하나를 사용할 수 있습니다.
+Load Balancer 표준에서 HA 포트 기능의 미리 보기에 참여하려면 Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)의 구독을 등록합니다. Azure CLI 2.0 또는 PowerShell을 사용하여 등록할 수 있습니다.
 
 >[!NOTE]
->이 기능을 사용하려면 HA 포트 기능 외에 Load Balancer [표준 미리 보기](https://aka.ms/lbpreview#preview-sign-up)에도 등록해야 합니다. 등록은 최대 1시간 정도 걸릴 수 있습니다.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 등록
-
-1. 공급자에 기능을 등록합니다.
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. 이전 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    아래와 같이 기능 등록 상태가 **등록됨**인 경우 작업이 성공적으로 완료된 것입니다.
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>PowerShell을 사용하여 등록
-
-1. 공급자에 기능을 등록합니다.
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. 이전 작업을 완료하려면 최대 10분이 걸릴 수 있습니다. 다음 명령을 사용하여 작업 상태를 확인할 수 있습니다.
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    아래와 같이 기능 등록 상태가 **등록됨**인 경우 작업이 성공적으로 완료된 것입니다.
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. 리소스 공급자에 구독을 다시 등록하여 미리 보기 등록을 완료합니다.
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>등록은 최대 1시간 정도 걸릴 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

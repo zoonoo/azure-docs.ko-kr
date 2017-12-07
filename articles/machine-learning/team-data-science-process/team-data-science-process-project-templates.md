@@ -1,6 +1,6 @@
 ---
 title: "Team Data Science Process 프로젝트 계획 - Azure | Microsoft Docs"
-description: TBD
+description: "데이터 과학 프로젝트를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 템플릿"
 documentationcenter: 
 author: bradsev
 manager: cgronlun
@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 554e653a1f1b060743a2f461327c58e9a60a56b1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 
-TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 구조화하는 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
+TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 구조화하는 수명 주기를 제공합니다. 이 문서는 이러한 프로젝트 단계를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 서식 파일에 대한 링크를 제공합니다.
+
+수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
 - 비즈니스 이해
 - 데이터 취득 및 이해
@@ -31,8 +33,7 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 
 각 단계에 대한 설명은 [Team Data Science Process 수명 주기](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle)를 참조하세요.
 
-이 문서는 이러한 프로젝트 단계를 계획하고 관리하는 데 도움이 되는 Microsoft Project 및 Excel 서식 파일에 대한 링크를 제공합니다. 
-
+ 
 ## <a name="microsoft-project-template"></a>Microsoft Project 서식 파일
 
 Team Data Science Process용 Microsoft Project 서식 파일은 다음 위치에서 사용할 수 있습니다. [Microsoft Project 서식 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
@@ -54,7 +55,7 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 과학 프로젝트 실행](project-execution.md) 이 문서는 Team Data Science Process를 사용하여 프로젝트 팀 내에서 체계적이고 버전이 관리되는 공동 작업 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다.
+[데이터 과학 프로젝트의 기민한 개발](agile-development.md) 이 문서는 Team Data Science Process를 사용하여 프로젝트 팀 내에서 체계적이고 버전이 관리되는 공동 작업 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다.
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 

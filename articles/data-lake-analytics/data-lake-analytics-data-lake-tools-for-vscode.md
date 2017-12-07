@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake Tools: Azure Data Lake Tools for Visual Studio Code 사용 | Microsoft Docs"
 description: "Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법에 대해 알아봅니다. "
-Keywords: "VScode,Azure Data Lake Tools,로컬 실행,로컬 디버그,로컬 디버그,저장소 파일 미리 보기,저장소 경로로 업로드,다운로드,업로드"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2017
+ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: e724a8db4424a1e608ae7ee5625cd4cc16f6078f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
 Azure Data Lake Tools for Visual Studio Code(VS Code)를 사용하여 U-SQL 스크립트를 만들고, 테스트하고, 실행하는 방법을 알아봅니다. 정보는 또한 다음 비디오에서 설명합니다.
 
-<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
+<a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -86,33 +86,20 @@ U-SQL을 사용하려면 U-SQL 파일이나 폴더를 열어야 합니다.
 
     스크립트는 /output 폴더에 일부 데이터가 포함된 departments.csv 파일을 만듭니다.
 
-5. 열린 폴더에서 파일을 **myUSQL.usql**로 저장합니다. adltools_settings.json 구성 파일도 프로젝트에 추가됩니다.
-4. adltools_settings.json을 열고 다음 속성을 사용하여 구성합니다.
+5. 열린 폴더에서 파일을 **myUSQL.usql**로 저장합니다. xxx_settings.json 구성 파일도 폴더에 추가됩니다.
+6. xxx_settings.json을 열고 다음 속성을 사용하여 구성합니다.
 
-    - Account: Azure 구독에 있는 Data Lake Analytics 계정입니다.
+    - account: U-SQL 작업을 컴파일하고 실행하는 데 필요한 Azure 구독의 Data Lake Analytics 계정이므로 U-SQL 작업을 컴파일하고 실행하기 전에 해당 컴퓨터 계정을 구성해야 합니다.
     - Database: 사용자 계정의 데이터베이스입니다. 기본은 **master**입니다.
     - Schema: 데이터베이스의 스키마입니다. 기본은 **dbo**입니다.
     - 선택적 설정
         - Priority: 우선 순위의 범위는 1-1000이며, 가장 높은 우선 순위는 1입니다. 기본값은 **1000**입니다.
         - Parallelism: 병렬 처리의 범위는 1-150입니다. 기본값은 Azure Data Lake Analytics 계정에 허용되는 최대 병렬 처리입니다. 
         
-        > [!NOTE] 
-        > 설정이 유효하지 않으면 기본값이 사용됩니다.
-
         ![Data Lake Tools for Visual Studio Code 구성 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-
-        Data Lake Analytics 계산 계정은 U-SQL 작업을 컴파일하고 실행하는 데 필요합니다. U-SQL 작업을 컴파일하고 실행하려면 먼저 컴퓨터 계정을 구성해야 합니다.
-    
-        구성이 저장되면 계정, 데이터베이스 및 스키마 정보가 해당 .usql 파일의 왼쪽 아래 모서리에 있는 상태 표시줄에 나타납니다. 
- 
- 
-파일 열기와 비교하여 폴더를 열 때 다음이 가능합니다.
-
-- 코드 숨김 파일 사용 단일 파일 모드에서는 코드 숨김이 지원되지 않습니다.
-- 구성 파일 사용 폴더를 열면 작업 폴더의 스크립트에서 단일 구성 파일을 공유합니다.
-
-
-U-SQL 스크립트는 Data Lake Analytics 서비스를 통해 원격으로 컴파일합니다. **컴파일** 명령을 실행하면 U-SQL 스크립트를 Data Lake Analytics 계정으로 전송하며, Visual Studio Code에서는 컴파일 결과를 늦게 수신합니다. 원격 컴파일로 인해 Visual Studio Code에는 구성 파일의 Data Lake Analytics 계정에 연결되는 정보를 나열해야 합니다.
+      
+        > [!NOTE] 
+        > 구성이 저장되면 계정, 데이터베이스 및 스키마 정보가 해당 .usql 파일의 왼쪽 아래 모서리에 있는 상태 표시줄에 표시됩니다.
 
 **U-SQL 스크립트를 컴파일하려면**
 
@@ -129,29 +116,8 @@ U-SQL 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나�
 
 작업 세부 정보의 출력을 활성화하려면 **vs code for u-sql_settings.json** 파일에서 **jobInformationOutputPath**를 설정합니다.
  
-## <a name="use-a-code-behind-file"></a>코드 숨김 파일 사용
-
-코드 숨김 파일은 단일 U-SQL 스크립트와 연결되는 C# 파일입니다. 코드 숨김 파일에서는 UDO, UDA, UDT 및 UDF 전용 스크립트를 정의할 수 있습니다. 먼저 어셈블리를 등록하지 않고도 스크립트에서 UDO, UDA, UDT 및 UDF를 직접 사용할 수 있습니다. 코드 숨김 파일은 피어링 U-SQL 스크립트 파일과 동일한 폴더에 저장됩니다. 스크립트 파일 이름이 xxx.usql이면 코드 숨김 파일 이름은 xxx.usql.cs가 됩니다. 코드 숨김 파일을 수동으로 삭제하면 연결된 U-SQL 스크립트의 코드 숨김 기능을 사용할 수 없게 됩니다. U-SQL 스크립트의 고객 코드 만들기에 대한 자세한 내용은 [U-SQL에서 사용자 지정 코드 만들기 및 사용: 사용자 정의 함수]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/)를 참조하세요.
-
-코드 숨김을 지원하려면 작업 폴더를 열어야 합니다. 
-
-**코드 숨김 파일을 생성하려면**
-
-1. 원본 파일을 엽니다. 
-2. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
-3. **ADL:Generate Code Behind**를 누릅니다. 코드 숨김 파일이 동일한 폴더에 만들어집니다. 
-
-또한 스크립트 파일을 마우스 오른쪽 단추로 클릭한 다음 **ADL: Generate Code Behind**를 선택할 수도 있습니다. 
-
-코드 숨김을 사용하여 U-SQL 스크립트를 컴파일하고 제출하는 것은 독립 실행형 U-SQL 스크립트 파일과 동일합니다.
-
-다음 두 스크린샷에서는 코드 숨김 파일 및 연결된 U-SQL 스크립트 파일을 보여 줍니다.
- 
-![Data Lake Tools for Visual Studio Code 코드 숨김](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
-
-![Data Lake Tools for Visual Studio Code 코드 숨김 스크립트 파일](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
-
-로컬 실행 및 로컬 디버그를 지원합니다. 지침에 대해서는 [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)를 참조하세요.
+## <a name="use-python-r-and-csharp-code-behind-file"></a>Python, R 및 CSharp 코드 숨김 파일 사용
+Azure Data Lake Tools는 여러 개의 사용자 지정 코드를 지원하며, 관련 지침은 [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)을 참조하세요.
 
 ## <a name="use-assemblies"></a>어셈블리 사용
 
@@ -277,14 +243,14 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 다음 작업에 Azure Data Lake Storage 관련 명령을 사용할 수 있습니다.
  - Azure Data Lake Storage 리소스 찾기 [저장소 경로 나열](#list-the-storage-path) 
  - Azure Data Lake Storage 파일 미리 보기 [저장소 파일 미리 보기](#preview-the-storage-file) 
- - VS Code의 Azure Data Lake Storage에 직접 파일 업로드 [파일 업로드](#upload-file).
+ - VS Code의 Azure Data Lake Storage에 직접 파일 업로드 [파일 또는 폴더 업로드](#upload-file-or-folder)
  - VS Code의 Azure Data Lake Storage에서 직접 파일 다운로드 [파일 다운로드](#download-file)
 
 ## <a name="list-the-storage-path"></a>저장소 경로 나열 
 
 **명령 팔레트를 통해 저장소 경로를 나열하려면**
 
-스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: List Storage Path**를 선택합니다.
+스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: List Path**를 선택합니다.
 
 목록에서 폴더를 선택하거나 **Enter Path** 또는 **Browse from Root**를 클릭합니다(Enter a path를 예제로 사용). -> **ADLA 계정**을 선택합니다. ->  저장소 폴더 경로로 이동하거나 입력합니다(예: /output/). -> 명령 팔레트는 입력한 항목에 따라 경로 정보를 나열합니다.
 
@@ -294,55 +260,40 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 **마우스 오른쪽 단추 클릭을 통해 저장소 경로를 나열하려면**
 
-경로 문자열을 마우스 오른쪽 단추로 클릭하여 **List Storage Path**를 선택하여 계속 진행합니다.
+경로 문자열을 마우스 오른쪽 단추로 클릭하고 **List Path**(경로 나열)를 선택하여 계속합니다.
 
 ![Data Lake Tools for Visual Studio Code에서 바로 가기 메뉴를 마우스 오른쪽 단추로 클릭](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
 ## <a name="preview-the-storage-file"></a>저장소 파일 미리 보기
 
-스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: Preview Storage File**을 선택합니다.
+스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **ADL: Preview File**을 선택합니다.
 
 **ADLA 계정**을 선택합니다. -> Azure Storage 파일 경로를 입력합니다(예: /output/SearchLog.txt). -> 결과: VSCode에서 파일이 열립니다.
 
    ![Data Lake Tools for Visual Studio Code 파일 미리 보기 결과](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-저장소 파일을 미리 보는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로의 오른쪽 클릭 메뉴를 사용하는 것입니다. 
+파일을 미리 볼 수 있는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 상대 경로에 있는 오른쪽 클릭 메뉴를 사용하는 것입니다. 
 
-## <a name="upload-file"></a>파일 업로드 
+## <a name="upload-file-or-folder"></a>파일 또는 폴더 업로드
 
-**ADL: Upload File** 또는 **ADL: Upload File through Configuration** 명령을 입력하여 파일을 업로드할 수 있습니다.
+1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Upload File**(파일 업로드) 또는 **Upload Folder**(폴더 업로드)를 선택합니다.
 
-**ADL: Upload File through Configuration 명령을 통해 파일을 업로드하려면**
-1.  스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Upload File through Configuration**을 선택합니다.
-2.  VS Code에서 JSON 파일을 표시합니다. 파일 경로를 입력하고 여러 파일을 동시에 업로드할 수 있습니다. 지침이 **출력** 창에 표시됩니다. 파일 업로드를 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
+2. 파일 업로드를 선택한 경우 하나 이상의 파일을 선택하거나, 폴더 업로드를 선택한 경우 전체 폴더를 선택한 다음 **Upload**(업로드)를 클릭합니다. -> 목록에서 저장소 폴더를 선택하거나 **Enter Path**(경로 입력) 또는 **Browse from Root**(루트에서 찾아보기)를 클릭합니다(이 예제에서는 Enter a path(경로 입력) 사용). -> **ADLA 계정**을 선택합니다. ->  저장소 폴더 경로로 이동하거나 입력합니다(예: /output/). -> **Choose Current Folder**를 클릭하여 업로드 위치를 지정합니다.
 
-       ![Data Lake Tools for Visual Studio Code 파일 경로](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+   ![Data Lake Tools for Visual Studio Code에서 상태 업로드](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-3.  결과: **출력** 창은 파일 업로드 상태를 표시합니다.
 
-       ![Data Lake Tools for Visual Studio Code에서 상태 업로드](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+   저장소에 파일을 업로드하는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로의 오른쪽 클릭 메뉴를 사용하는 것입니다.
 
 동시에 [업로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
-**ADL: Upload File 명령을 통해 파일을 업로드하려면**
-
-스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Upload File**을 선택합니다.
-
-**Local File Path**를 입력합니다. -> 목록에서 폴더를 선택하거나 **Enter Path** 또는 **Browse from Root**를 클릭합니다(Enter a path를 예제로 사용). -> **ADLA 계정**을 선택합니다. ->  저장소 폴더 경로로 이동하거나 입력합니다(예: /output/). -> **Choose Current Folder**를 클릭하여 업로드 위치를 지정합니다.
-
-![Data Lake Tools for Visual Studio Code에서 상태 업로드](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
-
-
-저장소에 파일을 업로드하는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로의 오른쪽 클릭 메뉴를 사용하는 것입니다.
-
-동시에 [업로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
 ## <a name="download-file"></a>파일 다운로드 
-**ADL: Download Storage File** 또는 **ADL: Download Storage File through Configuration** 명령을 입력하여 파일을 다운로드할 수 있습니다.
+**ADL: Download File** 또는 **ADL: Download File(Advanced)** 명령을 입력하여 파일을 다운로드할 수 있습니다.
 
-**ADL: Download File through Configuration 명령을 통해 파일을 다운로드하려면**
-1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download Storage File through Configuration**을 선택합니다.
+**ADL: Download File(Advanced)를 통해 파일을 다운로드하려면**
+1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download File(Advanced)**를 선택합니다.
 2. VS Code에서 JSON 파일을 표시합니다. 파일 경로를 입력하고 여러 파일을 동시에 다운로드할 수 있습니다. 지침이 **출력** 창에 표시됩니다. 파일 다운로드를 계속하려면 JSON 파일을 저장(Ctrl+S)합니다.
 
     ![Data Lake Tools for Visual Studio Code의 구성 파일 다운로드](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -353,17 +304,16 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
 동시에 [다운로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
-**ADL: Download Storage File 명령을 통해 파일을 다운로드하려면**
+**ADL: Download File을 통해 파일을 다운로드하려면**
 
-스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **Download Storage File**을 선택합니다.
+1. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **Download File**(파일 다운로드)을 선택한 다음 **Select Folder**(폴더 선택) 대화 상자에서 대상 폴더를 선택합니다.
 
-목록에서 폴더를 선택하거나 **Enter Path** 또는 **Browse from Root**를 클릭합니다(Enter a path를 예제로 사용). -> **ADLA 계정**을 선택합니다. ->  저장소 폴더 경로로 이동하거나 입력하고(예: /output/) -> 다운로드할 파일을 선택합니다.
+2. 목록에서 폴더를 선택하거나 **Enter Path** 또는 **Browse from Root**를 클릭합니다(Enter a path를 예제로 사용). -> **ADLA 계정**을 선택합니다. ->  저장소 폴더 경로로 이동하거나 입력하고(예: /output/) -> 다운로드할 파일을 선택합니다.
 
    ![Data Lake Tools for Visual Studio Code의 다운로드 상태](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   결과 그림에서 파일은 temp 폴더에 저장됩니다. VSCode 메뉴의 **파일** -> **기본 설정** -> **설정**을 통해 직접 **usql.defaultLocalFolderForDownload** 매개 변수의 기본 다운로드 경로를 설정할 수 있습니다.
-
-저장소 파일을 다운로드하는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로의 오른쪽 클릭 메뉴를 사용하는 것입니다.
+   
+   저장소 파일을 다운로드하는 다른 방법은 스크립트 편집기에서 파일의 전체 경로 또는 파일의 상대 경로의 오른쪽 클릭 메뉴를 사용하는 것입니다.
 
 동시에 [다운로드 상태](#check-storage-tasks-status)를 모니터링할 수 있습니다.
 
@@ -373,12 +323,20 @@ Azure에 연결한 후에는 다음 단계를 사용하여 U-SQL 카탈로그에
 
    ![Data Lake Tools for Visual Studio Code의 저장소 상태 확인](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
+## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Azure Data Lake와 VSCode 탐색기 통합
+1. 로그인하면 **DataLake 탐색기**의 왼쪽 패널에 모든 Azure 계정이 표시됩니다. 하나의 데이터베이스를 펼치면 해당 노드 아래에서 **Schemas**(스키마), **Tables**(테이블), **Assemblies**(어셈블리) 등을 볼 수 있습니다.
 
-## <a name="open-azure-storage-explorer"></a>Azure Storage Explorer 열기
-**ADL: Open Web Azure Storage Explorer** 명령을 입력하거나 마우스 오른쪽 단추 클릭 바로 가기 메뉴에서 선택하여 **Azure Storage Explorer**를 열 수 있습니다.
+   ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Azure Storage Explorer를 열려면**
+2. **Assemblies** 노드를 마우스 오른쪽 단추로 클릭하여 **Register assembly**(어셈블리 등록) 명령을 수행할 수 있습니다.
 
+    ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
+
+3. **Storage Accounts**(저장소 계정)로 이동하면 폴더 또는 파일을 마우스 오른쪽 단추로 클릭하여 파일을 업로드하거나 다운로드할 수 있습니다. 또한 컨텍스트 메뉴를 사용하여 파일에 대한 **Preview**(미리 보기), **Download**(다운로드), **Copy Relative Path**(상대 경로 복사), **Copy Full Path**(전체 경로 복사)를 수행할 수도 있습니다.
+
+   ![DataLake 탐색기](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+## <a name="open-adl-storage-explorer-in-portal"></a>포털에서 ADL 저장소 탐색기 열기
 1. Ctrl+Shift+P를 선택하여 명령 팔레트를 엽니다.
 2. **Open Web Azure Storage Explorer**를 입력하거나 스크립트 편집기에서 상대 경로 또는 전체 경로를 마우스 오른쪽 단추로 클릭한 다음 **Open Web Azure Storage Explorer**를 선택합니다.
 3. Data Lake Analytics 계정을 선택합니다.
@@ -420,11 +378,12 @@ Data Lake Tools for VSCode에서 지원하는 기능은 다음과 같습니다.
     ![Data Lake Tools for Visual Studio Code 구문 강조 표시](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## <a name="next-steps"></a>다음 단계
+- [VSCode에서 Python, R 및 CSharp를 사용하여 Azure Data Lake Analytics용 U-SQL 개발](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+- [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
+- [자습서: Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+- [자습서: Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
+- [Azure Data Lake Analytics 작업용 U-SQL 어셈블리 개발](data-lake-analytics-u-sql-develop-assemblies.md)
 
-- Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그는 [Visual Studio Code로 U-SQL 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)를 참조하세요.
-- Data Lake Analytics 시작 정보는 [자습서: Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
-- Data Lake Tools for Visual Studio에 대한 자세한 내용은 [자습서: Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
-- 어셈블리를 개발에 대한 정보는 [Azure Data Lake Analytics 작업에 U-SQL 어셈블리 개발](data-lake-analytics-u-sql-develop-assemblies.md)을 참조하세요.
 
 
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -39,6 +39,17 @@ ms.lasthandoff: 11/16/2017
 /tmp/amlinstaller/logs/*
 ```
 이러한 디렉터리의 내용을 zip으로 압축하고 진단을 위해 Microsoft로 보낼 수 있습니다.
+
+### <a name="app-update"></a>앱 업데이트 
+#### <a name="no-update-notification-on-windows-desktop"></a>Windows 바탕 화면에서 업데이트 알림 없음 
+이 문제는 향후 업데이트에서 해결될 것입니다. 그 동안 해결 방법은 작업 표시줄에 고정된 바로 가기에서 앱을 시작하지 않는 것입니다. 시작 메뉴나 검색 시작 버튼을 사용하거나 바탕 화면의 바로 가기(있는 경우)를 사용하여 앱을 시작하세요. 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Ubuntu Data Science Virtual Machine(DSVM)에서 업데이트 알림 없음
+최신 응용 프로그램을 다운로드하려면 다음 단계를 수행합니다.   
+   - \Users\AppData\Local\amlworkbench 폴더 제거
+   - 스크립트 `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1` 제거
+   - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
+   - [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)를 통해 깔끔하게 설치
 
 ### <a name="workbench-desktop-app"></a>워크벤치 데스크톱 앱
 로그인하는 데 문제가 있거나 Workbench 데스크톱이 충돌하면 다음에서 로그 파일을 찾을 수 있습니다.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -108,11 +108,14 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
     ![Cezanne HR Software 도메인 및 URL Single Sign-On 정보](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 URL `https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`를 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 URL `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`를 입력합니다.
 
     b. **식별자** 텍스트 상자에 URL `https://w3.cezanneondemand.com/CezanneOnDemand/`을 입력합니다.
 
-    c. **회신 URL** 텍스트 상자에 URL `https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`를 입력합니다.
+    c. **회신 URL** 텍스트 상자에 URL `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`를 입력합니다.
+    
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 가져오려면 [Cezanne HR Software 클라이언트 지원 팀](https://cezannehr.com/services/support/)에 문의합니다.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 

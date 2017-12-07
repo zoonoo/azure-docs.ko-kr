@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ internal class HelloWorld : Actor, IHelloWorld
     ![새 프로젝트 추가 대화 상자][6]    
     
     > [!NOTE]
-    > 콘솔 응용 프로그램은 일반적으로 Service Fabric에서 클라이언트로 사용하는 앱 유형이 아니지만 로컬 Service Fabric 에뮬레이터를 사용하여 디버그 및 테스트하기 위한 편리한 예제를 만들어줍니다.
+    > 콘솔 응용 프로그램은 일반적으로 Service Fabric에서 클라이언트로 사용하는 앱 유형이 아니지만 로컬 Service Fabric 클러스터를 사용하여 디버그 및 테스트하기 위한 편리한 예제를 만들어줍니다.
 
 3. 콘솔 응용 프로그램은 인터페이스 프로젝트와의 호환성과 기타 종속성을 유지하기 위해 64비트 응용 프로그램이어야 합니다.  솔루션 탐색기에서 **ActorClient** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.  **빌드** 탭에서 **플랫폼 대상**을 **x64**로 설정합니다.
     

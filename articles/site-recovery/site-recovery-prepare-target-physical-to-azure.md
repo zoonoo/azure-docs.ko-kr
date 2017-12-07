@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 다음을 가정합니다.
+문서에서는 다음을 가정합니다.
 - 물리적 컴퓨터를 보호하기 위해 Recovery Services 자격 증명 모음을 만들었습니다. [Azure Portal](http://portal.azure.com "Azure Portal")에서 Recovery Services 자격 증명 모음을 만들 수 있습니다.
 - 물리적 컴퓨터를 Azure에 복제하도록 [온-프레미스 환경을 설정](./site-recovery-set-up-physical-to-azure.md)했습니다.
 
@@ -40,13 +40,13 @@ ms.lasthandoff: 10/11/2017
 ![대상 준비](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
 1. **구독:** 드롭다운 메뉴에서 물리적 컴퓨터를 복제할 구독을 선택합니다.
-2. **배포 모델:** 배포 모델(클래식 또는 Resource Manager)을 선택합니다.
+2. **배포 모델:** 배포 모델(클래식 또는 리소스 관리자)을 선택합니다.
 
 선택한 배포 모델에 따라 유효성 검사를 실행하여 물리적 컴퓨터를 복제하고 장애 조치를 수행할 대상 구독에 하나 이상의 호환되는 저장소 계정 및 가상 네트워크가 있는지 확인합니다.
 
 유효성 검사가 성공적으로 완료되면 확인을 클릭하여 다음 단계로 이동합니다.
 
-호환되는 Resource Manager 저장소 계정 또는 가상 네트워크가 없거나 더 추가하려는 경우 블레이드 맨 위에서 **+저장소 계정** 또는 **+네트워크** 단추를 클릭하여 작업을 수행할 수 있습니다.
+호환되는 Resource Manager 저장소 계정 또는 가상 네트워크가 없는 경우 페이지 맨 위에 있는 **+Storage 계정** 또는 **+네트워크** 단추를 클릭하여 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [복제 설정 구성](./site-recovery-setup-replication-settings-vmware.md)

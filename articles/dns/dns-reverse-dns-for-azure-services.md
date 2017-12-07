@@ -3,7 +3,7 @@ title: "Azure 서비스에 대한 역방향 DNS | Microsoft Docs"
 description: "Azure에서 호스트되는 서비스에 대해 역방향 DNS 조회를 구성하는 방법 알아보기"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
 
@@ -28,9 +28,8 @@ Azure의 서비스는 Azure에서 할당하고 Microsoft가 소유하는 IP 주�
 
 이 문서를 읽기 전에 이 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md)에 익숙해지는 것이 좋습니다.
 
-Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다.
-* Resource Manager 배포 모델에서 계산 리소스(예: 가상 컴퓨터, 가상 컴퓨터 크기 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
-* 클래식 배포 모델에서 계산 리소스는 Cloud Services를 사용하여 노출됩니다. 역방향 DNS 조회는 클라우드 서비스의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
+Azure DNS에서 계산 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
+
 
 역방향 DNS는 현재 Azure App Service에 대해 지원되지 않습니다.
 
@@ -178,7 +177,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 이 섹션에서는 Azure PowerShell을 사용하여 클래식 배포 모델에서 Cloud Services에 대한 역방향 DNS를 구성하는 방법에 대한 자세한 지침을 제공합니다. Azure Portal, Azure CLI 1.0 또는 Azure CLI 2.0을 통한 Cloud Services에 대한 역방향 DNS 구성은 지원되지 않습니다.
 
-### <a name="add-reverse-dns-to-existing-cloud-services"></a>기존 클라우드 서비스에 역방향 DNS 추가
+### <a name="add-reverse-dns-to-existing-cloud-services"></a>기존 Cloud Services에 역방향 DNS 추가
 
 기존 클라우드 서비스에 역방향 DNS 레코드를 추가하려면
 
@@ -194,7 +193,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="view-reverse-dns-for-existing-cloud-services"></a>기존 클라우드 서비스에 대한 역방향 DNS 보기
+### <a name="view-reverse-dns-for-existing-cloud-services"></a>기존 Cloud Services에 대한 역방향 DNS 보기
 
 기존 클라우드 서비스에 대한 역방향 DNS 속성을 보려면
 
@@ -202,7 +201,7 @@ New-AzureService –ServiceName "contosoapp1" –Location "West US" –Descripti
 Get-AzureService "contosoapp1"
 ```
 
-### <a name="remove-reverse-dns-from-existing-cloud-services"></a>기존 클라우드 서비스에서 역방향 DNS 제거
+### <a name="remove-reverse-dns-from-existing-cloud-services"></a>기존 Cloud Services에서 역방향 DNS 제거
 
 기존 클라우드 서비스에서 역방향 DNS 속성을 제거하려면
 
@@ -244,7 +243,7 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 
 안 됩니다. Azure는 현재 IPv4 PublicIpAddress 리소스 및 Cloud Services에 대해서만 역방향 DNS를 지원합니다.
 
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure Compute 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
 
 안 됩니다. [Azure Compute Services는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
 

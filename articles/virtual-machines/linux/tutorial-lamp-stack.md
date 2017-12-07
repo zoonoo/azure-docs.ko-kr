@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Azure VM에 LAMP 웹 서버 설치
 이 문서에서는 Azure의 Ubuntu VM에 Apache 웹 서버, MySQL 및 PHP(LAMP 스택)를 배포하는 방법을 설명합니다. NGINX 웹 서버를 선호하는 경우 [LEMP 스택](tutorial-lemp-stack.md) 자습서를 참조하세요. 작업에서 LAMP 서버를 보려면 필요에 따라 WordPress 사이트를 설치하고 구성할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > * LAMP 서버에 WordPress 설치
 
 
-프로덕션 환경에 대한 권장 사항을 비롯한 LAMP 스택에 대한 자세한 내용은 [Ubuntu 설명서](https://help.ubuntu.com/community/ApacheMySQLPHP)를 참조하세요.
+이 설치는 빠른 테스트 또는 개념 증명을 위한 것입니다. 프로덕션 환경에 대한 권장 사항을 비롯한 LAMP 스택에 대한 자세한 내용은 [Ubuntu 설명서](https://help.ubuntu.com/community/ApacheMySQLPHP)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="install-apache-mysql-and-php"></a>Apache, MySQL 및 PHP 설치
 
-다음 명령을 실행하여 Ubuntu 패키지 원본을 업데이트하고 Apache, MySQL 및 PHP를 설치합니다. 명령의 끝에 캐럿(^)이 있습니다.
+다음 명령을 실행하여 Ubuntu 패키지 원본을 업데이트하고 Apache, MySQL 및 PHP를 설치합니다. 명령의 끝부분에 붙는 캐럿(^)은 `lamp-server^` 패키지 이름의 일부임에 주의합니다. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 패키지 및 기타 종속성을 설치하라는 메시지가 표시됩니다. 메시지가 표시되면 MySQL에 대한 루트 암호를 설정한 다음 [Enter] 키를 눌러 계속합니다. 나머지 지시를 따릅니다. 이 프로세스에서는 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장을 설치합니다. 
@@ -78,15 +77,15 @@ Apache를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버�
 mysql -V
 ```
 
-MySQL의 설치를 보호하기 위해 다음 스크립트를 실행하는 것이 좋습니다.
+MySQL 설치를 보호하려면 `mysql_secure_installation` 스크립트를 실행합니다. 임시 서버를 설정만 하려면 이 단계를 건너뛸 수 있습니다.
 
 ```bash
 mysql_secure_installation
 ```
 
-MySQL 루트 암호를 입력하고 사용자 환경에 대한 보안 설정을 구성합니다.
+MySQL에 대한 루트 암호를 입력하고 사용자 환경에 대한 보안 설정을 구성합니다.
 
-MySQL 데이터베이스를 만들려면 사용자를 추가하거나 구성 설정을 변경하고 MySQL에 로그인합니다.
+MySQL 기능(MySQL 데이터베이스를 만들거나, 사용자를 추가하거나 구성 설정을 변경함)을 시도해 보려면 MySQL에 로그인합니다. 이 단계는 이 자습서를 완료하는 데 필수는 아닙니다.
 
 ```bash
 mysql -u root -p

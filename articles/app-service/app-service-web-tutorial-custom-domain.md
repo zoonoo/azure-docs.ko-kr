@@ -1,6 +1,7 @@
 ---
 title: "Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑 | Microsoft Docs"
 description: "Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다."
+keywords: "App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
 
@@ -269,6 +270,27 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 이전에 구성한 DNS 이름(예: `contoso.com`, `www.contoso.com`, `sub1.contoso.com` 및 `sub2.contoso.com`)을 찾습니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>404 오류 “웹 사이트를 찾을 수 없음” 해결
+
+사용자 지정 도메인의 URL를 찾아볼 때 HTTP 404(찾을 수 없음) 오류가 나타나는 경우, <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>을 사용하여 앱의 IP 주소로 도메인이 지정되어 있는지 확인합니다. 그렇지 않은 경우 다음 이유 중 하나가 원인일 수 있습니다.
+
+- 구성된 사용자 지정 도메인에 A 레코드 및/또는 CNAME 레코드가 없습니다.
+- 브라우저 클라이언트가 도메인의 이전 IP 주소를 캐시했습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 `ipconfig /flushdns`로 지웁니다.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>사용자 지정 디렉터리로 기본 URL 전달
+
+기본적으로 App Service는 웹 요청을 사용자 앱 코드의 루트 디렉터리로 전달합니다. 그러나 특정 웹 프레임워크는 루트 디렉터리에 시작하지 않습니다. 예를 들어 [Laravel](https://laravel.com/)은 `public` 하위 디렉터리에서 시작합니다. `contoso.com` DNS 예제를 계속하려면 그러한 앱은 `http://contoso.com/public`에서 액세스할 수도 있지만, 대신 실제로 `http://contoso.com`을 `public` 디렉터리로 전달할 수 있습니다. 이 단계는 DNS 확인을 포함하지는 않으나, 가상 디렉터리를 사용자 지정합니다.
+
+이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **응용 프로그램 설정**을 선택합니다. 
+
+페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다. 
+
+![가상 디렉터리 사용자 지정](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com)에서 오른쪽 페이지를 반환해야 합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

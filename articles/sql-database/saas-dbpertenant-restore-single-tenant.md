@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 단일 테넌트 Azure SQL Database 복원
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 단일 테넌트의 Azure SQL Database 복원
 
-Wingtip SaaS 앱은 각 테넌트에 자체 데이터베이스가 있는 테넌트당 데이터베이스 모델을 사용하여 빌드됩니다. 이 모델의 이점 중 하나는 다른 테넌트에 영향을 주지 않으면서 격리된 단일 테넌트의 데이터를 쉽게 복원할 수 있다는 것입니다.
+Wingtip Tickets SaaS 앱은 각 테넌트에 자체 데이터베이스가 있는 테넌트당 데이터베이스 모델을 사용하여 빌드됩니다. 이 모델의 이점 중 하나는 다른 테넌트에 영향을 주지 않으면서 격리된 단일 테넌트의 데이터를 쉽게 복원할 수 있다는 것입니다.
 
 이 자습서에서는 다음 두 가지 데이터 복구 패턴에 대해 알아봅니다.
 
@@ -53,9 +53,9 @@ Wingtip SaaS 앱은 각 테넌트에 자체 데이터베이스가 있는 테넌�
 
 테넌트에서 데이터가 손실되거나 손상되었다고 가정하는 두 번째 패턴에서는 테넌트의 프로덕션 데이터베이스가 이전 시점으로 복원됩니다. 원래 위치에 복원 패턴에서는 데이터베이스를 복원하고 다시 온라인 상태로 전환하는 동안 테넌트가 잠시 동안 오프라인 상태가 됩니다. 원본 데이터베이스는 삭제되지만 훨씬 이전 시점으로 되돌아가야 하는 경우에도 여전히 복원할 수 있습니다. 이 패턴의 변형은 데이터베이스를 삭제하는 대신 데이터베이스 이름을 바꿀 수 있지만, 데이터베이스 이름을 바꾸는 경우 데이터 보안 측면에서 추가적인 이점이 없습니다.
 
-## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 응용 프로그램 스크립트 가져오기
 
-Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>실수로 데이터를 삭제하는 테넌트 시뮬레이션
 
@@ -146,6 +146,6 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Wingtip SaaS 응용 프로그램을 기반으로 작성된](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
+* [Wingtip SaaS 응용 프로그램을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 * [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL Database 백업에 대한 자세한 정보](sql-database-automated-backups.md)

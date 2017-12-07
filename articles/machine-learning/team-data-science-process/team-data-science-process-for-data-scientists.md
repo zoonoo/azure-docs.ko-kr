@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: d572fe3ad01d75b76ac87b441a5397d1c1841547
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 52d6fe0757043a0a298c3fdee0478fb364074537
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>데이터 과학자를 위한 팀 데이터 과학 프로세스
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/31/2017
 - 데이터 전송 및 저장소의 기반
 - 데이터 원본 설명서 제공
 - 분석 처리에 도구 사용
+
+이러한 교육 자료는 TDSP(Team Data Science Process) 및 Microsoft와 오픈 소스 소프트웨어 및 도구 키트와 관련이 있으며 데이터 과학 솔루션을 구상, 실행 및 전달하는 데 유용합니다.
 
 ## <a name="lesson-path"></a>단원 경로
 다음 표에서 항목을 사용하여 고유한 자습을 안내할 수 있습니다. *설명* 열을 읽어 경로를 따르고, 연구 참조를 위한 *항목* 링크를 클릭하고, *기술 검사* 열을 사용하여 기술을 검사합니다.

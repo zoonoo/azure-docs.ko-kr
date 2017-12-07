@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions의 트리거 및 바인딩 작업 | Microsoft Docs"
+title: "Azure Functions의 트리거 및 바인딩 작업"
 description: "Azure Functions에서 트리거 및 바인딩을 사용하여 코드 실행을 온라인 이벤트 및 클라우드 기반 서비스에 연결하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 Azure Functions에서는 *트리거* 및 *바인딩*을 통해 Azure 및 기타 서비스의 이벤트에 대응하는 코드를 쓸 수 있습니다. 이 문서는 지원되는 모든 프로그래밍 언어의 트리거 및 바인딩에 대한 개념적 개요를 제공합니다. 여기에서는 모든 바인딩에 공통되는 기능을 설명합니다.
 
 ## <a name="overview"></a>개요
 
-트리거와 바인딩은 함수가 호출되는 방식과 사용하는 데이터를 정의하는 선언적 방식입니다. *트리거*는 함수가 호출되는 방식을 정의합니다. 함수에는 정확히 하나의 트리거만 있어야 합니다. 트리거는 관련 데이터가 있으며, 이 데이터는 일반적으로 함수를 트리거한 페이로드입니다. 
+트리거와 바인딩은 함수가 호출되는 방식과 사용하는 데이터를 정의하는 선언적 방식입니다. *트리거*는 함수가 호출되는 방식을 정의합니다. 함수에는 정확히 하나의 트리거만 있어야 합니다. 트리거는 관련 데이터가 있으며, 이 데이터는 일반적으로 함수를 트리거한 페이로드입니다.
 
 입력 및 출력 *바인딩*은 코드에서 데이터에 연결하기 위한 선언적 방식을 제공합니다. 트리거와 마찬가지로, 함수 구성에 연결 문자열과 기타 속성을 지정합니다. 바인딩은 선택 사항이며 함수는 여러 개의 입력 및 출력 바인딩을 가질 수 있습니다. 
 
@@ -35,11 +34,13 @@ Azure Functions에서는 *트리거* 및 *바인딩*을 통해 Azure 및 기타 
 
 Azure Functions Portal의 **통합** 탭에서 트리거와 바인딩을 구성할 수 있습니다. 이때 UI는 function 디렉터리에 있는 *function.json* 파일을 수정합니다. 이 파일은 **고급 편집기**로 변경하여 편집할 수 있습니다.
 
-다음 표에 Azure Functions에 지원되는 트리거와 바인딩이 나와 있습니다. 
+## <a name="supported-bindings"></a>지원되는 바인딩
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>예: 큐 트리거 및 테이블 출력 바인딩
+미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>예: 큐 트리거 및 테이블 출력 바인딩
 
 Azure Queue Storage에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue Storage 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
@@ -126,9 +127,9 @@ Azure Portal에서 *function.json*의 내용을 보고 편집하려면 함수의
 
 Azure Storage 통합에 대한 추가 코드 예제와 상세 정보를 보려면 [Azure 저장소에 대한 Azure Functions 트리거 및 바인딩](functions-bindings-storage.md)을 참조하세요.
 
-### <a name="binding-direction"></a>바인딩 방향
+## <a name="binding-direction"></a>바인딩 방향
 
-모든 트리거와 바인딩에는 `direction` 속성이 있습니다.
+모든 트리거와 바인딩은 *function.json* 파일에 `direction` 속성이 있습니다.
 
 - 트리거의 경우 방향은 언제나 `in`입니다
 - 입력 및 출력 바인딩은 `in`과 `out`을 사용합니다
@@ -243,7 +244,7 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정
 
 각 트리거의 메타데이터 속성은 해당 참조 항목에서 자세히 설명되어 있습니다. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
-예를 들어 Blob 트리거에는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행할 수 있습니다([Blob Storage 트리거](functions-bindings-storage-blob.md#blob-storage-trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
+예를 들어 Blob 트리거에는 약간의 지연이 있으므로 큐 트리거를 사용하여 함수를 실행할 수 있습니다([Blob Storage 트리거](functions-bindings-storage-blob.md#trigger) 참조). 큐 메시지에는 트리거할 Blob 파일 이름이 있는 경우가 일반적입니다. `queueTrigger` 메타데이터 속성을 사용하면 코드가 아닌 구성에서 이 동작을 모두 지정할 수 있습니다.
 
 ```json
   "bindings": [
