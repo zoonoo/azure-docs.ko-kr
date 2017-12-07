@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 Payment Processing Blueprint
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint Automation: PCI DSS 규격 환경에 대한 Payment Processing
 
-PCI DSS 규격 환경에 대한 Payment Processing Blueprint에서는 중요한 결제 카드 데이터 처리에 적합한 PCI DSS 규격을 PaaS(Platform-as-a-Service)로 배포하기 위한 지침을 제공합니다. 일반 참조 아키텍처를 사용하며 Microsoft Azure 적용을 간소화하도록 설계되었습니다. 이 기본 아키텍처는 배포 부담과 비용을 절감하는 클라우드 기반 방식을 모색 중인 조직의 요구에 부응하는 종단 간 솔루션을 제시합니다.
+## <a name="overview"></a>개요
 
-이 기본 아키텍처는 결제 카드 데이터 수집, 저장 및 검색에 대한 엄격한 PCI DSS 3.2(Payment Card Industry Data Security Standards)의 요구 사항을 충족합니다. 종단 간 Azure 기반 솔루션으로 배포된 안전하고 규격에 맞는 다계층 환경에서 신용카드 데이터(카드 번호, 만료일, 확인 데이터 등)의 적합한 처리를 제시합니다.  PCI DSS 3.2 요구 사항 및 이 솔루션에 대한 자세한 내용은 [PCI DSS 요구 사항 - 고급 개요](pci-dss-requirements-overview.md)를 참조하세요.
+PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카드 데이터 처리에 적합한 PCI DSS 규격을 PaaS(Platform-as-a-Service)로 배포하기 위한 지침을 제공합니다. 일반 참조 아키텍처를 사용하며 Microsoft Azure 적용을 간소화하도록 설계되었습니다. 이 청사진은 배포 부담과 비용을 절감하는 클라우드 기반 방식을 모색 중인 조직의 요구에 부응하는 종단 간 솔루션을 제시합니다.
 
-이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반 형태로 제공되며 있는 그대로 프로덕션 환경에서 사용해서는 안 됩니다. 응용 프로그램을 수정 없이 이러한 환경에 배포하는 것은 배포 PCI DSS 규격 솔루션의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
-- 이 기본 아키텍처는 고객이 PCI DSS 규격에 맞게 Microsoft Azure를 사용하기 위한 기준을 제공합니다.
+이 청사진은 결제 카드 데이터 수집, 저장 및 검색에 대한 엄격한 PCI DSS 3.2(Payment Card Industry Data Security Standards)의 요구 사항을 충족하도록 설계되었습니다. 종단 간 Azure 기반 PaaS 솔루션으로 배포된 안전하고 규격에 맞는 다계층 환경에서 신용카드 데이터(카드 번호, 만료일, 확인 데이터 등)의 적합한 처리를 제시합니다. PCI DSS 3.2 요구 사항 및 이 솔루션에 대한 자세한 내용은 [PCI DSS 요구 사항 - 고급 개요](pci-dss-requirements-overview.md)를 참조하세요.
+
+이 청사진은 고객이 특정 요구 사항을 더 잘 이해할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안 됩니다. 응용 프로그램을 수정 없이 이러한 환경에 배포하는 것은 사용자 지정 솔루션을 위해 PCI DSS 규격 솔루션의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
+- 이 청사진은 고객이 PCI DSS 규격에 맞게 Microsoft Azure를 사용하기 위한 기준을 제공합니다.
 - PCI DSS 호환을 위해서는 적격한 QSA(공인 보안 평가사)가 프로덕션 고객 솔루션을 인증해야 합니다.
 - 요구 사항은 각 고객의 구현 및 지역에서의 특정 상황에 따라 달라질 수 있으므로 이 기본 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 검토 수행은 고객의 책임입니다.   
 
@@ -41,7 +43,7 @@ PCI DSS 규격 환경에 대한 Payment Processing Blueprint에서는 중요한 
 - **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
 - **자동화된 배포 스크립트**. 이 스크립트는 종단 간 솔루션 배포를 지원합니다. 스크립트는 다음으로 구성됩니다.
     - 모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다.
-    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 SQL Database 샘플 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션에 대한 소스 코드는 [여기](https://github.com/Microsoft/azure-sql-security-sample)에서 평가할 수 있습니다.
+    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. content. 이 솔루션의 소스 코드는 [지불 처리 청사진 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -49,9 +51,9 @@ PCI DSS 규격 환경에 대한 Payment Processing Blueprint에서는 중요한 
 
 ## <a name="user-scenario"></a>사용자 시나리오
 
-기본 아키텍처 아래의 사용 사례에 부합합니다.
+청사진은 아래의 사용 사례를 다룹니다.
 
-> 이 시나리오에서는 가상의 웹 스토어가 결제 카드 처리를 Azure 기반 솔루션으로 이동하는 방법을 보여 줍니다. 이 솔루션에서는 결제 데이터를 포함한 기본 사용자 정보의 수집을 처리합니다. 솔루션이 카드 소유자 데이터로 결제를 처리하지는 않습니다. 데이터가 수집된 후에는 결제 처리자를 통해 트랜잭션을 시작 및 완료하는 것은 고객의 책임입니다. 자세한 내용은 [Microsoft Service Trust Portal](http://aka.ms/stp)의 "구현 검토 및 지침" 문서를 참조하세요.
+> 이 시나리오에서는 가상의 웹 스토어가 결제 카드 처리를 Azure 기반 PaaS 솔루션으로 이동하는 방법을 보여 줍니다. 이 솔루션에서는 결제 데이터를 포함한 기본 사용자 정보의 수집을 처리합니다. 솔루션이 카드 소유자 데이터로 결제를 처리하지는 않습니다. 데이터가 수집된 후에는 결제 처리자를 통해 트랜잭션을 시작 및 완료하는 것은 고객의 책임입니다. 자세한 내용은 ["구현 검토 및 지침"](https://aka.ms/pciblueprintprocessingoverview)을 참조하세요.
 
 ### <a name="use-case"></a>사용 사례
 *Contoso Webstore*라고 하는 소규모 웹 스토어가 결제 시스템을 클라우드로 이전하려 합니다. 이 스토어는 구매 프로세스를 호스팅하고 직원이 고객에게서 신용 카드 결제를 수집하기 위해 Microsoft Azure를 선택했습니다.
@@ -76,9 +78,9 @@ PCI DSS 규격 환경에 대한 Payment Processing Blueprint에서는 중요한 
 | 이름: |`Global Admin Azure PCI Samples`|
 |사용자 유형:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* 관리자 계정은 마스크 해제된 신용 카드 정보를 읽을 수 없습니다. 모든 작업이 기록됩니다.
-* 관리자 계정은 SQL Database 관리나 로그인이 불가능합니다.
-* 관리자 계정은 Active Directory 및 구독을 관리할 수 있습니다.
+- 관리자 계정은 마스크 해제된 신용 카드 정보를 읽을 수 없습니다. 모든 작업이 기록됩니다.
+- 관리자 계정은 SQL Database 관리나 로그인이 불가능합니다.
+- 관리자 계정은 Active Directory 및 구독을 관리할 수 있습니다.
 
 #### <a name="role-sql-administrator"></a>역할: SQL 관리자
 
@@ -90,8 +92,8 @@ PCI DSS 규격 환경에 대한 Payment Processing Blueprint에서는 중요한 
 |성: |`PCI Samples`|
 |사용자 유형:| `Administrator`|
 
-* sqladmin 계정은 필터링되지 않은 신용 카드 정보를 볼 수 없습니다. 모든 작업이 기록됩니다.
-* sqladmin 계정은 SQL Database를 관리할 수 있습니다.
+- sqladmin 계정은 필터링되지 않은 신용 카드 정보를 볼 수 없습니다. 모든 작업이 기록됩니다.
+- sqladmin 계정은 SQL Database를 관리할 수 있습니다.
 
 #### <a name="role-clerk"></a>역할: 직원
 
@@ -113,13 +115,13 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - 예상 가격
 
-이 기본 아키텍처 및 예제 웹 응용 프로그램에는 솔루션 규모를 정할 때 고려해야 하는 월별 요금 구조 및 시간당 사용 비용이 있습니다. 이러한 비용은 [Azure 비용 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 예상할 수 있습니다. 2017년 9월 기준으로 이 솔루션에 대 한 월별 예상 비용은 최대 $900입니다. 이러한 비용은 사용 규모에 따라 다르며 변경될 수 있습니다. 더 정확한 예상을 위해 배포 시점에 보다 월별 예상 비용을 계산하는 것은 고객의 책임입니다. 
+이 기본 아키텍처 및 예제 웹 응용 프로그램에는 솔루션 규모를 정할 때 고려해야 하는 월별 요금 구조 및 시간당 사용 비용이 있습니다. 이러한 비용은 [Azure 비용 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 예상할 수 있습니다. 2017년 9월 현재 이 솔루션의 월별 예상 비용은 최대 2500달러입니다. 여기에는 1000달러/월의 ASE v2 사용료가 포함됩니다. 이러한 비용은 사용 규모에 따라 다르며 변경될 수 있습니다. 더 정확한 예상을 위해 배포 시점에 보다 월별 예상 비용을 계산하는 것은 고객의 책임입니다. 
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용했습니다. 배포 아키텍처의 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service 환경
+>- App Service Environment v2
 >- OMS Log Analytics
 >- Azure Key Vault
 >- 네트워크 보안 그룹
@@ -234,7 +236,7 @@ Azure SQL Database의 보안 기능 사용에 대한 자세한 내용은 [Contos
 
 [Azure App Service](/azure/app-service/)는 웹 앱 배포를 위한 관리되는 서비스입니다. Contoso Webstore 응용 프로그램은 [App Service 웹앱](/azure/app-service-web/app-service-web-overview) 형태로 배포됩니다.
 
-[ASE(Azure App Service Environment)](/azure/app-service/app-service-environment/intro)는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. PCI DSS 규정 준수를 활성화하기 위해 이 기본 아키텍처에서 사용하는 프리미엄 서비스 계획입니다.
+[Azure App Service Environment(ASE v2)](/azure/app-service/app-service-environment/intro)는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. PCI DSS 규정 준수를 활성화하기 위해 이 기본 아키텍처에서 사용하는 프리미엄 서비스 계획입니다.
 
 ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
 
@@ -282,7 +284,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 #### <a name="oms-solutions"></a>OMS 솔루션
 
-다음 OMS 솔루션은 기본 아키텍처의 일부로 미리 설치됩니다.
+이러한 추가 OMS 솔루션을 고려하고 구성해야 합니다.
 - [활동 로그 분석](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
     
     자세한 사용 지침은 [스크립트 지침 - Azure Resources 배포 및 구성](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)을 참조하세요.
     
-3. OMS 로깅 및 모니터링. 솔루션을 배포한 후에는 [Microsoft OMS(Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview) 작업 영역을 열 수 있고, 솔루션 저장소에서 제공한 샘플 템플릿을 사용하여 모니터링 대시보드의 구성 방법을 설명할 수 있습니다. 샘플 OMS 템플릿은 [omsDashboards 폴더](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)를 참조하세요.
+3. OMS 로깅 및 모니터링. 솔루션을 배포한 후에는 [Microsoft OMS(Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview) 작업 영역을 열 수 있고, 솔루션 저장소에서 제공한 샘플 템플릿을 사용하여 모니터링 대시보드의 구성 방법을 설명할 수 있습니다. 샘플 OMS 템플릿은 [omsDashboards 폴더](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)를 참조하세요. 템플릿을 올바르게 배포하려면 OMS에 데이터를 수집해야 합니다. 사이트 작업에 따라 최대 1시간 이상 걸릴 수 있습니다.
  
     OMS 로깅을 설정할 때 이러한 리소스를 포함하는 것이 좋습니다.
  
@@ -355,11 +357,11 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
     
 ## <a name="threat-model"></a>위협 모델
 
-Contoso Webstore에 대한 DFD(데이터 흐름 다이어그램) 및 샘플 위협 모델은 [코드 리포지토리][code-repo]의 Documents 섹션에서 제공합니다.
+Contoso Webstore [지불 처리 청사진 위협 모델](https://aka.ms/pciblueprintthreatmodel)의 데이터 흐름 다이어그램(DFD) 및 샘플 위협 모델입니다.
 
 ![](images/pci-threat-model.png)
 
-자세한 내용은 [PCI Blueprint 위협 모델](https://aka.ms/pciblueprintthreatmodel)을 참조하세요.
+
 
 ## <a name="customer-responsibility-matrix"></a>고객 책임 매트릭스
 
@@ -376,7 +378,10 @@ Contoso Webstore에 대한 DFD(데이터 흐름 다이어그램) 및 샘플 위�
 - 이 문서는 오직 정보 제공을 위한 것입니다. Microsoft 및 AVYAN은 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.  
 - 이 문서는 Microsoft 제품 또는 Avyan 제품이나 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.  
 - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.  
-- 이 문서의 특정 권장 사항으로 인해 Azure에서 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 고객의 Azure 라이선스 또는 구독 비용이 증가할 수 있습니다.  
+
+  > [!NOTE]
+  > 이 문서의 특정 권장 사항으로 인해 Azure에서 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 고객의 Azure 라이선스 또는 구독 비용이 증가할 수 있습니다.  
+
 - 이 문서의 솔루션은 기본 아키텍처용이며 있는 그대로 프러덕션 용도로 사용되어서는 안 됩니다. PCI 규정 준수를 위해서는 해당 고객의 적격한 보안 평가사와의 상의가 필요합니다.  
 - 이 페이지에 등장하는 모든 고객 이름, 트랜잭션 레코드 및 관련 데이터는 허구이며 이 기본 아키텍처용으로 만들어져 설명 목적으로만 제공됩니다. 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.  
 - 이 솔루션에서 Microsoft와 Avyan Consulting이 공동으로 개발하였으며 [MIT 라이선스](https://opensource.org/licenses/MIT)에 따라 제공됩니다.
@@ -384,8 +389,8 @@ Contoso Webstore에 대한 DFD(데이터 흐름 다이어그램) 및 샘플 위�
 
 ### <a name="document-authors"></a>문서 작성자
 
-* *Frank Simorjay(Microsoft)*  
-* *Gururaj Pandurangi(Avyan Consulting)*
+- *Frank Simorjay(Microsoft)*  
+- *Gururaj Pandurangi(Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "코드 리포지토리"

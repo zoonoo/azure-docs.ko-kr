@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure 스택 개요에 대 한 업데이트 관리
 
 *적용 대상: Azure 스택 시스템 통합*
 
-Microsoft은 Azure 스택 통합 시스템을 정기적으로에 대 한 업데이트 패키지를 해제 합니다. Microsoft 소프트웨어 업데이트의 각 릴리스에 단일 업데이트 패키지로 제공 됩니다. Azure 스택 연산자로 쉽게 가져올 수 있습니다, 설치 및 이러한 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
+Microsoft 일반 공급 시 시작 통합 Azure 스택 시스템에 속하는 일반적으로 매월, 네 번째 화요일에 일반 흐름에 대 한 업데이트 패키지를 해제 합니다. OEM 자신의 특정 알림 수 있도록 프로세스를 업데이트 알림 reach 조직에 대해 질문을 하거나 여기 Concepts\Release notes\Integrated 시스템에서 특정 버전에 대 한 자세한 내용은 릴리스 정보.
+
+Microsoft 소프트웨어 업데이트의 각 릴리스에 단일 업데이트 패키지로 제공 됩니다. Azure 스택 연산자로 쉽게 가져올 수 있습니다, 설치 및 이러한 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
 (Oem) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트 OEM 하드웨어 공급 업체에서 별도 패키지로 전달 되 고 Microsoft 업데이트에서 별도로 관리 됩니다.
 
