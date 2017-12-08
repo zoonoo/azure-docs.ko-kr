@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench의 Jupyter Notebook을 사용하는 방법
 
 Azure Machine Learning Workbench는 Jupyter Notebook 통합을 통해 대화형 데이터 과학 실험을 지원합니다. 이 문서에서는 이 기능을 효과적으로 사용하여 대화형 데이터 과학 실험의 속도와 품질을 높이는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [Azure Machine Learning 설치 및 만들기](/machine-learning/preview/quickstart-installation.md).
+- [Azure Machine Learning 설치 및 만들기](quickstart-installation.md).
 - 이 문서에서는 Jupyter 사용 방법을 설명하지 않으므로 사용자가 [Jupyter Notebook](http://jupyter.org/)에 익숙해야 합니다.
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook 아키텍처

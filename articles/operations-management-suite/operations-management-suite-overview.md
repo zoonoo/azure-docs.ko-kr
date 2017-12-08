@@ -1,4 +1,4 @@
-﻿---
+---
 title: "OMS(Operations Management Suite) 개요 | Microsoft Docs"
 description: "OMS(Microsoft Operations Management Suite)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서에서는 OMS의 가치를 설명하고, OMS에 포함된 다양한 서비스와 제품을 식별하고, 자세한 내용에 대한 링크를 제공합니다."
 services: operations-management-suite
@@ -54,7 +54,7 @@ OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제�
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | 실제 컴퓨터와 가상 컴퓨터를 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 | ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 컴퓨터에 대한 구성을 적용합니다. |
 | ![Azure Backup](media/operations-management-suite-overview/icon-backup.png) | Backup | 중요한 데이터를 백업하고 복원합니다. |
-| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | 사이트 복구 | 중요한 응용 프로그램에 고가용성을 제공합니다. |
+| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | 중요한 응용 프로그램에 고가용성을 제공합니다. |
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리형 리소스의 데이터를 중앙 리포지토리로 수집하여 OMS에 대한 모니터링 서비스를 제공합니다.  이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.  이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다.  또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.  
