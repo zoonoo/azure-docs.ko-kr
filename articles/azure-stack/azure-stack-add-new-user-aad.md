@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *적용 대상: Azure 스택 개발 키트*
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Stack 테넌트 계정 만들기
 Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
 
-1. 에 로그인 [Azure](http://manage.windowsazure.com)합니다.
+1. [Azure](https://portal.azure.com)에 로그인합니다.
 2. Microsoft Azure 왼쪽 탐색 모음에서 **Active Directory**를 클릭합니다.
 3. 디렉터리 목록에서 Azure Stack에 사용할 디렉터리를 클릭하거나 새 디렉터리를 만듭니다.
 4. 이 디렉터리 페이지에서 **사용자**를 클릭합니다.
