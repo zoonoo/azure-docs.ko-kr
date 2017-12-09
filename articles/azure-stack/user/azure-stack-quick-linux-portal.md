@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Azure 스택 포털과 Linux 가상 컴퓨터 만들기
 
@@ -30,7 +30,7 @@ Azure 스택 포털을 통해 azure 스택 가상 컴퓨터를 만들 수 있습
 
 * **SSH 클라이언트에 대 한 액세스**
 
-   Azure 스택 개발 키트 (ASDK)를 사용 하는 경우 없을 수 있습니다 SSH 클라이언트에 대 한 액세스 사용자 환경에서 합니다. 이 경우 SSH 클라이언트를 포함 하는 여러 패키지 간에 선택할 수 있습니다. 예를 들어 SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 하는 PuTTY를 설치할 수 있습니다. 가능한 옵션에 대 한 자세한 내용은 다음 관련 Azure 문서 참조: [windows Azure에서 사용 하 여 SSH 키 하는 방법](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
+   Azure 스택 개발 키트 (ASDK)를 사용 하는 경우 없을 수 있습니다 SSH 클라이언트에 대 한 액세스 사용자 환경에서 합니다. 이 경우 SSH 클라이언트를 포함 하는 여러 패키지 간에 선택할 수 있습니다. 예를 들어 SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 하는 PuTTY를 설치할 수 있습니다. 가능한 옵션에 대 한 자세한 내용은 다음 관련 Azure 문서 참조: [windows Azure에서 사용 하 여 SSH 키 하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
 
    이 퀵 스타트의 SSH 키를 생성 하 고 Linux 가상 컴퓨터에 연결 하려면 PuTTY를 사용 합니다. 을 다운로드 및 설치 PuTTY 하려면로 이동 [http://www.putty.org/](http://www.putty.org)합니다.
 

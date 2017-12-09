@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
 
@@ -37,8 +37,8 @@ Azure 앱 서비스에는 비즈니스 프로세스를 자동화 하 고 호스�
 
 앱 서비스는 특정 워크 로드를 호스트 하기 위한 것이 각각 여러 응용 프로그램 형식을 제공 합니다.
 
-- [웹 앱](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) 호스팅 웹 사이트 및 웹 응용 프로그램에 대 한 합니다.
-- [API 앱](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) 호스팅 RESTful Api에 대 한 합니다.
+- [웹 앱](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) 호스팅 웹 사이트 및 웹 응용 프로그램에 대 한 합니다.
+- [API 앱](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) 호스팅 RESTful Api에 대 한 합니다.
 - 이벤트 구동, 서버가 없는 작업을 호스팅하기 위한 azure 함수입니다.
 
 Word 앱 여기 작업 실행 전용으로 사용 하는 호스팅 리소스를 참조 합니다. 예를 들어 "웹앱"의 경우 함께 브라우저에 대한 기능을 제공하는 계산 리소스와 응용 프로그램 코드를 모두 웹앱으로 생각하는 것이 익숙할 것입니다. 하지만 앱 서비스 웹 앱 호스팅 응용 프로그램 코드에 대 한 Azure 스택 제공 하는 계산 리소스입니다.
@@ -49,7 +49,7 @@ Word 앱 여기 작업 실행 전용으로 사용 하는 호스팅 리소스를 
 
    ![](media/azure-stack-app-service-overview/image01.png)
 
-## <a name="what-is-an-app-service-plan"></a>앱 서비스 계획의 정의
+## <a name="what-is-an-app-service-plan"></a>App Service 계획의 정의
 
 앱 서비스 리소스 공급자는 Azure 앱 서비스를 사용 하는 동일한 코드를 사용 합니다. 결과적으로, 일반적인 몇 가지 개념을 설명 하는 사항이 있습니다. 앱 서비스 가격 책정 컨테이너 응용 프로그램에 대 한 앱 서비스 계획을 라고 합니다. 앱을 유지 하기 위해 사용 하는 전용된 가상 컴퓨터의 집합을 나타냅니다. 지정된 된 구독 내에서 여러 앱 서비스 계획을 가질 수 있습니다.
 

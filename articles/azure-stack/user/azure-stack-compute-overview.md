@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure 스택 가상 컴퓨터 소개
 
@@ -121,8 +121,8 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 |메서드|설명|
 |---------|---------|
 |Azure 스택 포털|허브 메뉴에서 가상 컴퓨터를 클릭 하 고 목록에서 VM을 선택 합니다. VM에 대 한 페이지에서 값을 설정 하 고 모니터링 되는 메트릭 개요 정보에 액세스할 수 있어야 합니다.|
-|Azure PowerShell|Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. PowerShell을 사용 하는 방법에 대 한 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 Azure PowerShell 모듈과 함께 Windows Vm 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|클라이언트 SDK|사용 하 여 C# Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 C#을 사용 하 여 Azure에 Windows Vm 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. PowerShell을 사용 하는 방법에 대 한 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 Azure PowerShell 모듈과 함께 Windows Vm 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|클라이언트 SDK|사용 하 여 C# Vm을 관리 하는 것은 Azure 및 Azure 스택과 비슷합니다. 자세한 내용은 다음 Azure 항목을 참조 합니다.<br>[만들기 및 C#을 사용 하 여 Azure에 Windows Vm 관리](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
 

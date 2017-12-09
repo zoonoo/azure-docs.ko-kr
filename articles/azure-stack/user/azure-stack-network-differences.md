@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure 스택 네트워킹에 대 한 고려 사항
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="cheat-sheet-networking-differences"></a>치트 시트: 네트워킹 차이점
 
-|부여 | 기능 | Azure (global) | Azure Stack |
+|서비스 | 기능 | Azure (global) | Azure Stack |
 | --- | --- | --- | --- |
 | DNS | 다중 테 넌 트 DNS | 지원됨| 아직 지원 되지 않음|
 | |DNS AAAA 레코드|지원됨|지원되지 않음|
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 | |DNS 레코드는 영역 마다 설정|5000 (기본값)<br>요청에 증가할 수 있습니다.|5000|
 ||영역 위임에 대 한 이름 서버|Azure는 만들어진 각 사용자 (테 넌 트) 영역에 대 한 네 가지 이름 서버를 제공 합니다.|Azure 스택 만들어진 각 사용자 (테 넌 트) 영역에 대 한 두 명의 이름 서버를 제공 합니다.|
 | 가상 네트워크|가상 네트워크 피어링|Backbone Azure 네트워크를 통해 동일한 지역에 두 개의 가상 네트워크를 연결 합니다.|아직 지원 되지 않음|
-| |IPv6 주소|일부분으로 IPv6 주소를 할당할 수는 [네트워크 인터페이스 구성](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)합니다.|IPv4만 지원됩니다.|
+| |IPv6 주소|일부분으로 IPv6 주소를 할당할 수는 [네트워크 인터페이스 구성](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)합니다.|IPv4만 지원됩니다.|
 |VPN 게이트웨이|지점-사이트 VPN 게이트웨이|지원됨|아직 지원 되지 않음|
 | |Vnet 대 Vnet 게이트웨이|지원됨|아직 지원 되지 않음|
 | |VPN 게이트웨이 Sku|Basic, GW1, GW2, GW3, 표준 고성능, 매우 높은 성능에 대 한 지원. |Basic, Standard 및 고성능 Sku에 대 한 지원.|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>설치 하 고 Azure 스택과 함께 사용 하기 위해 CLI를 구성
 
@@ -145,7 +145,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
      --profile 2017-03-09-profile
    ```
 
-4. 사용 하 여 Azure 스택 환경에 로그인 된 `az login` 명령입니다. 로그인 할 수 있습니다 Azure 스택 환경에 사용자 또는으로 [서비스 사용자](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects)합니다. 
+4. 사용 하 여 Azure 스택 환경에 로그인 된 `az login` 명령입니다. 로그인 할 수 있습니다 Azure 스택 환경에 사용자 또는으로 [서비스 사용자](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
 
    * 로 로그인 한 *사용자*: 사용자 이름과 암호를 직접 내에서 지정 하거나는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 다단계 인증을 사용 하는 경우 두 번째 작업을 수행 해야 합니다.
 

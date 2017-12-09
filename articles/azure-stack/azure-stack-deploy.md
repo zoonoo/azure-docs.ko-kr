@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
@@ -176,7 +176,7 @@ SQL Server 원격 분석을 구성 하려면 참조 [SQL Server 2016을 구성 �
 
 등록을 통해 Azure 스택 정방향 사용 정보를 Azure에도 구성 됩니다. 사용 보고는 독립적으로 제어 원격 분석에서 합니다. 사용 시기를 보고를 해제할 수 있습니다 [등록](azure-stack-register.md) Github에서 스크립트를 사용 하 여 합니다. 방금 설정한는 **$reportUsage** 매개 변수를 **$false**합니다.
 
-사용 현황 데이터의 형식이에 설명 된 대로 [보고서 Azure 스택 사용 현황 데이터를 Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting)합니다. Azure 스택 개발 키트 사용자 실제로 요금이 부과 되지 않습니다. 이 기능 사용 보고 작동 원리를 테스트할 수 있도록 개발 키트에 포함 됩니다. 
+사용 현황 데이터의 형식이에 설명 된 대로 [보고서 Azure 스택 사용 현황 데이터를 Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting)합니다. Azure 스택 개발 키트 사용자 실제로 요금이 부과 되지 않습니다. 이 기능 사용 보고 작동 원리를 테스트할 수 있도록 개발 키트에 포함 됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

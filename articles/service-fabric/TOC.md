@@ -101,7 +101,6 @@
 
 ## 응용 프로그램 관리
 ### [개요](service-fabric-application-lifecycle.md)
-### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
 ### 응용 프로그램 업그레이드
 #### [개요](service-fabric-application-upgrade.md)
 #### [구성](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
 #### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
 ### [오류 분석 개요](service-fabric-testability-overview.md)
+### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
 
 ## 클러스터 만들기 및 관리
 ### [개요](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [API Management와 통합](service-fabric-api-management-overview.md)
-
 ## 모니터링 및 진단
 ### [응용 프로그램 모니터링 및 진단](service-fabric-diagnostics-overview.md)
 ### 이벤트 생성
@@ -164,13 +162,14 @@
 #### [OMS를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-oms.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [API Management와 통합](service-fabric-api-management-overview.md)
+
 # 방법 가이드
 ## 개발 환경 설정
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Service Fabric CLI 설정](service-fabric-cli.md)
+### [Service Fabric CLI 설정](service-fabric-cli.md)
 
 ## 응용 프로그램 빌드
 ### [Visual Studio에서 첫 번째 C# 앱 만들기](service-fabric-create-your-first-application-in-visual-studio.md)

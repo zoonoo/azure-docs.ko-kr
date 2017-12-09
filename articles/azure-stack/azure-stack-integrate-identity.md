@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: c66761d44266a33ddfa1e95444355d3908186ef8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure 스택 데이터 센터 통합-Identity
 
@@ -260,7 +260,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 - 다양 한 응용 프로그램
 - 비 대화형 로그온 필요
 
-SPN 만들기에 대 한 자세한 내용은 참조 [AD FS에 대 한 서비스 보안 주체를 만들](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)합니다.
+SPN 만들기에 대 한 자세한 내용은 참조 [AD FS에 대 한 서비스 보안 주체를 만들](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)합니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결

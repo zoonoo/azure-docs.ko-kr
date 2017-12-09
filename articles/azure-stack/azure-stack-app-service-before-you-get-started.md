@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
@@ -250,7 +250,7 @@ Azure 스택 호스팅 및 계량 데이터베이스에서 Azure 응용 프로�
 
 Azure 스택 개발 키트에 사용 하도록 SQL Express 2014 s p 2를 사용할 수 이상입니다.
 
-프로덕션 및 고가용성 목적으로 사용 SQL 2014 s p 2의 전체 버전 또는 이상 버전에서는 혼합 모드 인증을 사용 하도록 설정 하 고 해야에 배포 된 [항상 사용 가능한 구성](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)합니다.
+프로덕션 및 고가용성 목적으로 사용 SQL 2014 s p 2의 전체 버전 또는 이상 버전에서는 혼합 모드 인증을 사용 하도록 설정 하 고 해야에 배포 된 [항상 사용 가능한 구성](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)합니다.
 
 Azure 스택 SQL Server에서 Azure 앱 서비스는 모든 앱 서비스 역할에서 액세스할 수 있어야 합니다. Azure 스택에 기본 공급자 구독 내에서 SQL Server는 배포할 수 있습니다. 만들 수 있습니다 (으로 Azure 스택에 연결이) 조직 내에서 기존 인프라를 사용 합니다. Azure 마켓플레이스 이미지를 사용 하는 경우 그에 따라 방화벽을 구성 해야 합니다. 
 
