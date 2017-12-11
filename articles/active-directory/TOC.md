@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft 팀](application-proxy-teams.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
-#### 클래식 포털 사용
-##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)
-##### [앱 게시](active-directory-application-proxy-publish.md)
-##### [커넥터 사용](active-directory-application-proxy-connectors-azure-portal.md)
-##### [조건부 액세스](application-proxy-enable-remote-access-sharepoint.md)
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)

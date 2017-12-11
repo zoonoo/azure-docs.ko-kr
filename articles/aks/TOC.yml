@@ -41,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Azure 파일에서 데이터 유지
       href: azure-files.md
+    - name: OSBA를 사용하여 Azure와 통합
+      href: integrate-azure.md
     - name: Kubernetes 대시보드 사용
       href: kubernetes-dashboard.md
     - name: 서비스 주체 만들기
