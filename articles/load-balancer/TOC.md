@@ -1,7 +1,7 @@
 # 개요
 ## [부하 분산 장치란?](load-balancer-overview.md)
 ## [Load Balancer Standard란?](load-balancer-standard-overview.md)
-## [인터넷 부하 분산 장치](load-balancer-internet-overview.md)
+## [공용 부하 분산 장치](load-balancer-internet-overview.md)
 ## [내부 부하 분산 장치](load-balancer-internal-overview.md)
 ## [부하 분산 장치 프로브 이해](load-balancer-custom-probe-overview.md)
 ## [고가용성 포트 이해](load-balancer-ha-ports-overview.md)
@@ -17,25 +17,17 @@
 ### [내부 부하 분산 장치 구성(CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [내부 부하 분산 장치 구성(템플릿)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Cloud Services에 대한 내부 부하 분산 장치 구성하기](load-balancer-get-started-ilb-classic-cloud.md)
-### [Cloud Services에 대한 내부 부하 분산 장치 구성하기(PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Cloud Services에 대한 내부 부하 분산 장치 구성하기(CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [공용 부하 분산 장치 구성](load-balancer-get-started-internet-portal.md)
+### [공용 부하 분산 장치 구성(PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [공용 부하 분산 장치 구성(CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [공용 부하 분산 장치 구성(템플릿)](load-balancer-get-started-internet-arm-template.md)
 
-## [인터넷 연결 부하 분산 장치 구성](load-balancer-get-started-internet-portal.md)
-### [인터넷 연결 부하 분산 장치 구성(PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [인터넷 연결 부하 분산 장치 구성(CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [인터넷 연결 부하 분산 장치 구성(템플릿)](load-balancer-get-started-internet-arm-template.md)
-
-## [인터넷 연결 부하 분산 장치 구성 - (클래식 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
-### [인터넷 연결 부하 분산 장치 구성(클래식 클라우드)](load-balancer-get-started-internet-classic-cloud.md)
-### [인터넷 연결 부하 분산 장치 구성(클래식 CLI)](load-balancer-get-started-internet-classic-cli.md)
-
-## [IPv6으로 인터넷 연결 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)
-### [IPv6으로 인터넷 연결 부하 분산 장치 만들기(CLI)](load-balancer-ipv6-internet-cli.md)
-### [IPv6으로 인터넷 연결 부하 분산 장치 만들기(템플릿)](load-balancer-ipv6-internet-template.md)
+## [IPv6를 사용하는 공용 부하 분산 장치 만들기](load-balancer-ipv6-internet-ps.md)
+### [IPv6를 사용하는 공용 부하 분산 장치 만들기(CLI)](load-balancer-ipv6-internet-cli.md)
+### [IPv6를 사용하는 공용 부하 분산 장치 만들기(템플릿)](load-balancer-ipv6-internet-template.md)
 
 ## [영역 중복 공용 부하 분산 장치 표준 만들기](load-balancer-get-started-internet-az-portal.md)
-### [영역 중복 공용 부하 분산 장치 표준 만들기 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [영역 중복 공용 부하 분산 장치 표준 만들기(PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [영역 중복 공용 부하 분산 장치 표준 만들기(CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # 방법
@@ -50,11 +42,17 @@
 ## [Azure Load Balancer에 대한 Log analytics](load-balancer-monitor-log.md)
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
 ## [내부 부하 분산 장치에 대해 고가용성 포트 구성](load-balancer-configure-ha-ports.md)
-## [가용성 영역에서 공용 IP 주소 만들기](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [가용성 영역에서 공용 IP 주소 만들기(PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [가용성 영역에서 공용 IP 주소 만들기(CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## 문제 해결
 ### [Azure Load Balancer 문제 해결](load-balancer-troubleshoot.md)
+
+## 클래식 배포 모델 문서
+### [Cloud Services에 대한 내부 부하 분산 장치 구성](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [공용 부하 분산 장치 구성(클래식 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
+#### [공용 부하 분산 장치 구성(클래식 클라우드)](load-balancer-get-started-internet-classic-cloud.md)
+#### [공용 부하 분산 장치 구성(클래식 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

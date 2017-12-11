@@ -50,6 +50,7 @@
 ### [XML 유효성 검사](logic-apps-enterprise-integration-xml-validation.md)
 ### [XML 유효성 검사를 위한 스키마 추가](logic-apps-enterprise-integration-schemas.md)
 ### [XML 변환](logic-apps-enterprise-integration-transform.md)
+### [JSON 변환](logic-apps-enterprise-integration-liquid-transform.md)
 ### [XML 변환을 위한 맵 추가](logic-apps-enterprise-integration-maps.md)
 ### [B2B 보안을 위한 인증서 추가](logic-apps-enterprise-integration-certificates.md)
 ### [아티팩트에 대한 메타데이터 저장](logic-apps-enterprise-integration-metadata.md)

@@ -28,6 +28,7 @@
 ### [Azure 포털](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Microsoft 피어링을 통해 사이트 간 VPN 구성](site-to-site-vpn-over-microsoft-peering.md)
 ## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 ### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)

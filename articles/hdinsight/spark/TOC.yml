@@ -19,6 +19,9 @@
       href: apache-spark-resource-manager.md
     - name: Spark 작업 디버그
       href: apache-spark-job-debugging.md
+    - name: HDInsight 앱 설치
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
 - name: 방법
   items:
     - name: 클러스터 저장소 사용
@@ -28,23 +31,6 @@
           maintainContext: true
         - name: Azure Data Lake Store 사용
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
-    - name: 다중 사용자 클러스터 사용
-      items:
-        - name: 개요
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: 도메인에 가입된 HDInsight 계획
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: 도메인에 가입된 HDInsight 구성
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Hive 정책 구성
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: 다중 사용자 클러스터 관리
-          href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
     - name: 개발
       items:
@@ -130,17 +116,11 @@
           href: apache-spark-analyze-application-insight-logs.md
     - name: 클러스터 확장
       items:
-        - name: 보안이 활성화된 저장소 계정 사용
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: 온-프레미스 네트워크에 HDInsight 연결
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: 스크립트 작업 개발
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -166,17 +146,11 @@
         - name: Solr 사용
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
-        - name: Virtual Network 사용
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: 빈 에지 노드 사용
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
         - name: HDInsight 응용 프로그램 빌드
           items:
-            - name: HDInsight 앱 설치
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: 사용자 지정 앱 설치
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -295,20 +269,6 @@
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: 모니터
-      items:
-        - name: Azure Log Analytics 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 클러스터 지정 대시보드
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Log Analytics로 쿼리 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: 클러스터 성능 모니터링
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: 문제 해결
       items:
         - name: Spark 문제 해결
@@ -347,6 +307,53 @@
             - name: Hive 쿼리 최적화
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: 엔터프라이즈 준비
+  items:
+    - name: 엔터프라이즈 보안
+      items:
+        - name: 개요
+          href: ../domain-joined/apache-domain-joined-introduction.md
+          maintainContext: true
+        - name: 엔터프라이즈 보안 계획
+          href: ../domain-joined/apache-domain-joined-architecture.md
+          maintainContext: true
+        - name: HDInsight에서 엔터프라이즈 보안 구성
+          href: ../domain-joined/apache-domain-joined-configure.md
+          maintainContext: true
+        - name: Azure AD DS를 사용하여 HDInsight에서 엔터프라이즈 보안 구성
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+          maintainContext: true
+        - name: Hive 정책 구성
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+          maintainContext: true
+        - name: 엔터프라이즈 보안을 사용하여 클러스터 관리
+          href: ../domain-joined/apache-domain-joined-manage.md
+          maintainContext: true
+    - name: 데이터 보안
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: 네트워크 액세스
+      items:
+        - name: Azure VNet의 HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: 온-프레미스 네트워크와 HDInsight 연결
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: OMS를 사용한 모니터링
+      items:
+        - name: Azure Log Analytics 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: 클러스터 지정 대시보드
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Log Analytics로 쿼리 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: 클러스터 성능 모니터링
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: 참조
   items:
     - name: 코드 샘플

@@ -35,7 +35,7 @@
           href: functions-create-storage-queue-triggered-function.md
     - name: 통합
       items:
-        - name: 저장소
+        - name: Storage
           href: functions-integrate-storage-queue-output-binding.md
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -135,6 +135,8 @@
       items:
         - name: 연속 배포
           href: functions-continuous-deployment.md
+        - name: Zip 푸시 배포
+          href: deployment-zip-push.md
         - name: 리소스 배포 자동화
           href: functions-infrastructure-as-code.md
         - name: 온-프레미스 함수
@@ -181,7 +183,7 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
-        - name: Event Hubs(영문)
+        - name: "Event Hubs\r\n"
           href: functions-bindings-event-hubs.md
         - name: 외부 파일
           href: functions-bindings-external-file.md

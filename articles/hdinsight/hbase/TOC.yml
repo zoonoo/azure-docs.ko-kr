@@ -11,6 +11,9 @@
   items:
     - name: HBase 및 NoSQL로 시작
       href: apache-hbase-tutorial-get-started-linux.md
+    - name: HDInsight 앱 설치
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -38,29 +41,17 @@
           href: apache-hbase-phoenix-squirrel-linux.md
     - name: 클러스터 확장
       items:
-        - name: 보안이 활성화된 저장소 계정 사용
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-linux.md
           maintainContext: true
-        - name: 온-프레미스 네트워크에 HDInsight 연결
-          href: ../connect-on-premises-network.md
-          maintainContext: true
         - name: 스크립트 작업 개발
           href: ../hdinsight-hadoop-script-actions-linux.md
           maintainContext: true
-        - name: Virtual Network 사용
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: HDInsight 응용 프로그램 빌드
           items:
-            - name: HDInsight 앱 설치
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: 사용자 지정 앱 설치
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -101,10 +92,6 @@
             - name: Azure 리소스 관리자 템플릿 사용
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: 가상 네트워크에서 클러스터 만들기
-          href: apache-hbase-provision-vnet.md
-        - name: HBase 복제 구성
-          href: apache-hbase-replication.md
         - name: 주문형 클러스터 만들기
           href: ../hdinsight-hadoop-create-linux-clusters-adf.md
           maintainContext: true
@@ -161,20 +148,6 @@
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: 모니터
-      items:
-        - name: Azure Log Analytics 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 클러스터 지정 대시보드
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Log Analytics로 쿼리 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: 클러스터 성능 모니터링
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -214,6 +187,37 @@
             - name: Hive 쿼리 최적화
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: 엔터프라이즈 준비
+  items:
+    - name: 데이터 보안
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: 네트워크 액세스
+      items:
+        - name: Azure VNet의 HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: 온-프레미스 네트워크와 HDInsight 연결
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+        - name: Azure VNet에서 HBase 클러스터 만들기
+          href: apache-hbase-provision-vnet.md
+        - name: Azure VNet의 HBase 클러스터 복제
+          href: apache-hbase-replication.md
+    - name: OMS를 사용한 모니터링
+      items:
+        - name: Azure Log Analytics 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: 클러스터 지정 대시보드
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Log Analytics로 쿼리 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: 클러스터 성능 모니터링
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: 참조
   items:
     - name: 코드 샘플
