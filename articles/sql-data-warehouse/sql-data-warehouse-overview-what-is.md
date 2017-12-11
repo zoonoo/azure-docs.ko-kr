@@ -1,10 +1,10 @@
 ---
-title: "Azure SQL 데이터 웨어하우스란? | Microsoft Docs"
+title: "Azure SQL Data Warehouse란? | Microsoft Docs"
 description: "페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jenniehubbard
 editor: 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
 ms.service: sql-data-warehouse
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 10/23/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: d5ad5b566bd8d40ab6d7a9151af54890fd47cc88
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: jrj
+ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스란?
+# <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 
 SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하는 클라우드 기반 EDW(Enterprise Data Warehouse)이며 페타바이트 데이터에서 복잡한 쿼리를 신속하게 실행합니다. SQL Data Warehouse를 빅 데이터 솔루션의 주요 구성 요소로 사용합니다. 간단한 PolyBase T-SQL 쿼리를 사용하여 빅 데이터를 SQL Data Warehouse로 가져온 다음 MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 데이터 웨어하우스는 비즈니스가 정보에 대해 신뢰할 수 있는 단일 버전의 정보입니다.  
 
@@ -35,7 +35,7 @@ SQL Data Warehouse는 클라우드에서 종단 간 빅 데이터 솔루션의 �
  
 SQL Data Warehouse는 열 형식 저장소를 사용하여 관계 테이블에 데이터를 저장합니다. 이 형식으로 인해 데이터 저장소 비용이 상당히 감소하고 쿼리 성능이 향상됩니다. SQL Data Warehouse에 데이터가 저장되면 대규모로 분석을 실행할 수 있습니다. 기존 데이터베이스 시스템에 비해 분석 쿼리는 몇 분이 아닌 몇 초, 몇 일이 아닌 몇 시간 안에 완료됩니다. 
 
-분석 결과는 전 세계 보고 데이터베이스 또는 응용 프로그램으로 이동할 수 있습니다. 비즈니스 분석가는 합리적인 비즈니스 결정을 내리기 위한 정보를 파악할 수 있습니다.
+분석 결과는 전 세계 보고 데이터베이스 또는 응용 프로그램으로 이동할 수 있습니다. 그러면 비즈니스 분석가가 합리적인 비즈니스 결정을 내리기 위한 정보를 파악할 수 있습니다.
 
 ## <a name="optimization-choices"></a>최적화 선택
 

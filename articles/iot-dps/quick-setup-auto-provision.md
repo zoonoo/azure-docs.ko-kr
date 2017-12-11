@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning Service(미리 보기) 설정
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning 서비스 설정
 
 이러한 단계는 장치를 프로비전하기 위해 포털에서 Azure 클라우드 리소스를 설정하는 방법을 보여 줍니다. 여기에는 IoT Hub를 만들고 새 IoT Hub Device Provisioning Service를 만들어 두 서비스를 함께 연결하는 방법이 포함됩니다. 
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **Device Provisioning Service**에 대한 *Marketplace를 검색*합니다. **IoT Device Provisioning Service(미리 보기)**를 선택하고 **만들기** 단추를 클릭합니다. 
+2. **Device Provisioning Service**에 대한 *Marketplace를 검색*합니다. **IoT Device Provisioning 서비스**를 선택하고 **만들기** 단추를 클릭합니다. 
 
 3. Device Provisioning Service 인스턴스의 **이름을 지정**합니다. 이 인스턴스에 사용할 구독을 선택하고 새로운 또는 기존 리소스 그룹의 이름을 지정합니다. 위치를 선택합니다. 완료되면 **만들기**를 클릭합니다.
 

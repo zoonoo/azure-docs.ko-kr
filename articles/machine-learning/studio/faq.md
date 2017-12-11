@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -219,7 +219,7 @@ API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방�
 ### <a name="use"></a>사용
 **어떤 경우에 내 예측 모델을 일괄 처리 실행 서비스로 실행하고 어떤 경우에 요청-응답 웹 서비스를 실행하나요?**
 
-RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, 실험 환경에서 생성하여 배포하는 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. BES(일괄 처리 실행 서비스)는 데이터 레코드의 배치에 대한 점수를 비동기적으로 계산하는 서비스입니다. BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니다. 가장 중요한 차이는 BES에서는 Azure Blob Storage 및 Azure Table Storage, Azure SQL Database, HDInsight(Hive 쿼리), HTTP 소스 등의 다양한 소스에서 레코드 블록을 읽는다는 점입니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
+RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, 실험 환경에서 생성하여 배포하는 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. BES(Batch 실행 서비스)는 데이터 레코드의 배치에 대한 점수를 비동기적으로 계산하는 서비스입니다. BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니다. 가장 중요한 차이는 BES에서는 Azure Blob Storage 및 Azure Table Storage, Azure SQL Database, HDInsight(Hive 쿼리), HTTP 소스 등의 다양한 소스에서 레코드 블록을 읽는다는 점입니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
 **배포된 웹 서비스의 모델을 업데이트하려면 어떻게 해야 하나요?**
 
@@ -230,7 +230,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 **프로덕션에 배포된 웹 서비스를 모니터링하려면 어떻게 해야 하나요?**
 
-예측 모델을 배포한 후에는 Azure 클래식 포털(기본 웹 서비스에만 해당) 또는 Azure Machine Learning 웹 서비스 포털에서 모니터링할 수 있습니다. 배포된 각 서비스에는 고유한 대시보드가 있어, 이 대시보드에서 해당 서비스에 대한 모니터링 정보를 볼 수 있습니다. 배포된 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리](manage-new-webservice.md) 및 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
+예측 모델을 배포한 후에는 Azure Machine Learning 웹 서비스 포털에서 모니터링할 수 있습니다. 배포된 각 서비스에는 고유한 대시보드가 있어, 이 대시보드에서 해당 서비스에 대한 모니터링 정보를 볼 수 있습니다. 배포된 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리](manage-new-webservice.md) 및 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
 
 **RRS/BES의 출력을 볼 수 있는 곳이 있나요?**
 
@@ -285,7 +285,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 ## <a name="security-and-availability"></a>보안 및 사용 가능성
 **웹 서비스에 대한 http 끝점에 기본적으로 액세스할 수 있는 사람은 누구인가요? 끝점에 대한 액세스는 어떻게 제한하나요?**
 
-웹 서비스가 배포된 후 해당 서비스에 대한 기본 끝점이 만들어집니다. 기본 끝점은 API 키를 사용하여 호출할 수 있습니다. Azure 클래식 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 끝점을 더 추가할 수 있습니다. 액세스 키는 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
+웹 서비스가 배포된 후 해당 서비스에 대한 기본 끝점이 만들어집니다. 기본 끝점은 API 키를 사용하여 호출할 수 있습니다. 웹 서비스 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 엔드포인트를 더 추가할 수 있습니다. 액세스 키는 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
 **내 Azure Storage 계정을 찾을 수 없는 경우 어떻게 되나요?**
 
@@ -297,7 +297,7 @@ Machine Learning Studio는 워크플로를 실행할 때 사용자가 제공한 
 
 Machine Learning Studio는 워크플로를 실행할 때 사용자가 제공한 Azure Storage 계정을 기반으로 중간 데이터를 저장합니다. 이 저장소 계정은 작업 영역을 만들 때 Machine Learning Studio에 제공되고 액세스 키가 해당 작업 영역과 연결됩니다. 액세스 키가 변경되면 작업 영역이 만들어진 후에 작업 영역은 저장소 계정에 더 이상 액세스할 수 없습니다. 작동이 중지되고 해당 작업 영역의 모든 실험이 실패합니다.
 
-저장소 계정 액세스 키를 변경한 경우에는, Azure 클래식 포털을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.  
+저장소 계정 액세스 키를 변경한 경우에는, Azure Portal을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.  
 
 ## <a name="support-and-training"></a>지원 및 교육
 **Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
@@ -344,7 +344,7 @@ Azure Machine Learning이 필요를 충족한다고 결정했으면 표준 계�
 
 **트랜잭션이란?**
 
-트랜잭션은 Azure Machine Learning이 응답하는 API 호출을 나타냅니다. RRS(요청-응답 서비스) 및 BES(배치 실행 서비스) 호출에서 트랜잭션이 집계되고 청구 계획에 대한 요금으로 부과됩니다.
+트랜잭션은 Azure Machine Learning이 응답하는 API 호출을 나타냅니다. RRS(요청-응답 서비스) 및 BES(Batch 실행 서비스) 호출에서 트랜잭션이 집계되고 청구 계획에 대한 요금으로 부과됩니다.
 
 **RRS와 BES 트랜잭션 모두에 대한 계획에 포함된 트랜잭션 수량을 사용할 수 있나요?**
 
@@ -448,13 +448,13 @@ Resource Manager 기반 웹 서비스를 처음 배포할 때 기존 계획을 �
 
 Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계획의 사용량을 볼 수 있습니다. 포털에 로그인한 다음 **계획** 메뉴 옵션을 클릭합니다.
 
-테이블의 **트랜잭션** 및 **계산** 열에서 계획의 포함된 수량 및 사용된 백분율을 볼 수 있습니다.
+테이블의 **트랜잭션** 및 **Compute** 열에서 계획의 포함된 수량 및 사용된 백분율을 볼 수 있습니다.
 
 **개발/테스트 가격 책정 계층에 포함된 수량을 모두 사용하면 어떻게 되나요?**
 
 개발/테스트 가격 책정 계층이 할당된 서비스가 다음 기간 또는 유료 계층으로 전환될 때까지 중지됩니다.
 
-**클래식 웹 서비스 및 새 Resource Manager 기반 웹 서비스 초과분의 경우 RRS(요청 응답) 및 BES(배치) 워크로드에 대한 가격은 어떻게 계산되나요?**
+**클래식 웹 서비스 및 새 Resource Manager 기반 웹 서비스 초과분의 경우 RRS(요청 응답) 및 BES(Batch) 워크로드에 대한 가격은 어떻게 계산되나요?**
 
 RRS 워크로드의 경우 요청하신 모든 API 트랜잭션 호출 및 해당 요청과 연관된 계산 시간에 대한 비용이 청구됩니다. RRS 프로덕션 API 트랜잭션 비용은 요청하신 총 API 호출 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). RRS API 프로덕션 API 계산 시간 비용은 각 API 호출 실행에 필요한 시간에 총 API 트랜잭션 수를 곱하고 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다.
 
@@ -492,15 +492,15 @@ Azure Machine Learning API 서비스는 클래식 웹 서비스 또는 새로운
 * 스튜디오 실험 시간 - 이 미터는 Machine Learning Studio에서 실행 중인 실험과 스테이징 환경에서 실행 중인 프로덕션 API 호출로 발생하는 모든 계산 요금을 집계합니다.
 * 교육 및 평가를 위해 모델에서 SQL Server를 실행하는 온-프레미스 서버에 연결하여 데이터에 액세스합니다.
 * 클래식 웹 서비스의 경우:
-  * 프로덕션 API 계산 시간: 이 미터에는 프로덕션에서 실행 중인 웹 서비스로 발생하는 계산 요금이 포함됩니다.
+  * 프로덕션 API Compute 시간: 이 미터에는 프로덕션에서 실행 중인 웹 서비스로 발생하는 계산 요금이 포함됩니다.
   * 프로덕션 API 트랜잭션(단위: 1000): 이 미터에는 프로덕션 웹 서비스 호출당 발생하는 요금이 포함됩니다.
 
 Resource Manager 기반 웹 서비스의 경우 앞의 요금 외에도 선택한 계획에 대한 요금이 집계됩니다.
 
 * 표준 S1/S2/S3 API 계획(단위): 이 미터는 Resource Manager 기반 웹 서비스에 대해 선택한 인스턴스의 유형을 나타냅니다.
-* 표준 S1/S2/S3 초과 API 계산 시간: 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션에서 실행되는 Resource Manager 기반 웹 서비스에서 발생한 계산 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
+* 표준 S1/S2/S3 초과 API Compute 시간: 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션에서 실행되는 Resource Manager 기반 웹 서비스에서 발생한 계산 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
 * 표준 S1/S2/S3 초과 API 트랜잭션(단위: 1,000): 이 미터는 기존 인스턴스의 포함된 수량을 모두 사용한 후에 프로덕션 Resource Manager 기반 웹 서비스에 대한 호출당 발생하는 요금을 포함합니다. 추가 사용량은 S1/S2/S3 계획 계층과 관련한 초과 요금으로 부과됩니다.
-* 포함된 수량 API 계산 시간: 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 계산 시간의 포함된 수량을 나타냅니다.
+* 포함된 수량 API Compute 시간: 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 계산 시간의 포함된 수량을 나타냅니다.
 * 포함된 수량 API 트랜잭션(단위: 1,000): 이 미터는 Resource Manager 기반 웹 서비스를 사용하여 API 트랜잭션의 포함된 수량을 나타냅니다.
 
 **Azure Machine Learning 무료 계층에 등록하려면 어떻게 하나요?**
@@ -509,7 +509,7 @@ Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://az
 
 **Azure Machine Learning 표준 계층에 등록하려면 어떻게 하나요?**
 
-표준 Machine Learning 작업 영역을 만들려면 먼저 Azure 구독에 대한 액세스 권한이 있어야 합니다. 30일 무료 평가판 Azure 구독에 등록하고 나중에 유료 Azure 구독으로 업그레이드하거나 유료 Azure 구독을 바로 구입할 수 있습니다. 그런 다음 구독에 대한 액세스 권한을 받은 후 Microsoft Azure 클래식 포털에서 Machine Learning 작업 영역을 만들 수 있습니다. [단계별 지침](https://azure.microsoft.com/trial/get-started-machine-learning-b/)을 참조하세요.
+표준 Machine Learning 작업 영역을 만들려면 먼저 Azure 구독에 대한 액세스 권한이 있어야 합니다. 30일 무료 평가판 Azure 구독에 등록하고 나중에 유료 Azure 구독으로 업그레이드하거나 유료 Azure 구독을 바로 구입할 수 있습니다. 그런 다음 구독에 대한 액세스 권한을 받은 후 Microsoft Azure Portal에서 Machine Learning 작업 영역을 만들 수 있습니다. [단계별 지침](https://azure.microsoft.com/trial/get-started-machine-learning-b/)을 참조하세요.
 
 또는 표준 Machine Learning 작업 영역 소유자에게 초대를 받아 소유자의 작업 영역에 액세스할 수 있습니다.
 

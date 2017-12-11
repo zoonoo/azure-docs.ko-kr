@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Power BI, Excel 및 타사 도구와 같은 최신 데이터 탐색 및 시각�
 ## <a name="get-help"></a>도움말 보기
 
 #### <a name="documentation"></a>설명서
-Azure Analysis Services에서는 간단하게 설정하고 관리할 수 있습니다. 서버 서비스를 만들고 관리하는 데 필요한 모든 정보는 여기서 찾을 수 있습니다. 서버에 배포할 데이터 모델을 만드는 것은 온-프레미스 서버에 배포할 데이터 모델을 만드는 것과 매우 비슷합니다. 개념, 절차, 자습서 및 참조 문서에 대한 광범위한 자료는 [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 있습니다.
+Azure Analysis Services에서는 간단하게 설정하고 관리할 수 있습니다. 서버 서비스를 만들고 관리하는 데 필요한 모든 정보는 여기서 찾을 수 있습니다. 서버에 배포할 데이터 모델을 만드는 것은 온-프레미스 서버에 배포할 데이터 모델을 만드는 것과 매우 비슷합니다. 개념, 절차, 자습서 및 참조 문서에 대한 광범위한 자료는 [SQL Server Analysis Services 도움말](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 있습니다.
 
 #### <a name="videos"></a>비디오
 [Channel 9의 Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services)에서 유용한 동영상을 확인하세요.

@@ -50,14 +50,11 @@
 ## [용어](service-fabric-technical-overview.md)
 
 ## 응용 프로그램 및 서비스 빌드
-### 지원되는 프로그래밍 모델
-#### [개요](service-fabric-choose-framework.md)
-#### 컨테이너
-##### [개요](service-fabric-containers-overview.md)
+### [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
+#### [컨테이너](service-fabric-containers-overview.md)
 ##### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 ##### [리소스 관리](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [개요](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [개요](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [아키텍처](service-fabric-reliable-actors-platform.md)
 ##### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 ##### [상태 관리](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [서비스 상태](service-fabric-concepts-state.md)
 #### [서비스 분할](service-fabric-concepts-partitioning.md)
 #### [서비스 가용성](service-fabric-availability-services.md)
-#### [복제본 및 인스턴스](service-fabric-concepts-replica-lifecycle.md)
+#### [복제 및 인스턴스 수명 주기](service-fabric-concepts-replica-lifecycle.md)
 #### [재구성](service-fabric-concepts-reconfiguration.md)
-#### 서비스 통신
-##### [개요](service-fabric-connect-and-communicate-with-services.md)
+#### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS 서비스](service-fabric-dnsservice.md)
 ##### [역방향 프록시](service-fabric-reverseproxy.md)
 ##### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [응용 프로그램 용량 계획](service-fabric-capacity-planning.md)
 
-## 응용 프로그램 관리
-### [개요](service-fabric-application-lifecycle.md)
-### 응용 프로그램 업그레이드
-#### [개요](service-fabric-application-upgrade.md)
+## [응용 프로그램 관리](service-fabric-application-lifecycle.md)
+### [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 #### [구성](service-fabric-visualstudio-configure-upgrade.md)
 #### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
 #### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [오류 분석 개요](service-fabric-testability-overview.md)
 ### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
 
-## 클러스터 만들기 및 관리
-### [개요](service-fabric-deploy-anywhere.md)
+## [클러스터 만들기 및 관리](service-fabric-deploy-anywhere.md)
 ### 계획 및 준비
 #### [용량 계획](service-fabric-cluster-capacity.md)
 #### [재해 복구](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Azure의 클러스터
 #### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [클러스터 네트워킹 패턴](service-fabric-patterns-networking.md)
-### 클러스터 리소스 관리자
-#### [개요](service-fabric-cluster-resource-manager-introduction.md)
+### [클러스터 리소스 관리자](service-fabric-cluster-resource-manager-introduction.md)
 #### [아키텍처](service-fabric-cluster-resource-manager-architecture.md)
 #### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [응용 프로그램 비밀 관리](service-fabric-application-secret-management.md)  
 #### [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)
 
-## Windows 개발 환경에서 작업
+## Windows/VS 개발 환경에서 작업
 ### [Visual Studio에서 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 ### [Visual Studio에서 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)
 ### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Windows에서 Linux 클러스터 설정](service-fabric-local-linux-cluster-windows.md)
 
-## Linux 개발 환경에서 작업
+## Linux/Eclipse 개발 환경에서 작업
 ### [Java 개발을 위해 Eclipse 플러그인 시작](service-fabric-get-started-eclipse.md)
 ### [Eclipse에서 Java 서비스 디버그](service-fabric-debugging-your-application-java.md)
 ### [로컬로 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

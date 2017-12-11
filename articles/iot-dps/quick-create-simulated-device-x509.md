@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 567c5d82ecc7f840e6b337da7e58aa8ffe37cec2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: a51debfc80c28cd7d7e271448e30619f2bc72f86
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-and-provision-an-x509-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Azure IoT Hub Device Provisioning Service(미리 보기)를 사용하여 X.509 시뮬레이션된 장치 만들기 및 프로비전
+# <a name="create-and-provision-an-x509-simulated-device-using-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning 서비스를 사용하여 X.509 시뮬레이션된 장치 만들기 및 프로비전
 > [!div class="op_single_selector"]
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)

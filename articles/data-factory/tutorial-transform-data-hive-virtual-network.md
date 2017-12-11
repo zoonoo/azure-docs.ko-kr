@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>이 자습서
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
-이 자습서에서는 Azure PowerShell을 사용하여 Azure Virtual Network에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
+이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다. 
@@ -39,6 +31,8 @@ ms.lasthandoff: 11/04/2017
 > * 파이프라인 실행을 모니터링합니다. 
 > * 출력을 확인합니다. 
 
+> [!NOTE]
+> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -71,22 +65,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    FROM hivesampletable
    ```
 2. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다.
-3. `hivescripts`라는 폴더를 만듭니다.
-4. `hivescripts` 하위 폴더에 `hivescript.hql` 파일을 업로드합니다.
+3. **hivescripts**라는 폴더를 만듭니다.
+4. **hivescript.hql** 파일을 **hivescripts** 하위 폴더로 업로드합니다.
 
  
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
 
-1. 개별적으로 변수를 설정합니다.
+1. 리소스 그룹 이름을 설정합니다. 이 자습서의 일부로 리소스 그룹을 만듭니다. 단, 원하는 경우 기존 리소스 그룹을 사용할 수 있습니다. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. 데이터 팩터리 이름을 지정합니다. 전역적으로 고유해야 합니다.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. 파이프라인의 이름을 지정합니다. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. 자체 호스팅 통합 런타임의 이름을 지정합니다. Data Factory가 VNet 내부의 리소스(예: Azure SQL Database)에 액세스해야 하는 경우 자체 호스팅 통합 런타임이 필요합니다. 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. 현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 Data Factory V2를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
@@ -226,17 +230,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-JSON 파일을 만든 폴더로 전환하고 다음 명령을 실행하여 연결된 서비스를 배포합니다. 
+## <a name="create-linked-services"></a>연결된 서비스 만들기
+PowerShell에서 JSON 파일을 만든 폴더로 전환하고 다음 명령을 실행하여 연결된 서비스를 배포합니다. 
 
+1. PowerShell에서 JSON 파일을 만든 폴더로 전환합니다.
+2. 다음 명령을 실행하여 Azure Storage 연결된 서비스를 만듭니다. 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. 다음 명령을 실행하여 Azure HDInsight 연결된 서비스를 만듭니다. 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>파이프라인 작성
-이 단계에서는 Hive 작업이 있는 새 파이프라인을 만듭니다. 이 작업은 Hive 스크립트를 실행하여 샘플 테이블의 데이터를 반환하고 사용자가 정의한 경로에 저장합니다. 원하는 편집기에서 JSON 파일을 만들고, 다음과 같은 파이프라인 정의에 대한 JSON 정의를 복사하고, **MyHiveOnDemandPipeline.json**으로 저장합니다.
+이 단계에서는 Hive 작업이 있는 새 파이프라인을 만듭니다. 이 작업은 Hive 스크립트를 실행하여 샘플 테이블의 데이터를 반환하고 사용자가 정의한 경로에 저장합니다. 원하는 편집기에서 JSON 파일을 만들고, 다음과 같은 파이프라인 정의에 대한 JSON 정의를 복사하고, **MyHivePipeline.json**으로 저장합니다.
 
 
 ```json

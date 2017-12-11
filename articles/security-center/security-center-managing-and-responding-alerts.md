@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 보안 경고 관리| Microsoft Docs"
-description: "이 문서는 Azure 보안 센터 기능을 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다."
+description: "이 문서는 Azure Security Center 기능을 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,19 +12,19 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure 보안 센터에서 보안 경고 관리 및 대응
-이 문서는 Azure 보안 센터를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
+# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
+이 문서는 Azure Security Center를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 
 > [!NOTE]
-> 보안 센터 감지 기능이 작동하는 방법에 대한 자세한 내용은 [Azure 보안 센터 감지 기능](security-center-detection-capabilities.md)을 참고하세요.
+> 보안 센터 감지 기능이 작동하는 방법에 대한 자세한 내용은 [Azure Security Center 감지 기능](security-center-detection-capabilities.md)을 참고하세요.
 >
 >
 
@@ -58,6 +58,10 @@ ms.lasthandoff: 10/11/2017
   * **활성**: 보안 경고가 감지되었습니다.
 * **심각도**: 심각도 수준(높음, 중간 또는 낮음)입니다.
 
+> [!NOTE]
+> Security Center에서 생성된 보안 경고는 Azure 활동 로그에도 나타납니다. Azure 활동 로그에 액세스하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
+>
+
 ### <a name="filtering-alerts"></a>경고 필터링
 날짜, 상태 및 심각도를 기반으로 경고를 필터링할 수 있습니다. 경고의 필터링은 보안 경고 보기의 범위를 좁혀야 하는 시나리오에 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
 
@@ -68,11 +72,11 @@ ms.lasthandoff: 10/11/2017
 ### <a name="respond-to-security-alerts"></a>보안 경고에 대응
 보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 형식 및 날짜별로 그룹화됩니다. 보안 경고를 클릭하면 그룹화된 경고의 목록이 포함된 페이지가 열립니다.
 
-![Azure 보안 센터에서 보안 경고에 대한 대응](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+![Azure Security Center에서 보안 경고에 대한 대응](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
 이 경우 트리거된 경고는 의심스러운 RDP(원격 데스크톱 프로토콜) 활동을 참조합니다. 첫 번째 열은 공격 받은 리소스를 보여 줍니다. 두 번째 열은 리소스가 공격받은 빈도를 보여 줍니다. 세 번째 열은 공격 시간을 보여 줍니다. 네 번째 열은 경고의 상태를 보여 주고 다섯 번째 열은 공격의 심각도를 보여 줍니다. 이 정보를 검토한 후에 공격을 받은 리소스를 클릭합니다.
 
-![Azure 보안 센터에서 보안 경고에 대해 수행할 작업 제안](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+![Azure Security Center에서 보안 경고에 대해 수행할 작업 제안](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
 **설명** 필드에 이 이벤트에 대한 자세한 내용이 있습니다. 이러한 추가 세부 사항은 수정 방법에 대한 원본 IP 주소 및 권장사항을 적용할 수 있는 경우 보안 경고인 대상 리소스를 트리거한 항목에 대한 정보를 제공합니다.  일부 경우에 일부 Windows 보안 이벤트 로그가 IP 주소를 포함하지 않기 때문에 원본 IP 주소가 비어 있습니다(사용할 수 없음).
 
@@ -85,8 +89,8 @@ Security Center에서 제안하는 수정은 보안 경고에 따라 다릅니�
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 보안 센터에서 보안 인시던트 처리](security-center-incident.md)
-* [Azure 보안 센터 감지 기능](security-center-detection-capabilities.md)
-* [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-* [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답 찾기
+* [Azure Security Center에서 보안 인시던트 처리](security-center-incident.md)
+* [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
+* [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
+* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

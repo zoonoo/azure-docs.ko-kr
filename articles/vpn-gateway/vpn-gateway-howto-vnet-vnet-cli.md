@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 663e3cb35308b354c7221e34ac6fcfc8eda15f2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -39,15 +39,23 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="about"></a>VNet 연결 정보
 
-VNet2VNet 연결 형식을 사용하여 한 가상 네트워크를 다른 가상 네트워크에 연결하는 것은 온-프레미스 사이트 위치에 대한 IPsec 연결을 설정하는 것과 비슷합니다. 두 연결 형식 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공하며 둘 다 동일한 방식으로 통신합니다. 두 연결 형식의 차이점은 로컬 네트워크 게이트웨이 구성 방법입니다. VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 표시되지 않습니다. 자동으로 생성되어 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet은 업데이트된 주소 공간에 라우팅해야 한다는 것을 자동으로 알게 됩니다.
+VNet에 연결하는 방법은 여러 가지가 있습니다. 아래 섹션에서는 가상 네트워크를 연결하는 다양한 방법을 설명합니다.
 
-복잡한 구성을 사용하는 경우 VNet-VNet보다 IPsec 연결 형식을 사용하는 것이 더 좋을 것입니다. 트래픽을 라우팅할 수 있도록 로컬 네트워크 게이트웨이에 대한 추가 주소 공간을 지정할 수 있습니다. IPsec 연결 형식을 사용하여 Vnet을 연결하는 경우 로컬 네트워크 게이트웨이를 수동으로 만들고 구성해야 합니다. 자세한 내용은 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-cli.md)을 참조하세요.
+### <a name="vnet-to-vnet"></a>VNet 간
 
-또한 여러 VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결하려고 할 수 있습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 가격 책정 방식과 기능이 약간 다릅니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+VNet-VNet 연결 구성은 VNet에 쉽게 연결하기 좋은 방법입니다. VNet-VNet 연결 형식을 사용하여 하나의 가상 네트워크를 다른 가상 네트워크에 연결하는 것은 온-프레미스 위치에 대한 사이트 간 IPsec 연결을 만드는 것과 비슷합니다. 두 연결 형식 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공하며 둘 다 동일한 방식으로 통신합니다. 두 연결 형식의 차이점은 로컬 네트워크 게이트웨이 구성 방법입니다. VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 표시되지 않습니다. 자동으로 생성되어 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet은 업데이트된 주소 공간에 라우팅해야 한다는 것을 자동으로 압니다. VNet-VNet 연결 만들기는 VNet 사이에 사이트 간 연결을 만드는 것보다 일반적으로 쉽고 빠릅니다.
 
-### <a name="why"></a>VNet-VNet 연결을 만드는 이유
+### <a name="connecting-vnets-using-site-to-site-ipsec-steps"></a>사이트 간(IPsec) 단계를 사용하여 VNet 연결
 
-다음과 같은 이유로 가상 네트워크에 연결할 수 있습니다.
+복잡한 네트워크 구성을 작업하는 경우 VNet-VNet 단계 대신 [사이트 간](vpn-gateway-howto-site-to-site-resource-manager-cli.md) 단계를 사용하여 VNet에 연결하는 것이 좋습니다. 사이트 간 단계를 사용하는 경우에는 로컬 네트워크 게이트웨이를 수동으로 만들고 구성합니다. 각 VNet의 로컬 네트워크 게이트웨이는 다른 VNet을 로컬 사이트로 처리합니다. 트래픽을 라우팅할 수 있도록 로컬 네트워크 게이트웨이에 대한 추가 주소 공간을 지정할 수 있습니다. VNet의 주소 공간이 변경되면 이를 반영하도록 해당 로컬 네트워크 게이트웨이를 수동으로 업데이트해야 합니다. 자동으로 업데이트되지 않습니다.
+
+### <a name="vnet-peering"></a>VNet 피어링
+
+VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 다른 제약 조건이 있습니다. 또한 [VNet 피어링 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 [VNet-VNet VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다르게 계산됩니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+
+## <a name="why"></a>VNet-VNet 연결을 만드는 이유
+
+VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이유는 다음과 같습니다.
 
 * **지역 간 지리적 중복 및 지리적 상태**
 
@@ -59,9 +67,9 @@ VNet2VNet 연결 형식을 사용하여 한 가상 네트워크를 다른 가상
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-### <a name="which-set-of-steps-should-i-use"></a>어느 단계 집합을 사용해야 합니까?
+## <a name="steps"></a>어떤 VNet-VNet 단계를 사용해야 하나요?
 
-이 문서에서는 VNet-VNet 연결 형식을 사용하여 연결하는 방법을 안내합니다. 이 문서에서는 서로 다른 두 집합의 단계를 볼 수 있습니다. 한 단계 집합은 [동일한 구독에 상주하는 VNet](#samesub)과 관련이 있고 다른 단계 집합은 [서로 다른 구독에 상주하는 VNet](#difsub)과 관련이 있습니다. 
+이 문서에서는 VNet-VNet 연결 단계의 두 가지 다른 집합을 볼 수 있습니다. 한 단계 집합은 [동일한 구독에 상주하는 VNet](#samesub)과 관련이 있고 다른 단계 집합은 [서로 다른 구독에 상주하는 VNet](#difsub)과 관련이 있습니다. 
 
 이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
@@ -100,7 +108,6 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * VpnType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
-* 연결 유형: VNet 간
 
 **TestVNet4에 대한 값:**
 
@@ -115,8 +122,6 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 공용 IP: VNet4GWIP
 * VpnType: 경로 기반
 * 연결: VNet4 대 VNet1
-* 연결 유형: VNet 간
-
 
 ### <a name="Connect"></a>1단계 - 구독에 연결
 

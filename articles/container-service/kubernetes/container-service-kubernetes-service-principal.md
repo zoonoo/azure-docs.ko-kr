@@ -1,26 +1,19 @@
 ---
-title: "Azure Kubernetes 클러스터의 서비스 주체 | Microsoft 문서"
+title: "Azure Kubernetes 클러스터의 서비스 주체"
 description: "Azure Container Service에서 Kubernetes 클러스터에 대한 Azure Active Directory 서비스 주체를 만들고 관리합니다."
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -36,11 +29,11 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 
 다음 요구 사항을 충족하는 기존 Azure AD 서비스 주체를 사용하거나 새 서비스 주체를 만들 수 있습니다.
 
-* **범위**: 클러스터를 배포하는 데 사용되는 리소스 그룹.
+* **범위**: 리소스 그룹
 
-* **역할**: **참여자**
+* **역할**: 참가자
 
-* **클라이언트 암호**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
+* **클라이언트 비밀**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 출력은 다음과 비슷합니다(여기서는 수정된 내용이 표시됨).
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * 서비스 주체 **클라이언트 ID**를 지정하는 경우 `appId`(이 문서에서 표시한 대로) 또는 해당되는 `name` 서비스 주체(예: `https://www.contoso.org/example`)의 값을 사용할 수 있습니다.
 
-* Kubernetes 클러스터의 마스터 및 에이전트 VM에서 서비스 주체 자격 증명은 /etc/kubernetes/azure.json 파일에 저장됩니다.
+* Kubernetes 클러스터의 마스터 및 에이전트 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
 
-* `az acs create` 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 컴퓨터의 ~/.azure/acsServicePrincipal.json 파일에 기록됩니다.
+* `az acs create` 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 컴퓨터의 `~/.azure/acsServicePrincipal.json` 파일에 기록됩니다.
 
 * `az acs create` 명령을 사용하여 자동으로 서비스 주체를 생성하는 경우 서비스 주체는 동일한 구독에서 만들어진 [Azure 컨테이너 레지스트리](../../container-registry/container-registry-intro.md)를 사용하여 인증할 수도 있습니다.
+
+* 서비스 주체 자격 증명이 만료되어 클러스터 노드가 **NotReady** 상태가 되도록 합니다. 마이그레이션 정보는 [자격 증명 만료](#credential-expiration) 섹션을 참조하세요.
+
+## <a name="credential-expiration"></a>자격 증명 만료
+
+서비스 주체를 만들 때 `--years` 매개 변수를 사용하여 사용자 지정 유효 기간을 지정하지 않으면 해당 자격 증명이 생성된 후 1년 동안 유효합니다. 자격 증명이 만료되면 클러스터 노드가 **NotReady** 상태가 됩니다.
+
+서비스 주체의 만료 날짜를 확인하려면 [az ad app show](/cli/azure/ad/app#az_ad_app_show) 명령을 `--debug` 매개 변수와 함께 실행하고 출력 아래쪽에서 `passwordCredentials`의 `endDate` 값을 찾습니다.
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+출력(여기 표시된 내용은 잘림):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+서비스 주체 자격 증명이 만료된 경우 [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) 명령을 사용하여 자격 증명을 업데이트합니다.
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+출력:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+그런 다음 `/etc/kubernetes/azure.json`을 모든 클러스터 노드에서 새 자격 증명으로 업데이트하고 노드를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

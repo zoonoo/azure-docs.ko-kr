@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/28/2017
 ms.author: spelluru
-ms.openlocfilehash: 6a6d0af6ed4e2c4ece7d69f6d7606e3ca149f8a7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 8d00602dd2634b6fdbd9e9203efaf1e4393f4c09
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -426,7 +426,7 @@ DeploymentDebugLogLevel :
     ```
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
-1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **더 많은 서비스**를 클릭하고, `data fa` 같은 키워드를 사용하여 검색하고, **데이터 팩터리**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **더 많은 서비스**를 클릭하고, **데이터 팩**과 같은 키워드를 사용하여 검색하고, **데이터 팩터리**를 선택합니다.
 
     ![데이터 팩터리 메뉴 찾아보기](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. **데이터 팩터리** 페이지에서 이전에 만든 데이터 팩터리를 클릭합니다. 필요한 경우 해당 데이터 팩터리의 이름으로 목록을 필터링합니다.  

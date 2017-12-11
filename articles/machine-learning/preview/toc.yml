@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: CNTK를 사용하여 이미지 분류
           href: scenario-image-classification-using-cntk.md
+        - name: 예측 유지 관리에 대한 딥 러닝
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: 참조
   items:
     - name: 데이터 준비

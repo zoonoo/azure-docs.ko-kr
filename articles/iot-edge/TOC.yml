@@ -34,6 +34,8 @@
       href: how-to-install-iot-core.md
 - name: 개념
   items:
+    - name: IoT Edge 용어집
+      href: iot-edge-glossary.md
     - name: IoT Edge 모듈
       href: iot-edge-modules.md
       items:

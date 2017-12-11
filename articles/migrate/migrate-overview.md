@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -32,15 +32,17 @@ Azure Migrate 서비스는 Azure로 마이그레이션하는 온-프레미스 �
 Azure Migrate의 기능:
 
 - **Azure 준비 상태 평가**: 온-프레미스 컴퓨터가 Azure에서 실행하기에 적합한지 여부를 평가합니다. 
-- **크기 추천 정보 가져오기**: 온-프레미스 VM의 성능 기록에 따라 마이그레이션 후 Azure VM에 적합한 크기를 추천합니다. 
-- **월간 비용 예측**: Azure에서 온-프레미스 컴퓨터를 실행할 때 드는 비용을 예측합니다.
-- **안심하고 마이그레이션**: 평가할 온-프레미스 컴퓨터를 그룹화할 때 종속성을 시각화하여 평가 신뢰도를 높일 수 있습니다. 특정 컴퓨터에 대한 종속성 또는 그룹의 모든 컴퓨터에 대한 종속성을 정확하게 볼 수 있습니다.
+- **크기 추천 정보 가져오기**: 온-프레미스 VM의 성능 기록을 기반으로 Azure VM에 대한 권장 크기를 확인합니다. 
+- **월간 비용 예측**: Azure에서 온-프레미스 컴퓨터를 실행하는 데 드는 예상 비용을 확인합니다.  
+- **높은 확신을 가지고 마이그레이션**: 온-프레미스 컴퓨터의 종속성을 시각화하여 함께 마이그레이션하고 평가할 컴퓨터 그룹을 만듭니다. 특정 컴퓨터에 대한 종속성 또는 그룹의 모든 컴퓨터에 대한 종속성을 정확하게 볼 수 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션을 평가할 수 있습니다.
+
 > [!NOTE]
 > Hyper-V는 준비 중이며 향후 몇 달 이내에 지원될 예정입니다. 그 사이에는 Azure Site Recovery Deployment Planner를 사용하여 Hyper-V 워크로드 마이그레이션을 계획하시기 바랍니다. 
+
 - 단일 평가에서 최대 1000대의 VM을 평가할 수 있고, 단일 Azure Migrate 프로젝트에서 최대 1500대의 컴퓨터를 평가할 수 있습니다. 더 많은 컴퓨터를 평가해야 하는 경우 프로젝트 또는 평가의 수를 늘리면 됩니다. [자세히 알아봅니다](how-to-scale-assessment.md).
 - 평가하려는 VM이 vCenter Server 버전 5.5, 6.0 또는 6.5를 통해 관리되어야 합니다.
 - 미국 중서부 지역에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 다른 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에는 영향이 없습니다. 마이그레이션 프로젝트의 위치는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다.
@@ -54,11 +56,11 @@ Azure Migrate는 추가 요금 없이 사용할 수 있습니다. 그러나 공�
 
 ## <a name="whats-in-an-assessment"></a>평가의 내용
 
-Azure Migrate 평가는 다음 표에 요약된 설정을 기반으로 합니다.
+평가를 통해 온-프레미스 VM에 대한 Azure 적합성을 식별하고 Azure에서 VM을 실행하기 위한 예상 비용과 적합한 크기 조정 권장 사항을 얻을 수 있습니다. 평가는 아래 테이블에 요약된 속성을 기반으로 합니다. 이러한 속성은 Azure Migrate 포털에서 수정할 수 있습니다. 
 
-**설정** | **세부 정보**
+**속성** | **세부 정보**
 --- | ---
-**대상 위치** | 마이그레이션할 Azure 위치입니다. 기본적으로 Azure Migrate 프로젝트가 이 위치에 생성됩니다. 이 설정을 수정할 수 있습니다.   
+**대상 위치** | 마이그레이션할 Azure 위치입니다. 기본적으로 대상 위치는 미국 서부 2로 설정되어 있습니다. 
 **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 유형입니다. LRS가 기본값입니다.
 **가격 책정 계획** | 평가에서는 여러분의 소프트웨어 보증 등록 여부를 고려하며, [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 사용할 수 있습니다. 또한 적용할 Azure 서비스를 고려하며, 해당 서비스에서 받을 구독별 할인율(%)을 지정할 수 있습니다. 
 **가격 책정 계층** | Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 이렇게 하면 현재 프로덕션 환경의 사용 여부에 따라 적합한 Azure VM 제품군으로 마이그레이션하는 데 도움이 됩니다. 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
@@ -69,12 +71,12 @@ Azure Migrate 평가는 다음 표에 요약된 설정을 기반으로 합니다
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate의 작동 방식
 
 1.  사용자가 Azure Migrate 프로젝트를 만듭니다.
-2.  Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 사용하여 온-프레미스 컴퓨터에 대한 정보를 검색합니다. 어플라이언스를 만들려면 Open Virtualization Appliance (.ova) 형식의 설치 파일을 다운로드하여 온-프레미스 vCenter 서버에서 VM으로 가져옵니다.
-3.  VCenter 서버에 대한 읽기 전용 자격 증명을 사용하여 VM에 연결하고 수집기를 실행합니다.
+2.  Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 사용하여 온-프레미스 컴퓨터에 대한 정보를 검색합니다. 어플라이언스를 만들려면 Open Virtualization Appliance (.ova) 형식의 설치 파일을 다운로드하여 온-프레미스 vCenter Server에서 VM으로 가져옵니다.
+3.  vCenter Server의 콘솔 연결을 사용하여 VM에 연결하고, 연결하는 동안 VM의 새 암호를 지정한 다음 VM에서 수집기 응용 프로그램을 실행하여 검색을 시작합니다.
 4.  수집기는 VMware PowerCLI cmdlet을 사용하여 VM 메타데이터를 수집합니다. 검색은 에이전트 없이 수행되며, 및 VMware 호스트 또는 VM에 어떠한 것도 설치하지 않습니다. 수집된 메타데이터에는 VM 정보(코어, 메모리, 디스크, 디스크 크기 및 네트워크 어댑터)가 포함됩니다. 수집기는 CPU 및 메모리 사용량, 디스크 IOPS, 디스크 처리량(MBps) 및 네트워크 출력(MBps)을 포함하여 VM에 대한 성능 데이터도 수집합니다.
 5.  메타데이터는 Azure Migrate 프로젝트에 푸시됩니다. Azure Portal에서 메타데이터를 볼 수 있습니다.
-6.  평가를 위해 VM을 그룹에 모읍니다. 예를 들어 동일한 앱을 실행하는 VM을 그룹화할 수 있습니다. vCenter 또는 vCenter 포털에서 태그를 지정하여 VM을 그룹화할 수 있습니다. 시각화를 사용하여 특정 컴퓨터에 대한 종속성 또는 그룹의 모든 컴퓨터에 대한 종속성을 확인합니다.
-7.  그룹에 대한 평가를 만듭니다.
+6.  평가를 위해 검색한 VM을 그룹으로 모읍니다. 예를 들면 동일한 응용 프로그램을 실행하는 VM을 그룹화할 수 있습니다. Azure Migrate 포털에서 VM을 그룹화하거나 vCenter Server에서 태그 지정을 사용할 수 있습니다. 또한 종속성 시각화를 사용하여 특정 컴퓨터나 그룹의 모든 시스템에 대한 종속성을 보고 그룹을 구체화할 수 있습니다.
+7.  그룹이 형성되면 그룹에 대한 평가를 만듭니다. 
 8.  평가가 완료되면 포털에서 보거나 Excel 형식으로 다운로드할 수 있습니다.
 
 
@@ -89,7 +91,7 @@ Azure Migrate 평가는 다음 표에 요약된 설정을 기반으로 합니다
 |-------------------|------------------------|---------------|---------|
 |데이터 수집기          |Azure Migrate 서비스   |TCP 443        |수집기는 SSL 포트 443을 통해 서비스에 연결|
 |데이터 수집기          |vCenter Server          |기본값 9443   | 기본적으로는 수집기는 9443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성되어야 합니다. |
-|온-프레미스 VM     | OMS 작업 영역          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 에이전트는 TCP 443을 사용하여 Log Analytics에 연결합니다. 종속성 시각화 기능을 사용하고 MMA 에이전트를 설치하려면 이 포트가 필요합니다. |
+|온-프레미스 VM     | OMS(Operations Management Suite) 작업 영역          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 에이전트는 TCP 443을 사용하여 Log Analytics에 연결합니다. 종속성 시각화 기능을 사용하고 MMA(Microsoft Monitoring Agent) 에이전트를 설치하려는 경우에만 이 포트가 필요합니다. |
 
 
   

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파
 ### <a name="monitor"></a>모니터
 데이터 통합 파이프라인을 성공적으로 만들고 배포하여 구체화된 데이터에서 비즈니스 가치를 제공한 후에는 성공 및 실패 비율에 맞게 일정 계획된 작업과 파이프라인을 모니터링합니다. Azure Data Factory는 Azure Monitor, API, PowerShell, Microsoft Operations Management Suite 및 Azure Portal의 상태 패널을 통한 파이프라인 모니터링을 기본 제공합니다.
 
-## <a name="whats-different-in-version-2"></a>버전 2의 다른 점은 무엇입니까?
-Azure Data Factory 버전 2는 원래 Azure Data Factory 데이터 이동 및 변환 서비스를 기반으로 더 넓은 클라우드 우선 데이터 통합 시나리오 집합으로 확장됩니다. Azure Data Factory 버전 2는 다음과 같은 기능을 제공합니다.
-
-- 제어 흐름 및 크기 조정
-- Azure에서 SQL SSIS(Server Integration Services) 패키지를 배포 및 실행
-
-버전 1 릴리스 후에 고객이 클라우드, 온-프레미스 및 클라우드 VM에서 데이터 이동과 처리가 필요한 복잡한 하이브리드 데이터 통합 시나리오를 필요로 한다는 사실을 알았습니다. 이러한 요구 사항에 따라 보안되는 가상 네트워크 환경 내에서 데이터를 전송 및 처리하고 요청 시 처리 능력을 통해 확장할 필요가 있습니다.
-
-데이터 파이프라인이 비즈니스 분석 전략의 중요한 부분으로 됨에 따라, 우리는 이러한 중요 데이터 작업을 위해 증가하는 데이터 로드 및 이벤트 트리거형 실행을 지원하는 유연한 일정 계획이 필요하다는 것을 확인했습니다. 마지막으로, 이러한 작업이 더욱 복잡해짐에 따라 서비스가 분기, 루프 및 조건 처리를 포함한 일반적인 워크플로 패러다임을 지원해야 한다는 요구 사항도 증가하고 있습니다.
-
-버전 2를 사용하여 기존 SSIS 패키지를 클라우드로 마이그레이션할 수도 있습니다. 새 기능 "IR(통합 런타임)"을 사용하여 ADF 내에서 관리되는 Azure 서비스로 SSIS를 리프트 앤 시프트할 수 있습니다. 버전 2에서 SSIS IR을 확장함으로써 클라우드에서 SSIS를 실행, 관리, 모니터링 및 빌드할 수 있게 되었습니다.
-
-### <a name="control-flow-and-scale"></a>제어 흐름 및 크기 조정 
-현대적인 데이터 웨어하우스의 다양한 통합 흐름 및 패턴을 지원하기 위해 Data Factory는 더 이상 시계열 데이터와 결합하지 않는 유연한 새 데이터 파이프라인 모델을 사용할 수 있도록 했습니다. 이 릴리스에서는 데이터 파이프라인 제어 흐름의 조건 및 분기를 모델링하고 이러한 흐름 내에서 그리고 이러한 흐름 간에 명시적으로 매개 변수를 전달할 수 있습니다.
-
-이제 데이터 통합에 필요한 모든 흐름 유형을 자유로이 모델링하고 요청 시 또는 시계 일정에 따라 반복해서 디스패치할 수 있습니다. 이제 이전에는 불가능했던 몇 가지 일반적인 흐름이 가능해졌습니다. 예:   
-
-- 흐름 제어:
-    - 파이프라인 내에서 시퀀스의 작업 체이닝
-    - 파이프라인 내에서 작업 분기
-    - 매개 변수
-        - 요청 시 또는 트리거에서 파이프라인을 호출하는 동안 파이프라인 수준에서 매개 변수를 정의하고 인수를 전달할 수 있습니다.
-        - 파이프라인에 전달되는 인수를 작업에 사용할 수 있습니다.
-    - 사용자 지정 상태 전달
-        - 상태를 포함한 작업 출력을 파이프라인의 이후 작업에서 사용할 수 있습니다.
-    - 컨테이너 루프화
-        - For-each 
-- 트리거 기반 흐름
-    - 요청 시 또는 벽시계 시간에 의해 파이프라인을 트리거할 수 있습니다.
-- 델타 흐름
-    - 차원 또는 참조 테이블을 온-프레미스 또는 클라우드의 관계형 저장소에서 이동하여 데이터를 레이크에 로드하는 동시에 매개 변수를 사용하고 델타 복사용 상위 워터 마크를 정의합니다. 
-
-자세한 내용은 [데이터 팩터리 파이프라인 분기 및 연결 작업](tutorial-control-flow.md)을 참조하세요.
-
-### <a name="deploy-ssis-packages-to-azure"></a>Azure에 SSIS 패키지 배포 
-SSIS 워크로드를 이동하려는 경우 Data Factory 버전 2를 만들고 Azure-SSIS IR(Integration Runtime)을 프로비전할 수 있습니다. Azure-SSIS IR은 클라우드에서 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM(노드) 클러스터입니다. 단계별 지침은 자습서 [Azure에 SQL Server Integration Services 패키지 배포](tutorial-deploy-ssis-packages-azure.md)를 참조하세요. 
- 
-
-### <a name="sdks"></a>SDK
-고급 사용자로서 프로그래밍 인터페이스를 찾는다면, 버전 2는 즐겨찾는 IDE를 사용하여 파이프라인을 작성, 관리 및 모니터링할 수 있는 풍부한 SDK 집합을 제공합니다.
-
-- *.NET SDK*: .NET SDK가 버전 2용으로 업데이트되었습니다. 
-- *PowerShell*: PowerShell cmdlet이 버전 2용으로 업데이트되었습니다. 버전 2 cmdlet의 이름에는 **DataFactoryV2**가 있습니다. 예: Get-AzureRmDataFactoryV2. 
-- *Python SDK*: 이 SDK는 버전 2의 새로운 기능입니다.
-- *REST API*: REST API가 버전 2용으로 업데이트되었습니다.  
-
-버전 2용으로 업데이트된 SDK는 버전 1 클라이언트와 호환되지 않습니다. 
-
-### <a name="monitoring"></a>모니터링
-현재 버전 2는 SDK만으로 데이터 팩터리 모니터링을 지원합니다. 포털에는 버전 2 데이터 팩터리 모니터링에 대한 지원이 아직 없습니다. 
-
-## <a name="load-the-data-into-a-lake"></a>레이크에 데이터 로드
-Data Factory는 하이브리드 및 다른 유형의 환경에서 데이터를 Azure로 로드할 수 있는 커넥터를 30개 이상 포함하고 있습니다. 내부 테스트 및 튜닝 제안의 최신 성능 결과에 대해서는 [성능 및 튜닝 가이드](copy-activity-performance.md)를 참조하세요. 
-
-또한 개인 네트워크 환경에 설치하는 자체 호스팅 Integration Runtime을 위해 최근에 고가용성 및 확장성을 활성화했습니다. 이는 더 나은 가용성과 확장성을 위해 대규모 계층 1 엔터프라이즈 고객 요구 사항을 해결합니다.
-
-## <a name="top-level-concepts-in-version-2"></a>버전 2의 최상위 개념
+## <a name="top-level-concepts"></a>최상위 개념
 Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데이터 팩터리)가 있을 수 있습니다. Azure Data Factory는 네 가지 핵심 구성 요소로 구성됩니다. 이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다.
 
 ### <a name="pipeline"></a>파이프라인
@@ -147,8 +91,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 - 활동의 실행을 호스팅할 수 있는 **계산 리소스** 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 계산 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
 
 ### <a name="triggers"></a>트리거
-트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. 미리 보기의 경우 벽 시계 스케줄러 트리거를 지원합니다. 
-
+트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. 미리 보기의 경우 Data Factory가 벽시계 스케줄러 트리거를 지원합니다. 
 
 ### <a name="pipeline-runs"></a>파이프라인 실행
 파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달될 수 있습니다.
@@ -179,6 +122,9 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 데이터 팩터리는 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 사용할 수 있지만, 여러 지역에서 데이터 팩터리의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 데이터 관리 게이트웨이가 대신 데이터를 이동시킵니다.
 
 예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역 외부에서 실행되고 있다고 가정해보겠습니다. 북유럽에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며 이를 사용하여 서유럽의 계산 환경에 작업을 예약할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
+
+## <a name="compare-with-version-2"></a>버전 2와 비교
+Data Factory 서비스 버전 1과 버전 2 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 빠른 시작의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아보기: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) 및 Azure Portal. 

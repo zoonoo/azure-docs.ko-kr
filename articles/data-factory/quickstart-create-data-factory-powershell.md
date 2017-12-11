@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell을 사용하여 Azure Data Factory 만들기 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,30 +42,26 @@ ms.lasthandoff: 11/29/2017
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
+    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$ResourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
 2. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
+    리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$ResourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요. 
 3. 데이터 팩터리 이름에 대한 변수를 정의합니다. 
 
     > [!IMPORTANT]
     >  데이터 팩터리 이름을 전역적으로 고유한 이름으로 업데이트합니다. 예를 들어 ADFTutorialFactorySP1127이라는 이름을 사용합니다. 
 
     ```powershell
-    $dataFactoryName = "ADFQuickStartFactory";
+    $DataFactoryName = "ADFQuickStartFactory";
     ```
-1. 데이터 팩터리의 위치에 대한 변수를 정의합니다. 
 
-    ```powershell
-    $location = "East US"
-    ```
-5. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
+5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용하여 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
     ```
 
 다음 사항에 유의하세요.
@@ -104,10 +100,14 @@ ms.lasthandoff: 11/29/2017
     메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
 2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
+```powershell
+Set-Location 'C:\ADFv2QuickStartPSH'
+```
+
 3. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/29/2017
 2. **BlobDataset** 데이터 집합을 만들려면 **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -221,7 +221,7 @@ ms.lasthandoff: 11/29/2017
 2. **Adfv2QuickStartPipeline** 파이프라인을 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -249,7 +249,7 @@ ms.lasthandoff: 11/29/2017
 2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 실행하여 매개 변수 값에서 실행 및 전달할 파이프라인을 만듭니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
     ```
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
@@ -258,19 +258,19 @@ ms.lasthandoff: 11/29/2017
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -PipelineRunId $RunId
 
-        if ($run) {
+        if ($Run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                $run
+                Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
+                $Run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output  "Pipeline is running...status: InProgress"
         }
 
         Start-Sleep -Seconds 10
-    }
+    }   
     ```
 
     파이프라인 실행의 샘플 출력은 다음과 같습니다.
@@ -314,15 +314,15 @@ ms.lasthandoff: 11/29/2017
 1. 복사 활동 실행 세부 정보(예: 읽고/쓴 데이터의 크기)를 검색하는 다음 스크립트를 실행합니다.
 
     ```powershell
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    $result
-    
-    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
-    $result.Output -join "`r`n"
-    
-    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n"
+    Write-Output "Activity run details:"
+    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result
+
+    Write-Output "Activity 'Output' section:"
+    $Result.Output -join "`r`n"
+
+    Write-Output "Activity 'Error' section:"
+    $Result.Error -join "`r`n"
     ```
 3. 활동 실행 결과의 다음 샘플 출력과 유사한 출력이 표시되는지 확인합니다.
 

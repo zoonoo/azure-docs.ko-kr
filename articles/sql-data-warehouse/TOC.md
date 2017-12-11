@@ -38,6 +38,7 @@
 
 ## 통합
 ### [개요](sql-data-warehouse-overview-integrate.md)
+### [SQL Database 탄력적 쿼리](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## 모니터링 및 튜닝
@@ -90,9 +91,9 @@
 
 ## 데이터 로드 및 이동
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
-### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [Blob 저장소에서 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [SQL server에서 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
@@ -100,9 +101,8 @@
 
 
 ## 통합
-###  [SQL Database에서 탄력적 쿼리 구성](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [SQL Database 탄력적 쿼리 구성](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Azure Stream Analytics 작업 추가](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [탄력적 쿼리 구성](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Machine Learning 사용](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI를 사용하여 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

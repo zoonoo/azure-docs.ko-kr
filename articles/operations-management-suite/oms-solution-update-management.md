@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
 
@@ -57,7 +57,7 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
 업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다.  업데이트가 여전히 필수인지 확인하기 위한 검사가 수행된 수 업데이트가 설치됩니다.  WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.  적용된 업데이트의 결과는 OMS로 전달되어 대시보드에서 또는 검색 이벤트를 통해 처리 및 요약됩니다.     
 
 ## <a name="prerequisites"></a>필수 조건
-* 이 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2008 R2 SP1 이상에 대한 업데이트 배포 수행을 지원합니다.  Server Core 및 Nano 서버 설치 옵션은 지원되지 않습니다.
+* 이 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2008 R2 SP1 이상에 대한 업데이트 배포 수행을 지원합니다.  Nano 서버는 지원되지 않습니다.
 
     > [!NOTE]
     > Windows Server 2008 R2 SP1에 업데이트를 배포하려면 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.

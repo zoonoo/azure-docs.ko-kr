@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
@@ -84,7 +84,7 @@ Visual Studio에서 `F5`를 눌러 응용 프로그램을 디버깅하기 위해
 
 사용한 상태 저장 서비스 템플릿에서는 **MyStatefulService.cs**의 `RunAsync` 메서드에서 증분하는 카운터 값을 표시합니다.
 
-코드가 실행되는 노드를 포함하여 자세한 정보를 보려면 이벤트 중 하나를 확장합니다. 이 경우에 \_Node\_2이지만 컴퓨터에서 달라질 수 있습니다.
+코드가 실행되는 노드를 포함하여 자세한 정보를 보려면 이벤트 중 하나를 확장합니다. 이 경우에 \_Node\_0이지만 컴퓨터에서 달라질 수 있습니다.
    
 ![진단 이벤트 뷰어 세부 정보][6]
 

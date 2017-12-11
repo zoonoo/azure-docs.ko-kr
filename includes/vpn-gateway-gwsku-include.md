@@ -22,7 +22,7 @@ SLA 및 기능 집합의 차이로 인해 프로덕션 *vs.* 개발-테스트에
 
 | **SKU**| **기능**|
 | ---    | ---         |
-|**Basic**   | **경로 기반 VPN**: P2S 장착 10터널, RADIUS 인증 없음, IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): 1개의 터널. P2S 없음|
+|**Basic**   | **경로 기반 VPN**: P2S 장착 10터널, P2S에 대한 RADIUS 인증 없음, P2S에 대한 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): 1개의 터널. P2S 없음|
 | **VpnGw1, VpnGw2 및 VpnGw3** | **경로 기반 VPN**: 최대 30개의 터널(*),P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
 

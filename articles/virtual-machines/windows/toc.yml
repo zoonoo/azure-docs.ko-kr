@@ -66,6 +66,9 @@
         - name: Compute에 최적화
           href: sizes-compute.md
         - name: 메모리에 최적화
+          items:
+            - name: 제한된 vCPU
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Storage에 최적화
           href: sizes-storage.md
@@ -164,6 +167,8 @@
       items:
         - name: VM 선불 - 예약된 인스턴스
           href: prepay-reserved-vm-instances.md
+        - name: VM 사용량
+          href: vm-usage.md
         - name: 일반 PowerShell 작업
           href: ps-common-ref.md
         - name: VM 이동

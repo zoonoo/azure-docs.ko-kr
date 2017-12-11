@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>PowerShell 설치 
 컴퓨터에 최신 PowerShell이 없는 경우 설치합니다. 
 
-1. 웹 브라우저에서 [Azure SDK 다운로드 및 SDK](https://azure.microsoft.com/downloads/) 페이지로 이동합니다. 
+1. 웹 브라우저에서 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지로 이동합니다. 
 2. **명령줄 도구** -> **PowerShell** 섹션에서 **Windows 설치**를 클릭합니다. 
 3. PowerShell을 설치하려면 **MSI** 파일을 실행합니다. 
 
-자세한 지침은 [PoweShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
+자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
@@ -19,12 +19,12 @@
     ```powershell
     Login-AzureRmAccount
     ```        
-2. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
+2. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
+3. 계정과 연결된 구독이 여러 개인 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       

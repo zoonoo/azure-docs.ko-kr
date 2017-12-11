@@ -1,29 +1,29 @@
 ---
-title: "Azure Search 포털 페이지의 인덱스, 쿼리 및 필터 | Microsoft Docs"
-description: "Azure Portal에서 미리 정의된 샘플 데이터를 사용하여 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다."
+title: "포털을 사용한 인덱싱, 쿼리 및 필터링에 대한 Azure Search 자습서 | Microsoft Docs"
+description: "Azure Portal에서 미리 정의된 샘플 데이터를 사용하여 Azure Search에서 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기, 쿼리 및 필터링
 
-Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **데이터를 가져오기** 마법사를 사용하여 신속하게 인덱스를 생성합니다. **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색을 살펴봅니다.  
+Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **데이터를 가져오기** 마법사를 사용하여 신속하게 Azure Search 인덱스를 생성합니다. **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색을 살펴봅니다.  
 
 이 코드 없는 소개문에서는 흥미로운 쿼리를 바로 작성할 수 있도록 미리 정의된 데이터를 시작합니다. 포털 도구는 코드를 대체하는 것은 아니지만 다음 작업에 유용합니다.
 
