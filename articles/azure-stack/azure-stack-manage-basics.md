@@ -3,8 +3,8 @@ title: "Azure 스택 관리 기본 사항 | Microsoft Docs"
 description: "Azure 스택을 관리 하기 위해 알아야 필요한에 대해 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: fa77faac195de3be7bf7b2785eb589b030a6e6ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Azure 스택 관리 기본 사항
 
@@ -46,10 +46,10 @@ Azure와 같은 우리 혁신 신속 하 게 합니다. 새 빌드를 정기적�
 
 기본적으로 Azure 스택에 다음 "기본 서비스" Azure 스택을 배포 하는 경우:
 
-- Compute
-- 저장소
+- 컴퓨팅
+- Storage
 - 네트워킹
-- 키 자격 증명 모음
+- Key Vault
 
 이러한 기본 서비스와 인프라-as a Service (IaaS) 최소 구성으로 사용자에 게 제공할 수 있습니다.
 

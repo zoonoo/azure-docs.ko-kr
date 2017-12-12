@@ -45,6 +45,8 @@
       items:
         - name: 필수 조건
           href: azure-stack-deploy.md
+        - name: 원격 분석
+          href: azure-stack-telemetry.md
         - name: 배포
           href: azure-stack-run-powershell-script.md
         - name: 'PowerShell 설치 '

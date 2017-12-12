@@ -3,23 +3,23 @@ title: "Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터
 description: "Azure 스택에서 PowerShell과 함께 Windows 가상 컴퓨터를 만듭니다."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 42e126ffefd75669d90ea3ff1d3939028f71159c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 688ab6c55867d72d55e27c21c883c14ef90078d2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell을 사용 하 여 Windows 가상 컴퓨터 만들기
 
@@ -245,5 +245,5 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단한 Windows 가상 컴퓨터 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
+이 퀵 스타트의 간단한 Windows 가상 컴퓨터를 배포한 합니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
 

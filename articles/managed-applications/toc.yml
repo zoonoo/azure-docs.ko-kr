@@ -12,8 +12,6 @@
   items:
     - name: 서비스 카탈로그 응용 프로그램 만들기
       href: publish-service-catalog-app.md
-    - name: 마켓플레이스 응용 프로그램 만들기
-      href: publish-marketplace-app.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -57,7 +55,7 @@
               href: microsoft-common-section.md
             - name: TextBox
               href: microsoft-common-textbox.md
-        - name: Compute
+        - name: 컴퓨팅
           items:
             - name: CredentialsCombo
               href: microsoft-compute-credentialscombo.md
@@ -71,7 +69,7 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: VirtualNetworkCombo
               href: microsoft-network-virtualnetworkcombo.md
-        - name: 저장소
+        - name: Storage
           items:
             - name: MultiStorageAccountCombo
               href: microsoft-storage-multistorageaccountcombo.md

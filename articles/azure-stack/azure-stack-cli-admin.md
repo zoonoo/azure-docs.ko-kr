@@ -3,8 +3,8 @@ title: "Azure 스택 사용자에 대 한 Azure CLI를 사용 하도록 설정 |
 description: "크로스 플랫폼 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 스택에서 Azure 리소스를 배포 하는 방법을 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: sngun
-ms.openlocfilehash: d854c106fbce7e3f01c2878bb9828bdffa4d42a5
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: e2483bda5a0c6a6b270759946f146c37c5dad5b1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure 스택 사용자에 대 한 Azure CLI를 사용 하도록 설정
 

@@ -3,7 +3,7 @@ title: "Microsoft Azure 스택 개발 키트 릴리스 정보 | Microsoft Docs"
 description: "향상 된 기능, 수정 및 Azure 스택 개발 키트에 대 한 알려진된 문제입니다."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2017
-ms.author: andredm
-ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.date: 11/02/2017
+ms.author: mabrigg
+ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure 스택 개발 키트 릴리스 정보
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/04/2017
 - 사용 하 여 Azure 스택 마켓플레이스 항목을 추가 하려고 하면는 **Azure에서 추가** 옵션을 일부 항목 다운로드에 대 한 표시 될 수 있습니다.
 - 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
  
-#### <a name="compute"></a>Compute
+#### <a name="compute"></a>컴퓨팅
 - 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다. 
 - 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
 - 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
@@ -138,7 +138,7 @@ ms.lasthandoff: 12/04/2017
 - 사용 하 여 Azure 스택 마켓플레이스 항목을 추가 하려고 하면는 **Azure에서 추가** 옵션을 일부 항목 다운로드에 대 한 표시 될 수 있습니다.
 - 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
  
-#### <a name="compute"></a>Compute
+#### <a name="compute"></a>컴퓨팅
 - 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다. 
 - 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
 - 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/04/2017
 #### <a name="marketplace"></a>Marketplace
 - 사용자 구독 하지 않고 전체 마켓플레이스를 찾아볼 수 있으며, 계획 및 제안 같은 관리 항목을 볼 수 있습니다. 이러한 항목은 사용자에 게 기능입니다.
  
-#### <a name="compute"></a>Compute
+#### <a name="compute"></a>컴퓨팅
 - 사용자에는 지역 중복 저장소를 사용 하 여 가상 컴퓨터를 만들려면 옵션이 제공 됩니다. 이 구성을 사용 하면 가상 컴퓨터 만들기 실패 합니다.
 - 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
 - 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.

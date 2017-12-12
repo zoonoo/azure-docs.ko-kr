@@ -3,8 +3,8 @@ title: "Azure 스택에 연결 | Microsoft Docs"
 description: "Azure 스택을 연결 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
-리소스를 관리 하려면 Azure 스택 개발 키트에 연결 해야 합니다. 이 항목에 자세히 설명 하는 단계에서 개발 키트에 연결 되어야 합니다. 다음 연결 옵션 중 하나를 사용할 수 있습니다.
+리소스를 관리 하려면 Azure 스택 개발 키트에 연결 해야 합니다. 이 문서에 자세히 설명 하는 단계에서 개발 키트에 연결 되어야 합니다. 다음 연결 옵션 중 하나를 사용할 수 있습니다.
 
 * [원격 데스크톱](#connect-with-remote-desktop): 신속 하 게 개발 키트의 연결 단일 동시 사용자 수 있습니다.
 * [가상 개인 네트워크 (VPN)](#connect-with-vpn): 클라이언트 (구성 필요) Azure 스택 인프라 외부에서 여러 동시 사용자 연결 수 있습니다.
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="configure-vpn-connectivity"></a>VPN 연결 구성
 
-개발 키트를 VPN 연결을 로컬 Windows 기반 컴퓨터에서 관리자 권한 PowerShell 세션을 열고를 만든 다음 스크립트를 실행 (업데이트 해야는 사용자 환경에 대 한 IP 주소와 암호 값):
+개발 키트를 VPN 연결을 만들려면 로컬 Windows 기반 컴퓨터에서 관리자 권한 PowerShell 세션을 열고 (사용자 환경에 대 한 IP 주소와 암호 값을 업데이트할 수 있는지 확인) 다음 스크립트를 실행 합니다.
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-설정에 성공 하면이 표시 **azurestack** VPN 연결 목록에 있습니다.
+설치 과정에 성공 하면이 표시 **azurestack** VPN 연결 목록에 있습니다.
 
 ![네트워크 연결](media/azure-stack-connect-azure-stack/image3.png)  
 

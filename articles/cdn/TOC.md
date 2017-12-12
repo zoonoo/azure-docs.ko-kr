@@ -41,13 +41,14 @@
 
 ## 분석
 ### [Azure CDN 사용 패턴 분석](cdn-log-analysis.md)
-#### [Verizon의 핵심 보고서](cdn-analyze-usage-patterns.md)
-#### [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)
 #### [Azure 진단 로그](cdn-azure-diagnostic-logs.md)
-### Verizon의 Azure CDN에 대한 분석 도구
-#### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
-#### [실시간 통계 보기](cdn-real-time-stats.md)
-#### [에지 노드 성능 분석](cdn-edge-performance.md)
+#### Verizon의 Azure CDN에 대한 분석 도구
+##### [Verizon의 핵심 보고서](cdn-analyze-usage-patterns.md)
+##### [Verizon의 사용자 지정 보고서](cdn-verizon-custom-reports.md)
+#### Verizon의 Azure CDN Premium에 대한 분석 도구
+##### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
+##### [실시간 통계 보기](cdn-real-time-stats.md)
+##### [에지 노드 성능 분석](cdn-edge-performance.md)
 
 ## 개발
 ### [.NET](cdn-app-dev-net.md)

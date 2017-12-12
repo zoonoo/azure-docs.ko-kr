@@ -41,7 +41,7 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: 백업 자격 증명 모음의 자동 업그레이드에 대한 FAQ
           href: backup-upgrade-backup-vault.md
-    - name: 역할 기반 액세스 제어
+    - name: 역할 기반 Access Control
       href: backup-rbac-rs-vault.md
     - name: 하이브리드 백업 보안
       href: backup-azure-security-feature.md
@@ -203,12 +203,14 @@
           href: backup-azure-vms-troubleshoot.md
         - name: 클래식 포털에서 Azure VM 백업 문제
           href: backup-azure-vms-troubleshoot-classic.md
-        - name: 'Azure VM 백업 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과'
+        - name: 'Azure VM Backup 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Azure Backup에서 파일 및 폴더의 느린 백업
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Azure Backup Server 문제 해결
           href: backup-azure-mabs-troubleshoot.md
+        - name: Azure Backup Agent 문제 해결
+          href: backup-azure-mars-troubleshoot.md
 - name: 참조
   items:
     - name: Azure PowerShell

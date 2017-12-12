@@ -3,8 +3,8 @@ title: "Azure 스택에 안전 하 게 저장 된 인증서와 함께 가상 컴
 description: "가상 컴퓨터를 배포 하 고 놓아서 인증서 스택 Azure 주요 자격 증명 모음을 사용 하 여 강제 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
-ms.author: sngun
-ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>가상 컴퓨터 만들기 및 주요 자격 증명 모음에서 검색 된 인증서를 포함 합니다.
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 해야 합니다. 
+* 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다. 
 * [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)  
 * [Azure 스택 사용자의 PowerShell 환경 구성](azure-stack-powershell-configure-user.md)
 

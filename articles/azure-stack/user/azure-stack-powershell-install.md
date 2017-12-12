@@ -3,33 +3,33 @@ title: "Azure 스택 용 PowerShell 설치 | Microsoft Docs"
 description: "Azure 스택에 대 한 PowerShell을 설치 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure 스택에 대 한 PowerShell을 설치 합니다.  
 
 Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합니다. 이 가이드에서는 과정을 단계별로 Azure 스택에 대 한 PowerShell을 설치 하는 데 필요한 단계. VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 사용할 수 있습니다.
 
-이 문서에 Azure 스택에 대 한 PowerShell을 설치 하는 지침을 설명 합니다. 그러나 신속 하 게 설치 하 고 PowerShell을 구성 하려는 경우 "시작 하 고 실행할 PowerShell과 함께" 항목에서 제공 하는 스크립트를 사용할 수 있습니다. 
+이 문서에 Azure 스택에 대 한 PowerShell을 설치 하는 지침을 설명 합니다. 그러나 신속 하 게 설치 하 고 PowerShell을 구성 하려는 경우 "시작 하 고 실행할 PowerShell과 함께" 문서에서 제공 되는 스크립트를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 다음 단계에는 PowerShell 5.0 있어야합니다. 사용 중인 버전을 확인 하려면 $PSVersionTable.PSVersion 실행 하 고 "주" 버전을 비교 합니다.
 
-Azure 스택에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. Regiser PSGallery 저장소를 열거나 관리자 권한 PowerShell 세션 개발 키트의 Windows 기반 외부 클라이언트에서 VPN을 통해 연결 되 고 다음 명령을 실행 하는 경우:
+Azure 스택에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. PSGallery 리포지토리를 등록 하려면 관리자 권한 PowerShell 세션에서에서 열거나 개발 키트 Windows 기반 외부 클라이언트에서 VPN을 통해 연결 되 고 다음 명령을 실행 하는 경우:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니�
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  설치에 성공한 경우 AzureRM 및 AzureStack 모듈 출력에 표시 됩니다.
+  설치에 성공한 경우 AzureRM 및 Azure 스택 모듈 출력에 표시 됩니다.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>제한 된 인터넷 연결) (에 연결 되어 있지 않거나 부분적으로 연결 된 시나리오에서 PowerShell을 설치
 

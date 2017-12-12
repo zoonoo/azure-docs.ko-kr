@@ -3,22 +3,22 @@ title: "PowerShell 설치 및 구성에 대 한 Azure 스택 퀵 스타트 | Mic
 description: "설치 하 고 Azure 스택에 대 한 PowerShell 구성에 대해 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: sngun
-ms.openlocfilehash: fe7b38d66e0e17924bad1bf3fde4af486e7968b2
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.author: mabrigg
+ms.openlocfilehash: 0a85fc78d31c58ee83721d7dccbcdf46f98b3ddd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure 스택에서 PowerShell과 함께 시작 및 실행
 

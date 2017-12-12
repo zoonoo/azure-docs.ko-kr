@@ -3,22 +3,22 @@ title: "API 버전 프로필을 사용 하 여 Azure 스택의 | Microsoft Docs"
 description: "Azure 스택에서 API 버전 프로필에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: sngun
-ms.openlocfilehash: b9a010409dc7f49333ab188b89280f3ad54816c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 68f4250c2a2a6bed1a1e21dc444e93cc87b6f59b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure 스택에서 API 버전 프로필을 관리
 
@@ -41,7 +41,7 @@ Update-Module -Name "AzureRm.BootStrapper"
 
 ## <a name="install-a-profile"></a>프로필 설치
 
-사용 하 여는 **설치 AzureRmProfile** 사용 하 여 cmdlet는 **2017-03-09-프로필** API 버전 프로필을 Azure 스택에서 필요한 AzureRM 모듈을 설치 합니다. 이 API 버전 프로필을 사용 하 여 Azure 스택 연산자 모듈이 설치 되지 않은 하며  별도로의 3 단계에서에서 지정한 대로 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 문서.
+사용 하 여는 **설치 AzureRmProfile** 사용 하 여 cmdlet는 **2017-03-09-프로필** API 버전 프로필을 Azure 스택에서 필요한 AzureRM 모듈을 설치 합니다. 이 API 버전 프로필을 사용 하 여 Azure 스택 연산자 모듈이 설치 되지 않은 하며 별도로의 3 단계에서에서 지정한 대로 [Azure 스택 위한 PowerShell 설치](azure-stack-powershell-install.md) 문서.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

@@ -3,8 +3,8 @@ title: "Azure 스택에 안전 하 게 저장 된 암호를 사용 하 여 VM �
 description: "Azure 스택 키 자격 증명 모음에 저장 된 암호를 사용 하는 VM을 배포 하는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
-ms.author: sngun
-ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>키 자격 증명 모음에 저장 된 암호를 검색 하 여 가상 컴퓨터 만들기
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>필수 조건
  
-* 키 자격 증명 모음 서비스를 포함 하는 제품에 등록 해야 해야 합니다.  
+* 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다.  
 * [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)  
 * [Azure 스택 사용자의 PowerShell 환경을 구성 합니다.](azure-stack-powershell-configure-user.md)
 

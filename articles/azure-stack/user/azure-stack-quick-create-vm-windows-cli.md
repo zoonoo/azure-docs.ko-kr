@@ -3,23 +3,23 @@ title: "Azure 스택 Azure CLI를 사용 하 여 Windows 가상 컴퓨터 만들
 description: "Azure CLI를 사용 하 여 Azure 스택에 Windows VM을 만드는 방법에 알아봅니다"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 196bf4351ebd2bf977102571de385edae6f9612b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Azure 스택 Azure CLI를 사용 하 여 Windows 가상 컴퓨터 만들기
 
@@ -96,4 +96,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단한 Windows 가상 컴퓨터 배포 했습니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
+이 퀵 스타트의 간단한 Windows 가상 컴퓨터를 배포한 합니다. Azure 스택 가상 컴퓨터에 대 한 자세한 내용은 계속 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.

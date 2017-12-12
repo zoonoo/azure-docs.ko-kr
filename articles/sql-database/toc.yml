@@ -203,6 +203,8 @@
       items:
         - name: SaaS 디자인 패턴
           href: saas-tenancy-app-design-patterns.md
+        - name: SaaS 비디오 사용
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: SaaS 앱 보안
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: 데이터베이스 개발

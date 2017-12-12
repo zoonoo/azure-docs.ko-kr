@@ -3,8 +3,8 @@ title: "Azure 스택와 외부 모니터링 솔루션을 통합 | Microsoft Docs
 description: "Azure 스택 외부 모니터링 솔루션 데이터 센터에 통합 하는 방법에 알아봅니다."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: twooley
-ms.openlocfilehash: 801e6be91f2b568ce51ec632bccef06a57d809f1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: mabrigg
+ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure 스택와 외부 모니터링 솔루션을 통합
 
@@ -234,7 +234,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*ImpactedresourceDisplayName*     |     영향을 받는 리소스의 이름입니다.  |
 |*closedByUserAlias*     |   경고를 종결 하는 사용자입니다.      |
 
-### <a name="close-alert"></a>경고 닫기
+### <a name="close-alert"></a>경고 종결
 
 **요청**
 

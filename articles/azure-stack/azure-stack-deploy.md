@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
@@ -121,62 +121,6 @@ NIC가 연결하는 네트워크에서 사용 가능한 DHCP 서버가 있는지
 
 ### <a name="internet-access"></a>인터넷 액세스
 Azure 스택 직접 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure 스택 인터넷 액세스를 사용 하는 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 MA BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
-
-## <a name="telemetry"></a>원격 분석
-
-원격 분석 이후 버전의 Azure 스택 셰이프는 도움이 됩니다. 피드백에 신속 하 게 응답 새로운 기능을 제공 하 고 품질을 향상 시킬 수 있습니다. Microsoft Azure 스택 Windows Server 2016 및 SQL Server 2014를 포함합니다. 이러한 제품을 모두 기본 설정에서 변경 되며 모두 Microsoft Enterprise 개인정보취급방침 설명 됩니다. Azure 스택은 오픈 소스 소프트웨어는 Microsoft로 원격 분석이 전송에 수정 되지 않은 포함 됩니다. Azure 스택 원격 분석 데이터의 몇 가지 예는 다음과 같습니다.
-
-- 배포 등록 정보
-- 경고 열리고 닫힐 때
-- 네트워크 리소스의 수
-
-원격 분석 데이터 흐름을 지원 하려면 포트 443 (HTTPS) 네트워크에서 열려 있어야 합니다. 클라이언트 끝점 https://vortex-win.data.microsoft.com입니다.
-
-Azure 스택에 대 한 원격 분석을 제공 하지 않으려면 경우 있습니다 수 해제 개발 키트 호스트 및 아래에 설명 된 대로 인프라 가상 컴퓨터에.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>(선택 사항) 개발 키트 호스트에서 원격 분석을 해제 설정
-
->[!NOTE]
-개발 키트 호스트에 대 한 원격 분석 해제 하려는 경우 배포 스크립트를 실행 하기 전에 해야 합니다.
-
-하기 전에 [asdk installer.ps1 스크립트를 실행 중인]() 개발 키트 호스트를 배포 하는 CloudBuilder.vhdx로 부팅 하 고 관리자 권한 PowerShell 창에서 다음 스크립트를 실행 합니다.
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-설정 **AllowTelemetry** 을 Windows와 Azure 스택 배포에 대 한 0으로 원격 분석을 해제 합니다. 운영 체제에서 중요 한 보안 이벤트만 전송 됩니다. 설정은 모든 호스트 및 Vm의 경우 인프라에서 Windows 원격 분석을 제어 하 고 확장 작업을 수행 하면 새 노드/Vm에 다시 적용 됩니다.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>(선택 사항) 인프라는 가상 컴퓨터에서 원격 분석을 해제 설정
-
-배포에 성공한 후 (AzureStack\AzureStackAdmin 사용자)로 관리자 권한 PowerShell 창에서 다음 스크립트 개발 키트 호스트에서 실행 합니다.
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-SQL Server 원격 분석을 구성 하려면 참조 [SQL Server 2016을 구성 하는 방법](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft)합니다.
-
-### <a name="usage-reporting"></a>사용 현황 보고
-
-등록을 통해 Azure 스택 정방향 사용 정보를 Azure에도 구성 됩니다. 사용 보고는 독립적으로 제어 원격 분석에서 합니다. 사용 시기를 보고를 해제할 수 있습니다 [등록](azure-stack-register.md) Github에서 스크립트를 사용 하 여 합니다. 방금 설정한는 **$reportUsage** 매개 변수를 **$false**합니다.
-
-사용 현황 데이터의 형식이에 설명 된 대로 [보고서 Azure 스택 사용 현황 데이터를 Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting)합니다. Azure 스택 개발 키트 사용자 실제로 요금이 부과 되지 않습니다. 이 기능 사용 보고 작동 원리를 테스트할 수 있도록 개발 키트에 포함 됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

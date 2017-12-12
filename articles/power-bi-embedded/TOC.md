@@ -24,7 +24,7 @@
 
 # 참조
 ## API
-### [Azure Resource Management REST API](/rest/api/powerbiembedded/)
+### [Azure Resource Management REST API](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK
 ### [.NET SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

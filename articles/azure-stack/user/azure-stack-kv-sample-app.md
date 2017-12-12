@@ -3,8 +3,8 @@ title: "응용 프로그램이 Azure 스택 키 자격 증명 모음 암호를 �
 description: "Azure 스택 주요 자격 증명 모음을 사용 하는 샘플 응용 프로그램을 사용 하 여"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>키 및 키 자격 증명 모음에 저장 된 암호를 사용 하는 샘플 응용 프로그램
 
@@ -132,7 +132,7 @@ Write-Host
 
 ## <a name="download-and-run-the-sample-application"></a>다운로드 하 여 샘플 응용 프로그램 실행
 
-Azure에서 주요 자격 증명 모음 샘플을 다운로드 [키 자격 증명 모음 클라이언트 샘플](https://www.microsoft.com/en-us/download/details.aspx?id=45343) 페이지. 개발 워크스테이션에.zip 파일의 압축을 풉니다. 샘플 폴더 내에서 두 개의 샘플 있습니다. 이 항목의 HellpKeyVault 샘플을 사용합니다. 찾아는 **Microsoft.Azure.KeyVault.Samples** > **샘플** > **HelloKeyVault** 폴더를 연 HelloKeyVault 응용 프로그램 Visual studio 합니다. 
+Azure에서 주요 자격 증명 모음 샘플을 다운로드 [키 자격 증명 모음 클라이언트 샘플](https://www.microsoft.com/en-us/download/details.aspx?id=45343) 페이지. 개발 워크스테이션에.zip 파일의 압축을 풉니다. 샘플 폴더 내에서 두 개의 샘플 있습니다. 이 문서의 내용에 HellpKeyVault 샘플을 사용 합니다. 찾아는 **Microsoft.Azure.KeyVault.Samples** > **샘플** > **HelloKeyVault** 폴더를 연 HelloKeyVault 응용 프로그램 Visual studio 합니다. 
 
 HelloKeyVault\App.config 파일을 열고 값을 바꿀는 <appSettings> 인 요소는 **VaultUrl**, **AuthClientId**, 및 **AuthClientSecret** 값 앞의 스크립트에서 반환 합니다. 기본적으로 App.config에 대 한 자리 표시자 *AuthCertThumbprint*를 사용 하지만 *AuthClientSecret* 대신 합니다. 설정을 대체 한 후 솔루션을 다시 작성 하 고 응용 프로그램을 시작 합니다.
 
