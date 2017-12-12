@@ -62,6 +62,7 @@
 ### [내 Web API 프로젝트의 변경된 내용](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS 마이그레이션](active-directory-acs-migration.md)
+## [ADAL에 대한 모범 사례 오류 처리](active-directory-devhowto-adal-error-handling.md)
 # 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)

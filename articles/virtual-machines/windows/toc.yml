@@ -116,6 +116,8 @@
       items:
         - name: 인프라 지침
           href: infrastructure-example.md
+        - name: vCPU 할당량
+          href: quotas.md
 - name: 방법 가이드
   items:
     - name: VM 만들기

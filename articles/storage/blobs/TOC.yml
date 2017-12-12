@@ -60,6 +60,8 @@
       items:
         - name: 복제
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Storage 계정 옵션
+          href: storage-account-options.md
         - name: '핫, 콜드 및 보관 계층'
           href: storage-blob-storage-tiers.md
         - name: 이벤트에 반응

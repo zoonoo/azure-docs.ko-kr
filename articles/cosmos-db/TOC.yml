@@ -9,7 +9,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1 - 만들기
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: .NET에서 MongoDB
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - 가져오기
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3 - 쿼리
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4 - 전역으로 분산
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: 다중 모델 API
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: 개발
       items:
-        - name: DocumentDB API
+        - name: SQL API
           href: documentdb-index.md
           items:
             - name: 리소스
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: 커뮤니티 포털
-                  href: community.md
                 - name: 스키마와 관계 없는 인덱싱 문서
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'S1, S2, S3 사용 중지'
@@ -378,15 +376,15 @@
           href: powerbi-visualize.md
         - name: 데이터 시각화에 ODBC 드라이버 활용
           href: odbc-driver.md
-        - name: DocumentDB API에 Spring Boot Starter 사용
+        - name: SQL API에 Spring Boot Starter 사용
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: DocumentDB API
+    - name: SQL API
       items:
-        - name: 자바
+        - name: Java
           href: documentdb-sdk-java.md
         - name: .NET
           href: documentdb-sdk-dotnet.md

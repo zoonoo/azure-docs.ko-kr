@@ -75,6 +75,7 @@
 ##### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [응용 프로그램 모델](service-fabric-application-model.md)
+### [응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)
 ### [호스팅 모델](service-fabric-hosting-model.md)
 
 ### Services

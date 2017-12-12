@@ -12,7 +12,7 @@
 # 방법
 ## 고가용성 구성
 ### [고가용성 옵션](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [클래식 포털에서 Always On 가용성 그룹 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [포털에서 Always On 가용성 그룹 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [PowerShell을 사용하여 Always On 가용성 그룹 구성](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [가용성 그룹에 대한 내부 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [가용성 그룹에 대한 외부 수신기 구성](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -23,10 +23,10 @@
 ### [Azure Key Vault 통합 구성](virtual-machines-windows-classic-ps-sql-keyvault.md)
 ### [Premium Storage 사용](virtual-machines-windows-classic-sql-server-premium-storage.md)
 ### [보안 고려사항](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-## 백업 및 복원
-### [백업 및 복원](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-### [자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)
-### [백업 및 복원에 Azure Storage 사용](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## Backup 및 복원
+### [Backup 및 복원](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+### [자동화된 Backup](virtual-machines-windows-classic-sql-automated-backup.md)
+### [Backup 및 복원에 Azure Storage 사용](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## 비즈니스 인텔리전스
 ### [Azure VM의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용](virtual-machines-windows-classic-sql-server-reportviewer.md)
