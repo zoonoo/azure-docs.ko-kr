@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: 응용 프로그램 개발
           href: concepts-database-application-development.md
-    - name: 데이터베이스 마이그레이션
-      items:
-        - name: 덤프 및 복원
-          href: concepts-migrate-dump-restore.md
-        - name: 가져오기 및 내보내기
-          href: concepts-migrate-import-export.md
 - name: 방법 가이드
   items:
     - name: 서버 관리
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: 데이터베이스 마이그레이션
+      items:
+        - name: 덤프 및 복원
+          href: concepts-migrate-dump-restore.md
+        - name: 가져오기 및 내보내기
+          href: concepts-migrate-import-export.md
     - name: 응용 프로그램 연결
       items:
         - name: 사용자 만들기
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: 데이터베이스 마이그레이션 가이드
+      href: 'https://datamigration.microsoft.com/'

@@ -34,8 +34,6 @@
       href: how-to-install-iot-core.md
 - name: 개념
   items:
-    - name: IoT Edge 용어집
-      href: iot-edge-glossary.md
     - name: IoT Edge 모듈
       href: iot-edge-modules.md
       items:
@@ -51,6 +49,8 @@
       href: iot-edge-as-gateway.md
     - name: 보안
       href: security.md
+    - name: IoT Edge 용어집
+      href: iot-edge-glossary.md
 - name: 리소스
   items:
     - name: IoT용 Azure Certified 장치 카탈로그

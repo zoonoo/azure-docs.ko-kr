@@ -219,7 +219,6 @@
 ### [HRD 정책을 사용하여 로그인 자동 가속 구성](active-directory-auto-acceleration-using-hrd.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
-#### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
 #### [SSO 액세스](active-directory-appssoaccess-whatis.md)
 #### [SSO 인증서](active-directory-sso-certs.md)
 #### [테넌트 제한 사항](active-directory-tenant-restrictions.md)
