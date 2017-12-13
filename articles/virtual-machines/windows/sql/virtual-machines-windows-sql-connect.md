@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Azure에서 SQL Server 가상 컴퓨터 연결(리소스 관리자)
-> [!div class="op_single_selector"]
-> * [리소스 관리자](virtual-machines-windows-sql-connect.md)
-> * [클래식](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. [일반적인 연결 시나리오](#connection-scenarios) 일부를 설명하고 [포털에서 연결 설정을 변경하기 위한 단계](#change)를 제공합니다. 포털 외부에서 문제를 해결하거나 연결을 구성해야 하는 경우 이 항목의 끝 부분에 있는 [수동 구성](#manual)을 참조하세요. 
 
 프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
@@ -133,8 +126,25 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
+## <a id="manual"></a> 수동 구성 및 문제 해결
+
+포털에서 자동으로 연결을 구성하는 옵션을 제공하지만 수동으로 연결을 구성하는 방법을 알고 있으면 유용합니다. 요구 사항을 이해하면 문제 해결에 도움이 될 수 있습니다.
+
+다음 표에는 Azure VM에서 실행되는 SQL Server에 연결하기 위한 요구 사항이 나와 있습니다.
+
+| 요구 사항 | 설명 |
+|---|---|
+| [SQL Server 인증 모드 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
+| [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
+| [TCP/IP 프로토콜 사용](#manualTCP) | SQL Server에서 TCP를 통한 연결을 허용해야 합니다. |
+| [SQL Server 포트에 방화벽 규칙 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |
+| [TCP 1433에 대한 네트워크 보안 그룹 규칙 만들기](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | 인터넷을 통해 연결하려면 VM에서 SQL Server 포트(기본값 1433)에서 트래픽을 받도록 허용해야 합니다. 로컬 및 가상 네트워크 전용 연결에는 이 기능이 필요하지 않습니다. 이는 Azure Portal에서 요구되는 유일한 단계입니다. |
+
+> [!TIP]
+> 위의 표에 나와 있는 단계는 포털에서 연결을 구성할 때 수행됩니다. 이러한 단계를 사용하여 SQL Server에 대한 구성을 확인하거나 수동으로 연결을 설정합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

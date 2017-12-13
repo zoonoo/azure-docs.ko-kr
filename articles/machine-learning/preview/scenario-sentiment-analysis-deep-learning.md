@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
-ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a0985cd993c53dcf75d3b29e57598e72908163b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning에서 심층 학습을 사용하여 감정 분석
 
@@ -67,10 +67,9 @@ ms.lasthandoff: 10/11/2017
 | 순서| 파일 이름 | 관련된 파일 |
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
-| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
-| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>결론
 
-결론적으로 이 솔루션은 Azure Machine Learning Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법을 소개합니다. 제공되는 솔루션이 유연하여 CNTK/Tensorflow를 Keras에서 백 엔드로 사용합니다. 또한 HDF5 모델을 사용하여 운영합니다.
+결론적으로 이 솔루션은 Azure Machine Learning Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법을 소개합니다. 또한 HDF5 모델을 사용하여 운영합니다.

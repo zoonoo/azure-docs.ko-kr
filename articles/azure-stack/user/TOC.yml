@@ -37,13 +37,13 @@
       items:
         - name: 주요 고려 사항
           href: azure-stack-considerations.md
-        - name: Compute
+        - name: 컴퓨팅
           items:
             - name: 개요
               href: azure-stack-compute-overview.md
             - name: VM 고려 사항
               href: azure-stack-vm-considerations.md
-        - name: 저장소
+        - name: Storage
           items:
             - name: 개요
               href: azure-stack-storage-overview.md
@@ -65,7 +65,7 @@
               href: azure-stack-understanding-dns.md
             - name: Azure Stack의 DNS
               href: azure-stack-dns.md
-        - name: 키 자격 증명 모음
+        - name: Key Vault
           items:
             - name: 개요
               href: azure-stack-kv-intro.md
@@ -119,6 +119,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: 관련 항목
+  items:
+    - name: Azure Stack 연산자 설명서
+      href: /azure/azure-stack/
 - name: 리소스
   items:
     - name: Azure 로드맵

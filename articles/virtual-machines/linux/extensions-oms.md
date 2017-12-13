@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 컴퓨터 확장
 
@@ -41,6 +41,10 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 | Debian GNU/Linux | 6, 7 및 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 및 12 |
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center는 자동으로 OMS 에이전트를 프로비전하고 Azure 구독의 기본 로그 분석 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure Files에 대한 질문과 대답
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 이 문서는 Azure Files와 Azure File Sync 사용을 비롯하여 Azure Files 기능에 대한 일반적인 질문에 대답합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
 
 1. 이 문서의 의견 섹션입니다.
-2. [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata)
+2. [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
 
@@ -147,6 +147,9 @@ ms.lasthandoff: 11/20/2017
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**볼륨에 여러 서버 엔드포인트가 있는 경우 *사용 가능한 볼륨 공간*은 어떻게 해석되나요?**  
+    볼륨에 서버 엔드포인트가 둘 이상 있으면 효과적인 사용 가능한 볼륨 공간 임계값은 해당 볼륨의 서버 엔드포인트에서 지정된 사용 가능한 최대 볼륨 공간입니다. 파일은 속해 있는 서버 엔드포인트와 관계없이 사용 패턴에 따라 계층화됩니다. 예를 들어 Endpoint1 및 Endpoint2라는 두 개의 서버 엔드포인트가 볼륨에 있고, Endpoint1의 사용 가능한 볼륨 공간 임계값은 25%이고, Endpoint2의 사용 가능한 볼륨 공간 임계값은 50%인 경우, 두 서버 엔드포인트의 사용 가능한 볼륨 공간 임계값은 50%가 됩니다.
 
 * <a id="afs-files-excluded"></a>**어떤 파일과 폴더가 Azure File Sync에서 자동으로 제외되나요?**  
     기본적으로 Azure File Sync는 다음 파일을 제외합니다.

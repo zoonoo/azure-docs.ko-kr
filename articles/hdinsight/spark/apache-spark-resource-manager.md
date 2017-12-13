@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
-이 문서에서 Spark 클러스터와 연결된 Ambari UI, YARN UI, Spark 기록 서버와 같은 인터페이스에 액세스하는 방법을 알아봅니다. 최적의 성능을 위해 클러스터 구성을 조정하는 방법에 대해 알아봅니다.
+Ambari UI, YARN UI 및 Spark 클러스터와 관련된 Spark 기록 서버와 같은 인터페이스에 액세스하는 방법과 최적의 성능을 위해 클러스터 구성을 튜닝하는 방법을 알아봅니다.
 
 **필수 조건:**
 
-* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Ambari 웹 UI를 시작하는 방법
+## <a name="open-the-ambari-web-ui"></a>Ambari 웹 UI 열기
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 2. Spark 클러스터의 경우 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 11/29/2017
 
     ![Ambari 웹 UI](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari 웹 UI")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Spark 기록 서버를 시작하는 방법
+## <a name="open-the-spark-history-server"></a>Spark 기록 서버 열기
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우).
 2. 클러스터 블레이드의 **빠른 링크**에서 **클러스터 대시보드**를 클릭합니다. **클러스터 대시보드** 블레이드에서 **Spark 기록 서버**를 클릭합니다.
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 11/29/2017
 
     메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Yarn UI를 시작하는 방법
+## <a name="open-the-yarn-ui"></a>Yarn UI 열기
 YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프로그램을 모니터링할 수 있습니다.
 
 1. 클러스터 블레이드에서 **클러스터 대시보드**, **YARN**을 차례로 클릭합니다.
@@ -60,7 +59,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark 응용 프로그램을 실행하는 데 최적화된 클러스터 구성이란?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark 응용 프로그램을 실행하기 위한 최적의 클러스터 구성
 응용 프로그램 요구 사항에 따라 Spark 구성에 사용할 수 있는 세 가지 주요 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 작업자 노드에서 실행되며 응용 프로그램에 대한 작업을 수행해야 합니다. 각 클러스터에 대한 실행자 및 실행자 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 이 정보는 클러스터 헤드 노드의 `spark-defaults.conf`에 저장됩니다.
 
 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 응용 프로그램의 경우) 클러스터 수준에서 구성될 수 있거나 각 개별 응용 프로그램에 대해 지정될 수 있습니다.

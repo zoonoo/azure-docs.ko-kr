@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -59,9 +59,14 @@ ms.lasthandoff: 11/15/2017
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - [빠른 시작 설치 및 만들기](quickstart-installation.md)에 따라 Azure Machine Learning Workbench를 설치하고 Experimentation and Model Management Accounts(실험 및 모델 관리 계정)을 만듭니다.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK 및 Azure CLI 2.0
-    - [Recipes Prerequisites 섹션](https://github.com/Azure/BatchAI/tree/master/recipes)의 지침에 따라 Batch AI SDK 및 Azure CLI 2.0을 설치합니다.
-        - 이 문서를 작성할 당시 Azure Machine Learning Workbench는 Azure CLI 2.0의 별도 분기를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 "Azure Machine Learning Workbench에서 시작한 CLI"로, 일반 릴리스 버전(Batch AI 포함)을 "Azure CLI 2.0"으로 지칭하겠습니다.
-    - [다음 지침](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)에 따라 Azure Active Directory 응용 프로그램 및 서비스 주체를 만듭니다. 클라이언트 ID, 암호 및 테넌트 ID를 적어둡니다.
+    - [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes)의 다음 섹션을 완료합니다.
+        - "필수 구성 요소"
+        - "AAD(Azure Active Directory) 응용 프로그램 만들기 및 가져오기"
+        - "등록된 BatchAI 리소스 공급자"("Azure CLI 2.0으로 레시피 실행" 섹션 내)
+        - "Azure Batch AI 관리 클라이언트 설치"
+        - "Azure Python SDK 설치"
+    - 만들도록 지시받은 Azure Active Directory 응용 프로그램의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
+    - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 2.0 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 "Azure Machine Learning Workbench에서 시작한 CLI"로, 일반 릴리스 버전(Batch AI 포함)을 "Azure CLI 2.0"으로 지칭하겠습니다.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
     - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
 - SSH 클라이언트에는 [PuTTY](http://www.putty.org/)가 권장됩니다.
@@ -215,7 +220,7 @@ Batch AI 클러스터는 네트워크 파일 서버의 교육 데이터에 액�
 1. 다음 명령을 실행하여 네트워크 파일 서버를 만듭니다.
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. 다음 명령을 사용하여 네트워크 파일 서버의 프로비저닝 상태를 확인합니다.

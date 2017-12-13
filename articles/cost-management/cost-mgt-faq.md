@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -92,20 +92,13 @@ CSP의 경우:
 
 엔터티에 CSP 계정을 추가하려면 새 엔터티를 만들 때 **엔터프라이즈** 대신 **MSP 액세스**를 선택합니다. 계정이 기업계약으로 등록되어 있고 CSP 자격 증명을 추가하려는 경우 Cloudyn 지원 담당자가 계정 설정을 수정해야 할 수 있습니다. 유료 Azure 구독자인 경우 Azure Portal에서 새 지원 요청을 만들 수 있습니다. **도움말 + 지원**을 선택한 다음 **새 지원 요청**을 선택합니다.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Cloudyn에서 사용되는 통화 기호는 어떻게 변경할까요?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Cloudyn 보고서의 통화 기호
 
-단일 엔터티의 모든 Azure 계정이 동일한 통화를 사용하면 사용하는 통화가 자동으로 검색됩니다. 그러나 다음 통화의 경우 통화 기호가 **$**로 잘못 표시됩니다.
+서로 다른 통화를 사용하는 여러 Azure 계좌가 있을 수 있습니다. 그러나 Cloudyn의 비용 보고서는 보고서당 하나 이상의 통화 형식을 표시하지 않습니다.
 
-- GBP = 영국 파운드
-- EUR = 유럽 유로
-- INR = 인도 루피
-- NOK = 노르웨이 크론
+다른 통화를 사용하는 구독이 여러 개인 경우 **$** 기호와 함께 부모 엔터티와 자식 엔터티 통화가 표시됩니다. 동일한 엔터티 계층 구조에서 다른 통화를 사용하지 않는 것이 좋습니다. 즉 엔터티 구조로 구성된 모든 구독은 동일한 통화를 사용해야 합니다.
 
-미국 달러의 경우 통화 기호가 **$**로 표시될 수 있지만 비용 값은 올바른 통화로 표시됩니다. 예를 들어 모든 계정이 동일한 엔터티에서 유로를 사용하는 경우 **$** 기호가 잘못 표시되더라도 Cloudyn에 표시되는 _값_은 유로입니다.
-
-Azure Enterprise Agreement 고객인 경우 Cloudyn 지원 담당자가 비용 보고서에 표시된 통화 기호를 $에서 변경할 수 있습니다. Azure Portal에서 새로운 지원 요청을 만들 수 있습니다. **도움말 + 지원**을 선택한 다음 **새 지원 요청**을 선택합니다.
-
-CSP 고객인 경우 통화 기호를 변경할 수 없습니다. Cloudyn은 미국 달러를 사용하는 요율표만 지원합니다. Cloudyn은 여러 통화의 요율표를 지원할 수 있는 옵션을 모색 중입니다.
+Cloudyn에서는 기업 계약 구독 통화를 자동으로 검색하여 보고서에 올바르게 표시합니다.  그러나 CSP 및 웹 직접 Azure 계정에 대해서는 **$** 기호만 표시합니다.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn 데이터 새로 고침 타임라인은 무엇인가요?
 

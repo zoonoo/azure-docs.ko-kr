@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Windows용 OMS 가상 컴퓨터 확장
 
@@ -28,7 +28,12 @@ OMS(Operations Management Suite)는 클라우드와 온-프레미스 자산에�
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
+
 Windows용 OMS 에이전트 확장은 Windows Server 2008 R2, 2012, 2012 R2 및 2016 릴리스에 대해 실행할 수 있습니다.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center는 자동으로 OMS 에이전트를 프로비전하고 Azure 구독의 기본 로그 분석 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 Windows용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연결되어 있어야 합니다. 

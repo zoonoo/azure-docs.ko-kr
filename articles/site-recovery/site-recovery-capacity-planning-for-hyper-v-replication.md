@@ -12,14 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e2a69f240068d3155c2fdd52c118dc037ccbcdcb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+이제 [Hyper-V에서 Azure로의 Azure Site Recovery Deployment Planner](site-recovery-hyper-v-deployment-planner.md)의 향상된 새 버전을 사용할 수 있으며 이전 도구를 대체할 수 있습니다. 배포 계획에 새 도구를 사용합니다. 이 도구에서 제공하는 지침은 다음과 같습니다. 
+* VM 적합성 평가(디스크 수, 디스크 크기, IOPS, 변동률 및 몇 가지 VM 특성 기준)
+* 네트워크 대역폭 요구 사항 및 RPO 평가
+* Azure 인프라 요구 사항
+* 온-프레미스 인프라 요구 사항
+* 초기 복제 일괄 처리 지침
+* Azure로의 DR에 대한 전체 예상 비용
+
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery용 Hyper-V Capacity Planner 도구
 
 Azure Site Recovery 배포의 일환으로 복제 및 대역폭 요구 사항을 파악해야 합니다. Site Recovery용 Hyper-V Capacity Planner 도구를 사용하면 Hyper-V 가상 컴퓨터 복제를 위해 이 작업을 수행할 수 있습니다.

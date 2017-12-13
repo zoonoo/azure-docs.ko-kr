@@ -233,6 +233,10 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: 관련 항목
+  items:
+    - name: Azure Stack 사용자 설명서
+      href: /azure/azure-stack/user/
 - name: 리소스
   items:
     - name: Azure 로드맵

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: be18f6db46285233e233c843dab1f389cd553e96
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: fa19913928bad8b91777c0904324ff5983f6472c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Pig 작업 실행
 
@@ -35,35 +35,39 @@ SSH 연결에서 HDInsight 클러스터로 Pig 작업을 대화형으로 실행�
 
 SSH를 사용하여 HDInsight 클러스터에 연결합니다. 다음은 **sshuser** 계정으로 **myhdinsight** 클러스터에 연결하는 예입니다.
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**SSH 인증을 위해 인증서 키를 제공한 경우** HDInsight 클러스터를 만들 때 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다.
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 입력합니다.
-
-HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a id="pig"></a>Pig 명령 사용
 
 1. 연결되면 다음 명령을 사용하여 Pig CLI(명령줄 인터페이스)를 시작합니다.
 
-        pig
+    ```bash
+    pig
+    ```
 
-    잠시 후 `grunt>` 프롬프트가 표시됩니다.
+    잠시 후 프롬프트가 `grunt>`로 바뀝니다.
 
 2. 다음 문을 입력합니다.
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     이 명령은 sample.log 파일의 내용을 로그에 로드합니다. 다음 문을 사용하여 파일의 내용을 볼 수 있습니다.
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. 이어서 다음 문을 사용하여 각 레코드에서 로깅 수준만 추출하는 정규식을 적용하여 데이터를 변환합니다.
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     **DUMP** 를 사용하여 변환 후 데이터를 볼 수 있습니다. 이 예제의 경우 `DUMP LEVELS;`입니다.
 
@@ -81,36 +85,48 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
 
 5. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 문은 `RESULT`를 클러스터 기본 저장소의 `/example/data/pigout` 디렉터리에 저장합니다.
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > 데이터는 `part-nnnnn` 파일의 지정된 디렉터리에 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류가 발생합니다.
 
 6. 프롬프트를 종료하려면 다음 문을 입력합니다.
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 배치 파일
 
 Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있습니다.
 
-1. 프롬프트를 종료한 후 다음 명령을 사용하여 STDIN을 `pigbatch.pig` 파일에 연결합니다. 이 파일은 SSH 사용자 계정의 홈 디렉터리에 생성됩니다.
+1. grunt 프롬프트가 종료되면 다음 명령을 사용하여 `pigbatch.pig`라는 파일을 만듭니다.
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. 다음 줄에 입력하거나 붙여 넣은 다음 완료되면 Ctrl+D를 사용합니다.
+2. 다음 줄을 입력하거나 붙여넣습니다.
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    완료되면 __Ctrl__ + __X__, __Y__ 및 __Enter__ 키를 차례로 사용하여 파일을 저장합니다.
 
 3. 다음의 Pig 명령을 사용하여 `pigbatch.pig` 파일을 실행합니다.
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     배치 작업이 완료되면 다음과 같은 출력이 표시됩니다.
 

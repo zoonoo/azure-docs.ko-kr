@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -36,14 +36,17 @@ ms.lasthandoff: 11/09/2017
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 2. 포털을 연 후 다음을 수행할 수 있습니다.
 
-   * 왼쪽 메뉴에서 **새로 만들기** 를 클릭하여 새 클러스터를 만듭니다.
+   * 왼쪽 메뉴에서 **리소스 만들기**를 클릭하여 새 클러스터를 만듭니다.
 
        ![새 HDInsight 클러스터 단추](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       **마켓플레이스 검색**에서 **HDInsight**를 입력하고, **HDInsight**를 클릭한 다음, **만들기**를 클릭합니다.
+
    * 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭하여 기존 클러스터를 나열합니다.
 
        ![Azure 포털 HDInsight 클러스터 단추](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       **HDInsight 클러스터** 단추가 표시되지 않으면 목록 아래쪽에서 **더 많은 서비스**를 클릭한 다음 **인텔리전스 + 분석** 섹션에서 **HDInsight 클러스터**를 클릭합니다.
+       **HDInsight 클러스터** 단추가 표시되지 않으면 **인텔리전스 + 분석** 섹션 아래쪽에 있는 **HDInsight 클러스터**를 클릭합니다.
 
 
 ## <a name="create-clusters"></a>클러스터 만들기
@@ -73,7 +76,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 
 ## <a name="list-and-show-clusters"></a>클러스터 나열 및 표시
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭하여 기존 클러스터를 나열합니다. **HDInsight 클러스터**가 표시되지 않으면 먼저 **추가 서비스**를 클릭합니다.
+2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭하여 기존 클러스터를 나열합니다. **HDInsight 클러스터**가 표시되지 않으면 먼저 **모든 서비스**를 클릭합니다.
 3. 클러스터 이름을 클릭합니다. 클러스터 목록이 긴 경우 페이지 상단의 필터를 사용할 수 있습니다.
 4. 개요 페이지를 보려면 목록에서 클러스터를 클릭합니다.
 
@@ -81,6 +84,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **대시보드**: Linux 기반 클러스터용 Ambari Web인 클러스터 대시보드를 엽니다.
     * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
     * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
+    * **이동**: 클러스터를 다른 리소스 그룹 또는 등록으로 이동합니다.
     * **삭제**: 클러스터를 삭제합니다.
 
     **왼쪽 메뉴:**
@@ -92,17 +96,18 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
     * **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
     * **HDInsight용 도구**: HDInsight 관련 도구에 대한 도움말 정보입니다.
-    * **클러스터 로그인**: 클러스터 로그인 정보를 표시합니다.
     * **구독 코어 사용량**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
     * **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
-    * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+    * **SSH + 클러스터 로그인**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하기 위한 지침을 표시합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하고, 클러스터 로그인 자격 증명을 다시 설정합니다.
     * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
     * **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다. [Hive/Oozie metastore 사용](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)을 참조하세요.
     * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
     * **응용 프로그램**: HDInsight 응용 프로그램을 추가/제거합니다.  [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+    * **모니터링**: Azure Operations Management Suite 및 Azure Log Analytics에서 클러스터를 모니터링합니다.
     * **속성**: 클러스터 속성을 표시합니다.
     * **Storage 계정**: Storage 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
-    * **클러스터 AAD ID**:
+    * **Data Lake Store 액세스**: Data Lake Stores에 대한 액세스를 구성합니다.  [Azure Portal을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+    * **리소스 상태**: [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
     * **새 지원 요청**: Microsoft 지원에 지원 티켓을 만들 수 있습니다.
     
 6. **속성**을 클릭합니다.
@@ -128,7 +133,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 클러스터를 삭제하더라도 기본 저장소 계정이나 연결된 저장소 계정은 삭제하지 않습니다. 동일한 저장소 계정과 동일한 Metastore를 사용하여 클러스터를 다시 만들 수 있습니다. 클러스터를 다시 만들 때 새 기본 Blob 컨테이너를 사용하는 것이 좋습니다.
 
 1. [포털][azure-portal]에 로그인합니다.
-2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다. **HDInsight 클러스터**가 표시되지 않으면 먼저 **추가 서비스**를 클릭합니다.
+2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다. **HDInsight 클러스터**가 표시되지 않으면 먼저 **모든 서비스**를 클릭합니다.
 3. 삭제할 클러스터를 클릭합니다.
 4. 상단 메뉴에서 **삭제** 를 클릭하고 지침을 따릅니다.
 

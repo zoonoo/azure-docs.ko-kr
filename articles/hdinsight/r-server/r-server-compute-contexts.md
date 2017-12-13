@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>HDInsight에서 R 서버의 Compute 컨텍스트 옵션
 
@@ -33,12 +33,12 @@ Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호
 ## <a name="compute-contexts-for-an-edge-node"></a>에지 노드에 대한 Compute 컨텍스트
 일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 ScaleR 함수를 호출하는 단계입니다. ScaleR 호출은 ScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 계산 컨텍스트의 가능한 값은 다음과 같습니다.
 
-- 로컬 순차(*‘local’*)
-- 로컬 병렬(*‘localpar’*)
+- 로컬 순차(*local*)
+- 로컬 병렬(*localpar*)
 - Map Reduce
 - Spark
 
-*‘local’* 및 *‘localpar’* 옵션은 **rxExec** 호출 실행 방법에 따라서만 달라집니다. 이러한 두 옵션은 ScaleR **numCoresToUse** 옵션(예: `rxOptions(numCoresToUse=6)`)을 사용하여 다르게 지정하지 않는 한, 사용 가능한 모든 코어에서 병렬 방식으로 다른 rx-function 호출을 실행합니다. 병렬 실행 옵션은 최적의 성능을 제공합니다.
+*local* 및 *localpar* 옵션은 **rxExec** 호출을 실행하는 방법에 따라서만 달라집니다. 이러한 두 옵션은 ScaleR **numCoresToUse** 옵션(예: `rxOptions(numCoresToUse=6)`)을 사용하여 다르게 지정하지 않는 한, 사용 가능한 모든 코어에서 병렬 방식으로 다른 rx-function 호출을 실행합니다. 병렬 실행 옵션은 최적의 성능을 제공합니다.
 
 다음 표에는 호출 실행 방법을 설정하는 다양한 계산 컨텍스트 옵션이 요약되어 있습니다.
 
@@ -62,8 +62,8 @@ Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호
 이러한 원칙을 감안하여 다음 섹션에서는 계산 컨텍스트 선택에 대한 몇 가지 일반적인 규칙을 제공합니다.
 
 ### <a name="local"></a>Local
-* 분석할 데이터 양이 적고 반복된 분석이 필요하지 않을 경우 *'local'* 또는 *'localpar'*를 사용하여 분석 루틴으로 직접 스트림이 진행됩니다.
-* 분석할 데이터의 양이 적거나 중간 크기이고 분석을 반복해야 하는 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *'local'* 또는 *'localpar'*를 통해 분석합니다.
+* 분석할 데이터 양이 적고 반복 분석이 필요하지 않은 경우 *local* 또는 *localpar*를 사용하여 분석 루틴으로 직접 스트림합니다.
+* 분석할 데이터의 양이 적거나 중간 크기이고 반복 분석이 필요한 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *local* 또는 *localpar*를 통해 분석합니다.
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
 * 분석할 데이터 양이 많은 경우 **RxHiveData** 또는 **RxParquetData**를 사용하여 Spark DataFrame으로 가져오거나 저장소 문제가 아닌 한 HDFS의 XDF로 가져와서 Spark 계산 컨텍스트를 사용하여 분석합니다.
@@ -76,7 +76,7 @@ Azure HDInsight의 Microsoft R Server는 계산 컨텍스트를 설정하여 호
 
     > ?rxSetComputeContext
 
-[R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "MSDN의 R Server") 라이브러리에서 사용할 수 있는 "[ScaleR 분산 컴퓨팅 가이드](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)"(영문)를 참조할 수도 있습니다.
+[R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) 라이브러리에서 제공되는 [ScaleR 분산 컴퓨팅 가이드](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)를 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봤습니다. HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
