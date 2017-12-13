@@ -11,13 +11,14 @@
 ## [Advisor 시작](advisor-get-started.md)
 
 # 참조
-## [REST (영문)](https://docs.microsoft.com/rest/api/advisor)
+## [REST API](https://docs.microsoft.com/rest/api/advisor)
+## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 # 관련 항목
 ## [보안 센터](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Redis Cache](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
-## [앱 서비스](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
+## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # 리소스
 ## [Azure Advisor 비디오](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)

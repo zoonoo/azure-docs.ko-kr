@@ -11,7 +11,6 @@
 ## DNS 영역 및 레코드 만들기
 ### [Azure 포털](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## 개인 DNS 영역 및 레코드 만들기
@@ -24,13 +23,11 @@
 ## DNS 영역 관리
 ### [Azure 포털](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS 레코드 관리
 ### [Azure 포털](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## 역방향 DNS 관리

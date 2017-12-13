@@ -12,6 +12,8 @@
 # 방법
 ## 템플릿 만들기
 ### [템플릿 섹션](resource-group-authoring-templates.md)
+#### [매개 변수](resource-manager-templates-parameters.md)
+#### [변수](resource-manager-templates-variables.md)
 ### [템플릿 모범 사례](resource-manager-template-best-practices.md)
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
