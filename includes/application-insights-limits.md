@@ -2,7 +2,7 @@
 
 | **리소스** | **기본 제한** | **참고**
 | --- | --- | --- |
-| 일당 총 데이터 | 500GB | 한도를 설정하여 데이터를 줄일 수 있습니다. 추가할 필요가 있으면 AIDataCap@microsoft.com으로 메일을 보내세요.
+| 일당 총 데이터 | 100GB | 한도를 설정하여 데이터를 줄일 수 있습니다. 더 많은 데이터가 필요한 경우 포털에서 최대 1,000GB로 한도를 늘릴 수 있습니다. 1,000GB보다 큰 용량이 필요한 경우 AIDataCap@microsoft.com으로 메일을 보내세요.
 | 월당 무료 데이터<br/> (기본 가격 요금제) | 1 GB | 추가 데이터는 기가바이트당 요금이 청구됩니다.
 | 제한 | 32k 이벤트/초 | 제한은 분을 기준으로 측정됩니다.
 | 데이터 보존 | 90일 | 이 리소스는 [검색](../articles/application-insights/app-insights-diagnostic-search.md), [분석](../articles/application-insights/app-insights-analytics.md) 및 [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md)의 경우입니다.

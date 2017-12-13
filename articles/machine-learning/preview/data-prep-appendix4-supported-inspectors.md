@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning 데이터 준비 미리 보기에 지원되는 검사기
 이 문서에서는 이 미리 보기에서 사용할 수 있는 일단의 검사기에 대해 간략히 설명합니다.
@@ -113,3 +113,18 @@ X-축에서 시간을 인식하는 선 그래프입니다.
 이 검사기는 맵에서 점 선택을 통한 필터링을 지원합니다. **Ctrl** 키를 누른 채 마우스를 클릭한 다음 끌어 점 주변으로 정사각형을 만듭니다. 그런 다음 앞에서 설명한 대로 필터를 적용합니다.
 
 맵의 왼쪽에서 **E** 키를 눌러 가능한 점만 표시하도록 맵의 크기를 빠르게 조정할 수 있습니다.
+
+
+## <a name="pattern-frequency"></a>패턴 빈도 
+
+이 검사기는 선택한 문자열 열의 패턴 목록을 보여 줍니다. 패턴은 구문과 같은 정규식을 사용하여 표현됩니다. 패턴에 마우스를 가져가면 해당 패턴으로 표현된 값의 예제가 표시됩니다. 패턴과 함께 백분율의 대략적인 범위도 표시됩니다.
+
+![패턴 검사기의 이미지](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>옵션
+- 상위 값의 수
+- 내림차순
+- Halo 표시
+
+### <a name="actions"></a>작업
+이 검사기는 표시된 패턴을 기반으로 필터링을 지원합니다. **Ctrl** 키를 누른 후 패턴 검사기에서 채워진 막대를 선택합니다. 그런 다음 앞에서 설명한 대로 필터를 적용합니다. 사용자 작업 결과로 고급 필터 단계가 추가됩니다. 고급 필터 단계의 편집 옵션을 호출하여 생성된 Python 코드를 보고 수정할 수 있습니다.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -121,7 +121,7 @@ Microsoft AMS(Azure Media Services)에서 **스트리밍 끝점**은 추가 배�
 > 
 > 
 
-자세한 내용은 [이](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) 블로그를 참조하세요.
+자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) 를 참조하세요.
 
 ### <a name="known-issues"></a>알려진 문제
 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. 자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
@@ -131,7 +131,7 @@ Microsoft AMS(Azure Media Services)에서 **스트리밍 끝점**은 추가 배�
 Azure Media Services는 강력한 비디오 인텔리전스를 위한 Azure Media Analytics를 출시했습니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay(미리 보기)
-이제 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 AMS 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 배달할 수 있습니다. 자세한 내용은 [Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍 ](media-services-protect-hls-with-fairplay.md)을 참조하세요.
+이제 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 AMS 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 배달할 수 있습니다. 자세한 내용은 Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍을 참조하세요.
 
 ## <a id="feb_changes16"></a>2016년 2월 릴리스
 최신 버전의 .NET용 Azure Media Services SDK(3.5.3)에는 Widevine 관련 버그 수정이 포함되어 있습니다. 문제: Widevine으로 암호화된 여러 자산에 대해 AssetDeliveryPolicy를 다시 사용할 수 없습니다. 이 버그 수정의 일환으로 **WidevineBaseLicenseAcquisitionUrl**속성이 SDK에 추가되었습니다.
@@ -162,26 +162,26 @@ Azure SDK 팀은 Microsoft Azure Media Services에 대한 업데이트 및 새 �
 * [PHP용 Microsoft Azure Media Services SDK](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 블로그
 * 빨리 시작하는 데 도움이 되는 [코드 샘플](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) 은 다음과 같습니다.
   * **vodworkflow_aes.php**: AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여 주는 PHP 파일입니다. 이 파일은 [이](media-services-protect-with-aes128.md) 문서에 설명되어 있는 .NET 샘플을 기반으로 합니다.
-  * **vodworkflow_aes.php**: PlayReady 동적 암호화 및 License Delivery 서비스를 사용하는 방법을 보여 주는 PHP 파일입니다. 이 파일은 [이](media-services-protect-with-drm.md) 문서에 설명되어 있는 .NET 샘플을 기반으로 합니다.
+  * **vodworkflow_aes.php**: PlayReady 동적 암호화 및 License Delivery 서비스를 사용하는 방법을 보여 주는 PHP 파일입니다. 이 파일은 [이](media-services-protect-with-playready-widevine.md) 문서에 설명되어 있는 .NET 샘플을 기반으로 합니다.
   * **scale_encoding_units.php**: 인코딩 예약 단위 크기를 조정하는 방법을 보여 주는 PHP 파일입니다.
 
 ## <a id="nov_changes_15"></a>2015년 11월 릴리스
-이제 Azure Media Services는 클라우드에서 Google Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 공지 사항 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-drm.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요. 
+이제 Azure Media Services는 클라우드에서 Google Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 공지 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-playready-widevine.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요. 
 
-Azure Media Services에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)을 참조하세요.
+Azure Media Sevices에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요.
 
 ## <a id="oct_changes_15"></a>2015년 10월 릴리스
 AMS(Azure Media Services)는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure Portal을 사용하여 [Media Service 계정을 만들고](media-services-portal-create-account.md) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. 그러나 Live Encoding은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 Encoding 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
 
 * 브라질 남부:                                          표준 및 기본 Encoding 예약 단위만 사용 가능합니다.
-* 인도 서부, 인도 남부 및 인도 중부:             기본 Encoding 예약 단위만 사용 가능
+* 인도 서부, 인도 남부 및 인도 중부: 기본 Encoding 예약 단위만 사용 가능
 
 ## <a id="september_changes_15"></a>2015년 9월 릴리스
 * 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 배달 서비스 파트너 [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/)를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
   
     [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.  
 * AMS에서 Apple ProRes 동영상 지원을 추가했습니다. 이제 Apple ProRes 또는 기타 코덱을 사용하는 QuickTime 원본 동영상 파일을 업로드할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)를 참조하세요.
-* 이제 미디어 인코더 표준을 사용하여 하위 클리핑 및 라이브 보관 추출을 수행할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)를 참조하세요.
+* 이제 Media Encoder Standard를 사용하여 하위 클리핑 및 라이브 보관 추출을 수행할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)를 참조하세요.
 * 다음 필터링이 업데이트되었습니다. 
   
   * 이제 오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷을 사용할 수 있습니다. 이 업데이트를 통해 오디오 전용 트랙을 URL에 지정하여(audio-only=false) 제거할 수 있습니다.
@@ -241,7 +241,7 @@ OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active D
 * 스페인어 지원
 * 새로운 구성 xml 형식
 
-자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
+자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)를 참조하세요.
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK 업데이트
 Azure Media Services .NET SDK의 현재 버전은 3.2.0.0입니다.
@@ -340,7 +340,7 @@ Media Services Azure Media Encoder의 새 릴리스가 발표되었습니다. �
     고려 사항은 다음과 같습니다.
   
   * 사용자 지정 도메인 이름에 대한 소유권이 있어야 합니다.
-  * Azure Media Services에서 도메인 이름 소유권의 유효성을 확인해야 합니다. 도메인의 유효성을 검사하려면 <MediaServicesAccountId>.<parent domain>을 매핑하는 CName을 만들어서 dns.<mediaservices-dns-zone>을 확인합니다. 
+  * Azure Media Services에서 도메인 이름 소유권의 유효성을 확인해야 합니다. 도메인이 유효한지 확인하려면 <MediaServicesAccountId> <parent domain>을 매핑하는 CName을 만들어 DNS.<mediaservices-dns-zone>을 확인합니다. 
   * 사용자 지정 호스트 이름(예: sports.contoso.com)을 Media Services StreamingEndpont 호스트 이름(예: amstest.streaming.mediaservices.windows.net)에 매핑되는 다른 CName을 만들어야 합니다.
 
     자세한 내용은 [StreamingEndpoint] 문서의 **CustomHostNames** 속성을 참조하세요.
@@ -409,9 +409,9 @@ Media Services .NET SDK 3.0.0.5 릴리스에서는 다음 기능이 향상되었
 > 
 > 
 
-이제 .NET용 Media Services의 최신 버전이 3.0.0.0입니다. Nuget에서 최신 패키지를 다운로드하거나 [GitHub]에서 비트를 받을 수 있습니다.
+이제 .NET용 Media Services의 최신 버전이 3.0.0.0입니다. NuGet에서 최신 패키지를 다운로드하거나 [GitHub]에서 비트를 받을 수 있습니다.
 
-Media Services SDK 버전 3.0.0.0부터 Azure Active Directory ACS(Access Control Service) 토큰을 다시 사용할 수 있습니다. 
+Media Services SDK 버전 3.0.0.0부터 [Azure Active Directory ACS(Access Control Service)] 토큰을 다시 사용할 수 있습니다. 자세한 내용은 [.NET용 Media Services SDK를 통해 Media Services에 연결] 문서의 "Access Control Service 토큰 다시 사용" 섹션을 참조하세요.
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK 확장 2.0.0.0
 Azure Media Services .NET SDK Extensions는 코드를 단순화하고 Azure Media Services를 사용하여 더욱 쉽게 개발할 수 있도록 지원하는 일련의 확장 메서드 및 도우미 함수입니다. [Azure Media Services .NET SDK Extensions]에서 최신 파일을 구할 수 있습니다.
@@ -471,7 +471,7 @@ Azure Media Services .NET SDK Extensions는 코드를 단순화하고 Azure Medi
     StorageAccountName 속성
   
     자세한 내용은 [여러 Storage 계정에서 Media Services 자산 관리]를 참조하세요.
-* 알림 관련 API. 버전 2.2.0.0부터는 Azure 큐 저장소 알림을 수신할 수 있습니다. 자세한 내용은 [Media Services 작업 알림 처리]를 참조하세요.
+* 알림 관련 API입니다. 버전 2.2.0.0부터는 Azure 큐 저장소 알림을 수신할 수 있습니다. 자세한 내용은 [Media Services 작업 알림 처리]를 참조하세요.
   
     Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 속성
   
@@ -580,8 +580,8 @@ Azure Media Services .NET SDK Extensions는 코드를 단순화하고 Azure Medi
 [오버레이 만들기]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [비디오 세그먼트 연결]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 및 3.0.0.2 릴리스]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory ACS(Access Control Service)]: http://msdn.microsoft.com/library/hh147631.aspx
+[.NET용 Media Services SDK를 통해 Media Services에 연결]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

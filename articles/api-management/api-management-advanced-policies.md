@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
-  
+
 ##  <a name="AdvancedPolicies"></a> 고급 정책  
   
 -   [흐름 제어](api-management-advanced-policies.md#choose) - 부울 [식](api-management-policy-expressions.md)의 평가 결과에 따라 정책 문을 조건부로 적용합니다.  
-  
 -   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
-
 -   [동시성 제한](#LimitConcurrency) - 지정된 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다.
-  
 -   [이벤트 허브에 기록](#log-to-eventhub) - 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다. 
-
 -   [모의 응답](#mock-response) - 파이프라인 실행을 중단하고 호출자에게 직접 모의 응답을 반환합니다.
-  
 -   [다시 시도](#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.  
-  
 -   [응답 반환](#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다. 
-  
 -   [단방향 요청 전송](#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.  
-  
 -   [요청 전송](#SendRequest) - 지정된 URL로 요청을 보냅니다.  
-
 -   [HTTP 프록시 설정](#SetHttpProxy) - HTTP 프록시를 통해 전달되는 요청을 라우팅할수 있습니다.  
-
 -   [요청 메서드 설정](#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
-  
 -   [상태 코드 설정](#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.  
-  
 -   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 [context](api-management-policy-expressions.md#ContextVariables) 변수의 값을 유지합니다.  
-
 -   [추적](#Trace) - [API 검사기](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다.  
-  
 -   [대기](#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.  
   
 ##  <a name="choose"></a> 흐름 제어  
@@ -264,7 +249,6 @@ ms.lasthandoff: 11/22/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** backend  
-  
 -   **정책 범위:** 모든 범위  
   
 ##  <a name="LimitConcurrency"></a> 동시성 제한  
@@ -807,7 +791,6 @@ status code and media type. If no example or schema found, the content is empty.
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** outbound, backend, on-error  
-  
 -   **정책 범위:** 모든 범위  
 
 ##  <a name="set-variable"></a> 변수 설정  
@@ -843,72 +826,41 @@ status code and media type. If no example or schema found, the content is empty.
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
-  
 -   **정책 범위:** 모든 범위  
   
 ###  <a name="set-variableAllowedTypes"></a> 허용 형식  
  `set-variable` 정책에 사용된 식은 다음 기본 형식 중 하나를 반환해야 합니다.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a> 추적  
@@ -1004,13 +956,16 @@ status code and media type. If no example or schema found, the content is empty.
 |for|`wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용되는 값은 다음과 같습니다.<br /><br /> -   `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />-   any - 임의의 직계 자식 정책이 완료될 때까지 대기합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다.|아니요|모두|  
   
 ### <a name="usage"></a>사용 현황  
- 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+ 
+이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend  
-  
 -   **정책 범위:** 모든 범위  
   
 ## <a name="next-steps"></a>다음 단계
+
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
--   [API Management의 정책](api-management-howto-policies.md) 
--   [정책 식](api-management-policy-expressions.md)
++ [API Management의 정책](api-management-howto-policies.md) 
++ [정책 식](api-management-policy-expressions.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

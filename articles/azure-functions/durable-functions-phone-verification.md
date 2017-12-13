@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/29/2017
 
 다음 섹션에서는 Azure Portal 개발에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
  
-## <a name="the-sms-verification-orchestration"></a>SMS 확인 오케스트레이션
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드) 
 
 **E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 

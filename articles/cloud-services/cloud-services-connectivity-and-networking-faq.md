@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
-이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md)를 참조할 수도 있습니다.
+이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 연결 및 네트워킹에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -48,8 +48,8 @@ Azure는 DDoS(distributed denial-of-service) 공격에 대해 플랫폼 서비�
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>클라우드 서비스 인스턴스에 RDP하려는 경우 "사용자 계정이 만료되었습니다."라는 메시지가 표시됩니다.
 RDP 설정에 구성된 만료 날짜를 바이패스하면 "이 사용자 계정이 만료되었습니다."라는 오류 메시지가 표시될 수 있습니다. 다음과 같은 단계를 수행하여 포털에서 만료 날짜를 변경할 수 있습니다.
-1. Azure 관리 콘솔( https://manage.windowsazure.com )에 로그인하여 클라우드 서비스를 찾아 **구성** 탭을 선택합니다.
-2. **원격**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하여, 클라우드 서비스로 이동하고 **원격 데스크톱** 탭을 선택합니다.
+2. **프로덕션** 또는 **준비 프로세스** 배포 슬롯을 선택합니다.
 3. "만료" 날짜를 변경하고 구성을 저장합니다.
 
 이제 컴퓨터에 RDP할 수 있습니다.

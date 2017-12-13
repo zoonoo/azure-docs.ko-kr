@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -64,9 +64,9 @@ ms.lasthandoff: 10/23/2017
 
 ### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
-이 위험 이벤트 유형은 지역적으로 떨어진 위치에서 시작한 두 번의 로그인을 식별합니다. 과거 동작을 고려하면 이 위치 중 하나 이상이 사용자에 대해 불규칙적입니다. 또한 두 번의 로그인 간의 시간은 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간보다 짧습니다. 이는 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다. 
+이 위험 이벤트 유형은 지역적으로 떨어진 위치에서 시작한 두 번의 로그인을 식별합니다. 과거 동작을 고려하면 이 위치 중 하나 이상이 사용자에 대해 불규칙적입니다. 다른 요인 중에서 이 Machine Learning 알고리즘은 두 번의 로그인 간 시간과 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간을 고려하여 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다.
 
-조직의 다른 사용자가 정기적으로 사용하는 VPN 및 위치와 같은 불가능한 이동 조건에 영향을 주는 확실한 "*가양성*"을 무시하는 기계 학습 알고리즘입니다.  시스템에는 새 사용자의 로그인 동작을 알아보는 동안 14일의 초기 학습 기간이 있습니다.
+이 알고리즘은 조직의 다른 사용자가 정기적으로 사용하는 VPN 및 위치와 같은 불가능한 이동 조건에 영향을 주는 확실한 "가양성"을 무시합니다. 시스템에는 새 사용자의 로그인 동작을 알아보는 동안 14일의 초기 학습 기간이 있습니다. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>잘 모르는 위치에서 로그인
 

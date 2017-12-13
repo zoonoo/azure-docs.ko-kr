@@ -39,7 +39,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 ```
 Usage :
-UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
   | 매개 변수를 포함해야 합니다.|형식|설명|가능한 값|

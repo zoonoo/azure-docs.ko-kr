@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 정책 식 구문은 C# 6.0입니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.  
   
-> [!NOTE]
+> [!TIP]
 >  정책 식에 대한 자세한 내용은 [정책 식](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) 비디오를 참조하세요.  
 >   
 >  정책 식을 사용한 정책 구성에 대한 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)을 참조하세요. 이 비디오에는 다음 정책 식 데모가 포함됩니다.  
@@ -206,5 +206,15 @@ ms.lasthandoff: 11/22/2017
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />일반 텍스트를 반환합니다.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
+
+정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
++ [API Management의 정책](api-management-howto-policies.md)
++ [API 변환](transform-api.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

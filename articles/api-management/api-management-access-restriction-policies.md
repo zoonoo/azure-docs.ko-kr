@@ -12,31 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
-이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
 ##  <a name="AccessRestrictionPolicies"></a> 액세스 제한 정책  
   
 -   [HTTP 헤더 확인](api-management-access-restriction-policies.md#CheckHTTPHeader) - HTTP 헤더의 존재 및/또는 값을 적용합니다.  
-  
 -   [구독으로 호출 속도 제한](api-management-access-restriction-policies.md#LimitCallRate) - 구독을 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.  
-  
 -   [키로 호출 속도 제한](#LimitCallRateByKey) - 키를 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.  
-  
 -   [호출자 IP 제한](api-management-access-restriction-policies.md#RestrictCallerIPs) - 특정 IP 주소 및/또는 주소 범위의 호출을 필터링(허용/거부)합니다.  
-  
 -   [구독으로 사용 할당량 설정](api-management-access-restriction-policies.md#SetUsageQuota) - 구독을 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.  
-  
 -   [키로 사용 할당량 설정](#SetUsageQuotaByKey) - 키를 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.  
-  
 -   [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) - 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.  
   
 ##  <a name="CheckHTTPHeader"></a> HTTP 헤더 확인  
@@ -235,7 +229,6 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
-  
 -   **정책 범위:** global, product, API, operation  
   
 ##  <a name="SetUsageQuota"></a> 구독으로 사용 할당량 설정  
@@ -291,7 +284,6 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
-  
 -   **정책 범위:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> 키로 사용 할당량 설정  
@@ -352,7 +344,6 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
-  
 -   **정책 범위:** global, product, API, operation  
   
 ##  <a name="ValidateJWT"></a> JWT 유효성 검사  
@@ -523,8 +514,13 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
-  
 -   **정책 범위:** global, product, API, operation  
   
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
+
+정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
++ [API Management의 정책](api-management-howto-policies.md)
++ [API 변환](transform-api.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

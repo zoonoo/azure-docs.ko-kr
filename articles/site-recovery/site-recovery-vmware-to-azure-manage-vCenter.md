@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Azure Site Recovery에서 VMware vCenter 서버 관리
 이 문서는 VMware vCenter에서 수행될 수 있는 다양한 Site Recovery 작업을 설명합니다.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/27/2017
 
 **VMware vCenter 및 VMware vSphere ESX 호스트 지원** | **세부 정보** |
 |--- | --- |
-|**온-프레미스 VMware 서버** | 최신 업데이트가 포함된 6.0, 5.5, 5.1을 실행하는 하나 이상의 VMware vSphere 서버. 서버는 구성 서버(또는 별도의 프로세스 서버)와 동일한 네트워크에 있어야 합니다.<br/><br/> 호스트를 관리하는 vCenter 서버를 두는 것이 좋습니다(최신 업데이트가 포함된 6.0 또는 5.5 실행). 버전 6.0을 배포하는 경우 5.5에서 사용할 수 있는 기능만 지원됩니다.|
+|**온-프레미스 VMware 서버** | 최신 업데이트가 포함된 6.5, 6.0, 5.5를 실행하는 하나 이상의 VMware vSphere 서버. 서버는 구성 서버(또는 별도의 프로세스 서버)와 동일한 네트워크에 있어야 합니다.<br/><br/> 호스트를 관리하는 vCenter 서버를 두는 것이 좋습니다(최신 업데이트가 포함된 6.5, 6.0 또는 5.5 실행). 버전 6.0을 배포하는 경우 5.5에서 사용할 수 있는 기능만 지원됩니다.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>자동 검색용 계정 준비
 Site Recovery는 가상 컴퓨터 자동 검색 및 가상 컴퓨터의 장애 조치와 장애 복구를 위해 프로세스 서버의 VMware에 대한 액세스 권한이 필요합니다.

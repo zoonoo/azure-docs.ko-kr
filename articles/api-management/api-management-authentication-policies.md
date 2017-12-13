@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 2907c1e4e39f975b4dc4e9382d7258c5d56dbbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
-이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
-  
+이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+
 ##  <a name="AuthenticationPolicies"></a> 인증 정책  
   
 -   [기본 사용 인증](api-management-authentication-policies.md#Basic) - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.  
@@ -100,4 +100,9 @@ ms.lasthandoff: 10/11/2017
   
 
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
+정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
++ [API Management의 정책](api-management-howto-policies.md)
++ [API 변환](transform-api.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

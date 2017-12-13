@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store(서비스 �
 조건을 충족하지 않는 경우 Azure 데이터 팩터리는 설정을 확인한 후 데이터 이동을 위한 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
 1. **원본에 연결된 서비스**의 형식은 **AzureStorage** 또는 **서비스 주체 인증이 적용된 AzureDataLakeStore**입니다.  
-2. **입력 데이터 집합**은 **AzureBlob** 또는 **AzureDataLakeStore** 형식이고 `type` 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat** 또는 **TextFormat**입니다.
+2. **입력 데이터 집합**은 **AzureBlob** 또는 **AzureDataLakeStore** 형식이고 `type` 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
    1. `rowDelimiter`는 **\n**이어야 합니다.
    2. `nullValue`가 **빈 문자열**("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true**로 설정되어 있습니다.

@@ -26,7 +26,7 @@ Premium Storage를 시작하려면 [무료로 Azure 계정을 만드세요](http
 기존 VM을 Premium Storage로 마이그레이션하는 내용은 [Windows VM을 비관리 디스크에서 관리 디스크로 변환](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) 또는 [Linux VM을 비관리 디스크에서 관리 디스크로 변환](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md)을 참조하세요.
 
 > [!NOTE]
-> Premium Storage는 대부분의 지역에서 사용할 수 있습니다. 사용 가능 지역 목록은 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)에서 Premium Support 크기-시리즈 VM(DS 시리즈, DSV2 시리즈, GS 시리즈 및 Fs 시리즈 VM)이 지원되는 지역을 살펴보면 찾을 수 있습니다.
+> Premium Storage는 대부분의 지역에서 사용할 수 있습니다. 사용 가능한 지역 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/#services)에서 **디스크 저장소** 행을 참조하세요.
 > 
 
 ## <a name="features"></a>기능

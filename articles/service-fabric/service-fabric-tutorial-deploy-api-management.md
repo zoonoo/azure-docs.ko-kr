@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Service Fabric을 사용하여 API Management 배포
-이 자습서는 시리즈의 3부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 APP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다. 
+이 자습서는 시리즈의 4부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 APP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다. 
 
 이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 11/29/2017
 > [!div class="checklist"]
 > * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 > * [클러스터 규모 확장 또는 규모 감축](/service-fabric-tutorial-scale-cluster.md)
+> * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * Service Fabric을 사용하여 API Management 배포
 
 ## <a name="prerequisites"></a>필수 조건
@@ -335,10 +336,6 @@ az group delete --name $ResourceGroupName
 > * API 작업 만들기
 > * 백 엔드 정책 구성
 > * 제품에 API 추가
-
-이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
-> [!div class="nextstepaction"]
-> [Service Fabric 클러스터 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

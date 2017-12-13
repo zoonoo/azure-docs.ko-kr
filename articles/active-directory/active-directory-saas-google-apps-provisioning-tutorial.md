@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Google Apps 구성
 
@@ -90,6 +90,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
      ![도메인](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. 디렉터리에 추가하려는 모든 도메인에 대해 앞의 단계를 반복합니다.
+
+    > [!NOTE]
+    사용자 프로비저닝을 위해서는 Google Apps 사용자 지정 도메인이 원본 Azure AD의 도메인 이름과 일치해야 합니다. 일치하지 않으면 특성 매핑 사용자 지정을 구현하여 이 문제를 해결할 수 있습니다.
+
 
 5. Azure AD에서 모든 도메인을 확인했으므로 Google Apps에서 다시 확인해야 합니다. Google Apps에 아직 등록되지 않은 각 도메인에 대해 다음 단계를 수행합니다.
    

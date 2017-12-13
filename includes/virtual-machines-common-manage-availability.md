@@ -8,23 +8,23 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
   전체 데이터 센터 또는 전체 지역에 영향을 주는 가동 중단 또는 재해가 발생한 경우에 가상 컴퓨터에는 가동 중지 시간이 발생할 수도 있습니다. 이러한 시나리오의 경우 Azure에서는 [가용성 영역](../articles/availability-zones/az-overview.md) 및 [쌍을 이루는 지역](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)을 비롯한 보호 옵션을 제공합니다.
 
-* **계획된 유지 관리 이벤트**는 가상 컴퓨터가 실행되는 플랫폼 인프라의 전반적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft에서 기본 Azure 플랫폼에 적용하는 정기적인 업데이트입니다. 이러한 업데이트는 대부분 Virtual Machines 또는 Cloud Services에 영향을 주지 않고 수행됩니다([VM 보존 유지 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance) 참조). Azure 플랫폼에서 가능한 모든 경우에 VM 보존 유지 관리를 사용하려고 시도하는 반면, 가상 컴퓨터를 다시 부팅해야 기본 인프라에 필요한 업데이트를 적용할 수 있는 경우가 드물게 있습니다. 이 경우 적절한 기간에 VM에 대한 유지 관리를 시작하여 유지 관리 - 재배포 작업이 포함된 Azure Planned Maintenance(Azure 계획된 유지 관리)를 수행할 수 있습니다. 자세한 내용은 [Virtual Machines에 대한 계획된 유지 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/)를 참조하세요.
+* **계획된 유지 관리 이벤트**는 가상 컴퓨터가 실행되는 플랫폼 인프라의 전반적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft에서 기본 Azure 플랫폼에 적용하는 정기적인 업데이트입니다. 이러한 업데이트는 대부분 Virtual Machines 또는 Cloud Services에 영향을 주지 않고 수행됩니다([VM 보존 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance) 참조). Azure 플랫폼에서 가능한 모든 경우에 VM 보존 유지 관리를 사용하려고 시도하는 반면, 가상 컴퓨터를 다시 부팅해야 기본 인프라에 필요한 업데이트를 적용할 수 있는 경우가 드물게 있습니다. 이 경우 적절한 기간에 VM에 대한 유지 관리를 시작하여 유지 관리 - 재배포 작업이 포함된 Azure Planned Maintenance(Azure 계획된 유지 관리)를 수행할 수 있습니다. 자세한 내용은 [Virtual Machines에 대한 계획된 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/)를 참조하세요.
 
 
 이러한 이벤트로 인한 가동 중지 시간의 영향을 줄이기 위해 가상 컴퓨터에 다음과 같은 고가용성 모범 사례를 권장합니다.
 
 * [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]
 * [가용성 집합의 VM에 Managed Disks 사용]
-* [예약된 이벤트를 사용하여 VM에 영향을 미치는 이벤트에 대한 사전 예방적 대응](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [예약된 이벤트를 사용하여 VM에 영향을 미치는 이벤트에 대한 사전 예방적 대응](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]
 * [가용성 집합과 부하 분산 장치 결합]
-* [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.]
+* [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성
 응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 컴퓨터를 가용성 집합으로 그룹화하는 것이 좋습니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
 
 > [!IMPORTANT]
-> 가용성 집합 안에 단일 인스턴스 가상 컴퓨터를 단독으로 두지 않도록 하십시오. 이러한 구성의 VM은 SLA 보증에 맞지 않으며 단일 VM이 [Azure Premium Storage](../articles/storage/common/storage-premium-storage.md)를 사용하는 경우를 제외하고 Azure 계획된 유지 관리 이벤트 중에 가동 중지하게 됩니다. 프리미엄 저장소를 사용하는 단일 VM의 경우 Azure SLA가 적용됩니다.
+> 가용성 집합 안에 단일 인스턴스 가상 컴퓨터를 단독으로 두지 않도록 하십시오. 이러한 구성의 VM은 SLA 보증에 맞지 않으며 단일 VM이 [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md)를 사용하는 경우를 제외하고 Azure 계획된 유지 관리 이벤트 중에 가동 중지하게 됩니다. 프리미엄 저장소를 사용하는 단일 VM의 경우 Azure SLA가 적용됩니다.
 
 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 컴퓨터를 **업데이트 도메인** 및 **장애 도메인**에 할당합니다. 특정 가용성 집합의 경우 기본적으로 사용자가 구성할 수 없는 다섯 개의 업데이트 도메인이 할당되어(그런 다음 최대 20개의 업데이트 도메인을 제공하도록 Resource Manager 배포를 늘릴 수 있음) 동시에 재부팅할 수 있는 가상 컴퓨터 및 기본 물리적 하드웨어 그룹을 나타냅니다. 단일 가용성 집합 내에 5개 이상의 가상 컴퓨터를 구성한 경우 6번째 가상 컴퓨터는 동일한 업데이트 도메인에 첫 번째 가상 컴퓨터로 배치되고, 7번째 가상 컴퓨터는 동일한 업데이트 도메인에 두 번째 가상 컴퓨터로 배치되는 식입니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다. 다시 부팅된 업데이트 도메인을 복구할 시간으로 30분이 제공되며 이 시간이 지나면 다른 업데이트 도메인에서 유지 관리가 시작됩니다.
 
@@ -81,3 +81,4 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가용성 집합의 VM에 Managed Disks 사용]: #use-managed-disks-for-vms-in-an-availability-set
+[가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]: #use-availability-zones-to-protect-from-datacenter-level-failures

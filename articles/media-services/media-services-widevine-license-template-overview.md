@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요
-## <a name="overview"></a>개요
-이제 Azure 미디어 서비스를 사용하면 Widevine 라이선스를 요청하고 구성할 수 있습니다. 최종 사용자 플레이어가 Widevine으로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용할 수 있는 라이선스가 발급됩니다.
+Azure Media Services를 사용하면 Widevine 라이선스를 요청하고 구성할 수 있습니다. 최종 사용자 플레이어가 Widevine으로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용할 수 있는 라이선스가 발급됩니다.
 
 Widevine 라이선스 요청 형식은 JSON 메시지입니다.  
 
@@ -108,9 +107,9 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 | override_provider_client_token |boolean. true 또는 false |false이고 라이선스 요청에 클라이언트 토큰이 포함된 경우 이 구조에 클라이언트 토큰이 지정된 경우에도 요청의 토큰을 사용합니다.  true이면 항상 이 구조에 지정된 토큰을 사용합니다. |
 
 ## <a name="configure-your-widevine-licenses-using-net-types"></a>.NET 형식을 사용하여 Widevine 라이선스 구성
-미디어 서비스는 Widevine 라이선스를 구성할 수 있는 .NET API를 제공합니다. 
+Media Services는 Widevine 라이선스를 구성할 수 있는 .NET API를 제공합니다. 
 
-### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>미디어 서비스 .NET SDK에 정의된 클래스
+### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Media Services .NET SDK에 정의된 클래스
 이러한 형식에 대한 정의는 다음과 같습니다.
 
     public class WidevineMessage
@@ -190,12 +189,12 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
     }
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목
-[PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
+[PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)
 

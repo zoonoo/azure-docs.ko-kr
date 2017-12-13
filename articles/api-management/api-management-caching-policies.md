@@ -12,31 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
-이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
 ##  <a name="CachingPolicies"></a> 캐싱 정책  
   
 -   응답 캐싱 정책  
   
     -   [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) - 캐시 조회를 수행하여 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다.  
-  
     -   [캐시에 저장](api-management-caching-policies.md#StoreToCache) - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.  
   
 -   값 캐싱 정책  
-  
-    -   [캐시에서 값 가져오기](#GetFromCacheByKey) - 키로 캐시된 항목을 검색합니다.  
-  
-    -   [값을 캐시에 저장](#StoreToCacheByKey) - 키로 캐시에 항목을 저장합니다.  
-  
+
+    -   [캐시에서 값 가져오기](#GetFromCacheByKey) - 키로 캐시된 항목을 검색합니다. 
+    -   [값을 캐시에 저장](#StoreToCacheByKey) - 키로 캐시에 항목을 저장합니다. 
     -   [캐시에서 값을 제거](#RemoveCacheByKey) - 키로 캐시에서 항목을 제거합니다.  
   
 ##  <a name="GetFromCache"></a> 캐시에서 가져오기  
@@ -54,7 +51,7 @@ ms.lasthandoff: 10/11/2017
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ ms.lasthandoff: 10/11/2017
 |allow-private-response-caching|`true`로 설정하면 Authorization 헤더를 포함하는 요청의 캐싱을 허용합니다.|아니요|false|  
 |downstream-caching-type|이 특성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> -   none - 다운스트림 캐싱이 허용되지 않습니다.<br />-   private - 다운스트림 캐싱이 허용됩니다.<br />-   public - 개인 및 공유 다운스트림 캐싱이 허용됩니다.|아니요|없음|  
 |must-revalidate|다운스트림 캐싱을 사용하는 경우 이 특성이 게이트웨이 응답에서 `must-revalidate` 캐시 제어 지시문을 설정 또는 해제합니다.|아니요|true|  
-|vary-by-developer|개발자 키별 캐시 응답을 위해서는 `true`로 설정합니다.|아니요|false|  
-|vary-by-developer-groups|사용자 역할별 캐시 응답을 위해서는 `true`로 설정합니다.|아니요|false|  
+|vary-by-developer|개발자 키별 캐시 응답을 위해서는 `true`로 설정합니다.|예||  
+|vary-by-developer-groups|사용자 역할별 캐시 응답을 위해서는 `true`로 설정합니다.|예||  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
-  
 -   **정책 범위:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> 캐시에 저장  
@@ -198,8 +194,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
--   **정책 섹션:** outbound  
-  
+-   **정책 섹션:** outbound    
 -   **정책 범위:** API, operation, product  
   
 ##  <a name="GetFromCacheByKey"></a> 캐시에서 값 가져오기  
@@ -244,7 +239,6 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
-  
 -   **정책 범위:** global, API, operation, product  
   
 ##  <a name="StoreToCacheByKey"></a> 값을 캐시에 저장  
@@ -287,11 +281,10 @@ ms.lasthandoff: 10/11/2017
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
-  
 -   **정책 범위:** global, API, operation, product  
   
 ###  <a name="RemoveCacheByKey"></a> 캐시에서 값 제거  
- `cache-remove-value`는 키로 식별된 캐시 항목을 삭제합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다.  
+`cache-remove-value`는 키로 식별된 캐시 항목을 삭제합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다.  
   
 #### <a name="policy-statement"></a>정책 문:  
   
@@ -325,9 +318,13 @@ ms.lasthandoff: 10/11/2017
  다음 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에 이 정책을 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
-  
 -   **정책 범위:** global, API, operation, product  
-  
 
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
+
+정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
++ [API Management의 정책](api-management-howto-policies.md)
++ [API 변환](transform-api.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

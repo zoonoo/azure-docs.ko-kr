@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
@@ -119,5 +119,11 @@ ms.lasthandoff: 10/13/2017
 **Q: IP 주소는 로그인 및 위험한 로그인 보고서에서 어떻게 계산되나요?**
 
 **A:** IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. 모바일 공급자 및 클라이언트 장치가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 IP 주소를 발급하는 VPN과 같은 요인에 의해 복잡합니다. 위의 설명을 고려하면 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보에 기반한 최상의 노력입니다. 
+
+---
+
+**Q: "추가 위험이 있는 로그인이 감지됨" 위험 이벤트는 무엇을 의미하나요?**
+
+**A:** 사용자 환경의 모든 위험한 로그인을 파악할 수 있도록 하기 위해 Azure AD Identity Protection 구독자만 감지할 수 있으므로 위험한 것으로 간주되는 로그인에 대해 위험 이벤트 “추가 위험이 있는 로그인이 감지됨”을 표시합니다.
 
 ---

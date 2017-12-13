@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365/Dynamics CRM 간에 데이터 복사
 
@@ -30,14 +30,20 @@ ms.lasthandoff: 11/10/2017
 
 Dynamics 365/Dynamics CRM에서 지원되는 싱크 데이터 저장소로 또는 지원되는 원본 데이터 저장소에서 Dynamics 365/Dynamics CRM으로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
-특히, 이 Dynamics 커넥터는 아래 Dynamics 버전 및 인증 유형을 지원합니다.
+이 Dynamics 커넥터는 아래 Dynamics 버전 및 인증 유형(*IFD는 Internet Facing Deployment의 약어임*)을 지원합니다.
 
 | Dynamics 버전 | 인증 형식 | 연결된 서비스 샘플 |
 |:--- |:--- |:--- |
 | Dynamics 365 온라인 <br> Dynamics CRM 온라인 | Office365 | [Dynamics 온라인 + Office365 인증](#dynamics-365-and-dynamics-crm-online) |
 | IFD로 Dynamics 365 온-프레미스 <br> IFD로 Dynamics CRM 2016 온-프레미스 <br> IFD로 Dynamics CRM 2015 온-프레미스 | IFD | [IFD + IFD 인증으로 Dynamics 온-프레미스](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD는 인터넷 연결 배포에 대해 짧습니다.*
+구체적으로 Dynamics 365에 대해 다음 응용 프로그램 유형이 지원됩니다.
+
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
+- Dynamics 365 for Field Service
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 > [!NOTE]
 > Dynamics 커넥터를 사용하려면 Azure Key Vault에 암호를 저장하고 ADF 복사 작업에서 데이터 복사를 수행할 때 거기에서 끌어올 수 있도록 합니다. [연결된 서비스 속성](#linked-service-properties) 섹션에서 구성하는 방법을 참조하세요.

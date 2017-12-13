@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Service Fabric 클러스터 크기 조정
 
@@ -30,6 +30,13 @@ ms.lasthandoff: 11/10/2017
 > * 클러스터 노드 수 읽기
 > * 클러스터 노드 추가(규모 확장)
 > * 클러스터 노드 제거(규모 감축)
+
+이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+> * 클러스터 규모 확장 또는 규모 감축
+> * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
+> * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
@@ -250,8 +257,8 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 > * 클러스터 노드 제거(규모 감축)
 
 
-이제 다음 자습서를 진행하여 응용 프로그램을 배포하고 API Management를 사용하는 방법을 알아봅니다.
+이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
 > [!div class="nextstepaction"]
-> [API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+> [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

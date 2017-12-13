@@ -8,15 +8,7 @@
 
 - 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 컴퓨터가 필요하지 않은 개발 워크로드 및 기타 응용 프로그램에 기본적으로 사용됩니다. 프로덕션 응용 프로그램에 적합한 VM 크기는 (Virtual Machines의 크기)[virtual-machines-size-specs.md]를 참조하세요. 또한 VM 가격 책정 정보는 [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
-## <a name="b-series-preview"></a>B 시리즈(미리 보기)
-
-> [!NOTE] 
-> 사용 약관에 동의하게 되면 미리 보기를 사용할 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 Microsoft Azure 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> 이 미리 보기는 다음 지역으로 제한됩니다.
-> - 미국 - 서부 2
-> - 미국 - 동부
-> - 유럽 - 서부
-> - 아시아 태평양 - 남동부
+## <a name="b-series"></a>B 시리즈
 
 버스트 가능한 B 시리즈 VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 이러한 고객들에게 VM에서 기준 성능보다 적게 사용할 때 VM 인스턴스에서 크레딧을 축적할 수 있는 양심적인 가격 위주의 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공합니다. VM에 대한 크레딧이 적립되면 응용 프로그램에 더 높은 CPU 성능이 필요할 때 VM이 CPU의 최대 100%까지 사용하여 VM의 기준 이상으로 버스트할 수 있습니다.
 
@@ -31,7 +23,7 @@
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3 시리즈
+## <a name="dsv3-series"></a>Dsv3 시리즈*
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Dsv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기�
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600/384                              | 8/높음                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200/768                              | 8/매우 높음                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/매우 높음                                       |
+*Dsv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
-
-## <a name="dv3-series"></a>Dv3 시리즈
+## <a name="dv3-series"></a>Dv3 시리즈* 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ Dv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기�
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/높음                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/매우 높음                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/매우 높음                     |
-
+*Dv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
 ## <a name="dsv2-series"></a>DSv2 시리즈
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 0815c4d826d9ee09f2e787d9b27258149c55d400
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -117,4 +117,4 @@ App Service 계획이 할당하는 리소스를 계산하기 위해 지불하므
 ## <a name="manage-an-app-service-plan"></a>App Service 계획 관리
 
 > [!div class="nextstepaction"]
-> [Azure에서 앱 강화](app-service-plan-manage.md)
+> [App Service 계획 관리](app-service-plan-manage.md)

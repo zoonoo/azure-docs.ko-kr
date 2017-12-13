@@ -54,7 +54,7 @@ Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나
 
 **Managed Disks가 Azure Portal에서 기본 옵션인가요?**
 
-현재는 아니지만 나중에는 기본 옵션으로 사용될 예정입니다.
+예. 
 
 **내가 빈 관리 디스크를 만들 수 있나요?**
 
@@ -68,7 +68,7 @@ Managed Disks를 사용하는 가용성 집합이 위치한 지역에 따라 지
 
 VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다. 향후에는 진단 역시 Managed Disks로 전환할 계획입니다.
 
-**어떤 종류의 역할 기반 액세스 제어 지원을 Managed Disks에 사용할 수 있나요?**
+**어떤 종류의 역할 기반 Access Control 지원을 Managed Disks에 사용할 수 있나요?**
 
 Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
@@ -108,6 +108,40 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 **Managed Disks를 사용하여 VM을 만드는 Azure Resource Manager 템플릿 예제를 어디에 배치할 수 있나요?**
 * [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션 
+
+**Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
+
+변경할 필요가 없습니다. 
+
+**마이그레이션 전에 Azure Backup 서비스를 통해 만든 내 VM 백업은 계속 작동하나요?**
+
+예. 백업은 원활하게 작동합니다.
+
+**Managed Disks로 마이그레이션하기 전/후에 기존 Azure Disk Encryption 구성에 어떤 변경이 필요한가요?**
+
+변경할 필요가 없습니다. 
+
+**기존 VMSS(VM Scale Sets)를 관리되지 않는 디스크에서 Managed Disks로 자동으로 마이그레이션할 수 있게 지원되나요?**
+
+아니요. 관리되지 않는 디스크에서 이전 VMSS의 이미지를 사용하여 Managed Disks로 새 VMSS를 만들 수 있습니다. 
+
+**Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅숏에서 Managed Disks를 만들 수 있나요?**
+
+아니요. 페이지 blob 스냅숏을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다. 
+
+**Azure Site Recovery에 의해 보호되는 온-프레미스 컴퓨터를 Managed Disks가 있는 VM으로 장애 조치(Failover)할 수 있나요?**
+
+예. Managed Disks가 있는 VM으로 장애 조치(Failover)하도록 선택할 수 있습니다.
+
+**마이그레이션을 수행할 경우 Azure 간 복제를 통해 ASR(Azure Site Recovery)에 의해 보호되는 Azure VM에 영향을 미치나요?**
+
+예. Managed Disks가 있는 VM에 대해서는 ASR Azure 간 보호가 지원되지 않습니다. CY2018 말에는 지원될 예정입니다. 
+
+**Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
+
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화 
 

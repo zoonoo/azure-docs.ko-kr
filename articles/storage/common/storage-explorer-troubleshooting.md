@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -172,6 +172,14 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 - URL이 만료되지 않았는지 확인합니다.
 
 - SAS URL이 액세스 정책을 기반으로 하는 경우 액세스 정책이 철회되지 않았는지 확인합니다.
+
+실수로 잘못된 SAS URL을 첨부하여 분리할 수 없는 경우 다음 단계를 따르세요.
+1.  Storage 탐색기를 실행 하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
+2.  [응용 프로그램] 탭을 클릭한 다음 왼쪽 트리에서 로컬 저장소 > file://을 클릭합니다.
+3.  문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 “StorageExplorer_AddStorageServiceSAS_v1_blob”으로 명명된 키를 찾아봅니다.
+4.  키의 값은 JSON 배열이어야 합니다. 잘못된 URI와 연결된 개체를 찾아 제거합니다.
+5.  Storage 탐색기를 다시 로드하려면 Ctrl+R 키를 누릅니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

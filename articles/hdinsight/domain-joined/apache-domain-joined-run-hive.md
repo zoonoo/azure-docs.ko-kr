@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 9523c008d509647c6e578bc9ca9bb88b348d6ebf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성(미리 보기)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
 
 ## <a name="prerequisites"></a>필수 조건

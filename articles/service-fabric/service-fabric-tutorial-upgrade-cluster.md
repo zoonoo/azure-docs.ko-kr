@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Service Fabric 클러스터의 런타임 업그레이드
 
-이 자습서는 시리즈의 4부로, Azure Service Fabric 클러스터에서 Service Fabric 런타임을 업그레이드하는 방법을 보여 줍니다. 이 자습서 편은 Azure에서 실행되는 Service Fabric 클러스터를 대상으로 하며 자체 호스팅 Service Fabric 클러스터에는 해당하지 않습니다.
+이 자습서는 시리즈의 3부로, Azure Service Fabric 클러스터에서 Service Fabric 런타임을 업그레이드하는 방법을 보여 줍니다. 이 자습서 편은 Azure에서 실행되는 Service Fabric 클러스터를 대상으로 하며 독립 실행형 Service Fabric 클러스터에는 해당하지 않습니다.
 
 > [!WARNING]
 > 이 자습서 편에는 PowerShell이 필요합니다. Azure CLI 도구에서는 클러스터 런타임 업그레이드가 아직 지원되지 않습니다. 대신 포털에서 클러스터를 업그레이드할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요.
@@ -34,6 +34,13 @@ ms.lasthandoff: 11/29/2017
 > [!div class="checklist"]
 > * 클러스터 버전 읽기
 > * 클러스터 버전 설정
+
+이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+> * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
+> * 클러스터의 런타임 업그레이드
+> * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에:
@@ -190,3 +197,7 @@ sfctl cluster upgrade-status
 > * 클러스터 런타임 버전 가져오기
 > * 클러스터 런타임 업그레이드
 > * 업그레이드 모니터링
+
+이제 다음 자습서를 진행하여 Service Fabric 클러스터를 사용하여 API Management를 배포하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)

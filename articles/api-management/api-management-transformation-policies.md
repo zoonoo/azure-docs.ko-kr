@@ -6,22 +6,21 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
-이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
+이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
 ##  <a name="TransformationPolicies"></a> 변환 정책  
   
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **정책 범위:** global, product, API, operation  
   
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
+
+자세한 내용은 다음 항목을 참조하십시오.
+
++ [API Management의 정책](api-management-howto-policies.md)
++ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 샘플](policy-samples.md)   

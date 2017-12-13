@@ -1,6 +1,6 @@
 ---
-title: "Azure API 관리 FAQ | Microsoft Docs"
-description: "Azure API Management에서 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다."
+title: Azure API Management FAQ | Microsoft Docs
+description: "Azure API Management에서 FAQ(질문과 대답), 패턴 및 모범 사례를 알아봅니다."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -26,18 +26,17 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 ## <a name="contact-us"></a>문의처
 * [Microsoft Azure API Management 팀에게 어떻게 질문할 수 있습니까?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-
 ## <a name="frequently-asked-questions"></a>질문과 대답
 * [기능이 미리 보기 상태인 경우 어떤 의미입니까?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
-* [API 관리 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?](#can-i-manage-my-api-management-instance-programmatically)
+* [API Management 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?](#can-i-manage-my-api-management-instance-programmatically)
 * [관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?](#how-do-i-add-a-user-to-the-administrators-group)
 * [추가하려는 정책을 정책 편집기에서 사용할 수 없는 이유는 무엇입니까?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [API Management에서 API 버전 관리를 사용하려면 어떻게 해야 합니까?](#how-do-i-use-api-versioning-in-api-management)
 * [단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [API Management와 함께 SOAP를 사용할 수 있습니까?](#can-i-use-soap-with-api-management)
-* [API 관리 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+* [API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 * [AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 * [여러 지리적 위치에 배포할 때 API Management에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
@@ -62,7 +61,7 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
 API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
-* HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [API 설정 구성](api-management-howto-create-apis.md#configure-api-settings)을 참조하세요.
+* HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
 * [Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](api-management-howto-mutual-certificates.md)에 설명된 대로 SSL 상호 인증을 사용할 수 있습니다.
 * 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 표준 또는 프리미엄 계층 API Management 인스턴스를 사용하는 경우 게이트웨이의 IP 주소가 일관성 있게 유지됩니다. 이 IP 주소를 허용하도록 허용 목록을 구성할 수 있습니다. Azure Portal의 대시보드에서 API Management 인스턴스의 IP 주소를 가져올 수 있습니다.
 * API Management 인스턴스를 Azure Virtual Network에 연결합니다.
@@ -74,7 +73,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 * 사용자 고유의 백업을 만들고 [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
 * Git를 사용하여 서비스 구성을 다운로드한 다음 새 인스턴스에 업로드합니다. 자세한 내용은 [Git를 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법](api-management-configuration-repository-git.md)을 참조하세요.
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>API 관리 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>API Management 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?
 예, 다음을 사용하여 프로그래밍 방식으로 API Management를 관리할 수 있습니다.
 
 * [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
@@ -102,7 +101,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 API Management에서 API 버전 관리를 사용하는 몇 가지 옵션이 있습니다.
 
 * API Management에서 다른 버전을 나타내는 API를 구성할 수 있습니다. 예를 들어 두 개의 다른 API인 MyAPIv1 및 MyAPIv2가 있을 수 있습니다. 개발자는 개발자가 사용하려는 버전을 선택할 수 있습니다.
-* 버전 세그먼트를 포함하지 않는 서비스 URL로(예: https://my.api) API를 구성할 수도 있습니다. 그런 다음 각 작업의 [URL 다시 쓰기](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 템플릿에서 버전 세그먼트를 구성합니다. 예를 들어 /resource라는 [URL 템플릿](api-management-howto-add-operations.md#url-template) 및 /v1/Resource라는 [URL 다시 쓰기](api-management-howto-add-operations.md#rewrite-url-template) 템플릿이 포함된 작업을 가질 수 있습니다. 각 작업에 대해 별도로 버전 세그먼트 값을 변경할 수 있습니다.
+* 버전 세그먼트를 포함하지 않는 서비스 URL로(예: https://my.api) API를 구성할 수도 있습니다. 그런 다음 각 작업의 [URL 다시 쓰기](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 템플릿에서 버전 세그먼트를 구성합니다. 
 * API 서비스 URL의 “기본” 버전 세그먼트를 유지하려면 선택한 작업에서 백 엔드 요청 경로를 변경하기 위해 [백 엔드 서비스 설정](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) 정책을 사용하는 정책을 설정합니다.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
@@ -114,7 +113,7 @@ API Management에서 API 버전 관리를 사용하는 몇 가지 옵션이 있�
 ### <a name="can-i-use-soap-with-api-management"></a>API Management와 함께 SOAP를 사용할 수 있습니까?
 이제 [SOAP 통과](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) 지원을 사용할 수 있습니다. 관리자는 해당 SOAP 서비스의 WSDL을 가져올 수 있고 Azure API Management는 SOAP 프런트 엔드를 만듭니다. 개발자 포털 설명서, 테스트 콘솔, 정책 및 분석을 SOAP 서비스에 모두 사용할 수 있습니다.
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 관리 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?
+### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?
 표준 계층 및 프리미엄 계층에서 API Management 테넌트의 공용 IP 주소(VIP)는 일부 예외를 제외하고 테넌트의 수명 동안 정적입니다. IP 주소는 다음 상황에서 변경됩니다.
 
 * 서비스가 삭제된 다음 다시 생성되었습니다.

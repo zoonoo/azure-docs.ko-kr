@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch의 Docker 컨테이너 워크로드 | Microsoft Docs"
-description: "Azure Batch에서 Docker 컨테이너 이미지의 응용 프로그램을 실행하는 방법을 알아봅니다."
+title: "Azure Batch의 컨테이너 워크로드 | Microsoft Docs"
+description: "Azure Batch에서 컨테이너 이미지의 응용 프로그램을 실행하는 방법을 알아봅니다."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Azure Batch에서 Docker 컨테이너 응용 프로그램 실행
+# <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
 Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. 지금까지는 Batch 작업이 Batch 풀의 VM(Virtual Machines)에서 직접 실행되었지만 이제는 Docker 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수 있습니다.
 
@@ -112,12 +112,11 @@ Batch 풀은 Batch가 작업(Job)의 작업(task)를 실행하는 계산 노드 
 
 ### <a name="pool-without-prefetched-container-images"></a>프리페치된 컨테이너 이미지 없는 풀
 
-프리페치된 컨테이너 이미지가 없이 풀을 구성하려면 다음 예제와 같이 `ContainerConfiguration`을 사용합니다. 이 예제와 다음 예제에서는 Docker 엔진이 설치된 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하고 있다고 가정합니다.
+프리페치된 컨테이너 이미지가 없이 풀을 구성하려면 다음 예제와 같이 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체를 정의합니다. 이 예제와 다음 예제에서는 Docker 엔진이 설치된 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하고 있다고 가정합니다.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>컨테이너 구성을 위해 이미지 프리페치
 
-컨테이너 이미지를 풀에 프리페치하려면 컨테이너 이미지 목록(`containerImageNames`)을 컨테이너 구성에 추가하고 이미지 목록에 이름을 지정합니다. 다음 예제에서는 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하고 있으며 [Docker 허브](https://hub.docker.com)에서 TensorFlow 이미지를 프리페치하고 시작 태스크에서 TensorFlow를 시작한다고 가정합니다.
+컨테이너 이미지를 풀에 프리페치하려면 컨테이너 이미지 목록(`containerImageNames`)을 `ContainerConfiguration`에 추가하고 이미지 목록에 이름을 지정합니다. 다음 예제에서는 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하고 있으며 [Docker 허브](https://hub.docker.com)에서 TensorFlow 이미지를 프리페치하고 시작 태스크에서 TensorFlow를 시작한다고 가정합니다.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>개인 컨테이너 레지스트리에서 이미지 프리페치
 
-개인 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하며 개인 Azure 컨테이너 레지스트리에서 개인 TensorFlow 이미지를 프리페치한다고 가정합니다.
+개인 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 사용자 지정 Ubuntu 16.04 LTS 이미지를 사용하며 개인 Azure Container Registry에서 개인 TensorFlow 이미지를 프리페치한다고 가정합니다.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
-이 문서에서는 ClusterConfig.JSON 파일을 사용하여 독립 실행형 Azure Service Fabric 클러스터를 구성하는 방법에 대해 설명합니다. 이 파일을 사용하여 Service Fabric 노드, 해당 IP 주소 및 여러 유형의 클러스터 노드와 같은 정보를 지정할 수 있습니다. 또한 독립 실행형 클러스터의 장애/업그레이드 도메인과 관련하여 네트워크 토폴로지뿐만 아니라 보안 구성도 지정할 수 있습니다.
+이 문서에서는 ClusterConfig.json 파일을 사용하여 독립 실행형 Azure Service Fabric 클러스터를 구성하는 방법에 대해 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.
 
-[독립 실행형 Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)하면 ClusterConfig.JSON 파일의 몇 가지 샘플이 작업 컴퓨터에 다운로드됩니다. 이름에 DevCluster가 있는 샘플은 논리 노드처럼 이러한 세 개 노드가 모두 동일한 컴퓨터에 포함된 클러스터를 만드는 데 도움이 됩니다. 이러한 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터는 개발 또는 테스트 환경에 유용합니다. 프로덕션 클러스터로 지원되지는 않습니다. 이름에 MultiMachine이 있는 샘플을 사용하면 각 노드가 별도의 컴퓨터에 있는 프로덕션 수준 클러스터를 만들 수 있습니다. 이러한 클러스터의 주 노드 수는 [안정성 수준](#reliability)에 따라 결정됩니다. 5.7 릴리스 API 버전 05-2017에서는 안정성 수준 속성을 제거했습니다. 대신 코드에서 클러스터에 가장 최적화된 안정성 수준을 계산합니다. 5.7 이상 코드 버전에서는 이 속성을 사용하지 마세요.
+[독립 실행형 Microsoft Azure Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)할 때, ClusterConfig.json 샘플도 포함됩니다. 이름에 "DevCluster"가 있는 샘플은 논리 노드를 사용하여 이러한 세 개 노드가 모두 동일한 컴퓨터에 포함된 클러스터를 만듭니다. 이러한 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터 형식은 개발 또는 테스트 환경에 유용합니다. 프로덕션 클러스터로 지원되지는 않습니다. 이름에 MultiMachine이 있는 샘플을 사용하면 각 노드가 별도의 컴퓨터에 있는 프로덕션급 클러스터를 만들 수 있습니다. 이러한 클러스터의 주 노드 수는 클러스터의 [안정성 수준](#reliability)에 따라 결정됩니다. 5.7 릴리스 API 버전 05-2017에서는 안정성 수준 속성을 제거했습니다. 대신 코드에서 클러스터에 가장 최적화된 안정성 수준을 계산합니다. 버전 5.7부터는 이 속성의 값을 설정하지 마세요.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON 및 ClusterConfig.Unsecure.MultiMachine.JSON은 보안이 유지되지 않는 테스트 또는 프로덕션 클러스터 각각을 만드는 방법을 보여 줍니다.
+* ClusterConfig.Unsecure.DevCluster.json 및 ClusterConfig.Unsecure.MultiMachine.json은 보안이 유지되지 않는 테스트 또는 프로덕션 클러스터 각각을 만드는 방법을 보여 줍니다.
 
-* ClusterConfig.Windows.DevCluster.JSON 및 ClusterConfig.Windows.MultiMachine.JSON은 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
+* ClusterConfig.Windows.DevCluster.json 및 ClusterConfig.Windows.MultiMachine.json은 [Windows 보안](service-fabric-windows-cluster-windows-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
 
-* ClusterConfig.X509.DevCluster.JSON 및 ClusterConfig.X509.MultiMachine.JSON은 [X509 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
+* ClusterConfig.X509.DevCluster.json 및 ClusterConfig.X509.MultiMachine.json은 [X509 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md)을 사용하여 보안이 유지되는 테스트 또는 프로덕션 클러스터를 만드는 방법을 보여 줍니다.
 
-이제 아래와 같이 ClusterConfig.JSON 파일의 여러 섹션을 살펴보겠습니다.
+이제 아래와 같이 ClusterConfig.json 파일의 여러 섹션을 살펴보겠습니다.
 
 ## <a name="general-cluster-configurations"></a>일반 클러스터 구성
 일반 클러스터 구성에는 다음 JSON 코드 조각과 같이 광범위한 클러스터별 구성이 포함됩니다.
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 name 변수에 Service Fabric 클러스터에 친숙한 이름을 할당하여 해당 이름을 지정할 수 있습니다. clusterConfigurationVersion은 클러스터의 버전 번호입니다. Service Fabric 클러스터를 업그레이드할 때마다 늘려줍니다. apiVersion은 기본값으로 그대로 둡니다.
 
+## <a name="nodes-on-the-cluster"></a>클러스터의 노드
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>클러스터의 노드
 다음 코드 조각과 같이 nodes 섹션을 사용하여 Service Fabric 클러스터에서 노드를 구성할 수 있습니다.
 
     "nodes": [{
@@ -79,12 +82,12 @@ Service Fabric 클러스터에는 세 개 이상의 노드가 있어야 합니�
 | upgradeDomain |업그레이드 도메인은 Service Fabric 업그레이드를 위해 거의 같은 시간에 종료된 노드 집합을 나타냅니다. 물리적 요구 사항에 따라 제한되지 않으므로 할당할 노드 및 해당 노드가 할당되는 업그레이드 도메인을 선택할 수 있습니다. |
 
 ## <a name="cluster-properties"></a>클러스터 속성
-ClusterConfig.JSON의 properties 섹션은 다음과 같이 클러스터를 구성하는 데 사용됩니다.
-
-    <a id="reliability"></a>
+ClusterConfig.json의 properties 섹션은 다음과 같이 클러스터를 구성하는 데 사용됩니다.
 
 ### <a name="reliability"></a>안정성
 reliabilityLevel이라는 개념은 클러스터의 주 노드에서 실행될 수 있는 Service Fabric 시스템 서비스의 복사본 또는 인스턴스 수를 정의합니다. 이는 이러한 서비스의 안정성 및 클러스터의 안정성을 결정합니다. 값은 클러스터 생성 및 업그레이드 시 시스템에서 계산됩니다.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>진단
 다음 코드 조각과 같이 diagnosticsStore 섹션에서 진단 및 문제 해결 노드 또는 클러스터 오류를 사용하도록 매개 변수를 구성할 수 있습니다. 
@@ -119,9 +122,10 @@ security 섹션은 보안 독립 실행형 Service Fabric 클러스터에 필요
 
 metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 인증서 기반 보안의 경우 *X509*, Azure Active Directory 기반 보안의 경우 *Windows*로 설정할 수 있습니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
 
+### <a name="node-types"></a>노드 유형
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>노드 유형
 nodeTypes 섹션에서는 클러스터에서 사용하는 노드 유형에 대해 설명합니다. 아래 코드 조각과 같이 클러스터에 하나 이상의 노드 유형을 지정해야 합니다. 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Windows Server 컨테이너 지원 및 Hyper-V 컨테이너 지원 모두를 독
 
 
 ## <a name="next-steps"></a>다음 단계
-독립 실행형 클러스터 설정에 따라 ClusterConfig.JSON 파일을 완전하게 구성했으면 클러스터를 배포할 수 있습니다. [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 단계를 수행합니다. 그런 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)로 이동하여 해당 단계를 수행합니다.
+독립 실행형 클러스터 설정에 따라 ClusterConfig.json 파일을 완전하게 구성했으면 클러스터를 배포할 수 있습니다. [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 단계를 수행합니다. 그런 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)로 이동하여 해당 단계를 수행합니다.
 

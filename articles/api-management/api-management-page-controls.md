@@ -3,27 +3,26 @@ title: "Azure API Management 페이지 컨트롤 | Microsoft Docs"
 description: "Azure API Management에서 개발자 포털 템플릿에 사용할 수 있는 페이지 컨트롤러에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  
   
- 컨트롤을 사용하려면 개발자 포털 템플릿의 원하는 위치에 둡니다. [app-actions](#app-actions) 컨트롤과 같은 일부 컨트롤에는 매개 변수가 있습니다(다음 예 참조).  
+컨트롤을 사용하려면 개발자 포털 템플릿의 원하는 위치에 둡니다. [app-actions](#app-actions) 컨트롤과 같은 일부 컨트롤에는 매개 변수가 있습니다(다음 예 참조).  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 ## <a name="developer-portal-template-page-controls"></a>개발자 포털 템플릿 페이지 컨트롤  
   
 -   [app-actions](#app-actions)  
-  
 -   [basic-signin](#basic-signin)  
-  
 -   [paging-control](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [search-control](#search-control)  
-  
 -   [sign-up](#sign-up)  
-  
 -   [subscribe-button](#subscribe-button)  
-  
 -   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> app-actions  

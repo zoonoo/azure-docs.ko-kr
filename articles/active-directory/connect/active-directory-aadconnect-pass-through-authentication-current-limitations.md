@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -47,7 +47,10 @@ ms.lasthandoff: 11/28/2017
 - [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
 
 >[!IMPORTANT]
->지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다. 암호 해시 동기화를 사용하면 온-프레미스 인프라가 손상된 경우 인증을 장애 조치(failover)할 수 있는 옵션도 제공됩니다. 통과 인증에서 Active Directory 암호 해시 동기화로의 이 장애 조치(failover)는 자동 작업이 아닙니다. Microsoft 지원의 도움을 받아야 합니다.
+>지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.
+
+>[!NOTE]
+암호 해시 동기화를 사용하면 온-프레미스 인프라가 손상된 경우 인증을 장애 조치(Failover)할 수 있는 옵션이 제공됩니다. 통과 인증에서 Active Directory 암호 해시 동기화로의 이 장애 조치(failover)는 자동 작업이 아닙니다. Azure AD Connect를 사용하여 수동으로 로그인 방법을 전환해야 합니다. Azure AD Connect를 실행하는 서버가 다운되면 Microsoft 지원 서비스의 도움을 받아 통과 인증을 해제해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
@@ -56,6 +59,6 @@ ms.lasthandoff: 11/28/2017
 - [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md): 통과 인증 기능에 대해 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): 보완적인 Azure AD Seamless SSO 기능에 대해 알아봅니다.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능을 요청하세요.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
 

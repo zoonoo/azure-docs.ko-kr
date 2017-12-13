@@ -1,30 +1,29 @@
 ---
-title: "Azure API 관리에서 사용자 계정을 관리하는 방법 | Microsoft Docs"
-description: "Azure API 관리에서 사용자를 만들거나 초대하는 방법에 대해 알아봅니다."
+title: "Azure API Management에서 사용자 계정을 관리하는 방법 | Microsoft Docs"
+description: "Azure API Management에서 사용자를 만들거나 초대하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 34343194cb9896916cb02cb8acf61af24f0784c9
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 6f2fd5e4c1a51fe9d1652c9970bcd8d76b25ab60
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API 관리에서 사용자 계정을 관리하는 방법
-API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고, 개발자가 API 관리 인스턴스로 사용 가능하도록 설정된 API 및 제품을 사용할 수 있도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 참조에서 [사용자 엔터티](https://msdn.microsoft.com/library/azure/dn776330.aspx) 설명서를 참조하세요.
+# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Management에서 사용자 계정을 관리하는 방법
+API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고, 개발자가 API Management 인스턴스로 사용 가능하도록 설정된 API 및 제품을 사용할 수 있도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 참조에서 [사용자 엔터티](https://msdn.microsoft.com/library/azure/dn776330.aspx) 설명서를 참조하세요.
 
 ## <a name="create-developer"> </a>새 개발자 만들기
-새 개발자를 만들려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. API 관리 게시자 포털로 이동됩니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+새 개발자를 만들려면 API Management 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -100,6 +99,6 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
 [Configure email templates]: api-management-howto-configure-notifications.md#email-templates

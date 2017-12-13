@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -30,9 +30,9 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+Azure Portal을 엽니다. 이 작업을 수행하려면 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 

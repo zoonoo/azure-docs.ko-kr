@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
 
@@ -27,6 +27,16 @@ ms.lasthandoff: 10/26/2017
 스냅숏 컬렉션을 다음에 사용할 수 있습니다.
 * .NET Framework 및 .NET Framework 4.5 이상을 실행하는 ASP.NET 응용 프로그램
 * .NET Core 2.0 및 Windows에서 실행되는 ASP.NET Core 2.0 응용 프로그램
+
+다음 환경이 지원됩니다.
+* Azure App Service
+* OS 제품군 4 이상을 실행하는 Azure Cloud Service
+* Windows Server 2012 R2 이상을 실행하는 Azure Service Fabric 서비스
+* Windows Server 2012 R2 이상을 실행하는 Azure Virtual Machines
+* Windows Server 2012 R2 이상을 실행하는 온-프레미스 가상 또는 물리적 컴퓨터
+
+> [!NOTE]
+> 클라이언트 응용 프로그램(예를 들어, WPF, Windows Forms 또는 UWP)은 지원되지 않습니다.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대한 스냅숏 컬렉션 구성
 

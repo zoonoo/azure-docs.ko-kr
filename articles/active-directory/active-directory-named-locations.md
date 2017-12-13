@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory의 명명된 위치 | Microsoft Docs"
-description: "명명된 위치를 구성하여 조직에서 소유한 IP 주소가 비정상적 위치 간 이동 불가능 위험 이벤트 유형에 대해 거짓 긍정을 생성하지 않도록 할 수 있습니다."
+description: "명명된 위치의 정의 및 구성하는 방법에 대해 알아봅니다"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치
 
-Azure Active Directory의 명명된 위치 기능을 사용하여 조직 내에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있습니다. 사용자 환경에서 [위험 이벤트](active-directory-reporting-risk-events.md) 검색의 컨텍스트에서 명명된 위치를 사용할 수 있습니다. 이 기능은 *비정상적 위치 간 이동 불가능* 위험 이벤트 유형에 대해 보고되는 가양성의 수를 줄이는 데 도움이 됩니다. 
+명명된 위치를 사용하여 조직에 신뢰할 수 있는 IP 주소 범위 레이블을 지정할 수 있습니다. Microsoft Azure Active Directory는 다음 상황에서 명명된 위치를 사용합니다.
 
-## <a name="configuration"></a>구성
+- 보고되는 거짓 긍정의 수를 줄이기 위한 [위험 이벤트](active-directory-reporting-risk-events.md) 검색.  
 
-명명된 위치를 구성하려면:
+- [위치 기반 조건부 액세스](active-directory-conditional-access-azure-portal.md#locations).
+
+
+이 문서에서는 명명된 위치를 환경에 구성할 수 있는 방법을 설명합니다.
+
+
+## <a name="entry-points"></a>진입점
+
+다음을 클릭하여 Microsoft Azure Active Directory 페이지 **보안** 섹션의 명명된 위치 구성 페이지에 액세스할 수 있습니다.
+
+![진입점](./media/active-directory-named-locations/34.png)
+
+- **조건부 액세스:**
+
+    - **관리** 섹션에서 **명명된 위치**를 클릭합니다.
+    
+        ![명명된 위치 명령](./media/active-directory-named-locations/06.png)
+
+- **위험한 로그인**
+
+    - 위쪽 도구 모음에서 **알려진 IP 주소 범위 추가**를 클릭합니다.
+
+       ![명명된 위치 명령](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>구성 예
+
+**명명된 위치를 구성하려면:**
 
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -34,22 +62,22 @@ Azure Active Directory의 명명된 위치 기능을 사용하여 조직 내에�
 
     ![왼쪽 창의 Azure Active Directory 링크](./media/active-directory-named-locations/01.png)
 
-3. **Azure Active Directory** 블레이드의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
+3. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
 
     ![조건부 액세스 명령](./media/active-directory-named-locations/05.png)
 
 
-4. **조건부 액세스** 블레이드의 **관리** 섹션에서 **명명된 위치**를 클릭합니다.
+4. **조건부 액세스** 페이지의 **관리** 섹션에서 **명명된 위치**를 클릭합니다.
 
     ![명명된 위치 명령](./media/active-directory-named-locations/06.png)
 
 
-5. **명명된 위치** 블레이드에서 **새 위치**를 클릭합니다.
+5. **명명된 위치** 페이지에서 **새 위치**를 클릭합니다.
 
     ![새 위치 명령](./media/active-directory-named-locations/07.png)
 
 
-6. **새로 만들기** 블레이드에서 다음을 수행합니다.
+6. **새로 만들기** 페이지에서 다음을 확인할 수 있습니다.
 
     ![새로 만들기 블레이드](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Azure Active Directory의 명명된 위치 기능을 사용하여 조직 내에�
 
 ## <a name="next-steps"></a>다음 단계
 
-위험 이벤트에 대한 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+다음에 대한 자세한 정보:
 
+- **위험 이벤트**는 [Microsoft Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+
+- **조건부 액세스**는 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
+
+- **위험한 로그인 보고서**는 [Microsoft Azure Active Directory 포털에서 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md)를 참조하세요.  

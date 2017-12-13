@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
@@ -151,10 +151,9 @@ Media Services에서 자산을 암호화하려는 경우 암호화 키(CommonEnc
 토큰 제한 정책을 구성하는 경우 기본 확인 키, 발급자 및 대상 매개 변수를 지정해야 합니다. 기본 확인 키는 토큰이 서명된 키를 포함하며 발급자는 토큰을 발행하는 보안 토큰 서비스입니다. 청중(범위) 라고도 함)은 토큰의 의도 또는 토큰이 접근을 인증하는 대상 리소스를 설명합니다. Media Services 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다.
 
 자세한 내용은 다음 문서를 참조하세요.
-
-[콘텐츠 보호 개요](media-services-content-protection-overview.md)
-[AES-128로 보호](media-services-protect-with-aes128.md)
-[DRM으로 보호](media-services-protect-with-drm.md)
+- [콘텐츠 보호 개요](media-services-content-protection-overview.md)
+- [AES-128로 보호](media-services-protect-with-aes128.md)
+- [PlayReady/Widevine으로 보호](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>배달
 ### <a id="dynamic_packaging"></a>동적 패키징

@@ -1,6 +1,6 @@
 ---
 title: "Azure RBAC에 대한 사용자 지정 역할 만들기 | Microsoft Docs"
-description: "Azure 구독에 보다 정확한 ID 관리를 위해 Azure 역할 기반 액세스 제어로 사용자 지정 역할을 정의하는 방법에 대해 알아봅니다."
+description: "Azure 구독에 보다 정확한 ID 관리를 위해 Azure 역할 기반 Access Control로 사용자 지정 역할을 정의하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -15,20 +15,20 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기
-특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스](role-based-access-control-manage-access-azure-cli.md)(CLI) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되고 구독에서 공유할 수 있습니다.
+# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 Access Control의 사용자 지정 역할 만들기
+특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 Access Control(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스](role-based-access-control-manage-access-azure-cli.md)(CLI) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되고 구독에서 공유할 수 있습니다.
 
 각 테넌트는 최대 2000개의 사용자 지정 역할을 만들 수 있습니다. 
 
 다음은 가상 컴퓨터의 모니터링 및 재시작을 위한 사용자 지정 역할에 관한 예제입니다.
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다. 이러한 명령을 사용하여 작업 문자열이 올바른지 확인하고 와일드카드 작업 문자열을 확장할 수 있습니다.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -75,7 +75,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![PowerShell 스크린샷 - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -117,7 +117,8 @@ azure provider operations show "Microsoft.Network/*"
     Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다. 범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-* [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
+* [역할 기반 Access Control](role-based-access-control-configure.md): Azure Portal에서 RBAC를 통해 시작합니다.
+* 사용 가능한 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](role-based-access-control-resource-provider-operations.md)을 참조하세요.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)

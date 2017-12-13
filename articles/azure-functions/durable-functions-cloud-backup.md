@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/29/2017
 
 다음 섹션에서는 Azure Portal 개발에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
-## <a name="the-cloud-backup-orchestration"></a>클라우드 백업 오케스트레이션
+## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>클라우드 백업 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
 `E2_BackupSiteContent` 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 

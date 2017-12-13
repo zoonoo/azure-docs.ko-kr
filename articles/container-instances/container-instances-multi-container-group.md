@@ -1,41 +1,33 @@
 ---
-title: "Azure Container Instances - 다중 컨테이너 그룹 | Azure 문서"
-description: "Azure Container Instances - 다중 컨테이너 그룹"
+title: "Azure Container Instances에 다중 컨테이너 그룹 배포"
+description: "Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
 
-Azure Container Instances에서는 *컨테이너 그룹*을 사용하여 여러 컨테이너를 단일 호스트에 배포할 수 있습니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 응용 프로그램 사이드카를 빌드할 때 이러한 기능을 사용하면 유용합니다. 
+Azure Container Instances에서는 *컨테이너 그룹*을 사용하여 여러 컨테이너를 단일 호스트에 배포할 수 있습니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 응용 프로그램 사이드카를 빌드할 때 이러한 기능을 사용하면 유용합니다.
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 간단한 다중 컨테이너 사이드카 구성을 실행하는 과정을 안내합니다.
 
 ## <a name="configure-the-template"></a>템플릿 구성
 
-`azuredeploy.json`이라는 파일을 만들고 다음 json을 해당 파일에 복사합니다. 
+`azuredeploy.json`이라는 파일을 만들고 다음 json을 해당 파일에 복사합니다.
 
-이 샘플에서는 두 개의 컨테이너와 공용 IP 주소 하나가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다. 
+이 샘플에서는 두 개의 컨테이너와 공용 IP 주소 하나가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다.
 
-200 OK 이외의 HTTP 응답 코드가 수신된 경우에는 이 사이드카 예제를 확장하여 경고를 트리거할 수 있습니다. 
+200 OK 이외의 HTTP 응답 코드가 수신된 경우에는 이 사이드카 예제를 확장하여 경고를 트리거할 수 있습니다.
 
 ```json
 {
@@ -46,7 +38,7 @@ Azure Container Instances에서는 *컨테이너 그룹*을 사용하여 여러 
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ az group create --name myResourceGroup --location westus
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. 
+몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다.
 
 ## <a name="view-deployment-state"></a>배포 상태 확인
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>로그 보기   
+## <a name="view-logs"></a>로그 보기
 
-`az container logs` 명령을 사용하여 컨테이너의 로그 출력을 확인합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제에서는 첫 번째 컨테이너를 지정합니다. 
+`az container logs` 명령을 사용하여 컨테이너의 로그 출력을 확인합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제에서는 첫 번째 컨테이너를 지정합니다.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

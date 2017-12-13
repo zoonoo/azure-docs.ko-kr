@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  
@@ -332,7 +332,7 @@ ms.lasthandoff: 10/11/2017
 |DelegationEnabled|부울|위임된 로그인이 활성화되어 있는지 여부입니다.|  
 |DelegationUrl|string|활성화된 경우 url의 위임된 로그인입니다.|  
 |SsoSignUpUrl|string|있는 경우 사용자에 대한 Single Sign-On URL입니다.|  
-|AuxServiceUrl|string|현재 사용자가 관리자인 경우 Azure 클래식 포털의 서비스 인스턴스에 대한 링크입니다.|  
+|AuxServiceUrl|string|현재 사용자가 관리자인 경우 Azure Portal의 서비스 인스턴스에 대한 링크입니다.|  
 |공급자|[공급자](#Provider) 엔터티의 컬렉션|이 사용자에 대한 인증 공급자입니다.|  
 |UserRegistrationTerms|string|로그인하기 전에 사용자가 동의해야 하는 약관입니다.|  
 |UserRegistrationTermsEnabled|부울|약관이 활성화되었는지 여부입니다.|  

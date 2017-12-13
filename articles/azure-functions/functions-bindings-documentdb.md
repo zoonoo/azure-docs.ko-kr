@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Functions의 Azure Cosmos DB 바인딩
 
@@ -170,9 +170,49 @@ DocumentDB API 입력 바인딩은 하나 이상의 Azure Cosmos DB 문서를 �
 
 단일 문서를 읽는 언어별 예제를 참조하세요.
 
+* [미리 컴파일된 C#](#input---c-example)
 * [C# 스크립트](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example"></a>입력 - C# 예제
+
+다음 예제는 특정 데이터베이스 및 컬렉션에서 단일 문서를 검색하는 [미리 컴파일된 C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 첫째, `CarReview` 인스턴스에 대한 `Id`과 `Maker` 값은 큐에 전달됩니다. 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+Cosmos DB 바인딩은 큐 메시지에서 `Id`과 `Maker`를 사용하여 데이터베이스에서 문서를 검색합니다.
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document?.Review}"); 
+            }
+        }
+    }
+```
 
 ### <a name="input---c-script-example"></a>입력 - C# 스크립트 예제
 

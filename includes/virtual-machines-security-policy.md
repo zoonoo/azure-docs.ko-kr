@@ -4,7 +4,7 @@
 
 클라우드 환경에 대한 최신 위협 환경은 동적이며 규정 준수 및 보안 요구 사항을 충족하기 위해 압력을 늘려서 효과적으로 보호를 유지합니다. [Azure를 위한 Microsoft 맬웨어 방지 프로그램](../articles/security/azure-security-antimalware.md)은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 무료 실시간 보호 기능입니다. 알려진 악성 또는 원치 않는 소프트웨어가 VM에서 스스로의 설치나 실행을 시도하는 경우 알리도록 경고를 구성할 수 있습니다.
 
-## <a name="azure-security-center"></a>Azure 보안 센터
+## <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](../articles/security-center/security-center-intro.md)를 통해 VM에 대한 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
 
@@ -24,7 +24,7 @@ VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방
 
 ## <a name="policies"></a>정책
 
-[Azure Resource Manager 정책](../articles/azure-resource-manager/resource-manager-policy.md)을 사용하여 조직의 [Windows VM](../articles/virtual-machines/windows/policy.md) 및 [Linux VM](../articles/virtual-machines/linux/policy.md)에 대해 원하는 동작을 정의할 수 있습니다. 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다.
+[Azure 정책](../articles/azure-policy/azure-policy-introduction.md)을 사용하여 조직의 [Windows VM](../articles/virtual-machines/windows/policy.md) 및 [Linux VM](../articles/virtual-machines/linux/policy.md)에 대해 원하는 동작을 정의할 수 있습니다. 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다.
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 

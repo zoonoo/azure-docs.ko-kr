@@ -1,10 +1,10 @@
 ---
 title: "SQL Data Warehouse의 임시 테이블 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스에서 임시 테이블로 시작"
+description: "Azure SQL Data Warehouse에서 임시 테이블로 시작"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: fd8c31a727dae3b011aa8294a81f005bad72a278
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 임시 테이블
+# <a name="temporary-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 임시 테이블
 > [!div class="op_single_selector"]
 > * [개요][Overview]
 > * [데이터 형식][Data Types]
@@ -33,12 +33,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 매우 유용합니다. 임시 테이블은 SQL 데이터 웨어하우스의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.  Azure SQL 데이터 웨어하우스의 임시 테이블은 저장 프로시저의 내부 및 외부를 비롯하여 세션 내의 어디에서나 액세스할 수 있으므로 Azure SQL 데이터베이스의 임시 테이블과 약간 다릅니다.
+특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 임시 테이블은 Microsoft Azure SQL Data Warehouse의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.  Azure SQL Data Warehouse의 임시 테이블은 저장 프로시저의 내부 및 외부를 비롯하여 세션 내의 어디에서나 액세스할 수 있으므로 Azure SQL Database의 임시 테이블과 약간 다릅니다.
 
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
 
 ## <a name="create-a-temporary-table"></a>임시 테이블 만들기
-임시 테이블은 간단히 테이블 이름 앞에 `#`을 붙여 만듭니다.  예:
+임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -112,12 +112,12 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS` 는 매우 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 매우 효율적이라는 추가적인 이점이 있습니다. 
+> `CTAS`는(은) 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 효율적이라는 추가적인 이점이 있습니다. 
 > 
 > 
 
 ## <a name="dropping-temporary-tables"></a>임시 테이블 삭제
-새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 아래 예제와 같이 `DROP`을 사용해서 단순한 사전 존재 여부 확인을 수행할 수 있습니다.
+새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 다음 예제와 같이 `DROP`을 사용해서 단순한 사전 존재 여부 확인을 수행할 수 있습니다.
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -133,7 +133,7 @@ DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>코드 모듈화
-임시 테이블을 사용자 세션의 어디에서나 볼 수 있으므로 응용 프로그램 코드를 모듈화하는 데 이용될 수 있습니다.  예를 들어 위의 권장 방법과 아래의 저장 프로시저를 함께 사용하여 데이터베이스의 모든 통계를 통계 이름으로 업데이트하는 DDL을 생성합니다.
+임시 테이블을 사용자 세션의 어디에서나 볼 수 있으므로 응용 프로그램 코드를 모듈화하는 데 이용될 수 있습니다.  예를 들어 다음 저장된 프로시저는 통계 이름으로 데이터베이스의 모든 통계를 업데이트하는 DDL을 생성합니다.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -207,7 +207,7 @@ FROM    t1
 GO
 ```
 
-이 단계에서 발생하는 유일한 작업은 DDL 문으로 임시 테이블인 #stats_ddl을 생성하는 저장 프로시저를 만드는 것입니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL 데이터 웨어하우스에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL 데이터 웨어하우스 임시 테이블을 사용할 수 있습니다. 아래 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
+이 단계에서 발생하는 유일한 작업은 DDL 문으로 임시 테이블인 #stats_ddl을 생성하는 저장 프로시저를 만드는 것입니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL Data Warehouse에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL Data Warehouse 임시 테이블을 사용할 수 있습니다. 다음 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -229,7 +229,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
-임시 테이블을 구현하는 경우 SQL 데이터 웨어하우스는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.
+임시 테이블을 구현하는 경우 SQL Data Warehouse는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세히 알아보려면 [테이블 개요][Overview], [테이블 데이터 형식][Data Types], [테이블 배포][Distribute],  [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [테이블 통계 유지 관리][Statistics]에 대한 문서를 참조하세요.  모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.

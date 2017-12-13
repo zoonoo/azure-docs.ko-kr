@@ -68,8 +68,9 @@ Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합�
 
 ### <a name="ai-and-deep-learning"></a>AI 및 심층 학습
 
+* 심층 학습 모델에 대한 [Batch AI](../articles/batch-ai/overview.md) 학습
 * [Microsoft Cognitive 도구 키트](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [데이터 과학 VM용 심층 학습 도구 키트](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [심층 학습 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [심층 학습용 Batch Shipyard 레시피](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -95,7 +96,7 @@ N 시리즈 VM은 AI(인공 지능) 학습 및 시각화를 포함한 계산 집
 
 
 
-## <a name="azure-batch"></a>Azure 배치
+## <a name="azure-batch"></a>Azure Batch
 [Batch](../articles/batch/batch-technical-overview.md)는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 가상 컴퓨터의 관리되는 풀에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스를 자동으로 크기 조정할 수 있습니다. 
 
 SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 응용 프로그램 또는 컨테이너 작업을 Azure에 통합하고, 데이터를 Azure로 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다. 
@@ -104,7 +105,7 @@ SaaS 공급자 및 개발자는 Batch SDK 및 도구를 사용하여 HPC 응용 
 
 * [Batch를 사용하여 개발 시작](../articles/batch/batch-dotnet-get-started.md)
 * [Azure Batch 샘플 코드 사용(영문)](https://github.com/Azure/azure-batch-samples)
-* [Batch(미리 보기)에서 낮은 우선 순위 VM 사용](../articles/batch/batch-low-pri-vms.md)
+* [Batch에서 낮은 우선 순위 VM 사용](../articles/batch/batch-low-pri-vms.md)
 * [Batch Shipyard를 사용하여 컨테이너화된 HPC 작업 실행(영문)](https://github.com/Azure/batch-shipyard)
 * [Batch에서 R 언어 사용(영문)](https://github.com/Azure/doAzureParallel)
 
@@ -138,11 +139,11 @@ Azure 가상 컴퓨터, 가상 컴퓨터 확장 집합, Batch 및 관련 계산 
 * [File Storage](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>데이터 및 분석
-* Azure의 Hadoop 클러스터용 [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md)
+* Azure의 Hadoop 클러스터용 [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [데이터 팩터리](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [기계 학습](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
-* [SQL 데이터베이스](../articles/sql-database/sql-database-technical-overview.md)
+* [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="networking"></a>네트워킹
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -173,7 +174,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 
 ## <a name="next-steps"></a>다음 단계
 * [엔지니어링 시뮬레이션](https://simulation.azure.com/), [렌더링](https://simulation.azure.com/), [금융 및 자본 시장](https://finance.azure.com/) 및 [유전체학](https://enterprise.microsoft.com/en-us/industries/health/genomics/)에 대한 빅 컴퓨팅 솔루션에 대해 자세히 알아봅니다.
-* 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
+* 최신 공지 사항은 [Microsoft HPC 및 Batch 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 
 * 확장성 있는 Azure [Batch](https://azure.microsoft.com/services/batch/) 관리 서비스를 사용하여 기본 인프라를 관리하지 않고 계산 집약적 작업을 실행합니다. [자세한 정보](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 

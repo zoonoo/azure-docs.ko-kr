@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -46,7 +46,6 @@ Azure Performance Diagnostics VM 확장은 Windows VM에서 성능 진단 데이
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ Azure Performance Diagnostics VM 확장은 Windows VM에서 성능 진단 데이
 |typeHandlerVersion|1.0|확장 처리기 버전
 |performanceScenario|basic|데이터를 캡처하는 성능 시나리오 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
 |traceDurationInSeconds|300|추적 옵션을 선택한 경우 추적 기간
-|DiagnosticsTrace|d|진단 추적을 사용하도록 설정하는 옵션. 유효한 값은 **d** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |perfCounterTrace|p|성능 카운터 추적을 사용하는 옵션. 유효한 값은 **p** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |networkTrace|n|Netmon 추적을 사용하는 옵션. 유효한 값은 **n** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |xperfTrace|x|XPerf 추적을 사용하는 옵션. 유효한 값은 **x** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |storPortTrace|s|StorPort 추적을 사용하는 옵션. 유효한 값은 s 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |srNumber|123452016365929|사용 가능한 경우 지원 티켓 번호. 없으면 비워 둡니다.
-|requestTimeUtc|9/2/2017 11:06:00 PM|현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다.
 |storageAccountName|mystorageaccount|진단 로그 및 결과를 저장하는 저장소 계정의 이름
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|저장소 계정에 대한 키
 
@@ -153,10 +150,6 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `

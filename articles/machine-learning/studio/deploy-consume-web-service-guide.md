@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure 기계 학습 웹 서비스: 배포 및 사용
 Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 응용 프로그램에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 응용 프로그램에서 호출될 수 있습니다.
@@ -26,6 +26,7 @@ Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 �
 다음 섹션에서는 시작하는 데 도움이 되는 연습, 코드 및 설명서에 대한 링크를 제공합니다.
 
 ## <a name="deploy-a-web-service"></a>웹 서비스 배포
+
 ### <a name="with-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오 사용
 기계 학습 스튜디오 및 Microsoft Azure 기계 학습 웹 서비스 포털은 코드를 작성할 필요 없이 웹 서비스를 배포 및 관리하도록 도와줍니다.
 
@@ -56,9 +57,9 @@ cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com
 
 응용 프로그램을 실행하면 웹 서비스 JSON 템플릿이 만들어집니다. 웹 서비스를 배포하는 데 템플릿을 사용하려면 다음 정보를 추가해야 합니다.
 
-* 저장소 계정 이름 및 키
+* Storage 계정 이름 및 키
 
-    [Azure Portal](https://portal.azure.com/) 또는 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 저장소 계정 이름 및 키를 가져올 수 있습니다.
+    [Azure Portal](https://portal.azure.com/)에서 저장소 계정 이름 및 키를 가져올 수 있습니다.
 * 약정 계획 ID
 
     로그인하고 계획 이름을 클릭하여 [Azure 기계 학습 웹 서비스](https://services.azureml.net) 포털에서 계획 ID를 얻을 수 있습니다.

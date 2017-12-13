@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Management에서 Azure 관리 서비스 ID 사용
 
@@ -116,6 +116,24 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 1. ID를 사용하여 API Management 인스턴스를 만듭니다.
 2. Azure Key Vault 인스턴스의 액세스 정책을 업데이트하고 API Management 인스턴스가 비밀을 가져올 수 있도록 허용합니다.
 3. Key Vault 인스턴스의 인증서를 통해 사용자 지정 도메인 이름을 설정하여 API Management 인스턴스를 업데이트합니다.
+
+### <a name="prerequisites"></a>필수 조건
+1. pfx 인증서가 포함된 Key Vault는 API Management 서비스와 동일한 Azure 구독 및 리소스 그룹에 있어야 합니다. 이것은 Azure Resource Manager 템플릿의 요구 사항입니다. 
+2. 비밀의 콘텐츠 형식은 *application/x-pkcs12*이어야 합니다. 다음 스크립트를 사용하여 인증서를 업로드합니다.
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
 
 > [!Important]
 > 인증서의 개체 버전이 제공되지 않은 경우 API Management는 인증서의 최신 버전이 Key Vault로 업로드된 후에 자동으로 해당 인증서를 가져옵니다. 

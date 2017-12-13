@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/29/2017
  
 ## <a name="functionjson-file"></a>function.json 파일
 
-Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에 대한 *function.json* 파일의 내용이 여기에 있습니다. 대부분의 오케스트레이터 *function.json* 파일은 거의 이와 비슷합니다.
+Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에 대한 *function.json* 파일의 내용이 여기에 있습니다. 대부분의 오케스트레이터 *function.json* 파일은 거의 이와 비슷합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ Azure Portal을 사용하여 개발하는 경우 오케스트레이터 함수에
 > [!WARNING]
 > 오케스트레이터 함수의 "I/O 없음" 규칙을 준수하려면 `orchestrationTrigger` 트리거 바인딩을 사용할 때 입력 또는 출력 바인딩을 사용하지 마세요.  다른 입력 또는 출력 바인딩이 필요하면 오케스트레이터에서 호출하는 `activityTrigger` 함수의 컨텍스트에서 대신 사용해야 합니다.
 
-## <a name="c-script"></a>C# 스크립트
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 스크립트(Visual Studio Code 및 Azure Portal 샘플 코드) 
 
 소스 코드는 다음과 같습니다.
 

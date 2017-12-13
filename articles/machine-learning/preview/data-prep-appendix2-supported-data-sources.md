@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 데이터 준비에서 지원되는 데이터 원본 
 이 문서에서는 Azure Machine Learning 데이터 준비에 대해 현재 지원되는 데이터 원본을 대략적으로 설명합니다.
@@ -24,6 +24,25 @@ ms.lasthandoff: 11/06/2017
 이 릴리스의 지원되는 데이터 원본은 다음과 같습니다.
 
 ## <a name="types"></a>형식 
+
+### <a name="sql-server"></a>SQL Server
+온-프레미스 SQL Server 또는 Azure SQL Database에서 읽습니다.
+
+#### <a name="options"></a>옵션
+- 서버 주소
+- 트러스트 서버(서버의 인증서가 유효하지 않은 경우에도 해당. 주의해서 사용)
+- 인증 유형(Windows, Server)
+- 사용자 이름
+- 암호
+- 연결할 데이터베이스
+- SQL 쿼리
+
+#### <a name="notes"></a>참고 사항
+- Sql-variant 열은 지원되지 않음
+- 시간 열은 1970년 1월 1일까지 데이터베이스에서 시간을 추가하여 날짜/시간으로 변환됩니다.
+- Spark 클러스터에서 실행될 때 모든 데이터 관련 열(date, datetime, datetime2, datetimeoffset)은 1583년 이전 날짜에 대해 잘못된 값으로 평가됩니다.
+- 소수 열의 값은 10진수로 변환으로 인해 자릿수가 손실될 수 있습니다.
+
 ### <a name="directory-vs-file"></a>디렉터리 및 파일
 단일 파일을 선택하고 데이터 준비로 읽어옵니다. 파일 형식을 구문 분석하여 다음 화면에 표시되는 파일 연결에 대한 기본 매개 변수를 확인합니다.
 
@@ -88,6 +107,9 @@ Parquet 데이터 집합은 각각 큰 데이터 집합의 작은 파티션을 �
 ## <a name="locations"></a>위치
 ### <a name="local"></a>Local
 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치입니다.
+
+### <a name="sql-server"></a>SQL Server
+온-프레미스 SQL Server 또는 Azure SQL Database.
 
 ### <a name="azure-blob-storage"></a>Azure Blob 저장소
 Azure 구독이 필요한 Azure Blob Storage입니다.

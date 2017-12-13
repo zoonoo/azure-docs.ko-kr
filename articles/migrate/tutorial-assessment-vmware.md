@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -37,10 +37,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **VMware**: ESXi 호스트 또는 버전 5.0 이상을 실행하는 클러스터에 있는 적어도 하나 이상의 VMware VM이 필요합니다. 호스트 또는 클러스터는 버전 5.5, 6.0 또는 6.5를 실행하는 vCenter 서버에 의해 관리되어야 합니다.
-- **vCenter 계정**: vCenter 서버에 대해 관리자 자격 증명을 갖춘 읽기 전용 계정이 있어야 합니다. Azure Migrate는 이 계정을 사용하여 VM을 검색합니다.
-- **사용 권한**: vCenter 서버에서 OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다. 
-- **통계 구성**: vCenter 서버에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준 3 평가보다 낮게 작동한다면, 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다.
+- **VMware**: 마이그레이션하려는 VM은 버전 5.5, 6.0 또는 6.5를 실행하는 vCenter Server에서 관리해야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다. 
+ 
+> [!NOTE]
+> Hyper-V는 준비 중이며 향후 곧 지원될 예정입니다. 
+
+- **vCenter Server 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
+- **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다. 
+- **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준 3 평가보다 낮게 작동한다면, 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 수행됩니다. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -51,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. **Azure Migrate**를 검색하고, 검색 결과에서 서비스(**Azure Migrate(미리 보기)**를 선택합니다. 그런 다음 **Create**를 클릭합니다.
 3. 프로젝트에 대해 프로젝트 이름과 Azure 구독을 지정합니다.
 4. 새 리소스 그룹을 만듭니다.
-5. 프로젝트를 만들 지역을 지정한 다음 **만들기**를 클릭합니다. 온-프레미스 VM에서 수집한 메타 데이터는 이 영역에 저장됩니다. 이 미리 보기에 대해 미국 중서부 지역에서는 Azure Migrate 프로젝트만을 만들 수 있습니다. 그러나 다른 위치에 대 한 VM을 평가할 수 있습니다.
+5. 프로젝트를 만들 영역을 지정한 다음, **만들기**를 클릭합니다. 온-프레미스 VM에서 수집한 메타 데이터는 이 영역에 저장됩니다. 이 미리 보기에 대해 미국 중서부 지역에서는 Azure Migrate 프로젝트만을 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계속 계획할 수 있습니다. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,13 +97,13 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
 ## <a name="create-the-collector-vm"></a>수집기 VM을 만듭니다.
 
-다운로드한 파일을 vCenter 서버에 가져옵니다.
+다운로드한 파일을 vCenter Server에 가져옵니다.
 
 1. vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
 
     ![OVF 배포](./media/tutorial-assessment-vmware/vcenter-wizard.png)
 
-2. Deploy OVF Template Wizard > **Source**에서,.ova 파일의 위치를 지정합니다.
+2. OVF 템플릿 배포 마법사 > **원본**에서 .ova 파일의 위치를 지정합니다.
 3. **이름** 및 **위치**에서 수집기 VM에 대한 익숙한 이름과 VM이 호스트될 인벤토리 개체를 지정합니다.
 5. **호스트/클러스터**에서 수집기 VM이 실행될 호스트 또는 클러스터를 지정합니다.
 7. 저장소에서 수집기 VM에 대한 저장소 대상을 지정합니다.
@@ -143,7 +147,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 VM을 검색한 후 그룹화하여 평가를 만듭니다. 
 
 1. 프로젝트 **개요** 페이지에서 **+평가 만들기**를 클릭합니다.
-2. 평가 설정을 검토하려면 **모든 보기**를 클릭합니다.
+2. 평가 속성을 검토하려면 **모두 보기**를 클릭합니다.
 3. 그룹을 만들고 그룹 이름을 지정합니다.
 4. 그룹에 추가하려는 컴퓨터를 선택합니다.
 5. **평가 만들기**를 클릭하고, 그룹 및 평가를 만듭니다.
@@ -168,13 +172,16 @@ VM을 검색한 후 그룹화하여 평가를 만듭니다.
 
 #### <a name="monthly-cost-estimate"></a>월별 예상 비용
 
-이 보기는 각 컴퓨터의 계산 및 저장소에 대한 비용을 보여줍니다. 예상 비용은 컴퓨터 및 해당 디스크에 대한 성능 기반 권장 크기 사항과 평가 속성을 사용하여 계산됩니다.
+이 보기는 각 컴퓨터의 세부 사항과 함께 Azure에서 VM을 실행하는 데 필요한 총 계산 및 저장소 비용을 보여 줍니다. 예상 비용은 컴퓨터 및 해당 디스크에 대한 성능 기반 권장 크기 사항과 평가 속성을 사용하여 계산됩니다. 
 
-계산 및 저장소에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다. 자세한 내용을 드릴 다운하려면 각 컴퓨터를 클릭할 수 있습니다. 
+> [!NOTE]
+> Azure Migrate가 제공하는 비용 예측은 온-프레미스 VM을 Azure IaaS(Infrastructure as a service) VM으로 실행하기 위한 것입니다. PaaS(Platform as a Service) 또는 SaaS(Software as a Service) 비용으로 간주하지 않습니다. 
+
+계산 및 저장소에 대한 월별 예상 비용은 그룹의 모든 VM에 대해 집계됩니다. 
 
 ![VM 비용 평가](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-특정 컴퓨터에 대한 비용을 참조하려면 드릴 다운할 수 있습니다.
+드릴다운하여 특정 컴퓨터에 대한 세부 정보를 확인할 수 있습니다.
 
 ![VM 비용 평가](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

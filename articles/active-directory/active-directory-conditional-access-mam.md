@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f5c5ce5dcc88b273385f50b3f9ef69f1ffd157
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 앱 기반 조건부 액세스  
 
@@ -86,7 +86,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
 - Outlook 응용 프로그램을 열고 Azure AD 자격 증명으로 로그인합니다.
 
-- 계속하려면 Authenticor(iOS) 또는 회사 포털(Android)을 설치하라는 메시지가 표시되었습니다.
+- 계속하려면 Authenticator(iOS) 또는 회사 포털(Android)을 설치하라는 메시지가 표시되었습니다.
 
 - 응용 프로그램을 설치하고 Outlook 앱으로 돌아가서 계속할 수 있습니다.
 

@@ -1,35 +1,34 @@
 ---
 title: "Azure API Management에서 알림 및 메일 템플릿 구성 | Microsoft Docs"
-description: "Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다."
+description: "Azure API Management에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2029405e4fa05c061cdf7b38fcaa05dd38f9c804
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API 관리에서 알림 및 전자 메일 템플릿을 구성하는 방법
-API 관리는 특정 이벤트에 대한 알림을 구성하는 기능과 API 관리 인스턴스의 관리자 및 개발자와 의사를 전달하는 데 사용되는 메일 템플릿을 구성하는 기능을 제공합니다. 이 항목에서는 사용 가능한 이벤트에 대한 알림을 구성하는 방법을 보여 주고 이러한 이벤트에 사용된 메일 템플릿 구성에 대한 개요를 제공합니다.
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management에서 알림 및 전자 메일 템플릿을 구성하는 방법
+API Management는 특정 이벤트에 대한 알림을 구성하는 기능과 API Management 인스턴스의 관리자 및 개발자와 의사를 전달하는 데 사용되는 메일 템플릿을 구성하는 기능을 제공합니다. 이 항목에서는 사용 가능한 이벤트에 대한 알림을 구성하는 방법을 보여 주고 이러한 이벤트에 사용된 메일 템플릿 구성에 대한 개요를 제공합니다.
 
 ## <a name="publisher-notifications"> </a>게시자 알림 구성
-알림을 구성하려면 Azure Portal에서 API 관리 서비스에 대해 **게시자 포털**을 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+알림을 구성하려면 Azure Portal에서 API Management 서비스에 대해 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
 > [!NOTE] 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 왼쪽의 **API Management** 메뉴에서 **알림**을 클릭하여 사용 가능한 알림을 봅니다.
 
@@ -64,7 +63,7 @@ API 관리는 특정 이벤트에 대한 알림을 구성하는 기능과 API �
 
 
 ## <a name="email-templates"> </a>메일 템플릿 구성
-API 관리는 서비스를 관리 및 사용하는 과정에서 전송된 메일 메시지에 대한 메일 템플릿을 제공합니다. 다음 메일 템플릿이 제공됩니다.
+API Management는 서비스를 관리 및 사용하는 과정에서 전송된 메일 메시지에 대한 메일 템플릿을 제공합니다. 다음 메일 템플릿이 제공됩니다.
 
 * 응용 프로그램 갤러리 제출 승인
 * 개발자 인사 편지
@@ -117,5 +116,5 @@ API Management 인스턴스의 메일 템플릿을 보고 구성하려면 왼쪽
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

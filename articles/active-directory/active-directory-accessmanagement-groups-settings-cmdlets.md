@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다. 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/17/2017
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-사용자가 보안 그룹을 만들 수 있도록 하는 방법에 대한 자세한 내용은 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`를 설정하세요. 
+관리자가 아닌 사용자가 *보안* 그룹을 만들 수 없도록 하는 방법에 대한 자세한 내용은 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요. 
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
