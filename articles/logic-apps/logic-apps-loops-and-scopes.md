@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="logic-apps-loops-scopes-and-debatching"></a>논리 앱 루프, 범위 및 분할
+# <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps 루프, 범위 및 분할
   
-논리 앱은 워크플로 내에서 배열, 컬렉션, 일괄 처리 작업 및 루프를 다양한 방법으로 제공합니다.
+Logic Apps는 워크플로 내에서 배열, 컬렉션, 일괄 처리 작업 및 루프를 다양한 방법으로 제공합니다.
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach 루프 및 배열
   
-논리 앱을 사용하면 데이터 집합을 반복하고 각 항목에 대해 작업을 수행할 수 있습니다.  이는 `foreach` 작업을 통해 가능합니다.  디자이너에서 ForEach 루프를 추가하도록 지정할 수 있습니다.  반복하려는 배열을 선택한 후 작업 추가를 시작할 수 있습니다.  현재는 ForEach 루프당 하나의 작업으로만 제한되지만 이러한 제한이 향후 몇 주 후에는 변경될 예정입니다.  일단 루프 내에 들어오면 배열의 각 값에 나오는 항목을 지정할 수 있습니다.
+Logic Apps를 사용하면 데이터 집합을 반복하고 각 항목에 대해 작업을 수행할 수 있습니다.  이는 `foreach` 작업을 통해 가능합니다.  디자이너에서 ForEach 루프를 추가하도록 지정할 수 있습니다.  반복하려는 배열을 선택한 후 작업 추가를 시작할 수 있습니다.  ForEach 루프당 여러 작업을 추가할 수 있습니다.  일단 루프 내에 들어오면 배열의 각 값에 나오는 항목을 지정할 수 있습니다.
 
 코드 보기를 사용하는 경우 아래와 같이 각 루프에 지정할 수 있습니다.  다음은 'microsoft.com'을 포함하는 각 전자 메일 주소에 대해 전자 메일을 보내는 각 루프의 예입니다.
 

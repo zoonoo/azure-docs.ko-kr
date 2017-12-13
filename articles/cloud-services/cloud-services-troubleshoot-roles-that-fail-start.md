@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -62,9 +62,8 @@ ms.lasthandoff: 11/04/2017
 원격 데스크톱을 사용하여 역할에 액세스하고 원격으로 오류 정보를 더 자세하게 볼 수 있습니다. 원격 데스크톱을 사용하여 오류를 보려면 다음 단계를 수행합니다.
 
 1. Azure SDK 1.3 이상이 설치되어야 합니다.
-2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성..."을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할과 함께 원격 데스크톱 사용](../vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
-3. Microsoft Azure 클래식 포털에서 인스턴스 상태가 **준비**로 표시되면 역할 인스턴스 중 하나를 클릭합니다.
-4. 리본의 **원격 액세스** 영역에서 **연결** 아이콘을 클릭합니다.
+2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성"을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할과 함께 원격 데스크톱 사용](../vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
+3. Microsoft Azure Portal에서 인스턴스 상태가 **준비**로 표시되면 해당 인스턴스에 원격 연결합니다. Cloud Services에서 원격 데스크톱 사용에 대한 자세한 내용은 [역할 인스턴스에 원격 연결](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)을 참조하세요.
 5. 원격 데스크톱을 구성하는 동안 지정한 자격 증명을 사용하여 가상 컴퓨터에 로그인합니다.
 6. 명령 창을 엽니다.
 7. `IPconfig`를 입력합니다.

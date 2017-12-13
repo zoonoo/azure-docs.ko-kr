@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
 이 문서에서는 다음 시나리오에 대한 재학습 프로세스를 설명합니다.
@@ -86,20 +86,19 @@ ms.lasthandoff: 11/07/2017
 ### <a name="update-the-azure-storage-information"></a>Azure Storage 정보 업데이트
 BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") Azure Storage로 파일을 업로드하고 이를 처리하고 결과를 Azure Storage에 다시 작성합니다.  
 
-Azure Storage 정보를 업데이트하려면 Azure Portal에서 Storage 계정에 대한 Storage 계정 이름, 키 및 컨테이너 정보를 검색한 다음 코드에서 해당 값을 업데이트해야 합니다.
 실험을 실행한 후 결과 워크플로는 다음과 비슷합니다.
 
 ![실행 후 결과 워크플로][4]
 
-1. Azure 클래식 포털에 로그인합니다.
-2. 왼쪽 탐색 열에서 **Storage**를 클릭합니다.
+1. Azure 포털에 로그인합니다.
+2. 왼쪽 탐색 열에서 **추가 서비스**를 클릭하고, **저장소 계정**을 검색하고 선택합니다.
 3. 저장소 계정 목록에서 하나를 선택하여 재학습된 모델을 저장합니다.
-4. 페이지 맨 아래에 있는 **액세스 키 관리**를 클릭합니다.
-5. **기본 액세스 키**를 복사하여 저장한 후 대화 상자를 닫습니다.
-6. 페이지 위쪽에서 **컨테이너**를 클릭합니다.
+4. 왼쪽 탐색 열에서 **선택키**를 클릭합니다.
+5. **기본 선택키**를 복사하고 저장합니다.
+6. 왼쪽 탐색 열에서 **컨테이너**를 클릭합니다.
 7. 기존 컨테이너를 선택하거나 새 컨테이너를 만들어 이름을 저장합니다.
 
-*StorageAccountName*, *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 클래식 포털에서 저장한 값을 업데이트합니다.
+*StorageAccountName*, *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 포털에서 저장한 값을 업데이트합니다.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure 기계 학습 웹 서비스 배포
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
@@ -89,7 +89,7 @@ RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 
 
 ![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-BES를 테스트하려면 **배치**를 클릭합니다. 배치 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
+BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
 
 데이터 집합을 다운로드하려면 기계 학습 스튜디오를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 집합**을 선택한 다음 **다운로드**를 선택합니다.
 
@@ -108,7 +108,7 @@ BES를 테스트하려면 **배치**를 클릭합니다. 배치 테스트 페이
 웹 서비스를 배포한 후 다음 작업을 수행할 수 있습니다.
 
 * **액세스** 
-* **관리** 
+* Azure Machine Learning 웹 서비스 포털을 통해 **관리**
 * **업데이트** 
 
 #### <a name="access-your-new-web-service"></a>새 웹 서비스 액세스
@@ -119,7 +119,7 @@ BES를 테스트하려면 **배치**를 클릭합니다. 배치 테스트 페이
 Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
 
 #### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
-새 웹 서비스 Machine Learning 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **배치 요청 로그**를 클릭합니다.
+새 웹 서비스 Machine Learning 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **Batch 요청 로그**를 클릭합니다.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>예측 실험을 기존 웹 서비스로 배포
 
@@ -137,11 +137,11 @@ Machine Learning 웹 서비스 포털 또는 Machine Learning Studio에서 웹 �
 
 **테스트** 미리 보기 링크를 클릭하면 앞서 새 웹 서비스 섹션에 나온 것처럼 Azure Machine Learning 웹 서비스에서 해당 서비스를 테스트할 수 있습니다.
 
-일괄 처리 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클릭합니다. 배치 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
+Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
 
 ![웹 서비스 테스트](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-**구성** 페이지에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 [Azure 클래식 포털](http://manage.windowsazure.com/) 에 이름과 설명이 표시됩니다.
+**구성** 페이지에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 [Azure Portal](https://portal.azure.com/)에 이름과 설명이 표시됩니다.
 
 **입력 스키마**, **출력 스키마** 및 **웹 서비스 매개 변수**의 각 열에 문자열을 입력하여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수에 대한 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다.
 

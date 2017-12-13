@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `LINE` 입력을 chararray로 정의했습니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
+Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `LINE` 입력이 chararray로 정의되었습니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
 
 1. `@outputSchema` 문은 Pig에 반환되는 데이터의 형식을 정의합니다. 이 경우 Pig 데이터 형식은 **데이터 모음**입니다. 모음에는 모두 chararray(문자열)인 다음과 같은 필드가 포함됩니다.
 
@@ -178,7 +178,7 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
 2. 그런 다음 `def create_structure(input)`가 Pig에서 줄 항목을 전달할 함수를 정의합니다.
 
-3. 예제 데이터인 `sample.log`는 대개 date, time, classname, level 및 detail(반환을 원하는 필드) 스키마를 준수합니다. 그러나 `*java.lang.Exception*`으로 시작하는 몇 개의 줄이 포함됩니다. 이러한 줄은 스키마와 일치하도록 수정해야 합니다. `if` 문이 이러한 줄을 확인한 후 `*java.lang.Exception*` 문자열을 끝으로 이동하고, 원하는 출력 스키마에 따라 인라인 데이터를 가져오는 입력 데이터를 전달합니다.
+3. 예제 데이터인 `sample.log`는 대개 date, time, classname, level 및 detail 스키마를 준수합니다. 그러나 `*java.lang.Exception*`으로 시작하는 몇 개의 줄이 포함됩니다. 이러한 줄은 스키마와 일치하도록 수정해야 합니다. `if` 문이 이러한 줄을 확인한 후 `*java.lang.Exception*` 문자열을 끝으로 이동하고, 원하는 출력 스키마에 따라 인라인 데이터를 가져오는 입력 데이터를 전달합니다.
 
 4. 그런 다음 `split` 명령을 사용하여 첫 4개 공백 문자에서 데이터를 분할합니다. 출력은 `date`, `time`, `classname`, `level` 및 `detail`에 할당됩니다.
 
@@ -291,7 +291,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
     #from pig_util import outputSchema
     ```
 
-    이렇게 하면 Jython 대신 C Python과 함께 작동하도록 Python 스크립트가 수정됩니다. 변경했으면 **Ctrl+X**를 사용하여 편집기를 종료합니다. **Y**를 선택한 다음 **Enter** 키를 눌러 변경 내용을 저장합니다.
+    이 줄은 Jython 대신 C Python과 함께 작동하도록 Python 스크립트를 수정합니다. 변경했으면 **Ctrl+X**를 사용하여 편집기를 종료합니다. **Y**를 선택한 다음 **Enter** 키를 눌러 변경 내용을 저장합니다.
 
 6. `pig` 명령을 사용하여 셸을 다시 시작합니다. `grunt>` 프롬프트에서 다음 문을 사용하여 Jython 인터프리터를 사용하는 Python 스크립트를 실행합니다.
 

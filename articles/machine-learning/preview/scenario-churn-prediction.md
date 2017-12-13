@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9026090addde35dc702a80f302abd7e3eb9c690
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning을 사용한 고객 변동 분석
 
@@ -90,14 +90,14 @@ __docs__: 모든 실습 교육을 포함
 솔루션을 수행하는 실습 교육의 순서는 다음과 같습니다.
 1. 데이터 준비: 데이터 폴더의 데이터 준비와 관련된 주요 파일은 `CATelcoCustomerChurnTrainingSample.csv`입니다.
 2. 모델링 및 평가: 루트 폴더의 모델링 및 평가와 관련된 주요 파일은 `CATelcoCustomerChurnModeling.py`입니다.
-3. Docker에서 모델링 및 평가: 루트 폴더의 이 작업에 대한 주요 파일은 `CATelcoCustomerChurnModelingDocker.py`입니다.
+3. .dprep 없이 모델링 및 평가: 루트 폴더의 이 작업에 대한 주요 파일은 `CATelcoCustomerChurnModelingWithoutDprep.py`입니다.
 4. 운영화: 배포에 대한 주요 파일은 모델(`model.pkl`) 및 `churn_schema_gen.py`입니다.
 
 | 순서| 파일 이름 | 관련 파일 |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 3 | [`CATelcoCustomerChurnModelingWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/CATelcoCustomerChurnModelingWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 위에 설명한 순차적 방식으로 교육을 수행합니다.

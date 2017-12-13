@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 컴퓨터 확장 집합의 크기를 자동으로 조정
-확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 응용 프로그램 수요가 변경될 경우 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 응용 프로그램 성능 변화에 대응할 수 있습니다.
+확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 응용 프로그램 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 응용 프로그램 성능 변화에 대응할 수 있습니다.
 
 이 문서에서는 Azure Portal에서 확장 집합의 VM 인스턴스 성능을 모니터링하는 자동 크기 조정 규칙을 만드는 방법을 보여줍니다. 이러한 자동 크기 조정 규칙은 성능 메트릭에 따라 VM 인스턴스 수를 늘리거나 줄일 수 있습니다. [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) 또는 [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)을 사용하여 이러한 단계를 완료할 수도 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
-자동 크기 조정 규칙을 만들려면 기존 가상 컴퓨터 확장 집합이 필요합니다. [Azure Portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) 또는 [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli)을 사용하여 확장 집합을 만들 수 있습니다.
+자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. [Azure Portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) 또는 [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli)을 사용하여 확장 집합을 만들 수 있습니다.
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>자동 규모 확장 규칙 만들기
-응용 프로그램 수요가 증가하면 확장 집합의 VM 인스턴스 로드가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 응용 프로그램을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 배포하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 응용 프로그램 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
+응용 프로그램 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 응용 프로그램을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 응용 프로그램 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
 
 1. Azure Portal을 열고 대시보드의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. 확장 집합을 포함하는 리소스 그룹을 선택한 후 리소스 목록에서 확장 집합을 선택합니다.
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/23/2017
     | *시간 조직 통계* | 분석을 위해 각 시간 조직에서 수집된 메트릭을 집계하는 방법을 정의합니다.                             | 평균        |
     | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 다음보다 큼   |
     | *임계값*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 백분율입니다.                                                 | 70             |
-    | *Duration*             | 메트릭과 임계값이 비교되기 전에 모니터링할 기간입니다.                                   | 10분     |
+    | *Duration*             | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다.                                   | 10분     |
     | *작업*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                        | 다음을 기준으로 백분율 늘이기 |
     | *인스턴스 수*       | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                            | 20             |
     | *정지(분)*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
@@ -122,12 +122,12 @@ VM 인스턴스의 수 및 상태를 확인하려면 확장 집합 창의 왼쪽
 
     ![일정에 따라 크기 조정할 수 있는 자동 크기 조정 규칙 만들기](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-자동 크기 조정 규칙에 적용되는 방식을 확인하려면 **크기 조정** 창의 위쪽에서 **실행 기록**을 선택합니다. 그래프 및 이벤트 목록은 자동 크기 조정 규칙이 트리거되고 크기 조정에서 VM 인스턴스 수가 증가하거나 감소하는 경우를 보여줍니다.
+자동 크기 조정 규칙에 적용되는 방식을 확인하려면 **크기 조정** 창의 위쪽에서 **실행 기록**을 선택합니다. 그래프 및 이벤트 목록은 자동 크기 조정 규칙이 트리거되고 확장 집합에서 VM 인스턴스 수가 증가하거나 감소하는 경우를 보여줍니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법을 배웠습니다. 수직으로 크기를 조정하여 VM 인스턴스 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [가상 컴퓨터 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
+이 문서에서는 자동 크기 조정 규칙을 사용하여 수평으로 크기를 조정하고 확장 집합의 VM 인스턴스 *수*를 늘리거나 줄이는 방법을 배웠습니다. 수직으로 크기를 조정하여 VM 인스턴스 *크기*를 늘리거나 줄일 수도 있습니다. 자세한 내용은 [ 확장 집합을 사용하여 수직으로 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 참조하세요.
 
-VM 인스턴스를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 컴퓨터 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
+VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](virtual-machine-scale-sets-windows-manage.md)를 참조하세요.
 
-자동 크기 조정 규칙이 트리거될 때 알림을 생성하는 방법을 알아보려면 [자동 크기 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)를 참조하세요. [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보낼](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 수도 있습니다.
+자동 크기 조정 규칙이 트리거될 때 경고를 생성하는 방법에 대한 자세한 내용은 [Azure Monitor에서 자동 크기 조정 작업을 사용하여 메일 및 webhook 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)를 참조하세요. [Azure Monitor에서 감사 로그를 사용하여 메일 및 webhook 경고 알림을 보낼](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 수도 있습니다.

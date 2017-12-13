@@ -1,6 +1,6 @@
 ---
 title: "API Management를 사용하여 Azure ML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Docs"
-description: "API 관리를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다."
+description: "API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다."
 keywords: "기계 학습, api 관리"
 services: machine-learning
 documentationcenter: 
@@ -13,20 +13,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API 관리를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
+# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
 ## <a name="overview"></a>개요
-이 가이드에서는 API 관리를 빠르게 시작하여 AzureML 웹 서비스를 관리하는 방법을 보여 줍니다.
+이 가이드에서는 API Management를 빠르게 시작하여 AzureML 웹 서비스를 관리하는 방법을 보여 줍니다.
 
-## <a name="what-is-azure-api-management"></a>Azure API 관리란?
-Azure API 관리는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 끝점을 관리할 수 있는 Azure 서비스입니다. Azure API 관리에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API 관리를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md) 를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
+## <a name="what-is-azure-api-management"></a>Azure API Management란?
+Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 끝점을 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
 
 ## <a name="what-is-azureml"></a>AzureML이란?
 AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수 있도록 하는 기계 학습을 위한 Azure 서비스입니다. AzureML에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/machine-learning/) 를 클릭하세요.
@@ -38,95 +38,134 @@ AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수
 * AzureML 계정. AzureML 계정이 없는 경우 무료 평가판 계정을 만드는 방법에 대한 자세한 내용은 [여기](https://studio.azureml.net/) 를 클릭하세요.
 * AzureML 실험에 대한 작업 영역, 서비스 및 api_key는 웹 서비스로 배포됩니다. AzureML 실험을 만드는 방법에 대한 자세한 내용은 [여기](create-experiment.md) 를 클릭하세요. AzureML 실험을 웹 서비스로 배포하는 방법에 대한 자세한 내용은 [여기](publish-a-machine-learning-web-service.md) 를 클릭하세요. 또는 간단한 AzureML 실험을 만들고 테스트하고 이를 웹 서비스로 배포하는 방법에 대한 지침이 부록 A에 있습니다.
 
-## <a name="create-an-api-management-instance"></a>API 관리 인스턴스 만들기
-API 관리를 사용하여 AzureML 웹 서비스를 관리하는 단계는 다음과 같습니다. 먼저 서비스 인스턴스를 만듭니다. [클래식 포털](https://manage.windowsazure.com/)에 로그인하고 **새로 만들기** > **App Services** > **API Management** > **만들기**를 클릭합니다.
+## <a name="create-an-api-management-instance"></a>API Management 인스턴스 만들기
 
-![create-instance](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스를 관리할 수 있습니다.
 
-고유한 **URL**을 지정합니다. 이 가이드에서는 **demoazureml**을 사용합니다. – 다른 방법을 선택해야 합니다. 서비스 인스턴스에 대해 원하는 **구독** 및 **지역**을 선택합니다. 선택한 후에 다음 단추를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. **+ 리소스 만들기**를 선택합니다.
+3. 검색 상자에 "API Management"를 입력한 다음 "API Management" 리소스를 선택합니다.
+4. **만들기**를 클릭합니다.
+5. **이름** 값은 고유한 URL을 만드는 데 사용됩니다(이 예제에서는 "demoazureml" 사용).
+6. 서비스 인스턴스의 **구독**, **리소스 그룹** 및 **위치**를 선택합니다.
+7. **조직 이름**의 값을 지정합니다(이 예제에서는 "demoazureml" 사용).
+8. **관리자 전자 메일** 입력 - 이 전자 메일은 API Management 시스템의 알림에 사용됩니다.
+9. **만들기**를 클릭합니다.
 
-![create-service-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+새 서비스를 만드는 데에는 최대 30분이 걸릴 수 있습니다.
 
-**조직 이름**에 대한 값을 지정합니다. 이 가이드에서는 **demoazureml**을 사용합니다. – 다른 방법을 선택해야 합니다. **관리자 메일** 필드에 메일 주소를 입력합니다. 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다.
+![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![create-service-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-확인란을 클릭하여 서비스 인스턴스를 만듭니다. *새로운 서비스를 만드는 데 최대 30분이 걸립니다*.
 
 ## <a name="create-the-api"></a>API 만들기
 서비스 인스턴스를 만든 후 다음 단계는 API를 만드는 것입니다. API는 클라이언트 응용 프로그램에서 호출할 수 있는 작업 집합으로 구성됩니다. API 작업은 기존 웹 서비스로 프록시 처리됩니다. 이 가이드는 기존 AzureML RRS 및 BES 웹 서비스에 대한 프록시인 API를 만듭니다.
 
-API는 Azure 클래식 포털을 통해 액세스할 수 있는 API 게시자 포털에서 생성 및 구성됩니다. 게시자 포털에 연결하려면 서비스 인스턴스를 선택하세요.
+API를 만들려면:
 
-![select-service-instance](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. Azure Portal에서 방금 만든 서비스 인스턴스를 엽니다.
+2. 왼쪽 탐색 창에서 **API**를 선택합니다.
 
-API 관리 서비스에 대해 Azure 클래식 포털에서 **관리** 를 클릭합니다.
+   ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![manage-service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. **API 추가**를 클릭합니다.
+2. **Web API 이름**을 입력합니다(이 예제에서는 "AzureML 데모 API" 사용).
+3. **웹 서비스 URL**에 "`https://ussouthcentral.services.azureml.net`"을 입력합니다.
+4. **Web API URL 접미사"를 입력합니다. 고객이 서비스 인스턴스에 요청을 보내는 데 사용할 URL의 마지막 부분이 됩니다(이 예제에서는 "azureml-demo" 사용).
+5. **Web API URL 구성표**에서 **HTTPS**를 선택합니다.
+6. **제품**에서 **시작**을 선택합니다.
+7. **Save**를 클릭합니다.
 
-왼쪽의 **API Management** 메뉴에서 **API**를 클릭한 다음 **API 추가**를 클릭합니다.
-
-![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **https://ussouthcentral.services.azureml.net**을 **웹 서비스 URL**로 입력합니다. **azureml-demo**를 **Web API URL 접미사**로 입력합니다. **HTTPS**를 **Web API URL** 체계로 선택합니다. **시작**을 **제품**으로 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
-
-![add-new-api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>작업 추가
-해당 API에 새 작업을 추가하려면 **작업 추가** 를 클릭합니다.
 
-![add-operation](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API Management 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭하고, **API**, **작업**을 선택하고, **작업 추가**를 클릭합니다.
+
+![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 **새 작업** 창이 표시되고 **서명** 탭이 기본으로 선택됩니다.
 
 ## <a name="add-rrs-operation"></a>RRS 작업 추가
-먼저 AzureML RRS 서비스에 대한 작업을 만듭니다. **게시**를 **HTTP 동사**로 선택합니다. **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}**를 **URL 템플릿**으로 입력합니다. **RRS 실행**을 **표시 이름**으로 입력합니다.
+먼저 AzureML RRS 서비스에 대한 작업을 만듭니다.
 
-![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. **HTTP 동사**에서 **게시**를 선택합니다.
+2. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`"를 입력합니다.
+3. **표시 이름**을 입력합니다(이 예제에서는 "RRS 실행" 사용).
 
-왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다. **저장** 을 클릭하여 이 작업을 저장합니다.
+   ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
+5. **저장** 을 클릭하여 이 작업을 저장합니다.
+
+   ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>BES 작업 추가
-BES 작업에 대한 스크린샷은 RRS 작업을 추가하는 스크린샷과 매우 유사하므로 포함되어 있지 않습니다.
 
-### <a name="submit-but-not-start-a-batch-execution-job"></a>일괄 처리 실행 작업 제출(시작하지는 않음)
-API에 AzureML BES 작업을 추가하려면 **작업 추가** 를 클릭합니다. **게시**를 **HTTP 동사**로 선택합니다. **URL 템플릿**에 **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}**을 입력합니다. **표시 이름**에 **BES 제출**을 입력합니다. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다. **저장** 을 클릭하여 이 작업을 저장합니다.
+> [!NOTE]
+> BES 작업에 대한 스크린샷은 RRS 작업을 추가하는 스크린샷과 매우 유사하므로 여기에 포함되어 있지 않습니다.
+
+### <a name="submit-but-not-start-a-batch-execution-job"></a>Batch 실행 작업 제출(시작하지는 않음)
+
+1. API에 BES 작업을 추가하려면 **작업 추가**를 클릭합니다.
+2. **HTTP 동사**에서 **게시**를 선택합니다.
+3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"를 입력합니다.
+4. **표시 이름**을 입력합니다(이 예제에서는 "BES 제출" 사용).
+5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
+6. **Save**를 클릭합니다.
 
 ### <a name="start-a-batch-execution-job"></a>일괄 처리 실행 작업 시작
-API에 AzureML BES 작업을 추가하려면 **작업 추가** 를 클릭합니다. **게시**를 **HTTP 동사**로 선택합니다. **URL 템플릿**에 **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}**을 입력합니다. **표시 이름**에 **BES 시작**을 입력합니다. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다. **저장** 을 클릭하여 이 작업을 저장합니다.
+
+1. API에 BES 작업을 추가하려면 **작업 추가**를 클릭합니다.
+2. **HTTP 동사**에서 **게시**를 선택합니다.
+3. **HTTP 동사**에 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"을 입력합니다.
+4. **표시 이름**을 입력합니다(이 예제에서는 "BES 시작" 사용).
+6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
+7. **Save**를 클릭합니다.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>일괄 처리 실행 작업의 상태 또는 결과 가져오기
-API에 AzureML BES 작업을 추가하려면 **작업 추가** 를 클릭합니다. **가져오기**를 **HTTP 동사**로 선택합니다. **URL 템플릿**에 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**을 입력합니다. **표시 이름**에 **BES 상태**를 입력합니다. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다. **저장** 을 클릭하여 이 작업을 저장합니다.
+
+1. API에 BES 작업을 추가하려면 **작업 추가**를 클릭합니다.
+2. **HTTP 동사**에서 **가져오기**를 선택합니다.
+3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
+4. **표시 이름**을 입력합니다(이 예제에서는 "BES 상태" 사용).
+6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
+7. **Save**를 클릭합니다.
 
 ### <a name="delete-a-batch-execution-job"></a>일괄 처리 실행 작업 삭제
-API에 AzureML BES 작업을 추가하려면 **작업 추가** 를 클릭합니다. **삭제**를 **HTTP 동사**로 선택합니다. **URL 템플릿**에 **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}**을 입력합니다. **표시 이름**에 **BES 삭제**를 입력합니다. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다. **저장** 을 클릭하여 이 작업을 저장합니다.
+
+1. API에 BES 작업을 추가하려면 **작업 추가**를 클릭합니다.
+2. **HTTP 동사**에서 **삭제**를 선택합니다.
+3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
+4. **표시 이름**을 입력합니다(이 예제에서는 "BES 삭제" 사용).
+5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
+6. **Save**를 클릭합니다.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>개발자 포털에서 작업 호출
-개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 가이드의 단계에서 **AzureML 데모 API**에 추가된 **RRS 실행** 메서드를 호출합니다. 클래식 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털** 을 클릭합니다.
 
-![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 단계에서 **AzureML 데모 API**에 추가된 **RRS 실행** 메서드를 호출합니다. 
 
-맨 위 메뉴에서 **API**를 클릭하고 **AzureML 데모 API**를 클릭하여 사용 가능한 작업을 확인합니다.
+1. **개발자 포털**을 클릭합니다.
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-작업에 대해 **RRS 실행** 을 선택합니다. **사용해 보세요.**를 클릭합니다.
+2. 맨 위 메뉴에서 **API**를 클릭하고 **AzureML 데모 API**를 클릭하여 사용 가능한 작업을 확인합니다.
 
-![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-요청 매개 변수로는 **apiversion**에 **workspace**, **service**, **2.0**을 입력하고, **details**에 **true**를 입력합니다. AzureML 웹 서비스 대시보드에서 **작업 영역** 및 **서비스**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
+3. 작업에 대해 **RRS 실행** 을 선택합니다. **사용해 보세요.**를 클릭합니다.
 
-요청 헤더로는 **헤더 추가**를 클릭하고 **콘텐츠 유형** 및 **application/json**을 입력하고 나서, **헤더 추가**를 클릭하고 **자동화** 및 **전달자<YOUR AZUREML SERVICE API-KEY>**를 입력합니다. AzureML 웹 서비스 대시보드에서 **API 키**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
+   ![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-요청 본문으로 **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}**를 입력합니다.
+4. **요청 매개 변수**에 **작업 영역** 및 **서비스**를 입력하고, **apiversion**에 "2.0을 입력하고, **세부 정보**에 "true"를 입력합니다. AzureML 웹 서비스 대시보드에서 **작업 영역** 및 **서비스**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   **요청 헤더**에서 **헤더 추가**를 클릭하고, "콘텐츠 형식" 및 "application/json"을 입력합니다. **헤더 추가**를 다시 클릭하고, "인증" 및 "전달자 *\<사용자 서비스 API-KEY\>*"를 입력합니다. AzureML 웹 서비스 대시보드에서 API-KEY를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
-**보내기**를 클릭합니다.
+   **요청 본문**에 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`를 입력합니다.
 
-![보내기](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. **보내기**를 클릭합니다.
+
+   ![보내기](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 

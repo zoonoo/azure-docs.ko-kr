@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
+| Analysis Services | 스키마를 사용할 수 없음 |
 | API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDoS 보호 | 스키마를 사용할 수 없음 |
-| Recovery Services | 스키마를 사용할 수 없음|
+| Recovery Services | [Azure Backup용 데이터 모델](../backup/backup-azure-reports-data-model.md)|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | 서버 관리 | 스키마를 사용할 수 없음 |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
 |---|---|---|
+|microsoft.aadiam/tenants|로그인|로그인|
 |Microsoft.AnalysisServices/servers|엔진|엔진|
 |Microsoft.AnalysisServices/servers|서비스|서비스|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 게이트웨이 관련 로그|
@@ -63,6 +65,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|디스크 노드 상태|
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|끝점의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|파이프라인 작업 실행 로그|
 |Microsoft.DataFactory/factories|PipelineRuns|파이프라인 실행 로그|

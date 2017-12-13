@@ -1,26 +1,19 @@
 ---
-title: "Azure DC/OS 클러스터 모니터링 - 운영 관리 | Microsoft Docs"
+title: "Azure DC/OS 클러스터 모니터링 - 운영 관리"
 description: "Microsoft Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다."
 services: container-service
-documentationcenter: 
 author: keikhara
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
@@ -74,9 +67,9 @@ OMS Portal(<https://mms.microsoft.com>)에 로그인하고 **솔루션 갤러리
 
 ![](media/container-service-monitoring-oms/image8.png)
 
-### <a name="azure-portal"></a>Azure 포털 
+### <a name="azure-portal"></a>Azure Portal 
 
-<https://portal.microsoft.com/>에서 Azure Portal에 로그인합니다. **마켓플레이스**로 이동하고 **모니터링 + 관리**를 선택한 다음 **모두 표시**를 클릭합니다. 그런 다음 검색 상자에서 `containers`를 입력합니다. 그러면 검색 결과에서 "컨테이너"가 표시됩니다. **컨테이너**를 선택하고 **만들기**를 클릭합니다.
+<https://portal.microsoft.com/>에서 Azure Portal에 로그인합니다. **Marketplace**로 이동하고 **모니터링 + 관리**를 선택한 다음 **모두 표시**를 클릭합니다. 그런 다음 검색 상자에서 `containers`를 입력합니다. 그러면 검색 결과에서 "컨테이너"가 표시됩니다. **컨테이너**를 선택하고 **만들기**를 클릭합니다.
 
 ![](media/container-service-monitoring-oms/image9.png)
 

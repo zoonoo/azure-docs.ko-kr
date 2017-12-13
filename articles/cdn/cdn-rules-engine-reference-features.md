@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure Content Delivery Network(CDN) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 토큰 기반 인증을 사용하는 경우 암호화된 토큰을 제공하고 해당 토큰에서 지정한 요구 사항을 준수하는 요청만 허용합니다.
 
-토큰 값을 암호화 및 암호 해독하는 데 사용되는 암호화 키는 토큰 인증 페이지의 기본 키 및 백업 키 옵션으로 결정됩니다. 암호화 키는 플랫폼에 따라 다릅니다.
+토큰 값을 암호화 및 암호 해독하는 데 사용되는 암호화 키는 토큰 인증 페이지의 기본 키 및 Backup 키 옵션으로 결정됩니다. 암호화 키는 플랫폼에 따라 다릅니다.
 
 값 | 결과
 ------|---------
@@ -644,7 +644,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 **기본 동작**: 사용 안 함
 
-###<a name="modify-client-response-header"></a>클라이언트 응답 헤더 수정
+###<a name="modify-client-request-header"></a>클라이언트 요청 헤더 수정
 **목적:** 각 요청에는 이를 설명하는 [요청 헤더]() 집합이 있습니다. 이 기능은 다음 중 하나를 수행할 수 있습니다.
 
 - 요청 헤더에 할당된 값을 추가하거나 덮어씁니다. 지정된 요청 헤더가 없는 경우 이 기능은 요청에 해당 헤더를 추가합니다.
@@ -680,7 +680,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 ###<a name="modify-client-response-header"></a>클라이언트 응답 헤더 수정
 각 응답에는 이를 설명하는 [응답 헤더]() 집합이 있습니다. 이 기능은 다음 중 하나를 수행할 수 있습니다.
 
-- 응답 헤더에 할당된 값을 추가하거나 덮어씁니다. 지정된 요청 헤더가 없는 경우 이 기능은 응답에 해당 헤더를 추가합니다.
+- 응답 헤더에 할당된 값을 추가하거나 덮어씁니다. 지정된 응답 헤더가 없는 경우 이 기능은 응답에 해당 헤더를 추가합니다.
 - 응답에서 응답 헤더를 삭제합니다.
 
 기본적으로 응답 헤더 값은 원본 서버 및 에지 서버에서 정의합니다.
@@ -689,9 +689,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 옵션|설명|예
 -|-|-
-추가|지정된 값이 기존 요청 헤더 값의 끝에 추가됩니다.|**응답 헤더 값(클라이언트):** Value1 <br/> **응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value1Value2
-덮어쓰기|요청 헤더 값을 지정된 된 값으로 설정합니다.|**응답 헤더 값(클라이언트):** Value1 <br/>**응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value2 <br/>
-삭제|지정된 요청 헤더를 삭제합니다.|**요청 헤더 값(클라이언트):** Value1 <br/> **클라이언트 요청 헤더 수정 구성:** 문제의 응답 헤더를 삭제합니다. <br/>**결과:** 지정된 응답 헤더를 요청자에게 전달하지 않습니다.
+추가|지정된 값이 기존 응답 헤더 값의 끝에 추가됩니다.|**응답 헤더 값(클라이언트):** Value1 <br/> **응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value1Value2
+덮어쓰기|응답 헤더 값을 지정된 값으로 설정합니다.|**응답 헤더 값(클라이언트):** Value1 <br/>**응답 헤더 값(HTTP 규칙 엔진):** Value2 <br/>**새 응답 헤더 값:** Value2 <br/>
+삭제|지정된 응답 헤더를 삭제합니다.|**응답 헤더 값(클라이언트):** Value1 <br/> **클라이언트 응답 헤더 수정 구성:** 문제의 응답 헤더를 삭제합니다. <br/>**결과:** 지정된 응답 헤더를 요청자에게 전달하지 않습니다.
 
 주요 정보:
 

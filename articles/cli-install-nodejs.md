@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Azure CLI 1.0 설치
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> 이 항목에서는 nodeJs를 기반으로 작성되고 모든 클래식 배포 API 호출은 물론 다수의 Resource Manager 배포 작업을 지원하는 Azure CLI 1.0을 설치하는 방법을 설명합니다. 새롭거나 앞으로 있을 CLI 배포 및 관리에는 [Azure CLI 2.0](/cli/azure/overview)을 사용해야 합니다.
+> 이 항목에서는 Azure CLI 1.0을 설치하는 방법을 설명합니다. 이 CLI는 사용되지 않으므로 "클래식" 리소스를 포함한 ASM(Azure 서비스 관리) 모델의 지원에서만 사용해야 합니다.
+> ARM(Azure Resource Manager) 배포의 경우 [Azure CLI 2.0](/cli/azure/overview)을 사용합니다.
 
 신속하게 Azure CLI 1.0(Azure 명령줄 인터페이스)을 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 컴퓨터에 크로스 플랫폼 도구를 설치하는 몇 가지 옵션이 있습니다.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: delhan
-ms.openlocfilehash: 60854fedaa8028d62cdcc80927b05e1039d531fb
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 2591436b576580f51129b9dadbfe3814f23ac2cc
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure VM에서 로컬 Linux 암호를 다시 설정하는 방법
 
@@ -91,19 +91,21 @@ VM에 로그인할 수 없다면 사용한 암호가 잘못되었음을 나타�
     cp /etc/shadow /tempmount/etc/shadow
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
-
-10. Go back to the root and unmount the disk.
-
-    ~~~~
-    cd / umount /tempmount
     ~~~~
 
-11. Detach the disk from the management portal.
+10. 루트로 다시 이동하여 디스크를 분리합니다.
 
-12. Recreate the VM.
+    ~~~~
+    cd /
+    umount /tempmount
+    ~~~~
 
-## Next steps
+11. 관리 포털에서 디스크를 분리합니다.
 
-* [Troubleshoot Azure VM by attaching OS disk to another Azure VM](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+12. VM을 다시 만듭니다.
 
-* [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+## <a name="next-steps"></a>다음 단계
+
+* [OS 디스크를 다른 Azure VM에 연결하여 Azure VM 문제 해결](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+
+* [Azure CLI: VHD에서 VM을 삭제하고 다시 배포하는 방법](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

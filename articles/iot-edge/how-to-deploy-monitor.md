@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>대규모 IoT Edge 모듈 배포 및 모니터링 - 미리 보기
 
@@ -42,19 +42,21 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 
 1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
 1. **IoT Edge(미리 보기)**를 선택합니다.
-1. **Edge 배포 만들기**를 선택합니다.
+1. **IoT Edge 배포 추가**를 선택합니다.
 
 배포를 만드는 데에는 5개 단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
 
-### <a name="step-1-label-deployment"></a>1단계: 배포 레이블 지정
+### <a name="step-1-name-and-label"></a>1단계: 이름 및 레이블
 
-1. 배포에 고유한 ID를 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다.
+1. 배포에 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다.
 1. 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 **이름**/**값** 쌍입니다. 예를 들면 `HostPlatform, Linux` 또는 `Version, 3.0.1`과 같습니다.
 1. **다음**을 선택하여 2단계로 이동합니다. 
 
-### <a name="step-2-add-modules"></a>2단계: 모듈 추가
+### <a name="step-2-add-modules-optional"></a>2단계: 모듈 추가(선택 사항)
 
 배포에 추가할 수 있는 두 가지 유형의 모듈이 있습니다. 첫 번째는 저장소 계정 또는 Stream Analytics와 같은 Azure 서비스를 기반으로 하는 모듈입니다. 두 번째는 사용자 고유의 코드를 기반으로 합니다. 두 가지 유형의 여러 모듈을 하나의 배포에 추가할 수 있습니다. 
+
+모듈 없이 배포를 만들 경우 장치에서 모든 기존 모듈이 제거됩니다. 
 
 >[!NOTE]
 >Azure Machine Learning 및 Azure Functions는 아직 자동화된 Azure 서비스 배포를 지원하지 않습니다. 사용자 지정 모듈 배포를 사용하여 이러한 서비스를 배포에 수동으로 추가합니다. 

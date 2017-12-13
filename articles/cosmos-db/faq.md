@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -195,7 +195,6 @@ Azure Cosmos DB Table API를 사용하여 테이블을 만들려는 Azure Table 
 * Table API에서 반환한 쿼리 결과는 Azure Table Storage에 있는 대로 파티션 키/행 키 순서로 정렬되지 않습니다.
 * 행 키는 최대 255바이트일 수 있습니다.
 * 일괄 처리에 최대 2MB를 포함할 수 있습니다.
-* CreateIfNotExists 호출이 RU에 포함되는 다른 테이블 작업에서 별도로 고정된 관리 제한에 의해 제한됩니다. 즉, 제한이 해당 RU에서 비롯되지 않았기 때문에 많은 수의 CreateIfNotExists를 만드는 작업이 제한되고 아무 것도 수행할 수 없게 됩니다.
 * CORS는 현재 지원되지 않습니다.
 * Azure Table Storage의 테이블 이름은 대/소문자를 구분하지 않지만 Azure Cosmos DB Table API에 위치합니다.
 * 이진 필드 같은 정보 인코딩을 위한 일부 Azure Cosmos DB의 내부 형식은 현재 생각만큼 효율이 좋지는 않습니다. 따라서 데이터 크기에 예기치 않은 제한이 발생할 수 있습니다. 예를 들어 데이터를 인코딩하면 데이터 크기가 커지기 때문에 현재는 테이블 엔터티 1Meg를 이진 데이터 저장에 모두 사용할 수 없습니다.
@@ -504,7 +503,7 @@ Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생�
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Azure Cosmos DB의 Apache Cassandra API와 함께 사용할 수 있는 클라이언트 SDK는 무엇인가요?
 비공개 미리 보기에서는 CQLv3을 사용하는 Apache Cassandra SDK의 클라이언트 드라이버가 클라이언트 프로그램에 사용되었습니다. 사용하는 다른 드라이버가 있거나 문제가 발생한 경우 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 메일을 보내주세요. 
 
-### <a name="is-composite-primary-key-supported"></a>복합 기본 키가 지원되나요?
+### <a name="is-composite-partition-key-supported"></a>복합 파티션 키가 지원되나요?
 예, 일반 구문을 사용하여 복합 파티션 키를 만들 수 있습니다. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>데이터 로딩에 sstable 로더를 사용할 수 있나요?

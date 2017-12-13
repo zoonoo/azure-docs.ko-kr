@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -112,6 +112,19 @@ Azure ML Workbench에서 작업할 경우, 응용 프로그램 셸의 왼쪽 하
    - 스크립트 `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1` 제거
    - 위의 스크립트를 시작하는 바탕 화면 바로 가기 제거
    - https://aka.ms/azureml-wb-msi에서 설치 관리자를 다운로드하고 다시 설치
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>로그인한 후에 "실험 계정 검사" 화면에서 중단되었습니다.
+로그인한 후에 Workbench 앱은 회전 휠을 포함한 "실험 계정 검사"를 보여주는 메시지를 표시한 빈 화면에서 중단되었을 수 있습니다. 이 문제를 해결하려면, 다음 단계를 사용하세요.
+1. 앱 종료
+2. 다음 파일을 삭제합니다.
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. 앱을 다시 시작합니다.
 
 ## <a name="cant-delete-experimentation-account"></a>실험 계정을 삭제할 수 없음
 CLI를 사용하여 실험 계정을 삭제할 수 있지만 먼저 하위 작업 영역과 해당 하위 작업 영역 내의 하위 프로젝트를 먼저 삭제해야 합니다. 그렇지 않으면 오류가 발생합니다.

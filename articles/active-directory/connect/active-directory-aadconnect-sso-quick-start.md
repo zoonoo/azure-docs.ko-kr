@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -127,7 +127,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox(모든 플랫폼)
 
 Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. 각 사용자는 다음 단계에 따라 Firefox 설정에 Azure AD URL을 수동으로 추가해야 합니다.
 1. Firefox를 실행하고 주소 표시줄에 `about:config`를 입력합니다. 표시되는 모든 알림을 해제합니다.
@@ -136,11 +136,15 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 4. 필드에서 https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net을 입력합니다.
 5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
 
-#### <a name="safari-on-mac-os"></a>Mac OS의 Safari
+#### <a name="safari-mac-os"></a>Safari(Mac OS)
 
 Mac OS를 실행하는 컴퓨터가 Azure AD에 가입되어 있는지 확인합니다. Azure AD 조인에 지침은 [Active Directory와 통합 OS X에 대한 모범 사례](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf)를 참조하세요.
 
-#### <a name="google-chrome-on-mac-os"></a>Mac OS의 Google 크롬
+#### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
+
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)도 해당 정책 설정에 추가해야 합니다.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 
 Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
 
@@ -149,9 +153,6 @@ Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통�
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
 Firefox 및 Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
-
->[!IMPORTANT]
->최근 고객이 신고한 문제를 조사하기 위해 에지에 대한 지원을 롤백했습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 

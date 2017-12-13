@@ -1,22 +1,22 @@
 ---
-title: "Azure IoT Hub Device Provisioning Service의 개요(미리 보기) | Microsoft Docs"
+title: "Azure IoT Hub Device Provisioning Service의 개요 | Microsoft Docs"
 description: "Device Provisioning Service 및 IoT Hub를 사용하여 Azure에서 장치 프로비전 설명"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Azure IoT Hub Device Provisioning Service로 장치 프로비전(미리 보기)
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
@@ -59,7 +59,7 @@ Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 
 
 Device Provisioning Service는 제조 프로세스에 새 단계를 도입하지 않습니다. 대신, 초기 소프트웨어 및 (원칙적으로) HSM을 장치에 설치하는 기존 단계를 통제합니다. 이 단계에서는 장치 ID를 만드는 대신, 장치는 단순히 프로비전 서비스 정보로 프로그래밍되므로 켜져 있는 경우 해당 연결 정보/IoT 솔루션 할당을 가져오기 위해 프로비전 서비스를 호출합니다.
 
-또한 이 단계에서 제조 업체는 장치 배포자/연산자에게 식별 주요 정보를 제공합니다. 이는 각 TPM 장치에서 TPM 인증 키의 공개 부분을 추출하기 위해 장치 배포자/연산자에 의해 제공되는 루트 CA에서 생성된 X.509 인증서가 모든 장치에 있는지 확인하는 것처럼 간단할 수 있습니다. 이러한 서비스는 현재 많은 실리콘 제조 업체에서 제공합니다.
+또한 이 단계에서 제조 업체는 장치 배포자/연산자에게 식별 주요 정보를 제공합니다. 이는 각 TPM 장치에서 TPM 인증 키의 공개 부분을 추출하기 위해 장치 배포자/연산자에 의해 제공되는 서명 인증서에서 생성된 X.509 인증서가 모든 장치에 있는지 확인하는 것처럼 간단할 수 있습니다. 이러한 서비스는 현재 많은 실리콘 제조 업체에서 제공합니다.
 
 ### <a name="cloud-setup-step"></a>클라우드 설정 단계
 이 단계는 적절한 자동 프로비전에 대한 클라우드 구성에 관한 것입니다. 일반적으로 이 클라우드 설정 단계에 포함된 사용자는 장치를 초기에 어떻게 설정해야 하는지를 아는 사용자(장치 연산자) 및 장치를 IoT Hub로 어떻게 분할하는지를 아는 사용자(솔루션 연산자), 이렇게 두 유형이 있습니다.
@@ -84,19 +84,29 @@ Device Provisioning Service에는 장치 프로비전에 이상적인 여러 기
 * **여러 할당 정책** 사용자 시나리오를 지원하기 위해 Device Provisioning Service에서 장치를 IoT Hub에 할당하는 방법을 제어할 수 있습니다.
 * **모니터링 및 진단 로그** 모든 과정이 제대로 작동되도록 보장합니다.
 * **다중 허브 지원** Device Provisioning Service가 장치를 하나 이상의 IoT Hub에 할당할 수 있습니다. Device Provisioning Service는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
+* **지역 간 지원** Device Provisioning Service가 장치를 다른 지역의 IoT Hub에 할당할 수 있게 해줍니다.
 
 [장치 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 장치 프로비전에 관련된 개념 및 장치에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="cross-platform-support"></a>플랫폼 간 지원
-모든 Azure IoT 서비스와 같이 Device Provisioning Service는 다양한 운영 체제를 사용하여 플랫폼 간 작동합니다. 공개 미리 보기는 지원되는 언어/프로토콜의 제한된 집합을 지원합니다. Device Provisioning Service가 일반 공급되면 더 많은 기능을 사용할 수 있습니다. 공개 미리 보기의 경우 Device Provisioning Service는 장치 및 서비스 작업 모두에 대한 HTTPS 연결만 지원합니다. 장치 SDK는 C에, 서비스 SDK는 C#에 있습니다.
+모든 Azure IoT 서비스와 같이 Device Provisioning Service는 다양한 운영 체제를 사용하여 플랫폼 간 작동합니다. Azure는 보다 수월하게 장치를 연결하고 서비스를 관리할 수 있도록 다양한 [언어](https://github.com/Azure/azure-iot-sdks)로 오픈 소스 SDK를 제공합니다. Device Provisioning Service는 장치를 연결하기 위한 다음 프로토콜을 지원합니다.
+
+* HTTPS
+* AMQP
+* websocket 통한 AMQP
+* MQTT
+* webSocket을 통한 MQTT
+
+Device Provisioning Service는 서비스 작업을 위한 HTTPS 연결만 지원합니다.
 
 ## <a name="regions"></a>영역
-Device Provisioning Service는 미국 동부, 유럽 서부 및 동남 아시아에서 공개 미리 보기로 제공됩니다. 모든 서비스에 대해 기존 및 새로 발표된 지역 목록을 계속 업데이트하고 있습니다.
+Device Provisioning Service는 여러 지역에 제공됩니다. 모든 서비스의 기존 지역 및 새로 발표된 지역 목록이 [Azure 지역](https://azure.microsoft.com/regions/)에 계속 업데이트되고 있습니다. Device Provisioning Service가 제공되는 지역은 [Azure 상태](https://azure.microsoft.com/status/) 페이지에서 확인할 수 있습니다.
 
-* [Azure 지역](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> Device Provisioning Service는 전역적이며 특정 위치에 바인딩되지 않습니다. 그러나 Device Provisioning Service 프로필과 연결된 메타데이터가 상주할 영역을 지정해야 합니다.
 
 ## <a name="availability"></a>Availability
-공개 미리 보기 기간에 서비스의 가용성을 유지하기 위해 최선을 다하고 있습니다. 공개 미리 보기 기간에는 서비스 수준 계약이 없습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+Device Provisioning Service의 서비스 수준 계약은 99.9%로 유지되며, [SLA를 확인](https://azure.microsoft.com/support/legal/sla/iot-hub/)할 수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ## <a name="quotas"></a>할당량
 각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독당 현재 한도 기준은 구독당 10개 Device Provisioning Service입니다.

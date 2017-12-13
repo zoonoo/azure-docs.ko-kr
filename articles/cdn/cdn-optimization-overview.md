@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>시나리오에 대한 Azure 콘텐츠 배달 최적화
 
@@ -103,7 +103,7 @@ Akamai의 Azure Content Delivery Network를 사용하는 경우 대용량 파일
 
 Akamai의 Azure Content Delivery Network를 사용하는 경우 대용량 파일 다운로드가 10MB보다 큰 콘텐츠에 대해 최적화됩니다. 평균 파일 크기가 10MB보다 작은 경우 일반 웹 배달을 사용할 수 있습니다. 평균 파일 크기가 일관되게 10MB보다 큰 경우 대용량 파일에 대해 별도의 끝점을 만드는 것이 더 효율적일 수 있습니다. 예를 들어 펌웨어 또는 소프트웨어 업데이트는 일반적으로 대용량 파일입니다.
 
-Verizon의 Azure Content Delivery Network는 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 콘텐츠를 배달할 수 있습니다.
+Verizon의 Azure Content Delivery Network는 일반 웹 배달 최적화 형식을 사용하여 대용량 파일 다운로드 콘텐츠를 배달할 수 있습니다.
 
 대용량 파일 최적화에 대한 자세한 내용은 [대용량 파일 최적화](cdn-large-file-optimization.md)를 참조하세요.
 

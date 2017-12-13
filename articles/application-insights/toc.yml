@@ -146,6 +146,12 @@
               href: app-insights-proactive-trace-severity.md
             - name: 예외 볼륨
               href: app-insights-proactive-exception-volume.md
+            - name: 메모리 누수
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: 리소스 사용률
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: 보안 검색
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: 리소스 만들기
           href: app-insights-create-new-resource.md
     - name: 분석

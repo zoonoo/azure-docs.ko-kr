@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -29,33 +29,39 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 Azure File Sync 배포 계획을 세부적으로 알아보기 전에 용어를 이해하는 것이 중요합니다.
 
 ### <a name="storage-sync-service"></a>저장소 동기화 서비스
-Storage 동기화 서비스는 Azure File Sync에 대한 최상위 수준의 Azure 리소스입니다. Storage 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
+저장소 동기화 서비스는 Azure File Sync의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
 
 ### <a name="sync-group"></a>동기화 그룹
-동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내의 끝점은 서로 동기화된 상태를 유지합니다. 예를 들어 Azure File Sync를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각 동기화 그룹에 다른 끝점을 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
+동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure File Sync를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각 동기화 그룹에 다른 엔드포인트를 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
 
 ### <a name="registered-server"></a>등록된 서버
 등록된 서버 개체는 서버(또는 클러스터)와 Storage 동기화 서비스 간의 신뢰 관계를 나타냅니다. 원하는 수 만큼의 서버를 Storage 동기화 서비스 인스턴스에 등록할 수 있습니다. 그렇지만 한 번에 하나의 서버(또는 클러스터)만 하나의 Storage 동기화 서비스에 등록될 수 있습니다.
 
 ### <a name="azure-file-sync-agent"></a>Azure 파일 동기화 에이전트
 Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. Azure File Sync 에이전트는 다음 3가지 주요 구성 요소로 이루어집니다. 
-- **FileSyncSvc.exe**: 서버 끝점의 변경 내용을 모니터링하고 Azure와의 동기화 세션을 시작하는 백그라운드 Windows 서비스입니다.
+- **FileSyncSvc.exe**: 서버 엔드포인트의 변경 내용을 모니터링하고 Azure와의 동기화 세션을 시작하는 백그라운드 Windows 서비스입니다.
 - **StorageSync.sys**: Azure Files로의 파일 계층화를 담당하는 Azure File Sync 파일 시스템 필터입니다(클라우드 계층화가 사용될 경우).
 - **PowerShell 관리 cmdlet**: Microsoft.StorageSync Azure 리소스 공급자와 상호 작용하는 데 사용하는 PowerShell cmdlet입니다. 다음(기본) 위치에서 이러한 항목을 찾을 수 있습니다.
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
-### <a name="server-endpoint"></a>서버 끝점
-서버 끝점은 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 끝점이 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 끝점에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 끝점으로 추가하는 경우 해당 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+### <a name="server-endpoint"></a>서버 엔드포인트
+서버 엔드포인트는 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, 등록된 서버의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 엔드포인트가 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 엔드포인트에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 엔드포인트로 추가하는 경우 해당 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
-### <a name="cloud-endpoint"></a>클라우드 끝점
-클라우드 끝점은 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 끝점의 구성원만 될 수 있습니다. 따라서 Azure 파일 공유는 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 끝점으로 추가하는 경우 기존 파일은 동기화 그룹의 다른 끝점에 이미 있는 다른 파일에 병합됩니다.
+> [!Note]  
+> 서버 엔드포인트는 Windows 시스템 볼륨에 위치할 수 있습니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다.
+
+### <a name="cloud-endpoint"></a>클라우드 엔드포인트
+클라우드 엔드포인트는 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 엔드포인트의 구성원만 될 수 있습니다. 따라서 Azure 파일 공유는 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 엔드포인트로 추가하는 경우 기존 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
 > [!Important]  
-> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 검색 작업은 클라우드 끝점에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화 
 클라우드 계층화는 Azure File Sync의 선택적 기능으로, 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure File Sync 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일은 NTFS에서 "오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure File Sync는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
+
+> [!Important]  
+> 클라우드 계층화는 Windows 시스템 볼륨의 서버 엔드포인트에서 지원되지 않습니다.
 
 ## <a name="azure-file-sync-interoperability"></a>Azure File Sync 상호 운용성 
 이 섹션에서는 Windows Server 기능/역할 및 타사 솔루션과의 Azure File Sync 상호 운용성에 대해 설명합니다.
@@ -76,18 +82,18 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 ### <a name="file-system-features"></a>파일 시스템 기능
 | 기능 | 상태 지원 | 참고 사항 |
 |---------|----------------|-------|
-| ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure 파일 동기화에 의해 유지되며 서버 끝점에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
+| ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure File Sync에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
 | 하드 링크 | 생략 | |
 | 바로 가기 링크 | 생략 | |
-| 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 끝점의 루트일 수 있지만, 서버 끝점의 네임스페이스에 포함된 경우 건너뜁니다. |
-| 분기 동기화 | 생략 | |
+| 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 엔드포인트의 루트일 수 있지만, 서버 엔드포인트의 네임스페이스에 포함된 경우 건너뜁니다. |
+| 분기 동기화 | 생략 | 분산 파일 시스템 DfrsrPrivate 및 DFSRoots 폴더를 예로 들 수 있습니다. |
 | 재분석 지점 | 생략 | |
 | NTFS 압축 | 완전하게 지원 | |
 | 스파스 파일 | 완전하게 지원 | 스파스 파일은 동기화되지만(차단되지 않음) 전체 파일로 클라우드와 동기화됩니다. 클라우드(또는 다른 서버)에서 파일 콘텐츠가 변경될 경우 변경 내용이 다운로드되면 파일은 더 이상 스파스 파일이 아닙니다. |
 | ADS(대체 데이터 스트림) | 보존되지만 동기화되지 않음 | |
 
 > [!Note]  
-> NTFS 볼륨만 지원됩니다.
+> NTFS 볼륨만 지원됩니다. ReFS, FAT, FAT32 및 다른 파일 시스템은 지원되지 않습니다.
 
 ### <a name="failover-clustering"></a>장애 조치(Failover) 클러스터링
 Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버" 배포 옵션의 Azure 파일 동기화에서 지원됩니다. 장애 조치(Failover) 클러스터링은 "응용 프로그램 데이터용 스케일 아웃 파일 서버" 또는 "CSV(클러스터된 공유 볼륨)"에서는 지원되지 않습니다.
@@ -97,6 +103,24 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure File Sync는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다. 현재, 클라우드 계층화가 사용되도록 설정된 Azure File Sync와 데이터 중복 제거 간에는 상호 운용성이 지원되지 않습니다.
+
+### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
+Azure File Sync에서는 [Azure File Sync 에이전트 1.2](https://go.microsoft.com/fwlink/?linkid=864522)부터 DFS 네임스페이스(DFS-N) 및 DFS 복제(DFS-R)와의 상호 작용을 지원합니다.
+
+**DFS 네임 스페이스(DFS-N)**: DFS-N 서버에서 Azure File Sync가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure File Sync 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
+ 
+**DFS 복제(DFS-R)**: DFS-R 및 Azure File Sync는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure File Sync로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure File Sync를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
+
+- DFS-R 배포에서 Azure File Sync 배포로 마이그레이션하는 중입니다. 자세한 내용은 [DFS 복제(DFS-R) 배포를 Azure File Sync로 마이그레이션](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)을 참조하세요.
+- 파일 데이터의 복사본을 필요로 하는 모든 온-프레미스 서버를 인터넷에 직접 연결할 수는 없습니다.
+- 분기 서버는 Azure File Sync를 사용할 단일 허브 서버에 데이터를 통합합니다.
+
+Azure File Sync 및 DFS-R을 나란히 사용하려면
+
+1. Azure File Sync 클라우드 계층화는 DFS-R 복제 폴더를 포함하는 볼륨에서 사용하지 않도록 설정해야 합니다.
+2. 서버 엔드포인트는 DFS-R 읽기 전용 복제 폴더에 대해 구성할 수 없습니다.
+
+자세한 내용은 [DFS 복제 개요](https://technet.microsoft.com/library/jj127250)를 참조하세요.
 
 ### <a name="antivirus-solutions"></a>바이러스 백신 솔루션
 바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. 계층화된 파일에는 "오프라인" 특성이 설정되어 있으므로 오프라인 파일 읽기를 건너뛰도록 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 

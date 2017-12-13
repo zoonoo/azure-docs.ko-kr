@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>지속성 함수의 상태 저장 단일 항목 - Counter 샘플
 
@@ -45,13 +45,31 @@ ms.lasthandoff: 10/13/2017
 
 이 문서에서는 샘플 앱의 **E3_Counter** 함수를 단계별로 살펴봅니다.
 
-다음 섹션에서는 Visual Studio 개발에 사용되는 코드에 대해 설명합니다. Azure Portal 개발 코드와 비슷합니다.
+
 
 ## <a name="the-counter-orchestration"></a>카운터 오케스트레이션
+
+다음 섹션에서는 Visual Studio Code 및 Azure Portal 개발에 사용되는 코드에 대해 설명합니다.
+
+### <a name="c-script"></a>C# 스크립트
+
+function.json 파일:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+run.csx 파일:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>미리 컴파일된 C# 
+
+다음 섹션에서는 Visual Studio 개발에 사용되는 코드에 대해 설명합니다.
 
 다음은 오케스트레이터 함수를 구현하는 코드입니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>코드 설명
 
 이 오케스트레이터 함수는 기본적으로 다음을 수행합니다.
 

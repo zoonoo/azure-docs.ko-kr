@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure File Sync 배포(미리 보기)
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -92,32 +92,48 @@ Azure File Sync 에이전트 설치를 마치면 서버 등록 UI가 자동으�
 적절한 정보를 선택한 후 **등록**을 선택하여 서버 등록을 완료합니다. 등록 프로세스의 일부로 추가 로그인을 요구하는 메시지가 표시됩니다.
 
 ## <a name="create-a-sync-group"></a>동기화 그룹 만들기
-동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 끝점은 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 끝점과 Windows Server의 경로를 나타내는 하나의 서버 끝점을 포함해야 합니다. 동기화 그룹을 만들려면 [Azure Portal](https://portal.azure.com/)에서 저장소 동기화 서비스로 이동한 후 **+동기화 그룹**을 선택합니다.
+동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 엔드포인트와 Windows Server의 경로를 나타내는 하나의 서버 엔드포인트를 포함해야 합니다. 동기화 그룹을 만들려면 [Azure Portal](https://portal.azure.com/)에서 저장소 동기화 서비스로 이동한 후 **+동기화 그룹**을 선택합니다.
 
 ![Azure Portal에서 새 동기화 그룹 만들기](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
-열리는 창에서 다음 정보를 입력하여 클라우드 끝점이 있는 동기화 그룹을 만듭니다.
+열리는 창에서 다음 정보를 입력하여 클라우드 엔드포인트가 있는 동기화 그룹을 만듭니다.
 
 - **동기화 그룹 이름**: 만들 동기화 그룹의 이름입니다. 이 이름은 저장소 동기화 서비스 내에서 고유해야 하지만 사용자에게 논리적인 어떤 이름도 될 수 있습니다.
 - **구독**: [저장소 동기화 서비스 배포](#deploy-the-storage-sync-service)에서 저장소 동기화 서비스를 배포한 구독입니다.
 - **저장소 계정**: **저장소 계정 선택**을 선택하면 동기화할 Azure 파일 공유가 있는 저장소 계정을 선택할 수 있는 또 다른 창이 나타납니다.
 - **Azure 파일 공유**: 동기화할 Azure 파일 공유의 이름입니다.
 
-서버 끝점을 추가하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 끝점 추가**를 클릭합니다.
+서버 엔드포인트를 추가하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 엔드포인트 추가**를 클릭합니다.
 
-![동기화 그룹 창에서 새 서버 끝점 추가](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
+![동기화 그룹 창에서 새 서버 엔드포인트 추가](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-**서버 끝점 추가** 창에 다음 정보를 입력하여 서버 끝점을 만듭니다.
+**서버 엔드포인트 추가** 창에 다음 정보를 입력하여 서버 엔드포인트를 만듭니다.
 
-- **등록된 서버**: 서버 끝점을 만들 서버 또는 클러스터의 이름입니다.
+- **등록된 서버**: 서버 엔드포인트를 만들 서버 또는 클러스터의 이름입니다.
 - **경로**: 동기화 그룹의 일부분으로 동기화할 Windows Server 경로입니다.
 - **클라우드 계층화**: 클라우드 계층화를 사용하거나 사용하지 않도록 설정할 스위치입니다. 클라우드 계층화를 사용하면 드물게 사용하거나 액세스하는 파일은 Azure 파일로 계층화할 수 있습니다.
-- **사용 가능한 볼륨 공간**: 서버 끝점이 있는 볼륨에서 예약할 여유 공간의 크기입니다. 예를 들어 단일 서버 끝점이 있는 볼륨에서 사용 가능한 볼륨 공간을 50%로 설정하는 경우 데이터 양의 절반 정도가 Azure Files로 계층화됩니다. 클라우드 계층화를 사용하도록 설정할지 여부에 관계없이, Azure 파일 공유는 항상 동기화 그룹에 데이터의 전체 복사본을 유지합니다.
+- **사용 가능한 볼륨 공간**: 서버 엔드포인트가 있는 볼륨에서 예약할 여유 공간의 크기입니다. 예를 들어 단일 서버 엔드포인트가 있는 볼륨에서 사용 가능한 볼륨 공간을 50%로 설정하는 경우 데이터 양의 절반 정도가 Azure Files로 계층화됩니다. 클라우드 계층화를 사용하도록 설정할지 여부에 관계없이, Azure 파일 공유는 항상 동기화 그룹에 데이터의 전체 복사본을 유지합니다.
 
-서버 끝점을 추가하려면 **만들기**를 선택합니다. 이제 Azure 파일 공유 및 Windows Server에서 파일이 동기화 상태로 유지됩니다. 
+서버 엔드포인트를 추가하려면 **만들기**를 선택합니다. 이제 Azure 파일 공유 및 Windows Server에서 파일이 동기화 상태로 유지됩니다. 
 
 > [!Important]  
-> 동기화 그룹의 클라우드 끝점 또는 서버 끝점을 변경할 수 있고, 파일이 동기화 그룹의 다른 끝점과 동기화되도록 할 수 있습니다. 클라우드 끝점(Azure Files 공유)을 직접 변경하는 경우 변경 사항은 먼저 Azure File Sync 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 끝점에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+> 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure File Sync 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>DFS 복제(DFS-R) 배포를 Azure File Sync로 마이그레이션
+DFS-R 배포를 Azure File Sync로 마이그레이션하려면
+
+1. 바꾸려는 DFS-R 토폴로지를 나타내는 동기화 그룹을 만듭니다.
+2. 마이그레이션할 DFS-R 토폴로지의 전체 데이터 집합이 있는 서버에서 시작합니다. 해당 서버에 Azure File Sync를 설치합니다.
+3. 해당 서버를 등록하고 마이그레이션할 첫 번째 서버에 대한 서버 엔드포인트를 만듭니다. 클라우드 계층화를 활성화하지 마세요.
+4. Azure 파일 공유(클라우드 엔드포인트)에 대한 모든 데이터 동기화를 수행합니다.
+5. 나머지 DFS-R 서버에 각각 Azure File Sync 에이전트를 설치하고 등록합니다.
+6. DFS-R을 사용하지 않도록 설정합니다. 
+7. 각 DFS-R 서버에 서버 엔드포인트를 만듭니다. 클라우드 계층화를 활성화하지 마세요.
+8. 동기화를 완료하고 필요에 따라 토폴로지를 테스트합니다.
+9. DFS-R을 사용 중지합니다.
+10. 이제 클라우드 계층화를 원하는 모든 서버 엔드포인트에서 사용할 수 있습니다.
+
+자세한 내용은 [분산 파일 시스템(DFS)과의 Azure File Sync interop](storage-sync-files-planning.md#distributed-file-system-dfs)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure File Sync 서버 끝점 추가 또는 제거](storage-sync-files-server-endpoint.md)

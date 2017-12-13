@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 환경 내에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하기 위한 첫 번째 단계는 보유한 리소스의 현재 위치를 파악하는 것입니다. 이 빠른 시작은 Managed Disks를 사용하지 않는 가상 컴퓨터를 식별하는 정책 할당 만들기 과정을 단계별로 안내합니다.
 
 이 프로세스가 끝나면 Managed Disks를 사용하지 않는 *비규격* 가상 컴퓨터가 식별됩니다.
-.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-
-## <a name="opt-in-to-azure-policy"></a>Azure Policy에 옵트인
-
-Azure Policy는 공개 미리 보기에서 사용할 수 있으며 액세스를 요청하려면 등록해야 합니다.
-
-1. https://aka.ms/getpolicy에 있는 Azure Policy로 이동하고 왼쪽 창에서 **등록**을 선택합니다.
-
-   ![정책 검색](media/assign-policy-definition/sign-up.png)
-
-2. **구독** 목록에서 사용하려는 구독을 선택하여 Azure Policy에 옵트인합니다. 그런 다음 **등록**을 선택합니다.
-
-   ![Azure Policy를 사용하기 위한 옵트인](media/assign-policy-definition/preview-opt-in.png)
-
-   요청은 미리 보기에 대해 자동으로 승인됩니다. 시스템에서 등록을 처리하는 데 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
@@ -64,9 +49,9 @@ Azure Policy는 사용 가능한 기본 정책 정의를 제공합니다. 기본
 
 - 정책 할당에 대한 표시 **이름** - 이 경우 *Managed Disks가 없는 가상 컴퓨터 감사*를 사용합니다.
 - **정책** – 할당을 만드는 데 사용되는 정책 정의입니다. 이 경우 정책 정의는 *Managed Disks가 없는 가상 컴퓨터 감사*입니다.
-- **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 범위에 포함될 수 있습니다.
+- **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다.
 
-  이전에 Azure Policy를 옵트인할 때 등록한 구독(또는 리소스 그룹)을 사용하세요. 이 예제에서는 구독 ID **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** 및 리소스 그룹 이름 **FabrikamOMS**를 사용합니다. 이러한 구독 ID와 리소스 그룹 이름을 사용하려는 구독 ID와 리소스 그룹 이름으로 변경해야 합니다.
+  이전에 등록한 구독(또는 리소스 그룹)을 사용합니다. 이 예제에서는 구독 ID **bc75htn-a0fhsi-349b-56gh-4fghti-f84852**와 리소스 그룹 이름 **FabrikamOMS**를 사용합니다. 이러한 구독 ID와 리소스 그룹 이름을 사용하려는 구독 ID와 리소스 그룹 이름으로 변경해야 합니다.
 
 명령은 다음과 같습니다.
 

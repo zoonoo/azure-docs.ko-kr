@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
 
@@ -117,7 +117,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ![지원되는 브라우저의 액세스 제어](./media/active-directory-conditional-access-technical-reference/05.png)
 
-이 설정은 다음 브라우저에서 수행하는 액세스 시도에 영향을 미칩니다. 
+이 설정은 모든 브라우저에서 작동합니다. 하지만 호환 장치 요구 사항과 같은 장치 정책을 충족하기 위해 다음 운영 체제와 브라우저가 지원됩니다.
 
 
 | OS                     | 브라우저                            | 지원     |
@@ -138,6 +138,9 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 > [!NOTE]
 > 크롬 지원의 경우 Windows 10 크리에이터스 업데이트(버전 1703) 이상을 사용해야 합니다.<br>
 > [이 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치할 수 있습니다.
+
+이러한 브라우저는 장치 인증을 지원하므로 정책에 대해 장치 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 장치 검사가 실패합니다. 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>지원되는 모바일 응용 프로그램 및 데스크톱 클라이언트
 

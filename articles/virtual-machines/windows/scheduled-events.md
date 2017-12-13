@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2b873501085ba2d293be564009b5d5daccbf9c1e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 메타데이터 서비스: Windows VM에 예정된 이벤트(미리 보기)
 
@@ -86,7 +86,7 @@ Virtual Machine이 VNet(Virtual Network) 내에 생성된 경우, 라우팅할 �
 처음으로 예약된 이벤트를 요청하면 Azure는 가상 컴퓨터의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대 2분인 첫 번째 호출에서 지연된 응답을 예상해야 합니다.
 
 > [!NOTE]
-> 예약된 이벤트는 서비스가 엔드포인트를 1일간 호출하지 않으면 서비스에 대해 자동으로 비활성화됩니다. 예약된 이벤트가 서비스에 대해 비활성화되면 사용자가 시작한 유지 관리를 위해 이벤트가 만들어지지 않습니다.
+> 예약된 이벤트는 서비스가 엔드포인트를 1일간 호출하지 않으면 서비스에 대해 자동으로 비활성화됩니다. 예약된 이벤트가 서비스에 대해 비활성화되면 사용자가 시작한 유지 관리를 위해 만들어진 이벤트가 없습니다.
 
 ### <a name="user-initiated-maintenance"></a>사용자 시작 유지 관리
 사용자가 예정된 이벤트에서 Azure Portal, API, CLI 또는 PowerShell을 통해 가상 컴퓨터 유지 관리를 시작했습니다. 그러면 응용 프로그램의 유지 관리 준비 논리를 테스트할 수 있으며, 응용 프로그램에서 사용자 시작 유지 관리를 준비할 수 있습니다.

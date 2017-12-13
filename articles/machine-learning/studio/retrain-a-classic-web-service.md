@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
 배포한 예측 웹 서비스는 기본 점수 매기기 끝점입니다. 기본 끝점은 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 끝점에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 끝점을 추가해야 합니다. 
@@ -43,11 +43,10 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-웹 서비스에 새로 끝점을 추가할 수 있는 세 가지 방법이 있습니다.
+웹 서비스에 새로 끝점을 추가할 수 있는 두 가지 방법이 있습니다.
 
 1. 프로그래밍 방식
 2. Microsoft Azure 웹 서비스 포털을 사용합니다.
-3. Azure 클래식 포털 사용
 
 ### <a name="programmatically-add-an-endpoint"></a>프로그래밍 방식으로 끝점을 추가합니다.
 이 [GitHub 리포지토리](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs)에서 제공된 샘플 코드를 사용하여 점수 매기기 끝점을 추가할 수 있습니다.
@@ -58,18 +57,10 @@ ms.lasthandoff: 10/11/2017
 3. **추가**를 클릭합니다.
 4. 새 끝점에 대한 이름 및 설명을 입력합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Azure 클래식 포털을 사용하여 끝점을 추가합니다.
-1. [기존 Azure Portal](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **기계 학습**을 클릭합니다.
-3. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
-4. 이름 아래에서 **Census Model[예측 exp.]**을 클릭합니다.
-5. 페이지 맨 아래에 있는 **끝점 추가**를 클릭합니다. 끝점 추가에 대한 자세한 내용은 [끝점 만들기](create-endpoint.md)를 참조하세요. 
-
 ## <a name="update-the-added-endpoints-trained-model"></a>추가된 끝점의 학습된 모델 업데이트
 재학습 프로세스를 완료하려면 추가한 새 끝점의 학습된 모델을 업데이트해야 합니다.
 
-* 기존 Azure Portal을 사용하여 새 끝점을 추가한 경우 포털에서 새 끝점의 이름을 클릭한 다음 **UpdateResource** 링크를 클릭하여 끝점의 모델을 업데이트하는 데 필요한 URL을 가져올 수 있습니다.
-* 샘플 코드를 사용하여 끝점을 추가한 경우 출력에서 *HelpLocationURL* 값으로 식별되는 도움말 URL의 위치를 포함합니다.
+샘플 코드를 사용하여 끝점을 추가한 경우 출력에서 *HelpLocationURL* 값으로 식별되는 도움말 URL의 위치를 포함합니다.
 
 경로 URL을 검색하려면:
 

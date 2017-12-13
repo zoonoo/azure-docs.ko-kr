@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -33,6 +33,27 @@ ms.lasthandoff: 11/29/2017
 Event Hubs 트리거를 사용하여 이벤트 허브 이벤트 스트림으로 보낸 이벤트에 응답합니다. 트리거를 설정하려면 이벤트 허브에 대한 읽기 권한이 있어야 합니다.
 
 Event Hubs 트리거 함수를 트리거하는 경우 트리거되는 메시지가 함수에 문자열로 전달됩니다.
+
+## <a name="trigger---scaling"></a>트리거 - 크기 조정
+
+Event Hub-Triggered 함수의 각 인스턴스는 하나의 EPH(EventProcessorHost) 인스턴스에서 지원됩니다. Event Hubs는 하나의 EPH가 지정된 파티션에 임대를 가져올 수 있도록 합니다.
+
+예를 들어 Event Hub에 다음과 같은 설정 및 가정을 시작하겠습니다.
+
+1. 10개의 파티션
+1. 모든 파티션에 고르게 분산된 1000개의 이벤트 => 각 파티션에 100개의 메시지
+
+기능을 처음 사용하는 경우 하나의 함수 인스턴스가 있습니다. 이 기능 인스턴스를 Function_0이라고 하겠습니다. Function_0에는 10개의 모든 파티션에 대해 임대를 가져오도록 관리하는 하나의 EPH가 있습니다. 0-9 파티션에서 이벤트를 읽기 시작합니다. 이 지점부터 다음 중 하나가 발생합니다.
+
+* **하나의 함수 인스턴스가 필요함** - Function_0은 Azure Functions의 크기 조정 논리가 시작하기 전에 1000개를 모두 처리할 수 있습니다. 따라서 모든 1000개의 메시지는 Function_0에서 처리됩니다.
+
+* **하나의 기능 인스턴스 추가** - Azure Functions의 크기 조정 논리는 Function_0에 처리할 수 있는 것보다 더 많은 메시지가 있는지를 확인하고 Function_1이라는 새 인스턴스를 만듭니다. Event Hubs는 새 EPH 인스턴스에서 메시지를 읽으려는 시도를 감지합니다. Event Hubs는 EPH 인스턴스에서 파티션의 부하를 분산하기 시작합니다(예: 파티션 0-4를 Function_0에 할당하고 파티션 5-9를 Function_1에 할당함). 
+
+* **N 이상 함수 인스턴스 추가** - Azure Functions의 크기 조정 논리는 Function_0와 Function_1 모두에 처리할 수 있는 것보다 더 많은 메시지가 있는지 확인합니다. Function_2...N에 대해 다시 크기를 조정합니다. 여기서 N은 Event Hub 파티션보다 큽니다. Event Hubs는 Function_0...9 인스턴스에서 파티션의 부하를 분산합니다.
+
+Azure Functions의 현재 크기 조정 논리에서 고유한 점은 N이 파티션 수보다 크다는 사실입니다. EPH의 인스턴스를 다른 인스턴스에서 사용할 수 있게 되면 해당 인스턴스를 사용하여 파티션에서 잠금을 신속하게 수행할 수 있도록 수행합니다. 사용자에게는 함수 인스턴스가 실행될 때 사용되는 리소스에 대한 요금이 청구되고 과도한 프로비전에 대한 비용이 청구되지 않습니다.
+
+모든 함수 실행이 오류 없이 성공하면 연결된 저장소 계정에 검사점이 추가됩니다. 검사점이 성공하면 모든 1000개의 메시지는 다시 검색되지 않아야 합니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 

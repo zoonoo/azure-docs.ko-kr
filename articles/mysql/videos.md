@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>MySQL용 Azure Database 비디오
+
+[개요: Azure Database for PostgreSQL 및 MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공되므로 데이터베이스를 관리할 필요 없이 앱에 주력할 수 있습니다. 서비스 사용에 따른 이점을 빠르게 살펴보고 사용되는 몇 가지 기능에 대해 알아보세요.
+
+[MySQL 및 PostgreSQL의 관리되는 서비스 기능 심층 분석](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공됩니다. 고객의 요구를 충족할 수 있게 이러한 서비스가 작동되는 방식과 고가용성 및 빠른 규모 조정(몇 초 이내) 방식을 자세히 알아보세요. 또한 보안 및 전 세계 가용성에 대한 일부 기본 투자에 대해서도 알아볼 수 있습니다.
 
 [How to get started with the new Azure Database for MySQL service](https://channel9.msdn.com/events/Build/2017/B8045)(새로운 MySQL용 Azure Database 서비스를 시작하는 방법)
 

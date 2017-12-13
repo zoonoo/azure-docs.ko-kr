@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>자전거 공유 자습서: Azure Machine Learning Workbench에서 고급 데이터 준비
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -201,7 +201,7 @@ __데이터 뷰__를 반환하려면 페이지의 왼쪽 위에서 __데이터__
    ![필터 대화 상자의 이미지](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15는 METAR(Meteorological Terminal Aviation Routine Weather Report)의 형식입니다. FM-15 보고서는 경험적으로 가장 완벽하고 누락된 데이터가 없다고 보여집니다.
+   > FM-15는 METAR(Meteorological Terminal Aviation Routine Weather Report)의 형식입니다. FM-15 보고서는 경험적으로 가장 완벽하고 누락된 데이터가 없는 것으로 보입니다.
 
 ## <a name="remove-a-column"></a>열 제거
 

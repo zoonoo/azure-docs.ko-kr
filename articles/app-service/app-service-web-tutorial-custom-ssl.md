@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -214,61 +214,17 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 ## <a name="enforce-https"></a>HTTPS 적용
 
-App Service에서는 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 사용하여 웹앱에 계속 액세스할 수 있습니다. 웹앱에 HTTPS를 적용하려면 웹앱의 _web.config_ 파일에 다시 쓰기 규칙을 정의합니다. 웹앱의 언어 프레임워크에 관계없이 App Service에서는 이 파일을 사용합니다.
+기본적으로 누구나 HTTP를 사용하여 웹앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
 
-> [!NOTE]
-> 언어별 요청 리디렉션이 있습니다. ASP.NET MVC는 _web.config_의 다시 쓰기 규칙 대신 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 사용할 수 있습니다.
+웹앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
 
-.NET 개발자는 이 파일에 친숙해야 합니다. 이 파일은 솔루션의 루트에 있습니다.
+![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-또는 PHP, Node.js, Python 또는 Java로 개발할 경우 사용자 대신 App Service에서 이 파일을 생성했을 수 있습니다.
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예:
 
-[FTP/S를 사용하여 앱에 Azure App Service에 배포](app-service-deploy-ftp.md)의 지침에 따라 웹앱의 FTP 끝점에 연결합니다.
-
-이 파일은 _/home/site/wwwroot_에 있어야 합니다. 이 파일이 없으면 다음 XML을 사용하여 이 폴더에 _web.config_ 파일을 만듭니다.
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-기존 _web.config_ 파일의 경우 `<rule>` 요소 전체를 _web.config_의 `configuration/system.webServer/rewrite/rules` 요소에 복사합니다. _web.config_에 다른 `<rule>` 요소가 있으면 복사한 `<rule>` 요소를 다른 `<rule>` 요소 앞에 배치합니다.
-
-이 규칙에서는 사용자가 웹앱에 대해 HTTP 요청을 수행할 때마다 HTTPS 프로토콜에 HTTP 301(영구 리디렉션)을 반환합니다. 예를 들어 `http://contoso.com`에서 `https://contoso.com`으로 리디렉션됩니다.
-
-IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](http://www.iis.net/downloads/microsoft/url-rewrite) (영문) 설명서를 참조하세요.
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Linux의 Web Apps에 HTTPS 적용
-
-Linux의 App Service에서는 HTTPS를 적용하지 *않으므로* 누구든지 여전히 HTTP를 사용하여 웹앱에 액세스할 수 있습니다. 웹앱에 HTTPS를 적용하려면 웹앱의 _.htaccess_ 파일에 다시 쓰기 규칙을 정의합니다. 
-
-[FTP/S를 사용하여 앱에 Azure App Service에 배포](app-service-deploy-ftp.md)의 지침에 따라 웹앱의 FTP 끝점에 연결합니다.
-
-_/home/site/wwwroot_에서 다음 코드를 사용하여 _.htaccess_ 파일을 만듭니다.
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-이 규칙에서는 사용자가 웹앱에 대해 HTTP 요청을 수행할 때마다 HTTPS 프로토콜에 HTTP 301(영구 리디렉션)을 반환합니다. 예를 들어 `http://contoso.com`에서 `https://contoso.com`으로 리디렉션됩니다.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>공용 인증서(선택 사항)
-[공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다. ASE(App Service Environment) 또는 App Service에서 Web Apps와 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Enviroment에서 웹앱을 사용해야 합니다. 자세한 내용은 [How to configure Public Certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)(웹앱에 공용 인증서를 구성하는 방법)을 참조하세요.
+[공용 인증서](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)를 웹앱에 업로드할 수 있습니다. App Service Environments에서 응용 프로그램에도 공용 인증서를 사용할 수 있습니다. LocalMachine 인증서 저장소에 인증서를 저장해야 하는 경우 App Service Environments에서 웹앱을 사용해야 합니다. 자세한 내용은 [웹앱에 공용 인증서를 구성하는 방법](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)을 참조하세요.
 
 ![공용 인증서 업로드](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="nextstepaction"]
 > [Azure App Service에 CDN(Content Delivery Network) 추가](app-service-web-tutorial-content-delivery-network.md)
+
+자세한 내용은 [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)을 참조하세요.

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -26,22 +26,6 @@ ms.lasthandoff: 11/18/2017
 > * 조직 전체에서 새 정책 구현
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
-
-## <a name="opt-in-to-azure-policy"></a>Azure Policy에 옵트인
-
-Azure Policy는 제한된 미리 보기에서 사용할 수 있으므로 액세스를 요청하려면 등록해야 합니다.
-
-1. https://aka.ms/getpolicy에 있는 Azure Policy로 이동하고 왼쪽 창에서 **등록**을 선택합니다.
-
-   ![정책 검색](media/assign-policy-definition/sign-up.png)
-
-2. **구독** 목록에서 사용하려는 구독을 선택하여 Azure Policy에 옵트인합니다. 그런 다음 **등록**을 선택합니다.
-
-   구독 목록에는 모든 Azure 구독이 포함되어 있습니다.
-
-   ![Azure Policy를 사용하기 위한 옵트인](media/assign-policy-definition/preview-opt-in.png)
-
-   필요에 따라 등록 요청을 수락하는 데 며칠이 걸릴 수 있습니다. 요청이 수락되면 서비스 사용을 시작할 수 있다는 내용의 전자 메일이 발송됩니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
@@ -69,7 +53,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    Azure Policy 내에는 *체험* 및 *표준*의 두 가지 가격 책정 계층이 있습니다. 체험 계층을 사용하면 미래의 리소스에만 정책을 적용할 수 있지만, 표준 계층을 사용하면 기존 리소스에도 정책을 적용하여 규정 준수 상태를 보다 더 잘 파악할 수 있습니다. 제한된 미리 보기로 인해 아직 가격 책정 모델이 공개되지 않아 *표준*을 선택해도 요금이 청구되지 않습니다. 가격 책정에 대한 자세한 내용은 [Azure Policy 가격](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/)을 참조하세요.
 
-8. **범위**를 선택합니다(이전에 Azure Policy에 옵트인할 때 등록한 구독 또는 리소스 그룹). 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다.
+8. 이전에 등록한 구독(또는 리소스 그룹)인 **범위**를 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다.
 
    이 예제에서는 사용자의 구독 정보와 다를 수 있는 **Azure Analytics 용량 개발** 구독을 사용합니다.
 
@@ -94,9 +78,9 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
       - 정책 규칙/조건 - 여기서는 'VM SKU 크기가 G 시리즈와 같음'입니다.
       - 정책 효과 - 여기서는 **거부**입니다.
 
-   json 코드는 다음과 같습니다.
+    json 코드는 다음과 같습니다.
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   json 코드 샘플을 보려면 [Azure Policy 템플릿](json-samples.md) 문서를 참조하세요.
+    json 코드 샘플을 보려면 [Azure Policy 템플릿](json-samples.md) 문서를 참조하세요.
 
 4. **저장**을 선택합니다.
 

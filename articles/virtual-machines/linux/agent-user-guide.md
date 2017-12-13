@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 다양한 구성 옵션이 아래에 자세히 설명되어 있습니다. 구성 옵션으로 부울, 문자열 또는 정수의 세 가지 형식이 있습니다. 부울 구성 옵션은 "y" 또는 "n"으로 지정할 수 있습니다. 특수 키워드 "None"은 아래에 자세히 설명된 대로 일부 문자열 형식 구성 항목에 사용할 수 있습니다.
 
@@ -209,8 +211,12 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 설정되면 waagent는 프로비전 후에 CustomData를 실행합니다.
 
+**Provisioning.AllowResetSysUser** 형식: 부울 기본값: n
+
+이 옵션을 사용하면 시스템 사용자의 암호를 다시 설정할 수 있습니다. 기본값은 사용 안 함입니다.
+
 **Provisioning.PasswordCryptId**  
-형식:String  
+형식: String  
 기본값: 6
 
 암호 해시를 생성할 때 암호화에 사용되는 알고리즘입니다.  
@@ -220,7 +226,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-형식:String  
+형식: String  
 기본값: 10
 
 암호 해시를 생성할 때 사용되는 임의 salt의 길이입니다.
@@ -290,6 +296,12 @@ mount -o 명령에 전달될 디스크 탑재 옵션을 지정합니다. 쉼표�
 기본값: 없음
 
 설정되면 에이전트는 이 프록시 서버를 사용하여 인터넷에 액세스합니다. 
+
+**AutoUpdate.Enabled** 형식: 부울 기본값: y
+
+목표 상태 처리에 대한 자동 업데이트를 설정 또는 해제합니다. 기본값은 사용입니다.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu 클라우드 이미지
 Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) 을 사용하여 Azure Linux 에이전트에 서 관리되는 여러 구성 작업을 수행할 수 있습니다.  다음과 같은 차이점에 유의하세요.

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Cloud Services를 관리하는 방법
-Azure Portal **Cloud Services(클래식)** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
+Azure Portal의 **Cloud Services** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
 
 클라우드 서비스 크기를 조정하는 방법에 대한 자세한 내용은 [여기](cloud-services-how-to-scale-portal.md)를 참조하세요.
 
@@ -80,9 +80,6 @@ Azure Portal **Cloud Services(클래식)** 영역에서 서비스 역할 또는 
 **교체 시 응용 프로그램 가동 중지가 발생할 수 있습니까? 어떻게 처리해야 합니까?**
 
 마지막 섹션에서 설명한 대로 배포 교체는 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 그러나 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>방법: 클라우드 서비스에 리소스 연결
-Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를 함께 연결하지 않습니다. 대신, 클라우드 서비스에서 사용 중인 동일한 리소스 그룹에 추가 리소스를 배포합니다.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>방법: 배포 및 클라우드 서비스 삭제
 클라우드 서비스를 삭제하려면 먼저 각각의 기존 배포를 삭제해야 합니다.

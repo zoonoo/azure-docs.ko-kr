@@ -1,6 +1,6 @@
 ---
 title: "Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호 - Azure | Microsoft Docs"
-description: "이 항목에서는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다."
+description: "이 항목에서는 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 Media Services 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
@@ -33,12 +33,12 @@ Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라�
 
 다음 이미지에서는 **HLS + FairPlay 또는 PlayReady 동적 암호화** 워크플로를 보여 줍니다.
 
-![동적 암호화 워크플로 다이어그램](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![동적 암호화 워크플로 다이어그램](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-이 항목에서는 Media Services를 사용하여 Apple FairPlay에서 HLS 컨텐트를 동적으로 암호화하는 방법을 보여 줍니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
+이 문서에서는 Media Services를 사용하여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화하는 방법을 보여 줍니다. 또한 Media Services 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> PlayReady로 HLS 콘텐츠를 암호화하려면 공통 콘텐츠 키를 만들고 자산에 연결해야 합니다. [PlayReady 동적 일반 암호화 사용](media-services-protect-with-drm.md)에서 설명한 대로 콘텐츠 키의 권한 부여 정책을 구성해야 합니다.
+> PlayReady로 HLS 콘텐츠를 암호화하려면 공통 콘텐츠 키를 만들고 자산에 연결해야 합니다. [PlayReady 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에서 설명한 대로 콘텐츠 키의 권한 부여 정책을 구성해야 합니다.
 >
 >
 
@@ -47,10 +47,10 @@ Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라�
 Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
   * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
-  * 미디어 서비스 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+  * Media Services 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
   * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
   * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(응용 프로그램 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
-  * Azure 미디어 서비스 .NET SDK 버전 **3.6.0** 이상.
+  * Azure Media Services .NET SDK 버전 **3.6.0** 이상.
 
 Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
@@ -65,10 +65,10 @@ Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
         FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
     2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 개인 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **앱 인증서 암호**: .pfx 파일을 만들기 위한 암호입니다.
   * **앱 인증서 암호 ID**: 다른 Media Services 키를 업로드하는 방법과 비슷하게 암호를 업로드해야 합니다. **ContentKeyType.FairPlayPfxPassword** 열거형 값을 사용하여 Media Services ID를 가져옵니다. 이 ID는 키 배달 정책 옵션 내에서 사용해야 합니다.
   * **iv**: 16바이트의 임의 값입니다. 자산 배달 정책의 iv와 일치해야 합니다. iv를 생성하여 두 위치, 즉 자산 배달 정책과 키 배달 정책 옵션에 배치합니다.
@@ -125,7 +125,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure 미디어 플레이어는 기본적으로 FairPlay 재생을 지원하지 않습니다. Mac OS X에서 FairPlay를 재생하려면 Apple 개발자 계정에서 샘플 플레이어를 얻습니다.
+> Azure Media Player는 FairPlay 재생을 지원합니다. 자세한 정보는 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html)를 참조하세요.
 >
 >
 
@@ -157,7 +157,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
 입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
@@ -539,7 +539,7 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
     }
 
 
-## <a name="next-steps-media-services-learning-paths"></a>다음 단계: 미디어 서비스 학습 경로
+## <a name="next-steps-media-services-learning-paths"></a>다음 단계: Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

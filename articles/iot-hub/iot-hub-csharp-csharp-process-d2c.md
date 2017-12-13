@@ -1,6 +1,6 @@
 ---
-title: "경로를 사용하여 Azure IoT Hub 장치-클라우드 메시지 처리(.Net) | Microsoft Docs"
-description: "다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다."
+title: "Azure IoT Hub(.Net)를 사용한 메시지 라우팅 | Microsoft Docs"
+description: "다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 Azure IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리(.Net)
+# <a name="routing-messages-with-iot-hub-net"></a>IoT Hub(.Net)를 사용한 메시지 라우팅
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 * Visual Studio 2015 또는 Visual Studio 2017.
 * 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
-[Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
+또한 [Azure Storage] 및 [Azure Service Bus]에 대해서도 읽어보는 것이 좋습니다.
 
 ## <a name="send-interactive-messages"></a>대화형 메시지 전송
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 속성을 임의로 추가합니다. 그러면 솔루션 백 엔드에 의한 즉각적인 작업을 요구하는 메시지를 시뮬레이션합니다. 장치 앱에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
+이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 및 `"level": "storage"` 속성을 임의로 추가합니다. 그러면 응용 프로그램 백 엔드에 의한 즉각적인 작업을 요구하거나 영구 저장해야 하는 메시지를 시뮬레이트합니다. 응용 프로그램에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
 
 > [!NOTE]
 > 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.
 
 > [!NOTE]
-> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
+> MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현하는 것이 좋습니다.
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>IoT Hub에서 큐에 메시지 라우팅
 
@@ -177,6 +185,30 @@ Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내�
    
    ![3개의 콘솔 앱][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(선택 사항) 저장소 컨테이너를 IoT Hub에 추가 및 메시지 라우팅
+
+이 섹션에서는 저장소 계정을 만들고, IoT Hub에 연결하고, 메시지에 속성이 존재하는지 여부에 따라 계정에 메시지를 보내도록 IoT Hub를 구성합니다. 저장소를 관리하는 방법에 대한 자세한 내용은 [Azure Storage 시작][Azure Storage]를 참조하세요.
+
+ > [!NOTE]
+   > 하나의 **끝점**으로 제한되지 않는 경우 **CriticalQueue** 외에 **StorageContainer**를 설정하고 두 끝점을 동시에 실행할 수 있습니다.
+
+1. [Azure Storage 설명서][lnk-storage]에 설명된 대로 저장소 계정을 만듭니다. 계정 이름을 기록해 둡니다.
+
+2. Azure Portal에서 IoT Hub를 열고 **끝점**을 클릭합니다.
+
+3. **끝점** 블레이드에서 **CriticalQueue** 끝점을 선택하고 **삭제**를 클릭합니다. **예**를 클릭한 후 **추가**를 클릭합니다. 끝점 이름을 **StorageContainer**로 지정하고 드롭다운 메뉴를 사용하여 **Azure Storage 컨테이너**를 선택한 후 **저장소 계정** 및 **저장소 컨테이너**를 만듭니다.  이름을 기록해 둡니다.  완료되면 아래쪽의 **확인**을 클릭합니다. 
+
+ > [!NOTE]
+   > 하나의 **끝점**으로 제한되지 않는 경우 **CriticalQueue**를 삭제할 필요가 없습니다.
+
+4. IoT Hub에서 **경로**를 클릭합니다. 블레이드 위쪽에서 **추가**를 클릭하여 방금 추가한 큐로 메시지를 라우팅하는 라우팅 규칙을 만듭니다. 데이터 원본으로 **장치 메시지**를 선택합니다. 조건으로 `level="storage"`를 입력하고 사용자 지정 끝점과 같은 **StorageContainer**를 라우팅 규칙 끝점으로 선택합니다. 아래쪽에서 **저장**을 클릭합니다.  
+
+    대체(fallback) 경로가 **ON**으로 설정되어 있는지 확인합니다. 이 설정은 IoT Hub의 기본 구성입니다.
+
+1. 이전 응용 프로그램이 실행되고 있는지 확인합니다. 
+
+1. Azure Portal에서 저장소 계정으로 이동한 후 **Blob Service** 아래에서 **Blob 찾아보기...**를 클릭합니다.  컨테이너를 선택하고 JSON 파일로 이동한 후 클릭하고 **다운로드**를 클릭하여 데이터를 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 IoT Hub의 메시지 라우팅 기능을 사용하여 장치-클라우드 메시지를 안정적으로 전달하는 방법을 살펴보았습니다.
 
@@ -204,5 +236,5 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

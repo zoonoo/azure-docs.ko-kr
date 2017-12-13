@@ -1,11 +1,10 @@
 ---
-title: "Azure App Service 앱에 SSL 인증서 추가 | Microsoft Docs"
-description: "Azure App Service 앱에 SSL 인증서를 추가하는 방법을 알아봅니다."
+title: "Azure App Service에 대한 SSL 인증서 구입 및 구성 | Microsoft Docs"
+description: "App Service Certificate를 구입하고 App Service 앱에 바인딩하는 방법을 알아봅니다"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성
+# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
 이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 웹앱의 보안을 유지하는 방법을 보여 줍니다.
 
@@ -74,12 +73,16 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 
 ## <a name="step-4---verify-the-domain-ownership"></a>4단계 - 도메인 소유권 확인
 
-> [!NOTE]
-> App Service Certificate에서는 도메인 확인 방법으로 도메인 확인, 메일 확인 및 수동 확인을 지원합니다. 이러한 확인 유형은 [고급 섹션](#advanced)에 자세히 설명되어 있습니다.
-
 3단계에서 사용한 것과 동일한 **인증서 구성** 페이지에서 **2단계: 확인**을 클릭합니다.
 
-**도메인 확인** 가장 간편한 프로세스이지만 **[Azure App Service에서 사용자 지정 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)**한 **경우에만** 해당됩니다.
+기본 도메인 확인 방법을 선택합니다. 
+
+App Service Certificate에서는 도메인 확인 방법으로 App Service, 도메인, 메일 및 수동 확인을 지원합니다. 이러한 확인 유형은 [고급 섹션](#advanced)에 자세히 설명되어 있습니다.
+
+> [!NOTE]
+> **App Service 확인**은 확인하려는 도메인이 동일한 구독의 App Service 앱에 이미 매핑된 경우 가장 편리한 옵션입니다. App Service 앱이 도메인 소유권을 이미 확인했다는 사실을 활용합니다.
+>
+
 **확인** 단추를 클릭하고 이 단계를 완료합니다.
 
 ![도메인 확인 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -142,6 +145,10 @@ App Service Certificate에서는 도메인 확인 방법으로 메일 확인 및
 
 확인 전자 메일을 다시 전송해야 하는 경우 **전자 메일 다시 보내기** 단추를 클릭합니다.
 
+#### <a name="domain-verification"></a>도메인 확인
+
+[Azure에서 구매한 App Service 도메인](custom-dns-web-site-buydomains-web-app.md)에 대해서만 이 옵션을 선택합니다. Azure는 사용자에게 자동으로 확인 TXT 레코드를 추가하고 프로세스를 완료합니다.
+
 #### <a name="manual-verification"></a>수동 확인
 
 > [!IMPORTANT]
@@ -197,6 +204,7 @@ SSL 인증서가 자동 갱신에 대해 구성되었지만 자동으로 갱신�
 - App Service 인증서를 생성하는 GoDaddy는 3년에 한 번 도메인 확인이 필요합니다. 도메인 관리자는 도메인을 확인하기 위한 전자 메일을 3년에 한 번 받습니다. 전자 메일 확인 또는 도메인 확인에 대한 실패는 App Service 인증서가 자동으로 갱신되는 것을 방지합니다. 
 - 2017년 3월 31일 이전에 발급된 모든 App Service 인증서는 다음 갱신 시 도메인의 확인이 필요합니다(인증서에 대해 자동 갱신이 활성화된 경우에도). GoDaddy 정책 변경의 결과입니다. 전자 메일을 확인하고 이 일회성 도메인 확인을 완료하여 App Service 인증서의 자동 갱신을 계속합니다. 
 
-## <a name="next-steps"></a>다음 단계
+## <a name="more-resources"></a>추가 리소스
 
-* [Content Delivery Network 추가](app-service-web-tutorial-content-delivery-network.md)
+* [Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
+* [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

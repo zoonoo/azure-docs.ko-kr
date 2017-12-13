@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 
@@ -198,7 +198,7 @@ _**Python 스크립트를 위한 로컬 Docker 실행 개요:**_
 다음 명령을 사용하여 원격 Docker 기반 실행을 위한 계산 대상 정의와 실행 구성을 모두 만들 수 있습니다.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 계산 대상을 구성한 후 다음 명령을 사용하여 스크립트를 실행할 수 있습니다.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 원격 VM을 위한 Docker 구성 프로세스는 로컬 Docker 실행 프로세스와 정확히 같으므로 유사한 실행 경험을 예상해야 합니다.
 
 >[!TIP]
->처음에 Docker 이미지를 만들어서 발생하는 대기 시간을 피하고 싶으면 스크립트를 실행하기 전에 다음 명령을 사용하여 계산 대상을 준비할 수 있습니다. az ml experiment prepare -c <remotedocker>
+>처음에 Docker 이미지를 만들어서 발생하는 대기 시간을 피하고 싶으면 스크립트를 실행하기 전에 다음 명령을 사용하여 계산 대상을 준비할 수 있습니다. az ml experiment prepare -c remotedocker
 
 
 _**Python 스크립트를 위한 원격 VM 실행 개요:**_
@@ -226,7 +226,7 @@ HDInsight는 Apache Spark를 지원하는 인기 있는 빅 데이터 분석용 
 다음 명령을 사용하여 HDInsight Spark 클러스터에 대한 계산 대상 및 실행 구성을 만들 수 있습니다.
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**PySpark 스크립트를 위한 HDInsight 기반 실행 개요**_
 ## <a name="running-a-script-on-gpu"></a>GPU에서 스크립트 실행
 GPU에서 스크립트를 실행하려면 [Azure Machine Learning에서 GPU를 사용하는 방법](how-to-use-gpu.md) 문서의 지침을 따를 수 있습니다.
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>SSH 키 기반 인증을 통해 계산 대상을 만들고 사용하기
+Azure Machine Learning Workbench를 사용하면 사용자 이름/암호 기반 체계 외에도 SSH 키 기반 인증을 사용하여 계산 대상을 만들고 사용할 수 있습니다. remotedocker 또는 클러스터를 계산 대상으로 사용할 때 이 기능을 사용할 수 있습니다. 이 체계를 사용하면 Workbench에서 공개/개인 키 쌍을 만든 후 해당 공개 키를 알려줍니다. 사용자 이름에 해당하는 ~/.ssh/authorized_keys 파일에 이 공개 키를 추가합니다. 그러면 Azure Machine Learning Workbench에서 ssh 키 기반 인증을 통해 이 계산 대상에 액세스하여 작업을 실행합니다. 계산 대상에 대한 개인 키는 작업 영역을 위한 키 저장소에 저장되므로 해당 작업 영역의 다른 사용자가 계산 대상을 만들기 위해 제공한 사용자 이름을 제공하여 동일한 방식으로 계산 대상을 사용할 수 있습니다.  
+
+이 기능을 사용하려면 다음 단계를 수행합니다. 
+
+- 다음 명령 중 하나를 사용하여 계산 대상을 만듭니다.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+또는
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- 연결된 계산 대상의 ~/.ssh/authorized_keys 파일에 Workbench에서 생성한 공개 키를 추가합니다. 
+
+[!IMPORTANT] 계산 대상을 만드는 데 사용한 것과 동일한 사용자 이름을 사용하여 계산 대상에 로그온해야 합니다. 
+
+- 이제 SSH 키 기반 인증을 사용하여 계산 대상을 준비하고 사용할 수 있습니다.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>CDN 끝점에 사용자 지정 도메인 추가
 프로필을 만든 후 일반적으로 하나 이상의 CDN [끝점](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)(`azureedge.net`의 하위 도메인)을 추가하여 HTTP 및 HTTPS를 통해 콘텐츠를 배달합니다. 기본적으로 이 끝점은 모든 URL에 포함됩니다(예: `https://contoso.azureedge.net/photo.png`). Azure CDN에서는 편리하게 사용자 지정 도메인(예: `www.contoso.com`)을 끝점과 연결할 수 있습니다. 이 옵션을 통해 끝점 대신 사용자 지정 도메인을 사용하여 콘텐츠를 배달합니다. 이 옵션은 브랜딩 목적으로 자체 도메인 이름을 고객에게 표시하려는 경우 등에 유용합니다.
@@ -54,7 +54,7 @@ CNAME 레코드는 특정 도메인과 하위 도메인(예: `www.contoso.com` �
  
   | 이름             | 형식  | 값                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | contoso\.azureedge.net |
 
 
 - 옵션 2: **cdnverify** 하위 도메인을 통한 매핑. 사용자 지정 도메인에 차단 불가능한 프러덕션 트래픽이 실행 중인 경우 CDN 끝점에 임시 CNAME 매핑을 만들 수 있습니다. 이 옵션에서는 DNS 매핑이 수행되는 동안 사용자가 중단 없이 도메인에 액세스할 수 있도록 Azure **cdnverify** 하위 도메인을 사용하여 중간 등록 단계를 제공합니다.
@@ -64,7 +64,7 @@ CNAME 레코드는 특정 도메인과 하위 도메인(예: `www.contoso.com` �
 
    | 이름                       | 형식  | 값                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>3단계: Azure에서 CNAME 레코드 매핑 사용
@@ -103,7 +103,7 @@ CNAME 레코드는 특정 도메인과 하위 도메인(예: `www.contoso.com` �
  
    | 이름             | 형식  | 값                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | contoso\.azureedge.net |
 2. 이전에 만든 **cdnverify** 하위 도메인이 있는 CNAME 레코드를 삭제합니다.
 
 ## <a name="see-also"></a>참고 항목

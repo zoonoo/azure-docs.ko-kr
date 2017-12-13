@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
 
 ## <a name="general-prerequisites"></a>일반 필수 조건
 - 로컬로 설치된 Git가 있어야 합니다. 운영 체제에 따라 [Git 다운로드 페이지](https://git-scm.com/downloads)에서 적절한 Git 버전을 설치할 수 있습니다. Git을 처음 접하는 경우 [Git 설명서](https://git-scm.com/docs)에서 자세히 알아봅니다.
-- 유용한 Service Fabric Jenkins 플러그 인이 있어야 합니다. [Service Fabric 다운로드](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)에서 다운로드할 수 있습니다.
+- 유용한 Service Fabric Jenkins 플러그 인이 있어야 합니다. [Service Fabric 다운로드](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi)에서 다운로드할 수 있습니다. Edge 브라우저를 사용하는 경우 .zip에서 .hpi으로 다운로드한 파일의 확장명을 바꿉니다.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Service Fabric 클러스터 내에서 Jenkins 설정
 
@@ -129,8 +129,8 @@ Docker를 설치해야 합니다. 다음 명령을 사용하여 터미널에서 
 이렇게 하면 터미널에서 ``docker info``를 실행할 때 출력에서 Docker 서비스가 실행되는 것을 확인할 수 있습니다.
 
 ### <a name="steps"></a>단계
-  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull sayantancs/jenkins:v9``
-  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v9``
+  2. 다음 컨테이너 이미지를 실행합니다. ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
   4. 다음 단계에 따라 Jenkins 포털에 로그인합니다.
 

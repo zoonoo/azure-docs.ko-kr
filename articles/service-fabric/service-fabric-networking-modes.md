@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric 컨테이너 서비스에 대한 네트워킹 모드 구성 | Microsoft Docs"
-description: "Azure Service Fabric에서 지원하는 다른 네트워킹 모드를 설정하는 방법을 알아봅니다."
+description: "Azure Service Fabric에서 지원하는 다양한 네트워킹 모드를 설정하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
-컨테이너 서비스에 대해 Service Fabric 클러스터에서 제공되는 기본 네트워킹 모드는 `nat` 네트워킹 모드입니다. `nat` 네트워킹 모드에서 동일한 포트에 수신 대기하는 둘 이상의 컨테이너 서비스가 있는 경우 배포 오류가 발생합니다. 동일한 포트에서 여러 서비스가 수신 대기하도록 하기 위해 Service Fabric은 `Open` 네트워킹 모드(버전 5.7 이상)을 지원합니다. `Open` 네트워킹 모드에서 각 컨테이너 서비스는 내부적으로 여러 서비스를 동일한 포트에서 수신 대기할 수 있는 동적으로 할당된 IP 주소를 가져옵니다.   
+컨테이너 서비스용 Azure Service Fabric 클러스터는 기본적으로 **nat** 네트워킹 모드를 사용합니다. 둘 이상의 컨테이너 서비스가 동일한 포트에서 수신 대기 중이며 nat 모드가 사용되고 있으면 배포 오류가 발생할 수 있습니다. 동일한 포트에서 수신 대기하는 여러 컨테이너 서비스를 지원하기 위해 Service Fabric은 **오픈** 네트워킹 모드(버전 5.7 이상)를 제공합니다. 오픈 모드에서는 각 컨테이너 서비스에 동일한 포트에서 수신 대기하는 여러 서비스를 지원하는 동적으로 할당 된 내부 IP 주소가 있습니다.  
 
-따라서 서비스 매니페스트에 정의된 고정 끝점을 갖는 단일 서비스 형식으로 `Open` 네트워킹 모드를 사용하여 배포 오류 없이 새로운 서비스를 만들고 삭제할 수 있습니다. 마찬가지로 여러 서비스를 만들기 위해 고정 포트 매핑을 포함한 동일한 `docker-compose.yml` 파일을 사용할 수 있습니다.
+서비스 매니페스트에 고정 엔드포인트가 있는 컨테이너 서비스가 하나 있으면 오픈 모드를 사용하여 배포 오류 없이 새 서비스를 만들고 삭제할 수 있습니다. 동일한 docker-compose.yml 파일을 정적 포트 매핑과 함께 사용하여 여러 서비스를 만들 수도 있습니다.
 
-서비스를 다시 시작하거나 다른 노드로 이동하는 경우 IP 주소를 변경하기 때문에 서비스를 검색하는 데 동적으로 할당된 IP를 사용하는 것은 좋지 않습니다. 서비스 검색을 위해 **Service Fabric 명명 서비스** 또는 **DNS 서비스**만을 사용합니다. 
+컨테이너 서비스가 다시 시작되거나 클러스터의 다른 노드로 이동하면 IP 주소가 변경됩니다. 따라서 동적으로 할당된 IP 주소를 사용하여 컨테이너 서비스를 검색하는 것을 좋지 않습니다. 서비스 검색에는 Service Fabric 명명 서비스 또는 DNS 서비스 만 사용해야 합니다. 
 
-
-> [!WARNING]
-> 총 4096개의 IP가 Azure의 vNET에서 허용됩니다. 따라서 노드 수 및 컨테이너 서비스 인스턴스 수의 합계(`Open` 네트워킹을 포함)는 vNET 내에서 4096개를 초과할 수 없습니다. 이러한 고밀도 시나리오에는 `nat` 네트워킹 모드를 사용하는 것이 좋습니다.
+>[!WARNING]
+>Azure는 가상 네트워크당 총 4,096개의 IP를 허용합니다. 노드 수와 컨테이너 서비스 인스턴스(오픈 모드를 사용하는) 수의 합계는 가상 네트워크 내에서 4,096개의 IP를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다.
 >
 
-## <a name="setting-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
+## <a name="set-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
 
-1. `fabricSettings`에서 DNS 서비스와 IP 공급자를 사용하여 Azure Resource Manager 템플릿을 설정합니다. 
+1. Azure Resource Manager 템플릿을 설정합니다. **fabricSettings** 섹션에서 DNS 서비스와 IP 공급자를 사용하도록 설정합니다. 
 
     ```json
     "fabricSettings": [
@@ -78,7 +77,7 @@ ms.lasthandoff: 11/11/2017
             ],
     ```
 
-2. 클러스터의 각 노드에서 구성되어야 하는 여러 IP 주소를 허용하도록 네트워크 프로필 섹션을 설정합니다. 다음 예제에서는 Windows/Linux Service Fabric 클러스터에 노드당 5개의 IP 주소를 설정합니다(따라서 각 노드에서 포트에 수신 대기하는 5개의 서비스 인스턴스가 있을 수 있음).
+2. 클러스터의 각 노드에서 구성되어야 하는 여러 IP 주소를 허용하도록 네트워크 프로필 섹션을 설정합니다. 다음 예제에서는 Windows/Linux Service Fabric 클러스터에 노드당 다섯 개의 IP 주소를 설정합니다. 각 노드의 포트에서 수신 대기하는 서비스 인스턴스를 5개 포함할 수 있습니다.
 
     ```json
     "variables": {
@@ -175,15 +174,19 @@ ms.lasthandoff: 11/11/2017
               }
    ```
  
+3. Windows 클러스터에만 다음 값을 사용하여 가상 네트워크에 UDP/53 포트를 여는 Azure NSG(네트워크 보안 그룹) 규칙을 설정합니다.
 
-3. Windows 클러스터의 경우에만 다음 값을 갖는 vNET에 UDP/53 포트를 여는 NSG 규칙을 설정합니다.
+   |설정 |값 | |
+   | --- | --- | --- |
+   |우선 순위 |2000 | |
+   |이름 |Custom_Dns  | |
+   |원본 |VirtualNetwork | |
+   |대상 | VirtualNetwork | |
+   |서비스 | DNS(UDP/53) | |
+   |동작 | 허용  | |
+   | | |
 
-   | 우선 순위 |    이름    |    원본      |  대상   |   서비스    | 동작 |
-   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
-   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS(UDP/53) | 허용  |
-
-
-4. 각 `<NetworkConfig NetworkType="Open">` 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다.  `Open` 모드에서는 서비스가 전용 IP 주소를 가져오도록 합니다. 모드를 지정하지 않으면 기본 `nat` 모드를 기본값으로 합니다. 따라서 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2`는 동일한 포트를 각각 수신할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 중). `Open` 네트워킹 모델을 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
+4. 각 서비스에 대해 응용 프로그램 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -211,13 +214,15 @@ ms.lasthandoff: 11/11/2017
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트워킹 모드를 혼합하고 일치시킬 수 있습니다. 따라서 `Open` 모드에 일부 서비스가 있고 `nat` 네트워킹 모드에 일부 서비스가 있을 수 있습니다. `nat`로 서비스를 구성한 경우 수신하는 포트는 고유해야 합니다. 다른 서비스에 네트워킹 모드를 혼합하는 작업은 Linux 클러스터에서 지원되지 않습니다. 
 
+    Windows 클러스터용 응용 프로그램 내의 서비스에서 다른 네트워킹 모드를 혼합하고 일치시킬 수 있습니다. 일부 서비스는 오픈 모드를 사용하고 다른 서비스는 nat 모드를 사용할 수 있습니다. 서비스가 nat 모드를 사용하도록 구성된 경우 서비스가 수신 대기하는 포트는 고유해야 합니다.
+
+    >[!NOTE]
+    >Linux 클러스터에서는 다른 서비스에 네트워킹 모드를 혼합하는 것이 지원되지 않습니다. 
+    >
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Service Fabric에서 제공하는 네트워킹 모드에 대해 알아보았습니다.  
-
-* [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)
-* [Service Fabric 서비스 매니페스트 리소스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)
+* [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers.md)
 * [Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers-linux.md)

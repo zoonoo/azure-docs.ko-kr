@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark-Azure Cosmos DB 커넥터를 사용하여 실시간 빅 데이터 분석 가속화
 
@@ -172,7 +172,7 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 ```
 mvn clean package
 ```
-또한 *releases* 폴더에서 최신 버전의 JAR를 다운로드할 수 있습니다.
+또한 [*releases* 폴더](https://github.com/Azure/azure-cosmosdb-spark/releases)에서 최신 버전의 JAR를 다운로드할 수 있습니다.
 
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Azure Cosmos DB Spark JAR 포함
 코드를 실행하기 전에 먼저 Azure Cosmos DB Spark JAR를 포함해야 합니다.  **spark-shell**을 사용하는 경우 **--jars** 옵션을 사용하여 JAR를 포함할 수 있습니다.  

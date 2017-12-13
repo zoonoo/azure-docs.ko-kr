@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
-Azure에서는 인증서가 Cloud Services([서비스 인증서](#what-are-service-certificates)) 및 관리 API를 사용한 인증(비 클래식 Azure Portal이 아닌 Azure 클래식 포털을 사용하는 경우 [관리 인증서](#what-are-management-certificates))에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
+인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
 
 Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 수 있는 인증서에 의해 서명되거나 자체 서명될 수 있습니다. 자체 서명된 인증서는 해당 작성자에 의해 서명되므로 기본적으로 신뢰할 수 없습니다. 대부분의 브라우저는 이러한 문제를 무시할 수 있습니다. Cloud Services를 개발하고 테스트하는 경우에만 자체 서명된 인증서를 사용해야 합니다. 
 
@@ -30,7 +30,7 @@ Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 �
 ## <a name="what-are-service-certificates"></a>서비스 인증서란 무엇인가요?
 서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 끝점을 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 컴퓨터에 배포됩니다. 
 
-Azure 클래식 포털을 사용하거나 클래식 배포 모델을 사용하여 서비스 인증서를 Azure 클래식 포털에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연관됩니다. 서비스 정의 파일에서 배포에 할당됩니다.
+Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비스 인증서를 Azure Portal에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연관됩니다. 서비스 정의 파일에서 배포에 할당됩니다.
 
 서비스 인증서는 서비스와 별도로 관리할 수 있으며 다른 개인이 관리할 수도 있습니다. 예를 들어 개발자는 IT 관리자가 이전에 Azure로 업로드한 인증서를 참조하는 서비스 패키지를 업로드할 수 있습니다. IT 관리자는 새 서비스 패키지를 업로드할 필요 없이 서비스 구성을 변경하는 해당 인증서를 관리하고 갱신할 수 있습니다. 새 서비스 패키지 없이 업데이트가 가능한 이유는 인증서의 논리적 이름과 저장소 이름 및 위치는 서비스 정의 파일에 있고 인증서 지문은 서비스 구성 파일에 지정되어 있기 때문입니다. 인증서를 업데이트하려면 새 인증서를 업로드하고 서비스 구성 파일의 지문 값을 변경하기만 하면 됩니다.
 
@@ -95,5 +95,5 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ## <a name="next-steps"></a>다음 단계
 [서비스 인증서를 Azure Portal에 업로드](cloud-services-configure-ssl-certificate-portal.md)합니다.
 
-[관리 API 인증서](../azure-api-management-certs.md) 를 Azure 클래식 포털에 업로드합니다. Azure Portal에서는 인증을 위해 관리 인증서를 사용하지 않습니다.
+[관리 API 인증서](../azure-api-management-certs.md)를 Azure Portal에 업로드합니다.
 

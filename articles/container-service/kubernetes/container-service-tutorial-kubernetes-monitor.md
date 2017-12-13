@@ -1,27 +1,19 @@
 ---
-title: "Azure Container Service 자습서 - Kubernetes 모니터링 | Microsoft Docs"
+title: "Azure Container Service 자습서 - Kubernetes 모니터링"
 description: "Azure Container Service 자습서 - Microsoft OMS(Operations Management Suite)를 사용하여 Kubernetes 모니터링"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, 컨테이너, 마이크로 서비스, Kubernetes, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f72944fe819a79edbafb73fba635d73642f33e4f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 948e3aeea34a0355c3d958f29008c26499e19ba4
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Operations Management Suite를 사용하여 Kubernetes 클러스터 모니터링
 

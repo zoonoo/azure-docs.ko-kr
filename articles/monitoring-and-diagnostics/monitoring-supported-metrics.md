@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
@@ -424,8 +424,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|차원 없음|
-|compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|차원 없음|
-|compute_consumption_percent|계산 단위 백분율|백분율|평균|계산 단위 백분율|차원 없음|
+|compute_limit|Compute 단위 제한|개수|평균|Compute 단위 제한|차원 없음|
+|compute_consumption_percent|Compute 단위 백분율|백분율|평균|Compute 단위 백분율|차원 없음|
 |memory_percent|메모리 백분율|백분율|평균|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|백분율|평균|IO 백분율|차원 없음|
 |storage_percent|저장소 비율|백분율|평균|저장소 비율|차원 없음|
@@ -439,8 +439,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|차원 없음|
-|compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|차원 없음|
-|compute_consumption_percent|계산 단위 백분율|백분율|평균|계산 단위 백분율|차원 없음|
+|compute_limit|Compute 단위 제한|개수|평균|Compute 단위 제한|차원 없음|
+|compute_consumption_percent|Compute 단위 백분율|백분율|평균|Compute 단위 백분율|차원 없음|
 |memory_percent|메모리 백분율|백분율|평균|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|백분율|평균|IO 백분율|차원 없음|
 |storage_percent|저장소 비율|백분율|평균|저장소 비율|차원 없음|
@@ -509,7 +509,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |jobs.completed|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|차원 없음|
 |jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|차원 없음|
 |d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|장치 처리량 제한으로 인한 제한 오류 수|차원 없음|
-|dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|현재 사용되는 전체 메시지 수|차원 없음|
+|dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -739,7 +739,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |SearchLatency|검색 대기 시간|초|평균|검색 서비스에 대한 평균 검색 대기 시간|차원 없음|
-|SearchQueriesPerSecond|초당 검색 쿼리 수|초당 개수|평균|검색 서비스에 대한 초당 검색 쿼리|차원 없음|
+|SearchQueriesPerSecond|초당 검색 쿼리 수|초당 개수|평균|Search 서비스에 대한 초당 검색 쿼리|차원 없음|
 |ThrottledSearchQueriesPercentage|제한된 검색 쿼리 백분율|백분율|평균|검색 서비스에 대해 제한된 검색 쿼리의 백분율|차원 없음|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
