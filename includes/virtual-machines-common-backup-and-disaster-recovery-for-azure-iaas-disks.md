@@ -211,7 +211,7 @@ DR에 대한 증분 스냅숏을 효율적으로 복사하려면 [증분 스냅�
 
 ### <a name="recovery-from-snapshots"></a>스냅숏에서 복구
 
-스냅숏을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅숏을 복사하는 경우 스냅숏의 기본 Blob에 스냅숏을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅숏으로 되돌립니다. 이 프로세스는 스냅숏 승격이라고 합니다. 읽기 액세스 지역 중복 저장소 계정의 경우 보조 계정에서 스냅숏 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 또는 AzCopy 유틸리티를 사용하여 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)을 참조하세요.
+스냅숏을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅숏을 복사하는 경우 스냅숏의 기본 Blob에 스냅숏을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅숏으로 되돌립니다. 이 프로세스는 스냅숏 승격이라고 합니다. 읽기 액세스 지역 중복 저장소 계정의 경우 보조 계정에서 스냅숏 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 또는 AzCopy 유틸리티를 사용하여 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)을 참조하세요.
 
 여러 디스크가 있는 VM의 경우 조정된 동일한 복원 지점의 일부인 모든 스냅숏을 복사해야 합니다. 쓰기 가능한 VHD Blob에 스냅숏을 복사한 후에 VM에 대한 템플릿을 사용하여 VM을 다시 만드는 데 Blob을 사용할 수 있습니다.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Security Center 플랫폼 마이그레이션
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="agent"></a>에이전트
 
-전환의 일부로 Microsoft Monitoring Agent([Windows](../log-analytics/log-analytics-windows-agents.md)용 또는 [Linux](../log-analytics/log-analytics-linux-agents.md)용)가 현재 데이터를 수집하는 모든 Azure VM에 설치됩니다.  VM이 Microsoft Monitoring Agent에 이미 설치된 경우 Security Center는 현재 설치된 에이전트를 활용합니다.
+전환의 일부로 Microsoft Monitoring Agent([Windows](../log-analytics/log-analytics-windows-agent.md)용 또는 [Linux](../log-analytics/log-analytics-linux-agents.md)용)가 현재 데이터를 수집하는 모든 Azure VM에 설치됩니다.  VM이 Microsoft Monitoring Agent에 이미 설치된 경우 Security Center는 현재 설치된 에이전트를 활용합니다.
 
 일정 기간(일반적으로 몇 일) 동안 두 에이전트는 데이터의 손실 없이 원활하게 전환하기 위해 함께 실행됩니다. 그러면 Microsoft가 현재 파이프라인의 사용을 중단하기 전에 새 데이터 파이프라인이 작동하는지 유효성을 검사할 수 있습니다. 확인이 완료되면 Azure Monitoring Agent는 VM에서 제거됩니다. 사용자 측에서는 아무 작업도 필요하지 않습니다. 모든 고객 마이그레이션되는 경우 전자 메일로 알려줍니다.
  

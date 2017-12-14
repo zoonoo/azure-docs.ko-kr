@@ -4,7 +4,7 @@ description: "Azure Active Directory와 LiquidFiles 간에 Single Sign-On을 구
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: cb517134-0b34-4a74-b40c-5a3223ca81b6
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b858c6d26b78be4641a46b3453f53d103b512356
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cccce8025522a4be99670aacadbeb0ea83147931
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>자습서: LiquidFiles와 Azure Active Directory 통합
 
@@ -149,7 +149,7 @@ LiquidFiles에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     e. [이름 식별자 형식] 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** 값을 입력합니다.
 
-    f. [Authn Context] \(인증 컨텍스트) 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport** 값을 입력합니다.
+    f. [Authn Context](인증 컨텍스트) 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport** 값을 입력합니다.
 
     g. **Save**를 클릭합니다.  
 

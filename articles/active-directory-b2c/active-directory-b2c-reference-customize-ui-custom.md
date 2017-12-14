@@ -4,7 +4,7 @@ description: "Azure Active Directory B2C 사용자 지정 정책에 대한 항�
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07e05a1786f8afc1ccecf21994b1ad263ead285
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -81,11 +81,11 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-필수 요소로, 저장소 계정을 만들어야 합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/en-us/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
+필수 요소로, 저장소 계정을 만들어야 합니다. Azure Blob Storage 계정을 만들려면 Azure 구독이 필요합니다. [Azure 웹 사이트](https://azure.microsoft.com/en-us/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
 
 1. 브라우저 세션을 열고 [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 관리자 자격 증명으로 로그인합니다.
-3. **새로 만들기** > **데이터 + 저장소** > **저장소 계정**을 클릭합니다.  **저장소 계정 만들기** 블레이드가 열립니다.
+3. **새로 만들기** > **데이터 + 저장소** > **Storage 계정**을 클릭합니다.  **저장소 계정 만들기** 블레이드가 열립니다.
 4. **이름**에 저장소 계정의 이름을 제공합니다(예: *contoso369b2c*). 이 값은 나중에 *storageAccountName*으로 참조됩니다.
 5. 가격 책정 계층, 리소스 그룹 및 구독에 적절한 선택 항목을 고릅니다. **시작 보드에 고정** 옵션이 선택되었는지 확인합니다. **만들기**를 클릭합니다.
 6. 시작 보드에 돌아가서 방금 만든 저장소 계정을 클릭합니다.

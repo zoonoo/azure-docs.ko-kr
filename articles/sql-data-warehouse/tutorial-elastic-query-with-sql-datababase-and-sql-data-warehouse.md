@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>SQL Data Warehouse에서 탄력적 쿼리 구성
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 11/06/2017
 
 2. SQL Database에서 Data Warehouse로의 연결을 나타내는 로그인 및 사용자를 만듭니다.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. SSMS 또는 다른 쿼리 클라이언트를 사용하여 논리 서버에서 **SQL Data Warehouse 인스턴스**에 대한 새 쿼리를 엽니다.
 
@@ -75,14 +75,14 @@ ms.lasthandoff: 11/06/2017
 
 9. 데이터 웨어하우스 인스턴스를 가리키는 외부 데이터 원본을 만듭니다.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. 이제 이 외부 데이터 원본을 참조하는 외부 테이블을 만들 수 있습니다. 이러한 테이블을 사용하는 쿼리는 처리를 위해 데이터 웨어하우스 인스턴스로 전송된 후 다시 데이터베이스 인스턴스로 전송됩니다.
 

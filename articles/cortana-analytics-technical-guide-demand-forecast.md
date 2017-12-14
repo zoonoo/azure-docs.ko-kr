@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 설명된 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.
 
 ## <a name="data-preparation-and-analysis"></a>**데이터 준비 및 분석**
-### <a name="azure-stream-analytics"></a>Azure 스트림 분석
+### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에서 거의 실시간으로 분석을 제공하는 데 사용되며 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에서 나중에 처리할 들어오는 모든 원시 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관할 뿐만 아니라 [Power BI](https://powerbi.microsoft.com) 대시보드에 결과를 게시합니다.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
@@ -56,7 +56,7 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
 
 ## <a name="data-publishing"></a>**데이터 게시**
-### <a name="azure-sql-database-service"></a>Azure SQL 데이터베이스 서비스
+### <a name="azure-sql-database-service"></a>Azure SQL Database 서비스
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 서비스는 [Power BI](https://powerbi.microsoft.com) 대시보드에서 사용되는 Azure Machine Learning 서비스에서 수신된 예측을 저장하는 데 사용됩니다(Azure Data Factory에서 관리됨).
 
 ## <a name="data-consumption"></a>**데이터 사용량**
@@ -75,14 +75,14 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
 
 이 문서는 데이터를 수집하는 방법을 설명하지 않지만 [Event Hub API](event-hubs/event-hubs-programming-guide.md)를 사용하여 Azure Event Hub에 이벤트 또는 데이터를 손쉽게 보낼 수 있습니다.
 
-### <a name="azure-stream-analytics"></a>Azure 스트림 분석
-[Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
+### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
 
-에너지 솔루션 템플릿에 대한 수요 예측의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 입력으로 이벤트를 사용하고 2개의 고유 위치에 출력되는 2개의 하위 쿼리로 구성됩니다. 이러한 출력은 하나의 Power BI 데이터 집합 및 하나의 Azure 저장소 위치로 구성됩니다.
+에너지 솔루션 템플릿에 대한 수요 예측의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 입력으로 이벤트를 사용하고 2개의 고유 위치에 출력되는 2개의 하위 쿼리로 구성됩니다. 이러한 출력은 하나의 Power BI 데이터 집합 및 하나의 Azure Storage 위치로 구성됩니다.
 
-[Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 쿼리는 다음으로 찾을 수 있습니다.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 쿼리는 다음으로 찾을 수 있습니다.
 
-* [Azure Portal](https://manage.windowsazure.com/)에 로그인
+* [Azure Portal](https://portal.azure.com/)에 로그인
 * 솔루션이 배포될 때 생성된 스트림 분석 작업 ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) 찾기. 하나는 Blob Storage(예: mytest1streaming432822asablob)에 데이터를 푸시하기 위한 것이고 다른 하나는 Power BI(예: mytest1streaming432822asapbi)에 데이터를 푸시하기 위한 것입니다.
 * 선택
 
@@ -90,7 +90,7 @@ Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 �
   * 쿼리 자체를 보려면 ***쿼리***
   * 다른 출력을 보려면 ***출력***
 
-Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분석 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
+Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
 
 이 솔루션에서 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 데이터 집합을 출력하는 Azure Stream Analytics 작업은 이 솔루션 템플릿의 일부로 제공됩니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
@@ -145,10 +145,10 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 ## <a name="monitor-progress"></a>**진행률 모니터링**
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
 
-1. Azure Blob 저장소에서 데이터 확인
+1. Azure Blob Storage에서 데이터 확인
 
     Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 **Azure Blob Storage** 구성 요소를 클릭하고 오른쪽 패널에서 **열기**를 클릭하면 [Azure Portal](https://portal.azure.com)로 이동합니다. **Blobs**을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **"energysadata"**를 클릭합니다. 다음 패널에 **“demandongoing”** 폴더가 표시됩니다. rawdata 폴더 안에 date=2016-01-28 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 파일이 표시됩니다.
-2. Azure SQL 데이터베이스에서 데이터를 확인합니다.
+2. Azure SQL Database에서 데이터를 확인합니다.
 
     파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://manage.windowsazure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"**을 클릭합니다.
 
@@ -164,14 +164,14 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 ### <a name="setup-hot-path-dashboard"></a>실행 부하 과다 경로 대시보드 설정
 다음 단계에서는 솔루션 배포 시 생성된 Stream Analytics 작업에서 실시간으로 데이터 출력을 시각화하는 방법을 안내합니다. 다음 단계를 수행하려면 [Power BI 온라인](http://www.powerbi.com/) 계정이 필요합니다. 계정이 없는 경우 [새로 만들](https://powerbi.microsoft.com/pricing)수 있습니다.
 
-1. Azure 스트림 분석(ASA)에 Power BI 출력을 추가합니다.
+1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
 
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
    * [Azure Portal](https://manage.windowsazure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
-   * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’**으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’**로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"**을 클릭하여 스트림 분석 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
+   * ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’**으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’**로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"** 을 클릭하여 Stream Analytics 작업을 시작합니다. 확인 메시지가 표시되어야 합니다(예: “스트림 분석 작업 myteststreamingjob12345asablob 성공”).
 2. [Power BI 온라인](http://www.powerbi.com)
 
-   * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 Power BI의 왼쪽 패널에 새 데이터 집합이 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure 스트림 분석에서 푸시한 스트리밍 데이터입니다.
+   * 내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 Power BI의 왼쪽 패널에 새 데이터 집합이 표시되는 것을 확인할 수 있습니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다.
    * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. "Demand by Timestamp(타임스탬프별 수요)" 타일을 만듭니다.
 
@@ -179,7 +179,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
    * **"꺾은선형 차트"** 아이콘 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic8.png)을 클릭합니다.
    * **필드** 패널에서 'EnergyStreamData'를 클릭합니다.
    * **"타임스탬프"** 를 클릭하고 "축" 아래에 표시되는지 확인합니다. **"로드"** 를 클릭하고 "값" 아래에 표시되는지 확인합니다.
-   * 위의 **저장**을 클릭하고 "EnergyStreamDataReport"로 보고서 이름을 지정합니다. “EnergyStreamDataReport”라는 보고서가 왼쪽의 탐색기 창에서 보고서 섹션에 표시됩니다.
+   * 위의 **저장** 을 클릭하고 "EnergyStreamDataReport"로 보고서 이름을 지정합니다. “EnergyStreamDataReport”라는 보고서가 왼쪽의 탐색기 창에서 보고서 섹션에 표시됩니다.
    * 이 꺾은선형 차트의 오른쪽 위 모서리에서 **"시각적 개체 고정"**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) 아이콘을 클릭하면 "대시보드에 고정" 창이 대시보드를 선택하도록 표시될 수 있습니다. “EnergyStreamDataReport”를 선택한 후 “고정”을 클릭합니다.
    * 대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
 4. 적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)

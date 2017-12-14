@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>OMS를 사용하여 이벤트 분석 및 시각화
 
@@ -41,7 +41,7 @@ Service Fabric 솔루션은 플랫폼 및 응용 프로그램 수준에서 들�
 
 ## <a name="using-the-oms-agent"></a>OMS 에이전트 사용
 
-EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 예를 들어 EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 OMS Log Analytics를 사용하는 데 투자하기로 결정한 경우 [OMS 에이전트](../log-analytics/log-analytics-windows-agents.md)를 설정해야 합니다. 또한 아래 설명된 대로 클러스터에 컨테이너를 배포하는 경우 OMS 에이전트를 사용해야 합니다. 
+EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 예를 들어 EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 OMS Log Analytics를 사용하는 데 투자하기로 결정한 경우 [OMS 에이전트](../log-analytics/log-analytics-windows-agent.md)를 설정해야 합니다. 또한 아래 설명된 대로 클러스터에 컨테이너를 배포하는 경우 OMS 에이전트를 사용해야 합니다. 
 
 이에 대한 단계는 [OMS Agent를 클러스터에 추가](service-fabric-diagnostics-oms-agent.md)를 참조하세요.
 

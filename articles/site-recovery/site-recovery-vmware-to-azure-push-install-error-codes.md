@@ -3,8 +3,8 @@ title: "VMware에서 Azure로의 Azure Site Recovery 문제 해결 | Microsoft D
 description: "Azure 가상 컴퓨터를 복제할 때 오류 문제 해결"
 services: site-recovery
 documentationcenter: 
-author: asgang
-manager: srinathv
+author: anoopkv
+manager: gauravd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
-ms.author: asgang
-ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/12/2017
+ms.author: anoopkv
+ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 

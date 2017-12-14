@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
@@ -57,7 +57,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 클래식 포털에서 저장소 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [저장소 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
+-   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
 
 -   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 

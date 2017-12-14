@@ -19,7 +19,7 @@ Blob 저장소 계정은 계정을 만들고 나중에 필요에 따라 수정�
 * 저장소 계정의 개체가 더 자주 액세스됨을 의미하는 **핫** 액세스 계층. 더 저렴한 액세스 비용으로 데이터를 저장할 수 있습니다.
 * 저장소 계정의 개체가 덜 액세스됨을 의미하는 **쿨** 액세스 계층. 더 저렴한 데이터 저장 비용으로 데이터를 저장할 수 있습니다.
 
-데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) (Blob 저장소 계정에 대한 가격 책정 및 청구)를 참조하세요.
+데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) (Blob 저장소 계정에 대한 가격 책정 및 청구)를 참조하세요.
 
 Blob Storage 계정에 대한 자세한 내용은 [Azure Blob Storage: 쿨 및 핫 계층](../articles/storage/blobs/storage-blob-storage-tiers.md)을 참조하세요.
 

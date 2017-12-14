@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
    > [!NOTE]
    > 나머지 단계에서는 클라이언트 컴퓨터에 이미 [Azure CLI를 설치](../../../cli-install-nodejs.md) 했다고 가정합니다. 다음 모든 단계는 [Azure Portal](http://portal.azure.com)에서도 수행할 수 있습니다.
 
-5. 클라이언트 컴퓨터에서 Azure CLI를 열고 Azure 구독에 로그인합니다. 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../../../xplat-cli-connect.md)을 참조하세요.
+5. 클라이언트 컴퓨터에서 Azure CLI를 열고 Azure 구독에 로그인합니다. 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
    > [!NOTE]
    > Azure Portal에서 포털에 로그인합니다.

@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 관리하는 권한이 있는 엔터�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 13a45733b3b8d9ea0593e3b546b6ea58aa5f1a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd933ee33212007a58903b607055f437cc9206fd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Azure Active Directory에서 관리할 수 있는 모든 엔터프라이즈 앱 보기
 Azure AD(Azure Active Directory)에서 엔터프라이즈 응용 프로그램을 관리할 수 있습니다. 관리할 수 있는 앱 보기, 앱에 사용자 또는 그룹 할당, 응용 프로그램 이름/로고와 같은 앱에 대한 속성 유지 및 사용자가 로그인할 수 없도록 응용 프로그램 비활성화를 포함합니다.

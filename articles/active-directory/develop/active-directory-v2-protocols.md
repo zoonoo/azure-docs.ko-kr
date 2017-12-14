@@ -4,7 +4,7 @@ description: "Azure AD v2.0 끝점에서 지원하는 프로토콜에 대한 가
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
 v2.0 끝점은 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0으로 IaaS(identity-as-a-service)에 Azure AD를 사용할 수 있습니다.  서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다.  오픈 소스 라이브러리 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우 여기에 포함된 정보가 유용합니다.
@@ -77,7 +77,7 @@ v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 일부 예제 요청을 확인할 준비가 되었다면 아래 자습서 중 하나를 시작합니다.  각각 특정 인증 시나리오에 해당합니다.  사용자에게 맞는 흐름을 결정하는 데 도움이 필요하면 [v2.0으로 빌드할 수 있는 앱 형식](active-directory-v2-flows.md)을 확인합니다.
 
 * [OAuth 2.0를 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-v2-protocols-oauth-code.md)
-* [Open ID Connect를 사용하는 웹앱 빌드](active-directory-v2-protocols-oidc.md)
+* [Open ID Connect를 사용하는 Web Apps 빌드](active-directory-v2-protocols-oidc.md)
 * [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](active-directory-v2-protocols-implicit.md)
 * [OAuth 2.0 클라이언트 자격 증명 흐름으로 디먼 또는 서버 쪽 프로세스 빌드](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 On Behalf Of 흐름으로 웹 API에서 토큰 가져오기](active-directory-v2-protocols-oauth-on-behalf-of.md)

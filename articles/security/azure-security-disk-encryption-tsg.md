@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -36,7 +36,7 @@ Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 
 - OS 디스크는 LVM(논리 볼륨 관리자) 구성표를 사용합니다. 제한된 LVM 데이터 디스크 지원은 사용할 수 있지만, LVM OS 디스크는 사용할 수 없습니다.
 - 최소 메모리 요구 사항이 충족되지 않습니다(OS 디스크 암호화에 권장되는 메모리 크기는 7GB임).
 - 데이터 드라이브가 /mnt/ 디렉터리 또는 다른 디렉터리(예: /mnt/data1, /mnt/data2, /data3 + /data3/data4) 아래에 재귀적으로 탑재되었습니다.
-- Linux에 대한 다른 Azure Disk Encryption [필수 구성 요소](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)가 충족되지 않습니다.
+- Linux에 대한 다른 Azure Disk Encryption [필수 구성 요소](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)가 충족되지 않습니다.
 
 ## <a name="unable-to-encrypt"></a>암호화할 수 없음
 

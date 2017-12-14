@@ -1,9 +1,9 @@
 ---
 title: "일반적인 Azure Automation 문제 해결 | Microsoft Docs"
-description: "이 문서에서는 일반적인 Azure 자동화 오류 해결을 도와줄정보를 제공합니다."
+description: "이 문서에서는 일반적인 Azure Automation 오류 해결을 도와줄정보를 제공합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c958bc149cc617b5c9e99a2d3fc6fb2d425b2772
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
-이 문서에서는 Azure 자동화에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
+이 문서에서는 Azure Automation에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
 
-## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure 자동화 Runbook을 사용할 때 인증 오류
+## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Automation Runbook을 사용할 때 인증 오류
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>시나리오: Azure 계정 로그인에 실패
 **오류:** Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown_user_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
 
-**오류 원인:** 이 오류는 자격 증명 자산 이름이 올바르지 않거나 자동화 자격 증명 자산을 설정하는 데 사용한 사용자 이름과 암호가 올바르지 않은 경우에 발생합니다.
+**오류 원인:** 이 오류는 자격 증명 자산 이름이 올바르지 않거나 Automation 자격 증명 자산을 설정하는 데 사용한 사용자 이름과 암호가 올바르지 않은 경우에 발생합니다.
 
 **문제 해결 팁:** 무엇이 문제인지 확인하기 위해 다음 단계를 수행합니다.  
 
-1. Azure에 연결할 때 사용하는 자동화 자격 증명 자산에 **@** 문자를 비롯한 특수 문자가 들어 있지는 않은지 확인합니다.  
-2. Azure 자동화 자격 증명에 저장된 사용자 이름 및 암호를 로컬 PowerShell ISE 편집기에서 사용할 수 있는지 확인합니다. PowerShell ISE에서 다음 cmdlet을 실행하여 확인할 수 있습니다.  
+1. Azure에 연결할 때 사용하는 Automation 자격 증명 자산에 **@** 문자를 비롯한 특수 문자가 들어 있지는 않은지 확인합니다.  
+2. Azure Automation 자격 증명에 저장된 사용자 이름 및 암호를 로컬 PowerShell ISE 편집기에서 사용할 수 있는지 확인합니다. PowerShell ISE에서 다음 cmdlet을 실행하여 확인할 수 있습니다.  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
@@ -95,24 +95,24 @@ ms.lasthandoff: 10/18/2017
 ### <a name="scenario-runbook-job-failed-because-the-allocated-quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
 **오류:** "이 구독에 할당된 월간 총 작업 실행에 도달했습니다" 오류와 함께 Runbook이 실패합니다.
 
-**오류의 원인:** 작업 실행 시간이 계정에 할당된 무료 500분을 초과하면 이 오류가 발생합니다. 이 할당량은 작업을 테스트하고, 포털에서 작업을 시작하고, 웹 후크를 사용하여 작업을 실행하고, Azure 포털 또는 데이터 센터를 사용하여 실행할 작업을 예약하는 등의 모든 작업 실행에 적용됩니다. 자동화 가격 책정에 대한 자세한 내용은 [자동화 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
+**오류의 원인:** 작업 실행 시간이 계정에 할당된 무료 500분을 초과하면 이 오류가 발생합니다. 이 할당량은 작업을 테스트하고, 포털에서 작업을 시작하고, 웹 후크를 사용하여 작업을 실행하고, Azure 포털 또는 데이터 센터를 사용하여 실행할 작업을 예약하는 등의 모든 작업 실행에 적용됩니다. Automation 가격 책정에 대한 자세한 내용은 [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 
 **문제 해결 팁:** 매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에는 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.  
 
 1. Azure 구독에 로그인합니다.  
-2. 업그레이드할 자동화 계정을 선택합니다.  
+2. 업그레이드할 Automation 계정을 선택합니다.  
 3. **설정** > **가격 책정**을 클릭합니다.
 4. 페이지 아래쪽의 **사용**을 클릭하여 계정을 **기본** 계층으로 업그레이드합니다.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
 **오류:** "``<cmdlet name>``: ``<cmdlet name>``이라는 용어가 cmdlet의 이름, 함수, 스크립트 파일 또는 사용이 가능한 프로그램으로 인식되지 않습니다" 오류와 함께 Runbook 작업이 실패하게 됩니다.
 
-**오류 원인:** PowerShell 엔진이 사용자가 Runbook에서 사용하는 cmdlet을 찾을 수 없는 경우에 이 오류가 발생합니다.  cmdlet을 포함하고 있는 모듈이 계정에 없어서, Runbook 이름과 충돌하는 이름이 있어서 또는 다른 모듈에도 cmdlet이 있어서 Azure 자동화가 이름을 확인할 수 없는 것이 원인일 수 있습니다.
+**오류 원인:** PowerShell 엔진이 사용자가 Runbook에서 사용하는 cmdlet을 찾을 수 없는 경우에 이 오류가 발생합니다.  cmdlet을 포함하고 있는 모듈이 계정에 없어서, Runbook 이름과 충돌하는 이름이 있어서 또는 다른 모듈에도 cmdlet이 있어서 Azure Automation이 이름을 확인할 수 없는 것이 원인일 수 있습니다.
 
 **문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
 
 * cmdlet 이름을 올바르게 입력했는지 확인합니다.  
-* 자동화 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command ``<CommandName>``**를 실행합니다.  cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.  
+* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command ``<CommandName>``**를 실행합니다.  cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.  
 * 이름이 충돌하고 cmdlet이 서로 다른 두 모듈에서 사용되는 경우 cmdlet에 대한 정규화된 이름을 사용하여 이 문제를 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.  
 * Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
 
@@ -125,10 +125,10 @@ ms.lasthandoff: 10/18/2017
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
 **오류:** 모듈이 가져오기를 실패하거나 성공하더라도 cmdlet이 추출되지 않습니다.
 
-**오류 원인:** 모듈이 Azure 자동화를 가져오지 못하는 몇 가지 일반적인 이유는 다음과 같습니다.  
+**오류 원인:** 모듈이 Azure Automation을 가져오지 못하는 몇 가지 일반적인 이유는 다음과 같습니다.  
 
-* 구조가 자동화에서 요구하는 구조와 일치하지 않습니다.  
-* 모듈이 자동화 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.  
+* 구조가 Automation에서 요구하는 구조와 일치하지 않습니다.  
+* 모듈이 Automation 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.  
 * 모듈 폴더에 종속성이 없습니다.  
 * **New-AzureRmAutomationModule** cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.  
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/18/2017
 
 * 모듈이 다음 형식을 따르는지 확인합니다.  
   ModuleName.Zip **->** 모듈 이름 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
-* .Psd1 파일을 열고 모듈에 종속성이 있는지 확인합니다.  종속성이 있으면 이러한 모듈을 자동화 계정에 업로드합니다.  
+* .Psd1 파일을 열고 모듈에 종속성이 있는지 확인합니다.  종속성이 있으면 이러한 모듈을 Automation 계정에 업로드합니다.  
 * 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.  
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제
@@ -179,12 +179,12 @@ ms.lasthandoff: 10/18/2017
 
 **문제 해결 팁:**  
 
-* 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure 자동화 DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
+* 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure Automation DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 위의 문제 해결 단계를 수행해도 답을 찾을 수 없는 경우 아래의 추가 지원 옵션을 검토할 수 있습니다.
 
 * Azure 전문가에게 도움을 받으세요. [MSDN Azure 또는 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에 문제를 제출하세요.
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
-* Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/) 에 스크립트 요청을 게시하세요.
-* Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
+* Azure Automation Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/) 에 스크립트 요청을 게시하세요.
+* Azure Automation에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.

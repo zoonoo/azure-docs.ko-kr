@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 이 자습서에서는 분석할 쿼리용 데이터를 생성하는 원본이 하나 이상 연결된 Log Analytics 작업 영역이 이미 있다고 가정합니다.  
 
 - 작업 영역이 없는 경우 [Log Analytics 작업 영역 시작](log-analytics-get-started.md)의 절차에 따라 무료로 만들 수 있습니다.
-- [Windows 에이전트](log-analytics-windows-agents.md) 하나 이상 또는 [Linux 에이전트](log-analytics-linux-agents.md) 하나를 작업 영역에 연결합니다.  
+- [Windows 에이전트](log-analytics-windows-agent.md) 하나 이상 또는 [Linux 에이전트](log-analytics-linux-agents.md) 하나를 작업 영역에 연결합니다.  
 
 ## <a name="open-the-log-search-portal"></a>로그 검색 포털 열기
 로그 검색 포털을 열어서 시작합니다.  Azure Portal 또는 OMS 포털에서 로그 검색 포털에 액세스할 수 있습니다.

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 주변 관심 지점 검색
 
@@ -40,8 +40,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 다음 단계를 수행하여 새 Location Based Services 계정을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
-2. *Marketplace 검색* 상자에 **위치 기반 서비스**를 입력합니다.
-3. *Results*에서 **Location Based Services(미리 보기)**를 클릭합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다. 
+2. *Marketplace 검색* 상자에 **Location Based Services**를 입력합니다.
+3. *결과*에서 **Location Based Services(미리 보기)**를 클릭합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다. 
 4. **Location Based Services 계정** 페이지에서 다음 값을 입력합니다.
     - 새 계정의 *이름*. 
     - 이 계정에 사용하려는 *구독*.
@@ -101,12 +101,12 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -115,26 +115,25 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
  
 3.  다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. 자리 표시자 *<insert-key>*를 Location Based Services 계정의 기본 키로 바꿉니다. 
 
-    ```HTML/JavaScript
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     이 세그먼트는 구독 키에 대한 맵 컨트롤 API를 시작합니다. **Atlas**는 Azure 맵 컨트롤 API 및 관련된 시각적 구성 요소를 포함하는 네임스페이스입니다. **아틀라스 맵**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공합니다. 브라우저에서 HTML 페이지를 열어 맵이 어떻게 보이는지 확인할 수 있습니다. 
 
 4. 검색 핀 계층을 맵 컨트롤에 추가하려면 다음 JavaScript 코드를 *스크립트* 블록에 추가합니다.
 
-    ```HTML/JavaScript
-            // Initialize the pin layer for search results to the map
-            var searchLayerName = "search-results";
-            map.addPins([], {
-                name: searchLayerName,
-                cluster: false,
-                icon: "pin-round-darkblue"
-            });
+    ```JavaScript
+    // Initialize the pin layer for search results to the map
+    var searchLayerName = "search-results";
+    map.addPins([], {
+        name: searchLayerName,
+        cluster: false,
+        icon: "pin-round-darkblue"
+    });
     ```
 
 5. 파일을 컴퓨터에 저장합니다. 
@@ -147,91 +146,91 @@ Azure 맵 컨트롤 API는 Azure Location Based Services를 웹 응용 프로그
 이 섹션에서는 Azure Location Based Services의 Search Service API를 사용하여 맵에서 관심 지점을 찾는 방법을 보여줍니다. 주소, 관심 영역 및 기타 지역 정보를 검색하도록 개발자용으로 설계된 RESTful API입니다. Search Service는 지정된 주소에 위도와 경도 정보를 할당합니다. 
 
 1. 이전 섹션에서 만든 **MapSearch.html** 파일을 열고 다음 JavaScript 코드를 *스크립트* 블록에 추가하여 Search Service를 설명합니다. 
-    ```HTML/JavaScript
-            // Perform a request to the search service and create a pin on the map for each result
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var searchPins = [];
+    ```JavaScript
+    // Perform a request to the search service and create a pin on the map for each result
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var searchPins = [];
 
-                if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
+        if (this.readyState === 4 && this.status === 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
+            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
 
-                    searchPins = poiResults.map((poiResult) => {
-                        var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                        return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                            name: poiResult.poi.name,
-                            address: poiResult.address.freeformAddress,
-                            position: poiResult.position.lat + ", " + poiResult.position.lon
-                        });
-                    });
+            searchPins = poiResults.map((poiResult) => {
+                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
+                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                    name: poiResult.poi.name,
+                    address: poiResult.address.freeformAddress,
+                    position: poiResult.position.lat + ", " + poiResult.position.lon
+                });
+            });
 
-                    map.addPins(searchPins, {
-                        name: searchLayerName
-                    });
+            map.addPins(searchPins, {
+                name: searchLayerName
+            });
 
-                    var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-                    var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
+            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
+            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
 
-                    var swLon = Math.min.apply(null, lons);
-                    var swLat = Math.min.apply(null, lats);
-                    var neLon = Math.max.apply(null, lons);
-                    var neLat = Math.max.apply(null, lats);
+            var swLon = Math.min.apply(null, lons);
+            var swLat = Math.min.apply(null, lats);
+            var neLon = Math.max.apply(null, lons);
+            var neLat = Math.max.apply(null, lats);
 
-                    map.setCameraBounds({
-                        bounds: [swLon, swLat, neLon, neLat],
-                        padding: 50
-                    });
-                }
-            };
+            map.setCameraBounds({
+                bounds: [swLon, swLat, neLon, neLat],
+                padding: 50
+            });
+        }
+    };
     ```
     이 코드 조각은 [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 생성하고, 들어오는 응답을 구문 분석하는 이벤트 처리기를 추가합니다. 성공적인 응답을 위해 반환된 각 위치에 대한 주소, 이름, 위도 및 경도 정보를 `searchPins` 변수에 수집합니다. 마지막으로 이 위치 지점의 컬렉션을 `map` 컨트롤에 핀으로 추가합니다. 
 
 2. 다음 코드를 *스크립트* 블록에 추가하여 XMLHttpRequest를 Azure Location Based Services의 Search Service로 보냅니다.
 
-    ```HTML/JavaScript
-            var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-            url += "&api-version=1.0";
-            url += "&query=gasoline%20station";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&lat=47.6292";
-            url += "&lon=-122.2337";
-            url += "&radius=100000"
+    ```JavaScript
+    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
+    url += "&api-version=1.0";
+    url += "&query=gasoline%20station";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&lat=47.6292";
+    url += "&lon=-122.2337";
+    url += "&radius=100000";
 
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ``` 
     이 코드 조각은 **Fuzzy Search**이라는 Search Service의 기본 검색 API를 사용합니다. 입력 유사 항목 대부분을 처리하여 주소 또는 *POI* 토큰의 어떠한 결합도 처리합니다. 위도 및 경도로 주어진 주소에 대해, 지정된 반경 내의 모든 **주유소**를 검색합니다. 앞에서 예제 파일에 제공된 사용자 계정의 구독 키를 사용하여 위치 기반 서비스로 호출합니다. 찾은 위치에 대해 위도/경도 쌍으로 결과를 반환합니다. 브라우저에서 HTML 페이지를 열어 검색 핀을 확인할 수도 있습니다. 
 
 3. 다음 코드 줄을 *스크립트* 블록에 추가하여 Search Service에서 반환한 관심 지점에 대한 팝업을 만듭니다.
 
-    ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
+    ```JavaScript
+    // Add a popup to the map which will display some basic information about a search result on hover over a pin
+    var popup = new atlas.Popup();
+    map.addEventListener("mouseover", searchLayerName, (e) => {
+        var popupContentElement = document.createElement("div");
+        popupContentElement.style.padding = "5px";
 
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
+        var popupNameElement = document.createElement("div");
+        popupNameElement.innerText = e.features[0].properties.name;
+        popupContentElement.appendChild(popupNameElement);
 
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
+        var popupAddressElement = document.createElement("div");
+        popupAddressElement.innerText = e.features[0].properties.address;
+        popupContentElement.appendChild(popupAddressElement);
 
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
+        var popupPositionElement = document.createElement("div");
+        popupPositionElement.innerText = e.features[0].properties.position;
+        popupContentElement.appendChild(popupPositionElement);
 
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
+        popup.setPopupOptions({
+            position: e.features[0].geometry.coordinates,
+            content: popupContentElement
+        });
 
-                popup.open(map);
-            });
+        popup.open(map);
+    });
     ```
     API **atlas Popup**은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 이 코드 조각은 팝업에 대한 콘텐츠 및 위치를 설정할 뿐만 아니라 _마우스_가 팝업을 롤오버하도록 기다려 이벤트 수신기를 `map` 컨트롤에 추가합니다. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >[기존 및 새 Azure CLI](/cli/azure/old-and-new-clis)에 대해 자세히 알아보세요.
 >
 
-시작하려면 먼저 [Azure CLI](../cli-install-nodejs.md)를 설치하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
+시작하려면 먼저 [Azure CLI](../cli-install-nodejs.md)를 설치하고 [Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다.
 
 리소스 관리자 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
@@ -1557,7 +1557,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
 ## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
-**저장소 계정을 관리하는 명령**
+**Storage 계정을 관리하는 명령**
 
     storage account list [options]
     storage account show [options] <name>
@@ -1565,7 +1565,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**저장소 계정 키를 관리하는 명령**
+**Storage 계정 키를 관리하는 명령**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
@@ -1655,7 +1655,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     storage logging show [options]
     storage logging set [options]
 
-**저장소 메트릭 속성을 관리하는 명령**
+**Storage 메트릭 속성을 관리하는 명령**
 
     storage metrics show [options]
     storage metrics set [options]
@@ -1696,7 +1696,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure 가상 컴퓨터를 관리하는 명령
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Azure Virtual Machines를 관리하는 명령
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1706,7 +1706,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`으로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`를 실행합니다. 또한 0.10 버전부터 `azure vm quick-create` 는 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
+> CLI 0.10 버전부터 일부 인기 있는 Marketplace 이미지에 대한 `image-urn`으로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`를 실행합니다. 또한 0.10 버전부터 `azure vm quick-create` 는 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
 > 
 > 
 

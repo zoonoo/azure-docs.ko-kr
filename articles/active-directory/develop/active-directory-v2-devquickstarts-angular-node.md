@@ -4,7 +4,7 @@ description: "개인 Microsoft 계정과 회사 또는 학교 계정이 있는 �
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>AngularJS 단일 페이지 앱에 로그인 추가 - NodeJS
 이 문서에서는 Azure Active Directory v2.0 끝점을 사용하여 Microsoft 지원 계정을 사용한 로그인을 AngularJS 앱에 추가합니다. v2.0 끝점을 사용하면 앱 내에서 단일 통합을 수행할 수 있으며 개인 계정과 회사/학교 계정을 모두 사용하여 사용자를 인증할 수 있습니다.

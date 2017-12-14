@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 142a5baf0ffb0425856520fadccee27f3fc0517f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -36,7 +36,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 * **인증**은 다음 명령을 사용합니다.
   
         azure login
-    회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
+    회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
 * **Azure Resource Manager 모드로 전환**은 다음 명령을 사용합니다.
   
         azure config mode arm
@@ -83,10 +83,10 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 ## <a name="manage-account-data-sources"></a>계정 데이터 원본 관리
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
-* [Azure 저장소](../storage/common/storage-introduction.md)
+* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
-분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 ADL 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 저장소 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다. 
+분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 ADL 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
 
 ### <a name="find-the-default-adl-storage-account"></a>기본 ADL 저장소 계정 찾기
     azure datalake analytics account show "<Data Lake Analytics Account Name>"
@@ -174,9 +174,9 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
 
 * Azure 데이터 레이크 분석 계정
-* 필수 기본 Azure 데이터 레이크 저장소 계정
-* 추가 Azure 데이터 레이크 저장소 계정
-* 추가 Azure 저장소 계정
+* 필수 기본 Azure 데이터 레이크 Storage 계정
+* 추가 Azure 데이터 레이크 Storage 계정
+* 추가 Azure Storage 계정
 
 이러한 모든 구성을 쉽게 관리할 수 있도록 하나의 ARM 그룹 아래 만들 수 있습니다.
 
@@ -187,7 +187,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 
 ## <a name="see-also"></a>참고 항목
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-* [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Azure Portal을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+* [Azure Portal을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
+* [Azure Portal을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

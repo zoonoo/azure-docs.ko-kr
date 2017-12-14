@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 58f4b911944523ff78bc420dbe52bf321243f990
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8d84574283aa0c94ce303b0a7e3bde335c0eb2b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
 이 문서에서는 2단계 인증 또는 다단계 인증에 대한 설정을 업데이트하는 방법에 대한 질문에 대답합니다. 계정에 로그인하는 데 문제가 있는 경우 문제 해결 도움말을 보려면 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)을 참조하세요.
@@ -39,8 +39,8 @@ ms.lasthandoff: 11/15/2017
 
     ![검사](./media/multi-factor-authentication-end-user-manage/proofup.png)
 
-## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>휴대폰 번호를 변경하거나 보조 번호를 추가하려는 경우
-보조 인증 전화 번호를 구성하는 것이 중요합니다.  기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
+## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>전화 번호를 변경하거나 기타 전화 번호를 추가하려는 경우
+기타 인증 전화 번호를 추가로 구성하는 것은 중요합니다.  기본 전화 번호로 등록된 기기에 모바일 앱이 설치된 경우가 대부분이므로 이 전화를 분실하거나 도난당했을 경우 기타 전화 번호가 있어야만 계정에 다시 로그인할 수 있습니다.
 
 > [!NOTE]
 > 기본 전화 번호에 대한 액세스 권한이 없고 계정에 대한 도움이 필요한 경우 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)에서 도움말 항목을 참조하세요.  
@@ -51,10 +51,10 @@ ms.lasthandoff: 11/15/2017
 2. **저장**을 선택합니다.  
 3. 기본 설정된 인증 옵션에 사용할 번호인 경우 저장하기 전에 새 번호를 확인해야 합니다.  
 
-**보조 번호를 추가하려면:**  
+**기타 전화 번호를 추가하려면:**  
 
 1. 추가 보안 인증 페이지에서 **대체 인증 전화** 옆의 상자를 선택합니다.  
-2. 텍스트 상자에 보조 전화 번호를 입력합니다.  
+2. 텍스트 상자에 기타 전화 번호를 입력합니다.  
 3. **저장**을 선택하면 변경 내용이 완료됩니다.  
 
 ## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>신뢰할 수 있는 것으로 표시된 장치에서 2단계 인증이 다시 필요

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 ## <a name="overview"></a>개요
@@ -44,13 +44,13 @@ ms.lasthandoff: 10/11/2017
 >
 
 ## <a name="api-deployment"></a>API 배포
-API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 끝점 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
+API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 끝점 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
 
 ## <a name="scaling-the-api"></a>API 크기 조정
 기본적으로 배포에는 1,000 트랜잭션/월 및 2 계산 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/en-us/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
 
 ## <a name="managing-aml-plans"></a>AML 관리 계획 
-[여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice)의 "청구 계획 관리" 섹션에 있습니다.
+[여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)의 "청구 계획 관리" 섹션에 있습니다.
 
 ## <a name="api-definition"></a>API 정의
 웹 서비스는 웹 또는 모바일 응용 프로그램, R, Python, Excel 등 다양한 방식으로 사용할 수 있는 REST 기반 API over HTTPS를 제공합니다.  REST API 호출을 통해 시계열 데이터를 이 서비스로 보내고 아래에서 설명한 세 가지 이상 유형의 조합을 실행합니다.

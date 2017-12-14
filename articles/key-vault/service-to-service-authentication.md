@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -28,7 +28,7 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 `Microsoft.Azure.Services.AppAuthentication` 라이브러리는 자동으로 인증을 관리하므로 순서대로 수행하면 자격 증명 대신 솔루션에 다시 초점을 맞출 수 있습니다.
 
-`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. Azure App Services 또는 Azure VM(가상 컴퓨터)에 배포하는 경우 라이브러리는 자동으로 MSI([관리 서비스 ID](/azure/active-directory/msi-overview))를 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 MSI를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
+`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. Azure App Services 또는 Azure VM(가상 컴퓨터)에 배포하는 경우 라이브러리는 자동으로 MSI([관리 서비스 ID](/azure/active-directory/msi-overview))를 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 MSI를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)을 직접 사용할 수도 있습니다.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>라이브러리 사용
@@ -57,7 +57,7 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 따라서 더 이상 `GetAccessTokenAsync` 메서드를 호출하기 전에 만료를 확인할 필요가 없습니다. 토큰을 사용하려면 메서드를 호출하기만 하면 됩니다. 
 
-`GetAccessTokenAsync` 메서드는 리소스 식별자가 필요합니다. 자세한 내용은 [관리 서비스 ID를 지원하는 Azure 서비스](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)를 참조하세요.
+`GetAccessTokenAsync` 메서드는 리소스 식별자가 필요합니다. 자세한 내용은 [관리 서비스 ID를 지원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)를 참조하세요.
 
 
 <a name="samples"></a>

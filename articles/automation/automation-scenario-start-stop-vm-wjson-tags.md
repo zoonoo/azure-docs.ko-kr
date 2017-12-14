@@ -3,7 +3,7 @@ title: "JSON 형식 태그를 사용하여 Azure VM 상태 예약 | Microsoft Do
 description: "이 문서에서는 태그에 JSON 문자열을 사용하여 VM 시작 및 종료 예약을 자동화하는 방법을 보여 줍니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure 자동화 시나리오: JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기
+# <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure Automation 시나리오: JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기
 고객은 종종 가상 컴퓨터의 시작 및 종료를 예약하여 구독 비용을 절감하거나 비즈니스 및 기술 요구 사항을 지원하는 데 도움을 주려고 합니다.
 
 다음 시나리오에서는 Azure의 리소스 그룹 수준 또는 가상 컴퓨터 수준에서 일정이라는 태그를 사용하여 VM의 자동화된 시작 및 종료를 설정할 수 있습니다. 이 일정은 시작 시간 및 종료 시간을 사용하여 일요일부터 토요일까지 구성할 수 있습니다.
@@ -54,12 +54,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="install-and-configure-this-scenario"></a>이 시나리오 설치 및 구성
 ### <a name="install-and-publish-the-runbooks"></a>Runbook 설치 및 게시
-Runbook을 다운로드한 후에 [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)의 절차를 사용하여 가져올 수 있습니다.  각 Runbook을 자동화 계정으로 가져온 후에 게시합니다.
+Runbook을 다운로드한 후에 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)의 절차를 사용하여 가져올 수 있습니다.  각 Runbook을 Automation 계정으로 가져온 후에 게시합니다.
 
 ### <a name="add-a-schedule-to-the-test-resourceschedule-runbook"></a>Test-ResourceSchedule Runbook에 일정을 추가합니다.
 다음 단계에 따라 Test-ResourceSchedule Runbook에 대한 일정을 사용하도록 설정합니다. 시작, 종료하거나 그대로 유지해야 하는 가상 컴퓨터를 확인하는 Runbook입니다.
 
-1. Azure 포털에서 자동화 계정을 열고 **Runbook** 타일을 클릭합니다.
+1. Azure Portal에서 Automation 계정을 열고 **Runbook** 타일을 클릭합니다.
 2. **Test-ResourceSchedule** 블레이드에서 **일정** 타일을 클릭합니다.
 3. **일정** 블레이드에서 **일정 추가**를 클릭합니다.
 4. **일정** 블레이드에서 **Runbook에 일정 연결**을 선택합니다. 그런 다음 **새 일정 만들기**를 선택합니다.
@@ -237,7 +237,7 @@ Azure 포털에서 Test-ResourceSchedule Runbook 작업의 세부 정보를 보�
 
 ## <a name="next-steps"></a>다음 단계
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
-* Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
-* PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
-* Runbook 로깅 및 출력에 대한 자세한 내용은 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
+* Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.
+* PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
+* Runbook 로깅 및 출력에 대한 자세한 내용은 [Azure Automation에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
 * Azure 실행 계정 및 이 계정을 사용하여 Runbook을 인증하는 방법에 대한 자세한 내용은 [Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md)을 참조하세요.

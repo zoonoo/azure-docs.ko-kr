@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -186,7 +186,7 @@ One-Click 설치 환경을 사용하여 개발 환경을 준비하는 것이 좋
 .zip 파일은 다음 도구 및 패키지를 포함합니다. 이미 일부 구성 요소를 설치한 경우 스크립트에서 이를 검색하고 건너뜁니다.
 
 * Node.js 및 Yarn: 설치 스크립트 및 자동화된 작업에 대한 런타임
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Azure 리소스를 관리하기 위한 플랫폼 간 명령줄 환경입니다.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): Azure 리소스를 관리하기 위한 플랫폼 간 명령줄 환경입니다.
 * VS Code([Visual Studio Code](https://code.visualstudio.com/)): DevKit 개발을 위한 간단한 코드 편집기입니다.
 * [Arduino용 Visual Studio Code 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Visual Studio Code에서 Arduino 개발을 사용하는 확장입니다.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): Arduino에 대한 확장을 사용하는 도구입니다.

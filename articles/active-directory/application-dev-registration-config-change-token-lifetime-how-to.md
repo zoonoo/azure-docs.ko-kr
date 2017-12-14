@@ -4,7 +4,7 @@ description: "Azure AD에서 개발 중인 응용 프로그램에 대한 토큰 
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8067ecf3e274f65abe2c82f20dd2f4469344f3b6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 토큰 수명 기본값을 변경하는 방법
 
@@ -29,10 +29,10 @@ Azure AD Premium을 사용하면 앱 개발자 및 테넌트 관리자가 기밀
 
  * 다음은 최대 사용 기간 단일 요소 새로 고침 토큰을 설정하는 예제 정책입니다. 다음 정책을 만듭니다. ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * [토큰 수명 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) 문서를 확인하여 기타 사용자 지정을 만드는 방법을 알아보세요.
+ * [토큰 수명 구성](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) 문서를 확인하여 기타 사용자 지정을 만드는 방법을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-[토큰 수명 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
+[토큰 수명 구성](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Azure AD 토큰 참조](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
+[Azure AD 토큰 참조](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

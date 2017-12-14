@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Active Directory의 인스턴스에 응�
 services: active-directory
 documentationcenter: 
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>응용 프로그램을 Azure AD에 추가하는 방법 및 이유
 Azure Active Directory 인스턴스에서 응용 프로그램 목록을 확인할 때 처음에 어려운 것 중 하나는 응용 프로그램이 어디서 추가되었는지 및 그 이유를 이해하는 것입니다.  이 문서에서는 응용 프로그램이 디렉터리에 표시되는 방식을 간략하게 설명하고 응용 프로그램이 디렉터리에 추가된 과정을 이해하는 데 도움이 되는 컨텍스트를 제공합니다.

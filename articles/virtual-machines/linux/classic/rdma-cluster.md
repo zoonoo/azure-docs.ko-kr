@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
@@ -35,7 +35,7 @@ Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-
 * **HPC Pack** - Azure에서 Microsoft HPC 팩 클러스터를 만들고, 지원되는 Linux 배포판을 실행하는 RDMA 지원 계산 노드를 추가하여 RDMA 네트워크에 액세스합니다. 자세한 내용은 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
 
 ## <a name="sample-deployment-steps-in-the-classic-model"></a>클래식 모델의 샘플 배포 단계
-다음 단계에서는 Azure CLI를 사용하여 Azure 마켓플레이스에서 SLES(SUSE Linux Enterprise Server) 12 SP1 HPC VM을 배포하고, 사용자 지정하고, 사용자 지정 VM 이미지를 만드는 방법을 보여 줍니다. 그런 다음 이 이미지를 사용하여 RDMA 지원 VM 클러스터 배포를 스크립팅할 수 있습니다.
+다음 단계에서는 Azure CLI를 사용하여 Azure Marketplace에서 SLES(SUSE Linux Enterprise Server) 12 SP1 HPC VM을 배포하고, 사용자 지정하고, 사용자 지정 VM 이미지를 만드는 방법을 보여 줍니다. 그런 다음 이 이미지를 사용하여 RDMA 지원 VM 클러스터 배포를 스크립팅할 수 있습니다.
 
 > [!TIP]
 > 비슷한 단계를 사용하여 Azure Marketplace에서 CentOS 기반 HPC 이미지에 따라 RDMA 호환 VM의 클러스터를 배포합니다. 일부 단계가 약간 다를 수 있습니다. 
@@ -47,7 +47,7 @@ Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-
 * **Azure 구독** - 구독이 없는 경우 몇 분 내에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 * **VM 크기 가용성** - H16r, H16mr, A8 및 A9 인스턴스 크기가 RDMA를 지원할 수 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 에서 Azure 지역의 가용성을 확인하세요.
 * **코어 할당량** - 계산 집약적 VM 클러스터를 배포하려면 코어 할당량을 늘려야 할 수도 있습니다. 예를 들어 이 문서에 설명된 것처럼 8대의 A9 VM을 배포하려는 경우 적어도 128개의 코어가 필요합니다. 구독에 따라서도 H 시리즈를 포함하여 특정 VM 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량 증가를 요청하려면 무료로 [온라인 고객 지원 요청을 개설](../../../azure-supportability/how-to-create-azure-support-request.md) 합니다.
-* **Azure CLI** - Azure CLI를 [설치](../../../cli-install-nodejs.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](../../../xplat-cli-connect.md)합니다.
+* **Azure CLI** - Azure CLI를 [설치](../../../cli-install-nodejs.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>SLES 12 SP1 HPC VM 프로비전
 Azure CLI에서 Azure에 로그인한 후 `azure config list`를 실행하여 출력에 서비스 관리 모드가 표시되는지 확인합니다. 그렇지 않으면 다음 명령을 실행하여 모드를 설정합니다.
@@ -199,7 +199,7 @@ done
 ```
 
 ## <a name="considerations-for-a-centos-hpc-cluster"></a>CentOS HPC 클러스터에 대한 고려 사항
-HPC용 SLES 12 대신 Azure 마켓플레이스의 CentOS 기반 HPC 이미지 중 하나를 기준으로 클러스터를 설정하려는 경우 이전 섹션의 일반 단계를 따릅니다. VM을 프로비전하고 구성하는 경우 다음과 같은 차이점을 알아둡니다.
+HPC용 SLES 12 대신 Azure Marketplace의 CentOS 기반 HPC 이미지 중 하나를 기준으로 클러스터를 설정하려는 경우 이전 섹션의 일반 단계를 따릅니다. VM을 프로비전하고 구성하는 경우 다음과 같은 차이점을 알아둡니다.
 
 - Intel MPI가 CentOS 기반 HPC 이미지에서 프로비전된 VM에 이미 설치되어 있습니다.
 - 잠금 메모리 설정이 VM의 /etc/security/limits.conf 파일에 이미 추가되어 있습니다.

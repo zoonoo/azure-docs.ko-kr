@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
@@ -49,7 +49,7 @@ Stream Analytics로 작업할 때 다음 출력에서 분할을 활용할 수 �
 -   CosmosDB(파티션 키를 명시적으로 설정해야 함)
 -   EventHub(파티션 키를 명시적으로 설정해야 함)
 -   IoT Hub(파티션 키를 명시적으로 설정해야 함)
--   서비스 버스
+-   Service Bus
 
 PowerBI, SQL 및 SQL Data-Warehouse 출력은 분할을 지원하지 않습니다. 그러나 [이 섹션](#multi-step-query-with-a-grouping-key)에 설명된 대로 입력은 여전히 분할할 수 있습니다. 
 
@@ -241,7 +241,6 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>API Management 정책 샘플
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 12/04/2017
 |[백 엔드 서비스에 기능 추가 및 응답 캐시](./policies/cache-response.md?toc=api-management/toc.json) |백 엔드 서비스에 기능을 추가하는 방법을 보여 줍니다. 예를 들어 일기 예보 API에서 위도 및 경도 대신 장소 이름을 허용합니다.|
 |[JWT 클레임을 기반으로 액세스 권한 부여](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |JWT 클레임 기반의 API에서 특정 HTTP 메서드에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.|
 |[Google OAuth 토큰을 사용하여 액세스 권한 부여](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |OAuth 토큰 공급자로 Google을 사용하여 끝점에 대한 액세스 권한을 부여하는 방법을 보여 줍니다.|
-|[공유 액세스 서명 생성 및 Azure 저장소에 요청 전달](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |식을 사용하여 [공유 액세스 서명](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1)을 생성하고 rewrite-uri 정책을 사용하여 Azure 저장소로 요청을 전달하는 방법을 보여 줍니다. |
+|[공유 액세스 서명 생성 및 Azure 저장소에 요청 전달](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |식을 사용하여 [공유 액세스 서명](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1)을 생성하고 rewrite-uri 정책을 사용하여 Azure 저장소로 요청을 전달하는 방법을 보여 줍니다. |
 |[AAD에서 OAuth2 액세스 토큰 가져오기 및 백 엔드로 전달](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |게이트웨이와 백 엔드 간의 권한 부여에 OAuth2를 사용하는 예를 제공합니다. AAD에서 액세스 토큰을 가져오고 백 엔드로 전달하는 방법을 보여 줍니다.|
 |[요청 보내기 정책을 사용하여 SAP 게이트웨이에서 X-CSRF 토큰 가져오기](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |대부분의 API에서 사용되는 X-CSRF 패턴을 구현하는 방법을 보여 줍니다. 이 예제는 SAP 게이트웨이에만 해당됩니다. |
 |[본문 크기에 따라 요청 라우팅](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |본문 크기에 따라 요청을 라우팅하는 방법을 보여 줍니다.|

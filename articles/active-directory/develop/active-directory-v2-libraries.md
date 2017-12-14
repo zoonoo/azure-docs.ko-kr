@@ -4,7 +4,7 @@ description: "Azure Active Directory v2.0 끝점에 대한 호환 가능한 클�
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 인증 라이브러리
-[Azure AD(Azure Active Directory) v2.0 끝점](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)은 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. V2.0 끝점과 Microsoft 및 기타 조직에서 다양한 라이브러리를 사용할 수 있습니다.
+[Azure AD(Azure Active Directory) v2.0 끝점](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare)은 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. V2.0 끝점과 Microsoft 및 기타 조직에서 다양한 라이브러리를 사용할 수 있습니다.
 
 v2.0 끝점을 사용하는 응용 프로그램을 빌드하는 경우, [Microsoft에서 수행한 방법론과 같이][Microsoft-SDL] SDL(보안 개발 수명 주기) 방법론을 수행하는 프로토콜 도메인 전문가에 의해 작성된 라이브러리를 사용하는 것이 좋습니다. 프로토콜에 대한 직접 코딩 지원을 하려는 경우 SDL 방법론을 따르고 각 프로토콜에 대한 표준 사양의 보안 고려 사항에 유의하는 것이 좋습니다.
 
 > [!NOTE]
-> Azure AD v1.0 라이브러리(ADAL)에 대한 내용은 [ADAL 라이브러리 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries)를 참조하세요. 
+> Azure AD v1.0 라이브러리(ADAL)에 대한 내용은 [ADAL 라이브러리 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)를 참조하세요. 
 > 
 > 
 

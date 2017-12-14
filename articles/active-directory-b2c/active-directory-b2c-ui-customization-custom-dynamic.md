@@ -4,7 +4,7 @@ description: "런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 끝점으로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
@@ -80,7 +80,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
     ![웹 응용 프로그램 템플릿 선택](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. **확인**을 클릭하여 프로젝트를 만듭니다.
+6. **확인**을 선택하여 프로젝트를 만듭니다.
 
 ## <a name="step-2-create-mvc-view"></a>2단계: MVC 뷰 만들기
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1단계: B2C 기본 제공 HTML5 템플릿 다운로드
@@ -152,10 +152,10 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
     ![Microsoft Azure App Service 만들기](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
-    **Create App Service**(App Service 만들기) 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+    **App Service 만들기** 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
     > [!NOTE]
-    > 게시에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)를 참조하세요.
+    > 게시에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)를 참조하세요.
 
 3. **웹앱 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, A-Z, 0-9 및 -(하이픈)). 웹앱의 URL은 `http://<app_name>.azurewebsites.NET`이며, 여기서 `<app_name>`은 웹앱 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
 
@@ -340,7 +340,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 5. 정책 테스트를 실행한 다음 **지금 등록**을 선택하여 결과를 확인합니다.
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항) 전체 정책 파일 및 코드 다운로드
-* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)이 제공됩니다.
+* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)을 제공했습니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)에서 전체 코드를 다운로드할 수 있습니다.
 
 

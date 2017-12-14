@@ -3,7 +3,7 @@ title: "Azure Automation Runbook 형식 | Microsoft Docs"
 description: "Azure Automation에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다. "
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 테이블에서는 각 유형에 대해 간략하게 설명합니다.  아래 섹션은 각각을 사용할 경우에 대한 고려 사항을 포함하여 각 형식에 대해 자세한 정보를 제공합니다.
@@ -96,7 +96,7 @@ Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 
 ### <a name="known-issues"></a>알려진 문제
 Python Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
-* 타사 라이브러리를 사용하려면 Runbook을 실행하기 전에 컴퓨터에 타사 라이브러리가 설치된 상태에서 [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) 또는 [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install)에서 Runbook을 실행해야 합니다.
+* 타사 라이브러리를 사용하려면 Runbook을 실행하기 전에 컴퓨터에 타사 라이브러리가 설치된 상태에서 [Windows Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) 또는 [Linux Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install)에서 Runbook을 실행해야 합니다.
 
 ## <a name="considerations"></a>고려 사항
 특정한 Runbook에 사용할 형식을 결정할 때 다음과 같은 사항을 추가로 고려해야 합니다.

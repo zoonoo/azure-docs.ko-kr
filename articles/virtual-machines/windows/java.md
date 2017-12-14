@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b9e739a07c5863577285fb3a221b372b385c6762
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -471,5 +471,5 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Java용 Azure 라이브러리](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview) 사용에 대해 자세히 알아보세요.
+* [Java용 Azure 라이브러리](https://docs.microsoft.com/java/azure/java-sdk-azure-overview) 사용에 대해 자세히 알아보세요.
 

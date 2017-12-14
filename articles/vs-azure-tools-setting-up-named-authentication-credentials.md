@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 12250adbfaf8621b80acd5de5de06b21e05ef07c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>명명된 인증 자격 증명 설정
 
@@ -42,6 +42,6 @@ Azure에 응용 프로그램을 게시하거나 기존 클라우드 서비스를
 ## <a name="next-steps"></a>다음 단계
 
 - [웹앱의 일반적인 개요](https://docs.microsoft.com/azure/app-service/)
-- [Azure App Service에 앱 배포](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Visual Studio를 사용하여 WebJob 배포](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Azure App Service에 앱 배포](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Visual Studio를 사용하여 WebJob 배포](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [클라우드 서비스 만들기 및 배포](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

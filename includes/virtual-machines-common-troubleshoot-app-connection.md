@@ -16,7 +16,7 @@ RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 �
 * 가상 컴퓨터 다시 시작
 * 끝점 / 방화벽 규칙 / NSG(네트워크 보안 그룹) 규칙 다시 만들기
   * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-  * [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [클래식 모델 - Cloud Services 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * 다른 Azure 가상 네트워크 등 다른 위치에서 연결
 * 가상 컴퓨터 다시 배포
   * [Windows VM 다시 배포](../articles/virtual-machines/windows/redeploy-to-new-node.md)
@@ -75,7 +75,7 @@ VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP �
 * 대상 VM의 호스트 방화벽이 인바운드 요청 및 아웃 바운드 응답 트래픽을 허용 중입니다.
 * 대상 VM에서 실행되는 침입 탐지 또는 네트워크 모니터링 소프트웨어가 트래픽을 허용 중입니다.
 * Cloud Services 끝점 또는 네트워크 보안 그룹은 다음과 같이 트래픽을 허용하고 있습니다.
-  * [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [클래식 모델 - Cloud Services 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * 부하 분산 장치 또는 방화벽과 같은 테스트 VM 및 VM 간의 경로에서 사용자의 VM에서 실행 중인 개별 구성 요소가 트래픽을 허용 중입니다.
 
@@ -115,7 +115,7 @@ VM에서 응용 프로그램이 실행되고 있는 경우 가상 네트워크 �
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>4단계: 응용 프로그램에 액세스할 수 없는 경우 IP 확인을 사용하여 설정을 확인합니다. 
 
-자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

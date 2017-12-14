@@ -4,7 +4,7 @@ description: "SAML 프로토콜 및 사용자 지정 정책을 사용하여 ADFS
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -68,8 +68,8 @@ AD FS 관리 스냅인을 사용하여 새 신뢰 당사자 트러스트를 추�
     ![신뢰 당사자 SAML 2.0 SSO 서비스 URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. **식별자 구성** 페이지에서 이전 단계와 동일한 URL을 지정하고 **추가**를 클릭하여 목록에 추가하고 **다음**을 클릭합니다.
     ![신뢰 당사자 트러스트 식별자](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
-9.  **액세스 제어 정책 선택**에서 정책을 선택하고 **다음**을 클릭합니다.
-    ![액세스 제어 정책 선택](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
+9.  **Access Control 정책 선택**에서 정책을 선택하고 **다음**을 클릭합니다.
+    ![Access Control 정책 선택](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
 10.  **트러스트 추가 준비 완료** 페이지에서 설정을 검토하고 **다음**을 클릭하여 신뢰 당사자 트러스트 정보를 저장합니다.
     ![신뢰 당사자 트러스트 정보 저장](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-9.png)
 11.  **마침** 페이지에서 **닫기**를 클릭하면 이 작업이 **클레임 규칙 편집** 대화 상자를 자동으로 표시합니다.

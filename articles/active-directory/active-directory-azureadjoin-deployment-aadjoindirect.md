@@ -4,7 +4,7 @@ description: "관리자가 최종 사용자(직원, 학생, 다른 사용자)를
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Azure AD 연결에 대한 사용 시나리오

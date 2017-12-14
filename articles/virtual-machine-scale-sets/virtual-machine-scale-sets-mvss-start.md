@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Virtual Machine Scale Sets 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
@@ -123,7 +123,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>확장 집합 속성 지정
-확장 집합에는 VM을 사용자 지정하기 위한 속성이 많이 있습니다. 이러한 속성의 전체 목록은 [확장 집합 REST API 설명서](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set)를 참조하세요. 이 자습서에서는 일반적으로 사용되는 몇 가지 속성만 설정합니다.
+확장 집합에는 VM을 사용자 지정하기 위한 속성이 많이 있습니다. 이러한 속성의 전체 목록은 [확장 집합 REST API 설명서](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set)를 참조하세요. 이 자습서에서는 일반적으로 사용되는 몇 가지 속성만 설정합니다.
 ### <a name="supply-vm-size-and-capacity"></a>VM 크기 및 용량 제공
 확장 집합은 만들 VM의 크기("sku 이름") 및 이러한 크기로 만들려는 VM의 수("sku 용량")를 알아야 합니다. 사용 가능한 VM 크기를 확인하려면 [VM 크기 설명서](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes)를 참조하세요.
 

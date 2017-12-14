@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -32,13 +32,13 @@ AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 OMS에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 OMS에 직접 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)을 참조하세요. 도메인 컨트롤러가 이미 OMS에 연결하려는 기존 System Center Operations Manager 환경의 일부인 경우 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
+* 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 OMS에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 OMS에 직접 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)을 참조하세요. 도메인 컨트롤러가 이미 OMS에 연결하려는 기존 System Center Operations Manager 환경의 일부인 경우 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
 * [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 복제 상태 데이터 컬렉션 세부 정보
 다음 표에서는 데이터 수집 방법 및 AD 복제 상태에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |5일마다 |
 
@@ -47,7 +47,7 @@ OMS에 도메인 컨트롤러를 직접 연결하지 않으려면 도메인에�
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
-2. 연결되어 있지 않으면 [OMS에 Windows 컴퓨터를 연결](log-analytics-windows-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 OMS에 연결](log-analytics-om-agents.md)합니다.
+2. 연결되어 있지 않으면 [OMS에 Windows 컴퓨터를 연결](log-analytics-windows-agent.md)하거나 [기존 Operations Manager 환경을 사용하여 OMS에 연결](log-analytics-om-agents.md)합니다.
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
 
    * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -148,7 +148,7 @@ A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결
 데이터를 수집하기 위해 AD 복제 상태 솔루션 팩에 OMS 작업 영역에 연결될 하나 이상의 도메인 컨트롤러가 필요합니다. 도메인 컨트롤러에 연결할 때까지 **데이터가 여전히 수집되고 있다고** 표시하는 메시지가 표시됩니다.
 
-도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)에서 설명서를 볼 수 있습니다. 또는 도메인 컨트롤러가 이미 기존 System Center Operations Manager 환경에 연결된 경우 [Log Analytics에 System Center Operations Manager 연결](log-analytics-om-agents.md)에서 설명서를 볼 수 있습니다.
+도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)에서 설명서를 볼 수 있습니다. 또는 도메인 컨트롤러가 이미 기존 System Center Operations Manager 환경에 연결된 경우 [Log Analytics에 System Center Operations Manager 연결](log-analytics-om-agents.md)에서 설명서를 볼 수 있습니다.
 
 OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)를 참조하세요.
 

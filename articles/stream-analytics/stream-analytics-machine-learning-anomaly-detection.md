@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>ANOMALYDETECTION 연산자 사용
 
@@ -38,25 +38,25 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="syntax"></a>구문
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>사용 예
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>인수
 
 - **scalar_expression**
 
-  변칙 검색을 수행할 스칼라 식입니다. 단일(스칼라) 값을 반환하는 float 또는 bigint 형식의 식입니다. 와일드 카드 식 **\*** 는 허용되지 않습니다. **scalar_expression** 은 다른 분석 함수 또는 외부 함수를 포함할 수 없습니다.
+  변칙 검색을 수행할 스칼라 식입니다. 단일(스칼라) 값을 반환하는 float 또는 bigint 형식의 식입니다. 와일드 카드 식 **\***는 허용되지 않습니다. **scalar_expression** 은 다른 분석 함수 또는 외부 함수를 포함할 수 없습니다.
 
 - **OVER ( [ partition_by_clause ] limit_duration_clause [when_clause])**
 
 - **partition_by_clause** 
 
-  `PARTITION BY \<partition key\>` 절은 학습 및 훈련을 별도 파티션으로 나눕니다. 즉, `\<partition key\>` 값별로 별도 모델을 사용하고, 해당 값을 갖는 이벤트만 해당 모델의 학습 및 훈련에 사용합니다. 예를 들면 다음과 같습니다.
+  `PARTITION BY <partition key>` 절은 학습 및 훈련을 별도 파티션으로 나눕니다. 즉, `<partition key>` 값별로 별도 모델을 사용하고, 해당 값을 갖는 이벤트만 해당 모델의 학습 및 훈련에 사용합니다. 예를 들면 다음과 같습니다.
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 10/11/2017
 
 레코드에서 개별 값을 추출하려면 **GetRecordPropertyValue** 함수를 사용합니다. 예:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 이러한 변칙 점수 중 하나가 임계값을 초과할 때 특정 형식의 변칙이 검색됩니다. 임계값은 \>= 0의 임의 부동 소수점 숫자일 수 있습니다. 임계값은 민감도가 높아지면 신뢰도가 떨어지고 민감도가 낮아지면 신뢰도가 높아집니다. 예를 들어 더 낮은 임계값을 사용하면 검색이 변경에 더 민감해지고 더 많은 경고를 생성하지만, 더 높은 임계값을 사용하면 검색이 변경에 덜 민감해지고 신뢰도는 높아지지만 일부 변칙은 검색하지 못합니다. 사용할 정확한 임계값은 시나리오에 따라 달라집니다. 상한은 없으나 권장되는 범위는 3.25-5입니다.
@@ -160,12 +160,12 @@ ms.lasthandoff: 10/11/2017
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>참조
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

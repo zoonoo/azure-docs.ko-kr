@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Application Gateway 만들기
 
@@ -42,7 +42,7 @@ Azure Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)를 서
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>필수 조건: Azure CLI 2.0 설치
 
-이 문서의 단계를 수행하려면 [macOS, Linux 및 Windows용 Azure CLI를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
+이 문서의 단계를 수행하려면 [macOS, Linux 및 Windows용 Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)해야 합니다.
 
 > [!NOTE]
 > 응용 프로그램 게이트웨이를 만들려면 Azure 계정이 필요합니다. 없는 경우 지금 [무료 평가판](../active-directory/sign-up-organization.md)에 등록하세요.

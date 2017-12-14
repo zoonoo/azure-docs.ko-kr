@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Azure 보고 도구로 개인 데이터의 문서 보호
 
@@ -90,7 +90,7 @@ Azure Active Directory에서 제공되는 보고서에 대한 자세한 내용�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 [Azure Monitor의 데이터를 수집](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage)하여 다른 데이터와 상호 연결하고 추가 분석을 제공할 수 있습니다. Azure Monitor는 Azure 환경에 대한 모니터링 데이터를 수집하고 분석합니다. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/)는 [Azure Monitor의 데이터를 수집](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)하여 다른 데이터와 상호 연결하고 추가 분석을 제공할 수 있습니다. Azure Monitor는 Azure 환경에 대한 모니터링 데이터를 수집하고 분석합니다. 
 
 로그 검색, 뷰 및 솔루션과 같은 Log Analytics의 분석 도구는 전체 사용자 환경의 중앙 집중식 분석을 제공하는 모든 수집된 데이터에 대해 작동합니다. Log Analytics는 Windows 이벤트 로그, IIS 로그 및 Syslog를 집계 및 분석하여 개인 데이터가 권한이 없는 사용자에게 공개될 수 있는 잠재적인 개인 데이터 위반을 감지하는 데 도움을 줄 수 있습니다.
 
@@ -194,13 +194,13 @@ Azure 진단 확장은 수집된 데이터를 Azure Storage 계정에 전송하�
 
 ### <a name="azure-storage-analytics"></a>Azure Storage 분석 
 
-저장소 분석은 저장소 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정보는 개별 요청을 모니터링하는 데 사용할 수 있으며 서비스에 저장된 개인 데이터에 대한 액세스를 문서화하는 데 도움이 됩니다. 하지만 저장소 분석 로깅은 저장소 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. Azure Portal에서 활성화할 수 있습니다.
+저장소 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정보는 개별 요청을 모니터링하는 데 사용할 수 있으며 서비스에 저장된 개인 데이터에 대한 액세스를 문서화하는 데 도움이 됩니다. 하지만 저장소 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. Azure Portal에서 활성화할 수 있습니다.
 
 #### <a name="how-do-i-configure-monitoring-for-a-storage-account"></a>저장소 계정에 대한 모니터링은 어떻게 구성하나요?
 
 저장소 계정에 대한 모니터링을 구성하려면 다음을 수행합니다.
 
-1. Azure Portal에서 **저장소 계정**을 선택한 후 모니터링하려는 계정 이름을 선택합니다.
+1. Azure Portal에서 **Storage 계정**을 선택한 후 모니터링하려는 계정 이름을 선택합니다.
 
     ![](media/protection-personal-data-azure-reporting-tools/image011.png)
 
@@ -226,9 +226,9 @@ Azure 진단 확장은 수집된 데이터를 Azure Storage 계정에 전송하�
 
 - 요청 및 응답 메시지의 크기입니다.
 
-저장소 분석 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)을 참조하세요.
+저장소 분석 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Portal에서 Storage 계정 모니터링](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)을 참조하세요.
 
-### <a name="azure-security-center"></a>Azure 보안 센터 
+### <a name="azure-security-center"></a>Azure Security Center 
 
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 위협을 예방 및 감지하고 대응 권장 사항을 제공하기 위해 Azure 리소스의 보안 상태를 모니터링합니다. 개인 데이터의 프라이버시를 보호하는 보안 조치를 문서화하는 데 도움이 되는 다양한 방법을 제공합니다.
 

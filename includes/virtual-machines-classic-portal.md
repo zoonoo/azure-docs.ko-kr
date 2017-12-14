@@ -1,1 +1,1 @@
-2017년 11월 15일부터 Virtual Machines는 [Azure Portal](https://portal.azure.com)에서만 사용할 수 있습니다. 클래식 포털에서 액세스는 더 이상 지원되지 않습니다.
+2017년 11월 15일부터 Virtual Machines는 [Azure Portal](https://portal.azure.com)에서만 사용할 수 있습니다. 

@@ -4,7 +4,7 @@ description: "Azure AD와 통합할 수 있는 지원되는 응용 프로그램�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>응용 프로그램을 추가할 때 사용할 응용 프로그램 형식을 선택하는 방법
 

@@ -3,7 +3,7 @@ title: "Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 관리 | Mic
 description: "Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 CLI 2.0 명령입니다."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 이 문서는 Windows, Mac 및 Linux용으로 제공되는 플랫폼 간 Azure CLI(명령줄 인터페이스) 2.0을 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여 줍니다. [Azure PowerShell](dns-operations-recordsets.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 이 문서의 예제에서는 이미 [Azure CLI 2.0을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones-cli.md)고 가정합니다.
 

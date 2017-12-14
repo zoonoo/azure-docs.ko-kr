@@ -4,7 +4,7 @@ description: "Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스에
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 1ea3f7271bd165bf42d520e4a0267a80dcca58d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 컴퓨터를 배포하는 방법을 보여줍니다. 그런 다음 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여줍니다.
@@ -28,7 +28,7 @@ Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에
 
 1. Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합니다.
 2. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
-3. **계산**을 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다.
+3. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다.
 
     ![이미지 선택](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 4. 마법사의 **기본 사항** 페이지에서 가상 컴퓨터의 기본 설정을 구성합니다.

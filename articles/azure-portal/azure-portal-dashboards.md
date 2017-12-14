@@ -7,18 +7,18 @@ author: sewatson
 manager: timlt
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다.  이 문서에서는 대시보드 만들기, 편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.
@@ -75,7 +75,7 @@ Markdown 타일 및 대시보드에 고정된 리소스 그룹이 있으므로 �
 
 ![대시보드 공유](./media/azure-portal-dashboards/share-dashboard.png)
 
-게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 에코시스템에 대시보드를 매끄럽게 통합하기 위해 공유 대시보드를 Azure 리소스로 구현했습니다(따라서 전자 메일 주소를 입력하여 공유할 수 없습니다).  포털에서 대부분 타일에 표시되는 정보에 대한 액세스는 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)로 제어됩니다. 액세스 제어 관점에서 공유 대시보드는 가상 컴퓨터 또는 저장소 계정과 차이가 없습니다.  
+게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 에코시스템에 대시보드를 매끄럽게 통합하기 위해 공유 대시보드를 Azure 리소스로 구현했습니다(따라서 전자 메일 주소를 입력하여 공유할 수 없습니다).  포털에서 대부분 타일에 표시되는 정보에 대한 액세스는 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)로 제어됩니다. 액세스 제어 관점에서 공유 대시보드는 가상 컴퓨터 또는 저장소 계정과 차이가 없습니다.  
 
 Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 구성원이 있다고 가정해 보겠습니다.  소유자 또는 참여자인 사용자는 해당 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다.  읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다.  읽기 권한자 액세스를 보유한 사용자는 공유 대시보드에 대한 로컬 편집을 만들 수 있지만 해당 변경 내용을 서버로 다시 게시할 수 없습니다.  그러나 사용하기 위해 대시보드의 개인 복사본을 만들 수 있습니다.  늘 그렇듯이 대시보드의 개별 타일은 해당하는 리소스에 따라 고유한 액세스 제어 규칙을 적용합니다.  
 
@@ -87,7 +87,7 @@ Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽
 
 ![리소스 그룹에 대시보드 게시](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-대시보드를 게시한 후에 **공유 + 액세스** 제어 창이 새로 고쳐지고 대시보드에 대한 사용자 액세스를 관리하는 링크를 포함하여 게시된 대시보드에 대한 정보를 보여 줍니다.  이 링크는 Azure 리소스에 대한 액세스를 관리하는 데 사용되는 표준 역할 기반 액세스 제어 블레이드를 시작합니다.  언제든지 **공유**를 선택하여 이 보기로 돌아올 수 있습니다.
+대시보드를 게시한 후에 **공유 + 액세스** 제어 창이 새로 고쳐지고 대시보드에 대한 사용자 액세스를 관리하는 링크를 포함하여 게시된 대시보드에 대한 정보를 보여 줍니다.  이 링크는 Azure 리소스에 대한 액세스를 관리하는 데 사용되는 표준 역할 기반 Access Control 블레이드를 시작합니다.  언제든지 **공유**를 선택하여 이 보기로 돌아올 수 있습니다.
 
 ![액세스 제어 관리](./media/azure-portal-dashboards/manage-access.png)
 

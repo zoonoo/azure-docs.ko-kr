@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Service Fabric에서는 다양한 이유로 상태 저장 서비스에 대한 �
 
 취소를 완전히 처리하지 않는 서비스에는 몇 가지 문제가 발생합니다. Service Fabric에서 서비스가 정상적으로 중지되기를 기다리기 때문에 이러한 작업이 느려질 수 있습니다. 이로 인해 궁극적으로 시간이 초과되고 롤백하게 되는 실패한 업그레이드로 이어질 수 있습니다. 취소 토큰을 사용하지 않으면 클러스터가 분산되지 않을 수도 있습니다. 클러스터가 핫 노드가 되어 분산되지 않게 되지만 다른 곳으로 이동하는 데 시간이 너무 오래 걸리므로 서비스를 다시 분산할 수 없습니다. 
 
-서비스가 상태 저장 서비스이므로 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하고 있을 가능성이 큽니다. Service Fabric에서 주 복제본이 강등될 때 가장 먼저 발생하는 상황 중 하나는 기본 상태에 대한 쓰기 액세스가 철회된다는 것입니다. 이로 인해 서비스 수명 주기에 영향을 줄 수 있는 두 번째 문제 집합이 발생합니다. 컬렉션에서는 타이밍 및 복제본이 이동되거나 종료되는지 여부에 따라 예외를 반환합니다. 이러한 예외는 올바르게 처리되어야 합니다. Service Fabric에서 발생한(throw) 예외는 영구[(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) 및 일시적[(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) 범주로 분류됩니다. 영구 예외는 기록되고 발생되어야 하지만, 일시적 예외는 몇 가지 다시 시도 논리에 따라 다시 시도될 수 있습니다.
+서비스가 상태 저장 서비스이므로 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하고 있을 가능성이 큽니다. Service Fabric에서 주 복제본이 강등될 때 가장 먼저 발생하는 상황 중 하나는 기본 상태에 대한 쓰기 액세스가 철회된다는 것입니다. 이로 인해 서비스 수명 주기에 영향을 줄 수 있는 두 번째 문제 집합이 발생합니다. 컬렉션에서는 타이밍 및 복제본이 이동되거나 종료되는지 여부에 따라 예외를 반환합니다. 이러한 예외는 올바르게 처리되어야 합니다. Service Fabric에서 발생한(throw) 예외는 영구[(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) 및 일시적[(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) 범주로 분류됩니다. 영구 예외는 기록되고 발생되어야 하지만, 일시적 예외는 몇 가지 다시 시도 논리에 따라 다시 시도될 수 있습니다.
 
 서비스 수명 주기 이벤트와 함께 `ReliableCollections` 사용으로 인한 예외 처리는 신뢰할 수 있는 서비스의 테스트 및 유효성 검사에 대한 중요한 부분입니다. 권장 사항은 항상 프로덕션에 배포하기 전에 업그레이드 및 [비정상 상황 테스트(chaos testing)](service-fabric-controlled-chaos.md)를 수행하는 동안 로드 상태에서 서비스를 실행하는 것입니다. 이러한 기본 단계를 통해 서비스가 올바르게 구현되고 수명 주기 이벤트가 올바르게 처리되도록 할 수 있습니다.
 

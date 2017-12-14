@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -42,7 +42,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agents.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Operations Management Suite로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
@@ -55,7 +55,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 다음 정보를 사용하여 솔루션을 구성합니다.
 
-- 모니터링할 각 DNS 서버에 [Windows](log-analytics-windows-agents.md) 또는 [Operations Manager](log-analytics-om-agents.md) 에이전트가 있어야 합니다.
+- 모니터링할 각 DNS 서버에 [Windows](log-analytics-windows-agent.md) 또는 [Operations Manager](log-analytics-om-agents.md) 에이전트가 있어야 합니다.
 - [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Operations Management Suite 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다.
 
 솔루션은 추가 구성이 필요 없이 데이터 수집을 시작합니다. 그러나 다음 구성을 사용하여 데이터 수집을 사용자 지정할 수 있습니다.

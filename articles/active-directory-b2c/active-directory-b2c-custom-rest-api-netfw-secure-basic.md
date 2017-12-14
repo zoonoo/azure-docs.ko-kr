@@ -4,7 +4,7 @@ description: "HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 �
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 [관련된 Azure AD B2C 문서](active-directory-b2c-custom-rest-api-netfw.md)에서 인증하지 않고 Azure AD B2C(Azure Active Directory B2C) 사용자 경험에 통합되는 RESTful 서비스(Web API)를 만듭니다. 
 
 이 문서에서는 B2C를 포함하여 확인된 사용자만이 API에 액세스할 수 있도록 RESTful 서비스에 HTTP 기본 인증을 추가합니다. HTTP 기본 인증을 사용하여 사용자 지정 정책에서 사용자 자격 증명(앱 ID 및 앱 암호)를 설정합니다. 
 
-자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
+자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 [Azure AD B2C 사용자 경험에서 REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서에서 단계를 완료합니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 OMS에 컴퓨터 연결
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/17/2017
 
 OMS 게이트웨이는 다음을 지원합니다.
 
-* Azure 자동화 Hybrid Runbook Worker  
+* Azure Automation Hybrid Runbook Worker  
 * OMS 작업 영역에 직접 연결된 Microsoft 모니터링 에이전트가 있는 Windows 컴퓨터
 * OMS 작업 영역에 직접 연결된 Linux용 OMS 에이전트가 있는 Linux 컴퓨터  
 * OMS와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함) 또는 Operations Manager 2016 관리 그룹  
@@ -129,7 +129,7 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS 에이전트 및 Operations Manager 관리 그룹 구성
 다음 섹션에는 OMS 게이트웨이와 직접 연결되는 OMS 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 OMS와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
 
-OMS에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [OMS에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 또는 Linux 컴퓨터의 경우 [OMS에 Linux 컴퓨터 연결](log-analytics-linux-agents.md)을 참조하세요. 
+OMS에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [OMS에 Windows 컴퓨터 연결](log-analytics-windows-agent.md) 또는 Linux 컴퓨터의 경우 [OMS에 Linux 컴퓨터 연결](log-analytics-linux-agents.md)을 참조하세요. 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>OMS 게이트웨이를 프록시 서버로 사용하도록 OMS 에이전트 및 Operations Manager 구성
 

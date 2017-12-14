@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8c8cda26f2b9b564dee330e4883ec12f39feb652
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석
 
@@ -361,7 +361,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
     > [!NOTE]
     > ‘your_HDInsight_cluster_name’을 HDInsight 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 HDInsight 관리자 로그인의 암호를 입력합니다.
     >
-    > 이 예제에서는 Azure PowerShell이 필요합니다. Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)을 참조하세요.
+    > 이 예제에서는 Azure PowerShell이 필요합니다. Azure PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)을 참조하세요.
 
     이러한 예제에서 반환되는 정보는 다음 텍스트와 유사합니다.
 

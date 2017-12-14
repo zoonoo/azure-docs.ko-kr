@@ -6,7 +6,7 @@ VM(가상 컴퓨터)에 연결된 데이터 디스크가 더 이상 필요하지
 ## <a name="find-the-disk"></a>디스크 찾기
 VM에서 디스크를 분리하기 전에 분리할 디스크에 대한 식별자인 LUN 번호를 확인해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1. Azure CLI를 열고 [Azure 구독에 연결](../articles/xplat-cli-connect.md)합니다. Azure 서비스 관리 모드(`azure config mode asm`)에 있는지 확인합니다.
+1. Azure CLI를 열고 [Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다. Azure 서비스 관리 모드(`azure config mode asm`)에 있는지 확인합니다.
 2. 디스크가 VM에 연결되어 있는지 확인합니다. 다음 예제에서는 `myVM`이라는 VM에 대한 디스크를 나열합니다.
 
     ```azurecli

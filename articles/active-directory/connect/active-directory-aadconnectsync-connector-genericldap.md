@@ -4,7 +4,7 @@ description: "이 문서에서는 Microsoft의 일반 LDAP 커넥터를 구성�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>일반 LDAP 커넥터 기술 참조
 이 문서에서는 일반 LDAP 커넥터를 설명합니다. 이 문서는 다음 제품에 적용됩니다.

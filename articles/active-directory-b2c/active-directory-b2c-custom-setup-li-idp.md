@@ -4,7 +4,7 @@ description: "OAuth2 프로토콜과 사용자 지정 정책을 사용하여 Lin
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f72fac677aa7d461f174b2b06db69df235273375
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 LinkedIn 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -218,5 +218,5 @@ ID 공급자를 설정했습니다. 그러나 등록 또는 로그인 창에서 
 ## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>7단계: (선택 사항) 프로필 편집 사용자 경험에 LinkedIn 계정 클레임 공급자 등록
 `ProfileEdit` 사용자 경험에 LinkedIn 계정 ID 공급자를 추가하려고 할 수도 있습니다. 사용자 경험을 사용할 수 있도록 하려면 "4단계"를 반복합니다. 이번에는 `Id="ProfileEdit"`를 포함하는 `<UserJourney>` 노드를 선택합니다. 정책을 저장하고, 업로드하고, 테스트합니다.
 
-## <a name="optional-download-the-complete-policy-files"></a>(선택 사항) 완성 정책 파일 다운로드
-[사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)을 제공했습니다.
+## <a name="optional-download-the-complete-policy-files"></a>(선택 사항) 전체 정책 파일 다운로드
+[사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)이 제공됩니다.

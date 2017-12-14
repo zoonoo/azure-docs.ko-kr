@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8372817b00d8a5f9e4203b072dbc143185639120
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -31,7 +31,7 @@ Dv3 또는 Ev3 시리즈 가상 컴퓨터의 지역별 가용성은 [여기](htt
 
 >[!NOTE]
 >
->새 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)를 참조하세요.
+>새 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)를 참조하세요.
     
 ## <a name="connect-to-your-azure-vm"></a>Azure VM에 연결
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB 자동화 - Powershell로 관리 | Microsoft Docs"
+title: "Azure Cosmos DB Automation - Powershell로 관리 | Microsoft Docs"
 description: "Azure Powershell을 사용하여 Azure Cosmos DB 계정을 관리합니다."
 services: cosmos-db
 author: dmakwana
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정 만들기
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 10/11/2017
 * 앞의 예제에서는 두 개의 하위 지역이 있는 데이터베이스 계정을 만듭니다. 하나의 하위 지역(쓰기 하위 지역으로 지정되고 장애 조치 우선 순위 값이 0임) 또는 세 개 이상의 하위 지역이 있는 데이터베이스 계정도 만들 수 있습니다. 자세한 내용은 [다중 하위 지역 데이터베이스 계정][scaling-globally]을 참조하세요.
 * 위치는 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
-## <a id="update-documentdb-account-powershell"></a> DocumentDB 데이터베이스 계정 업데이트
+## <a id="update-documentdb-account-powershell"></a> Azure Cosmos DB 데이터베이스 계정 업데이트
 
 이 명령을 사용하면 Azure Cosmos DB 데이터베이스 계정 속성을 업데이트할 수 있습니다. 여기에는 일관성 정책과 데이터베이스 계정이 있는 위치가 포함됩니다.
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> DocumentDB 데이터베이스 계정 삭제
+## <a id="delete-documentdb-account-powershell"></a> Azure Cosmos DB 데이터베이스 계정 삭제
 
 이 명령을 사용하면 기존 Azure Cosmos DB 데이터베이스 계정을 삭제할 수 있습니다.
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> DocumentDB 데이터베이스 계정 속성 가져오기
+## <a id="get-documentdb-properties-powershell"></a> Azure Cosmos DB 데이터베이스 계정의 속성 가져오기
 
 이 명령을 사용하면 기존 Azure Cosmos DB 데이터베이스 계정의 속성을 가져올 수 있습니다.
 

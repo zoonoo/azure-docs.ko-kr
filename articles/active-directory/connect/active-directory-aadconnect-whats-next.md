@@ -4,7 +4,7 @@ description: "Azure AD Connect에 대한 기본 구성 및 운영 작업을 확�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
 이 문서의 운영 절차를 사용하여 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory(Azure AD) Connect를 사용자 지정합니다.  
@@ -55,7 +55,7 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 
 <center>![동기화 시작](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Azure AD Connect 동기화 스케줄러에 대한 자세한 내용은 [Azure AD Connect 스케줄러](active-directory-aadconnectsync-feature-scheduler.md)를 참조하세요.
+Azure AD Connect 동기화 Scheduler에 대한 자세한 내용은 [Azure AD Connect Scheduler](active-directory-aadconnectsync-feature-scheduler.md)를 참조하세요.
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Azure AD Connect에서 사용할 수 있는 추가 작업
 Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 바탕 화면 바로 가기에서 항상 마법사를 다시 시작할 수 있습니다.  마법사를 다시 실행하면 몇가지 새로운 옵션이 추가 작업의 형태로 제공됩니다.  

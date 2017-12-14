@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Linux용 Docker VM 확장 사용"
-description: "Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, Azure CLI를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
+description: "Docker 및 Azure Virtual Machines 확장에 대해 설명하고, Azure CLI를 사용하여 명령줄에서 Docker 호스트인 Virtual Machines를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Azure CLI를 설치하고 구성하려면, [Azure 명령줄 인터페이스를 �
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI를 Azure 계정에 연결
-Azure CLI를 사용하려면 먼저 Azure 계정 자격 증명을 사용자 플랫폼의 Azure CLI에 연결해야 합니다. [Azure 구독에 연결하는 방법](../../../xplat-cli-connect.md) 섹션에서 **.publishsettings** 파일을 다운로드하고 가져오거나 Azure CLI를 조직 ID에 연결하는 방법에 대해 설명합니다.
+Azure CLI를 사용하려면 먼저 Azure 계정 자격 증명을 사용자 플랫폼의 Azure CLI에 연결해야 합니다. [Azure 구독에 연결하는 방법](/cli/azure/authenticate-azure-cli) 섹션에서 **.publishsettings** 파일을 다운로드하고 가져오거나 Azure CLI를 조직 ID에 연결하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 사용하는 인증 방법에 따라 동작에 몇 가지 차이점이 있으므로 위 문서를 읽고 서로 다른 기능을 이해해야 합니다.

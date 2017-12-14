@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Jenkins 및 Team Services를 사용하여 Linux VM에 앱 배포
 
@@ -40,7 +40,7 @@ CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Jenkins 서버에 대한 액세스가 필요합니다. Jenkins 서버를 아직 만들지 않은 경우 [Azure 가상 컴퓨터에 Jenkins 마스터 만들기](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template)를 참조하세요. 
+* Jenkins 서버에 대한 액세스가 필요합니다. Jenkins 서버를 아직 만들지 않은 경우 [Azure 가상 컴퓨터에 Jenkins 마스터 만들기](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)를 참조하세요. 
 
 * Team Services 계정(**https://{youraccount}.visualstudio.com**)에 로그인합니다. 
   [Team Services 계정은 무료](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)로 제공됩니다.
@@ -48,9 +48,9 @@ CI(연속 통합) 및 CD(연속 배포)는 코드를 빌드, 릴리스 및 배�
   > [!NOTE]
   > 자세한 내용은 [Team Services에 연결](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)을 참조하세요.
 
-*  배포 대상으로 Linux 가상 컴퓨터가 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm)를 참조하세요.
+*  배포 대상으로 Linux 가상 컴퓨터가 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)를 참조하세요.
 
-*  가상 컴퓨터의 인바운드 포트 80을 엽니다. 자세한 내용은 [Azure Portal을 사용하여 네트워크 보안 그룹 만들기](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)를 참조하세요.
+*  가상 컴퓨터의 인바운드 포트 80을 엽니다. 자세한 내용은 [Azure Portal을 사용하여 네트워크 보안 그룹 만들기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)를 참조하세요.
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 

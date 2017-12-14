@@ -3,7 +3,7 @@ title: "여러 지역에 Web Service를 배포하는 방법 | Microsoft Docs"
 description: "새 웹 서비스를 다른 영역을 배포(복사)하는 단계입니다."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>여러 지역에 웹 서비스를 배포하는 방법
 새 Azure 웹 서비스를 사용하면 여러 구독 또는 작업 영역 없이 여러 지역에 웹 서비스를 쉽게 배포할 수 있습니다. 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 6. **구독** 드롭다운에서 새 웹 서비스가 상주할 구독을 선택합니다.
 7. **리소스 그룹** 드롭다운에서 웹 서비스에 대한 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 8. **지역** 드롭다운에서 웹 서비스를 배포할 지역을 선택합니다.
-9. **저장소 계정** 드롭다운에서 웹 서비스에 저장할 저장소 계정을 선택합니다.
+9. **Storage 계정** 드롭다운에서 웹 서비스에 저장할 Storage 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
 11. **복사**를 클릭합니다.
 

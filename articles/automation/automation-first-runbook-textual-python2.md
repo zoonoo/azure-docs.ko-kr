@@ -3,7 +3,7 @@ title: "Azure Automation의 내 첫 번째 Python Runbook | Microsoft Docs"
 description: "간단한 Python Runbook의 생성, 테스트, 게시 방법을 안내하는 자습서입니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -36,15 +36,15 @@ ms.lasthandoff: 10/25/2017
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
-* [자동화 계정](automation-offering-get-started.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
+* [Automation 계정](automation-offering-get-started.md) .  이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 컴퓨터. 프로덕션 VM이 되지 않도록 이 가상 컴퓨터를 중지하고 시작합니다.
 
 ## <a name="create-a-new-runbook"></a>새 Runbook 만들기
 
 먼저 *헬로 월드*라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
 
-1. Azure 포털에서 자동화 계정을 엽니다.
-   자동화 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 대부분의 자산들은 새 자동화 계정에 자동적으로 포함되 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
+1. Azure Portal에서 Automation 계정을 엽니다.
+   Automation 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 대부분의 자산들은 새 Automation 계정에 자동적으로 포함되 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
 1. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
    ![RunbooksControl](media/automation-first-runbook-textual-python/runbooks-control-tiles.png)
 1. **Runbook 추가**버튼을 클릭하고 **새 Runbook 만들기**를 클릭하여 새 Runbook을 만듭니다.
@@ -212,6 +212,6 @@ async_vm_start.wait()
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
-* Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
-* Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python)를 참조하세요.
-* 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python)를 참조하세요.
+* Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
+* Python을 사용하여 Azure를 개발하는 방법에 대해 알아보려면 [Python 개발자용 Azure](https://docs.microsoft.com/python/azure/?view=azure-python)를 참조하세요.
+* 샘플 Python 2 Runbook을 보려면 [Azure Automation GitHub](https://docs.microsoft.com/python/azure/?view=azure-python)를 참조하세요.

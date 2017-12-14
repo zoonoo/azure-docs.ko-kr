@@ -3,7 +3,7 @@ title: "Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 
 description: "그룹 구성원이나 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스 검토를 만드는 방법을 알아봅니다."
 services: active-directory
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: ae926e8d3a856c9b488d46b481a1c7b5b581d532
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b2f8985f12e17ac69543cfb3a33725f796eedde8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 응용 프로그램 액세스에 대한 액세스 검토 만들기
 

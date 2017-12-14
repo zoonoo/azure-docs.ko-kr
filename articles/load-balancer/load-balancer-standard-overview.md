@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer 표준 개요(미리 보기)
 
@@ -255,7 +255,7 @@ SKU는 Azure Resource Manager 배포 모델에서만 사용할 수 있습니다.
 >[!IMPORTANT]
 >리소스의 SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.  
 
-### <a name="load-balancer"></a>부하 분산 장치
+### <a name="load-balancer"></a>Load Balancer
 
 [기존 Load Balancer 리소스](load-balancer-overview.md)는 기본 SKU가 되며 일반 공급으로 유지되고 변경되지 않습니다.
 
@@ -335,11 +335,11 @@ Load Balancer 표준은 현재 다음 지역에서 사용할 수 있습니다.
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU 서비스 제한 및 기능
 
-[네트워킹에 대한 Azure 서비스 제한](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits)은 구독당 지역당 적용됩니다. 
+[네트워킹에 대한 Azure 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)은 구독당 지역당 적용됩니다. 
 
 다음 표에서는 Load Balancer 기본 및 표준 SKU에 대한 제한 사항과 기능을 비교합니다.
 
-| 부하 분산 장치 | Basic | Standard |
+| Load Balancer | Basic | Standard |
 | --- | --- | --- |
 | 백 엔드 풀 크기 | 최대 100 | 최대 1,000 |
 | 백 엔드 풀 경계 | 가용성 집합 | 가상 네트워크, 지역 |

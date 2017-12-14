@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a91d676a4513e5e96f3ac8a224666f3eacec16f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Reliable Services로 서비스 원격 호출
 특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다.
@@ -85,18 +85,18 @@ string message = await helloWorldClient.HelloWorldAsync();
 ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만큼 만들 수 있습니다. 서비스 프록시 인스턴스는 사용자가 필요할 때까지 다시 사용할 수 있습니다. 원격 프로시저 호출에서 Exception이 발생하는 경우 사용자가 동일한 프록시 인스턴스를 계속 다시 사용할 수 있습니다. 각 서비스 프록시는 유선으로 메시지를 보내는 데 사용되는 통신 클라이언트를 포함합니다. 원격 호출을 수행하는 동안 내부적으로 통신 클라이언트가 유효한지 확인합니다. 그 결과에 따라 필요한 경우 통신 클라이언트를 다시 만듭니다. 따라서 예외가 발생하는 경우 사용자는 `ServiceProxy`이 투명하게 수행되기 때문에 다시 만들 필요가 없습니다.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 수명
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory)는 다른 원격 인터페이스를 위한 프록시 인스턴스를 만드는 팩터리입니다. 프록시를 만들기 위해 api `ServiceProxy.Create`를 사용하는 경우 프레임워크는 단일 ServiceProxy를 만듭니다.
-[IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory)는 다른 원격 인터페이스를 위한 프록시 인스턴스를 만드는 팩터리입니다. 프록시를 만들기 위해 api `ServiceProxy.Create`를 사용하는 경우 프레임워크는 단일 ServiceProxy를 만듭니다.
+[IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
 팩터리 생성은 비용이 많이 드는 작업입니다. ServiceProxyFactory는 통신 클라이언트의 내부 캐시를 유지 관리합니다.
 ServiceProxyFactory를 가능한 한 오랫동안 캐시하는 것이 가장 좋습니다.
 
 ## <a name="remoting-exception-handling"></a>원격 예외 처리
-서비스 API에 의해 throw되는 모든 원격 예외는 AggregateException으로 클라이언트에 다시 전송됩니다. RemoteExceptions는 DataContract 직결화가 가능해야 합니다. 그렇지 않으면 프록시 API는 직렬화 오류가 있는 [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception)을 throw합니다.
+서비스 API에 의해 throw되는 모든 원격 예외는 AggregateException으로 클라이언트에 다시 전송됩니다. RemoteExceptions는 DataContract 직결화가 가능해야 합니다. 그렇지 않으면 프록시 API는 직렬화 오류가 있는 [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception)을 throw합니다.
 
 ServiceProxy는 만들어진 서비스 파티션에 대한 모든 장애 조치 예외를 처리합니다. 장애 조치 예외(영구적인 예외)가 있는 경우 엔드포인트를 다시 확인하고 올바른 엔드포인트로 호출을 다시 시도합니다. 장애 조치 예외에 대한 재시도 횟수는 무한합니다.
 일시적 예외가 발생할 경우 프록시는 다시 호출을 시도합니다.
 
-기본 재시도 매개 변수는 [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)에서 제공됩니다.
+기본 재시도 매개 변수는 [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)에서 제공됩니다.
 사용자는 OperationRetrySettings 개체를 ServiceProxyFactory 생성자에 전달하여 이러한 값을 구성할 수 있습니다.
 ## <a name="how-to-use-remoting-v2-stack"></a>Remoting V2 스택을 사용하는 방법
 2.8 NuGet Remoting 패키지와 함께 Remoting V2 스택을 사용할 옵션이 있습니다. Remoting V2 스택은 성능이 더 우수하며 사용자 지정 직렬화 및 더 많은 플러그형 Api와 같은 기능을 제공합니다.
@@ -146,7 +146,7 @@ Remoting V2은 V1(이전 Remoting 스택)과 호환되지 않습니다. 따라�
   </Resources>
   ```
 
-2. [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet)를 사용합니다. 사용된 Default Service Endpoint Resource 이름은 "ServiceEndpointV2"이며 Service Manifest에 정의되어야 합니다.
+2. [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet)를 사용합니다. 사용된 Default Service Endpoint Resource 이름은 "ServiceEndpointV2"이며 Service Manifest에 정의되어야 합니다.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -162,7 +162,7 @@ Remoting V2은 V1(이전 Remoting 스택)과 호환되지 않습니다. 따라�
     }
   ```
 
-3. V2 [클라이언트 팩터리](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용합니다.
+3. V2 [클라이언트 팩터리](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)를 사용합니다.
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

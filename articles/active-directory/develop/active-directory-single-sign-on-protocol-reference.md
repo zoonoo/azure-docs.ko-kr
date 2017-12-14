@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Active Directory에서 Single Sign On SA
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 설명합니다.
@@ -94,7 +94,6 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 Azure AD에서는 서명된 인증 요청을 지원하지 않으므로 `AuthnRequest` 요소에 `Signature` 요소를 포함하지 마세요.
 
 ### <a name="subject"></a>제목
-
 Azure AD는 `AuthnRequest` 요소의 `Subject` 요소를 무시합니다.
 
 ## <a name="response"></a>응답
@@ -200,7 +199,6 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 ```
 
 #### <a name="subject"></a>제목
-
 이 어설션의 문 주체인 보안 주체를 지정합니다. 여기에는 인증된 사용자를 나타내는 `NameID` 요소가 포함됩니다. `NameID` 값은 토큰의 대상 그룹인 서비스 공급자에만 전달되는 대상 지정 식별자입니다. 영구적이며 해지할 수 있지만 다시 할당되지는 않습니다. 또한 불투명하며 사용자에 대한 어떠한 정보도 표시하지 않으며 특성 쿼리의 식별자로 사용할 수 없습니다.
 
 `SubjectConfirmation` 요소의 `Method` 특성은 항상 `urn:oasis:names:tc:SAML:2.0:cm:bearer`로 설정됩니다.

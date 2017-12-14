@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 12/05/2017
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
 * Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](./quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)의 복사본
 * 이 시나리오에서는 Docker 엔진이 로컬로 설치된 Windows 10 또는 MacOS에서 Azure ML Workbench를 실행 중이라고 가정합니다. 
-* 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 가상 컴퓨터)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 가상 컴퓨터의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
-* Spark 클러스터에서 이 시나리오를 실행하려면 이러한 [지침](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Azure HDInsight 클러스터를 프로비전합니다. 클러스터에는 최소한 다음 조건 이상을 포함하는 것이 좋습니다. 
+* 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 가상 컴퓨터)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 가상 컴퓨터의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
+* Spark 클러스터에서 이 시나리오를 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Azure HDInsight 클러스터를 프로비전합니다. 클러스터에는 최소한 다음 조건 이상을 포함하는 것이 좋습니다. 
 - 6개의 작업자 노드
 - 8개의 코어
 - 헤더 및 작업자 노드에서 28GB의 메모리. 가상 컴퓨터의 D4 인스턴스에는 이러한 용량이 포함됩니다. 클러스터의 성능을 최대화하기 위해 다음 매개 변수를 변경하는 것이 좋습니다.
@@ -45,11 +45,11 @@ ms.lasthandoff: 12/05/2017
 - spark.executor.cores
 - spark.executor.memory 
 
-이러한 [지침](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager)에 따라 "사용자 지정 Spark 기본값" 섹션의 정의를 편집할 수 있습니다.
+이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager)에 따라 "사용자 지정 Spark 기본값" 섹션의 정의를 편집할 수 있습니다.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* 데이터 집합을 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
+* 데이터 집합을 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
 
 ## <a name="data-description"></a>데이터 설명
 

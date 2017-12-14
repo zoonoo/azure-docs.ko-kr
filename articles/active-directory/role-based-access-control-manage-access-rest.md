@@ -4,7 +4,7 @@ description: "REST API를 사용하여 역할 기반 액세스 제어 관리"
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 액세스 제어 관리
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Azure Portal 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure Portal 및 Azure Resource Manager API의 RBAC(역할 기반 Access Control)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="list-all-role-assignments"></a>모든 역할 할당 나열
 지정된 범위 및 하위 범위에서 모든 역할 할당을 나열합니다.
 
-역할 할당을 나열하려면 범위에서 `Microsoft.Authorization/roleAssignments/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할 할당을 나열하려면 범위에서 `Microsoft.Authorization/roleAssignments/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **GET** 메서드를 사용합니다.
@@ -81,7 +81,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="get-information-about-a-role-assignment"></a>역할 할당에 대한 정보 가져오기
 역할 할당 식별자에서 지정한 단일 역할 할당에 대한 정보를 가져옵니다.
 
-역할 할당에 대한 정보를 가져오려면 `Microsoft.Authorization/roleAssignments/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할 할당에 대한 정보를 가져오려면 `Microsoft.Authorization/roleAssignments/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **GET** 메서드를 사용합니다.
@@ -122,7 +122,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="create-a-role-assignment"></a>역할 할당 만들기
 지정된 역할을 부여하는 지정된 보안 주체에 대해 지정된 범위에서 역할 할당을 만듭니다.
 
-역할 할당을 만들려면 `Microsoft.Authorization/roleAssignments/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할 할당을 만들려면 `Microsoft.Authorization/roleAssignments/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **PUT** 메서드를 사용합니다.
@@ -180,7 +180,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="delete-a-role-assignment"></a>역할 할당 삭제
 지정된 범위에서 역할 할당을 삭제합니다.
 
-역할 할당을 삭제하려면 `Microsoft.Authorization/roleAssignments/delete` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할 할당을 삭제하려면 `Microsoft.Authorization/roleAssignments/delete` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **DELETE** 메서드를 사용합니다.
@@ -221,7 +221,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="list-all-roles"></a>모든 역할 나열
 지정된 범위에서 할당에 사용할 수 있는 모든 역할을 나열합니다.
 
-역할을 나열하려면 범위에서 `Microsoft.Authorization/roleDefinitions/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할을 나열하려면 범위에서 `Microsoft.Authorization/roleDefinitions/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **GET** 메서드를 사용합니다.
@@ -239,7 +239,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 3. *{filter}* 를 역할 목록을 필터링하기 위해 적용할 조건으로 바꿉니다.
 
    * 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할 나열: `atScopeAndBelow()`
-   * 정확한 표시 이름을 사용하여 역할 검색: `roleName%20eq%20'{role-display-name}'` 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예를 들어, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * 정확한 표시 이름을 사용하여 역할 검색: `roleName%20eq%20'{role-display-name}'`역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예를 들어, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>응답
 상태 코드: 200
@@ -304,7 +304,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="get-information-about-a-role"></a>역할에 대한 정보 가져오기
 역할 정의 식별자에서 지정한 단일 역할에 대한 정보를 가져옵니다. 해당 표시 이름을 사용하여 단일 역할에 대한 정보를 가져오려면 [모든 역할 나열](role-based-access-control-manage-access-rest.md#list-all-roles)을 참조하세요.
 
-역할에 대한 정보를 가져오려면 `Microsoft.Authorization/roleDefinitions/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할에 대한 정보를 가져오려면 `Microsoft.Authorization/roleDefinitions/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **GET** 메서드를 사용합니다.
@@ -384,7 +384,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 사용자 지정 역할을 만듭니다.
 
-사용자 지정 역할을 만들려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+사용자 지정 역할을 만들려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **PUT** 메서드를 사용합니다.
@@ -487,7 +487,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
 사용자 지정 역할을 수정합니다.
 
-사용자 지정 역할을 수정하려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+사용자 지정 역할을 수정하려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/write` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **PUT** 메서드를 사용합니다.
@@ -590,7 +590,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 사용자 지정 역할을 삭제합니다.
 
-사용자 지정 역할을 삭제하려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/delete` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+사용자 지정 역할을 삭제하려면 해당하는 모든 `AssignableScopes`에서 `Microsoft.Authorization/roleDefinitions/delete` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 Access Control](role-based-access-control-configure.md)을 참조하세요.
 
 ### <a name="request"></a>요청
 다음 URI와 함께 **DELETE** 메서드를 사용합니다.

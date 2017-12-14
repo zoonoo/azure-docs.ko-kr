@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Azure DevTest Labs에서 데이터 디스크를 가상 머신에 연결 또는 분리
-[Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview)는 가상 머신 데이터 디스크와 연결된 저장소 계정을 관리합니다. 사용자가 새 데이터 디스크를 VM에 연결하고 필요한 디스크의 유형과 크기를 지정하면, Azure에서 디스크가 자동으로 만들어지고 관리됩니다. 그런 다음 데이터 디스크를 VM에서 분리하고 동일한 VM에 나중에 다시 연결하거나 동일한 사용자에 속하는 다른 VM에 연결할 수 있습니다.
+[Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)는 가상 머신 데이터 디스크와 연결된 저장소 계정을 관리합니다. 사용자가 새 데이터 디스크를 VM에 연결하고 필요한 디스크의 유형과 크기를 지정하면, Azure에서 디스크가 자동으로 만들어지고 관리됩니다. 그런 다음 데이터 디스크를 VM에서 분리하고 동일한 VM에 나중에 다시 연결하거나 동일한 사용자에 속하는 다른 VM에 연결할 수 있습니다.
 
 이 기능은 개별 가상 머신 외부에서 저장소나 소프트웨어를 관리하는 데 편리합니다. 저장소나 소프트웨어가 데이터 디스크 내에 이미 존재하는 경우 해당 데이터 디스크를 소유하는 사용자가 소유한 모든 VM에 쉽게 연결, 분리 및 다시 연결할 수 있습니다.
 
 ## <a name="attach-a-data-disk"></a>데이터 디스크 연결
 데이터 디스크를 VM에 연결하기 전에 다음 팁을 검토하세요.
 
-- VM의 크기는 연결할 수 있는 데이터 디스크 수를 제어합니다. 자세한 내용은 [가상 컴퓨터의 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)를 참조하세요.
+- VM의 크기는 연결할 수 있는 데이터 디스크 수를 제어합니다. 자세한 내용은 [가상 컴퓨터의 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)를 참조하세요.
 - 데이터 디스크는 실행 중인 VM에만 연결할 수 있습니다. 데이터 디스크 연결을 시도하기 전에 VM이 실행 중인지 확인하세요.
 
 ### <a name="attach-a-new-disk"></a>새 디스크 연결

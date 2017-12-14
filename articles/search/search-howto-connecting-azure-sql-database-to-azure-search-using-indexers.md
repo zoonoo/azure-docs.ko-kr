@@ -1,6 +1,6 @@
 ---
 title: "인덱서를 사용하여 Azure Search에 Azure SQL Database 연결 | Microsoft Docs"
-description: "인덱서를 사용하여 Azure SQL 데이터베이스에서 Azure 검색 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다."
+description: "인덱서를 사용하여 Azure SQL Database에서 Azure Search 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다."
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
+# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure Search에 Azure SQL Database 연결
 
 [Azure Search 인덱스](search-what-is-an-index.md)를 쿼리하기 전에 데이터를 채워야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있으므로 작성할 코드의 양과 신경 써야 할 인프라가 줄어듭니다.
 
@@ -44,7 +44,7 @@ Azure SQL 데이터베이스 외에도 Azure Search는 [Azure Cosmos DB](search-
 
 * [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만듭니다.
 
@@ -189,7 +189,7 @@ SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/s
 
 + 데이터베이스 버전 요구 사항:
   * SQL Server 2012 SP3 이상(Azure VM에서 SQL Server를 사용하는 경우)
-  * Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
+  * Azure SQL Database V12(Azure SQL Database를 사용하는 경우)
 + 테이블만(뷰 제외). 
 + 데이터베이스에서 테이블에 대해 [변경 내용 추적을 설정](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server)합니다. 
 + 테이블에서 복합 기본 키(두 개 이상의 열을 포함하는 기본 키)가 없습니다.  
@@ -289,7 +289,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
+| smallmoney, money decimal numeric |Edm.String |Azure Search에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |SQL 문자열은 문자열이 JSON 배열을 나타내는 경우 Collection(Edm.String) 필드를 채우는 데 사용할 수 있습니다. `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |

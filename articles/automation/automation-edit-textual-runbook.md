@@ -1,9 +1,9 @@
 ---
-title: "Azure 자동화에서 텍스트 Runbook 편집"
-description: "이 문서에서는 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 제공합니다."
+title: "Azure Automation에서 텍스트 Runbook 편집"
+description: "이 문서에서는 텍스트 편집기를 사용하여 Azure Automation에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 제공합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e166700be0ec6b32d40f34bd47f92a7cff1cc7bf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="editing-textual-runbooks-in-azure-automation"></a>Azure 자동화에서 텍스트 Runbook 편집
-Azure 자동화에서 텍스트 편집기를 사용하여 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 편집할 수 있습니다. 텍스트 편집기에는 Intellisense와 색 구분 같은 타 코드 편집기의 일반적인 기능과, Runbook에 일반적인 리소스를 액세스하는 데 도움이 되는 추가적인 특수 기능이 있습니다.  이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다.
+# <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
+Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 편집할 수 있습니다. 텍스트 편집기에는 Intellisense와 색 구분 같은 타 코드 편집기의 일반적인 기능과, Runbook에 일반적인 리소스를 액세스하는 데 도움이 되는 추가적인 특수 기능이 있습니다.  이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다.
 
 텍스트 편집기에는 활동, 자산 및 자식 Runbook에 대한 코드를  Runbook에 삽입하는 기능이 포함되어 있습니다. 코드를 직접 입력하지 않고 사용 가능한 리스소 목록에서 선택하여 적합한 코드를 Runbook에 에 삽입할 수 있습니다.
 
-Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](automation-creating-importing-runbook.md#publishing-a-runbook) 를 참조하세요.
+Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](automation-creating-importing-runbook.md#publishing-a-runbook) 를 참조하세요.
 
-[그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 작업은 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
+[그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 작업은 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
 ## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Azure 포털을 사용하여 Runbook을 편집하려면
 다음 절차를 사용하여 텍스트 편집기에서 편집할 Runbook을 엽니다.
@@ -64,7 +64,7 @@ Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 ## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Azure 포털을 사용하여 Runbook을 편집하려면
 다음 절차를 사용하여 텍스트 편집기에서 편집할 Runbook을 엽니다.
 
-1. Azure 포털에서 **자동화** 를 선택한 다음 자동화 계정의 이름을 클릭합니다.
+1. Azure Portal에서 **Automation**을 선택한 다음 자동화 계정의 이름을 클릭합니다.
 2. **Runbook** 탭을 선택합니다.
 3. 편집할 Runbook 이름을 클릭한 다음 **작성** 단추를 선택합니다.
 4. 화면 아래쪽에 있는 **편집** 단추를 클릭합니다.
@@ -97,7 +97,7 @@ Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 4. 가운데 열에서 사용 가능한 자산을 선택합니다.
 5. 선택 단추를 클릭합니다.  자산을 가져오거나 설정하는 코드가 Runbook에 삽입됩니다.
 
-## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Azure 자동화 Runbook을 편집하려면
+## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Azure Automation Runbook을 편집하려면
 Windows PowerShell을 사용하여 Runbook을 편집하려면 원하는 편집기를 사용하고 .ps1 파일에 저장합니다. [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet을 사용하여 Runbook의 콘텐츠를 가져온 다음 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet을 사용하여 기존 초안 Runbook를 수정 항목으로 교체할 수 있습니다.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook의 콘텐츠를 검색하려면
@@ -123,9 +123,9 @@ Windows PowerShell을 사용하여 Runbook을 편집하려면 원하는 편집�
     Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 ## <a name="related-articles"></a>관련된 문서
-* [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
+* [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 * [PowerShell 워크플로 학습](automation-powershell-workflow.md)
-* [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
+* [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * [인증서](automation-certificates.md)
 * [연결](automation-connections.md)
 * [자격 증명](automation-credentials.md)

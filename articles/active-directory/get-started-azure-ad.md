@@ -3,7 +3,7 @@ title: "Azure Active Directory 시작 | Microsoft Docs"
 description: "Azure Active Diretory에서 라이선스 받기, 도메인 이름 추가, 사용자 지정 로그인 페이지 만들기 및 셀프 서비스 암호 재설정 추가"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD 시작
 인증된 사용자에게만 응용 프로그램 및 서비스의 고가용성을 보장하기 위해 최신 ID 관리에는 확장 가능하고 일관된 안정성이 필요합니다. 사용자의 ID 관리 요구를 적절하게 지원하기 위해 IT 부서에는 승인된 공용 SaaS(software as a service) 앱에 대한 액세스를 제공하는 방법, 내부 기간 업무 앱을 호스트하는 방법 및 온-프레미스 앱 개발 및 사용을 강화하는 방법이 필요합니다. 이러한 요구 사항은 모두 클라우드 기반 ID 관리 솔루션의 필요성을 의미합니다.      

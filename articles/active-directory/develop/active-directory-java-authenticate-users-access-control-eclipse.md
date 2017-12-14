@@ -1,10 +1,10 @@
 ---
-title: "액세스 제어 사용 방법(Java) | Microsoft Docs"
-description: "Azure에서 Java를 사용하여 액세스 제어를 개발하고 사용하는 방법에 대해 알아봅니다."
+title: "Access Control 사용 방법(Java) | Microsoft Docs"
+description: "Azure에서 Java를 사용하여 Access Control을 개발하고 사용하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
-이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(액세스 제어 서비스)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
+# <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법
+이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(Access Control Service)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
 
 > [!NOTE]
 > Azure Access Control Services Filter는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft에서 공식적으로 지원되지 않습니다.
@@ -86,11 +86,11 @@ ACS가 IP를 신뢰하도록 구성된 경우 시스템은 해당 IP에서 발�
 * Azure 계산 에뮬레이터 및 배포 기술의 기본적인 지식은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명되어 있습니다.
 
 ## <a name="create-an-acs-namespace"></a>ACS 네임스페이스 만들기
-Azure에서 ACS(액세스 제어 서비스) 사용을 시작하려면 ACS 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
+Azure에서 ACS(Access Control Service) 사용을 시작하려면 ACS 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
 
 1. [Azure 관리 포털][Azure Management Portal]에 로그인합니다.
 2. **Active Directory**를 클릭합니다. 
-3. 새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**, **앱 서비스**, **액세스 제어**, **빠른 생성**을 차례로 클릭합니다. 
+3. 새 Access Control 네임스페이스를 만들려면 **새로 만들기**, **App Services**, **Access Control**, **빠른 생성**을 차례로 클릭합니다. 
 4. 네임스페이스의 이름을 입력합니다. Azure에서 이름이 고유한지 검증합니다.
 5. 네임스페이스가 사용되는 지역을 선택합니다. 최상의 성능을 얻으려면 응용 프로그램을 배포할 지역을 사용합니다.
 6. 둘 이상의 구독이 있는 경우 ACS 네임스페이스에 사용할 구독을 선택합니다.

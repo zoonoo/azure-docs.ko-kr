@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/10/2017
+ms.date: 12/08/2017
 ms.author: raynew
-ms.openlocfilehash: f9cd57e47a8463440148b2bcc6c21beacd54382a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8251534b2e1e0d223f5e1df5dbd33831604615cb
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
 
@@ -54,7 +54,7 @@ Azure VM 복제를 사용하도록 설정하면 아래에 표시된 리소스가
 **대상 리소스 그룹** | 장애 조치(failover) 후 복제된 VM이 속하게 되는 리소스 그룹입니다.
 **대상 가상 네트워크** | 장애 조치(failover) 후 복제된 VM이 있는 가상 네트워크입니다. 네트워크 매핑은 원본 및 대상 가상 네트워크 간에 만들어집니다.
 **캐시 저장소 계정** | 원본 VM 변경 내용이 대상 저장소 계정에 복제되기 전에 추적되어 대상 위치의 캐시 저장소 계정으로 전송됩니다. 이렇게 하면 VM에서 실행 중인 프로덕션 앱에 미치는 영향을 최소화합니다.
-**대상 저장소 계정**  | 데이터가 복제되는 대상 위치의 저장소 계정입니다.
+**대상 저장소 계정**  | 데이터가 복제되는 대상 위치의 Storage 계정입니다.
 **대상 가용성 집합**  | 장애 조치(failover) 후 복제된 VM이 있는 가용성 집합입니다.
 
 ### <a name="step-2"></a>2단계

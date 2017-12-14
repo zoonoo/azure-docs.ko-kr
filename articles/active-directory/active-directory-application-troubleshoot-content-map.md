@@ -4,7 +4,7 @@ description: "Azure Active Directory 응용 프로그램 관리 및 개발과 �
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: kbrint
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f75b90aa23068abcd6e3727d7b9cd1b0f71f396c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Azure Active Directory 응용 프로그램 관리 문제 해결
 이 문서에서는 **응용 프로그램 레지스트리**를 사용한 **엔터프라이즈 응용 프로그램** 관리 및 새 응용 프로그램 개발과 관련해서 발생하는 일반적인 몇 가지 문제 해결에 도움이 되는 문서를 찾기 위한 정보를 제공합니다.

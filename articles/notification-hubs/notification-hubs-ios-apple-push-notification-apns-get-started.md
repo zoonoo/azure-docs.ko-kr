@@ -1,9 +1,9 @@
 ---
-title: "Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기 | Microsoft Docs"
-description: "이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다."
+title: "Azure Notification Hubs를 사용하여 iOS에 푸시 알림 보내기 | Microsoft Docs"
+description: "이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다."
 services: notification-hubs
 documentationcenter: ios
-keywords: "푸시 알림, 푸시 알림, ios 푸시 알림"
+keywords: "푸시 알림, 푸시알림,ios 푸시 알림"
 author: ysxu
 manager: erikre
 editor: 
@@ -15,13 +15,13 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ca6507fba0895b4f551ead5341d4febbd402b8f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기
+# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 iOS에 푸시 알림 보내기
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 
 
 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* [모바일 서비스 iOS SDK 버전 1.2.4]
+* [Mobile Services iOS SDK 버전 1.2.4]
 * [Xcode]
 * iOS 8(이상) 지원 장치
 * [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
   > 
   > 
 
-이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
+이 자습서를 완료해야 다른 모든 iOS 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -72,11 +72,11 @@ ms.lasthandoff: 10/11/2017
 </ol>
 &emsp;&emsp;&emsp;&emsp;![Azure Portal에서 APNS 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;&emsp;&emsp;![Azure 포털에서 APNS 인증 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Portal에서 APNS 인증 구성](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 이제 알림 허브가 APNS와 작동하도록 구성되었으며 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.
 
-## <a name="connect-your-ios-app-to-notification-hubs"></a>알림 허브에 iOS 앱 연결
+## <a name="connect-your-ios-app-to-notification-hubs"></a>Notification Hubs에 iOS 앱 연결
 1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
    
     ![Xcode - 단일 보기 응용 프로그램][8]
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/11/2017
     Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**, **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
    
     ![Xcode - 프로비전 프로필][9]
-4. [모바일 서비스 iOS SDK 버전 1.2.4]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
+4. [Mobile Services iOS SDK 버전 1.2.4]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
    
    > [!NOTE]
    > 알림 허브 SDK는 현재 Xcode 7의 bitcode를 지원하지 않습니다.  프로젝터의 **빌드 옵션**에서 **Bitcode 사용**을 **No**로 설정해야 합니다.
@@ -146,7 +146,7 @@ ms.lasthandoff: 10/11/2017
                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-9. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert**를 표시하려면 다음 메서드를 추가합니다.
+9. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert** 를 표시하려면 다음 메서드를 추가합니다.
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
@@ -156,9 +156,9 @@ ms.lasthandoff: 10/11/2017
 1. 실패하지 않았음을 확인하기 위해 장치에서 앱을 빌드 및 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
-허브 블레이드의 [Azure 포털] 섹션을 통해( **보내기 테스트** 옵션 사용) *Azure 포털* 에서 푸시 알림을 보내서 앱의 푸시 알림 수신을 테스트할 수 있습니다.
+허브 블레이드의 [문제 해결] 섹션을 통해( **보내기 테스트** 옵션 사용) *Azure Portal* 에서 푸시 알림을 보내서 앱의 푸시 알림 수신을 테스트할 수 있습니다.
 
-![Azure 포털 - 보내기 테스트][30]
+![Azure Portal - 보내기 테스트][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
@@ -170,11 +170,11 @@ ms.lasthandoff: 10/11/2017
 
 앱 내에서 푸시 알림을 보내려는 경우 REST 인터페이스를 사용하여 푸시 알림을 보내는 이 섹션의 예를 참조하세요.
 
-1. Xcode에서 `Main.storyboard`를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
+1. Xcode에서 `Main.storyboard` 를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
    
    * 레이블 텍스트가 없는 레이블입니다. 알림을 보내는 오류 보고에 사용됩니다. **줄** 속성은 **0**으로 설정해야 하므로 오른쪽 및 왼쪽 여백과 보기의 위쪽에 크기가 자동으로 제한됩니다.
    * **자리 표시자** 텍스트를 사용한 텍스트 필드가 **알림 메시지 입력**으로 설정됩니다. 아래와 같이 레이블 바로 아래에 있는 필드를 제한합니다. 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
-   * **알림 보내기**라는 단추는 텍스트 필드의 바로 아래 및 가로 가운데로 제한됩니다.
+   * **알림 보내기** 라는 단추는 텍스트 필드의 바로 아래 및 가로 가운데로 제한됩니다.
      
      뷰는 다음과 같이 표시되어야 합니다.
      
@@ -198,7 +198,7 @@ ms.lasthandoff: 10/11/2017
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. `HubInfo.h`를 열고 허브에 알림을 보내는 데 사용할 다음 상수를 추가합니다. 자리 표시자 문자열 리터럴을 실제 *DefaultFullSharedAccessSignature* 연결 문자열로 대체합니다.
+3. `HubInfo.h` 를 열고 허브에 알림을 보내는 데 사용할 다음 상수를 추가합니다. 자리 표시자 문자열 리터럴을 실제 *DefaultFullSharedAccessSignature* 연결 문자열로 대체합니다.
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
@@ -419,7 +419,7 @@ ms.lasthandoff: 10/11/2017
 5. 프로젝트를 빌드하고 오류가 없는지 확인 합니다.
 
 > [!NOTE]
-> Bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 Xcode에서 **빌드 설정** > **Bitcode 사용(ENABLE_BITCODE)**을 **아니요**로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다. 
+> Bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 Xcode에서 **빌드 설정** > **Bitcode 사용(ENABLE_BITCODE)**을 **아니요**로 변경해야 합니다. Notification Hubs SDK는 현재 bitcode를 지원하지 않습니다. 
 > 
 > 
 
@@ -431,7 +431,7 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 1. 앱을 실행하고 등록이 성공했는지 확인한 다음 **확인**을 누릅니다.
    
     ![iOS 앱 푸시 알림 등록 테스트][33]
-2. 위에서 설명한 것처럼, [Azure 포털]에서 테스트 푸시 알림을 보낼 수 있습니다. 앱에서 푸시 알림을 보내기 위한 코드를 추가한 경우 텍스트 필드 안쪽을 클릭하여 알림 메시지를 입력합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
+2. 위에서 설명한 것처럼, [문제 해결]에서 테스트 푸시 알림을 보낼 수 있습니다. 앱에서 푸시 알림을 보내기 위한 코드를 추가한 경우 텍스트 필드 안쪽을 클릭하여 알림 메시지를 입력합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
    
     ![iOS 앱 푸시 알림 전송 테스트][34]
 3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 장치에 푸시 알림이 전송됩니다.
@@ -441,9 +441,9 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 ## <a name="next-steps"></a>다음 단계
 이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 학습할 다음 단계로 [.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림] 자습서를 권장합니다. 여기서는 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 과정을 소개합니다. 
 
-또한 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기] 자습서로 이동할 수 있습니다. 
+또한 사용자를 관심 그룹별로 분할하려면 [Notification Hubs를 사용하여 뉴스 속보 보내기] 자습서로 이동할 수 있습니다. 
 
-알림 허브에 대한 일반적인 정보는 [알림 허브 지침]을 참조하세요.
+Notification Hubs에 대한 일반적인 정보는 [Notification Hubs 지침]을 참조하세요.
 
 <!-- Images. -->
 
@@ -464,21 +464,20 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 
 <!-- URLs. -->
-[모바일 서비스 iOS SDK 버전 1.2.4]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK 버전 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure Classic Portal]: https://manage.windowsazure.com/
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Notification Hubs를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Azure 포털]: https://portal.azure.com
+[문제 해결]: https://portal.azure.com

@@ -1,9 +1,9 @@
 ---
-title: "Azure 자동화에서 그래픽 작성 | Microsoft Docs"
-description: "그래픽 작성을 통해 코드 작업 없이 Azure 자동화에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다."
+title: "Azure Automation에서 그래픽 작성 | Microsoft Docs"
+description: "그래픽 작성을 통해 코드 작업 없이 Azure Automation에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="graphical-authoring-in-azure-automation"></a>Azure 자동화에서 그래픽 작성
+# <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 ## <a name="introduction"></a>소개
-그래픽 작성을 통해 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성 없이 Azure 자동화용 Runbook을 만들 수 있습니다. cmdlet 및 runbook의 라이브러리의 캔버스에 작업을 추가하고 이를 함께 연결하여 하나의 워크플로를 구성할 수 있습니다.  System Center Orchestrator 또는 SMA(서비스 관리 자동화)로 작업해 본 경우에 익숙하게 느껴지실 것입니다.   
+그래픽 작성을 통해 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성 없이 Azure Automation용 Runbook을 만들 수 있습니다. cmdlet 및 runbook의 라이브러리의 캔버스에 작업을 추가하고 이를 함께 연결하여 하나의 워크플로를 구성할 수 있습니다.  System Center Orchestrator 또는 SMA(서비스 관리 Automation)로 작업해 본 경우에 익숙하게 느껴지실 것입니다.   
 
 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 개념을 설명합니다.
 
 ## <a name="graphical-runbooks"></a>그래픽 Runbook
-Azure 자동화의 모든 Runbook은 Windows PowerShell 워크플로입니다.  그래픽 및 그래픽 PowerShell 워크플로 runbook은 자동화 작업자가 실행하는 PowerShell 코드를 생성하지만 사용자가 이를 보거나 직접 수정할 수는 없습니다.  그래픽 runbook을 그래픽 PowerShell 워크플로 runbook으로 변환할 수 있고 그 반대의 경우도 가능하지만 텍스트 runbook으로 변환할 수는 없습니다. 기존 텍스트 runbook을 그래픽 편집기로 가져올 수 없습니다.  
+Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다.  그래픽 및 그래픽 PowerShell 워크플로 runbook은 자동화 작업자가 실행하는 PowerShell 코드를 생성하지만 사용자가 이를 보거나 직접 수정할 수는 없습니다.  그래픽 runbook을 그래픽 PowerShell 워크플로 runbook으로 변환할 수 있고 그 반대의 경우도 가능하지만 텍스트 runbook으로 변환할 수는 없습니다. 기존 텍스트 runbook을 그래픽 편집기로 가져올 수 없습니다.  
 
 ## <a name="overview-of-graphical-editor"></a>그래픽 편집기 개요
 그래픽 Runbook을 만들거나 편집하여 Azure 포털에서 그래픽 편집기를 열 수 있습니다.
@@ -81,7 +81,7 @@ Runbook을 추가할 때 **가져오기** 옵션을 선택하여 그래픽 또�
 ![테스트 컨트롤 단추](media/automation-graphical-authoring-intro/runbook-test-start.png)
 
 ### <a name="publishing-a-graphical-runbook"></a>그래픽 Runbook 게시
-Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있는 준비가 완료되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
+Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있는 준비가 완료되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
 
 편집용 Runbook을 열고 **게시** 단추를 클릭하여 그래픽 Runbook을 게시할 수 있습니다.
 
@@ -117,10 +117,10 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 | 상수 값 |매개 변수 값을 입력합니다.  이는 Int32, Int64, String, Boolean, DateTime, Switch 데이터 형식에만 사용할 수 있습니다. |
 | 활동 출력 |워크플로에서 현재 활동 앞에 오는 활동의 출력입니다.  유효한 모든 활동이 나열됩니다.  매개 변수 값에 해당 출력을 사용할 활동만 선택하세요.  활동에서 여러 속성을 가진 개체를 출력하는 경우에는 활동을 선택한 후 속성 이름을 입력할 수 있습니다. |
 | Runbook 입력 |작업 매개 변수에 대한 입력으로 runbook의 입력 매개 변수를 선택합니다. |
-| 변수 자산 |입력으로 자동화 변수를 선택합니다. |
-| 자격 증명 자산 |입력으로 자동화 자격 증명을 선택합니다. |
-| 인증서 자산 |입력으로 자동화 인증서를 선택합니다. |
-| 연결 자산 |입력으로 자동화 연결을 선택합니다. |
+| 변수 자산 |입력으로 Automation 변수를 선택합니다. |
+| 자격 증명 자산 |입력으로 Automation 자격 증명을 선택합니다. |
+| 인증서 자산 |입력으로 Automation 인증서를 선택합니다. |
+| 연결 자산 |입력으로 Automation 연결을 선택합니다. |
 | PowerShell 식 |간단한 [PowerShell 식](#powershell-expressions)을 지정합니다.  활동 전에 식이 계산되며, 그 결과가 매개 변수 값에 사용됩니다.  변수를 사용하여 활동의 출력 또는 Runbook 입력 매개 변수를 참조할 수 있습니다. |
 | 구성되지 않음 |이전에 구성된 모든 값을 지웁니다. |
 
@@ -253,13 +253,13 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 검사점은 그래픽 PowerShell 워크플로 runbook에서 사용할 수 있고 그래픽 runbook에서는 사용할 수 없습니다.  Runbook이 Azure cmdlet를 사용하면 다른 작업자의 이 검사점에서 Runbook이 일시 중지되었다가 다시 시작되는 경우 AzureRMAccount를 사용하여 검사점이 지정된 작업을 수행해야 합니다. 
 
 ## <a name="authenticating-to-azure-resources"></a>Azure 리소스 인증
-Azure 리소스를 관리하는 Azure 자동화의 Runbook에는 Azure에 대한 인증이 필요합니다.  [실행 계정](automation-offering-get-started.md#creating-an-automation-account)(서비스 주체라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다.  [실행 계정](automation-offering-get-started.md#creating-an-automation-account)(서비스 주체라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 실행 연결 가져오기 작업(즉, Get-AutomationConnection)은 AzureRunAsConnection라는 상수 값 데이터 원본으로 구성됩니다.<br>![실행 연결 구성](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 다음 활동인 Add-AzureRmAccount는 runbook에서 사용하기 위해 인증된 실행 계정을 추가합니다.<br>
 ![Add-AzureRmAccount 매개 변수 집합](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 **APPLICATIONID**, **CERTIFICATETHUMBPRINT** 및 **TENANTID** 매개 변수의 경우에는 활동이 여러 속성이 있는 개체를 출력하기 때문에 필드 경로에 대한 속성 이름을 지정해야 합니다.  그렇지 않은 경우 runbook을 실행하면 인증하려는 시도가 실패합니다.  실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
 
-Azure 클래식 배포 또는 Azure Resource Manager 리소스를 관리하기 위해 [Azure AD 사용자 계정](automation-create-aduser-account.md)을 사용하여 자동화 계정을 만든 구독자가 이전 버전과 호환성을 유지하려면 인증하는 방법으로 Azure 계정에 액세스할 수 있는 Active Directory 사용자를 나타내는 [자격 증명 자산](automation-credentials.md)이 있는 Add-AzureAccount cmdlet을 사용합니다.
+Azure 클래식 배포 또는 Azure Resource Manager 리소스를 관리하기 위해 [Azure AD 사용자 계정](automation-create-aduser-account.md)을 사용하여 Automation 계정을 만든 구독자가 이전 버전과 호환성을 유지하려면 인증하는 방법으로 Azure 계정에 액세스할 수 있는 Active Directory 사용자를 나타내는 [자격 증명 자산](automation-credentials.md)이 있는 Add-AzureAccount cmdlet을 사용합니다.
 
 Add-AzureAccount 활동이 따르는 캔버스에 자격 증명 자산을 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다.  Add-AzureAccount는 자격 증명 활동을 해당 입력으로 사용합니다.  다음 예제에 이 내용이 나와 있습니다.
 
@@ -379,6 +379,6 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 ## <a name="next-steps"></a>다음 단계
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md) 
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
-* Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
-* 자동화 실행 계정을 사용하여 인증하는 방법을 알아보려면 [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
+* Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
+* Automation 실행 계정을 사용하여 인증하는 방법을 알아보려면 [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
 

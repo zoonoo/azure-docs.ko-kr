@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sprint-2---december-2017"></a>스프린트 2 - 2017년 12월 
 
 #### <a name="version-number-01171115263"></a>버전 번호: 0.1.1711.15263
 
->다음은 [버전 번호를 찾는 방법](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide)입니다.
+>다음은 [버전 번호를 찾는 방법](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide)입니다.
 
 세 번째 Azure Machine Learning Workbench 업데이트를 시작합니다. 이 업데이트는 Workbench 앱, CLI(명령줄 인터페이스) 및 백 엔드 서비스의 향상된 기능을 포함합니다. 웃는 얼굴과 찡그린 얼굴을 보내 주시어 대단히 감사합니다. 다음 업데이트 중 많은 부분이 여러분이 보내 주신 피드백에 따른 직접적인 결과입니다. 
 
 ## <a name="notable-new-features"></a>주목할 만한 새로운 기능
-- [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 - [MMLSpark를 사용하여 GPU 지원이 포함된 Spark에 대한 딥 러닝](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [배포 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](http://aka.ms/aml-iot-edge-blog)
 - Azure Portal에서 사용 가능한 등록된 모델 목록 및 세부 정보 보기
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/05/2017
 
 - '예제별 열 파생' 변환에서 극단적인 사례를 검토하도록 권장하면서 성능 개선
 
-- [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ![새 SQL Server 데이터 원본 만들기 이미지](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/05/2017
 
 - 이 계산 대상을 준비하고 실행에 사용할 수 있으며 Azure ML Workbench는 인증을 위해 이 키를 사용합니다.  
 
-계산 대상 만들기에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 구성](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)을 참조하세요.
+계산 대상 만들기에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 구성](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)을 참조하세요.
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 - [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017)에 대한 추가 지원입니다. 

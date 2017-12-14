@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Clipper에서 클리핑 작업 제출
 Azure Media Clipper에서 클리핑 작업 제출을 처리하려면 **submitSubclipCallback** 메서드가 구현되어야 합니다. 이 함수는 웹 서비스에 대한 Clipper 출력의 HTTP POST를 구현하는 데 사용됩니다. 이 웹 서비스에서 인코딩 작업을 제출할 수 있습니다. Clipper의 출력은 렌더링된 작업의 Media Encoder Standard 인코딩 사전 설정이거나 동적 매니페스트 필터 호출에 대한 REST API 페이로드입니다. 이 통과 모델은 미디어 서비스 계정 자격 증명이 클라이언트 브라우저에서 보호되지 않으므로 필요합니다.
@@ -151,7 +151,7 @@ var subclipper = new subclipper({
 }
 ```
 
-인코딩 작업을 수행하려면 연결된 사전 설정을 통해 Media Encoder Standard 인코딩 작업을 제출합니다. [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) 또는 [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset)를 사용한 인코딩 작업 제출에 관한 자세한 내용은 이 문서를 참조하세요.
+인코딩 작업을 수행하려면 연결된 사전 설정을 통해 Media Encoder Standard 인코딩 작업을 제출합니다. [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) 또는 [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset)를 사용한 인코딩 작업 제출에 관한 자세한 내용은 이 문서를 참조하세요.
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>인코딩 없이 신속하게 비디오 클립 만들기
 인코딩 작업을 만드는 대신 Azure Media Clipper를 사용하여 동적 매니페스트 필터를 만들 수 있습니다. 필터는 인코딩이 필요하지 않으며, 새 자산이 만들어지지 않기 때문에 신속하게 만들 수 있습니다. 필터 클리핑에 대한 출력 계약은 다음과 같은 속성을 갖는 JSON 개체입니다.
@@ -227,4 +227,4 @@ var subclipper = new subclipper({
 }
 ```
 
-동적 매니페스트 필터를 만들기 위해 REST 호출을 제출하려면 [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest)를 사용하여 연결된 필터 페이로드를 제출합니다.
+동적 매니페스트 필터를 만들기 위해 REST 호출을 제출하려면 [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest)를 사용하여 연결된 필터 페이로드를 제출합니다.

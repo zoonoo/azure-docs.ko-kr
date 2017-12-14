@@ -4,7 +4,7 @@ description: "원래의 Azure AD와 v2.0 끝점 간의 비교입니다."
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 끝점의 달라진 점
 Azure Active Directory에 익숙하거나 이전에 Azure AD와 앱을 통합했다면 v2.0 끝점에서 예상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다.  이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.
@@ -68,7 +68,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-클라이언트 앱이 권한 부여를 요청할 때 어떤 리소스가 필요한지 **리소스** 매개 변수가 표시해 주는 곳입니다.  Azure AD는 Azure 포털의 정적 구성을 기반 앱에 필요한 권한을 계산하고, 이에 따라 토큰을 발급합니다.  이제, 동일한 OAuth 2.0 인증 요청은 다음과 같습니다.
+클라이언트 앱이 권한 부여를 요청할 때 어떤 리소스가 필요한지 **리소스** 매개 변수가 표시해 주는 곳입니다.  Azure AD는 Azure Portal의 정적 구성을 기반 앱에 필요한 권한을 계산하고, 이에 따라 토큰을 발급합니다.  이제, 동일한 OAuth 2.0 인증 요청은 다음과 같습니다.
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -84,7 +84,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 ![권한 등록 UI](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-앱에 필요한 권한은 **정적으로**구성되어 있습니다.  이 기능이 Azure 포털 내에 있도록 앱 구성을 허용하고 코드를 보기 좋고 간편하게 유지하는 동안, 개발자에게 몇 가지 문제가 발생합니다.
+앱에 필요한 권한은 **정적으로**구성되어 있습니다.  이 기능이 Azure Portal 내에 있도록 앱 구성을 허용하고 코드를 보기 좋고 간편하게 유지하는 동안, 개발자에게 몇 가지 문제가 발생합니다.
 
 * 앱은 생성 시 항상 필요한 모든 사용권한에 대해 알아야 했습니다.  시간의 경과에 따라 권한을 추가하는 것은 어려운 작업이었습니다.
 * 앱은 항상 미리 액세스하는 모든 리소스에 대해 알아야 했습니다.  리소스의 임의 개수에 액세스할 수 있는 앱을 만들기 어려웠습니다.

@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse 성능 계층(미리 보기)
 SQL Data Warehouse는 분석 워크로드에 최적화된 두 개의 성능 계층을 제공합니다. 이 문서에서는 워크로드에 가장 적합한 성능 계층을 선택하는 데 도움이 되도록 성능 계층의 개념에 대해 설명합니다. 
 
-
 ## <a name="what-is-a-performance-tier"></a>성능 계층이란?
 성능 계층은 데이터 웨어하우스의 구성을 결정하는 옵션입니다. 이 옵션은 데이터 웨어하우스를 만들 때 맨 처음 선택하는 옵션 중 하나입니다.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - **탄력성에 최적화됨 성능 계층**은 아키텍처의 계산 및 저장소 계층을 구분합니다. 이 옵션은 단기간의 많은 작업을 지원하기 위해 자주 크기를 조정하여 계산과 저장소 간의 분리를 활용할 수 있는 워크로드에 적합합니다. 이 계산 계층은 대부분의 고객 워크로드를 지원할 수 있는 가장 낮은 가격대 및 규모를 제공합니다.
 

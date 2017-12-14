@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>클러스터 크기를 조정하여 웹 서비스 처리량 관리
 
@@ -55,7 +55,7 @@ Pod 수를 조정하는 것을 비교적 빠른 작업으로, 1분 이내에 진
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-이 설정은 완료하는 데 몇 분 정도 걸립니다. 클러스터의 노드 수 변경에 대한 자세한 내용은 [Container Service 클러스터의 에이전트 노드 수 변경](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale)을 참조하세요.
+이 설정은 완료하는 데 몇 분 정도 걸립니다. 클러스터의 노드 수 변경에 대한 자세한 내용은 [Container Service 클러스터의 에이전트 노드 수 변경](https://docs.microsoft.com/azure/container-service/container-service-scale)을 참조하세요.
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>클러스터의 Kubernetes Pod 복제본 수 조정
  

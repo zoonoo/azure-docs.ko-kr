@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 응용 프로그램을 모니터링할 수 있습니다. 플러그 인은 Azure Monitor에서 제공하는 인프라 데이터뿐만 아니라 Application Insights SDK에서 수집한 응용 프로그램 성능 데이터도 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -62,7 +62,7 @@ Grafana는 Azure Monitor API에 연결하고 메트릭 데이터를 수집하는
 
 1. 서비스 주체를 만들려면 [이러한 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md)을 참조하세요. 테넌트 ID, 클라이언트 ID 및 클라이언트 암호를 복사하고 저장합니다.
 
-2. Azure Active Directory 응용 프로그램에 읽기 권한자 역할을 할당하려면 [역할에 응용 프로그램 할당](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)을 참조하세요.   
+2. Azure Active Directory 응용 프로그램에 읽기 권한자 역할을 할당하려면 [역할에 응용 프로그램 할당](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)을 참조하세요.     
 
 3. Application Insights를 사용하는 경우 Application Insights API 및 응용 프로그램 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 응용 프로그램 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 

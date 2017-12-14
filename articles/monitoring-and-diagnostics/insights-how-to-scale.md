@@ -14,23 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>수동 또는 자동으로 인스턴스 개수 조정
-[Azure 포털](https://portal.azure.com/)에서 서비스의 인스턴스 개수를 수동으로 설정하거나, 수요에 다라 자동으로 크기가 조정되도록 매개 변수를 설정할 수 있습니다. 이를 일반적으로 *규모 확장* 또는 *규모 감축*이라고 합니다.
+[Azure Portal](https://portal.azure.com/)에서 서비스의 인스턴스 개수를 수동으로 설정하거나, 수요에 다라 자동으로 크기가 조정되도록 매개 변수를 설정할 수 있습니다. 이를 일반적으로 *규모 확장* 또는 *규모 감축*이라고 합니다.
 
 인스턴스 개수에 따라 크기를 조정하기 전에 인스턴스 개수뿐 아니라 **가격 책정 계층** 도 크기 조정에 영향을 준다는 것을 고려해야 합니다. 가격 책정 계층마다 다른 코어 및 메모리 수를 가질 수 있으므로 인스턴스 수가 동일할 때 성능이 더 높습니다(*강화* 또는 *규모 축소*). 이 문서에서는 특히 *규모 감축* 및 *규모 확장*에 대해 설명합니다.
 
 포털에서 규모를 감축할 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 수동 또는 자동으로 크기를 조정할 수도 있습니다.
-
-> [!NOTE]
-> 이 문서에서 포털([http://portal.azure.com](http://portal.azure.com))에서 자동 크기 조정 설정을 만드는 방법을 설명합니다. 이 포털에서 만든 자동 크기 조정 설정은 클래식 포털([http://manage.windowsazure.com](http://manage.windowsazure.com))에서 편집할 수 없습니다.
-> 
-> 
 
 ## <a name="scaling-manually"></a>수동으로 크기 조정
 1. [Azure Portal](https://portal.azure.com/)에서 **찾아보기**를 클릭한 다음 크기를 조정할 리소스(예: **App Service 계획**)로 이동합니다.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>VMAccess 확장을 사용하여 Linux VM 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하는 방법
 암호를 잊었거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨서 Azure에서 Linux 가상 컴퓨터에 연결할 수 없는 경우 VMAccessForLinux 확장과 Azure CLI를 사용하여 암호 또는 SSH 키를 재설정하고 SSH 구성을 수정하며 디스크 일관성을 검사합니다. 
@@ -44,7 +44,7 @@ Azure CLI를 사용하여, 다음 작업을 수행할 수 있습니다.
 ## <a name="prerequisites"></a>필수 조건
 다음을 수행해야 합니다.
 
-* [Azure CLI를 설치](../../../cli-install-nodejs.md)하고 [구독에 연결](../../../xplat-cli-connect.md)해야만 계정과 연결된 Azure 리소스를 사용할 수 있습니다.
+* [Azure CLI를 설치](../../../cli-install-nodejs.md)하고 [구독에 연결](/cli/azure/authenticate-azure-cli)해야만 계정과 연결된 Azure 리소스를 사용할 수 있습니다.
 * 명령 프롬프트에서 다음을 입력하여 클래식 배포 모델에 대한 올바른 모드를 설정합니다.
     ``` 
         azure config mode asm

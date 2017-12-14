@@ -4,7 +4,7 @@ description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여
 services: active-directory
 documentationcenter: .net
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Windows Desktop WPF 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -64,7 +64,7 @@ Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관�
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* DirectorySearcher 프로젝트에서 `app.config`를 엽니다.  Azure 포털에 입력한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다.  코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
+* DirectorySearcher 프로젝트에서 `app.config`를 엽니다.  Azure Portal에 입력한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다.  코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
   * `ida:Tenant` 는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
   * `ida:ClientId` 는 포털에서 복사한 응용 프로그램의 clientId여야 합니다.
   * `ida:RedirectUri`는 포털에 등록한 리디렉션 url입니다.

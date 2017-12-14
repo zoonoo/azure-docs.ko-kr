@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
@@ -47,7 +47,7 @@ Azure Cloud Shell에 대한 요청은 제각기 임시 컴퓨터를 할당하므
 
 Azure Cloud Shell의 PowerShell(미리 보기)은 Azure 드라이브(`Azure:`)에서 시작됩니다.
 Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
-이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azure)을 계속 사용할 수 있습니다.
+이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 즉시 반영됩니다.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 |**범주**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure 도구     |[Azure PowerShell(5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI(2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure 도구     |[Azure PowerShell(5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI(2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |텍스트 편집기    |vim<br> nano                             |
 |패키지 관리자 |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |소스 제어  |git                                      |

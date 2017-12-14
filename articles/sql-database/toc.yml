@@ -60,9 +60,8 @@
 - name: 개념
   items:
     - name: 서비스 기능
+      href: sql-database-servers-databases.md
       items:
-        - name: 개요
-          href: sql-database-servers-databases.md
         - name: 서비스 계층
           href: sql-database-service-tiers.md
         - name: 리소스 한계
@@ -106,10 +105,9 @@
         - name: SQL Server 일반 기능
           href: sql-database-features.md
     - name: 보안
+      href: sql-database-security-overview.md
       items:
-        - name: 개요
-          href: sql-database-security-overview.md
-        - name: 액세스 제어
+        - name: Access Control
           href: sql-database-control-access.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 데이터 마스킹
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: 고가용성
+      href: sql-database-high-availability.md
     - name: 비즈니스 연속성
+      href: sql-database-business-continuity.md
       items:
-        - name: 개요
-          href: sql-database-business-continuity.md
         - name: 데이터베이스 복구
           href: sql-database-recovery-using-backups.md
         - name: 보안 구성
@@ -140,9 +139,8 @@
         - name: 복구 드릴 수행
           href: sql-database-disaster-recovery-drills.md
     - name: SQL Database로 마이그레이션
+      href: sql-database-cloud-migrate.md
       items:
-        - name: SQL Server DB 마이그레이션
-          href: sql-database-cloud-migrate.md
         - name: T-SQL 변경 사항
           href: sql-database-transact-sql-information.md
         - name: 마이그레이션 후 데이터베이스 관리
@@ -158,9 +156,8 @@
         - name: 데이터 동기화
           href: sql-database-sync-data.md
     - name: 모니터링 및 튜닝
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: 개요
-          href: sql-database-troubleshoot-performance.md
         - name: 성능 모니터링
           href: sql-database-single-database-monitor.md
         - name: 성능 권장 사항
@@ -180,9 +177,8 @@
         - name: 메모리 내 모니터링
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 확장
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: 개요
-          href: sql-database-elastic-scale-introduction.md
         - name: 분할된 맵
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 쿼리 라우팅
@@ -220,9 +216,8 @@
         - name: 메모리 내 구성
           href: sql-database-in-memory-oltp-migration.md
     - name: 앱 개발
+      href: sql-database-develop-overview.md
       items:
-        - name: 개요
-          href: sql-database-develop-overview.md
         - name: 연결
           href: sql-database-libraries.md
         - name: 앱 인증

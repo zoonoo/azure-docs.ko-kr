@@ -4,7 +4,7 @@ description: "Azure Active Directory 갤러리에서 Single Sign-On을 지원하
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 [Azure AD 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 Azure Active Directory를 사용하여 Single Sign-On을 지원하는 응용 프로그램을 나열하려면 먼저 응용 프로그램은 다음의 통합 모드 중 하나를 구현해야 합니다.
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/13/2017
 > 
 > 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
 > 
-> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다.(사용 가능한 범주는 Azure Active Directory 마켓플레이스 참조)
+> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다.(사용 가능한 범주는 Azure Active Directory Marketplace 참조)
 > 
 > 응용 프로그램 연결 작은 아이콘(PNG 파일, 45x45px, 단색 배경):
 > 
@@ -85,7 +85,7 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
 > 
-> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다(사용 가능한 범주는 [Azure Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)참조).
+> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다(사용 가능한 범주는 [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)참조).
 > 
 > 응용 프로그램 연결 작은 아이콘(PNG 파일, 45x45px, 단색 배경):
 > 

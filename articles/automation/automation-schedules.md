@@ -1,9 +1,9 @@
 ---
-title: "Azure 자동화의 일정 | Microsoft Docs"
-description: "자동화 일정은 Azure 자동화에서 Runbook이 자동으로 시작되도록 예약하는 데 사용됩니다. 특정 시간 또는 되풀이 일정에 따라 Runbook을 자동으로 시작할 수 있도록 일정을 만들고 관리하는 방법을 설명합니다."
+title: "Azure Automation의 일정 | Microsoft Docs"
+description: "Automation 일정은 Azure Automation에서 Runbook이 자동으로 시작되도록 예약하는 데 사용됩니다. 특정 시간 또는 되풀이 일정에 따라 Runbook을 자동으로 시작할 수 있도록 일정을 만들고 관리하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="scheduling-a-runbook-in-azure-automation"></a>Azure 자동화에서 Runbook 예약
-Azure 자동화에서 Runbook이 지정된 시간에 시작되도록 예약하려면 해당 Runbook을 하나 이상의 일정에 연결합니다. Azure 클래식 포털에서 Runbook 및 Azure Portal에서 Runbook의 경우 한 번 실행하거나 매시간 또는 매일 일정으로 실행되도록 일정을 구성할 수 있습니다. 또한 주별, 월별, 주의 특정 요일이나 월의 며칠 또는 월의 특정 날짜에 예약할 수도 있습니다.  Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 Runbook을 연결할 수 있습니다.
+# <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 예약
+Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하려면 해당 Runbook을 하나 이상의 일정에 연결합니다. Azure 클래식 포털에서 Runbook 및 Azure Portal에서 Runbook의 경우 한 번 실행하거나 매시간 또는 매일 일정으로 실행되도록 일정을 구성할 수 있습니다. 또한 주별, 월별, 주의 특정 요일이나 월의 며칠 또는 월의 특정 날짜에 예약할 수도 있습니다.  Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 Runbook을 연결할 수 있습니다.
 
 > [!NOTE]
-> 일정은 현재 Azure 자동화 DSC 구성을 지원하지 않습니다.
+> 일정은 현재 Azure Automation DSC 구성을 지원하지 않습니다.
 > 
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
-다음 테이블의 cmdlet은 Azure 자동화에서 Windows PowerShell을 사용하여 일정을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](/powershell/azure/overview)의 일부로 제공됩니다.
+다음 테이블의 cmdlet은 Azure Automation에서 Windows PowerShell을 사용하여 일정을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](/powershell/azure/overview)의 일부로 제공됩니다.
 
 | Cmdlet | 설명 |
 |:--- |:--- |
@@ -73,7 +73,7 @@ Azure 포털, 클래식 포털에서 또는 Windows PowerShell을 사용하여 r
 6. **시작 시간** 을 지정하고 선택한 일정 유형에 따라 다른 옵션을 지정합니다.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 일정을 만들려면
-[New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) cmdlet을 사용하여 Azure 자동화에서 기존 runbook에 대한 새 일정을 만들거나 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 Azure 포털에서 Runbook에 사용할 수 있습니다. 일정을 실행해야 할 일정의 시작 시간 및 빈도를 지정해야 합니다.
+[New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) cmdlet을 사용하여 Azure Automation에서 기존 runbook에 대한 새 일정을 만들거나 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 Azure Portal에서 Runbook에 사용할 수 있습니다. 일정을 실행해야 할 일정의 시작 시간 및 빈도를 지정해야 합니다.
 
 다음 샘플 명령에서는 Azure Resource Manager cmdlet을 사용하여 매월 15일 및 30일에 일정을 만드는 방법을 보여 줍니다.
 
@@ -108,7 +108,7 @@ Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 
 6. Runbook에 매개 변수가 있는 경우 해당 값에 대한 메시지가 표시됩니다.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook에 일정을 연결하려면
-[Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx)을 사용하여 Azure 포털에서 Runbook에 대한 클래식 runbook 또는 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet에 일정을 연결할 수 있습니다.  Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값 지정에 대한 자세한 내용은 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 을 참조하세요.
+[Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx)을 사용하여 Azure 포털에서 Runbook에 대한 클래식 runbook 또는 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet에 일정을 연결할 수 있습니다.  Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값 지정에 대한 자세한 내용은 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md) 을 참조하세요.
 
 다음 샘플 명령에서는 매개 변수를 포함하는 Azure Resource Manager cmdlet을 사용하여 runbook에 일정을 연결하는 방법을 보여 줍니다.
 
@@ -162,5 +162,5 @@ Azure 클래식 포털의 일정에 대한 일정 세부 정보 페이지에서 
     –Name $scheduleName –IsEnabled $false
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 자동화에서 Runbook을 시작하려면 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 
+* Azure Automation에서 Runbook을 시작하려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md) 
 

@@ -4,7 +4,7 @@ description: "Azure Active Directory와 Salesforce 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 9aecd7310ad44eb585c1326a3c705ed822735b9a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -137,7 +137,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 7. 브라우저에서 새 탭을 열고 Salesforce 관리자 계정으로 로그인합니다.
 
-8. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래 **설정**을 클릭합니다.
+8. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래에서 **설정**을 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/configure1.png)
 
@@ -172,7 +172,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
       * 엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
       * 개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. **ID 공급자 인증서**를 업로드하려면 **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 인증서 파일을 찾아 선택합니다.
+    d. **파일 선택**을 클릭하고 Azure Portal에서 다운로드한 인증서 파일을 찾아 선택하여 **ID 공급자 인증서**를 업로드합니다.
 
     e. **SAML ID 유형**으로 다음 옵션 중 하나를 선택합니다.
     
@@ -190,7 +190,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     i. 마지막으로 **저장**을 클릭하여 SAML Single Sign-On 설정을 적용합니다.
 
-14. Salesforce의 왼쪽 탐색 창에서 **회사 설정**을 클릭하여 관련된 섹션을 확장한 다음 **내 도메인**을 클릭합니다.
+14. Salesforce의 왼쪽 탐색 패널에서 **회사 설정**을 클릭하여 관련 섹션을 확장하고 **내 도메인**을 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 

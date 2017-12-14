@@ -4,7 +4,7 @@ description: "Azure AD 인증 라이브러리(ADAL)는 클라이언트 응용 �
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 Azure ADAL(Active Directory 인증 라이브러리)은 응용 프로그램 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 사용자를 인증하고 API 호출 보안을 위한 토큰을 가져올 수 있게 합니다. ADAL은 개발자가 다음과 같은 기능을 통해 더 쉽게 인증하도록 합니다.
@@ -29,7 +29,7 @@ Azure ADAL(Active Directory 인증 라이브러리)은 응용 프로그램 개�
  - 등
 
 > [!NOTE]
-> Azure AD v2.0 라이브러리(MSAL)에 대한 내용은 [MSAL 라이브러리 가이드](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요. 
+> Azure AD v2.0 라이브러리(MSAL)에 대한 내용은 [MSAL 라이브러리 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요. 
 > 
 > 
 
@@ -59,7 +59,7 @@ Azure ADAL(Active Directory 인증 라이브러리)은 응용 프로그램 개�
 
 ### <a name="v20-client-libraries-msal"></a>v2.0 클라이언트 라이브러리(MSAL)
 
-[Azure AD v2.0 끝점](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)은 단일 끝점 뒤에서 Azure AD와 Microsoft 계정을 결합합니다. 이 끝점에 액세스하기 위해 개발자는 ADAL 대신 [프로덕션 지원 미리 보기 MSAL 라이브러리](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)를 사용할 수 있습니다.
+[Azure AD v2.0 끝점](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare)은 단일 끝점 뒤에서 Azure AD와 Microsoft 계정을 결합합니다. 이 끝점에 액세스하기 위해 개발자는 ADAL 대신 [프로덕션 지원 미리 보기 MSAL 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 사용할 수 있습니다.
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조
 | --- | --- | --- | --- | --- | --- |

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결 
 
-기업 등록계약 내에 등록된 사용자에게 비용이 표시되지 않도록 하는 여러 설정이 있습니다.  이러한 설정은 등록 관리자가 관리하거나 Microsoft에서 직접 등록을 구매하지 않은 경우 파트너가 관리합니다.  이 문서를 통해 이러한 설정이 무엇이고 등록에 미치는 영향을 이해할 수 있습니다. 이러한 설정은 [Azure RBAC 역할](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)과는 별개입니다. 
+기업 등록계약 내에 등록된 사용자에게 비용이 표시되지 않도록 하는 여러 설정이 있습니다.  이러한 설정은 등록 관리자가 관리하거나 Microsoft에서 직접 등록을 구매하지 않은 경우 파트너가 관리합니다.  이 문서를 통해 이러한 설정이 무엇이고 등록에 미치는 영향을 이해할 수 있습니다. 이러한 설정은 [Azure RBAC 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)과는 별개입니다. 
 
 > [!Note]
 > 이 기능은 현재 비공개 미리 보기로 제공됩니다. 등록을 미리 보기에 연결하려면 [여기서 등록](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u)합니다.     
@@ -46,5 +46,5 @@ ms.lasthandoff: 10/11/2017
 ![자산을 찾을 수 없음](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 액세스 권한을 받으려면 구독 또는 관리 그룹의 관리자에게 문의합니다.  
-* 구독의 경우 필요한 역할에 대한 자세한 내용은 [Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) 문서를 참조하세요.
+* 구독의 경우 필요한 역할에 대한 자세한 내용은 [Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 문서를 참조하세요.
 * 관리 그룹의 경우 RBAC 액세스를 사용할 수 없으며 곧 제공될 예정입니다. 액세스 권한을 받으려면 Enterprise Portal 관리자에게 문의합니다.   

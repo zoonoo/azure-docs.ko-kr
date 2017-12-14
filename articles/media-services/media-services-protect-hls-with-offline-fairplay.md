@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>오프라인 FairPlay 스트리밍
 Microsoft Azure Media Services는 다음을 다루는 잘 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
@@ -189,7 +189,7 @@ FPS Server SDK의 v3 또는 v4 샘플을 사용하여 마스터 재생 목록에
 - **마지막 매개변수는 FPS 오프라인 모드에 대한 다음 API에서 무엇을 의미합니까?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-이 API에 대한 설명서는 [여기](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)에서 찾을 수 있습니다. 매개 변수는 시를 단위로 하는 오프라인 임대 기간을 나타냅니다.
+이 API에 대한 설명서는 [여기](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)에서 찾을 수 있습니다. 매개 변수는 시를 단위로 하는 오프라인 임대 기간을 나타냅니다.
 - **iOS 장치에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 장치에 다운로드된 파일 구조체는 아래(스크린샷)와 같습니다. `_keys` 폴더는 다운로드된 FPS 라이선스, 각 라이선스 서비스 호스트에 대한 하나의 저장소 파일을 저장합니다. `.movpkg` 폴더는 오디오 및 동영상 콘텐츠를 저장합니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 "PeakBandwidth"입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. Boot.xml은 `.movpkg` 폴더 콘텐츠에 대한 자세한 설명을 제공합니다.(샘플 boot.xml 파일은 아래 참조)
 
 ![오프라인 FairPlay iOS 샘플 앱 파일 구조체](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

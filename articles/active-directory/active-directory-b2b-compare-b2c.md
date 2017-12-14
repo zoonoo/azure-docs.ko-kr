@@ -4,7 +4,7 @@ description: "Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 �
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: beca92e9259835fffa9178f558e9762637594570
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
@@ -35,7 +35,7 @@ B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품
 파트너 수명 주기: 호스트/초대한 조직에 의해 관리됩니다.  | 고객 수명 주기: 셀프 서비스 또는 응용 프로그램에 의해 관리됩니다.
 보안 정책 및 규정 준수: 호스트/초대한 조직에 의해 관리됩니다.  | 보안 정책 및 규정 준수: 응용 프로그램에 의해 관리됩니다.
 브랜딩: 호스트/초대한 조직의 브랜드가 사용됩니다.  |    브랜딩: 응용 프로그램에 의해 관리됩니다. 일반적으로 조직의 존재가 희미해지고 제품 브랜드가 되는 경향이 있습니다.
-추가 정보: [블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [설명서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | 추가 정보: [제품 페이지](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [설명서](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+추가 정보: [블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [설명서](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | 추가 정보: [제품 페이지](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [설명서](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>다음 단계

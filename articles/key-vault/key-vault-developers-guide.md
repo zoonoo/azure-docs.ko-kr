@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 30b6bd694eba43a9c46f02404e7fdc0e936e9755
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -30,14 +30,14 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 새로운 Key Vault 기능의 공개 미리 보기가 정기적으로 릴리스됩니다. 이러한 공개 미리 보기를 사용해보고, 피드백 메일 주소인 azurekeyvault@microsoft.com을 통해 의견을 알려주세요.
 
-### <a name="storage-account-keys---july-10-2017"></a>저장소 계정 키 - 2017년 7월 10일
+### <a name="storage-account-keys---july-10-2017"></a>Storage 계정 키 - 2017년 7월 10일
 
 >[!NOTE]
->이 Azure Key Vault 업데이트에서는 **저장소 계정 키** 기능만 미리 보기 상태입니다.
+>이 Azure Key Vault 업데이트에서는 **Storage 계정 키** 기능만 미리 보기 상태입니다.
 
-이 미리 보기에는 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 인터페이스를 통해 사용할 수 있는 새로운 저장소 계정 키가 포함되어 있습니다. 
+이 미리 보기에는 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 인터페이스를 통해 사용할 수 있는 새로운 Storage 계정 키가 포함되어 있습니다. 
 
-새 저장소 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault 저장소 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
+새 Storage 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault Storage 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
 
 ## <a name="videos"></a>비디오
 
@@ -104,7 +104,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Key Vault용 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Key Vault용 Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### <a name="quick-start-guides"></a>빠른 시작 가이드
 
@@ -139,7 +139,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 다음 문서에서는 사용하거나 Key Vault와 통합하는 다른 시나리오 및 서비스에 대한 정보를 다룹니다.
 
-- [Azure Disk Encryption](../security/azure-security-disk-encryption.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure 주요 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
+- [Azure Disk Encryption](../security/azure-security-disk-encryption.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)는 계정에 저장된 데이터의 암호화에 대한 옵션을 제공합니다. 키 관리의 경우 Data Lake Store는 Data Lake Store에 저장된 모든 데이터의 암호를 해독하는 데 필요한 MEK(마스터 암호화 키)를 관리하는 두 가지 모드를 제공합니다. Data Lake Store에서 MEK를 관리하도록 하거나 Azure Key Vault 계정을 사용하여 MEK의 소유권을 유지하도록 선택할 수 있습니다. Data Lake Store 계정을 만들면서 키 관리 모드를 지정합니다. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key)을 통해 테넌트 키를 직접 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 테넌트 키 직접 관리는 BYOK(Bring Your Own Key)라고 하기도 합니다.
 

@@ -4,7 +4,7 @@ description: "Azure Active Directory를 사용하여 기존 온-프레미스 ID�
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD는 핵심 디렉터리 서비스, 고급 ID 통제 및 응용 프로그램 액세스 관리 기능을 모두 제공합니다. 또한 Azure AD는 개발자가 중앙 집중식 정책 및 규칙에 따라 응용 프로그램에 대한 액세스 제어를 제공하도록 지원하는 다양한 기능의 표준 기반 플랫폼을 제공합니다. 
 
-Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](active-directory-saas-tutorial-list.md) 에 대한 SSO(Single Sign-On) 액세스 권한을 부여하는 사용하기 편리한 솔루션을 제공합니다.
+IT 관리자는 Azure AD에서 제공하는 부담 없는 가격의 사용하기 쉬운 솔루션으로 [수천 개의 클라우드 SaaS 응용 프로그램](active-directory-saas-tutorial-list.md)(예: Office365, Salesforce.com, DropBox, Concur)에 대한 SSO(Single Sign-On) 액세스 권한을 직원 및 비즈니스 파트너에게 부여할 수 있습니다.
 
 응용 프로그램 개발자는 Azure AD를 사용하여, 전 세계 수백 만 조직에서 사용하는 ID 관리 솔루션과 빠르고 쉽게 통합함으로써, 응용 프로그램을 구축하는 데 집중할 수 있습니다.
 
@@ -36,8 +36,8 @@ Office 365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를
 
 ![Azure AD Connect 스택](./media/active-directory-whatis/Azure_Active_Directory.png)
 
-## <a name="how-reliable-is-azure-ad"></a>Azure AD가 안정적입니까?
-Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은, 중요한 비즈니스 요구사항이 있을 때 Azure AD를 신뢰할 수 있음을 의미합니다. 자동 장애 조치로 전세계 34개 데이터 센터를 운영중이므로 Azure AD는 안전성이 뛰어납니다. 또한 데이터 센터의 작동이 중단되더라도 디렉터리 데이터 복사본이 두 개 이상의 지역에 있는 데이터 센터에 분산되어 있고 즉시 액세스할 수 있다는 점을 미루어 볼 때 안전성을 신뢰할 수 있습니다.
+## <a name="how-reliable-is-azure-ad"></a>Azure AD는 얼마나 안정적이나요?
+Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은, 중요한 비즈니스 요구사항이 있을 때 Azure AD를 신뢰할 수 있음을 의미합니다. 자동 장애 조치로 전세계 28개 데이터 센터를 운영 중이므로 Azure AD는 안전성이 뛰어납니다. 또한 데이터 센터의 작동이 중단되더라도 디렉터리 데이터 복사본이 두 개 이상의 지역에 있는 데이터 센터에 분산되어 있고 즉시 액세스할 수 있다는 점을 미루어 볼 때 안전성을 신뢰할 수 있습니다.
 
 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 

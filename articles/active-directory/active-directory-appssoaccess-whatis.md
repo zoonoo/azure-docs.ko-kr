@@ -4,7 +4,7 @@ description: "Azure Active Directory를 사용하여 비즈니스에 필요한 �
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 한번 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다. 
@@ -36,9 +36,7 @@ Azure AD를 사용하면 현재 널리 사용하고 있는 SaaS 응용 프로그
 통합 아키텍처는 다음 네 가지 기본 문서 블록으로 구성됩니다.
 
 * Single Sign-On을 사용하여 사용자가 Azure AD에서 조직 계정을 기반으로 해당 SaaS 응용 프로그램에 액세스할 수 있습니다. Single Sign-On을 통해 사용자가 자신의 단일 조직 계정을 사용하여 응용 프로그램에 인증할 수 있습니다.
-
 * 사용자 프로비저닝은 대상 SaaS 응용 프로그램에 사용자 프로비저닝 및 프로비저닝 해제를 가능하게 합니다.  Single Sign-On을 통해 인증한 후에는, 사용자에게 프로비전된 계정으로 응용 프로그램을 사용하도록 권한을 부여할 수 있습니다.
-
 * Azure 관리 포털의 중앙 집중식 응용 프로그램 액세스 관리를 사용하면, 응용 프로그램 액세스 의사 결정 및 승인을 조직의 모든 사용자에게 위임할 수 있으며 SaaS 응용 프로그램 액세스 및 관리를 단일 지점에서 할 수 있습니다. 
 * Azure AD에 사용자 동작 보고 및 모니터링 기능이 통합되었습니다.
 
@@ -48,9 +46,7 @@ Azure AD를 사용하면 현재 널리 사용하고 있는 SaaS 응용 프로그
 Azure AD는 응용 프로그램에 로그인하는 세 가지 방법을 지원합니다.
 
 * **페더레이션된 Single Sign-On**을 사용하면 사용자 인증을 위해 암호를 묻는 메시지를 표시하지 않고 응용 프로그램에서 Azure AD로 리디렉션할 수 있습니다. 이 기능은 SAML 2.0, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 지원하는 응용 프로그램에 대해 지원되며, 가장 강력한 Single Sign-On 모드입니다.
-
 * **암호 기반 Single Sign-On** 을 사용하면 안전한 응용 프로그램 암호 저장소를 사용할 수 있고, 웹 브라우저 확장 또는 모바일 앱에서 저장된 암호로 로그인할 수 있습니다. 이 기능은 응용 프로그램에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있으므로 사용자는 암호를 몰라도 됩니다.
-
 * **기존 Single Sign-On** 을 사용하면 Azure AD에서 응용 프로그램에 대해 설정된 기존의 Single Sign-On을 활용하여, 응용 프로그램을 Office 365 또는 Azure AD 액세스 패널 포털에 연결할 수 있습니다. 또한 해당 위치에서 응용 프로그램을 시작할 때 Azure AD에서 추가적인 보고가 가능합니다. 
 
 사용자가 응용 프로그램에 인증되면 응용 프로그램에서 프로비전된 계정 레코드가 필요합니다. 계정 레코드는 응용 프로그램 내의 사용 권한 및 액세스 수준이 있는 위치를 응용 프로그램에 알려줍니다. 이 계정 레코드의 프로비저닝은 자동으로 되거나, 사용자에게 Single Sign-On 액세스를 제공하기 전에 관리자에 의해 수동으로 발생할 수 있습니다. 

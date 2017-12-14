@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8a2fdc89241c659505d9e61e843c1ddf438f8c53
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
-암호를 잊어버린 경우, 회사 지원에서 암호를 받지 못한 경우, 계정의 암호가 잠긴 경우 또는 암호를 변경하려는 경우 도움이 될 수 있습니다. 알고 있는 암호를 변경해야 하는 경우 [내 암호 변경](#change-my-password) 섹션을 계속 진행합니다.
+암호를 잊어버렸거나, IT 부서로부터 암호를 받지 못했거나, 계정이 잠겼거나, 암호를 변경하려는 경우 Microsoft에서 도움을 드릴 수 있습니다. 알고 있는 암호를 변경해야 하는 경우 [내 암호 변경](#change-my-password) 섹션을 계속 진행합니다.
 
    > [!NOTE]
    > Xbox, hotmail.com 또는 outlook.com과 같은 개인 계정에 다시 액세스하려면 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요.
@@ -32,14 +32,14 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호 재설정 또는 잠금 해제
 
-다음 이유 중 하나로 Azure AD (Azure Active Directory) 계정에 액세스하지 못할 수 있습니다.
+다음 원인 중 하나로 인해 Azure AD(Azure Active Directory)에 액세스하지 못할 수 있습니다.
 
 * 암호가 작동하지 않아 암호를 재설정하려고 합니다.
 * 암호를 알지만 계정이 잠겨 있어 계정을 잠금 해제하려고 합니다.
 
 다음 단계를 사용하여 Azure AD SSPR (셀프 서비스 암호 재설정)에 액세스하고 계정에 다시 액세스합니다.
 
-1. 회사 또는 학교 **로그인** 페이지에서 **계정에 액세스할 수 없으세요?** 링크를 선택한 다음 **회사 또는 학교 계정**을 선택하거나 [암호 재설정 페이지](https://passwordreset.microsoftonline.com/)로 직접 이동합니다.
+1. 회사 또는 학교 **로그인** 페이지에서 **계정에 액세스할 수 없으세요?** 링크를 클릭한 다음, **회사 또는 학교 계정**을 클릭하거나 [암호 재설정 페이지](https://passwordreset.microsoftonline.com/)로 직접 이동합니다.
 
     ![계정에 액세스할 수 없으세요?][Login]
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/06/2017
 | 암호를 변경하려고 하면 오류가 표시됩니다. | 암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요. | 암호를 추측하기 더 어렵게 변경하세요. |
 | 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요." 페이지가 표시됩니다. | 관리자에게 문의하세요. <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청해야 합니다. | IT 직원이 온-프레미스 환경에서 암호를 관리하기 때문에 이 메시지가 표시됩니다. "계정에 액세스할 수 없으세요?" 링크에서 암호를 다시 설정할 수 없습니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 IT 직원에게 문의하고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다.|
 | 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 "계정에 액세스할 수 없음" 링크에서 조직에 대해 암호 재설정을 사용하도록 설정하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 "관리자에게 문의" 링크를 선택하여 회사의 IT 직원에게 메일을 보내고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다. |
-| 내 사용자 ID를 입력한 후에 "계정을 확인하지 못했습니다." 오류가 발생합니다. | 계정을 확인하지 못했습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 암호 재설정에 사용할 수 있지만 서비스를 사용하도록 등록하지 않았기 때문에 이 메시지가 표시됩니다. 암호 재설정을 등록하려면 계정에 대한 액세스를 회복한 후에 http://aka.ms/ssprsetup로 이동합니다. <br> <br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하여 회사의 IT 직원에게 메일을 보냅니다. |
+| 내 사용자 ID를 입력한 후에 "계정을 확인하지 못했습니다." 오류가 발생합니다. | 계정을 확인하지 못했습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 이 메시지는 암호 재설정을 사용할 수 있지만 서비스를 사용하도록 등록하지 않은 경우 표시됩니다. 암호 재설정을 등록하려면 계정에 대한 액세스를 다시 얻은 후에 http://aka.ms/ssprsetup으로 이동합니다. <br> <br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하여 회사의 IT 직원에게 메일을 보냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

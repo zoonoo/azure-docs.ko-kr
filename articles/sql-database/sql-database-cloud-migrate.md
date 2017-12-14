@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL Database로 SQL Server 데이터베이스 마이그레이션
 이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
@@ -39,11 +39,11 @@ ms.lasthandoff: 11/07/2017
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem)합니다.
+1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
 3. 마이그레이션 중인 원본 데이터베이스를 트랜잭션 방식으로 일관되게 복사하고 원본 데이터베이스를 더 이상 변경하지 않도록 합니다(또는 마이그레이션이 완료된 후에 이러한 변경 내용을 수동으로 적용할 수 있음). 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
-5. Data Migration Assistant를 사용하여 데이터베이스 복사본을 새로운 Azure SQL Database로 [마이그레이션](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql)합니다.
+5. Data Migration Assistant를 사용하여 데이터베이스 복사본을 새로운 Azure SQL Database로 [마이그레이션](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql)합니다.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>마이그레이션하는 동안 데이터 전송 성능 최적화 
 

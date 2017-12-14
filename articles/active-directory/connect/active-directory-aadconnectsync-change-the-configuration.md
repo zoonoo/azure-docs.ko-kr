@@ -4,7 +4,7 @@ description: "Azure AD Connect 동기화의 구성을 변경하는 방법을 안
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성을 변경하는 방법
 이 항목의 목적은 Azure AD Connect 동기화에서 기본 구성을 변경하는 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 몇 가지 간단한 내용을 변경할 수 있습니다.
@@ -79,11 +79,11 @@ ms.lasthandoff: 10/11/2017
 시작 메뉴에서 **동기화 서비스** 를 시작합니다. 이 섹션의 단계는 이 도구에 모두 있습니다.
 
 1. **모든 개체에서 전체 동기화**  
-   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory 도메인 서비스를 선택합니다. 작업에서 **실행**을 선택하고 **전체 동기화**와 **확인**을 선택합니다.
+   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory Domain Services를 선택합니다. 작업에서 **실행**을 선택하고 **전체 동기화**와 **확인**을 선택합니다.
    ![전체 동기화](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    개체는 이제 메타버스에 업데이트됩니다. 이제 메타 버스의 개체를 보려 합니다.
 2. **단일 개체에서 미리 보기 및 전체 동기화**  
-   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory 도메인 서비스를 선택합니다. **커넥터 공간 검색**을 선택합니다. 범위를 사용하여 변경 사항을 테스트하려는 개체를 찾습니다. 개체를 선택하고 **미리 보기**를 클릭합니다. 새 화면에서 **커밋 미리 보기**를 선택합니다.  
+   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory Domain Services를 선택합니다. **커넥터 공간 검색**을 선택합니다. 범위를 사용하여 변경 사항을 테스트하려는 개체를 찾습니다. 개체를 선택하고 **미리 보기**를 클릭합니다. 새 화면에서 **커밋 미리 보기**를 선택합니다.  
    ![커밋 미리 보기](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    이제 변경 사항이 메타버스에 커밋됩니다.
 

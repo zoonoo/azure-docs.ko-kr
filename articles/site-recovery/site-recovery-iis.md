@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제
 
@@ -71,12 +71,13 @@ IIS 기반 웹 응용 프로그램은 일반적으로 다음 배포 패턴 중 �
 **Hyper-V** | 예 | 예
 **VMware** | 예 | 예
 **물리적 서버** | 아니요 | 예
+**Azure**|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 컴퓨터 복제
 
 [이 지침](site-recovery-vmware-to-azure.md)에 따라 모든 IIS 웹 팜 가상 컴퓨터를 Azure로 복제합니다.
 
-고정 IP를 사용하는 경우 계산 및 네트워크 설정의 [**대상 IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) 설정에 가상 컴퓨터에서 사용할 IP를 지정합니다.
+고정 IP를 사용하는 경우 Compute 및 네트워크 설정의 [**대상 IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) 설정에 가상 컴퓨터에서 사용할 IP를 지정합니다.
 
 ![대상 IP](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -133,7 +134,7 @@ IP 주소를 사이트와 연결한 경우 모든 사이트 바인딩을 새 IP 
 ARR(응용 프로그램 요청 라우팅) 가상 컴퓨터가 있는 경우 그룹 4 뒤에 [IIS ARR 장애 조치 스크립트](https://aka.ms/asr-iis-arrtier-failover-script-classic)를 추가하여 IP 주소를 업데이트합니다.
 
 #### <a name="the-ssl-cert-binding-for-an-https-connection"></a>https 연결을 위한 SSL 인증서 바인딩
-웹 사이트에는 웹 서버와 사용자의 브라우저 사이의 보안 통신을 보장하는 데 도움이 되는 연결된 SSL 인증서가 있을 수 있습니다. 웹 사이트에 SSL 인증서 바인딩과 함께 IIS 서버의 IP 주소에 대한 https 연결 및 연결된 https 사이트 바인딩이 있는 경우 장애 조치 후에 IIS 가상 컴퓨터의 IP를 사용하여 인증서에 대한 새 사이트 바인딩을 추가해야 합니다.
+Websites에는 웹 서버와 사용자의 브라우저 사이의 보안 통신을 보장하는 데 도움이 되는 연결된 SSL 인증서가 있을 수 있습니다. 웹 사이트에 SSL 인증서 바인딩과 함께 IIS 서버의 IP 주소에 대한 https 연결 및 연결된 https 사이트 바인딩이 있는 경우 장애 조치 후에 IIS 가상 컴퓨터의 IP를 사용하여 인증서에 대한 새 사이트 바인딩을 추가해야 합니다.
 
 SSL 인증서는 다음 항목에 대해 발급될 수 있습니다.
 

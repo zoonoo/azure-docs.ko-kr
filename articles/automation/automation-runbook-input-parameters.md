@@ -3,7 +3,7 @@ title: "Runbook 입력 매개 변수| Microsoft Docs"
 description: "Runbook 입력 매개 변수는 Runbook이 시작될 때 Runbook에 데이터를 전달할 수 있도록 하여 Runbook의 유용성을 늘립니다. 이 문서에서는 입력 매개 변수가 사용되는 Runbook의 다양한 시나리오를 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -30,7 +30,7 @@ PowerShell, PowerShell 워크플로, Python 및 그래픽 Runbook에서 입력 �
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>PowerShell 및 PowerShell 워크플로 Runbook에서 입력 매개 변수 구성
 
-Azure 자동화에서 PowerShell 및 [PowerShell 워크플로 Runbook](automation-first-runbook-textual.md) 는 다음과 같은 특성을 통해 정의된 입력 매개 변수를 지원합니다.  
+Azure Automation에서 PowerShell 및 [PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)은 다음과 같은 특성을 통해 정의된 입력 매개 변수를 지원합니다.  
 
 | **속성** | **설명** |
 |:--- |:--- |
@@ -39,7 +39,7 @@ Azure 자동화에서 PowerShell 및 [PowerShell 워크플로 Runbook](automatio
 | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 |선택 사항입니다.  Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
 
-Windows PowerShell은 유효성 검사, 별칭, 매개 변수 설정과 같이 여기에 나열된 것 보다 많은 입력 매개 변수의 특성을 지원합니다. 그러나 Azure 자동화는 현재 위에 나열된 입력 매개 변수만을 지원합니다.
+Windows PowerShell은 유효성 검사, 별칭, 매개 변수 설정과 같이 여기에 나열된 것 보다 많은 입력 매개 변수의 특성을 지원합니다. 그러나 Azure Automation은 현재 위에 나열된 입력 매개 변수만을 지원합니다.
 
 PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 일반 형식이 있으며 여러 매개 변수는 쉼표로 구분됩니다.
 
@@ -61,7 +61,7 @@ PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 �
 
 예를 들어 가상 컴퓨터(단일 VM 또는 리소스 그룹 내의 모든 VM)에 대한 세부 정보를 출력하는 PowerShell 워크플로 Runbook에 대한 입력 매개 변수를 구성해보겠습니다. 다음 스크린샷에 보여준 대로 이 Runbook에는 가상 컴퓨터의 이름 및 리소스 그룹 이름이라는 두 가지 매개 변수가 있습니다.
 
-![자동화 PowerShell 워크플로](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
+![Automation PowerShell 워크플로](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
 
 이 매개 변수 정의에서 매개 변수 **$VMName** 및 **$resourceGroupName**은 형식 문자열의 간단한 매개 변수입니다. 그러나 PowerShell 및 PowerShell 워크플로 Runbook은 입력 매개 변수에 대해 **개체** 또는 **PSCredential**과 같은 단순 형식 및 복합 형식을 모두 지원합니다.
 
@@ -176,7 +176,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>SDK를 사용하여 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
+* **Azure Resource Manager 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
   
   ```
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -195,7 +195,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
       return response.Job;
       }
   ```
-* **Azure 서비스 관리 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
+* **Azure 서비스 관리 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +229,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>REST API를 사용하여 Runbook 시작 및 매개 변수 할당
-다음 요청 URI가 있는 **PUT** 메서드를 사용하여 Azure 자동화 REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다.
+다음 요청 URI가 있는 **PUT** 메서드를 사용하여 Azure Automation REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다.
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -281,8 +281,8 @@ Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력
 ![WebhookData 매개 변수](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
 ## <a name="next-steps"></a>다음 단계
-* Runbook 입력 및 출력에 대한 자세한 내용은 [Azure 자동화: Runbook 입력, 출력 및 중첩된 Runbook](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)을 참조하세요.
+* Runbook 입력 및 출력에 대한 자세한 내용은 [Azure Automation: Runbook 입력, 출력 및 중첩된 Runbook](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)을 참조하세요.
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 Runbook을 편집하려면 [텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
-* 그래픽 Runbook을 편집하려면 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
+* 그래픽 Runbook을 편집하려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 

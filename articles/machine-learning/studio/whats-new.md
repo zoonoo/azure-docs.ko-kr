@@ -3,7 +3,7 @@ title: "Azure Machine Learning의 새로운 기능 | Microsoft Docs"
 description: "Azure 기계 학습에서 사용할 수 있는 새로운 기능입니다."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82ec23f4edba88ec75c2073e24cad24b66323d72
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure 기계 학습의 새로운 기능
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 * 이제 기존 웹 서비스를 새로운 [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털에서 관리할 수 있습니다. 이를 통해 웹 서비스의 모든 측면을 한 곳에서 관리할 수 있습니다.    
   * 웹 서비스 [사용 통계](manage-new-webservice.md)를 제공합니다.
   * 샘플 데이터를 사용하여 Azure Machine Learning 원격 요청 호출 테스트를 간소화합니다.
-  * 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(일괄 처리 실행 서비스) 테스트 페이지를 제공합니다.
+  * 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(Batch 실행 서비스) 테스트 페이지를 제공합니다.
   * 손쉬운 끝점 관리를 제공합니다.
 
 ### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Microsoft Azure Machine Learning 업데이트 2016년 7월 릴리스에서는 다음 기능을 제공합니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
   * 이제 각 지역에 구독을 만들 필요 없이 [여러 지역에 웹 서비스를 배포](how-to-deploy-to-multiple-regions.md) 할 수 있습니다.
 * 웹 서비스 [사용 통계](manage-new-webservice.md)를 제공합니다.
 * 샘플 데이터를 사용하여 Azure Machine Learning 원격 요청 호출 테스트를 간소화합니다.
-* 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(일괄 처리 실행 서비스) 테스트 페이지를 제공합니다.
+* 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(Batch 실행 서비스) 테스트 페이지를 제공합니다.
 
 또한 새 웹 서비스 모델에 배포하거나 기존 웹 서비스 모델에 계속해서 배포할 수 있도록 Machine Learning 스튜디오가 업데이트되었습니다. 
 

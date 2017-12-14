@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
 
@@ -43,7 +43,7 @@ Azure SQL 분석 솔루션은 Log Analytics 서비스에 연결하는 데 에이
 
 | 연결된 소스 | 지원 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agents.md) | 아니요 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |

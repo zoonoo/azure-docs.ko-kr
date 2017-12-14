@@ -19,11 +19,11 @@ ms.date: 11/03/2017
 ms.author:
 - kraigb
 - justcla
-ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
@@ -119,7 +119,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Azure VM에 자동 배포를 위한 CI/CD 설정
 
-Visual Studio Team Service를 통해 연속 전달 파이프라인을 설정하려면 [Windows Virtual Machine에 배포](https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)를 참조하세요.
+Visual Studio Team Service를 통해 연속 전달 파이프라인을 설정하려면 [Windows Virtual Machine에 배포](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)를 참조하세요.
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

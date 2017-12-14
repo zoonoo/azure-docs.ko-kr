@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
 SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
@@ -76,7 +76,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 * Chmod 644 ~/.ssh/known_hosts(SSH를 통해 연결한 호스트 포함)
 
 ## <a name="source-2-organization-edge-device"></a>발생지 2: 조직 에지 장치
-문제의 발생지인 조직의 에지 장치를 제거하려면 인터넷에 직접 연결된 컴퓨터가 Azure 가상 컴퓨터에 SSH 연결을 설정할 수 있는지 확인합니다. 사이트 간 VPN 또는 Azure Express 경로 연결을 통해 VM에 액세스하는 경우 [발생지 4: 네트워크 보안 그룹](#nsg)으로 건너뜁니다.
+문제의 발생지인 조직의 에지 장치를 제거하려면 인터넷에 직접 연결된 컴퓨터가 Azure 가상 컴퓨터에 SSH 연결을 설정할 수 있는지 확인합니다. 사이트 간 VPN 또는 Azure ExpressRoute 연결을 통해 VM에 액세스하는 경우 [발생지 4: 네트워크 보안 그룹](#nsg)으로 건너뜁니다.
 
 ![조직 에지 장치를 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -113,7 +113,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 네트워크 보안 그룹을 사용하면 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어할 수 있습니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 확인하고 인터넷으로 나가고 들어오는 SSH 트래픽이 허용되어 있는지 확인합니다.
 자세한 내용은 [네트워크 보안 그룹 정보](../../virtual-network/virtual-networks-nsg.md)를 참조하세요.
 
-IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
+IP 확인을 사용하여 NSG 구성이 유효한지 검사할 수도 있습니다. 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>발생지 5: Linux 기반 Azure 가상 컴퓨터
 마지막 가능한 문제 발생지는 Azure 가상 컴퓨터 자체입니다.

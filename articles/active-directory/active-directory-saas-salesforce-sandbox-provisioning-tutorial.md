@@ -4,7 +4,7 @@ description: "Azure Active Directory와 Salesforce Sandbox 간에 Single Sign-On
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Salesforce Sandbox 구성
 
@@ -77,7 +77,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
      ![자동 사용자 프로비저닝 사용](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비저닝 사용")
 
-7. 왼쪽 탐색 창에서 **내 개인 정보**를 클릭하여 관련된 섹션을 확장한 다음 **내 보안 토큰 재설정**을 클릭합니다.
+7. 왼쪽 탐색 패널에서 **내 개인 정보**를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정**을 클릭합니다.
   
     ![자동 사용자 프로비저닝 사용](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비저닝 사용")
 

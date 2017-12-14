@@ -4,7 +4,7 @@ description: "Azure AD B2C에서 사용자 지정 정책을 사용하는 동안 
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정 구성
 
@@ -74,12 +74,12 @@ Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행�
 6. **성능**은 **표준**으로 유지하면 됩니다.
 7. **복제**는**RA-GRS**로 유지하면 됩니다.
 8. **액세스 계층**은 **핫**으로 유지하면 됩니다.
-9. **저장소 서비스 암호화**는 **사용 안 함**으로 유지하면 됩니다.
+9. **Storage 서비스 암호화**는 **사용 안 함**으로 유지하면 됩니다.
 10. 저장소 계정에 대한 **구독**을 선택합니다.
 11. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
 12. 저장소 계정에 대한 **지리적 위치**를 선택합니다.
 13. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.  
-    배포가 완료되면 **저장소 계정** 블레이드가 자동으로 열립니다.
+    배포가 완료되면 **Storage 계정** 블레이드가 자동으로 열립니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
@@ -44,9 +44,6 @@ ms.lasthandoff: 12/05/2017
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>항상 증가 및 감소를 수행하는 규모 확장 및 감축 규칙 조합 사용
 이 조합의 한 부분만 사용하는 경우에는 자동 크기 조정에서 최대값 또는 최소값에 도달할 때까지 해당 부분만 규모를 확장하거나 감축합니다.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>자동 크기 조정을 관리할 때 Azure 포털 및 Azure 클래식 포털 간에 전환 금지
-Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 확장 집합의 경우 PowerShellH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
 진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.

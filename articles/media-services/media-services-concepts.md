@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
@@ -83,7 +83,7 @@ Media Services는 두 가지 유형의 로케이터를 지원합니다. 미디�
 Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 미디어 서비스 계정은 하나 이상의 저장소 계정에 연결될 수 있습니다. 전체 크기가 저장소 계정당 500TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다.  Media Services는 SDK 수준 도구를 제공하여 여러 저장소 계정을 관리하고 메트릭 또는 임의 분산에 따라 이러한 계정에 업로드하는 동안 자산 분산의 부하를 분산할 수 있습니다. 자세한 내용은 [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx)작업을 참조하세요. 
 
 ## <a name="jobs-and-tasks"></a>작업 및 태스크
-[작업](https://docs.microsoft.com/en-us/rest/api/media/operations/job) 은 일반적으로 하나의 오디오/비디오 프레젠테이션을 처리(예: 인덱싱 또는 인코딩)하는 데 사용됩니다. 여러 비디오를 처리하려면 인코딩할 각 비디오에 대해 하나의 작업을 만듭니다.
+[작업](https://docs.microsoft.com/rest/api/media/operations/job) 은 일반적으로 하나의 오디오/비디오 프레젠테이션을 처리(예: 인덱싱 또는 인코딩)하는 데 사용됩니다. 여러 비디오를 처리하려면 인코딩할 각 비디오에 대해 하나의 작업을 만듭니다.
 
 작업에는 수행할 처리에 대한 메타데이터가 포함됩니다. 각 작업에는 원자성 처리 태스크, 해당 입력 자산, 출력 자산, 미디어 프로세서 및 관련 설정을 지정하는 하나 이상의 [태스크](https://docs.microsoft.com/rest/api/media/operations/task)가 포함됩니다. 작업 내의 태스크는 함께 연결할 수 있으며, 이때 한 태스크의 출력 자산은 다음 태스크의 입력 자산으로 제공됩니다. 이러한 방식으로 한 작업에는 미디어 프레젠테이션에 필요한 모든 처리가 포함될 수 있습니다.
 

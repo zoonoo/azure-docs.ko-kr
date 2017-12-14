@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -486,7 +486,7 @@ Azure CLI(명령줄 인터페이스) 1.0 또는 PowerShell을 사용하여 로�
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Azure CLI 1.0으로 함수 앱 로그 파일 모니터링
 
-시작하려면 [Azure CLI 1.0을 설치](../cli-install-nodejs.md)하고 [Azure에 로그인](../xplat-cli-connect.md)합니다.
+시작하려면 [Azure CLI 1.0을 설치](../cli-install-nodejs.md)하고 [Azure에 로그인](/cli/azure/authenticate-azure-cli)합니다.
 
 다음 명령을 사용하여 클래식 서비스 관리 모드를 사용하도록 설정하고, 구독을 선택하고, 로그 파일을 스트림합니다.
 

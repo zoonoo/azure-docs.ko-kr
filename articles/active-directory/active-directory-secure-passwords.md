@@ -4,7 +4,7 @@ description: "Azure AD가 강력한 암호를 적용하고 사이버 범죄자�
 services: active-directory
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 
 이 문서에서는 Azure AD(Azure Active Directory) 또는 Microsoft 계정을 보호하기 위해 사용자 또는 관리자로서 수행할 수 있는 몇 가지 모범 사례를 설명합니다.
 
  > [!NOTE]
- > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+ > **로그인하는 데 문제가 있나요?** 그렇다면 [여기를 클릭하여 암호를 변경하고 재설정하는 방법을 알아보세요](active-directory-passwords-update-your-own-password.md).
  >
  > Azure AD 관리자는 [Azure Active Directory에서 사용자 암호 재설정](active-directory-users-reset-password-azure-portal.md) 문서의 지침을 사용하여 사용자 암호를 다시 설정할 수 있습니다.
  >

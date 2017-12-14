@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 | **웹 응용 프로그램** | <ul><li>[브라우저에서 중요한 콘텐츠가 캐시되지 않았는지 확인](#cache-browser)</li><li>[중요한 데이터가 포함된 Web App의 구성 파일의 섹션 암호화](#encrypt-data)</li><li>[중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지](#autocomplete-input)</li><li>[사용자 화면에 표시되는 중요한 데이터가 마스킹되었는지 확인](#data-mask)</li></ul> | 
 | **데이터베이스** | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요한 데이터가 암호화되었는지 확인](#db-encrypted)</li><li>[TDE(데이터베이스 수준 암호화)가 활성화되어 있는지 확인](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
 | **앱 API** | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 저장소에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[DocumentDB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Azure Cosmos DB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 신뢰 경계** | <ul><li>[Azure Disk Encryption을 사용하여 Virtual Machines에 사용되는 디스크 암호화](#disk-vm)</li></ul> | 
 | **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 응용 프로그램에서 암호 암호화](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 비즈니스 단위/팀 사용](#modeling-teams)</li><li>[액세스를 최소화하여 중요한 엔터티에 대한 기능 공유](#entities)</li><li>[Dynamics CRM 공유 기능 및 적절한 보안 사례와 관련된 위험에 대한 사용자 학습](#good-practices)</li><li>[예외 관리에서 구성 세부 정보를 표시하는 금지된 개발 표준 규칙 포함](#exception-mgmt)</li></ul> | 
-| **Azure 저장소** | <ul><li>[미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE) 사용(미리 보기)](#sse-preview)</li><li>[클라이언트 쪽 암호화를 사용하여 Azure Storage에 중요한 데이터 저장](#client-storage)</li></ul> | 
+| **Azure Storage** | <ul><li>[미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE) 사용(미리 보기)](#sse-preview)</li><li>[클라이언트 쪽 암호화를 사용하여 Azure Storage에 중요한 데이터 저장](#client-storage)</li></ul> | 
 | **모바일 클라이언트** | <ul><li>[휴대폰 로컬 저장소에 기록된 중요한 PII 데이터 암호화](#pii-phones)</li><li>[최종 사용자에게 배포하기 전에 생성된 바이너리 난독 처리](#binaries-end)</li></ul> | 
 | **WCF** | <ul><li>[clientCredentialType을 인증서 또는 Windows로 설정](#cert)</li><li>[WCF 보안 모드가 활성화되지 않음](#security)</li></ul> | 
 
@@ -261,7 +261,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Disk Encryption를 사용하여 가상 컴퓨터에 사용되는 디스크 암호화](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
-| **단계** | <p>Azure 디스크 암호화는 현재 미리 보기에 포함되어 있는 새로운 기능입니다. 이 기능을 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure 키 자격 증명 모음과 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. Azure 디스크 암호화 솔루션은 다음 3가지 고객 암호화 시나리오를 지원합니다.</p><ul><li>Azure 키 자격 증명 모음에 저장되는 고객 암호화 VHD 파일 및 고객 제공 암호화 키에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure 마켓플레이스에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure에서 이미 실행 중인 기존 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li></ul>| 
+| **단계** | <p>Azure 디스크 암호화는 현재 미리 보기에 포함되어 있는 새로운 기능입니다. 이 기능을 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. Azure 디스크 암호화 솔루션은 다음 3가지 고객 암호화 시나리오를 지원합니다.</p><ul><li>Azure Key Vault에 저장되는 고객 암호화 VHD 파일 및 고객 제공 암호화 키에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li><li>Azure에서 이미 실행 중인 기존 IaaS VM에 대해 암호화를 사용하도록 설정합니다.</li></ul>| 
 
 ## <a id="fabric-apps"></a>Service Fabric 응용 프로그램에서 암호 암호화
 
@@ -322,23 +322,23 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - Blob |
 | **참조**              | [미사용 데이터에 대한 Azure Storage 서비스 암호화(미리 보기)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
-| **단계** | <p>미사용 데이터에 대한 Azure 저장소 서비스 암호화(SSE)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure 저장소는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다. SSE는 블록 Blob, 페이지 Blob 및 추가 Blob에만 적용됩니다. 테이블, 큐 및 파일을 비롯한 다른 유형의 데이터는 암호화되지 않습니다.</p><p>워크플로 암호화 및 암호 해독:</p><ul><li>고객이 저장소 계정에 대해 암호화를 설정합니다.</li><li>고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지 등)를 Blob Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.</li><li>고객이 데이터(GET Blob 등)에 액세스해야 하는 경우 사용자에게 반환되기 전에 데이터가 자동으로 해독됩니다.</li><li>암호화를 사용하지 않도록 설정하면 새로운 기록 내용은 더 이상 암호화되지 않으며 기존 암호화된 데이터는 사용자가 다시 작성할 때까지 암호화된 상태로 유지됩니다. 암호화를 사용하는 동안 Blob 저장소에 기록된 내용이 암호화됩니다. 저장소 계정에 대해 암호화를 사용/사용하지 않는 것으로 사용자 전환하는 것으로 데이터의 상태는 변경되지 않습니다.</li><li>모든 암호화 키는 Microsoft에서 저장하고 암호화하며 관리합니다.</li></ul><p>현재 암호화에 사용되는 키는 Microsoft에서 관리합니다. Microsoft에서는 처음에 키를 생성한 후에, 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 관리합니다. 나중에 고객은 고유한 암호화 키를 관리하는 기능을 사용할 수 있게 되며 Microsoft에서 관리하는 키에서 고객이 관리하는 키로 마이그레이션 경로를 제공할 예정입니다.</p>| 
+| **단계** | <p>미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다. SSE는 블록 Blob, 페이지 Blob 및 추가 Blob에만 적용됩니다. 테이블, 큐 및 파일을 비롯한 다른 유형의 데이터는 암호화되지 않습니다.</p><p>워크플로 암호화 및 암호 해독:</p><ul><li>고객이 저장소 계정에 대해 암호화를 설정합니다.</li><li>고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지 등)를 Blob Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.</li><li>고객이 데이터(GET Blob 등)에 액세스해야 하는 경우 사용자에게 반환되기 전에 데이터가 자동으로 해독됩니다.</li><li>암호화를 사용하지 않도록 설정하면 새로운 기록 내용은 더 이상 암호화되지 않으며 기존 암호화된 데이터는 사용자가 다시 작성할 때까지 암호화된 상태로 유지됩니다. 암호화를 사용하는 동안 Blob 저장소에 기록된 내용이 암호화됩니다. 저장소 계정에 대해 암호화를 사용/사용하지 않는 것으로 사용자 전환하는 것으로 데이터의 상태는 변경되지 않습니다.</li><li>모든 암호화 키는 Microsoft에서 저장하고 암호화하며 관리합니다.</li></ul><p>현재 암호화에 사용되는 키는 Microsoft에서 관리합니다. Microsoft에서는 처음에 키를 생성한 후에, 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 관리합니다. 나중에 고객은 고유한 암호화 키를 관리하는 기능을 사용할 수 있게 되며 Microsoft에서 관리하는 키에서 고객이 관리하는 키로 마이그레이션 경로를 제공할 예정입니다.</p>| 
 
 ## <a id="client-storage"></a>클라이언트 쪽 암호화를 사용하여 Azure Storage에 중요한 데이터 저장
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Azure 암호화 확장을 사용하여 Azure Blob Storage에서 데이터 안전하게 저장](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
-| **단계** | <p>.NET용 Azure Storage 클라이언트 라이브러리 Nuget 패키지는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure 키 자격 증명 모음과의 통합을 지원합니다. 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.</p><ul><li>Azure Storage 클라이언트 SDK는 1회용 대칭 키인 CEK(콘텐츠 암호화 키)를 생성합니다.</li><li>고객 데이터는 이 CEK를 사용하여 암호화됩니다.</li><li>그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure 키 자격 증명 모음에 저장됩니다. 저장소 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.</li><li>그런 다음 암호화된 데이터를 Azure 저장소 서비스에 업로드합니다. 자세한 구현 세부 정보는 참조 섹션의 링크를 확인하세요.</li></ul>|
+| **단계** | <p>.NET용 Azure Storage 클라이언트 라이브러리 Nuget 패키지는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure Key Vault와의 통합을 지원합니다. 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.</p><ul><li>Azure Storage 클라이언트 SDK는 1회용 대칭 키인 CEK(콘텐츠 암호화 키)를 생성합니다.</li><li>고객 데이터는 이 CEK를 사용하여 암호화됩니다.</li><li>그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure Key Vault에 저장됩니다. Storage 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.</li><li>그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다. 자세한 구현 세부 정보는 참조 섹션의 링크를 확인하세요.</li></ul>|
 
 ## <a id="pii-phones"></a>휴대폰 로컬 저장소에 기록된 중요한 PII 데이터 암호화
 

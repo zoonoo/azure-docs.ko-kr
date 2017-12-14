@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 장치 인증
 
@@ -85,4 +85,4 @@ IoT Hub에 장치가 성공적으로 연결되면 인증 프로세스가 완료�
 
 IoT에서 [X.509 CA 인증의 가치](iot-hub-x509ca-concept.md)에 대해 알아보기
 
-IoT Hub [장치 프로비전 서비스](https://docs.microsoft.com/en-us/azure/iot-dps/) 시작하기
+IoT Hub [장치 프로비전 서비스](https://docs.microsoft.com/azure/iot-dps/) 시작하기

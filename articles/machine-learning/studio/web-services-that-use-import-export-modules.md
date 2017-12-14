@@ -1,9 +1,9 @@
 ---
-title: "Azure Machine Learning 웹 서비스에서 가져오기/내보내기 데이터 사용 | Microsoft Docs"
+title: "Azure Machine Learning 웹 서비스에서 Import/Export 데이터 사용 | Microsoft Docs"
 description: "데이터 가져오기 및 내보내기 데이터 모듈을 사용하여 웹 서비스에서 데이터를 보내고 받는 방법을 알아봅니다."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40e1dbf4fc1618deec5e7f85fb956f2881e08319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54b0434cb753484bdb8300f4b9c4f7f7ca75c7c8
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure ML 웹 서비스 배포
 
-예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. 일부 응용 프로그램에서는 소비자 데이터를 데이터 피드에서 사용할 수 있거나 해당 데이터가 Azure Blob 저장소와 같은 외부 데이터 원본에 이미 있을 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(배치 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
+예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. 일부 응용 프로그램에서는 소비자 데이터를 데이터 피드에서 사용할 수 있거나 해당 데이터가 Azure Blob 저장소와 같은 외부 데이터 원본에 이미 있을 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(Batch 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
 
 데이터 가져오기 및 내보내기 데이터 모듈은 HTTP를 통한 웹 URL, Hive 쿼리, Azure SQL Database, Azure Table Storage, Azure Blob Storage, 데이터 피드 또는 온-프레미스 SQL Database 등의 다양한 데이터 위치에서 읽고 쓸 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 2. 구성 요소 검색 상자에 가져오기를 입력합니다.
 3. 결과 목록에서 *데이터 가져오기* 모듈을 실험 캔버스에 추가합니다.
 4. *데이터 가져오기* 모듈의 출력을 *누락 데이터 정리* 모듈의 입력에 연결합니다.
-5. 속성 패널의 **Azure SQL 데이터베이스** in the **Azure SQL 데이터베이스** 를 선택합니다.
+5. 속성 패널의 **Azure SQL Database** in the **Azure SQL Database** 를 선택합니다.
 6. **데이터베이스 서버 이름**, **데이터베이스 이름**, **사용자 이름** 및 **암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
 7. 데이터베이스 쿼리 필드에 다음 쿼리를 입력합니다.
    
@@ -70,7 +70,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 3. 구성 요소 검색 상자에 내보내기를 입력합니다.
 4. 결과 목록에서 *데이터 내보내기* 모듈을 실험 캔버스에 추가합니다.
 5. *모델 점수 매기기* 모듈의 출력을 *데이터 내보내기* 모듈의 입력에 연결합니다. 
-6. 속성 패널의 데이터 대상 드롭다운에서 **Azure SQL 데이터베이스** 를 선택합니다.
+6. 속성 패널의 데이터 대상 드롭다운에서 **Azure SQL Database** 를 선택합니다.
 7. **데이터베이스 서버 이름**, **데이터베이스 이름**, **서버 사용자 계정 이름** 및 **서버 사용자 계정 암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
 8. **쉼표로 구분된 저장할 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 9. **데이터 테이블 이름 필드**에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.

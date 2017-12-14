@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 컴퓨터 백업 문제 해결
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/09/2017
 | 가상 컴퓨터가 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 컴퓨터에서만 백업을 사용할 수 있습니다. |이 경우 가상 시스템을 BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. |
 | Azure Backup 서비스에는 암호화된 Virtual Machines의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. |Backup 서비스에는 [PowerShell 설명서](backup-azure-vms-automation.md)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. |
 |COM+ 오류로 인해 스냅숏 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. | "COM+ 시스템 응용 프로그램" Windows 서비스를 시작하세요(관리자 권한 명령 프롬프트에서 _net start COMSysApp_). <br>시작하는 동안 실패하면 아래 단계를 수행하세요.<ol><li> "Distributed Transaction Coordinator" 서비스의 로그온 계정이 "Network Service"인지 확인합니다. 그렇지 않으면 "Network Service"로 변경하고 이 서비스를 다시 시작한 후 "COM+ 시스템 응용 프로그램" 서비스를 시작합니다.<li>여전히 시작할 수 없으면 아래 단계에 따라 "Distributed Transaction Coordinator" 서비스를 제거한 후 설치합니다.<br> - MSDTC 서비스 중지<br> - 명령 프롬프트 열기(cmd) <br> - “msdtc -uninstall” 명령 실행 <br> - “msdtc -install” 명령 실행 <br> - MSDTC 서비스 시작<li>Windows 서비스 "COM+ 시스템 응용 프로그램"을 시작한 후 포털에서 백업을 트리거합니다.</ol> |
-|  COM+ 오류로 인해 스냅숏 작업이 실패했습니다. | 권장 조치는 Windows 서비스 "COM+ 시스템 응용 프로그램"을 다시 시작하는 것입니다(관리자 권한 명령 프롬프트에서 _net start COMSysApp_ 실행). 문제가 지속되면 VM을 다시 시작합니다. VM을 다시 시작해도 문제가 해결되지 않으면 [VMSnapshot 확장을 제거](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)하고 수동으로 백업을 트리거합니다. |
+|  COM+ 오류로 인해 스냅숏 작업이 실패했습니다. | 권장 조치는 Windows 서비스 "COM+ 시스템 응용 프로그램"을 다시 시작하는 것입니다(관리자 권한 명령 프롬프트에서 _net start COMSysApp_ 실행). 문제가 지속되면 VM을 다시 시작합니다. VM을 다시 시작해도 문제가 해결되지 않으면 [VMSnapshot 확장을 제거](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)하고 수동으로 백업을 트리거합니다. |
 | 파일-시스템의 일관된 스냅숏을 생성하기 위해 VM의 탑재 지점 하나 이상을 고정하지 못함 | 다음 단계를 사용하세요. <ol><li>_'tune2fs'_ 명령을 사용하여 탑재된 모든 장치의 파일-시스템 상태를 확인합니다.<br> 예: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>_'umount'_ 명령을 사용하여 파일 시스템 상태가 정리되지 않은 장치를 탑재 해제합니다. <li> _'fsck'_ 명령을 사용하여 이러한 장치에 대해 FileSystemConsistency Check를 실행합니다. <li> 장치를 다시 탑재하고 백업을 시도합니다.</ol> |
 | 보안 네트워크 통신 채널을 생성하지 못하여 스냅숏 작업이 실패함 | <ol><Li> 관리자 권한 모드에서 regedit.exe를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NetFramework를 파악합니다. 이러한 버전은 레지스트리 키 "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NetFramework에 대해 다음 키를 추가합니다. <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅숏 작업이 실패함 | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동한 후 vcredist2012_x64를 설치합니다. 이 서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 예를 들어 레지스트리 키 _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_의 값은 4가 아닌 3으로 설정되어야 합니다. 설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 _MSIEXEC /UNREGISTER_를 실행한 후 _MSIEXEC /REGISTER_를 실행하여 설치 서비스를 다시 시작합니다.  |

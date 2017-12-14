@@ -11,7 +11,7 @@
 | 속성 및 메트릭 이름 길이 | 150 | [형식 스키마](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/) 참조
 | 속성 값 문자열 길이 | 8,192 | [형식 스키마](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/) 참조
 | 추적 및 예외 메시지 길이 | 10k | [형식 스키마](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/) 참조
-| 앱당 [가용성 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md) 수  | 10 |
+| 앱당 [가용성 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md) 수  | 100 |
 | [프로파일러](../articles/application-insights/app-insights-profiler.md) 데이터 보존 | 5일 |
 | 일일 전송된 [프로파일러](../articles/application-insights/app-insights-profiler.md) 데이터 | 10GB |
 

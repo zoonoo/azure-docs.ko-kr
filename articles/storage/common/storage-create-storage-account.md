@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Azure 저장소 계정 정보
 
@@ -99,7 +99,7 @@ Azure Storage에 저장되는 모든 개체에는 고유한 URL 주소가 있습
 
 복제 옵션을 변경하면 가격 책정이 변경됩니다. 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지를 참조하세요.
 
-Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층을 변경하면 그에 따른 요금이 발생할 수 있습니다. 자세한 내용은 [Blob 저장소 계정 - 가격 책정 및 청구](../blobs/storage-blob-storage-tiers.md#pricing-and-billing) 를 참조하세요.
+Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층을 변경하면 그에 따른 요금이 발생할 수 있습니다. 자세한 내용은 [Blob 저장소 계정 - 가격 책정 및 청구](../blobs/storage-account-options.md#pricing-and-billing) 를 참조하세요.
 
 ### <a name="manage-your-storage-access-keys"></a>저장소 액세스 키 다시 관리
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.

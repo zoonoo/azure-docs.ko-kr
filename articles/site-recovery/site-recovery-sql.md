@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
 
@@ -50,6 +50,7 @@ Site Recovery는 표에 요약된 대로 SQL Server를 보호할 수 있습니�
 **Hyper-V** | 예 | 예
 **VMware** | 예 | 예
 **물리적 서버** | 예 | 예
+**Azure**|해당 없음| 예
 
 ### <a name="supported-sql-server-versions"></a>지원되는 SQL Server 버전
 지원되는 시나리오에 대해 이러한 SQL Server 버전이 지원됩니다.

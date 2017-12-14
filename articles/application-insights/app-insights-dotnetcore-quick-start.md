@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 응용 프로그램 모니터링 시작
 
@@ -32,7 +32,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 - [.NET Core SDK 2.0 설치](https://www.microsoft.com/net/core)
 - Azure 구독 및 기존 .NET Core 웹 응용 프로그램이 필요합니다.
 
-ASP.NET Core 웹 응용 프로그램이 없는 경우 [ASP.NET Core 웹앱 만들기 가이드](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)에 따라 ASP.NET Core 웹 응용 프로그램을 만들 수 있습니다.
+ASP.NET Core 웹 응용 프로그램이 없는 경우 [ASP.NET Core 웹앱 만들기 가이드](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)에 따라 ASP.NET Core 웹 응용 프로그램을 만들 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -126,4 +126,4 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [런타임 예외 찾기 및 진단](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [런타임 예외 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

@@ -4,7 +4,7 @@ description: "Azure Active Directory B2C에 대해 자주 묻는 질문과 대�
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
@@ -37,7 +37,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 현재 Facebook, Google+, LinkedIn, Amazon, Twitter(미리 보기), WeChat(미리 보기), Weibo(미리 보기) 및 QQ(미리 보기)가 지원됩니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
 
-Azure AD B2C에서는 [사용자 지정 정책](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)에 대한 지원도 추가했습니다.  이러한 [사용자 지정 정책](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)을 통해 개발자는 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지원하는 모든 ID 공급자가 있는 사용자 고유의 정책을 만들 수 있습니다. 
+Azure AD B2C에서는 [사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)에 대한 지원도 추가했습니다.  이러한 [사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)을 통해 개발자는 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 또는 SAML을 지원하는 모든 ID 공급자가 있는 사용자 고유의 정책을 만들 수 있습니다. 
 
 [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)을 확인하여 사용자 지정 정책을 시작하세요.
 
@@ -87,7 +87,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 아니요. 보안상의 이유로, Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다.  Microsoft 서비스에서 브라우저와 통신하여 iFrames를 금지합니다.  일반적인 보안 커뮤니티와 OAUTH2 사양에서는 클릭재킹(clickjacking) 위험 때문에 ID 환경에 iFrames를 사용하지 않도록 권장합니다.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
-Microsoft Dynamics 365 포털과의 통합을 사용할 수 있습니다.  [인증에 Azure AD B2C를 사용하도록 Dynamics 365 포털 구성](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c)을 참조하세요.
+Microsoft Dynamics 365 포털과의 통합을 사용할 수 있습니다.  [인증에 Azure AD B2C를 사용하도록 Dynamics 365 포털 구성](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c)을 참조하세요.
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C가 SharePoint 온-프레미스 2016 또는 이전 버전과 함께 작동하나요?
 Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff75a7e50142888e4cff4acd40bbdbee31c0e29d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f68c37c4ceeec9a3447ba224fb051ea786de9997
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호 활성화
 Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재적인 취약성에 대한 통합된 보기를 제공하고 알림, 수정 권장 사항 및 위험 기반 정책을 통해 비즈니스를 보호하도록 도움을 주는 새로운 기능입니다. 

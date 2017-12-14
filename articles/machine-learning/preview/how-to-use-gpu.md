@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning에서 GPU를 사용하는 방법
 GPU(그래픽 처리 장치)는 일반적으로 특정 심층 신경망 모델을 교육할 때 발생할 수 있는 계산 집약적 작업을 처리하는 데 널리 사용됩니다. GPU를 사용하면 모델의 교육 시간을 크게 줄일 수 있습니다. 이 문서에서는 실행 대상으로 GPU가 장착된 [DSVM(Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)을 사용하도록 Azure ML Workbench를 구성하는 방법을 알아봅니다. 
@@ -64,10 +64,10 @@ Azure ML Workbench는 Azure Linux VM의 Docker에서 실행하는 것도 지원�
 4. **만들기**를 클릭하고 Ubuntu DSVM을 만듭니다.
 
 5. **기본 사항** 양식에 필수 정보를 입력합니다.
-VM의 위치를 선택할 때 GPU VM은 특정 Azure 지역(예: **미국 중남부**)에서만 사용할 수 있다는 점에 주의해야 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/regions/services/)을 참조하세요.
+VM의 위치를 선택할 때 GPU VM은 특정 Azure 지역(예: **미국 중남부**)에서만 사용할 수 있다는 점에 주의해야 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 확인을 클릭하여 **기본 사항** 정보를 저장합니다.
 
-6. 가상 컴퓨터의 크기를 선택합니다. NVidia GPU 칩이 탑재되었다는 뜻의 접두사 NC가 붙은 VM 크기 중 하나를 선택합니다.  필요에 따라 **모두 보기**를 클릭하여 전체 목록을 볼 수 있습니다. [GPU가 장착된 Azure VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu)에 대해 자세히 알아보세요.
+6. 가상 컴퓨터의 크기를 선택합니다. NVidia GPU 칩이 탑재되었다는 뜻의 접두사 NC가 붙은 VM 크기 중 하나를 선택합니다.  필요에 따라 **모두 보기**를 클릭하여 전체 목록을 볼 수 있습니다. [GPU가 장착된 Azure VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu)에 대해 자세히 알아보세요.
 
 7. 나머지 설정을 완료하고 구매 정보를 검토합니다. 구매를 클릭하여 VM을 만듭니다. 가상 컴퓨터에 할당된 IP 주소를 기록해 둡니다. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-다중 GPU VM의 성능을 개선하는 Microsoft Cognitive 도구 키트의 1비트 SGD 버전을 사용할 수도 있습니다. [1비트 SGD에 대한 라이선스 요구 사항](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license)을 기록해 둡니다.
+다중 GPU VM의 성능을 개선하는 Microsoft Cognitive 도구 키트의 1비트 SGD 버전을 사용할 수도 있습니다. [1비트 SGD에 대한 라이선스 요구 사항](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license)을 기록해 둡니다.
 
 ```yaml
 name: project_environment

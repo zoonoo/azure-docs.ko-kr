@@ -1,9 +1,9 @@
 ---
 title: "Runbook 설정 | Microsoft Docs"
-description: "Azure 자동화의 Runbook에 대한 구성 설정 및 Azure 관리 포털과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다."
+description: "Azure Automation의 Runbook에 대한 구성 설정 및 Azure 관리 포털과 Windows PowerShell을 사용하여 이를 변경하는 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-settings"></a>Runbook 설정
-Azure 자동화의 각 Runbook에는 해당 로깅 동작을 쉽게 식별하고 변경하는 데 유용한 여러 설정이 있습니다. 이러한 각 설정은 아래에서 해당 설정을 수정하는 방법에 대한 절차 다음에 설명되어 있습니다.
+Azure Automation의 각 Runbook에는 해당 로깅 동작을 쉽게 식별하고 변경하는 데 유용한 여러 설정이 있습니다. 이러한 각 설정은 아래에서 해당 설정을 수정하는 방법에 대한 절차 다음에 설명되어 있습니다.
 
 ## <a name="settings"></a>설정
 ### <a name="name-and-description"></a>이름 및 설명
@@ -38,7 +38,7 @@ Runbook을 만든 후에는 이름을 변경할 수 없습니다. 이 설명은 
 ### <a name="changing-runbook-settings-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 설정 변경
 Azure Portal의 Runbook에 대한 **설정** 블레이드에서 해당 Runbook의 설정을 변경할 수 있습니다.
 
-1. Azure 포털에서 **자동화**를 선택한 다음 자동화 계정의 이름을 클릭합니다.
+1. Azure Portal에서 **Automation**을 선택한 다음 자동화 계정의 이름을 클릭합니다.
 2. **Runbook** 탭을 선택합니다.
 3. Runbook의 이름을 클릭하면 해당 runbook에 대한 설정 블레이드로 이동합니다. 여기에서 태그 또는 runbook 설명을 지정하거나 수정하고, 로깅 및 추적 설정을 구성하고, 문제 해결을 도와주는 지원 도구에 액세스할 수 있습니다.     
 

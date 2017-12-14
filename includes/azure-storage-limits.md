@@ -3,6 +3,7 @@
 | 구독당 저장소 계정 수 | 200<sup>1</sup> |
 | 최대 저장소 계정 용량 | 500TiB<sup>2</sup> |
 | 저장소 계정당 Blob 컨테이너, Blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
+| 저장소 계정당 최대 요청 속도 | 초당 20,000개 요청<sup>2</sup> |
 | 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 지역) | GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS<sup>2</sup>를 사용하는 경우 20Gbps |
 | 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 지역) | RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 20Gbps, LRS<sup>2</sup>를 사용하는 경우 30Gbps |
 | 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 이외 지역) | GRS/ZRS<sup>4</sup>를 사용하는 경우 5Gbps, LRS<sup>2</sup>를 사용하는 경우 10Gbps |

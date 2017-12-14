@@ -4,7 +4,7 @@ description: "클라이언트 인증서를 사용하여 Azure AD B2C에서 사�
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 관련된 문서에서 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하는 [RESTful 서비스를 만듭니다](active-directory-b2c-custom-rest-api-netfw.md).
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/21/2017
 **Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이와 같이 변경하려면 REST API를 사용해야 합니다. Azure Portal에서 관리 환경을 통해 설정을 사용할 수 있습니다. 설정을 찾으려면 RESTful 응용 프로그램 **설정** 메뉴의 **개발 도구** 아래에서 **리소스 탐색기**를 선택합니다.
 
 >[!NOTE]
->Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)를 참조하세요.
+>Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)를 참조하세요.
 
 
 다음 이미지에 표시된 대로 [Azure Resource Explorer(미리 보기)](https://resources.azure.com)를 사용하여 **clientCertEnabled** 속성을 *true*로 설정합니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/21/2017
 ![Azure Resource Explorer를 통해 clientCertEnabled 설정](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
+>**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
 >[!TIP]
 >또는 REST API 호출을 쉽게 만들려면 [ARMClient](https://github.com/projectkudu/ARMClient) 도구를 사용할 수 있습니다.
@@ -165,7 +165,7 @@ Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 �
 이 섹션에서는 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드를 추가합니다.
 
 > [!NOTE]
->클라이언트 인증서 인증을 위해 Azure App Service를 구성하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
+>클라이언트 인증서 인증을 위해 Azure App Service를 구성하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 응용 프로그램 설정 추가
 앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 응용 프로그램 설정을 추가합니다.

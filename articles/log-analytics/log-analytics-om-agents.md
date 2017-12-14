@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
 System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다.  이렇게 하면 Operations Manager를 계속해서 사용하는 동안 OMS의 기회를 활용하여 다음 작업을 할 수 있습니다.
@@ -40,9 +40,9 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 ## <a name="system-requirements"></a>시스템 요구 사항
 시작하기 전에 다음 세부 정보를 검토하여 필수 구성 요소를 충족하는지 확인합니다.
 
-* OMS는 Operations Manager 2016, Operations Manager 2012 SP1 UR10 이상 및 Operations Manager 2012 R2 UR11 이상만을 지원합니다.
+* OMS는 Operations Manager 2016, Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상만을 지원합니다.  프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않은 경우 Windows 에이전트 트래픽이 실패하고 많은 오류가 Operations Manager 이벤트 로그를 채울 수 있습니다.
-* Azure Log Analytics 구독입니다.  자세한 내용은 [Log Analytics 시작](log-analytics-get-started.md)을 검토합니다.
+* OMS 구독입니다.  자세한 내용은 [Log Analytics 시작](log-analytics-get-started.md)을 검토합니다.
 
 ### <a name="network"></a>네트워크
 아래 정보는 Operations Manager 에이전트, 관리 서버 및 운영 콘솔이 OMS와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  각 구성 요소의 트래픽은 네트워크에서 OMS 서비스로 아웃바운드됩니다.     
@@ -208,7 +208,7 @@ Operations Manager와 통합하도록 활성화한 솔루션용 관리 팩 및 O
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

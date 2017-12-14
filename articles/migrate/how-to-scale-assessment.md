@@ -1,24 +1,16 @@
 ---
 title: "Azure Migrate로 규모 검색 및 평가 | Microsoft Docs"
 description: "Azure Migrate 서비스를 사용하는 많은 수의 온-프레미스 컴퓨터를 평가하는 방법을 설명합니다."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -50,14 +42,14 @@ Azure Migrate 프로젝트는 최대 1500대 컴퓨터를 평가할 수 있습�
 요구 사항에 따라 Azure Migrate 프로젝트를 만듭니다.
 
 1. Azure Portal에서 **리소스 만들기**를 클릭합니다.
-2. **Azure Migrate**를 검색하고 검색 결과에서 서비스(**Azure Migrate(미리 보기)**를 선택합니다. 그런 다음 **Create**를 클릭합니다.
-3. 프로젝트 이름과 프로젝트에 대한 Azure 구독을 지정합니다.
+2. **Azure Migrate**를 검색하고, 검색 결과에서 서비스(**Azure Migrate(미리 보기)**를 선택합니다. 그런 다음 **Create**를 클릭합니다.
+3. 프로젝트에 대해 프로젝트 이름과 Azure 구독을 지정합니다.
 4. 새 리소스 그룹을 만듭니다.
 5. 프로젝트를 만들 영역을 지정한 다음, **만들기**를 클릭합니다. 온-프레미스 VM에서 수집된 메타데이터는 이 영역에 저장됩니다.
 
 ## <a name="set-up-the-collector-appliance"></a>수집기 어플라이언스 설정
 
-Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 만듭니다. 이 VM은 온-프레미스 VMware VM을 검색하고 Azure Migrate 서비스에 대한 메타데이터를 보냅니다. 수집기 어플라이언스를 설정하려면 .OVA 파일을 다운로드하고 VM을 만드는 온-프레미스 vCenter 서버로 가져옵니다.
+Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 만듭니다. 이 VM은 온-프레미스 VMware VM을 검색하고 그것들에 대한 메타데이터를 Azure Migrate 서비스에 보냅니다. 수집기 어플라이언스를 설정하려면 .OVA 파일을 다운로드하고 VM을 만드는 온-프레미스 vCenter 서버로 가져옵니다.
 
 ### <a name="download-the-collector-appliance"></a>수집기 어플라이언스 다운로드
 
@@ -70,9 +62,9 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
    
 ### <a name="verify-the-collector-appliance"></a>수집기 어플라이언스 확인
 
-배포하기 전에 .OVA 파일이 안전한지 확인합니다.
+배포하기 전에 OVA 파일이 안전한지 확인합니다.
 
-1. 파일을 다운로드하는 컴퓨터에서 관리자 명령 창을 엽니다.
+1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
@@ -86,18 +78,18 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 
 ## <a name="create-the-collector-vm"></a>수집기 VM 만들기
 
-vCenter 서버에 다운로드한 파일을 가져옵니다.
+다운로드한 파일을 vCenter 서버에 가져옵니다.
 
-1. vSphere 클라이언트 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
+1. vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
 
     ![OVF 배포](./media/how-to-scale-assessment/vcenter-wizard.png)
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 .ova 파일의 위치를 지정합니다.
-3. **이름** 및 **위치**에서 수집기 VM에 사용할 친숙한 이름 및 VM이 호스트되는 인벤토리 개체를 지정합니다.
-5. **호스트/클러스터**에서 수집기 VM을 실행할 호스트 또는 클러스터를 지정합니다.
+3. **이름** 및 **위치**에서 수집기 VM에 대한 익숙한 이름과 VM이 호스트될 인벤토리 개체를 지정합니다.
+5. **호스트/클러스터**에서 수집기 VM이 실행될 호스트 또는 클러스터를 지정합니다.
 7. 저장소에서 수집기 VM에 대한 저장소 대상을 지정합니다.
 8. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
-9. **네트워크 매핑**에서 수집기 VM을 연결할 네트워크를 지정합니다. 네트워크는 Azure에 메타데이터를 전송하기 위해 인터넷에 연결되어 있어야 합니다. 
+9. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다. 
 10. 설정을 검토 및 확인한 후 **마침**을 클릭합니다.
 
 ## <a name="identify-the-key-and-id-for-each-project"></a>각 프로젝트에 대한 키와 ID 식별
@@ -132,16 +124,16 @@ vCenter 서버에 다운로드한 파일을 가져옵니다.
 1. vSphere 클라이언트 콘솔에서 VM을 마우스 오른쪽 단추로 클릭하고 **콘솔 열기**를 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
 3. 바탕 화면에서 **수집기 실행** 바로 가기를 클릭합니다.
-4. Azure Migrate Collector에서 **필수 구성 요소 설정**을 엽니다.
+4. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
     - 사용 조건에 동의하고 타사 정보를 읽습니다.
-    - 수집기는 VM에 인터넷 액세스 권한이 있는지 확인합니다.
-    - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
+    - 수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
+    - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
     - 수집기는 Windows 프로파일러 서비스가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
     - VMware PowerCLI를 다운로드하여 설치합니다.
 . **컴퓨터 검색**에서 다음을 수행합니다.
     - vCenter 서버의 이름(FQDN) 또는 IP 주소를 지정합니다.
-    - **사용자 이름** 및 **암호**에서 수집기가 vCenter 서버에서 VM을 검색하는 데 사용하는 읽기 전용 계정 자격 증명을 지정합니다.
-    - **컬렉션 범위**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내에 있는 VM만 검색할 수 있습니다. 범위는 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM 수는 1000개 미만이어야 합니다. 
+    - **사용자 이름** 및 **암호**에서, 수집기가 vCenter 서버에서 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
+    - **컬렉션 범위**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM 수는 1000개 미만이어야 합니다. 
     - n **그룹화에 대한 태그 범주**에서 **없음**을 선택합니다.
 
         ![범위 선택](./media/how-to-scale-assessment/select-scope.png)
@@ -152,10 +144,10 @@ vCenter 서버에 다운로드한 파일을 가져옵니다.
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
 
-검색 시간은 검색 중인 VM 수에 따라 다릅니다. 일반적으로 VM 100대의 경우, 수집기가 실행을 완료한 후 검색을 완료하기까지 약 1시간이 걸립니다. 
+검색 시간은 검색 중인 VM이 얼마나 많은지에 달려 있습니다. 일반적으로 VM 100대의 경우, 수집기가 실행을 완료한 후 검색을 완료하기까지 약 1시간이 걸립니다. 
 
-1. 마이그레이션 플래너 프로젝트에서 **관리** > **컴퓨터**를 클릭합니다.
-2. 검색하려는 VM이 포털에 표시되는지 확인합니다.
+1. Migration Planner 프로젝트에서 **관리** > **컴퓨터**를 클릭합니다.
+2. 검색하려는 VM이 포털에 나타나는지 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

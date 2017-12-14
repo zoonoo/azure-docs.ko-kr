@@ -4,7 +4,7 @@ description: "MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Fact
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure Multi-Factor Authentication 구성 설정 - 공개 미리 보기
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
 이 문서는 준비하고 실행 중인 Multi-Factor Authentication을 관리하는데 도움이 됩니다.  Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다.  모든 버전의 [Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need)에서 이러한 모든 기능을 사용할 수는 없습니다.
-
->[!NOTE]
->이러한 설정은 Azure Portal에서 공개 미리 보기에 있습니다. pfweb 포털에서 Azure Multi-Factor Authentication 설정을 관리하는 방법에 대한 설명서는 [Azure Multi-Factor Authentication 구성 설정](multi-factor-authentication-whats-next-pfweb.md)을 참조하세요.
 
 | 기능 | 설명 | 
 |:--- |:--- |

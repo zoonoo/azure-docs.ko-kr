@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
 구성할 수 있는 설정은 다음과 같습니다.
 - C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 다음과 같은 방식으로 기본 FabricTransport 구성을 수정할 수 있습니다.
 
 ## <a name="assembly-attribute"></a>어셈블리 특성
 
-[FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
 
 다음 예제에서는 FabricTransport OperationTimeout 설정의 기본값을 변경하는 방법을 보여 줍니다.
 
@@ -49,7 +49,7 @@ https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remot
 
 ## <a name="config-package"></a>구성 패키지
 
-[구성 패키지](service-fabric-application-model.md)를 사용하여 기본 구성을 수정할 수 있습니다.
+[구성 패키지](service-fabric-application-and-service-manifests.md)를 사용하여 기본 구성을 수정할 수 있습니다.
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>행위자 서비스에 대한 FabricTransport 설정 구성
 

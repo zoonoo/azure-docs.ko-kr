@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics의 네트워크 성능 모니터 솔루션
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/19/2017
 또한 대부분의 기존 네트워크 모니터링 솔루션은 손실, 대기 시간과 같은 종단 간 네트워크 성능에 대한 정보를 제공하지 않기 때문에 이미 다른 네트워크 모니터링 도구에 투자한 경우에는 기존 도구를 보완할 수 있습니다.  네트워크 성능 모니터 솔루션은 그 차이를 좁혀줍니다.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>솔루션의 에이전트 설치 및 구성
-[Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 및 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)에 나와 있는 기본 프로세스에 따라 에이전트를 설치합니다.
+[Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md) 및 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)에 나와 있는 기본 프로세스에 따라 에이전트를 설치합니다.
 
 > [!NOTE]
 > 네트워크 리소스를 검색 및 모니터링하는 데 충분한 데이터를 확보하려면 2개 이상의 에이전트를 설치해야 합니다. 그렇지 않을 경우 추가 에이전트를 설치 및 구성할 때까지 솔루션이 구성 중 상태로 유지됩니다.
@@ -212,7 +212,7 @@ PowerShell 스크립트를 사용하여 Windows를 실행하는 컴퓨터에서 
 
 다음 표에는 데이터 수집 방법 및 네트워크 성능 모니터에 대한 데이터가 수집되는 방식에 대한 기타 세부 정보가 나와 있습니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |TCP는 5초마다 핸드셰이크/ICMP ECHO 메시지를 전송하며 3분마다 데이터가 전송됩니다. |
 

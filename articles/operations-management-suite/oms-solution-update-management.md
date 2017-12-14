@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
 
@@ -81,7 +81,7 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
     > 여러 OMS 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트는 이 솔루션에서 지원되지 않습니다.  
     >
 
-Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 자세한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요.  Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agents.md)를 검토하세요.  
+Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 자세한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요.  Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agent.md)를 검토하세요.  
 
 ### <a name="permissions"></a>권한
 업데이트 배포를 만들려면 Automation 계정과 Log Analytics 작업 영역에서 contributor 역할이 부여되어야 합니다.  
@@ -126,7 +126,7 @@ Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 OMS에 연
 1.  제어판에서 Microsoft Monitoring Agent를 열면 **OMS(Azure Log Analytics)** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지를 표시합니다.   
 2.  Windows 이벤트 로그를 열고, **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동하여 원본 서비스 커넥터에서 이벤트 ID 3000 및 5002를 검색합니다.  이러한 이벤트는 컴퓨터가 OMS 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.  
 
-에이전트가 OMS 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-windows-agents.md#network) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md#network)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
+에이전트가 OMS 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-windows-agent.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
 > [!NOTE]
 > Linux 시스템이 프록시 또는 OMS Gateway와 통신하도록 구성되고 이 솔루션을 온보딩하는 경우 다음 명령을 수행하여 파일에 omiuser 그룹 읽기 권한을 부여하도록 *proxy.conf* 사용 권한을 업데이트하세요.  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -84,7 +84,7 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>비Azure 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리 사용
 
-비Azure Windows 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agents.md)을 참조하세요.
+비Azure Windows 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)을 참조하세요.
 
 비Azure Linux 가상 머신 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Log Analytics에 Linux 머신 연결](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
 

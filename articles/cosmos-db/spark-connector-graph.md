@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Spark 및 Apache TinkerPop Gremlin을 사용하여 그래프 분석 수행
 
@@ -176,7 +176,7 @@ Azure HDInsight Spark 클러스터를 설정하는 방법에 대한 자세한 �
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>Azure Cosmos DB Spark 커넥터 가져오기
 
-1. Azure Cosmos DB Spark 커넥터 `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` 및 Cosmos DB Java SDK`azure-documentdb-1.10.0.jar`를 [GitHub의 Azure Cosmos DB Spark 커넥터](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11)에서 가져옵니다.
+1. Azure Cosmos DB Spark 커넥터 `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` 및 Cosmos DB Java SDK`azure-documentdb-1.12.0.jar`를 [GitHub의 Azure Cosmos DB Spark 커넥터](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11)에서 가져옵니다.
 
 2. 또는 로컬에서 빌드할 수 있습니다. 최신 버전의 Spark-Gremlin이 Spark 1.6.1로 빌드되었고 Azure Cosmos DB Spark 커넥터에서 현재 사용되는 Spark 2.0.2와 호환되지 않으므로 수동으로 최신 TinkerPop3 코드를 빌드하고 jar를 설치할 수 있습니다. 다음을 수행합니다.
 

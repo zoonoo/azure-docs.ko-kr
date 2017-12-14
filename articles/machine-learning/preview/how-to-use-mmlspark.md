@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 228ff59e2a495e8ca7c310214327bc846ecfb828
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Apache Spark에 대한 Microsoft Machine Learning 라이브러리를 사용하는 방법
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/05/2017
 
 이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
 - [Azure Machine Learning Workbench 설치](quickstart-installation.md)
-- [Azure HDInsight Spark 클러스터 설치](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
+- [Azure HDInsight Spark 클러스터 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Docker 컨테이너에서 실험 실행
 
@@ -41,7 +41,7 @@ Azure Machine Learning Workbench는 사용자가 Docker 컨테이너에서 실�
 
 ## <a name="install-mmlspark-on-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에 MMLSpark 설치.
 
-이 단계와 다음 단계를 완료하려면 먼저 [Azure HDInsight Spark 클러스터를 만들어야 합니다](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+이 단계와 다음 단계를 완료하려면 먼저 [Azure HDInsight Spark 클러스터를 만들어야 합니다](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 기본적으로 Azure Machine Learning Workbench는 사용자가 실험을 실행하면 클러스터에 MMLSpark 패키지를 설치합니다. 사용자는 프로젝트 폴더에 있는 _aml_config/spark_dependencies.yml_ 파일을 편집하여 이 동작을 제어하고 다른 Spark 패키지를 설치할 수 있습니다.
 

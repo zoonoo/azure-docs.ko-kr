@@ -4,7 +4,7 @@ description: "하이브리드 환경에서 ID의 기본 요소 및 사용자의 
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6404940da460461632616fe49f055d50c2a7aba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 * 조직은 온-프레미스 나 클라우드에 위치한 앱에 Single Sign-On을 사용합니까?
   * 사용한다면 하이브리드 ID 모델의 도입은 이 프로세스에 영향을 줍니까?
 
-## <a name="access-control"></a>액세스 제어
+## <a name="access-control"></a>Access Control
 인증 및 권한 부여는 사용자의 유효성 검사를 통해 회사 데이터에 액세스할 수 있도록 하는 핵심 요소이며 또한 관리 중인 리소스를 통해 이러한 사용자가 가질 액세스 수준 및 관리자가 가질 액세스 수준을 제어하는 것이 중요합니다. 하이브리드 ID 솔루션은 리소스, 위임 및 역할 기반 액세스 제어에 대한 세부적인 액세스를 제공할 수 있어야 합니다. 액세스 제어에 관하여 다음과 같은 질문에 응답해야 합니다.
 
 * 회사에는 상승된 권한이 있는 둘 이상의 사용자가 있어서 ID 시스템을 관리합니까?

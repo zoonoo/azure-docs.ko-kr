@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
@@ -101,7 +101,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 * 에지 노드 액세스를 위한 URI가 **clustername**-ed-ssh.azurehdinsight.net으로 변경되었습니다.
 * HDInsight의 R 서버 클러스터 프로비전이 간소화되었습니다.
 * 이제 HDInsight의 R 서버를 일반 HDInsight "R 서버" 클러스터 유형으로 사용할 수 있으며 별도의 HDInsight 응용 프로그램으로는 더 이상 설치되지 않습니다. 이제 에지 노드 및 R 서버 이진 파일이 R 서버 클러스터 배포의 일부로 프로비전됩니다. 그러면 프로비전의 속도 및 안정성이 향상됩니다. R 서버에 대한 가격 책정 모델이 이에 따라 업데이트됩니다.
-* R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 프리미엄 계층은 다양한 클러스터 형식 간에 사용 가능한 프리미엄 기능용으로 예약되며 R 서버 클러스터 형식에 사용되지 않습니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 Resource Manager 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 Resource Manager 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
+* R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 Resource Manager 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 Resource Manager 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
 
 
 

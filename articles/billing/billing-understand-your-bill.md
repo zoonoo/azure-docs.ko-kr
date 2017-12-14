@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 현황 파일 및 비용 관리 보고서와 청구서를 비교합니다.
@@ -31,7 +31,7 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
 
 청구서 및 자세한 일별 사용 현황 파일의 자세한 용어 및 설명은 [Microsoft Azure 청구서의 용어 이해](billing-understand-your-invoice.md) 및 [Microsoft Azure 자세한 사용 현황의 용어 이해](billing-understand-your-usage.md)를 참조하세요. 
 
-비용 관리 보고서에 대한 세부 정보는 [Azure Portal 비용 관리](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started)를 참조하세요.
+비용 관리 보고서에 대한 세부 정보는 [Azure Portal 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)를 참조하세요.
 
 ## <a name="charges"></a>청구서의 요금이 맞는지 확인하려면 어떻게 할까요?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Azure 청구서를 이해하려면 Azure Portal에서 자세한 일별 사용 �
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>옵션 1: 청구서를 검토하고 자세한 사용 현황 CSV 파일과 사용 현황 및 비용 비교
 
-자세한 사용 현황 CSV 파일은 청구 기간 및 일별 사용 현황별로 청구액을 보여 줍니다. 자세한 사용 현황 CSV 파일을 가져오려면 [Azure 청구서 및 일별 사용 현황 데이터 가져오기](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date)를 참조하세요.
+자세한 사용 현황 CSV 파일은 청구 기간 및 일별 사용 현황별로 청구액을 보여 줍니다. 자세한 사용 현황 CSV 파일을 가져오려면 [Azure 청구서 및 일별 사용 현황 데이터 가져오기](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date)를 참조하세요.
 
 미터 수준에서 사용 현황 요금이 표시됩니다. 다음 용어는 청구서와 자세한 사용 현황 파일에서 동일한 항목을 의미합니다. 예를 들어 청구서의 청구 주기는 자세한 사용 현황 파일에 표시된 요금 청구 기간과 같습니다.
 

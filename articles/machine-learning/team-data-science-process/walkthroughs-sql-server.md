@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>R, Python 및 T-SQL을 사용하여 SQL Server 데이터 과학 연습
 
@@ -39,12 +39,12 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>SQL Server와 함께 T SQL 또는 저장 프로시저에서 R을 사용하여 택시 팁 예측
 
-[R 및 SQL Server에 대한 데이터 과학 연습](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)은 R 솔루션을 작동시키는 SQL Server R Services를 사용하여 Transact-SQL과 함께 고급 분석 솔루션을 구축하는 경험을 SQL 프로그래머에게 제공합니다. 
+[R 및 SQL Server에 대한 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)은 R 솔루션을 작동시키는 SQL Server R Services를 사용하여 Transact-SQL과 함께 고급 분석 솔루션을 구축하는 경험을 SQL 프로그래머에게 제공합니다. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>SQL Server 저장 프로시저에서 Python을 사용하여 택시 팁 예측
 
-[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 응용 프로그램으로 통합하는 방법을 보여 줍니다.
+[SQL Server Python 서비스와 함께 T-SQL 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) 연습에서는 SQL 프로그래머에게 SQL Server에서의 Machine Learning 솔루션 구축 경험을 제공합니다. 저장된 프로시저에 Python 코드를 추가하여 Python을 응용 프로그램으로 통합하는 방법을 보여 줍니다.
 
 
 ## <a name="next-steps"></a>다음 단계

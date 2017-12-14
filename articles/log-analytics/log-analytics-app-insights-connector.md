@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 Application Insights 커넥터 솔루션(미리 보기)
 
@@ -39,7 +39,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agents.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
@@ -90,7 +90,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | --- | --- |
 | 응용 프로그램 - 응용 프로그램 수 | 응용 프로그램 리소스에 응용 프로그램 수를 표시합니다. 응용 프로그램 이름과 각 항목의 응용 프로그램 레코드 수도 나열합니다. <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br>  호스트별 응용 프로그램 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여 주는 응용 프로그램에 대한 로그 검색을 실행할 응용 프로그램 이름을 클릭합니다. |
 | 데이터 볼륨 - 데이터를 전송하는 호스트 | 데이터를 전송하는 컴퓨터 호스트의 수를 보여 줍니다. 컴퓨터 호스트 및 각 호스트의 레코드 수도 나열합니다. <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br> 호스트별 응용 프로그램 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여 주는 호스트에 대한 로그 검색을 실행할 컴퓨터 이름을 클릭합니다. |
-| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 차트를 클릭하면 <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code>에 대한 로그 검색이 실행됩니다. <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 웹앱이 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여 주는 로그 검색을 보려면 응용 프로그램 이름을 클릭합니다. |
+| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 차트를 클릭하면 <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code>에 대한 로그 검색이 실행됩니다. <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 Web Apps가 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여 주는 로그 검색을 보려면 응용 프로그램 이름을 클릭합니다. |
 | 서버 요청 – 시간당 요청 | 다양한 응용 프로그램의 시간당 서버 요청에 대한 꺾은선형 차트를 보여 줍니다. 차트의 선을 마우스로 가리키면 특정 시점에 요청을 가장 많이 수신한 상위 3개 응용 프로그램이 표시됩니다. 요청을 수신한 응용 프로그램 목록과 선택한 기간의 요청 수도 보여 줍니다. <br><br>다양한 응용 프로그램의 시간당 서버 요청에 대한 더 자세한 꺾은선형 차트를 보여 주는 <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code>에 대한 로그 검색을 실행하려면 그래프를 클릭합니다. <br><br> 요청 목록, 시간 및 요청 기간에 따른 요청 차트, 요청 응답 코드 목록을 보여 주는 <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code>에 대한 로그 검색을 실행하려면 목록에서 응용 프로그램을 클릭합니다.   |
 | 실패 - 시간당 실패한 요청 수 | 시간당 실패한 응용 프로그램 요청 수에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 실패한 요청이 가장 많은 상위 3개 응용 프로그램이 표시됩니다. 각 응용 프로그램의 실패한 요청 수가 표시된 응용 프로그램 목록도 보여 줍니다. 실패한 응용 프로그램 요청을 자세한 꺾은선형 차트로 보여 주는 <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>실패한 요청, 시간 및 요청 기간에 따른 실패한 요청 차트, 실패한 요청 응답 코드 목록을 보여 주는 <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다. |
 | 예외 – 시간당 예외 | 시간당 예외에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 예외가 가장 많은 상위 3개 응용 프로그램이 표시됩니다. 각 응용 프로그램의 예외 수가 표시된 응용 프로그램 목록도 보여 줍니다. 예외에 대한 더 자세한 연결 차트를 보여 주는 <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>예외 목록, 시간 및 실패한 요청에 따른 예외 차트, 예외 형식 목록을 보여 주는 <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다.  |

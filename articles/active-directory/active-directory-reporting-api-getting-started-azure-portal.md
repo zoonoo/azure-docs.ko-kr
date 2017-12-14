@@ -4,7 +4,7 @@ description: "Azure Active Directory Reporting API를 시작하는 방법"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API 시작
 
@@ -28,7 +28,7 @@ Azure Active Directory는 다양한 보고서를 제공합니다. 이러한 보�
 이 문서에서는 Azure AD Reporting API를 시작하는 데 필요한 정보를 제공합니다.
 다음 섹션에는 감사 및 로그인 API를 사용하는 방법에 대한 자세한 정보가 있습니다. 
 
-질문과 대답(FAQ)는 [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq)를 참고하세요. 문제는 [지원 티켓을 파일로 저장하세요](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+질문과 대답(FAQ)는 [FAQ](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq)를 참고하세요. 문제는 [지원 티켓을 파일로 저장하세요](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="learning-map"></a>학습 맵
 1. **준비** - API 샘플을 테스트하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)를 완료해야 합니다.

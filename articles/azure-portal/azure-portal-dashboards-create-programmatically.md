@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>개요
 
-Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview), [Azure PowerShell 명령](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
+Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같은 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)입니다.  따라서 [Azure Resource Manager REST API](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell 명령](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 및 이러한 API를 기반으로 하는 수많은 [Azure Portal](https://portal.azure.com) 기능을 통해 프로그래밍 방식으로 관리하고 리소스를 보다 쉽게 관리할 수 있습니다.  
 
 이러한 각 API 및 도구는 리소스를 만들고 나열하며 검색, 수정 및 삭제하는 방법을 제공합니다.  대시보드는 리소스이므로 사용할 선호하는 API / 도구를 선택할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같�
 
 ![공유 명령](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-[공유] 명령을 클릭하면 게시할 구독 및 리소스 그룹을 선택하라는 대화 상자가 표시됩니다. 선택한 구독 및 리소스 그룹에 대해 [쓰기 액세스 권한이 있어야](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) 합니다.
+[공유] 명령을 클릭하면 게시할 구독 및 리소스 그룹을 선택하라는 대화 상자가 표시됩니다. 선택한 구독 및 리소스 그룹에 대해 [쓰기 액세스 권한이 있어야](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 합니다.
 
 ![공유 및 액세스](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Azure에서 공유 대시보드는 가상 컴퓨터 및 저장소 계정과 같�
 
 향후 가상 컴퓨터에 대해 이 대시보드를 게시하려면 이 문자열의 모든 항목을 JSON 내에서 매개 변수화해야 합니다. 
 
-Azure에서 리소스를 만드는 API에는 두 종류가 있습니다. 한 번에 하나의 리소스를 만드는 [명령적 API](https://docs.microsoft.com/en-us/rest/api/resources/resources), 한 번의 API 호출로 여러 개의 종속 리소스 생성을 오케스트레이션할 수 있는 [템플릿 기반 배포](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) 시스템입니다. 후자는 기본적으로 매개 변수화 및 템플릿을 지원하므로 예제로 사용합니다.
+Azure에서 리소스를 만드는 API에는 두 종류가 있습니다. 한 번에 하나의 리소스를 만드는 [명령적 API](https://docs.microsoft.com/rest/api/resources/resources), 한 번의 API 호출로 여러 개의 종속 리소스 생성을 오케스트레이션할 수 있는 [템플릿 기반 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) 시스템입니다. 후자는 기본적으로 매개 변수화 및 템플릿을 지원하므로 예제로 사용합니다.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>템플릿 배포를 사용하여 템플릿에서 대시보드를 프로그래밍 방식으로 만듭니다.
 
-Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 이들 간의 관계는 물론 배포할 리소스 집합을 표현하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 [템플릿 언어](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장된 구문은 템플릿 배포 컨텍스트에서만 지원되며 앞에서 설명한 명령적 API와 함께 사용한 경우에는 작동하지 않습니다.
+Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 이들 간의 관계는 물론 배포할 리소스 집합을 표현하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 [템플릿 언어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장된 구문은 템플릿 배포 컨텍스트에서만 지원되며 앞에서 설명한 명령적 API와 함께 사용한 경우에는 작동하지 않습니다.
 
 이 경우 템플릿의 매개 변수 구문을 사용하여 매개 변수화를 수행해야 합니다.  아래 표시된 것처럼 이전에 찾은 모든 리소스 ID 항목을 바꿉니다.
 
@@ -119,7 +119,7 @@ Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제
 
 __이 문서의 끝에서 작동 중인 전체 템플릿을 볼 수 있습니다.__
 
-템플릿을 작성한 후에는 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 또는 [포털의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)를 사용하여 배포할 수 있습니다.
+템플릿을 작성한 후에는 [REST API](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) 또는 [포털의 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)를 사용하여 배포할 수 있습니다.
 
 다음은 두 가지 버전의 대시보드 JSON 예제입니다. 첫 번째는 리소스에 이미 바인딩된 포털에서 내보낸 버전입니다. 두 번째는 모든 VM에 프로그래밍 방식으로 바인딩하고 Azure Resource Manager를 사용하여 배포할 수 있는 템플릿 버전입니다.
 

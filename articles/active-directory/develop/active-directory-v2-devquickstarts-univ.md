@@ -4,7 +4,7 @@ description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f39b6e0c209ad0891db478706c6f50585c80b58
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>v2.0 끝점을 사용하여 Windows 유니버설 앱에 로그인 추가
   Windows 유니버설 앱에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다. 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.

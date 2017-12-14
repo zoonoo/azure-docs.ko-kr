@@ -4,7 +4,7 @@ description: "Azure Portal을 사용하여 Azure Active Directory Domain Service
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/19/2017
 
     ![가상 네트워크 선택](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-5. **기존 가상 네트워크:** 기존 가상 네트워크를 선택하려면 [가상 네트워크 확장을 사용하여 전용 서브넷을 만든](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 다음 해당 서브넷을 선택합니다. **가상 네트워크**를 클릭하여 기존 가상 네트워크를 선택합니다. **서브넷**을 클릭하여 기존 가상 네트워크에서 새 관리되는 도메인을 사용하도록 설정할 전용 서브넷을 선택합니다. 완료되면 **확인**을 클릭합니다.
+5. **기존 가상 네트워크:** 기존 가상 네트워크를 선택하려면 [가상 네트워크 확장을 사용하여 전용 서브넷을 만든](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 다음 해당 서브넷을 선택합니다. **Virtual Network**를 클릭하여 기존 가상 네트워크를 선택합니다. **서브넷**을 클릭하여 기존 가상 네트워크에서 새 관리되는 도메인을 사용하도록 설정할 전용 서브넷을 선택합니다. 완료되면 **확인**을 클릭합니다.
 
     ![가상 네트워크 내에서 서브넷 선택](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

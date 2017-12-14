@@ -4,7 +4,7 @@ description: "Graph API를 사용하고 필요에 따라 Azure AD B2C 사용자 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 여러 가지 방법 중에 두 가지를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.
 
 ## <a name="user-migration-flows"></a>사용자 마이그레이션 흐름
-Azure AD B2C를 사용하면 [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 사용자를 마이그레이션할 수 있습니다. 사용자 마이그레이션 프로세스는 두 개의 흐름으로 나누어 집니다.
+Azure AD B2C를 사용하면 [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 사용자를 마이그레이션할 수 있습니다. 사용자 마이그레이션 프로세스는 두 개의 흐름으로 나누어 집니다.
 
 * **사전 마이그레이션**: 이 흐름은 사용자의 자격 증명(사용자 이름 및 암호)에 대한 명확한 액세스 권한이 있거나 자격 증명이 암호화되어 있지만 암호를 해독할 수 있는 경우에 적용됩니다. 사전 마이그레이션 프로세스에는 이전 ID 공급자의 사용자를 읽고 Azure AD B2C 디렉터리에 새 계정을 만드는 작업이 포함됩니다.
 
@@ -100,7 +100,7 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 > B2C 테넌트에 대해 *로컬*인 B2C 테넌트 Administrator 계정을 사용해야 합니다. 계정 이름 구문은 *admin@contosob2c.onmicrosoft.com*입니다.
 
 >[!NOTE]
-> 다음 PowerShell 스크립트에는 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)가 필요합니다.
+> 다음 PowerShell 스크립트에는 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)가 필요합니다.
 
 PowerShell 스크립트에서 다음을 수행합니다.
 1. 온라인 서비스에 연결 이렇게 하려면 Windows PowerShell 명령 프롬프트에서 `Connect-AzureAD` cmdlet을 실행하고 자격 증명을 제공합니다. 
@@ -278,7 +278,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>4.2단계: Azure App Services에 웹 응용 프로그램 배포
-Azure App Services에 API 서비스를 게시합니다. 자세한 내용은 [Azure App Service에 앱 배포](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy)를 참조하세요.
+Azure App Services에 API 서비스를 게시합니다. 자세한 내용은 [Azure App Service에 앱 배포](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy)를 참조하세요.
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4.3단계: 정책에 기술 프로필 및 기술 프로필 유효성 검사 추가 
 1. 작업 디렉터리에서 *TrustFrameworkExtensions.xml* 확장 정책 파일을 엽니다. 
@@ -384,7 +384,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 
 6. RESTful API의 출력을 확인합니다.
 
-자세한 내용은 [스트리밍 로그 및 콘솔](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console)을 참조하세요.
+자세한 내용은 [스트리밍 로그 및 콘솔](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console)을 참조하세요.
 
 > [!IMPORTANT]
 > 진단 로그는 개발 및 테스트 중에만 사용합니다. RESTful API 출력은 프로덕션 환경에서 노출되지 않아야 하는 기밀 정보를 포함할 수 있습니다.

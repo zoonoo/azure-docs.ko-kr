@@ -1,9 +1,9 @@
 ---
-title: "Azure 자동화 DSC 개요 | Microsoft Docs"
-description: "Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
+title: "Azure Automation DSC 개요 | Microsoft Docs"
+description: "Azure Automation DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: "PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure"
 ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
-ms.author: eslesar
-ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-automation-dsc-overview"></a>Azure 자동화 DSC 개요
+# <a name="azure-automation-dsc-overview"></a>Azure Automation DSC 개요
 
 Azure Automation DSC는 Azure 서비스로, 모든 클라우드에서 PowerShell DSC(Desired State Configuration) [구성](https://msdn.microsoft.com/powershell/dsc/configurations)을 작성, 관리 및 컴파일하고 [DSC 리소스](https://msdn.microsoft.com/powershell/dsc/resources)를 가져오고 대상 노드에 구성을 할당할 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성(미리 보기)
 
@@ -129,7 +129,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 
 ### <a name="proxy"></a>2.3: 프록시 설정 구성(선택 사항)
 
-웹 프록시를 사용하여 인터넷에 액세스하는 경우 다음 단계에 따라 Microsoft Monitoring Agent에 대한 프록시 설정을 구성합니다. 각 서버에 대해 다음 단계를 수행하세요. 많은 서버를 구성해야 하는 경우, 스크립트를 사용하여 보다 쉽게 이 프로세스를 자동화할 수 있습니다. 서버가 많은 경우 [스크립트를 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script)을 참조하세요.
+웹 프록시를 사용하여 인터넷에 액세스하는 경우 다음 단계에 따라 Microsoft Monitoring Agent에 대한 프록시 설정을 구성합니다. 각 서버에 대해 다음 단계를 수행하세요. 많은 서버를 구성해야 하는 경우, 스크립트를 사용하여 보다 쉽게 이 프로세스를 자동화할 수 있습니다. 서버가 많은 경우 [스크립트를 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면](../log-analytics/log-analytics-windows-agent.md)을 참조하세요.
 
 제어판을 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면
 

@@ -4,7 +4,7 @@ description: "예기치 않게 사용자에게 Azure AD와 통합한 응용 프�
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e5b823e1251a7221f73efe6838d439f827f9665d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f24ca83922cc17e94683ed1bde5ed782b93df7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>응용 프로그램에 로그인할 때 예기치 않은 동의 확인 프롬프트
 

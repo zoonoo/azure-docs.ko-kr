@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
@@ -162,7 +162,7 @@ Blob을 선택한 다음 **Blob 열기** 단추를 선택합니다.
 저장소 서비스 큐에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](http://go.microsoft.com/fwlink/?LinkID=264702)을 참조하세요. 저장소 서비스 큐의 웹 서비스에 대한 자세한 내용은 [큐 서비스 개념](http://go.microsoft.com/fwlink/?LinkId=264788)을 참조하세요. Visual Studio를 사용하여 Storage 서비스 큐에 메시지를 보내는 방법에 대한 자세한 내용은 [Storage 서비스 큐에 메시지 보내기](https://msdn.microsoft.com/library/azure/jj649344.aspx)를 참조하세요.
 
 > [!NOTE]
-> 저장소 서비스 큐는 Azure Service Bus 큐와 구별됩니다. Service Bus 큐에 대한 자세한 내용은 [Service Bus 큐, 항목 및 구독](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)을 참조하세요.
+> 저장소 서비스 큐는 Azure Service Bus 큐와 구별됩니다. Service Bus 큐에 대한 자세한 내용은 [Service Bus 큐, 항목 및 구독](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)을 참조하세요.
 
 ## <a name="work-with-table-resources"></a>테이블 리소스로 작업
 

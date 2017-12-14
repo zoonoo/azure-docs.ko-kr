@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: ebb78c9ae4e0ae02f9f9d74f4909d9108cd8aef7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: df0a319cdeabef8c854d7c60c7b90ef775be3ce1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 장치에 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -193,5 +193,5 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작하기]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT 장치 SDK]: iot-hub-devguide-sdks.md

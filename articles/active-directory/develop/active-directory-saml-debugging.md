@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 246709effcff1c38d14db3848fe2fad836ad90da
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7aa7ca90f9098f30565524470ca23783e97195e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법
 SAML 기반 응용 프로그램 통합을 디버그할 때 종종 [Fiddler](http://www.telerik.com/fiddler) 와 같은 도구를 사용하여 SAML 요청, SAML 응답 및 응용 프로그램에 발급된 실제 SAML 토큰을 확인하는 것이 유용합니다. SAML 토큰을 검사하면 모든 필수 특성, SAML 주체의 사용자 이름 및 발급자 URI가 예상대로 제공되는지 확인할 수 있습니다.

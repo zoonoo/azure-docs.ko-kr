@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -27,7 +27,7 @@ Azure Stream Analytics는 실행하는 작업의 성능 "가중치"를 SU(스트
 
 Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 위해 모든 처리를 메모리 안에서 수행합니다. 메모리가 부족하면 스트리밍 작업이 실패합니다. 결과적으로, 프로덕션 작업의 경우 스트리밍 작업의 리소스 사용을 모니터링하고 작업을 중단 없이 실행하기에 충분한 리소스가 할당되도록 확인해야 합니다.
 
-메트릭은 0~100% 범위의 백분율 수치입니다. 최소 사용되는 스트리밍 작업의 경우 SU % 사용률 메트릭은 보통 10~20% 범위입니다. 경우에 따른 사용량 급증을 대비하여 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다.  메트릭에 대한 경고를 설정할 수 있습니다(여기의 [메트릭 경고 설정 방법](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal) 참조).
+메트릭은 0~100% 범위의 백분율 수치입니다. 최소 사용되는 스트리밍 작업의 경우 SU % 사용률 메트릭은 보통 10~20% 범위입니다. 경우에 따른 사용량 급증을 대비하여 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다.  메트릭에 대한 경고를 설정할 수 있습니다(여기의 [메트릭 경고 설정 방법](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal) 참조).
 
 
 
@@ -82,7 +82,7 @@ Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 �
 
 쿼리가 분할되면 여러 노드에 걸쳐 분산됩니다. 결과적으로, 각 노드로 들어오는 clusterid 수가 감소하여 그룹 x 연산자 카디널리티가 줄어듭니다. 
 
-이벤트 허브 파티션은 단계를 줄이지 않아도 되도록 그룹 키로 분할되어야 합니다. 추가 세부 정보는 [여기](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview)에서 다룹니다. 
+이벤트 허브 파티션은 단계를 줄이지 않아도 되도록 그룹 키로 분할되어야 합니다. 추가 세부 정보는 [여기](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview)에서 다룹니다. 
 #### <a name="temporal-join"></a>임시 조인
 임시 조인의 상태 크기는 조인의 임시 위글 공간의 이벤트 수에 비례합니다. 즉 이벤트 입력 비율과 위글 공간 크기의 곱입니다. 
 

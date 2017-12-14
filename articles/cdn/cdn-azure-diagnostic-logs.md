@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -109,7 +109,7 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
 
 다음 예제는 Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하는 방법을 보여 줍니다.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>저장소 계정에서 진단 로그 사용
+###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Storage 계정에서 진단 로그 사용
 
 먼저 로그인하고 구독을 선택합니다.
 
@@ -118,7 +118,7 @@ OMS 로그 분석을 사용하여 로그를 저장하려면 아래 단계를 따
     Select-AzureSubscription -SubscriptionId 
 
 
-저장소 계정에서 진단 로그를 사용하도록 설정하려면 다음 명령을 사용합니다.
+Storage 계정에서 진단 로그를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
@@ -205,7 +205,7 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
 2. **Marketplace** 아래 **새로 만들기** 블레이드에서 **모니터링 + 관리**를 선택합니다.
 
-    ![마켓플레이스](./media/cdn-diagnostics-log/14_Marketplace.png)
+    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
 3. **모니터링 + 관리** 블레이드에서 **모두 표시**를 클릭합니다.
 
@@ -261,7 +261,7 @@ Log Analytics를 사용하려면 앞서 이 문서에서 논의한 Azure OMS Log
 
 ### <a name="offers-and-pricing-tiers"></a>제품 및 가격 책정 계층
 
-[여기](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에서 OMS 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
+[여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에서 OMS 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
 
 ### <a name="customizing-views"></a>뷰 사용자 지정
 
@@ -410,8 +410,8 @@ Verizon 로그 데이터는 1시간 지연되고, 끝점 전파가 완료된 후
 
 * [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN 보조 포털을 통한 핵심 분석](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

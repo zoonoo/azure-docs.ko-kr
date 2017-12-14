@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>OMS(Operations Management Suite)란?
 이 문서에서는 OMS(Operations Management Suite)가 제공하는 비즈니스 가치, 포함된 서비스 및 관리 솔루션, 여러 서비스 및 솔루션이 패키지된 제품에 대한 간략한 개요를 포함하여 OMS를 소개합니다.  각 서비스 및 솔루션을 배포하고 사용하는 방법에 대한 구체적인 설명 링크가 포함되어 있습니다.
@@ -49,7 +49,7 @@ System Center가 이미 설치되어있는 경우 이러한 구성 요소를 OMS
 ## <a name="oms-services"></a>OMS 서비스
 OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제공됩니다.  각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-|| 서비스 | 설명 |
+|| 부여 | 설명 |
 |:--|:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | 실제 컴퓨터와 가상 컴퓨터를 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 | ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 컴퓨터에 대한 구성을 적용합니다. |
@@ -64,7 +64,7 @@ OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제�
 #### <a name="collecting-data"></a>데이터 수집
 Log Analytics에서 분석할 데이터를 리포지토리로 가져오는 다양한 방법이 있습니다.
 
-- **Windows 또는 Linux 컴퓨터와 가상 컴퓨터.**  데이터를 수집하려는 [Windows](../log-analytics/log-analytics-windows-agents.md) 및 [Linux](../log-analytics/log-analytics-linux-agents.md) 컴퓨터 또는 가상 컴퓨터에 Microsoft 모니터링 에이전트를 설치합니다.  에이전트는 수집할 이벤트 및 성능 데이터를 정의하는 Log Analytics 구성에서 자동으로 다운로드됩니다.  사용자는 Azure Portal을 사용하여 Azure에서 실행 중인 가상 컴퓨터에 에이전트를 쉽게 설치할 수 있습니다.  기존 Operations Manager 환경이 있으면 관리 그룹을 Log Analytics에 연결하여 모든 기존 에이전트에서 자동으로 데이터 수집을 시작할 수 있습니다.
+- **Windows 또는 Linux 컴퓨터와 가상 컴퓨터.**  데이터를 수집하려는 [Windows](../log-analytics/log-analytics-windows-agent.md) 및 [Linux](../log-analytics/log-analytics-linux-agents.md) 컴퓨터 또는 가상 컴퓨터에 Microsoft 모니터링 에이전트를 설치합니다.  에이전트는 수집할 이벤트 및 성능 데이터를 정의하는 Log Analytics 구성에서 자동으로 다운로드됩니다.  사용자는 Azure Portal을 사용하여 Azure에서 실행 중인 가상 컴퓨터에 에이전트를 쉽게 설치할 수 있습니다.  기존 Operations Manager 환경이 있으면 관리 그룹을 Log Analytics에 연결하여 모든 기존 에이전트에서 자동으로 데이터 수집을 시작할 수 있습니다.
 - **Azure 서비스.**  Log Analytics는 사용자가 Azure 리소스를 모니터링할 수 있도록 [Azure Diagnostics 및 Azure Monitoring](../log-analytics/log-analytics-azure-storage.md)에서 리포지토리로 원격 분석 데이터를 수집합니다.
 - **데이터 수집기 API.**  Log Analytics에는 [모든 클라이언트의 데이터를 채우는 REST API](../log-analytics/log-analytics-data-collector-api.md)가 있습니다.  따라서 사용자가 타사 응용 프로그램의 데이터를 수집하거나 사용자 지정 관리 시나리오를 구현할 수 있습니다.  일반적인 방법은 Azure Automation의 runbook을 사용하여 데이터를 수집한 후 데이터 수집기 API를 사용하여 리포지토리에 쓰는 것입니다.
 
@@ -128,9 +128,9 @@ Azure Backup의 보호 데이터는 특정 지리적 지역에 있는 백업 저
 
 Azure Backup에는 세 가지 기본 시나리오가 있습니다.
 
-- **Azure Backup 에이전트가 있는 Windows 컴퓨터.** 모든 Windows 서버 또는 클라이언트의 파일과 폴더를 Azure 백업 자격 증명 모음에 직접 백업할 수 있습니다.<br><br>![Azure Backup 에이전트가 있는 Windows 컴퓨터](media/operations-management-suite-overview/overview-backup-01.png)
+- **Azure Backup 에이전트가 있는 Windows 컴퓨터.** 모든 Windows 서버 또는 클라이언트의 파일과 폴더를 Azure Backup 자격 증명 모음에 직접 백업할 수 있습니다.<br><br>![Azure Backup 에이전트가 있는 Windows 컴퓨터](media/operations-management-suite-overview/overview-backup-01.png)
 - **System Center DPM(Data Protection Manager) 또는 Microsoft Azure Backup Server.** DPM 또는 Microsoft Azure Backup Server를 활용하여 SQL, SharePoint 등의 응용 프로그램 워크로드뿐 아니라 파일과 폴더를 로컬 저장소에 백업한 다음 Azure 백업 자격 증명 모음으로 복제할 수 있습니다. Hyper-V 또는 VMware에서 Windows 및 Linux 가상 컴퓨터를 지원합니다.<br><br>![System Center DPM(Data Protection Manager) 또는 Microsoft Azure Backup Server.](media/operations-management-suite-overview/overview-backup-02.png)
-- **Azure 가상 컴퓨터 확장.** Azure의 Windows 또는 Linux 가상 컴퓨터를 Azure 백업 자격 증명 모음에 백업합니다.<br><br>![Azure 가상 컴퓨터 확장](media/operations-management-suite-overview/overview-backup-03.png)
+- **Azure 가상 컴퓨터 확장.** Azure의 Windows 또는 Linux 가상 컴퓨터를 Azure Backup 자격 증명 모음에 백업합니다.<br><br>![Azure 가상 컴퓨터 확장](media/operations-management-suite-overview/overview-backup-03.png)
 
 
 

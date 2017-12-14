@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 03e62d20367544fda1d5abcdb1acef90cdcaa640
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 컴퓨터 크기
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>기타 크기
-- [범용](../windows/sizes-general.md)
-- [Compute에 최적화](../windows/sizes-compute.md)
+- [범용](sizes-general.md)
+- [Compute에 최적화](sizes-compute.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-- [고성능 계산](../windows/sizes-hpc.md)
+- [고성능 계산](sizes-hpc.md)
 
 ## <a name="next-steps"></a>다음 단계
-[ACU(Azure Compute 단위)](../windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+[ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

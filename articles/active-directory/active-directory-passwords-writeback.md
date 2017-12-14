@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 
@@ -160,7 +160,6 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
   * 모든 관리자 셀프 서비스 자발적 변경 암호 작업
   * 모든 관리자 셀프 서비스 적용 변경 암호 작업(예: 암호 만료)
   * [암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 시작되는 모든 관리자 셀프 서비스 암호 재설정
-  * [Azure 클래식 포털](https://manage.windowsazure.com)에서 관리자 시작 최종 사용자 암호 재설정
   * [Azure Portal](https://portal.azure.com)에서 관리자 시작 최종 사용자 암호 재설정
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>비밀번호 쓰기 저장이 지원되지 않는 사용자 및 관리자 작업

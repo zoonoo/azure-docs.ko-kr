@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
 
 ![샘플 대시보드](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-공유 [Azure 대시보드는 리소스](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)이므로 이 대시보드를 JSON으로 표현할 수 있습니다.  다음 JSON은 시각화된 위의 대시보드를 나타냅니다.
+공유 [Azure 대시보드는 리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)이므로 이 대시보드를 JSON으로 표현할 수 있습니다.  다음 JSON은 시각화된 위의 대시보드를 나타냅니다.
 
 ```json
 
@@ -294,7 +294,7 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 
 ### <a name="the-id-property"></a>ID 속성
 
-[Azure 리소스의 명명 규칙](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
+[Azure 리소스의 명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
 
 ### <a name="the-name-property"></a>name 속성
 이름은 구독, 리소스 종류 또는 리소스 그룹 정보를 포함하지 않는 리소스 ID의 세그먼트입니다. 기본적으로, 리소스 ID의 마지막 세그먼트입니다.
@@ -303,7 +303,7 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 모든 대시보드는 __Microsoft.Portal/dashboards__ 형식입니다.
 
 ### <a name="the-location-property"></a>location 속성
-다른 리소스와 달리 대시보드는 런타임 구성 요소를 포함하지 않습니다.  대시보드의 경우 위치는 대시보드의 JSON 표현을 저장하는 기본 지리적 위치를 나타냅니다. 값은 [구독 리소스의 위치 API](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions)를 사용하여 가져올 수 있는 위치 코드 중 하나여야 합니다.
+다른 리소스와 달리 대시보드는 런타임 구성 요소를 포함하지 않습니다.  대시보드의 경우 위치는 대시보드의 JSON 표현을 저장하는 기본 지리적 위치를 나타냅니다. 값은 [구독 리소스의 위치 API](https://docs.microsoft.com/rest/api/resources/subscriptions)를 사용하여 가져올 수 있는 위치 코드 중 하나여야 합니다.
 
 ### <a name="the-tags-property"></a>tags 속성
 태그는 임의 이름 값 쌍으로 리소스를 구성할 수 있는 Azure 리소스의 일반적인 기능입니다. 대시보드의 경우 __hidden-title__이라는 특수한 태그가 한 가지 있습니다. 대시보드에 이 속성이 채워져 있는 경우 포털에서 대시보드에 대한 표시 이름으로 사용됩니다. Azure 리소스 ID의 이름은 바꿀 수 없으나 태그 이름은 바꿀 수 있습니다. 이 태그는 대시보드에 대한 이름 변경 가능한 표시 이름을 포함하는 방법을 제공합니다.

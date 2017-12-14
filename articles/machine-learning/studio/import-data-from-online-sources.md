@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure 기계 학습 스튜디오로 데이터 가져오기
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure 기계 학습 실험으로 이동하는 데 필요한 정보를 설명합니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/04/2017
 * Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
 * 온-프레미스 SQL Server 데이터베이스
 * 데이터 피드 공급자, OData 현재
-* Azure CosmosDB(이전 명칭 DocumentDB)
+* Azure Cosmos DB
 
 Studio 실험에서 온라인 데이터 원본에 액세스하려면 [데이터 가져오기][import-data] 모듈을 추가하고 **데이터 원본**을 선택한 다음 데이터에 액세스하는 데 필요한 매개 변수를 제공합니다. 지원되는 온라인 데이터 원본을 아래 표에 항목별로 나타냈습니다. 또한 이 테이블은 지원되는 파일 형식 및 데이터에 액세스하는 데 사용되는 매개 변수도 요약합니다.
 

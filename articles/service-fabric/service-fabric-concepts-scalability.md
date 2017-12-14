@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric에서 크기 조정
 Azure Service Fabric을 사용하면 클러스터 노드의 서비스, 파티션 및 복제본을 관리하여 확장 가능한 응용 프로그램을 쉽게 빌드할 수 있습니다. 동일한 하드웨어에서 많은 워크로드를 실행하면 리소스를 최대한 활용할 수 있을 뿐만 아니라 워크로드의 크기를 조정하기 위해 선택하는 방법에 유연성도 제공합니다. 
@@ -69,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>크기 조정: 명명된 새 서비스 만들기 또는 제거
 명명된 서비스 인스턴스는 클러스터의 명명된 특정 응용 프로그램 인스턴스 내에 있는 서비스 유형의 특정 인스턴스입니다([Service Fabric 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)참조). 
 
-서비스가 더 많거나 적게 사용됨에 따라 명명된 새 서비스 인스턴스가 만들어지거나 제거될 수 있습니다. 이렇게 하면 더 많은 서비스 인스턴스에서 요청을 분산할 수 있으므로 대개 기존 서비스에 대한 로드를 줄일 수 있습니다. 서비스를 만들 때 Service Fabric 클러스터 리소스 관리자에서 클러스터에 서비스를 분산 방식으로 배치합니다. 정확한 결정은 클러스터 및 다른 배치 규칙의 [메트릭](service-fabric-cluster-resource-manager-metrics.md)으로 관리됩니다. 서비스는 여러 가지 방법으로 만들 수 있지만 가장 일반적인 방법은 [`New-ServiceFabricService`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)를 호출하는 사람이나 [`CreateServiceAsync`](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)를 호출하는 코드와 같은 관리 작업을 사용하는 것입니다. `CreateServiceAsync`는 클러스터에서 실행되는 다른 서비스에서도 호출할 수 있습니다.
+서비스가 더 많거나 적게 사용됨에 따라 명명된 새 서비스 인스턴스가 만들어지거나 제거될 수 있습니다. 이렇게 하면 더 많은 서비스 인스턴스에서 요청을 분산할 수 있으므로 대개 기존 서비스에 대한 로드를 줄일 수 있습니다. 서비스를 만들 때 Service Fabric 클러스터 리소스 관리자에서 클러스터에 서비스를 분산 방식으로 배치합니다. 정확한 결정은 클러스터 및 다른 배치 규칙의 [메트릭](service-fabric-cluster-resource-manager-metrics.md)으로 관리됩니다. 서비스는 여러 가지 방법으로 만들 수 있지만 가장 일반적인 방법은 [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)를 호출하는 사람이나 [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)를 호출하는 코드와 같은 관리 작업을 사용하는 것입니다. `CreateServiceAsync`는 클러스터에서 실행되는 다른 서비스에서도 호출할 수 있습니다.
 
 서비스를 동적으로 만들면 모든 종류의 시나리오에서 사용할 수 있으며 일반적인 패턴입니다. 예를 들어 특정 워크플로를 나타내는 상태 저장 서비스를 고려합니다. 작업을 나타내는 호출이 이 서비스에 표시되며, 이 서비스에서는 해당 워크플로에 대한 단계를 실행하고 진행 상황을 기록합니다. 
 

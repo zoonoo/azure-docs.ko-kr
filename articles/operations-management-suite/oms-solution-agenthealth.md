@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS의 에이전트 상태 솔루션
 OMS의 에이전트 상태 솔루션은 응답이 없고 운영 데이터를 제출하는 OMS 작업 영역에 직접 보고하는 모든 에이전트 또는 OMS에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
 
 ## <a name="prerequisites"></a>필수 조건
-이 솔루션을 배포하기 전에 [Windows 에이전트](../log-analytics/log-analytics-windows-agents.md)가 OMS 작업 영역 또는 OMS 작업 영역에 통합된 [Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)에 보고를 지원하는지 확인합니다.    
+이 솔루션을 배포하기 전에 [Windows 에이전트](../log-analytics/log-analytics-windows-agent.md)가 OMS 작업 영역 또는 OMS 작업 영역에 통합된 [Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)에 보고를 지원하는지 확인합니다.    
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 이 솔루션은 작업 영역 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.

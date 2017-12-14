@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 프로필 사진을 포함하여 사�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: a8f298228f21ac498b69e59d553b5b885d28a95a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 4121f94e15d9ba938d90d72e70d7bcb49a6c1ed5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경
 이 문서에서는 Azure AD(Azure Active Directory)에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
 
 ## <a name="to-change-profile-information"></a>프로필 정보를 변경하려면
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure AD Admin Center](https://aad.portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. **사용자 및 그룹**을 선택합니다.
 
    ![사용자 및 그룹 열기](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)

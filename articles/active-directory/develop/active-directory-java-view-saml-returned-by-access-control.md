@@ -1,10 +1,10 @@
 ---
-title: "액세스 제어 서비스(Java)에서 반환되는 SAML 보기"
-description: "Azure에서 호스팅되는 Java 응용 프로그램에서 액세스 제어 서비스에서 반환되는 SAML을 확인하는 방법에 대해 알아봅니다."
+title: "Access Control Service(Java)에서 반환되는 SAML 보기"
+description: "Azure에서 호스팅되는 Java 응용 프로그램에서 Access Control Service에서 반환되는 SAML을 확인하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법
-이 가이드에서는 Azure ACS(액세스 제어 서비스)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure Access Control Service에서 반환한 SAML을 보는 방법
+이 가이드에서는 Azure ACS(Access Control Service)에서 응용 프로그램에 반환하는 기본 SAML(Security Assertion Markup Language)을 보는 방법을 안내합니다. 이 가이드는 [Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 항목의 내용을 바탕으로 하여 SAML 정보를 표시하는 코드를 제공합니다. 완료된 응용 프로그램은 다음과 유사합니다.
 
 ![예제 SAML 출력][saml_output]
 
@@ -34,7 +34,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하세요.
+이 가이드에서 작업을 완료하려면 [Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md) 에서 샘플을 완료하고 이 자습서를 시작할 때부터 이 샘플을 사용하세요.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>빌드 경로 및 배포 어셈블리에 JspWriter 라이브러리 추가
 빌드 경로 및 배포 어셈블리에 **javax.servlet.jsp.JspWriter** 클래스를 포함하는 라이브러리를 추가합니다. Tomcat을 사용하는 경우 라이브러리는 Apache **lib** 폴더에 있는 **jsp-api.jar**입니다.
@@ -181,7 +181,7 @@ ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조�
     </html>
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
-1. [Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md)에 설명된 단계에 따라 응용 프로그램을 컴퓨터 에뮬레이터에서 실행하거나 Azure에 배포합니다.
+1. [Eclipse를 사용하여 Azure Access Control Service를 통해 웹 사용자를 인증하는 방법](active-directory-java-authenticate-users-access-control-eclipse.md)에 설명된 단계에 따라 응용 프로그램을 컴퓨터 에뮬레이터에서 실행하거나 Azure에 배포합니다.
 2. 브라우저를 실행하여 웹 응용 프로그램을 엽니다. 응용 프로그램에 로그온하면 ID 공급자에서 제공하는 보안 어설션을 비롯하여 SAML 정보가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,6 +1,6 @@
 ---
-title: "Azure 알림 허브 및 Node.js를 사용하여 푸시 알림 보내기"
-description: "알림 허브를 사용하여 Node.js 응용 프로그램에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: "Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기"
+description: "Notification Hubs를 사용하여 Node.js 응용 프로그램에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 keywords: "푸시 알림, 푸시 알림, node.js 푸시, ios 푸시"
 services: notification-hubs
 documentationcenter: nodejs
@@ -15,13 +15,13 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure 알림 허브 및 Node.js를 사용하여 푸시 알림 보내기
+# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-이 가이드에서는 Node.js 응용 프로그램에서 직접 Azure 알림 허브의 도움말을 사용하여 푸시 알림을 보내는 방법을 보여줍니다. 
+이 가이드에서는 Node.js 응용 프로그램에서 직접 Azure Notification Hubs의 도움말을 사용하여 푸시 알림을 보내는 방법을 보여줍니다. 
 
 시나리오는 다음 플랫폼에서 응용 프로그램에 푸시 알림을 보내기를 포함합니다.
 
@@ -41,14 +41,14 @@ ms.lasthandoff: 10/11/2017
 
 알림 허브에 대한 자세한 내용은 [다음 단계](#next) 섹션을 참조하십시오.
 
-## <a name="what-are-notification-hubs"></a>알림 허브 정의
-Azure 알림 허브는 모바일 장치에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure 알림 허브](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
+## <a name="what-are-notification-hubs"></a>Notification Hubs 정의
+Azure Notification Hubs는 모바일 장치에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
 이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
-## <a name="configure-your-application-to-use-notification-hubs"></a>알림 허브를 사용하도록 응용 프로그램 구성
-Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통신하는 일련의 기본 제공 도우미 라이브러리가 포함되어 있는 Node.js [Azure 패키지](https://www.npmjs.com/package/azure)를 다운로드하여 사용해야 합니다.
+## <a name="configure-your-application-to-use-notification-hubs"></a>Notification Hubs를 사용하도록 응용 프로그램 구성
+Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와 통신하는 일련의 기본 제공 도우미 라이브러리가 포함되어 있는 Node.js [Azure 패키지](https://www.npmjs.com/package/azure)를 다운로드하여 사용해야 합니다.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Linux) 등과 같은 명령줄 인터페이스를 사용하여 빈 응용 프로그램을 만든 폴더로 이동합니다.
@@ -70,14 +70,14 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-다음 단계를 수행하여 **Azure 포털** 에서 [connectionstring] 연결 값을 가져올 수 있습니다.
+다음 단계를 수행하여 **Azure Portal** 에서 [connectionstring] 연결 값을 가져올 수 있습니다.
 
 1. 왼쪽 탐색 창에서 **찾아보기**를 클릭합니다.
-2. **알림 허브**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
+2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
 3. **설정**을 선택합니다.
 4. **액세스 정책**을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
 
-![Azure 포털 - 알림 허브](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
+![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
 > [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../cli-install-nodejs.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
@@ -176,9 +176,9 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
     });
 
 ## <a name="next-steps"></a>다음 단계
-위의 샘플 코드 조각을 사용하면 다양한 장치에 푸시 알림을 전달하는 서비스 인프라를 쉽게 작성할 수 있습니다. 이제 node.js가 있는 알림 허브를 사용하는 기본 사항을 배웠으므로 다음 링크를 따라서 이러한 기능을 더욱 확장할 수 있는 방법에 대해 자세히 알아봅니다.
+위의 샘플 코드 조각을 사용하면 다양한 장치에 푸시 알림을 전달하는 서비스 인프라를 쉽게 작성할 수 있습니다. 이제 node.js가 있는 Notification Hubs를 사용하는 기본 사항을 배웠으므로 다음 링크를 따라서 이러한 기능을 더욱 확장할 수 있는 방법에 대해 자세히 알아봅니다.
 
-* [Azure 알림 허브](https://msdn.microsoft.com/library/azure/jj927170.aspx)는 MSDN 참조를 참조하세요.
+* [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx)는 MSDN 참조를 참조하세요.
 * 추가 샘플 및 구현 세부 정보는 GitHub에서 [Node용 Azure SDK] 리포지토리를 방문합니다.
 
 [Node용 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -196,7 +196,6 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
 [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Azure Classic Portal]: http://manage.windowsazure.com
 [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png

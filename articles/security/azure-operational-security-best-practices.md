@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
@@ -156,7 +156,7 @@ Azure Security Center를 사용하여 모든 Azure 리소스의 보안 상태를
 가상 컴퓨터(VM)에 로그인하지 않고 Network Watcher를 사용하여 네트워킹 문제를 모니터링 및 진단합니다. 경고를 설정하여 [패킷 캡처](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture)를 트리거하고 패킷 수준에서 실시간 성능 정보에 액세스합니다. 문제를 발견하면 자세히 조사하여 더 정확히 진단할 수 있습니다.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>흐름 로그를 사용하여 네트워크 트래픽 이해
-[네트워크 보안 그룹 흐름 로그](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)를 사용하여 네트워크 트래픽 패턴을 더 자세히 이해합니다. 흐름 로그에서 제공하는 정보를 사용하여 준수, 감사 및 네트워크 보안 프로필 모니터링에 필요한 데이터를 수집할 수 있습니다.
+[네트워크 보안 그룹 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)를 사용하여 네트워크 트래픽 패턴을 더 자세히 이해합니다. 흐름 로그에서 제공하는 정보를 사용하여 준수, 감사 및 네트워크 보안 프로필 모니터링에 필요한 데이터를 수집할 수 있습니다.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>VPN 연결 문제 진단
 Network Watcher를 사용하면 [자주 발생하는 VPN Gateway 및 연결 문제를 진단](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity)할 수 있습니다. 문제를 식별할 수 있을 뿐 아니라 생성된 세부 로그를 이용해 추가 조사를 수행할 수도 있습니다.
