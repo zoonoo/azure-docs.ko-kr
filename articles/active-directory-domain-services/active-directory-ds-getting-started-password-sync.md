@@ -4,7 +4,7 @@ description: "Azure Active Directory Domain Services 시작"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/18/2017
 ms.author: maheshu
-ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea65659b1d35246bc3e7235b3faed8d2a5368010
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 자격 증명 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.

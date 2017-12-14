@@ -5,7 +5,7 @@ keywords: "Azure AD 소개, 앱, Azure AD Connect 정의, active directory 설�
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory에서 앱, 사용 권한 및 동의
 Azure Active Directory 내에서 디렉터리에 응용 프로그램을 추가할 수 있습니다.  응용 프로그램은 응용 프로그램 유형에 따라 다를 수 있습니다.  클래식 포털에서 응용 프로그램을 보려면 디렉터리와 응용 프로그램을 선택합니다.

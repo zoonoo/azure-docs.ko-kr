@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 5bd5952a72b3511eecf3d336e7740578338ba18b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 832a859e70e382eb2eeb41560d1b880f7b87de53
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,12 +29,12 @@ Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다�
 
 이 자습서를 시작하기 전에 다음 정보가 있어야 합니다.
 
-* **Azure 데이터 레이크 분석 계정**. [Data Lake Analytics 시작](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal)을 참조하세요.
+* **Azure 데이터 레이크 분석 계정**. [Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-이 자습서에서는 Azure PowerShell을 사용하는 것에 이미 익숙하다고 가정합니다. 특히, Azure에 로그인하는 방법을 알아야 합니다. 도움이 필요한 경우 [Azure PowerShell 시작](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps)을 참조하세요.
+이 자습서에서는 Azure PowerShell을 사용하는 것에 이미 익숙하다고 가정합니다. 특히, Azure에 로그인하는 방법을 알아야 합니다. 도움이 필요한 경우 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 구독 이름을 사용하여 로그인하려면
 

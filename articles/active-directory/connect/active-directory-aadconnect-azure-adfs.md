@@ -5,7 +5,7 @@ keywords: "Azure에 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS, AD
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -41,7 +41,7 @@ Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 �
 * **DMZ**: 웹 응용 프로그램 프록시 서버는 DMZ에 배치되고 DMZ와 내부 서브넷 간에 TCP/443 액세스만이 허용됩니다.
 * **부하 분산 장치**: AD FS 및 웹 응용 프로그램 프록시 서버의 고가용성을 보장하려면 AD FS 서버용 내부 부하 분산 장치 및 웹 응용 프로그램 프록시 서버용 Azure Load Balancer를 사용하는 것이 좋습니다.
 * **가용성 집합**: AD FS 배포에 대한 중복성을 제공하려면 비슷한 워크로드에 대한 가용성 집합에 두 개 이상의 가상 컴퓨터를 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있습니다.
-* **Storage 계정**: 두 개의 저장소 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
+* **Storage 계정**: 두 개의 Storage 계정을 사용하는 것이 좋습니다. 단일 저장소 계정을 만들면 단일 실패 지점이 생성될 수 있고 저장소 계정이 중단되는 가능성이 적은 시나리오에서 배포를 사용할 수 없게 될 수 있습니다. 두 개의 저장소 계정이 있으면 각 오류 줄에 하나의 저장소 계정을 연결할 수 있습니다.
 * **네트워크 분리**: 웹 응용 프로그램 프록시 서버를 별도의 DMZ 네트워크에 배포해야 합니다. 하나의 가상 네트워크를 두 개의 서브넷으로 나누고 격리된 서브넷에는 웹 응용 프로그램 프록시 서버를 배포할 수 있습니다. 각 서브넷에 대한 네트워크 보안 그룹 설정을 구성하고 두 개의 서브넷 간에 필요한 통신만을 허용할 수 있습니다. 자세한 내용은 아래 배포 시나리오 별로 지정됩니다.
 
 ## <a name="steps-to-deploy-ad-fs-in-azure"></a>Azure에서 AD FS를 배포하는 단계
@@ -347,7 +347,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [내부 부하 분산 장치](https://aka.ms/Azure/ILB/Internal)
 * [인터넷 연결 부하 분산 장치](https://aka.ms/Azure/ILB/Internet)
 * [Storage 계정](https://aka.ms/Azure/Storage)
-* [Azure Virtual Networks](https://aka.ms/Azure/VNet)
+* [Azure Virtual Network](https://aka.ms/Azure/VNet)
 * [AD FS 및 웹 응용 프로그램 프록시 링크](http://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>다음 단계

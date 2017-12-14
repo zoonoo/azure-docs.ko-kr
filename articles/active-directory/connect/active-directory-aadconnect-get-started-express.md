@@ -4,7 +4,7 @@ description: "Azure AD Connect용 설치 마법사를 다운로드, 설치 및 �
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 동기화**가 있는 경우 Azure AD Connect [Express 설정](active-directory-aadconnectsync-implement-password-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.

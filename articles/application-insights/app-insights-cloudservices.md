@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
-[Microsoft Azure Cloud Service 앱](https://azure.microsoft.com/services/cloud-services/)은 Application Insights SDK의 데이터를 Cloud Services의 [Azure 진단](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 조합하여 [Application Insights][start]로 가용성, 성능, 오류 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Microsoft Azure Cloud Service 앱](https://azure.microsoft.com/services/cloud-services/)은 Application Insights SDK의 데이터를 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 조합하여 [Application Insights][start]로 가용성, 성능, 오류 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![예제](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 * [문제 해결][qna]을 참조하세요.
 
 ## <a name="view-azure-diagnostic-events"></a>Azure 진단 이벤트 보기
-여기서 Application Insights의 [Azure 진단](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 확인합니다.
+여기서 Application Insights의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 확인합니다.
 
 * 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.

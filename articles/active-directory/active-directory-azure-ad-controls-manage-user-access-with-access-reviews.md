@@ -4,7 +4,7 @@ description: "Azure Active Directory 액세스 검토를 사용하여 응용 프
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: c4ea5d797613b214be569c6405a0fc672cae83a0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 

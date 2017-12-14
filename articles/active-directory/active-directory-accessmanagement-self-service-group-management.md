@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 보안 그룹 또는 Office 365 그�
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 7a7370eb076ba8602a58a260a14bb863c55bc803
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4798c9f9b289f8fa089498398079565c35ccdd2a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정
 사용자가 Azure AD(Azure Active Directory)에서 보안 그룹 또는 Office 365 그룹을 만들고 관리할 수 있습니다. 사용자는 보안 그룹 또는 Office 365 그룹 멤버 자격을 요청할 수도 있고 그룹의 소유자는 멤버 자격을 수락하거나 거부할 수 있습니다. 그룹 멤버 자격에 대한 일상적인 제어를 해당 멤버 자격에 대한 비즈니스 컨텍스트를 이해하는 사람에게 위임할 수 있습니다. 셀프 서비스 그룹 관리 기능은 보안 그룹 및 Office 365 그룹에 대해서만 사용할 수 있지만 메일 사용 가능 보안 그룹 및 메일 그룹에는 사용할 수 없습니다.

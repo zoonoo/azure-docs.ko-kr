@@ -4,7 +4,7 @@ description: "Azure AD Connect 동기화를 모니터링하는 방법을 설명�
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
-다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
+다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
 
 ![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/sync-blade.png)
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="limited-evaluation-of-alerts"></a>제한된 경고 평가
 Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터링이 기본 구성에서 사용자 지정 구성으로 변경된 경우) Azure AD Connect Health 에이전트가 Azure AD Connect와 관련된 오류 이벤트를 업로드하지 않습니다.
 
-이로 인해 서비스의 경고 평가가 제한됩니다. Azure 포털에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시될 것입니다.
+이로 인해 서비스의 경고 평가가 제한됩니다. Azure Portal에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시될 것입니다.
 
 ![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner.png)
 

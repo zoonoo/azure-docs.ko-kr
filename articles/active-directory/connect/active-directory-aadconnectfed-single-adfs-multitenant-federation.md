@@ -5,7 +5,7 @@ keywords: "페더레이션, ADFS, AD FS, 다중 테넌트, 단일 AD FS, 단일 
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcdf9d0539e71a2b1e9fd12f4b97e6c1e8653c79
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 

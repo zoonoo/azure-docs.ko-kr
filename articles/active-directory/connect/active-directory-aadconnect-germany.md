@@ -1,11 +1,11 @@
 ---
-title: "Microsoft 클라우드 독일의 Azure AD Connect"
+title: "Microsoft Cloud 독일의 Azure AD Connect"
 description: "Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure, 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다."
 keywords: "Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, Active Directory 설치, 독일, Black Forest"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 4c55b116c0dc080ae316caca873a7b693caa793b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b0c05b12877fdda11b941d822c265d34d5c04ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft 클라우드 독일의 Azure AD Connect - 공개 미리 보기
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud 독일의 Azure AD Connect - 공개 미리 보기
 ## <a name="introduction"></a>소개
 Azure AD Connect는 온-프레미스 Active Directory와 Azure Active Directory 간의 동기화를 제공합니다.
-현재 [Microsoft 클라우드 독일](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) 에 있는 대부분의 시나리오는 연산자에 의해 수행되어야 합니다. Microsoft 클라우드 독일을 사용할 경우 다음을 고려해야 합니다.
+현재 [Microsoft Cloud 독일](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) 에 있는 대부분의 시나리오는 연산자에 의해 수행되어야 합니다. Microsoft Cloud 독일을 사용할 경우 다음을 고려해야 합니다.
 
 * 동기화가 성공적으로 수행되려면 다음 URL은 프록시 서버에 대해 열려 있어야 합니다.
   

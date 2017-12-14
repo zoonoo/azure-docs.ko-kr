@@ -4,7 +4,7 @@ description: "응용 프로그램 등록 및 구축을 위해 Azure Active Direc
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트를 얻는 방법
 Azure Active Directory (Azure AD)에서 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) 는 조직을 나타냅니다.  조직이 Azure, Microsoft InTune 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 받아서 소유하는 Azure AD 서비스의 전용 인스턴스입니다.  각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다.  

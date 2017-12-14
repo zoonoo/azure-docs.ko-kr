@@ -4,7 +4,7 @@ description: "Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/15/2017
 3. 어떤 이유로든 변경해야 하는 경우가 아니면 기본값을 사용하여 설치를 완료합니다.
 4. IIS에서 사이트에 SSL 인증서를 바인딩합니다.
 
-IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 웹 서비스 SDK는 SSL 인증서로 보호되어야 합니다. 이 작업을 위해 자체 서명된 인증서를 사용해도 됩니다. SSL 연결을 시작할 때 해당 인증서를 신뢰할 수 있도록 사용자 포털 웹 서버에 있는 로컬 컴퓨터 계정의 "신뢰할 수 있는 루트 인증 기관" 저장소로 인증서를 가져옵니다.
 
@@ -73,7 +73,7 @@ Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 �
 
 ![MFA 서버 사용자 포털 설치](./media/multi-factor-authentication-get-started-portal/install.png)
 
-IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>별도 서버에 사용자 포털 배포
 
@@ -110,7 +110,7 @@ Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을
 
 6. 모든 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
-IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정 구성
 

@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "인증 서버, Azure Multi Factor Authentication 앱 활성화 페이지, 인증 서버 다운로드"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -89,7 +89,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>MFA 서버 다운로드 - 공개 미리 보기
+## <a name="download-the-mfa-server"></a>MFA 서버를 다운로드합니다.
 
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
@@ -101,28 +101,6 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
    ![MFA 서버 다운로드](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
-
-
-## <a name="download-the-mfa-server"></a>MFA 서버를 다운로드합니다.
-
-다음 단계를 따라 pfweb 포털에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
-
-1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. **사용자 및 그룹**을 선택합니다.
-4. **모든 사용자**를 선택합니다.
-5. **Multi-Factor Authentication**을 선택합니다.
-6. **Multi-Factor Authentication** 섹션 아래에서 **서비스 설정**을 선택합니다.
-
-   ![서비스 설정 페이지](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. 새 페이지가 열립니다.
-7. **다운로드**를 선택합니다.
-8. **다운로드** 링크를 클릭하고 설치 프로그램을 저장합니다.
-
-   ![MFA 서버 다운로드](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
 
 ## <a name="install-and-configure-the-mfa-server"></a>MFA 서버 설치 및 구성
 

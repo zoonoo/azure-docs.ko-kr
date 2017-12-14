@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal에서 역할 기반 액세스 제어 | Microsoft Docs"
-description: "Azure 포털에서 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 리소스에 대한 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
+title: "Azure Portal에서 역할 기반 Access Control | Microsoft Docs"
+description: "Azure Portal에서 역할 기반 Access Control을 통해 액세스 관리를 시작합니다. 리소스에 대한 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d037e224e206e162fb3a6c896ce69c0fe69ad496
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리
+# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 Access Control을 사용하여 Azure 구독 리소스에 대한 액세스 관리
 > [!div class="op_single_selector"]
 > * [사용자 또는 그룹에 따른 액세스 관리](role-based-access-control-manage-assignments.md)
 > * [리소스에 따른 액세스 관리](role-based-access-control-configure.md)
 
-Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 이 문서에서는 Azure 포털에 RBAC를 준비하고 실행하도록 도와줍니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 액세스 제어란](role-based-access-control-what-is.md)을 참조하세요.
+Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 이 문서에서는 Azure 포털에 RBAC를 준비하고 실행하도록 도와줍니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 Access Control란](role-based-access-control-what-is.md)을 참조하세요.
 
 각 구독 내에서 최대 2000개의 역할 할당을 부여할 수 있습니다. 
 
