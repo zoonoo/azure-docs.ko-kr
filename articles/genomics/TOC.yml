@@ -1,0 +1,31 @@
+- name: Microsoft Genomics 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Microsoft Genomics란?
+      href: overview-what-is-genomics.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 간단한 Genomics 워크플로 실행
+      href: quickstart-run-genomics-workflow-portal.md
+    - name: 다양한 입력 파일 형식 사용
+      items:
+        - name: FASTQ 파일 쌍
+          href: quickstart-input-pair-fastq.md
+        - name: BAM 파일
+          href: quickstart-input-bam.md
+        - name: 여러 FASTQ 또는 BAM 파일
+          href: quickstart-input-multiple.md
+- name: 리소스
+  items:
+    - name: 일반적인 질문
+      href: frequently-asked-questions-genomics.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/genomics/'
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 지원 옵션
+      href: 'https://azure.microsoft.com/support/options/'

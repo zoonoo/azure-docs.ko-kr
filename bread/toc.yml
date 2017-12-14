@@ -74,7 +74,7 @@
     - name: Cost Management
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: 함수
+    - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
@@ -150,7 +150,7 @@
         - name: Face
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: LUIS(언어 인식 인텔리전트 서비스)
+        - name: 언어 이해(LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: 텍스트 분석
@@ -181,16 +181,16 @@
     - name: CosmosDB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: 데이터 카탈로그
+    - name: Data Catalog
       tocHref: /azure/data-catalog/
       topicHref: /azure/data-catalog/
-    - name: 데이터 팩터리
+    - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: 데이터 레이크 분석
+    - name: "Data Lake Analytics\r\n"
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: 데이터 레이크 저장소
+    - name: Data Lake Store
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: DevTest Lab
@@ -245,7 +245,7 @@
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
-    - name: 키 자격 증명 모음
+    - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
     - name: 부하 분산 장치
@@ -322,7 +322,7 @@
     - name: Power BI 작업 영역 컬렉션
       tocHref: /azure/power-bi-workspace-collections/
       topicHref: /azure/power-bi-workspace-collections/
-    - name: Redis 캐시
+    - name: Redis Cache
       tocHref: /azure/redis-cache/
       topicHref: /azure/redis-cache/
     - name: RemoteApp
@@ -355,10 +355,10 @@
     - name: Service Bus Relay
       tocHref: /azure/service-bus-relay/
       topicHref: /azure/service-bus-relay/
-    - name: 서비스 패브릭
+    - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/
-    - name: 사이트 복구
+    - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
     - name: SQL Data Warehouse
@@ -395,7 +395,7 @@
     - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
-    - name: 가상 컴퓨터 확장 집합
+    - name: Virtual Machine Scale Sets
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
     - name: Virtual Machines

@@ -89,6 +89,8 @@
       items:
         - name: 앱 배포
           items:
+            - name: Zip 파일 배포
+              href: app-service-deploy-zip.md
             - name: FTP를 통해 배포
               href: app-service-deploy-ftp.md
             - name: 클라우드 동기화를 통해 배포

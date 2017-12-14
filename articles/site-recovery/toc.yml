@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Azure에 VMware에 대한 복제 설정 구성
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: 복제에서 디스크 제외
+        - name: VMware-Azure의 복제에서 디스크를 제외
           href: site-recovery-exclude-disk.md
+        - name: Hyper-V-Azure의 복제에서 디스크를 제외
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: VMware 복제를 위해 모바일 서비스 배포
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:

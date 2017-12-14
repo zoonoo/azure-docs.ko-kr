@@ -17,7 +17,7 @@
 # 예
 ## [Bash에서 Terraform을 사용하여 Azure 리소스 배포](example-terraform-bash.md)
 
-# [가격](pricing.md)
+# [Cloud Shell 포함](embed-cloud-shell.md)
 
 # [문제 해결](troubleshooting.md)
 
