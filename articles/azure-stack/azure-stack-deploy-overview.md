@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack 개발 키트 배포 빠른 시작
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 
 2. [**다운로드 하 고 배포 패키지를 압축**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit)합니다. 개발 키트 호스트 또는 다른 컴퓨터에 배포 패키지를 다운로드할 수 있습니다. 추출 된 배포 파일 다른 컴퓨터를 사용 하 여 개발 키트 호스트에 대 한 하드웨어 요구 사항을 줄일 수 있으므로 60GB의 사용 가능한 디스크 공간을 차지 합니다.
 
-3. [**개발 키트 호스트 준비** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) 설치 관리자를 사용 하 여 합니다. 이 단계를 개발 키트 호스트 (가상 하드 드라이브에서 부팅 가능한 운영 체제와 Azure 스택 포함 된 파일을 설치 하는 데 사용) Cloudbuilder.vhdx 부팅 됩니다.
+3. [**개발 키트 호스트 준비** ](azure-stack-run-powershell-script.md) 설치 관리자를 사용 하 여 합니다. 이 단계를 개발 키트 호스트 (가상 하드 드라이브에서 부팅 가능한 운영 체제와 Azure 스택 포함 된 파일을 설치 하는 데 사용) Cloudbuilder.vhdx 부팅 됩니다.
 
-4. [**개발 키트 배포** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) 개발 키트 호스트에 있습니다.
+4. [**개발 키트 배포** ](azure-stack-run-powershell-script.md) 개발 키트 호스트에 있습니다.
 
 5. Azure 스택 배포에서 Azure Active Directory를 실행 해야 [Azure와 함께 Azure 스택 등록](azure-stack-register.md) 수 있도록 [Azure 마켓플레이스 항목을 다운로드](azure-stack-download-azure-marketplace-item.md) Azure 스택에 합니다.
 

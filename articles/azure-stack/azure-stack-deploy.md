@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure 스택 배포 필수 구성 요소
 
@@ -85,7 +85,7 @@ Azure 스택을 Azure AD 계정을 사용 하 여 배포 하려면 배포 PowerS
 
 1. 하나 이상의 Azure AD에 대 한 디렉터리 관리자가 해당 하는 Azure AD 계정을 만듭니다. 를 이미 있는 하나를 사용할 수 있습니다. 그렇지 않으면에서 만들 수 있습니다 하나를 무료로 [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (중국 방문 <http://go.microsoft.com/fwlink/?LinkID=717821> 대신). 하려는 경우 나중에 [Azure를 사용한 Azure 스택 등록](azure-stack-register.md), 구독을 새로 만든 계정에도 있어야 합니다.
    
-    6 단계에서 사용 하기 위해이 자격 증명을 저장 [개발 키트 배포](azure-stack-run-powershell-script.md#deploy-the-development-kit)합니다. 이 *서비스 관리자* 계정을 구성 하 고 리소스 클라우드, 사용자 계정, 테 넌 트 계획, 할당량 및 가격을 관리할 수 있습니다. 포털에서 웹 사이트 클라우드, 가상 컴퓨터 개인 클라우드 및 계획을 만들고 사용자 구독을 관리할 수 있습니다.
+    6 단계에서 사용 하기 위해이 자격 증명을 저장 [개발 키트 배포](azure-stack-run-powershell-script.md)합니다. 이 *서비스 관리자* 계정을 구성 하 고 리소스 클라우드, 사용자 계정, 테 넌 트 계획, 할당량 및 가격을 관리할 수 있습니다. 포털에서 웹 사이트 클라우드, 가상 컴퓨터 개인 클라우드 및 계획을 만들고 사용자 구독을 관리할 수 있습니다.
 2. [만들](azure-stack-add-new-user-aad.md) 테 넌 트로 개발 키트에 로그인 할 수 있도록 계정 하나 이상 있습니다.
    
    | **Azure Active Directory 계정** | **지원됩니까?** |

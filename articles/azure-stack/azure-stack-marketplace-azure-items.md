@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -29,6 +29,7 @@ Microsoft Azure 스택 다음 Azure 마켓플레이스 항목을 지원합니다
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Linux 가상 컴퓨터에 docker 확장 합니다. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | SQL IaaS 확장 | <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드 합니다.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016에서 9.2.1 서버 학습 Microsoft 컴퓨터](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft 기계 9.2.1 Windows Server 2016에서 서버를 학습 합니다. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 16.04 ubuntu Server 9.2.1 학습](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft 기계 16.04 ubuntu Server 9.2.1를 학습 합니다. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft 기계 CentOS linux 7.2 9.2.1 서버 학습](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft 기계 CentOS linux 7.2 9.2.1 서버를 학습 합니다. | Microsoft |
@@ -156,8 +157,8 @@ Microsoft Azure 스택 다음 Azure 마켓플레이스 항목을 지원합니다
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine 판매 CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact 마케팅, 영업 및 고객 서비스 응용 프로그램입니다. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS 이자 동적 웹 사이트를 만드는 웹 포털 프로그램.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | 소스 CRM 시스템을 엽니다: 모바일 앱, 사회, 및 Gamified 합니다. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [검사점 vSEC 보안 관리](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | 검사점 vSEC 자산을 보호 하기 고객이 Azure에서 맬웨어 및 정교한 위협 으로부터 고급, 다중 계층 위협 방지를 제공 합니다. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef 자동화](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | 빌드, 배포 및 사용 하 여 Chef 자동화 연속 자동화 플랫폼 관리 합니다. | Chef 소프트웨어, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [검사점 vSEC 보안 관리](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | 검사점 vSEC 자산을 보호 하기 고객이 Azure에서 맬웨어 및 정교한 위협 으로부터 고급, 다중 계층 위협 방지를 제공 합니다. <b>두 체크 포인트 vSEC 마켓플레이스 항목을 다운로드 합니다.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef 자동화](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | 빌드, 배포 및 사용 하 여 Chef 자동화 연속 자동화 플랫폼 관리 합니다. <b>Chef 마켓플레이스 항목을 모두 다운로드</b> | Chef 소프트웨어, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS 하 여 Linux 컨테이너](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Linux 컨테이너는 컨테이너를 실행 하 고 클러스터를 관리할 서버를 원활 하 게 업데이트 하는 쉬운 방법을 제공 현대적이 고 최소한의 Linux 배포판-웨어하우스 확장을 사용할 수 있는 모든 구성 요소를 계산 합니다. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server는 클라우드 환경에 세계적으로 가장 많이 사용되는 Linux입니다. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "제시"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
@@ -171,7 +172,9 @@ Microsoft Azure 스택 다음 Azure 마켓플레이스 항목을 지원합니다
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Linux 용 에이전트 보안](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Linux 용 trend Micro Deep Security 확장 합니다. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Windows 용 deep Security Agent](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Windows 용 trend Micro Deep Security 확장 합니다. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션할 + HA 합니다. | ZeroDown 소프트웨어 |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure 스택 인프라의 전체 수명 주기를 자동화할 수 있습니다. <b>Puppet 마켓플레이스 항목을 모두 다운로드 합니다.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3 호환 저장소 서비스 공개에 걸쳐 있고 온-프레미스 리소스 용량입니다. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | HDP 기반의 2.5 100 %Hadoop, Spark, 스톰, HBase, Kafka, Hive, Ambari 소스 플랫폼을 엽니다. | Hortonworks |
 
 ### <a name="next-steps"></a>다음 단계
 [마켓플레이스 항목을 다운로드 합니다.](azure-stack-download-azure-marketplace-item.md)
