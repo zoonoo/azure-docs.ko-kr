@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Azure VM, Service Fabric 및 Cloud Services에서 Application Insights Profiler 사용
 
 이 문서에서는 Azure Compute 리소스에서 호스팅하는 ASP.NET 응용 프로그램에서 Azure Application Insights Profiler를 사용하는 방법을 보여줍니다. 
 
-이 문서의 예제에는 Azure Virtual Machines, 가상 컴퓨터 확장 집합, Azure Service Fabric 및 Azure Cloud Services에 대한 지원이 포함됩니다. 예제는 [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) 배포 모델을 지원하는 템플릿이 필요합니다.  
+이 문서의 예제에는 Azure Virtual Machines, 가상 컴퓨터 확장 집합, Azure Service Fabric 및 Azure Cloud Services에 대한 지원이 포함됩니다. 예제는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 배포 모델을 지원하는 템플릿이 필요합니다.  
 
 
 ## <a name="overview"></a>개요
@@ -47,14 +47,14 @@ Azure Portal에서 사용하려는 Application Insights 인스턴스를 만들�
 이 인스턴스는 응용 프로그램과 동일해야 합니다. 각 요청에 원격 분석 데이터를 보내도록 구성됩니다.
 Profiler 결과도 이 인스턴스에서 사용할 수 있습니다.  
 
-Azure Portal에서 [프로파일러 사용](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler)에 설명된 단계를 완료하여 Profiler에 대한 Application Insights 인스턴스의 설정을 마칩니다. 이 문서의 예제에서 웹앱에 연결할 필요가 없습니다. Profiler가 포털에서 활성화되어 있는지 확인합니다.
+Azure Portal에서 [프로파일러 사용](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler)에 설명된 단계를 완료하여 Profiler에 대한 Application Insights 인스턴스의 설정을 마칩니다. 이 문서의 예제에서 웹앱에 연결할 필요가 없습니다. Profiler가 포털에서 활성화되어 있는지 확인합니다.
 
 
 ## <a name="set-up-the-application-source-code"></a>응용 프로그램 소스 코드 설정
 
 원격 분석 데이터를 각 `Request` 작업의 Application Insights 인스턴스에 보내도록 응용 프로그램을 설정합니다.  
 
-1. 응용 프로그램 프로젝트에 [Application Insights SDK](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview#get-started)를 추가합니다. NuGet 패키지 버전이 다음과 같은지 확인하세요.  
+1. 응용 프로그램 프로젝트에 [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started)를 추가합니다. NuGet 패키지 버전이 다음과 같은지 확인하세요.  
   - ASP.NET 응용 프로그램: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 이상
   - ASP.NET Core 응용 프로그램: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 이상
   - 기타 .NET 및 .NET Core 응용 프로그램(예: Service Fabric 상태 비저장 서비스 또는 Cloud Services 작업자 역할): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 또는 [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 이상  
@@ -135,12 +135,12 @@ Profiler 및 응용 프로그램이 실행하는 환경은 가상 컴퓨터, 가
 
 전체 예:  
   * [가상 컴퓨터](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-  * [가상 컴퓨터 확장 집합](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+  * [Virtual Machine Scale Sets](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Service Fabric 클러스터](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
-1. [.NET framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상이 사용 중인지 확인하려면 배포된 OS가 `Windows Server 2012 R2` 이상인지 확인하는 것으로 충분합니다.
+1. [.NET framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상이 사용 중인지 확인하려면 배포된 OS가 `Windows Server 2012 R2` 이상인지 확인하는 것으로 충분합니다.
 
-2. 배포 템플릿 파일에서 [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 확장명을 찾은 후 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다. `ApplicationInsightsProfiler` 속성 값을 고유한 Application Insights 계측 키로 바꿉니다.  
+2. 배포 템플릿 파일에서 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 확장명을 찾은 후 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다. `ApplicationInsightsProfiler` 속성 값을 고유한 Application Insights 계측 키로 바꿉니다.  
   ```json
   "SinksConfig": {
     "Sink": [
@@ -152,16 +152,16 @@ Profiler 및 응용 프로그램이 실행하는 환경은 가상 컴퓨터, 가
   }
   ```
 
-  배포 템플릿에 진단 확장을 추가하는 방법에 대한 정보는 [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+  배포 템플릿에 진단 확장을 추가하는 방법에 대한 정보는 [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 
 ### <a name="cloud-services"></a>Cloud Services
 
-1. [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 중인지 확인하려면 해당 ServiceConfiguration.\*.cscfg 파일에 **"5"** 이상의 `osFamily` 값이 있는지 확인하는 것으로 충분합니다.
+1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 중인지 확인하려면 해당 ServiceConfiguration.\*.cscfg 파일에 **"5"** 이상의 `osFamily` 값이 있는지 확인하는 것으로 충분합니다.
 
-2. 응용 프로그램 역할에 대한 [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 파일을 찾습니다.  
+2. 응용 프로그램 역할에 대한 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 파일을 찾습니다.  
   ![Diagnostics 구성 파일의 위치](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  파일을 찾을 수 없는 경우 Cloud Services 프로젝트에서 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)을 참조하세요.
+  파일을 찾을 수 없는 경우 Cloud Services 프로젝트에서 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure Cloud Services 및 가상 컴퓨터에 대한 진단 설정](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)을 참조하세요.
 
 3. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다.  
   ```xml
@@ -205,11 +205,11 @@ Profiler 및 응용 프로그램이 실행하는 환경은 가상 컴퓨터, 가
 
 2. 원하는 응용 프로그램이 [IIS](https://www.microsoft.com/web/platform/server.aspx)를 통해 실행 중인 경우라면 `IIS Http Tracing` Windows 기능을 활성화합니다.  
   
-  1. 환경에 대한 원격 액세스를 설정하려면 [Windows 기능 추가]( https://docs.microsoft.com/en-us/iis/configuration/system.webserver/tracing/) 창을 사용하거나 PowerShell에서 (관리자로서) 다음 명령을 실행하세요.  
+  1. 환경에 대한 원격 액세스를 설정하려면 [Windows 기능 추가]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) 창을 사용하거나 PowerShell에서 (관리자로서) 다음 명령을 실행하세요.  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-  2. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
+  2. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
@@ -223,7 +223,7 @@ Profiler 및 응용 프로그램이 실행하는 환경은 가상 컴퓨터, 가
 
 ## <a name="next-steps"></a>다음 단계
 
-- 응용 프로그램에 대한 트래픽을 생성합니다(예: [가용성 테스트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability) 시작). 그런 다음 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
-- Azure Portal에서 [Profiler 추적](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler)을 참조하세요.
+- 응용 프로그램에 대한 트래픽을 생성합니다(예: [가용성 테스트](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability) 시작). 그런 다음 추적을 10~15분 동안 기다려서 Application Insights 인스턴스로 보내기 시작합니다.
+- Azure Portal에서 [Profiler 추적](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler)을 참조하세요.
 - [Profiler 문제 해결](app-insights-profiler.md#troubleshooting)에서 Profiler 문제 해결에 대한 도움을 받으세요.
 - [Application Insights Profiler](app-insights-profiler.md)에서 프로파일러에 대해 자세히 읽어보세요.

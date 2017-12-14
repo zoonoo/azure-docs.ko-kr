@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, 가상 컴퓨터 크기 집합 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.
@@ -220,6 +220,6 @@ Application Insights에 대한 싱크 예제 구성:
 - **Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다.** 예를 들어 *디렉터리* 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob Storage에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)에 대해 알아봅니다.
+* Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)에 대해 알아봅니다.
 * [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)을 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.
 * [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 를 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 컴퓨터 확장 집합이란?
 가상 컴퓨터 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 빅 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/17/2017
 
 기본 자동 크기 조정 규칙의 경우 CPU 사용량 또는 디스크 I/O와 같은 호스트 기반 성능 메트릭을 사용할 수 있습니다. 이러한 호스트 기반 메트릭은 설치 및 구성할 추가 에이전트 또는 확장 없이 기본적으로 사용할 수 있습니다. 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
 
-- [쉬운 테이블](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -124,7 +124,7 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 * 확장 집합은 최대 1,000대의 VM을 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 300대로 제한됩니다. 대규모 확장 집합 사용 시 고려 사항은 [대규모 가상 컴퓨터 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요.
 * 확장 집합을 사용할 Azure Storage 계정의 집합을 미리 만들 필요가 없습니다. 확장 집합은 저장소 계정당 디스크 수와 관련된 성능 문제를 무효화하는 Azure Managed Disks를 지원합니다. 자세한 내용은 [Azure 가상 컴퓨터 크기 집합 및 관리되는 디스크](virtual-machine-scale-sets-managed-disks.md)를 참조하세요.
 * 보다 빠르고 예측 가능한 VM 프로비전 시간 및 향상된 I/O 성능을 위해 Azure Storage 대신 Azure Premium Storage를 사용하는 것이 좋습니다.
-* 배포하려는 지역의 vCPU 할당량에 따라 만들 수 있는 VM 개수가 제한됩니다. 현재 Azure Cloud Services에 사용할 vCPU 한도가 높더라도, 계산 할당량 한도를 높이려면 고객 지원팀에 문의해야 합니다. 할당량을 쿼리하려면 이 Azure CLI 명령 `azure vm list-usage`을 실행합니다. 또는 이 PowerShell 명령 `Get-AzureRmVMUsage`를 실행합니다.
+* 배포하려는 지역의 vCPU 할당량에 따라 만들 수 있는 VM 개수가 제한됩니다. 현재 Azure Cloud Services에 사용할 vCPU 한도가 높더라도, 계산 할당량 한도를 높이려면 고객 지원팀에 문의해야 합니다. 할당량을 쿼리하려면 이 Azure CLI 명령 `az vm list-usage`을 실행합니다. 또는 이 PowerShell 명령 `Get-AzureRmVMUsage`를 실행합니다.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>크기 집합에 대한 질문과 대답
 **Q.** 크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?

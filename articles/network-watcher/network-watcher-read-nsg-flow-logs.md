@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 1eea88827733e44bd0ebd88ab5179f4d3a7b6b04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: daf4e70767d59a602d7ff1a2099af904b314c5f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -35,7 +35,7 @@ NSG 흐름 로그는 저장소 계정의 [블록 Blob](/rest/api/storageservices
 
 ## <a name="retrieve-the-block-list"></a>블록 목록 검색
 
-다음 PowerShell은 NSG 흐름 로그 Blob를 쿼리하는 데 필요한 변수를 설정하고 [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) 블록 Blob 내의 블록을 나열합니다. 실제 환경에서 사용되는 값을 포함하여 스크립트를 업데이트하세요.
+다음 PowerShell은 NSG 흐름 로그 Blob를 쿼리하는 데 필요한 변수를 설정하고 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) 블록 Blob 내의 블록을 나열합니다. 실제 환경에서 사용되는 값을 포함하여 스크립트를 업데이트하세요.
 
 ```powershell
 # The SubscriptionID to use

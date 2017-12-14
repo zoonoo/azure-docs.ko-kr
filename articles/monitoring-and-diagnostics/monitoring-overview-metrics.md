@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -89,11 +89,11 @@ Azure Monitor에서는 미리 보기 상태로 사용할 수 있는 새 메트�
 ## <a name="access-metrics-via-the-rest-api"></a>REST API를 통해 메트릭 액세스
 Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는 2가지 API가 있습니다.
 
-* [Azure Monitor 메트릭 정의 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록 및 차원에 액세스합니다.
-* [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics)를 사용하여 실제 메트릭 데이터를 분할하고, 필터링하고, 액세스합니다.
+* [Azure Monitor 메트릭 정의 REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)를 사용하여 서비스에 사용 가능한 메트릭 목록 및 차원에 액세스합니다.
+* [Azure Monitor 메트릭 REST API](https://docs.microsoft.com/rest/api/monitor/metrics)를 사용하여 실제 메트릭 데이터를 분할하고, 필터링하고, 액세스합니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://docs.microsoft.com/en-us/rest/api/monitor/) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전 및 메트릭 API는 2017-05-01-preview입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
+> 이 문서에서는 Azure 리소스에 대해 [메트릭의 새 API](https://docs.microsoft.com/rest/api/monitor/) 를 통한 메트릭을 다룹니다. 새 메트릭 정의 API의 API 버전 및 메트릭 API는 2017-05-01-preview입니다. 레거시 메트릭 정의 및 메트릭은 API 버전 2014-04-01로 액세스할 수 있습니다.
 >
 >
 

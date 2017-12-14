@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 응용 프로그램 모니터링 시작
 
@@ -30,7 +30,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 - [Java EE 개발자용 Eclipse IDE 평가판](http://www.eclipse.org/downloads/)을 설치합니다. 이 빠른 시작에서는 Eclipse Oxygen(4.7)을 사용합니다.
 - Azure 구독과 기존 Java 동적 웹 프로젝트가 필요합니다.
  
-Java 동적 웹 프로젝트가 없는 경우 [Java 웹앱 만들기 빠른 시작](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java)을 사용하여 Java 동적 웹 프로젝트를 만들 수 있습니다.
+Java 동적 웹 프로젝트가 없는 경우 [Java 웹앱 만들기 빠른 시작](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)을 사용하여 Java 동적 웹 프로젝트를 만들 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -138,4 +138,4 @@ Java 모니터링에 대한 자세한 내용은 [Application Insights Java 추�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [성능 문제 찾기 및 진단](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [성능 문제 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

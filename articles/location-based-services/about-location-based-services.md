@@ -6,17 +6,17 @@ keywords:
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure Location Based Services(미리 보기) 소개
 Azure Location Based Services는 맵, 검색, 경로, 트래픽 및 표준 시간대를 포함하는 지리 공간 서비스 포트폴리오입니다. Azure OneAPI 규격 서비스를 사용하면 익숙한 개발자 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. Azure Location Based Services는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 응용 프로그램에 제공하는 데 필수적인 최신 매핑 데이터를 탑재한 강력한 지리 공간 기능을 제공합니다. Azure Location Based Services는 여러 미디어를 통한 개발을 매우 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어와 함께 제공되는 REST API의 Azure One API 규격 집합입니다. 

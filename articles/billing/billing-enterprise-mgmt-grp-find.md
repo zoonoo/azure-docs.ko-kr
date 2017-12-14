@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Azure 구독 또는 관리 그룹 찾기
 
-Azure에서 구독 또는 관리 그룹을 찾는 데 문제가 있는 경우 잘못된 디렉터리에서 찾고 있을 수 있습니다. 이런 상황은 계정이 여러 Azure Active Directory에 있는 경우에 발생할 수 있습니다. 각 [Active Directory는 독립적](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence)이며 디렉터리 간에 액세스 권한이 상속되지 않습니다.      
+Azure에서 구독 또는 관리 그룹을 찾는 데 문제가 있는 경우 잘못된 디렉터리에서 찾고 있을 수 있습니다. 이런 상황은 계정이 여러 Azure Active Directory에 있는 경우에 발생할 수 있습니다. 각 [Active Directory는 독립적](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence)이며 디렉터리 간에 액세스 권한이 상속되지 않습니다.      
 
 ![디렉터리 메뉴 전환](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Azure Portal에서 디렉터리를 쉽게 전환할 수 있습니다.
 ![자산을 찾을 수 없음](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 액세스 권한을 받으려면 구독 또는 관리 그룹의 관리자에게 문의합니다.  
-* 구독의 경우 필요한 역할에 대한 자세한 내용은 [Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) 문서를 참조하세요.
+* 구독의 경우 필요한 역할에 대한 자세한 내용은 [Azure RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 문서를 참조하세요.
 * 관리 그룹의 경우 RBAC 액세스를 사용할 수 없으며 곧 제공될 예정입니다. 액세스 권한을 받으려면 Enterprise Portal 관리자에게 문의합니다.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>관리 그룹 및 구독이 동일한 디렉터리에 있도록 환경 개선 

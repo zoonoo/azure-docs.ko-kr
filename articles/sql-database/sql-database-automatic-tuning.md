@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -48,7 +48,7 @@ Azure SQL Database에 적용된 조정 작업은 가장 강력한 워크로드�
 
 ![자동 조정 작동 방식](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database 자동 조정은 핵심 논리를 SQL Server 자동 조정 엔진과 공유합니다. 기본 제공 인텔리전스 메커니즘에 대한 추가 기술 정보는 [SQL Server 자동 조정](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
+Azure SQL Database 자동 조정은 핵심 논리를 SQL Server 자동 조정 엔진과 공유합니다. 기본 제공 인텔리전스 메커니즘에 대한 추가 기술 정보는 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
 
 ## <a name="use-automatic-tuning"></a>자동 조정 사용
 
@@ -80,4 +80,4 @@ Azure SQL Database는 데이터베이스를 최적화하고 Azure Portal에 표�
 - Azure SQL Database에서 자동 조정을 사용하도록 설정하고 워크로드를 관리하려면 [자동 조정 사용](sql-database-automatic-tuning-enable.md)을 참조하세요.
 - 자동 조정 권장 사항을 수동으로 검토 및 적용하려면 [성능 권장 사항 찾기 및 적용](sql-database-advisor-portal.md)을 참조하세요.
 - 자동 조정에 사용된 기본 제공 인텔리전스에 대한 자세한 내용은 [인공 지능으로 Azure SQL Database 조정](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)을 참조하세요.
-- Azure SQL Database 및 SQL server 2017에서 자동 조정이 작동하는 방식에 대한 자세한 내용은 [SQL Server 자동 조정](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
+- Azure SQL Database 및 SQL server 2017에서 자동 조정이 작동하는 방식에 대한 자세한 내용은 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.

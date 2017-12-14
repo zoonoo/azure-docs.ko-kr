@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -233,7 +233,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>스냅숏 만들기
 
-가상 컴퓨터 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
+가상 컴퓨터 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

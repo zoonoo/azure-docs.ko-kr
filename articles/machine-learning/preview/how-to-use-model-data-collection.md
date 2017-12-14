@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>데이터 컬렉션을 사용하여 모델 데이터 수집
 
@@ -98,9 +98,9 @@ Microsoft 소프트웨어 및 오픈 소스 도구를 통해 다양한 방법으
 - Azure Machine Learning Workbench: Azure Machine Learning Workbench에서 .csv 파일을 데이터 원본으로 추가하여 .csv 파일을 엽니다.
 - Excel: 일별 .csv 파일을 스프레드시트로 엽니다.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): Blob의 .csv 데이터에서 가져온 데이터로 차트를 만듭니다.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): .csv 데이터의 큰 부분으로 데이터 프레임을 만듭니다.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): .csv 데이터의 큰 부분으로 데이터 프레임을 만듭니다.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): .csv 데이터를 Hive 테이블에 로드하고, Blob에 대해 SQL 쿼리를 직접 수행합니다.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): .csv 데이터를 Hive 테이블에 로드하고, Blob에 대해 SQL 쿼리를 직접 수행합니다.
 

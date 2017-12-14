@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Azure 관리되는 응용 프로그램의 관리되는 리소스 그룹에서 리소스 작업
 
@@ -97,4 +97,3 @@ az policy assignment show --name locationAssignment --scope $managedGroup --quer
 
 * 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
 * 샘플 프로젝트는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
-* Azure Marketplace에 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [마켓플레이스의 관리되는 응용 프로그램](publish-marketplace-app.md)을 참조하세요.

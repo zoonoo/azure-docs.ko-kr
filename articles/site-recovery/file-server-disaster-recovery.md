@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -145,7 +145,7 @@ Azure Site Recovery와 Azure File Sync를 통합하는 제안된 방법은 다�
 
 아래 단계는 Azure File Sync 서비스를 사용하는 방법을 자세히 설명합니다.
 
-1. [Azure에서 저장소 계정 만들기](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 저장소 계정에 대해 RA-GRS(읽기 액세스 지역 중복 저장소)(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 정보는 [Azure 파일 공유 재해 복구 전략](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+1. [Azure에서 저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 저장소 계정에 대해 RA-GRS(읽기 액세스 지역 중복 저장소)(권장)를 선택한 경우 재해 발생 시 보조 지역의 데이터에 대한 읽기 권한을 가집니다. 자세한 정보는 [Azure 파일 공유 재해 복구 전략](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 2. [파일 공유 만들기](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. 온-프레미스 파일 서버에서 [Azure File Sync를 배포합니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. 동기화 그룹 만들기: 동기화 그룹 내의 끝점은 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 끝점과 온-프레미스 Windows Server의 경로를 나타내는 하나의 서버 끝점을 포함해야 합니다.

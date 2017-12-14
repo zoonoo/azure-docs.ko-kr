@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 12/05/2017
         - "Azure Python SDK 설치"
     - 만들도록 지시받은 Azure Active Directory 응용 프로그램의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
     - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 2.0 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 "Azure Machine Learning Workbench에서 시작한 CLI"로, 일반 릴리스 버전(Batch AI 포함)을 "Azure CLI 2.0"으로 지칭하겠습니다.
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
     - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
 - SSH 클라이언트에는 [PuTTY](http://www.putty.org/)가 권장됩니다.
 

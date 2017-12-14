@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 > 
@@ -159,7 +159,7 @@ git push
 
 ![배포][api-management-configuration-deploy]
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration)를 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 데이터베이스에 Git 변경 내용 배포](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration)를 참조하세요.
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>로컬 Git 리포지토리의 파일 및 폴더 구조 참조
 로컬 Git 리포지토리의 파일 및 폴더에는 서비스 인스턴스에 관한 구성 정보가 포함되어 있습니다.

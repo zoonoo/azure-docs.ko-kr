@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -43,8 +43,9 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 메트릭 및 진단 로깅을 사용하려면 선택한 데이터가 수집되는 Azure 리소스를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
 - Log Analytics
-- Event Hubs(영문)
-- 저장소 
+- Event Hubs
+
+- Storage 
 
 새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 저장소 리소스를 선택한 후에는 수집할 데이터를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
@@ -318,7 +319,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|쿼리 저장소의 쿼리 ID|
 |plan_id_d|쿼리 저장소의 계획 ID|
 
-[쿼리 저장소 런타임 통계 데이터에 대해 자세히 알아봅니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
+[쿼리 저장소 런타임 통계 데이터에 대해 자세히 알아봅니다.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
 
 ### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
@@ -356,7 +357,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_id_d|쿼리 저장소의 쿼리 ID|
 |plan_id_d|쿼리 저장소의 계획 ID|
 
-[쿼리 저장소 대기 통계 데이터를 자세히 알아봅니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
+[쿼리 저장소 대기 통계 데이터를 자세히 알아봅니다.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
 
 ### <a name="errors-dataset"></a>오류 데이터 집합
 
@@ -414,7 +415,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |delta_wait_time_ms_d|기간의 총 대기 시간|
 |delta_waiting_tasks_count_d|대기 작업 수|
 
-[데이터베이스 대기 통계에 대해 자세히 알아봅니다.](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
+[데이터베이스 대기 통계에 대해 자세히 알아봅니다.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
 ### <a name="time-outs-dataset"></a>제한 시간 데이터 집합 
 

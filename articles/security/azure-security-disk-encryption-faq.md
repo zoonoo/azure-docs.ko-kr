@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 * 암호화(VM 특성 및 연결된 데이터 디스크의 크기에 따라 여러 시간 또는 심지어 며칠이 걸릴 수 있음)
 * 필요에 따라 소프트웨어를 사용자 지정하고 이미지에 추가합니다.
 
-이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
+이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
 
 **Q:** 디스크 "Bek Volume" 또는 "/mnt/azure_bek_disk"란 무엇인가요?
 

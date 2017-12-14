@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure에서 OpenShift Container Platform 배포
 
@@ -138,7 +138,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 ### <a name="deploy-by-using-azure-cli"></a>Azure CLI를 사용하여 배포
 
 > [!NOTE] 
-> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 2.0 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti)를 참조하세요.
+> 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti)를 참조하세요.
 
 다음 예제에서는 myResourceGroup이라는 리소스 그룹에 myOpenShiftCluster라는 배포 이름을 사용하여 OpenShift 클러스터 및 모든 관련 리소스를 배포합니다. 템플릿은 GitHub 리포지토리에서 직접 참조되며, azuredeploy.parameters.json이라는 로컬 매개 변수 파일이 사용됩니다.
 

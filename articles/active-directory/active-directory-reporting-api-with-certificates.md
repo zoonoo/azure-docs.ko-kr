@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기
 이 문서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 개입 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다. 
@@ -89,7 +89,7 @@ Azure AD PowerShell V2 및 AzureADUtils 모듈을 설치해야 합니다.
 이제 CSV로 내보내고 SIEM 시스템에 저장할 준비가 되었습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 응용 프로그램 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure ID 관리의 기본 항목](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Azure ID 관리의 기본 항목](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

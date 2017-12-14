@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -122,7 +122,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Hadoop으로
 
 4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 **/example/curl**)가 포함됩니다. 이 주소는 클러스터 기본 저장소의 **example/curl** 디렉터리에 출력을 저장합니다.
 
-    [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure Storage에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) 문서를 참조하세요.
+    [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. Azure Storage에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure Storage에서 Azure CLI 2.0 사용](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 문서를 참조하세요.
 
 5. 다음 문을 사용하여 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
 

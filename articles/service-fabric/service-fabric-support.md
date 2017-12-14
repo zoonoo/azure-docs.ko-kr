@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -81,7 +81,7 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 종종 피드백이 필요한 중요한 기능이 포함된 버전이 미리 보기로 릴리스됩니다. 이러한 미리 보기 버전은 테스트 용도로만 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되면 해당 릴리스 버전은 테스트 클러스터에서만 미리 보기로 사용됩니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric)에서 발표됩니다.
 
-이러한 미리 보기 릴리스를 위한 무료 지원 옵션이 있습니다. [Azure Service Fabric 문제 보고서](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues)에 나열된 옵션 중 하나를 사용하여 질문을 하거나 피드백을 제공하세요.
+이러한 미리 보기 릴리스를 위한 무료 지원 옵션이 있습니다. [Azure Service Fabric 문제 보고서](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues)에 나열된 옵션 중 하나를 사용하여 질문을 하거나 피드백을 제공하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

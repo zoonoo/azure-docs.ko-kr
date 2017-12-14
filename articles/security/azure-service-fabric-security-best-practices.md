@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 응용 프로그램을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 응용 프로그램을 배포하기 전에 응용 프로그램에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
@@ -64,7 +64,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 다양한 기술을 사용하여 클러스터 보안을 구현하기 위해 세 가지 [시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)가 있습니다.
 
 -   노드 - 노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 응용 프로그램 및 서비스를 호스팅할 수 있습니다.
-이 시나리오에서 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대해 [인증서 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) 또는 [Windows 보안](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security)을 사용할 수 있습니다.
+이 시나리오에서 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대해 [인증서 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) 또는 [Windows 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security)을 사용할 수 있습니다.
 -   클라이언트 - 노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
 -   역할 기반 액세스 제어(RBAC): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
 
@@ -125,7 +125,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 응용 프로그램 프레
 복제자 구성은 행위자 상태 제공자의 상태를 매우 안정적으로 만드는 작업을 담당하는 복제자를 구성합니다.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric에 대해 SSL 구성
-서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 끝점을 [인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm)도 제공합니다.
+서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 끝점을 [인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)도 제공합니다.
 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. 인증 기관으로부터 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 응용 프로그램에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.

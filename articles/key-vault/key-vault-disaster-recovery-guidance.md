@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Azure 주요 자격 증명 모음 가용성 및 중복성
-Azure 주요 자격 증명 모음에는 서비스의 개별 구성 요소가 실패해도 응용 프로그램에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
+Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 응용 프로그램에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
 
-주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 따라서 키와 암호의 내구성이 매우 높습니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) 문서를 참조하세요.
+주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 따라서 키와 암호의 내구성이 매우 높습니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 문서를 참조하세요.
 
 주요 자격 증명 모음 서비스 내에서 개별 구성 요소가 실패하면 기능이 저하되지 않도록 하기 위해 해당 지역 내의 대체 구성 요소가 요청을 처리하도록 개입됩니다. 이 트리거에 어떤 조치도 취할 필요가 없습니다. 자동으로 발생하고 투명하게 보일 것입니다.
 
@@ -45,6 +45,6 @@ Azure 주요 자격 증명 모음에는 서비스의 개별 구성 요소가 실
   * 래핑 취소
   * Verify
   * 로그인
-  * 백업
+  * Backup
 * 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.
 

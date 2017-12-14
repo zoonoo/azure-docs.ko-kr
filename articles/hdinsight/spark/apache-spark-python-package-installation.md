@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: ab1d48188d4e0ef1274eb175b49bafd1d63b8480
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 스크립트 작업을 사용하여 Jupyter Notebook용 외부 python 패키지 설치
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/09/2017
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
    > [!NOTE]
-   > Hdinsight Linux에 Spark 클러스터가 아직 없는 경우 클러스터를 만드는 동안 스크립트 작업을 실행할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
+   > Hdinsight Linux에 Spark 클러스터가 아직 없는 경우 클러스터를 만드는 동안 스크립트 작업을 실행할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
    > 
    > 
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/09/2017
 
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. Spark 클러스터 블레이드의 왼쪽 창에서 **스크립트 작업**을 클릭합니다. 헤드 노드 및 작업자 노드에 TensorFlow를 설치하는 사용자 지정 작업을 실행합니다. Bash 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh에서 참조할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
+2. Spark 클러스터 블레이드의 왼쪽 창에서 **스크립트 작업**을 클릭합니다. 헤드 노드 및 작업자 노드에 TensorFlow를 설치하는 사용자 지정 작업을 실행합니다. Bash 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh에서 참조할 수 있습니다. [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
 
    > [!NOTE]
    > 클러스터에 두 개의 python 설치 프로그램이 있습니다. Spark는 `/usr/bin/anaconda/bin`에 있는 Anaconda python 설치 프로그램을 사용합니다. `/usr/bin/anaconda/bin/pip` 및 `/usr/bin/anaconda/bin/conda`를 통해 사용자 지정 작업에서 해당 설치 프로그램을 참조하세요.

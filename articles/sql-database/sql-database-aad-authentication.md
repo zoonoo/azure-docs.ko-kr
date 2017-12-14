@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용
 Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Database 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결하는 메커니즘입니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
@@ -100,7 +100,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 * [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/download/details.aspx?id=11774)은 Azure AD 인증을 지원합니다. 또한 [연결 속성 설정](https://msdn.microsoft.com/library/ms378988.aspx)을 참조하세요.   
 * PolyBase는 Azure AD 인증을 사용하여 인증할 수 없습니다.   
 * Azure AD 인증은 Azure Portal **데이터베이스 가져오기** 및 **데이터베이스 내보내기** 블레이드로 SQL Database에서 지원됩니다. Azure AD 인증을 사용한 가져오기 및 내보내기도 PowerShell 명령에서 지원됩니다.   
-* Azure AD 인증은 CLI를 사용하여 SQL Database 및 SQL Data Warehouse에 대해 지원됩니다. 자세한 내용은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md) 및 [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server)를 참조하세요.
+* Azure AD 인증은 CLI를 사용하여 SQL Database 및 SQL Data Warehouse에 대해 지원됩니다. 자세한 내용은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md) 및 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure AD를 만들고 채운 후 Azure SQL Database 및 SQL Data Warehouse에서 Azure AD를 구성하는 방법은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)를 참조하세요.

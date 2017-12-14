@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>OMS 업데이트 관리와 System Center Configuration Manager 통합
 
@@ -41,7 +41,7 @@ PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configurati
 
 Configuration Manager에서 업데이트 배포 관리를 계속하려는 경우 다음 단계를 수행합니다.  OMS는 Configuration Manager에 연결하여 Log Analytics 작업 영역에 연결된 클라이언트 컴퓨터에 업데이트를 적용합니다. 업데이트 콘텐츠는 배포를 Configuration Manager에서 관리하는 경우 클라이언트 컴퓨터 캐시에서 사용할 수 있습니다.  
 
-1. [소프트웨어 업데이트 프로세스 배포](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates)에 설명된 프로세스를 사용하여 Configuration Manager 계층의 최상위 수준 사이트에서 소프트웨어 업데이트 배포를 만듭니다.  표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 OMS 업데이트 관리 솔루션에 의해 관리됩니다.  
+1. [소프트웨어 업데이트 프로세스 배포](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates)에 설명된 프로세스를 사용하여 Configuration Manager 계층의 최상위 수준 사이트에서 소프트웨어 업데이트 배포를 만듭니다.  표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 OMS 업데이트 관리 솔루션에 의해 관리됩니다.  
 
 1. OMS 포털에서 업데이트 관리 대시보드를 엽니다.  [업데이트 배포를 만들기](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)에 설명된 단계에 따라 새 배포를 만들고 드롭다운 목록에서 OMS 컴퓨터 그룹으로 표시되는 적절한 Configuration Manager 컬렉션을 선택합니다.  다음 중요 사항을 주의하세요.
     1. 선택된 Configuration Manager 장치 컬렉션에서 유지 관리 창이 정의된 경우 컬렉션의 구성원은 OMS의 예약된 배포에서 정의된 **기간** 설정 대신 이를 인식합니다.

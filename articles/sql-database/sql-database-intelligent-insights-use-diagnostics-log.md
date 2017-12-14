@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights의 Azure SQL Database 성능 진단 로그 사용
 
@@ -139,13 +139,13 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Intelligent Insights 성능 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 함께 사용할 수 있습니다.
+Intelligent Insights 성능 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 함께 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념에 대해 알아봅니다.
 - [인텔리전스 Insights를 사용하여 Azure SQL Database 성능 문제를 해결](sql-database-intelligent-insights-troubleshoot-performance.md)하는 방법을 알아봅니다.
-- [Azure SQL Analytics를 사용하여 Azure SQL Database를 모니터링](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)하는 방법을 알아봅니다.
-- [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)하는 방법을 알아봅니다.
+- [Azure SQL Analytics를 사용하여 Azure SQL Database를 모니터링](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)하는 방법을 알아봅니다.
+- [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)하는 방법을 알아봅니다.
 
 
 

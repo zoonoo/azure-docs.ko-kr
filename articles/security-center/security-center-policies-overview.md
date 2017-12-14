@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>보안 정책 개요
 이 문서에서는 Security Center의 보안 정책에 대한 개요를 제공합니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/06/2017
 Security Center 정책에는 다음 구성 요소가 포함되어 있습니다.
 
 - **데이터 컬렉션**: 에이전트 프로비전 및 [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) 설정을 결정합니다.
-- **보안 정책**: Security Center에서 모니터링 및 권장하는 컨트롤을 결정합니다. Security Center에서 [보안 정책](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies)을 편집할 수 있습니다. [Azure 정책](security-center-azure-policy.md)(제한된 미리 보기)을 사용하여 새 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 걸쳐 정책을 할당할 수도 있습니다.
+- **보안 정책**: Security Center에서 모니터링 및 권장하는 컨트롤을 결정합니다. Security Center에서 [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies)을 편집할 수 있습니다. [Azure 정책](security-center-azure-policy.md)(제한된 미리 보기)을 사용하여 새 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 걸쳐 정책을 할당할 수도 있습니다.
 - **전자 메일 알림**: 보안 연락처 및 [전자 메일 알림](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) 설정을 결정합니다.
 - **가격 책정 계층**: 무료 또는 표준 [가격 선택](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 정의합니다. 선택한 계층에 따라 범위의 리소스에 대해 사용할 수 있는 Security Center 기능이 결정됩니다. 구독, 리소스 그룹 및 작업 영역에 대한 계층을 지정할 수 있습니다. 
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
 
@@ -27,7 +27,7 @@ Azure ML 모델 관리를 사용하면 SparkML, Keras, TensorFlow, Microsoft Cog
 
 ## <a name="what-you-need-to-get-started"></a>시작에 필요한 항목
 이 가이드를 최대한 활용하려면 모델을 배포할 수 있는 Azure 구독에 대해 소유자 권한이 있어야 합니다.
-CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)이 미리 설치되어 있습니다.
+CLI는 Azure Machine Learning Workbench 및 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview)이 미리 설치되어 있습니다.
 
 ## <a name="using-the-cli"></a>CLI 사용
 Workbench에서 CLI(명령줄 인터페이스)를 사용하려면 **파일** -] **명령줄 인터페이스 열기**를 클릭합니다. 

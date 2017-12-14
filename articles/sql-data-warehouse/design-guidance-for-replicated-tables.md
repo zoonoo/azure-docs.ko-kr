@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 복제 테이블 사용에 대한 디자인 지침
 이 문서는 SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/01/2017
 
 복제 테이블 사용을 고려하는 것이 좋은 경우:
 
-- 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- 행의 수에 관계없이 디스크의 테이블 크기가 2GB미만입니다. 테이블 크기를 알아보려면 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 명령을 사용하세요. `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - 복제 테이블이 아니면 데이터 이동이 필요한 조인에 사용됩니다. 예를 들어 해시 분산 테이블의 조인은 조인하는 열이 배포 열과 같지 않은 경우 데이터 이동이 필요합니다. 해시 분산 테이블 중 하나가 작으면 복제 테이블을 고려하세요. 라운드 로빈 테이블에 조인하려면 데이터 이동이 필요합니다. 대부분의 경우 라운드 로빈 테이블 대신 복제 테이블을 사용하는 것이 좋습니다. 
 
 

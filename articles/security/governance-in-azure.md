@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -488,6 +488,6 @@ Azure 응용 프로그램과 서비스를 모니터링하기 위한 다양한 �
 
 - [Azure Resource Manager 템플릿 생성 모범 사례](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)
 
-- [Azure 구독 거버넌스 구현 예제](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples)
+- [Azure 구독 거버넌스 구현 예제](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/)

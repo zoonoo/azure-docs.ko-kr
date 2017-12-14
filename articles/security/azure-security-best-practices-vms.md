@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 보안에 대한 모범 사례
 
-대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 컴퓨터)](https://docs.microsoft.com/en-us/azure/virtual-machines/)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 특히 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
+대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 컴퓨터)](https://docs.microsoft.com/azure/virtual-machines/)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 특히 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
 
 이 문서에서는 각각 VM을 사용하여 고객과 우리의 고유한 직접 경험으로부터 파생된 다양한 VM 보안 모범 사례를 설명합니다.
 

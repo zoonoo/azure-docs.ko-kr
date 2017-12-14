@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 컴퓨터를 실행하여 비용을 절감할 수 있습니다. Windows Server용 Azure Hybrid Benefit을 사용하여 모든 Azure 지원 플랫폼 Windows Server 이미지나 Windows 사용자 지정 이미지에서 새로운 가상 컴퓨터를 배포할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
@@ -58,10 +58,10 @@ Azure Portal에서 직접 이러한 이미지를 배포할 수 있습니다. Res
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-[PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 단계에 따르고 LicenseType = "Windows_Server"를 전달할 수 있습니다. 이 옵션을 사용하면 Azure에서 기존 Windows Server 라이선스를 사용할 수 있습니다.
+[PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 단계에 따르고 LicenseType = "Windows_Server"를 전달할 수 있습니다. 이 옵션을 사용하면 Azure에서 기존 Windows Server 라이선스를 사용할 수 있습니다.
 
 ### <a name="portal"></a>포털
-[Azure Portal을 사용하여 Windows 가상 컴퓨터를 만들기](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) 단계에 따르고 기존 Windows Server 라이선스를 사용하는 옵션을 선택할 수 있습니다.
+[Azure Portal을 사용하여 Windows 가상 컴퓨터를 만들기](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 단계에 따르고 기존 Windows Server 라이선스를 사용하는 옵션을 선택할 수 있습니다.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server 용 Azure 하이브리드 혜택을 사용하여 기존 VM 변환
 Windows Server용 Azure 하이브리드 혜택을 활용하기 위해 변환할 기존 VM이 있는 경우 다음과 같이 VM의 라이선스 유형을 업데이트할 수 있습니다.
@@ -181,17 +181,17 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-[가상 컴퓨터 확장 집합을 만들어 배포하고](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) LicenseType 속성을 설정할 수도 있습니다.
+[가상 컴퓨터 확장 집합을 만들어 배포하고](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) LicenseType 속성을 설정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 하이브리드 혜택을 사용하여 비용을 절감하는 방법](https://azure.microsoft.com/pricing/hybrid-use-benefit/)에 대해 자세히 알아봅니다.
 
-[Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
+[Windows Server용 Azure 하이브리드 혜택 라이선스 세부 지침](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)에 대해 자세히 알아봅니다.
 
 [Resource Manager 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
 
 [Windows Server용 Azure 하이브리드 혜택 및 Azure Site Recovery를 사용하여 응용 프로그램을 Azure로 훨씬 간편하게 마이그레이션하는 방법](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)에 대해 자세히 알아봅니다.
 
-[다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
+[다중 테넌트 호스팅 권한으로 Azure에서 Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)에 대해 자세히 알아봅니다.
 
 [질문과 대답](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)을 자세히 알아봅니다.

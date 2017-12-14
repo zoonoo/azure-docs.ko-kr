@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합 업그레이드
 이 문서에서는 가동 중단 시간 없이 OS 업데이트를 Azure 가상 컴퓨터 크기 집합에 롤아웃하는 방법을 설명합니다. 이 컨텍스트에서 OS 업데이트는 OS의 버전 또는 SKU를 변경하거나 사용자 지정 이미지의 URI를 변경합니다. 가동 중지 시간 없이 업데이트한다는 것은 가상 컴퓨터를 모두 한꺼번에 업데이트하지 않고 한 번에 하나씩 또는 그룹으로(예" 한 번에 하나의 장애 도메인) 업데이트하는 것을 의미합니다. 이렇게 하면 업그레이드되지 않는 모든 가상 컴퓨터를 계속 실행할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 * Azure Managed Disks를 사용하여 만든 확장 집합의 이미지 참조 변경.
 * 가상 컴퓨터 내에서 OS 패치(이 예제에는 보안 패치 설치 및 Windows 업데이트 실행 포함). 이 시나리오는 지원되지만 이 문서에서는 다루지 않습니다.
 
-[Azure 서비스 패브릭](https://azure.microsoft.com/services/service-fabric/) 클러스터의 일부로 배포되는 가상 컴퓨터 크기 집합은 여기에서 다루지 않습니다. 서비스 패브릭 패치에 대한 자세한 내용은 [Service Fabric 클러스터에서 Windows OS 패치](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application)를 참조하세요.
+[Azure 서비스 패브릭](https://azure.microsoft.com/services/service-fabric/) 클러스터의 일부로 배포되는 가상 컴퓨터 크기 집합은 여기에서 다루지 않습니다. 서비스 패브릭 패치에 대한 자세한 내용은 [Service Fabric 클러스터에서 Windows OS 패치](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)를 참조하세요.
 
 플랫폼 이미지의 OS 버전/SKU나 사용자 지정 이미지의 URI를 변경하기 위한 기본 순서는 다음과 같습니다.
 

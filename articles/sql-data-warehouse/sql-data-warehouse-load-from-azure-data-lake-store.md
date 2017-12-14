@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
 이 문서는 PolyBase를 사용하여 ADLS(Azure Data Lake Store)에서 SQL Data Warehouse로 데이터를 로드하는 데 필요한 모든 단계를 제공합니다.
@@ -56,7 +56,7 @@ PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 �
 ###  <a name="create-a-credential"></a>자격 증명 만들기
 Azure Data Lake Store에 액세스하려면 다음 단계에서 사용되는 자격 증명 암호를 암호화하는 데이터베이스 마스터 키를 만들어야 합니다.
 그런 다음 AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
-Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 이러한 단계를 수행하기 위한 지침은 [여기](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)에 있습니다.
+Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 이러한 단계를 수행하기 위한 지침은 [여기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)에 있습니다.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -189,7 +189,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
-기본적으로 SQL 데이터 웨어하우스는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes]를 참조하세요.
+기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes]를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 

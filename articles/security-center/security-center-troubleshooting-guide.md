@@ -1,6 +1,6 @@
 ---
-title: "Azure 보안 센터 문제 해결 가이드 | Microsoft Docs"
-description: "이 문서는 Azure 보안 센터의 문제를 해결하는 데 도움이 됩니다."
+title: "Azure Security Center 문제 해결 가이드 | Microsoft Docs"
+description: "이 문서는 Azure Security Center의 문제를 해결하는 데 도움이 됩니다."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d61bf2af5eb7ca5d1da1aac406f4b8fe55c7f75b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="azure-security-center-troubleshooting-guide"></a>Azure 보안 센터 문제 해결 가이드
+# <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
 
 >[!NOTE] 
@@ -66,7 +66,7 @@ Security Center는 Azure 가상 컴퓨터에서 보안 데이터를 수집하는
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결
 에이전트를 Security Center에 연결하고 등록한 경우 포트 번호 및 도메인 URL을 비롯한 네트워크 리소스에 대한 액세스 권한을 가져야 합니다.
 
-- 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings)에 대한 자세한 내용은 이 문서를 참조하세요.
+- 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings)에 대한 자세한 내용은 이 문서를 참조하세요.
 - 인터넷에 대한 액세스를 제한하는 방화벽을 사용하여 경우 OMS에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 에이전트 설정에서 아무 작업도 필요하지 않습니다.
 
 다음 표에서는 통신에 필요한 리소스를 보여줍니다.
@@ -90,7 +90,7 @@ Security Center는 Azure 가상 컴퓨터에서 보안 데이터를 수집하는
 - VM이 이전 버전의 게스트 에이전트를 사용하여 만들어진 경우. 이 경우 일부 오래된 에이전트는 자동으로 최신 버전으로 업데이트할 수 없으며 이로 인해 문제가 발생할 수 있습니다. 사용자 고유의 이미지를 만들 때에는 항상 최신 버전의 게스트 에이전트를 사용해야 합니다.
 - 일부 타사 관리 소프트웨어는 게스트 에이전트를 사용하지 않도록 설정하거나 특정 파일 위치에 대한 액세스를 차단할 수 있습니다. VM에 타사 에이전트가 설치되어 있으면 해당 에이전트가 제외 목록에 있는지 확인합니다.
 - 특정 방화벽 설정 또는 NSG(네트워크 보안 그룹)가 게스트 에이전트와 주고 받는 네트워크 트래픽을 차단할 수 있습니다.
-- 특정 ACL(액세스 제어 목록)에서 디스크 액세스를 차단할 수 있습니다.
+- 특정 ACL(Access Control 목록)에서 디스크 액세스를 차단할 수 있습니다.
 - 디스크 공간이 부족하여 게스트 에이전트가 제대로 작동하지 못할 수 있습니다. 
 
 Microsoft 맬웨어 방지 프로그램 사용자 인터페이스는 기본적으로 사용하지 않도록 설정되며, 사용하도록 설정하는 방법에 대한 자세한 내용은 [배포 후 Azure Resource Manager에서 Microsoft 맬웨어 방지 프로그램 사용자 인터페이스를 사용하도록 설정](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/)을 참조하세요.
@@ -106,12 +106,12 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 
 ## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure 보안 센터를 채택하는 방법을 알아봅니다.
-* [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 

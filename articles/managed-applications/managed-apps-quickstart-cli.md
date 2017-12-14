@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 및 배포
 
@@ -121,5 +121,4 @@ az managedapp create \
 
 * 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
 * 파일의 예제는 [관리되는 응용 프로그램 샘플](https://github.com/Azure/azure-managedapp-samples/tree/master/samples)을 참조하세요.
-* 관리되는 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대한 자세한 내용은 [마켓플레이스 응용 프로그램 만들기](publish-marketplace-app.md)를 참조하세요.
 * 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.

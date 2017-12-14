@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제품으로 종량제 구독 변경
 
@@ -105,7 +105,7 @@ Azure 제품은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>종량제에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA)으로 마이그레이션할 수 있나요?
 
-* CSP에 마이그레이션하려면 [CSP에 Azure 종량제 구독 마이그레이션](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)을 참조하세요.
+* CSP에 마이그레이션하려면 [CSP에 Azure 종량제 구독 마이그레이션](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)을 참조하세요.
 * EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 전자 메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 EA 포털에서 [기존 계정 연결](https://ea.azure.com/helpdocs/associateExistingAccount)을 참조하세요.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?

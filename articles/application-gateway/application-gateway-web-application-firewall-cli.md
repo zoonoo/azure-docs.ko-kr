@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
-ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Azure CLI를 사용하여 새 또는 기존 응용 프로그램 게이트웨이에 웹 응용 프로그램 방화벽 구성
 
@@ -47,7 +47,7 @@ Azure Application Gateway의 WAF는 SQL 삽입 공격, 사이트 간 스크립�
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>필수 조건: Azure CLI 2.0 설치
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스)를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스)를 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)해야 합니다.
 
 ## <a name="waf-configuration-differences"></a>WAF 구성 차이
 

@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
-ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
-Azure 가상 컴퓨터가 없는 경우 [가상 컴퓨터를 만듭니다](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal).
+Azure 가상 컴퓨터가 없는 경우 [가상 컴퓨터를 만듭니다](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.

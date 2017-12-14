@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Azure Search 보안 조정
 
@@ -108,13 +108,13 @@ api-key: [admin key]
 }
 ```
 
-문서 추가 또는 업데이트에 대한 자세한 내용은 [문서 편집](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents)에서 확인할 수 있습니다.
+문서 추가 또는 업데이트에 대한 자세한 내용은 [문서 편집](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)에서 확인할 수 있습니다.
    
 ## <a name="apply-the-security-filter"></a>보안 필터를 적용합니다.
 
 `group_ids` 액세스에 기초해 문서를 다듬으려면 `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` 필터를 사용해 검색 쿼리를 발급해야 합니다. 여기서 'group_id1 group_id2...'는 검색 요청 발급자가 속해 있는 그룹입니다.
 이 필터는 주어진 식별자 중 하나가 `group_ids` 필드에 들어 있는 모든 문서와 일치합니다.
-Azure Search을 사용한 문서 검색에 대한 상세한 내용은 [문서 검색](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents)에서 확인할 수 있습니다.
+Azure Search을 사용한 문서 검색에 대한 상세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 확인할 수 있습니다.
 이 샘플은 POST 요청을 사용하여 문서를 검색하는 방법을 보여 줍니다.
 
 HTTP POST 요청을 발급합니다.

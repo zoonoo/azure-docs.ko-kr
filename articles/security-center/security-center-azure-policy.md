@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure Policy를 사용하여 Security Center 보안 정책 통합
 이 문서를 사용하면 Azure Policy에서 제공하는 Azure Security Center 보안 정책을 구성할 수 있습니다. 
@@ -30,7 +30,7 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 * 정책 준수를 모니터링합니다.
 
 > [!NOTE]
-> Azure Policy는 제한된 미리 보기로 제공됩니다. 조인하려면 [Azure Policy](https://aka.ms/getpolicy)에 등록합니다. Azure Policy에 대한 자세한 내용은 [규정 준수를 적용하는 정책 만들기 및 관리](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy)를 참조하세요.
+> Azure Policy는 제한된 미리 보기로 제공됩니다. 조인하려면 [Azure Policy](https://aka.ms/getpolicy)에 등록합니다. Azure Policy에 대한 자세한 내용은 [규정 준수를 적용하는 정책 만들기 및 관리](http://docs.microsoft.com/azure/azure-policy/create-manage-policy)를 참조하세요.
 
 ## <a name="edit-security-policies"></a>보안 정책 편집
 Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정하려면 구독 또는 포함된 관리 그룹의 소유자, 참가자 또는 보안 관리자여야 합니다. Security Center에서 보안 정책을 보려면 다음을 수행합니다.

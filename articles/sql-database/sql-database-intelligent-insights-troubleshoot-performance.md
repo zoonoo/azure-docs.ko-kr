@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -52,7 +52,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류, 시간 제한을 �
 | [가격 책정 계층 다운그레이드](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 가격 책정 계층 다운그레이드 작업으로 인해 사용 가능한 리소스가 감소되었으며 SQL Database 성능에 영향을 주고 있습니다. |
 
 > [!TIP]
-> SQL Database에 대해 연속적으로 성능을 최적화하려면 [Azure SQL Database 자동 튜닝](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning)을 활성화하세요. SQL Database에 기본 제공되는 이 인텔리전스 기능은 SQL 데이터베이스를 지속적으로 모니터링하고 인덱스를 자동으로 조정하며 쿼리 실행 계획의 수정 사항을 적용합니다.
+> SQL Database에 대해 연속적으로 성능을 최적화하려면 [Azure SQL Database 자동 튜닝](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)을 활성화하세요. SQL Database에 기본 제공되는 이 인텔리전스 기능은 SQL 데이터베이스를 지속적으로 모니터링하고 인덱스를 자동으로 조정하며 쿼리 실행 계획의 수정 사항을 적용합니다.
 >
 
 다음 섹션에서는 앞에서 나열한 검색 가능한 성능 패턴에 대해 자세히 설명합니다.
@@ -63,7 +63,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류, 시간 제한을 �
 
 이 검색 가능한 성능 패턴은 사용 가능한 리소스 제한, 작업자 제한, 세션 제한 도달과 관련된 성능 문제를 결합합니다. 이 성능 문제가 감지되면 진단 로그의 설명 필드에 성능 문제가 리소스, 작업자 또는 세션 제한 중 어디에 관련되어 있는지가 표시됩니다.
 
-SQL Database의 리소스는 일반적으로 [DTU 리소스](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu)로 나타냅니다. 이 리소스는 CPU 및 I/O(데이터 및 트랜잭션 로그 I/O) 리소스의 혼합 측정값으로 구성됩니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
+SQL Database의 리소스는 일반적으로 [DTU 리소스](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu)로 나타냅니다. 이 리소스는 CPU 및 I/O(데이터 및 트랜잭션 로그 I/O) 리소스의 혼합 측정값으로 구성됩니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
 
 이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이에 연결하는 응용 프로그램이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 응용 프로그램이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
 
@@ -75,7 +75,7 @@ SQL Database의 리소스는 일반적으로 [DTU 리소스](https://docs.micros
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 응용 프로그램을 최적화할 수 있습니다. 응용 프로그램에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 구독 계층에 사용할 수 있는 리소스 제한을 확인하려면 [SQL Database 리소스 제한](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits)을 참조하세요.
+세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 구독 계층에 사용할 수 있는 리소스 제한을 확인하려면 [SQL Database 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits)을 참조하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 
@@ -145,7 +145,7 @@ SQL Database의 MAXDOP 서버 구성 옵션은 동일한 쿼리를 병렬로 실
 
 진단 로그는 정상보다 더 병렬 처리되어 실행 기간이 증가한 쿼리와 관련된 쿼리 해시를 출력합니다. 또한 CXP 대기 시간도 출력합니다. 이 시간은 단일 구성 도우미/코디네이터 스레드(스레드 0)에서 결과를 병합하고 예정대로 진행하기 전에 다른 모든 스레드가 완료될 때까지 대기하는 시간을 나타냅니다. 또한 진단 로그는 성능이 느린 쿼리가 실행 시 대기한 시간을 출력합니다. 이 정보를 문제 해결의 기초로 사용할 수 있습니다.
 
-가장 먼저 복잡한 쿼리를 최적화 또는 간소화합니다. 시간이 오래 걸리는 일괄 처리 작업을 더 작은 작업으로 분할하는 것이 좋습니다. 또한 반드시 쿼리를 지원하기 위한 인덱스를 만듭니다. 또한 성능이 느린 것으로 플래그 지정된 쿼리에 대해 MAXDOP(최대 병렬 처리 수준 옵션)를 수동으로 적용할 수 있습니다. T-SQL을 사용하여 이 작업을 구성하려면 [MAXDOP 서버 구성 옵션 구성](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)을 참조하세요.
+가장 먼저 복잡한 쿼리를 최적화 또는 간소화합니다. 시간이 오래 걸리는 일괄 처리 작업을 더 작은 작업으로 분할하는 것이 좋습니다. 또한 반드시 쿼리를 지원하기 위한 인덱스를 만듭니다. 또한 성능이 느린 것으로 플래그 지정된 쿼리에 대해 MAXDOP(최대 병렬 처리 수준 옵션)를 수동으로 적용할 수 있습니다. T-SQL을 사용하여 이 작업을 구성하려면 [MAXDOP 서버 구성 옵션 구성](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)을 참조하세요.
 
 MAXDOP 서버 구성 옵션을 기본값인 0으로 설정하면 SQL Database에서 사용 가능한 모든 논리적 CPU 코어를 사용하여 단일 쿼리를 실행하기 위한 스레드를 병렬 처리할 수 있음을 나타냅니다. MAXDOP를 1로 설정할 경우 단일 쿼리 실행 시 하나의 코어만 사용할 수 있음을 나타냅니다. 실제로는 병렬 처리가 해제된 것을 의미합니다. 사례 기준별 사례, 데이터베이스에 사용 가능한 코어 수, 진단 로그 정보에 따라 MAXDOP 옵션을 해당 문제를 해결할 수 있는 병렬 쿼리 실행에 대한 코어 수로 조정할 수 있습니다.
 
@@ -231,7 +231,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
 
-자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요. 
+자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요. 
 
 ## <a name="elastic-pool-dtu-shortage"></a>탄력적 풀 DTU 부족
 
@@ -328,10 +328,10 @@ Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight�
 > [!TIP]
 > PDF 버전을 다운로드하려면 순서도를 선택하세요.
 
-Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1시간 이전에 발생한 것입니다.) 자세한 내용은 [쿼리 저장소를 사용하여 성능 모니터링](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조하세요.
+Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1시간 이전에 발생한 것입니다.) 자세한 내용은 [쿼리 저장소를 사용하여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념을 알아봅니다.
 - [Intelligent Insights의 Azure SQL Database 성능 진단 로그](sql-database-intelligent-insights-use-diagnostics-log.md)를 사용합니다.
-- [Azure SQL 분석을 사용하여 Azure SQL Database](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)를 모니터링합니다.
+- [Azure SQL 분석을 사용하여 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)를 모니터링합니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하는 방법을 알아봅니다.

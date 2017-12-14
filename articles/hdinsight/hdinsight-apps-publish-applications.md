@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
 Azure HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace-publishing/marketplace-publishing-getting-started.md)를 참조하세요.
@@ -46,8 +46,7 @@ Marketplace에 응용 프로그램을 게시하는 데에는 두 단계가 있�
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ Marketplace에 응용 프로그램을 게시하는 데에는 두 단계가 있�
 | 필드 | 설명 | 가능한 값 |
 | --- | --- | --- |
 | types |응용 프로그램과 호환되는 클러스터 종류입니다. |Hadoop, HBase, Storm, Spark(또는 이러한 클러스터의 조합) |
-| tiers |응용 프로그램과 호환되는 클러스터 계층입니다. |Standard, Premium(또는 둘 다) |
 | versions |응용 프로그램과 호환되는 HDInsight 클러스터 종류입니다. |3.4 |
 
 ## <a name="application-installation-script"></a>응용 프로그램 설치 스크립트

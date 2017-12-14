@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 > [!NOTE]
@@ -50,7 +50,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
 - Azure Data Factory v1에서 주문형 HDInsight 연결된 서비스를 사용하여 Linux 기반 HDInsight 버전 3.3(또는 이전 버전) 클러스터를 더 이상 만들 수 없습니다. 
 
-- [osType 및/또는 Version 속성](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)이 기존 Azure Data Factory v1 주문형 HDInsight 연결된 서비스 JSON 정의에 명시적으로 지정되지 않은 경우 기본값이 **Version=3.1, osType=Windows**에서 **Version=3.6, osType=Linux**로 변경됩니다.
+- [osType 및/또는 Version 속성](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)이 기존 Azure Data Factory v1 주문형 HDInsight 연결된 서비스 JSON 정의에 명시적으로 지정되지 않은 경우 기본값이 **Version=3.1, osType=Windows**에서 **Version=3.6, osType=Linux**로 변경됩니다.
 
 2018년 7월 31일 이후:
 
@@ -58,10 +58,10 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
  **권장 작업** 
 
-- 영향을 받는 Azure Data Factory v1 주문형 HDInsight 연결된 서비스 정의의 [osType 및/또는 Version 속성](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)을 최신 Linux 기반 HDInsight 버전(HDInsight 3.6)으로 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 사용할 수 있습니다. 
-- 2017년 12월 15일 전에 영향을 받는 연결된 서비스를 참조하는 Azure Data Factory V1 Hive, Pig, MapReduce 및 Hadoop 스트리밍 작업을 테스트하여 새 *osType* 및/또는 *Version* 기본값(Version=3.6, osType=Linux)과 호환되는지 또는 업그레이드할 명시적 HDInsight 버전 및 osType과 호환되는지 확인합니다. 호환성에 대한 자세한 내용은 [Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) 및 [HDInsight에서 사용하는 Hadoop 구성 요소 및 버전](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) 설명서 웹 페이지를 참조하세요. 
+- 영향을 받는 Azure Data Factory v1 주문형 HDInsight 연결된 서비스 정의의 [osType 및/또는 Version 속성](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service)을 최신 Linux 기반 HDInsight 버전(HDInsight 3.6)으로 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 사용할 수 있습니다. 
+- 2017년 12월 15일 전에 영향을 받는 연결된 서비스를 참조하는 Azure Data Factory V1 Hive, Pig, MapReduce 및 Hadoop 스트리밍 작업을 테스트하여 새 *osType* 및/또는 *Version* 기본값(Version=3.6, osType=Linux)과 호환되는지 또는 업그레이드할 명시적 HDInsight 버전 및 osType과 호환되는지 확인합니다. 호환성에 대한 자세한 내용은 [Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) 및 [HDInsight에서 사용하는 Hadoop 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) 설명서 웹 페이지를 참조하세요. 
 - 계속해서 Azure Data Factory v1 주문형 HDInsight 연결된 서비스를 사용하여 Windows 기반 HDInsight 클러스터를 만들려면 2017년 12월 15일 이전에 osType을 Windows로 명시적으로 설정합니다. 그러나 2018년 7월 31일 이전에 Linux 기반 HDInsight 클러스터로 마이그레이션하는 것이 좋습니다. 
-- 주문형 HDInsight 연결된 서비스를 사용하여 Azure Data Factory v1 DotNet 사용자 지정 작업을 실행 중인 경우 대신 Azure Batch 연결된 서비스를 사용하도록 DotNet 사용자 지정 작업 JSON 정의를 업데이트합니다. 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) 설명서 웹 페이지를 참조하세요. 
+- 주문형 HDInsight 연결된 서비스를 사용하여 Azure Data Factory v1 DotNet 사용자 지정 작업을 실행 중인 경우 대신 Azure Batch 연결된 서비스를 사용하도록 DotNet 사용자 지정 작업 JSON 정의를 업데이트합니다. 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) 설명서 웹 페이지를 참조하세요. 
 
 >[!Note]
 >Azure Data Factory v1에서 기존 BYOC(Bring Your Own Cluster) HDInsight 연결된 서비스를 사용하는 고객 또는 Azure Data Factory v2에서 BYOC 및 주문형 HDInsight 연결된 서비스를 사용 중인 고객의 경우 Azure HDInsight 클러스터의 최신 버전 지원 정책이 이미 시행 중이므로 수행해야 할 작업이 없습니다. 

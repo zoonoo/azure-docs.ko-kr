@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 13fe5e37424704bd5b948d3a6629c28b320025c4
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fdc7bd1a98e147bf6c7f7c290f03a878c83a1a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Visual Studio용 Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스 설정
 이 자습서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스를 설정하는 방법에 대해 알아봅니다.
 
-최신 버전(2.3.0000.0 이상)의 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)는 MSBuild에 대한 지원을 추가했습니다.
+최신 버전(2.3.0000.0 이상)의 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)는 MSBuild에 대한 지원을 추가했습니다.
 
 새로 릴리스된 [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) NuGet 패키지도 있습니다. Stream Analytics Visual Studio 프로젝트의 지속적 통합과 배포를 지원하는 MSBuild, 로컬 실행 및 배포 도구를 제공합니다. 
 > [!NOTE] 
 NuGet 패키지는 Visual Studio용 Stream Analytics 도구 버전 2.3.0000.0 이상에서만 사용할 수 있습니다. 이전 버전의 Visual Studio 도구에서 만든 프로젝트가 있는 경우 2.3.0000.0 이상 버전에서 열어 저장하기만 하면 됩니다. 그런 다음 새 기능이 활성화됩니다. 
 
-[Visual Studio용 Azure Stream Analytics 도구](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)를 사용하는 방법을 알아보세요.
+[Visual Studio용 Azure Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)를 사용하는 방법을 알아보세요.
 
 ## <a name="msbuild"></a>MSBuild
 표준 Visual Studio MSBuild 환경과 마찬가지로 프로젝트를 빌드하는 두 가지 옵션이 있습니다. 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **빌드**를 선택할 수 있습니다. 또한 명령줄에서 NuGet 패키지의 **MSBuild**를 사용할 수도 있습니다.
@@ -59,7 +59,7 @@ Parameters.json 파일의 기본 매개 변수는 Visual Studio 프로젝트의 
       "value": null
     },
 ```
-[Resource Manager 템플릿 파일 및 Azure PowerShell을 사용하여 배포](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)하는 방법에 대해 자세히 알아보세요. [Resource Manager 템플릿에서 개체를 매개 변수로 사용](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters)하는 방법에 대해 자세히 알아보세요.
+[Resource Manager 템플릿 파일 및 Azure PowerShell을 사용하여 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)하는 방법에 대해 자세히 알아보세요. [Resource Manager 템플릿에서 개체를 매개 변수로 사용](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)하는 방법에 대해 자세히 알아보세요.
 
 
 ## <a name="command-line-tool"></a>명령줄 도구 

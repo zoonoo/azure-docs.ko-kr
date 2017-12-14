@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>컨테이너에 Docker 볼륨 플러그 인 및 로깅 드라이버 사용
 Azure Service Fabric은 컨테이너 서비스에 대한 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/) 및 [Docker 로깅 드라이버](https://docs.docker.com/engine/admin/logging/overview/) 지정을 지원합니다. 다른 호스트에서 컨테이너를 다시 시작하거나 이동할 때 [Azure Files](https://azure.microsoft.com/services/storage/files/)에 데이터를 유지할 수 있습니다.
@@ -28,7 +28,7 @@ Linux 컨테이너용 볼륨 드라이버만 현재 지원됩니다. Windows 컨
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Docker 볼륨/로깅 드라이버 설치
 
-Docker 볼륨/로깅 드라이버가 컴퓨터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
+Docker 볼륨/로깅 드라이버가 컴퓨터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 
 [Azure용 Docker 볼륨 드라이버](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)를 설치하는 스크립트의 예는 다음과 같습니다.
 

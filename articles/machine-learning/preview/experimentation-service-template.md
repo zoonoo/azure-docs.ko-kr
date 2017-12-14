@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 실험 서비스 계정, 작업 영역 및 프로젝트는 Azure 리소스입니다. 그처럼 리소스를 Resource Manager 템플릿을 사용하여 배포할 수 있습니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
+Azure Machine Learning 실험 서비스 계정, 작업 영역 및 프로젝트는 Azure 리소스입니다. 그처럼 리소스를 Resource Manager 템플릿을 사용하여 배포할 수 있습니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
 
 ## <a name="deploy-a-template"></a>템플릿 배포
 템플릿을 배포하려면 Azure 명령줄 인터페이스 또는 Azure Portal에서 단지 몇 단계만 필요합니다.
@@ -137,7 +137,7 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 세 가지 값을 변경할 수 있습니다. 
 * AccountName: 실험 계정 이름입니다.
 * 위치: 지원되는 Azure 지역 중 하나.
-* 저장소 계정 SKU: Azure ML은 프리미엄이 아닌 표준 저장소만 지원합니다. 자세한 내용은 [저장소 소개](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)를 참조하세요. 
+* 저장소 계정 SKU: Azure ML은 프리미엄이 아닌 표준 저장소만 지원합니다. 자세한 내용은 [저장소 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요. 
 
 ```json
 {

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크입니다.
@@ -44,7 +44,7 @@ OMS의 핵심 기능은 Azure에서 실행되는 서비스 집합을 통해 제�
 -   Log Analytics
 -   Automation
 -   Backup
--   사이트 복구
+-   Site Recovery
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리형 리소스의 데이터를 중앙 리포지토리로 수집하여 OMS에 대한 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
@@ -158,5 +158,5 @@ DevOps 응용 프로그램을 개발하기 전에 팀에서 소프트웨어 프�
 OMS 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts)
-- [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
+- [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)

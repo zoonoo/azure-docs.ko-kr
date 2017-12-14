@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 682b7577135e327457976dc77ce4b4364bd12e48
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 응용 프로그램 개요
 
@@ -48,8 +48,6 @@ IT 팀은 관리되는 응용 프로그램을 통해 사전 승인된 솔루션�
 
 서비스에 대한 요금을 청구하려는 공급업체들은 Azure Marketplace를 통해 관리되는 응용 프로그램을 제공할 수 있습니다. 공급업체가 응용 프로그램을 게시한 후 조직 외부 사용자에게 제공할 수 있습니다. 이런 방식으로 MSP(관리되는 서비스 제공업체), ISV(독립 소프트웨어 공급업체), SI(시스템 통합업체)는 모든 Azure 고객에게 솔루션을 제공할 수 있습니다.
 
-관리되는 응용 프로그램을 마켓플레이스에 게시하는 방법에 대한 자세한 내용은 [마켓플레이스 응용 프로그램 만들기](publish-marketplace-app.md)를 참조하세요.
-
 ## <a name="resource-groups-for-managed-applications"></a>관리되는 응용 프로그램에 대한 리소스 그룹
 
 일반적으로 관리되는 응용 프로그램의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 응용 프로그램을 정의할 때는 게시자가 액세스 수준을 지정합니다. 다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다.
@@ -72,5 +70,4 @@ IT 팀은 관리되는 응용 프로그램을 통해 사전 승인된 솔루션�
 
 * 관리되는 응용 프로그램의 정의 및 배포에 대한 소개는 [Azure CLI를 사용하여 Azure 관리되는 응용 프로그램 만들기 및 배포](managed-apps-quickstart-cli.md)를 참조하세요.
 * 내부 응용 프로그램 게시에 대한 자세한 내용은 [서비스 카탈로그 응용 프로그램 만들기](publish-service-catalog-app.md)를 참조하세요.
-* 관리되는 응용 프로그램을 마켓플레이스에 게시하는 방법에 대한 자세한 내용은 [마켓플레이스 응용 프로그램 만들기](publish-marketplace-app.md)를 참조하세요.
 

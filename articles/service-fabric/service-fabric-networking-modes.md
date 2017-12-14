@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -223,6 +223,6 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)
-* [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Windows Server 2016에서 Windows 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers.md)
 * [Linux에서 Docker 컨테이너를 Service Fabric에 배포](service-fabric-get-started-containers-linux.md)

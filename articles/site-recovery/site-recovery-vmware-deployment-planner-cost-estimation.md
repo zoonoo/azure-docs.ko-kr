@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -166,4 +166,4 @@ Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보
 |TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery를 사용하여 VMware VM을 Azure로](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure) 보호하는 내용에 대해 자세히 알아보세요.
+[Azure Site Recovery를 사용하여 VMware VM을 Azure로](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure) 보호하는 내용에 대해 자세히 알아보세요.

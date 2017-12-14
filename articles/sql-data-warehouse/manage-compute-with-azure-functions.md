@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Azure Functions를 사용하여 SQL DW 계산 수준 자동화
 
 이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse의 계산 수준을 관리하는 방법을 보여 줍니다. 이러한 아키텍처는 [탄력성에 최적화된][Performance Tiers] SQL Data Warehouse에 사용하는 것이 좋습니다.
 
-SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
+SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 타이머 기반 scaler 배포
 

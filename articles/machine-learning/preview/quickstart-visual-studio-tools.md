@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
-Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/en-us/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
+Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
  
 ## <a name="getting-started"></a>시작 
 시작하려면 먼저 [Visual Studio](https://www.visualstudio.com/downloads/)를 다운로드하여 설치해야 합니다. Visual Studio를 연 후 다음 단계를 수행합니다.
@@ -28,7 +28,7 @@ Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 �
 3. **다운로드** 단추를 클릭합니다. 
 4. 설치 후 Visual Studio를 다시 시작합니다. 
 
-Visual Studio가 다시 로드되면 확장이 활성화됩니다. [확장 찾기에 대해 자세히 알아보세요](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Visual Studio가 다시 로드되면 확장이 활성화됩니다. [확장 찾기에 대해 자세히 알아보세요](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > Visual Studio Tools for AI를 사용하려면 Visual Studio 2015 또는 2017, Professional 또는 Enterprise 버전이 필요합니다. Apple OSX 버전은 지원되지 않습니다. 

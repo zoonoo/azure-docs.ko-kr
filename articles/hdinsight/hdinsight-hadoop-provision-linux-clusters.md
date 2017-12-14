@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -98,15 +98,6 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 
 ### <a name="hdinsight-version"></a>HDInsight 버전
 이 클러스터에 대한 HDInsight 버전을 선택합니다. 자세한 내용은 [지원되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
-
-### <a name="cluster-tiers"></a>클러스터 계층: HDInsight 서비스 계층
-
-Azure HDInsight는 빅 데이터 클라우드 제품을 Standard 및 Premium의 두 가지 서비스 계층으로 제공합니다.  자세한 내용은 [HDInsight Standard 및 HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)을 참조하세요.
-
-다음 스크린 샷에서 클러스터 유형을 선택하기 위한 Azure 포털 정보를 보여줍니다.
-
-![HDInsight 프리미엄 구성](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>클러스터 로그인 및 SSH 사용자 이름
 HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같은 두 개의 사용자 계정을 구성할 수 있습니다.

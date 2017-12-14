@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: samacha
-ms.openlocfilehash: cd8f4e0dd07be8878d6bbb1739fb84a3cc96a186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK v1.x: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. Stream Analytics 기능은 고객이 데이터 스트림을 분석하도록 스트리밍 작업을 설정하고 거의 실시간으로 분석할 수 있도록 해 줍니다.  
 
 > [!NOTE]
-> 이 문서의 샘플 코드는 Azure Stream Analytics Management .NET SDK의 레거시(1.x) 버전을 여전히 사용합니다. 최신 SDK 버전을 사용하는 샘플 코드는 [Stream Analytics용 관리 .NET SDK](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk)를 참조하세요.
+> 이 문서의 샘플 코드는 Azure Stream Analytics Management .NET SDK의 레거시(1.x) 버전을 여전히 사용합니다. 최신 SDK 버전을 사용하는 샘플 코드는 [Stream Analytics용 관리 .NET SDK](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
@@ -114,7 +114,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
    }
    ```  
 
-## <a name="create-a-stream-analytics-management-client"></a>스트림 분석 관리 클라이언트 만들기
+## <a name="create-a-stream-analytics-management-client"></a>Stream Analytics 관리 클라이언트 만들기
 **StreamAnalyticsManagementClient** 개체를 사용하면 입력, 출력 및 변환 등의 작업 구성 요소와 작업을 관리할 수 있습니다.
 
 **Main** 메서드의 시작에 다음 코드를 추가합니다.
@@ -208,7 +208,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
 ## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 테스트
-**TestConnection** 메서드는 Stream Analytics 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 저장소 계정 이름 및 키 쌍을 사용하여 저장소 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.
+**TestConnection** 메서드는 Stream Analytics 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 Storage 계정 이름 및 키 쌍을 사용하여 Storage 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.
 
     // Test input source connection
     DataSourceTestConnectionResponse inputTestResponse =

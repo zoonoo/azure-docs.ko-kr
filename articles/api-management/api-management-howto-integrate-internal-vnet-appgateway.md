@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: e138241139329b8bb956157ab55b7d22dc2a9b67
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합 
 
@@ -77,7 +77,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>리소스 관리자에 대한 리소스 그룹 만들기
 
-Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](https://docs.microsoft.com/en-us/azure/azure-resource-manager/powershell-azure-resource-manager)을 참조하세요.
+Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager)을 참조하세요.
 
 ### <a name="step-1"></a>1단계:
 

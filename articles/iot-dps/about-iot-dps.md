@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Azure IoT Hub Device Provisioning Service로 장치 프로비전(미리 보기)
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
@@ -116,7 +116,7 @@ Device Provisioning Service의 서비스 수준 계약은 99.9%로 유지되며,
 * [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
-Device Provisioning Service는 Azure IoT Hub를 통한 장치 프로비전을 자동화합니다. [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)에 대해 자세히 알아보세요.
+Device Provisioning Service는 Azure IoT Hub를 통한 장치 프로비전을 자동화합니다. [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Azure에서의 IoT 장치 프로비전에 관해 대략적으로 이해하게 되었을 것입니다. 다음 단계는 종단 간 IoT 시나리오를 사용해 보는 것입니다.

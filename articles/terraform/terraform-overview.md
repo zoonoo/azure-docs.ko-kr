@@ -7,11 +7,11 @@ author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 61b7677b2941fe95106e43012eee458692a3cc43
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="terraform-with-azure"></a>Azure의 Terraform
 
@@ -44,6 +44,6 @@ Terraform은 유사한 인프라가 Azure 및 추가 클라우드 공급자 또�
 
 Terraform에 대한 개요와 이점에 대해 간략히 살펴본 후 권장되는 다음 단계는 아래와 같습니다.
 
-- [Terraform을 설치하고 Azure를 사용하도록 구성](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure)하여 시작
-- [Terraform을 사용하여 Azure 가상 컴퓨터 만들기](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- [Terraform을 설치하고 Azure를 사용하도록 구성](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)하여 시작
+- [Terraform을 사용하여 Azure 가상 컴퓨터 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - [Terraform용 Azure Resource Manager 모듈](https://www.terraform.io/docs/providers/azurerm/) 탐색 

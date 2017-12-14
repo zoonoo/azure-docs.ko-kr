@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 > [!NOTE]
@@ -61,7 +61,7 @@ Hyper 지원을 사용하는 Windows 컨테이너는 각 컨테이너가 다른 
 ## <a name="scenarios-for-using-containers"></a>컨테이너 사용 시나리오
 다음은 컨테이너가 적합한 일반적인 예입니다.
 
-* **IIS 리프트 및 이동**: 기존의 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 계속 사용하려는 경우 앱을 ASP.NET 코어로 마이그레이션하는 대신 컨테이너에 둡니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 응용 프로그램을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
+* **IIS 리프트 및 이동**: 기존의 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 계속 사용하려는 경우 앱을 ASP.NET 코어로 마이그레이션하는 대신 컨테이너에 둡니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 따라 다릅니다. 이러한 응용 프로그램을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. Windows 컨테이너에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)를 참조하세요.
 * **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 응용 프로그램의 일부에 사용합니다. 예를 들어, 응용 프로그램의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
 * **"시끄러운 이웃" 서비스의 영향 감소**: 컨테이너의 리소스 관리 기능을 사용하여 호스트에 서비스가 사용하는 리소스를 제한합니다. 서비스는 많은 리소스를 소비하고 다른 서비스의 성능에 영향을 미칠 수 있는 경우(예: 장기적으로 실행되는 쿼리 같은 연산), 리소스 관리를 사용하는 컨테이너에 이 서비스를 넣는 것이 좋습니다.
 
@@ -90,6 +90,6 @@ Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응�
 
 [Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)
 
-[Windows 컨테이너에 대한 자세한 내용](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Windows 컨테이너에 대한 자세한 내용](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

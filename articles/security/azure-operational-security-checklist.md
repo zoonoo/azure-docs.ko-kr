@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 운영 보안 검사 목록
 Azure에 응용 프로그램을 배포하는 것이 빠르고, 쉽고, 비용 효율적입니다. 프로덕션 환경에 클라우드 응용 프로그램을 배포하기 전에 고려해야 하는 필수 및 권장 운영 보안 작업 목록과 대조하여 응용 프로그램을 평가하는 데 도움이 되는 검사 목록이 있으면 유용합니다.
@@ -52,6 +52,6 @@ Azure는 응용 프로그램을 배포하는 데 사용할 수 있는 인프라 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 OMS 보안 및 감사 솔루션을 소개했습니다. OMS 보안에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- [OMS(Operations Management Suite) 개요](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview)
+- [OMS(Operations Management Suite) 개요](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 - [설계 및 운영 보안(영문)](https://www.microsoft.com/trustcenter/security/designopsecurity)
 - [Azure Security Center 계획 및 작업](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)

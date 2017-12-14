@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>첫 번째 Azure Database for MySQL 데이터베이스 디자인
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
@@ -34,7 +34,7 @@ Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데
 원하는 웹 브라우저를 열고 [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./concepts-compute-unit-and-storage.md) 집합을 사용하여 만들어집니다. 서버는 [Azure 리소스 그룹](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) 내에 만들어집니다.
+Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./concepts-compute-unit-and-storage.md) 집합을 사용하여 만들어집니다. 서버는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 내에 만들어집니다.
 
 1. **데이터베이스** > **MySQL용 Azure Database**로 이동합니다. **데이터베이스** 범주 아래에서 MySQL 서버를 찾을 수 없으면 **모두 표시**를 클릭하여 사용 가능한 모든 데이터베이스 서비스를 표시합니다. 검색 상자에 **MySQL용 Azure Database**를 입력하여 신속하게 서비스를 찾을 수도 있습니다.
 ![2-1 MySQL로 이동](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
@@ -100,7 +100,7 @@ USE mysampledb;
 ## <a name="create-tables-in-the-database"></a>데이터베이스에서 테이블 만들기
 이제 Azure Database for MySQL 데이터베이스에 연결하는 방법을 알았으므로 몇 가지 기본 작업을 수행할 수 있습니다.
 
-먼저 테이블을 만들고 일부 데이터를 로드합니다. 인벤토리 정보를 저장하는 테이블을 만들어 보겠습니다.
+먼저 테이블을 만들고 일부 데이터와 함께 로드합니다. 인벤토리 정보를 저장하는 테이블을 만들어 보겠습니다.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 

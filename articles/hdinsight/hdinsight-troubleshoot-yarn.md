@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 YARN 문제 해결
 
@@ -139,7 +139,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 ### <a name="additional-reading-2"></a>추가 참조 자료
 
-- [SSH를 사용하여 HDInsight(Hadoop)에 연결](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [SSH를 사용하여 HDInsight(Hadoop)에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN 개념 및 응용 프로그램](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

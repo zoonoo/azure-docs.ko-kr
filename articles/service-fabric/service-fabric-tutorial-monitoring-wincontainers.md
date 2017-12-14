@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>OMS를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/20/2017
 
 이 자습서의 1부에서 [제공된 템플릿](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. OMS를 사용하여 컨테이너를 모니터링하기 위해 설정하려면 고유한 클러스터가 있는 경우
 * Resource Manager 템플릿을 다음과 같이 변경합니다.
-* PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
+* PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.
 
 ### <a name="adding-oms-to-your-cluster-template"></a>클러스터 템플릿에 OMS 추가
 
