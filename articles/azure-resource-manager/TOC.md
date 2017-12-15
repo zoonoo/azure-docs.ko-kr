@@ -15,12 +15,11 @@
 #### [매개 변수](resource-manager-templates-parameters.md)
 #### [변수](resource-manager-templates-variables.md)
 #### [리소스](resource-manager-templates-resources.md)
-### [템플릿 모범 사례](resource-manager-template-best-practices.md)
+#### [Outputs](resource-manager-templates-outputs.md)
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
-### [리소스 업데이트](resource-manager-update.md)
-### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
+### [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
 
 
