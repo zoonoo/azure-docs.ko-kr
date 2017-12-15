@@ -6,7 +6,7 @@
 
 # 빠른 시작
 ## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
-## 가상 컴퓨터
+## 가상 머신
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 ## [서버를 사용하지 않음](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
@@ -40,7 +40,7 @@
 ## [청구 및 구독](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [호스팅 비교](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
 ## [App Service란?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-## 가상 컴퓨터
+## 가상 머신
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Service Fabric 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
@@ -64,14 +64,15 @@
 ## 데이터 저장
 ### [Blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [파일 공유](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [키-값 쌍](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON 문서](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [키-값 쌍](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON 문서](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [관계형 테이블](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [메시지 큐](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## 확장
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-scale)
-### [가상 컴퓨터](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+### 
+            [가상 머신](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [마이크로 서비스 앱](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## 보안
@@ -79,7 +80,8 @@
 
 ## Backup
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-backup)
-### [가상 컴퓨터](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+### 
+            [가상 머신](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## 모니터
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)

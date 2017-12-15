@@ -19,11 +19,7 @@
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
-### [위치 설정](resource-manager-template-location.md)
-### [태그 할당](resource-manager-template-tags.md)
-### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
 ### [리소스 업데이트](resource-manager-update.md)
-### [매개 변수에 대한 개체 사용](resource-manager-objects-as-parameters.md)
 ### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
 

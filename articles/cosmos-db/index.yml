@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/05/2017
   ms.author: mimig
-  ms.openlocfilehash: 57e4d41efebea7bd836afafed7d0aae6baac8355
-  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.openlocfilehash: 4b9eb9a46924f7d4915c67cd8724d02ec3861d2c
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/11/2017
+  ms.lasthandoff: 12/14/2017
 abstract:
   description: "Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서비스입니다. 널리 사용되는 API 및 프로그래밍 모델을 사용하여 문서, 키-값, 전체-열 및 그래프 데이터베이스를 개발하기 위해 이 빠른 시작, 자습서 및 샘플을 사용합니다. 포괄적인 SLA를 사용하는 동안 여러 Azure 지역에 걸쳐 데이터를 복제하고 저장소에서 독립적으로 처리량의 크기를 조정하는 방법을 알아봅니다."
   aside:
@@ -51,10 +51,10 @@ sections:
     rows:
     - title: SQL API
       values:
-      - href: /azure/cosmos-db/create-documentdb-java
-      - href: /azure/cosmos-db/create-documentdb-dotnet
-      - href: /azure/cosmos-db/create-documentdb-nodejs
-      - href: /azure/cosmos-db/create-documentdb-python
+      - href: /azure/cosmos-db/create-sql-api-java
+      - href: /azure/cosmos-db/create-sql-api-dotnet
+      - href: /azure/cosmos-db/create-sql-api-nodejs
+      - href: /azure/cosmos-db/create-sql-api-python
       - href: 
     - title: MongoDB API
       values:
@@ -91,10 +91,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-documentdb-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>를 사용하여 앱 개발"
+    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-sql-api-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>를 사용하여 앱 개발"
     - html: "Cosmos DB&#58; <a href=\"import-data\">SQL</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">Table</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>로 데이터 가져오기"
-    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-documentdb\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>를 사용하여 데이터 쿼리"
-    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-documentdb\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>를 사용하여 전역 데이터베이스 복제"
+    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>를 사용하여 데이터 쿼리"
+    - html: "Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>를 사용하여 전역 데이터베이스 복제"
     - html: "<a href=\"local-emulator\">에뮬레이터를 사용하여 로컬로 응용 프로그램 개발</a>"
     - html: "<a href=\"/azure/cosmos-db/tutorial-functions-http-trigger\">Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기</a>"
 - title: "샘플"
@@ -112,7 +112,7 @@ sections:
     className: cardsD
     items:
     - title: SQL API
-      html: "<p><a href=\"/rest/api/documentdb/\">REST (영문)</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"documentdb-sdk-dotnet-changefeed\">.NET 변경 피드</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.JS</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">Python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">REST 리소스 공급자</a></p><p><a href=\"documentdb-sql-query-reference\">SQL</a></p>"
+      html: "<p><a href=\"/rest/api/documentdb/\">REST (영문)</a></p><p><a href=\"https://aka.ms/acdbnetref\">.NET</a></p><p><a href=\"sql-api-sdk-dotnet-changefeed\">.NET 변경 피드</a></p><p><a href=\"https://aka.ms/acdbnetcoreref\">.NET Core</a></p><p><a href=\"https://aka.ms/acdbnoderef\">Node.JS</a></p><p><a href=\"https://aka.ms/acdbjavaref\">Java</a></p><p><a href=\"https://aka.ms/acdbpythonref\">Python</a></p><p><a href=\"/rest/api/documentdbresourceprovider/\">REST 리소스 공급자</a></p><p><a href=\"sql-api-sql-query-reference\">SQL</a></p>"
     - title: MongoDB API
       html: "<p><a href=\"https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/\">유선 프로토콜</a></p><p><a href=\"https://mongodb.github.io/node-mongodb-native/ \">Node.JS</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/csharp/\">C#</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/java/\">Java</a></p><p><a href=\"https://docs.mongodb.com/ecosystem/drivers/python/\">Python</a></p><p><a href=\"https://docs.mongodb.com/ruby-driver/master/\">Ruby</a></p>"
     - title: "테이블 API"
