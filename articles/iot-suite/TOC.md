@@ -71,6 +71,7 @@
 ### [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 ### [연결된 공장 사용자 지정](iot-suite-connected-factory-customize.md)
 ### [연결된 팩터리에 OPC 게시자 사용](iot-suite-connected-factory-publisher.md)
+### [연결된 팩터리 구성](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
 
 # 참조

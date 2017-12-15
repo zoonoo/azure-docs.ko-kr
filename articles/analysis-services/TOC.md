@@ -21,6 +21,7 @@
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [Backup 및 복원](analysis-services-backup.md)
 ## [스케일 아웃 구성](analysis-services-scale-out.md)
+## [서버 이름 별칭 구성](analysis-services-server-alias.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [.odc 파일 만들기](analysis-services-odc.md)

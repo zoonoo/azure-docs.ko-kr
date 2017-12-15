@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: 환경 규모 조정
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: 템플릿을 사용하여 리소스 관리
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: 참조
   items:
     - name: 쿼리 API

@@ -265,6 +265,7 @@
 #### [관리자 역할 할당](active-directory-users-assign-role-azure-portal.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
+### [긴급 액세스 관리 계정 관리](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## 액세스 검토
 ### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)

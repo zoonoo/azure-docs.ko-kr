@@ -1,6 +1,6 @@
 # 개요
 ## [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)
-## [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)
+## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 시작
@@ -75,6 +75,7 @@
 ## 타사 VPN 장치 구성
 ### [개요 및 Azure 구성](vpn-gateway-3rdparty-device-config-overview.md)
 ### [샘플: Cisco ASA 장치(IKEv2/BGP 아님)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [클래식에서 Resource Manager로 마이그레이션](vpn-gateway-classic-resource-manager-migration.md)
 ## 문제 해결
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ### [커뮤니티에서 제안한 VPN 또는 방화벽 장치 설정](vpn-gateway-third-party-settings.md)
@@ -91,10 +92,10 @@
 ## [Azure CLI](/cli/azure/network/vnet-gateway)
 
 # 관련 항목
-## [가상 네트워크](/azure/virtual-network/)
-## [응용 프로그램 게이트웨이](/azure/application-gateway/)
+## [Virtual Network](/azure/virtual-network/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Azure DNS](/azure/dns/)
-## [트래픽 관리자](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [ExpressRoute](/azure/expressroute/)
 

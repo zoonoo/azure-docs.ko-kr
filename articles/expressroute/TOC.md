@@ -85,6 +85,7 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [클라우드 솔루션 공급자(CSP)용 ExpressRoute](expressroute-for-cloud-solution-providers.md)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [가상 네트워크 게이트웨이를 서킷에 연결](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [ExpressRoute에 대해 가상 네트워크 만들기](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

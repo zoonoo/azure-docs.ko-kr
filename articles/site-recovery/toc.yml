@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: vCenter 서버 관리
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: CSP로 다중 테넌트 관리
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: 서버 제거 및 보호 사용 안 함
           href: site-recovery-manage-registration-and-protection.md
         - name: 자격 증명 모음 삭제
