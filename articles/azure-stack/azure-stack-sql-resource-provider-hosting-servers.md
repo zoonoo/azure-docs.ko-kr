@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>SQL 어댑터에서 사용 하기 위해 호스팅 서버 추가
 
@@ -28,11 +28,9 @@ ms.lasthandoff: 10/11/2017
 * SQL 인스턴스 RP 및 사용자 작업에 사용 하기 위해 전용 이어야 합니다. 응용 프로그램 서비스를 포함 한 모든 다른 소비자에 의해 사용 되는 SQL 인스턴스를 사용할 수 없습니다.
 * RP 어댑터 도메인에 가입 되지 않은 및 SQL 인증을 사용 하 여 연결할 수 있습니다.
 * RP에서 사용 하기 위해 적절 한 권한이 있는 계정을 구성 해야 합니다.
-* RP에서 SQL로 네트워크 트래픽을 포트 1433을 사용 하 고 변경할 수 없습니다.
 * RP 및 웹 앱 등 사용자가이 네트워크에서 SQL 인스턴스 연결이 필요 하므로 사용자 네트워크를 사용 합니다. 이 요구 사항은 SQL 인스턴스에 대 한 IP는 공용 네트워크에 있어야 합니다. 일반적으로 의미 합니다.
 * SQL 인스턴스 및 호스트의 관리가 결정 합니다. RP가 패치, 백업 수행 하지, 회전 등 자격 증명.
 * Sku 항상에 등 SQL 기능, 성능 등의 다양 한 클래스를 만드는 데 사용할 수 있습니다.
-
 
 
 SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능을 통해 사용할 수 있습니다. 사용 하면 항상 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 SQL IaaS 확장의 최신 버전을 다운로드 합니다. SQL 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다. 이러한 이미지를 IaaS 확장에서 만들어지고 포털의 향상 된 기능에 해당 vm의 SQL 자동 패치 및 백업 기능 등의 기능을 제공 합니다.
@@ -73,6 +71,8 @@ SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능�
 
   ![새 호스팅 서버](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    인스턴스 이름이 포함 될 수 있습니다 및 인스턴스는 기본 포트 1433에 할당 되지 않은 경우 포트 번호를 제공 될 수 있습니다.
+
   > [!NOTE]
   > 사용자 및 관리자 Azure 리소스 관리자에서 SQL 인스턴스를 액세스할 수 있습니다,으로 리소스 공급자에 의해 제어 배치할 수 있습니다. SQL 인스턴스 __해야__ RP에 독점적으로 할당할 수 있습니다.
 
@@ -86,10 +86,10 @@ SQL IaaS 가상 컴퓨터 이미지의 많은 마켓플레이스 관리 기능�
 
     예제:
 
-    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 완전히 생성 될 때까지 데이터베이스를 만들 수 없습니다.
+> Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 완전히 생성 될 때까지 사용자가 데이터베이스를 만들 수 없습니다.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>SQL Always On 가용성 그룹을 사용 하 여 용량을 제공 합니다.
 SQL Always On 인스턴스를 구성 하는 단계가 더 필요와 적어도 3 개의 Vm 또는 물리적 컴퓨터를 포함 합니다.
@@ -126,7 +126,7 @@ GO
     **SQL 호스팅 서버** 블레이드는 위치에 리소스 공급자의 백 엔드도 처리 하는 실제 SQL Server 인스턴스에서 SQL Server 리소스 공급자를 연결할 수 있습니다.
 
 
-3. 항상에 수신기의 FQDN 또는 IPv4 주소를 사용 하 여 SQL Server 인스턴스의 연결 세부 정보도 폼을 채웁니다. 시스템 관리자 권한으로 구성 된 계정에 대 한 계정 정보를 제공 합니다.
+3. 항상 수신기 (및 선택적 포트 번호)의 FQDN 또는 IPv4 주소를 사용 하 여 SQL Server 인스턴스의 연결 세부 정보도 폼을 채웁니다. 시스템 관리자 권한으로 구성 된 계정에 대 한 계정 정보를 제공 합니다.
 
 4. SQL Always On 가용성 그룹의 인스턴스에 대 한 지원을 사용 하도록 설정 하려면이 확인란을 선택 합니다.
 
@@ -137,7 +137,7 @@ GO
 
 ## <a name="making-sql-databases-available-to-users"></a>사용자에 게 SQL 데이터베이스 사용 가능
 
-계획 및 사용자에 대 한 SQL 데이터베이스를 사용할 수 있게 제안을 만듭니다. 계획에 Microsoft.SqlAdapter 서비스를 추가 하 고 기존 할당량을 추가 하거나 새를 만듭니다. 할당량을 만들면 사용자 수 있도록 용량을 지정할 수 있습니다.
+계획 및 사용자에 대 한 SQL 데이터베이스를 사용할 수 있게 제안을 만듭니다. Microsoft.SqlAdapter 서비스 계획에 추가 하 고는 기존 할당량 지정을 추가 하거나 새를 만듭니다. 할당량을 만들면 50 사용자 수를 지정 합니다.
 
 ![계획 및 데이터베이스를 포함 하도록 제안 만들기](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

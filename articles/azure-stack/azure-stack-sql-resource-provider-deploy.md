@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -47,7 +47,11 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
     a. Azure 스택 개발 키트 (ASDK) 설치에서 실제 호스트에 로그인 합니다.
 
-    b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
+    b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다. 
+    
+    >[!NOTE]
+    > 스크립트가 실행 되 고 시스템 *해야* 최신 버전의.NET 런타임 설치 된 Windows 10 또는 Windows Server 2016 시스템 이어야 합니다. 그렇지 않은 경우에 설치가 실패 합니다. ASDK 호스트는이 조건을 충족 합니다.
+
 
 3. 이진 SQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출 자동 압축 풀기 프로그램을 실행 합니다.
 
@@ -56,16 +60,19 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
     | Azure 스택 빌드 | SQL RP 설치 관리자 |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP 1.1.10.0 버전](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP 1.1.12.0 버전](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP 1.1.8.0 버전](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP 1.1.3.0 버전](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. Azure 스택 루트 인증서는 권한 있는 끝점에서 검색 됩니다. ASDK에 대 한 자체 서명 된 인증서는이 프로세스의 일부로 생성 됩니다. 다중 노드에 대 한 적절 한 인증서를 제공 해야 합니다.
 
-    고유한 인증서를 제공 해야 하는 경우 다음과 같은 인증서가 필요 합니다.
+    PFX 파일에 배치 해야는 고유의 인증서를 제공 해야 하는 경우는 **DependencyFilesLocalPath** (아래 참조) 다음과 같습니다.
 
-    에 대 한 와일드 카드 인증서 \*.dbadapter.\< 지역\>.\< 외부 fqdn\>합니다. 이 인증서는 신뢰할 수 있어야 합니다, 그리고와 같은 인증 기관에서 발급 될 것입니다. 즉, 중간 인증서를 요구 하지 않고 신뢰 체인 존재 해야 합니다. 단일 사이트 인증서는 설치 중 사용 되는 명시적 VM 이름 [sqladapter]으로 사용할 수 있습니다.
+    - 에 대 한 와일드 카드 인증서 \*.dbadapter.\< 지역\>.\< 외부 fqdn\> 또는 일반 sqladapter.dbadapter 이름의 단일 사이트 인증서.\< 지역\>.\< 외부 fqdn\>
+    - 이 인증서는 신뢰할 수 있어야 합니다, 그리고와 같은 인증 기관에서 발급 될 것입니다. 즉, 중간 인증서를 요구 하지 않고 신뢰 체인 존재 해야 합니다.
+    - 단일 인증서 파일이는 DependencyFilesLocalPath에 있습니다.
+    - 파일 이름에 특수 문자가 없어야 합니다.
 
 
 5. 열기는 **새** 관리자 권한 (관리자) PowerShell 콘솔 및 파일의 압축을 푼 디렉터리로 변경 합니다. 새 창을 사용 하 여 시스템에 이미 로드 되어 잘못 된 PowerShell 모듈에서 발생할 수 있는 문제를 방지 하려면.

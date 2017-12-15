@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: 저장소 리소스 관리
           href: azure-stack-manage-storage-accounts.md
+        - name: 저장소 용량 관리
+          href: azure-stack-manage-storage-shares.md
         - name: Windows Azure 팩 VM 관리
           href: azure-stack-manage-windows-azure-pack.md
         - name: 하드웨어 교체
@@ -193,11 +195,11 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: 마켓플레이스에 게시 도구를 사용 하 여
               href: azure-stack-marketplace-publisher.md
-            - name: 사용자 지정 가상 컴퓨터 이미지 추가
+            - name: 사용자 지정 가상 머신 이미지 추가
               href: azure-stack-add-vm-image.md
-            - name: 가상 컴퓨터 확장 집합 추가
+            - name: 가상 머신 확장 집합 추가
               href: azure-stack-compute-add-scalesets.md
-            - name: Linux 가상 컴퓨터 배포
+            - name: Linux 가상 머신 배포
               href: azure-stack-linux.md
         - name: 사용량 및 결제
           items:
