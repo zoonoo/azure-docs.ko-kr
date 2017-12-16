@@ -32,6 +32,8 @@
       href: how-to-deploy-monitor.md
     - name: IoT Core 장치 프로비전
       href: how-to-install-iot-core.md
+    - name: 문제 해결
+      href: troubleshoot.md
 - name: 개념
   items:
     - name: IoT Edge 모듈

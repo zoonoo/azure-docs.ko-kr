@@ -211,7 +211,7 @@
       items:
         - name: Active Directory 및 DNS
           href: site-recovery-active-directory.md
-        - name: SQL Server 복제
+        - name: SQL Server
           href: site-recovery-sql.md
         - name: SharePoint
           href: site-recovery-sharepoint.md

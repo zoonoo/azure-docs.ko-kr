@@ -26,7 +26,6 @@
 
 ## SQL Data Warehouse로 마이그레이션
 ### [개요](sql-data-warehouse-overview-migrate.md)
-### [마이그레이션 유틸리티](sql-data-warehouse-migrate-migration-utility.md)
 ### [마이그레이션 스키마](sql-data-warehouse-migrate-schema.md)
 ### [코드 마이그레이션](sql-data-warehouse-migrate-code.md)
 ### [데이터 마이그레이션](sql-data-warehouse-migrate-data.md)
