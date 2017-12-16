@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure 스택 진단 도구
 
@@ -29,11 +29,11 @@ Azure 스택은 큰 컬렉션 함께 작동 하 고 서로 상호 작용 하는 
  
 ## <a name="trace-collector"></a>추적 수집기
  
-추적 수집기는 기본적으로 사용 하 고 Azure 스택 구성 요소 서비스에서 모든 이벤트가 추적에 대 한 ETW (Windows) 로그를 수집 하는 백그라운드에서 계속 실행 합니다. ETW 로그 5 일 사용 기간 제한으로 일반적인 로컬 공유에 저장 됩니다. 이 한도 도달 하면 가장 오래 된 파일은 새로 만들어지는 삭제 됩니다. 각 파일에 대해 허용 되는 기본 최대 크기 사항은 200MB입니다. 크기 검사가 주기적으로 나타나는 (2 분 마다) 하 고 현재 파일 경우 > = 200mb로 저장 되 고 새 파일이 생성 됩니다. 이벤트 세션 별로 생성 된 총 파일 크기에도 8GB로 제한이 됩니다. 
+추적 수집기는 기본적으로 사용 하 고 Azure 스택 구성 요소 서비스에서 모든 이벤트가 추적에 대 한 ETW (Windows) 로그를 수집 하는 백그라운드에서 계속 실행 합니다. ETW 로그 5 일 사용 기간 제한으로 일반적인 로컬 공유에 저장 됩니다. 이 한도 도달 하면 가장 오래 된 파일은 새로 만들어지는 삭제 됩니다. 각 파일에 대해 허용 되는 기본 최대 크기 사항은 200MB입니다. 크기 검사 2 분 마다 발생 하 고 현재 파일 경우 > = 200mb로 저장 되 고 새 파일이 생성 됩니다. 이벤트 세션 별로 생성 된 총 파일 크기에도 8GB로 제한이 됩니다. 
 
 ## <a name="log-collection-tool"></a>로그 수집 도구
  
-PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구성 요소에서 로그를 수집 하는 데 사용할 수 있습니다. 사용자 정의 위치에 있는 zip 파일에 저장 합니다. 기술 지원 팀에서 문제를 해결 하려면 로그를 필요한 경우이 도구를 실행 하도록 요청 받을 수 있습니다.
+PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구성 요소에서 로그를 수집 하는 데 사용할 수 있습니다. 사용자 정의 위치에 있는 zip 파일에 저장 합니다. Azure 스택 기술 지원 팀이 문제를 해결 하려면 로그를 필요한 경우이 도구를 실행 하도록 요청 받을 수 있습니다.
 
 > [!CAUTION]
 > 이러한 로그 파일에는 개인 식별이 가능한 정보 (PII) 포함할 수 있습니다. 모든 로그 파일을 공개적으로 게시 하기 전에이를 고려 합니다.
@@ -130,17 +130,17 @@ if($s)
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | 저장소                | StorageController  |
+   | SRP                     | Storage                | StorageController  |
    | URP                     | UsageBridge            | VirtualMachines    |  
    | 했습니다.                     | WASPUBLIC              | WDS                |
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
-Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 http://aka.ms/AzureStackTools에서 주요 Azure 스택 도구 GitHub 리포지토리에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 있습니다.
+Azure 스택 로그를 검색할 Get AzureStackLog cmdlet에 대 한 필수 매개 변수를 제공 하는 대신 주 Azure 스택 도구 GitHub 도구에서 리포지토리 http://aka.ms/AzureStackTools에 사용할 수 있는 오픈 소스 Azure 스택 도구를 활용할 수 있습니다.
 
-**ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 확인 하도록 설정 하면 스크립트 기본적 됩니다.
+**ERCS_AzureStackLogs.ps1** PowerShell 스크립트 GitHub 도구 저장소에 저장 되 고 정기적으로 업데이트 됩니다. 사용 가능한 최신 버전을 보장 하려면 http://aka.ms/ERCS에서 직접 다운로드 해야 합니다. 관리자 PowerShell 세션에서 시작 스크립트가 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수를 제공 하는 스크립트 기본적으로 그래픽 사용자 인터페이스를 통해 매개 변수에 대 한 메시지를 표시 합니다.
 
-스크립트 ERCS_AzureStackLogs.ps1 PowerShell에 대 한 자세한 내용을 보려면 시청할 수 [짧은 동영상](https://www.youtube.com/watch?v=Utt7pLsXEBc) 스크립트의 보거나 [추가 정보 파일](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure 스택 도구 GitHub 리포지토리에 있는 합니다. 
+ERCS_AzureStackLogs.ps1 PowerShell 스크립트에 대 한 자세한 내용은 볼 수 있습니다 [짧은 동영상](https://www.youtube.com/watch?v=Utt7pLsXEBc) 스크립트의 보거나 [추가 정보 파일](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure 스택 도구 GitHub 리포지토리에 있는 합니다. 
 
 ### <a name="additional-considerations"></a>추가 고려 사항
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Azure 스택 개발 키트를 배포 합니다.
 
@@ -104,7 +104,7 @@ ASDK 호스트 컴퓨터를 준비한 후 다음 단계를 사용 하 여 CloudB
 1. 호스트 컴퓨터 성공적으로 CloudBuilder.vhdx 이미지로 부팅 한 후 이전 단계에서 지정 된 관리자 자격 증명을 사용 하 여 로그인 합니다. 
 2. 관리자 권한 PowerShell 콘솔을 열고 실행는 **\AzureStack_Installer\asdk-installer.ps1** 스크립트 (이 문서의 이제 CloudBuilder.vhdx 이미지에서 다른 드라이브에 있음). **Install**을 클릭합니다.
 3. 에 **형식** 드롭다운 상자 **Azure 클라우드** 또는 **AD FS**합니다.
-    - **Azure 클라우드**: 구성 Azure Active Directory (Azure AD) id 공급자로 합니다. 이 옵션을 사용 하려면 Azure AD의 전체 이름을 인터넷 연결 해야 합니다 디렉터리 테 넌 트의 형태로 *domainname*. 형태 이며, 및 지정된 된 디렉터리에 대 한 전역 관리자 자격 증명입니다. 
+    - **Azure 클라우드**: 구성 Azure Active Directory (Azure AD) id 공급자로 합니다. 이 옵션을 사용 하려면 Azure AD의 전체 이름을 인터넷 연결 해야 합니다 디렉터리 테 넌 트의 형태로 *domainname*. onmicrosoft.com 또는 Azure AD에 대 한 사용자 지정 도메인 이름 및 전역 관리자 자격 증명을 확인 합니다.는 지정 된 디렉터리입니다. 
     - **AD FS**: 디렉터리 서비스를 id 공급자로 기본 스탬프입니다. 로그인 하는 데 기본 계정은 azurestackadmin@azurestack.local를 사용 하는 암호는 설정의 일부분으로 제공 된 것 이며 합니다.
 4. 아래 **로컬 관리자 암호**에 **암호** 상자 (현재 구성 된 로컬 관리자 암호와 일치 해야 합니다)는 로컬 관리자 암호를 입력 한 다음 클릭**다음**합니다.
 5. 네트워크 어댑터를 개발 키트를 사용 하 고 클릭 한 다음 선택 **다음**합니다.
@@ -206,7 +206,7 @@ Azure AD id와 연결 된 경우 **1 보다 큰** Azure AD 디렉터리:
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 하는 경우 사용자 환경 **는 그렇지 않습니다** 가 DHCP 사용 (제공 된 예제 사용) 위의 옵션 중 하나에 다음과 같은 추가 매개 변수를 포함 해야 합니다. 
@@ -219,7 +219,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |매개 변수|필수/선택|설명|
 |-----|-----|-----|
 |AdminPassword|필수|개발 키트 배포의 일부로 생성 되는 모든 가상 컴퓨터에서 로컬 관리자 계정 및 다른 모든 사용자 계정을 설정 합니다. 이 암호는 호스트에서 현재 로컬 관리자 암호와 일치 해야 합니다.|
-|InfraAzureDirectoryTenantName|필수|테 넌 트 디렉터리를 설정합니다. AAD 계정의 사용 권한이 있는 여러 디렉터리를 관리 하는 특정 디렉터리를 지정 하려면이 매개 변수를 사용 합니다. 전체 형식의 AAD 디렉터리 테 넌 트의 이름입니다. onmicrosoft.com 합니다.|
+|InfraAzureDirectoryTenantName|필수|테 넌 트 디렉터리를 설정합니다. AAD 계정의 사용 권한이 있는 여러 디렉터리를 관리 하는 특정 디렉터리를 지정 하려면이 매개 변수를 사용 합니다. 전체 형식의 AAD 디렉터리 테 넌 트의 이름입니다. onmicrosoft.com 또는 Azure AD에 사용자 지정 도메인 이름을 확인 합니다.|
 |TimeServer|필수|이 매개 변수를 사용 하 여 특정 시간 서버를 지정 합니다. 이 매개 변수는 유효한 시간 서버 IP 주소로 제공 되어야 합니다. 서버 이름은 지원 되지 않습니다.|
 |InfraAzureDirectoryTenantAdminCredential|옵션|Azure Active Directory 사용자 이름과 암호를 설정합니다. 이러한 Azure 자격 증명을 사용 하 여 조직 ID 해야 합니다.|
 |InfraAzureEnvironment|옵션|이 Azure 스택 배포를 등록 하려는 Azure 환경을 선택 하십시오. 옵션에는 공용 Azure, Azure-중국 Azure-미국 정부 포함 됩니다.|

@@ -4,6 +4,16 @@
   items:
     - name: Azure Stack이란?
       href: azure-stack-poc.md
+    - name: 릴리스 정보
+      items:
+        - name: 개발 키트 릴리스 정보
+          href: azure-stack-asdk-release-notes.md
+        - name: 통합된 시스템 릴리스 정보
+          items:
+            - name: 1711 업데이트
+              href: azure-stack-update-1711.md
+            - name: 1710 업데이트
+              href: azure-stack-update-1710.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: 서비스 정책
       href: azure-stack-servicing-policy.md
-    - name: 릴리스 정보
-      items:
-        - name: 개발 키트 릴리스 정보
-          href: azure-stack-asdk-release-notes.md
-        - name: 통합된 시스템 릴리스 정보
-          items:
-            - name: 1711 업데이트
-              href: azure-stack-update-1711.md
-            - name: 1710 업데이트
-              href: azure-stack-update-1710.md
     - name: 주요 기능 및 개념
       href: azure-stack-key-features.md
     - name: 개발 키트 아키텍처

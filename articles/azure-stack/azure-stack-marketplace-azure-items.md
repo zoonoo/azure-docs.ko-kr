@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ ms.lasthandoff: 12/15/2017
 
 |  | 항목 이름 | 설명 | 게시자 | OS 종류 |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드-이것이 필요 합니다.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>기본 버전의 Windows 사용자 지정 스크립트 확장이이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Linux 가상 컴퓨터에 docker 확장 합니다. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>모든 SQL Server에서 Windows 마켓플레이스 항목을 배포 하려면이 확장을 다운로드-이것이 필요 합니다.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure에 대 한 Acronis 백업 확장에는 데이터 보호 제품의 Acronis 백업 제품군의 일부입니다. | Acronis 국제 GmbH 합니다. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Linux 용 에이전트 보안](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Linux 용 trend Micro Deep Security 확장 합니다. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Windows 용 deep Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Windows 용 trend Micro Deep Security 확장 합니다. | Trend Micro | Windows |
 
