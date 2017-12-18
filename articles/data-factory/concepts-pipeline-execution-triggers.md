@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ## <a name="triggers"></a>트리거
 트리거는 파이프라인 실행을 실행하는 두 번째 방법을 제공합니다. 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 현재 Data Factory는 벽시계 일정에 따라 파이프라인을 호출하는 트리거를 지원합니다. 이것을 **스케줄러 트리거**라고 합니다. 현재 Data Factory는 파일 도착 이벤트에 파이프라인 실행 트리거와 같은 이벤트 기반 트리거를 지원하지 않습니다.
 
-파이프라인 및 트리거는 "n-m" 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있으며 같은 트리거가 여러 파이프라인을 시작할 수 있습니다. 트리거에 대한 다음 JSON 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록 및 파이프라인 매개 변수에 대한 값을 가리킵니다.
+파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있고, 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. 트리거에 대한 다음 JSON 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록 및 파이프라인 매개 변수에 대한 값을 가리킵니다.
 
 ### <a name="basic-trigger-definition"></a>기본 트리거 정의: 
 ```json
@@ -165,7 +165,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ### <a name="scheduler-trigger-json-definition"></a>스케줄러 트리거 JSON 정의
 스케줄러 트리거를 만들 때 이 섹션의 예제와 같이 JSON을 사용하여 일정 계획 및 되풀이를 지정할 수 있습니다. 
 
-스케줄러 트리거가 파이프라인 실행을 시작하게 하려면 특정 파이프라인의 파이프라인 참조를 트리거 정의에 포함합니다. 파이프라인 및 트리거는 "n-m" 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 같은 파이프라인이 여러 트리거를 시작할 수 있습니다.
+스케줄러 트리거가 파이프라인 실행을 시작하게 하려면 특정 파이프라인의 파이프라인 참조를 트리거 정의에 포함합니다. 파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다.
 
 ```json
 {

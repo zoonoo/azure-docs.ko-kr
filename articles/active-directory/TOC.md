@@ -58,6 +58,7 @@
 #### [역할에 B2B 사용자 추가](active-directory-b2b-add-guest-to-role.md)
 #### [동적 그룹 및 B2B 사용자](active-directory-b2b-dynamic-groups.md)
 #### [감사 및 보고서](active-directory-b2b-auditing-and-reporting.md)
+#### [하이브리드 조직에 대한 B2B](active-directory-b2b-hybrid-organizations.md)
 #### [B2B 및 Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 #### [B2B 라이선스](active-directory-b2b-licensing.md)
 #### [현재 제한 사항](active-directory-b2b-current-limitations.md)

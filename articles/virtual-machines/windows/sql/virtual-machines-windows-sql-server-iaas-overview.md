@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/02/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 36fa884b451d41ed7443312cc21b49b0b720a954
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -84,10 +84,10 @@ SQL Server VM을 만든 후에는 SSMS(SQL Server Management Studio)와 같은 �
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx)을 참조하세요.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
-### <a name="windows-virtual-machines"></a>Windows Virtual Machines
+### <a name="windows-virtual-machines"></a>Windows 가상 머신
 * [Virtual Machines 개요](../overview.md)
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 * [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>네트워킹
@@ -103,7 +103,7 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 
 Azure 가상 머신에서 SQL Server 시작:
 
-* [Azure Portal에서 SQL Server VM 만들기](virtual-machines-windows-portal-sql-server-provision.md)
+* [Azure Portal에서 SQL Server VM 만들기](quickstart-sql-vm-create-portal.md)
 
 SQL VM에 대한 일반적인 질문에 대한 답변 구하기:
 

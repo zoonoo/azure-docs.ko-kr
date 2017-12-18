@@ -15,45 +15,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
-ms.openlocfilehash: c978a9ba97ecb9b8facaf32cbefbdd06cab8df67
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
 [Apache Storm](http://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 Hadoop에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
-HDInsight의 Storm은 다음과 같은 주요 이점을 제공합니다.
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* 가동 시간 99.9%의 SLA를 사용하여 관리되는 서비스로 수행됩니다.
+## <a name="why-use-storm-on-hdinsight"></a>HDInsight의 Storm을 사용하는 이유
+
+HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
+
+* __Storm 작동 시간에 99% SLA(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
 * 생성 중 또는 생성 후에 Storm 클러스터에 대해 스크립트를 실행하여 손쉬운 사용자 지정을 지원합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-* 다양한 언어를 사용합니다. Java, C# 및 Python과 같은 사용자가 선택한 언어로 Storm 구성 요소를 작성할 수 있습니다.
+* **여러 언어로 솔루션 만들기**: Java, C# 및 Python과 같은 사용자가 선택한 언어로 Storm 구성 요소를 작성할 수 있습니다.
 
     * C# 토폴로지의 개발, 관리 및 모니터링을 위해 HDInsight와 Visual Studio를 통합합니다. 자세한 내용은 [Visual Studio용 HDInsight를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
     * Trident Java 인터페이스를 지원합니다. 정확히 한 번의 메시지 처리, 트랜잭션 데이터 저장소 지속성 및 일반 Stream Analytics 작업 집합을 지원하는 Storm 토폴로지를 만들 수 있습니다.
 
-*  Storm 클러스터의 크기를 쉽게 확장하거나 축소할 수 있습니다. 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
+* **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
 
-* 다음 Azure 서비스와의 통합:
+    > [!NOTE]
+    > 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
 
-    * Azure Event Hubs
+* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Store 등 다른 Azure 서비스와 통합합니다.
 
-    * Azure Virtual Network
-
-    * Azure SQL Database
-
-    * Azure Storage
-
-    * Azure Cosmos DB
-
-* Virtual Network를 사용하여 여러 HDInsight 클러스터의 기능을 안전하게 결합합니다. Storm, Kafka, Spark, HBase 또는 Hadoop 클러스터를 사용하는 분석 파이프라인을 만들 수 있습니다.
+    Azure 서비스를 사용하여 통합하는 예제 솔루션은 [HDInsight의 Storm으로 Event Hubs에서 이벤트 처리](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
 
@@ -68,6 +65,16 @@ Storm에서는 친숙한 MapReduce 작업 대신 토폴로지를 실행합니다
 * Spout 구성 요소는 데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.
 
 * Bolt 구성 요소는 Spout 또는 다른 Bolt에서 내보낸 스트림을 사용합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 저장소에 데이터를 쓰는 역할을 수행합니다.
+
+## <a name="reliability"></a>안정성
+
+Apache Storm은 데이터 분석이 수백 개의 노드에 분산되어 있는 경우에도 들어오는 각 메시지를 항상 완전히 처리하도록 합니다.
+
+Nimbus 노드는 Hadoop JobTracker와 유사한 기능을 제공하며 Zookeeper를 통해 클러스터의 다른 노드에 태스크를 할당합니다. Zookeeper 노드는 클러스터에 대한 조정을 제공하며, Nimbus와 작업자 노드의 감독자 프로세스 간의 통신을 용이하게 합니다. 하나의 처리 노드가 작동이 중지되면 Nimbus 노드에 알림이 제공되고 이 노드에서 작업 및 관련 데이터를 다른 노드에 할당합니다.
+
+Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습니다. HDInsight의 Storm은 두 개의 Nimbus 노드를 제공합니다. 주 노드에 장애가 발생하면 주 노드가 복구되는 동안 Storm 클러스터에서 보조 노드로 전환합니다. 다음 다이어그램은 HDInsight에서 Storm에 대한 작업 흐름 구성을 보여 줍니다.
+
+![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/nimbus.png)
 
 ## <a name="ease-of-creation"></a>만들기 편의성
 
@@ -100,23 +107,6 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
     * [HDInsight의 Storm(C#)에서 Azure Event Hubs의 이벤트 처리](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__, __Cosmos DB__, __Event Hubs__ 및 __HBase__: 템플릿 예제는 Data Lake Tools for Visual Studio에 포함되어 있습니다. 자세한 내용은 [HDInsight의 Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
-
-## <a name="reliability"></a>안정성
-
-Apache Storm은 데이터 분석이 수백 개의 노드에 분산되어 있는 경우에도 들어오는 각 메시지를 항상 완전히 처리하도록 합니다.
-
-Nimbus 노드는 Hadoop JobTracker와 유사한 기능을 제공하며 Zookeeper를 통해 클러스터의 다른 노드에 태스크를 할당합니다. Zookeeper 노드는 클러스터에 대한 조정을 제공하며, Nimbus와 작업자 노드의 감독자 프로세스 간의 통신을 용이하게 합니다. 하나의 처리 노드가 작동이 중지되면 Nimbus 노드에 알림이 제공되고 이 노드에서 작업 및 관련 데이터를 다른 노드에 할당합니다.
-
-Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습니다. HDInsight의 Storm은 두 개의 Nimbus 노드를 제공합니다. 주 노드에 장애가 발생하면 주 노드가 복구되는 동안 Storm 클러스터에서 보조 노드로 전환합니다. 다음 다이어그램은 HDInsight에서 Storm에 대한 작업 흐름 구성을 보여 줍니다.
-
-![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/nimbus.png)
-
-## <a name="scale"></a>크기 조정
-
-작업자 노드를 추가하거나 제거하여 HDInsight 클러스터의 크기를 동적으로 조정할 수 있습니다. 이 작업은 데이터를 처리하는 동안 수행할 수 있습니다.
-
-> [!IMPORTANT]
-> 크기 조정을 통해 추가된 새 노드를 활용하려면 클러스터 크기를 늘리기 전에 시작된 Storm 토폴로지의 균형을 다시 조정해야 합니다.
 
 ## <a name="support"></a>지원
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -69,6 +69,16 @@ Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 �
 
 Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 컴퓨터에서 데이터 수집을 해제할 수도 있습니다. 데이터 수집은 표준 계층의 구독에 필요합니다. VM 디스크 스냅숏 및 아티팩트 컬렉션은 데이터 수집이 사용하지 않도록 설정된 경우에도 여전히 사용하도록 설정됩니다.
 
+## <a name="data-consumption"></a>데이터 사용량
+
+고객은 아래와 같이 다른 데이터 스트림에서 데이터와 관련된 Security Center를 사용할 수 있습니다.
+
+* **Azure 작업**: 모든 보안 경고, 승인된 Security Center [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 요청 및 [적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)에서 생성된 모든 경고입니다.
+* **Log Analytics**: 모든 보안 경고입니다.
+
+
+> [!NOTE]
+> REST API를 통해 보안 권장 사항도 사용할 수 있습니다. 자세한 정보는 [보안 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)를 참고하세요. 
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center에서 데이터 관리하고 보호하는 방법을 알아봅니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 ## <a name="supports-the-latest-client-tools"></a>최신 클라이언트 도구 지원
 ![데이터 시각화](./media/analysis-services-overview/aas-overview-clients.png)
 
-Power BI, Excel 및 타사 도구와 같은 최신 데이터 탐색 및 시각화 도구는 모델 데이터에 대해 시각적으로 풍부한 대화형 정보를 사용자에게 제공합니다.
+Power BI, Excel, SQL Server 2017 Reporting Services 및 타사 도구와 같은 최신 데이터 탐색 및 시각화 도구가 지원되며, 모델 데이터에 대해 시각적으로 풍부한 대화형 정보를 사용자에게 제공합니다. 
 
 클라이언트는 MSOLAP, AMO 또는 ADOMD [클라이언트 라이브러리](analysis-services-data-providers.md)를 사용하여 Analysis Services 서버에 연결합니다. Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그램은 이러한 세 가지 클라이언트 라이브러리를 모두 설치합니다. 그러나 업데이트 버전 또는 빈도에 따라 클라이언트 라이브러리가 Azure Analysis Services에 필요한 최신 버전이 아닐 수도 있습니다. 사용자 지정 응용 프로그램, 또는 AsCmd, TOM, ADOMD.NET과 같은 다른 인터페이스에도 마찬가지입니다. 이러한 응용 프로그램에서는 일반적으로 패키지의 일부로 라이브러리를 수동으로 설치해야 합니다.
 

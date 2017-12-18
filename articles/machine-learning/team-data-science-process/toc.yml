@@ -47,6 +47,8 @@
     - name: Azure 기계 학습
       href: walkthroughs-aml-with-tdsp.md
       items:
+        - name: 감정 분류
+          href: predict-twitter-sentiment.md
         - name: US 수입 분류
           href: ../preview/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true

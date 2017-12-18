@@ -1,6 +1,6 @@
 ---
 title: "연결된 팩터리 솔루션 연습 - Azure | Microsoft Docs"
-description: "공장 및 해당 아키텍처에 연결된 Azure IoT 미리 구성된 솔루션에 대한 설명입니다."
+description: "미리 구성된 Azure IoT 솔루션 연결된 팩터리 및 해당 아키텍처에 대한 설명입니다."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>연결된 공장 미리 구성된 솔루션 연습
 
-IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 종단 간 산업 솔루션의 구현입니다.
+IoT Suite 연결된 팩터리 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 종단 간 산업 솔루션의 구현입니다.
 
 * 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-suite-faq-cf.md)를 참조하세요.
 * 이러한 장치 및 생산 라인의 운영 KPI 및 OEE를 보여 줍니다.
@@ -225,14 +225,14 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 > OPC 프록시(서버 구성 요소) 및 OPC 프록시(클라이언트 구성 요소)는 OPC UA 통신 관련된 모든 TCP 트래픽에 대한 #4~#10단계를 완료합니다.
 
 > [!NOTE]
-> 연결된 팩터리 WebApp 내에 있는 OPC UA 서버 및 OPC UA 스택의 경우 OPC 프록시 통신이 투명하고 인증 및 암호화에 대한 모든 OPC UA 보안 기능이 적용됩니다.
+> 연결된 팩터리 WebApp 내에 있는 OPC UA 서버 및 OPC UA 스택의 경우 OPC 프록시 통신이 투명하며, 인증 및 암호화에 대한 모든 OPC UA 보안 기능이 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
 
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
-* [연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
+* [연결된 팩터리 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC 게시자 참조 구현](iot-suite-connected-factory-publisher.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png

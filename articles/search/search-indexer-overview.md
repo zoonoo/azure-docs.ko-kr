@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: c1d393064313ea65d5226378172530115c338f86
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 > [!div class="op_single_selector"]
@@ -29,8 +29,7 @@ ms.lasthandoff: 10/18/2017
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 > * [Azure Cosmos DB](search-howto-index-documentdb.md)
 > * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-> * 
-            [Azure Table Storage](search-howto-indexing-azure-tables.md)
+> * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
 
 Azure Search의 *인덱서* 는 외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. 데이터를 인덱스에 푸시하기 위해 코드를 작성할 필요 없이 서비스가 데이터를 끌어오므로 이 방법을 종종 '끌어오기 모델'이라고도 합니다.
@@ -57,17 +56,18 @@ Azure Search의 *인덱서* 는 외부 데이터 원본에서 검색 가능한 �
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 인덱서는 연결 문자열 및 가능한 자격 증명 등의 정보가 담긴 *데이터 원본*에서 데이터를 가져옵니다. 현재 지원되는 데이터 소스는 다음과 같습니다.
 
-* 
-            [Azure SQL Database 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
 * 선택한 콘텐츠 유형에 대한 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* 
-            [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 데이터 소스는 데이터 소스를 사용하는 인덱서와는 별도로 구성 및 관리됩니다. 즉 데이터 소스를 여러 인덱서에서 사용하여 한 번에 둘 이상의 인덱스를 로드할 수 있습니다.
 
 ### <a name="step-2-create-an-index"></a>2단계: 인덱스 만들기
-인덱서는 데이터 수집과 관련된 몇 가지 작업을 자동화하지만 인덱스를 만드는 작업은 포함되지 않습니다. 필수 구성 요소로서 외부 데이터 원본의 인덱스와 일치하는 필드를 포함한 미리 정의된 인덱스가 있어야 합니다. 인덱스를 구성하는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 참조하세요. 필드 연결 도움말은 [Azure Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+인덱서는 데이터 수집과 관련된 몇 가지 작업을 자동화하지만 인덱스를 만드는 작업은 일반적으로 포함되지 않습니다. 필수 구성 요소로서 외부 데이터 원본의 인덱스와 일치하는 필드를 포함한 미리 정의된 인덱스가 있어야 합니다. 인덱스를 구성하는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 참조하세요. 필드 연결 도움말은 [Azure Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+
+> [!Tip]
+> 인덱서가 인덱스를 생성할 수 없지만 포털에서 **데이터 가져오기** 마법사를 통해 가능합니다. 대부분의 경우 마법사는 원본에서 기존 메타데이터의 인덱스 스키마를 유추할 수 있고 마법사가 활성화되어 있는 동안 인라인으로 편집할 수 있는 예비 인덱스 스키마를 표시합니다. 서비스에서 인덱스가 생성되면 포털에서 추가 편집 작업은 새 필드를 추가하는 것으로 제한됩니다. 인덱스를 수정하지 않고 만들기 위해 마법사를 사용합니다. 자동 학습은 [포털 연습](search-get-started-portal.md)의 단계를 수행합니다.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>3단계: 인덱서 만들기 및 예약
 인덱서 정의는 인덱스, 데이터 원본 및 일정을 지정하는 구문입니다. 해당 데이터 원본이 동일한 구독에 있으면 인덱서도 다른 서비스에서 데이터 원본을 참조할 수 있습니다. 인덱서를 구성하는 방법에 대한 자세한 내용은 [인덱서 만들기(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조하세요.
@@ -75,11 +75,9 @@ Azure Search의 *인덱서* 는 외부 데이터 원본에서 검색 가능한 �
 ## <a name="next-steps"></a>다음 단계
 이제 기본 개념을 이해했으므로 다음 단계는 각 데이터 원본 유형과 관련된 요구 사항 및 작업을 검토하는 것입니다.
 
-* 
-            [Azure SQL Database 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* 
-            [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
 * [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)

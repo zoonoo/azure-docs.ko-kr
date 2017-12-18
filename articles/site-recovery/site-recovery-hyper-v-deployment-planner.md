@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner
 이 문서는 Hyper-V에서 Azure로 프로덕션 배포에 대한 Azure Site Recovery Deployment Planner 사용자 가이드입니다.
@@ -34,12 +34,15 @@ Azure Site Recovery Deployment Planner(버전 2)는 Hyper-V에서 Azure로 재�
 
 **호환성 평가**
 
-* 디스크 수, 디스크 크기, IOPS, 변동 및 몇 가지 VM 특성에 기반한 VM 적합성 평가입니다.
+* VM 적합성 평가(디스크 수, 디스크 크기, IOPS, 변동률 및 몇 가지 VM 특성 기준)
 
 **네트워크 대역폭 요구 사항 및 RPO 평가**
 
 * 델타 복제에 필요한 예상 네트워크 대역폭
 * Azure Site Recovery를 통해 온-프레미스에서 Azure로 가져올 수 있는 처리량
+* 지정된 대역폭에서 수행할 수 있는 RPO
+* 낮은 대역폭을 프로비전하는 경우 원하는 RPO에 미치는 영향
+
     
 **Azure 인프라 요구 사항**
 
@@ -52,6 +55,7 @@ Azure Site Recovery Deployment Planner(버전 2)는 Hyper-V에서 Azure로 재�
 
 **온-프레미스 인프라 요구 사항**
 * 성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 저장소의 각 볼륨에 필요한 사용 가능한 저장소 공간이며, VM 복제로 인해 프로덕션 응용 프로그램에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다.
+* Hyper-V 복제에 설정할 최대 복사 빈도
 
 **초기 복제 일괄 처리 지침** 
 * 보호에 사용할 VM 일괄 처리 수

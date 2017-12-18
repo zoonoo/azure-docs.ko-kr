@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka 소개
 
@@ -62,6 +62,8 @@ HDInsight의 Kafka는 다음과 같은 기능을 제공합니다.
 ![Kafka 클러스터 구성](./media/apache-kafka-introduction/kafka-cluster.png)
 
 이 다이어그램은 소비자 그룹, 분할 및 복제를 사용하여 내결함성으로 이벤트의 병렬 읽기를 제공하는 일반적인 Kafka 구성을 보여 줍니다. Apache ZooKeeper는 Kafka 클러스터의 상태를 관리하는 것처럼 동시, 복원 가능한 낮은 대기 시간 트랜잭션에 대해 빌드됩니다. Kafka는 *토픽*에 레코드를 저장합니다. *생산자*에서 레코드를 생성하고, *소비자*에서 이 레코드를 소비합니다. 생산자는 Kafka *broker*로부터 레코드를 검색합니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker입니다. 스트리밍 데이터의 병렬 처리를 허용하여 하나의 파티션이 각 소비자에 대해 생성됩니다. 복제는 노드(브로커) 가동 중단으로부터 보호하여 노드 간에 파티션을 확산하기 위해 사용됩니다. *(L)*로 표시되는 파티션은 특정 파티션에 대한 선행부입니다. 생산자 트래픽은 ZooKeeper에서 관리하는 상태를 사용하여 각 노드의 선행부로 라우팅됩니다.
+
+각 Kafka broker에서는 Azure Managed Disks를 사용합니다. 디스크 수는 사용자 정의이며 broker당 최대 16TB의 저장소를 제공할 수 있습니다.
 
 > [!IMPORTANT]
 > Kafka는 Azure 데이터 센터에서 기본 하드웨어(랙)를 인식하지 않습니다. 파티션이 기본 하드웨어에서 올바르게 균형이 조정되었는지 확인하려면 [데이터(Kafka)의 고가용성 구성](apache-kafka-high-availability.md)을 참조하세요.

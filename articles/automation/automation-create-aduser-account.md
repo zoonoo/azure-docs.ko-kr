@@ -3,7 +3,7 @@ title: "Azure AD 사용자 계정 만들기 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation에서 Runbook에 대해 Azure AD 사용자 계정 자격 증명을 만들어서 Azure 및 클래식 Azure에서 인증하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory 사용자, azure 서비스 관리, azure ad 사용자 계정"
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Azure 클래식 배포 및 Resource Manager를 사용하여 Runbook 인증
 이 문서에서는 Azure 클래식 배포 모델 또는 Azure Resource Manager 리소스에 대해 실행되는 Azure Automation Runbook에 대한 Azure AD 사용자 계정을 구성하기 위해 수행해야 하는 단계를 설명합니다.  Azure Resource Manager 기반 Runbook에 대해 이 인증 ID가 계속 지원되겠지만 Azure 실행 계정을 사용할 것을 권장합니다.       
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure 클래식 배포에서 리소스를 관리하는 데 Runbook을 사용하기 위한 Azure Automation 계정을 만듭니다.  
 
 > [!NOTE]
-> Azure 클래식 포털을 사용하여 만든 Automation 계정은 Azure 클래식 포털과 Azure Portal 및 각 cmdlet 집합에서 관리할 수 있습니다. 계정이 만들어지면 계정 내에서 리소스를 만들고 관리하는 방법에는 차이가 없습니다. Azure 클래식 포털을 계속 사용하려는 경우, Azure Portal 대신 사용하여 모든 Automation 계정을 만들어야 합니다.
+> Azure 클래식 포털을 사용하여 만든 Automation 계정은 Azure 클래식 포털 및 Azure Portal 그리고 각 cmdlet 집합에서 관리할 수 있습니다. 계정이 만들어지면 계정 내에서 리소스를 만들고 관리하는 방법에는 차이가 없습니다. Azure 클래식 포털을 계속 사용하려는 경우, Azure Portal 대신 사용하여 모든 Automation 계정을 만들어야 합니다.
 > 
 > 
 

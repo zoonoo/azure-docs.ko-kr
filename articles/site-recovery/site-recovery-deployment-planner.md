@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로 Azure Site Recovery Deployment Planner
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -42,6 +42,8 @@ Azure Site Recovery Deployment Planner(버전 2)는 Hyper-V에서 Azure로 재�
 * 델타 복제에 필요한 예상 네트워크 대역폭
 * Site Recovery를 통해 온-프레미스에서 Azure로 가져올 수 있는 처리량
 * 지정된 시간 내에 초기 복제를 완료하기 위해 예상 대역폭에 따라 일괄 처리할 VM의 수
+* 지정된 대역폭에서 수행할 수 있는 RPO
+* 낮은 대역폭을 프로비전하는 경우 원하는 RPO에 미치는 영향
 
 **Azure 인프라 요구 사항**
 
@@ -55,7 +57,7 @@ Azure Site Recovery Deployment Planner(버전 2)는 Hyper-V에서 Azure로 재�
 **온-프레미스 인프라 요구 사항**
 * 온-프레미스 배포에 필요한 구성 서버 및 프로세스 서버의 수
 
-**Azure로 DR에 대한 예상 비용** 
+**Azure로 DR에 대한 예상 비용**
 * Azure로 DR에 대한 총 예상 비용: 계산, 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용
 * VM별 자세한 비용 분석
 

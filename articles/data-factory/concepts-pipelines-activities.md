@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -201,7 +201,7 @@ typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 
 dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency)을 참조하세요. | 아니요
 
 ### <a name="activity-dependency"></a>작업 종속성
-작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 서로 다른 종속성 조건에 따라 한 작업이 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다. 
+작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 작업은 서로 다른 종속성 조건을 포함하는 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다. 
 
 서 로다른 종속성 조건: 성공, 실패, 건너뜀, 완료됨.
 

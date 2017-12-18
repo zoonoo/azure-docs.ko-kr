@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics란?
 Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는[\(OMS\)Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md)의 서비스입니다.  이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.  이 문서에서는 Log Analytics에서 제공하는 값, 작동하는 방법의 개요 및 더 알아볼 수 있도록 더 자세한 내용에 대한 링크를 간략하게 설명합니다.
@@ -60,7 +60,7 @@ Log Analytics의 핵심은 Azure 클라우드에서 호스트되는 OMS 리포�
 
 ![OMS 리포지토리](media/log-analytics-overview/overview.png)
 
-연결된 원본은 Log Analytics에서 수집된 데이터를 생성하는 컴퓨터 및 기타 리소스입니다.  여기에는 직접 연결된 [Windows](log-analytics-windows-agents.md) 및 [Linux](log-analytics-linux-agents.md) 컴퓨터에 설치된 에이전트 또는 [연결된 System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)의 에이전트가 포함될 수 있습니다.  Azure 리소스의 경우 Log Analytics는 [Azure Monitor 및 Azure 진단](log-analytics-azure-storage.md)에서 데이터를 수집합니다.
+연결된 원본은 Log Analytics에서 수집된 데이터를 생성하는 컴퓨터 및 기타 리소스입니다.  여기에는 직접 연결된 [Windows](log-analytics-windows-agent.md) 및 [Linux](log-analytics-linux-agents.md) 컴퓨터에 설치된 에이전트 또는 [연결된 System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)의 에이전트가 포함될 수 있습니다.  Azure 리소스의 경우 Log Analytics는 [Azure Monitor 및 Azure 진단](log-analytics-azure-storage.md)에서 데이터를 수집합니다.
 
 [데이터 원본](log-analytics-data-sources.md) 은 각각의 연결된 원본에서 수집되는 여러 종류의 데이터입니다.  여기에는 [Windows](log-analytics-data-sources-windows-events.md) 및 Linux 에이전트의 [이벤트](log-analytics-data-sources-windows-events.md) 및 [성능 데이터](log-analytics-data-sources-performance-counters.md)뿐만 아니라 [IIS 로그](log-analytics-data-sources-iis-logs.md) 및 [사용자 지정 텍스트 로그](log-analytics-data-sources-custom-logs.md)와 같은 원본이 포함됩니다.  수집할 각 데이터 원본을 구성하면 각 연결된 원본에 구성이 자동으로 전달됩니다.
 
@@ -69,7 +69,7 @@ Log Analytics의 핵심은 Azure 클라우드에서 호스트되는 OMS 리포�
 ## <a name="log-analytics-architecture"></a>Log Analytics 아키텍처
 중앙 구성 요소가 Azure 클라우드에서 호스트되기 때문에 Log Analytics의 배포에는 최소한의 요구 사항만 제공됩니다.  여기에는 리포지토리와 함께 수집된 데이터를 상호 연결하고 분석할 수 있는 서비스가 포함됩니다.  모든 브라우저에서 포털에 액세스할 수 있으므로 클라이언트 소프트웨어에 대한 요구 사항이 없습니다.
 
-[Windows](log-analytics-windows-agents.md) 및 [Linux](log-analytics-linux-agents.md) 컴퓨터에 에이전트를 설치해야 하지만 이미 [연결된 SCOM 관리 그룹](log-analytics-om-agents.md)의 멤버인 컴퓨터에 필요한 추가 에이전트는 없습니다.  SCOM 에이전트는 Log Analytics로 데이터를 전달할 관리 서버와 계속 통신합니다.  하지만 일부 솔루션의 경우 에이전트가 Log Analytics와 직접 통신해야 합니다.  해당 통신 요구 사항은 각 솔루션에 대한 설명서에 지정됩니다.
+[Windows](log-analytics-windows-agent.md) 및 [Linux](log-analytics-linux-agents.md) 컴퓨터에 에이전트를 설치해야 하지만 이미 [연결된 SCOM 관리 그룹](log-analytics-om-agents.md)의 멤버인 컴퓨터에 필요한 추가 에이전트는 없습니다.  SCOM 에이전트는 Log Analytics로 데이터를 전달할 관리 서버와 계속 통신합니다.  하지만 일부 솔루션의 경우 에이전트가 Log Analytics와 직접 통신해야 합니다.  해당 통신 요구 사항은 각 솔루션에 대한 설명서에 지정됩니다.
 
 [Log Analytics에 등록](log-analytics-get-started.md)하면 OMS 작업 영역이 만들어집니다.  작업 영역이 고유한 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경이라고 생각하면 됩니다. 프로덕션 및 테스트와 같은 여러 환경을 지원하기 위해 구독에 여러 작업 영역을 만들 수 있습니다.
 

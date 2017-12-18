@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
@@ -37,6 +37,10 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 9. 등록을 적용하려는 경우를 결정합니다. 언제든지 등록을 적용할 수 있습니다. 또한 일정 기간이 지나면 인증 정보를 다시 확인하도록 사용자에게 요구할 수 있습니다.
 10. 보고 기능을 사용합니다. 시간이 지남에 따라 [Azure AD에서 제공하는 보고 기능](active-directory-passwords-reporting.md)을 사용하여 사용자 등록 및 사용량을 검토할 수 있습니다.
 11. 암호 재설정을 사용합니다. 준비가 되면 **셀프 서비스 암호 재설정 사용**을 **전체**로 설정하여 모든 사용자가 암호 재설정을 사용하도록 설정합니다. 
+
+   > [!NOTE]
+   > 선택한 그룹에서 모든 사용자로 이 옵션을 변경하면 사용자가 테스트 그룹의 일부로 등록된 기존 인증 데이터를 무효화하지 않습니다. 구성되고 유효한 인증 데이터를 등록한 사용자는 계속 작동합니다.
+
 12. [Windows 10 사용자가 로그인 화면에서 해당 암호를 재설정할 수 있습니다](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 
 대부분의 고객은 웹 페이지를 호스팅하고 https://passwords.contoso.com과 같은 루트 DNS 항목을 만드는 방법을 선택합니다. 이 페이지를 다음 정보에 대한 링크로 채웁니다.
 
-* [Azure AD 암호 재설정 포털](https://aka.ms/sspr)
-* [Azure AD 암호 재설정 등록 포털](http://aka.ms/ssprsetup)
-* [Azure AD 암호 변경 포털](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Azure AD 암호 재설정 포털 - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Azure AD 암호 재설정 등록 포털 - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD 암호 변경 포털 - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * 다른 조직 관련 정보
 
 보낸 전자 메일 통신 또는 전단지에서 사용자가 서비스를 사용해야 할 때 이동할 수 있는 유명하고 기억하기 쉬운 URL을 포함할 수 있습니다. 사용자에게 도움이 되도록 조직의 필요에 맞게 사용하고 사용자 지정할 수 있는 [샘플 암호 재설정 페이지](https://github.com/ajamess/password-reset-page)를 만들었습니다.

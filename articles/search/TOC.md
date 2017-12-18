@@ -33,6 +33,10 @@
 ### [서비스 한도](search-limits-quotas-capacity.md)
 ### [서비스 확장성](search-capacity-planning.md)
 ### [다중 테넌트 지원을 위한 디자인 패턴](search-modeling-multitenant-saas-applications.md)
+## 보안
+### [데이터 및 운영 보안](search-security-overview.md)
+### [ID 필터를 사용하여 보안](search-security-trimming-for-azure-search.md)
+### [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)
 ## 개발
 ### [API 버전](search-api-versions.md)
 ### [Node.js로 작성된 개발](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
 ### [동시 업데이트 처리](search-howto-concurrency.md)
 ### [코드 샘플](https://azure.microsoft.com/resources/samples/?service=search)
-## 관리
-### Azure Search 관리
-#### [Azure 포털](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [사용 및 통계 모니터링](search-monitor-usage.md)
-### [트래픽 분석 검색](search-traffic-analytics.md)
-### [성능 및 최적화](search-performance-optimization.md)
 ## 데이터 로드
 ### [인덱서 개요](search-indexer-overview.md)
 ### [Azure Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [개요](search-filters.md)
 #### [패싯 필터](search-filters-facets.md)
 #### [언어 필터](search-filters-language.md)
-#### [보안 필터(일반)](search-security-trimming-for-azure-search.md)
-#### [보안 필터(AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [식 구문 참조](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [페이징 결과](search-pagination-page-layout.md)
 ### [점수 매기기](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [패싯 탐색](search-faceted-navigation.md)
 ### [동의어 미리 보기](search-synonyms.md)
 ### [moreLikeThis 미리 보기](search-more-like-this.md)
+## 관리 및 분석
+### [Azure Portal을 사용하여 관리](search-manage.md)
+### [Powershell을 사용하여 관리](search-manage-powershell.md)
+### [사용 및 통계 모니터링](search-monitor-usage.md)
+### [트래픽 분석 검색](search-traffic-analytics.md)
+### [성능 및 최적화](search-performance-optimization.md)
 
 # 참조
 

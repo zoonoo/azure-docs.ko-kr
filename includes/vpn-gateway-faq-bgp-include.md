@@ -10,7 +10,7 @@
 ### <a name="are-there-asns-reserved-by-azure"></a>Azure에서 예약된 ASN이 있나요?
 예. 다음 ASN은 내부 및 외부 피어링에 대해 Azure에서 예약되어 있습니다.
 
-* 공용 ASN: 8075, 8076, 12076
+* 공용 ASN: 8074, 8075, 12076
 * 개인 ASN: 65515, 65517, 65518, 65519, 65520
 
 Azure VPN 게이트웨이에 연결할 때 온-프레미스 VPN 장치에 대해 이러한 ASN을 지정할 수 없습니다.
@@ -21,7 +21,7 @@ Azure VPN 게이트웨이에 연결할 때 온-프레미스 VPN 장치에 대해
 23456, 64496-64511, 65535-65551 및 429496729
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>온-프레미스 VPN 네트워크와 Azure VNet에 동일한 ASN을 사용할 수 있나요?
-아니요. 온-프레미스 네트워크와 Azure VNet을 함께 BGP에 연결하려면 서로 다른 ASN을 할당해야 합니다. 크로스 프레미스 연결에 대한 BGP 활성화 여부에 관계없이 Azure VPN 게이트웨이에 할당되는 기본 ASN은 65515입니다. VPN 게이트웨이를 만들 때 다른 ASN을 적용하여 이 기본값을 다시 정의하거나, 게이트웨이를 만든 후 ASN을 변경할 수 있습니다. 해당하는 Azure 로컬 네트워크 게이트웨이에 온-프레미스 ASN을 할당해야 합니다.
+아니요. 온-프레미스 네트워크와 Azure VNet을 함께 BGP에 연결하려면 서로 다른 ASN을 할당해야 합니다. 크로스 프레미스 연결에 대한 BGP 활성화 여부에 관계없이 Azure VPN Gateway에 할당되는 기본 ASN은 65515입니다. VPN 게이트웨이를 만들 때 다른 ASN을 적용하여 이 기본값을 다시 정의하거나, 게이트웨이를 만든 후 ASN을 변경할 수 있습니다. 해당하는 Azure 로컬 네트워크 게이트웨이에 온-프레미스 ASN을 할당해야 합니다.
 
 ### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>Azure VPN 게이트웨이가 나에게 알리는 주소 접두어는 무엇인가요?
 Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알립니다.

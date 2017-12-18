@@ -3,7 +3,7 @@ title: "Log Analytics 경고에서 Azure Automation Runbook 호출 | Microsoft D
 description: "이 문서는 Microsoft OMS Log Analytics 경고에서 Automation Runbook을 호출하는 방법에 대한 개요를 제공합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>OMS Log Analytics 경고에서 Azure Automation Runbook 호출
 
@@ -43,7 +43,7 @@ Automation & Control 제품이 OMS 작업 영역에 설치되고 구성된 경�
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Runbook의 특징(두 가지 옵션)
 
-Log Analytics 경고에서 Runbook을 호출하기 위한 두 가지 방법에는 경고 규칙을 구성하기 전에 이해할 필요가 있는 특징이 있습니다.
+Log Analytics 경고에서 Runbook을 호출하기 위한 두 가지 방법에는 경고 규칙을 구성하기 전에 이해할 필요가 있는 특징이 있습니다. 경고 데이터는 **SearchResult**라는 단일 속성에서 json 형식입니다. 이 형식은 표준 페이로드를 포함하는 Runbook 및 웹후크 작업용입니다. **RequestBody**의 **IncludeSearchResults:True**를 비롯한 사용자 지정 페이로드를 포함하는 웹후크 작업에서 속성은 **SearchResults**입니다.
 
 * **Object** 유형인 **WebhookData**라는 Runbook 입력 매개 변수가 있어야 합니다. 이는 필수 사항이거나 선택 사항일 수 있습니다. 경고는 이 입력 매개 변수를 사용하여 검색 결과를 Runbook으로 전달합니다.
 
@@ -61,6 +61,7 @@ Log Analytics 경고에서 Runbook을 호출하기 위한 두 가지 방법에�
     ```
 
     *$SearchResult*는 개체 배열이며, 각 개체는 하나의 검색 결과의 값을 가진 필드를 포함합니다.
+
 
 ## <a name="example-walkthrough"></a>연습 예
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 서비스가 중지되면 Log Analytics의 경고 규칙은 일치 항목을 검색하고 Runbook을 트리거하고 경고 컨텍스트를 Runbook에 보냅니다. Runbook은 서비스가 중지되었는지 확인하고, 중지된 경우 서비스를 다시 시작하며, 정상적으로 시작되는지 확인하고, 결과를 출력하는 작업을 수행합니다.     
 
 또는 OMS 작업 영역에 연결된 Automation 계정에 없는 경우, 웹후크 작업으로 경고 규칙을 구성하여 Runbook을 트리거하고 앞서 언급한 지침을 따라 Runbook을 구성하여 \*.SearchResult\*에서 JSON 형식 문자열 및 필터를 변환합니다.    
+
+>[!NOTE]
+> 작업 영역을 [새 Log Analytics 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 웹후크 페이로드가 변경됩니다.  형식의 세부 내용은 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

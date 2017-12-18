@@ -3,7 +3,7 @@ title: "Azure Automation 시작 | Microsoft Docs"
 description: "이 문서에서는 Azure Marketplace에서 제공하는 제품을 등록하기 위한 준비 과정에서 설계 및 구현 세부 정보를 검토함으로써 Azure Automation 서비스에 대해 간략히 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure Automation 시작
 
@@ -43,8 +43,8 @@ Azure Automation에 저장된 DSC 구성은 Azure 가상 컴퓨터에 직접 적
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="automation-dsc"></a>자동화 DSC
-Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
+### <a name="automation-dsc"></a>Automation DSC
+Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터(클래식)
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터
@@ -112,7 +112,7 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 **인증 및 보안 방법** 섹션에는 이러한 환경에 대해 기존 계정 또는 새 계정을 사용하여 해당 환경에 대한 인증을 구성하기 위한 개요 및 구현 단계를 제공하는 문서가 있습니다.  Azure 실행 계정 및 클래식 실행 계정과 관련하여 원래 실행 계정 또는 클래식 실행 계정으로 구성되지 않은 경우 [Automation 실행 계정 업데이트](automation-create-runas-account.md) 항목에서 포털 또는 PowerShell을 사용하여 기존 Automation 계정을 실행 계정으로 업데이트하는 방법을 설명합니다. 엔터프라이즈 CA(인증 기관)에서 발급한 인증서로 실행 계정 및 클래식 실행 계정을 만들려면 이 문서를 검토하여 이 구성을 사용하여 계정을 만드는 방법에 대해 알아봅니다.     
  
 ## <a name="network-planning"></a>네트워크 계획
-Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md#network) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agent.md) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
 아래 정보는 Hybrid Runbook Worker에서 Automation과 통신하는 데 필요한 포트 및 URL을 나열합니다.
 
@@ -161,7 +161,7 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 
 2. **새로 만들기**를 클릭합니다.<br><br> ![Azure Portal에서 새 옵션을 선택합니다.](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. **Automation**을 검색한 다음 검색 결과에서 **Automation 및 컨트롤***을 선택합니다.<br><br> ![Marketplace에서 Automation 및 컨트롤을 검색하고 선택합니다](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. **Automation**을 검색한 다음 검색 결과에서 **Automation 및 컨트롤***을 선택합니다.<br><br> ![Marketplace에서 Automation and Control을 검색하고 선택합니다](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. 제품에 대한 설명을 읽은 후에 **만들기**를 클릭합니다.  
 

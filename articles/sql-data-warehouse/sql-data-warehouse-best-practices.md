@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
 이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
 
 Azure SQL Data Warehouse를 이제 시작하는 사용자라면 이 문서가 어려울 수 있습니다.  항목은 주로 중요한 순서로 배치되어 있습니다.  먼저 처음에 나오는 개념부터 살펴보는 것이 좋습니다.  SQL 데이터 웨어하우스 사용에 익숙해지면 돌아와서 더 많은 개념을 살펴봅니다.  금방 모든 항목을 이해할 수 있습니다.
+
+설명서를 로드하려면 [데이터를 로드하기 위한 지침](guidance-for-loading-data.md)을 참조하세요.
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
 SQL Data Warehouse의 핵심 기능은 사용 중이 아닐 때 일시 중지하는 기능으로 계산 리소스의 비용이 발생되지 않도록 하는 것입니다.  또 다른 주요 기능은 리소스 규모를 조정하는 기능입니다.  일시 중지 및 크기 조정은 Azure 포털 또는 PowerShell 명령을 통해 수행할 수 있습니다.  이러한 기능으로 사용 중이 아닐 때 데이터 웨어하우스의 비용을 크게 절감할 수 있으므로 이러한 기능을 익혀 보세요.  항상 데이터 웨어하우스에 액세스할 수 있도록 하고 싶은 경우 일시 중지보다는 가장 작은 크기인 DW100으로 규모를 축소하는 것이 좋습니다.
@@ -52,7 +54,7 @@ SQL Data Warehouse는 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 
 또한 [데이터 로드][Load data], [PolyBase 사용 지침][Guide for using PolyBase], [Azure SQL Data Warehouse 로딩 패턴 및 전략][Azure SQL Data Warehouse loading patterns and strategies], [Azure Data Factory를 사용하여 데이터 로드][Load Data with Azure Data Factory], [Azure Data Factory를 사용하여 데이터 이동][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [CTAS(Create Table As Select)][Create table as select (CTAS)]도 참조하세요.
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
-외부 테이블이라고도 하는 Polybase는 데이터를 로드하는 가장 빠른 방법일 수 있지만 쿼리에 적합하지는 않습니다. SQL Data Warehouse Polybase 테이블은 현재 Azure Blob 파일만 지원합니다. 이러한 파일에는 지원 계산 리소스가 없습니다.  결과적으로 SQL Data Warehouse가 이 작업을 오프로드할 수 없으므로, 데이터를 읽기 위해서는 tempdb에 로드하여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
+외부 테이블이라고도 하는 Polybase는 데이터를 로드하는 가장 빠른 방법일 수 있지만 쿼리에 적합하지는 않습니다. SQL Data Warehouse Polybase 테이블은 현재 Azure Blob 파일 및 Azure Data Lake 저장소만을 지원합니다. 이러한 파일에는 지원 계산 리소스가 없습니다.  결과적으로 SQL Data Warehouse가 이 작업을 오프로드할 수 없으므로, 데이터를 읽기 위해서는 tempdb에 로드하여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
 
 또한 [PolyBase 사용 지침][Guide for using PolyBase]도 참조하세요.
 
@@ -127,8 +129,8 @@ SQL Data Warehouse에는 쿼리 실행을 모니터링하는 데 사용할 수 �
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

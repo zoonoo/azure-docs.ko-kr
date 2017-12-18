@@ -27,17 +27,17 @@
 ### [엔터프라이즈의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## 구독 관리
+### [구독 또는 관리 그룹 찾기](billing-enterprise-mgmt-grp-find.md)
 ### [관리자 역할 관리](billing-add-change-azure-subscription-administrator.md)
 ### [구독 소유권 이전](billing-subscription-transfer.md)
 ### [사용 해제된 구독 다시 활성화](billing-subscription-become-disable.md)
 ### [무료 구독에서 업그레이드](billing-upgrade-azure-subscription.md)
 ### [구독 제안 전환](billing-how-to-switch-azure-offer.md)
+### [Azure AD 테넌트 링크](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [구독 취소](billing-how-to-cancel-azure-subscription.md)
-### [구독 또는 관리 그룹 찾기](billing-enterprise-mgmt-grp-find.md)
 ## 계정 관리
 ### [프로필 편집](billing-how-to-change-azure-account-profile.md)
 ### [결제 정보 업데이트](billing-how-to-change-credit-card.md)
-### [Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [청구서에 따른 구독에 대한 요금 지불](billing-how-to-pay-by-invoice.md)
 ## [예약 VM 인스턴스 관리](billing-manage-reserved-vm-instance.md)
 ## 문제 해결

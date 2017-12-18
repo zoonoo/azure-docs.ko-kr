@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery를 사용하여 보호에서 디스크 제외 | Microsoft Docs"
-description: "VMware에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다."
+description: "Hyper-V에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,24 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.openlocfilehash: 17a7f8032cc40b8b4a18240e7d20570d73ec9c49
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware에서 Azure 시나리오의 복제에서 디스크를 제외
-이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다. 
+# <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
+이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **기능** | **VMware에서 Azure로** | **Hyper-V에서 Azure로** | **Azure 간**| **Hyper-V 간** 
 --|--|--|--|--
 디스크 제외 | 예 | 예 | 아니요 | 아니요
-
-## <a name="prerequisites"></a>필수 조건
-
-기본적으로 컴퓨터의 모든 디스크가 복제됩니다. VMware에서 Azure로 복제하는 경우 복제에서 디스크를 제외하려면 복제를 사용하도록 설정하기 전에 컴퓨터에 모바일 서비스를 수동으로 설치해야 합니다.
-
 
 ## <a name="why-exclude-disks-from-replication"></a>복제에서 디스크를 제외하는 이유는?
 다음과 같은 이유로 복제에서 디스크를 제외해야 하는 경우가 자주 있습니다.
@@ -46,28 +41,22 @@ ms.lasthandoff: 12/13/2017
 1. 단일 가상 디스크를 두 개의 가상 디스크로 분할합니다. 한 가상 디스크에는 운영 체제가 있고 다른 하나에는 페이징 파일이 있습니다.
 2. 복제에서 페이징 파일 디스크를 제외합니다.
 
-마찬가지로, Microsoft SQL Server tempdb 파일 및 시스템 데이터베이스 파일이 모두 있는 디스크를 최적화하기 위해 다음 단계를 사용할 수 있습니다.
+마찬가지로 Microsoft SQL Server tempdb 파일 및 시스템 데이터베이스 파일이 모두 있는 디스크를 최적화하기 위해 다음 단계를 사용할 수 있습니다.
 
 1. 별도의 두 디스크에 tempdb와 시스템 데이터베이스를 유지합니다.
 2. 복제에서 tempdb 디스크를 제외합니다.
 
-## <a name="how-to-exclude-disks-from-replication"></a>복제에서 디스크를 제외하는 방법은?
+## <a name="how-to-exclude-disks"></a>디스크를 제외하는 방법
+[복제 사용](site-recovery-hyper-v-site-to-azure.md) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
 
-[복제 사용](site-recovery-vmware-to-azure.md) 워크플로에 따라 Azure Site Recovery 포털에서 가상 컴퓨터를 보호합니다. 워크플로 네 번째 단계에서는 **복제할 디스크** 열을 사용하여 복제에서 디스크를 제외합니다. 기본적으로 모든 디스크가 복제하도록 선택됩니다. 복제에서 제외하려는 디스크의 확인란 선택을 취소하고 복제를 사용하도록 설정하는 단계를 완료합니다.
-
-![복제에서 디스크를 제외하고 VMware에서 Azure 장애 복구에 대한 복제를 사용하도록 설정](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![복제에서 디스크를 제외하고 Azure 장애 복구에 Hyper-V에 대한 복제를 사용하도록 설정](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * 이미 모바일 서비스가 설치된 디스크만 제외할 수 있습니다. 모바일 서비스는 복제를 사용하도록 설정된 후 푸시 메커니즘만 사용하여 설치되기 때문에 모바일 서비스를 수동으로 설치해야 합니다.
-> * 기본 디스크만 복제에서 제외할 수 있습니다. 운영 체제 또는 동적 디스크를 제외할 수 없습니다.
-> * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
+> * 기본 디스크만 복제에서 제외할 수 있습니다. 운영 체제 디스크를 제외할 수 없습니다. 동적 디스크는 제외하지 않는 것이 좋습니다. Azure Site Recovery는 게스트 가상 컴퓨터에서 가상 하드 디스크(VHD)가 기본인지 아니면 동적인지 확인할 수 없습니다.  모든 종속적인 동적 볼륨 디스크가 제외되지 않으면, 보호된 동적 디스크가 장애 조치 가상 컴퓨터에서 실패한 디스크로 나타나며 해당 디스크의 데이터에 액세스할 수 없습니다.
+> * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 가상 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
 > * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
-> * Window 가상 컴퓨터: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다.
-> * Linux 가상 컴퓨터: Azure에서 수동으로 만드는 디스크는 장애 복구됩니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
->
-
+> * Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 Azure에서 다시 Hyper-V로 장애 복구됩니다. 장애 복구 또는 Hyper-V에서 Azure로 역방향 복제에서 수동으로 만든 디스크를 포함할 수 없습니다.
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>디스크 제외의 종단 간 시나리오
 디스크 제외 기능의 이해를 위해 두 가지 시나리오를 살펴보겠습니다.
@@ -75,7 +64,7 @@ ms.lasthandoff: 12/13/2017
 - SQL Server tempdb 디스크
 - 페이징 파일(pagefile.sys) 디스크
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
 제외할 수 있는 tempdb가 있는 SQL Server 가상 컴퓨터를 살펴보겠습니다.
 
 가상 디스크의 이름은 SalesDB입니다.
@@ -153,7 +142,7 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 * [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>장애 복구(Azure에서 온-프레미스 호스트로)
-이제 Azure에서 온-프레미스 VMware로 장애 조치를 수행할 때 복제되는 디스크에 대해 살펴보겠습니다. Azure에서 수동으로 만드는 디스크는 복제되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다. 또한 임시 저장소 디스크도 온-프레미스 호스트로 복제하지 않습니다.
+이제 Azure에서 온-프레미스 Hyper-V 호스트로 장애 조치를 수행할 때 복제되는 디스크에 대해 살펴보겠습니다. Azure에서 수동으로 만드는 디스크는 복제되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다. 또한 임시 저장소 디스크도 온-프레미스 호스트로 복제하지 않습니다.
 
 ### <a name="failback-to-original-location-recovery"></a>원래 위치 복구로 장애 복구
 
@@ -166,15 +155,17 @@ Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
-원래 위치로 장애 복구가 수행되면 장애 복구 가상 컴퓨터 디스크 구성에는 제외된 디스크가 없습니다. VMware에서 Azure에서 제외된 디스크는 장애 복구 가상 컴퓨터에서 사용할 수 없습니다.
+원래 위치로 장애 복구가 수행되면 장애 복구 가상 컴퓨터 디스크 구성은 Hyper-V의 원래 가상 컴퓨터 디스크 구성과 동일하게 유지됩니다. Hyper-V 사이트에서 Azure로 제외된 디스크는 장애 복구 가상 컴퓨터에서 사용할 수 있습니다.
 
-Azure에서 온-프레미스 VMware로 계획된 장애 조치(failover) 후 VMWare 가상 컴퓨터(원래 위치)의 디스크는 다음과 같습니다.
+Azure에서 온-프레미스 Hyper-V로 계획된 장애 조치(failover) 후 Hyper-V 가상 컴퓨터(원래 위치)의 디스크는 다음과 같습니다.
 
-**게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
---- | --- | ---
-DISK0 | C:\ | 운영 체제 디스크
-Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
-Disk2 | G:\ | 사용자 데이터베이스 2
+**디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |   C:\ | 운영 체제 디스크
+DB-Disk1 | Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
+DB-Disk2(제외된 디스크) | Disk2 | E:\ | 임시 파일
+DB-Disk3(제외된 디스크) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\))
+DB-Disk4 | Disk4 | G:\ | 사용자 데이터베이스 2
 
 ## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예제 2: 페이징 파일(pagefile.sys) 디스크 제외
 
@@ -195,8 +186,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 ![원본 가상 컴퓨터의 페이징 파일 설정](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
-
-VMware에서 Azure에서 가상 머신의 장애 조치 후 Azure Virtual Machine의 디스크는 다음과 같습니다.
+Hyper-V에서 Azure에서 가상 머신을 장애 조치한 후에 Azure Virtual Machine의 디스크는 다음과 같습니다.
 
 **디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
@@ -226,7 +216,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 ![온-프레미스 가상 컴퓨터의 페이징 파일 설정](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-VMware에서 Azure에서 가상 머신의 장애 조치 후 Azure Virtual Machine의 디스크는 다음과 같습니다.
+Hyper-V에서 Azure에서 가상 머신을 장애 조치한 후에 Azure Virtual Machine의 디스크는 다음과 같습니다.
 
 **디스크 이름**| **게스트 운영 체제 디스크#**| **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---

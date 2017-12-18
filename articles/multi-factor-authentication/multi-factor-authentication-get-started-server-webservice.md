@@ -4,7 +4,7 @@ description: "Microsoft Authenticator 앱은 추가적인 대역외 인증 옵�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 
@@ -63,7 +63,7 @@ Microsoft Authenticator 앱을 사용하려면 앱이 모바일 앱 웹 서비�
 3. 어떤 이유로든 변경해야 하는 경우가 아니면 기본값을 사용하여 설치를 완료합니다.
 4. IIS에서 사이트에 SSL 인증서를 바인딩합니다.
 
-IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 웹 서비스 SDK는 SSL 인증서로 보호되어야 합니다. 이 작업을 위해 자체 서명된 인증서를 사용해도 됩니다. SSL 연결을 시작할 때 해당 인증서를 신뢰할 수 있도록 사용자 포털 웹 서버에 있는 로컬 컴퓨터 계정의 "신뢰할 수 있는 루트 인증 기관" 저장소로 인증서를 가져옵니다.
 
@@ -88,6 +88,7 @@ IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면
 
 7. 모바일 앱 웹 서비스가 설치된 웹 사이트가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고 IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.
 8. 모든 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+9. 웹 서비스 SDK에서 사용할 수 있는 방법에 대한 자세한 내용은 MFA 서버 도움말 파일을 참조하세요.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 모바일 앱 설정 구성
 

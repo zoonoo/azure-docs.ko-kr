@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio 연결된 서비스(미리 보기)
 
@@ -119,8 +119,8 @@ Visual Studio에서 Azure Cosmos DB 연결된 서비스를 사용하는 방법�
 
 이제 연결된 서비스를 설치하고 Azure Cosmos DB 계정을 사용하여 실행하고 있으므로 솔루션 개발을 시작하려면 자습서 중 하나를 계속 진행합니다.
 
-* [.NET의 DocumentDB API를 사용하여 개발](tutorial-develop-documentdb-dotnet.md)
-* [Azure Cosmos DB: DocumentDB API 시작 자습서](documentdb-get-started.md)
+* [.NET의 SQL API를 사용하여 개발](tutorial-develop-documentdb-dotnet.md)
+* [Azure Cosmos DB: SQL API 시작 자습서](documentdb-get-started.md)
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
 
