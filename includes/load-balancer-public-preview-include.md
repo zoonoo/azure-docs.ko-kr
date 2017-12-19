@@ -1,1 +1,0 @@
-이 표준 Load Balancer 공개 미리 보기는 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태의 가장 최신 알림은 [Azure Load Balancer 업데이트](https://azure.microsoft.com/en-us/updates/?product=load-balancer) 페이지를 확인하세요.
