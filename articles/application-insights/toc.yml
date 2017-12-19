@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: ASP.NET Core
           href: app-insights-asp-net-core.md
+        - name: 콘솔
+          href: application-insights-console.md
     - name: Java 앱 모니터링
       items:
         - name: 웹 앱

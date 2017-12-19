@@ -24,6 +24,8 @@
   items:
     - name: 계획 및 디자인
       items:
+        - name: Storage 계정 옵션
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure Files 배포에 대한 계획
           href: storage-files-planning.md
         - name: Azure 파일을 배포하는 방법
