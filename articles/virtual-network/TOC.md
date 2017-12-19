@@ -5,6 +5,7 @@
 ## [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)
 ## [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md)
 ## [보안](security-overview.md)
+## [컨테이너 네트워킹](container-networking.md)
 ## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
 ## [IP 주소 지정](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS 보호](ddos-protection-overview.md)
@@ -59,8 +60,8 @@
 #### [Azure CLI](create-public-ip-availability-zone-cli.md)
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
-### 가상 컴퓨터
-#### [가상 컴퓨터 네트워크 처리량](virtual-machine-network-throughput.md)
+### 가상 머신
+#### [가상 머신 네트워크 처리량](virtual-machine-network-throughput.md)
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -123,7 +124,7 @@
 #### [서비스 구성 파일에서 DNS 설정 지정](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
 ## 구성
-### 가상 컴퓨터
+### 가상 머신
 #### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)
 #### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록](virtual-networks-name-resolution-ddns.md)
@@ -156,7 +157,7 @@
 ### NIC(네트워크 인터페이스)
 #### [NIC 만들기, 변경 또는 삭제](virtual-network-network-interface.md)
 #### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
-### 가상 컴퓨터
+### 가상 머신
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
 ### [공용 IP 주소](virtual-network-public-ip-address.md)
 ### DDoS 보호

@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: 경고
           href: monitoring-overview-alerts.md
+        - name: 경고(미리 보기)
+          href: monitoring-overview-unified-alerts.md
+        - name: 로그 경고
+          href: monitor-alerts-unified-log.md
         - name: Autoscale
           href: monitoring-overview-autoscale.md
         - name: 활동 로그
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Azure Portal에서 경고 구성
           href: insights-alerts-portal.md
+        - name: Azure Portal의 경고(미리 보기)에서 메트릭 또는 로그 경고 구성
+          href: monitor-alerts-unified-usage.md
         - name: CLI를 사용하여 알림 구성
           href: insights-alerts-command-line-interface.md
         - name: Azure PowerShell을 사용하여 경고 구성

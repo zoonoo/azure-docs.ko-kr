@@ -61,6 +61,9 @@
 
 ## [랩 확장](devtest-lab-scale-lab.md)
 
+## CI/CD와 통합
+### [VSTS CI/CD 파이프라인에 랩 통합](devtest-lab-integrate-ci-cd-vsts.md)
+
 # 참조
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

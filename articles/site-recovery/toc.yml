@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: 자동화
       items:
+        - name: PowerShell을 사용하여 Azure에 VMware 가상 머신 복제
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 없음)
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: PowerShell을 사용하여 Azure로 Hyper-V 복제 설정(VMM 있음)
@@ -262,7 +264,7 @@
 - name: 참조
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell 클래식
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST (영문)

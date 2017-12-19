@@ -6,11 +6,11 @@
       href: overview.md
 - name: 빠른 시작
   items:
-    - name: Azure CLI를 사용하여 관리되는 응용 프로그램 만들기
+    - name: 관리되는 응용 프로그램 만들기
       href: managed-apps-quickstart-cli.md
 - name: 자습서
   items:
-    - name: 서비스 카탈로그 응용 프로그램 만들기
+    - name: 관리 응용 프로그램 파일 만들기
       href: publish-service-catalog-app.md
 - name: 샘플
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: 관리되는 리소스 업데이트
       href: update-managed-resources.md
-    - name: 서비스 카탈로그 앱 게시 - 포털
+    - name: 포털을 사용하여 게시
       href: publish-portal.md
 - name: 참조
   items:
