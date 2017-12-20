@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 ms.openlocfilehash: 56e29dc792ef832a7693b9c8769e9b4269766955
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>PowerShell에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/09/2017
 Powershell을 사용하여 부하 분산 장치를 설정하려면 다음 단계를 완료합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. 가상 컴퓨터를 만든 후 PowerShell cmdlet을 사용하여 동일한 클라우드 서비스 내에서 가상 컴퓨터로 부하 분산 장치를 추가할 수 있습니다.
+2. 가상 머신을 만든 후 PowerShell cmdlet을 사용하여 동일한 클라우드 서비스 내에서 가상 머신으로 부하 분산 장치를 추가할 수 있습니다.
 
-다음 예제에서는 "webfarm"이라고 하는 부하 분산 장치 집합을 클라우드 서비스 "mytestcloud"(또는 myctestcloud.cloudapp.net)에 추가하여, 부하 분산 장치의 끝점을 "web1" 및 "web2"라는 가상 컴퓨터에 추가합니다. 부하 분산 장치는 포트 80에서 트래픽을 받고 TCP를 사용하여 로컬 끝점(이 경우 포트 80)에서 정의된 가상 컴퓨터들 간의 부하를 분산합니다.
+다음 예제에서는 "webfarm"이라고 하는 부하 분산 장치 집합을 클라우드 서비스 "mytestcloud"(또는 myctestcloud.cloudapp.net)에 추가하여, 부하 분산 장치의 끝점을 "web1" 및 "web2"라는 가상 머신에 추가합니다. 부하 분산 장치는 포트 80에서 트래픽을 받고 TCP를 사용하여 로컬 끝점(이 경우 포트 80)에서 정의된 가상 머신들 간의 부하를 분산합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -59,9 +59,9 @@ Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "H
 Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
-## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>부하 분산 장치에서 가상 컴퓨터 제거
+## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>부하 분산 장치에서 가상 머신 제거
 
-Remove-AzureEndpoint를 사용하여 부하 분산 장치에서 가상 컴퓨터 끝점을 제거할 수 있습니다.
+Remove-AzureEndpoint를 사용하여 부하 분산 장치에서 가상 머신 끝점을 제거할 수 있습니다.
 
 ```powershell
 Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM

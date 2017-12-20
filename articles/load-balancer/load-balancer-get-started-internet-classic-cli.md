@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 ms.openlocfilehash: c50596d353629c8a320d77e802aa51b9b1cb1a5d
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Azure CLI에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
@@ -51,12 +51,12 @@ ms.lasthandoff: 12/09/2017
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>끝점과 부하 분산 장치 집합 만들기
 
-시나리오는 가상 컴퓨터 "web1" 및 "web2"가 만들어졌다고 가정합니다.
+시나리오는 가상 머신 "web1" 및 "web2"가 만들어졌다고 가정합니다.
 이 가이드를 통해 공용 포트로 포트 80과 로컬 포트로 포트 80을 사용하여 부하 분산 장치 집합을 만듭니다. 또한 프로브 포트가 포트 80에 구성되고 부하 분산 장치 집합을 "lbset"로 지명합니다.
 
 ### <a name="step-1"></a>1단계
 
-가상 컴퓨터 "web1"을 위해 `azure network vm endpoint create` 을 사용하여 첫 번째 끝점과 부하 분산 장치 집합을 만듭니다.
+가상 머신 "web1"을 위해 `azure network vm endpoint create` 을 사용하여 첫 번째 끝점과 부하 분산 장치 집합을 만듭니다.
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -64,7 +64,7 @@ azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 
 
 ### <a name="step-2"></a>2단계
 
-두 번째 가상 컴퓨터 "web2"를 부하 분산 장치 집합에 추가합니다.
+두 번째 가상 머신 "web2"를 부하 분산 장치 집합에 추가합니다.
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -122,19 +122,19 @@ azure vm show web1
     data:    Network Endpoints 2 port 58081
     info:    vm show command OK
 
-## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 컴퓨터를 위한 원격 데스크톱 끝점 만들기
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 머신을 위한 원격 데스크톱 끝점 만들기
 
-`azure vm endpoint create`을 사용하여 특정 가상 컴퓨터의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
+`azure vm endpoint create`을 사용하여 특정 가상 머신의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
 ```
 
-## <a name="remove-virtual-machine-from-load-balancer"></a>부하 분산 장치에서 가상 컴퓨터 제거
+## <a name="remove-virtual-machine-from-load-balancer"></a>부하 분산 장치에서 가상 머신 제거
 
-가상 컴퓨터에서 부하 분산 장치 집합에 연결된 끝점을 삭제해야 합니다. 끝점이 제거되면 가상 컴퓨터는 더 이상 부하 분산 장치 집합에 속하지 않습니다.
+가상 머신에서 부하 분산 장치 집합에 연결된 끝점을 삭제해야 합니다. 끝점이 제거되면 가상 컴퓨터는 더 이상 부하 분산 장치 집합에 속하지 않습니다.
 
-위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 부하 분산 장치 "lbset"에서 가상 컴퓨터 "web1"을 위해 만들어진 끝점을 제거할 수 있습니다.
+위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 부하 분산 장치 "lbset"에서 가상 머신 "web1"을 위해 만들어진 끝점을 제거할 수 있습니다.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80

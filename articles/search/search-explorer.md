@@ -1,6 +1,6 @@
 ---
 title: "인덱스 쿼리(포털 - Azure Search) | Microsoft Docs"
-description: "Azure 포털의 검색 탐색기에서 검색 쿼리를 실행합니다."
+description: "Azure Portal의 검색 탐색기에서 검색 쿼리를 실행합니다."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/10/2017
 ms.author: ashmaka
 ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal에서 Search Explorer를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]

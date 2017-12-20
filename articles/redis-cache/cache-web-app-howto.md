@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache를 사용하여 웹앱을 만드는 방법
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     **인증** 설정에 **인증 없음**을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본값을 설정할 수 있습니다. 변경하려면 **인증 변경**을 클릭하고 **인증 없음**을 선택합니다.
 
-    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service/app-service-web-get-started-dotnet.md)를 참조하세요.
+    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트**를 선택된 채로 두고 Visual Studio에서 App Service Web App을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure App Service에서 Web Apps 시작하기](../app-service/app-service-web-get-started-dotnet.md)를 참조하세요.
    
     ![프로젝트 템플릿 선택][cache-select-template]
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
@@ -339,7 +339,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    * 이전: `<appSettings>`
    * 이후: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
      
-   ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources) 할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
+   ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources) 할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure App Service에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>캐시 또는 데이터베이스에서 결과를 반환하도록 TeamsController 클래스 업데이트
 이 샘플에서는 데이터베이스 또는 캐시에서 팀 통계를 검색할 수 있습니다. 팀 통계는 직렬화된 `List<Team>`으로 캐시에 저장되며 Redis 데이터 유형을 사용하여 정렬된 집합으로도 저장됩니다. 정렬된 집합에서 항목을 검색하는 경우 일부 또는 모두 검색하거나 특정 항목을 쿼리할 수 있습니다. 이 샘플에서는 정렬된 집합에서 승리 횟수 순으로 상위 5개 팀을 쿼리합니다.
@@ -701,8 +701,8 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 응용 프로그램을 Azure에서 호스트하려면 먼저 응용 프로그램에 필요한 Azure 서비스를 프로비전해야 합니다. 이 자습서의 샘플 응용 프로그램에서는 다음 Azure 서비스를 사용합니다.
 
 * Azure Redis 캐시(영문)
-* 앱 서비스 웹앱
-* SQL 데이터베이스
+* App Service 웹앱
+* SQL Database
 
 선택한 새 또는 기존 리소스 그룹에 이러한 서비스를 배포하려면 다음 **Azure에 배포** 단추를 클릭합니다.
 
@@ -720,7 +720,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
 1. **기본 사항** 섹션에서 사용할 Azure 구독을 선택하고 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 리소스 그룹 위치를 지정합니다.
-2. **설정** 섹션에서 **관리자 로그인**(**admin** 사용 안 함), **관리자 로그인 암호** 및 **데이터베이스 이름**을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL Database 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
+2. **설정** 섹션에서 **관리자 로그인**(**admin** 사용 안 함), **관리자 로그인 암호** 및 **데이터베이스 이름**을 지정합니다. 다른 매개 변수는 무료 App Service 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL Database 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
 
     ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
@@ -738,7 +738,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 프로비전이 완료되면 Visual Studio에서 Azure에 응용 프로그램을 게시할 수 있습니다.
 
 > [!NOTE]
-> 프로비전 프로세스 중에 발생할 수 있는 오류는 **Microsoft.Template** 블레이드에 표시됩니다. 일반적인 오류는 너무 많은 SQL 서버 또는 구독에 따라 계획을 호스팅하는 너무 많은 무료 앱 서비스입니다. **Microsoft.Template** 블레이드의 **재배포** 또는 이 자습서의 **Azure에 배포** 단추를 클릭하여 오류를 해결하고 프로세스를 다시 시작합니다.
+> 프로비전 프로세스 중에 발생할 수 있는 오류는 **Microsoft.Template** 블레이드에 표시됩니다. 일반적인 오류는 너무 많은 SQL 서버 또는 구독에 따라 계획을 호스팅하는 너무 많은 무료 App Service입니다. **Microsoft.Template** 블레이드의 **재배포** 또는 이 자습서의 **Azure에 배포** 단추를 클릭하여 오류를 해결하고 프로세스를 다시 시작합니다.
 > 
 > 
 
@@ -825,13 +825,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 * 앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)에서 [Azure App Service에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)를 참조하세요.
   * HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 * 이 자습서에 사용되는 Entity Framework에 대한 [새 데이터베이스에 Code First](https://msdn.microsoft.com/data/jj193542) 접근방식에 대해 더 자세히 알아봅니다.
-* [Azure 앱 서비스의 웹앱](../app-service/app-service-web-overview.md)에 더 자세히 알아봅니다.
+* [Azure App Service의 웹앱](../app-service/app-service-web-overview.md)에 더 자세히 알아봅니다.
 * Azure 포털에서 캐시를 [모니터링](cache-how-to-monitor.md) 하는 방법을 알아봅니다.
 * Azure Redis Cache 프리미엄 계층 탐색
   
   * [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)
   * [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
-  * [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)
+  * [프리미엄 Azure Redis Cache에 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)
   * 프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) 를 참조하세요.
 
 <!-- IMAGES -->

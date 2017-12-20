@@ -1,6 +1,6 @@
 ---
 title: "TSQL를 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs"
-description: "TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
+description: "TSQL를 사용하여 SQL Data Warehouse를 만드는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -17,20 +17,20 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
+# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>TRANSACT-SQL(TSQL)를 사용하여 SQL Data Warehouse 데이터베이스 만들기
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-data-warehouse-get-started-provision.md)
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
 >
 
-이 문서에서는 T-SQL을 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 보여 줍니다.
+이 문서에서는 T-SQL을 사용하여 SQL Data Warehouse를 만드는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 시작하려면 다음이 필요합니다.
@@ -41,12 +41,12 @@ ms.lasthandoff: 10/11/2017
 * **T-SQL을 실행할 환경**: [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] 또한 [SSMS][SSMS]을 사용하여 T-SQL을 실행할 수 있습니다.
 
 > [!NOTE]
-> SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정][SQL Data Warehouse pricing]을 참조하세요.
+> SQL Data Warehouse를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정][SQL Data Warehouse pricing]을 참조하세요.
 >
 >
 
 ## <a name="create-a-database-with-visual-studio"></a>Visual Studio를 사용하여 데이터베이스 만들기
-Visual Studio를 처음 접하는 경우 [Azure SQL Data Warehouse 쿼리(Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)] 문서를 참조하세요.  시작하려면 Visual Studio에서 SQL Server 개체 탐색기를 열고 SQL 데이터 웨어하우스 데이터베이스를 호스팅할 서버에 연결합니다.  연결한 후에는 **마스터** 데이터베이스에 대해 다음 SQL 명령을 실행하여 SQL 데이터 웨어하우스를 만들 수 있습니다.  이 명령은 서비스 목표 DW400이 있는 MySqlDwDb 데이터베이스를 만들고 데이터베이스가 최대 10TB까지 증대될 수 있게 허용합니다.
+Visual Studio를 처음 접하는 경우 [Azure SQL Data Warehouse 쿼리(Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)] 문서를 참조하세요.  시작하려면 Visual Studio에서 SQL Server 개체 탐색기를 열고 SQL Data Warehouse 데이터베이스를 호스팅할 서버에 연결합니다.  연결한 후에는 **마스터** 데이터베이스에 대해 다음 SQL 명령을 실행하여 SQL Data Warehouse를 만들 수 있습니다.  이 명령은 서비스 목표 DW400이 있는 MySqlDwDb 데이터베이스를 만들고 데이터베이스가 최대 10TB까지 증대될 수 있게 허용합니다.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);

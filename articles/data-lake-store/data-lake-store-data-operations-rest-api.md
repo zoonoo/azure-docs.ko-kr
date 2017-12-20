@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 62cfc713c3b7ce8f7c0a7ff4dd5e80802f1843b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>REST API를 사용한 Azure Data Lake Store에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
-* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Store 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake 저장소 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
@@ -51,7 +51,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
-이전 명령에서 \<`REDACTED`\>를 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령은 Data Lake Store 계정의 루트 폴더에 **mytempdir**이라는 디렉터리를 만듭니다.
+이전 명령에서 \<`REDACTED`\>를 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령은 Data Lake Store 계정의 루트 폴더에 **mytempdir** 이라는 디렉터리를 만듭니다.
 
 작업이 성공적으로 완료되면 다음 코드 조각과 같은 응답이 표시됩니다.
 
@@ -110,7 +110,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="read-data"></a>데이터 읽기
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-Data Lake Store 계정에서 데이터를 읽는 작업은 2단계 프로세스입니다.
+Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세스입니다.
 
 * 먼저 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`에 대해 GET 요청을 제출합니다. 이 호출은 다음 GET 요청을 제출할 위치를 반환합니다.
 * 그러면 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`에 대해 GET 요청을 제출합니다. 이 호출은 파일 콘텐츠를 표시합니다.
@@ -164,5 +164,5 @@ Data Lake Store 계정에서 데이터를 읽는 작업은 2단계 프로세스�
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Store와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
 

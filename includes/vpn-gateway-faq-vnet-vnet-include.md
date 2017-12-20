@@ -1,4 +1,4 @@
-VNet 간 FAQ는 VPN Gateway 연결에 적용됩니다. VNet 피어링을 찾으려면 [가상 네트워크 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+VNet 간 FAQ는 VPN Gateway 연결에 적용됩니다. VNet 피어링을 찾으려면 [Virtual Network 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Azure는 VNet 간 트래픽에 요금을 청구하나요?
 
@@ -38,7 +38,7 @@ VPN 게이트웨이 연결을 사용하는 경우 동일한 지역 내의 VNet �
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>VNet 간 연결을 사용하여 VNet 외부의 VM 또는 클라우드 서비스를 연결할 수 있나요?
 
-아니요. VNet 간 연결은 가상 네트워크 연결을 지원합니다. 가상 네트워크에 포함되어 있지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원되지 않습니다.
+아니요. VNet 간 연결은 가상 네트워크 연결을 지원합니다. 가상 네트워크에 포함되어 있지 않은 가상 머신 또는 클라우드 서비스 연결은 지원되지 않습니다.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>클라우드 서비스 또는 부하 분산 끝점이 VNet까지 이어지나요?
 

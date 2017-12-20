@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 920ddecbf81296fd83606f2908e432f5327d4b7e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치 만들기
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 11/28/2017
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 
 * **프런트 엔드 IP 구성**: 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
-* **백 엔드 주소 풀**: 부하 분산 장치의 네트워크 트래픽을 받는 가상 컴퓨터를 사용할 수 있게 하는 NIC(네트워크 인터페이스)를 포함합니다.
+* **백 엔드 주소 풀**: 부하 분산 장치의 네트워크 트래픽을 받는 가상 머신을 사용할 수 있게 하는 NIC(네트워크 인터페이스)를 포함합니다.
 * **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* **프로브**: 백 엔드 주소 풀의 가상 컴퓨터 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
+* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+* **프로브**: 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
@@ -124,7 +124,7 @@ azure group create <resource group name> <location>
 
 5. 인바운드 NAT 규칙을 만듭니다.
 
-    인바운드 NAT 규칙은 특정 가상 컴퓨터 인스턴스로 이동할 부하 분산 장치에 끝점을 만드는 데 사용됩니다. 이전 단계에서 원격 데스크톱에 대해 두 개의 NAT 규칙 만들었습니다.
+    인바운드 NAT 규칙은 특정 가상 머신 인스턴스로 이동할 부하 분산 장치에 끝점을 만드는 데 사용됩니다. 이전 단계에서 원격 데스크톱에 대해 두 개의 NAT 규칙 만들었습니다.
 
     ```azurecli
     azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
@@ -134,7 +134,7 @@ azure group create <resource group name> <location>
 
 6. 부하 분산 장치에 대한 상태 프로브를 만듭니다.
 
-    상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 컴퓨터 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다.
+    상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다.
 
     ```azurecli
     azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
@@ -142,7 +142,7 @@ azure group create <resource group name> <location>
 
     > [!NOTE]
     > Microsoft Azure 플랫폼에서는 다양한 관리 시나리오에 공개적으로 라우팅할 수 있는 고정 IPv4 주소를 사용합니다. IP 주소는 168.63.129.16입니다. 이 IP 주소를 방화벽으로 차단하면 안 됩니다. 예기치 않은 동작이 발생할 수 있습니다.
-    > Azure 내부 부하 분산과 관련하여 이 IP 주소는 부하 분산된 집합에서 가상 컴퓨터의 상태를 확인하기 위해 부하 분산 장치에서 프로브를 모니터링하는 데 사용됩니다. 내부적으로 부하 분산된 집합의 Azure 가상 컴퓨터로 트래픽을 제한하는 네트워크 보안 그룹이 사용된 경우 168.63.129.16의 트래픽을 허용하도록 네트워크 보안 규칙을 추가해야 합니다.
+    > Azure 내부 부하 분산과 관련하여 이 IP 주소는 부하 분산된 집합에서 가상 머신의 상태를 확인하기 위해 부하 분산 장치에서 프로브를 모니터링하는 데 사용됩니다. 내부적으로 부하 분산된 집합의 Azure 가상 머신으로 트래픽을 제한하는 네트워크 보안 그룹이 사용된 경우 168.63.129.16의 트래픽을 허용하도록 네트워크 보안 규칙을 추가해야 합니다.
 
 ## <a name="create-nics"></a>NIC 만들기
 
@@ -186,7 +186,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
     azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
     ```
 
-3. *DB1*이라는 가상 컴퓨터를 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp* 라는 저장소 계정은 다음 명령을 실행되기 전에 만들어집니다.
+3. *DB1*이라는 가상 머신을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp* 라는 저장소 계정은 다음 명령을 실행되기 전에 만들어집니다.
 
     ```azurecli
     azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825

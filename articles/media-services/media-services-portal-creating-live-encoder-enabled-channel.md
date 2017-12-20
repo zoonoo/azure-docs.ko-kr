@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
 ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널** 을 만드는 단계를 안내합니다.
 
 > [!NOTE]
-> 라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+> 라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 > 
 > 
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 2. 채널을 만들고 시작합니다. 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 
   자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 미디어 서비스 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+* Media Services 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
 ## <a name="create-a-channel"></a>채널 만들기
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
       
        IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
 6. **미리 보기** 탭에서 미리 보기에 대한 IP 제한을 적용합니다.
-7. **인코딩** 탭에서 인코딩 사전 설정을 지정합니다. 
+7. **Encoding** 탭에서 인코딩 사전 설정을 지정합니다. 
    
     현재 선택할 수 있는 유일한 시스템 기본 설정은 **기본 720p**입니다. 사용자 지정 사전 설정을 지정하려면 Microsoft 지원 티켓을 엽니다. 그런 다음 만들어진 기본 설정의 이름을 입력합니다. 
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 10/11/2017
 * 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다.
 
 ## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

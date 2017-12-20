@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: a51debfc80c28cd7d7e271448e30619f2bc72f86
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning 서비스를 사용하여 X.509 시뮬레이션된 장치 만들기 및 프로비전
 > [!div class="op_single_selector"]

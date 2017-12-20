@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 쿼리
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]
 >
 > * [개요](search-query-overview.md)
@@ -31,13 +31,13 @@ ms.lasthandoff: 10/11/2017
 
 이 문서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
 
-이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다. 배경 정보는 [Azure Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
+이 연습을 시작하기 전에 [Azure Search 인덱스를 만들고](search-what-is-an-index.md)[데이터로 채워야](search-what-is-data-import.md) 합니다. 배경 정보는 [Azure Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>Azure 검색 서비스의 쿼리 API 키 식별
-Azure 검색 REST API에 대한 모든 검색 작업의 주요 구성 요소는 프로비전한 서비스에 대해 생성한 *API 키* 입니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search 서비스의 쿼리 API 키 식별
+Azure Search REST API에 대한 모든 검색 작업의 주요 구성 요소는 프로비전한 서비스에 대해 생성한 *API 키* 입니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
-2. Azure 검색 서비스의 블레이드로 이동합니다.
+2. Azure Search 서비스의 블레이드로 이동합니다.
 3. [키] 아이콘을 클릭합니다.
 
 서비스에는 *관리자 키* 및 *쿼리 키*가 있습니다.
@@ -129,7 +129,7 @@ api-key: [query key]
 }
 ```
 
-성공적인 쿼리 요청은 `200 OK` 인 상태 코드를 발생시키고 검색 결과는 응답 본문에서 JSON 형식으로 반환됩니다. 다음은 위의 쿼리 모양에 대한 결과이며 "호텔" 인덱스가 [REST API를 사용하여 Azure 검색에서 데이터 가져오기](search-import-data-rest-api.md) 의 샘플 데이터로 채워진다고 가정합니다(명확하게 하기 위해 JSON 형식을 지정함).
+성공적인 쿼리 요청은 `200 OK` 인 상태 코드를 발생시키고 검색 결과는 응답 본문에서 JSON 형식으로 반환됩니다. 다음은 위의 쿼리 모양에 대한 결과이며 "호텔" 인덱스가 [REST API를 사용하여 Azure Search에서 데이터 가져오기](search-import-data-rest-api.md) 의 샘플 데이터로 채워진다고 가정합니다(명확하게 하기 위해 JSON 형식을 지정함).
 
 ```JSON
 {
@@ -162,4 +162,4 @@ api-key: [query key]
 }
 ```
 
-자세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 "응답" 섹션을 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
+자세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 "응답" 섹션을 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.

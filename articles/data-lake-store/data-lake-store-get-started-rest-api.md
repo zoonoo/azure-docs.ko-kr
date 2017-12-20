@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>REST API를 사용한 Azure Data Lake Store의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Store 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake 저장소 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
@@ -42,7 +42,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 * 응용 프로그램에 대한 서비스 간 인증의 경우(비대화형) [.NET SDK를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-rest-api.md)을 참조하세요.
 
 
-## <a name="create-a-data-lake-store-account"></a>Data Lake Store 계정 만들기
+## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 이 작업은 [여기](https://msdn.microsoft.com/library/mt694078.aspx)에 정의된 REST API 호출을 기반으로 합니다.
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
@@ -59,10 +59,10 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
     "properties": {}
     }    
 
-## <a name="delete-a-data-lake-store-account"></a>Data Lake Store 계정 삭제
+## <a name="delete-a-data-lake-store-account"></a>Data Lake 저장소 계정 삭제
 이 작업은 [여기](https://msdn.microsoft.com/library/mt694075.aspx)에 정의된 REST API 호출을 기반으로 합니다.
 
-Data Lake Store 계정을 삭제하려면 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
+Data Lake 저장소 계정을 삭제하려면 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
@@ -77,5 +77,5 @@ Data Lake Store 계정을 삭제하려면 다음 cURL 명령을 사용합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Store와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
 

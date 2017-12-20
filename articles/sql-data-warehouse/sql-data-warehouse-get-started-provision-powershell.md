@@ -1,6 +1,6 @@
 ---
 title: "PowerShell을 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기"
+description: "PowerShell을 사용하여 SQL Data Warehouse 만들기"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,20 +16,20 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: a763f1c600c1a3f37cb565a8eb7db3c3f27dcf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기
+# <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell을 사용하여 SQL Data Warehouse 만들기
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-data-warehouse-get-started-provision.md)
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
 >
 
-이 문서에서는 PowerShell을 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용하여 SQL Data Warehouse를 만드는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 시작하려면 다음이 필요합니다.
@@ -40,11 +40,11 @@ ms.lasthandoff: 10/11/2017
 * **PowerShell 버전 1.0.3 이상**: **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][How to install and configure Azure PowerShell]을 참조하세요.
 
 > [!NOTE]
-> SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정][SQL Data Warehouse pricing]을 참조하세요.
+> SQL Data Warehouse를 만들면 새로운 유료 서비스가 발생할 수 있습니다.  가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격 책정][SQL Data Warehouse pricing]을 참조하세요.
 >
 >
 
-## <a name="create-a-sql-data-warehouse"></a>SQL 데이터 웨어하우스 만들기
+## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse 만들기
 1. Windows PowerShell을 엽니다.
 2. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
 
@@ -65,10 +65,10 @@ ms.lasthandoff: 10/11/2017
 필수 매개 변수는 다음과 같습니다.
 
 * **RequestedServiceObjectiveName**: 요청 중인 [DWU][DWU]의 양입니다.  지원되는 값은 DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 및 DW6000입니다.
-* **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
+* **DatabaseName**: 만들려는 SQL Data Warehouse의 이름입니다.
 * **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다.  구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
-* **Edition**: SQL 데이터 웨어하우스를 만들려면 "DataWarehouse"여야 합니다.
+* **Edition**: SQL Data Warehouse를 만들려면 "DataWarehouse"여야 합니다.
 
 선택적 매개 변수는 다음과 같습니다.
 

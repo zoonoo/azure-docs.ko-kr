@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure"
-description: "Visual Studio를 사용하여 SQL 데이터 웨어하우스를 쿼리합니다."
+description: "Visual Studio를 사용하여 SQL Data Warehouse를 쿼리합니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -16,22 +16,23 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 1e44c6c3c47034a892753c69c5ef22a5eac18c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * 
+            [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Visual Studio를 사용하여 단 몇 분 만에 Azure SQL 데이터 웨어하우스를 쿼리합니다. 이 메서드는 Visual Studio에서 SQL Server 데이터 도구(SSDT) 확장을 사용합니다. 
+Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼리합니다. 이 메서드는 Visual Studio에서 SQL Server 데이터 도구(SSDT) 확장을 사용합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 사용하려면 다음이 필요합니다.
@@ -40,7 +41,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL 데이터 웨어하�
 * Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 소유하고 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치][Installing Visual Studio and SSDT]를 참조하세요.
 * 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL 데이터 웨어하우스에 연결
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse에 연결
 1. Visual Studio 2013 또는 2015 열기
 2. SQL Server 개체 탐색기를 엽니다. 그렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택합니다.
    

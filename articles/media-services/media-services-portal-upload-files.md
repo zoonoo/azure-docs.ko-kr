@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure Portal에서 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Azure Media Services에서 자산에 디지털 파일을 업로드합니다. 자
 
 업로드가 완료되면 새 자산이 **자산** 창에 나열됩니다. 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

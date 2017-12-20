@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Redgate Data Platform Studio를 사용하여 데이터 로드
 > [!div class="op_single_selector"]
@@ -132,7 +132,7 @@ Redgate의 Data Platform Studio에 대해 자세히 알아보려면:
 SQL Data Warehouse에서 데이터를 마이그레이션 및 로드하는 다른 방법에 대한 개요는 다음을 참조하세요.
 
 * [SQL Data Warehouse에 솔루션 마이그레이션][Migrate your solution to SQL Data Warehouse]
-* [Azure SQL 데이터 웨어하우스에 데이터 로드](sql-data-warehouse-overview-load.md)
+* [Azure SQL Data Warehouse에 데이터 로드](sql-data-warehouse-overview-load.md)
 
 더 많은 개발 팁은 [SQL Data Warehouse 개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.
 

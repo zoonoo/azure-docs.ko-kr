@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Linux SQL Server 2017 VM 만들기 | Microsoft Docs"
-description: "이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 컴퓨터를 만드는 방법을 보여줍니다."
+description: "이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다."
 services: virtual-machines-linux
 author: rothja
 ms.author: jroth
@@ -13,10 +13,10 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 
@@ -112,7 +112,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 ## <a id="password"></a> SA 암호 변경
 
-새 가상 컴퓨터는 임의의 SA 암호를 사용하여 SQL Server를 설치합니다. SA 로그인을 사용하여 SQL Server에 연결하려면 먼저 이 암호를 다시 설정해야 합니다.
+새 가상 머신은 임의의 SA 암호를 사용하여 SQL Server를 설치합니다. SA 로그인을 사용하여 SQL Server에 연결하려면 먼저 이 암호를 다시 설정해야 합니다.
 
 1. Linux VM에 연결한 후에 새 명령을 터미널을 엽니다.
 
@@ -147,7 +147,7 @@ SQL Server 명령줄 도구 패키지를 포함하여 여러 SQL Server [패키�
 
 Azure VM의 SQL Server에 원격으로 연결해야 할 경우 네트워크 보안 그룹에서 인바운드 규칙을 구성해야 합니다. 규칙은 SQL Server를 수신하는 포트의 트래픽을 허용합니다(기본값 1433). 다음 단계에서는 이 단계에서 Azure Portal을 사용하는 방법을 보여줍니다. 
 
-1. 포털에서 **가상 컴퓨터**를 선택한 다음 SQL Server VM을 선택합니다.
+1. 포털에서 **가상 머신**를 선택한 다음 SQL Server VM을 선택합니다.
 
 1. 속성 목록에서 **네트워킹**을 선택합니다.
 
@@ -176,8 +176,8 @@ Azure VM의 SQL Server에 원격으로 연결해야 할 경우 네트워크 보�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure에 SQL Server 2017 가상 컴퓨터가 설치되었으므로 로컬로 **sqlcmd**와 연결하여 Transact-SQL 쿼리를 실행할 수 있습니다.
+이제 Azure에 SQL Server 2017 가상 머신이 설치되었으므로 로컬로 **sqlcmd**와 연결하여 Transact-SQL 쿼리를 실행할 수 있습니다.
 
 원격 SQL Server 연결에 Azure VM을 구성한 경우 원격으로 연결할 수 있어야 합니다. Windows에서 원격으로 Linux의 SQL Server에 연결하는 방법의 예제는 [Windows의 SSMS를 사용하여 Linux의 SQL Server에 연결](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms)을 참조하세요. Visual Studio Code와 연결하려면 [Visual Studio Code를 사용하여 SQL Server에 Transact-SQL 스크립트 만들기 및 실행](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)을 참조하세요.
 
-Linux의 SQL Server에 대한 일반적인 정보는 [Linux의 SQL Server 2017 개요](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)를 참조하세요. SQL Server 2017 Linux 가상 컴퓨터에 대한 자세한 내용은 [Azure의 SQL Server 2017 Linux 가상 컴퓨터 개요](sql-server-linux-virtual-machines-overview.md)를 참조하세요.
+Linux의 SQL Server에 대한 일반적인 정보는 [Linux의 SQL Server 2017 개요](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)를 참조하세요. SQL Server 2017 Linux 가상 머신에 대한 자세한 내용은 [Azure의 SQL Server 2017 Linux 가상 머신 개요](sql-server-linux-virtual-machines-overview.md)를 참조하세요.

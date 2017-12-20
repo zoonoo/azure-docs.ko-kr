@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>클라우드 서비스를 위한 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>클라우드 서비스에 대한 내부 부하 분산 장치 구성하기
 
-내부 부하 분산 장치는 가상 컴퓨터 및 클라우드 서비스를 모두 지원합니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 내부 부하 분산 장치 끝점은 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
+내부 부하 분산 장치는 가상 머신 및 클라우드 서비스를 모두 지원합니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 내부 부하 분산 장치 끝점은 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
 
 아래 샘플에 나와 있는 것처럼 클라우드 서비스에서 첫 번째 배포를 만드는 동안 내부 부하 분산 장치 구성을 설정해야 합니다.
 

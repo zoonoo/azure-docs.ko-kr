@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Java SDK를 사용한 Data Lake Store에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -211,6 +211,6 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="next-steps"></a>다음 단계
 * [Java SDK에 대한 JavaDoc 탐색](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
+* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 
 

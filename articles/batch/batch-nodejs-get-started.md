@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
@@ -128,12 +128,12 @@ Azure Batch URI는 Azure Portal의 개요 탭에서 찾을 수 있습니다. 다
 ### <a name="step-4-create-an-azure-batch-pool"></a>4단계: Azure Batch 풀 만들기
 Azure Batch 풀은 여러 VM(Batch 노드라고도 함)으로 구성됩니다. Azure Batch 서비스는 이러한 노드에 작업을 배포하고 관리합니다. 풀에 대해 다음 구성 매개 변수를 정의할 수 있습니다.
 
-* 가상 컴퓨터 이미지의 유형
-* 가상 컴퓨터 노드의 크기
-* 가상 컴퓨터 노드의 수
+* Virtual Machine 이미지의 유형
+* Virtual Machine 노드의 크기
+* Virtual Machine 노드의 수
 
 > [!Tip]
-> 가상 컴퓨터 노드의 크기와 수는 병렬로 실행하려는 작업의 수와 작업 자체에 따라 크게 달라집니다. 테스트를 통해 이상적인 수와 크기를 결정하는 것이 좋습니다.
+> Virtual Machine 노드의 크기와 수는 병렬로 실행하려는 작업의 수와 작업 자체에 따라 크게 달라집니다. 테스트를 통해 이상적인 수와 크기를 결정하는 것이 좋습니다.
 >
 >
 
@@ -154,11 +154,11 @@ var numVMs = 4
 ```
 
 > [!Tip]
-> Azure Batch 및 SKU ID에 사용할 수 있는 Linux VM 이미지 목록은 [가상 컴퓨터 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요.
+> Azure Batch 및 SKU ID에 사용할 수 있는 Linux VM 이미지 목록은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요.
 >
 >
 
-풀 구성이 정의되면 Azure Batch 풀을 만들 수 있습니다. Batch 풀 명령은 Azure 가상 컴퓨터 노드를 만들고, 실행할 작업을 수신할 수 있도록 노드를 준비합니다. 각 풀에는 후속 단계에서 참조할 고유 ID가 있어야 합니다.
+풀 구성이 정의되면 Azure Batch 풀을 만들 수 있습니다. Batch 풀 명령은 Azure Virtual Machine 노드를 만들고, 실행할 작업을 수신할 수 있도록 노드를 준비합니다. 각 풀에는 후속 단계에서 참조할 고유 ID가 있어야 합니다.
 
 다음은 Azure Batch 풀을 만드는 코드 조각입니다.
 

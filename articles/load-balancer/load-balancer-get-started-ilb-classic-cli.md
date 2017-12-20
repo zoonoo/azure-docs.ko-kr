@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -35,12 +35,12 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>가상 컴퓨터에 대한 내부 부하 분산 장치 집합 만들기
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>가상 머신에 대한 내부 부하 분산 장치 집합 만들기
 
 내부 부하 분산 장치 집합과 이 집합으로 해당 트래픽을 전송할 서버를 만들려면 다음을 수행해야 합니다.
 
 1. 부하가 분산된 집합의 서버 간에 부하가 분산되어 들어오는 트래픽의 끝점이 되는 내부 부하 분산의 인스턴스를 만듭니다.
-2. 들어오는 트래픽을 수신할 수 있는 가상 컴퓨터에 해당하는 끝점을 추가합니다.
+2. 들어오는 트래픽을 수신할 수 있는 가상 머신에 해당하는 끝점을 추가합니다.
 3. 서버가 해당 트래픽을 내부 부하 분산 인스턴스의 VIP(가상 IP) 주소로 전송하도록 구성합니다.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI를 사용하여 내부 부하 분산 장치 만들기 단계별 지침
@@ -60,11 +60,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>끝점과 부하 분산 장치 집합 만들기
 
-시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 컴퓨터 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 컴퓨터는 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
+시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 머신 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 머신은 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
 
 이 가이드를 통해 개인 포트로 포트 1433과 로컬 포트로 포트 1433을 사용하는 내부 부하 분산 장치 집합을 만듭니다.
 
-이는 일반적인 시나리오로, 백 엔드의 SQL 가상 컴퓨터는 데이터베이스 서버가 공용 IP 주소를 사용하여 직접 노출되지 않는다는 것을 보장하기 위해 내부 부하 분산 장치를 사용합니다.
+이는 일반적인 시나리오로, 백 엔드의 SQL 가상 머신은 데이터베이스 서버가 공용 IP 주소를 사용하여 직접 노출되지 않는다는 것을 보장하기 위해 내부 부하 분산 장치를 사용합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -91,7 +91,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 ### <a name="step-2"></a>2단계
 
-첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 컴퓨터 및 프로브 포트를 내부 부하 분산 장치 집합에 연결할 수 있습니다.
+첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 머신 및 프로브 포트를 내부 부하 분산 장치 집합에 연결할 수 있습니다.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -99,7 +99,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>3단계
 
-`azure vm show` *가상 컴퓨터 이름*
+`azure vm show`*가상 머신 이름*을 사용하여 부하 분산 장치 구성 확인
 
 ```azurecli
 azure vm show DB1
@@ -154,9 +154,9 @@ azure vm show DB1
     data:    Network Endpoints 2 loadBalancerName "ilbset"
     info:    vm show command OK
 
-## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 컴퓨터를 위한 원격 데스크톱 끝점 만들기
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 머신을 위한 원격 데스크톱 끝점 만들기
 
-`azure vm endpoint create`을 사용하여 특정 가상 컴퓨터의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
+`azure vm endpoint create`을 사용하여 특정 가상 머신의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -164,9 +164,9 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>부하 분산 장치에서 가상 컴퓨터 제거
 
-연결된 된 끝점을 삭제하여 내부 부하 분산 장치 집합에서 가상 컴퓨터를 제거할 수 있습니다. 끝점이 제거되면 가상 컴퓨터는 더 이상 부하 분산 장치 집합에 속하지 않습니다.
+연결된 된 끝점을 삭제하여 내부 부하 분산 장치 집합에서 가상 머신을 제거할 수 있습니다. 끝점이 제거되면 가상 머신은 더 이상 부하 분산 장치 집합에 속하지 않습니다.
 
-위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 내부 부하 분산 장치 "lbset"에서 가상 컴퓨터 "DB1"을 위해 만들어진 끝점을 제거할 수 있습니다.
+위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 내부 부하 분산 장치 "lbset"에서 가상 머신 "DB1"을 위해 만들어진 끝점을 제거할 수 있습니다.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433

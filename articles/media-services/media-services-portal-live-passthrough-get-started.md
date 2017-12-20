@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
 ms.openlocfilehash: 6939e3b31c3c1b514df4c559c2d9408fce122a4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트림을 수행하는 방법
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ ms.lasthandoff: 10/11/2017
 
 다음 문서를 검토하는 것이 좋습니다.
 
-* [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-* [Azure 미디어 서비스를 사용하는 라이브 스트리밍 개요](media-services-manage-channels-overview.md)
+* [Azure Media Services RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+* [Azure Media Services를 사용하는 라이브 스트리밍 개요](media-services-manage-channels-overview.md)
 * [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 >[!NOTE]
 >콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다. 
     
-1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
+1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure Media Services RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
    
     이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 2. 통과 채널을 만들고 시작합니다.
@@ -147,7 +147,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 ![자산](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
 ## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

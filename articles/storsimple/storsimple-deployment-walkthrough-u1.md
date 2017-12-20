@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: e287ae16c9d1f07f3d4b0cbf8eb6fb2ba3e1d776
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>온-프레미스 StorSimple 장치(업데이트 1) 배포
 > [!NOTE]
