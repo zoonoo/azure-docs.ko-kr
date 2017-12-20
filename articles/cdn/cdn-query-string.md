@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>쿼리 문자열을 사용하여 Azure Content Delivery Network 캐싱 동작 제어
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함�
    
    ![CDN 프로필 끝점](./media/cdn-query-string/cdn-endpoints.png)
    
-2. 설정에서 **캐시**를 클릭합니다.
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 클릭합니다.
    
-    ![CDN 프로필 캐시 단추](./media/cdn-query-string/cdn-cache-btn.png)
+    ![CDN 캐싱 규칙 단추](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. **쿼리 문자열 캐시 동작** 목록에서 쿼리 문자열 모드를 선택한 다음 **저장**을 클릭합니다.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![CDN 쿼리 문자열 캐싱 옵션](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > 등록이 CDN 전체에 전파되기까지 시간이 걸리기 때문에, 캐시 문자열 설정 변경이 즉시 표시되지 않을 수 있습니다. **Akamai의 Azure CDN** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. **Verizon의 Azure CDN** 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Azure Virtual Machines의 Always On 가용성 그룹 구성(클래식)
 > [!div class="op_single_selector"]
@@ -62,21 +62,21 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>가상 네트워크 및 도메인 컨트롤러 서버 만들기
-새로운 Azure 평가판 계정으로 시작합니다. 계정을 설정한 후 Azure 클래식 포털의 홈 화면이 표시됩니다.
+새로운 Azure 평가판 계정으로 시작합니다. 계정을 설정한 후 Azure Portal의 홈 화면이 표시됩니다.
 
 1. 다음 스크린샷과 같이 페이지의 왼쪽 아래 모퉁이에서 **새로 만들기** 단추를 클릭합니다.
    
     ![포털에서 새로 만들기 클릭](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665511.gif)
-2. 다음 스크린샷과 같이 **네트워크 서비스** > **가상 네트워크** > **사용자 지정 만들기**를 클릭합니다.
+2. 다음 스크린샷과 같이 **Network Services** > **Virtual Network** > **사용자 지정 만들기**를 클릭합니다.
    
-    ![가상 네트워크 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665512.gif)
+    ![Virtual Network 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665512.gif)
 3. **가상 네트워크 만들기** 대화 상자에서 페이지를 단계별로 진행하고 다음 표의 설정을 사용하여 새 가상 네트워크를 만듭니다. 
    
    | Page | 설정 |
    | --- | --- |
-   | 가상 네트워크 세부 정보 |**이름 = ContosoNET**<br/>**지역 = 미국 서부** |
+   | Virtual Network 세부 정보 |**이름 = ContosoNET**<br/>**지역 = 미국 서부** |
    | DNS 서버 및 VPN 연결 |없음 |
-   | 가상 네트워크 주소 공간 |다음 스크린샷에 설정이 나와 있습니다. ![가상 네트워크 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
+   | Virtual Network 주소 공간 |다음 스크린샷에 설정이 나와 있습니다. ![Virtual Network 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
 4. DC(도메인 컨트롤러)로 사용할 가상 컴퓨터를 만듭니다. 다음 스크린샷과 같이 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다.
    
     ![가상 컴퓨터 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784621.png)
@@ -89,7 +89,7 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
    | 가상 컴퓨터 구성 |**클라우드 서비스** = 새 클라우드 서비스 만들기<br/>**클라우드 서비스 DNS 이름** = 고유한 클라우드 서비스 이름<br/>**DNS 이름** = 고유 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/> **계정** = 자동으로 생성된 Storage 계정 사용<br/>**가용성 집합** = (없음) |
    | 가상 컴퓨터 옵션 |기본값 사용 |
 
-새 가상 컴퓨터를 구성한 후 가상 컴퓨터가 프로비전될 때까지 기다립니다. 이 프로세스는 완료하는 데 다소 시간이 걸립니다. Azure 클래식 포털에서 **가상 컴퓨터** 탭을 클릭하면 ContosoDC 순환 상태가 **시작 중(프로비전)**에서 **중지됨**, **시작 중**, **실행 중(프로비전)**, 마지막으로 **실행 중**으로 표시될 수 있습니다.
+새 가상 컴퓨터를 구성한 후 가상 컴퓨터가 프로비전될 때까지 기다립니다. 이 프로세스는 완료하는 데 다소 시간이 걸립니다. Azure Portal에서 **Virtual Machine** 탭을 클릭하면 ContosoDC 순환 상태가 **시작 중(프로비전)**에서 **중지됨**, **시작 중**, **실행 중(프로비전)**, 마지막으로 **실행 중**으로 표시될 수 있습니다.
 
 이제 DC 서버가 성공적으로 프로비전되었습니다. 다음으로 이 DC 서버에 Active Directory 도메인을 구성합니다.
 
@@ -105,7 +105,7 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
    
     ![서버 탐색기 역할 추가](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784623.png)
 5. **서버 역할** 섹션이 표시될 때까지 **다음**을 클릭합니다.
-6. **Active Directory 도메인 서비스** 및 **DNS 서버** 역할을 선택합니다. 메시지가 표시되면 이러한 역할에 필요한 기능을 추가합니다.
+6. **Active Directory Domain Services** 및 **DNS 서버** 역할을 선택합니다. 메시지가 표시되면 이러한 역할에 필요한 기능을 추가합니다.
    
    > [!NOTE]
    > 고정 IP 주소가 없다는 유효성 검사 경고 페이지가 표시됩니다. 구성을 테스트하는 경우 **계속**을 클릭합니다. 프로덕션 시나리오의 경우 [PowerShell을 사용하여 도메인 컨트롤러 컴퓨터의 고정 IP 주소를 설정](../../../virtual-network/virtual-networks-reserved-private-ip.md)합니다.
@@ -121,7 +121,7 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
     
      ![DNS 서버 가상 컴퓨터의 AD DS 대화 상자](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784625.png)
 12. **모든 서버 작업 세부 정보** 대화 상자의 **작업** 열에서 **이 서버를 도메인 컨트롤러로 승격**을 클릭합니다.
-13. **Active Directory 도메인 서비스 구성 마법사**에서 다음 값을 사용합니다.
+13. **Active Directory Domain Services 구성 마법사**에서 다음 값을 사용합니다.
     
     | Page | 설정 |
     | --- | --- |
@@ -176,7 +176,7 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
 <br/>
 
 > [!NOTE]
-> 기본 계층 컴퓨터는 부하가 분산된 끝점을 지원하지 않기 때문에 이전 구성은 표준 계층 가상 컴퓨터를 제안합니다. 가용성 그룹 수신기를 만들려면 부하가 분산된 끝점이 필요합니다. 또한 여기에서 제안하는 컴퓨터 크기는 Azure Virtual Machines에서 가용성 그룹 테스트를 위해 계획된 것입니다. 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../sql/virtual-machines-windows-sql-performance.md)에서 SQL Server 컴퓨터 크기 및 구성에 대한 권장 사항을 참조하세요.
+> 기본 계층 컴퓨터는 부하가 분산된 끝점을 지원하지 않기 때문에 이전 구성은 표준 계층 가상 컴퓨터를 제안합니다. 가용성 그룹 수신기를 만들려면 부하가 분산된 끝점이 필요합니다. 또한 여기에서 제안하는 컴퓨터 크기는 Azure Virtual Machines에서 가용성 그룹 테스트를 위해 계획된 것입니다. 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](../sql/virtual-machines-windows-sql-performance.md)에서 SQL Server 컴퓨터 크기 및 구성에 대한 권장 사항을 참조하세요.
 > 
 > 
 
@@ -353,17 +353,17 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
 
 ### <a name="make-a-full-backup-of-mydb1-and-restore-it-on-contososql2"></a>MyDB1의 전체 백업 수행 및 ContosoSQL2에 복원
 1. 데이터베이스의 전체 백업을 만들려면 **개체 탐색기**에서 **데이터베이스**를 확장하고, **MyDB1**을 마우스 오른쪽 단추로 클릭하고, **작업**을 가리키고 나서, **백업**을 클릭합니다.
-2. **원본** 섹션에서 **백업 유형**을 **전체**로 설정된 상태로 유지합니다. **대상** 섹션에서 **제거**를 클릭하여 백업 파일의 기본 파일 경로를 제거합니다.
+2. **원본** 섹션에서 **Backup 유형**을 **전체**로 설정된 상태로 유지합니다. **대상** 섹션에서 **제거**를 클릭하여 백업 파일의 기본 파일 경로를 제거합니다.
 3. **대상** 섹션에서 **추가**를 클릭합니다.
 4. **파일 이름** 텍스트 상자에 **\\ContosoSQL1\backup\MyDB1.bak**를 입력하고, **확인**을 클릭하고 나서, **확인**을 다시 클릭하여 데이터베이스를 백업합니다. 백업 작업이 완료되면 **확인**을 다시 클릭하여 대화 상자를 닫습니다.
 5. 데이터베이스의 트랜잭션 로그 백업을 만들려면 **개체 탐색기**에서 **데이터베이스**를 확장하고, **MyDB1**을 마우스 오른쪽 단추로 클릭하고, **작업**을 가리키고 나서, **백업**을 클릭합니다.
-6. **백업 유형**에서 **트랜잭션 로그**를 선택합니다. **대상** 파일 경로를 앞에서 지정한 경로로 설정된 상태를 유지하고 **확인**을 클릭합니다. 백업 작업이 완료된 후 **확인**을 다시 클릭합니다.
+6. **Backup 유형**에서 **트랜잭션 로그**를 선택합니다. **대상** 파일 경로를 앞에서 지정한 경로로 설정된 상태를 유지하고 **확인**을 클릭합니다. 백업 작업이 완료된 후 **확인**을 다시 클릭합니다.
 7. **ContosoSQL2**에서 전체 및 트랜잭션 로그 백업을 복원하려면 **ContosoSQL2**에 대한 RDP 파일을 열고 **CORP\Install**로 로그인합니다. **ContosoSQL1** 에 대한 원격 데스크톱 세션은 열린 상태로 둡니다.
 8. **시작** 메뉴에서 **SQL Server Management Studio**를 열고 **연결**을 클릭하여 기본 SQL Server 인스턴스에 연결합니다.
 9. **개체 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
 10. **원본** 섹션에서 **장치**를 선택하고 줄임표(**…**)를 클릭합니다. 단추를 선택합니다.
 11. **백업 장치 선택**에서 **추가**를 클릭합니다.
-12. **백업 파일 위치**에서 **\\ContosoSQL1\backup**을 입력하고, **새로 고침**을 클릭하고, **MyDB1.bak**를 선택하고, **확인**을 클릭하고 나서, **확인**을 다시 클릭합니다. 그러면 **복원할 백업 세트** 창에 전체 백업 및 로그 백업이 표시됩니다.
+12. **백업 파일 위치**에서 **\\ContosoSQL1\backup**을 입력하고, **새로 고침**을 클릭하고, **MyDB1.bak**를 선택하고, **확인**을 클릭하고 나서, **확인**을 다시 클릭합니다. 그러면 **복원할 Backup 세트** 창에 전체 백업 및 로그 백업이 표시됩니다.
 13. **옵션** 페이지로 이동한 후 **복구 상태**에서 **RESTORE WITH NORECOVERY**를 선택하고 **확인**을 클릭하여 데이터베이스를 복원합니다. 복원 작업이 완료된 후 **확인**을 클릭합니다.
 
 ### <a name="create-the-availability-group"></a>가용성 그룹 만들기
@@ -413,5 +413,5 @@ Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virt
 ## <a name="next-steps"></a>다음 단계
 이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
 
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure Virtual Machines의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 

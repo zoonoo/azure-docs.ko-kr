@@ -1,6 +1,6 @@
 ---
-title: "Azure 미디어 서비스 .NET SDK로 필터 생성"
-description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
+title: "Azure Media Services .NET SDK로 필터 생성"
+description: "이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 Media Services가 동적 매니페스트를 생성하여 이루어집니다."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure 미디어 서비스 .NET SDK로 필터 생성
+# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure Media Services .NET SDK로 필터 생성
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST (영문)](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-미디어 서비스 2.11 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 이루어집니다.
+Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 작업 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 이루어집니다.
 
 필터 및 동적 매니페스트에 대한 더 자세한 내용은 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)를 참조하십시오.
 
-이 항목에서는 미디어 서비스 .NET SDK를 사용하여 필더를 생성하고, 업데이트하며, 삭제하는 방법을 보여줍니다. 
+이 문서에서는 Media Services .NET SDK를 사용하여 필더를 생성하고, 업데이트하며, 삭제하는 방법을 보여줍니다. 
 
-필터를 업데이트하는 경우, 규칙을 새로 고치는 스트리밍 끝점에 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다. 
+필터를 업데이트하는 경우 스트리밍 끝점이 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 항상 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다. 
 
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다. 
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/11/2017
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

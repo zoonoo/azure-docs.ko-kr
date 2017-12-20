@@ -1,5 +1,5 @@
 ---
-title: "SQL 데이터 웨어하우스 위협 감지 시작"
+title: "SQL Data Warehouse 위협 감지 시작"
 description: "위협 감지를 시작하는 시기"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>위협 감지 시작
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>개요
-위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 위협 감지는 미리 보기로 제공되며 SQL 데이터 웨어하우스를 지원합니다.
+위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 위협 감지는 미리 보기로 제공되며 SQL Data Warehouse를 지원합니다.
 
 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 데이터 웨어하우스의 데이터를 액세스, 침해 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 [Azure SQL Data Warehouse 감사](sql-data-warehouse-auditing-overview.md) 를 사용하여 의심스러운 이벤트를 살펴볼 수 있습니다.
 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터 웨어하우스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
@@ -37,8 +37,8 @@ ms.lasthandoff: 10/11/2017
 예를 들어 위협 감지는 잠재적인 SQL 삽입 시도를 나타내는 비정상적인 데이터베이스 활동을 감지합니다. SQL 삽입은 데이터 기반 응용 프로그램 공격에 사용되는 인터넷 상의 일반적인 웹 응용 프로그램 보안 문제 중 하나입니다. 공격자는 데이터베이스의 데이터를 침범하거나 수정하기 위해 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입합니다.
 
 ## <a name="set-up-threat-detection-for-your-database"></a>데이터베이스에 대한 위협 감지 설정
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure 포털을 시작합니다.
-2. 모니터링할 SQL 데이터 웨어하우스의 구성 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
+2. 모니터링할 SQL Data Warehouse의 구성 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
    
     ![탐색 창][1]
 3. **감사 및 위협 감지** 구성 블레이드에서 감사를 **켜면** 위협 감지 설정이 표시됩니다.
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
    이메일에는 비정상적인 활동의 특징, 데이터베이스 이름, 서버 이름, 이벤트 시간을 포함하여 의심스러운 보안 이벤트에 대한 정보가 제공됩니다. 또한 가능한 원인에 대한 정보와 데이터베이스에 대한 잠재적인 위협을 조사하고 완화시키기 위해 권장되는 조치가 제공됩니다.<br/>
    
     ![탐색 창][4]
-2. 이메일에서 **Azure SQL 감사 로그** 링크를 클릭하면 Azure 클래식 포털이 열리고 의심스러운 이벤트가 발생한 무렵의 시간에 해당하는 감사 레코드가 표시됩니다.
+2. 이메일에서 **Azure SQL 감사 로그** 링크를 클릭하면 Azure 포털이 열리고 의심스러운 이벤트가 발생한 무렵의 시간에 해당하는 감사 레코드가 표시됩니다.
    
     ![탐색 창][5]
 3. 의심스러운 데이터베이스 활동에 대한 세부 정보(예: SQL 문, 실패 원인, 클라이언트 IP)를 보려면 감사 레코드를 클릭합니다.

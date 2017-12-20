@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Windows Phone Silverlight Engagement SDK 통합
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure Portal에 표시됩니다.
 
 ### <a name="engagement-initialization"></a>Engagement 초기화
 새 프로젝트를 만들 때는 `App.xaml.cs` 파일이 생성됩니다. 이 클래스는 `Application` 에서 상속하며, 여러 중요 메서드를 포함합니다. Engagement SDK를 초기화할 때도 이 클래스가 사용됩니다.

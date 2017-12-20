@@ -1,34 +1,33 @@
 ---
-title: "Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET) | Microsoft Docs"
-description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio의 ASP.NET 프로젝트에서 Azure Blob 저장소를 사용하는 방법에 대해 설명합니다."
+title: "Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET) | Microsoft Docs"
+description: "Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio의 ASP.NET Core 프로젝트에서 Azure Blob Storage를 사용하는 방법에 대해 설명합니다."
 services: storage
 documentationcenter: 
-author: kraigb
-manager: ghogen
+author: camsoper
+manager: wpickett
 editor: 
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: f0d0815e71149749cb52efe21e1f0af3cabae21c
+ms.author: casoper
+ms.openlocfilehash: 889afa471eeb556662cddf8eb383a905f08b1f01
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core)
 
 > [!div class="op_single_selector"]
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob 저장소는 구조화되지 않은 데이터를 개체/Blob으로 클라우드에 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
+Azure Blob 저장소는 구조화되지 않은 데이터를 개체/Blob으로 클라우드에 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob storage를 개체 저장소라고 합니다.
 
-이 자습서에서는 Azure Blob 저장소를 사용하여 몇 가지 일반적인 시나리오를 위한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 시나리오에는 Blob 컨테이너 만들기, Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
+이 자습서에서는 Azure Blob Storage를 사용하여 몇 가지 일반적인 시나리오에 ASP.NET Core 코드를 작성하는 방법을 보여줍니다. 시나리오에는 Blob 컨테이너 만들기, Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
@@ -38,27 +37,63 @@ Azure Blob 저장소는 구조화되지 않은 데이터를 개체/Blob으로 �
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
+## <a name="set-up-the-development-environment"></a>개발 환경 설정
 
-[!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
+이 섹션에서는 ASP.NET MVC 앱 만들기, 연결된 서비스 연결 추가, 컨트롤러 추가 및 필수 네임스페이스 지시문 지정을 포함한 개발 환경 설정에 대해 설명합니다.
+
+### <a name="create-an-aspnet-mvc-app-project"></a>ASP.NET MVC 앱 프로젝트 만들기
+
+1. Visual Studio를 엽니다.
+
+1. 기본 메뉴에서 **파일->새로 만들기->프로젝트**를 차례로 선택합니다.
+
+1. **새 프로젝트** 대화 상자에서 다음 그림에서 강조 표시한 대로 옵션을 지정합니다.
+
+    ![ASP.NET Core 프로젝트 만들기](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
+
+1. **확인**을 선택합니다.
+
+1. **새 ASP.NET 프로젝트** 대화 상자에서 다음 그림에서 강조 표시한 대로 옵션을 지정합니다.
+
+    ![MVC 지정](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
+
+1. **확인**을 선택합니다.
+
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>연결된 서비스를 사용하여 Azure 저장소 계정 연결
+
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **추가->연결된 서비스**를 차례로 선택합니다.
+
+1. **연결된 서비스 추가** 대화 상자에서 **Azure Storage에서 클라우드 저장소**를 선택한 다음 **구성**을 선택합니다.
+
+    ![연결된 서비스 대화 상자](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
+
+1. **Azure Storage** 대화 상자에서 이 자습서에 사용할 Azure Storage 계정을 선택합니다.  새 Azure Storage 계정을 만들려면 **새 저장소 계정 만들기**를 클릭하고 양식을 완성합니다.  기존 저장소 계정을 선택하거나 새 저장소 계정을 만든 후에 **추가**를 클릭합니다.  Visual Studio에서는 Azure Storage의 NuGet 패키지 및 **appsettings.json**에 대한 저장소 연결 문자열을 설치합니다.
+
+> [!TIP]
+> [Azure Portal](https://portal.azure.com)에서 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+>
+> [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) 또는 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용하여 Azure Storage 계정을 만들 수도 있습니다.
+
 
 ### <a name="create-an-mvc-controller"></a>MVC 컨트롤러 만들기 
 
 1. **솔루션 탐색기**에서 **컨트롤러**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **추가->컨트롤러**를 차례로 선택합니다.
 
-    ![ASP.NET MVC 앱에 컨트롤러 추가](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+    ![ASP.NET Core MVC 앱에 컨트롤러 추가](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
 
-1. **스캐폴드 추가** 대화 상자에서 **MVC 5 컨트롤러 - 비어 있음**을 선택하고 **추가**를 선택합니다.
+1. **스캐폴드 추가** 대화 상자에서 **MVC 컨트롤러 - 비어 있음**을 선택하고 **추가**를 선택합니다.
 
-    ![MVC 컨트롤러 유형 지정](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
+    ![MVC 컨트롤러 유형 지정](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
 1. **컨트롤러 추가** 대화 상자에서 컨트롤러 이름을*BlobsController*로 설정하고 **추가**를 선택합니다.
 
-    ![MVC 컨트롤러 이름 지정](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
+    ![MVC 컨트롤러 이름 지정](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
 1. 다음 *using* 지시문을 `BlobsController.cs` 파일에 추가합니다.
 
     ```csharp
-    using Microsoft.Azure;
+    using System.IO;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
@@ -67,7 +102,7 @@ Azure Blob 저장소는 구조화되지 않은 데이터를 개체/Blob으로 �
 
 Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 문서의 나머지 단계에는 재사용하기 위한 고유한 방법으로 코드를 배치하기 위해 Blob 컨테이너에 대한 참조가 필요합니다.
 
-다음 단계에서는 **Web.config**의 연결 문자열을 사용하여 저장소 계정에 연결하는 메서드를 만들고 컨테이너에 대한 참조를 만듭니다.  **Web.config**의 연결 문자열 설정은 `<storageaccountname>_AzureStorageConnectionString` 형식으로 명명됩니다. 
+다음 단계에서는 **appsettings.json**의 연결 문자열을 사용하여 저장소 계정에 연결하는 메서드를 만들고 컨테이너에 대한 참조를 만듭니다.  **appsettings.json**의 연결 문자열 설정은 `<storageaccountname>_AzureStorageConnectionString` 형식으로 명명됩니다. 
 
 1. `BlobsController.cs` 파일을 엽니다.
 
@@ -76,8 +111,12 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     ```csharp
     private CloudBlobContainer GetCloudBlobContainer()
     {
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                CloudConfigurationManager.GetSetting("<storageaccountname>_AzureStorageConnectionString"));
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json");
+        IConfigurationRoot Configuration = builder.Build();
+        CloudStorageAccount storageAccount = 
+            CloudStorageAccount.Parse(Configuration["ConnectionStrings:aspnettutorial_AzureStorageConnectionString"]);
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
         CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
         return container;
@@ -111,7 +150,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
 1. `CloudBlobContainer.CreateIfNotExists` 메서드를 호출하여 컨테이너가 아직 없는 경우 만들 수 있습니다. 컨테이너가 없고 성공적으로 만들어지면 `CloudBlobContainer.CreateIfNotExists` 메서드에서 **true**를 반환합니다. 그렇지 않으면 **false**가 반환됩니다.    
 
     ```csharp
-    ViewBag.Success = container.CreateIfNotExists();
+    ViewBag.Success = container.CreateIfNotExistsAsync().Result;
     ```
 
 1. `ViewBag`을 Blob 컨테이너의 이름으로 업데이트합니다.
@@ -126,7 +165,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     public ActionResult CreateBlobContainer()
     {
         CloudBlobContainer container = GetCloudBlobContainer();
-        ViewBag.Success = container.CreateIfNotExists();
+        ViewBag.Success = container.CreateIfNotExistsAsync().Result;
         ViewBag.BlobContainerName = container.Name;
 
         return View();
@@ -134,7 +173,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     ```
 
 1. **솔루션 탐색기**에서 **보기** 폴더를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **추가->새 폴더**를 선택합니다. 새 폴더 이름을 *Blobs*로 지정합니다. 
- 
+
 1. **솔루션 탐색기**에서 **보기** 폴더를 확장한 다음 **Blobs**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **추가->보기**를 차례로 선택합니다.
 
 1. **보기 추가** 대화 상자에서 보기 이름으로 **CreateBlobContainer**를 입력하고 **추가**를 선택합니다.
@@ -147,21 +186,21 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     }
     
     <h2>Create Blob Container results</h2>
-
+    
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
 1. **솔루션 탐색기**에서 **보기->공유됨** 폴더를 차례로 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink** 뒤에 다음 **Html.ActionLink**를 추가합니다.
+1. 다음과 같이 표시된 순서가 지정되지 않은 목록을 찾습니다.`<ul class="nav navbar-nav">`  목록에서 마지막 `<li>` 요소 뒤에 다음 HTML을 추가하여 다른 탐색 메뉴 항목을 추가합니다.
 
     ```html
-    <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="CreateBlobContainer">Create blob container</a></li>
     ```
 
 1. 응용 프로그램을 실행하고 **Blob 컨테이너 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
-    ![Blob 컨테이너 만들기](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
+    ![Blob 컨테이너 만들기](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
 
     앞에서 언급했듯이 컨테이너가 없고 만들어진 경우에만 `CloudBlobContainer.CreateIfNotExists` 메서드에서 **true**를 반환합니다. 따라서 컨테이너가 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다.
 
@@ -202,7 +241,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
     {
-        blob.UploadFromStream(fileStream);
+        blob.UploadFromStreamAsync(fileStream).Wait();
     }
     ```
     
@@ -215,7 +254,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
         CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
         using (var fileStream = System.IO.File.OpenRead(@"c:\src\sample.txt"))
         {
-            blob.UploadFromStream(fileStream);
+            blob.UploadFromStreamAsync(fileStream).Wait();
         }
         return "success!";
     }
@@ -223,15 +262,15 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
 
 1. **솔루션 탐색기**에서 **보기->공유됨** 폴더를 차례로 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink** 뒤에 다음 **Html.ActionLink**를 추가합니다.
+1. 목록에서 마지막 `<li>` 요소 뒤에 다음 HTML을 추가하여 다른 탐색 메뉴 항목을 추가합니다.
 
     ```html
-    <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
 1. 응용 프로그램을 실행하고 **Blob 업로드**를 선택합니다.  "성공했습니다."라는 단어가 표시됩니다.
     
-    ![성공 확인](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
+    ![성공 확인](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
 이 섹션([Blob 컨테이너에 Blob 나열](#list-the-blobs-in-a-blob-container))에서는 Blob 컨테이너에 Blob을 나열하는 방법을 보여 줍니다.    
 
@@ -257,12 +296,12 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobs` 메서드를 사용합니다. `CloudBlobContainer.ListBlobs` 메서드가 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅될 수 있는 `IListBlobItem` 개체를 반환합니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 형식에 따라 적절한 개체로 캐스팅되며 해당 이름(또는 **CloudBlobDirectory**의 경우에 URI)이 목록에 추가됩니다.
+1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드를 사용합니다. `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드가 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅될 수 있는 `IListBlobItem` 개체를 포함하는 `BlobResultSegment`를 반환합니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 형식에 따라 적절한 개체로 캐스팅되며 해당 이름(또는 `CloudBlobDirectory`의 경우에 URI)이 목록에 추가됩니다.
 
     ```csharp
     List<string> blobs = new List<string>();
-
-    foreach (IListBlobItem item in container.ListBlobs())
+    BlobResultSegment resultSegment = container.ListBlobsSegmentedAsync(null).Result;
+    foreach (IListBlobItem item in resultSegment.Results)
     {
         if (item.GetType() == typeof(CloudBlockBlob))
         {
@@ -283,41 +322,15 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
 
     return View(blobs);
     ```
-
-    Blob 컨테이너는 Blob 외에도 디렉터리를 포함할 수 있습니다. 다음 계층 구조를 가진 *test-blob-container*라는 Blob 컨테이너가 있다고 가정해 보겠습니다.
-
-        foo.png
-        dir1/bar.png
-        dir2/baz.png
-
-    앞의 코드 예제를 사용하면 **Blob** 문자열 목록에 다음과 비슷한 값이 포함됩니다.
-
-        foo.png
-        <storage-account-url>/test-blob-container/dir1
-        <storage-account-url>/test-blob-container/dir2
-
-    표시된 대로 목록에는 중첩된 엔터티가 아닌 최상위 엔터티만 포함됩니다(*bar.png* 및 *baz.png*). Blob 컨테이너 내의 모든 엔터티를 나열하려면 **CloudBlobContainer.ListBlobs** 메서드가 **useFlatBlobListing** 매개 변수에 **true**로 전달되도록 코드를 변경합니다.    
-
-    ```csharp
-    //...
-    foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing:true))
-    //...
-    ```
-
-    **useFlatBlobListing** 매개 변수를 **true**로 설정하면 Blob 컨테이너의 모든 항목에 대한 플랫 목록이 반환되고 다음 결과가 생성됩니다.
-
-        foo.png
-        dir1/bar.png
-        dir2/baz.png
-    
-    다음에서는 완성된 **ListBlobs** 메서드를 보여줍니다.
+    다음에서는 완성된 `ListBlobs` 메서드를 보여줍니다.
 
     ```csharp
     public ActionResult ListBlobs()
     {
         CloudBlobContainer container = GetCloudBlobContainer();
         List<string> blobs = new List<string>();
-        foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing: true))
+        BlobResultSegment resultSegment = container.ListBlobsSegmentedAsync(null).Result;
+        foreach (IListBlobItem item in resultSegment.Results)
         {
             if (item.GetType() == typeof(CloudBlockBlob))
             {
@@ -357,22 +370,22 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     <ul>
         @foreach (var item in Model)
         {
-        <li>@item</li>
+            <li>@item</li>
         }
     </ul>
     ```
 
 1. **솔루션 탐색기**에서 **보기->공유됨** 폴더를 차례로 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink** 뒤에 다음 **Html.ActionLink**를 추가합니다.
+1. 목록에서 마지막 `<li>` 요소 뒤에 다음 HTML을 추가하여 다른 탐색 메뉴 항목을 추가합니다.
 
     ```html
-    <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="ListBlobs">List blobs</a></li>
     ```
 
 1. 응용 프로그램을 실행하고 **Blob 나열**을 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
-    ![Blob 나열](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
+    ![Blob 나열](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Blob 다운로드
 
@@ -408,7 +421,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
     {
-        blob.DownloadToStream(fileStream);
+        blob.DownloadToStreamAsync(fileStream).Wait();
     }
     ```
     
@@ -421,7 +434,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
         CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
         using (var fileStream = System.IO.File.OpenWrite(@"c:\src\downloadedBlob.txt"))
         {
-            blob.DownloadToStream(fileStream);
+            blob.DownloadToStreamAsync(fileStream).Wait();
         }
         return "success!";
     }
@@ -429,10 +442,10 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
 
 1. **솔루션 탐색기**에서 **보기->공유됨** 폴더를 차례로 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink** 뒤에 다음 **Html.ActionLink**를 추가합니다.
+1. 목록에서 마지막 `<li>` 요소 뒤에 다음 HTML을 추가하여 다른 탐색 메뉴 항목을 추가합니다.
 
     ```html
-    <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
 1. 응용 프로그램을 실행하고 **Blob 다운로드**를 선택하여 Blob을 다운로드합니다. `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에 지정된 Blob은 `File.OpenWrite` 메서드 호출에서 지정된 위치에 다운로드됩니다.  "성공했습니다."라는 텍스트가 브라우저에 표시됩니다. 
@@ -469,7 +482,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
 1. Blob을 삭제하려면 `Delete` 메서드를 사용합니다.
 
     ```csharp
-    blob.Delete();
+    blob.DeleteAsync().Wait();
     ```
     
     전체 `DeleteBlob` 메서드는 다음과 같아야 합니다.
@@ -479,24 +492,24 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다.  이 �
     {
         CloudBlobContainer container = GetCloudBlobContainer();
         CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
-        blob.Delete();
+        blob.DeleteAsync().Wait();
         return "success!";
     }
     ```
 
 1. **솔루션 탐색기**에서 **보기->공유됨** 폴더를 차례로 확장하고 `_Layout.cshtml`을 엽니다.
 
-1. 마지막 **Html.ActionLink** 뒤에 다음 **Html.ActionLink**를 추가합니다.
+1. 목록에서 마지막 `<li>` 요소 뒤에 다음 HTML을 추가하여 다른 탐색 메뉴 항목을 추가합니다.
 
     ```html
-    <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
+    <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
 1. 응용 프로그램을 실행하고 **Blob 삭제**를 선택하여 `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에서 지정한 Blob을 삭제합니다.  "성공했습니다."라는 텍스트가 브라우저에 표시됩니다.  브라우저의 **다시** 단추를 클릭한 다음 **Blob 나열**을 선택하여 Blob가 컨테이너에 더 이상 있지 않다고 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 ASP.NET을 사용하여 Azure Storage에서 Blob을 저장, 나열 및 검색하는 방법을 알아보았습니다.  Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
+이 자습서에서는 ASP.NET Core를 사용하여 Azure Storage에서 Blob을 저장, 나열 및 검색하는 방법을 알아보았습니다.  Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 
   * [Azure 테이블 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
   * [Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

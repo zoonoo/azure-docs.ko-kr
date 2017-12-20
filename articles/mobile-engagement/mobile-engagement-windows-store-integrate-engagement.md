@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows 유니버설 앱 Engagement SDK 통합
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure Portal에 표시됩니다.
 
 ### <a name="engagement-initialization"></a>Engagement 초기화
 새 프로젝트를 만들 때는 `App.xaml.cs` 파일이 생성됩니다. 이 클래스는 `Application` 에서 상속하며, 여러 중요 메서드를 포함합니다. Engagement SDK를 초기화할 때도 이 클래스가 사용됩니다.

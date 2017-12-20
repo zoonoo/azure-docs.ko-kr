@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal에서 Service Fabric 만들기 | Microsoft Docs"
-description: "이 문서에서는 Azure 포털 및 Azure 주요 자격 증명 모음을 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다."
+description: "이 문서에서는 Azure Portal 및 Azure Key Vault를 사용하여 Azure에 보안 서비스 패브릭 클러스터를 설정하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Azure 포털을 사용하여 Azure에 보안 서비스 패브릭 클러스터를
 
 보안 클러스터란 응용 프로그램, 서비스 및 포함된 데이터를 배포, 업그레이드 및 삭제하는 관리 작업에 무단 액세스하는 것을 방지하는 클러스터입니다. 비보안 클러스터란 언제라도 누구든지 연결하여 관리 작업을 수행할 수 있는 클러스터입니다. 비보안 클러스터를 만드는 것이 가능하지만 **보안 클러스터를 만드는 것이 좋습니다**. 비보안 클러스터는 **나중를 보안될 수 없습니다** -새 클러스터를 만들어야 합니다.
 
-Linux 또는 Windows 클러스터인지 여부에 관계없이 보안 클러스터 만들기에 대한 개념은 같습니다. 자세한 내용 및 보안 Linux 클러스터 만들기를 위한 도우미 스크립트는 [Linux에서 보안 클러스터 만들기](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters)를 참조하세요. 제공된 도우미 스크립트에서 얻은 매개 변수는 [Azure 포털에서 클러스터 만들기](#create-cluster-portal)섹션에 설명된 대로 포털에 직접 입력할 수 있습니다.
+Linux 또는 Windows 클러스터인지 여부에 관계없이 보안 클러스터 만들기에 대한 개념은 같습니다. 보안 Linux 클러스터 만들기를 위한 자세한 내용 및 도우미 스크립트는 [보안 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 제공된 도우미 스크립트에서 얻은 매개 변수는 [Azure 포털에서 클러스터 만들기](#create-cluster-portal)섹션에 설명된 대로 포털에 직접 입력할 수 있습니다.
 
 ## <a name="configure-key-vault"></a>Key Vault 구성 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
@@ -62,7 +62,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ### <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
 가이드의 이 부분에서는 Azure에서 서비스 패브릭 클러스터에 대해서와 서비스 패브릭 응용 프로그램에 대해서 주요 자격 증명 모음을 만드는 단계를 안내합니다. Key Vault에 대한 완전한 가이드는 [Key Vault 시작 가이드][key-vault-get-started]를 참조하세요.
 
-서비스 패브릭은 X.509 인증서를 사용하여 클러스터에 보안을 적용합니다. Azure 주요 자격 증명 모음은 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
+서비스 패브릭은 X.509 인증서를 사용하여 클러스터에 보안을 적용합니다. Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
 
 다음 다이어그램은 주요 자격 증명 모음, 서비스 패브릭 클러스터 및 클러스터를 만들 때 주요 자격 증명 모음에 저장된 인증서를 사용하는 Azure 리소스 공급자 간의 관계를 보여 줍니다.
 
@@ -114,7 +114,15 @@ Set-AzureRmContext -SubscriptionId <guid>
     Tags                             :
 ```
 
-기존 주요 자격 증명 모음이 있는 경우라면 Azure CLI를 사용하여 배포에 대해 사용하도록 설정할 수 있습니다.
+기존 Key Vault가 있다면 다음 방법 중 하나를 사용하여 배포에 사용하도록 설정할 수 있습니다.
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Azure CLI:
 
 ```cli
 > azure login
@@ -197,7 +205,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 노드 인증, 관리 끝점 보안 및 인증, X.509 인증서를 사용하는 모든 추가 응용 프로그램 보안 기능에 대한 인증서를 설치하는 서비스 패브릭 클러스터 Resource Manager 템플릿을 구성하기 위해 주요 자격 증명 모음에 대해 이러한 작업이 선행되어야 합니다. 이제 Azure에는 다음과 같은 설정이 구성됩니다.
 
 * 주요 자격 증명 모음 리소스 그룹
-  * 키 자격 증명 모음
+  * Key Vault
     * 클러스터 서버 인증 인증서
 
 </a "create-cluster-portal" ></a>
@@ -207,7 +215,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 ![Azure 포털에서 서비스 패브릭 클러스터 템플릿을 검색합니다.][SearchforServiceFabricClusterTemplate]
 
 1. [Azure Portal][azure-portal]에 로그인합니다.
-2. **새로 만들기** 를 클릭하여 새 리소스 템플릿을 추가합니다. **마켓플레이스**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
+2. **새로 만들기** 를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 3. 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 4. **Service Fabric 클러스터** 블레이드로 이동하여 **만들기**를 클릭합니다.
 5. **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
