@@ -32,7 +32,7 @@
 
 ## 데이터 로드 및 이동
 ### [개요](design-elt-data-loading.md)
-### [지침](guidance-for-loading-data.md)
+### [모범 사례](guidance-for-loading-data.md)
 
 
 ## 통합

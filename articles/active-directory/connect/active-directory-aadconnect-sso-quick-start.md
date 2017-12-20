@@ -142,7 +142,7 @@ Mac OS를 실행하는 컴퓨터가 Azure AD에 가입되어 있는지 확인합
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )도 해당 정책 설정에 추가해야 합니다.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 

@@ -91,8 +91,7 @@
 #### 여러 IP 주소를 사용하여 VM 만들기
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
 #### [가속 네트워킹을 사용하여 VM 만들기](virtual-network-create-vm-accelerated-networking.md)

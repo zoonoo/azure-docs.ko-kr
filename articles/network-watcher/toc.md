@@ -74,12 +74,17 @@
 ### [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)
 
 # 참조
-## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/network/watcher)
+## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+
 ## [.NET](/dotnet/api)
 ## [REST (영문)](/rest/api/networkwatcher/)
 # 관련 항목
 ## [가상 네트워크](/azure/virtual-network/)
-## [가상 컴퓨터](/azure/virtual-machines/)
+## [가상 머신](/azure/virtual-machines/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

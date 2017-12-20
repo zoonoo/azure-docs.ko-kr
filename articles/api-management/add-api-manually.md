@@ -79,7 +79,7 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털**에�
 2. **FetchData**를 선택합니다.
 3. **보내기**를 누릅니다.
 
-"Http://httpbin.org/get" 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.
+" http://httpbin.org/get " 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.
 
 ## <a name="add-and-test-a-parameterized-operation"></a>매개 변수가 있는 작업 추가 및 테스트
 
