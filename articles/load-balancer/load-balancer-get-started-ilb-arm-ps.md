@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 6eea6c9bc7f686096c3cf0c97bfbe65a5507de2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -45,12 +45,12 @@ ms.lasthandoff: 11/28/2017
 * 프런트 엔드 IP 구성 – 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
 * 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스.
 * 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성.
-* 프로브 구성: 가상 컴퓨터에 대한 상태 프로브.
-* 인바운드 NAT 규칙: 가상 컴퓨터에 직접 액세스를 위한 포트 규칙.
+* 프로브 구성: 가상 머신에 대한 상태 프로브.
+* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
-다음 단계에서는 두 개의 가상 컴퓨터 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
+다음 단계에서는 두 개의 가상 머신 간에 부하 분산 장치를 구성하는 방법을 설명합니다.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Resource Manager를 사용하도록 PowerShell 설치
 
@@ -241,13 +241,13 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
-`Add-AzureRmVMNetworkInterface` 명령을 사용하여 NIC를 가상 컴퓨터에 할당합니다.
+`Add-AzureRmVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
 
 가상 컴퓨터를 만들고 NIC를 할당하는 단계별 지침은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
 ## <a name="add-the-network-interface"></a>네트워크 인터페이스 추가
 
-가상 컴퓨터를 만든 후 네트워크 인터페이스를 추가합니다.
+가상 머신을 만든 후 네트워크 인터페이스를 추가합니다.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>1단계: 부하 분산 장치 리소스 저장
 
