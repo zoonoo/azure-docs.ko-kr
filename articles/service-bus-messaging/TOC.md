@@ -1,7 +1,7 @@
 # 개요
 ## [Service Bus 메시징이란?](service-bus-messaging-overview.md)
-## [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
-## [서비스 버스 아키텍처](service-bus-architecture.md)
+## [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus 아키텍처](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # 시작
@@ -26,6 +26,8 @@
 
 # 방법
 ## 계획 및 디자인
+### [관리 서비스 ID(미리 보기)](service-bus-managed-service-identity.md)
+### [Role-Based Access Control(미리 보기)](service-bus-role-based-access-control.md)
 ### [프리미엄 메시징](service-bus-premium-messaging.md)
 ### [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [성능 최적화](service-bus-performance-improvements.md)

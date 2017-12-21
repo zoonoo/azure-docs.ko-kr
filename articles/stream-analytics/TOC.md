@@ -17,6 +17,7 @@
 ### [IoT Edge의 Stream Analytics(미리 보기)](stream-analytics-edge.md)
 ### [Azure 사용 가이드에서 변칙 검색(미리 보기)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Stream Analytics에서 자주 발생하는 거래 시뮬레이션](stream-analytics-high-frequency-trading.md)
+### [Azure Stream Analytics 및 Azure Functions](stream-analytics-with-azure-functions.md)
 
 ## 작업 만들기
 ### [입력 만들기](stream-analytics-define-inputs.md)

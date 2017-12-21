@@ -16,12 +16,14 @@
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## 이벤트 캡처
-### [Azure Portal을 사용하여 이벤트 허브 캡처를 사용하도록 설정](event-hubs-capture-enable-through-portal.md)
-### [Resource Manager 템플릿을 사용하여 이벤트 허브 캡처를 사용하도록 설정](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+### [Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정](event-hubs-capture-enable-through-portal.md)
+### [Resource Manager 템플릿을 사용하여 Event Hubs 캡처를 사용하도록 설정](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [프로그래밍 가이드](event-hubs-programming-guide.md)
 
 # 방법
 ## 계획 및 디자인
+### [관리 서비스 ID(미리 보기)](event-hubs-managed-service-identity.md)
+### [Role-Based Access Control(미리 보기)](event-hubs-role-based-access-control.md)
 ### [지역에서 재해 복구 및 지역에서 복제](event-hubs-geo-dr.md)
 ### [Event Hubs 전용](event-hubs-dedicated-overview.md)
 ### [인증 및 보안 모델 개요](event-hubs-authentication-and-security-model-overview.md)
@@ -37,8 +39,8 @@
 ### [Azure Monitoring을 사용하여 Event Hubs 모니터링](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs 관리 라이브러리](event-hubs-management-libraries.md)
 ### 캡처
-#### [이벤트 허브 캡처](event-hubs-capture-overview.md)
-#### [Python을 사용하여 이벤트 허브 데이터 캡처](event-hubs-capture-python.md)
+#### [Event Hubs 캡처](event-hubs-capture-overview.md)
+#### [Python을 사용하여 Event Hubs 데이터 캡처](event-hubs-capture-python.md)
 ### [PowerShell을 사용하여 엔터티 프로비전](event-hubs-manage-with-ps.md) 
 ### [Event Hubs를 사용하여 Azure 진단 데이터 스트림](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager 템플릿을 사용하여 이벤트 허브 만들기 및 배포](event-hubs-resource-manager-namespace-event-hub.md)

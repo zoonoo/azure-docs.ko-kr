@@ -270,7 +270,7 @@
         - name: Team Data Science Process
           tocHref: /azure/machine-learning/team-data-science-process
           topicHref: /azure/machine-learning/team-data-science-process/overview
-        - name: 데이터 과학 가상 컴퓨터
+        - name: 데이터 과학 Virtual Machine
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: Marketplace 소비자
@@ -313,6 +313,31 @@
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/
+    - name: 정책 설명서
+      tocHref: /azure/azure-policy/
+      topicHref: /azure/azure-policy/
+      items:
+        - name: Azure 정책 개요
+          tocHref: /azure/azure-policy/azure-policy-introduction/
+          topicHref: /azureazure-policy/azure-policy-introduction/
+        - name: 정책 할당 - 포털
+          tocHref: /azure/azure-policy/assign-policy-definition/
+          topicHref: /azureazure-policy/assign-policy-definition/
+        - name: 정책 할당 - PowerShell
+          tocHref: /azure/azure-policy/assign-policy-definition-ps/
+          topicHref: /azureazure-policy/assign-policy-definition-ps/
+        - name: 정책 할당 - Azure CLI
+          tocHref: /azure/azure-policy/assign-policy-definition-cli/
+          topicHref: /azureazure-policy/assign-policy-definition-cli/
+        - name: Azure 정책 만들기 및 관리
+          tocHref: /azure/azure-policy/create-manage-polic/
+          topicHref: /azureazure-policy/create-manage-polic/
+        - name: 정책 템플릿
+          tocHref: /azure/azure-policy/json-samples/
+          topicHref: /azureazure-policy/json-samples/
+        - name: Azure Policy 정의 구조
+          tocHref: /azure/azure-policy/policy-definition/
+          topicHref: /azureazure-policy/policy-definition/
     - name: PostgreSQL
       tocHref: /azure/postgresql/
       topicHref: /azure/postgresql/

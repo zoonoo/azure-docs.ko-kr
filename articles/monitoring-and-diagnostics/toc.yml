@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: 자동 크기 조정 사용
       items:
+        - name: 자동 크기 조정 설정 이해
+          href: monitoring-understanding-autoscale-settings.md
         - name: 모범 사례
           href: insights-autoscale-best-practices.md
         - name: 일반적인 메트릭

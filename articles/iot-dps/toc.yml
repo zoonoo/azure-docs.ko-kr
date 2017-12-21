@@ -36,7 +36,11 @@
 - name: 방법 가이드
   items:
     - name: 장치 등록 관리
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Azure Portal을 사용하여 장치 등록 관리
+          href: how-to-manage-enrollments.md
+        - name: 서비스 SDK를 사용하여 장치 등록 관리
+          href: how-to-manage-enrollments-sdks.md
     - name: SDK로 HSM 사용
       href: use-hsm-with-sdk.md
     - name: 프로비전 서비스에 대한 액세스 제어

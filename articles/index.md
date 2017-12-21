@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 69213ca5c456f13b39c68eae2839329bfd05df6d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -91,8 +91,7 @@ ms.lasthandoff: 12/16/2017
                                             <div class="cardText">
                                                 <h3>인프라 배포</h3>
                                                 <ul class="noBullet">
-                                                    <li>
-            <a class="barLink" href="/azure/virtual-machines/linux/">Linux 가상 머신</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux 가상 머신</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows 가상 머신</a></li>
                                                 </ul>
                                             </div>
@@ -111,6 +110,7 @@ ms.lasthandoff: 12/16/2017
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>

@@ -18,7 +18,8 @@
 ### [Azure에서 거버넌스](../governance-in-azure.md)
 ### [휴지 상태의 데이터 암호화](../azure-security-encryption-atrest.md)
 ### 아키텍처 청사진
-#### [규정 준수 - PCI DSS](payment-processing-blueprint.md)
+#### 규정 준수 - PCI DSS
+##### [PCI DSS 규격 환경에 대한 Payment Processing](payment-processing-blueprint.md)
 ##### [요구 사항 개요](pci-dss-requirements-overview.md)
 ##### [요구 사항 1 - 방화벽](pci-dss-requirement-1-firewall.md)
 ##### [요구 사항 2 - 암호](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [요구 사항 10 - 모니터링](pci-dss-requirement-10-monitoring.md)
 ##### [요구 사항 11 - 테스트](pci-dss-requirement-11-testing.md)
 ##### [요구 사항 12 - 정책](pci-dss-requirement-12-policy.md)
-#### [규정 준수 - FedRAMP](fedramp.md)
+#### 규정 준수 - FedRAMP
+##### [FedRAMP용 웹 응용 프로그램](fedramp.md)
 ##### [보안 제어 개요](fedramp-controls-overview.md)
 ##### [액세스 제어](fedramp-access-controls.md)
 ##### [감사 및 책임](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [시스템 및 통신 보호](fedramp-system-communications-protection-controls.md)
 ##### [시스템 및 정보 무결성](fedramp-system-information-integrity-controls.md)
 ##### [시스템 및 서비스 획득](fedramp-system-services-acquisition-controls.md)
-#### [규정 준수 - 영국 공식](uk-official-three-tier-applications-overview.md)
+#### 규정 준수 - 영국 공식
+##### [영국 공식에 대한 3계층 웹 응용 프로그램](uk-official-three-tier-applications-overview.md)
 ##### [개요](uk-official-three-tier-applications-overview.md)
 ##### [원칙 개요](uk-official-three-tier-applications-principles-overview.md)
-#### [준수 - 금융 서비스](financial-services-regulated-workloads.md)
+#### 준수 - 금융 서비스
 ##### [규제된 워크로드의 금융 서비스](financial-services-regulated-workloads.md)
 
 # 시작

@@ -48,6 +48,10 @@
 ### [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ### [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 
+## 장치 시뮬레이션
+### [장치 시뮬레이션 배포](iot-suite-device-simulation-deploy.md)
+### [장치 시뮬레이션 탐색](iot-suite-device-simulation-explore.md)
+
 # 방법 가이드
 ## 원격 모니터링
 ### [고급 모니터링 수행](iot-suite-remote-monitoring-monitor.md)
@@ -87,7 +91,8 @@
 ## [Event Hubs](/azure/event-hubs/)
 ## [IoT 허브](/azure/iot-hub/)
 ## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
-## [기계 학습](/azure/machine-learning/)
+## 
+            [Machine Learning](/azure/machine-learning/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

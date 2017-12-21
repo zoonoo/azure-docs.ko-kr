@@ -34,8 +34,6 @@
 ### [3- 클러스터 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 ### [4- Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # 샘플
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [아키텍처](service-fabric-architecture.md)
 ## [용어](service-fabric-technical-overview.md)
 
-## 응용 프로그램 및 서비스 빌드
-### [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
-#### [컨테이너](service-fabric-containers-overview.md)
-##### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
-##### [리소스 관리](service-fabric-resource-governance.md)
-#### [Reliable Services](service-fabric-reliable-services-introduction.md)
-##### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
-##### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
-##### [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
-##### [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
+## [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
+### [컨테이너](service-fabric-containers-overview.md)
+#### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
+#### [리소스 관리](service-fabric-resource-governance.md)
+### [Reliable Services](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
+#### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
+#### [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
+#### [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [아키텍처](service-fabric-reliable-actors-platform.md)
-##### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-##### [상태 관리](service-fabric-reliable-actors-state-management.md)
-##### [다형성](service-fabric-reliable-actors-polymorphism.md)
-##### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
-##### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [아키텍처](service-fabric-reliable-actors-platform.md)
+#### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
+#### [상태 관리](service-fabric-reliable-actors-state-management.md)
+#### [다형성](service-fabric-reliable-actors-polymorphism.md)
+#### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
+#### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## 응용 프로그램 및 서비스
 ### [응용 프로그램 모델](service-fabric-application-model.md)
 ### [응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)
 ### [호스팅 모델](service-fabric-hosting-model.md)
 
-### Services
-#### [서비스 리소스](service-fabric-service-manifest-resources.md)
-#### [서비스 상태](service-fabric-concepts-state.md)
-#### [서비스 분할](service-fabric-concepts-partitioning.md)
-#### [서비스 가용성](service-fabric-availability-services.md)
-#### [복제 및 인스턴스 수명 주기](service-fabric-concepts-replica-lifecycle.md)
-#### [재구성](service-fabric-concepts-reconfiguration.md)
-#### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
-##### [DNS 서비스](service-fabric-dnsservice.md)
-##### [역방향 프록시](service-fabric-reverseproxy.md)
-##### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [역방향 프록시 진단](service-fabric-reverse-proxy-diagnostics.md)
+### [서비스 상태](service-fabric-concepts-state.md)
+### [서비스 분할](service-fabric-concepts-partitioning.md)
 ### [응용 프로그램 확장성](service-fabric-concepts-scalability.md)
-### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+### [서비스 가용성](service-fabric-availability-services.md)
+### [복제 및 인스턴스 수명 주기](service-fabric-concepts-replica-lifecycle.md)
+### [재구성](service-fabric-concepts-reconfiguration.md)
 
-### [응용 프로그램 용량 계획](service-fabric-capacity-planning.md)
+### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS 서비스](service-fabric-dnsservice.md)
+#### [역방향 프록시](service-fabric-reverseproxy.md)
+#### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [역방향 프록시 진단](service-fabric-reverse-proxy-diagnostics.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [응용 프로그램 관리](service-fabric-application-lifecycle.md)
-### [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-#### [구성](service-fabric-visualstudio-configure-upgrade.md)
-#### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
-#### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
-#### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
-### [오류 분석 개요](service-fabric-testability-overview.md)
-### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
+### [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
+#### [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+##### [구성](service-fabric-visualstudio-configure-upgrade.md)
+##### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
+##### [응용 프로그램 업그레이드에서 데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
+##### [응용 프로그램 업그레이드 고급 토픽](service-fabric-application-upgrade-advanced.md)
+#### [오류 분석을 사용하여 앱 테스트](service-fabric-testability-overview.md)
+#### [ImageStoreConnectionString 설정](service-fabric-image-store-connection-string.md)
 
-## [클러스터 만들기 및 관리](service-fabric-deploy-anywhere.md)
-### 계획 및 준비
-#### [용량 계획](service-fabric-cluster-capacity.md)
-#### [재해 복구](service-fabric-disaster-recovery.md)
-### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
+### [서비스 리소스](service-fabric-service-manifest-resources.md)
+
+## [클러스터](service-fabric-deploy-anywhere.md)
 ### [클러스터 보안](service-fabric-cluster-security.md)
 ### [Linux와 Windows 간의 기능 차이점](service-fabric-linux-windows-differences.md)
 ### Azure의 클러스터
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Service Fabric CLI 설정](service-fabric-cli.md)
 
+## 계획 및 준비
+### [클러스터 용량 계획](service-fabric-cluster-capacity.md)
+### [독립 실행형 클러스터 배포에 대한 계획](service-fabric-cluster-standalone-deployment-preparation.md)
+### [재해 복구 준비](service-fabric-disaster-recovery.md)
+### [응용 프로그램 용량 계획](service-fabric-capacity-planning.md)
+
+## 첫 번째 항목 만들기...
+### [Visual Studio에서 C# 응용 프로그램](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Windows 컨테이너 응용 프로그램](service-fabric-get-started-containers.md)
+### [Linux 컨테이너 응용 프로그램](service-fabric-get-started-containers-linux.md)
+### [Windows의 C# Reliable Services 응용 프로그램](service-fabric-reliable-services-quick-start.md)
+### [Linux의 Java Reliable Services 응용 프로그램](service-fabric-reliable-services-quick-start-java.md)
+### [Linux의 C# Reliable Services 응용 프로그램](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [Windows의 C# Reliable Actors 응용 프로그램](service-fabric-reliable-actors-get-started.md)
+### [Linux의 Java Reliable Actors 응용 프로그램](service-fabric-create-your-first-linux-application-with-java.md)
+### [Windows의 게스트 실행 가능 응용 프로그램](quickstart-guest-app.md)
+### [독립 실행형 클러스터](service-fabric-get-started-standalone-cluster.md)
+
 ## 응용 프로그램 빌드
-### [Visual Studio에서 첫 번째 C# 앱 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### 게스트 실행 가능한 서비스 빌드
-#### [Windows에서 Node.js 응용 프로그램 호스트](quickstart-guest-app.md)
 #### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
 #### [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 ### 컨테이너 서비스 빌드
-#### [Windows 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers.md)
-#### [Linux 컨테이너 응용 프로그램 만들기](service-fabric-get-started-containers-linux.md)
 #### [컨테이너 보안](service-fabric-securing-containers.md)
 #### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 #### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### 시작
-##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
-##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
-##### [Linux에서 C# 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### 서비스와 통신
 ##### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
 
 ### Reliable Actors 서비스 빌드
-#### 시작
-##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
-##### [Linux에서 Java 행위자](service-fabric-create-your-first-linux-application-with-java.md)
 #### [알림 보내기](service-fabric-reliable-actors-events.md)
 #### [타이머 및 미리 알림 설정](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [삭제](service-fabric-cluster-delete.md)
 
 ### 독립 실행형 클러스터
-#### [배포를 위한 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)
 #### 생성
-##### [첫 번째 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
 ##### [온-프레미스 만들기](service-fabric-cluster-creation-for-windows-server.md)
 ##### [인증서를 사용하여 보안](service-fabric-windows-cluster-x509-security.md)  
 ##### [Windows 보안을 사용하여 보안](service-fabric-windows-cluster-windows-security.md)

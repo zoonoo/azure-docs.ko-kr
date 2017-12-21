@@ -13,18 +13,21 @@
 ## [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 
 # 방법 
-## [서버 관리](analysis-services-manage.md)
-## [데이터베이스 사용자 관리](analysis-services-database-users.md)
-## [서버 관리자 관리](analysis-services-server-admins.md)
-## [서버 메트릭 모니터링](analysis-services-monitor.md)
 ## [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
-## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [Backup 및 복원](analysis-services-backup.md)
+## [REST API 사용하여 새로 고침](analysis-services-async-refresh.md)
 ## [스케일 아웃 구성](analysis-services-scale-out.md)
-## [서버 이름 별칭 구성](analysis-services-server-alias.md)
-## [Excel과 연결](analysis-services-connect-excel.md)
-## [Power BI와 연결](analysis-services-connect-pbi.md)
-## [.odc 파일 만들기](analysis-services-odc.md)
+## 서버 관리
+### [서버 이름 별칭 구성](analysis-services-server-alias.md)
+### [서버 관리](analysis-services-manage.md)
+### [데이터베이스 사용자 관리](analysis-services-database-users.md)
+### [서버 관리자 관리](analysis-services-server-admins.md)
+### [서버 메트릭 모니터링](analysis-services-monitor.md)
+## 연결
+### [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
+### [Excel과 연결](analysis-services-connect-excel.md)
+### [Power BI와 연결](analysis-services-connect-pbi.md)
+### [.odc 파일 만들기](analysis-services-odc.md)
 ## 자습서
 ### [Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)
 ### [단원 1: 새 테이블 형식 모델 프로젝트 만들기](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
