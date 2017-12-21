@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 
@@ -37,11 +37,11 @@ Azure에서 데이터를 호스트하도록 선택할 수 있는 여러 가지 �
 
 Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. Azure SQL Database 서비스를 사용하는 옵션도 있을 수 있습니다. Virtual Machines의 SQL Server와 Azure SQL Database 중에서 선택하는 방법에 대한 자세한 내용은 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
 
-## <a name="create-a-new-sql-vm"></a>새 SQL VM 만들기
+## <a id="create"></a>새 SQL VM 만들기
 
 새 SQL VM을 만드는 단계별 지침은 [Azure에서 Linux SQL Server VM 프로비전](provision-sql-server-linux-virtual-machine.md) 자습서에 있습니다.
 
-다음 표에서는 가상 컴퓨터 갤러리의 최신 SQL Server 이미지 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다.
+다음 표에서는 가상 머신 갤러리의 최신 SQL Server 이미지 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다.
 
 > [!TIP]
 > 이러한 이미지의 VM 및 SQL 가격 책정을 이해하려면 [Linux SQL Server VM의 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요.
@@ -53,11 +53,11 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 | **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
 
 > [!NOTE]
-> 사용 가능한 Windows SQL Server 가상 컴퓨터 이미지를 보려면 [Azure Virtual Machines의 SQL Server 개요(Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+> 사용 가능한 Windows SQL Server 가상 머신 이미지를 보려면 [Azure Virtual Machines의 SQL Server 개요(Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
 ## <a id="packages"></a>설치된 패키지
 
-Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터베이스 엔진 패키지 및 여러 가지 선택 사항 패키지를 설치합니다. SQL Server의 Linux 가상 컴퓨터 이미지는 대부분의 패키지를 자동으로 설치합니다. 다음 표에서는 각 배포에 설치된 패키지를 보여줍니다.
+Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터베이스 엔진 패키지 및 여러 가지 선택 사항 패키지를 설치합니다. SQL Server의 Linux 가상 머신 이미지는 대부분의 패키지를 자동으로 설치합니다. 다음 표에서는 각 배포에 설치된 패키지를 보여줍니다.
 
 | 배포 | [데이터베이스 엔진](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server 에이전트](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [전체 텍스트 검색](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA 추가 기능](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|

@@ -3,7 +3,7 @@ title: "SCCM 컬렉션을 사용하여 OMS 업데이트 관리에서 대상 업�
 description: "이 문서는 SCCM 관리되는 컴퓨터의 업데이트를 관리하는 이 솔루션으로 System Center Configuration Manager를 구성하는 데 도움을 주기 위해 작성되었습니다."
 services: operations-management-suite
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gwallace
+ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>OMS 업데이트 관리와 System Center Configuration Manager 통합
 

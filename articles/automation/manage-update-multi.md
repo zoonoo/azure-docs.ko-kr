@@ -1,9 +1,9 @@
 ---
-title: "여러 Azure 가상 컴퓨터에 대한 업데이트 관리 | Microsoft Docs"
-description: "이 항목에서는 Azure 가상 컴퓨터에 대한 업데이트를 관리하는 방법을 설명합니다."
+title: "여러 Azure 가상 머신에 대한 업데이트 관리 | Microsoft Docs"
+description: "이 항목에서는 Azure 가상 머신에 대한 업데이트를 관리하는 방법을 설명합니다."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
-ms.author: magoedte;eslesar
-ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte;gwallace
+ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/13/2017
 
 * Azure Automation 실행 계정 계정을 만드는 방법에 대한 지침은 [Azure Automation 시작](automation-offering-get-started.md)을 참조하세요.
 
-* 지원되는 운영 체제 중 하나가 설치된 가상 컴퓨터 또는 컴퓨터
+* 지원되는 운영 체제 중 하나가 설치된 가상 머신 또는 컴퓨터
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -69,22 +69,22 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 
 이 솔루션은 여러 개의 Operations Management Suite 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트를 지원하지 않습니다.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대한 업데이트 관리 사용
+## <a name="enable-update-management-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 업데이트 관리 사용
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. 왼쪽 창에서 **업데이트 관리**를 선택합니다.
 3. 창 맨 위에서 **Azure VM 추가**를 선택합니다.
    ![Azure VM 추가 탭](./media/manage-update-multi/update-onboard-vm.png)
-4. 등록할 가상 컴퓨터를 선택합니다. **업데이트 관리 사용** 대화 상자가 나타납니다.
+4. 등록할 가상 머신을 선택합니다. **업데이트 관리 사용** 대화 상자가 나타납니다.
 5. **사용**을 선택합니다.
 
    ![업데이트 관리 사용 대화 상자](./media/manage-update-multi/update-enable.png)
 
-가상 컴퓨터에 대한 업데이트 관리를 사용합니다.
+가상 머신에 대한 업데이트 관리를 사용합니다.
 
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>비Azure 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리 사용
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>비Azure 가상 머신 및 컴퓨터에 대한 업데이트 관리 사용
 
-비Azure Windows 가상 컴퓨터 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)을 참조하세요.
+비Azure Windows 가상 머신 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)을 참조하세요.
 
 비Azure Linux 가상 머신 및 컴퓨터에 대한 업데이트 관리를 사용하도록 설정하는 방법에 대한 지침은 [Log Analytics에 Linux 머신 연결](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
 
@@ -104,7 +104,7 @@ Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한
 
 ## <a name="collect-data"></a>데이터 수집
 
-가상 컴퓨터 및 컴퓨터에 설치된 에이전트에서 업데이트에 대한 데이터를 수집하여 Azure 업데이트 관리로 보냅니다.
+가상 머신 및 컴퓨터에 설치된 에이전트에서 업데이트에 대한 데이터를 수집하여 Azure 업데이트 관리로 보냅니다.
 
 ### <a name="supported-agents"></a>지원되는 에이전트
 

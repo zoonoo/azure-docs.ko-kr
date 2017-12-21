@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 9341fe50b8a51197da0696bd28d7f05feae23de6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 713bf8ea670b1c2b35a05ebd8cd9450c711cbf3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET Web API 빌드
 
@@ -41,8 +41,6 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 * 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 나중에 필요합니다.
 * 앱 식별자를 **앱 ID URI**에 입력합니다. 전체 **앱 ID URI**를 복사합니다. 나중에 필요합니다.
 * **게시된 범위** 메뉴를 통해 사용 권한을 추가합니다.
-
-  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>정책 만들기
 

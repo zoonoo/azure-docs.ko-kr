@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio 연결된 서비스(미리 보기)
 
@@ -33,7 +33,7 @@ Visual Studio 연결된 서비스를 사용하면 개발자가 쉽게 Azure Cosm
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
-* Azure Cosmos DB 계정. 아직 계정이 없는 경우 [Azure Cosmos DB 계정 만들기](create-documentdb-dotnet.md)의 단계에 따라 Azure Portal에서 계정을 만들거나 [연결된 서비스 도구에서 Azure Cosmos DB 계정 만들기](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)를 참조하세요. 
+* Azure Cosmos DB 계정. 아직 계정이 없는 경우 [Azure Cosmos DB 계정 만들기](create-sql-api-dotnet.md)의 단계에 따라 Azure Portal에서 계정을 만들거나 [연결된 서비스 도구에서 Azure Cosmos DB 계정 만들기](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)를 참조하세요. 
 * 개발을 위해 로컬 환경을 사용하려는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다. 환경은 Azure Cosmos DB 서비스를 에뮬레이트합니다.
 * [Visual Studio](http://www.visualstudio.com/).
 * 최신 Azure Cosmos DB 연결된 서비스 비트입니다. 다음 스크린샷에 표시된 대로 Visual Studio Marketplace에서 Azure Cosmos DB 연결된 서비스를 다운로드할 수 있습니다. 컴퓨터에서 **Visual Studio**를 엽니다. **도구** 메뉴에서 **확장 및 업데이트...** 를 선택한 후에 **온라인** / **Visual Studio Marketplace**를 선택합니다. **cosmosdb**를 입력하여 비트를 검색합니다.
@@ -119,8 +119,8 @@ Visual Studio에서 Azure Cosmos DB 연결된 서비스를 사용하는 방법�
 
 이제 연결된 서비스를 설치하고 Azure Cosmos DB 계정을 사용하여 실행하고 있으므로 솔루션 개발을 시작하려면 자습서 중 하나를 계속 진행합니다.
 
-* [.NET의 SQL API를 사용하여 개발](tutorial-develop-documentdb-dotnet.md)
-* [Azure Cosmos DB: SQL API 시작 자습서](documentdb-get-started.md)
+* [.NET의 SQL API를 사용하여 개발](tutorial-develop-sql-api-dotnet.md)
+* [Azure Cosmos DB: SQL API 시작 자습서](sql-api-get-started.md)
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
 

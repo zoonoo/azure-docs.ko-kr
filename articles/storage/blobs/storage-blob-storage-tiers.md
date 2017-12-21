@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: 핫, 쿨 및 보관 저장소 계층
 
@@ -32,7 +32,7 @@ Azure Storage는 Blob 개체 저장소에 세 가지 저장소 계층을 제공�
 
 ## <a name="storage-accounts-that-support-tiering"></a>계층을 지원하는 저장소 계정
 
-Blob Storage 또는 범용 v2(GPv2) 계정에서 개체 저장소 데이터를 핫, 쿨 또는 보관으로만 계층화할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 그러나 고객은 Azure Portal에서 간단히 한 번만 클릭하는 프로세스를 통해 기존 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 Blob, 파일 및 큐에 대한 새 가격 책정 구조 및 다양한 기타 새로운 저장소 기능에 대한 액세스를 제공합니다. 또한 앞으로 설명할 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 제공됩니다. 따라서 고객은 GPv2 계정을 사용하여 평가해야 하지만 일부 작업의 경우 비용이 GPv1보다 GPv2에서 높으므로 모든 서비스에 대한 가격 책정을 검토한 후에 사용해야 합니다. 자세히 알아보려면 [Azure Storage 계정 옵션](storage-account-options.md)을 참조하세요.
+Blob Storage 또는 범용 v2(GPv2) 계정에서 개체 저장소 데이터를 핫, 쿨 또는 보관으로만 계층화할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 그러나 고객은 Azure Portal에서 간단히 한 번만 클릭하는 프로세스를 통해 기존 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 쉽게 변환할 수 있습니다. GPv2는 Blob, 파일 및 큐에 대한 새 가격 책정 구조 및 다양한 기타 새로운 저장소 기능에 대한 액세스를 제공합니다. 또한 앞으로 설명할 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 제공됩니다. 따라서 고객은 GPv2 계정을 사용하여 평가해야 하지만 일부 작업의 경우 비용이 GPv1보다 GPv2에서 높으므로 모든 서비스에 대한 가격 책정을 검토한 후에 사용해야 합니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출합니다. 그러면 개체 수준에서 계층을 설정하지 않은 저장소 계정에 포함된 모든 Blob의 경우 기본 저장소 계층을 핫 또는 쿨로 지정할 수 있습니다. 개체 수준에서 계층이 설정된 개체의 경우 계정 계층이 적용되지 않습니다. 보관 계층은 개체 수준에서만 적용할 수 있습니다. 언제든지 이러한 저장소 계층을 전환할 수 있습니다.
 
@@ -139,7 +139,7 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 계층화에 Blob Storage 계정 대신 GPv2를 사용하는 것이 좋습니다. GPv2는 Blob Storage 계정이 지원하는 모든 기능을 지원합니다. Blob Storage와 GPv2 간의 가격 책정은 거의 동일하지만 몇 가지 새로운 기능 및 가격 구분은 GPv2 계정에서만 사용할 수 있습니다. GPv1 계정은 계층화를 지원하지 않습니다.
 
-GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계정을 사용하기 전에 둘을 신중하게 평가해야 합니다. 간단히 한 번 클릭하는 프로세스를 통해 기존 Blob Storage 또는 GPv1 계정을 GPv2로 쉽게 변환할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정 옵션](storage-account-options.md)을 참조하세요.
+GPv1과 GPv2 계정 간에 가격 책정 구조가 다르며 고객은 GPv2 계정을 사용하기 전에 둘을 신중하게 평가해야 합니다. 간단히 한 번 클릭하는 프로세스를 통해 기존 Blob Storage 또는 GPv1 계정을 GPv2로 쉽게 변환할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 **같은 계정에서 세 가지 저장소 계층(핫, 쿨 및 보관)에 개체를 저장할 수 있나요?**
 

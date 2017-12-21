@@ -1,10 +1,10 @@
 ---
-title: "관리 디스크를 Azure 가상 컴퓨터 확장 집합과 함께 사용 | Microsoft Docs"
-description: "관리 디스크를 가상 컴퓨터 확장 집합과 함께 사용하는 이유 및 방법 알아보기"
+title: "관리 디스크를 Azure Virtual Machine Scale Sets와 함께 사용 | Microsoft Docs"
+description: "관리 디스크를 가상 머신 확장 집합과 함께 사용하는 이유 및 방법 알아보기"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82fa518e6c0498a13f950ce33c51be8581918f9b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 확장 집합 및 관리 디스크
 
-Azure [가상 컴퓨터 확장 집합](/azure/virtual-machine-scale-sets/)에서는 관리 디스크가 있는 가상 컴퓨터를 지원합니다. 확장 집합이 있는 관리 디스크를 사용하면 다음과 같은 여러 가지 이점이 있습니다.
+Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)에서는 관리 디스크가 있는 가상 머신을 지원합니다. 확장 집합이 있는 관리 디스크를 사용하면 다음과 같은 여러 가지 이점이 있습니다.
 
 * 확장 집합 VM에 대한 OS 디스크를 저장하기 위해 더 이상 저장소 계정을 미리 만들어서 관리할 필요가 없습니다.
 

@@ -1,6 +1,6 @@
 # 개요
 ## [Windows SQL Server VM](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [FAQ](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 시작
@@ -12,7 +12,6 @@
 # 방법
 ## 고가용성 구성
 ### [고가용성 옵션](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [포털에서 Always On 가용성 그룹 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [PowerShell을 사용하여 Always On 가용성 그룹 구성](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [가용성 그룹에 대한 내부 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [가용성 그룹에 대한 외부 수신기 구성](virtual-machines-windows-classic-ps-sql-ext-listener.md)

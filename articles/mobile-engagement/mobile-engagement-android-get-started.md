@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android 앱용 Azure Mobile Engagement 시작
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -93,7 +93,8 @@ ms.lasthandoff: 10/11/2017
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. 앱 **연결 정보** 페이지의 Azure 클래식 포털로 돌아가서 **연결 문자열**을 복사합니다.
 
-      ![][9]
+      ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
+
 4. 이를 `setConnectionString` 매개 변수에 붙여 넣어 다음 코드에 표시된 전체 문자열을 대체합니다.
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");

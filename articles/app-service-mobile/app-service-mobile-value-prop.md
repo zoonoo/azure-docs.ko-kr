@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
@@ -79,7 +79,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure App Service에서 Mobile Apps를 시작하려면 [시작] 자습서를 완료합니다. 자습서에서는 선택한 모바일 백 엔드와 클라이언트를 생성하는 기본 사항을 설명합니다. 인증 통합, 오프라인 동기화 및 푸시 알림에 대해서도 설명합니다. 각 클라이언트 응용 프로그램에 한 번씩, 여러 번 이 자습서를 완료할 수 있습니다.
+Azure App Service에서 Mobile Apps를 시작하려면 [시작] 자습서를 완료합니다. 자습서에서는 선택한 모바일 백 엔드과 클라이언트를 생성하는 기본 사항을 설명합니다. 인증 통합, 오프라인 동기화 및 푸시 알림에 대해서도 설명합니다. 각 클라이언트 응용 프로그램에 한 번씩, 여러 번 이 자습서를 완료할 수 있습니다.
 
 Mobile Apps에 대한 자세한 내용은 [학습 맵]을 검토하세요.
 Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를 참조하세요.
@@ -88,7 +88,7 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service]를
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [시작]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [인증 기능]: ./app-service-mobile-auth.md
 [데이터 기능]: ./app-service-mobile-offline-data-sync.md
 [푸시 알림 기능]: ../notification-hubs/notification-hubs-push-notification-overview.md
