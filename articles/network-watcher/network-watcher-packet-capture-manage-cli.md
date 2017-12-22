@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 2c0cb9b72d23f46e60c96efe96a9ad32ba6fc746
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -47,16 +47,16 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
 - 패킷 캡처를 만들려는 영역의 Network Watcher 인스턴스
-- 패킷 캡처 확장을 사용하는 가상 컴퓨터
+- 패킷 캡처 확장을 사용하는 Virtual Machine
 
 > [!IMPORTANT]
-> 패킷 캡처에는 가상 컴퓨터에서 실행되는 에이전트가 필요합니다. 에이전트는 확장으로 설치됩니다. VM 확장에 대한 지침은 [Virtual Machine 확장 및 기능](../virtual-machines/windows/extensions-features.md)을 참조하세요.
+> 패킷 캡처에는 가상 머신에서 실행되는 에이전트가 필요합니다. 에이전트는 확장으로 설치됩니다. VM 확장에 대한 지침은 [Virtual Machine 확장 및 기능](../virtual-machines/windows/extensions-features.md)을 참조하세요.
 
 ## <a name="install-vm-extension"></a>VM 확장 설치
 
 ### <a name="step-1"></a>1단계
 
-`az vm extension set` cmdlet을 실행하여 게스트 가상 컴퓨터에 패킷 캡처 에이전트를 설치합니다.
+`az vm extension set` cmdlet을 실행하여 게스트 가상 머신에 패킷 캡처 에이전트를 설치합니다.
 
 Windows Virtual Machines의 경우:
 
@@ -64,7 +64,7 @@ Windows Virtual Machines의 경우:
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentWindows --version 1.4
 ```
 
-Linux 가상 컴퓨터의 경우:
+Linux 가상 머신의 경우:
 
 ```azurecli
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
@@ -72,7 +72,7 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>2단계:
 
-에이전트가 설치되어 있는지 확인하려면 `vm extension show` cmdlet을 실행하고 리소스 그룹과 가상 컴퓨터 이름을 전달합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
+에이전트가 설치되어 있는지 확인하려면 `vm extension show` cmdlet을 실행하고 리소스 그룹과 가상 머신 이름을 전달합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
 
 ```azurecli
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
@@ -102,7 +102,7 @@ az vm extension show --resource-group resourceGroupName --vm-name virtualMachine
 
 ## <a name="start-a-packet-capture"></a>패킷 캡처 시작
 
-이전 단계가 완료되면 패킷 캡처 에이전트는 가상 컴퓨터에 설치됩니다.
+이전 단계가 완료되면 패킷 캡처 에이전트는 가상 머신에 설치됩니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -273,7 +273,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 컴퓨터 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
+[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 
