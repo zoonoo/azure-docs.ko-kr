@@ -50,10 +50,10 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Helm 구성
 
-[helm init](https://docs.helm.sh/helm/#helm-init) 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. Helm은 AKS 클러스터에 미리 설치되어 있으므로 클라이언트 쪽 구성만 필요합니다. Helm 클라이언트를 구성하려면 다음 명령을 실행합니다.
+[helm init](https://docs.helm.sh/helm/#helm-init) 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. Helm을 AKS 클러스터에 설치하고 Helm 클라이언트를 구성하려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 출력:
