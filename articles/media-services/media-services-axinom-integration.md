@@ -1,6 +1,6 @@
 ---
 title: "Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 배달 | Microsoft 문서"
-description: "이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 Axinom 라이선스 서버에서 제공됩니다."
+description: "이 문서에서는 Azure Media Services(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 Media Services PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 Axinom 라이선스 서버에서 제공됩니다."
 services: media-services
 documentationcenter: 
 author: willzhan
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
+# <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공
 > [!div class="op_single_selector"]
 > * [castLabs](media-services-castlabs-integration.md)
 > * [Axinom](media-services-axinom-integration.md)
@@ -28,22 +28,22 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>개요
-Azure 미디어 서비스(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure 미디어 플레이어(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
+Azure Media Services(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure Media Player(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
-미디어 서비스 .NET SDK 버전 3.5.2부터는 미디어 서비스를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 이 문서에서는 Axinom에서 관리하는 Widevine 라이선스 서버를 통합하고 테스트하는 방법을 설명합니다. 구체적으로 다음 사항을 다룹니다.  
 
 * 해당 라이선스 취득 URL이 포함된 다중-DRM(PlayReady 및 Widevine)을 사용하여 동적 일반 암호화 구성;
 * 라이선스 서버 요구 사항을 충족하기 위해 JWT 토큰 생성;
-* JWT 토큰 인증으로 라이선스 취득을 처리하는 Azure 미디어 플레이어 앱 개발;
+* JWT 토큰 인증으로 라이선스 취득을 처리하는 Azure Media Player 앱 개발;
 
 전체 시스템 및 콘텐츠 키, 키 ID, 키 시드, JTW 토큰 및 해당 클레임의 흐름을 다음 다이어그램에 의해 가장 잘 설명할 수 있습니다.
 
 ![대시 및 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
-## <a name="content-protection"></a>콘텐츠 보호
-동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그: [Azure 미디어 서비스로 Widevine 패키징을 구성하는 방법](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
+## <a name="content-protection"></a>Content Protection
+동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그: [Azure Media Services로 Widevine 패키징을 구성하는 방법](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
 
 다음 두 가지가 모두 있는 DASH 스트리밍용 다중 DRM으로 동적 CENC 보호를 구성할 수 있습니다.
 
@@ -56,7 +56,7 @@ Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS�
 1. Axinom 지정 키 시드(8888000000000000000000000000000000000000) 및 사용자가 생성하거나 선택한 키 ID를 사용하여 키 배달 서비스를 구성하기 위한 콘텐츠 키를 생성해야 합니다. Axinom 라이선스 서버는 테스트와 생산에 모두 유효한 동일한 키 시드를 기반으로 콘텐츠 키를 포함하고 있는 모든 라이선스를 발급합니다.
 2. 테스트를 위한 Widevine 라이선스 취득 URL: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP 및 HTTS 모두 허용됩니다.
 
-## <a name="azure-media-player-preparation"></a>Azure 미디어 플레이어 준비
+## <a name="azure-media-player-preparation"></a>Azure Media Player 준비
 AMP v1.4.0은 PlayReady와 Widevine DRM 둘 다를 사용하여 동적으로 패키징된 AMS 콘텐츠의 재생을 지원합니다.
 Widevine 라이선스 서브에 토큰 인증이 필요하지 않은 경우 Widevine에서 보호하는 DASH 콘텐츠를 테스트하기 위해 추가로 수행해야 하는 일은 없습니다. 예를 들어 AMP 팀에는 PlayReady를 지원하는 Edge 및 IE11과 Widevine을 지원하는 Chrome에서 작동 모습을 볼 수 있는 간단한 [샘플](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)을 제공합니다.
 Axinom 제공한 Widevine 라이선스 서버에는 JWT 토큰 인증이 필요합니다. HTTP 헤더 “X-AxDRM-Message”를 통해 라이선스 요청과 함께 JWT 토큰을 전송해야 합니다. 이 목적을 위해 원본을 설정하기 전에 웹 페이지 호스팅 AMP에서 다음과 같은 javascript를 추가해야 합니다.
@@ -175,12 +175,12 @@ JWT 토큰을 생성하기 위한 코드에서 키 ID가 필요하다는 것을 
     }
 
 ## <a name="summary"></a>요약
-최근 Azure 미디어 서비스 콘텐츠 보호 및 Azure 미디어 플레이어에 모두 Widevine 지원이 추가됨에 따라, AMS의 PlayReady 라이선스 서비스 및 다음과 같은 현대적인 브라우저에 대한 Axinom의 Widevine 라이선스 서버를 사용하여 DASH + 다중 원시 DRM(PlayReady + Widevine)의 스트리밍을 구현할 수 있습니다.
+최근 Azure Media Services Content Protection 및 Azure Media Player에 모두 Widevine 지원이 추가됨에 따라, AMS의 PlayReady 라이선스 서비스 및 다음과 같은 현대적인 브라우저에 대한 Axinom의 Widevine 라이선스 서버를 사용하여 DASH + 다중 원시 DRM(PlayReady + Widevine)의 스트리밍을 구현할 수 있습니다.
 
 * Chrome
 * Windows 10용 Microsoft Edge
 * Windows 8.1 및 Windows 10용 IE 11
-* Mac(iOS 제외)용 Firefox(데스크톱) 및 Safari도 Silverlight 및 Azure 미디어 플레이어와 같은 URL을 통해 지원됩니다.
+* Mac(iOS 제외)용 Firefox(데스크톱) 및 Safari도 Silverlight 및 Azure Media Player와 같은 URL을 통해 지원됩니다.
 
 Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다음과 같은 매개 변수가 필요합니다. 키 ID를 제외하고 매개 변수의 나머지 부분은 Widevine 서버 설정에 따라 Axinom에서 제공됩니다.
 
@@ -192,7 +192,7 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 | Widevine 라이선스 획득 URL |DASH 스트리밍에 대한 자산 배달 정책 구성에 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조). |
 | 콘텐츠 키 ID |JWT 토큰의 자격 부여 메시지 클레임 값의 일부로 포함되어야 합니다( [이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조). |
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

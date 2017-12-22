@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ azure role list --json | jq '.[] | {"roleName":.properties.roleName, "descriptio
 
     azure role show "<role name>"
 
-다음 예제에서는 *참가자* 및 *가상 컴퓨터 참가자* 역할의 작업을 보여줍니다.
+다음 예제에서는 *참가자* 및 *Virtual Machine 참가자* 역할의 작업을 보여줍니다.
 
 ```
 azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
@@ -124,7 +124,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
     azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
-다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹 범위에서 사용자 *samert@aaddemo.com*에 *가상 컴퓨터 참가자* 역할을 부여합니다.
+다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹 범위에서 사용자 *samert@aaddemo.com*에 *Virtual Machine 참가자* 역할을 부여합니다.
 
 ![RBAC Azure 명령줄 - 사용자별 azure role assignment create - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
@@ -133,7 +133,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
     azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
-다음 예제에서는 *서브넷*에서 *Azure AD* 그룹에 *가상 컴퓨터 참가자* 역할을 부여합니다.
+다음 예제에서는 *서브넷*에서 *Azure AD* 그룹에 *Virtual Machine 참가자* 역할을 부여합니다.
 
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment create - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
@@ -142,7 +142,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
     azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹의 사용자 *sammert@aaddemo.com*에서 *가상 컴퓨터 참가자* 역할 할당을 제거합니다.
+다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹의 사용자 *sammert@aaddemo.com*에서 *Virtual Machine 참가자* 역할 할당을 제거합니다.
 그런 다음 구독의 그룹에서 역할 할당을 제거합니다.
 
 ![RBAC Azure 명령줄 - azure role assignment delete - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
@@ -152,7 +152,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
     azure role create --inputfile <file path>
 
-다음 예제에서는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
+다음 예제에서는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
 
 ![JSON - 사용자 지정 역할 정의 - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 

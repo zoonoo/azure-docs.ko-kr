@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. StateChanged 이벤트 처리기를 정의하거나(이 항목에서 설명된 대로) Azure 큐 저장소를 사용해 미디어 서비스 작업 알림을 모니터링하여( [이](media-services-dotnet-check-job-progress-with-queues.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. StateChanged 이벤트 처리기를 정의하거나(이 항목에서 설명된 대로) Azure 큐 저장소를 사용해 Media Services 작업 알림을 모니터링하여( [이](media-services-dotnet-check-job-progress-with-queues.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>작업 진행 상태를 모니터링 하는 StateChanged 이벤트 처리기를 정의합니다.
 다음 코드 예제는 StateChanged 이벤트 처리기를 정의합니다. 이 이벤트 처리기는 작업 진행 상태를 추적하고 상태에 따라 업데이트된 상태를 제공합니다. 또한 다음 코드는 LogJobStop 메서드를 정의합니다. 이 도우미 메서드는 오류 세부 정보를 기록합니다.
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로를 검토합니다.
+Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

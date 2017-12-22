@@ -1,5 +1,5 @@
 ---
-title: "Azure 알림 허브를 사용하여 보안 푸시 알림 보내기"
+title: "Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기"
 description: "Azure에서 Android 앱에 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java 및 C#으로 작성되었습니다."
 documentationcenter: android
 keywords: "푸시 알림,푸시알림,푸시 메시지,android 푸시 알림"
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure 알림 허브를 사용하여 보안 푸시 알림 보내기
+# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
 > [!div class="op_single_selector"]
 > * [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -53,7 +53,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 이 자습서에서는 보안 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서는 [사용자에게 알림](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) 자습서를 기반으로 빌드되므로 해당 자습서의 단계를 아직 완료하지 않은 경우 먼저 완료해야 합니다.
 
 > [!NOTE]
-> 이 자습서에서는 [알림 허브 시작(Android)](notification-hubs-android-push-notification-google-gcm-get-started.md)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다
+> 이 자습서에서는 [Notification Hubs 시작(Android)](notification-hubs-android-push-notification-google-gcm-get-started.md)에 설명된 대로 Notification Hubs를 만들고 구성했다고 가정합니다
 > 
 > 
 

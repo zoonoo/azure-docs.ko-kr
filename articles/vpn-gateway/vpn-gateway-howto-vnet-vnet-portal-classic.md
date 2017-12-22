@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -279,7 +279,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
 * 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
 * 여러 가상 네트워크를 연결할 때 VPN 장치는 필요하지 않습니다.
-* VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
+* VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 머신 또는 클라우드 서비스 연결은 지원하지 않습니다.
 * VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.
 * 가상 네트워크 연결을 다중 사이트 VPN과 동시에 사용할 수 있습니다. 가상 네트워크 VPN 게이트웨이당 최대 10개의 VPN 터널을 다른 가상 네트워크 또는 온-프레미스 사이트에 연결할 수 있습니다.
 * 가상 네트워크 및 온-프레미스 로컬 네트워크 사이트의 주소 공간이 겹쳐서는 안 됩니다. 주소 공간이 겹치면 가상 네트워크 만들기 또는 netcfg 구성 파일 업로드가 실패합니다.

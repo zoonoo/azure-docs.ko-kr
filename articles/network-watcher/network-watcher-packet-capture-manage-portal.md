@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -43,14 +43,14 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
 - 패킷 캡처를 만들려는 영역의 Network Watcher 인스턴스
-- 패킷 캡처 확장을 사용하는 가상 컴퓨터
+- 패킷 캡처 확장을 사용하는 Virtual Machine
 
 > [!IMPORTANT]
-> 패킷 캡처에는 가상 컴퓨터 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
+> 패킷 캡처에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
 
 ### <a name="packet-capture-agent-extension-through-the-portal"></a>포털을 통한 패킷 캡처 에이전트 확장
 
-포털을 통해 패킷 캡처 VM 에이전트를 설치하려면 가상 컴퓨터로 이동하고 **확장** > **추가**를 클릭하고 **Network Watcher Agent for Windows**를 검색합니다.
+포털을 통해 패킷 캡처 VM 에이전트를 설치하려면 가상 머신으로 이동하고 **확장** > **추가**를 클릭하고 **Network Watcher Agent for Windows**를 검색합니다.
 
 ![에이전트 보기][agent]
 
@@ -74,16 +74,16 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 **기본 설정**
 
 - **구독** - 이 값은 사용되는 구독이며 각 구독에는 network watcher의 인스턴스가 필요합니다.
-- **리소스 그룹** - 대상 지정된 가상 컴퓨터의 리소스 그룹입니다.
-- **대상 가상 컴퓨터** - 패킷 캡처를 실행 중인 가상 컴퓨터
+- **리소스 그룹** - 대상 지정된 가상 머신의 리소스 그룹입니다.
+- **대상 가상 머신** - 패킷 캡처를 실행 중인 가상 머신
 - **패킷 캡처 이름** - 이 값은 패킷 캡처의 이름입니다.
 
 **캡처 구성**
 
-- **저장소 계정** - 패킷 캡처를 저장소 계정에 저장할지 여부를 결정합니다.
-- **파일** - 패킷 캡처를 가상 컴퓨터에 로컬로 저장할지 여부를 결정합니다.
-- **저장소 계정** - 패킷 캡처를 저장할 선택한 저장소 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 컴퓨터 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)
-- **로컬 파일 경로** - 패킷 캡처를 저장할 가상 컴퓨터의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.
+- **Storage 계정** - 패킷 캡처를 Storage 계정에 저장할지 여부를 결정합니다.
+- **파일** - 패킷 캡처를 가상 머신에 로컬로 저장할지 여부를 결정합니다.
+- **Storage 계정** - 패킷 캡처를 저장할 선택한 Storage 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 머신 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)
+- **로컬 파일 경로** - 패킷 캡처를 저장할 가상 머신의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.
 - **패킷당 최대 바이트** - 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다.
 - **세션당 최대 바이트** - 값이 패킷 캡처 종료일에 도달한 후 캡처된 총 바이트 수입니다.
 - **시간 제한(초)** - 중지할 패킷 캡처에 대한 시간 제한을 설정합니다. 기본값은 18000초입니다.
@@ -136,7 +136,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 컴퓨터 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
+[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 

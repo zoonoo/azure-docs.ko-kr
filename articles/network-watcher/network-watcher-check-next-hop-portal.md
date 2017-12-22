@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 445ec8c7eeb8dd715d3778b44372d16666da7fb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Azure Portal을 사용하는 Azure Network Watcher에서 Next Hop 기능을 사용하는 다음 홉이 무엇인지 확인합니다.
 
@@ -51,7 +51,7 @@ Azure Portal에서 Network Watcher 리소스로 이동합니다.
 
 ### <a name="step-2"></a>2단계
 
-탐색 창에서 **다음 홉**을 클릭하고 가상 컴퓨터 및 네트워크 인터페이스를 선택한 후 원본 및 대상 IP를 입력하고 **다음 홉** 단추를 클릭합니다.
+탐색 창에서 **다음 홉**을 클릭하고 가상 머신 및 네트워크 인터페이스를 선택한 후 원본 및 대상 IP를 입력하고 **다음 홉** 단추를 클릭합니다.
 
 > [!NOTE]
 > 다음 홉에서는 VM 리소스가 실행되기 위해 할당되어야 합니다.

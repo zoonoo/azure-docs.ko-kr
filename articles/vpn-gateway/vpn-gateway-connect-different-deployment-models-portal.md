@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
 ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -93,7 +93,7 @@ Location = East US <br>
 
 클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
 
-VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해당 게이트웨이가 동적인지 확인합니다. 정적인 경우 [로컬 사이트를 구성](#local)하기 전에 먼저 VPN 게이트웨이를 삭제해야 합니다.
+VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우 [로컬 사이트를 구성](#local)하기 전에 먼저 VPN 게이트웨이를 삭제해야 합니다.
 
 1. [클래식 포털](https://ms.portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
 2. **+ 리소스 만들기**를 클릭하여 '새' 페이지를 엽니다.

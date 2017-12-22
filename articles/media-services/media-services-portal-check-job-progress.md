@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>다음 단계
 인코딩 작업이 완료되면 [여기서](media-services-portal-publish.md)설명하는 대로 자산을 게시 및 재생할 수 있습니다.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

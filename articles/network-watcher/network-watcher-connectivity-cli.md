@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Network Watcher를 통해 연결 확인
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-연결을 사용하여 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
+연결을 사용하여 가상 머신에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -34,12 +34,12 @@ ms.lasthandoff: 10/11/2017
 
 * 연결을 확인하려는 영역의 Network Watcher 인스턴스
 
-* 연결을 확인하는 데 사용할 가상 컴퓨터
+* 연결을 확인하는 데 사용할 가상 머신
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> 연결 확인에는 가상 컴퓨터 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
+> 연결 확인에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
 
 ## <a name="register-the-preview-capability"></a>미리 보기 기능 등록 
 
@@ -70,9 +70,9 @@ az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnecti
 }
 ``` 
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>가상 컴퓨터에 대한 연결 확인
+## <a name="check-connectivity-to-a-virtual-machine"></a>가상 머신에 대한 연결 확인
 
-이 예제에서는 포트 80을 통해 대상 가상 컴퓨터에 대한 연결을 확인합니다.
+이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
 ### <a name="example"></a>예제
 
@@ -302,6 +302,6 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 컴퓨터 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
+[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.

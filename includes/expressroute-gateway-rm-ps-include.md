@@ -2,8 +2,8 @@
 
 **구성 참조 목록**
 
-* 가상 네트워크 이름 = "TestVNet"
-* 가상 네트워크 주소 공간: 192.168.0.0/16
+* Virtual Network 이름 = "TestVNet"
+* Virtual Network 주소 공간: 192.168.0.0/16
 * 리소스 그룹: "TestRG"
 * Subnet1 이름 = "FrontEnd" 
 * Subnet1 주소 공간 = "192.168.1.0/24"
@@ -39,7 +39,7 @@
   ```powershell
   $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
   ```
-4. 가상 네트워크에 게이트웨이 서브넷을 추가합니다. 게이트웨이 서브넷의 이름을 "GatewaySubnet"으로 지정해야 합니다. /27 이상(/26, /25 등)인 게이트웨이 서브넷을 만들어야 합니다.
+4. Virtual Network에 게이트웨이 서브넷을 추가합니다. 게이트웨이 서브넷의 이름을 "GatewaySubnet"으로 지정해야 합니다. /27 이상(/26, /25 등)인 게이트웨이 서브넷을 만들어야 합니다.
 
   ```powershell
   Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
@@ -81,7 +81,7 @@ Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
 다양한 [게이트웨이 SKU](../articles/expressroute/expressroute-about-virtual-network-gateways.md)가 있습니다. 다음 명령을 사용하여 언제든지 게이트웨이 SKU를 변경합니다.
 
 > [!IMPORTANT]
-> 이 명령은 UltraPerformance 게이트웨이에는 작동하지 않습니다. 게이트웨이를 UltraPerformance 게이트웨이로 변경하려면 먼저 기존 Express 경로 게이트웨이를 제거한 다음 새 UltraPerformance 게이트웨이를 만듭니다. 게이트웨이를 UltraPerformance 게이트웨이에서 다운그레이드하려면 먼저 UltraPerformance 게이트웨이를 제거한 후 새 게이트웨이를 만듭니다.
+> 이 명령은 UltraPerformance 게이트웨이에는 작동하지 않습니다. 게이트웨이를 UltraPerformance 게이트웨이로 변경하려면 먼저 기존 ExpressRoute 게이트웨이를 제거한 다음 새 UltraPerformance 게이트웨이를 만듭니다. 게이트웨이를 UltraPerformance 게이트웨이에서 다운그레이드하려면 먼저 UltraPerformance 게이트웨이를 제거한 후 새 게이트웨이를 만듭니다.
 > 
 > 
 

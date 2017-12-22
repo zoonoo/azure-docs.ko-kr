@@ -1,6 +1,6 @@
 ---
 title: "내부 부하 분산 장치에서 Azure Application Gateway 사용 | Microsoft Docs"
-description: "이 페이지에서는 내부 부하 분산된 끝점이 있는 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
+description: "이 페이지에서는 내부 부하 분산된 끝점이 있는 Azure Application Gateway를 구성하는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>내부 부하 분산 장치 (ILB)를 사용하여 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>내부 부하 분산 장치 (ILB)를 사용하여 Application Gateway 만들기
 
 > [!div class="op_single_selector"]
 > * [Azure 클래식 PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
-응용 프로그램 게이트웨이는 인터넷 연결 가상 IP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 내부 LOB(기간 업무) 응용 프로그램에 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 있는 다중 계층이 포함된 서비스/계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL 종료가 필요합니다. 이 문서에서는 ILB와 응용 프로그램 게이트웨이를 구성하는 단계를 안내합니다.
+Application Gateway는 인터넷 연결 가상 IP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 내부 LOB(기간 업무) 응용 프로그램에 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 있는 다중 계층이 포함된 서비스/계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL 종료가 필요합니다. 이 문서에서는 ILB와 응용 프로그램 게이트웨이를 구성하는 단계를 안내합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -96,7 +96,7 @@ DnsName:
 
 다음 사항에 유의하세요.
 
-* *FrontendIPConfigurations* 요소는 ILB를 사용하여 응용 프로그램 게이트웨이를 구성하는 것에 대한 ILB 세부 정보를 설명합니다. 
+* *FrontendIPConfigurations* 요소는 ILB를 사용하여 Application Gateway를 구성하는 것에 대한 ILB 세부 정보를 설명합니다. 
 * 프런트 엔드 IP *형식* 은 '개인'으로 설정되어야 합니다.
 * *StaticIPAddress* 는 게이트웨이가 트래픽을 수신할 내부 IP로 설정해야 합니다. *StaticIPAddress* 요소는 선택 사항입니다. 설정하지 않은 경우, 서브넷에 배포된 사용 가능한 내부 IP가 선택됩니다. 
 * *FrontendIPConfiguration*에 지정된 *이름* 요소 값은 Frontend IPConfiguration을 참조하는 HTTP 수신기의 *FrontendIP* 요소로 사용됩니다.

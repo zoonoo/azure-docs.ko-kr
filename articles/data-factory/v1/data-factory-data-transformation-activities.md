@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -27,7 +27,8 @@ ms.lasthandoff: 11/03/2017
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md) 
+> * 
+            [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [저장 프로시저](data-factory-stored-proc-activity.md)
 > * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
 > * [.NET 사용자 지정](data-factory-use-custom-activities.md)

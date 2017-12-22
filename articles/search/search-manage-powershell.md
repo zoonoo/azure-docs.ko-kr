@@ -1,6 +1,6 @@
 ---
 title: "Powershell 스크립트를 사용하여 Azure Search 관리 | Microsoft Docs"
-description: "PowerShell 스크립트를 사용하여 Azure 검색 서비스를 관리합니다. Azure 검색 서비스 만들기 또는 업데이트 및 Azure 검색 관리자 키 관리"
+description: "PowerShell 스크립트를 사용하여 Azure Search 서비스를 관리합니다. Azure Search 서비스 만들기 또는 업데이트 및 Azure Search 관리자 키 관리"
 services: search
 documentationcenter: 
 author: seansaleh
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure 검색 서비스 관리
+# <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > 
 > 
 
-이 항목에서는 Azure 검색 서비스에 대한 다양한 관리 작업을 수행하는 PowerShell 명령을 설명합니다. 검색 서비스 만들기, 확장 및 해당 API 키 관리 과정을 설명합니다.
-이러한 명령은 [Azure 검색 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
+이 항목에서는 Azure Search 서비스에 대한 다양한 관리 작업을 수행하는 PowerShell 명령을 설명합니다. 검색 서비스 만들기, 확장 및 해당 API 키 관리 과정을 설명합니다.
+이러한 명령은 [Azure Search 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure PowerShell 1.0 이상이 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
@@ -132,9 +132,9 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 ## <a name="next-steps"></a>다음 단계
 이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 마지막으로 Azure Search를 사용하는 고유의 검색 응용 프로그램을 만들고 관리합니다.
 
-* [Azure 포털에서 Azure 검색 인덱스 만들기](search-create-index-portal.md)
-* [Azure 포털에서 검색 탐색기를 사용하여 Azure 검색 인덱스 쿼리](search-explorer.md)
+* [Azure Portal에서 Azure Search 인덱스 만들기](search-create-index-portal.md)
+* [Azure Portal에서 검색 탐색기를 사용하여 Azure Search 인덱스 쿼리](search-explorer.md)
 * [기타 서비스에서 데이터를 로드하기 위한 인덱서 설정](search-indexer-overview.md)
-* [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
-* [Azure 검색 트래픽 분석](search-traffic-analytics.md)
+* [.NET에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)
+* [Azure Search 트래픽 분석](search-traffic-analytics.md)
 

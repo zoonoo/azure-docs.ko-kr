@@ -54,7 +54,7 @@
 
 이 간단한 호출은 알림 허브에서 네이티브 페이로드를 생성하여 특정 태그에 가입된 모든 장치에 전달할 때 플랫폼과 상관없이 올바르게 지역화된 뉴스를 **모든** 장치에 전달합니다.
 
-### <a name="sending-the-notification-with-mobile-services"></a>모바일 서비스로 알림 보내기
+### <a name="sending-the-notification-with-mobile-services"></a>Mobile Services로 알림 보내기
 모바일 서비스 스케줄러에서 다음 스크립트를 사용할 수 있습니다.
 
     var azure = require('azure');

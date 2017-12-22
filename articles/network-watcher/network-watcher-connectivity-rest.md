@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
 ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher를 통해 연결 확인
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-연결을 사용하여 가상 컴퓨터에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
+연결을 사용하여 가상 머신에서 지정된 끝점으로의 직접 TCP 연결을 설정할 수 있는지를 확인하는 방법을 알아봅니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 * 연결을 확인하려는 영역의 Network Watcher 인스턴스
 
-* 연결을 확인하는 데 사용할 가상 컴퓨터
+* 연결을 확인하는 데 사용할 가상 머신
 
 PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
 
@@ -44,7 +44,7 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> 연결 확인에는 가상 컴퓨터 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
+> 연결 확인에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md)을 방문하세요.
 
 ## <a name="register-the-preview-capability"></a>미리 보기 기능 등록
 
@@ -77,14 +77,14 @@ Azure 자격 증명으로 armclient에 로그인합니다.
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a>가상 컴퓨터 검색
+## <a name="retrieve-a-virtual-machine"></a>가상 머신 검색
 
-다음 스크립트를 실행하여 가상 컴퓨터를 반환합니다. 연결을 실행하는 데 이 정보가 필요합니다. 
+다음 스크립트를 실행하여 가상 머신을 반환합니다. 연결을 실행하는 데 이 정보가 필요합니다. 
 
 다음 코드에는 다음 변수에 대한 값이 필요합니다.
 
 - **subscriptionId** - 사용할 구독 ID입니다.
-- **resourceGroupName** - 가상 컴퓨터를 포함하는 리소스 그룹의 이름입니다.
+- **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -93,7 +93,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-다음 출력에서는 다음 예제에 가상 컴퓨터의 ID가 사용됩니다.
+다음 출력에서는 다음 예제에 가상 머신의 ID가 사용됩니다.
 
 ```json
 ...
@@ -108,9 +108,9 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>가상 컴퓨터에 대한 연결 확인
+## <a name="check-connectivity-to-a-virtual-machine"></a>가상 머신에 대한 연결 확인
 
-이 예제에서는 포트 80을 통해 대상 가상 컴퓨터에 대한 연결을 확인합니다.
+이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
 ### <a name="example"></a>예제
 
@@ -496,7 +496,7 @@ null
 
 ## <a name="next-steps"></a>다음 단계
 
-[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 컴퓨터 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
+[경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
 [IP 흐름 확인 확인](network-watcher-check-ip-flow-verify-portal.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.
 

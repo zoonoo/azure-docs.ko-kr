@@ -1,6 +1,6 @@
 ---
 title: "인덱스 만들기(포털 - Azure Search) | Microsoft Docs"
-description: "Azure 포털을 사용하여 인덱스를 만듭니다."
+description: "Azure Portal을 사용하여 인덱스를 만듭니다."
 services: search
 manager: jhubbard
 author: heidisteen
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 검색 인덱스 만들기
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [개요](search-what-is-an-index.md)
 > * [포털](search-create-index-portal.md)
@@ -41,7 +41,7 @@ Azure Portal에서 기본 제공되는 인덱스 디자이너를 사용하여 Az
 ## <a name="name-the-index"></a>인덱스 이름 지정
 
 1. 페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 단추를 클릭합니다.
-2. Azure 검색 인덱스를 명명합니다. 
+2. Azure Search 인덱스를 명명합니다. 
    * 문자로 시작합니다.
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
    * 이름은 60자로 제한합니다.

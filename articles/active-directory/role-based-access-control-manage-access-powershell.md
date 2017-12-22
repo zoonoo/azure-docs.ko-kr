@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: 631274ec57586a777df8ee07a18b0ad72b905222
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Azure PowerShell을 사용하여 역할 기반 Access Control 관리
 > [!div class="op_single_selector"]
@@ -130,7 +130,7 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## <a name="get-actions-for-a-resource-provider"></a>리소스 공급자에 대한 작업 가져오기
 처음부터 사용자 지정 역할을 만드는 경우 리소스 공급자에서 가능한 모든 작업을 알고 있어야 합니다.
 ```Get-AzureRMProviderOperation``` 명령을 사용하여 이 정보를 가져옵니다.
-예를 들어, 가상 컴퓨터에 사용 가능한 모든 작업을 확인하려는 경우 다음 명령을 사용합니다.
+예를 들어, 가상 머신에 사용 가능한 모든 작업을 확인하려는 경우 다음 명령을 사용합니다.
 
 ```
 Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
@@ -139,7 +139,7 @@ Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT Operatio
 ### <a name="create-role-with-psroledefinitionobject"></a>PSRoleDefinitionObject를 사용하여 역할 만들기
 PowerShell을 사용하여 사용자 지정 역할을 만들 때는 처음부터 시작하거나 [기본 제공 역할](role-based-access-built-in-roles.md) 중 하나를 출발점으로 사용할 수 있습니다. 이 섹션의 예제에서는 기본 제공 역할로 시작한 다음 추가 권한으로 사용자 지정합니다. 속성을 편집하여 원하는 *Actions*, *notActions* 또는 *scopes*를 추가한 다음 변경 내용을 새 역할로 저장합니다.
 
-다음 예제에서는 *Virtual Machine Contributor* 역할로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
+다음 예제에서는 *Virtual Machine Contributor* 역할로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"

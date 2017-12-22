@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Azure Network Watcher PowerShell을 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -45,8 +45,8 @@ Network Watcher는 Azure에서 네트워크 리소스를 이해하는 데 관련
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 **네트워킹** > **Network Watcher** > **VPN 진단**을 클릭합니다.
 2. **구독**, **리소스 그룹** 및 **위치**를 선택합니다.
-3. 리소스 문제 해결은 리소스 상태에 대한 데이터를 반환합니다. 또한 검토할 관련 로그를 저장소 계정에 저장합니다. **저장소 계정**을 클릭하여 저장소 계정을 선택합니다.
-4. **저장소 계정** 블레이드에서 기존 저장소 계정을 선택하거나 **+ 저장소 계정**을 클릭하여 새 저장소 계정을 만듭니다.
+3. 리소스 문제 해결은 리소스 상태에 대한 데이터를 반환합니다. 또한 검토할 관련 로그를 저장소 계정에 저장합니다. **Storage 계정**을 클릭하여 Storage 계정을 선택합니다.
+4. **Storage 계정** 블레이드에서 기존 Storage 계정을 선택하거나 **+ Storage 계정**을 클릭하여 새 Storage 계정을 만듭니다.
 5. **컨테이너** 블레이드에서 기존 컨테이너를 선택하거나 **+ 컨테이너**를 클릭하여 새 컨테이너를 만듭니다. 완료되면 **저장**을 클릭합니다.
 6. 문제를 해결할 게이트웨이 및 연결 리소스를 선택하고 **문제 해결 시작**을 클릭합니다.
 

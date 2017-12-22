@@ -1,6 +1,6 @@
 ---
 title: ".NET을 사용하여 Media Services 계정에 파일 업로드 | Microsoft 문서"
-description: "자산을 만들고 업로드하여 미디어 서비스에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다."
+description: "자산을 만들고 업로드하여 Media Services에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
 ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-미디어 서비스에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
+Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
 자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
@@ -47,9 +47,9 @@ ms.lasthandoff: 10/11/2017
   MP4를 배달하려는 경우 이 옵션을 사용하세요. 
 * **CommonEncryption** - 일반적인 암호화 또는 PlayReady DRM(예: PlayReady DRM으로 보호되는 부드러운 스트리밍)으로 이미 보호된 콘텐츠를 업로드하는 경우 이 옵션을 사용합니다.
 * **EnvelopeEncrypted** – AES로 암호화된 HLS를 업로드하는 경우 이 옵션을 사용합니다. 파일을 Transform Manager로 인코딩 및 암호화해야 합니다.
-* **StorageEncrypted** - AES-256 비트 암호화를 통해 보호되지 않은 콘텐츠를 로컬로 암호화한 후에 Azure Storage에 업로드하고 사용하지 않을 때 암호화하여 저장합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 저장소 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
+* **StorageEncrypted** - AES-256 비트 암호화를 통해 보호되지 않은 콘텐츠를 로컬로 암호화한 후에 Azure Storage에 업로드하고 사용하지 않을 때 암호화하여 저장합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. Storage 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
   
-    미디어 서비스는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 자산에 대해 디스크상의 저장소 암호화 기능을 제공합니다.
+    Media Services는 DRM(Digital Rights Manager)처럼 네트워크상이 아니라 자산에 대해 디스크상의 저장소 암호화 기능을 제공합니다.
   
     자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 
 이 항목에서는 Media Services .NET SDK와 Media Services .NET SDK 확장을 사용하여 Media Services 자산으로 파일을 업로드하는 방법을 설명합니다.
 
-## <a name="upload-a-single-file-with-media-services-net-sdk"></a>미디어 서비스 .NET SDK를 사용하여 단일 파일 업로드
+## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Media Services .NET SDK를 사용하여 단일 파일 업로드
 아래 샘플 코드는 .NET SDK를 사용하여 단일 파일을 업로드합니다. AccessPolicy와 로케이터는 업로드 함수에 의해 생성되고 제거됩니다. 
 
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
         }
 
 
-## <a name="upload-multiple-files-with-media-services-net-sdk"></a>미디어 서비스 .NET SDK를 사용하여 여러 파일 업로드
+## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Media Services .NET SDK를 사용하여 여러 파일 업로드
 다음 코드는 자산을 만들고 여러 파일을 업로드하는 방법을 보여 줍니다.
 
 코드는 다음을 수행합니다.
@@ -166,7 +166,7 @@ ms.lasthandoff: 10/11/2017
 * 기본 값 2에서 5와 같이 더 높은 값으로 NumberOfConcurrentTransfers를 늘립니다. 이 자산을 설정하면 **CloudMediaContext**의 모든 인스턴스에 영향을 미칩니다. 
 * 기본 값 10으로 ParallelTransferThreadCount를 유지합니다.
 
-## <a id="ingest_in_bulk"></a>미디어 서비스 .NET SDK를 사용하여 대량으로 자산 수집
+## <a id="ingest_in_bulk"></a>Media Services .NET SDK를 사용하여 대량으로 자산 수집
 큰 자산 파일을 업로드하면 자산을 만드는 동안 병목 상태가 될 수 있습니다. 대량 또는 “대량 수집”으로 자산을 수집하면 업로드 과정에서 자산 만들기를 분리하는 작업이 포함됩니다. 대량 수집 방식을 사용하려면 자산 및 연결된 파일을 설명하는 매니페스트(IngestManifest)를 만듭니다. 그런 다음 매니페스트의 blob 컨테이너에 연결된 파일을 업로드하기 위해 선택한 업로드 방식을 사용합니다. Microsoft Azure Media Services는 매니페스트와 연결된 blob 컨테이너를 감시합니다. blob 컨테이너에 파일을 업로드하면, Microsoft Azure Media Services가 매니페스트(IngestManifestAsset)의 자산 구성에 기반하여 자산 만들기를 완료합니다.
 
 새 IngestManifest 호출을 만들기 위해 CloudMediaContext에서 IngestManifests 모음이 만들기 메서드를 노출합니다. 이 메서드는 사용자가 입력하는 매니페스트 이름으로 새 IngestManifest를 만듭니다.

@@ -1,6 +1,6 @@
 ---
-title: "iOS용 알림 허브 지역화된 속보 자습서"
-description: "Azure 서비스 버스 알림 허브를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다(iOS)."
+title: "iOS용 Notification Hubs 지역화된 속보 자습서"
+description: "Azure Service Bus Notification Hubs를 사용하여 지역화된 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다(iOS)."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>알림 허브를 사용하여 iOS 장치로 지역화된 속보 보내기
+# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Notification Hubs를 사용하여 iOS 장치로 지역화된 속보 보내기
 > [!div class="op_single_selector"]
 > * [Windows 스토어 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>개요
-이 항목에서는 Azure 알림 허브의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [Notification Hubs를 사용하여 속보 보내기]에서 만든 iOS 앱을 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
+이 항목에서는 Azure Notification Hubs의 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 기능을 사용하여 언어 및 장치별로 지역화된 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 이 자습서에서는 [Notification Hubs를 사용하여 속보 보내기]에서 만든 iOS 앱을 시작합니다. 이 자습서를 완료하면 관심 있는 범주를 등록하고, 알림을 받을 언어를 지정하고, 선택한 범주에 대한 푸시 알림만 해당 언어로 받을 수 있습니다.
 
 이 시나리오는 다음과 같은 두 부분으로 구성되어 있습니다.
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 10/11/2017
 Visual Studio 2012 이상은 선택 사항입니다.
 
 ## <a name="template-concepts"></a>템플릿 개념
-[Notification Hubs를 사용하여 속보 보내기] 에서는 **태그** 를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
+[Notification Hubs를 사용하여 속보 보내기] 에서는 **태그**를 사용하여 다른 뉴스 범주에 대한 알림을 구독하는 앱을 빌드했습니다.
 하지만 대부분의 앱은 여러 시장을 대상으로 하므로 지역화해야 합니다. 즉, 알림 자체의 내용을 지역화해서 올바른 장치 집합으로 전달해야 합니다.
-이 항목에서는 알림 허브의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여 줍니다.
+이 항목에서는 Notification Hubs의 **템플릿** 기능을 사용하여 지역화된 속보 알림을 쉽게 제공하는 방법을 보여 줍니다.
 
 참고: 지역화된 알림을 보내는 한 가지 방법은 각 태그의 여러 버전을 만드는 것입니다. 예를 들어 영어, 프랑스어 및 북경어를 지원하려면 세계 뉴스에 대한 3가지 태그 즉, "world_en", "world_fr" 및 "world_ch"가 필요합니다. 그런 다음 이러한 각 태그로 세계 뉴스의 지역화된 버전을 보내야 합니다. 이 항목에서는 템플릿을 사용하여 태그의 확산을 방지하고 여러 메시지를 보낼 필요가 없도록 합니다.
 
@@ -66,7 +66,7 @@ Visual Studio 2012 이상은 선택 사항입니다.
 템플릿은 매우 강력한 기능입니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 문서를 참조하세요.
 
 ## <a name="the-app-user-interface"></a>앱 사용자 인터페이스
-이제 [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정하고 템플릿을 사용하여 지역화된 속보를 보냅니다.
+이제 템플릿을 사용하여 지역화된 속보를 보내도록, [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정합니다.
 
 MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어, 즉 영어, 프랑스어 및 북경어로 분할된 제어를 추가합니다.
 
@@ -233,8 +233,8 @@ Visual Studio에 액세스할 수 없거나 장치의 앱에서 직접 지역화
 ## <a name="next-steps"></a>다음 단계
 템플릿 사용에 대한 자세한 내용은 다음을 참조하세요.
 
-* [알림 허브를 통해 사용자에게 알림: ASP.NET]
-* [알림 허브를 통해 사용자에게 알림: 모바일 서비스]
+* [Notification Hubs를 통해 사용자에게 알림: ASP.NET]
+* [Notification Hubs를 통해 사용자에게 알림: Mobile Services]
 
 <!-- Images. -->
 
@@ -250,8 +250,8 @@ Visual Studio에 액세스할 수 없거나 장치의 앱에서 직접 지역화
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /manage/services/notification-hubs/notify-users
+[Notification Hubs를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notification Hubs를 통해 사용자에게 알림: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

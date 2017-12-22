@@ -1,5 +1,5 @@
 ---
-title: "미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리"
+title: "Media Services.NET SDK를 사용하여 자산 및 관련 엔터티 관리"
 description: "Media Services SDK for .NET을 사용하여 자산 및 관련 엔터티를 관리하는 방법을 알아봅니다."
 author: juliako
 manager: cfowler
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Media Services.NET SDK를 사용하여 자산 및 관련 엔터티 관리
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST (영문)](media-services-rest-manage-entities.md)
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
 ## <a name="get-an-asset-reference"></a>자산 참조 가져오기
-자주 수행하는 작업은 미디어 서비스에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기준으로 서버 컨텍스트 개체에 대한 Assets 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다. 다음 코드 예제에서는 Linq 쿼리를 사용하여 기존 IAsset 개체에 대한 참조를 가져옵니다.
+자주 수행하는 작업은 Media Services에서 기존 자산에 대한 참조를 가져오는 것입니다. 다음 코드 예제에서는 자산 ID를 기준으로 서버 컨텍스트 개체에 대한 Assets 컬렉션에서 자산 참조를 가져오는 방법을 보여 줍니다. 다음 코드 예제에서는 Linq 쿼리를 사용하여 기존 IAsset 개체에 대한 참조를 가져옵니다.
 
     static IAsset GetAsset(string assetId)
     {
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="get-a-job-reference"></a>작업 참조 가져오기
 
-미디어 서비스 코드로 작업을 처리할 때 종종 ID에 따라 기존 작업에 대한 참조를 가져와야 합니다. 다음 코드 예제에서는 Jobs 컬렉션에서 IJob 개체에 대한 참조를 가져오는 방법을 보여 줍니다.
+Media Services 코드로 작업을 처리할 때 종종 ID에 따라 기존 작업에 대한 참조를 가져와야 합니다. 다음 코드 예제에서는 Jobs 컬렉션에서 IJob 개체에 대한 참조를 가져오는 방법을 보여 줍니다.
 
 실행 시간이 긴 인코딩 작업을 시작할 때 작업 참조를 가져와야 하고 스레드에서 작업 상태를 확인해야 합니다. 이 경우 메서드가 스레드에서 반환될 때 작업에 대한 새로 고쳐진 참조를 검색해야 합니다.
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 10/11/2017
     }
 
 ## <a name="list-jobs-and-assets"></a>작업 및 자산 나열
-중요한 관련 작업은 미디어 서비스에서 관련 작업이 있는 자산을 나열하는 것입니다. 다음 코드 예제에서는 각 IJob 개체를 나열하는 방법을 보여 주고, 각 작업에 대해 작업 관련 속성, 모든 관련 작업, 모든 입력 자산 및 모든 출력 자산을 표시합니다. 이 예제의 코드는 다양한 다른 작업에 유용할 수 있습니다. 예를 들어 이전에 실행한 하나 이상의 인코딩 작업에서 출력 자산을 나열하려고 하면 이 코드에서는 출력 자산에 액세스하는 방법을 보여 줍니다. 출력 자산에 대한 참조가 있으면 콘텐츠를 다운로드하거나 URL을 제공하여 다른 사용자나 응용 프로그램에 콘텐츠를 배달할 수 있습니다. 
+중요한 관련 작업은 Media Services에서 관련 작업이 있는 자산을 나열하는 것입니다. 다음 코드 예제에서는 각 IJob 개체를 나열하는 방법을 보여 주고, 각 작업에 대해 작업 관련 속성, 모든 관련 작업, 모든 입력 자산 및 모든 출력 자산을 표시합니다. 이 예제의 코드는 다양한 다른 작업에 유용할 수 있습니다. 예를 들어 이전에 실행한 하나 이상의 인코딩 작업에서 출력 자산을 나열하려고 하면 이 코드에서는 출력 자산에 액세스하는 방법을 보여 줍니다. 출력 자산에 대한 참조가 있으면 콘텐츠를 다운로드하거나 URL을 제공하여 다른 사용자나 응용 프로그램에 콘텐츠를 배달할 수 있습니다. 
 
 자산 배달 옵션에 대한 자세한 내용은 [Media Services SDK for .NET을 사용하여 자산 배달](media-services-deliver-streaming-content.md)을 참조하세요.
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 10/11/2017
     }
 
 ## <a name="list-all-access-policies"></a>모든 액세스 정책 나열
-미디어 서비스에서 자산 또는 해당 파일에 대한 액세스 정책을 정의할 수 있습니다. 액세스 정책은 파일 또는 자산에 대한 권한을 정의합니다(액세스 유형 및 기간). 미디어 서비스 코드에서는 일반적으로 IAccessPolicy 개체를 만들고 기존 자산에 연결하여 액세스 정책을 정의합니다. 그다음에 미디어 서비스에서 자산에 직접 액세스할 수 있게 하는 ILocator 개체를 만듭니다. 이 설명서 시리즈와 함께 제공되는 Visual Studio 프로젝트에는 액세스 정책과 로케이터를 만들고 자산에 할당하는 방법을 보여 주는 몇 가지 코드 예제가 들어 있습니다.
+Media Services에서 자산 또는 해당 파일에 대한 액세스 정책을 정의할 수 있습니다. 액세스 정책은 파일 또는 자산에 대한 권한을 정의합니다(액세스 유형 및 기간). Media Services 코드에서는 일반적으로 IAccessPolicy 개체를 만들고 기존 자산에 연결하여 액세스 정책을 정의합니다. 그다음에 Media Services에서 자산에 직접 액세스할 수 있게 하는 ILocator 개체를 만듭니다. 이 설명서 시리즈와 함께 제공되는 Visual Studio 프로젝트에는 액세스 정책과 로케이터를 만들고 자산에 할당하는 방법을 보여 주는 몇 가지 코드 예제가 들어 있습니다.
 
 다음 코드 예제에서는 서버의 모든 액세스 정책을 나열하는 방법과 각 액세스 정책과 관련된 권한 유형을 보여 줍니다. 액세스 정책을 보는 또 다른 유용한 방법은 서버의 모든 ILocator 개체를 나열하는 것이고, 이렇게 하면 각 로케이터에 대해 AccessPolicy 속성을 사용하여 관련 액세스 정책을 나열할 수 있습니다.
 
@@ -276,7 +276,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="enumerating-through-large-collections-of-entities"></a>대용량 엔터티 컬렉션 열거
 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. 대용량 엔터티 컬렉션을 열거할 때 Skip 및 Take를 사용해야 합니다. 
 
-다음 함수는 제공된 미디어 서비스 계정에서 모든 작업을 반복합니다. 미디어 서비스는 작업 컬렉션의 작업 1000개를 반환합니다. 이 함수는 Skip 및 Take를 사용하여 모든 작업이 연결되었는지 확인합니다(계정에 1000개가 넘는 작업이 있는 경우).
+다음 함수는 제공된 Media Services 계정에서 모든 작업을 반복합니다. Media Services는 작업 컬렉션의 작업 1000개를 반환합니다. 이 함수는 Skip 및 Take를 사용하여 모든 작업이 연결되었는지 확인합니다(계정에 1000개가 넘는 작업이 있는 경우).
 
     static void ProcessJobs()
     {
@@ -398,7 +398,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

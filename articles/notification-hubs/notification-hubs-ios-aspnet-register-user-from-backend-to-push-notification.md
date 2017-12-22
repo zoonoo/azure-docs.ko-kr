@@ -1,6 +1,6 @@
 ---
 title: "Web API를 사용하여 푸시 알림에 현재 사용자 등록 | Microsoft Docs"
-description: "ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다."
+description: "ASP.NET Web API에서 등록을 수행할 때 Azure Notification Hubs를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>개요
-이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림]자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하세요.
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure Notification Hubs를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [Notification Hubs를 통해 사용자에게 알림]자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [Notification Hubs를 통해 사용자에게 알림]을 참조하세요.
 
 ## <a name="update-your-app"></a>앱 업데이트
 1. MainStoryboard_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
     이 코드는 요청에 대한 장치 토큰을 설정합니다.
    
    > [!NOTE]
-   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **알림 허브 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **Notification Hubs 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
    > 
    > 
 8. PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
@@ -206,9 +206,9 @@ ms.lasthandoff: 10/11/2017
                 }
             }];
     
-    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, 알림 허브에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [알림 허브를 통해 사용자에게 알림]에서 정의했습니다.
+    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, Notification Hubs에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [Notification Hubs를 통해 사용자에게 알림]에서 정의했습니다.
 
-클라이언트 앱이 업데이트되었으므로 [알림 허브를 통해 사용자에게 알림] 으로 돌아가서 알림 허브를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
+클라이언트 앱이 업데이트되었으므로 [Notification Hubs를 통해 사용자에게 알림] 으로 돌아가서 Notification Hubs를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 
 <!-- Anchors. -->
 
@@ -217,6 +217,6 @@ ms.lasthandoff: 10/11/2017
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
+[Notification Hubs를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Notification Hubs 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios

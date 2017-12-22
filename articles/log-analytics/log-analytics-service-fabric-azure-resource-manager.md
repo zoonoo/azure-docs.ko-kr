@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -51,13 +51,13 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 위의 배포 단추를 선택하면 편집할 매개 변수가 있는 Azure Portal로 이동합니다. 새 Log Analytics 작업 영역 이름을 입력하는 경우 새 리소스 그룹을 만들어야 합니다.
 
-![서비스 패브릭](./media/log-analytics-service-fabric/2.png)
+![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
-![서비스 패브릭](./media/log-analytics-service-fabric/3.png)
+![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
 약관에 동의하고 **만들기**를 클릭하여 배포를 시작합니다. 배포가 완료되면 새 작업 영역 및 클러스터가 생성되고 WADServiceFabric*Event, WADWindowsEventLogs 및 WADETWEvent 테이블이 추가되는 것이 보입니다.
 
-![서비스 패브릭](./media/log-analytics-service-fabric/4.png)
+![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
 
@@ -66,13 +66,13 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.
 2. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
 3. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
-4. Service Fabric 클러스터의 각 가상 컴퓨터 확장 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
+4. Service Fabric 클러스터의 각 가상 머신 확장 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
 
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 
 위와 동일한 단계에 따라 필요한 매개 변수를 입력하고 배포를 시작합니다. 다시 한 번 새 작업 영역, 클러스터 및 생성된 모든 WAD 테이블이 표시됩니다.
 
-![서비스 패브릭](./media/log-analytics-service-fabric/5.png)
+![Service Fabric](./media/log-analytics-service-fabric/5.png)
 
 ### <a name="viewing-performance-data"></a>성능 데이터 보기
 
@@ -82,7 +82,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Azure 포털에서 Log Analytics 작업 영역을 시작합니다.
-  ![서비스 패브릭](./media/log-analytics-service-fabric/6.png)
+  ![Service Fabric](./media/log-analytics-service-fabric/6.png)
 - 왼쪽 창의 설정으로 이동하고 데이터 >> Windows 성능 카운터 >> "Add the selected performance counters(선택한 성능 카운터 추가)": ![Service Fabric](./media/log-analytics-service-fabric/7.png)을 선택합니다.
 - 로그 검색에서 다음 쿼리를 사용하여 노드에 대한 주요 메트릭을 살펴봅니다.
 
@@ -92,7 +92,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
     Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR.
     ```
 
-    ![서비스 패브릭](./media/log-analytics-service-fabric/10.png)
+    ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
 
@@ -106,7 +106,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
     Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer
     ```
 
-    ![서비스 패브릭](./media/log-analytics-service-fabric/11.png)
+    ![Service Fabric](./media/log-analytics-service-fabric/11.png)
 
     c. 시간별 평균, 최소, 최대 및 75 백분위 CPU 사용량을 검사하여 특정 노드로 드릴 다운하려는 경우 다음 쿼리(컴퓨터 필드 대체)를 사용하여 수행할 수 있습니다.
 
@@ -114,7 +114,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
     Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR
     ```
 
-    ![서비스 패브릭](./media/log-analytics-service-fabric/12.png)
+    ![Service Fabric](./media/log-analytics-service-fabric/12.png)
 
 [Operations Management Suite 블로그](https://blogs.technet.microsoft.com/msoms/tag/metrics/)의 Log Analytics에서 성능 메트릭에 대한 자세한 정보를 참조하세요.
 
@@ -152,7 +152,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 다음 표에서는 데이터 수집 방법 및 Service Fabric에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10분 |
 

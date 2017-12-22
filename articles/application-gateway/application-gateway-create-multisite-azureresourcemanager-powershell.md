@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>여러 웹 응용 프로그램을 호스트하는 응용 프로그램 게이트웨이 만들기
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
+1. 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 2. 응용 프로그램 게이트웨이를 사용하도록 백 엔드 풀에 추가된 서버가 존재하거나 별도의 서브넷에서 가상 네트워크에 또는 할당된 공용 IP/VIP와 함께 해당 끝점이 만들어져야 합니다.
 
 ## <a name="requirements"></a>요구 사항
@@ -77,7 +77,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-### <a name="step-3"></a>3단계:
+### <a name="step-3"></a>3단계
 
 사용할 Azure 구독을 선택합니다.
 
@@ -244,7 +244,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 ```
 
 > [!IMPORTANT]
-> 응용 프로그램 게이트웨이 프로비전은 장기 실행 작업이며 완료하는 데 다소 시간이 걸릴 수 있습니다.
+> Application Gateway 프로비전은 장기 실행 작업이며 완료하는 데 다소 시간이 걸릴 수 있습니다.
 > 
 > 
 
@@ -280,5 +280,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-[응용 프로그램 게이트웨이-웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)을 사용하여 웹 사이트를 보호하는 방법을 알아봅니다.
+[Application Gateway-웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)을 사용하여 웹 사이트를 보호하는 방법을 알아봅니다.
 

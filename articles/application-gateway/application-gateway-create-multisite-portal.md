@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>여러 웹 응용 프로그램을 호스트하는 기존 응용 프로그램 게이트웨이 구성
 
@@ -79,7 +79,7 @@ Azure 포털 ( https://portal.azure.com ) 에서 기존 응용 프로그램 게�
 
 ## <a name="create-listeners-for-each-back-end"></a>각 백 엔드 풀의 수신기 만들기
 
-응용 프로그램 게이트웨이는 HTTP 1.1 호스트 헤더를 기반으로 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트합니다. 포털에서 만든 기본 수신기에는 이 속성이 포함되지 않습니다.
+Application Gateway는 HTTP 1.1 호스트 헤더를 기반으로 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트합니다. 포털에서 만든 기본 수신기에는 이 속성이 포함되지 않습니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -126,7 +126,7 @@ Azure 포털 ( https://portal.azure.com ) 에서 기존 응용 프로그램 게�
 
 ## <a name="next-steps"></a>다음 단계
 
-[응용 프로그램 게이트웨이-웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)을 사용하여 웹 사이트를 보호하는 방법을 알아봅니다.
+[Application Gateway-웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)을 사용하여 웹 사이트를 보호하는 방법을 알아봅니다.
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-multisite-portal/figure1.png

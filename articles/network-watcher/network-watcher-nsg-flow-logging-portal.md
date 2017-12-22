@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Azure Portal에서 네트워크 보안 그룹 흐름 로그 관리
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 [Network Watcher 인스턴스 생성](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터가 있는 리소스 그룹이 있다고 가정합니다.
+이 시나리오에서는 [Network Watcher 인스턴스 생성](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신이 있는 리소스 그룹이 있다고 가정합니다.
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 

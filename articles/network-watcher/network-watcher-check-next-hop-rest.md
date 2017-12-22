@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Azure REST API를 사용하는 Azure Network Watcher에서 Next Hop 기능을 사용하는 다음 홉이 무엇인지 확인합니다.
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST API](network-watcher-check-next-hop-rest.md)
 
-Next Hop은 Network Watcher의 기능으로 지정된 가상 컴퓨터를 기반으로 하는 다음 홉 유형 및 IP 주소를 가져올 수 있습니다. 이 기능은 가상 컴퓨터에서 나가는 트래픽이 게이트웨이, 인터넷 또는 가상 네트워크를 트래버스하여 대상에 도달할지 여부를 결정하는 데 유용합니다.
+Next Hop은 Network Watcher의 기능으로 지정된 가상 머신을 기반으로 하는 다음 홉 유형 및 IP 주소를 가져올 수 있습니다. 이 기능은 가상 머신에서 나가는 트래픽이 게이트웨이, 인터넷 또는 가상 네트워크를 트래버스하여 대상에 도달할지 여부를 결정하는 데 유용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -53,14 +53,14 @@ Azure 자격 증명으로 armclient에 로그인합니다.
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a>가상 컴퓨터 검색
+## <a name="retrieve-a-virtual-machine"></a>가상 머신 검색
 
-다음 스크립트를 실행하여 가상 컴퓨터를 반환합니다. 다음 홉을 실행하는 데 이 정보가 필요합니다.
+다음 스크립트를 실행하여 가상 머신을 반환합니다. 다음 홉을 실행하는 데 이 정보가 필요합니다.
 
 다음 코드에는 다음 변수에 대한 값이 필요합니다.
 
 - **subscriptionId** - 사용할 구독 ID입니다.
-- **resourceGroupName** - 가상 컴퓨터를 포함하는 리소스 그룹의 이름입니다.
+- **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -69,7 +69,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-다음 출력에서는 다음 예제에 가상 컴퓨터의 ID가 사용됩니다.
+다음 출력에서는 다음 예제에 가상 머신의 ID가 사용됩니다.
 
 ```json
 ...
@@ -86,7 +86,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 ## <a name="get-next-hop"></a>다음 홉 가져오기
 
-권한 부여 헤더가 생성되면 가상 컴퓨터의 다음 홉을 검색할 수 있습니다. 작동할 코드 예에 대해 다음 값을 대체해야 합니다.
+권한 부여 헤더가 생성되면 가상 머신의 다음 홉을 검색할 수 있습니다. 작동할 코드 예에 대해 다음 값을 대체해야 합니다.
 
 > [!Important]
 > Network Watcher REST API 호출의 경우 요청 URI에 있는 리소스 그룹 이름은 진단 작업이 수행되는 리소스가 아니라, Network Watcher를 포함하는 리소스 그룹입니다.

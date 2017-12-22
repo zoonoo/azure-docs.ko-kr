@@ -1,6 +1,6 @@
 ---
 title: "원본 환경 설정(Azure-VMware) | Microsoft Docs"
-description: "이 문서에서는 온-프레미스 환경을 설정하여 VMware 가상 컴퓨터를 Azure에 복제하기 시작하는 방법을 설명합니다."
+description: "이 문서에서는 온-프레미스 환경을 설정하여 VMware 가상 머신을 Azure에 복제하기 시작하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -15,30 +15,30 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>원본 환경 설정(Azure-VMware)
 > [!div class="op_single_selector"]
 > * [VMware에서 Azure로](./site-recovery-set-up-vmware-to-azure.md)
 > * [물리적 서버에서 Azure로](./site-recovery-set-up-physical-to-azure.md)
 
-이 문서에서는 온-프레미스 환경을 설정하여 VMware에서 실행 중인 가상 컴퓨터를 Azure에 복제하기 시작하는 방법을 설명합니다.
+이 문서에서는 온-프레미스 환경을 설정하여 VMware에서 실행 중인 가상 머신을 Azure에 복제하기 시작하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음 항목을 이미 만들었다고 가정합니다.
 - [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
 - [자동 검색](./site-recovery-vmware-to-azure.md)에 사용할 수 있는 VMware vCenter의 전용 계정
-- 구성 서버를 설치할 가상 컴퓨터
+- 구성 서버를 설치할 가상 머신
 
 ## <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
 다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
 
 > [!IMPORTANT]
-> VMware 가상 컴퓨터를 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 컴퓨터로 배포하는 것이 좋습니다.
+> VMware 가상 머신을 보호하기 위해 구성 서버를 배포하는 경우 **HA(고가용성)** 가상 머신으로 배포하는 것이 좋습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/27/2017
 두 가지 주요 작업을 포함한 원본 환경 설정
 
 - Site Recovery를 사용하여 구성 서버를 설치 및 등록합니다.
-- Site Recovery를 온-프레미스 VMware vCenter 또는 vSphere EXSi 호스트에 연결하여 온-프레미스 가상 컴퓨터를 검색합니다.
+- Site Recovery를 온-프레미스 VMware vCenter 또는 vSphere EXSi 호스트에 연결하여 온-프레미스 가상 머신을 검색합니다.
 
 ### <a name="step-1-install-and-register-a-configuration-server"></a>1단계: 구성 서버 설치 및 등록
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/27/2017
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
 ### <a name="step-2-add-a-vcenter"></a>2단계: vCenter 추가
-Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 컴퓨터를 검색할 수 있게 하려면 Site Recovery와 VMware vCenter 서버 또는 vSphere ESXi 호스트를 연결해야 합니다.
+Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 머신을 검색할 수 있게 하려면 Site Recovery와 VMware vCenter 서버 또는 vSphere ESXi 호스트를 연결해야 합니다.
 
 **+vCenter**를 선택하여 VMware vCenter 서버 또는 VMware vSphere ESXi 호스트를 연결하기 시작합니다.
 

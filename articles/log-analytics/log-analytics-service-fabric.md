@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
 ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>PowerShell로 Azure Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 > [!div class="op_single_selector"]
@@ -297,7 +297,7 @@ $workspace = Select-Workspace
 $storageAccount = Select-StorageAccount
 ```
 
-저장소 계정의 Azure 테이블에서 읽어 오도록 Log Analytics 작업 영역을 구성한 후에는 Azure Portal에 로그인합니다. **모든 리소스**에서 Log Analytics 작업 영역을 선택합니다. 작업 영역에 연결된 저장소 계정 로그 수가 표시됩니다. **저장소 계정 로그** 타일을 선택합니다. 저장소 계정 로그 목록을 검토하여 저장소 계정이 올바른 작업 영역에 연결되어 있는지 확인합니다.
+저장소 계정의 Azure 테이블에서 읽어 오도록 Log Analytics 작업 영역을 구성한 후에는 Azure Portal에 로그인합니다. **모든 리소스**에서 Log Analytics 작업 영역을 선택합니다. 작업 영역에 연결된 저장소 계정 로그 수가 표시됩니다. **Storage 계정 로그** 타일을 선택합니다. 저장소 계정 로그 목록을 검토하여 저장소 계정이 올바른 작업 영역에 연결되어 있는지 확인합니다.
 
 ![Storage 계정 로그](./media/log-analytics-service-fabric/sf1.png)
 
@@ -374,7 +374,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 다음 표에서는 데이터 수집 방법 및 Service Fabric에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10분 |
 

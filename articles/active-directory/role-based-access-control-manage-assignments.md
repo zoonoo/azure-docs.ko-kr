@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
 ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)의 RBAC(역할 기반 액세스 제어)로 Azur
 두 가지 방법으로 사용 권한을 제한할 수 있기 때문에 RBAC를 사용하여 할당된 액세스 권한은 세분화됩니다.
 
 * **범위:** RBAC 역할 할당은 특정 구독, 리소스 그룹 또는 리소스로 범위가 지정됩니다. 단일 리소스에 대한 액세스 권한을 가진 사용자는 동일한 구독에서 다른 리소스에 액세스할 수 없습니다.
-* **역할:** 할당의 범위 내에서 역할을 할당하면 액세스 권한이 더 좁아집니다. 역할은 소유자와 같이 높은 수준일 수도 있고 가상 컴퓨터 판독기와 같이 특정될 수도 있습니다.
+* **역할:** 할당의 범위 내에서 역할을 할당하면 액세스 권한이 더 좁아집니다. 역할은 소유자와 같이 높은 수준일 수도 있고 가상 머신 판독기와 같이 특정될 수도 있습니다.
 
 역할은 할당에 대한 범위인 구독, 리소스 그룹 또는 리소스 내에서만 할당될 수 있습니다. 하지만 지정된 사용자나 그룹에 대한 모든 액세스 권한 할당은 단일 위치에서만 볼 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 
 

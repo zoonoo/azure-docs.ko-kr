@@ -6,7 +6,7 @@ CDN 관리 코드를 작성하려면 코드가 Azure Resource Manager와 상호 
 * 리소스 그룹에 권한을 적용하여 Azure AD 테넌트의 권한이 있는 사용자만 CDN 프로필과 상호 작용하게 만들기
 
 ### <a name="creating-the-resource-group"></a>리소스 그룹 만들기
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 위에 있는 **새로 만들기** 단추를 클릭하고 **관리**, **리소스 그룹**을 클릭합니다.
 
     ![새 리소스 그룹 만들기](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)

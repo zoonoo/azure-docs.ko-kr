@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
 ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Azure Portal을 사용하여 응용 프로그램 게이트웨이용 경로 기반 규칙 만들기
 

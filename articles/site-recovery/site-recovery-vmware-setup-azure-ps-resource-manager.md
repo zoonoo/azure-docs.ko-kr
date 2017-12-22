@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Azure에서 실행되는 프로세스 서버 관리(Resource Manager)
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/27/2017
 장애 복구 동안 Azure Virtual Network와 온-프레미스 네트워크 간에 대기 시간이 긴 경우 Azure에서 프로세스 서버를 배포하는 것이 좋습니다. 이 문서에서는 Azure에서 실행 중인 프로세스 서버를 설정, 구성 및 관리하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이 문서는 장애 조치 중에 가상 컴퓨터에 대한 배포 모델로 **Resource Manager**를 사용한 경우에 사용할 수 있습니다. 배포 모델로 **클래식**을 사용한 경우 [장애 복구 프로세스 서버를 설정 및 구성하는 방법(클래식)](./site-recovery-vmware-setup-azure-ps-classic.md)의 단계를 따르세요.
+> 이 문서는 장애 조치 중에 가상 머신에 대한 배포 모델로 **Resource Manager**를 사용한 경우에 사용할 수 있습니다. 배포 모델로 **클래식**을 사용한 경우 [장애 복구 프로세스 서버를 설정 및 구성하는 방법(클래식)](./site-recovery-vmware-setup-azure-ps-classic.md)의 단계를 따르세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,10 +46,10 @@ ms.lasthandoff: 11/27/2017
 |**필드 이름**|**값**|
 |-|-|
 |프로세스 서버를 배포할 위치 선택|**Azure에 장애 복구 프로세스 서버 배포** 값 선택 |
-|구독|가상 컴퓨터를 장애 조치한 Azure 구독 선택|
+|구독|가상 머신을 장애 조치한 Azure 구독 선택|
 |리소스 그룹|리소스 그룹을 만들어 이 프로세스 서버를 배포하거나 기존 리소스 그룹에 프로세스 서버를 배포하도록 선택|
-|위치|가상 컴퓨터가 장애 조치된 Azure 데이터 센터 선택|
-|Azure 네트워크|가상 컴퓨터가 장애 조치된 Azure VNet(Virtual Network) 선택. 가상 컴퓨터를 여러 Azure Vnet으로 장애 조치한 경우 VNet마다 배포된 프로세스 서버가 있어야 합니다.|
+|위치|가상 머신이 장애 조치된 Azure 데이터 센터 선택|
+|Azure 네트워크|가상 머신이 장애 조치된 Azure VNet(Virtual Network) 선택. 가상 머신을 여러 Azure Vnet으로 장애 조치한 경우 VNet마다 배포된 프로세스 서버가 있어야 합니다.|
 
 4. 프로세스 서버에 대한 나머지 속성 채우기
 
@@ -58,10 +58,10 @@ ms.lasthandoff: 11/27/2017
 |-|-|
 |서버 이름|프로세스 서버 가상 컴퓨터에 대한 표시 이름/호스트 이름|
 | 사용자 이름|해당 가상 컴퓨터에서 관리자가 되는 사용자 이름|
-|Storage 계정|가상 컴퓨터의 가상 디스크가 배치되는 Storage 계정의 이름|
-|서브넷|가상 컴퓨터가 연결되는 Azure VNet의 서브넷|
+|Storage 계정|가상 머신의 가상 디스크가 배치되는 Storage 계정의 이름|
+|서브넷|가상 머신이 연결되는 Azure VNet의 서브넷|
 | IP 주소|프로세스 서버가 부팅될 경우 간주되는 IP 주소|
-5. 확인 단추를 클릭하여 프로세스 서버 가상 컴퓨터 배포를 시작합니다.
+5. 확인 단추를 클릭하여 프로세스 서버 가상 머신 배포를 시작합니다.
 
 > [!NOTE]
 > 장애 복구를 위해 이 프로세스 서버를 사용하려면 온-프레미스 구성 서버에 등록해야 합니다.

@@ -1,6 +1,6 @@
 ---
 title: "Distcp를 사용하여 WASB에(서) Data Lake Store 데이터 복사| Microsoft 문서"
-description: "Distcp 도구를 사용하여 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사"
+description: "Distcp 도구를 사용하여 Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Distcp를 사용하여 Azure 저장소 Blob과 데이터 레이크 저장소 간에 데이터 복사
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Distcp를 사용하여 Azure Storage Blob과 데이터 레이크 저장소 간에 데이터 복사
 > [!div class="op_single_selector"]
 > * [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 > * [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
@@ -44,7 +44,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
-2. Azure 저장소 Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
+2. Azure Storage Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
@@ -115,7 +115,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 * Azure Blob Storage 계정에서 복사하는 경우 Blob Storage 쪽에서 복사 작업이 제한될 수도 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Azure Storage Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

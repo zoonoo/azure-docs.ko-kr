@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: shengc
 ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.lasthandoff: 11/10/2017
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md)
 > * [Spark](transform-data-using-spark.md)
-> * [기계 학습](transform-data-using-machine-learning.md) 
+> * 
+            [Machine Learning](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)

@@ -1,6 +1,6 @@
 ---
 title: "대상 준비(VMware에서 Azure로) | Microsoft Docs"
-description: "이 문서에서는 VMware 가상 컴퓨터를 Azure에 복제하는 작업을 시작하기 위해 Azure 환경을 준비하는 방법을 설명합니다."
+description: "이 문서에서는 VMware 가상 머신을 Azure에 복제하는 작업을 시작하기 위해 Azure 환경을 준비하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -15,23 +15,23 @@ ms.workload: backup-recovery
 ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>대상 준비(VMware에서 Azure로)
 > [!div class="op_single_selector"]
 > * [VMware에서 Azure로](./site-recovery-prepare-target-vmware-to-azure.md)
 > * [물리적 서버에서 Azure로](./site-recovery-prepare-target-physical-to-azure.md)
 
-이 문서에서는 VMware 가상 컴퓨터를 Azure에 복제하는 작업을 시작하기 위해 Azure 환경을 준비하는 방법을 설명합니다.
+이 문서에서는 VMware 가상 머신을 Azure에 복제하는 작업을 시작하기 위해 Azure 환경을 준비하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 문서에서는 다음을 가정합니다.
-- VMware 가상 컴퓨터를 보호하기 위해 Recovery Services 자격 증명 모음을 만들었습니다. [Azure Portal](http://portal.azure.com "Azure Portal")에서 Recovery Services 자격 증명 모음을 만들 수 있습니다.
-- Azure에 VMware 가상 컴퓨터를 복제하기 위한 [온-프레미스 환경을 설정](./site-recovery-set-up-vmware-to-azure.md)했습니다.
+- VMware 가상 머신을 보호하기 위해 Recovery Services 자격 증명 모음을 만들었습니다. [Azure Portal](http://portal.azure.com "Azure Portal")에서 Recovery Services 자격 증명 모음을 만들 수 있습니다.
+- Azure에 VMware 가상 머신을 복제하기 위한 [온-프레미스 환경을 설정](./site-recovery-set-up-vmware-to-azure.md)했습니다.
 
 ## <a name="prepare-target"></a>대상 준비
 

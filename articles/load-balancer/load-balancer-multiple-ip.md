@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/25/2017
 
 시나리오에 다음 구성이 사용됩니다.
 
-- Windows를 실행하는 두 개의 VM(가상 컴퓨터)
+- Windows를 실행하는 두 개의 VM(가상 머신)
 - 각 VM에는 주 NIC 및 보조 NIC가 있습니다.
 - 각 보조 NIC에는 두 가지 IP 구성이 있습니다.
 - 각 VM은 contoso.com 및 fabrikam.com이라는 두 웹 사이트를 호스트합니다.
@@ -149,7 +149,7 @@ ms.lasthandoff: 10/25/2017
 
     ![부하 분산 장치에 대한 백 엔드 풀 구성](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-    1. **대상 가상 컴퓨터**의 경우 백 엔드 풀에 추가하려는 VM(예: **VM1** 또는 **VM2**)을 선택합니다.
+    1. **대상 가상 머신**의 경우 백 엔드 풀에 추가하려는 VM(예: **VM1** 또는 **VM2**)을 선택합니다.
 
     2. **네트워크 IP 구성**의 경우 이전 단계에서 선택한 VM에 대한 보조 NIC의 IP 구성(예: **VM1NIC2-ipconfig2** 또는 **VM2NIC2-ipconfig2**)을 선택합니다.
 

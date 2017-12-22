@@ -1,5 +1,5 @@
 ---
-title: "Azure 백업: Azure Portal을 사용하여 가상 컴퓨터 복원 | Microsoft Docs"
+title: "Azure 백업: Azure Portal을 사용하여 가상 머신 복원 | Microsoft Docs"
 description: "Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원"
 services: backup
 documentationcenter: 
@@ -15,20 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 컴퓨터 복원
-> [!div class="op_single_selector"]
-> * [클래식 포털에서 VM 복원](backup-azure-restore-vms.md)
-> * [Azure Portal에서 VM 복원](backup-azure-arm-restore-vms.md)
->
->
-
-정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 컴퓨터)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
+# <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
+정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
 
 * 백업된 VM의 특정 시점 표현으로 새 VM을 만들 수 있습니다.
 * 디스크를 복원하고, 프로세스에 수반되는 템플릿을 사용하여 복원된 VM을 사용자 지정하거나, 개별 파일 복구를 수행합니다. 
@@ -50,13 +44,13 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 ## <a name="select-a-restore-point-for-restore"></a>복원을 위해 복원 지점 선택
 1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
 
-2. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
+2. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
     ![Recovery Services 자격 증명 모음](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     구독에서 자격 증명 모음의 목록이 표시됩니다.
 
-    ![복구 서비스 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Recovery Services 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 3. 목록에서 복원하려는 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
 
     ![Recovery Services 자격 증명 모음](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
@@ -115,9 +109,9 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 ## <a name="create-a-new-vm-from-a-restore-point"></a>복원 지점에서 새 VM 만들기
 1. 아직 수행하지 않은 경우 복원 지점에서 새 VM을 만들기 전에 [복원 지점을 선택합니다](#restore-a vm-with-special-network-configurations). 복원 지점을 선택하면 **복원 구성** 블레이드에서 다음 필드 각각에 대해 값을 입력하거나 선택합니다.
 
-    a. **형식을 복원**합니다. 가상 컴퓨터를 만듭니다.
+    a. **형식을 복원**합니다. 가상 머신을 만듭니다.
 
-    b. **가상 컴퓨터 이름**. VM의 이름을 입력합니다. 이름은 리소스 그룹(Azure Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 VM을 교체할 수 없습니다.
+    b. **가상 머신 이름**. VM의 이름을 입력합니다. 이름은 리소스 그룹(Azure Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 VM을 교체할 수 없습니다.
 
     c. **리소스 그룹**. 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 클래식 VM을 복원하는 경우 이 필드를 사용하여 새 클라우드 서비스의 이름을 지정합니다. 새 리소스 그룹/클라우드 서비스를 만들 경우 이름은 전역적으로 고유해야 합니다. 일반적으로 클라우드 서비스 이름은 공용 URL(예: [cloudservice].cloudapp.net)과 연결됩니다. 이미 사용되는 클라우드 리소스 그룹/클라우드 서비스에 대한 이름을 시도하면 Azure는 리소스 그룹/클라우드 서비스에 VM과 동일한 이름을 할당합니다. Azure는 선호도 그룹에 연결되지 않은 리소스 그룹/클라우드 서비스 및 VM을 표시합니다. 자세한 내용은 [선호도 그룹에서 지역 가상 네트워크로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
 
@@ -160,13 +154,13 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 
 처리하는 동안 작업을 보려거나 완료되는 때를 보려면 **백업 작업** 목록을 엽니다.
 
-1. Azure 메뉴에서 **찾아보기**를 선택하고 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
+1. Azure 메뉴에서 **찾아보기**를 선택하고 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
-    ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
+    ![Recovery Services 자격 증명 모음 열기](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     구독에서 자격 증명 모음의 목록이 표시됩니다.
 
-    ![복구 서비스 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Recovery Services 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 2. 목록에서 복원한 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
 
 3. **백업 작업** 타일의 자격 증명 모음 대시보드에서 **Azure Virtual Machines**를 선택하여 자격 증명 모음에 연결된 작업을 표시합니다.
@@ -258,4 +252,4 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 대한 문제 해결 문서를 참조하세요. 또한 VM을 사용하는 작업 관리에 대한 문서를 확인합니다.
 
 * [문제 해결](backup-azure-vms-troubleshoot.md#restore)
-* [가상 컴퓨터 관리](backup-azure-manage-vms.md)
+* [가상 머신 관리](backup-azure-manage-vms.md)
