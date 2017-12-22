@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Data Warehouse 감사 | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스 감사 시작"
+description: "Azure SQL Data Warehouse 감사 시작"
 services: sql-data-warehouse
 documentationcenter: 
 author: ronortloff
@@ -16,12 +16,12 @@ ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스 감사
+# <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 > [!div class="op_single_selector"]
 > * [감사](sql-data-warehouse-auditing-overview.md)
 > * [위협 감지](sql-data-warehouse-security-threat-detection.md)
@@ -36,8 +36,8 @@ SQL Data Warehouse 감사를 사용하면 Azure Storage 계정의 감사 로그�
 * [데이터베이스에 대한 감사 설정]
 * [감사 로그 및 보고서 분석]
 
-## <a id="subheading-1"></a>Azure SQL 데이터 웨어하우스 데이터베이스 감사 기본 사항
-SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
+## <a id="subheading-1"></a>Azure SQL Data Warehouse 데이터베이스 감사 기본 사항
+SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
 
 * **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
 * **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
@@ -82,7 +82,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 8. **확인**을 클릭합니다.
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
-감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 저장소 탐색기</a>와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
+감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage 탐색기</a>와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
 미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">다운로드 가능 Excel 스프레드시트</a>로 사용할 수 있습니다. 감사 로그에 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 <a href="http://www.microsoft.com/download/details.aspx?id=39379">여기</a>서 다운로드할 수 있습니다.
 

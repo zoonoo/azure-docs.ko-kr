@@ -16,12 +16,12 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Azure SQL 데이터 웨어하우스의 계산 능력 관리(Azure 포털)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Azure SQL Data Warehouse의 계산 능력 관리(Azure Portal)
 > [!div class="op_single_selector"]
 > * [개요](sql-data-warehouse-manage-compute-overview.md)
 > * [포털](sql-data-warehouse-manage-compute-portal.md)
@@ -60,7 +60,7 @@ ms.lasthandoff: 10/11/2017
 2. 계산과 메모리 리소스를 일시 중지하기 위해 **일시 중지**를 클릭하면 확인 메시지가 나타납니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
     ![일시 중지 확인][7]
-3. SQL 데이터 웨어하우스가 시작되는 동안 데이터베이스 상태는 **일시 중지하는 중**이 됩니다.
+3. SQL Data Warehouse가 시작되는 동안 데이터베이스 상태는 **일시 중지하는 중**이 됩니다.
 4. 상태가 **일시 중지됨**일 경우 일시 중지 작업이 완료된 것이며 더 이상 DWU 비용이 청구되지 않습니다.
 
     ![일시 중지 상태][4]
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 2. 데이터베이스를 다시 시작하기 위해 **시작**을 클릭하면 확인 메시지가 나타납니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
     ![다시 시작 확인][5]
-3. SQL 데이터 웨어하우스가 시작되는 동안 데이터베이스 상태는 "일시 중지하는 중"이 됩니다.
+3. SQL Data Warehouse가 시작되는 동안 데이터베이스 상태는 "일시 중지하는 중"이 됩니다.
 4. 상태가 **온라인**이면 데이터가 준비된 것입니다.
 
     ![온라인 상태][6]

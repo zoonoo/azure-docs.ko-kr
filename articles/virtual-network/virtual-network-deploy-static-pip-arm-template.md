@@ -17,10 +17,10 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>클릭하여 배포하는 방식으로 템플릿 배포
 
-공용 저장소에서 사용할 수 있는 샘플 템플릿은 위에 설명된 시나리오를 생성하는 데 사용된 기본값을 포함하는 매개 변수 파일을 사용합니다. 클릭-배포를 사용하여 이 템플릿을 배포하려면 **고정 PIP 템플릿이 포함된 VM** 의 Readme.md 파일에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) 를 클릭합니다. 원할 경우 기본 매개 변수 값을 바꾸고 빈 매개 변수의 값을 입력합니다.  포털의 지침을 따라 고정 공용 IP 주소를 사용하여 가상 컴퓨터를 만듭니다.
+공용 저장소에서 사용할 수 있는 샘플 템플릿은 위에 설명된 시나리오를 생성하는 데 사용된 기본값을 포함하는 매개 변수 파일을 사용합니다. 클릭-배포를 사용하여 이 템플릿을 배포하려면 **고정 PIP 템플릿이 포함된 VM** 의 Readme.md 파일에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) 를 클릭합니다. 원할 경우 기본 매개 변수 값을 바꾸고 빈 매개 변수의 값을 입력합니다.  포털의 지침을 따라 고정 공용 IP 주소를 사용하여 가상 머신을 만듭니다.
 
 ## <a name="deploy-the-template-by-using-powershell"></a>PowerShell을 사용하여 템플릿 배포
 
