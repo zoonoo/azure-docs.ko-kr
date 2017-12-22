@@ -286,6 +286,7 @@
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [클래식 정책 마이그레이션](active-directory-conditional-access-migration.md)
+#### [가상 도구](active-directory-conditional-access-whatif.md)
 #### 작업
 ##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)

@@ -1,6 +1,7 @@
 # 개요
 
 ## [SQL Data Warehouse 정보](sql-data-warehouse-overview-what-is.md)
+## [참고 자료](cheat-sheet.md)
 
 # 빠른 시작
 

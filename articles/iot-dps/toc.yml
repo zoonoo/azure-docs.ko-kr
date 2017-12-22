@@ -12,9 +12,35 @@
     - name: 시뮬레이션된 장치 만들기
       items:
         - name: TPM
-          href: quick-create-simulated-device.md
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
         - name: X.509
-          href: quick-create-simulated-device-x509.md
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+    - name: 장치 등록
+      items:
+        - name: TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+        - name: X.509
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
 - name: 자습서
   items:
     - name: 1 - 클라우드 리소스 설정
