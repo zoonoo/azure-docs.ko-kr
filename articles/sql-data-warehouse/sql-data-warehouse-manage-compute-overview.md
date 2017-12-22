@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Data Warehouse의 계산 능력 관리(개요) | Microsoft Docs"
-description: "Azure SQL 데이터 웨어하우스의 성능 확장 기능입니다. 또는 DWU를 조정하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
+description: "Azure SQL Data Warehouse의 성능 확장 기능입니다. 또는 DWU를 조정하거나 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,12 +16,12 @@ ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
 ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL 데이터 웨어하우스의 계산 능력 관리(개요)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Azure SQL Data Warehouse의 계산 능력 관리(개요)
 > [!div class="op_single_selector"]
 > * [개요](sql-data-warehouse-manage-compute-overview.md)
 > * [포털](sql-data-warehouse-manage-compute-portal.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/25/2017
 >
 >
 
-SQL 데이터 웨어하우스는 저장소와 계산을 분리하여 각각의 성능을 독립적으로 조정할 수 있습니다. 따라서 데이터 양에 관계 없이 성능 요구 사항에 맞게 계산을 확장할 수 있습니다. 이 아키텍처의 자연스러운 결과는 계산 및 저장소에 대한 [청구][billed]가 분리되어 있다는 것입니다. 
+SQL Data Warehouse는 저장소와 계산을 분리하여 각각의 성능을 독립적으로 조정할 수 있습니다. 따라서 데이터 양에 관계 없이 성능 요구 사항에 맞게 계산을 확장할 수 있습니다. 이 아키텍처의 자연스러운 결과는 계산 및 저장소에 대한 [청구][billed]가 분리되어 있다는 것입니다. 
 
 이 개요에서는 SQL Data Warehouse에서 규모 확장이 작동하는 방법과 SQL Data Warehouse의 일시 중지, 다시 시작 및 확장 기능을 활용하는 방법에 대해 설명합니다. 
 
@@ -89,7 +89,7 @@ SQL Data Warehouse의 정상적인 활성 세션 동안 메타데이터를 관�
 SQL Data Warehouse의 성능은 CPU, 메모리, I/O 대역폭과 같은 계산 리소스를 추상화한 측정값인 [DWU(데이터 웨어하우스 단위)][DWU(데이터 웨어하우스 단위)]로 측정됩니다. 시스템 성능을 조정하려는 사용자는 포털, T-SQL 및 REST API와 같은 다양한 방법을 통해 시스템 성능을 조정할 수 있습니다. 
 
 ### <a name="how-do-i-scale-compute"></a>계산 크기는 어떻게 조정합니까?
-DWU 설정을 변경하여 SQL Data Warehouse에 대한 계산 성능을 관리합니다. 특정 작업에 대해 DWU를 더 많이 추가하면 성능이 이에 비례하여 향상됩니다.  시스템을 강화하거나 축소할 때 성능이 눈에 띄게 변경되는 DWU 제품을 제공합니다. 
+DWU 설정을 변경하여 SQL Data Warehouse에 대한 Compute 성능을 관리합니다. 특정 작업에 대해 DWU를 더 많이 추가하면 성능이 이에 비례하여 향상됩니다.  시스템을 강화하거나 축소할 때 성능이 눈에 띄게 변경되는 DWU 제품을 제공합니다. 
 
 DWU를 조정할 경우 다음과 같은 개별 방법을 사용할 수 있습니다.
 

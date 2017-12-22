@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 이 문서에서는 Azure Portal을 사용하여 기존 연결이 있는 VPN 게이트웨이에 S2S(사이트 간) 연결을 추가하는 과정을 안내합니다. 이러한 유형의 연결을 "다중 사이트" 구성이라고 합니다. S2S 연결, 사이트 간 연결 또는 VNet 간 연결이 이미 있는 VNet에 S2S 연결을 추가할 수 있습니다. 연결을 추가하는 데 몇 가지 제한이 있습니다. 구성을 시작하기 전에 확인하려면 이 문서의 [시작 하기 전에](#before) 섹션을 확인합니다. 
 
-이 문서는 RouteBased VPN 게이트웨이가 있는 Resource Manager 배포 모델을 사용하여 만든 VNet에 적용됩니다. 이러한 단계가 Express 경로/사이트 간 공존 연결 구성에는 적용되지 않습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-resource-manager.md)을 참조하세요.
+이 문서는 RouteBased VPN 게이트웨이가 있는 Resource Manager 배포 모델을 사용하여 만든 VNet에 적용됩니다. 이러한 단계가 ExpressRoute/사이트 간 공존 연결 구성에는 적용되지 않습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-resource-manager.md)을 참조하세요.
 
 ### <a name="deployment-models-and-methods"></a>배포 모델 및 메서드
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -93,4 +93,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 가상 컴퓨터 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 가상 머신 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.

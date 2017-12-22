@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>예제 1 – 클래식 PowerShell로 NSG를 사용하여 간단한 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -37,13 +37,13 @@ ms.lasthandoff: 10/11/2017
 이 예에서 구독은 다음 리소스를 포함합니다.
 
 * 두 클라우드 서비스: "FrontEnd001" 및 "BackEnd001"
-* "FrontEnd" 및 "BackEnd"의 두 서브넷을 포함하는 가상 네트워크 "CorpNetwork"
+* "FrontEnd" 및 "BackEnd"의 두 서브넷을 포함하는 Virtual Network "CorpNetwork"
 * 서브넷 모두에 적용되는 네트워크 보안 그룹
 * 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
 * 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
 * DNS 서버("DNS01")를 나타내는 Windows Server
 
-참조 섹션에는 이 예제에서 설명한 대부분의 환경을 빌드하는 PowerShell 스크립트가 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다. 
+참조 섹션에는 이 예제에서 설명한 대부분의 환경을 빌드하는 PowerShell 스크립트가 있습니다. VM 및 Virtual Network 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다. 
 
 환경을 구축하려면
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 이 예의 첫 번째 규칙에서는 백 엔드 서브넷에서 DNS 서버에 대해 모든 내부 네트워크 간 DNS 트래픽을 허용합니다. 규칙은 몇 가지 중요한 매개 변수를 포함합니다.
    
-   * "Type"은 이 규칙이 적용되는 트래픽 흐름의 방향을 나타냅니다. 방향은 서브넷 또는 가상 컴퓨터의 관점에서 옵니다(이 NSG가 바인딩되는 위치에 따라). 따라서 Type이 "Inbound"이고 트래픽이 서브넷에 들어가는 경우 규칙이 적용되고 서브넷에서 나가는 트래픽에는 이 규칙이 적용되지 않습니다.
+   * "Type"은 이 규칙이 적용되는 트래픽 흐름의 방향을 나타냅니다. 방향은 서브넷 또는 Virtual Machine의 관점에서 옵니다(이 NSG가 바인딩되는 위치에 따라). 따라서 Type이 "Inbound"이고 트래픽이 서브넷에 들어가는 경우 규칙이 적용되고 서브넷에서 나가는 트래픽에는 이 규칙이 적용되지 않습니다.
    * "Priority"는 트래픽 흐름이 평가되는 순서를 설정합니다. 번호가 낮을수록 우선순위가 높습니다. 특정 트래픽 흐름에 규칙이 적용되는 경우 더 이상 규칙이 처리되지 않습니다. 따라서 우선순위 1인 규칙에서는 트래픽을 허용하고 우선순위 2인 규칙에서는 트래픽을 거부하고 두 규칙 모두 트래픽에 적용된다면 트래픽 흐름이 허용됩니다(규칙 1의 우선순위가 높으므로 해당 규칙이 적용되고 다른 규칙은 적용되지 않음).
    * "Action"은 이 규칙의 영향을 받는 트래픽을 차단하거나 허용할지를 나타냅니다.
 

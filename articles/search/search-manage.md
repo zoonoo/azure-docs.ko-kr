@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
 ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
@@ -156,7 +156,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 ### <a name="remove-replicas"></a>복제본 제거
 쿼리 볼륨이 많은 기간이 지나고 검색 쿼리 부하가 정규화되면(예: 휴일 할인이 종료된 후) 복제본을 줄일 수 있습니다.
 
-이렇게 하려면 복제본 슬라이더를 다시 하위 숫자로 이동하면 됩니다. 필요한 추가 단계는 없습니다. 복제본 수를 줄이면 데이터 센터의 가상 컴퓨터가 해제됩니다. 이제 이전보다 적은 VM에서 쿼리 및 데이터 수집 작업이 실행됩니다. 최소 한도는 복제본 한 개입니다.
+이렇게 하려면 복제본 슬라이더를 다시 하위 숫자로 이동하면 됩니다. 필요한 추가 단계는 없습니다. 복제본 수를 줄이면 데이터 센터의 가상 머신이 해제됩니다. 이제 이전보다 적은 VM에서 쿼리 및 데이터 수집 작업이 실행됩니다. 최소 한도는 복제본 한 개입니다.
 
 ### <a name="remove-partitions"></a>파티션 제거
 추가 조치가 필요 없는 복제본 제거와 달리, 줄일 수 있는 것보다 많은 저장소를 사용하는 경우 몇 가지 작업이 필요할 수 있습니다. 예를 들어 솔루션에서 파티션 세 개를 사용하며 한 개 또는 두 개의 파티션으로 다운사이징하는 경우 새 저장소 공간이 필요한 것보다 적으면 오류가 생성됩니다. 예상처럼, 연결된 인덱스 내의 문서 또는 인덱스를 삭제하여 공간을 확보하거나 현재 구성을 유지할 수 있습니다.

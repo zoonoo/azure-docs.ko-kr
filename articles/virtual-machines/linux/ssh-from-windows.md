@@ -1,6 +1,6 @@
 ---
 title: "Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs"
-description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 컴퓨터에 연결하는 방법에 대해 알아봅니다."
+description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 머신에 연결하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
 ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Azure에서 Linux VM(가상 컴퓨터)에 연결할 때 [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography)를 사용하면 더욱 안전한 방법으로 Linux VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. 이 문서에서는 SSH 키 개요 및 Windows 컴퓨터에 적절한 키를 생성하는 방법에 대해 설명합니다.
+Azure에서 Linux VM(가상 머신)에 연결할 때 [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography)를 사용하면 더욱 안전한 방법으로 Linux VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. 이 문서에서는 SSH 키 개요 및 Windows 컴퓨터에 적절한 키를 생성하는 방법에 대해 설명합니다.
 
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 다음과 같은 공개 및 개인 키를 사용하면 Linux VM에 안전하게 로그인할 수 있습니다.
@@ -175,7 +175,7 @@ PuTTY는 Windows용 공용 SSH 클라이언트입니다. 원하는 SSH 클라이
 3. **열기**를 선택하기 전에 **연결** > **SSH** > **인증** 탭을 클릭합니다. 개인 키 찾기 및 선택:
 
     ![인증용 PuTTY 개인 키 선택](./media/ssh-from-windows/putty-auth-dialog.png)
-4. **열기** 를 클릭하여 가상 컴퓨터에 연결합니다.
+4. **열기** 를 클릭하여 가상 머신에 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [OS X 및 Linux를 사용](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 공개 및 개인 키를 생성할 수도 있습니다.

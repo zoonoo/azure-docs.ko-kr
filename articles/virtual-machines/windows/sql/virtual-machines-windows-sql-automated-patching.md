@@ -1,6 +1,6 @@
 ---
 title: "SQL Server VM에 대한 자동화된 패치(리소스 관리자) | Microsoft Docs"
-description: "리소스 관리자를 사용하여 Azure에서 실행 중인 SQL Server 가상 컴퓨터에 대한 자동화된 패치 기능에 대해 설명합니다."
+description: "리소스 관리자를 사용하여 Azure에서 실행 중인 SQL Server Virtual Machines에 대한 자동화된 패치 기능에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(리소스 관리자)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
 > * [클래식](../classic/sql-automated-patching.md)
 > 
 > 
 
-자동화된 패치는 SQL Server를 실행하는 Azure 가상 컴퓨터에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이러한 제한을 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
+자동화된 패치는 SQL Server를 실행하는 Azure Virtual Machine에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이러한 제한을 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 * [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
 
 > [!NOTE]
-> 자동화된 패치는 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 컴퓨터 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+> 자동화된 패치는 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 > 
 > 
 
@@ -63,9 +63,9 @@ ms.lasthandoff: 10/11/2017
 
 | 설정 | 가능한 값 | 설명 |
 | --- | --- | --- |
-| **자동화된 패치** |사용/사용 안 함(사용 안 함) |Azure 가상 컴퓨터에 대한 자동화된 패치를 사용 또는 사용 안 함으로 설정합니다. |
-| **유지 관리 일정** |매일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일, 일요일 |가상 컴퓨터에 대한 Windows, SQL Server 및 Microsoft 업데이트 다운로드 및 설치에 대한 일정입니다. |
-| **유지 관리 시작 시간** |0-24 |가상 컴퓨터를 업데이트할 로컬 시작 시간입니다. |
+| **자동화된 패치** |사용/사용 안 함(사용 안 함) |Azure 가상 머신에 대한 자동화된 패치를 사용 또는 사용 안 함으로 설정합니다. |
+| **유지 관리 일정** |매일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일, 일요일 |가상 머신에 대한 Windows, SQL Server 및 Microsoft 업데이트 다운로드 및 설치에 대한 일정입니다. |
+| **유지 관리 시작 시간** |0-24 |가상 머신을 업데이트할 로컬 시작 시간입니다. |
 | **유지 관리 기간** |30-180 |업데이트 다운로드 및 설치를 완료하는데 허용된 시간(분)입니다. |
 | **패치 범주** |중요 |다운로드 및 설치할 업데이트의 범주입니다. |
 
@@ -73,16 +73,16 @@ ms.lasthandoff: 10/11/2017
 Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자동화된 패치를 구성할 수 있습니다.
 
 ### <a name="new-vms"></a>새 VM
-Azure 포털을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 가상 컴퓨터를 만들 때 자동화된 패치를 구성합니다.
+Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server Virtual Machine을 만들 때 자동화된 패치를 구성합니다.
 
 **SQL Server 설정** 블레이드에서 **자동화된 패치**를 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
 
 ![Azure 포털에서 SQL 자동화된 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
-컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
+컨텍스트의 경우 [Azure에서 SQL Server 가상 머신 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
 ### <a name="existing-vms"></a>기존 VM
-기존 SQL Server 가상 컴퓨터에 대한 해당 SQL Server 가상 컴퓨터를 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
+기존 SQL Server 가상 머신에 대한 해당 SQL Server 가상 머신을 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
 
 ![기존 VM에 대한 SQL 자동 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
@@ -126,5 +126,5 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
-Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
+Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 

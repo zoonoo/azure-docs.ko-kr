@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 >
 >
 
-각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성을 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 새 버전으로 클러스터를 다시 만들어야 합니다.
+각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 머신에 할당하는 프로덕션 스타일 노드 구성을 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 머신에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 새 버전으로 클러스터를 다시 만들어야 합니다.
 
 클러스터를 최신 버전 또는 지원되는 Service Fabric 버전으로 업그레이드하는 데는 두 가지 워크플로가 있습니다. 한 가지 워크플로는 최신 버전을 자동으로 다운로드하도록 연결된 클러스터에 사용됩니다. 또 다른 워크플로는 최신 Service Fabric 버전을 다운로드할 수 있는 연결이 없는 클러스터에 사용됩니다.
 
