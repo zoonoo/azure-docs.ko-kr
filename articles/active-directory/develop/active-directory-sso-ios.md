@@ -296,7 +296,7 @@ ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array> <string>msauth</string>
+<array><string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>SSO를 구성했습니다.
