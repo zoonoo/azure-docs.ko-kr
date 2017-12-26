@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3917984e4d7567fb70a34497cc1dd68a8e8c32b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bf56ff167a988acd5f1163ff78beec281a654eb8
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처 이해
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)을 참조하세요.
@@ -37,7 +37,7 @@ Azure AD의 지리적으로 분산된 아키텍처는 광범위한 모니터링,
 ### <a name="service-architecture-design"></a>서비스 아키텍처 디자인
 확장성 있는 고가용성의 다양한 데이터 시스템을 빌드하는 가장 일반적인 방법은 독립적인 구성 요소 또는 Azure AD 데이터 계층의 배율 단위를 사용하는 것입니다. 배율 단위는 *파티션*이라고 합니다. 
 
-데이터 계층에는 읽기 쓰기 기능을 제공하는 몇 가지 프런트 엔드 서비스가 있습니다. 아래 다이어그램에서는 지리적으로 분산된 데이터 센터에 단일 디렉터리 파티션의 구성 요소를 배포한 방법을 보여 줍니다. 
+데이터 계층에는 읽기 쓰기 기능을 제공하는 몇 가지 프런트 엔드 서비스가 있습니다. 아래 다이어그램에서는 지리적으로 분산된 데이터 센터에 단일 디렉터리 파티션의 구성 요소가 배포되는 방식을 보여 줍니다. 
 
   ![단일 디렉터리 파티션](./media/active-directory-architecture/active-directory-architecture.png)
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
 
@@ -54,11 +54,12 @@ Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 
 하이브리드 연결은 Azure Service Bus WCF 릴레이에서 빌드된 이전과 비슷한 이름의 "BizTalk Services" 기능을 대체합니다. 새로운 하이브리드 연결 기능은 기존 WCF 릴레이 기능을 보완하고 Azure Relay 서비스에는 이러한 두 서비스 기능이 공존하고 있습니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
 
-## <a name="wcf-relays"></a>WCF 릴레이
+## <a name="wcf-relay"></a>WCF 릴레이
 
-WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF를 위해 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 서비스 버스와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다.
+WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF에 대해 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](relay-wcf-dotnet-get-started.md)을 참조하세요.
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>아키텍처: 들어오는 릴레이 요청 처리
+
 클라이언트가 [Azure Relay](/azure/service-bus-relay/) 서비스에 요청을 보내면 Azure Load Balancer가 게이트웨이 노드 중 하나로 해당 요청을 라우팅합니다. 요청이 수신 대기 중인 요청인 경우 게이트웨이 노드는 새 릴레이를 만듭니다. 요청이 특정 릴레이에 대한 연결 요청인 경우 게이트웨이 노드는 해당 릴레이를 소유한 게이트웨이 노드로 연결 요청을 전달합니다. 릴레이를 소유한 게이트웨이 노드는 수신 대기 중인 클라이언트로 랑데부 요청을 보내 수신기가 연결 요청을 수신한 게이트웨이 노드에 대한 임시 채널을 만들도록 요청합니다.
 
 릴레이 연결이 설정되면 클라이언트가 랑데부에 사용되는 게이트웨이 노드를 통해 메시지를 교환할 수 있습니다.

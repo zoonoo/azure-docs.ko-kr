@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 범용 표준 저장소 계정을 만듭니다. 범용 표준 저장소 계정을 모든 4개의 서비스(Blob, 파일, 테이블 및 큐)에 사용할 수 있습니다. 
+[az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 범용 저장소 계정을 만듭니다. 범용 저장소 계정은 4개의 모든 서비스(Blob, 파일, 테이블 및 큐)에 사용할 수 있습니다. 
 
 ```azurecli-interactive
 az storage account create \

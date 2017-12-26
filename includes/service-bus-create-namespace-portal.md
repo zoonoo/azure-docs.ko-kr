@@ -16,7 +16,7 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
 ### <a name="obtain-the-management-credentials"></a>관리 자격 증명 얻기
 새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 정기적으로 보낸 사람과 받는 사람을 위해 제한된 권한을 사용하여 추가 규칙을 만드는 방법에 대한 자세한 내용은 [Service Bus 인증 및 권한 부여](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md)를 참조하세요. 초기 규칙을 복사하려면 다음 단계를 수행합니다. 
 
-1. 네임스페이스 목록에서 새로 만든 네임스페이스 이름을 클릭합니다.
+1.  **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
 2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
    

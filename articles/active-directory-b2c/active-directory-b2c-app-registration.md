@@ -1,12 +1,11 @@
 ---
-title: "Azure Active Directory B2C: 응용 프로그램 등록 | Microsoft Docs"
+title: "응용 프로그램 등록 - Azure Active Directory B2C"
 description: "Azure Active Directory B2C로 응용 프로그램 등록하는 방법"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: 응용 프로그램 등록
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 테넌트를 사용하여 해당 응용 프로그램을 등록해야 합니다. [Azure AD B2C 테넌트 만들기](active-directory-b2c-get-started.md)에 요약한 단계를 사용하여 자신의 테넌트를 가져옵니다.
 
-Azure Portal의 Azure AD B2C 블레이드에서 만든 응용 프로그램은 동일한 위치에서 관리되어야 합니다. PowerShell 또는 다른 포털을 사용하여 B2C 응용 프로그램을 편집할 경우 지원을 받을 수 없게 되며 Azure AD B2C에 작동하지 않습니다. [오류가 발생한 앱](#faulted-apps) 섹션에서 자세한 내용을 참조하세요. 
+Azure Portal에서 만든 응용 프로그램은 동일한 위치에서 관리되어야 합니다. PowerShell 또는 다른 포털을 사용하여 Azure AD B2C 응용 프로그램을 편집할 경우 해당 응용 프로그램이 지원되지 않으며 Azure AD B2C에서 작동하지 않습니다. [오류가 발생한 앱](#faulted-apps) 섹션에서 자세한 내용을 참조하세요. 
 
 이 문서에서는 샘플을 시작하는 데 도움이 되는 예제를 사용합니다. 후속 문서에서는 이러한 샘플에 대해 자세히 알아볼 수 있습니다.
 
@@ -117,7 +116,7 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 
 모바일/네이티브 응용 프로그램에 대한 리디렉션 URI를 선택하는 경우 두 가지 중요한 고려 사항이 있습니다.
 
-* **고유**: 리디렉션 URI의 체계는 모든 응용 프로그램에 대해 고유해야 합니다. 예제에서는(com.onmicrosoft.contoso.appname://redirect/path) 체계로 com.onmicrosoft.contoso.appname을 사용합니다. 이 패턴을 따르는 것이 좋습니다. 두 개의 응용 프로그램이 동일한 체계를 공유하는 경우 "앱 선택" 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다.
+* **고유**: 리디렉션 URI의 체계는 모든 응용 프로그램에 대해 고유해야 합니다. 예제(com.onmicrosoft.contoso.appname://redirect/path)에서는 com.onmicrosoft.contoso.appname이 체계입니다. 이 패턴을 따르는 것이 좋습니다. 두 개의 응용 프로그램이 동일한 체계를 공유하는 경우 "앱 선택" 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다.
 * **전체**: 리디렉션 URI에는 체계 및 경로가 있어야 합니다. 경로는 도메인 뒤에 하나 이상의 슬래시를 포함해야 합니다(예: //contoso/는 작동, //contoso는 실패).
 
 리디렉션 uri에 밑줄과 같은 특수 문자가 없는지 확인합니다.
@@ -126,16 +125,16 @@ B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)�
 
 B2C 응용 프로그램은 다음에서 편집할 수 없습니다.
 
-* [Azure 클래식 포털](https://manage.windowsazure.com/) 및 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)과 같은 다른 응용 프로그램 관리 포털.
+* [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)과 같은 다른 응용 프로그램 관리 포털.
 * Graph API 또는 PowerShell 사용
 
-위에서 설명한 대로 B2C 응용 프로그램을 편집하고 Azure Portal의 Azure AD B2C 기능 블레이드에서 다시 편집하려는 경우 오류가 발생한 앱이 되고 응용 프로그램은 Azure AD B2C와 함께 더 이상 사용할 수 없습니다. 응용 프로그램을 삭제하고 다시 만들어야 합니다.
+설명한 대로 Azure AD B2C 응용 프로그램을 편집하고 Azure Portal의 Azure AD B2C 기능에서 다시 편집하려는 경우 오류가 발생한 앱이 되어 Azure AD B2C에서 응용 프로그램을 더 이상 사용할 수 없습니다. 응용 프로그램을 삭제하고 다시 만들어야 합니다.
 
 앱을 삭제하려면 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 거기에서 응용 프로그램을 삭제합니다. 응용 프로그램을 표시하려면 응용 프로그램의 소유자여야 합니다(테넌트의 관리자가 아님).
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 [빠른 시작 자습서](active-directory-b2c-overview.md#get-started) 중 하나를 완료하여 실행할 수 있습니다.
+Azure AD B2C에 등록된 응용 프로그램이 있으니 [빠른 시작 자습서](active-directory-b2c-overview.md#get-started) 중 하나를 완료하여 실행할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [등록, 로그인 및 암호 재설정으로 ASP.NET 웹앱 만들기](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

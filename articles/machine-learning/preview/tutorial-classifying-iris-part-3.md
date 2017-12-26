@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>아이리스 분류 3부: 모델 배포
 Azure Machine Learning 서비스(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -206,7 +206,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 1. 실시간 웹 서비스를 만들려면 다음 명령을 사용합니다.
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    이 명령은 나중에 사용할 수 있는 웹 서비스 ID를 생성합니다.
 
@@ -216,6 +216,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    * `--model-file`: 모델 파일입니다. 이 경우 pickle 처리된 model.pkl 파일입니다.
    * `-r`: 모델의 형식입니다. 이 경우 Python 모델입니다.
    * `--collect-model-data true`:데이터 컬렉션을 활성화합니다.
+   * `-c`: 추가 패키지가 지정된 conda 종속성 파일의 경로입니다.
 
    >[!IMPORTANT]
    >서비스 이름(새 Docker 이미지 이름이기도 함)은 모두 소문자여야 합니다. 그렇지 않으면 오류가 발생합니다. 
@@ -254,10 +255,10 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
 3. Docker 이미지를 만듭니다.
 
-   Docker 이미지를 만들려면 다음 명령을 사용하고 이전 단계에서 출력한 매니페스트 ID 값을 제공합니다.
+   Docker 이미지를 만들려면 다음 명령을 사용하고 이전 단계에서 출력한 매니페스트 ID 값을 제공합니다. 선택적으로 `-c` 스위치를 사용하여 conda 종속성을 포함시킬 수도 있습니다.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    이 명령은 Docker 이미지 ID를 생성합니다.
    

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory 사용 약관 기능(미리 보기)
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다.  이렇게 하면 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있습니다.
@@ -52,14 +52,16 @@ Azure AD 사용 약관은 pdf 형식을 사용하여 콘텐츠를 제공합니�
 ### <a name="to-add-terms-of-use"></a>사용 약관을 추가하려면
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 대시보드로 이동합니다.
 2. 추가를 클릭합니다.</br>
-![TOU 추가](media/active-directory-tou/tou2.png)
+![TOU 추가](media/active-directory-tou/tou12.png)
 3. 사용 약관에 대한 **이름**을 입력합니다.
 4. **표시 이름**을 입력합니다.  이 헤더는 사용자가 로그인할 때 표시됩니다.
 5. 완료된 사용 약관 pdf를 **찾아** 선택합니다.  권장된 글꼴 크기는 24입니다.
-6. 템플릿 또는 사용자 지정 조건부 액세스 정책을 사용하여 업로드된 사용 약관을 **적용**할 수 있습니다.  사용자 지정 조건부 액세스 정책을 통해 특정 클라우드 응용 프로그램 또는 사용자 그룹에까지 세분화된 사용 약관을 설정할 수 있습니다.  자세한 내용은 [조건부 액세스 정책 구성](active-directory-conditional-access-best-practices.md)을 참조하세요.
-7. **만들기**를 클릭합니다.
-8. 사용자 지정 조건부 액세스 템플릿을 선택한 경우 CA 정책을 사용자 지정할 수 있는 새 화면이 나타납니다.
-7. 이제 새 사용 약관이 표시됩니다.</br>
+6. 사용 약관의 언어를 **선택**합니다.  언어 옵션을 사용하면 사용 약관을 다양한 언어로 여러 개 업로드할 수 있습니다.  최종 사용자에게 표시되는 사용 약관의 버전은 브라우저 기본 설정에 기반합니다.
+7. **사용자가 사용 약관을 확장해야 함**에 대해 설정 또는 해제를 선택합니다.  이것을 설정하면 최종 사용자가 사용 약관에 동의하기 전에 사용 약관을 봐야 합니다.
+8. **조건부 액세스** 섹션에서 템플릿 또는 사용자 지정 조건부 액세스 정책을 사용하여 업로드된 사용 약관을 **강제 적용**할 수 있습니다.  사용자 지정 조건부 액세스 정책을 통해 특정 클라우드 응용 프로그램 또는 사용자 그룹에까지 세분화된 사용 약관을 설정할 수 있습니다.  자세한 내용은 [조건부 액세스 정책 구성](active-directory-conditional-access-best-practices.md)을 참조하세요.
+9. **만들기**를 클릭합니다.
+10. 사용자 지정 조건부 액세스 템플릿을 선택한 경우 CA 정책을 사용자 지정할 수 있는 새 화면이 나타납니다.
+11. 이제 새 사용 약관이 표시됩니다.</br>
 
 ![TOU 추가](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Azure AD 사용 약관은 누가, 언제 사용 약관에 동의했는지를 볼
 ![감사 이벤트](media/active-directory-tou/tou10.png)
 -   이 화면은 모바일에 어떻게 표시되는지를 보여 줍니다.</br></br>
 ![감사 이벤트](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>사용 약관 검토
+사용자는 자신이 동의한 사용 약관을 검토하고 볼 수 있습니다.  이렇게 하려면 다음 프로시저를 사용합니다.
+
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동하여 로그인합니다.
+2. 오른쪽 위 모서리에서 자신의 이름을 클릭하고 드롭다운에서 **프로필**을 선택합니다.
+![프로필](media/active-directory-tou/tou14.png)
+
+3. 프로필에서 **사용 약관 검토**를 클릭합니다.
+![감사 이벤트](media/active-directory-tou/tou13a.png)
+
+4.  여기에서 사용자가 동의한 사용 약관을 검토할 수 있습니다. 
+
 
 ## <a name="additional-information"></a>추가 정보
 다음 정보를 알고 있어야 하며 사용 약관을 사용하는 데 도움이 될 수 있습니다.

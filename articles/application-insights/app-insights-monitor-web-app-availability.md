@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/08/2017
 
 응용 프로그램 리소스당 최대 100개의 가용성 테스트를 만들 수 있습니다.
 
-## <a name="create"></a>1. 가용성 테스트 보고서에 대한 리소스 열기
+## <a name="create"></a>가용성 테스트 보고서에 대한 리소스 열기
 
 웹앱에 **Application Insights를 이미 구성한 경우** [Azure Portal](https://portal.azure.com)에서 Application Insights 리소스를 엽니다.
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/08/2017
 
 **모든 리소스** 를 클릭하여 새 리소스에 대한 개요 블레이드를 엽니다.
 
-## <a name="setup"></a>2. URL ping 테스트 만들기
+## <a name="setup"></a>URL ping 테스트 만들기
 가용성 블레이드를 열고 테스트를 추가합니다.
 
 ![웹 사이트의 최소 URL 채우기](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/08/2017
 테스트를 더 추가 합니다. 예를 들어 홈 페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
 
 
-## <a name="monitor"></a>3. 가용성 테스트 결과 참조
+## <a name="monitor"></a>가용성 테스트 결과 참조
 
 5분 후에 **새로 고침**을 클릭하여 테스트 결과를 볼 수 있습니다. 
 
@@ -102,14 +102,11 @@ ms.lasthandoff: 12/08/2017
 가용성 테스트 결과에서 다음을 수행할 수 있습니다.
 
 * 서버로부터 수신한 응답을 검사합니다.
-* 실패한 요청 인스턴스를 처리하는 동안 서버 앱에서 보낸 원격 분석을 엽니다.
+* 실패한 요청 인스턴스를 처리하는 동안 수집된 서버 쪽 원격 분석 데이터로 실패를 진단합니다.
 * Git 또는 VSTS에 문제 또는 작업 항목을 기록하고 문제를 추적합니다. 버그에는 이 이벤트에 대한 링크가 포함됩니다.
 * 웹 테스트 결과를 Visual Studio에서 엽니다.
 
-
-*정상으로 보이지만 실패로 보고되었습니까?* 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다.
-
-*관련 항목이 없나요?* 서버 쪽 응용 프로그램에 대해 Application Insights를 설정한 경우, [샘플링](app-insights-sampling.md)이 작동 중이기 때문일 수 있습니다. 
+*정상으로 보이지만 실패로 보고되었습니까?* 노이즈를 줄이는 방법은 [FAQ](#qna)를 참조하세요.
 
 ## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
@@ -256,6 +253,20 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 
 ## <a name="qna"></a>질문이 있습니까? 문제가 있습니까?
+* *프로토콜 위반 오류로 인한 일시적 테스트 오류인가요?*
+
+    이 오류("프로토콜 위반, CR 뒤에 LF가 와야 함")는 서버(또는 종속성)와 관련된 문제를 나타내며 잘못된 헤더가 응답에 설정된 경우에 발생합니다. 부하 분산 장치 또는 CDN으로 인해 발생할 수 있습니다. 특히 일부 헤더는 줄 끝을 표시하는 데 CRLF를 사용하지 않았을 수 있으며 이는 HTTP 사양을 위반하기 때문에 .NET WebRequest 수준에서 유효성 검사가 실패합니다. 위반한 헤더를 찾기 위해 응답을 검사합니다.
+    
+    참고: HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/의 블로그 게시물을 참조하세요.  
+* *사이트는 괜찮아 보이지만 테스트 실패가 표시됩니다.*
+
+    * 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다. 테스트가 이러한 리소스 오류에 둔감해지도록 하려면 테스트 구성에서 "종속 요청 구문 분석"을 선택 취소합니다. 
+
+    * 일시적인 네트워크 문제 등으로 인해 노이즈가 발생할 가능성을 줄이려면 "Enable retries for test failures"(테스트 실패 시 다시 시도 사용) 구성을 선택해야 합니다. 또한 더 많은 위치에서 테스트하고 그에 따라 경고 규칙 임계값을 관리하여 과도한 경고를 유발하는 특정 위치의 문제를 방지할 수 있습니다.
+    
+* *테스트 실패를 진단할만한 관련 서버 쪽 원격 분석 데이터가 표시되지 않습니다.*
+    
+    서버 쪽 응용 프로그램에 대해 Application Insights를 설정한 경우, [샘플링](app-insights-sampling.md)이 작동 중이기 때문일 수 있습니다.
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
     안 됩니다. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.

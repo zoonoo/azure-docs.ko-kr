@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 
 Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를 사용하여 응용 프로그램 인식 복제를 클라우드 또는 보조 사이트에 배포할 수 있습니다. 앱이 Windows 또는 Linux 기반이거나, VMware 또는 Hyper-V의 어떤 물리적 서버에서 실행되든지 Site Recovery를 사용하여 복제를 오케스트레이션하고 재해 복구 테스트를 수행하며 장애 조치 및 정애 복구를 실행할 수 있습니다.
 
-사이트 복구는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 포함하여 Microsoft 응용 프로그램을 통합합니다. Oracle, SAP 및 Red Hat을 비롯한 선두 공급 업체와도 긴밀히 협력 중입니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
+Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory를 비롯한 Microsoft 응용 프로그램과 통합됩니다. 또한 Oracle, SAP 및 Red Hat을 비롯한 주요 공급 업체와 긴밀히 협력하고 있습니다. 앱 단위로 복제 솔루션을 사용자 지정할 수 있습니다.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>응용 프로그램 복제에 Site Recovery를 사용해야 하는 이유
 
@@ -47,23 +47,22 @@ Site Recovery는 BCDR 전략에 기여하는 Azure 서비스로 Site Recovery를
 * 다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.
 
 ## <a name="workload-summary"></a>워크로드 요약
-Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제할 수 있습니다. 또한 추가 앱별 테스트를 수행하는 제품 팀과 협력했습니다.
+Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제할 수 있습니다. 또한 추가 앱별 테스트를 수행하는 제품 팀과 협력하고 있습니다.
 
-| **워크로드** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |Y |Y |Y |Y |
-| 웹앱(IIS, SQL) |Y |Y |Y |Y |
-| System Center Operations Manager |Y |Y |Y |Y |
-| Sharepoint |Y |Y |Y |Y |
-| SAP<br/><br/>비 클러스터에 대해 Azure에 SAP 사이트 복제 |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
-| Exchange(비 DAG) |Y |Y |Y |Y |
-| 원격 데스크톱/VDI |Y |Y |Y |해당 없음 |
-| Linux(운영 체제 및 앱) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
-| Dynamics AX |Y |Y |Y |Y |
-| Dynamics CRM |Y |서비스 예정 |Y |서비스 예정 |
-| Oracle |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
-| Windows 파일 서버 |Y |Y |Y |Y |
-| Citrix XenApp 및 XenDesktop |해당 없음 |Y |해당 없음 |Y |
+| **워크로드** |**Azure VM을 Azure에 복제** |**Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| 웹앱(IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| Sharepoint |Y |Y |Y |Y |Y|
+| SAP<br/><br/>비 클러스터에 대해 Azure에 SAP 사이트 복제 |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
+| Exchange(비 DAG) |Y |Y |Y |Y |Y|
+| 원격 데스크톱/VDI |Y |Y |Y |Y |Y|
+| Linux(운영 체제 및 앱) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Oracle |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
+| Windows 파일 서버 |Y |Y |Y |Y |Y|
+| Citrix XenApp 및 XenDesktop |Y|해당 없음 |Y |해당 없음 |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory 및 DNS 복제
 Active Directory 및 DNS 인프라는 대부분의 엔터프라이즈 앱에 필수적입니다. 재해 복구 중에 워크로드 및 앱을 복구하기 전에 이러한 인프라 구성 요소를 보호하고 복구해야 합니다.
@@ -78,7 +77,7 @@ SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 앱에
 * SQL Server에 대해 간단하고 비용 효율적인 재해 복구 솔루션. SQL Server 독립 실행형 서버 및 클러스터의 여러 버전 및 에디션을 Azure 또는 보조 사이트로 복제합니다.  
 * SQL AlwaysOn 가용성 그룹 통합은 Azure Site Recovery 복구 계획을 통해 장애 조치 및 장애 복구를 관리합니다.
 * SQL Server 데이터베이스를 포함한 응용 프로그램의 모든 계층에 대한 종단간 복구 계획.
-* Azure에서 더 큰 IaaS 가상 컴퓨터로 "폭발적으로 증가"하여 Site Recovery와 함께 최대 부하에 대한 SQL Server의 규모 증가.
+* Azure에서 더 큰 IaaS 가상 머신으로 "폭발적으로 증가"하여 Site Recovery와 함께 최대 부하에 대한 SQL Server의 규모 증가.
 * SQL Server 재해 복구의 간편한 테스트. 테스트 장애 조치를 실행하여 프로덕션 환경에 영향을 주지 않고 데이터를 분석하고 규정 준수 검사를 실행할 수 있습니다.
 
 [자세히 알아봅니다](site-recovery-sql.md) .
@@ -106,20 +105,23 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 원격 데스크톱 서비스(RDS)는 사용자가 원하는 위치에서 사용할 수 있도록 가상 데스크톱 인프라(VDI), 세션 기반의 데스크톱 및 응용 프로그램을 활성화합니다. Azure Site Recovery를 통해 다음을 수행할 수 있습니다.
 
 * 관리되거나 관리되지 않은 풀링된 가상 데스크톱을 보조 사이트에 복제하고 원격 응용 프로그램 및 세션을 보조 사이트 또는 Azure에 복제합니다.
+
 * 복제할 수 있는 항목은 다음과 같습니다.
 
-| **RDS** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |예 |아니요 |예 |아니요 |예 |아니요 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |예 |아니요 |예 |아니요 |예 |아니요 |
-| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예 |예 |예 |예 |예 |예 |
+| **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니요|예 |아니요 |예 |아니요 |예 |아니요 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니요|예 |아니요 |예 |아니요 |예 |아니요 |
+| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
+
+[Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [자세히 알아봅니다](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) .
 
 ## <a name="protect-exchange"></a>Exchange 보호
 Site Recovery를 사용하면 다음과 같이 Exchange를 보호할 수 있습니다.
 
-* 단일 또는 독립 실행형 서버와 같은 소규모 Exchange 배포의 경우 Site Recovery가 Azure 또는 보조 사이트로 복제 및 장애 조치할 수 있습니다.
+* 단일 또는 독립 실행형 서버와 같은 소규모 Exchange 배포의 경우 Site Recovery가 Azure 또는 보조 사이트로 복제하고 장애 조치(failover)할 수 있습니다.
 * 대규모 배포의 경우 Site Recovery가 Exchange DAGS와 통합됩니다.
 * Exchange DAG는 엔터프라이즈에서 Exchange 재해 복구를 위한 권장된 솔루션입니다.  Site Recovery의 복구 계획은 DAG를 포함하여 사이트에 걸쳐 DAG 장애 조치를 오케스트레이션할 수 있습니다.
 
@@ -138,11 +140,11 @@ Site Recovery를 사용하여 다음과 같이 SAP 배포를 보호합니다.
 ## <a name="protect-iis"></a>IIS 보호
 Site Recovery를 사용하여 다음과 같이 IIS 배포를 보호합니다.
 
-Azure Site Recovery는 환경에서 중요한 구성 요소를 콜드 원격 사이트 또는 Microsoft Azure와 같은 공용 클라우드에 복제하여 재해 복구를 제공합니다. 웹 서버와 데이터베이스를 사용하는 가상 컴퓨터가 복구 사이트에 복제되므로 구성 파일 또는 인증서를 별도로 백업할 필요가 없습니다. 변경된 사후 장애 조치인 환경 변수에 따라 달라지는 응용 프로그램 매핑 및 바인딩은 재해 복구 계획에 통합되는 스크립트를 통해 업데이트될 수 있습니다. Virtual Machines는 장애 조치 시에만 복구 사이트에서 사용됩니다. 이 뿐만 아니라 Azure Site Recovery를 통해 다음과 같은 기능을 제공하여 종단 간 장애 조치를 오케스트레이션할 수 있습니다.
+Azure Site Recovery는 환경에서 중요한 구성 요소를 콜드 원격 사이트 또는 Microsoft Azure와 같은 공용 클라우드에 복제하여 재해 복구를 제공합니다. 웹 서버와 데이터베이스를 사용하는 가상 머신이 복구 사이트에 복제되므로 구성 파일 또는 인증서를 별도로 백업할 필요가 없습니다. 변경된 사후 장애 조치인 환경 변수에 따라 달라지는 응용 프로그램 매핑 및 바인딩은 재해 복구 계획에 통합되는 스크립트를 통해 업데이트될 수 있습니다. 가상 머신은 장애 조치(failover) 시에만 복구 사이트에서 사용됩니다. 이 뿐만 아니라 Azure Site Recovery를 통해 다음과 같은 기능을 제공하여 종단 간 장애 조치를 오케스트레이션할 수 있습니다.
 
--   다양한 계층에서 가상 컴퓨터의 종료 및 시작 순서를 지정합니다.
--   가상 컴퓨터가 시작된 후에 응용 프로그램 종속성 및 바인딩을 업데이트할 수 있는 스크립트를 추가합니다. 스크립트는 복구 사이트를 가리키기 위해 DNS 서버를 업데이트하는 데 사용할 수 있습니다.
--   기본 및 복구 네트워크를 매핑하여 가상 컴퓨터 사전 장애 조치에 IP 주소를 할당하고 사후 장애 조치가 업데이트되지 않아도 되는 스크립트를 사용합니다.
+-   다양한 계층에서 가상 머신의 종료 및 시작 순서를 지정합니다.
+-   가상 머신이 시작된 후에 응용 프로그램 종속성 및 바인딩을 업데이트할 수 있는 스크립트를 추가합니다. 스크립트는 복구 사이트를 가리키기 위해 DNS 서버를 업데이트하는 데 사용할 수 있습니다.
+-   기본 및 복구 네트워크를 매핑하여 가상 머신 사전 장애 조치에 IP 주소를 할당하고 사후 장애 조치가 업데이트되지 않아도 되는 스크립트를 사용합니다.
 -   웹 서버의 여러 웹 응용 프로그램에서 한 번의 클릭으로 장애 조치하는 기능은 재해가 발생한 경우 혼동을 일으키는 범위를 제거합니다.
 -   DR 드릴의 격리된 환경에서 복구 계획을 테스트하는 기능입니다.
 

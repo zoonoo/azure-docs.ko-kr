@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 개요
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ SQL Data Warehouse와 같은 분산 시스템에 의해 도입된 새로운 기�
 임시 테이블은 로그온 중에만 존재하고 다른 사용자는 볼 수 없는 테이블입니다.  임시 테이블은 다른 사람들이 일시적인 결과를 보지 못하도록 하여 정리할 필요를 없애주는 유용한 방법일 수 있습니다.  임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다.  임시 테이블에 대한 자세한 내용은 [임시 테이블][Temporary] 문서를 참조하세요.
 
 ## <a name="external-tables"></a>외부 테이블
-Polybase 테이블이라고도 하는 외부 테이블은 SQL Data Warehouse에서 쿼리될 수 있지만 SQL Data Warehouse 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob Storage의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Load data with Polybase]를 참조하세요.  
+Polybase 테이블이라고도 하는 외부 테이블은 SQL Data Warehouse에서 쿼리될 수 있지만 SQL Data Warehouse 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob Storage 또는 Azure Data Lake Store의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Load data with Polybase]를 참조하세요.  
 
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
 SQL Data Warehouse에는 다른 데이터베이스에서 제공하는 동일한 테이블 기능을 많이 포함하지만 아직 지원되지 않는 기능도 일부 있습니다.  다음은 아직 지원되지 않는 일부 테이블 기능 목록입니다.
