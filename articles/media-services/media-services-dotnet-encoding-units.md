@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 72a8729d22a9e76c8076d7a3347619a2163e4f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 10/11/2017
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
+
+> [!NOTE]
+> 최신 버전의 Java SDK를 가져와서 Java를 사용하여 개발을 시작하려면 [Media Services용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)을 참조하세요. <br/>
+> Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowAzure 패키지 버전 0.5.7을 찾습니다.  
 
 ## <a name="overview"></a>개요
 > [!IMPORTANT]
@@ -49,7 +53,7 @@ ms.lasthandoff: 10/11/2017
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>지원 티켓 열기
-기본적으로 모든 미디어 서비스 계정은 인코딩 예약 단위 최대 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
+기본적으로 모든 Media Services 계정은 Encoding 예약 단위 최대 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
 
 ### <a name="open-a-support-ticket"></a>지원 티켓 열기
 지원 티켓을 열려면 다음을 수행합니다.
@@ -58,13 +62,13 @@ ms.lasthandoff: 10/11/2017
 2. 사용 중인 구독을 선택합니다.
 3. 지원 유형으로 "기술적"을 선택합니다.
 4. "티켓 만들기"를 클릭합니다.
-5. 다음 페이지에 나타나는 제품 목록에서 "Azure 미디어 서비스"를 선택합니다.
+5. 다음 페이지에 나타나는 제품 목록에서 "Azure Media Services"를 선택합니다.
 6. 사용자의 문제에 적절한 "문제 유형"을 선택합니다.
 7. 계속을 클릭합니다.
 8. 다음 페이지의 지시에 따라 문제에 대한 세부 정보를 입력합니다.
 9. 제출을 클릭하여 티켓을 엽니다.
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

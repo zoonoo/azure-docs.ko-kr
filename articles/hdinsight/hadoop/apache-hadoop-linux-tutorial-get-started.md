@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.openlocfilehash: 983c7d1f7e3b562a8b89f6afaf52a3289ab33f17
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 833ac053b3ad23a60b84adce1dfa9015bee99046
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Hadoop 사용 시작
 
@@ -58,7 +58,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다.
 
     * **위치**: 클러스터와 종속 저장소 계정의 위치는 리소스 그룹과 동일한 위치를 공유합니다.
-    * **클러스터 버전**: 3.5
+    * **클러스터 버전**: 3.6
     * **OS 유형**: Linux
     * **작업자 노드 수**: 2
 
@@ -66,11 +66,11 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
      
      이러한 속성에 대한 자세한 설명은 [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음 **구매**를 클릭합니다. 포털 대시보드에 **템플릿 배포 배포 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 포털의 새 블레이드에서 리소스 그룹이 자동으로 열립니다. 클러스터와 기본 저장소 목록을 모두 확인할 수 있습니다.
+3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음 **구매**를 클릭합니다. 포털 대시보드에 **템플릿 배포 배포 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 포털에서 리소스 그룹이 자동으로 열립니다. 클러스터와 기본 저장소 목록을 모두 확인할 수 있습니다.
    
     ![HDInsight Linux 시작 - 리소스 그룹](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
 
-4. 클러스터 이름을 클릭하여 새 블레이드에서 클러스터를 엽니다.
+4. 클러스터 이름을 클릭하여 클러스터를 엽니다.
 
    ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight 클러스터 속성")
 
@@ -82,7 +82,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
 2. 이전 섹션에서 지정한 Hadoop 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다.
 3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
    
-    ![Ambari 보기 선택](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 뷰어 메뉴")
+    ![Ambari 보기 선택](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 뷰어 메뉴").
 4. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
    
         SHOW TABLES;
@@ -120,7 +120,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 포털 대시보드에서, 이름이 클러스터를 만들 때 사용한 리소스 그룹 이름인 타일을 클릭합니다.
-3. 리소스 블레이드에서 **삭제**를 클릭하여 클러스터와 기본 저장소 계정이 포함된 리소스 그룹을 삭제하거나, **리소스** 타일에서 클러스터 이름을 클릭한 다음 클러스터 블레이드에서 **삭제**를 클릭합니다. 리소스 그룹을 삭제하면 저장소 계정이 삭제됩니다. 저장소 계정을 유지하려면 클러스터만 삭제하세요.
+3. **삭제**를 클릭하여 클러스터와 기본 저장소 계정이 포함된 리소스 그룹을 삭제하거나, **리소스** 타일에서 클러스터 이름을 클릭한 다음 **삭제**를 클릭합니다. 리소스 그룹을 삭제하면 저장소 계정이 삭제됩니다. 저장소 계정을 유지하려면 클러스터만 삭제하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -136,12 +136,12 @@ HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 �
 * Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 * Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-사용자 고유의 데이터로 작업을 시작하고 HDInsight이 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음을 참조하세요.
+자신의 데이터로 작업을 시작할 준비가 된 상태에서 HDInsight에서 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음 문서를 참조하세요.
 
 * HDInsight에서 Azure Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 * 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)를 참조하세요.
 
-HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음을 참조하세요.
+HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 * Linux 기반 HDInsight 클러스터 관리에 대해 알아보려면 [Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 * HDInsight 클러스터를 만들 때 선택하는 옵션에 대해 자세히 알아보려면 [사용자 지정 옵션을 사용하여 Linux에 HDInsight 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.

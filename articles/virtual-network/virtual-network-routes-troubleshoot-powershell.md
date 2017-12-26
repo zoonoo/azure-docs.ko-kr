@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Azure PowerShell을 사용하여 경로 문제 해결
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/31/2017
 > 
 > 
 
-Azure VM(가상 컴퓨터)과의 네트워크 연결 문제가 발생하는 경우 경로가 VM 트래픽 흐름에 영향을 미칠 수 있습니다. 이 문서에서는 추가 문제 해결을 위해 경로에 대한 진단 기능 개요를 제공합니다.
+Azure VM(Virtual Machine)과의 네트워크 연결 문제가 발생하는 경우 경로가 VM 트래픽 흐름에 영향을 미칠 수 있습니다. 이 문서에서는 추가 문제 해결을 위해 경로에 대한 진단 기능 개요를 제공합니다.
 
 경로 테이블은 서브넷과 연결되며 해당 서브넷의 모든 NIC(네트워크 인터페이스)에서 유효합니다. 다음 유형의 경로를 각 네트워크 인터페이스에 적용할 수 있습니다.
 
@@ -51,13 +51,13 @@ VNet(*VNet1*, 접두사: 10.9.0.0/16)에 연결된 VM(*VM1*)이 새로 피어링
 > 
 > 
 
-### <a name="view-effective-routes-for-a-virtual-machine"></a>가상 컴퓨터에 대한 유효 경로 보기
+### <a name="view-effective-routes-for-a-virtual-machine"></a>가상 머신에 대한 유효 경로 보기
 VM에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
 ### <a name="view-effective-routes-for-a-network-interface"></a>네트워크 인터페이스에 대한 유효 경로 보기
 네트워크 인터페이스에 적용되는 집계 경로를 확인하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell에 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
 2. 다음 명령은 을 입력하여 리소스 그룹 *RG1*의 네트워크 인터페이스 *VM1-NIC1*에 적용되는 모든 경로를 반환합니다.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

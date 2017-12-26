@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal을 사용하여 릴레이 유형의 네임스페이스 만들기 | Microsoft Docs"
+title: "Azure 포털을 사용하여 릴레이 네임스페이스 만들기 | Microsoft Docs"
 description: "Azure Portal을 사용하여 릴레이 네임스페이스를 만드는 방법입니다."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,19 +12,20 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure 포털을 사용하여 릴레이 네임스페이스 만들기
-네임스페이스는 모든 Azure Relay 구성 요소에 대한 공용 컨테이너입니다. 여러 릴레이는 단일 네임스페이스에 있을 수 있으며, 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 현재 서로 다른 두 가지 방법으로 릴레이 네임스페이스를 만들 수 있습니다.
 
-1. Azure 포털(이 문서)
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿
+네임스페이스는 모든 Azure Relay 구성 요소에 대한 영역 컨테이너입니다. 여러 릴레이는 단일 네임스페이스에 있을 수 있으며, 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 현재 릴레이 네임스페이스를 만드는 방법은 두 가지입니다.
+
+1. Azure Portal(이 문서).
+2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿.
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
 

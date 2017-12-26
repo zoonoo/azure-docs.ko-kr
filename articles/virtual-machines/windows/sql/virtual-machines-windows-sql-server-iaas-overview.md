@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
-ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 95a18e4b2437ca628e84f6d6f580e12f2f26e111
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -42,12 +42,19 @@ SQL Server Azure VM은 정기적으로 Blob 저장소에 데이터베이스의 �
 
 고가용성이 필요한 경우 SQL Server 가용성 그룹을 구성하는 것이 좋습니다. 여기에는 가상 네트워크의 여러 SQL Server Azure VM이 포함됩니다. 고가용성 솔루션을 수동으로 구성하거나 자동 구성을 위해 Azure Portaldml 템플릿을 사용할 수 있습니다. 모든 고가용성 옵션에 대한 개요는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
+## <a name="performance"></a>성능
+
+Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위해 다양한 컴퓨터 크기를 제공합니다. SQL VM은 성능 요구 사항에 최적화되어 자동화된 저장소 구성을 제공합니다. SQL VM용 저장소 구성에 대한 자세한 내용은 [SQL Server VM에 대한 저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조하세요. 성능을 세밀하게 조정하려면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
+
 ## <a name="get-started-with-sql-vms"></a>SQL VM 시작
 
-시작하려면 필요한 버전 및 운영 체제로 SQL Server 가상 머신 이미지를 선택합니다. 다음 섹션에서는 SQL Server 가상 컴퓨터 갤러리 이미지에 Azure Portal에 대한 직접 링크를 제공합니다.
+시작하려면 필요한 버전 및 운영 체제로 SQL Server 가상 머신 이미지를 선택합니다. 다음 섹션에서는 SQL Server 가상 머신 갤러리 이미지에 Azure Portal에 대한 직접 링크를 제공합니다.
 
 > [!TIP]
 > 이러한 이미지의 VM 및 SQL 가격은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+
+> [!TIP]
+> SQL Server 가상 머신 갤러리 이미지의 업데이트 및 수명 주기 정책을 이해하려면 [SQL Server VM FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images)를 참조하세요.
 
 ### <a id="payasyougo"></a> 종량제
 다음 테이블은 종량제 SQL Server 이미지에 대한 매트릭스를 제공합니다.
@@ -60,7 +67,7 @@ SQL Server Azure VM은 정기적으로 Blob 저장소에 데이터베이스의 �
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
 | **SQL Server 2008 R2 SP3** |Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2008R2) |
 
-사용 가능한 Linux SQL Server 가상 컴퓨터 이미지를 보려면 [Azure Virtual Machines의 SQL Server 개요(Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md)를 참조하세요.
+사용 가능한 Linux SQL Server 가상 머신 이미지를 보려면 [Azure Virtual Machines의 SQL Server 개요(Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md)를 참조하세요.
 
 ### <a id="BYOL"></a> 사용자 라이선스 필요
 사용자 라이선스가 필요할 수도 있습니다(BYOL). 이 시나리오에서는 SQL Server 라이선스에 대한 추가 비용 없이 VM에 대해서만 지불합니다.  사용자 고유의 라이선스를 가져오면 시간에 따른 지속되는 프로덕션 워크로드의 비용을 절약할 수 있습니다. 이 옵션을 사용하기 위한 요구 사항은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.

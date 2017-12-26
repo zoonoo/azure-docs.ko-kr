@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory FAQ | Microsoft Docs
-description: "Azure Active Directory FAQ는 Azure 및 Azure Active Directory에 액세스하는 방법, 암호 관리 및 응용 프로그램 액세스에 대한 질문에 답변합니다."
+description: "Azure Active Directory FAQ는 Azure 및 Azure Active Directory, 암호 관리 및 응용 프로그램 액세스에 대한 일반적인 질문에 답변합니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -27,9 +27,9 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
-**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
+**Q: Azure Portal에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요?**
 
-**A:** Azure 클래식 포털에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 있는 경우 일회성 활성화 단계를 위해 [http://aka.ms/accessAAD](http://aka.ms/accessAAD)로 이동하십시오. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
+**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 있는 경우 일회성 활성화 단계를 위해 [http://aka.ms/accessAAD](http://aka.ms/accessAAD)로 이동하십시오. 그렇지 않으면 무료 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -44,11 +44,9 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 웹 서비스를 사용하도록 설정된 모든 사용자는 하나 이상의 Azure AD 인스턴스에 사용자 계정으로 정의되어 있습니다. 클라우드 응용 프로그램 액세스와 같은 무료 Azure AD 기능에 이러한 계정을 설정할 수 있습니다.
 
 Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
-- - -
-**Q: Azure Portal에는 로그인할 수 있는데 Azure 클래식 포털에는 로그인할 수 없는 이유는 무엇인가요?**
 
-**A:** 클래식 포털에서는 유효한 구독이 필요한 반면 Azure Portal에는 유효한 구독이 필요하지 않습니다.  구독이 없는 경우 클래식 포털에 로그인할 수 없습니다.
 - - -
+
 **Q:  구독 관리자와 디렉터리 관리자의 차이점은 무엇인가요?**
 
 **A:** 기본적으로 Azure에 로그인할 때 구독 관리자 역할이 할당됩니다. 구독 관리자는 Azure 구독이 연결된 디렉터리에서 Microsoft 계정이나 회사 또는 학교 계정을 사용할 수 있습니다.  이 역할은 Azure Portal에서 서비스를 관리할 권한이 있습니다.
@@ -56,7 +54,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 이 역할은 서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다.  구독 관리자에 대한 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 
-Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합이 있습니다.  이러한 관리자는 Azure Portal 또는 Azure 클래식 포털의 다양한 기능에 대해 액세스 권한을 갖게 됩니다. 관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합이 있습니다.  이러한 관리자는 Azure Portal의 다양한 기능에 대한 액세스 권한을 갖게 됩니다. 관리자 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
 
 또한, Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
 
@@ -137,16 +135,20 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 - - -
 ## <a name="security"></a>보안
-**Q: 시도가 일정 횟수 실패하면 계정이 잠기나요 아니면 좀 더 복잡한 전략이 사용되나요?**</br>
+**Q: 시도가 일정 횟수 실패하면 계정이 잠기나요 아니면 좀 더 복잡한 전략이 사용되나요?**
+
 좀 더 복잡한 계정 잠금 전략이 사용됩니다.  이 전략은 요청의 IP 주소와 입력된 암호를 기반으로 합니다. 또한 실패한 시도가 공격일 가능성에 따라 잠금 기간이 늘어납니다.  
 
-**Q: ‘이 암호가 너무 많이 사용되었습니다’라는 메시지와 함께 특정(공통) 암호가 거부되었습니다. 현재 활성 디렉터리에서 사용되는 암호를 말하는 것입니까?**</br>
+**Q: ‘이 암호가 너무 많이 사용되었습니다’라는 메시지와 함께 특정(공통) 암호가 거부되었습니다. 현재 활성 디렉터리에서 사용되는 암호를 말하는 것입니까?**
+
 "Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
 
-**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**</br>
+**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
+
 요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
 ## <a name="application-access"></a>응용 프로그램 액세스
+
 **Q: Azure AD 및 해당 기능과 미리 통합된 응용 프로그램의 목록을 어디에서 찾을 수 있나요?**
 
 **A:** Azure AD에는 Microsoft, 응용 프로그램 서비스 공급자 및 파트너의 사전 통합된 응용 프로그램이 2,600개 넘게 있습니다. 사전 통합된 모든 응용 프로그램에서 SSO(Single Sign-On)를 지원합니다. SSO를 사용하면 조직의 자격 증명을 사용하여 앱에 액세스할 수 있습니다. 일부 응용 프로그램은 자동화된 프로비전 및 프로비전 해제도 지원합니다.

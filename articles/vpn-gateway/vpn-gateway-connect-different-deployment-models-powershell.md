@@ -1,6 +1,6 @@
 ---
 title: "Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: PowerShell | Microsoft Docs"
-description: "VPN 게이트웨이 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만드는 방법을 알아봅니다"
+description: "VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만드는 방법을 알아봅니다"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -183,8 +183,8 @@ RM VNet에 대한 VPN 게이트웨이를 만들려면 다음 지침을 따르세
 2. 로컬 네트워크 게이트웨이를 만듭니다. 가상 네트워크에서 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. 이 경우에 로컬 네트워크 게이트웨이는 클래식 VNet을 가리킵니다. Azure에서 참조할 수 있는 이름을 지정하고 주소 공간 접두사를 지정합니다. Azure는 지정된 IP 주소 접두사를 사용하여 온-프레미스 위치로 보낼 트래픽을 식별합니다. 나중에 게이트웨이를 만들기 전에 여기서 정보를 조정하는 경우 값을 수정하고 샘플을 다시 실행할 수 있습니다.
    
    **-Name**은 로컬 네트워크 게이트웨이에 참조하기 위해 할당하려는 이름입니다.<br>
-   **-AddressPrefix**은 클래식 VNet에 대한 주소 공간입니다.<br>
-   **-GatewayIpAddress**은 클래식 VNet 게이트웨이의 공용 IP 주소입니다. 다음 샘플이 올바른 IP 주소를 반영하도록 변경해야 합니다.<br>
+   **-AddressPrefix**는 클래식 VNet에 대한 주소 공간입니다.<br>
+   **-GatewayIpAddress**는 클래식 VNet 게이트웨이의 공용 IP 주소입니다. 다음 샘플이 올바른 IP 주소를 반영하도록 변경해야 합니다.<br>
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
