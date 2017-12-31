@@ -42,7 +42,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
-* [분할](#split)
+* [split](#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](#string)
 * [substring](#substring)
@@ -1433,7 +1433,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="split" />
 
-## <a name="split"></a>분할
+## <a name="split"></a>split
 `split(inputString, delimiter)`
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
