@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 80b693420768d574b2371211298562ba35e7ed97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -47,7 +47,7 @@ SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL 데이터베이�
 
     a. Azure 스택 개발 키트 (ASDK) 설치에서 실제 호스트에 로그인 합니다.
 
-    b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다. 
+    나. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다. 
     
     >[!NOTE]
     > 스크립트가 실행 되 고 시스템 *해야* 최신 버전의.NET 런타임 설치 된 Windows 10 또는 Windows Server 2016 시스템 이어야 합니다. 그렇지 않은 경우에 설치가 실패 합니다. ASDK 호스트는이 조건을 충족 합니다.
@@ -165,6 +165,73 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 2. 배포에 성공 했는지 확인 합니다. 에 대 한 찾아보기 **리소스 그룹** &gt;, 클릭는 **시스템.\< 위치\>.sqladapter** 리소스 그룹화 하 고 모든 4 개의 배포에 성공 했는지 확인 합니다.
 
       ![SQL RP의 배포를 확인 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>SQL 리소스 공급자 어댑터 (다중 노드, 빌드만 1710 이상)를 업데이트 합니다.
+Azure 스택 빌드 업데이트 될 때마다 새 SQL 리소스 공급자 어댑터 해제 됩니다. 기존 어댑터 계속 작동할 수, 하는 동안 Azure 스택 업데이트 된 후 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트 프로세스는 위에서 설명한 설치 프로세스와 매우 비슷합니다. 새 VM 최신 RP 코드로 만들고 서버 정보 뿐만 아니라 필요한 DNS 레코드를 호스팅 및 데이터베이스를 포함 하 여이 새 인스턴스를 설정이 마이그레이션됩니다.
+
+UpdateSQLProvider.ps1 스크립트를 사용 하 여 위와 같은 동일한 인수를 사용 합니다. 여기에 인증서도 제공 해야 합니다.
+
+> [!NOTE]
+> 업데이트는 다중 노드 시스템에만 지원 됩니다.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 매개 변수
+명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 모든 매개 변수 유효성 검사에 실패할 경우 필요한 것을 제공 하 라는 메시지가 표시 됩니다.
+
+| 매개 변수 이름 | 설명 | 주석이 나 기본값 |
+| --- | --- | --- |
+| **CloudAdminCredential** | 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ |
+| **AzCredential** | Azure 스택 서비스 관리자 계정에 대 한 자격 증명을 제공 합니다. 사용 하 여 동일한 자격 증명 Azure 스택을 배포 하는 데 사용). | _필수_ |
+| **VMLocalCredential** | VM의 SQL 리소스 공급자의 로컬 관리자 계정의 자격 증명을 정의 합니다. | _필수_ |
+| **PrivilegedEndpoint** | Privleged 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
+| **DependencyFilesLocalPath** | 인증서 PFX 파일에이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) |
+| **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호 | _필수_ |
+| **MaxRetryCount** | 오류가 없는 경우 각 작업을 다시 시도 하려면 실패 한 횟수를 정의 합니다.| 2 |
+| **RetryDuration** | 초 후에 다시 시도 대기 중 제한 시간을 정의 합니다. | 120 |
+| **제거** | 리소스 공급자와 관련 된 모든 리소스 (아래 참고 내용 참조)를 제거 합니다. | 아니요 |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>SQL 리소스 공급자 어댑터 제거

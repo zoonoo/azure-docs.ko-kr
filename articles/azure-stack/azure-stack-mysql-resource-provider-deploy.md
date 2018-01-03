@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -58,7 +58,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
     a. Azure 스택 개발 키트 (ASDK) 설치에서 실제 호스트에 로그인 합니다.
 
-    b. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
+    나. 다중 노드 시스템에 호스트 권한 있는 끝점에 액세스할 수 있는 시스템 이어야 합니다.
     
     >[!NOTE]
     > 스크립트가 실행 되 고 시스템 *해야* 최신 버전의.NET 런타임 설치 된 Windows 10 또는 Windows Server 2016 시스템 이어야 합니다. 그렇지 않은 경우에 설치가 실패 합니다. ASDK 호스트는이 조건을 충족 합니다.
@@ -264,6 +264,73 @@ Azure 스택 포털에서 MySQL 서버를 추가 하 여 용량을 추가 합니
 첫 번째 MySQL 서버 인스턴스에서 변경 하 여 암호를 수정할 수 있습니다. 찾아 **관리 리소스** &gt; **MySQL 호스팅 서버** &gt; 호스팅 서버에서을 클릭 합니다. 설정 패널에서 암호를 클릭 합니다.
 
 ![관리자 암호를 업데이트 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>MySQL 리소스 공급자 어댑터 (다중 노드, 빌드만 1710 이상)를 업데이트 합니다.
+Azure 스택 빌드 업데이트 될 때마다 새 MySQL 리소스 공급자 어댑터 해제 됩니다. 기존 어댑터 계속 작동할 수, 하는 동안 Azure 스택 업데이트 된 후 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트 프로세스는 위에서 설명한 설치 프로세스와 매우 비슷합니다. 새 VM 최신 RP 코드로 만들고 서버 정보 뿐만 아니라 필요한 DNS 레코드를 호스팅 및 데이터베이스를 포함 하 여이 새 인스턴스를 설정이 마이그레이션됩니다.
+
+UpdateMySQLProvider.ps1 스크립트를 사용 하 여 위와 같은 동일한 인수를 사용 합니다. 여기에 인증서도 제공 해야 합니다.
+
+> [!NOTE]
+> 업데이트는 다중 노드 시스템에만 지원 됩니다.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 매개 변수
+명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않고 모든 매개 변수 유효성 검사에 실패할 경우 필요한 것을 제공 하 라는 메시지가 표시 됩니다.
+
+| 매개 변수 이름 | 설명 | 주석이 나 기본값 |
+| --- | --- | --- |
+| **CloudAdminCredential** | 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ |
+| **AzCredential** | Azure 스택 서비스 관리자 계정에 대 한 자격 증명을 제공 합니다. 사용 하 여 동일한 자격 증명 Azure 스택을 배포 하는 데 사용). | _필수_ |
+| **VMLocalCredential** | VM의 SQL 리소스 공급자의 로컬 관리자 계정의 자격 증명을 정의 합니다. | _필수_ |
+| **PrivilegedEndpoint** | Privleged 끝점의 DNS 이름 또는 IP 주소를 입력 합니다. |  _필수_ |
+| **DependencyFilesLocalPath** | 인증서 PFX 파일에이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) |
+| **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호 | _필수_ |
+| **MaxRetryCount** | 오류가 없는 경우 각 작업을 다시 시도 하려면 실패 한 횟수를 정의 합니다.| 2 |
+| **RetryDuration** | 초 후에 다시 시도 대기 중 제한 시간을 정의 합니다. | 120 |
+| **제거** | 리소스 공급자와 관련 된 모든 리소스 (아래 참고 내용 참조)를 제거 합니다. | 아니요 |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
+| **AcceptLicense** | (Http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) GPL 라이선스를 수락 하 라는 메시지가 건너뜁니다. | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>MySQL 리소스 공급자 어댑터 제거
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Azure 스택 통합 시스템에서 배율 단위 노드를 대체 합니다.
 
@@ -51,6 +51,10 @@ ms.lasthandoff: 12/11/2017
 다음 단계는 배율 단위 노드 교체 프로세스에 개략적으로 제공 됩니다. 시스템에만 적용 되는 자세한 단계에 대 한 OEM 하드웨어 공급 업체의 FRU 설명서를 참조 하십시오. OEM 제공 설명서를 참조 하지 않고 다음이 단계를 수행 하지 마십시오.
 
 1. 사용 하 여는 [방전](azure-stack-node-actions.md#scale-unit-node-actions) 배율 단위 노드 유지 관리 모드로 설정 하는 작업입니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
+
+   > [!NOTE]
+   > 어떤 경우 든, 하나의 노드만 종료 되 고 (저장소 공간 다이렉트) SSD를 중단 하지 않고 동시에 전원을 끌 수 있습니다.
+
 2. 여전히 노드가 켜져를 사용 하 여는 [전원을 끄고](azure-stack-node-actions.md#scale-unit-node-actions) 동작 합니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
  
    > [!NOTE]

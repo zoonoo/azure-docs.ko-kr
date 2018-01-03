@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure 스택 1711 업데이트
 
@@ -51,6 +51,7 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 - 사용자가 Windows Vm을 자동으로 활성화할 이제 수 있습니다.
 - 추가 된 권한 있는 끝점 목적으로 보존에 대 한 BitLocker 복구 키를 검색 하는 PowerShell cmdlet
 - 인프라를 업데이트할 때 오프 라인 이미지를 업데이트 하는 것에 대 한 지원
+- 사용 하도록 설정 하는 백업 서비스를 사용 하 여 인프라 백업을 사용 하도록 설정
 
 #### <a name="fixes"></a>수정 프로그램
 
@@ -138,6 +139,17 @@ Azure 스택을 먼저 설치 해야 [1710 업데이트](https://docs.microsoft.
 
 > [!IMPORTANT]
 > 경우에는 **azurestack\cloudadmin** 계정이 ADFS 배포 된 환경에서 기본 공급자 구독 소유자가, RDP에 사용 권한을 호스트도가 없습니다. 계속 사용 하는 **azurestack\azurestackadmin** 계정이 나 로컬 관리자 계정 로그인, 액세스 및 필요에 따라 호스트를 관리 합니다.
+
+#### <a name="infrastructure-backup-sevice"></a>백업 서비스 인프라
+<!-- 1974890-->
+
+- **클라우드 복구에 대 한 사전 1711 백업은 지원 되지 않습니다.**  
+  Pre 1711 백업을 클라우드 복구와 호환 되지 않습니다. 먼저 1711를 업데이트 하 고 백업을 사용 하도록 설정 해야 합니다. 백업을 이미 설정한 경우 1711으로 업데이트 한 후 백업을 수행 해야 합니다. Pre 1711 백업은 삭제 해야 합니다.
+
+- **ASDK에 사용할 수 있도록 인프라 백업 테스트 목적 으로만 사용 됩니다.**  
+  인프라 백업은 복원 솔루션을 다중 노드 데 사용할 수 있습니다. ASDK에 인프라 백업을 사용할 수 있습니다 하지만 복구를 테스트 하려면 방식은 없습니다.
+
+자세한 내용은 참조 [인프라 Backup 서비스에서 Azure 스택에 대 한 백업 및 데이터 복구](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md)합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 
