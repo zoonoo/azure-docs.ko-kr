@@ -1,0 +1,136 @@
+---
+title: "Azure 스택 powershell에 대 한 백업을 사용 하도록 설정 | Microsoft Docs"
+description: "서비스를 활성화 인프라 다시 Windows PowerShell과 함께 실패 하는 경우 Azure 스택 복원할 수 있도록 합니다."
+services: azure-stack
+documentationcenter: 
+author: mattbriggs
+manager: femila
+editor: 
+ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+ms.openlocfilehash: e0be5f1916ddb653550e6428201356290560c00e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/02/2018
+---
+# <a name="enable-backup-for-azure-stack-with-powershell"></a>Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
+
+*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+
+서비스를 활성화 인프라 다시 Windows PowerShell과 함께 실패 하는 경우 Azure 스택 복원할 수 있도록 합니다. 백업을 사용 하도록 설정 하 고, 백업, 시작, 연산자 관리 끝점을 통해 백업 정보를 가져올을 PowerShell cmdlet을 액세스할 수 있습니다.
+
+## <a name="download-azure-stack-tools"></a>Azure 스택 도구 다운로드
+
+설치 하 고 Azure 스택에 대해 구성 된 PowerShell 및 Azure 스택 도구. 참조 [스택에서 Azure PowerShell을 시작 하 고 실행](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart)합니다.
+
+##  <a name="load-the-connect-and-infrastructure-modules"></a>연결 및 인프라 모듈 로드
+
+관리자 권한 프롬프트를 통한 Windows PowerShell을 열고 다음 명령을 실행 합니다.
+
+   ```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+    
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+   ```
+
+##  <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>Rm 환경 및 로그 연산자 관리 끝점으로 설정
+
+동일한 PowerShell 세션에서 사용자 환경에 대 한 변수를 추가 하 여 다음 PowerShell 스크립트를 편집 합니다. RM 환경을 설정 하 고 연산자 관리 끝점에 로그인 하는 업데이트 된 스크립트를 실행 합니다.
+
+| 변수    | 설명 |
+|---          |---          |
+| $TenantName | Azure Active Directory 테 넌 트 이름입니다. |
+| 연산자 계정 이름        | Azure 스택 연산자 계정 이름입니다. |
+| Azure 리소스 관리자 끝점 | Azure 리소스 관리자에 URL입니다. |
+
+   ```powershell
+   # Specify Azure Active Directory tenant name
+    $TenantName = "contoso.onmicrosoft.com"
+    
+    # Set the module repository and the execution policy
+    Set-PSRepository `
+      -Name "PSGallery" `
+      -InstallationPolicy Trusted
+    
+    Set-ExecutionPolicy RemoteSigned `
+      -force
+    
+    # Configure the Azure Stack operator’s PowerShell environment.
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
+    
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience "https://graph.windows.net/"
+    
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName $TenantName `
+      -EnvironmentName AzureStackAdmin
+    
+    # Sign-in to the operator's console.
+    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    
+   ```
+## <a name="generate-a-new-encryption-key"></a>새 암호화 키 생성
+
+동일한 PowerShell 세션에서 다음 명령을 실행 합니다.
+
+   ```powershell
+   $encryptionkey = New-EncryptionKeyBase64
+   ```
+
+## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Backup을 사용 하려면 백업 공유, 자격 증명 및 암호화 키를 제공 합니다.
+
+동일한 PowerShell 세션에서 사용자 환경에 대 한 변수를 추가 하 여 다음 PowerShell 스크립트를 편집 합니다. 인프라 백업 서비스에 백업 공유, 자격 증명 및 암호화 키를 제공 하는 업데이트 된 스크립트를 실행 합니다.
+
+| 변수        | 설명   |
+|---              |---                                        |
+| $username       | 형식에서 **Username** 공유 드라이브 위치에 대 한 도메인 및 사용자를 사용 하 여 합니다. 예: `Contoso\administrator` |
+| $password       | 형식에서 **암호** 사용자에 대 한 합니다. |
+| $sharepath      | 경로를 입력는 **백업 저장소 위치**합니다. 별도 장치에서 호스트 되는 파일 공유 경로 대 한 범용 명명 규칙 (UNC) 문자열을 사용 해야 합니다. UNC 문자열 공유 파일 또는 장치와 같은 리소스의 위치를 지정합니다. 백업 데이터의 가용성을 보장 하려면 장치의 별도 위치에 있어야 합니다. |
+
+   ```powershell
+   $username = "domain\backupoadmin"
+    $password = "password"
+    $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
+    $location = Get-AzsLocation
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+Set-AzSBackupShare -Location $location -Path $path -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
+
+   ```
+##  <a name="confirm-backup-settings"></a>백업 설정 확인
+
+동일한 PowerShell 세션에서 다음 명령을 실행 합니다.
+
+   ```powershell
+   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   ```
+
+결과 JSON 다음과 같이 표시 됩니다.
+
+   ```json
+      {
+    "ExternalStoreDefault":  {
+        "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
+        "UserName":  "domain\backupoadmin",
+        "Password":  null
+       }
+   } 
+   ```
+
+## <a name="next-steps"></a>다음 단계
+
+ - 백업, 참조를 실행 하는 방법을 배울 [Azure 스택 백업을](azure-stack-backup-back-up-azure-stack.md )합니다.  
+- 백업 실행 되었는지 확인 하는 방법을 배울, 참조 [관리 포털에서 완료 된 확인 백업](azure-stack-backup-back-up-azure-stack.md )합니다.
