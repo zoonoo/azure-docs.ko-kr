@@ -1,20 +1,20 @@
 ---
 title: "Azure에서 Jenkins 서버 만들기"
-description: "Jenkins 솔루션 템플릿에서 Azure Linux 가상 컴퓨터에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다."
+description: "Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다."
 author: mlearned
 manager: douge
 ms.service: multiple
 ms.workload: web
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 0cf24d8db845beb63b1b895f895da761488fd8ec
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal에서 Azure Linux VM에 Jenkins 서버 만들기
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/26/2017
 
 ![Jenkins 잠금 해제](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
-이 페이지의 명령줄에서 `ssh` 명령을 사용하여 터널을 설정하고, `username`은 솔루션 템플릿에서 가상 컴퓨터를 설정할 때 이미 선택한 가상 컴퓨터 관리 사용자의 이름으로 바꿉니다.
+명령줄 페이지에서 `ssh` 명령을 사용하여 터널을 설정하고, 솔루션 템플릿에서 가상 머신을 설정하는 경우 이전에 선택한 가상 머신 관리 사용자의 이름으로 `username`을 바꿉니다.
 
 ```bash
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com

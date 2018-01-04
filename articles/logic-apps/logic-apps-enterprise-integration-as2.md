@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>논리 앱과 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -45,7 +45,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
     > [!TIP]
     > **추가 서비스**가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에 있는 **메뉴 표시**를 선택합니다.
 
-    ![추가 서비스, "통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![추가 서비스, "통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. 열린 **통합 계정** 블레이드에서 규약을 만들려는 통합 계정을 선택합니다.
 통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보") 를.  
@@ -54,19 +54,19 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 4. **규약** 타일을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다.
 
-    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    !["규약" 타일 선택](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. 열린 [규약] 블레이드에서 **추가**를 선택합니다.
 
-    !["추가" 선택](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    !["추가" 선택](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. **추가** 아래에서 규약의 **이름**을 입력합니다. **규약 유형**에 **AS2**를 선택합니다. 규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID**를 선택합니다.
 
-    ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | 속성 | 설명 |
+    | 자산 | 설명 |
     | --- | --- |
-    | 이름 |규약 이름 |
+    | Name |규약 이름 |
     | 규약 유형 | AS2여야 함 |
     | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
     | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -82,7 +82,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 1.  **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    !["수신 설정" 구성](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    !["수신 설정" 구성](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. 필요에 따라 **메시지 속성 재정의**를 선택하여 들어오는 메시지의 속성을 재정의할 수 있습니다.
 
@@ -102,7 +102,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 이제 규약은 선택한 설정에 맞는 들어오는 메시지를 처리할 준비가 되었습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 메시지 속성 재정의 |받은 메시지의 속성을 재정의할 수 있음을 나타냅니다. |
 | 메시지 서명 필요 |메시지를 디지털로 서명하도록 요구합니다. 서명 확인을 위한 게스트 파트너 공용 인증서를 구성합니다.  |
@@ -122,7 +122,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    !["설정 보내기" 속성 설정](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    !["설정 보내기" 속성 설정](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. 파트너에게 서명된 메시지를 보내려면 **메시지 서명 사용**을 선택합니다. 메시지에 서명하려면 **MIC Algorithm** 목록에서 *호스트 파트너 개인 인증서 MIC 알고리즘*을 선택합니다. 그리고 **인증서** 목록에서 기존 [호스트 파트너 개인 인증서](../logic-apps/logic-apps-enterprise-integration-certificates.md)를 선택합니다.
 
@@ -147,7 +147,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 이제 규약은 선택한 설정에 맞는 보내는 메시지를 처리할 준비가 되었습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
 | 메시지 서명 사용 |규약에서 보낸 모든 메시지를 서명하도록 요구합니다. |
 | MIC 알고리즘 |메시지 서명에 사용할 알고리즘입니다. 메시지에 서명하기 위한 호스트 파트너 개인 인증서 MIC 알고리즘을 구성합니다. |
@@ -172,7 +172,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 
 2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
 
-    ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>swagger 보기
 [swagger 정보](/connectors/as2/)를 참조하세요. 

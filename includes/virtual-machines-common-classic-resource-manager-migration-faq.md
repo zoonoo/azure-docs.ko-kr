@@ -1,8 +1,8 @@
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
-## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 컴퓨터에서 실행되는 기존 서비스 또는 응용 프로그램에 영향을 미치나요? 
+## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 응용 프로그램에 영향을 미치나요? 
 
-아니요. VM(클래식)은 일반 공급 제품에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다.
+번호 VM(클래식)은 일반 공급 제품에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다.
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까? 
 
@@ -26,7 +26,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
-아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
+번호 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 역할 기반 Access Control 정책을 구성한 경우 어떻게 되나요? 
 
@@ -36,10 +36,10 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 클래식 모드에서 Resource Manager 모드로 VM을 바꾸는 경우 백업 자격 증명 모음에 있는 <a name="vault">클래식</a> VM 복구 시점은 Recovery Services 자격 증명 모음에 자동으로 마이그레이션되지 않습니다. VM 백업을 전송하려면 다음 단계를 수행합니다.
 
-1. Backup 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. [보호 중지](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
+1. Backup 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. [보호 중지](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
 2. VM에서 백업/스냅숏 확장을 삭제합니다.
-3. 클래식 모드에서 Resource Manager 모드로 가상 컴퓨터를 마이그레이션합니다. 가상 컴퓨터에 해당하는 저장소 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
-4. 자격 증명 모음 대시보드를 기반으로 **Backup** 작업을 사용하여 Recovery Services 자격 증명 모음을 만들고 마이그레이션된 가상 컴퓨터에 백업을 구성합니다. Recovery Services 자격 증명 모음에 VM을 백업하는 방법에 대한 자세한 내용은 [Recovery Services 자격 증명 모음으로 Azure VM 보호](../articles/backup/backup-azure-vms-first-look-arm.md) 문서를 참조하세요.
+3. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 저장소 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
+4. 자격 증명 모음 대시보드를 기반으로 **Backup** 작업을 사용하여 Recovery Services 자격 증명 모음을 만들고 마이그레이션된 가상 머신에 백업을 구성합니다. Recovery Services 자격 증명 모음에 VM을 백업하는 방법에 대한 자세한 내용은 [Recovery Services 자격 증명 모음으로 Azure VM 보호](../articles/backup/backup-azure-vms-first-look-arm.md) 문서를 참조하세요.
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>내 구독 또는 리소스에서 마이그레이션이 가능한지 확인할 수 있나요? 
 

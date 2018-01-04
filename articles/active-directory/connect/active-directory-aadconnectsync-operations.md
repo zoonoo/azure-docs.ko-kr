@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d4d832476c0e5bb4ac3694d3e97b15835e3a4441
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4252a5ff3dd985185745060073cbe5432dba726a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect Sync: 운영 작업 및 고려 사항
 이 항목은 Azure AD Connect Sync에 대한 관리 작업을 설명하는 것을 목표로 합니다.
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/11/2017
 
 * 필요할 때 다시 작성합니다.
 * **스테이징 모드**라고 하는 예비 대기 서버가 있습니다.
-* 가상 컴퓨터를 사용합니다.
+* 가상 머신을 사용합니다.
 
 기본 제공 SQL Express 데이터베이스를 사용하지 않는 경우 [SQL 고가용성](#sql-high-availability) 섹션도 또한 검토해야 합니다.
 
@@ -116,8 +116,8 @@ ms.lasthandoff: 12/11/2017
 
 자세한 내용은 [스테이징 모드](#staging-mode)를 참조하세요.
 
-### <a name="use-virtual-machines"></a>가상 컴퓨터 사용
-일반적이며 지원되는 메서드는 가상 컴퓨터에서 동기화 엔진을 실행하는 것입니다. 호스트에는 문제가 있는 경우 동기화 엔진 서버로 이미지를 다른 서버에 마이그레이션할 수 있습니다.
+### <a name="use-virtual-machines"></a>가상 머신 사용
+일반적이며 지원되는 메서드는 가상 머신에서 동기화 엔진을 실행하는 것입니다. 호스트에는 문제가 있는 경우 동기화 엔진 서버로 이미지를 다른 서버에 마이그레이션할 수 있습니다.
 
 ### <a name="sql-high-availability"></a>SQL 고가용성
 Azure AD Connect와 함께 제공되는 SQL Server Express를 사용하지 않는 경우 SQL Server에 대한 고가용성을 고려해야 합니다. 지원되는 고가용성 솔루션은 SQL 클러스터링 및 AOA(Always On 가용성 그룹)를 포함합니다. 지원되지 않는 솔루션은 미러링을 포함합니다.
@@ -261,7 +261,7 @@ do
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

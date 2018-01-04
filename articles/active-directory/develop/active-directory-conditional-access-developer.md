@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: a348647becbb9119cc649e366f34c4c37f2bea43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스를 위한 개발자 지침
 
@@ -110,7 +110,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 ```WWW-Authenticate``` 헤더는 고유한 구조를 가지며 여기서 값을 추출하기 위해 구문 분석을 수행하는 것이 간단하지 않습니다.  도움이 되는 짧은 방법은 다음과 같습니다.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +138,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
             }
             return null; 
         }
-    ```
+```
 
 클레임 챌린지를 처리하는 방법을 보여주는 샘플 코드는 ADAL .NET용 [On-Behalf-Of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)를 참조하세요.
 

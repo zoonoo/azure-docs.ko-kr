@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -38,6 +38,7 @@ Analysis Services에서는 서버의 성능 및 상태를 모니터링하는 메
 
     ![모니터링 차트](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>서버 메트릭
 모니터링 시나리오에 가장 적합한 메트릭을 확인하기 위해 이 테이블을 사용합니다. 동일한 단위의 메트릭만이 같은 차트에 표시될 수 있습니다.
 

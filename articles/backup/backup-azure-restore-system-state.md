@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -89,9 +89,6 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 1. **대상 컴퓨터**에서 *Microsoft Azure Backup* 스냅인을 엽니다.
 2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 Recovery Services 자격 증명 모음에 등록됐는지 확인합니다.
 3. **데이터 복구** 를 클릭하여 워크플로를 시작합니다.
-
-    ![데이터 복구](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. **다른 서버**
 
     ![다른 서버](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,12 +96,9 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 유효하지 않거나 만료된 경우 Azure Portal의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일과 연결된 Recovery Services 자격 증명 모음이 표시됩니다.
 
 6. Backup 서버 선택 창의 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
-
-    ![컴퓨터 목록](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. 복구 모드 선택 창에서 **시스템 상태**를 선택하고 **다음**을 선택합니다. 
 
-    ![검색](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. **볼륨 및 날짜 선택** 창의 일정에서 복구 지점을 선택합니다. 어떤 복구 시점에서라도 복원할 수 있습니다. **굵게** 표시된 날짜는 하나 이상의 복구 지점을 사용 가능함을 나타냅니다. 날짜를 선택하고 여러 복구 지점을 사용할 수 있는 경우 **시간** 드롭다운 메뉴에서 특정 복구 지점을 선택합니다. 
 

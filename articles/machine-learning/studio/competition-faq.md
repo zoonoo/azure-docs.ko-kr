@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
@@ -31,7 +31,8 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **데이터 과학에 대한 일반적인 질문을 어디서 할 수 있나요?**
 
-[Microsoft Azure 기계 학습 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)을 사용하세요.
+
+            [Microsoft Azure Machine Learning 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)을 사용하세요.
 
 **경쟁에 참가하려면 어떻게 해야 하나요?**
 
@@ -53,7 +54,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **참가하려면 데이터 과학자여야 하나요?**
 
-아니요. 데이터 과학에 관심이 있는 데이터 고급 사용자와 데이터 과학자를 꿈꾸는 분이라면 누구나 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
+번호 데이터 과학에 관심이 있는 데이터 고급 사용자와 데이터 과학자를 꿈꾸는 분이라면 누구나 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
 
 * **데이터 개발자**, **데이터 과학자**, **BI** 및 **분석 전문가**: 서비스를 이용할 다른 사람을 위해 데이터 및 분석 콘텐츠를 만드는 사람.
 * **데이터 관리자**: 해당 데이터, 데이터의 의미와 사용 의도 및 목적에 대한 지식이 있는 사람
@@ -65,7 +66,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **대회 참가비가 있나요?**
 
-대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure 기계 학습 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana Intelligence 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 경우 [Azure 가격 책정](https://azure.microsoft.com/pricing) 페이지로 이동합니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. 자세한 내용은 [Azure Machine Learning 가격 책정 정보](https://azure.microsoft.com/pricing/details/machine-learning/)를 참조하세요. 
+대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure Machine Learning 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana Intelligence 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 경우 [Azure 가격 책정](https://azure.microsoft.com/pricing) 페이지로 이동합니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. 자세한 내용은 [Azure Machine Learning 가격 책정 정보](https://azure.microsoft.com/pricing/details/machine-learning/)를 참조하세요. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -104,7 +105,7 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **게스트 작업 영역을 사용하여 참가할 수 있나요?**
 
-아니요. 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
+번호 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
 
 **모든 Azure 지역에서 작업 영역을 사용하여 대회에 참가할 수 있나요?**
 

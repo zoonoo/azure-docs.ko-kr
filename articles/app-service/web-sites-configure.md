@@ -1,6 +1,6 @@
 ---
-title: "Azure 앱 서비스에서 웹 앱 구성"
-description: "Azure 앱 서비스에서 웹 앱을 구성 하는 방법"
+title: "Azure App Service에서 웹앱 구성"
+description: "Azure App Services에서 웹앱을 구성 하는 방법"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Azure 앱 서비스에서 웹 앱 구성
+# <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
+
 이 항목에서는 [Azure Portal]을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -46,6 +47,8 @@ ms.lasthandoff: 10/17/2017
 <a name="platform"></a>
 **플랫폼**. 응용 프로그램이 32비트 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 모드가 필요합니다. 무료 및 공유 모드는 항상 32비트 환경에서 실행됩니다.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 **웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)를 사용하는 경우가 여기에 해당합니다.
 
 <a name="alwayson"></a>
@@ -53,7 +56,7 @@ ms.lasthandoff: 10/17/2017
 
 **관리되는 파이프라인 버전**. IIS [파이프라인 모드]를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
 
-**자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 앱 서비스는 자동으로 웹 앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
+**자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 App Service는 자동으로 웹앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
 
 ### <a name="debugging"></a>디버그
 **원격 디버깅**. 원격 디버깅을 사용하도록 설정합니다. 사용하도록 설정되면 Visual Studio에서 원격 디버거를 사용하여 웹 앱에 바로 연결할 수 있습니다. 원격 디버깅은 48시간 동안 사용 가능한 상태로 유지됩니다. 
@@ -73,7 +76,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* SQL 데이터베이스: `SQLAZURECONNSTR_`
+* SQL Database: `SQLAZURECONNSTR_`
 * 사용자 지정: `CUSTOMCONNSTR_`
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
@@ -116,11 +119,11 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 1. 웹 앱의 블레이드에서 **모든 설정**을 클릭합니다.
 2. **배포 자격 증명**을 클릭합니다.
 3. 사용자 이름 및 암호를 입력합니다.
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ![배포 자격 증명 설정][configure03]
 
-전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹앱 이름입니다. 사용자 이름은 **필수 항목**아래 웹 앱 블레이드에 나열되어 있습니다.  
+전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹앱 이름입니다. 사용자 이름은 **필수 항목**아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![FTP 배포 자격 증명][configure02]
 
@@ -131,13 +134,13 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 업로드된 인증서를 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 ### <a name="domain-names"></a>도메인 이름
-웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
+웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
 도메인 이름을 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 ### <a name="deployments"></a>배포
 * 연속 배포를 설정합니다. [Azure App Service에서 Web Apps 배포를 위해 Git 사용](app-service-deploy-local-git.md)을 참조하세요.
-* 배포 슬롯입니다. [Azure 앱 서비스에서 웹앱에 대한 스테이징 환경으로 배포]를 참조하세요.
+* 배포 슬롯입니다. [Azure App Service에서 Web Apps에 대한 스테이징 환경으로 배포]를 참조하세요.
 
 배포 슬롯을 보려면 **모든 설정** > **배포 슬롯**을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
@@ -152,22 +155,22 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]
-* [Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]
-* [Azure 앱 서비스에서 웹 앱 크기 조정]
-* [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]
+* [Azure App Service에서 사용자 지정 도메인 이름 구성]
+* [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]
+* [Azure App Service에서 웹앱 크기 조정]
+* [Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
-[Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
-[Azure 앱 서비스에서 웹앱에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
-[Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
+[Azure App Service에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
+[Azure App Service에서 Web Apps에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
+[Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
 [방법: 웹 끝점 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
-[Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
+[Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Azure 앱 서비스에서 웹 앱 크기 조정]: ./web-sites-scale.md
+[Azure App Service에서 웹앱 크기 조정]: ./web-sites-scale.md
 [App Service 체험]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

@@ -3,7 +3,7 @@ title: "Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소�
 description: "Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중 VM 환경 및 PaaS 리소스를 만드는 방법에 대해 알아봅니다."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/08/2017
 단일 작업에서 모든 랩 리소스를 배포, 업데이트 또는 삭제하는 데 많은 [Resource Manager 템플릿 사용의 이점](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager)에 대해 자세히 알아봅니다.
 
 > [!NOTE]
-> 더 많은 랩 VM을 만드는 기준으로 Resource Manager 템플릿을 사용하는 경우 다중 VM 또는 단일 VM을 만드는지 염두에 둘 차이점이 있습니다. 가상 컴퓨터의 Azure Resource Manager 템플릿 사용은 이러한 차이점을 더 자세히 설명합니다.
+> 더 많은 랩 VM을 만드는 기준으로 Resource Manager 템플릿을 사용하는 경우 다중 VM 또는 단일 VM을 만드는지 염두에 둘 차이점이 있습니다. 가상 머신의 Azure Resource Manager 템플릿 사용은 이러한 차이점을 더 자세히 설명합니다.
 >
 >
 
@@ -113,14 +113,14 @@ ms.lasthandoff: 12/08/2017
     > - GEN-SSH-PUB-KEY
     > - GEN-PASSWORD 
  
-1. **추가**를 선택하여 환경을 만듭니다. 환경에서는 **내 가상 컴퓨터** 목록에 상태를 표시하는 즉시 프로비전을 시작합니다. Azure Resource Manager 템플릿에 정의된 모든 리소스를 프로비전하기 위해 랩에서 새 리소스 그룹을 자동으로 만듭니다.
-1. 환경이 만들어지면 **내 가상 컴퓨터** 목록에서 환경을 선택하여 리소스 그룹 블레이드를 열고 환경에 프로비전된 모든 리소스를 찾습니다.
+1. **추가**를 선택하여 환경을 만듭니다. 환경에서는 **내 가상 머신** 목록에 상태를 표시하는 즉시 프로비전을 시작합니다. Azure Resource Manager 템플릿에 정의된 모든 리소스를 프로비전하기 위해 랩에서 새 리소스 그룹을 자동으로 만듭니다.
+1. 환경이 만들어지면 **내 가상 머신** 목록에서 환경을 선택하여 리소스 그룹 블레이드를 열고 환경에 프로비전된 모든 리소스를 찾습니다.
     
-    ![내 가상 컴퓨터 목록](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+    ![내 가상 머신 목록](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
    
    또한 환경을 확장하여 환경에서 프로비전되는 VM의 목록만 볼 수 있습니다.
     
-    ![내 가상 컴퓨터 목록](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
+    ![내 가상 머신 목록](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
 1. 환경을 클릭하여 아티팩트 적용, 데이터 디스크 연결, 자동 종료 시간 변경 등과 같은 사용 가능한 작업을 확인합니다.
 
@@ -128,5 +128,5 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 블레이드에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
-* 랩의 **내 가상 컴퓨터** 목록에서 환경을 선택하여 환경에서 리소스를 보고 관리합니다. 
+* 랩의 **내 가상 머신** 목록에서 환경을 선택하여 환경에서 리소스를 보고 관리합니다. 
 * [Azure 빠른 시작 템플릿 갤러리의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates)(영문)을 탐색합니다.

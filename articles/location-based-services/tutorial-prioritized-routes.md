@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Azure Location Based Services를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -209,9 +209,9 @@ Location Based Services의 맵 컨트롤 API가 포함된 정적 HTML 페이지�
     ```
     이 코드 조각은 [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 생성하고, 들어오는 응답을 구문 분석하는 이벤트 처리기를 추가합니다. 응답이 성공하면 반환된 경로에 대한 좌표 배열을 만들고 맵의 `truckRouteLayerName` 레이어에 추가합니다. 
     
-    또한 이 코드 조각은 계정의 구독 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다음 선택형 매개 변수는 중형 트럭의 경로를 표시하는 데 사용됩니다. `travelMode=truck` 매개 변수는 운송 모드를 *truck*으로 지정합니다. 지원되는 다른 운송 모드로는 *taxi*, *bus*, *van*, *motorcycle* 및 기본값인 *car*가 있습니다. 
-        - `vehicleWidth`, `vehicleHeight` 및 `vehicleLength` 매개 변수는 차량의 크기를 미터 단위로 지정하며, 운송 모드가 *truck*인 경우에만 고려합니다. 
-        - `vehicleLoadType`은 화물차를 위험으로 분류하며 일부 도로에서는 제한됩니다. 마찬가지로 현재는 *truck* 모드에서만 고려합니다. 
+    또한 이 코드 조각은 계정의 구독 키에 대한 Route Service에 쿼리를 보내고, 지정된 출발점 및 도착점에 대한 경로를 가져옵니다. 다음 선택형 매개 변수는 중형 트럭의 경로를 표시하는 데 사용됩니다. `travelMode=truck` 매개 변수는 운송 모드를 *truck*으로 지정합니다. 지원되는 다른 운송 모드로는 *taxi*, *bus*, *van*, *motorcycle* 및 기본값인 *car*가 있습니다.  
+        - `vehicleWidth`, `vehicleHeight` 및 `vehicleLength` 매개 변수는 차량의 크기를 미터 단위로 지정하며, 운송 모드가 *truck*인 경우에만 고려합니다.  
+        - `vehicleLoadType`은 화물차를 위험으로 분류하며 일부 도로에서는 제한됩니다. 마찬가지로 현재는 *truck* 모드에서만 고려합니다.  
 
 2. 다음 JavaScript 코드를 추가하고 Route Service를 사용하여 자동차의 경로를 가져옵니다.
 

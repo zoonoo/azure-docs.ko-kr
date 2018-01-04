@@ -4,7 +4,7 @@
 ### [솔루션이란?](storsimple-ova-overview.md)
 ### [지역 가용성](storsimple-regions.md)
 
-## 시작
+## 시작하기
 ### 계획
 #### [요구 사항 검토](storsimple-ova-system-requirements.md)
 #### [제한 이해](storsimple-ova-limits.md)
@@ -38,7 +38,6 @@
 #### [ACR 관리](storsimple-virtual-array-manage-acrs.md)
 #### [작업 관리](storsimple-virtual-array-manage-jobs.md)
 #### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
-#### [Windows Server 호스트에 MPIO 구성](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [경고를 사용하여 모니터](storsimple-virtual-array-manage-alerts.md)
 #### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
 #### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
@@ -63,7 +62,7 @@
 ### [지역 가용성](storsimple-regions.md)
 ### [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)
 
-## 시작
+## 시작하기
 
 ### 계획
 #### [요구 사항 검토](storsimple-8000-system-requirements.md)
@@ -72,7 +71,7 @@
 #### [모범 사례](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
 
-### Install
+### 설치
 #### [안전 검토](storsimple-8000-safety.md)
 #### [8100 압축 풀기, 랙, 케이블](storsimple-8100-hardware-installation.md)
 #### [8600 압축 풀기, 랙, 케이블](storsimple-8600-hardware-installation.md)
@@ -179,7 +178,7 @@
 #### [5000/7000 시리즈 장치에서](storsimple-8000-migrate-from-5000-7000.md)
 #### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### 업데이트
+### 주 지역에서
 #### [업데이트 5 설치 - 현재](storsimple-8000-install-update-5.md)
 #### [업데이트 4 설치](storsimple-8000-install-update-4.md)
 
@@ -198,7 +197,7 @@
 #### [업데이트 0.1](storsimple-october-2014-release-notes.md)
 #### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
-## 참조
+## 참고 자료
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
@@ -208,7 +207,7 @@
 ## 개요
 ### [솔루션이란?](storsimple-data-manager-overview.md)
 
-## 시작
+## 시작하기
 ### [StorSimple 데이터 관리자 사용](storsimple-data-manager-ui.md)
 
 ## 방법
@@ -221,7 +220,7 @@
 ## 개요
 ### [솔루션이란?](storsimple-partner-csp-overview.md)
 
-## 시작
+## 시작하기
 ### [CSP용 가상 배열 배포](storsimple-partner-csp-deploy.md)
 
 ## 릴리스 정보
@@ -237,7 +236,7 @@
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)

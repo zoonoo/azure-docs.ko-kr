@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 10/11/2017
 
 신속하게 요약하기 위해 접근 방식은 다이어그램 만들기, 위협 식별, 완화 및 각 완화의 유효성 검사를 포함합니다. 이 프로세스를 강조 표시하는 다이어그램은 다음과 같습니다.
 
-![SDL 프로세스](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL 프로세스](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>위협 모델링 프로세스 시작
 
 위협 모델링 도구를 시작할 때 그림에 표시된 대로 몇 가지를 알 수 있습니다.
 
-![빈 시작 페이지](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![빈 시작 페이지](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>위협 모델 섹션
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 > Cristina: 물론입니다. 살펴보겠습니다.
 > Ricardo는 도구를 열고 Cristina와 화면을 공유합니다.
 
-![기본 위협 모델](./media/azure-security-threat-modeling-tool/basictmt.png)
+![기본 위협 모델](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: 네, 간단해 보이지만 단계별로 확인해 볼 수 있을까요?
 > Ricardo: 물론입니다! 분석은 다음과 같습니다.
@@ -89,17 +89,17 @@ Ricardo가 Cristina에게 보여준 것은 DFD, **[데이터 흐름 다이어그
 
 이 접근 방식은 경고 시스템을 추가하거나 도둑이 든 후 추적하기 전에 준비된 잠금 메커니즘이 있는 각 문과 창문을 확인하여 집을 보안하는 것과 같습니다.
 
-![기본 위협](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![기본 위협](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo는 목록에서 첫 번째 항목을 선택하여 시작합니다. 다음과 같은 상황이 발생합니다.
 
 첫째, 두 개의 스텐실 간의 상호 작용이 향상되었습니다.
 
-![상호 작용](./media/azure-security-threat-modeling-tool/interaction.png)
+![상호 작용](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 둘째, 위협에 대한 추가 정보가 위협 속성 창에 나타납니다.
 
-![상호 작용 정보](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![상호 작용 정보](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 생성된 위협을 통해 잠재적 디자인 결함을 이해할 수 있습니다. STRIDE 분류를 통해 잠재적인 공격 벡터에 대한 개념을 제공하는 반면 추가 설명은 문제를 완화하는 잠재적인 방법과 함께 문제를 정확하게 알립니다. 편집 가능한 필드를 사용하여 이유에 메모를 자세히 쓰거나 조직의 버그 바에 따라 우선 순위 등급을 변경할 수 있습니다.
 
@@ -116,7 +116,7 @@ Ricardo는 정보 공개에 따른 위협을 살펴봤으므로 액세스 제어
 
 Ricardo가 Cristina와 목록을 살펴보고 중요한 참고 사항, 해결 방법/이유, 우선 순위 및 상태 변경 사항을 추가하면 보고서 -> 전체 보고서 만들기 -> 보고서 저장을 선택합니다. 적절한 보안 작업이 구현되었는지 확인하도록 동료와 살펴볼 수 있는 보고서를 출력합니다.
 
-![상호 작용 정보](./media/azure-security-threat-modeling-tool/report.png)
+![상호 작용 정보](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Ricardo가 파일을 공유하려는 경우 조직의 OneDrive 계정에 저장하여 쉽게 공유할 수 있습니다. OneDrive 계정에 저장하면 문서 링크를 복사하고 그의 동료와 공유할 수 있습니다. 
 

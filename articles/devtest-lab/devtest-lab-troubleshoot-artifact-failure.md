@@ -1,9 +1,9 @@
 ---
-title: "Azure DevTest Labs 가상 컴퓨터에서 아티팩트 실패 진단 | Microsoft Docs"
+title: "Azure DevTest Labs 가상 머신에서 아티팩트 실패 진단 | Microsoft Docs"
 description: "Azure DevTest Labs에서 아티팩트 실패 문제를 해결하는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
-ms.author: tarcher
-ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 6c03ce8f91ec688e32e379f1284767db9a45920c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
 아티팩트를 만든 후에 성공 또는 실패 여부를 확인할 수 있습니다. Azure DevTest Labs의 아티팩트 로그는 아티팩트 실패를 진단하는 데 사용할 수 있는 정보를 제공합니다. Windows VM에 대한 아티팩트 로그 정보를 보기 위한 두 가지 옵션이 있습니다.
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
    ![아티팩트 오류 메시지](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
-## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>가상 컴퓨터 내에서 아티팩트 실패 문제 해결
+## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>가상 머신 내에서 아티팩트 실패 문제 해결
 
 1. 진단하려는 아티팩트를 포함하는 VM에 로그인합니다.
 2. C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status로 이동합니다. 여기서 *1.9*는 Azure Custom Script Extension 버전 번호입니다.

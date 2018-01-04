@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>가장 짧은 기간 동안 가장 높은 정확도의 실행 확인
 다수의 실행 중 한 가지 사용 사례는 최고 정확도의 실행을 찾는 것입니다. 한 가지 방법은 [JMESPath](http://jmespath.org/) 쿼리와 함께 CLI(명령줄 인터페이스 )를 사용하는 것입니다. Azure CLI에서 JMESPath를 사용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0에서 JMESPath 쿼리 사용](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조하세요. 다음 예제에서는 정밀도 값이 0, 0.98, 1, 1인 네 개의 실행이 작성됩니다. `Threshold = .03`인 `[MaxAccuracy-Threshold, MaxAccuracy]` 범위에 있으면 실행이 필터링됩니다.

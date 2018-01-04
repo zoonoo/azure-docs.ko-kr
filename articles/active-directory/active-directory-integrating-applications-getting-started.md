@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -88,7 +88,7 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 ## <a name="integrating-custom-applications"></a>사용자 지정 응용 프로그램 통합
 전원 Azure AD를 활용하여 새 응용 프로그램을 작성하고 개발자를 지원하려면 [개발자 가이드](active-directory-applications-guiding-developers-for-lob-applications.md)를 참조하세요.
 
-Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)를 참조하세요.
+Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)

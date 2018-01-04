@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure 저장소 탐색기를 사용하여 Azure DevTest Labs에 VHD 파일 업로드 | Microsoft Docs"
-description: "Microsoft Azure 저장소 탐색기를 사용하여 랩의 저장소 계정에 VHD 파일 업로드"
+title: "Microsoft Azure Storage 탐색기를 사용하여 Azure DevTest Labs에 VHD 파일 업로드 | Microsoft Docs"
+description: "Microsoft Azure Storage 탐색기를 사용하여 랩의 Storage 계정에 VHD 파일 업로드"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure 저장소 탐색기를 사용하여 랩의 저장소 계정에 VHD 파일 업로드
+# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기를 사용하여 랩의 Storage 계정에 VHD 파일 업로드
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 이 문서에서는 [Microsoft Azure 저장소 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 랩의 저장소 계정에 VHD 파일을 업로드합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../virtual-machines/linux/about-disks-and-vhds.md)를 참조하세요.
+Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로비저닝을 사용하는 데 사용하는 사용자 지정 이미지를 만들 수 있습니다. 이 문서에서는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 랩의 Storage 계정에 VHD 파일을 업로드합니다. VHD 파일을 업로드하면 [다음 단계 섹션](#next-steps)은 업로드된 VHD 파일에서 사용자 지정 이미지를 만드는 방법을 자세히 설명하는 일부 문서를 나열합니다. Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 머신용 디스크 및 VHD 정보](../virtual-machines/linux/about-disks-and-vhds.md)를 참조하세요.
 
 ## <a name="step-by-step-instructions"></a>단계별 지침
 
-다음 단계는 [Microsoft Azure 저장소 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다.
+다음 단계는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다.
 
-1. [Microsoft Azure 저장소 탐색기 최신 버전을 다운로드하여 설치합니다](http://www.storageexplorer.com).
+1. [Microsoft Azure Storage 탐색기 최신 버전을 다운로드하여 설치합니다](http://www.storageexplorer.com).
 
 1. Azure Portal을 사용하여 랩의 저장소 계정 이름을 가져옵니다.
 
@@ -84,9 +84,9 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프�
 
 1. 랩의 저장소 계정 찾기:
 
-    1. 저장소 계정 왼쪽 창에서 랩을 소유한 Azure 구독에 해당하는 노드를 찾아 확장합니다.
+    1. Storage 계정 왼쪽 창에서 랩을 소유한 Azure 구독에 해당하는 노드를 찾아 확장합니다.
     
-    1. 구독 노드 아래에서 **저장소 계정**을 확장합니다.
+    1. 구독 노드 아래에서 **Storage 계정**을 확장합니다.
 
     1. **Blob 컨테이너**, **파일 공유**, **큐** 및 **테이블**에 대한 노드가 나타나도록 랩의 저장소 계정 노드를 확장합니다.
     
@@ -98,7 +98,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 컴퓨터를 프�
 
 1. 저장소 탐색기를 사용하여 VHD 파일 업로드
 
-    1. 저장소 탐색기 오른쪽 창에 랩의 저장소 계정에 대한 **업로드** Blob 컨테이너에 Blob 목록이 표시됩니다. Blob 편집기 도구 모음에서 **업로드**를 선택합니다. 
+    1. 저장소 탐색기 오른쪽 창에 랩의 Storage 계정에 대한 **업로드** Blob 컨테이너에 Blob 목록이 표시됩니다. Blob 편집기 도구 모음에서 **업로드**를 선택합니다. 
         
         ![업로드 단추][6]
     

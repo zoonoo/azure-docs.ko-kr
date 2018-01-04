@@ -12,25 +12,25 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 2b748e4fc536a933dc41f9f673a534598b7343b8
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 3e7b7c2ffa7471b96ebd23ac430fbd21eb21e9c5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법
-Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 컴퓨터에 연결한 다음 로그온합니다.
+Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 머신에 연결한 다음 로그온합니다.
 
 Mac에서 Windows VM에 연결하려는 경우 [Microsoft 원격 데스크톱](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417)과 같이 Mac용 RDP 클라이언트를 설치해야 합니다.
 
-## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **Virtual Machines**를 클릭합니다.
-3. 목록에서 가상 컴퓨터를 선택합니다.
-4. 가상 컴퓨터의 페이지에서 **연결**을 클릭합니다.
+3. 목록에서 가상 머신을 선택합니다.
+4. 가상 머신의 페이지에서 **연결**을 클릭합니다.
    
     ![VM에 연결하는 방법을 보여 주는 Azure 포털의 스크린샷입니다.](./media/connect-logon/connect.png)
    
@@ -39,7 +39,7 @@ Mac에서 Windows VM에 연결하려는 경우 [Microsoft 원격 데스크톱](h
    > 
    > 
 
-## <a name="log-on-to-the-virtual-machine"></a>가상 컴퓨터에 로그온
+## <a name="log-on-to-the-virtual-machine"></a>가상 머신에 로그온
 [!INCLUDE [virtual-machines-log-on-win-server](../../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>다음 단계

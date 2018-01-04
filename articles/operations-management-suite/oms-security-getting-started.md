@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션 시작
 이 문서는 각 옵션을 안내하여 OMS(Operations Management Suite) 보안 및 감사 솔루션 기능을 빠르게 시작할 수 있도록 도와줍니다.
@@ -151,7 +151,7 @@ IT 관리자는 OMS 보안 및 감사에 제공되는 위협 인텔리전스 옵
 전 세계 산업 및 정부 조직과 함께 Microsoft에서는 보안 수준이 높은 서버 배포를 나타내는 Windows 구성을 정의합니다. 이 구성은 일련의 레지스트리 키, 감사 정책 설정 및 이러한 설정에 대한 Microsoft의 권장된 값과 함께 보안 정책 설정을 설명합니다. 이러한 규칙 집합을 보안 기준이라고 합니다. 이 옵션에 대한 자세한 내용은 [Operations Management Suite 보안 및 감사 솔루션의 기준 평가](oms-security-baseline.md)를 참조하세요.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-이 타일은 기본적으로 Azure Security Center 대시보드에 액세스하는 바로 가기입니다. 이 솔루션에 대한 자세한 내용은 [Azure Security Center 시작](../security-center/security-center-get-started.md)을 참조하세요.
+이 타일은 기본적으로 Azure Security Center 대시보드에 액세스하는 바로 가기입니다. 이 솔루션에 대한 자세한 내용은 [Azure Security Center 시작](../security-center/security-center-get-started.md) 을 참조하세요.
 
 ## <a name="notable-issues"></a>주목할 만한 문제
 이 옵션 그룹의 기본 의도는 문제를 위험, 경고, 정보 제공으로 분류하여 환경의 문제를 빠르게 확인할 수 있도록 하는 것입니다. 미해결 문제 유형 타일은 이러한 문제를 시각적으로 표현한 것이지만 상세 정보를 확인할 수 없기 때문에 문제의 이름(NAME), 발생한 개체 수(COUNT), 중요도(SEVERITY)가 표시된 타일 아랫부분을 사용해야 합니다.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Blob Storage 작업 수행
 
@@ -152,7 +152,7 @@ Get-AzureStorageBlob -Container $containerName -Context $ctx | select Name
 두 번째 저장소 계정을 설정하고 컨텍스트를 검색하고 해당 저장소 계정에서 컨테이너를 설정하며 복사를 수행합니다. 스크립트의 이 부분은 첫 번째 대신 두 번째 저장소 계정을 사용하는 것을 제외하고는 위의 스크립트와 거의 동일합니다.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -382,5 +382,5 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage cmdlet
 * [Storage PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 저장소 탐색기
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>PowerShell을 사용하여 Event Hubs 리소스 관리
 
@@ -34,7 +34,7 @@ Azure Resource Manager 템플릿을 사용하여 Event Hubs 리소스를 관리�
 * Azure PowerShell이 설치된 컴퓨터 관련 지침은 [Azure PowerShell Cmdlet 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 첫 번째 단계는 PowerShell을 사용하여 Azure 계정 및 Azure 구독에 로그인하는 것입니다. [Azure PowerShell cmdlet 시작](/powershell/azure/get-started-azureps)의 지침에 따라 Azure 계정에 로그인한 다음, Azure 구독에서 리소스를 검색하고 액세스합니다.
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>소비자 그룹 만들기
 
-이벤트 허브 내에 소비자 그룹을 만들려면 이전 섹션의 스크립트를 사용하여 네임스페이스 및 이벤트 허브 확인을 수행합니다. 그런 다음, [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) cmdlet을 사용하여 이벤트 허브 내에 소비자 그룹을 만듭니다. 예:
+이벤트 허브 내에 소비자 그룹을 만들려면 이전 섹션의 스크립트를 사용하여 네임스페이스 및 이벤트 허브 확인을 수행합니다. 그런 다음, [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) cmdlet을 사용하여 이벤트 허브 내에 소비자 그룹을 만듭니다. 예: 
 
 ```powershell
 # Check if consumer group already exists

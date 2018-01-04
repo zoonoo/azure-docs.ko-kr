@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 하이브리드 ID 솔루션
 [Microsoft Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 하이브리드 ID 솔루션을 사용하면 온-프레미스의 사용자를 계속 관리하면서 온-프레미스 디렉터리 개체를 Azure AD와 동기화할 수 있습니다. 온-프레미스 Windows Server Active Directory와 Azure AD와의 동기화를 계획할 때는 맨 먼저 동기화된 ID를 사용할지 또는 페더레이션 ID를 사용할지를 결정해야 합니다. 동기화된 ID 및 선택적으로 암호 해시를 사용하여 사용자는 같은 암호로 온-프레미스 및 클라우드 기반 조직 리소스에 모두 액세스할 수 있습니다. SSO(Single Sign-On) 또는 온-프레미스 MFA와 같은 고급 시나리오 요구 사항의 경우 AD FS(Active Directory Federation Services)를 배포하여 ID를 페더레이션해야 합니다. 
@@ -50,9 +50,6 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 
 - Windows Server 2012 R2 이상
 - 사용자의 유효성이 검사되는 포리스트의 도메인에 연결
-
-> [!NOTE]
-> Azure AD 통과 인증은 현재 미리 보기 상태이며 최신 인증을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에 대해 지원됩니다. 레거시 Office 클라이언트 및 Exchange ActiveSync와 같이 지원되는 않는 클라이언트(모바일 장치의 기본 메일 클라이언트 포함)의 경우 최신 인증과 동등한 인증을 사용하는 것이 좋습니다. 최신 인증은 통과 인증을 허용할 뿐만 아니라 다단계 인증과 같은 조건부 액세스 정책을 적용할 수 있게 해줍니다. 
 
 통과 인증은 현재 Azure AD에 가입된 Windows 10 장치를 사용하는 경우에는 지원되지 않습니다. 그러나 자동 대체와 같은 암호 해시 동기화를 사용하여 앞에서 언급한 Windows 10 및 레거시 클라이언트를 지원할 수 있습니다. 미리 보기 기간 중에 통과 인증이 Azure AD Connect의 로그인 옵션으로 선택되면 암호 해시 동기화가 기본적으로 사용하도록 설정됩니다.
 

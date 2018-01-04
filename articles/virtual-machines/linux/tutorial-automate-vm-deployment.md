@@ -4,7 +4,7 @@ description: "Cloud-init 및 Key Vault를 사용하여 Azure에서 처음 부팅
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법
-이전 자습서에서는 VM(가상 컴퓨터)에 SSH를 적용하고 NGINX를 수동으로 설치하는 방법에 대해 알아보았습니다. 빠르고 일관된 방식으로 VM을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법
+이전 자습서에서는 VM(가상 머신)에 SSH를 적용하고 NGINX를 수동으로 설치하는 방법에 대해 알아보았습니다. 빠르고 일관된 방식으로 VM을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * cloud-init 구성 파일 만들기
@@ -51,6 +51,8 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |최신 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |최신 |
 | CoreOS |CoreOS |CoreOS |Stable |최신 |
+| | OpenLogic | CentOS | 7-CI | 최신 |
+| | RedHat | RHEL | 7-RAW-CI | 최신
 
 
 ## <a name="create-cloud-init-config-file"></a>cloud-init 구성 파일 만들기
@@ -102,7 +104,7 @@ runcmd:
 
 cloud-init 구성 옵션에 대한 자세한 내용은 [cloud-init 구성 예제](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)를 참조하세요.
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 VM을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 

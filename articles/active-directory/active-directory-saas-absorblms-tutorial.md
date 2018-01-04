@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df39b957e70be38331b3711a36ce847348049591
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Absorb LMS에서 Azure AD Single Sign-on을 구성하려면 다음을 수행합�
 
     a. **식별자** 상자에 `https://<subdomain>.myabsorb.com/Account/SAML` 구문을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 상자에 `https://<subdomain>.myabsorb.com/Account/SAML` 구문을 사용하는 URL을 입력합니다.
+    나. **회신 URL** 상자에 `https://<subdomain>.myabsorb.com/Account/SAML` 구문을 사용하는 URL을 입력합니다.
      
     > [!NOTE] 
     > 이 URL은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 이러한 값을 얻으려면 [Absorb LMS 클라이언트 지원 팀](https://www.absorblms.com/support)에 문의하세요. 
@@ -141,9 +141,9 @@ Absorb LMS에서 Azure AD Single Sign-on을 구성하려면 다음을 수행합�
 
     a. **모드** 상자에서 **ID 공급자 시작됨**을 선택합니다.
 
-    b. 메모장에서 Azure Portal에서 다운로드한 인증서를 엽니다. **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거합니다. 그런 다음 **키** 상자에 나머지 콘텐츠를 붙여넣습니다.
+    나. 메모장에서 Azure Portal에서 다운로드한 인증서를 엽니다. **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거합니다. 그런 다음 **키** 상자에 나머지 콘텐츠를 붙여넣습니다.
     
-    c. **ID 속성** 상자에 Azure AD에서 사용자 ID로 구성한 속성을 선택합니다. 예를 들어 Azure AD에서 *userPrincipalName*을 선택했으면 **사용자 이름**을 선택합니다.
+    다. **ID 속성** 상자에 Azure AD에서 사용자 ID로 구성한 속성을 선택합니다. 예를 들어 Azure AD에서 *userPrincipalName*을 선택했으면 **사용자 이름**을 선택합니다.
 
     d. Azure Portal 응용 프로그램의 **속성** 페이지에 있는 **사용자 액세스 URL**을 **로그인 URL**에 붙여넣습니다.
 
@@ -184,9 +184,9 @@ Azure AD에서 테스트 사용자를 만들려면 다음을 수행합니다.
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 Britta Simon의 이메일 주소를 입력합니다.
+    나. **사용자 이름** 텍스트 상자에 Britta Simon의 이메일 주소를 입력합니다.
 
-    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 있는 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 있는 값을 적어둡니다.
 
     d. **만들기**를 선택합니다.
 
@@ -218,9 +218,9 @@ Absorb LMS의 경우 설정은 수동 작업입니다.
 
     a. **이름** 텍스트 상자에 **Britta** 등의 이름을 입력합니다.
 
-    b. **성** 텍스트 상자에 **Simon** 등의 성을 입력합니다.
+    나. **성** 텍스트 상자에 **Simon** 등의 성을 입력합니다.
     
-    c. **사용자 이름** 텍스트 상자에 **Britta Simon** 등의 성명을 입력합니다.
+    다. **사용자 이름** 텍스트 상자에 **Britta Simon** 등의 성명을 입력합니다.
 
     d. **암호** 상자에 Britta Simon의 암호를 입력합니다.
 
@@ -269,7 +269,7 @@ Britta Simon을 Absorb LMS에 할당하려면 다음을 수행합니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](active-directory-appssoaccess-whatis.md)
 
 
 

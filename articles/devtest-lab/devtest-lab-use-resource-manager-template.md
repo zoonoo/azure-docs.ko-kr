@@ -1,9 +1,9 @@
 ---
-title: "가상 컴퓨터의 Azure Resource Manager 템플릿 보기 및 사용 | Microsoft Docs"
-description: "가상 컴퓨터에서 Azure Resource Manager 템플릿을 사용하여 다른 VM을 만드는 방법을 알아봅니다."
+title: "가상 머신의 Azure Resource Manager 템플릿 보기 및 사용 | Microsoft Docs"
+description: "가상 머신에서 Azure Resource Manager 템플릿을 사용하여 다른 VM을 만드는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a759d9ce-655c-4ac6-8834-cb29dd7d30dd
@@ -13,31 +13,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: tarcher
-ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>가상 컴퓨터의 Azure Resource Manager 템플릿 사용
+# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>가상 머신의 Azure Resource Manager 템플릿 사용
 
-[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 DevTest Labs에서 VM(가상 컴퓨터)을 만드는 경우 VM을 저장하기 전에 Azure Resource Manager 템플릿을 볼 수 있습니다. 그런 다음 템플릿을 기초로 사용해서 동일한 설정으로 더 많은 랩 VM을 만들 수 있습니다.
+[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 DevTest Labs에서 VM(가상 머신)을 만드는 경우 VM을 저장하기 전에 Azure Resource Manager 템플릿을 볼 수 있습니다. 그런 다음 템플릿을 기초로 사용해서 동일한 설정으로 더 많은 랩 VM을 만들 수 있습니다.
 
 이 문서에서는 VM을 만들 때 Resource Manager 템플릿을 보는 방법 및 나중에 템플릿을 배포하여 동일한 VM의 생성을 자동화하는 방법을 설명합니다.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>다중 VM 및 단일 VM Resource Manager 템플릿
 Resource Manager 템플릿을 사용하여 DevTest Labs에서 VM을 만드는 두 가지 방법은 Microsoft.DevTestLab/labs/virtualmachines 리소스를 프로비전하거나 Microsoft.Commpute/virtualmachines 리소스를 프로비전하는 것입니다. 각 방법은 서로 다른 시나리오에서 사용되며, 필요한 사용 권한도 다릅니다.
 
-- Microsoft.DevTestLab/labs/virtualmachines 리소스 종류(템플릿의 “resource” 속성에 선언됨)를 사용하는 Resource Manager 템플릿은 개별 랩 VM을 프로비전할 수 있습니다. 그러면 각 VM이 DevTest Labs 가상 컴퓨터 목록에서 단일 항목으로 표시됩니다.
+- Microsoft.DevTestLab/labs/virtualmachines 리소스 종류(템플릿의 “resource” 속성에 선언됨)를 사용하는 Resource Manager 템플릿은 개별 랩 VM을 프로비전할 수 있습니다. 그러면 각 VM이 DevTest Labs 가상 머신 목록에서 단일 항목으로 표시됩니다.
 
-   ![DevTest Labs 가상 컴퓨터 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![DevTest Labs 가상 머신 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    이 형식의 Resource Manager 템플릿은 Azure PowerShell 명령 **New-AzureRmResourceGroupDeployment** 또는 Azure CLI 명령 **az group deployment create**를 통해 프로비전할 수 있습니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
 
-- Microsoft.Compute/virtualmachines 리소스 종류를 사용하는 Resource Manager 템플릿은 여러 VM을 DevTest Labs 가상 컴퓨터 목록의 단일 환경으로 프로비전할 수 있습니다.
+- Microsoft.Compute/virtualmachines 리소스 종류를 사용하는 Resource Manager 템플릿은 여러 VM을 DevTest Labs 가상 머신 목록의 단일 환경으로 프로비전할 수 있습니다.
 
-   ![DevTest Labs 가상 컴퓨터 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-environment.png)
+   ![DevTest Labs 가상 머신 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-environment.png)
 
    동일한 환경의 VM은 함께 관리할 수 있으며, 동일한 수명 주기를 공유합니다. DevTest Labs 사용자 역할이 할당된 사용자는 이러한 템플릿을 사용하여 환경을 만들 수 있지만 관리자가 해당 방식으로 랩을 구성한 경우에만 가능합니다.
 
@@ -45,13 +45,13 @@ Resource Manager 템플릿을 사용하여 DevTest Labs에서 VM을 만드는 �
 
 [Azure Resource Manager 템플릿 작성에 대한 모범 사례](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)에 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 되는 다양한 지침과 제안이 나와 있습니다.
 
-## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>가상 컴퓨터의 Resource Manager 템플릿 보기 및 저장
-1. [랩에서 첫 번째 VM 만들기](devtest-lab-create-first-vm.md)의 단계에 따라 가상 컴퓨터 생성을 시작합니다.
-1. 가상 컴퓨터에 대한 필요한 정보를 입력하고 이 VM에 사용하려는 아티팩트를 모두 추가합니다.
+## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>가상 머신의 Resource Manager 템플릿 보기 및 저장
+1. [랩에서 첫 번째 VM 만들기](devtest-lab-create-first-vm.md)의 단계에 따라 가상 머신 생성을 시작합니다.
+1. 가상 머신에 대한 필요한 정보를 입력하고 이 VM에 사용하려는 아티팩트를 모두 추가합니다.
 1. 설정 구성 창의 맨 아래에서 **ARM 템플릿 보기**를 선택합니다.
 
    ![ARM 템플릿 보기 단추](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
-1. 나중에 다른 가상 컴퓨터를 만드는 데 사용할 Resource Manager 템플릿을 복사하고 저장합니다.
+1. 나중에 다른 가상 머신을 만드는 데 사용할 Resource Manager 템플릿을 복사하고 저장합니다.
 
    ![나중에 사용하기 위해 저장할 Resource Manager 템플릿](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 

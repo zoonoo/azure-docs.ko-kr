@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -50,7 +50,7 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure Web Apps에 기�
 
 도메인 소유권을 확인하려면 TXT 레코드를 추가합니다. TXT 레코드는 _awverify.&lt;subdomain>_에서 _&lt;appname>.azurewebsites.net_으로 매핑합니다. 
 
-필요한 TXT 레코드는 마이그레이션할 DNS 레코드에 따라 달라집니다. 예제를 보려면 다음 표를 참조하세요(`@`은 일반적으로 루트 도메인을 나타냄).  
+필요한 TXT 레코드는 마이그레이션할 DNS 레코드에 따라 달라집니다. 예제를 보려면 다음 표를 참조하세요(`@`은 일반적으로 루트 도메인을 나타냄).
 
 | DNS 레코드 예제 | TXT 호스트 | TXT 값 |
 | - | - | - |

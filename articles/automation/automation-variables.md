@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e642a63486317387d66a9403b8276d2e0bd38fb6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -46,9 +46,9 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 다음은 Automation에서 사용할 수 있는 변수 형식의 목록입니다.
 
 * 문자열
-* Integer
-* DateTime
-* Boolean
+* 정수 
+* Datetime
+* BOOLEAN
 * Null
 
 ## <a name="scripting-the-creation-and-management-of-variables"></a>변수 만들기 및 관리 스크립트 작성
@@ -96,13 +96,13 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 다음 명령 예제에서는 문자열 형식의 변수를 만들고 해당 값을 반환하는 방법을 보여 줍니다.
 
-    New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+    New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
-다음 명령 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 반환하는 방법을 보여 줍니다. 이 예제에서는 **Get-AzureRmVm**의 가상 컴퓨터 개체가 사용되었습니다.
+다음 명령 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 반환하는 방법을 보여 줍니다. 이 예제에서는 **Get-AzureRmVm**의 가상 머신 개체가 사용되었습니다.
 
     $vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
     New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
@@ -125,8 +125,8 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 다음 명령 예제에서는 텍스트 Runbook에서 변수를 설정 및 검색하는 방법을 보여 줍니다. 이 예제에서는 *NumberOfIterations* 및 *NumberOfRunnings*라는 정수 형식의 변수와 *SampleMessage*라는 문자열 형식의 변수가 이미 만들어진 것으로 가정합니다.
 
-    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
     $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
     
     Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -134,16 +134,16 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
     for ($i = 1; $i -le $NumberOfIterations; $i++) {
        Write-Output "$i`: $SampleMessage"
     }
-    Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+    Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>변수에서 복잡한 개체 설정 및 검색
 
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값으로 변수를 업데이트하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 Azure 가상 컴퓨터를 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
+다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값으로 변수를 업데이트하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
-다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 컴퓨터를 시작합니다.
+다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 머신을 시작합니다.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
     if ($vmObject.PowerState -eq 'Stopped') {
@@ -153,12 +153,12 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 #### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>변수에서 컬렉션 설정 및 검색
 
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값 컬렉션과 함께 변수를 사용하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 여러 Azure 가상 컴퓨터를 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
+다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값 컬렉션과 함께 변수를 사용하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 여러 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
 
     $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
     Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
 
-다음 코드에서는 변수에서 컬렉션을 검색하고 이를 사용하여 각 가상 컴퓨터를 시작합니다.
+다음 코드에서는 변수에서 컬렉션을 검색하고 이를 사용하여 각 가상 머신을 시작합니다.
 
     $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
     ForEach ($vmValue in $vmValues)
@@ -197,7 +197,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 ![캔버스에 변수 추가](media/automation-variables/runbook-variable-add-canvas.png)
 
 #### <a name="setting-values-in-a-variable"></a>변수에서 값 설정
-다음 그림에서는 그래픽 Runbook에서 단순한 값으로 변수를 업데이트하는 샘플 활동을 보여 줍니다. 이 샘플에서는 **Get-AzureRmVM**을 사용하여 단일 Azure 가상 컴퓨터를 검색하고 컴퓨터 이름을 문자열 형식의 기존 Automation 변수에 저장합니다.  출력에 단일 개체만 필요하므로 [링크가 파이프라인인지 시퀀스인지](automation-graphical-authoring-intro.md#links-and-workflow) 는 중요하지 않습니다.
+다음 그림에서는 그래픽 Runbook에서 단순한 값으로 변수를 업데이트하는 샘플 활동을 보여 줍니다. 이 샘플에서는 **Get-AzureRmVM**을 사용하여 단일 Azure 가상 머신을 검색하고 컴퓨터 이름을 문자열 형식의 기존 Automation 변수에 저장합니다.  출력에 단일 개체만 필요하므로 [링크가 파이프라인인지 시퀀스인지](automation-graphical-authoring-intro.md#links-and-workflow) 는 중요하지 않습니다.
 
 ![단순한 변수 설정](media/automation-variables/runbook-set-simple-variable.png)
 

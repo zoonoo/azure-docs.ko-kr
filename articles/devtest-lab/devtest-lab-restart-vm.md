@@ -1,9 +1,9 @@
 ---
 title: "Azure DevTest Labs의 랩에서 VM 다시 시작 | Microsoft Docs"
-description: "Azure DevTest Labs에서 가상 컴퓨터를 다시 시작하는 방법 알아보기"
+description: "Azure DevTest Labs에서 가상 머신을 다시 시작하는 방법 알아보기"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e46a7b21c8c9900ba61e9cf41000b341645133c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: v-craic
+ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 시작
-이 문서의 단계에 따라 DevTest Labs에서 가상 컴퓨터를 빠르고 쉽게 다시 시작할 수 있습니다. VM을 다시 시작하기 전에 다음을 고려하세요.
+이 문서의 단계에 따라 DevTest Labs에서 가상 머신을 빠르고 쉽게 다시 시작할 수 있습니다. VM을 다시 시작하기 전에 다음을 고려하세요.
 
 - 다시 시작 기능을 사용하려면 VM이 실행 중이어야 합니다.
 - 다시 시작을 수행할 때 사용자가 실행 중인 VM에 연결된 경우 백업이 시작된 후 VM에 다시 연결해야 합니다.
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/25/2017
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **추가 서비스**를 선택한 후 목록에서 **DevTest Labs**을 선택합니다.
 1. 랩 목록에서 다시 시작할 VM이 포함된 랩을 선택합니다.  
-1. 왼쪽 패널에서 **내 가상 컴퓨터**를 선택합니다. 
+1. 왼쪽 패널에서 **내 Virtual Machine**을 선택합니다. 
 1. VM 목록에서 실행 중인 VM을 선택합니다.
 1. VM 관리 창의 맨 위에서 **다시 시작**을 선택합니다.  
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/25/2017
 
     ![VM 다시 시작 상태 보기](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
 
-**내 가상 컴퓨터** 목록에서 줄임표(...)를 선택하여 실행 중인 VM을 다시 시작할 수도 있습니다.
+**내 Virtual Machines** 목록에서 줄임표(...)를 선택하여 실행 중인 VM을 다시 시작할 수도 있습니다.
 
 ![줄임표를 통해 VM 다시 시작](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 

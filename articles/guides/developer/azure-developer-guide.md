@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -34,7 +34,7 @@ Azure에서 응용 프로그램을 호스트하면 작은 응용 프로그램부
 
 Azure에서 제공하는 모든 서비스에서 솔루션 아키텍처를 지원하는 데 필요한 서비스를 파악하는 것이 어려울 수 있습니다. 이 섹션에서는 개발자가 일반적으로 사용하는 Azure 서비스를 중점적으로 설명합니다. 모든 Azure 서비스 목록은 [Azure 설명서](../../index.md)를 참조하세요.
 
-먼저, Azure에서 응용 프로그램을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM(가상 컴퓨터)으로 관리해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
+먼저, Azure에서 응용 프로그램을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM(가상 머신)으로 관리해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
 
 응용 프로그램에 Azure에서 몇 가지 옵션을 제공하는 클라우드 저장소가 필요합니다. Azure의 엔터프라이즈 인증을 활용할 수 있습니다. 또한 클라우드 기반 개발 및 모니터링을 위한 도구가 있으며 대부분의 호스팅 서비스는 DevOps 통합을 제공합니다.
 
@@ -108,7 +108,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 -   **Azure Cosmos DB**: 포괄적인 SLA로 사용자가 지리 지역 수에 따라 처리량 및 저장소를 탄력적으로 조정할 수 있도록 설계된 전역적으로 분산된 다중 모델 데이터베이스 서비스입니다. 
     >**사용하는 경우:** 응용 프로그램에 여러 잘 정의된 일관성 모델이 있는 MongoDB 등과 같은 문서, 테이블 또는 그래프 데이터베이스가 필요할 때 
 
-    >**시작하기**: [Azure Cosmos DB 웹앱을 빌드합니다](../../cosmos-db/create-documentdb-dotnet.md). MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
+    >**시작하기**: [Azure Cosmos DB 웹앱을 빌드합니다](../../cosmos-db/create-sql-api-dotnet.md). MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
 
 -   **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
 
@@ -137,7 +137,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**시작하기**: [Docker VM 확장을 사용하여 Azure에서 Docker 환경을 만듭니다](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Azure Container Service**: 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 만들고 구성하고 관리할 수 있습니다. Container Service에 대해 알아보려면 [Azure Container Service 소개](../../container-service/container-service-intro.md)를 참조하세요.
+-   **Azure Container Service**: 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 만들고 구성하고 관리할 수 있습니다. Container Service에 대해 알아보려면 [Azure Container Service 소개](../../container-service/container-service-intro.md)를 참조하세요.
 
     >**사용 시기**: 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 빌드해야 할 경우 또는 Docker Swarm 클러스터를 배포할 경우
 
@@ -214,13 +214,13 @@ Azure는 프로그래밍 방식으로 및 [Azure Portal](https://portal.azure.co
 
 ### <a name="command-line-interfaces-and-powershell"></a>명령줄 인터페이스 및 PowerShell
 
-Azure는 Bash, Terminal, 명령 프롬프트 또는 원하는 명령줄 도구를 사용하여 명령줄에서 응용 프로그램 및 서비스를 관리하는 두 가지 방법을 제공합니다. 일반적으로 명령줄에서도 Azure Portal에서 수행하는 작업을 동일하게 수행할 수 있습니다(예: 가상 컴퓨터, 가상 네트워크, 웹앱 및 기타 서비스 만들기 및 구성).
+Azure는 Bash, Terminal, 명령 프롬프트 또는 원하는 명령줄 도구를 사용하여 명령줄에서 응용 프로그램 및 서비스를 관리하는 두 가지 방법을 제공합니다. 일반적으로 명령줄에서도 Azure Portal에서 수행하는 작업을 동일하게 수행할 수 있습니다(예: 가상 머신, 가상 네트워크, 웹앱 및 기타 서비스 만들기 및 구성).
 
 -   [Azure CLI(명령줄 인터페이스)](../../xplat-cli-install.md): Azure 구독에 연결하고 명령줄에서 Azure 리소스에 대한 다양한 작업을 프로그래밍할 수 있습니다.
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 <https://portal.azure.com>입니다. 사용자 지정 가능한 대시보드, Azure 리소스 관리 도구, 구독 설정 및 대금 청구 정보에 대한 액세스 권한이 포함되어 있습니다. 자세한 내용은 [Azure Portal 개요](../../azure-portal-overview.md)를 참조하세요.
 
@@ -233,7 +233,7 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫폼의 SDK를 비롯한 플랫폼별 Azure SDK를 사용해 응용 프로그램에서 리소스를 프로그래밍 방식으로 관리할 수도 있습니다.
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](http://azure.github.io/azure-sdk-for-node/)
+-   [Node.js](http://azure.github.io/azure-sdk-for-node/)
 -   [Java](https://docs.microsoft.com/java/api/)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
@@ -245,7 +245,7 @@ REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫�
     
 Azure에서 앱 실행에는 여러 Azure 서비스 작업이 포함될 수 있습니다. 이러한 서비스 작업은 모두 같은 수명 주기를 따르고 논리적 단위로 간주될 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Redis Cache 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
-관련 리소스를 논리적으로 그룹화하고 관리하는 것 외에도 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함되어 있습니다. 예를 들어 Resource Manager를 사용하면 여러 가상 컴퓨터, 부하 분산 장치 및 Azure SQL Database를 단일 단위로 구성하는 응용 프로그램을 배포 및 구성할 수 있습니다.
+관련 리소스를 논리적으로 그룹화하고 관리하는 것 외에도 Azure Resource Manager에는 관련 리소스의 배포 및 구성을 사용자 지정할 수 있는 배포 기능이 포함되어 있습니다. 예를 들어 Resource Manager를 사용하면 여러 가상 머신, 부하 분산 장치 및 Azure SQL Database를 단일 단위로 구성하는 응용 프로그램을 배포 및 구성할 수 있습니다.
 
 JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한 배포를 개발합니다. 템플릿을 사용하면 스크립트 대신 선언적 템플릿을 통해 배포를 정의하고 응용 프로그램을 관리할 수 있습니다. 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에 사용할 수 있습니다. 예를 들어 템플릿을 사용하여 GitHub 리포지토리에 한 번 클릭으로 일련의 Azure 서비스에 리포지토리의 코드를 배포하는 단추를 추가할 수 있습니다.
 
@@ -291,7 +291,7 @@ Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하�
 
 Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에게 지정된 작업을 수행하는 데 필요한 최소 권한을 제공하는 것이 좋습니다.
 
--   **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스에 대해서만 액세스를 제한할 수 있습니다. 가상 컴퓨터 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다.
+-   **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스에 대해서만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다.
 
     >**사용 시기**: 사용자 및 그룹에 대한 세분화된 액세스 관리가 필요한 경우
 

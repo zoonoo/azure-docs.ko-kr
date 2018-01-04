@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용
 
@@ -45,19 +45,19 @@ ms.lasthandoff: 11/01/2017
 계산 집약적인 크기의 RDMA 및 GPU 기능은 특정 운영 체제에서만 지원됩니다. 운영 체제에 따라 추가 드라이버 또는 다른 소프트웨어를 설치하거나 구성할 수 있습니다. 다음 표에서는 이러한 종속성을 요약합니다. 자세한 내용은 연결된 문서를 참조하세요. Batch 풀을 구성하는 옵션은 이 문서의 뒷부분을 참조하세요.
 
 
-### <a name="linux-pools---virtual-machine-configuration"></a>Linux 풀 - 가상 컴퓨터 구성
+### <a name="linux-pools---virtual-machine-configuration"></a>Linux 풀 - 가상 머신 구성
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC 시리즈*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 기반 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 드라이버 | 해당 없음 | 
+| [NC 시리즈*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 기반 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 드라이버 | 해당 없음 | 
 | [NV 시리즈](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 또는<br/>CentOS 기반 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 드라이버 | 해당 없음 |
 
 *NC24r VM의 RDMA 연결은 Intel MPI를 사용하는 Ubuntu 16.04 LTS 또는 CentOS 기반 7.3 HPC(Azure Marketplace)에서 지원됩니다.
 
 
 
-### <a name="windows-pools---virtual-machine-configuration"></a>Windows 풀 - 가상 컴퓨터 구성
+### <a name="windows-pools---virtual-machine-configuration"></a>Windows 풀 - 가상 머신 구성
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------ | -------- | -------- | ----- |
@@ -122,7 +122,7 @@ Azure A8 노드의 풀에서 Windows MPI 응용 프로그램을 실행하려면 
 Linux NC 노드의 풀에서 CUDA 응용 프로그램을 실행하려면 노드에서 CUDA Toolkit 9.0을 설치해야 합니다. 이 Toolkit은 필요한 NVIDIA Tesla GPU 드라이버를 설치합니다. GPU 드라이버에서 사용자 지정 Ubuntu 16.04 LTS 이미지를 배포하는 예제 단계는 다음과 같습니다.
 
 1. Ubuntu 16.04 LTS를 실행하는 Azure NC6 VM을 배포합니다. 예를 들어, 미국 중남부 지역에서 VM을 만듭니다. 관리되는 디스크에서 VM을 만들었는지 확인합니다.
-2. VM에 연결하고 [CUDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms)하는 단계를 수행합니다.
+2. VM에 연결하고 [CUDA 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms)하는 단계를 수행합니다.
 3. Linux 에이전트의 프로비전을 해제하고 [Linux VM 이미지를 캡처](../virtual-machines/linux/capture-image.md)합니다.
 4. NC VM을 지원하는 영역에서 Batch 계정을 만듭니다.
 5. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 [사용자 지정 이미지](batch-custom-images.md)를 사용하는 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.

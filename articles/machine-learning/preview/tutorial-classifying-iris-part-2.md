@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>아이리스 분류 2부: 모델 작성
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -39,7 +39,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 
 필요에 따라 로컬 Docker 컨테이너에 대해 스크립트를 실행하여 실험할 수 있습니다. 이렇게 하려면 Docker 엔진(Community Edition이면 충분)을 설치하고 Windows 또는 Mac OS 컴퓨터에서 로컬로 시작해야 합니다. Docker 설치에 대한 자세한 내용은 [Docker 설치 지침](https://docs.docker.com/engine/installation/)을 참조하세요.
 
-원격 Azure VM 또는 Azure HDInsight Spark 클러스터의 Docker 컨테이너에서 실행할 스크립트를 디스패치하여 실험하기 위해 [Ubuntu 기반 Azure 데이터 과학 가상 컴퓨터 또는 HDInsight 클러스터를 만드는 지침](how-to-create-dsvm-hdi.md)을 수행할 수 있습니다.
+원격 Azure VM 또는 Azure HDInsight Spark 클러스터의 Docker 컨테이너에서 실행할 스크립트를 디스패치하여 실험하기 위해 [Ubuntu 기반 Azure 데이터 과학 Virtual Machine 또는 HDInsight 클러스터를 만드는 지침](how-to-create-dsvm-hdi.md)을 수행할 수 있습니다.
 
 ## <a name="review-irissklearnpy-and-the-configuration-files"></a>iris_sklearn.py 및 구성 파일 검토
 1. Azure Machine Learning Workbench 응용 프로그램을 열고, 자습서 시리즈의 이전 부분에서 만든 **myIris** 프로젝트를 엽니다.
@@ -291,7 +291,7 @@ Machine Learning을 사용하면 Docker와 같은 추가 실행 환경을 쉽게
    `run.py`가 완료되면 Workbench의 실행 기록 목록 보기에서 그래프가 표시됩니다.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>원격 컴퓨터의 Docker 컨테이너에서 실행
-원격 Linux 컴퓨터의 Docker 컨테이너에서 스크립트를 실행하려면 해당 원격 컴퓨터에 대한 SSH 액세스(사용자 이름 및 암호) 권한이 있어야 합니다. 또한 원격 컴퓨터에는 Docker 엔진이 설치되어 실행되어야 합니다. 이러한 Linux 컴퓨터를 얻는 가장 쉬운 방법은 Azure에서 Ubuntu 기반 DSVM(데이터 과학 가상 컴퓨터)을 만드는 것입니다. [Azure ML Workbench에서 사용하는 Ubuntu DSVM를 만드는 방법](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)을 알아봅니다.
+원격 Linux 컴퓨터의 Docker 컨테이너에서 스크립트를 실행하려면 해당 원격 컴퓨터에 대한 SSH 액세스(사용자 이름 및 암호) 권한이 있어야 합니다. 또한 원격 컴퓨터에는 Docker 엔진이 설치되어 실행되어야 합니다. 이러한 Linux 컴퓨터를 얻는 가장 쉬운 방법은 Azure에서 Ubuntu 기반 DSVM(데이터 과학 Virtual Machine)을 만드는 것입니다. [Azure ML Workbench에서 사용하는 Ubuntu DSVM를 만드는 방법](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal)을 알아봅니다.
 
 >[!NOTE] 
 >CentOS 기반 DSVM은 지원되지 *않습니다*.

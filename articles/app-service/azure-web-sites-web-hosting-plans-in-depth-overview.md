@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
-App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 이러한 계산 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다. 
+App Service의 앱은 _App Service 계획_에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 이러한 계산 리소스는 기존의 웹 호스팅에 [_서버 팜_](https://wikipedia.org/wiki/Server_farm)과 유사합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다.
 
 특정 영역(예: 유럽 서부)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 계산 리소스 집합을 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 계산 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
 
@@ -38,6 +38,8 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 - **전용 계산**: **기본**, **표준**, **프리미엄** 및 **PremiumV2** 계층은 전용 Azure VM에서 앱을 실행합니다. 동일한 App Service 계획의 앱만이 동일한 계산 리소스를 공유합니다. 계층이 높을수록 스케일 아웃을 위해 더 많은 VM 인스턴스가 제공됩니다.
 - **격리**: 이 계층은 전용 Azure Virtual Networks에서 전용 Azure VM을 실행합니다. 그러면 앱에 계산 격리에 우선하는 네트워크 격리를 제공합니다. 최대 스케일 아웃 기능을 제공합니다.
 - **소비**: 이 계층은 [함수 앱](../azure-functions/functions-overview.md)에서만 사용할 수 있습니다. 그러면 워크로드에 따라 동적으로 함수를 확장합니다. 자세한 내용은 [Azure Functions 호스팅 계획 비교](../azure-functions/functions-scale.md)을 참조하세요.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 또한 각 계층은 App Service 기능의 특정 하위 집합을 제공합니다. 이러한 기능에는 사용자 지정 도메인 및 SSL 인증서, 자동 크기 조정, 배포 슬롯, 백업, Traffic Manager 통합 등이 포함됩니다. 계층이 높을수록 더 많은 기능을 사용할 수 있습니다. 각 가격 책정 계층에서 지원되는 기능을 알아보려면 [App Service 계획 세부 정보](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
 

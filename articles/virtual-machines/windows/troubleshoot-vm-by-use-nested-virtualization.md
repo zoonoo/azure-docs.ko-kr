@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/06/2017
 ms.author: genli
-ms.openlocfilehash: 35f52af5fbf0c945a766f5e5431c885d91df546a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: b50d139f62ef773fb5b9bb2638e40f8154e80979
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/07/2017
 
 5.  Hyper-V 관리자 열기: **서버 관리자**에서 **Hyper-V 역할**을 선택합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자**를 선택합니다.
 
-6.  Hyper-V 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **가상 컴퓨터** > **다음**을 선택합니다.
+6.  Hyper-V 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **Virtual Machine** > **다음**을 선택합니다.
 
 7.  VM에 대한 이름을 입력한 후 **다음**을 선택합니다.
 

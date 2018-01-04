@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: reference
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure Machine Learning용 Net# 신경망 사양 언어에 대한 가이드
 ## <a name="overview"></a>개요
 Net#은 Microsft에서 개발된 언어로 신경망 아키텍처를 정의하기 위해 사용됩니다. Microsoft Azure Machine Learning의 신경망 모듈에서 Net#을 사용할 수 있습니다.
 
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.  
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
-Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.  
+Azure Machine Learning에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.  
 
 * 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 * 계층이 서로 연결되는 방법을 지정합니다.
@@ -86,16 +86,16 @@ Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 
 
     Const X = 28;  
 
-상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예:  
+상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예:   
 
     Const { X = 28; Y = 4; }  
 
-각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예:  
+각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예:   
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>계층 선언
-계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예:  
+계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예:   
 
     input Data auto;
     hidden Hidden[5,20] from Data all;
@@ -411,7 +411,7 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 * **Sharing**[d]가 *d == 0*에 대해서만 False이므로 커널 수는 ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*입니다. 
 
 ## <a name="acknowledgements"></a>감사의 말
-신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, 기계 학습) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
 

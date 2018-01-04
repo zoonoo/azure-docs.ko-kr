@@ -3,7 +3,7 @@ title: "Azure DevTest Labs에서 기본 랩 정책 관리 | Microsoft Docs"
 description: "DevTest Labs에서 랩에 대한 기본 정책(설정)을 지정하는 방법에 대해 알아보기"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: tarcher
-ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: v-craic
+ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 기본 정책 관리
 
-Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)를 참조하세요.  
+Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 머신) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)를 참조하세요.  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩 정책에 액세스
 다음 단계에서는 Azure DevTest Labs에서 랩에 대한 정책을 설정하는 과정을 안내합니다.
@@ -41,12 +41,12 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 1. **구성 및 정책** 창에는 지정할 수 있는 설정 메뉴가 있습니다. 이 문서에는 **사용자당 가상 머신 수**, **자동 종료** 및 **자동 시작**에 대한 설정만 포함되어 있습니다. 나머지 설정에 대해 알아보려면 [Azure DevTest Labs에서 랩에 대한 모든 정책 관리](./devtest-lab-set-lab-policy.md)를 참조하세요. 
    
-## <a name="set-virtual-machines-per-user"></a>사용자당 가상 컴퓨터를 설정합니다.
-**사용자당 가상 컴퓨터** 에 대한 정책을 사용하면 개별 사용자가 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 사용자 제한에 도달하면 사용자가 VM을 만들거나 클레임하는 경우 VM을 만들거나 클레임할 수 없다는 오류 메시지가 표시됩니다. 
+## <a name="set-virtual-machines-per-user"></a>사용자당 가상 머신을 설정합니다.
+**사용자당 가상 머신** 에 대한 정책을 사용하면 개별 사용자가 만들 수 있는 최대 VM 수를 지정할 수 있습니다. 사용자 제한에 도달하면 사용자가 VM을 만들거나 클레임하는 경우 VM을 만들거나 클레임할 수 없다는 오류 메시지가 표시됩니다. 
 
-1. 랩의 **구성 및 정책** 메뉴에서 **사용자당 가상 컴퓨터**를 선택합니다.
+1. 랩의 **구성 및 정책** 메뉴에서 **사용자당 가상 머신**를 선택합니다.
    
-    ![사용자당 가상 컴퓨터](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
+    ![사용자당 가상 머신](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
 1. **예**를 선택하여 사용자당 VM 수를 제한합니다. 사용자당 VM 수를 제한하지 않으려면 **아니요**를 선택합니다. **예**를 선택하면 사용자가 만들거나 클레임할 수 있는 최대 VM 수를 나타내는 숫자 값을 입력합니다. 
 

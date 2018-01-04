@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-python-extensions"></a>데이터 준비 Python 확장
 기본 제공 기능 사이의 격차를 해소하기 위해 Azure Machine Learning 데이터 준비에는 여러 수준의 확장성이 포함되어 있습니다. 이 문서에서는 Python 스크립트를 통해 확장성을 설명합니다. 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/20/2017
 *이러한 단계는 현재 Spark 실행에서 지원되지 않습니다.
 
 ## <a name="code-block-types"></a>코드 블록 형식 
-이러한 각 단계에 대해 두 개의 코드 블록 형식이 지원됩니다. 첫째, 있는 그대로 실행되는 기본 Python 식이 지원됩니다. 둘째, 제공한 코드에서 알려진 서명을 사용하여 특정 함수를 호출하는 Python 모듈이 지원됩니다.
+위 각 단계에 대해 두 가지 코드 블록 형식이 지원됩니다. 첫째, 있는 그대로 실행되는 기본 Python 식이 지원됩니다. 둘째, 제공한 코드에서 알려진 서명을 사용하여 특정 함수를 호출하는 Python 모듈이 지원됩니다.
 
 예를 들어 다음 두 가지 방식으로 다른 열의 로그를 계산하는 새 열을 추가할 수 있습니다.
 
@@ -204,7 +204,7 @@ def write(df):
 
 ## <a name="add-column"></a>열 추가 
 ### <a name="purpose"></a>목적
-열 추가 확장 지점에서는 새 열을 계산하는 Python을 작성할 수 있습니다. 작성하는 코드에는 전체 행에 액세스할 수 있습니다. 각 행에 대해 새 열 값을 반환해야 합니다. 
+열 추가 확장 지점에서는 새 열을 계산하는 Python을 작성할 수 있습니다. 작성하는 코드는 전체 행에 액세스할 수 있습니다. 코드는 각 행마다 새로운 열 값을 반환해야 합니다. 
 
 ### <a name="how-to-use"></a>사용 방법
 열 추가(스크립트) 블록을 사용하여 이 확장 지점을 추가할 수 있습니다. **열** 상황에 맞는 메뉴와 최상위 **변환** 메뉴에서 사용할 수 있습니다. 
