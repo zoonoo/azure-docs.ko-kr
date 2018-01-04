@@ -5,7 +5,7 @@
     - name: 구성 요소 버전 관리
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작
+- name: 시작하기
   items:
     - name: 대화형 쿼리 시작
       href: ./apache-interactive-query-get-started.md
@@ -98,6 +98,8 @@
         - name: 파워 쿼리를 사용하여 분석
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: 대화형 쿼리에 Power BI 연결
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Hadoop에 Power BI 연결
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -317,7 +319,7 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

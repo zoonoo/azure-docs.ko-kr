@@ -58,7 +58,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| 예|  
 |\*.ods.opinsights.azure.com| 443| 예|  
-|*.azure-automation.net | 443| 예|  
+|* .azure-automation.net | 443| 예|  
 |**OMS에 대한 Operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  

@@ -19,7 +19,7 @@
           href: connect-java.md
         - name: .Net
           href: connect-csharp.md
-        - name: Python
+        - name: 파이썬
           href: connect-python.md
         - name: Node.js
           href: connect-nodejs.md
@@ -35,7 +35,7 @@
   items:
     - name: 1 - 데이터베이스 설계
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -87,17 +87,17 @@
   items:
     - name: 서버 관리
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-create-manage-server-portal.md
     - name: 방화벽 규칙
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: 서버 복원
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: 가져오기 및 내보내기
           href: concepts-migrate-import-export.md
+        - name: 최소 가동 중지 시간 마이그레이션
+          href: howto-migrate-online.md
     - name: 응용 프로그램 연결
       items:
         - name: 사용자 만들기
@@ -119,13 +121,13 @@
           href: howto-connect-webapp.md
     - name: 서버 매개 변수 구성
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: 서버 로그 액세스
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
@@ -133,7 +135,7 @@
       items:
         - name: 메트릭에 대한 경고 만들기
           href: howto-alert-on-metric.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
@@ -151,7 +153,7 @@
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: 비디오
+    - name: 동영상
       href: videos.md
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'

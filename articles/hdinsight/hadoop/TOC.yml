@@ -7,7 +7,7 @@
     - name: HDInsight의 Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: 시작
+- name: 시작하기
   items:
     - name: Hadoop으로 시작
       href: apache-hadoop-linux-tutorial-get-started.md
@@ -121,6 +121,9 @@
       items:
         - name: 파워 쿼리를 사용하여 분석
           href: apache-hadoop-connect-excel-power-query.md
+        - name: 대화형 쿼리에 Power BI 연결
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Hadoop에 Power BI 연결
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Hadoop에 Excel 연결
@@ -375,7 +378,7 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

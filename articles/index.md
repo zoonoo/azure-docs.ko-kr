@@ -4,11 +4,11 @@ hide_bc: True
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -870,7 +870,8 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
+                                                <p>Data Lake Analytics
+</p>
                                             </a>
                                         </li>
                                         <li>
@@ -882,7 +883,8 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Event Hubs</p>
+                                                <p>Event Hubs
+</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1098,7 +1100,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>모바일 고객 관리</p>
+                                                <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1113,7 +1115,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>보안 센터</p>
+                                                <p>Security Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1436,7 +1438,8 @@ ms.lasthandoff: 12/20/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션</p>
+                                                    <p>Windows 또는 Linux에서 마이크로 서비스를 개발하고 컨테이너를 오케스트레이션
+</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2416,7 +2419,8 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs</h3>
+                                                    <h3>Event Hubs
+</h3>
                                                     <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
@@ -2729,7 +2733,7 @@ ms.lasthandoff: 12/20/2017
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>검색</h3>
+                                                        <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
@@ -4163,6 +4167,34 @@ Azure CLI </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">다운로드</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+SQL 도구 </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio<sup>미리 보기</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -8,7 +8,9 @@
 ## 통합
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [저장소](cdn-create-a-storage-account-with-cdn.md)
+### Storage
+#### [저장소 계정 통합](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS 저장소 지원](cdn-sas-storage-support.md)
 ### [크로스-원본 자원 공유](cdn-cors.md)
 ### [CDN 끝점에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
 ### [사용자 지정 도메인에 HTTPS 구성](cdn-custom-ssl.md)
@@ -58,12 +60,12 @@
 ### [404 상태](cdn-troubleshoot-endpoint.md)
 ### [파일 압축](cdn-troubleshoot-compression.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
-## [REST (영문)](/rest/api/cdn/)
+## [REST](/rest/api/cdn/)
 
 # 리소스
 ##  [규칙 엔진 참조](cdn-rules-engine-reference.md)
@@ -73,7 +75,7 @@
 ## [Azure CDN POP 위치](cdn-pop-locations.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
-## [가격](https://azure.microsoft.com/pricing/details/cdn/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cdn/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-cdn)

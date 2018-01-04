@@ -1,5 +1,9 @@
 - name: Site Recovery 설명서
   href: index.yml
+- name: 온-프레미스 컴퓨터 및 Azure VM의 마이그레이션
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure 간 재해 복구
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: 개요
   items:
     - name: 사이트 복구란?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: 온-프레미스에서 Azure로 지원 매트릭스
       href: site-recovery-support-matrix-to-azure.md
+    - name: Hyper-V에서 Azure로 지원 매트릭스
+      href: support-matrix-hyper-v-to-azure.md
     - name: 온-프레미스에서 보조 사이트로 지원 매트릭스
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 작업에 대한 재해 복구
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: 재해 복구
       items:
+        - name: Azure로 Hyper-V 복제 준비
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Hyper-V VM에서 Azure로
           href: tutorial-hyper-v-to-azure.md
+        - name: VMM 클라우드의 Hyper-V VM에서 Azure로
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: 물리적 서버에서 Azure로
           href: tutorial-physical-to-azure.md
         - name: Hyper-V VM에서 보조 사이트로
@@ -104,7 +114,7 @@
           items:
             - name: Azure Runbook을 복구 계획에 추가
               href: site-recovery-runbook-automation.md
-        - name: 테스트 장애 조치(Failover) 실행
+        - name: 테스트 장애 조치(failover) 실행
           items:
             - name: Azure로 테스트 장애 조치(Failover) 실행
               href: site-recovery-test-failover-to-azure.md
@@ -189,7 +199,7 @@
               href: site-recovery-install-mobility-service-using-sccm.md
             - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
               href: site-recovery-automate-mobility-service-install.md
-        - name: 복제 활성화
+        - name: 복제 사용
           items:
             - name: Azure 간 복제 활성화
               href: site-recovery-replicate-azure-to-azure.md
@@ -263,7 +273,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: 로그 수집 및 온-프레미스 문제 해결
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

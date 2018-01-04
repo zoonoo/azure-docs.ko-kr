@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure 포털을 사용하여 릴레이 네임스페이스 만들기
 
@@ -31,9 +31,10 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-축하합니다. 이제 릴레이 네임스페이스를 만들었습니다.
+축하합니다! 이제 릴레이 네임스페이스를 만들었습니다.
 
-## <a name="next-steps"></a>다음 단계:
+## <a name="next-steps"></a>다음 단계
+
 * [릴레이 FAQ](relay-faq.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)

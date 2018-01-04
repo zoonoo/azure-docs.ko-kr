@@ -31,7 +31,7 @@ SQL 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하
 
 예를 들어 SQL 삽입은 데이터 기반 응용 프로그램 공격에 사용되는 인터넷 상의 일반적인 웹 응용 프로그램 보안 문제 중 하나입니다. 공격자는 응용 프로그램의 취약성을 이용하여 악의적인 SQL 문을 응용 프로그램 항목 필드에 삽입하고 데이터베이스의 데이터를 침범하거나 수정합니다.
 
-SQL 위협 감지는 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)와 경고를 통합하며, 보호되는 각 SQL Database 서버는 Azure Security Center 표준 계층과 동일한 가격($15/노드/월, 여기서 보호되는 각 SQL Database 서버를 하나의 노드로 계산)으로 비용이 청구됩니다.  
+SQL 위협 감지의 경고는 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) 와 통합됩니다. 보호되는 각 SQL Database 서버에 대한 비용은 Azure Security Center 표준 계층과 동일한 가격($15/노드/월, 여기서 보호되는 각 SQL Database 서버를 하나의 노드로 계산)으로 청구됩니다.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스에 대한 위협 검색 설정
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
