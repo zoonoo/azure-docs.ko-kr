@@ -1,9 +1,9 @@
 ---
 title: "DevTest Labs 개념 | Microsoft 문서"
-description: "DevTest Lab의 기본 개념과 Azure 가상 컴퓨터를 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기"
+description: "DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="virtual-machine"></a>가상 컴퓨터
 Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
-[Azure에서의 Windows 가상 컴퓨터 개요](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
+[Azure에서의 Windows 가상 머신 개요](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
 
 ## <a name="claimable-vm"></a>클레임할 수 있는 VM
-Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 있는 가상 컴퓨터입니다. 랩 관리자가 특정한 기본 이미지와 아티팩트를 사용하여 VM을 준비하고 공유 풀에 저장할 수 있습니다. 그런 다음 랩 사용자가 특정 구성이 포함된 VM이 필요할 때 풀에서 작동하는 VM을 클레임할 수 있습니다.
+Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 있는 가상 머신입니다. 랩 관리자가 특정한 기본 이미지와 아티팩트를 사용하여 VM을 준비하고 공유 풀에 저장할 수 있습니다. 그런 다음 랩 사용자가 특정 구성이 포함된 VM이 필요할 때 풀에서 작동하는 VM을 클레임할 수 있습니다.
 
-클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 컴퓨터"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 컴퓨터” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
+클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 머신"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 머신” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
 ## <a name="environment"></a>Environment
 DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
@@ -66,9 +66,9 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 캡은 랩에서 낭비를 최소화하는 메커니즘입니다. 예를 들어 캡을 설정하여 사용자당 또는 랩에서 만들 수 있는 VM의 수를 제한할 수 있습니다.
 
 ## <a name="security-levels"></a>보안 수준
-보안 액세스는 Azure 역할 기반 액세스 제어(RBAC)를 통해 결정됩니다. 액세스의 작동 방식을 이해하기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 이해하는 데 도움을 줍니다.
+보안 액세스는 Azure 역할 기반 Access Control(RBAC)을 통해 결정됩니다. 액세스의 작동 방식을 이해하기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 이해하는 데 도움을 줍니다.
 
-* 사용 권한 - 특정 작업에 대해 정의된 액세스입니다(예: 모든 가상 컴퓨터에 대한 읽기 액세스).
+* 사용 권한 - 특정 작업에 대해 정의된 액세스입니다(예: 모든 가상 머신에 대한 읽기 액세스).
 * 역할 - 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 집합입니다. 예를 들어 *구독 소유자* 역할은 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
 * 범위 - Azure 리소스의 계층 구조 내 수준입니다(예: 리소스 그룹, 단일 랩 또는 전체 구독).
 
@@ -79,7 +79,7 @@ DevTest Labs의 범위 내에 사용자 사용 권한을 정의하는 두 가지
 
 DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특정 랩 정책에 사용자 권한 부여](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)문서를 참조하세요.
 
-범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 포함된 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 모든 가상 컴퓨터, 모든 가상 네트워크 및 모든 랩을 포함하는 구독의 모든 리소스에 대한 액세스를 가집니다. 따라서 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 랩 외부에 있는 가상 컴퓨터 또는 가상 네트워크 또는 리소스를 볼 수 없습니다.
+범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 포함된 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 모든 가상 머신, 모든 가상 네트워크 및 모든 랩을 포함하는 구독의 모든 리소스에 대한 액세스를 가집니다. 따라서 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 랩 외부에 있는 가상 머신 또는 가상 네트워크 또는 리소스를 볼 수 없습니다.
 
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 이 문서에 설명된 모든 개념은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. 이러한 템플릿에서는 Azure 솔루션의 인프라/구성을 정의하고 반복적으로 일관된 상태로 배포할 수 있습니다.

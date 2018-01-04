@@ -4,22 +4,24 @@ description: "이 문서는 Azure Machine Learning 미리 보기 기능에 대�
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
 ## <a name="general-product-questions"></a>일반적인 제품 질문
 
-**Azure 기계 학습이란 무엇인가요?**
+
+            **Azure Machine Learning이란 무엇인가요?**
 
 Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, 관리 및 배포할 수 있는 완전히 관리되는 Azure 서비스입니다. 이 새로운 서비스 및 다운로드 가능 응용 프로그램은 클라우드, 온-프레미스 및 Edge를 이용하여 처리 능력, 속도 및 유연성을 가진 학습, 배포, 관리 및 모니터링을 제공하는 코드 우선 방식을 제공합니다. 또는 Azure Machine Learning Studio는 코딩이 필요하지 않은 브라우저 기반의 시각적 끌어서 놓기 저작 환경을 제공합니다. 
 
@@ -29,7 +31,7 @@ Azure Machine Learning은 기계 학습 및 AI 모델을 만들고 테스트, �
 
 **Azure 구독이 없습니다. 여전히 새 서비스를 시도할 수 있나요?**
 
-Microsoft Azure 포트폴리오의 일환으로, 새 서비스는 Azure 구독이 필요합니다. 또한 리소스 그룹, 가상 컴퓨터 등의 자산을 만들 수 있는 권한이 있어야 합니다. 
+Microsoft Azure 포트폴리오의 일환으로, 새 서비스는 Azure 구독이 필요합니다. 또한 리소스 그룹, Virtual Machines 등의 자산을 만들 수 있는 권한이 있어야 합니다. 
 
 **새 서비스를 사용할 수 있는 지역은 어디인가요?**
 
@@ -55,13 +57,13 @@ A: MMLSpark는 생산성, 간편한 실험 및 최신 알고리즘을 강조한 
 
 **새로운 도구와 서비스에서 지원 되는 Spark의 버전은 무엇입니까? 맨 위 섹션**
 
-Workbench는 현재 Apache Spark 2.1과 호환되는 MMLSpark 버전 0.8을 포함하고 지원합니다. 또한 Linux 가상 컴퓨터에서 MMLSpark 0.8의 GPU 지원 Docker 이미지를 사용하는 옵션이 있습니다.
+Workbench는 현재 Apache Spark 2.1과 호환되는 MMLSpark 버전 0.8을 포함하고 지원합니다. 또한 Linux 가상 머신에서 MMLSpark 0.8의 GPU 지원 Docker 이미지를 사용하는 옵션이 있습니다.
 
 ## <a name="experimentation-service"></a>실험 서비스
 
 **Azure Machine Learning 실험 서비스란 무엇입니까?**
 
-실험 서비스는 기계 학습 실험을 다음 수준으로 높여 주는 관리되는 Azure 서비스입니다. 로컬 컴퓨터에서 또는 클라우드에서 실험을 만들 수 있습니다. 데스크톱에서 프로토타입을 빨리 만든 다음 가상 컴퓨터 또는 Spark 클러스터로 확장합니다. 최신 GPU 기술을 탑재한 Azure VM을 사용하면 심층 학습에 빠르게 효율적으로 참여할 수 있습니다. 또한 코드 추적, 구성 및 공동 작업을 위해 기존 워크플로에 쉽게 통합할 수 있도록 Git에 심층 통합을 포함했습니다. 
+실험 서비스는 기계 학습 실험을 다음 수준으로 높여 주는 관리되는 Azure 서비스입니다. 로컬 컴퓨터에서 또는 클라우드에서 실험을 만들 수 있습니다. 데스크톱에서 프로토타입을 빨리 만든 다음 가상 머신 또는 Spark 클러스터로 확장합니다. 최신 GPU 기술을 탑재한 Azure VM을 사용하면 심층 학습에 빠르게 효율적으로 참여할 수 있습니다. 또한 코드 추적, 구성 및 공동 작업을 위해 기존 워크플로에 쉽게 통합할 수 있도록 Git에 심층 통합을 포함했습니다. 
 
 **실험 서비스에 대한 수수료를 지불하는 방법**
 
@@ -73,7 +75,7 @@ Azure Machine Learning 실험 서비스와 연결된 처음 두 사용자는 무
 
 **내가 사용할 수 있는 계산 및 저장소 리소스의 구체적인 종류는 무엇인가요?**
 
-실험 서비스는 로컬 컴퓨터(직접 또는 Docker 기반), [Azure 가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/) 및 [HDInsight](https://azure.microsoft.com/services/hdinsight/)에서 실험을 실행할 수 있습니다. 이 서비스는 실행 출력을 저장하기 위해 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 액세스하며 버전 관리 및 Git 저장소를 위해 [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) 계정을 이용할 수 있습니다. 참고로 사용한 계산 및 저장소 리소스는 각각의 가격에 따라 개별적으로 비용이 청구됩니다.  
+실험 서비스는 로컬 컴퓨터(직접 또는 Docker 기반), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) 및 [HDInsight](https://azure.microsoft.com/services/hdinsight/)에서 실험을 실행할 수 있습니다. 이 서비스는 실행 출력을 저장하기 위해 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 액세스하며 버전 관리 및 Git 저장소를 위해 [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) 계정을 이용할 수 있습니다. 참고로 사용한 계산 및 저장소 리소스는 각각의 가격에 따라 개별적으로 비용이 청구됩니다.  
 
 
 ## <a name="model-management"></a>모델 관리
@@ -96,7 +98,7 @@ Azure Machine Learning 모델 관리는 데이터 과학자와 개발 운영팀�
 
 **내 배포에 사용할 수 있는 구체적 계산 리소스는 무엇입니까?** 
 
-모델 관리는 사용자의 배포를 [Azure Container Service](https://azure.microsoft.com/services/container-service/)에 등록된 Docker 컨테이너로, [Azure 가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)로, 또는 로컬 컴퓨터에서 실행할 수 있습니다. 추가 배포 대상은 곧 추가됩니다. 참고로 사용한 계산 리소스는 각각의 가격에 따라 개별적으로 비용이 청구됩니다.     
+모델 관리는 사용자의 배포를 [Azure Container Service](https://azure.microsoft.com/services/container-service/)에 등록된 Docker 컨테이너로, [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)로, 또는 로컬 컴퓨터에서 실행할 수 있습니다. 추가 배포 대상은 곧 추가됩니다. 참고로 사용한 계산 리소스는 각각의 가격에 따라 개별적으로 비용이 청구됩니다.     
 
 **Azure Machine Learning Model Management를 사용하면 실험 서비스 이외의 도구로 빌드한 모델을 배포할 수 있나요?**
 
@@ -126,15 +128,15 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Workbench는 IDE인가요?**
 
-아니요. Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 
+번호 Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. .  
+번호 Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
 
 **명령줄 기능을 지원하나요?**
 
-A: 예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 컴퓨터의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)에 통합됩니다.
+A: 예, Azure Machine Learning은 완전한 CLI 인터페이스를 제공합니다. Machine Learning CLI는 기본적으로 Azure Machine Learning Workbench와 함께 설치됩니다. 또한 Azure용 Linux Data Science 가상 머신의 일부로도 제공되며 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)에 통합됩니다.
 
 
 **내 Jupyter 노트북을 Workbench에서 사용할 수 있나요?**
@@ -199,7 +201,7 @@ A: Azure Machine Learning Workbench 응용 프로그램은 Azure 구독자가 �
 
 **내 웹 서비스 호출 빈도에 따라 비용이 청구되나요?**
 
-아니요. 웹 서비스는 모델 관리 비용에 영향을 미치지 않고 필요한 대로 자주 호출할 수 있습니다. 응용 프로그램의 요구 사항을 충족시키기 위해 배포 범위를 완벽하게 제어할 수 있어야 합니다.
+번호 웹 서비스는 모델 관리 비용에 영향을 미치지 않고 필요한 대로 자주 호출할 수 있습니다. 응용 프로그램의 요구 사항을 충족시키기 위해 배포 범위를 완벽하게 제어할 수 있어야 합니다.
 
 **Azure Machine Learning Model Management에서 구매한 단위 수를 어떻게 조정할 수 있나요?**
 
@@ -221,10 +223,12 @@ Azure Portal 또는 CLI를 사용하여 단위 수를 높거나 낮게 변경할
 
 ## <a name="support-and-training"></a>지원 및 교육
 
-**Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
+
+            **Azure Machine Learning에 대한 교육은 어디에서 받을 수 있나요?**
 
 [Azure Machine Learning 설명서 센터](./overview-what-is-azure-ml.md)에서 비디오 자습서와 방법 가이드를 호스트합니다. 이 단계별 가이드는 서비스를 소개하며 데이터 과학 수명 주기를 설명합니다. Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습니다. 사용자 피드백 포럼에서 추가 학습 자료에 대한 요청을 제출할 수 있습니다.
 
-**Azure 기계 학습에 대한 지원을 받으려면 어떻게 해야 하나요?**
+
+            **Azure Machine Learning에 대한 지원을 받으려면 어떻게 해야 하나요?**
 
 기술 지원을 받으려면 Azure Support로 이동한 다음 Machine Learning을 선택하세요. Azure Machine Learning은 팀이 모니터링하는 "Azure-Machine-Learning"라는 태그가 지정된 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)에 관한 커뮤니티도 현재 운영하고 있습니다.  제안 사항 및 기능 요청은 [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) 사이트에서 제출할 수 있습니다. 

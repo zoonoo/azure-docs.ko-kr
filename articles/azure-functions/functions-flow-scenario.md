@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow에서 함수 호출
 
@@ -48,7 +48,7 @@ PowerApps에서 동일한 함수를 호출하는 방법에 대한 내용은 [Pow
 ## <a name="create-a-sharepoint-list"></a>SharePoint 목록 만들기
 흐름의 데이터 원본으로 사용할 목록 만들기부터 시작합니다. 목록에는 다음과 같은 열이 있습니다.
 
-| 목록 열     | 데이터 형식           | 참고 사항                                    |
+| 목록 열     | 데이터 형식           | 메모                                    |
 |-----------------|---------------------|------------------------------------------|
 | **제목**           | 한 줄의 텍스트 | 터빈의 이름                      |
 | **LastServiceDate** | Date                |                                          |

@@ -1,9 +1,9 @@
 ---
-title: "DevTest Labs 가상 컴퓨터에 대한 사용자 지정 아티팩트 만들기 | Microsoft Docs"
+title: "DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기 | Microsoft Docs"
 description: "Azure DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 만드는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 컴퓨터에 대한 사용자 지정 아티팩트 만들기
+# <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
 
 이 문서에 설명된 단계의 개요에 대한 다음 비디오 보기:
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 10/11/2017
 
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
-| $schema |아니요 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
+| $schema |아니오 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
 | title |예 |랩에 표시되는 아티팩트의 이름입니다. |
-| 설명 |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
+| description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
 | iconUri |아니요 |랩에 표시되는 아이콘의 URI입니다. |
 | targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
 | 매개 변수 |아니요 |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
@@ -77,9 +77,9 @@ ms.lasthandoff: 10/11/2017
 
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
-| type |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
+| 형식 |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
 | displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. | |
-| 설명 |예 |랩에 표시되는 매개 변수의 설명입니다. |
+| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 

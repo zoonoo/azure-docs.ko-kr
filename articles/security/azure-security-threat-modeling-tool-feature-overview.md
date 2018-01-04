@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 
 빈 페이지를 열려면 **모델 만들기**를 선택합니다.
 
-![빈 페이지](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![빈 페이지](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 현재 이 도구에서 사용할 수 있는 모든 기능을 확인하려면 [시작](./azure-security-threat-modeling-tool-getting-started.md) 예제에서 당사 팀이 만든 위협 모델을 사용합니다.
 
-![기본 위협 모델](./media/azure-security-threat-modeling-tool/basictmt.png)
+![기본 위협 모델](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>탐색
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 환경은 다른 Microsoft 제품과 비슷합니다. 최상위 메뉴 항목을 검토해 보겠습니다.
 
-![메뉴 항목](./media/azure-security-threat-modeling-tool/menuitems.png)
+![메뉴 항목](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>캔버스에 스텐실 놓기
 
-![캔버스 놓기](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![캔버스 놓기](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>스텐실 선택
 
-![요소 속성](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![요소 속성](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>스텐실
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 10/11/2017
 
 | 스텐실 이름                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **프로세스** | 응용 프로그램, 브라우저 플러그 인, 스레드, 가상 컴퓨터 |
+| **프로세스** | 응용 프로그램, 브라우저 플러그 인, 스레드, 가상 머신 |
 | **외부 작용** | 인증 공급자, 브라우저, 사용자, 웹 응용 프로그램 |
 | **데이터 저장소** | 캐시, 저장소, 구성 파일, 데이터베이스, 레지스트리 |
 | **데이터 흐름** | 이진, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, 명명된 파이프, RPC/DCOM, SMB, UDP |
@@ -120,15 +120,15 @@ ms.lasthandoff: 10/11/2017
 
 **모델 열기** 위로 마우스로 가리키면 **이 컴퓨터에서 열기**와 **OneDrive에서 열기** 등 두 가지 옵션이 표시됩니다. 첫 번째 옵션은 **파일 열기** 화면이 열립니다. 두 번째 옵션은 OneDrive에 대한 로그인 프로세스로 이동합니다. 인증이 성공하면 파일과 폴더를 선택할 수 있습니다.
 
-![모델 열기](./media/azure-security-threat-modeling-tool/openmodel.png)
+![모델 열기](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![컴퓨터 또는 OneDrive에서 열기](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![컴퓨터 또는 OneDrive에서 열기](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>피드백, 제안 및 문제
 
 **피드백, 제안 및 문제**를 선택하는 경우 SDL 도구에 관한 MSDN 포럼으로 이동합니다. 해결 방법 및 새로운 아이디어를 포함하여 도구에 대한 다른 사용자의 의견을 읽을 수 있습니다.
 
-![사용자 의견](./media/azure-security-threat-modeling-tool/feedback.png)
+![사용자 의견](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>디자인 보기
 
@@ -154,19 +154,19 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="before"></a>이전
 
-![이전](./media/azure-security-threat-modeling-tool/properties1.png)
+![이전](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>이후
 
-![이후](./media/azure-security-threat-modeling-tool/properties2.png)
+![이후](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>메시지
 
 위협 모델을 만들고 데이터 흐름을 요소에 연결하는 것을 잊은 경우 알림이 나타납니다. 메시지를 무시하거나 지침을 따라 문제를 해결할 수 있습니다. 
 
-![메시지](./media/azure-security-threat-modeling-tool/messages.png)
+![메시지](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>참고 사항
+### <a name="notes"></a>메모
 
 다이어그램에 메모를 추가하려면 **메시지** 탭에서 **메모** 탭으로 전환합니다.
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 
 다이어그램을 구성한 후, 바로 가기 도구 모음에서 **분석** 기호(돋보기)를 선택하여 **분석** 보기로 전환합니다.
 
-![분석 보기](./media/azure-security-threat-modeling-tool/analysisview.png)
+![분석 보기](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>생성된 위협 선택
 
@@ -182,27 +182,27 @@ ms.lasthandoff: 10/11/2017
 
 | 기능                               | 정보      |
 | --------------------------------------- | ------------ |
-| **읽음 표시기** | <p>위협이 읽음으로 표시되며, 검토한 항목을 계속 추적할 수 있습니다.</p><p>![읽음/읽지 않음 표시기](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **상호 작용 포커스** | <p>위협에 속한 다이어그램의 상호 작용이 강조 표시됩니다.</p><p>![상호 작용 포커스](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **위협 속성** | <p>위협에 대한 추가 정보가 **위협 속성** 창에 나타납니다.</p><p>![위협 속성](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **읽음 표시기** | <p>위협이 읽음으로 표시되며, 검토한 항목을 계속 추적할 수 있습니다.</p><p>![읽음/읽지 않음 표시기](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **상호 작용 포커스** | <p>위협에 속한 다이어그램의 상호 작용이 강조 표시됩니다.</p><p>![상호 작용 포커스](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **위협 속성** | <p>위협에 대한 추가 정보가 **위협 속성** 창에 나타납니다.</p><p>![위협 속성](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>우선 순위 변경
 
 생성된 각 위협의 우선 순위 수준을 변경할 수 있습니다. 서로 다른 색상을 통해 높은, 중간, 낮은 우선 순위 위협을 쉽게 구분할 수 있습니다.
 
-![우선 순위 변경](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![우선 순위 변경](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>위협 속성 편집 가능한 필드
 
 이전 그림처럼 도구를 통해 생성된 정보를 변경할 수 있습니다. 맞춤 등 특정 필드에 정보를 추가할 수도 있습니다. 이러한 필드는 템플릿에서 생성됩니다. 각 위협에 대한 자세한 정보가 필요한 경우 수정할 수 있습니다.
 
-![위협 속성](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![위협 속성](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>보고서
 
 생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서** > **전체 보고서 만들기**로 이동합니다. 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
 
-![보고서](./media/azure-security-threat-modeling-tool/report.png)
+![보고서](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure CLI를 사용하여 DevTest Labs에서 가상 컴퓨터 만들기 및 관리 | Microsoft Docs"
-description: "Azure DevTest Labs를 사용하여 Azure CLI 2.0에서 가상 컴퓨터를 만들고 관리하는 방법을 알아봅니다."
+title: "Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리 | Microsoft Docs"
+description: "Azure DevTest Labs를 사용하여 Azure CLI 2.0에서 가상 머신을 만들고 관리하는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: lisawong19
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.service: devtest-lab
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: liwong
-ms.openlocfilehash: a3af12ba0598d60b55b3714ae1690fe3e5b54a42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: e73ddeba56c779d9fb1be77a50cbae5111de03c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 컴퓨터 만들기 및 관리
+# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리
 이 빠른 시작은 랩에서 개발 컴퓨터를 만들고, 시작하고, 연결하고, 업데이트하고, 정리하는 과정을 안내합니다. 
 
 시작하기 전에
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 * [CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli). 시작하려면 az login을 실행하여 Azure와 연결합니다. 
 
-## <a name="create-and-verify-the-virtual-machine"></a>가상 컴퓨터 만들기 및 확인 
+## <a name="create-and-verify-the-virtual-machine"></a>가상 머신 만들기 및 확인 
 ssh 인증을 사용하여 Marketplace 이미지에서 VM을 만듭니다.
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
@@ -52,7 +52,7 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 }
 ```
 
-## <a name="start-and-connect-to-the-virtual-machine"></a>가상 컴퓨터 시작 및 연결
+## <a name="start-and-connect-to-the-virtual-machine"></a>가상 머신 시작 및 연결
 VM을 시작합니다.
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
@@ -66,7 +66,7 @@ VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [원격 데�
 ssh userName@ipAddressOrfqdn 
 ```
 
-## <a name="update-the-virtual-machine"></a>가상 컴퓨터 업데이트
+## <a name="update-the-virtual-machine"></a>가상 머신 업데이트
 VM에 아티팩트를 적용합니다.
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
@@ -113,7 +113,7 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 }
 ```
 
-## <a name="stop-and-delete-the-virtual-machine"></a>가상 컴퓨터 중지 및 삭제    
+## <a name="stop-and-delete-the-virtual-machine"></a>가상 머신 중지 및 삭제    
 VM을 중지합니다.
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup

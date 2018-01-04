@@ -5,22 +5,22 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>예제별 열 결합 변환
 이 변환을 사용하여 여러 열의 값을 결합하여 새 열을 추가할 수 있습니다. 사용자는 이 변환을 수행하기 위해 구분 기호를 지정하거나 결합된 값 예제를 제공할 수 있습니다. 사용자가 결합 예제를 제공하면, **예제별 열 파생** 변환에서 사용된 것과 같은 **By-Example** 엔진을 사용하여 변환이 처리됩니다.
 
-## <a name="how-to-perform-this-transformation"></a>이 변형을 수행하는 방법
+## <a name="how-to-perform-this-transformation"></a>이 변환을 수행하는 방법
 
 이 변형을 수행하려면 다음 단계를 따릅니다.
 1. 하나의 열으로 결합하려는 두 개 이상의 열을 선택합니다. 

@@ -6,20 +6,20 @@ keywords: "SEO champ와 상담하지 않고 키워드를 추가하거나 편집�
 author: philmea
 ms.author: philmea
 ms.date: 11/14/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: c7f877eebefb3ed7c8230c2436e5cb024cc99c11
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Azure Location Based Services 계정 및 키를 관리하는 방법
 
 Azure Portal을 통해 Azure Location Based Services 계정 및 키를 관리할 수 있습니다. 계정과 구독 키가 있으면 웹 사이트 또는 모바일 응용 프로그램에서 API를 구현할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 

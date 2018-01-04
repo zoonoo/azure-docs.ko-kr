@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4121f94e15d9ba938d90d72e70d7bcb49a6c1ed5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경
 이 문서에서는 Azure AD(Azure Active Directory)에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
@@ -42,5 +42,4 @@ ms.lasthandoff: 12/11/2017
 * [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)
 * [Azure Active Directory에서 사용자 암호 재설정](active-directory-users-reset-password-azure-portal.md)
 * [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
-* [Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-work-info-azure-portal.md)
 * [Azure Active Directory의 디렉터리에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)

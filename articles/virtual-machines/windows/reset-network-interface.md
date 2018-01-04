@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 77d6bf3bb8b0e03419f93e97746bc1a0a091045e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6bf5c991e8a96cfdcbad971e0f2ea2dfd01f2893
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -35,25 +35,25 @@ ms.lasthandoff: 11/04/2017
 
 1.  [Azure 포털]( https://ms.portal.azure.com)로 이동합니다.
 2.  **Virtual Machines(클래식)**를 선택합니다.
-3.  영향을 받는 가상 컴퓨터를 선택합니다.
+3.  영향을 받는 Virtual Machine을 선택합니다.
 4.  **IP 주소**를 선택합니다.
 5.  **개인 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
 6.  **IP 주소**를 서브넷에서 사용할 수 있는 다른 IP 주소로 변경합니다.
 7.  [저장]을 선택합니다.
-8.  가상 컴퓨터를 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
+8.  가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
 9.  컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>리소스 그룹 모델에서 배포된 VM의 경우
 
 1.  [Azure 포털]( https://ms.portal.azure.com)로 이동합니다.
-2.  영향을 받는 가상 컴퓨터를 선택합니다.
+2.  영향을 받는 Virtual Machine을 선택합니다.
 3.  **네트워크 인터페이스**를 선택합니다.
 4.  컴퓨터와 연결된 네트워크 인터페이스를 선택합니다.
 5.  **IP 구성**을 선택합니다.
 6.  IP를 선택 합니다. 
 7.  **개인 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
 8.  **IP 주소**를 서브넷에서 사용할 수 있는 다른 IP 주소로 변경합니다.
-9. 가상 컴퓨터를 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
+9. 가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
 10. 컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
 
 ## <a name="delete-the-unavailable-nics"></a>사용할 수 없는 NIC를 삭제합니다.

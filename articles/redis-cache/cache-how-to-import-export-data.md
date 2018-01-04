@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 761c0d808eb787517473036e53992ff5e49b17fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
 Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 
@@ -77,7 +77,7 @@ Import/Export를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이�
 2. **저장소 컨테이너 선택** 을 클릭하고 원하는 Storage 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
-   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/blobs/storage-account-options.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
+   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/common/storage-account-options.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
    >
    >
 
@@ -155,7 +155,7 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 이를 해결하려면, 15분이 지나기 전에 가져오기 또는 내보내기 작업을 시작하세요.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob Storage로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?
-내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Blob Storage 계정](../storage/blobs/storage-account-options.md#blob-storage-accounts)을 참조하세요.
+내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Blob Storage 계정](../storage/common/storage-account-options.md#blob-storage-accounts)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.

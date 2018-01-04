@@ -3,7 +3,7 @@ title: "Azure DevTest Labs에서 랩의 라이선스 이미지 사용 | Microsof
 description: "Azure Portal을 사용하여 Azure DevTest Labs에서 라이선스 이미지를 사용하도록 설정하는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
 
-Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사용 약관을 포함하는 이미지로, 랩에서 사용자가 해당 이미지를 사용하려면 먼저 동의되어야 합니다. 다음 섹션에서는 가상 컴퓨터를 만드는 데 라이선스 이미지를 사용할 수 있도록 하는 방법을 설명합니다.
+Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사용 약관을 포함하는 이미지로, 랩에서 사용자가 해당 이미지를 사용하려면 먼저 동의되어야 합니다. 다음 섹션에서는 가상 머신을 만드는 데 라이선스 이미지를 사용할 수 있도록 하는 방법을 설명합니다.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>라이선스 이미지를 사용자가 사용할 수 있는지 여부 결정
 사용자가 라이선스 이미지에서 VM을 만들 수 있도록 하려면 먼저 라이선스 이미지의 사용 약관에 동의했는지 확인해야 합니다. 다음 단계에서는 라이선스 이미지의 제공 상태를 확인하고 필요한 경우 해당 사용 약관에 동의하는 방법을 보여 줍니다.
@@ -35,7 +35,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 1. 왼쪽 패널의 **설정**에서 **구성 및 정책**을 선택합니다.
 
-1. 왼쪽 패널의 **가상 컴퓨터 기본**에서 **Marketplace 이미지**를 선택합니다. 
+1. 왼쪽 패널의 **가상 머신 기본**에서 **Marketplace 이미지**를 선택합니다. 
 
     ![Marketplace 이미지 메뉴 항목](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 
@@ -53,12 +53,12 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 다음 단계를 수행하여 라이선스 이미지에 대한 프로그래밍 방식 배포를 사용하도록 설정할 수 있습니다.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)의 **Marketplace 이미지** 목록에서 사용자가 액세스하도록 하려고 하지만 해당 약관에 아직 동의하지 않은 라이선스 이미지를 식별합니다. 예를 들어 **약관에 동의함** 또는 **약관을 검토해야 함** 상태를 표시하는 데이터 과학 가상 컴퓨터가 있을 수 있습니다.
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)의 **Marketplace 이미지** 목록에서 사용자가 액세스하도록 하려고 하지만 해당 약관에 아직 동의하지 않은 라이선스 이미지를 식별합니다. 예를 들어 **약관에 동의함** 또는 **약관을 검토해야 함** 상태를 표시하는 데이터 과학 Virtual Machine이 있을 수 있습니다.
 
     ![프로그래밍 방식 배포 구성 창](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > 데이터 과학 VM은 데이터 분석, Machine Learning 및 AI 교육에 일반적으로 사용되는 몇 가지 인기 있는 도구로 사전 설치되고 구성되며 테스트된 Azure Virtual Machine 이미지입니다. [Linux/Windows용 Azure 데이터 과학 가상 컴퓨터에 대한 소개](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)에서는 DSVM에 대한 풍부한 정보를 제공합니다.
+   > 데이터 과학 VM은 데이터 분석, Machine Learning 및 AI 교육에 일반적으로 사용되는 몇 가지 인기 있는 도구로 사전 설치되고 구성되며 테스트된 Azure Virtual Machine 이미지입니다. [Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)에서는 DSVM에 대한 풍부한 정보를 제공합니다.
    >
    >
 
@@ -74,7 +74,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
    >
 
 
-1. **저장**을 선택합니다. Marketplace 이미지 목록에서 해당 이미지는 이제 **약관에 동의함**으로 표시되며 사용자가 가상 컴퓨터를 만드는 데 사용할 수 있습니다.
+1. **저장**을 선택합니다. Marketplace 이미지 목록에서 해당 이미지는 이제 **약관에 동의함**으로 표시되며 사용자가 가상 머신을 만드는 데 사용할 수 있습니다.
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
@@ -83,4 +83,4 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 ## <a name="next-steps"></a>다음 단계
 
-- [랩에 VM 추가](./devtest-lab-add-vm-with-artifacts.md)
+- [랩에 VM 추가](devtest-lab-add-vm.md)

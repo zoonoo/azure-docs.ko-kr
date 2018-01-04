@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 장치의 안전한 프로비전, 이러한 장치 및 클라우드 간의 보안 연결, 처리 및 저장 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 장치, 배포의 지리적 분산 및 솔루션 내 많은 수의 장치에 대한 작업이 포함됩니다.
@@ -36,7 +36,7 @@ Azure IoT Suite는 장치를 프로비전하고 연결하며 IoT 장치에서 �
 보안, 개인 정보, 투명성 및 규정 준수 문제를 고려하여 적합한 IoT 솔루션 공급자를 선택하는 것은 여전히 과제로 남습니다. 다양한 공급 업체에서 제공하는 IoT 소프트웨어 및 서비스의 개별 조각을 함께 연결할 경우 보안, 개인 정보, 투명성 및 규정 준수에 감지하기 어려울 수 있는 차이가 생깁니다. 적합한 IoT 소프트웨어 및 서비스 공급자를 선택할 경우 여러 지역에 걸쳐 다양한 지역에서 서비스를 실행하는 풍부한 경험이 있는 공급자를 찾아야 하며 이와 동시에 안전하고 투명한 방식으로 규모를 감축할 수 있는지도 고려합니다. 마찬가지로, 선택한 공급자는 전 세계 수십억 대의 컴퓨터에서 실행되는 안전한 소프트웨어를 개발한 수십 년의 경험이 있고 새로운 사물 인터넷 세계에서 제기되는 다양한 위협을 파악하는 능력을 갖추고 있는 것이 좋습니다.
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>처음부터 보안 인프라
-[Microsoft 클라우드](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) 인프라는 127개 국가에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 수십 년 동안의 경험을 토대로 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
+[Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) 인프라는 127개 국가에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 수십 년 동안의 경험을 토대로 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
 
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/) 은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 
@@ -84,7 +84,7 @@ Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치
 
 데이터가 클라우드에 있는 경우 사용자가 정의한 워크플로에 처리 및 저장할 수 있습니다. 데이터의 각 부분에 대한 액세스는 사용된 저장소 서비스에 따라 Azure Active Directory로 제어됩니다.
 
-IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. 데이터는 [Azure Cosmos DB](../documentdb/documentdb-introduction.md) 또는 [SQL Database](../sql-database/sql-database-faq.md)에 저장할 수 있으며 원하는 보안 수준의 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
+IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. 데이터는 [Azure Cosmos DB](../cosmos-db/introduction.md) 또는 [SQL Database](../sql-database/sql-database-faq.md)에 저장할 수 있으며 원하는 보안 수준의 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
 
 ## <a name="conclusion"></a>결론
 사물 인터넷은 비즈니스와 가장 밀접한 사물에서 시작합니다. IoT는 비용 절감, 수익 증대 및 비즈니스 변환으로 비즈니스에 놀라운 가치를 선사합니다. 이 변환의 성공 여부는 주로 적합한 IoT 소프트웨어 및 서비스 공급자를 선택하느냐에 달려 있습니다. 즉, 비즈니스 요구 및 요구 사항을 이해하여 이 변환을 촉진시킬 뿐만 아니라 주요 설계 고려 사항으로 보안, 개인 정보, 투명성 및 규정 준수가 기본 제공되는 서비스 및 소프트웨어를 제공하는 공급자를 찾는 것입니다. Microsoft는 보안 소프트웨어 및 서비스를 개발 및 배포하는 데 풍부한 경험을 보유하고 있으며 새로운 시대의 사물 인터넷 분야에 앞장서고 있습니다. 
@@ -96,9 +96,9 @@ Microsoft Azure IoT Suite는 설계부터 보안 조치로 구축되어 자산�
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 클라우드를 "사물"에 연결하는 게이트웨이입니다. 솔루션의 보안을 설정하는 장치별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
-* [**Azure 스트림 분석**](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. 논리 앱을 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. 논리 앱은 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
 * [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 저장소입니다.
 
 ## <a name="next-steps"></a>다음 단계

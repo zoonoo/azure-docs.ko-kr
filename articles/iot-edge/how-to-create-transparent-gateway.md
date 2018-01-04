@@ -79,7 +79,7 @@ Azure IoT 장치 SDK를 사용하여 IoT Edge 게이트웨이에 장치를 연�
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
-새 파일이 만들어집니다.\certs\new-edge-device.*는 공개 키와 PFX를, .\private\new-edge-device.key.pem은 장치의 개인 키를 포함합니다.
+새 파일이 만들어집니다.\certs\new-edge-device.* 는 공개 키와 PFX를, .\private\new-edge-device.key.pem은 장치의 개인 키를 포함합니다.
  
 `certs` 디렉터리에서 다음 명령을 실행하여 장치 공개 키의 전체 체인을 가져옵니다.
 

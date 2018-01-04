@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
 
@@ -209,7 +209,7 @@ Swaggerize가 프로젝트 이름을 물어보면 *ContactList*를 사용합니�
 
 이 섹션에서는 Azure CLI 2.0을 사용하여 Azure App Service에서 API를 호스트하는 리소스를 만듭니다. 
 
-1.  [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1.  [az login](/cli/azure/?view=azure-cli-latest#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
     ```azurecli-interactive
     az login

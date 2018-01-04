@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>.NET에서 Azure Relay WCF 릴레이를 사용하는 방법
-이 문서에서는 Azure Relay 서비스를 사용하는 방법을 설명합니다. 이 샘플은 C#으로 작성되었으며 서비스 버스 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. Azure Relay에 대한 자세한 내용은 [Azure Relay 개요](relay-what-is-it.md)를 참조하세요.
+이 문서에서는 Azure Relay 서비스를 사용하는 방법을 설명합니다. 이 샘플은 C#으로 작성되었으며 Service Bus 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. Azure Relay에 대한 자세한 내용은 [Azure Relay 개요](relay-what-is-it.md)를 참조하세요.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -37,11 +37,11 @@ Azure Relay를 사용하면 기존 엔터프라이즈 환경 내에서 WCF 서�
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="get-the-service-bus-nuget-package"></a>서비스 버스 NuGet 패키지 다운로드
-[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 프로젝트에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+## <a name="get-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 다운로드
+[Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 는 Service Bus API를 가져오고 모든 Service Bus 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 프로젝트에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1. 솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-2. "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
+2. "Service Bus"를 검색하고 **Microsoft Azure Service Bus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -160,7 +160,7 @@ sh.Close();
 
 ### <a name="create-the-client"></a>클라이언트 만들기
 #### <a name="configure-a-client-programmatically"></a>프로그래밍 방식으로 클라이언트를 구성
-서비스를 이용하기 위해 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 개체를 사용하여 WCF 클라이언트를 구성할 수 있습니다. 서비스 버스는 SAS를 사용하여 구현된 토큰 기반 보안 모델을 사용합니다. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. 다음 예제에서는 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 메서드를 사용하여 적절한 SAS 토큰의 수집을 처리합니다. 이전 섹션에서 설명한 대로 이름과 키는 포털에서 얻은 것입니다.
+서비스를 이용하기 위해 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 개체를 사용하여 WCF 클라이언트를 구성할 수 있습니다. Service Bus는 SAS를 사용하여 구현된 토큰 기반 보안 모델을 사용합니다. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. 다음 예제에서는 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 메서드를 사용하여 적절한 SAS 토큰의 수집을 처리합니다. 이전 섹션에서 설명한 대로 이름과 키는 포털에서 얻은 것입니다.
 
 먼저 서비스의 `IProblemSolver` 계약 코드를 클라이언트 프로젝트에 참조하거나 복사합니다.
 

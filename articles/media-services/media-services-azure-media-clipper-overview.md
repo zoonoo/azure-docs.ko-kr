@@ -2,18 +2,18 @@
 title: "Azure Media Clipper를 사용하여 클립 만들기 | Microsoft Docs"
 description: "자산을 사용하여 미디어 클립을 빌드하는 도구인 Azure Media Clipper 개요"
 services: media-services
-keywords: "클립;서브클립;인코딩;미디어"
+keywords: "클립, 하위 클립, 인코딩, 미디어"
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 Azure Media Clipper는 웹 개발자가 사용자에게 미디어 클립을 만들기 위한 인터페이스를 제공할 수 있는 무료 JavaScript 라이브러리입니다. 이 도구는 모든 웹 페이지에 통합할 수 있으며 자산 로드 및 클리핑 작업 제출을 위한 API를 제공합니다.
@@ -29,7 +29,7 @@ Azure Media Clipper를 사용하면 다음을 수행할 수 있습니다.
 
 새로운 기능을 요청하거나 아이디어 또는 피드백을 제공하려면 [Azure Media Services용 UserVoice](http://aka.ms/amsvoice/)에 제출합니다. 문제 또는 질문이 있거나 버그를 발견한 경우 Media Services 팀(amcinfo@microsoft.com)에 문의하세요.
 
-다음 이미지는 Clipper 인터페이스: ![Azure Media Clipper](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)를 보여 줍니다.
+다음 이미지는 Clipper 인터페이스: ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)를 보여 줍니다.
 
 ## <a name="release-notes"></a>릴리스 정보
 Clipper 블로그 게시물, 여러 알려진 문제, 최신 Clipper 릴리스의 변경 로그는 다음 목록을 참조하세요.

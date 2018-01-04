@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="overview"></a>개요
 Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델을 학습하고 저장합니다. 그런 다음 이를 서술적 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
 
-기계 학습을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. Azure Machine Learning에서 모델을 다시 학습하는 방법에 대한 자세한 내용은 [Machine Learning 모델 재학습](../machine-learning/machine-learning-retrain-machine-learning-model.md)을 참조하세요. 
+Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이지 않습니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. Azure Machine Learning에서 모델을 다시 학습하는 방법에 대한 자세한 내용은 [Machine Learning 모델 재학습](../machine-learning/machine-learning-retrain-machine-learning-model.md)을 참조하세요. 
 
 재학습은 자주 발생할 수 있습니다. 일괄 처리 실행 작업 및 리소스 업데이트 작업을 사용하면 Azure Machine Learning 모델을 조작하여 Data Factory를 통해 예측 웹 서비스를 다시 학습하고 업데이트할 수 있습니다. 
 
@@ -60,11 +60,11 @@ Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델�
 
 
 
-| 속성                      | 설명                              | 필수 |
+| 자산                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | 파이프라인의 작업 이름입니다.     | 예      |
-| 설명                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
-| type                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
+| 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
+| description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
+| 형식                          | Azure Machine Learning 리소스 업데이트 작업의 경우 작업 유형은 **AzureMLUpdateResource**입니다. | 예      |
 | linkedServiceName             | updateResourceEndpoint 속성을 포함하는 Azure Machine Learning 연결된 서비스입니다. | 예      |
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
 | trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
@@ -86,33 +86,6 @@ Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델�
 2. 예측 웹 서비스의 리소스 업데이트 끝점에 대한 Azure Machine Learning 연결된 서비스 - 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다. 
 
 두 번째 Azure Machine Learning 연결된 서비스의 경우, Azure Machine Learning 웹 서비스가 기본 웹 서비스 또는 새 웹 서비스일 때 구성이 다릅니다. 차이점은 다음 섹션에서 별도로 설명합니다. 
-
-## <a name="web-service-is-a-classic-web-service"></a>기존의 웹 서비스
-예측 웹 서비스가 **클래식 웹 서비스**인 경우 Azure Portal을 사용하여 또 하나의 **기본이 아닌 업데이트 가능한 끝점**을 만들어야 합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 끝점을 만든 후 다음 단계를 수행합니다.
-
-* **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
-* **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 끝점 페이지 자체의 오른쪽 하단에 있습니다.
-
-![업데이트 가능한 끝점](./media/update-machine-learning-models/updatable-endpoint.png)
-
-그런 후에 다음과 같은 연결된 서비스 샘플을 사용하여 새 Azure Machine Learning 연결된 서비스를 만듭니다. 연결된 서비스는 인증을 위해 apiKey를 사용합니다.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>새 Azure Resource Manager 웹 서비스 
 
@@ -184,7 +157,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML 학습 끝점에 대한 연결된 서비스
-다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure 기계 학습 연결된 서비스를 정의합니다.
+다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.
 
 ```JSON
 {    
