@@ -13,13 +13,13 @@
       href: quickstart-create-server-database-azure-cli.md
     - name: 연결 및 쿼리
       items:
-        - name: Python
+        - name: 파이썬
           href: connect-python.md
         - name: Node.js
           href: connect-nodejs.md
         - name: 자바
           href: connect-java.md
-        - name: 루비
+        - name: Ruby
           href: connect-ruby.md
         - name: PHP
           href: connect-php.md
@@ -31,7 +31,7 @@
   items:
     - name: 1 - 데이터베이스 설계
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: tutorial-design-database-using-azure-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-azure-cli.md
@@ -79,13 +79,13 @@
   items:
     - name: 방화벽 규칙
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: 서버 복원
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -95,15 +95,17 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: 가져오기 및 내보내기
           href: howto-migrate-using-export-and-import.md
+        - name: 최소 가동 중지 시간 마이그레이션
+          href: howto-migrate-online.md
     - name: 서버 매개 변수 구성
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-configure-server-parameters-using-portal.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: 서버 로그 액세스
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md
@@ -111,7 +113,7 @@
       items:
         - name: 메트릭에 대한 경고 만들기
           href: howto-alert-on-metric.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/postgres
@@ -129,7 +131,7 @@
       href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: 비디오
+    - name: 동영상
       href: videos.md
     - name: 피드백 포럼
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'

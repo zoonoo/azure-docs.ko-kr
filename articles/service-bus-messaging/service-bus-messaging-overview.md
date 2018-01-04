@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>서비스 버스 메시징: 클라우드에서 유연한 데이터 배달
+# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Service Bus 메시징: 클라우드에서 유연한 데이터 배달
 
 Microsoft Azure Service Bus는 안정적인 정보 배달 서비스로, 보다 손쉬운 통신을 위해 제공됩니다. 둘 이상의 당사자가 정보를 교환하려면 통신 촉진자가 필요합니다. Service Bus는 조정된 또는 타사 통신 메커니즘으로, 실제 세상에서의 우편 서비스와 비슷합니다. 우편 서비스를 사용하면 원하는 배달 보장 수준을 선택하여 다양한 종류의 서신과 소포를 전 세계 어디로나 매우 쉽게 보낼 수 있습니다.
 
@@ -32,11 +32,11 @@ Service Bus는 *Azure Relay*와 *Service Bus 메시지*의 두 가지 메시지 
 
 ## <a name="azure-relay"></a>Azure Relay
 
-Azure Relay의 [WCF 릴레이](../service-bus-relay/relay-what-is-it.md) 구성 요소는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원하는 중앙 집중식(이지만 부하가 잘 분산된) 서비스입니다. 여기에는 SOAP, WS-* 및 REST가 포함됩니다. [릴레이 서비스](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)는 다양한 릴레이 연결 옵션을 제공하며 가능한 경우 직접 피어 간 연결을 협상하는 데 도움이 될 수 있습니다. 서비스 버스는 성능 및 유용성 둘 다에서 WCF(Windows Communication Foundation)를 사용하는 .NET 개발자에게 최적화되어 있으며 SOAP 및 REST 인터페이스를 통해 릴레이 서비스에 대한 모든 권한을 제공합니다. 이로 인해 모든 SOAP 또는 REST 프로그래밍 환경을 서비스 버스와 통합할 수 있습니다.
+Azure Relay의 [WCF 릴레이](../service-bus-relay/relay-what-is-it.md) 구성 요소는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원하는 중앙 집중식(이지만 부하가 잘 분산된) 서비스입니다. 여기에는 SOAP, WS-* 및 REST가 포함됩니다. [릴레이 서비스](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)는 다양한 릴레이 연결 옵션을 제공하며 가능한 경우 직접 피어 간 연결을 협상하는 데 도움이 될 수 있습니다. Service Bus는 성능 및 유용성 둘 다에서 WCF(Windows Communication Foundation)를 사용하는 .NET 개발자에게 최적화되어 있으며 SOAP 및 REST 인터페이스를 통해 릴레이 서비스에 대한 모든 권한을 제공합니다. 이로 인해 모든 SOAP 또는 REST 프로그래밍 환경을 Service Bus와 통합할 수 있습니다.
 
 릴레이 서비스는 기존의 단방향 메시징, 요청/응답 메시징 및 피어투피어 메시징을 지원합니다. 또한 인터넷 범위에서 이벤트 배포를 지원하여 향상된 지점 간 효율성을 위한 양방향 소켓 통신과 게시-구독 시나리오를 가능하게 합니다. 릴레이된 메시징 패턴에서는 온-프레미스 서비스가 아웃바운드 포트를 통해 릴레이 서비스에 연결하고 특정 랑데부 주소와 연결된 통신에 사용할 양방향 소켓을 만듭니다. 그러면 클라이언트는 랑데부 주소를 대상으로 하는 릴레이 서비스에 메시지를 전송하여 온-프레미스 서비스와 통신할 수 있습니다. 그 후 릴레이 서비스는 이미 존재하는 양방향 소켓을 통해 온-프레미스 서비스에 메시지를 “릴레이”합니다. 클라이언트는 온-프레미스 서비스에 대한 직접 연결이 필요 없고 서비스가 상주하는 위치를 알 필요도 없으며, 온-프레미스 서비스는 방화벽에 인바운드 포트가 열려 있지 않아도 됩니다.
 
-WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 서비스 버스와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 전송 바인딩 요소에 매핑합니다.
+WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 전송 바인딩 요소에 매핑합니다.
 
 WCF Relay는 다양한 이점을 제공하지만 메시지를 보내고 받기 위해 서버와 클라이언트가 동시에 온라인 상태여야 합니다. 이는 일반적으로 요청의 수명이 짧은 HTTP 스타일 통신이나 브라우저, 모바일 응용 프로그램 등과 같이 가끔씩만 연결하는 클라이언트에는 적합하지 않습니다. 조정된 메시징은 분리된 통신을 지원하며, 클라이언트와 서버가 필요할 때 연결하고 비동기 방식으로 작업을 수행할 수 있는 고유한 이점이 있습니다.
 
@@ -52,7 +52,7 @@ WCF 릴레이 인프라와 마찬가지로 조정된 메시징 기능은 WCF 및
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 응용 프로그램 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -44,7 +44,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **데이터 암호화** - 공용 클라우드에서 데이터의 전송 및 저장을 보호합니다. 암호화 암호는 로컬에서 저장되며, Azure에서 전송되거나 저장되지는 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
 
-**응용 프로그램 일치 백업** - 파일 서버, 가상 컴퓨터 또는 SQL 데이터베이스의 백업 여부에 상관 없이 백업 복사본을 복원하는 데 필요한 모든 데이터는 복구 지점에 있습니다. 검증된 픽스가 데이터를 복원하는 데 추가로 필요하지 않는 응용 프로그램 일치 백업을 제공합니다. 응용 프로그램 일치 데이터를 복원하면 실행 상태로 신속히 복귀할 수 있어 복원 시간을 줄여줍니다.
+**응용 프로그램 일치 백업** - 파일 서버, 가상 머신 또는 SQL 데이터베이스의 백업 여부에 상관 없이 백업 복사본을 복원하는 데 필요한 모든 데이터는 복구 지점에 있습니다. 검증된 픽스가 데이터를 복원하는 데 추가로 필요하지 않는 응용 프로그램 일치 백업을 제공합니다. 응용 프로그램 일치 데이터를 복원하면 실행 상태로 신속히 복귀할 수 있어 복원 시간을 줄여줍니다.
 
 **장기 보존** - 디스크에서 테이프로 백업 복사본을 전환하는 대신 테이프를 오프사이트 위치로 옮기는 경우 단기 및 장기 보존을 위해 Azure를 사용할 수 있습니다. Azure는 Backup 또는 Recovery Services 자격 증명 모음에 데이터를 유지하는 기간을 제한하지 않습니다. 원하는 만큼 자격 증명 모음에 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 필요성에 어떻게 영향을 줄 수 있는지에 대한 설명은 이 문서의 [Backup 및 보존](backup-introduction-to-azure-backup.md#backup-and-retention) 섹션을 참조하세요.  
 
@@ -64,7 +64,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure Backup(MARS) 에이전트 |<p>**예**</p> <p>Azure Backup 에이전트는 Azure에서 실행하는 모든 Windows Server VM에 배포할 수 있습니다.</p> |<p>**예**</p> <p>Azure Backup 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포할 수 있습니다.</p> |<p>Recovery Services 자격 증명 모음</p> |
 | System Center DPM |<p>**예**</p><p>[System Center DPM을 사용하여 Azure에서 워크로드를 보호하는 방법](backup-azure-dpm-introduction.md)에 대해 자세히 알아봅니다.</p> |<p>**예**</p> <p>[데이터 센터에서 워크로드 및 VM을 보호하는 방법](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager)에 대해 자세히 알아봅니다.</p> |<p>로컬 연결된 디스크</p> <p>Recovery Services 자격 증명 모음</p> <p>테이프(온-프레미스 전용)</p> |
 | Azure Backup 서버 |<p>**예**</p><p>[Azure Backup Server를 사용하여 Azure에서 워크로드를 보호하는 방법](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아봅니다.</p> |<p>**예**</p> <p>[Azure Backup Server를 사용하여 Azure에서 워크로드를 보호하는 방법](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아봅니다.</p> |<p>로컬 연결된 디스크</p> <p>Recovery Services 자격 증명 모음</p> |
-| Azure IaaS VM Backup |<p>**예**</p><p>Azure 패브릭의 일부</p><p>[Azure IaaS(Infrastructure as a Service) 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> |<p>**아니요**</p> <p>System Center DPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다.</p> |<p>Recovery Services 자격 증명 모음</p> |
+| Azure IaaS VM Backup |<p>**예**</p><p>Azure 패브릭의 일부</p><p>[Azure IaaS(Infrastructure as a Service) 가상 머신의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> |<p>**아니요**</p> <p>System Center DPM을 사용하여 데이터 센터의 가상 머신을 백업합니다.</p> |<p>Recovery Services 자격 증명 모음</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>어떤 응용 프로그램 및 워크로드를 백업할 수 있나요?
 다음 표에서는 Azure Backup을 사용하여 보호할 수 있는 데이터와 워크로드의 매트릭스를 제공합니다. Azure Backup 솔루션 열에는 해당 솔루션의 배포 설명서에 대한 링크가 있습니다. 
@@ -74,8 +74,8 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | 파일 및 폴더 |Windows Server |<p>[Azure Backup 에이전트](backup-configure-vault.md)</p> <p>[System Center DPM](backup-azure-dpm-introduction.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
 | 파일 및 폴더 |Windows 컴퓨터 |<p>[Azure Backup 에이전트](backup-configure-vault.md)</p> <p>[System Center DPM](backup-azure-dpm-introduction.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
 | Hyper-V 가상 컴퓨터(Windows) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
-| Hyper-V 가상 컴퓨터(Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
-| VMware 가상 컴퓨터 |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
+| Hyper-V 가상 머신(Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
+| VMware 가상 머신 |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
 | Microsoft SQL Server에 대한 연결 문자열 |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
 | Microsoft SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
 | Microsoft Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure Backup 에이전트)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)(Azure Backup 에이전트 포함)</p> |
@@ -107,7 +107,7 @@ Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저�
 Premium Storage VM은 Premium Storage 또는 일반 저장소 중 하나로 복원할 수 있습니다. Premium Storage VM 복구 지점을 프리미엄 저장소로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, Premium Storage VM 복구 지점을 표준 저장소로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Azure Backup으로 Managed Disks VM 사용
-Azure Backup은 Managed Disks VM을 보호합니다. Managed Disks를 사용하면 가상 컴퓨터의 저장소 계정을 관리하지 않아도 되며 VM 프로비전이 매우 간소화됩니다.
+Azure Backup은 Managed Disks VM을 보호합니다. Managed Disks를 사용하면 가상 머신의 저장소 계정을 관리하지 않아도 되며 VM 프로비전이 매우 간소화됩니다.
 
 ### <a name="back-up-managed-disk-vms"></a>Managed Disks VM 백업
 VM을 Managed Disks에 백업하는 것은 Resource Manager VM을 백업하는 것과 다르지 않습니다. Azure Portal의 경우 Virtual Machine 보기 또는 Recovery Services 자격 증명 보기에서 백업 작업을 바로 구성할 수 있습니다. Managed Disks에 VM 백업은 Managed Disks를 기반으로 구축된 RestorePoint 컬렉션을 통해 지원됩니다. Azure Backup도 Azure Disk Encryption(ADE)을 사용하여 암호화된 Managed Disks VM을 백업하도록 지원합니다.
@@ -118,7 +118,7 @@ Azure Backup을 사용하면 관리 디스크로 전체 VM을 복원하거나 �
 ## <a name="what-are-the-features-of-each-backup-component"></a>각 Backup 구성 요소의 기능은 무엇입니까?
 다음 표에서는 각 Azure Backup 구성 요소의 다양한 기능에 대한 가용성 또는 지원을 요약하고 있습니다. 추가 지원 및 자세한 내용에 대해서는 각 표에 포함된 정보를 참조하세요.
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 | 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Recovery Services 자격 증명 모음 |![예][green] |![예][green] |![예][green] |![예][green] |
@@ -137,7 +137,7 @@ Recovery Services 자격 증명 모음은 모든 구성 요소에서 기본 설�
 
 
 #### <a name="disk-deduplication"></a>디스크 중복 제거
-[Azure Backup Server 가상 컴퓨터에서](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx) System Center DPM 또는 Azure Backup Server를 배포할 때 중복 제거를 활용할 수 있습니다. Windows Server는 백업 저장소로 가상 컴퓨터에 연결된 VHD(가상 하드 디스크)에서 호스트 수준 중복 제거를 수행합니다.
+[Azure Backup Server 가상 머신에서](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx) System Center DPM 또는 Azure Backup Server를 배포할 때 중복 제거를 활용할 수 있습니다. Windows Server는 백업 저장소로 가상 머신에 연결된 VHD(가상 하드 디스크)에서 호스트 수준 중복 제거를 수행합니다.
 
 > [!NOTE]
 > Azure에서 중복 제거를 모든  Backup 구성 요소에 제공하지는 않습니다. System Center DPM 및 Backup 서버가 Azure에 배포될 경우 VM에 연결된 저장소 디스크는 중복을 제거할 수 없습니다.
@@ -176,7 +176,7 @@ Recovery Services 자격 증명 모음은 모든 구성 요소에서 기본 설�
 >
 
 #### <a name="data-security"></a>데이터 보안
-Azure VM을 백업하려면 가상 컴퓨터 *내에서* 암호화를 설정해야 합니다. Windows 가상 컴퓨터에서는 BitLocker를 사용하고 Linux 가상 컴퓨터에서는 **dm-crypt**를 사용합니다. Azure Backup은 이 경로를 통해 제공되는 백업 데이터를 자동으로 암호화하지 않습니다.
+Azure VM을 백업하려면 가상 머신 *내에서* 암호화를 설정해야 합니다. Windows 가상 머신에서는 BitLocker를 사용하고 Linux 가상 머신에서는 **dm-crypt**를 사용합니다. Azure Backup은 이 경로를 통해 제공되는 백업 데이터를 자동으로 암호화하지 않습니다.
 
 ### <a name="network"></a>네트워크
 | 기능 | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
@@ -211,10 +211,10 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 ## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?
 보호된 인스턴스는 Azure에 백업하도록 구성된 Windows 컴퓨터, 서버(실제 또는 가상) 또는 SQL Database에 대한 일반 참조입니다. 컴퓨터, 서버 또는 데이터베이스에 대한 백업 정책을 구성하고 데이터의 백업 복사본을 만들면 인스턴스가 보호됩니다. 해당 보호된 인스턴스(복구 지점이라고 함)에 대한 백업 데이터의 후속 복사본으로 인해 저장소 사용량이 늘어납니다. 보호된 인스턴스에 대해 최대 9999개의 복구 지점을 만들 수 있습니다. 저장소에서 복구 지점을 삭제하더라도 9999개의 복구 지점 전체 개수에는 영향을 주지 않습니다.
-보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 컴퓨터, 응용 프로그램 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예:
+보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 머신, 응용 프로그램 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예: 
 
-* Hyper-V 또는 Azure IaaS 하이퍼바이저 패브릭을 실행하는 가상 컴퓨터. 가상 컴퓨터의 게스트 운영 체제는 Windows Server 또는 Linux가 될 수 있습니다.
-* 응용 프로그램 서버: 응용 프로그램 서버는 Windows Server를 실행하는 실제 또는 가상 컴퓨터와 백업해야 하는 데이터 워크로드가 될 수 있습니다. 일반적인 워크로드로는 Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server 및 Windows Server의 파일 서버 역할이 있습니다. 이러한 워크로드를 백업하려면 System Center Data Protection Manager(DPM) 또는 Azure Backup Server가 필요합니다.
+* Hyper-V 또는 Azure IaaS 하이퍼바이저 패브릭을 실행하는 가상 머신. 가상 머신의 게스트 운영 체제는 Windows Server 또는 Linux가 될 수 있습니다.
+* 응용 프로그램 서버: 응용 프로그램 서버는 Windows Server를 실행하는 실제 또는 가상 머신과 백업해야 하는 데이터 워크로드가 될 수 있습니다. 일반적인 워크로드로는 Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server 및 Windows Server의 파일 서버 역할이 있습니다. 이러한 워크로드를 백업하려면 System Center Data Protection Manager(DPM) 또는 Azure Backup Server가 필요합니다.
 * Windows 운영 체제를 실행하는 개인용 컴퓨터, 워크스테이션 또는 랩톱입니다.
 
 
@@ -240,12 +240,12 @@ Azure Backup은 온-프레미스와 및 클라우드에서 데이터를 보호�
 
 | 개념 | 세부 정보 | Backup | 재해 복구(DR) |
 | --- | --- | --- | --- |
-| 복구 지점 목표(RPO) |복구 작업을 수행해야 할 때 용인되는 데이터 손실의 양입니다. |Backup 솔루션은 허용되는 RPO에 큰 변동성을 가집니다. 데이터베이스 백업은 최소 15분 정도의 RPO를 갖는 반면 가상 컴퓨터 백업은 대개 1일이라는 RPO를 가집니다. |재해 복구 솔루션은 RPO가 낮습니다. DR 복사본은 몇 초 또는 몇 분이 뒤쳐질 수 있습니다. |
+| 복구 지점 목표(RPO) |복구 작업을 수행해야 할 때 용인되는 데이터 손실의 양입니다. |Backup 솔루션은 허용되는 RPO에 큰 변동성을 가집니다. 데이터베이스 백업은 최소 15분 정도의 RPO를 갖는 반면 가상 머신 백업은 대개 1일이라는 RPO를 가집니다. |재해 복구 솔루션은 RPO가 낮습니다. DR 복사본은 몇 초 또는 몇 분이 뒤쳐질 수 있습니다. |
 | 복구 시간 목표(RTO) |복구 또는 복원을 완료하는 데 걸리는 시간의 양입니다. |더 큰 RPO로 인해 백업 솔루션이 처리해야 하는 데이터의 양이 일반적으로 훨씬 더 많고 결과적으로 RTO가 더 길어집니다. 예를 들어 테이프에서 데이터를 복원하면 오프사이트 위치에서 테이프를 전송하는 데 걸리는 시간에 따라 몇 일이 걸릴 수 있습니다. |재해 복구 솔루션에는 원본과 동기화하는 경우보다 RTO의 수가 적습니다. 처리해야 할 변경 사항이 적습니다. |
 | 보존 |데이터를 저장해야 하는 기간 |작업 복구(데이터 손상, 실수로 인한 파일 삭제, OS 오류)가 필요한 경우 백업 데이터는 일반적으로 최대 30일 동안 보존됩니다.<br>규정 준수 관점에서는 데이터를 몇 개월 내지 몇 년 동안 저장해야 할 수 있습니다. 이러한 경우에 보관을 위해 Backup 데이터가 이상적입니다. |재해 복구는 일반적으로 몇 시간 또는 최대 하루의 작업 복구 데이터만 필요합니다. DR 솔루션에서 사용되는 세분화된 데이터 캡처로 인해 DR 데이터를 사용하여 장기 보존하지 않는 것이 좋습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨터)를 보호하기 위한 자세한 단계별 지침에 대해서는 다음 자습서 중 하나를 사용하세요.
+Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 머신)를 보호하기 위한 자세한 단계별 지침에 대해서는 다음 자습서 중 하나를 사용하세요.
 
 * [파일 및 폴더 백업](backup-try-azure-backup-in-10-mins.md)
 * [Azure Virtual Machines Backup](backup-azure-vms-first-look-arm.md)
@@ -254,7 +254,7 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨�
 
 * [Windows Server 백업](backup-configure-vault.md)
 * [응용 프로그램 워크로드 백업](backup-azure-microsoft-azure-backup.md)
-* [Azure IaaS VM Backup](backup-azure-vms-prepare.md)
+* [Azure IaaS VM Backup](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

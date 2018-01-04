@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/08/2017
 
 ![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예:
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예: 
 
 **Jeff(워크로드 소유자)**
 
@@ -138,7 +138,7 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 보안 정책을 구성하기 전에 각각의 [보안 권장 사항](https://docs.microsoft.com/azure/security-center/security-center-recommendations)을 검토하여 이들 정책이 다양한 구독 및 리소스 그룹에 적합한지 판단합니다. 보안 권장 사항을 확인하기 위해 취해야 하는 조치 및 조직에서 새 권장 사항을 모니터링하고 필요한 단계를 수행하는 담당자를 알아야 합니다.
 
 ## <a name="data-collection-and-storage"></a>데이터 수집 및 저장
-Azure Security Center는 가상 컴퓨터에서 보안 데이터를 수집하는 데 Microsoft Monitoring Agent를 사용하며 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용하는 동일한 에이전트입니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
+Azure Security Center는 가상 머신에서 보안 데이터를 수집하는 데 Microsoft Monitoring Agent를 사용하며 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용하는 동일한 에이전트입니다. 이 에이전트에서 [수집된 데이터](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)는 Log Analytics 작업 영역에 저장됩니다.
 
 ### <a name="agent"></a>에이전트
 
@@ -178,7 +178,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 리소스에 대한 보안의 통합된 보기를 제공합니다. 다음 예제에서는 많은 문제를 해결해야 하는 환경을 보여줍니다.
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center는 일반 작동 프로시저를 방해하지 않으면서 배포를 소극적으로 모니터링하고 사용자가 설정한 보안 정책에 따라 권장 사항을 제공합니다.
@@ -194,11 +194,11 @@ Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 
 ### <a name="monitoring-for-new-or-changed-resources"></a>새 또는 변경된 리소스 모니터링
 대부분의 Azure 환경은 동적이며, 새 리소스가 일정 기준, 구성 또는 변경에 따라 확장 및 분리됩니다. Security Center는 이러한 새 리소스의 보안 상태에 대한 정보를 얻는 데 도움이 됩니다.
 
-Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자동으로 해당 리소스를 감지하고 보안을 모니터링하기 시작합니다. 또한 PaaS 웹 역할 및 작업자 역할이 포함됩니다. [보안 정책](security-center-policies.md)에서 데이터 수집을 사용하도록 설정한 경우 가상 컴퓨터에 대해 추가적인 모니터링 기능이 자동으로 적용됩니다.
+Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자동으로 해당 리소스를 감지하고 보안을 모니터링하기 시작합니다. 또한 PaaS 웹 역할 및 작업자 역할이 포함됩니다. [보안 정책](security-center-policies.md)에서 데이터 수집을 사용하도록 설정한 경우 가상 머신에 대해 추가적인 모니터링 기능이 자동으로 적용됩니다.
 
 ![주요 영역](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. 가상 컴퓨터의 경우 **방지** 섹션에서 **Compute**를 클릭합니다. 데이터를 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **개요** 탭 및 **모니터링 권장 사항** 섹션에 표시됩니다.
+1. 가상 머신의 경우 **방지** 섹션에서 **Compute**를 클릭합니다. 데이터를 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **개요** 탭 및 **모니터링 권장 사항** 섹션에 표시됩니다.
 2. 새 리소스에 대한 보안 위협이 있다면 무엇인지를 확인하기 위해 **권장 사항** 을 봅니다.
 3. 새 VM이 환경에 추가되면 운영 체제만 최초로 설치되는 것이 매우 일반적입니다. 리소스 소유자는 이러한 VM에서 사용할 다른 앱을 배포하는 데 다소 시간이 걸릴 수 있습니다.  이상적으로는 이 워크로드의 최종 목적을 파악하고 있어야 합니다. 응용 프로그램 서버가 됩니까? 이 새 워크로드의 용도에 맞게 적절한 **보안 정책**을 사용하도록 설정할 수 있으며, 이 워크플로의 세 번째 단계에 해당합니다.
 4. 새 리소스가 Azure 환경에 추가되면 **보안 경고** 타일에 새 경고가 표시될 수 있습니다. 항상 이 타일에 새 경고가 있는지 확인하고 보안 센터 권장 사항에 따라 조치를 취합니다.
@@ -259,7 +259,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 

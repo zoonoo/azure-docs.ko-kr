@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 833ac053b3ad23a60b84adce1dfa9015bee99046
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 96be510476434168a31c78f3a5f97c12ea1eee0f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 자습서: HDInsight에서 Hadoop 사용 시작
 
@@ -118,7 +118,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 
 
 **클러스터 및/또는 기본 저장소 계정을 삭제하려면**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털 대시보드에서, 이름이 클러스터를 만들 때 사용한 리소스 그룹 이름인 타일을 클릭합니다.
 3. **삭제**를 클릭하여 클러스터와 기본 저장소 계정이 포함된 리소스 그룹을 삭제하거나, **리소스** 타일에서 클러스터 이름을 클릭한 다음 **삭제**를 클릭합니다. 리소스 그룹을 삭제하면 저장소 계정이 삭제됩니다. 저장소 계정을 유지하려면 클러스터만 삭제하세요.
 

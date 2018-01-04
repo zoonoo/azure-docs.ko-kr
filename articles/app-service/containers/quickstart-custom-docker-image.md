@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a95a8435e4ecef201ad0f6d9ecda68e94f06ea80
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>컨테이너용 Azure Web App에서 사용자 지정 Docker Hub 이미지 실행
 
@@ -38,7 +38,7 @@ App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원�
 
 ## <a name="create-a-web-app-for-container"></a>Web App for Container 만들기
 
-[az webapp create](/cli/azure/webapp#create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx

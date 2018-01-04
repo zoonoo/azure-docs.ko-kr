@@ -6,7 +6,7 @@
 ## [호환성 수준](analysis-services-compat-level.md)
 ## [고가용성](analysis-services-bcdr.md)
 
-# 시작
+# 시작하기
 ## [Azure portal에서 서버 만들기](analysis-services-create-server.md)
 ## [Azure PowerShell로 서버 만들기](analysis-services-create-powershell.md)
 ## [Visual Studio에서 모델 배포](analysis-services-deploy.md)
@@ -23,6 +23,7 @@
 ### [데이터베이스 사용자 관리](analysis-services-database-users.md)
 ### [서버 관리자 관리](analysis-services-server-admins.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
+### [진단 로깅 설정](analysis-services-logging.md)
 ## 연결
 ### [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ### [Excel과 연결](analysis-services-connect-excel.md)
@@ -47,9 +48,9 @@
 ### [추가 단원 - 동적 보안](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [추가 단원 - 불규칙한 계층 구조](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](analysis-services-powershell.md)
-## [REST (영문)](/rest/api/analysisservices)
+## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

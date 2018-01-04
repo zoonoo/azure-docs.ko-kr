@@ -6,20 +6,20 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
 
 Azure Container Instances를 통해 Azure에서 컨테이너를 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에서 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 Azure Portal을 사용하여 완료됩니다. 몇 번 클릭하면 브라우저에 이 내용이 표시됩니다.
 
-![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-app-browser]
+![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -59,7 +59,7 @@ Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만�
 
 컨테이너가 **실행** 상태가 되면 이전 단계에서 기록해 둔 IP 주소로 이동하여 새 컨테이너에서 호스팅되는 응용 프로그램을 표시합니다.
 
-![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-app-browser]
+![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -68,7 +68,7 @@ Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만�
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## <a name="next-steps"></a>다음 단계

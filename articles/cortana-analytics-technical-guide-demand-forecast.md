@@ -152,7 +152,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
     파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 작성하는 것입니다. 데이터를 SQL Database에 표시하려면 최대 2시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://manage.windowsazure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)를 찾아 클릭합니다. 그런 다음 데이터베이스(예: demo123456db)를 찾고 클릭합니다. 다음 페이지의 **"데이터베이스에 연결"** 섹션 아래에서 **"SQL Database에 대해 Transact-SQL 쿼리 실행"**을 클릭합니다.
 
-    여기서 새 쿼리를 클릭하고, 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 하므로 여러 행에 대해 쿼리할 수 있습니다(예: “DemandRealHourly에서 수(*) 선택”).
+    여기서 새 쿼리를 클릭하고, 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 하므로 여러 행에 대해 쿼리할 수 있습니다(예: “DemandRealHourly에서 수( * ) 선택”).
 3. Power BI 대시보드에서 데이터를 확인합니다.
 
     Power BI 실행 부하 과다 경로 대시보드를 설정하여 들어오는 원시 데이터를 모니터링할 수 있습니다. "Power BI 대시보드" 섹션의 지시를 따르세요.

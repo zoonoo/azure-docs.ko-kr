@@ -70,7 +70,7 @@
 ##### 클래식
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### 고정 개인 IP 주소를 사용하는 VM 만들기
+#### VM 만들기 - 고정 개인 IP 주소
 ##### [Azure 포털](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -79,7 +79,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### 여러 네트워크 인터페이스를 사용하는 VM 만들기
+#### VM 만들기 - 여러 네트워크 인터페이스
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [템플릿](virtual-network-deploy-multinic-arm-template.md)
@@ -88,13 +88,15 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### 여러 IP 주소를 사용하여 VM 만들기
+#### VM 만들기 - 여러 IP 주소
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
-#### [가속 네트워킹을 사용하여 VM 만들기](virtual-network-create-vm-accelerated-networking.md)
+#### VM 만들기 - 가속 네트워킹
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [Azure CLI](create-vm-accelerated-networking-cli.md)
 
 ### 연결 시나리오
 #### [가상 네트워크(VNet)에서 VNet으로](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -174,7 +176,7 @@
 ### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM 간 연결 문제](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell(클래식)](/powershell/module/azure/)
@@ -197,7 +199,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격](https://azure.microsoft.com/pricing/details/virtual-network)
+## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [네트워크 리소스 공급자](resource-groups-networking.md)

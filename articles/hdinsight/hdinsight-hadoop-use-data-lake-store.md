@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
@@ -44,12 +44,12 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 
 현재는 일부 HDInsight 클러스터 유형/버전에서만 Data Lake Store를 기본 저장소 및 추가 저장소 계정으로 사용하도록 지원합니다.
 
-| HDInsight 클러스터 유형 | 기본 저장소로 Data Lake Store | 추가 저장소로 Data Lake Store| 참고 |
+| HDInsight 클러스터 유형 | 기본 저장소로 Data Lake Store | 추가 저장소로 Data Lake Store| 메모 |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight 버전 3.6 | 예 | 예 | |
 | HDInsight 버전 3.5 | 예 | 예 | HBase 제외|
 | HDInsight 버전 3.4 | 아니요 | 예 | |
-| HDInsight 버전 3.3 | 아니요 | 아니요 | |
+| HDInsight 버전 3.3 | 아니요 | 아니오 | |
 | HDInsight 버전 3.2 | 아니요 | 예 | |
 | Storm | | |Data Lake Store를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. Storm 토폴로지에서 읽을 수 있는 참조 데이터에 Data Lake Store를 사용할 수도 있습니다.|
 
@@ -80,13 +80,13 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 다음 경로�
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>추가 저장소로 Data Lake Store 사용
 
-Azure Data Lake Store를 클러스터에 대한 추가 저장소로 사용할 수도 있습니다. 이런 경우 클러스터 기본 저장소는 Azure Storage Blob 또는 Data Lake Store 계정입니다. 추가 저장소로 Data Lake Store에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예:
+Azure Data Lake Store를 클러스터에 대한 추가 저장소로 사용할 수도 있습니다. 이런 경우 클러스터 기본 저장소는 Azure Storage Blob 또는 Data Lake Store 계정입니다. 추가 저장소로 Data Lake Store에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 이제 URL에 **cluster_root_path**가 없습니다. 이 경우 Data Lake Store가 기본 저장소가 아니기 때문입니다. 따라서 파일에 대한 경로만 제공하면 됩니다.
 
-Data Lake Store를 기본 저장소로 사용할 수 있으려면 파일이 저장된 다음 경로에 대한 서비스 주체 액세스 권한을 부여해야 합니다.  예:
+Data Lake Store를 기본 저장소로 사용할 수 있으려면 파일이 저장된 다음 경로에 대한 서비스 주체 액세스 권한을 부여해야 합니다.  예: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

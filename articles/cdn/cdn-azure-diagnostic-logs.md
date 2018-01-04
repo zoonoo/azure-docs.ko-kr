@@ -307,7 +307,7 @@ Verizon 로그 데이터는 1시간 지연되고, 끝점 전파가 완료된 후
 | RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수                |예   |아니요   |
 | RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수              |예   | 아니요  |
 | EgressTotal | 아웃바운드 데이터 전송(GB)              |예   |예   |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송*(GB)            |예   |아니요   |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송* (GB)            |예   |아니요   |
 | EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)              |예   |아니요   |
 | EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   | 아니요  |
 | EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)               |예   |  아니요 |

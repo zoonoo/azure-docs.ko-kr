@@ -247,7 +247,7 @@ HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 
 
 > [!NOTE]
 > 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br>
-> Restart-Service AdHealth*
+> Restart-Service AdHealth *
 >
 >
 

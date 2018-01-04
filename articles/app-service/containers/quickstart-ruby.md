@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b609756f6fcea2a57210889d8082ffb45cbc92de
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
 
@@ -96,13 +96,13 @@ rails server
 az group create --location westeurope --name myResourceGroup
 ```
 
-[az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) 명령을 사용하여 웹앱에 대한 앱 서비스 계획을 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령을 사용하여 웹앱에 대한 앱 서비스 계획을 만듭니다.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-다음으로 [az webapp create](https://docs.microsoft.com/cli/azure/webapp) 명령을 실행하여 새로 만든 서비스 계획을 사용하는 웹앱을 만듭니다. 런타임은 `ruby|2.3`으로 설정됩니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
+다음으로 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 실행하여 새로 만든 서비스 계획을 사용하는 웹앱을 만듭니다. 런타임은 `ruby|2.3`으로 설정됩니다. `<app name>`을 고유한 앱 이름으로 대체해야 합니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-배포가 완료되면 여기에 표시된 것처럼 [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) 명령을 사용하여 배포를 적용하도록 웹앱을 다시 시작합니다.
+배포가 완료되면 여기에 표시된 것처럼 [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) 명령을 사용하여 배포를 적용하도록 웹앱을 다시 시작합니다.
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
