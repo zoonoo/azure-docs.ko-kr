@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: 방법 가이드
   items:
-    - name: 투명 게이트웨이 만들기
-      href: how-to-create-transparent-gateway.md
+    - name: 게이트웨이 만들기
+      items:
+        - name: 투명 게이트웨이 만들기
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus 게이트웨이
+          href: deploy-modbus-gateway.md
     - name: 대규모 배포 및 모니터링
       href: how-to-deploy-monitor.md
     - name: IoT Core 장치 프로비전
@@ -91,5 +95,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: 기술 사례 연구
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

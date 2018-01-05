@@ -1,5 +1,5 @@
 # 개요
-## [Azure Analysis Services란?](analysis-services-overview.md)
+## [Analysis Services 정보](analysis-services-overview.md)
 ## [지원되는 데이터 원본](analysis-services-datasource.md)
 ## [인증 및 사용자 권한](analysis-services-manage-users.md)
 ## [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)
@@ -62,7 +62,7 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure 상태](https://azure.microsoft.com/status/)
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)

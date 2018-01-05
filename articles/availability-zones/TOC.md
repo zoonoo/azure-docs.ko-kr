@@ -10,7 +10,7 @@
 ## 가용성 영역 설명서
 ### [가용성 영역은 무엇입니까?](az-overview.md)
 
-### 가상 컴퓨터
+### 가상 머신
 #### [CLI를 사용하여 가용성 영역에서 Linux VM 만들기](../virtual-machines/linux/create-cli-availability-zone.md)
 #### [PowerShell을 사용하여 가용성 영역에서 Windows VM 만들기](../virtual-machines/windows/create-powershell-availability-zone.md)
 #### [Azure Portal을 사용하여 가용성 영역에서 Windows VM 만들기](../virtual-machines/windows/create-portal-availability-zone.md)
@@ -19,8 +19,8 @@
 #### [CLI를 사용하여 가용성 영역에서 관리 디스크 추가](../virtual-machines/linux/add-disk.md#use-managed-disks)
 #### [PowerShell을 사용하여 가용성 영역에서 관리 디스크 추가](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
-### 가상 컴퓨터 확장 집합
-#### [Azure Portal을 사용하여 가상 컴퓨터 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+### 가상 머신 크기 집합
+#### [가용성 영역에서 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### 부하 분산 장치
 #### [부하 분산 장치란?](../load-balancer/load-balancer-standard-overview.md)

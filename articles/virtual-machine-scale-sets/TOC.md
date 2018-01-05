@@ -22,6 +22,7 @@
 ## 배포
 ### [Visual Studio를 사용하여 만들기](virtual-machine-scale-sets-vs-create.md)
 ### [관리 디스크가 포함된 확장 집합](virtual-machine-scale-sets-managed-disks.md)
+### [가용성 영역 사용](virtual-machine-scale-sets-use-availability-zones.md)
 ### [확장 집합 자동 크기 조정](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure Portal 사용](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Azure CLI 2.0 사용](virtual-machine-scale-sets-autoscale-cli.md)
@@ -49,10 +50,10 @@
 ## FAQ
 ### [확장 집합 FAQ](virtual-machine-scale-sets-faq.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST (영문)](/rest/api/virtualmachinescalesets/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
