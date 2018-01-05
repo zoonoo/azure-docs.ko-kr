@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive 정책 구성
       href: apache-domain-joined-run-hive.md
-    - name: 용량 계획
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: 도메인 가입 클러스터 관리
       href: apache-domain-joined-manage.md
@@ -48,7 +46,7 @@
     - name: 클러스터 성능 모니터링
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -54,6 +54,8 @@
 #### [규정 준수 - 영국 공식](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [개요](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [원칙 개요](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### 준수 - 금융 서비스
+##### [규제된 워크로드의 금융 서비스](./blueprints/financial-services-regulated-workloads.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)
@@ -121,7 +123,7 @@
 ## [Microsoft 보안 대응 센터](azure-security-response-center.md)
 ## [펜 테스트](azure-security-pen-testing.md)
 ## [보안 센터](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [키 자격 증명 모음](../key-vault/key-vault-whatis.md)
+## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
