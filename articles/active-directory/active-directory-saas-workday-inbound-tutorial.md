@@ -341,7 +341,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
 | **PostalCode**  |   postalCode  |     | 만들기 + 업데이트 |
 | **LocalReference** |  preferredLanguage  |     |  만들기 + 업데이트 |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \*\$](file:///\\.)  *$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\ \* \\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \* \$](file:///\\.)  *$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
