@@ -9,6 +9,7 @@
 ## [VPN 연결 문제 해결](network-watcher-troubleshoot-overview.md)
 ## [연결 확인](network-watcher-connectivity-overview.md)
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # 시작
 ## [Network Watcher 구성](network-watcher-create.md)
 ## 패킷 캡처 관리
@@ -16,46 +17,47 @@
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-packet-capture-manage-cli.md)
-### [REST (영문)](network-watcher-packet-capture-manage-rest.md)
+### [REST](network-watcher-packet-capture-manage-rest.md)
 ## VM과의 IP 흐름 확인
 ### [Azure 포털](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-ip-flow-verify-cli.md)
-### [REST (영문)](network-watcher-check-ip-flow-verify-rest.md)
+### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## 다음 홉 분석
 ### [Azure 포털](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-next-hop-cli.md)
-### [REST (영문)](network-watcher-check-next-hop-rest.md)
+### [REST](network-watcher-check-next-hop-rest.md)
 ## 네트워크 토폴로지 보기
 ### [Azure PowerShell](network-watcher-topology-powershell.md)
 ### [Azure CLI 1.0](network-watcher-topology-cli-nodejs.md)
 ### [Azure CLI](network-watcher-topology-cli.md)
-### [REST (영문)](network-watcher-topology-rest.md)
+### [REST](network-watcher-topology-rest.md)
 ## VPN Gateway 및 연결 문제 해결
 ### [Azure 포털](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
-### [REST (영문)](network-watcher-troubleshoot-manage-rest.md)
+### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## 네트워크 보안 그룹 보기 분석
 ### [Azure PowerShell](network-watcher-security-group-view-powershell.md)
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
-### [REST (영문)](network-watcher-security-group-view-rest.md)
+### [REST](network-watcher-security-group-view-rest.md)
 ## 연결 테스트
 ### [Azure 포털](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
-### [REST (영문)](network-watcher-connectivity-rest.md)
+### [REST](network-watcher-connectivity-rest.md)
 ## NSG 흐름 로그 구성
 ### [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-### [REST (영문)](network-watcher-nsg-flow-logging-rest.md)
+### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # 방법
 ## [Azure Automation으로 VPN Gateway 모니터링](network-watcher-monitor-with-azure-automation.md)
 ## [VPN Gateway를 통한 온-프레미스 연결 진단](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,8 +74,9 @@
 ### [탄력적 스택 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Grafana 사용](network-watcher-nsg-grafana.md)
 ### [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [위치와 Azure 지역 간의 상대적 대기 시간 결정](view-relative-latencies.md)
 
-# 참조
+# 참고 자료
 ## [Azure CLI](/cli/azure/network/watcher)
 ## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
 ## [Java](/java/api/com.microsoft.azure.management.network)
@@ -81,7 +84,7 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
 
 ## [.NET](/dotnet/api)
-## [REST (영문)](/rest/api/networkwatcher/)
+## [REST](/rest/api/networkwatcher/)
 # 관련 항목
 ## [가상 네트워크](/azure/virtual-network/)
 ## [가상 머신](/azure/virtual-machines/)
@@ -89,7 +92,7 @@
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [가격](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=network-watcher)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/network-watcher)

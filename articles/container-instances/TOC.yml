@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: 개념
   items:
-    - name: 지역 및 가용성
-      href: container-instances-region-availability.md
+    - name: 할당량 및 국가별 제한
+      href: container-instances-quotas.md
     - name: 오케스트레이터와의 관계
       href: container-instances-orchestrator-relationship.md
     - name: 컨테이너 그룹
@@ -41,7 +41,7 @@
       href: container-instances-restart-policy.md
     - name: 배포 문제 해결
       href: container-instances-troubleshooting.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/container
@@ -51,9 +51,9 @@
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
       href: /dotnet/api/overview/azure/containerinstances
-    - name: Python
+    - name: 파이썬
       href: /python/api/overview/azure/containerinstance
-    - name: Java
+    - name: 자바
       href: /java/api/overview/azure/containerinstance
     - name: Node.js
       href: /javascript/api/overview/azure/containerinstance
@@ -71,5 +71,5 @@
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
