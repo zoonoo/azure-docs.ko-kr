@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure 스택에 대 한 저장소 용량 관리
 
@@ -53,7 +53,7 @@ Azure 스택 저장소 용량을 확장을 지원 하지 않으므로 반드시 
 공유가 낮은에 있는 경우 사용 가능한 공간 및 동작을 [회수](#reclaim-capacity) 성공 하거나 사용 가능한 공간 하지 않은, Azure 스택 클라우드 운영자 수 [마이그레이션할](#migrate-a-container-between) 간에 공유 하나에서 blob 컨테이너입니다.
 
 - 컨테이너 및 blob에 대 한 자세한 내용은 참조 [Blob 저장소](azure-stack-key-features.md#blob-storage) 주요 기능 및 Azure 스택에 대 한 개념입니다.
-- 테 넌 트 사용자가 스택에서 Azure 블로그 저장소에서 작동 하는 방법에 대 한 정보를 참조 하십시오. [Azure 스택 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.
+- 스택에서 Azure blob 저장소와 테 넌 트 사용자가 작업 하는 방법에 대 한 정보를 참조 하십시오. [Azure 스택 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.
 
 
 ### <a name="containers"></a>컨테이너
