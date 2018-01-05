@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Azure 스택 통합 시스템에서 배율 단위 노드를 대체 합니다.
 
@@ -28,23 +28,23 @@ ms.lasthandoff: 12/23/2017
 
 다음 흐름 다이어그램에서는 전체 배율 단위 노드를 바꾸는 일반적인 FRU 프로세스를 보여 줍니다.
 
-![바꾸기 노드 프로세스에 대 한 순서도](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![바꾸기 노드 프로세스에 대 한 순서도](media/azure-stack-replace-node/replacenodeflow.png)
 
 *이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
 
 ## <a name="review-alert-information"></a>경고 정보를 검토 합니다.
 
-배율 단위 노드가 다운 되는 경우 다음과 같은 모든 중요 한 알림 받게 됩니다.
+배율 단위 노드가 다운 되는 경우 다음과 같은 중요 한 알림 받게 됩니다.
 
 - 네트워크 컨트롤러에 연결 되어 있지 노드
 - 가상 컴퓨터 배치에 액세스할 수 없는 노드
 - 배율 단위 노드가 오프 라인 상태입니다.
 
-![목록 아래로 배율 단위에 대 한 경고](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![목록 아래로 배율 단위에 대 한 경고](media/azure-stack-replace-node/nodedownalerts.png)
 
-"배율 단위 노드는 오프 라인" 경고를 열면 경고 설명 액세스할 수 있는 배율 단위 노드를 포함 합니다. 또한 하드웨어 수명 주기 호스트에서 실행 되는 OEM 전용 모니터링 솔루션에 추가 경고를 발생할 수 있습니다.
+여는 경우는 **배율 단위 노드가 오프 라인 상태인** 경고, 경고 설명 액세스할 수 있는 배율 단위 노드를 포함 합니다. 또한 하드웨어 수명 주기 호스트에서 실행 되는 OEM 전용 모니터링 솔루션에 추가 경고를 발생할 수 있습니다.
 
-![노드가 오프 라인 경고의 세부 정보](media/azure-stack-replace-node/NodeOffline.PNG)
+![노드가 오프 라인 경고의 세부 정보](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>배율 단위 노드 교체 프로세스
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/23/2017
 1. 사용 하 여는 [방전](azure-stack-node-actions.md#scale-unit-node-actions) 배율 단위 노드 유지 관리 모드로 설정 하는 작업입니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
 
    > [!NOTE]
-   > 어떤 경우 든, 하나의 노드만 종료 되 고 (저장소 공간 다이렉트) SSD를 중단 하지 않고 동시에 전원을 끌 수 있습니다.
+   > 어떤 경우 든, 하나의 노드만 종료 되 고 수는 S2D 위반 하지 않고 동시에 전원을 끌 (저장소 공간 다이렉트)입니다.
 
 2. 여전히 노드가 켜져를 사용 하 여는 [전원을 끄고](azure-stack-node-actions.md#scale-unit-node-actions) 동작 합니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
  
@@ -68,4 +68,4 @@ ms.lasthandoff: 12/23/2017
 ## <a name="next-steps"></a>다음 단계
 
 - 핫 스왑 가능한 실제 디스크를 교체 하는 방법에 대 한 정보를 참조 하십시오. [디스크 교체](azure-stack-replace-disk.md)합니다. 
-- 비 핫 스왑 가능한 하드웨어 구성 요소를 교체 하는 방법에 대 한 정보를 참조 하십시오. [하드웨어 구성 요소 교체](azure-stack-replace-component.md)합니다. 
+- 비 핫 스왑 가능한 하드웨어 구성 요소를 교체 하는 방법에 대 한 정보를 참조 하십시오. [하드웨어 구성 요소 교체](azure-stack-replace-component.md)합니다.
