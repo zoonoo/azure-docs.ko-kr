@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: 통합된 시스템 릴리스 정보
           items:
+            - name: 1712 업데이트
+              href: azure-stack-update-1712.md
             - name: 1711 업데이트
               href: azure-stack-update-1711.md
             - name: 1710 업데이트

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL 데이터베이스를 사용 하 여 Microsoft Azure 스택
 
@@ -71,6 +71,7 @@ Azure 스택 MySQL 리소스 공급자를 배포할 수 있습니다. 리소스 
 
     | Azure 스택 빌드 | MySQL RP 설치 관리자 |
     | --- | --- |
+    | 1.0.180102.3 | **추가 정보에 대 한 잠시 기다려 주십시오, 현재 빌드를 설치 하지 것입니다 되지만 multi-node에서 Azure 스택 업그레이드 한 후 실행 계속 됩니다.** |
     | 1.0.171122.1 | [MySQL RP 1.1.12.0 버전](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP 1.1.8.0 버전](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP 1.1.3.0 버전](https://aka.ms/azurestackmysqlrp1709) |
