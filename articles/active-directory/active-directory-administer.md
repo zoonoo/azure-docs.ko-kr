@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
 
@@ -80,7 +80,6 @@ Azure에 등록하면 기본 Azure AD 디렉터리가 구독과 연결됩니다.
 * Azure AD ID 및 인증 서비스와 온-프레미스 통합 설정
 
 Azure AD 관리 센터, Office 365 관리 센터, Microsoft Intune 계정 포털 및 Azure AD cmdlet은 모두 조직의 디렉터리와 연결된 Azure AD의 단일 공유 인스턴스에서 읽고 씁니다. 해당 도구는 각각 디렉터리 데이터를 가져오거나 변경하는 프런트 엔드 인터페이스로 작동합니다.
-
 이러한 서비스 중 하나의 컨텍스트에서 로그인한 동안 포털 또는 cmdlet 중 하나를 사용하여 조직의 데이터를 변경한 경우 변경 내용은 다음에 로그인할 때 다른 포털에도 표시됩니다. 이 데이터는 구독하는 Microsoft 클라우드 서비스에서 공유됩니다.
 
 예를 들어 Office 365 관리 센터를 사용하여 사용자의 로그인을 차단한 경우 조직에서 현재 구독하는 다른 모든 서비스에 대한 사용자의 로그인도 차단됩니다. Microsoft Intune 계정 포털에서 동일한 사용자 계정을 보면 사용자가 차단되었음을 알 수 있습니다.
@@ -117,8 +116,8 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure AD 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Azure 질문에 대한 Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Azure 질문에 대한 StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)

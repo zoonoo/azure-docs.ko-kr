@@ -6,28 +6,28 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-컨테이너는 클라우드 응용 프로그램을 패키지, 배포 및 관리하기 위한 기본 방법으로 신속히 도입되고 있습니다. Azure Container Instances는 어떠한 가상 컴퓨터를 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
+컨테이너는 클라우드 응용 프로그램을 패키지, 배포 및 관리하기 위한 기본 방법으로 신속히 도입되고 있습니다. Azure Container Instances는 어떠한 가상 머신을 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure에서 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 
-Azure Container Instances는 간단한 응용 프로그램, 작업 자동화 및 빌드 작업 등 격리된 컨테이너에서 작동할 수 있는 모든 시나리오에 적합한 솔루션입니다. 여러 컨테이너 간 서비스 검색, 자동 크기 조정 및 조정된 응용 프로그램 업그레이드를 비롯한 전체 컨테이너 오케스트레이션이 필요한 시나리오에는 [Azure Container Service](https://docs.microsoft.com/azure/container-service/)를 사용하는 것이 좋습니다.
+Azure Container Instances는 간단한 응용 프로그램, 작업 자동화 및 빌드 작업 등 격리된 컨테이너에서 작동할 수 있는 모든 시나리오에 적합한 솔루션입니다. 여러 컨테이너 간 서비스 검색, 자동 크기 조정 및 조정된 응용 프로그램 업그레이드를 포함하여 전체 컨테이너 오케스트레이션이 필요한 시나리오에는 [AKS(Azure Container Service)](../aks/index.yml)를 사용하는 것이 좋습니다.
 
 ## <a name="fast-startup-times"></a>빠른 시작 시간
 
-컨테이너는 가상 컴퓨터를 통한 상당한 시작 이점을 제공합니다. Azure Container Instances를 통해 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
+컨테이너는 가상 머신을 통한 상당한 시작 이점을 제공합니다. Azure Container Instances를 통해 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
 ## <a name="hypervisor-level-security"></a>하이퍼바이저 수준 보안
 
-지금까지는 컨테이너가 응용 프로그램 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해서 충분히 보강되지 않았습니다. Azure Container Instances를 통해 응용 프로그램은 VM에서처럼 컨테이너에 격리됩니다.
+지금까지는 컨테이너에서 응용 프로그램 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해 충분히 강화되지 않은 것으로 간주됩니다. Azure Container Instances를 통해 응용 프로그램은 VM에서처럼 컨테이너에 격리됩니다.
 
 ## <a name="custom-sizes"></a>사용자 지정 크기
 
@@ -39,7 +39,7 @@ Azure Container Instances를 통해 컨테이너를 공용 IP 주소로 인터�
 
 ## <a name="persistent-storage"></a>영구 저장소
 
-Azure Container Instances에서 상태를 검색 및 유지하기 위해 Azure 파일 공유의 직접 탑재를 제공합니다.
+Azure Container Instances를 통해 상태를 검색하고 유지하려면 [Azure Files 공유 탑재](container-instances-mounting-azure-files-volume.md)를 직접 제공합니다.
 
 ## <a name="linux-and-windows-containers"></a>Linux 및 Windows 컨테이너
 
@@ -47,7 +47,7 @@ Azure Container Instances에서는 동일한 API로 Windows 및 Linux 컨테이�
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 
-Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 저장소 및 수명 주기를 공유하는 다중 컨테이너 그룹의 예약을 지원합니다. 이렇게 하면 주 응용 프로그램을 로깅과 같은 지원 역할을 수행하는 다른 항목과 결합할 수 있습니다.
+Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 저장소 및 수명 주기를 공유하는 [다중 컨테이너 그룹](container-instances-container-groups.md)의 예약을 지원합니다. 이렇게 하면 주 응용 프로그램을 로깅과 같은 지원 역할을 수행하는 다른 항목과 결합할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

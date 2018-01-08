@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>릴레이 하이브리드 연결 시작
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="what-will-be-accomplished"></a>수행될 작업
 
-하이브리드 연결에는 클라이언트와 서버 구성 요소가 모두 필요하기 대문에 이 자습서에서는 두 개의 콘솔 응용 프로그램을 만듭니다. 단계는 다음과 같습니다.
+하이브리드 연결에는 클라이언트와 서버 구성 요소가 모두 필요하므로 이 자습서에서는 두 개의 콘솔 응용 프로그램을 만듭니다. 단계는 다음과 같습니다.
 
 1. Azure 포털을 사용하여 릴레이 네임스페이스를 만듭니다.
 2. Azure Portal을 사용하여 하이브리드 연결을 만듭니다.
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="3-create-a-server-application-listener"></a>3. 서버 응용 프로그램(수신기) 만들기
 
-릴레이에서 메시지를 수신하고 받으려면 Node.js 콘솔 응용 프로그램을 작성합니다.
+릴레이에서 메시지를 수신 대기하고 받으려면 Node.js 콘솔 응용 프로그램을 작성합니다.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/21/2017
 
 축하합니다. Node.js를 사용하여 종단 간 하이브리드 연결 응용 프로그램을 만들었습니다.
 
-## <a name="next-steps"></a>다음 단계:
+## <a name="next-steps"></a>다음 단계
 
 * [릴레이 FAQ](relay-faq.md)
 * [네임스페이스 만들기](relay-create-namespace-portal.md)

@@ -71,15 +71,15 @@
       items:
         - name: 지원되는 언어
           href: supported-languages.md
-        - name: 'C# 스크립트'
-          href: functions-reference-csharp.md
-        - name: .NET 클래스 라이브러리
+        - name: 'C#(클래스 라이브러리)'
           href: functions-dotnet-class-library.md
+        - name: 'C# 스크립트(.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
           href: functions-reference-node.md
-        - name: Java
+        - name: 자바
           href: functions-reference-java.md
     - name: 성능 고려 사항
       href: functions-best-practices.md
@@ -175,7 +175,7 @@
           href: durable-functions-counter.md
         - name: 사용자 개입
           href: durable-functions-phone-verification.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 바인딩
       items:
@@ -225,7 +225,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 비디오
+    - name: 동영상
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'

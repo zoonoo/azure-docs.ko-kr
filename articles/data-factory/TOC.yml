@@ -15,7 +15,7 @@
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
           href: quickstart-create-data-factory-dot-net.md
-        - name: Python
+        - name: 파이썬
           href: quickstart-create-data-factory-python.md
         - name: REST (영문)
           href: quickstart-create-data-factory-rest-api.md
@@ -303,7 +303,9 @@
       items:
         - name: 일정 트리거 만들기
           href: how-to-create-schedule-trigger.md
-- name: 참조
+        - name: 연속 창 트리거 만들기
+          href: how-to-create-tumbling-window-trigger.md
+- name: 참고 자료
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
@@ -311,7 +313,7 @@
       href: /powershell/module/azurerm.datafactoryv2/
     - name: REST API
       href: /rest/api/datafactory
-    - name: Python
+    - name: 파이썬
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 리소스
   items:

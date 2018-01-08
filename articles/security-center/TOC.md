@@ -7,7 +7,7 @@
 ## [플랫폼 마이그레이션](security-center-platform-migration.md)
 ### [플랫폼 마이그레이션 FAQ](security-center-platform-migration-faq.md)
 
-# 시작
+# 시작하기
 ## [빠른 시작](security-center-get-started.md)
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
 ## [권한](security-center-permissions.md)
@@ -47,7 +47,7 @@
 #### [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md)
 #### [투명한 데이터 암호화 사용](security-center-enable-transparent-data-encryption.md)
 
-### [가상 컴퓨터 권장 사항](security-center-virtual-machine-recommendations.md)
+### [가상 머신 권장 사항](security-center-virtual-machine-recommendations.md)
 #### [디스크 암호화 적용](security-center-apply-disk-encryption.md)
 #### [시스템 업데이트 적용](security-center-apply-system-updates.md)
 #### [저장소 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md)
@@ -82,14 +82,15 @@
 ## 문제 해결
 ### [문제 해결 가이드](security-center-troubleshooting-guide.md)
 
-# 참조
-## [REST (영문)](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+# 참고 자료
+## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # 관련 항목
 ## [Azure 보안](/azure/security/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Security Center 준비 로드맵](security-center-readiness-roadmap.md)
 ## [Azure 보안, 개인 정보 보호 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 개요](https://azure.microsoft.com/services/security-center/)

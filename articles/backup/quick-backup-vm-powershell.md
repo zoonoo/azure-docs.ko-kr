@@ -1,6 +1,6 @@
 ---
-title: "Azure 빠른 시작 - PowerShell에서 VM 백업 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 가상 컴퓨터를 백업하는 방법을 알아봅니다."
+title: "Azure 빠른 시작 - PowerShell을 사용하여 VM 백업 | Microsoft Docs"
+description: "Azure PowerShell을 사용하여 가상 머신을 백업하는 방법을 알아봅니다."
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,17 +13,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 98a86652b13f62ef7acade9eb69e81852b2fc091
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9abb85c7a23a1fadc0afc1c4716c81aae712f30b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 컴퓨터 백업
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure PowerShell 모듈에서 VM(가상 컴퓨터)을 백업하는 방법을 자세히 설명합니다. [Azure CLI](quick-backup-vm-cli.md) 또는 [Azure Portal](quick-backup-vm-portal.md)에서 이러한 단계를 수행할 수도 있습니다.
+# <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure PowerShell 모듈에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure CLI](quick-backup-vm-cli.md) 또는 [Azure Portal](quick-backup-vm-portal.md)에서 이러한 단계를 수행할 수도 있습니다.
 
 이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure PowerShell을 사용하여 VM을 만들](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) 수 있습니다.
 
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들고, VM에 대한 보호를 사용하도록 설정하고, 초기 복구 지점 생성했습니다. Azure Backup 및 Recovery Services에 대한 자세한 내용은 자습서를 진행하세요.
+이 빠른 시작에서는 Recovery Services 자격 증명 모음을 만들고, VM에 대한 보호를 사용하도록 설정하고, 초기 복구 지점을 만들었습니다. Azure Backup 및 Recovery Services에 대한 자세한 내용은 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]
 > [여러 Azure VM 백업](./tutorial-backup-vm-at-scale.md)

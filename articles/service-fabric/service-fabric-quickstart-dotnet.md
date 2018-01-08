@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Azure에서 .NET Service Fabric 응용 프로그램 만들기
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -92,7 +92,7 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 1. **/VotingWeb/Controllers/VotesController.cs** 파일을 열고 Web API의 **Put** 메서드(47줄)에서 중단점을 설정합니다. Visual Studio의 솔루션 탐색기에서 파일을 검색할 수 있습니다.
 
-2. **/VotingData/ControllersVoteDataController.cs** 파일을 열고 이 Web API의 **Put** 메서드(50줄)에서 중단점을 설정합니다.
+2. **/VotingData/Controllers/VoteDataController.cs** 파일을 열고 이 웹 API의 **Put** 메서드(50줄)에서 중단점을 설정합니다.
 
 3. 브라우저로 돌아가서 투표 옵션을 클릭하거나 새 투표 옵션을 추가합니다. 웹 프런트 엔드의 api 컨트롤러에서 첫 번째 중단점에 도달합니다.
     - 여기서 브라우저의 JavaScript가 프런트 엔드 서비스의 Web API 컨트롤러에 요청을 보냅니다.
@@ -134,7 +134,7 @@ Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabri
 
     ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. **연결 끝점** 필드에 Party 클러스터 페이지의 **연결 끝점**을 복사하고 **게시**를 클릭합니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. **연결 끝점** 필드에 Party 클러스터 페이지의 **연결 끝점**을 복사하고 **게시**를 클릭합니다. 예: `winh1x87d1d.westus.cloudapp.azure.com:19000`
 
     클러스터의 각 응용 프로그램에는 고유한 이름이 있어야 합니다.  Party 클러스터가 공용 공유 환경이지만 기존 응용 프로그램과 충돌이 발생할 수 있습니다.  이름이 충돌하는 경우 Visual Studio 프로젝트의 이름을 바꾸고 다시 배포합니다.
 
@@ -171,7 +171,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 응용 프로그램을 업그레이드하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **/VotingWeb/Views/Home/Index.cshtml** 파일을 엽니다.
-2. 텍스트를 <h2> 추가하거나 업데이트하여 페이지에서 제목을 변경합니다. 예를 들어 제목을 “Service Fabric Voting 샘플 v2”로 변경합니다.
+2. 텍스트를 추가하거나 업데이트하여 페이지의 제목을 변경합니다. 예를 들어 제목을 “Service Fabric Voting 샘플 v2”로 변경합니다.
 3. 파일을 저장합니다.
 4. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 5. **매니페스트 버전** 단추를 클릭하여 서비스 및 응용 프로그램의 버전을 변경합니다.

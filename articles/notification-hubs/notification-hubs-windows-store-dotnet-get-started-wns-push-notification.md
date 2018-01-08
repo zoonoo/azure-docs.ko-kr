@@ -3,22 +3,22 @@ title: "유니버설 Windows 플랫폼 앱용 Azure Notification Hubs 시작 | M
 description: "이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 응용 프로그램으로 알림을 푸시하는 방법을 알아봅니다."
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>유니버설 Windows 플랫폼 앱용 Notification Hubs 시작
 
@@ -81,8 +81,8 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 ## <a name="configure-your-notification-hub"></a>알림 허브 구성
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p><b>Notification Services</b> > <b>Windows (WNS)</b>를 선택한 다음, <b>보안 키</b> 상자에 응용 프로그램 보안 암호를 입력합니다. <b>패키지 SID</b> 상자에서 이전 섹션의 WNS에서 얻은 값을 입력한 다음 <b>저장</b>을 선택합니다.</p>
+<ol start="6">
+<li><p><b>Notification Services</b> 아래에서 <b>Windows(WNS)</b>를 선택한 다음, <b>보안 키</b> 상자에서 응용 프로그램 비밀 암호를 입력합니다. <b>패키지 SID</b> 상자에서 이전 섹션의 WNS에서 얻은 값을 입력한 다음 <b>저장</b>을 선택합니다.</p>
 </li>
 </ol>
 
@@ -149,7 +149,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 
 푸시 알림은 일반적으로 호환 라이브러리를 사용하는 Mobile Services 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다. 
 
-이 자습서에서는 백 엔드 서비스 대신 콘솔 응용 프로그램에서 알림 허브에 .NET SDK를 사용하여 알림을 보내어 클라이언트 앱을 테스트하는 방법을 보여 줍니다. ASP.NET 백 엔드에서 알림을 보내기 위한 다음 단계로서 [Notification Hubs를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 그러나 다음 방법 중 하나를 사용하여 알림을 보낼 수 있습니다.
+이 자습서에서는 백 엔드 서비스 대신 콘솔 응용 프로그램에서 알림 허브에 .NET SDK를 사용하여 알림을 보내어 클라이언트 앱을 테스트하는 방법을 보여 줍니다. ASP.NET 백 엔드에서 알림을 보내기 위한 다음 단계로서 [Notification Hubs를 사용하여 사용자에게 알림을 푸시] 자습서를 수행하는 것이 좋습니다. 그러나 다음 방법 중 하나를 사용하여 알림을 보낼 수 있습니다.
 
 * **REST 인터페이스**: [REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백 엔드 플랫폼에서 알림을 지원할 수 있습니다.
 
@@ -162,58 +162,8 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
-## <a name="optional-send-notifications-from-a-console-app"></a>(선택 사항) 콘솔 응용 프로그램에서 알림 보내기
-.NET 콘솔 응용 프로그램을 사용하여 알림을 보내려면 다음을 수행합니다. 
-
-1. 마우스 오른쪽 단추로 솔루션을 클릭하고, **추가** > **새 프로젝트**를 선택하고, **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 선택한 다음 **확인**을 선택합니다.
-   
-    그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 프로젝트를 추가할 수도 있습니다.
-
-2. Visual Studio에서 **도구**를 선택하고 **NuGet 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
-   
-    패키지 관리자 콘솔은 Visual Studio에서 열립니다.
-
-3. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
-   
-    !["기본 프로젝트" 이름](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. **Program** 클래스에서 다음 메서드를 추가합니다.
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* **허브 이름** 자리 표시자를 Azure 포털에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 
-    >* 연결 문자열 자리 표시자를 "알림 허브 구성" 섹션의 Notification Hub의 **액세스 정책** 페이지에서 가져온 **DefaultFullSharedAccessSignature** 연결 문자열로 바꿉니다.
-    >* *수신* 액세스가 아니라 *모든* 권한을 가진 연결 문자열을 사용합니다. 수신 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
-   > 
-   > 
-6. **Main** 메서드에 다음 줄을 추가합니다.
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. Visual Studio에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택하여 시작 프로젝트로 설정합니다. 그런 다음 **F5** 키를 선택하여 응용 프로그램을 실행합니다.
-   
-    그러면 등록된 모든 장치에 대한 알림 메시지를 수신하게 됩니다. 알림 배너를 선택하거나 누르면 앱이 로드됩니다.
-
-MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목에서 지원되는 모든 페이로드를 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
-이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계에서 [Notification Hubs를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백 엔드에서 알림을 보내는 방법을 보여 줍니다.
+이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계에서 [Notification Hubs를 사용하여 사용자에게 알림을 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백 엔드에서 알림을 보내는 방법을 보여 줍니다.
 
 사용자를 관심 그룹별로 분할하려면 [Notification Hubs를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오. 
 
@@ -227,10 +177,10 @@ Notification Hubs에 대한 더 일반적인 정보를 알아보려면 [Notifica
 
 <!-- URLs. -->
 
-[Notification Hubs를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Notification Hubs를 사용하여 사용자에게 알림을 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Notification Hubs를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-[알림 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  

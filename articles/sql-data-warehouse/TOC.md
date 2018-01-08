@@ -90,7 +90,6 @@
 
 
 ## 데이터 로드 및 이동
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Contoso 공용 데이터](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
