@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Azure HDInsight, Hadoop 및 Spark 기술 스택 소개
 이 문서에서는 엔터프라이즈를 위해 완전히 관리되는 전체 스펙트럼의 오픈 소스 분석 서비스인 Azure HDInsight를 소개합니다. Hadoop, Spark, Hive, LLAP, Kafka, Storm, R 등과 같은 오픈 소스 프레임워크를 사용할 수 있습니다. 
@@ -113,11 +113,11 @@ HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터�
 기본적으로 HDInsight 클러스터는 다음을 지원합니다.
 
 * 자바
-* Python
+* 파이썬
 
 추가 언어는 [스크립트 동작](../hdinsight-hadoop-script-actions-linux.md)을 사용하여 설치할 수 있습니다.
 
-### <a name="java-virtual-machine-jvm-languages"></a>Java 가상 컴퓨터(JVM) 언어
+### <a name="java-virtual-machine-jvm-languages"></a>Java 가상 머신(JVM) 언어
 JVM(Java virtual machine)에서 Java 이외의 여러 언어를 실행할 수 있지만 이러한 언어 중 일부를 실행하려면 클러스터에 설치된 추가 구성 요소가 필요할 수 있습니다.
 
 이러한 JVM 기반 언어는 HDInsight 클러스터에서 지원됩니다.
@@ -137,6 +137,7 @@ HDInsight 클러스터는 Hadoop 기술 스택에만 적용되는 다음 언어�
 
 * [Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI](../spark/apache-spark-use-bi-tools.md)
 * [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](apache-hadoop-connect-hive-power-bi.md) 
+* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [파워 쿼리로 Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md): HDInsight 클러스터의 데이터를 저장하는 Azure Storage 계정에 Microsoft Excel용 파워 쿼리를 사용하여 Excel을 연결하는 방법을 알아봅니다. Windows 워크스테이션이 필요합니다. 
 * [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC 드라이버를 사용하여 HDInsight에서 데이터를 가져오는 방법에 대해 알아봅니다. Windows 워크스테이션이 필요합니다. 
 * [Microsoft Cloud 플랫폼](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Office 365용 Power BI에 대해 알아보고 SQL Server 평가판을 다운로드하고 SharePoint Server 2013 및 SQL Server BI를 설치합니다.

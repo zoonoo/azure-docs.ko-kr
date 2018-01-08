@@ -39,15 +39,19 @@
       href: kubernetes-helm.md
     - name: Draft를 사용하여 응용 프로그램 개발
       href: kubernetes-draft.md
-    - name: Azure 파일에서 데이터 유지
-      href: azure-files.md
     - name: OSBA를 사용하여 Azure와 통합
       href: integrate-azure.md
     - name: Kubernetes 대시보드 사용
       href: kubernetes-dashboard.md
     - name: 서비스 주체 만들기
       href: kubernetes-service-principal.md
-- name: 참조
+    - name: 데이터 볼륨 구성
+      items:
+        - name: Azure 파일 - 영구 볼륨
+          href: azure-files-dynamic-pv.md
+        - name: Azure 파일 - 볼륨
+          href: azure-files.md
+- name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/aks
@@ -65,5 +69,5 @@
       href: 'https://github.com/Azure/AKS/issues'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

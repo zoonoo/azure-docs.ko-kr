@@ -6,25 +6,25 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bf511f60a431a110f43d26444dedb7728b040af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances에서 첫 번째 컨테이너 만들기
-Azure Container Instances를 사용하면 가상 컴퓨터를 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에서 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 몇 초 내에 브라우저에 다음과 같은 화면이 표시됩니다.
+Azure Container Instances를 사용하면 가상 머신을 프로비전하거나 상위 수준 서비스를 도입하지 않고도 Azure에서 Docker 컨테이너를 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에서 컨테이너를 만들고 공용 IP 주소를 사용하여 인터넷에 공개합니다. 이 작업은 단일 명령으로 완료됩니다. 몇 초 내에 브라우저에 다음과 같은 화면이 표시됩니다.
 
 ![Azure Container Instances를 사용하여 배포된 앱이 브라우저에 표시됨][aci-app-browser]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -40,16 +40,16 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-[az container create][az-container-create] 명령에 이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 [Node.js](http://nodejs.org)로 작성된 작은 웹앱을 호스트하는 컨테이너를 배포합니다.
+[az container create][az-container-create] 명령에 이름, Docker 이미지 및 Azure 리소스 그룹을 제공하여 컨테이너를 만들 수 있습니다. 선택적으로 공용 IP 주소로 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 [Node.js][node-js]로 작성된 작은 웹앱을 호스팅하는 컨테이너를 배포합니다.
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
 ```
 
 몇 초 안에 요청에 대한 응답을 얻게 됩니다. 처음에는 컨테이너가 **만드는 중** 상태가 되지만 몇 초 이내 시작됩니다. [az container show][az-container-show] 명령을 사용하여 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
-az container show --name mycontainer --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
 출력 맨 아래에 컨테이너의 프로비전 상태와 해당 IP 주소가 표시됩니다.
@@ -79,10 +79,10 @@ az container show --name mycontainer --resource-group myResourceGroup
 [az container logs][az-container-logs] 명령을 사용하여 만든 컨테이너의 로그를 끌어올 수 있습니다.
 
 ```azurecli-interactive
-az container logs --name mycontainer --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력:
+출력
 
 ```bash
 listening on port 80
@@ -95,13 +95,13 @@ listening on port 80
 컨테이너 작업을 완료했으면 [az container delete][az-container-delete] 명령을 사용하여 제거할 수 있습니다.
 
 ```azurecli-interactive
-az container delete --name mycontainer --resource-group myResourceGroup
+az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
 컨테이너가 삭제되었는지 확인하려면 [az container list](/cli/azure/container#az_container_list) 명령을 실행합니다.
 
 ```azurecli-interactive
-az container list --resource-group myResourceGroup -o table
+az container list --resource-group myResourceGroup --output table
 ```
 
 **mycontainer** 컨테이너가 명령의 출력에 나타나지 않아야 합니다. 리소스 그룹에 다른 컨테이너가 없는 경우 표시되는 출력이 없습니다.
@@ -115,17 +115,21 @@ az container list --resource-group myResourceGroup -o table
 
 Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [Service Fabric][service-fabric] 또는 [AKS(Azure Container Service)][container-service] 빠른 시작을 참조하세요.
 
-<!-- LINKS -->
+<!-- IMAGES -->
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[node-js]: http://nodejs.org
+
+<!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-
-
-<!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

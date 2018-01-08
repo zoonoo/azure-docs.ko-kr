@@ -10,30 +10,33 @@ ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
-ms.openlocfilehash: aeca003a9b031a48804a057b627714b554298645
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.openlocfilehash: 6d27ec96f56e576d4af02c5e0e70e6364bd5a9ec
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>MySQL용 Azure Database: Java를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 Java 응용 프로그램을 사용하여 Azure Database for MySQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Java를 사용하여 개발하는 데 익숙하고 Azure Database for MySQL을 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 Java 응용 프로그램과 [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 사용하여 Azure Database for MySQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 Java를 사용하여 개발하는 데 익숙하고 Azure Database for MySQL을 처음 사용한다고 가정합니다.
+
+[MySQL 커넥터 예제 페이지](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html)에는 다른 많은 예제와 샘플 코드가 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
-- [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
+1. 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
+   - [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-portal.md)
+   - [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-다음과 같은 작업도 필요합니다.
-- JDBC 드라이버 [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) 다운로드
-- 응용 프로그램 classpath에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함합니다. 이 문제가 있는 경우 해당 환경(예: [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 또는 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html))에 대한 설명서에서 클래스 경로 세부 사항을 참조하세요.
-- 방화벽이 응용 프로그램에 열려 있고 SSL 설정이 응용 프로그램에 맞게 조정되어 있는 등 MySQL용 Azure Database 연결 보안이 올바른 연결에 맞게 구성되어 있는지 확인합니다.
+2. 방화벽이 응용 프로그램에 열려 있고 SSL 설정이 응용 프로그램에 맞게 조정되어 있는 등 MySQL용 Azure Database 연결 보안이 올바른 연결에 맞게 구성되어 있는지 확인합니다.
+
+3. 다음 방법 중 하나를 사용하여 MySQL 커넥터/J 커넥터를 가져옵니다.
+   - Maven 패키지 [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22)를 사용하여 프로젝트에 대한 POM 파일에 [mysql 종속성](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6)을 포함시킵니다.
+   - [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) JDBC 드라이버를 다운로드하고 응용 프로그램 클래스 경로에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함시킵니다. 클래스 경로 문제가 있는 경우 환경(예: [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 또는 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html))의 클래스 경로 세부 사항에 대한 설명서를 참조하세요.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **모든 리소스**를 클릭하고 만든 서버를 검색합니다(예: **myserver4demo**).
 3. 서버 이름을 클릭합니다.
 4. 서버의 **속성** 페이지를 선택한 후 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다.
@@ -392,5 +395,7 @@ public class DeleteTable {
 ```
 
 ## <a name="next-steps"></a>다음 단계
+[MySQL 커넥터/J 예제 페이지](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html)에는 다른 많은 예제와 샘플 코드가 있습니다.
+
 > [!div class="nextstepaction"]
 > [덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure Database로 마이그레이션](concepts-migrate-dump-restore.md)

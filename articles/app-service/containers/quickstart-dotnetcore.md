@@ -16,13 +16,17 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
+
+> [!NOTE]
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 ASP.NET Core 웹앱 만들기](../app-service-web-get-started-dotnet.md)를 참조하세요.
+>
 
 [Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git를 사용하여 웹앱에 .NET Core 코드를 배포합니다.
 
@@ -35,7 +39,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">.NET Core SDK 설치</a> 
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">.NET Core SDK 1.1 설치</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

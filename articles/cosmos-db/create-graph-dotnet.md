@@ -3,7 +3,7 @@ title: "Graph API를 사용한 Azure Cosmos DB .NET Framework 또는 Core 응용
 description: "Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 .NET Framework/Core 코드 샘플을 제시합니다."
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,23 +13,23 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용한 .NET Framework 또는 Core 응용 프로그램 빌드
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 그래프(컨테이너)를 만드는 방법을 보여 줍니다. 그런 다음, [Graph API](graph-sdk-dotnet.md)(미리 보기)에서 작성한 콘솔 앱을 빌드 및 실행합니다.  
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 그래프(컨테이너)를 만드는 방법을 보여 줍니다. 그런 다음 [Graph API](graph-sdk-dotnet.md)에 작성된 콘솔 앱을 빌드하고 실행합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
+Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
 Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업데이트 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes)까지 설치되었는지 확인합니다.
 
@@ -108,19 +108,31 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. Visual Studio 2017에서 appsettings.json 파일을 엽니다. 
+1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
 
-2. Azure Portal의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역에 있는 **키**를 클릭합니다. 
+    URI 값의 첫 번째 부분을 복사합니다.
 
-    ![키 페이지의 Azure Portal에서 기본 키를 보고 복사합니다.](./media/create-graph-dotnet/keys.png)
+    ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-dotnet/keys.png)
 
-3. 포털에서 **URI** 값을 복사하고 appsettings.json의 끝점 키 값으로 만듭니다. 이전 스크린샷에 표시된 것처럼 복사 단추를 사용하여 값을 복사할 수 있습니다.
+2. Visual Studio 2017에서 appsettings.json 파일을 열고 `endpoint`의 `FILLME` 위에 값을 붙여넣습니다. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    엔드포인트 값은 이제 다음과 같이 표시됩니다.
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. 2017년 11월 27일 이전에 그래프 데이터베이스 계정을 만든 경우 `endpoint` 값에서 `documents`를 `graphs`로 변경합니다. 2017년 11월 27일 또는 그 이후에 그래프 데이터베이스 계정을 만든 경우 `endpoint` 값에서 `documents`를 `gremlin.cosmosdb`로 변경합니다.
+
+    엔드포인트 값은 이제 다음과 같이 표시됩니다.
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` 또는 `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. 포털에서 **기본 키** 값을 복사하고 이 값을 web.config의 AuthKey 값으로 만든 후 변경 내용을 저장합니다. 
 
     `"authkey": "FILLME"`
+
+5. appsettings.json 파일을 저장합니다. 
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
@@ -136,7 +148,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
     솔루션 변경 내용을 검토하는 메시지가 표시되면 **확인**을 클릭합니다. 라이선스 승인에 관한 메시지가 표시되면 **동의합니다.**를 클릭합니다.
 
-4. CTRL+F5를 눌러 응용 프로그램을 실행합니다.
+4. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
    그래프에 추가된 꼭짓점 및 에지가 콘솔 창에 표시됩니다. 스크립트가 완료되면 ENTER 키를 두 번 클릭하여 콘솔 창을 닫습니다.
 

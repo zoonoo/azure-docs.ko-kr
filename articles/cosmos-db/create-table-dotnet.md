@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/01/2017
 ms.author: mimig
-ms.openlocfilehash: 44637049dd5d6cfe353afe98427d843a0d4e403a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c3d4637871ed56bd32e514c9de4374257e55d844
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
@@ -29,7 +29,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
+Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,13 +56,13 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
    ![새 엔터티에 대한 분할 키와 행 키 설정](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
-    이제 테이블에 더 많은 엔터티를 추가하고 엔터티를 편집하거나 데이터 탐색기에서 데이터를 쿼리할 수 있습니다. 데이터 탐색기에서는 처리량을 확장하고 테이블에 저장된 프로시저, 사용자 정의 함수 및 트리거를 추가할 수 있습니다.
+    이제 테이블에 더 많은 엔터티를 추가하고 엔터티를 편집하거나 데이터 탐색기에서 데이터를 쿼리할 수 있습니다. 또한 데이터 탐색기에서는 처리량을 확장하고, 저장 프로시저, 사용자 정의 함수 및 트리거를 테이블에 추가할 수도 있습니다.
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다. 
+1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더로 변경합니다. 
 
     ```bash
     cd "C:\git-samples"
@@ -73,8 +73,15 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
+## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 응용 프로그램 열기
 
-3. 그런 다음 Visual Studio에서 TableStorage 솔루션 파일을 엽니다. 
+1. Visual Studio의 **파일** 메뉴에서 **열기**를 선택한 다음 **프로젝트/솔루션**을 선택합니다. 
+
+   ![솔루션 열기](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+
+2. 샘플 응용 프로그램을 복제한 폴더로 이동한 다음 TableStorage.sln 파일을 엽니다.
+
+   ![복제된 응용 프로그램 열기](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
@@ -82,32 +89,32 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
-    화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
+    창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 
     ![연결 문자열 창에서 기본 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
 
 2. Visual Studio에서 App.config 파일을 엽니다. 
 
-3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
+3. 이 자습서에서는 Azure SDK 저장소 에뮬레이터를 사용하지 않으므로, 8줄의 StorageConnectionString 주석 처리를 제거하고, 7줄의 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. 8줄에서 StorageConnectionString 값에 포털의 기본 연결 문자열 값을 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다. 
+4. 포털의 **기본 연결 문자열** 값을 8줄의 StorageConnectionString 값에 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다. 
 
     > [!IMPORTANT]
-    > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
+    > 엔드포인트에서 documents.azure.com을 사용하는 경우 미리 보기 계정이 있다는 의미이며, 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
     > 
 
-    8줄은 다음과 같이 표시됩니다.
+    이제 8줄은 다음과 같이 표시됩니다.
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. App.config 파일을 저장합니다.
+5. Ctrl+S를 눌러 App.config 파일을 저장합니다.
 
 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
@@ -115,29 +122,43 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 1. Visual Studio의 **솔루션 탐색기**에서 **TableStorage** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
 
-2. NuGet **찾아보기** 상자에 *Microsoft.Azure.CosmosDB.Table*을 입력합니다.
+   ![NuGet 패키지 관리](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+2. NuGet **찾아보기** 상자에 *Microsoft.Azure.CosmosDB.Table*을 입력합니다. 그러면 Cosmos DB Table API 클라이언트 라이브러리를 찾을 수 있습니다.
+   
+   ![NuGet 찾아보기 탭](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. 결과에서 **Microsoft.Azure.CosmosDB.Table** 라이브러리를 설치합니다. 그러면 Azure Cosmos DB Table API 패키지뿐만 아니라 모든 종속성도 설치됩니다.
+3. **설치**를 클릭하여 **Microsoft.Azure.CosmosDB.Table** 라이브러리를 설치합니다. 그러면 Azure Cosmos DB Table API 패키지 및 모든 종속성이 설치됩니다.
 
-4. BasicSamples.cs를 열고 30줄과 52줄에 중단점을 추가합니다.
+    ![설치 클릭](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-5. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+4. BasicSamples.cs를 엽니다. 52줄을 마우스 오른쪽 단추로 클릭하고 **중단점**을 선택한 다음 **중단점 삽입**을 선택합니다. 55줄에 다른 중단점을 삽입합니다.
 
-    Azure Cosmos DB에서 새 테이블 데이터베이스에 추가되는 테이블 데이터가 콘솔 창에 표시됩니다. 
+   ![중단점 추가](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+
+5. F5 키를 눌러 응용 프로그램을 실행합니다.
+
+    콘솔 창에서 Azure Cosmos DB의 새 테이블 데이터베이스에 대한 이름(이 경우 demo91ab4)이 표시됩니다. 
     
+    ![콘솔 출력](media/create-table-dotnet/azure-cosmosdb-console.png)
+
     종속성에 대한 오류가 발생할 경우 [문제 해결](table-sdk-dotnet.md#troubleshooting)을 참조하세요.
 
-    첫 번째 중단점에 도달하면 Azure Portal의 데이터 탐색기로 다시 이동하여 demo* 테이블을 확장하고 **엔터티**를 클릭합니다. 오른쪽의 **엔터티** 탭에 추가된 새 엔터티가 표시되고 사용자의 전화 번호는 425-555-0101입니다.
+    첫 번째 중단점에 도달하면 Azure Portal의 데이터 탐색기로 돌아갑니다. **새로 고침** 단추를 클릭하고 demo* 테이블을 펼친 다음 **엔터티**를 클릭합니다. 오른쪽의 **엔터티** 탭에서 Walter Harp에 추가된 새 엔터티가 표시됩니다. 새 엔터티에 대한 전화 번호는 425-555-0101입니다.
+
+    ![새 엔터티](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
-6. 데이터 탐색기에서 엔터티 탭을 닫습니다.
+6. [데이터 탐색기]에서 **엔터티** 탭을 닫습니다.
     
-7. 다음 중단점까지 계속해서 앱을 실행합니다.
+7. F5 키를 눌러 다음 중단점까지 앱을 실행합니다. 
 
-    중단점에 도달하면 다시 포털로 전환하고 엔터티를 다시 클릭하여 엔터티 탭을 엽니다. 전화 번호가 425-555-0105로 업데이트되었습니다.
+    중단점에 도달하면 Azure Portal로 다시 전환하고 **엔터티**를 다시 클릭하여 **엔터티** 탭을 엽니다. 전화 번호가 425-555-0105로 업데이트되었습니다.
 
-8. 콘솔 창으로 돌아와서 CTRL + C를 눌러 앱 실행을 종료합니다. 
+8. F5 키를 눌러 앱을 실행합니다. 
+ 
+   앱은 Table API에서 현재 지원하지 않는 고급 샘플 앱에 사용할 엔터티를 추가합니다. 그런 다음 샘플 앱에서 만든 테이블을 삭제합니다.
 
-    이제 다시 데이터 탐색기로 이동하여 엔터티를 추가 또는 수정하고 데이터를 쿼리할 수 있습니다.
+9. 콘솔 창에서 Enter 키를 눌러 앱 실행을 종료합니다. 
+  
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

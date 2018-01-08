@@ -1,10 +1,10 @@
 ---
-title: "Azure 가상 컴퓨터 확장 집합에 앱 배포 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 가상 컴퓨터 확장 집합에 간단한 자동 크기 조정 응용 프로그램을 배포하는 방법을 알아봅니다."
+title: "Azure 템플릿을 사용하여 가상 머신 확장 집합 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 빠르게 만드는 방법을 알아봅니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,297 +13,211 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
-ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.author: iainfou
+ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="deploy-an-autoscaling-app-using-a-template"></a>템플릿을 사용하여 자동 크기 조정 앱 배포
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합 만들기
+가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 시작 문서에서는 Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 만듭니다. 확장 집합은 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 또는 [Azure Portal](virtual-machine-scale-sets-create-portal.md)을 사용하여 만들 수도 있습니다.
 
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서는 [간단한 확장 집합 배포](virtual-machine-scale-sets-mvss-start.md)를 토대로 구축되었으며 Azure Resource Manager 템플릿을 사용하여 확장 집합에 간단한 자동 크기 조정 응용 프로그램을 배포하는 방법을 설명합니다.  PowerShell, CLI 또는 포털을 사용하여 크기 자동 조정도 설정할 수 있습니다. 자세한 내용은 [크기 자동 조정 개요](virtual-machine-scale-sets-autoscale-overview.md)를 참조하세요.
 
-## <a name="two-quickstart-templates"></a>2개의 빠른 시작 템플릿
-확장 집합을 배포할 때 [VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md)을 사용하여 플랫폼 이미지에 새 소프트웨어를 설치할 수 있습니다. VM 확장은 Azure Virtual Machines에 배포 후 구성 및 Automation 작업(예: 앱 배포)을 제공하는 작은 응용 프로그램입니다. [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)에는 VM 확장을 사용하여 확장 집합에 자동 크기 조정 응용 프로그램을 배포하는 방법을 보여 주는 2개의 다른 샘플 템플릿이 제공됩니다.
+## <a name="overview-of-templates"></a>템플릿 개요
+Azure Resource Manager 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 템플릿은 JSON(JavaScript Object Notation)으로 작성되며, 응용 프로그램에 대한 전체 Azure 인프라 환경을 정의합니다. 단일 템플릿에서 가상 머신 확장 집합을 만들고, 응용 프로그램을 설치하고, 자동 크기 조정 규칙을 구성할 수 있습니다. 변수와 매개 변수를 사용하면 이 템플릿을 다시 사용하여 기존의 확장 집합을 업데이트하거나 추가 확장 집합을 만들 수 있습니다. Azure Portal, Azure CLI 2.0 또는 Azure PowerShell을 통해 템플릿을 배포할 수 있을 뿐만 아니라 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 호출할 수도 있습니다.
 
-### <a name="python-http-server-on-linux"></a>Linux의 Python HTTP 서버
-[Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 샘플 템플릿은 Linux 확장 집합에서 실행되는 간단한 자동 크기 조정 응용 프로그램을 배포합니다.  Python 웹 프레임워크인 [Bottle](http://bottlepy.org/docs/dev/)과 간단한 HTTP 서버가 사용자 지정 스크립트를 VM 확장을 사용하여 확장 집합의 각 VM에 배포됩니다. 모든 VM의 평균 CPU 사용률이 60%보다 클 때 확장 집합이 확장되고, 평균 CPU 사용률이 30% 미만일 때 확장 집합이 축소됩니다.
+템플릿에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)를 참조하세요.
 
-확장 집합 리소스 외에, *azuredeploy.json* 샘플 템플릿은 가상 네트워크, 공용 IP 주소, 부하 분산 장치 및 자동 크기 조정 설정 리소스도 선언합니다.  템플릿에서 이러한 리소스를 만드는 방법에 대한 자세한 내용은 [자동 크기 조정 기능이 포함된 Linux 확장 집합](virtual-machine-scale-sets-linux-autoscale.md)을 참조하세요.
 
-*azuredeploy.json* 템플릿에서 `Microsoft.Compute/virtualMachineScaleSets` 리소스의 `extensionProfile` 속성은 사용자 지정 스크립트 확장을 지정합니다. `fileUris`는 스크립트 위치를 지정합니다. 이 경우 간단한 HTTP 서버를 정의하는 *workserver.py*와 Bottle을 설치하고 HTTP 서버를 시작하는 *installserver.sh*의 2개 파일이 사용됩니다. `commandToExecute`는 확장 집합이 배포된 후에 실행할 명령을 지정합니다.
+## <a name="define-a-scale-set"></a>확장 집합 정의
+템플릿은 각 리소스 종류에 대한 구성을 정의합니다. 가상 머신 확장 집합 리소스 종류는 개별 VM과 비슷합니다. 가상 머신 확장 집합 리소스 종류의 주요 부분은 다음과 같습니다.
+
+| 자산                     | 속성 설명                                  | 예제 템플릿 값                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| 형식                         | 만들 Azure 리소스 종류                            | Microsoft.Compute/virtualMachineScaleSets |
+| 이름                         | 확장 집합 이름                                       | myScaleSet                                |
+| location                     | 확장 집합을 만들 위치                     | 미국 동부                                   |
+| sku.name                     | 각 확장 집합 인스턴스에 대한 VM 크기                  | Standard_A1                               |
+| sku.capacity                 | 처음에 만들 VM 인스턴스의 수           | 2                                         |
+| upgradePolicy.mode           | 변경 발생 시의 VM 인스턴스 업그레이드 모드              | 자동                                 |
+| imageReference               | VM 인스턴스에 사용할 플랫폼 또는 사용자 지정 이미지 | Canonical Ubuntu Server 16.04-LTS         |
+| osProfile.computerNamePrefix | 각 VM 인스턴스에 대한 이름 접두사                     | myvmss                                    |
+| osProfile.adminUsername      | 각 VM 인스턴스에 대한 사용자 이름                        | azureuser                                 |
+| osProfile.adminPassword      | 각 VM 인스턴스에 대한 암호                        | P@ssw0rd!                                 |
+
+ 다음 코드 조각에서는 코어 확장 집합이 템플릿에서 리소스 정의를 설정하는 것을 보여 줍니다. 샘플을 짧게 유지하기 위해 가상 NIC(네트워크 인터페이스 카드) 구성이 표시되지 않습니다. 확장 집합 템플릿을 사용자 지정하려면 VM 크기 또는 초기 용량을 변경하거나 다른 플랫폼 또는 사용자 지정 이미지를 사용할 수 있습니다.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "lapextension",
-                "properties": {
-                  "publisher": "Microsoft.Azure.Extensions",
-                  "type": "CustomScript",
-                  "typeHandlerVersion": "2.0",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "fileUris": [
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-                    ],
-                    "commandToExecute": "bash installserver.sh"
-                  }
-                }
-              }
-            ]
-          }
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US",
+  "apiVersion": "2016-04-30-preview",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
-### <a name="aspnet-mvc-application-on-windows"></a>Windows의 ASP.NET MVC 응용 프로그램
-[Windows의 ASP.NET MVC 응용 프로그램](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) 샘플 템플릿은 Windows 확장 집합의 IIS에서 실행되는 간단한 ASP.NET MVC 앱을 배포합니다.  IIS 및 MVC 앱은 [PowerShell DSC(필요한 상태 구성)](virtual-machine-scale-sets-dsc.md) VM 확장을 사용하여 배포됩니다.  확장 집합은 5분 동안 CPU 사용률이 50%보다 큰 경우 확장됩니다(한 번에 VM 인스턴스에서). 
 
-확장 집합 리소스 외에, *azuredeploy.json* 샘플 템플릿은 가상 네트워크, 공용 IP 주소, 부하 분산 장치 및 자동 크기 조정 설정 리소스도 선언합니다. 이 템플릿은 응용 프로그램 업그레이드도 보여 줍니다.  템플릿에서 이러한 리소스를 만드는 방법에 대한 자세한 내용은 [자동 크기 조정 기능이 포함된 WIndows 확장 집합](virtual-machine-scale-sets-windows-autoscale.md)을 참조하세요.
+## <a name="install-an-application"></a>응용 프로그램 설치
+확장 집합을 배포하는 경우 VM 확장에서 배포 후 구성 및 자동화 작업(예: 응용 프로그램 설치)을 제공할 수 있습니다. 스크립트는 Azure 저장소 또는 GitHub에서 다운로드하거나 확장 런타임에서 Azure Portal에 제공할 수 있습니다. 확장 집합에 확장을 적용하려면 앞의 리소스 예제에 *extensionProfile* 섹션을 추가합니다. 확장 프로필은 일반적으로 다음 속성을 정의합니다.
 
-*azuredeploy.json* 템플릿에서 `Microsoft.Compute/virtualMachineScaleSets` 리소스의 `extensionProfile` 속성은 WebDeploy 패키지에서 IIS 및 기본 웹앱을 설치하는 [DSC(필요한 상태 구성)](virtual-machine-scale-sets-dsc.md) 확장을 지정합니다.  *IISInstall.ps1* 스크립트는 가상 컴퓨터에 IIS를 설치하며 *DSC* 폴더에 포함되어 있습니다.  MVC 웹앱은 *WebDeploy* 폴더에 있습니다.  설치 스크립트 및 웹앱 경로는 *azuredeploy.parameters.json* 파일의 `powershelldscZip` 및 `webDeployPackage` 매개 변수에 정의됩니다. 
+- 확장 형식
+- 확장 게시자
+- 확장 버전
+- 구성 또는 설치 스크립트의 위치
+- VM 인스턴스에서 실행할 명령
+
+확장을 사용하여 응용 프로그램을 설치하는 두 가지 방법, 즉 사용자 지정 스크립트 확장을 사용하여 Linux에서 Python 앱을 설치하거나, PowerShell DSC 확장을 사용하여 Windows에서 ASP.NET 앱을 설치하는 방법을 살펴보겠습니다.
+
+### <a name="python-http-server-on-linux"></a>Linux의 Python HTTP 서버
+[Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)는 사용자 지정 스크립트 확장을 사용하여 [Bottle](http://bottlepy.org/docs/dev/) Python 웹 프레임워크 및 간단한 HTTP 서버를 설치합니다. 
+
+두 스크립트는 *fileUris* - *installserver.sh* 및 *workserver.py*에 정의되어 있습니다. 이러한 파일은 GitHub에서 다운로드한 다음 *commandToExecute*에서 설치하고 구성할 앱에 대한 `bash installserver.sh`를 정의합니다.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "Microsoft.Powershell.DSC",
-                "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.9",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('powershelldscUpdateTagVersion')]",
-                  "settings": {
-                    "configuration": {
-                      "url": "[variables('powershelldscZipFullPath')]",
-                      "script": "IISInstall.ps1",
-                      "function": "InstallIIS"
-                    },
-                    "configurationArguments": {
-                      "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
-                    }
-                  }
-                }
-              }
-            ]
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "AppInstall",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+          ],
+          "commandToExecute": "bash installserver.sh"
+        }
+      }
+    }
+  ]
+}
+```
+
+### <a name="aspnet-application-on-windows"></a>Windows의 ASP.NET 응용 프로그램
+[Windows의 ASP.NET 응용 프로그램](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) 샘플 템플릿은 PowerShell DSC 확장을 사용하여 IIS에서 실행되는 ASP.NET MVC 앱을 설치합니다. 
+
+설치 스크립트는 *url*에서 정의한 대로 GitHub에서 다운로드됩니다. 그런 다음 확장이 *function* 및 *script*에서 정의한 대로 *IISInstall.ps1* 스크립트에서 *InstallIIS*를 실행합니다. ASP.NET 앱 자체는 *WebDeployPackagePath*에서 정의한 대로 GitHub에서 다운로드되는 웹 배포 패키지로 제공됩니다.
+
+```json
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "Microsoft.Powershell.DSC",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "forceUpdateTag": "1.0",
+        "settings": {
+          "configuration": {
+            "url": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/DSC/IISInstall.ps1.zip",
+            "script": "IISInstall.ps1",
+            "function": "InstallIIS"
+          },
+          "configurationArguments": {
+            "nodeName": "localhost",
+            "WebDeployPackagePath": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/WebDeploy/DefaultASPWebApp.v1.0.zip"
           }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="deploy-the-template"></a>템플릿 배포
-[Linux에서 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 또는 [Windows에서 ASP.NET MVC 응용 프로그램](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) 템플릿을 배포하는 가장 간단한 방법은 GitHub의 추가 정보 파일에 있는 **Azure에 배포** 단추를 사용하는 것입니다.  또한 PowerShell 또는 Azure CLI를 사용하여 샘플 템플릿을 배포할 수도 있습니다.
+[Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 또는 [Windows의 ASP.NET MVC 응용 프로그램](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) 템플릿을 배포하는 가장 간단한 방법은 GitHub의 추가 정보 파일에 있는 **Azure에 배포** 단추를 사용하는 것입니다.  또한 PowerShell 또는 Azure CLI를 사용하여 샘플 템플릿을 배포할 수도 있습니다.
 
-### <a name="powershell"></a>PowerShell
-GitHub 리포지토리에 있는 [Linux의 Python HTTP 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) 또는 [Windows의 ASP.NET MVC 응용 프로그램](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) 파일을 로컬 컴퓨터의 폴더에 복사합니다.  *azuredeploy.parameters.json* 파일을 열고 `vmssName`, `adminUsername` 및 `adminPassword` 매개 변수의 기본값을 업데이트합니다. 다음 PowerShell 스크립트를 *azuredeploy.json* 템플릿과 동일한 폴더에서 *deploy.ps1*로 저장합니다. 샘플 템플릿을 배포하려면 PowerShell 명령 창에서 *deploy.ps1* 스크립트를 실행합니다.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Azure CLI 2.0을 사용하여 다음과 같이 Linux에서 Python HTTP 서버를 설치할 수 있습니다.
 
-```powershell
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
-
- [string]
- $resourceGroupLocation,
-
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
-
- [string]
- $templateFilePath = "template.json",
-
- [string]
- $parametersFilePath = "parameters.json"
-)
-
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
-$ErrorActionPreference = "Stop"
-
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
-
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-    }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
-}
-
-# Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-}
+# Deploy template into resource group
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+작업 중인 앱을 보려면 다음과 같이 [az network public-ip list](/cli/azure/network/public-ip#show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
 
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
 ```
+
+웹 브라우저에 부하 분산 장치의 공용 IP 주소를 *http://<publicIpAddress>:9000/do_work* 형식으로 입력합니다. 부하 분산 장치는 다음 예제와 같이 VM 인스턴스 중 하나에 트래픽을 분산합니다.
+
+![NGINX의 기본 웹 페이지](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Azure PowerShell을 사용하여 다음과 같이 Windows에서 ASP.NET 응용 프로그램을 설치할 수 있습니다.
+
+```azurepowershell-interactive
+# Create a resource group
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+
+# Deploy template into resource group
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName myResourceGroup `
+    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+```
+
+작업 중인 앱을 보려면 다음과 같이 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+웹 브라우저에 부하 분산 장치의 공용 IP 주소를 *http://<publicIpAddress>/MyApp* 형식으로 입력합니다. 부하 분산 장치는 다음 예제와 같이 VM 인스턴스 중 하나에 트래픽을 분산합니다.
+
+![실행 중인 IIS 사이트](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
+
+
+## <a name="clean-up-resources"></a>리소스 정리
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete)를 사용하여 다음과 같이 리소스 그룹, 확장 집합 및 모든 관련 리소스를 제거할 수 있습니다.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
 
 ## <a name="next-steps"></a>다음 단계
-
-[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

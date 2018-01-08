@@ -1,7 +1,7 @@
 # 개요
-## [Power BI Embedded란?](what-is-power-bi-embedded.md)
+## [Power BI Embedded 정보](what-is-power-bi-embedded.md)
 
-# 시작
+# 시작하기
 ## [Power BI Embedded 시작](get-started.md)
 ## [샘플 시작](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
@@ -21,22 +21,20 @@
 # 샘플
 ## [코드 샘플](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [샘플 연습](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [JavaScript embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-# 참조
+# 참고 자료
 ## API
 ### [Azure Resource Management REST API](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## SDK
-### [.NET SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [JavaScript SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [Power BI REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [JavaScript embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [.NET SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [JavaScript SDK 다운로드](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## GitHub 리포지토리
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [Power BI용 .NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [Power BI용 JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

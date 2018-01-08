@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Security Center에서 보안 상태 모니터링
 이 문서는 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링하는 데 도움이 됩니다.
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
 
-**방지** 섹션에서 리소스의 보안 상태를 모니터링할 수 있습니다. 다음 예제에서 각 리소스의 타일(계산, 네트워킹, 저장소와 데이터 및 응용 프로그램)에는 식별된 문제의 총 수가 포함됩니다.
+**방지** 섹션에서 리소스의 보안 상태를 모니터링할 수 있습니다. 다음 예제에서 각 리소스의 타일(Compute, 네트워킹, Storage와 데이터 및 응용 프로그램)에는 식별된 문제의 총 수가 포함됩니다.
 
 ![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
@@ -40,31 +40,32 @@ ms.lasthandoff: 10/11/2017
 **계산** 타일을 클릭하면 세 개의 탭이 표시됩니다.
 
 - **개요**: 모니터링 및 권장 사항입니다.
-- **VM 및 컴퓨터**: 모든 가상 컴퓨터, 컴퓨터 및 현재 보안 상태를 나열합니다.
+- **VM 및 컴퓨터**: 모든 가상 머신, 컴퓨터 및 현재 보안 상태를 나열합니다.
 - **Cloud Services**: Security Center에서 모니터링하는 모든 웹 및 작업자 역할의 목록을 나열합니다.
 
-![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
+![가상 머신에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다. 
+각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다.
 
 #### <a name="monitoring-recommendations"></a>권장 사항 모니터링
-이 섹션은 자동 프로비전을 위해 초기화된 가상 컴퓨터 및 컴퓨터의 총 수 및 해당 현재 상태를 보여줍니다. 이 항목을 클릭하면 **VM 에이전트가 없거나 응답하지 않습니다**가 열립니다. 
+이 섹션은 자동 프로비전을 위해 초기화된 가상 머신 및 컴퓨터의 총 수 및 해당 현재 상태를 보여줍니다. 이 항목을 클릭하면 **에이전트 상태 문제 모니터링**이 열립니다.
 
-![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![에이전트 상태 문제 모니터링](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Security Center에서 성공적으로 모니터링할 수 없는 VM 및 컴퓨터가 나열됩니다. 자세한 내용을 보려면 VM 또는 컴퓨터를 선택합니다. **모니터링 상태**는 문제를 정의합니다.
 
 #### <a name="recommendations"></a>권장 사항
-이 섹션에는 Azure Security Center에서 모니터링하는 [각 가상 컴퓨터 및 컴퓨터에 대한 권장 사항](security-center-virtual-machine-recommendations.md)이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항의 영향을 받은 가상 컴퓨터 및 컴퓨터의 총 수가 표시되며, 세 번째 열에는 아래와 같이 문제의 심각도가 표시됩니다.
+이 섹션에는 Azure Security Center에서 모니터링하는 [각 가상 머신 및 컴퓨터에 대한 권장 사항](security-center-virtual-machine-recommendations.md)이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항의 영향을 받은 가상 머신 및 컴퓨터의 총 수가 표시되며, 세 번째 열에는 아래와 같이 문제의 심각도가 표시됩니다.
 
-![가상 컴퓨터 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
+![가상 머신 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
 > 공용 끝점이 하나 이상 있는 VM은 **네트워크 토폴로지** 목록의 **네트워킹 상태**에 표시됩니다.
 >
 
-각 권장 사항에는 클릭하면 수행되는 작업 집합이 있습니다. 예를 들어, **누락된 시스템 업데이트**를 클릭하면 다음 스크린샷에 표시된 대로 누락된 패치인 가상 컴퓨터와 컴퓨터의 목록이 나타나고 누락된 업데이트의 심각도가 나타납니다.
+각 권장 사항에는 클릭하면 수행되는 작업 집합이 있습니다. 예를 들어, **누락된 시스템 업데이트**를 클릭하면 다음 스크린샷에 표시된 대로 누락된 패치인 가상 머신과 컴퓨터의 목록이 나타나고 누락된 업데이트의 심각도가 나타납니다.
 
-![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
+![가상 머신에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
 **누락된 시스템 업데이트**에는 Windows 및 Linux에 대한 그래프 형식인 중요 업데이트의 요약이 있습니다. 두 번째 부분에는 다음 정보가 포함된 테이블이 있습니다.
 
@@ -79,18 +80,18 @@ ms.lasthandoff: 10/11/2017
   * **보통**: 프로세스를 완료하거나 취약점을 제거하는 데 필요한 중요하지 않거나 추가하는 단계입니다.
   * **낮음**: 취약점을 해결해야 하지만 즉각적인 주의가 필요하지 않습니다. (기본적으로 낮은 권장 사항은 표시되지 않지만 보려는 경우 낮은 권장 사항으로 필터링할 수 있습니다.)
 
-권장 사항 세부 정보를 보려면 목록에서 누락된 업데이트의 이름을 클릭합니다. 
+권장 사항 세부 정보를 보려면 목록에서 누락된 업데이트의 이름을 클릭합니다.
 
-![특정 가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
+![특정 가상 머신에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> 여기와 **권장 사항** 옵션에서 보여 주는 보안 권장 사항은 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이 내용은 가상 컴퓨터 및 컴퓨터뿐만 아니라 **Resource Health** 타일에서 제공되는 모든 리소스에도 적용할 수 있습니다.
+> 여기와 **권장 사항** 옵션에서 보여 주는 보안 권장 사항은 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이 내용은 가상 머신 및 컴퓨터뿐만 아니라 **Resource Health** 타일에서 제공되는 모든 리소스에도 적용할 수 있습니다.
 >
 
 #### <a name="vms--computers-section"></a>VM 및 컴퓨터 섹션
-가상 컴퓨터 및 컴퓨터 섹션에서는 모든 가상 컴퓨터와 컴퓨터의 권장 사항에 대한 개요를 제공합니다. 각 열에는 아래와 같이 일단의 권장 사항이 표시됩니다.
+가상 머신 및 컴퓨터 섹션에서는 모든 가상 머신과 컴퓨터의 권장 사항에 대한 개요를 제공합니다. 각 열에는 아래와 같이 일단의 권장 사항이 표시됩니다.
 
-![모든 가상 컴퓨터 및 권장 사항 개요](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
+![모든 가상 머신 및 권장 사항 개요](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
 이 목록에 설명된 대로 이 목록에는 네 가지 유형의 아이콘이 표시됩니다.
 
@@ -102,11 +103,11 @@ ms.lasthandoff: 10/11/2017
 
 ![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) 본 구독의 일부인 작업 영역에서만 식별되는 VM 여기에는 이 구독에 있는 작업 영역에 보고하는 다른 구독의 VM, SCOM 다이렉트 에이전트를 사용하여 설치된 VM 및 리소스 ID가 없는 VM이 포함됩니다.
 
-각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 가상 컴퓨터와 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. **필터** 옵션을 사용하여 이 화면에 표시할 옵션을 선택할 수도 있습니다.
+각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 가상 머신과 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. **필터** 옵션을 사용하여 이 화면에 표시할 옵션을 선택할 수도 있습니다.
 
 ![Filter](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
 
-위 예에서 VM 한 대에는 끝점 보호에 관한 중요한 권장 사항이 있습니다. 가상 컴퓨터에 대한 자세한 정보를 가져오려면 해당 가상 컴퓨터를 클릭합니다.
+위 예에서 VM 한 대에는 끝점 보호에 관한 중요한 권장 사항이 있습니다. 가상 머신에 대한 자세한 정보를 가져오려면 해당 가상 머신을 클릭합니다.
 
 ![가상 컴퓨터 보안 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
 
@@ -121,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 
 ![클라우드 서비스 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-이 권장 사항에 대한 설명을 단계적으로 자세히 보려면 **설명** 열에서 **OS 버전 업데이트**를 클릭합니다. 
+이 권장 사항에 대한 설명을 단계적으로 자세히 보려면 **설명** 열에서 **OS 버전 업데이트**를 클릭합니다.
 
 ![클라우드 서비스 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -131,7 +132,7 @@ ms.lasthandoff: 10/11/2017
 ![네트워킹 블레이드](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>네트워킹 권장 사항
-가상 컴퓨터 리소스 상태 정보와 마찬가지로 위쪽에서 요약된 문제 목록이 표시되고 아래쪽에서 모니터링된 네트워크 목록이 표시됩니다.
+가상 머신 리소스 상태 정보와 마찬가지로 위쪽에서 요약된 문제 목록이 표시되고 아래쪽에서 모니터링된 네트워크 목록이 표시됩니다.
 
 네트워킹 상태 분석 섹션은 잠재적인 보안 문제를 나열하고 [권장 사항](security-center-network-recommendations.md)을 제공합니다. 가능한 문제는 다음을 포함할 수 있습니다.
 
@@ -145,12 +146,12 @@ ms.lasthandoff: 10/11/2017
 
 ![네트워킹의 권장 사항에 대한 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-이 예에서 **서브넷에 누락된 네트워크 보안 그룹 구성**에는 네트워크 보안 그룹 보호가 누락된 서브넷 및 가상 컴퓨터의 목록이 있습니다. 네트워크 보안 그룹을 적용하려는 서브넷을 클릭하면 **네트워크 보안 그룹 선택**이 표시됩니다. 여기에서 서브넷에 적절한 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다.
+이 예에서 **서브넷에 누락된 네트워크 보안 그룹 구성**에는 네트워크 보안 그룹 보호가 누락된 서브넷 및 가상 머신의 목록이 있습니다. 네트워크 보안 그룹을 적용하려는 서브넷을 클릭하면 **네트워크 보안 그룹 선택**이 표시됩니다. 여기에서 서브넷에 적절한 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다.
 
 #### <a name="internet-facing-endpoints-section"></a>인터넷 연결 끝점 섹션
 **인터넷 연결 끝점** 섹션에서 현재 인터넷 연결 끝점으로 구성된 VM 및 해당 현재 상태를 볼 수 있습니다.
 
-![인터넷 연결 끝점으로 구성된 가상 컴퓨터 및 상태](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
+![인터넷 연결 끝점으로 구성된 가상 머신 및 상태](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
 이 테이블에는 VM, 인터넷 연결 IP 주소, NSG 및 NGFW의 현재 심각도 상태를 보여 주는 끝점 이름이 있습니다. 다음과 같이 심각도 별로 테이블이 정렬됩니다.
 
@@ -214,7 +215,7 @@ ms.lasthandoff: 10/11/2017
 ![웹 응용 프로그램 방화벽 추가 대화 상자](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## <a name="see-also"></a>참고 항목
-이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](security-center-policies.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Suite란?
 
@@ -30,6 +30,10 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 * 특정 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 미리 구성된 *IoT Suite* 솔루션은 모두 동일한 원칙과 목표에 따라 설계되었습니다.
+
+다음 비디오는 미리 구성된 원격 모니터링 솔루션에 대한 개요를 제공합니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>미리 구성된 솔루션 개요
 
@@ -77,7 +81,8 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 |                      | 원격 모니터링  | 예측 유지 관리 | 연결된 공장 |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
 | IoT 허브              | 예                |                        | 예               |
-| Event Hubs(영문)           |                    | 예                    |                   |
+| Event Hubs
+           |                    | 예                    |                   |
 | Time Series Insights |                    |                        | 예               |
 | Container Services   | 예                |                        | 예               |
 | Stream Analytics     |                    | 예                    |                   |
@@ -102,7 +107,7 @@ Azure IoT Suite는 다음과 같이 *미리 구성된 솔루션*의 집합입니
 
 Microsoft는 미리 구성된 솔루션을 새로운 마이크로 서비스 기반 아키텍처로 업데이트하고 있습니다. 다음 표에서는 미리 구성된 솔루션의 현재 상태를 보여 줍니다.
 
-| 미리 구성된 솔루션 | 아키텍처  | 언어     |
+| 미리 구성된 솔루션 | 건축  | 언어     |
 | ---------------------- | ------------- | ------------- |
 | 원격 모니터링      | 마이크로 서비스 | Java 및 .NET |
 | 예측 유지 관리 | MVC           | .NET          |
@@ -126,8 +131,8 @@ Microsoft는 미리 구성된 솔루션을 새로운 마이크로 서비스 기�
 
 새 버전의 원격 모니터링을 배포하는 경우 다음 배포 옵션 중 하나를 선택해야 합니다.
 
-* **Basic:** 데모 또는 배포 테스트에 대한 비용을 절약할 수 있는 버전입니다. 모든 마이크로 서비스가 단일 Azure 가상 컴퓨터에 배포됩니다.
-* **Standard:** 프로덕션 배포를 개발할 수 있도록 확장된 인프라 배포입니다. Azure Container Service는 마이크로 서비스를 여러 개의 Azure 가상 컴퓨터에 배포합니다. Kubernetes는 개별 마이크로 서비스를 호스팅하는 Docker 컨테이너를 오케스트레이션합니다.
+* **Basic:** 데모 또는 배포 테스트에 대한 비용을 절약할 수 있는 버전입니다. 모든 마이크로 서비스가 단일 Azure 가상 머신에 배포됩니다.
+* **Standard:** 프로덕션 배포를 개발할 수 있도록 확장된 인프라 배포입니다. Azure Container Service는 마이크로 서비스를 여러 개의 Azure 가상 머신에 배포합니다. Kubernetes는 개별 마이크로 서비스를 호스팅하는 Docker 컨테이너를 오케스트레이션합니다.
 
 ### <a name="language-choices-java-and-net"></a>언어 선택 사항: Java 및 .NET
 

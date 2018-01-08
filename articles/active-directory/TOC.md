@@ -8,7 +8,7 @@
 ## [새로운 기능](whats-new.md)
 
 
-# 시작
+# 시작하기
 ## [Azure AD 시작](get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
@@ -108,7 +108,7 @@
 #### [명명된 위치 구성](active-directory-named-locations.md)
 #### [활동 보고서 보기](active-directory-reporting-migration.md)
 #### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
-### 참조
+### 참고 자료
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -177,7 +177,7 @@
 
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
-#### 시작
+#### 시작하기
 ##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
 ##### [앱 게시](application-proxy-publish-azure-portal.md)
 ##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
@@ -342,7 +342,7 @@
 ### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
 
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)
@@ -360,7 +360,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)

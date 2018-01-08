@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/20/2017
 이 문서에서 다루는 모든 기능은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. Azure CLI 및 PowerShell 예제도 선택한 기능에 포함되어 있습니다. CLI 2.10 및 PowerShell 4.2.0 이상을 사용합니다.
 
 ## <a name="accelerated-networking"></a>가속 네트워킹
-Azure [가속 네트워킹](../virtual-network/virtual-network-create-vm-accelerated-networking.md)에서는 가상 머신에 대한 SR-IOV(단일 루트 I/O 가상화)를 활성화하여 네트워킹 성능을 향상시킵니다. 확장 집합에서 가속 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 **true**로 설정합니다. 예:
+Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상화)를 사용하도록 설정하여 네트워킹 성능을 향상시킵니다. 가속 네트워킹 사용에 대한 자세한 내용은 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 가상 머신에 대한 가속 네트워킹을 참조하세요. 확장 집합에서 가속 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 **true**로 설정합니다. 예: 
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -59,11 +59,11 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 기본적으로 확장 집합은 생성한 VNET 및 서브넷의 특정 DNS 설정을 사용하지만, 확장 집합에 대한 DNS 설정을 직접 구성할 수 있습니다.
 ~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>구성 가능한 DNS 서버가 포함된 확장 집합 만들기
-CLI 2.0을 사용하여 사용자 지정 DNS 구성이 포함된 확장 집합을 만들려면 **vmss create** 명령에 **--dns-servers** 인수를 추가한 다음 공백으로 구분된 서버 IP 주소를 추가합니다. 예:
+CLI 2.0을 사용하여 사용자 지정 DNS 구성이 포함된 확장 집합을 만들려면 **vmss create** 명령에 **--dns-servers** 인수를 추가한 다음 공백으로 구분된 서버 IP 주소를 추가합니다. 예: 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Azure 템플릿에서 사용자 지정 DNS 서버를 구성하려면 networkInterfaceConfigurations 확장 집합 섹션에 dnsSettings 속성을 추가합니다. 예:
+Azure 템플릿에서 사용자 지정 DNS 서버를 구성하려면 networkInterfaceConfigurations 확장 집합 섹션에 dnsSettings 속성을 추가합니다. 예: 
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -73,7 +73,7 @@ Azure 템플릿에서 사용자 지정 DNS 서버를 구성하려면 networkInte
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>구성 가능한 가상 머신 도메인 이름이 포함된 확장 집합 만들기
 CLI 2.0을 사용하여 가상 머신에 대한 사용자 지정 DNS 이름이 포함된 확장 집합을 만들려면 **vmss create** 명령에 **--vm-domain-name** 인수를 추가한 다음 도메인 이름을 나타내는 문자열을 추가합니다.
 
-Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConfigurations** 확장 집합 섹션에 **dnsSettings** 속성을 추가합니다. 예:
+Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConfigurations** 확장 집합 섹션에 **dnsSettings** 속성을 추가합니다. 예: 
 
 ```json
 "networkProfile": {
@@ -118,7 +118,7 @@ Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConf
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>가상 머신별 공용 IP가 포함된 확장 집합 만들기
 CLI 2.0을 사용하여 각 가상 머신에 공용 IP 주소를 할당하는 확장 집합을 만들려면 **vmss create** 명령에 **--public-ip-per-vm** 매개 변수를 추가합니다. 
 
-Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 적어도 **2017-03-30**인지 확인하고, ipConfigurations 확장 집합 섹션에 **publicIpAddressConfiguration** JSON 속성을 추가합니다. 예:
+Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 적어도 **2017-03-30**인지 확인하고, ipConfigurations 확장 집합 섹션에 **publicIpAddressConfiguration** JSON 속성을 추가합니다. 예: 
 
 ```json
 "publicIpAddressConfiguration": {
@@ -133,12 +133,12 @@ Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>확장 집합에 있는 가상 머신의 공용 IP 주소 쿼리
 CLI 2.0을 사용하여 확장 집합 가상 머신에 할당된 공용 IP 주소를 나열하려면 **az vmss list-instance-public-ips** 명령을 사용합니다.
 
-PowerShell을 사용하여 확장 집합 공용 IP 주소를 나열하려면 _Get-AzureRmPublicIpAddress_ 명령을 사용합니다. 예:
+PowerShell을 사용하여 확장 집합 공용 IP 주소를 나열하려면 _Get-AzureRmPublicIpAddress_ 명령을 사용합니다. 예: 
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-공용 IP 주소 구성의 리소스 ID를 직접 참조하여 공용 IP 주소를 쿼리할 수도 있습니다. 예:
+공용 IP 주소 구성의 리소스 ID를 직접 참조하여 공용 IP 주소를 쿼리할 수도 있습니다. 예: 
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -268,7 +268,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ## <a name="nsg-per-scale-set"></a>확장 집합당 NSG
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
 
-예: 
+예:  
 ```
 "networkProfile": {
     "networkInterfaceConfigurations": [

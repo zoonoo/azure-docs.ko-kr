@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d34862d96744e038d7c1890f703ead79c416ddfa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Spring Boot 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
-이 빠른 시작에서는 Service Fabric에 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 설명합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다. 
+이 빠른 시작에서는 Service Fabric에 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다. 
 
-![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -35,7 +35,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 > * 로컬 클러스터에 응용 프로그램 배포 
 > * Azure에서 응용 프로그램을 클러스터에 배포
 > * 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
-> * 가용성에 적중하지 않는 서비스의 장애 조치 수행
+> * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.
@@ -51,7 +51,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="package-the-spring-boot-application"></a>Spring Boot 응용 프로그램 패키지 
-1. 방금 복제된 `gs-spring-boot` 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
+1. 복제된 `gs-spring-boot` 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
 
 2. 각 프롬프트에 다음 세부 정보를 입력합니다. 
 
@@ -76,7 +76,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ```
     로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080**에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
     
-    ![로컬 클러스터 정상](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![로컬 클러스터 정상](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
 2. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
 3. 다음 명령을 실행하여 로컬 클러스터에 연결합니다. 
@@ -92,7 +92,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 5. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 응용 프로그램에 액세스합니다. 
 
-    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
     
 이제 Service Fabric 클러스터에 배포된 Spring Boot 응용 프로그램에 액세스할 수 있습니다.  
 
@@ -119,7 +119,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
     ```
     
-    자체 서명된 인증서로 클러스터의 보안을 설정하는 경우 실행할 명령은 다음과 같습니다. 
+    클러스터가 자체 서명된 인증서로 보호되는 경우 실행할 명령은 다음과 같습니다. 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -132,50 +132,54 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 4. 즐겨찾는 웹 브라우저를 열고 **http://\<ConnectionIPOrUrl>:8080**에 액세스하여 응용 프로그램에 액세스합니다. 
 
-    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springsfazure.png)
+    ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
     
 이제 Service Fabric 클러스터에 배포된 Spring Boot 응용 프로그램에 액세스할 수 있습니다.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 응용 프로그램 및 서비스 크기 조정
 서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스의 크기를 조정하는 여러 가지 방법이 있으며 Service Fabric CLI(sfctl)의 스크립트 또는 명령을 사용할 수 있습니다. 이 예제에서는 Service Fabric Explorer를 사용합니다.
 
-Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다(예: `http://demolinuxsecure.westus.cloudapp.azure.com:19080`).
+Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다(예: `http://localhost:19080`).
 
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음 단계를 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://demolinuxsecure.westus.cloudapp.azure.com:19080`
+1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
 2. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표(...)를 클릭하고 **서비스 크기 조정**을 선택합니다.
 
-    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/springbootsfhowtoscale.png)
+    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     이제 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 이 수를 **5**로 변경하고 **서비스 크기 조정**을 클릭합니다.
+3. 숫자를 **3**으로 변경하고 **Scale Service**를 클릭합니다.
 
     명령줄을 사용하여 서비스의 크기를 조정하는 다른 방법은 다음과 같습니다.
 
     ```bash 
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 5 --stateless 
+    # Connect to your local cluster
+    sfctl cluster select --endpoint http://localhost:19080
+
+    # Run Bash command to scale instance count for your service
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
     ``` 
 
 4. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
-    ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java-spring-boot/springsfscaled.png)
+    ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
-    이제 다섯 개의 인스턴스가 있는 서비스를 인스턴스가 실행되는 노드를 볼 수 있는 트리 뷰에서 볼 수 있습니다.
+    서비스에는 3개의 인스턴스가 있고, 트리 뷰에는 인스턴스가 실행되는 노드가 표시됩니다.
 
-이 간단한 관리 작업으로 사용자 로드를 처리하는 Spring 서비스에 사용 가능한 리소스를 증가시켰습니다. 서비스를 안정적으로 실행하기 위해 서비스의 여러 인스턴스가 필요하지 않다는 것을 이해하는 것이 중요합니다. 서비스가 실패하면 Service Fabric은 클러스터에서 새 서비스 인스턴스가 실행되는지 확인합니다.
+이 간단한 관리 작업을 통해 Spring 서비스에서 사용자 로드를 처리할 수 있도록 사용 가능한 리소스가 늘어납니다. 서비스를 안정적으로 실행하기 위해 서비스의 여러 인스턴스가 필요하지 않다는 것을 이해하는 것이 중요합니다. 서비스가 실패하면 Service Fabric은 클러스터에서 새 서비스 인스턴스가 실행되는지 확인합니다.
 
-## <a name="failover-services-in-a-cluster"></a>클러스터의 장애 조치 서비스 
-서비스 장애 조치를 보여주려면 Service Fabric Explorer를 사용하여 노드 다시 시작을 시뮬레이션할 수 있습니다. 서비스의 인스턴스 하나만 실행 중인지 확인합니다. 
+## <a name="fail-over-services-in-a-cluster"></a>클러스터의 서비스 장애 조치 
+서비스 장애 조치를 보여 주기 위해 Service Fabric Explorer를 사용하여 노드 다시 시작을 시뮬레이션합니다. 서비스의 인스턴스 하나만 실행되고 있는지 확인합니다. 
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://demolinuxsecure.westus.cloudapp.azure.com:19080`
+1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
 2. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(...)를 클릭하고 노드를 다시 시작합니다. 
 
-    ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestart.png)
-3. 서비스의 인스턴스를 다른 노드로 이동하는 경우 응용 프로그램에는 가동 중지 시간이 발생하지 않습니다. 
+    ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+3. 서비스의 인스턴스가 다른 노드로 이동되고, 응용 프로그램에서 가동 중지 시간이 발생하지 않습니다. 
 
-    ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestartsucceed.png)
+    ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
@@ -185,8 +189,8 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 > * 로컬 클러스터에 응용 프로그램 배포 
 > * Azure에서 응용 프로그램을 클러스터에 배포
 > * 응용 프로그램을 여러 노드에 걸쳐 스케일 아웃
-> * 가용성에 적중하지 않는 서비스의 장애 조치 수행
+> * 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
 
 * [Service Fabric 프로그래밍 모델을 사용하여 Java 마이크로 서비스 빌드](service-fabric-quickstart-java-reliable-services.md)에 대해 자세히 알아봅니다.
-* [Jenkins를 사용하여 연속 통합 & 배포 설정](service-fabric-cicd-your-linux-applications-with-jenkins.md)에 관해 알아보세요.
+* [Jenkins를 사용하여 지속적인 통합 및 배포 설정](service-fabric-cicd-your-linux-applications-with-jenkins.md)에 대해 알아봅니다.
 * 다른 [Java 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started) 체크 아웃
