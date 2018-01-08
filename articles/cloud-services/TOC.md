@@ -9,7 +9,7 @@
 
 # 방법
 ## 계획
-### [가상 컴퓨터 크기](cloud-services-sizes-specs.md)
+### [가상 머신 크기](cloud-services-sizes-specs.md)
 ### [업데이트](cloud-services-update-azure-service.md)
 
 ## 개발
@@ -44,6 +44,7 @@
 ### [사용자 지정 도메인 컨트롤러에 연결](cloud-services-connect-to-custom-domain.md)
 
 ## 서비스 관리
+### [투기적 실행 완화](mitigate-se.md}
 ### [일반적인 관리 작업](cloud-services-how-to-manage-portal.md)
 ### [클라우드 서비스 구성](cloud-services-how-to-configure-portal.md)
 ### [Azure Automation을 사용하여 클라우드 서비스 관리](automation-manage-cloud-services.md)
@@ -92,7 +93,7 @@
 #### [연결 및 네트워킹 FAQ](cloud-services-connectivity-and-networking-faq.md)
 #### [배포 FAQ](cloud-services-deployment-faq.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [.csdef XML 스키마](schema-csdef-file.md)
 ### [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)
@@ -102,7 +103,7 @@
 ## [.cscfg XML 스키마](schema-cscfg-file.md)
 ### [역할 스키마](schema-cscfg-role.md)
 ### [NetworkConfiguration 스키마](schema-cscfg-networkconfiguration.md)
-## [REST (영문)](/rest/api/compute/cloudservices/)
+## [REST](/rest/api/compute/cloudservices/)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
