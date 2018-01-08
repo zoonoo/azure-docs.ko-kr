@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure 스택 1712 업데이트
 
@@ -31,17 +31,9 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="build-reference"></a>빌드 참조
 
-Azure 스택 1712 업데이트 빌드 번호는 **180103.2**합니다.
+Azure 스택 1712 업데이트 빌드 번호는 **180106.1**합니다. 고객이 배포한 경우 **180103.2** 적용할 필요가 없습니다 이전에 **180106.1**합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-
-> [!WARNING]
-> 인 경우 현재 활성 대화형 PEP 원격 세션에서에서 Azure 스택 업데이트 설치 프로세스를 시작 하기 전에 세션을 종료 해야 합니다. 입력할 수 **종료** 세션을 종료 하 고 원격 콘솔에 있습니다.
-> 처음 두 개의 PowerShell 명령을 실행 하 여 모든 기존 PEP 원격 세션 인지 확인할 수 있습니다 **Get-pssession** 모든 활성 원격 세션, 다음을 나열 하는 **Remove-pssession** 종료 하 고 활성 원격 세션이 제거 합니다. PowerShell 명령을 사용 하면 Azure 스택 환경에서 PEP 원격 세션을 만드는 데 사용 하는 모든 컴퓨터에서 실행 해야 합니다. PowerShell 명령 예제는 다음과 같습니다.
-```
-Get-PSSession | Remove-PSSession
-```
-또한 Azure 스택 업데이트 시작 된 후에 PEP 세션을 만들지 마십시오.
 
 > [!IMPORTANT]
 > 1712 업데이트 설치 과정에서 가상 컴퓨터를 만들 하려고 하지 마십시오. 참조 [Azure 스택 개요에서 업데이트를 관리](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) 내용을 확인 합니다.
@@ -100,7 +92,7 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
 
-이 섹션에서는 사후 설치의 알려진된 문제는 빌드에 **180103.2**합니다.
+이 섹션에서는 사후 설치의 알려진된 문제는 빌드에 **180106.1**합니다.
 
 #### <a name="portal"></a>포털
 
@@ -161,6 +153,11 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
 Azure 스택 1712 업데이트 패키지를 다운로드할 수 있습니다 [여기](https://aka.ms/azurestackupdatedownload)합니다.
 
+## <a name="more-information"></a>자세한 정보
+
+Microsoft는 모니터링 하 고는 권한 있는 끝점 (PEP) 1712 업데이트와 함께 설치를 사용 하 여 업데이트를 다시 시작 하는 방법을 제공 합니다.
+
+- 참조는 [업데이트 권한 있는 끝점 설명서를 사용 하 여 Azure 스택의 모니터링](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)합니다. 
 ## <a name="see-also"></a>참고 항목
 
 - 참조 [Azure 스택 개요에서 업데이트를 관리](azure-stack-updates.md) Azure 스택에서 업데이트 관리에 대 한 개요입니다.
