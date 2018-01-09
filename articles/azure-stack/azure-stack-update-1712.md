@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
 #### <a name="new-features"></a>새로운 기능
 
-- 마켓플레이스에서 항목을 만들 때 새 사용자 환경
 - Azure 스택 클라우드의 권한 있는 끝점을 통해 사용할 수 있는 유효성 검사 테스트 AzureStack cmdlet
 - Azure 스택의 연결이 끊긴된 배포를 등록할 수 있는 기능
 - 인증서 및 사용자 계정 만료 기간에 대 한 모니터링 경고
@@ -76,7 +75,7 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
 - [1 월 3-2018-KB4056890 (OS 빌드 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - 이 업데이트 포함 하 여 설명 하는 산업 전반 보안 문제에 대 한 소프트웨어 수정 [MSRC 보안 권고 고급 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)합니다.
- 
+
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제
 
 이 섹션 1712 업데이트 설치 중 발생할 수 있는 알려진된 문제가 포함 되어 있습니다.
@@ -103,7 +102,7 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 
    - 목록 맨 위에 있는 빈 행을 볼 수 있습니다. 여전히 예상 대로 항목을 선택할 수 있습니다.
    - 드롭다운 목록에 있는 항목의 목록이 긴 경우 수 항목 이름 중 하나를 볼 수 없습니다.
-   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다. 
+   - 구독이 여러 개인 사용자, 리소스 그룹 드롭 다운 목록 비어 있을 수 있습니다.
 
         > [!NOTE]
         > 마지막 두 개의 문제를 해결 하려면 구독 또는 리소스 그룹 (경우 것)의 이름을 입력할 수 있습니다 또는 PowerShell을 대신 사용할 수 있습니다.
@@ -124,16 +123,16 @@ Azure 스택을 먼저 설치 해야 [1711 업데이트](https://docs.microsoft.
 - 가상 컴퓨터 가용성,의 장애 도메인 및 하나의 업데이트 도메인만 집합을 구성할 수 있습니다.
 - 가상 컴퓨터 크기 집합을 만들려는 마켓플레이스 본 경험이 없는 경우 크기는 템플릿을 사용 하 여 집합을 만들 수 있습니다.
 - 크기 조정 설정을 가상 컴퓨터 크기 집합에 대 한 포털에서 사용할 수 없는 경우 한 대 안으로 사용할 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)합니다. PowerShell 버전 차이 때문에 사용 해야 합니다는 `-Name` 매개 변수 대신 `-VMScaleSetName`합니다.
- 
+
 #### <a name="networking"></a>네트워킹
 - 포털을 사용 하 여 공용 IP 주소와 부하 분산 장치를 만들 수 없습니다. 이 문제를 해결를 부하 분산 장치를 만드는 PowerShell을 사용할 수 있습니다.
 - 네트워크 부하 분산 장치를 만들 때 네트워크 주소 변환 (NAT) 규칙을 만들어야 합니다. 이렇게 하지 않으면 부하 분산 장치를 만들면 NAT 규칙을 추가 하려고 할 때 오류가 받게 합니다.
 - VM이 되어 해당 IP 주소와 연결 된 후 가상 컴퓨터 (VM)에서 공용 IP 주소를 분리할 수 없습니다. Disassociation 작동으로 나타나지만 이전에 할당 된 공용 IP 주소에 연결 되어 있는 원본 VM입니다. 새 VM에 IP 주소를 다시 할당 하는 경우에이 문제가 발생 (일반적으로 라고는 *VIP 교체*). 앞으로의 모든 새 아니라 원래 연결 되어 있던 VM에 대 한 연결에서이 IP 주소 결과 통해 연결을 시도 합니다. 현재, 새 VM 만들기에 대 한 새 공용 IP 주소를만 사용 해야 합니다.
 - Azure 스택 운영자를 배포, 삭제, Vnet 또는 네트워크 보안 그룹을 수정 못할 수 있습니다. 이 문제는 동일한 패키지의 후속 업데이트 시도에 주로 나타납니다. 이 현재 조사 중인 상태인 업데이트와 패키징 문제로 인해 발생 합니다.
 - 부하 분산 ILB (내부) Linux 인스턴스를 중단 시키는 백 엔드 Vm에 대 한 MAC 주소를 잘못 처리 합니다.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다. 
+- 테 넌 트가 새 SQL 또는 MySQL SKU에 데이터베이스를 만들 수는 1 시간까지 걸릴 수 있으므로 합니다.
 - SQL 및 MySQL 리소스 공급자가 수행 되지 않은 서버 호스팅에 직접 항목의 생성은 지원 되지 않으며 일치 하지 않는 상태가 될 수 있습니다.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Azure 스택 1712 업데이트 패키지를 다운로드할 수 있습니다 [�
 Microsoft는 모니터링 하 고는 권한 있는 끝점 (PEP) 1712 업데이트와 함께 설치를 사용 하 여 업데이트를 다시 시작 하는 방법을 제공 합니다.
 
 - 참조는 [업데이트 권한 있는 끝점 설명서를 사용 하 여 Azure 스택의 모니터링](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)합니다. 
+
 ## <a name="see-also"></a>참고 항목
 
 - 참조 [Azure 스택 개요에서 업데이트를 관리](azure-stack-updates.md) Azure 스택에서 업데이트 관리에 대 한 개요입니다.
