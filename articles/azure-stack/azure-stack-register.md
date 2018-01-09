@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure 스택 Azure 구독에 등록
 
@@ -36,7 +36,7 @@ Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인을 클릭 **더 많은 서비스** > **구독**를 사용 하려는 구독을 클릭 하 고 아래에서 **Essentials** 찾을 수 있습니다는 **구독 ID**합니다. 중국, 독일에과 미국 정부 클라우드 구독 현재 지원 되지 않습니다.
 - 사용자 이름 및 구독에 대 한 소유자가 있는 계정에 대 한 암호 (MSA/2FA 계정이 지원 됨).
-- *Azure 스택 1712 업데이트 버전 (1.0.180103.2)로 시작 하는 필요 하지 않습니다:* Azure 구독에 대 한 Azure Active Directory 합니다. Azure 포털의 오른쪽 위 모서리에서 아바타 위로 이동 하 여 Azure에서이 디렉터리를 찾을 수 있습니다.
+- *Azure 스택 1712 업데이트 버전 (180106.1)로 시작 하는 필요 하지 않습니다:* Azure 구독에 대 한 Azure Active Directory 합니다. Azure 포털의 오른쪽 위 모서리에서 아바타 위로 이동 하 여 Azure에서이 디렉터리를 찾을 수 있습니다.
 
 이러한 요구 사항을 충족 하는 Azure 구독에 없으면 다음을 할 수 있습니다 [여기 무료 Azure 계정을 만들](https://azure.microsoft.com/en-us/free/?b=17.06)합니다. Azure 스택 등록 무료로 Azure 구독에서 발생 합니다.
 
@@ -126,7 +126,7 @@ Azure 스택 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 
 ## <a name="disconnected-registration"></a>연결이 끊긴된 등록
-*이 섹션의 정보는 Azure 스택 1712 업데이트 버전 (1.0.180103.2)로 시작을 적용 하 고 이전 버전에서는 지원 되지 않습니다.*
+*이 섹션의 정보는 Azure 스택 1712 업데이트 버전 (180106.1)로 시작을 적용 하 고 이전 버전에서는 지원 되지 않습니다.*
 
 연결이 끊어진된 환경에 Azure 스택을 등록 하는 경우 등록 하는 토큰 Azure 스택 환경에서 가져오고 다음 등록을 위해 Azure에 연결할 수 있는 컴퓨터에서 해당 토큰을 사용 해야 합니다.  
 
