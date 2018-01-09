@@ -17,7 +17,7 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
-        - name: Azure 포털
+        - name: Azure portal
           href: sql-database-connect-query-portal.md
         - name: VS 코드
           href: sql-database-connect-query-vscode.md
@@ -27,15 +27,15 @@
           href: sql-database-connect-query-dotnet-core.md
         - name: Go
           href: sql-database-connect-query-go.md
-        - name: Java
+        - name: 자바
           href: sql-database-connect-query-java.md
         - name: Node.js
           href: sql-database-connect-query-nodejs.md
         - name: PHP
           href: sql-database-connect-query-php.md
-        - name: Python
+        - name: 파이썬
           href: sql-database-connect-query-python.md
-        - name: 루비
+        - name: Ruby
           href: sql-database-connect-query-ruby.md
 - name: 자습서
   items:
@@ -279,7 +279,7 @@
         - name: BCP를 사용하여 데이터 로드
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF를 사용하여 데이터 로드
-          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md
         - name: 데이터 동기화
           href: sql-database-get-started-sql-data-sync.md
     - name: 모니터링 및 튜닝
@@ -385,7 +385,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
@@ -395,11 +395,11 @@
       href: /cli/azure/sql
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.sql.models
-    - name: Java
+    - name: 자바
       href: /java/api/com.microsoft.azure.management.sql
     - name: Node.js
       href: /sql/connect/node-js/node-js-driver-for-sql-server
-    - name: Python
+    - name: 파이썬
       href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
       href: /sql/connect/ruby/ruby-driver-for-sql-server
@@ -448,7 +448,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?service=sql-database'

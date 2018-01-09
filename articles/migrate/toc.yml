@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
       href: how-to-create-group-machine-dependencies.md
-    - name: VMware 태그 지정을 사용하여 컴퓨터 그룹화
-      href: how-to-tag-v-center.md
     - name: 그룹 종속성을 사용하여 그룹 상세 검색
       href: how-to-create-group-dependencies.md
     - name: 평가 사용자 지정
