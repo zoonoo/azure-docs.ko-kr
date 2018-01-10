@@ -165,8 +165,7 @@
 ## [Azure IoT Hub Device Provisioning 서비스](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## 
-            [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # 리소스
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
