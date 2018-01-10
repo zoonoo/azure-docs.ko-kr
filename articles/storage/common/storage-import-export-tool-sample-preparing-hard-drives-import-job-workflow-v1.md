@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 이 항목에서는 가져오기 작업을 위해 드라이브를 준비하는 전체 과정을 설명합니다.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>복사 세션 완료
 
-복사 세션을 완료하면 복사 컴퓨터에서 두 개의 드라이브 연결을 끊고 적절한 Windows Azure 데이터 센터로 이동할 수 있습니다. [Microsoft Azure Portal](https://manage.windowsazure.com/)에서 가져오기 작업을 만들 때 두 개의 저널 파일인 `FirstDrive.jrn` 및 `SecondDrive.jrn`을 업로드합니다.  
+복사 세션을 완료하면 복사 컴퓨터에서 두 개의 드라이브 연결을 끊고 적절한 Windows Azure 데이터 센터로 이동할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 가져오기 작업을 만들 때 두 개의 저널 파일인 `FirstDrive.jrn` 및 `SecondDrive.jrn`을 업로드합니다.  
   
 ## <a name="next-steps"></a>다음 단계
 

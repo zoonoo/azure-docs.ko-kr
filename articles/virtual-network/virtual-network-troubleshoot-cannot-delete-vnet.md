@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
@@ -65,13 +65,7 @@ Active Directory Domain Service가 사용하도록 설정되어 있고 가상 �
 
 ![연결된 장치 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-서비스를 사용하지 않도록 설정하려면 다음 단계를 수행합니다.
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
-2. 왼쪽 창에서 **Active Directory**를 선택합니다.
-3. Active Directory Domain Service가 사용 설정되어 있는 Azure AD(Azure Active Directory) 디렉터리를 선택합니다.
-4. **구성** 탭을 선택합니다.
-5. **도메인 서비스**에서 **이 디렉터리에 대해 도메인 서비스 사용** 옵션을 **아니요**로 변경합니다.  
+서비스를 사용하지 않도록 설정하려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화](../active-directory-domain-services/active-directory-ds-disable-aadds.md)를 참조하세요.
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>가상 네트워크가 다른 리소스에 연결되어 있는지 확인
 

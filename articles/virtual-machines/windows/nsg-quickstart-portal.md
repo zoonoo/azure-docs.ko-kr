@@ -1,10 +1,10 @@
 ---
 title: "Azure Portal을 사용하여 VM으로 포트 열기 | Microsoft Docs"
-description: "Azure 포털의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
+description: "Azure Portal의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ ms.lasthandoff: 10/11/2017
 
 ![인바운드 규칙 추가](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-드롭다운 메뉴에서 공통 **서비스**를 선택합니다(예: *HTTP*). *사용자 지정*을 선택하여 사용할 특정 포트를 제공할 수도 있습니다. 원하는 경우 우선 순위 또는 이름을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다. 이 화면 맨 위에서 **고급**을 선택하여 특정 원본 IP 블록 또는 포트 범위 등을 입력할 수도 있습니다. 준비되면 **확인**을 선택하여 규칙을 만듭니다.
+트래픽을 허용하는 규칙을 작성하려면:
+
+- **기본** 단추를 선택합니다. 기본적으로 **고급** 창은 특정 원본 IP 블록 또는 포트 범위를 정의하는 것과 같은 몇 가지 추가 구성 옵션을 제공합니다.
+- 드롭다운 메뉴에서 공통 **서비스**를 선택합니다(예: *HTTP*). *사용자 지정*을 선택하여 사용할 특정 포트를 제공할 수도 있습니다. 
+- 원하는 경우 우선 순위 또는 이름을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
+- 준비되면 **확인**을 선택하여 규칙을 만듭니다.
 
 ![인바운드 규칙 만들기](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

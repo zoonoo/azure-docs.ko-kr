@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Windows SQL Server 2017 VM 만들기 | Microsoft Docs"
-description: "이 자습서는 Azure Portal에서 Windows SQL Server 2017 가상 컴퓨터를 만드는 방법을 보여줍니다."
+title: "Azure Portal에서 Windows SQL Server 2017 VM을 구성하는 방법 | Microsoft Docs"
+description: "이 방법 가이드에서는 Azure Portal에서 Windows SQL Server 2017 가상 머신을 만드는 데 사용되는 옵션에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,45 +9,35 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 컴퓨터 프로비전
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신을 만드는 방법
 
-> [!div class="op_single_selector"]
-> * [포털](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+이 가이드에서는 Azure Portal에서 Windows SQL Server 가상 머신을 만드는 경우 사용할 수 있는 다양한 옵션을 안내합니다. 다양한 옵션에 대해 알아보는 동시에 다음 단계에 따라 고유한 SQL Server VM을 만들 수 있습니다. 포털에서 특정 섹션으로 이동하여 특정 단계를 참조할 수도 있습니다.
 
-이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server가 설치된 Windows 가상 컴퓨터를 만듭니다.
+> [!TIP]
+> 기본 포털 값을 사용하여 빠르게 시작하려면 [Azure 빠른 시작 - Azure Portal에서 SQL Server VM 만들기](quickstart-sql-vm-create-portal.md)를 참조하세요.
 
-이 자습서에서는 다음을 수행합니다.
-
-* [갤러리에서 SQL VM 이미지 선택](#select)
-* [VM 구성 및 만들기](#configure)
-* [원격 데스크톱을 사용하여 VM 열기](#remotedesktop)
-* [원격으로 SQL Server 연결](#connect)
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a id="select"></a> 갤러리에서 SQL VM 이미지 선택
 
 1. 사용자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-   > [!NOTE]
-   > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
-
 1. Azure Portal에서 **새로 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
 
 1. **새로 만들기** 창에서 **Compute**를 클릭한 다음 **모두 표시**를 클릭합니다.
 
-   ![새 계산 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+   ![새 Compute 창](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 1. 검색 필드에 **SQL Server 2017**을 입력하고 ENTER 키를 누릅니다.
 
@@ -228,16 +218,16 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 SQL 자동화된 백업을 사용하면 다음을 구성할 수 있습니다.
 
 * 백업에 대한 보존 기간(일)
-* 백업에 사용할 저장소 계정
+* 백업에 사용할 Storage 계정
 * 백업을 위한 암호화 옵션 및 암호
-* 시스템 데이터베이스 백업
+* 시스템 데이터베이스 Backup
 * 백업 일정 구성
 
 백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다.
 
 ![SQL 자동화된 Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
- 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 Backup](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
+ 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault 통합
 
@@ -277,19 +267,11 @@ Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 
 다음 단계를 사용하여 원격 데스크톱으로 SQL Server 가상 컴퓨터에 연결합니다.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 SQL Server 가상 컴퓨터에 연결된 후에, SQL Server Management Studio를 시작하고 로컬 관리자 자격 증명을 사용하여 Windows 인증으로 연결할 수 있습니다. SQL Server 인증을 사용하도록 설정한 경우에는, 프로비전 중에 구성해 놓은 SQL 로그인 및 암호를 사용하여 SQL 인증에 연결할 수 있습니다.
 
 컴퓨터에 연결하면 요구 사항에 따라 컴퓨터와 SQL Server 설정을 직접 변경할 수 있습니다. 예를 들어, 방화벽 설정을 구성하거나 SQL Server 구성 설정을 변경할 수 있습니다.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>개발자 및 Express 버전에 대해 TCP/IP 사용
-
-새 SQL Server VM을 프로비전할 때 Azure는 SQL Server 개발자 및 Express 버전에 대해 TCP/IP 프로토콜을 자동으로 설정하지 않습니다. 아래 단계에서는 IP 주소를 통해 원격으로 연결할 수 있도록 TCP/IP를 수동으로 사용하도록 설정하는 방법을 설명합니다.
-
-다음 단계에서는 **SQL Server 구성 관리자**를 사용하여 SQL Server 개발자 및 Express 버전에 대해 TCP/IP 프로토콜을 사용하도록 설정합니다.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> 원격으로 SQL Server에 연결
 
@@ -300,7 +282,7 @@ SQL Server 가상 컴퓨터에 연결된 후에, SQL Server Management Studio를
 
 다음 섹션은 인터넷 상의 다른 컴퓨터에서 VM의 SQL Server 인스턴스에 연결하는 방법을 보여줍니다.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

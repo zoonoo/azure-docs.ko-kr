@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: MongoDB API 설명서
 
 이 문서는 MongoDB API에 특정된 모든 Azure Cosmos DB 콘텐츠에 대한 링크를 제공합니다.
 
-이러한 문서는 DocumentDB API, Graph API 또는 Table API에는 적용되지 않습니다. 
+이러한 문서는 SQL API, Graph API 또는 Table API에는 적용되지 않습니다. 
 
 ## <a name="introduction-and-concepts"></a>소개 및 개념
 
@@ -31,16 +31,18 @@ Azure Cosmos DB용 MongoDB API에 대한 학습을 시작하기 위해 일거야
 
 - [MongoDB API 소개](mongodb-introduction.md)
 - [MongoDB 계정에 연결](connect-mongodb-account.md)
+- [MongoDB 기능 및 구문에 대한 지원](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>빠른 시작
 
 빠른 시작 항목은 Azure Cosmos DB를 사용하여 응용 프로그램을 만드는 가장 빠른 방법입니다. 각 빠른 시작에서는 UI 기반 Azure Portal 및 즐겨 찾는 코딩 언어를 사용하여 Azure Cosmos DB를 사용하여 데이터베이스 솔루션을 만드는 방법에 대해 설명합니다. 각 빠른 시작에 사용할 수 있는 GitHub 영역에서 복제 가능한 웹앱입니다. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + 웹앱](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + 웹앱](create-mongodb-nodejs.md)
 - [.NET + Azure Portal + 웹앱](create-mongodb-dotnet.md)
 - [Java + Azure Portal + 웹앱](create-mongodb-java.md)
 - [이동 + Azure Portal + 이동](create-mongodb-golang.md)
+- [Python + Flask + Azure Portal](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>자습서
 

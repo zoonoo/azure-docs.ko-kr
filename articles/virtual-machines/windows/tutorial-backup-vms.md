@@ -1,5 +1,5 @@
 ---
-title: "Azure Windows VM 백업 | Microsoft Docs"
+title: Azure Windows VM Backup | Microsoft Docs
 description: "Azure Backup을 통해 Windows VM을 백업하여 보호합니다."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 컴퓨터 백업
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 
 
-## <a name="backup-overview"></a>백업 개요
+## <a name="backup-overview"></a>Backup 개요
 
 Azure Backup 서비스에서 백업 작업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 만듭니다. Azure Backup 서비스는 _VMSnapshot_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
 
@@ -49,13 +49,13 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 컴퓨터의
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **가상 컴퓨터**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
-4. VM 블레이드의 **설정** 섹션에서 **백업**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
+4. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
 5. **Recovery Services 자격 증명 모음**에서 **새로 만들기**를 클릭하고 새 자격 증명 모음의 이름을 제공합니다. 새 자격 증명 모음이 가상 컴퓨터와 동일한 리소스 그룹과 위치에 만들어집니다.
-6. **백업 정책**을 클릭합니다. 이 예제에서는 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-7. **백업 사용** 블레이드에서 **백업 사용**을 클릭합니다. 이렇게 하면 기본 일정에 따라 매일 백업이 만들어집니다.
-10. 초기 복구 지점을 만들려면 **백업** 블레이드에서 **지금 백업**을 클릭합니다.
-11. **지금 백업** 블레이드에서 달력 모양 아이콘을 클릭하고 달력 컨트롤을 사용하여 이 복구 지점을 유지할 마지막 날을 선택하고 **백업**을 클릭합니다.
-12. VM에 대한 **백업** 블레이드에서 완료된 복구 지점의 수를 표시합니다.
+6. **Backup 정책**을 클릭합니다. 이 예제에서는 기본값을 그대로 유지하고 **확인**을 클릭합니다.
+7. **Backup 사용** 블레이드에서 **Backup 사용**을 클릭합니다. 이렇게 하면 기본 일정에 따라 매일 백업이 만들어집니다.
+10. 초기 복구 지점을 만들려면 **Backup** 블레이드에서 **지금 Backup**을 클릭합니다.
+11. **지금 Backup** 블레이드에서 달력 모양 아이콘을 클릭하고 달력 컨트롤을 사용하여 이 복구 지점을 유지할 마지막 날을 선택하고 **Backup**을 클릭합니다.
+12. VM에 대한 **Backup** 블레이드에서 완료된 복구 지점의 수를 표시합니다.
 
     ![복구 지점](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -78,8 +78,8 @@ Windows VM의 스냅숏을 생성할 때 Backup 서비스는 가상 컴퓨터의
     ![기본 IIS 웹 페이지](./media/tutorial-backup-vms/iis-broken.png)
 
 5. 로컬 컴퓨터에서 새 탭을 열고 [Azure Portal](https://portal.azure.com)로 이동합니다.
-6. 왼쪽 메뉴에서 **가상 컴퓨터**를 선택하고 목록에서 VM 형식을 선택합니다.
-8. VM 블레이드의 **설정** 섹션에서 **백업**을 클릭합니다. **백업** 블레이드가 열립니다. 
+6. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM 형식을 선택합니다.
+8. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **Backup** 블레이드가 열립니다. 
 9. 블레이드 위쪽의 메뉴에서 **파일 복구**를 선택합니다. **파일 복구** 블레이드가 열립니다.
 10. **1단계: 복구 지점 선택**의 드롭다운에서 복구 지점을 선택합니다.
 11. **2단계: 스크립트를 다운로드하여 파일 찾아보기 및 복구**에서 **실행 파일 다운로드** 단추를 클릭합니다. 파일을 **다운로드** 폴더에 저장합니다.

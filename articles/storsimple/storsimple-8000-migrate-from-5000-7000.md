@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션
 
@@ -73,12 +73,12 @@ ms.lasthandoff: 11/28/2017
     > [!IMPORTANT]
     > 마이그레이션 프로세스에서 이 장치에 순차적으로 액세스하는 것이 좋습니다. 장치 문제가 있는 경우 순차적 액세스가 문제 해결에 도움이 될 수 있습니다.
 
-* 5000 또는 7000 시리즈 소스 장치에서 소프트웨어 버전 v2.1.1.518을 실행 중입니다. 이보다 낮은 버전은 지원되지 않습니다.
+* 5000 또는 7000 시리즈 소스 장치에서는 소프트웨어 버전 v2.1.1.518 이상을 실행 중입니다. 이보다 낮은 버전은 지원되지 않습니다.
 * 5000 또는 7000 시리즈에서 실행 중인 버전을 확인하려면 웹 UI의 오른쪽 위 모서리를 살펴봅니다. 그러면 장치에서 실행 중인 소프트웨어 버전이 표시될 것입니다. 마이그레이션을 수행하려면 5000 또는 7000 시리즈에서 v2.1.1.518 버전을 실행해야 합니다.
 
     ![레거시 장치의 소프트웨어 버전 확인](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * 정상 작동하는 장치에서 v2.1.1.518 버전을 실행하고 있지 않으면 시스템을 최소 필수 버전으로 업그레이드 하세요. 자세한 지침은 [v2.1.1.518 버전으로 시스템 업그레이드](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)를 참조하세요.
+    * 정상 작동하는 장치에서 v2.1.1.518 이상 버전을 실행하고 있지 않는 경우 시스템을 최소 필수 버전으로 업그레이드하세요. 자세한 지침은 [v2.1.1.518 버전으로 시스템 업그레이드](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)를 참조하세요.
     * v2.1.1.518을 실행 중인 경우 웹 UI로 이동하여 레지스트리 복원 실패에 대한 알림이 있는지 확인합니다. 레지스트리 복원이 실패했으면 레지스트리 복원을 실행합니다. 자세한 내용은 [레지스트리 복원 실행](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry)을 참조하세요.
     * v2.1.1.518을 실행하지 않는 다운된 장치가 있으면 v2.1.1.518을 실행하는 대체 장치로 장애 조치(failover)를 수행합니다. 자세한 지침은 5000/7000 시리즈 StorSimple 장치의 DR을 참조하세요.
     * 클라우드 스냅숏을 만들어서 장치 데이터를 백업합니다.

@@ -1,6 +1,6 @@
 ---
 title: "SQL Data Warehouse와 함께 Azure Stream Analytics 사용 | Microsoft Docs"
-description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용을 위한 팁"
+description: "솔루션 개발을 위한 Azure SQL Data Warehouse와 함께 Azure Stream Analytics 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,33 +15,33 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용
-Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
+# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Azure Stream Analytics 사용
+Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
 
-이 문서에서 스크림 분석 작업에 대한 출력 싱크로 Azure SQL 데이터 웨어하우스 데이터베이스를 사용하는 방법에 대해 배웁니다.
+이 문서에서 스크림 분석 작업에 대한 출력 싱크로 Azure SQL Data Warehouse 데이터베이스를 사용하는 방법에 대해 배웁니다.
 
 ## <a name="prerequisites"></a>필수 조건
 먼저, [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에서 다음 단계를 실행합니다.  
 
 1. 이벤트 허브 입력 만들기
 2. 이벤트 생성기 응용 프로그램 구성 및 시작
-3. 스트림 분석 작업 프로비전
+3. Stream Analytics 작업 프로비전
 4. 작업 입력 및 쿼리 지정
 
-그런 다음 SQL 데이터 웨어하우스 데이터베이스를 만듭니다.
+그런 다음 SQL Data Warehouse 데이터베이스를 만듭니다.
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>작업 출력 지정: Azure SQL 데이터 웨어하우스 데이터베이스
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>작업 출력 지정: Azure SQL Data Warehouse 데이터베이스
 ### <a name="step-1"></a>1단계
 Stream Analytics 작업에서 페이지 위쪽의 **출력**을 클릭한 다음 **출력 추가**를 클릭합니다.
 
 ### <a name="step-2"></a>2단계
-SQL 데이터베이스를 선택하고 다음을 클릭합니다.
+SQL Database를 선택하고 다음을 클릭합니다.
 
 ![][add-output]
 
@@ -50,10 +50,10 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 
 * *출력 별칭*: 이 작업 출력의 이름을 입력합니다.
 * *구독*:
-  * SQL 데이터 웨어하우스가 스트림 분석 작업과 동일한 구독 내에 있는 경우 현재 구독에서 SQL 데이터베이스 사용을 선택할 수 있습니다.
-  * 데이터베이스가 다른 구독에 있는 경우 다른 구독에서 SQL 데이터베이스 사용을 선택합니다.
+  * SQL Data Warehouse가 Stream Analytics 작업과 동일한 구독 내에 있는 경우 현재 구독에서 SQL Database 사용을 선택할 수 있습니다.
+  * 데이터베이스가 다른 구독에 있는 경우 다른 구독에서 SQL Database 사용을 선택합니다.
 * *데이터베이스*: 대상 데이터베이스의 이름을 지정합니다.
-* *서버 이름*: 방금 지정한 데이터베이스에 대한 서버 이름을 지정합니다. Azure 클래식 포털을 사용하여 찾을 수 있습니다.
+* *서버 이름*: 방금 지정한 데이터베이스에 대한 서버 이름을 지정합니다. Azure Portal을 사용하여 찾을 수 있습니다.
 
 ![][server-name]
 
@@ -64,7 +64,7 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 ![][add-database]
 
 ### <a name="step-4"></a>4단계
-확인 단추를 클릭하여 이 작업 출력을 추가하고 스트림 분석이 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
+확인 단추를 클릭하여 이 작업 출력을 추가하고 Stream Analytics가 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
 
 ![][test-connection]
 

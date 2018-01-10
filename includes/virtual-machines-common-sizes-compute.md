@@ -12,7 +12,7 @@ F 시리즈 VM은 더 빠른 CPU를 요구하지만 많은 메모리나 vCPU당 
 
 Fs 시리즈는 Premium Storage 외에도 F 시리즈의 모든 기능을 제공합니다.
 
-## <a name="fsv2-series"></a>Fsv2 시리즈*
+## <a name="fsv2-series-sup1sup"></a>Fsv2 시리즈 <sup>1</sup>
 
 ACU: 195~210
 
@@ -25,9 +25,10 @@ ACU: 195~210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 극히 높음                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 극히 높음                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 극히 높음                                 |
-*Fsv2 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
-## <a name="fs-series"></a>Fs 시리즈*
+<sup>1</sup> Fsv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
+
+## <a name="fs-series-sup1sup"></a>Fs 시리즈 <sup>1</sup>
 
 ACU: 210-250
 
@@ -41,7 +42,7 @@ ACU: 210-250
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
-*Fs 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
+<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
 
 <br>

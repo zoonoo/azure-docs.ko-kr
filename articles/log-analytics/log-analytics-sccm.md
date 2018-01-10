@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장치 수집 데이터를 동기화할 수 있습니다. 이 경우 OMS에서 구성 관리자 계층 구조의 데이터를 사용할 수 있습니다.
@@ -28,9 +28,9 @@ System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장�
 Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 버전을 지원합니다.  
 
 ## <a name="configuration-overview"></a>구성 개요
-다음 단계는 구성 관리자를 Log Analytics에 연결하는 과정을 요약하여 보여줍니다.  
+다음 단계는 Configuration Manager를 Log Analytics에 연결하는 과정을 요약하여 보여 줍니다.  
 
-1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 비밀 키가 있는지 확인합니다. 이 단계를 수행하는 방법은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
+1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 비밀 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
 2. Azure Management Portal에서 [구성 관리자(등록된 웹앱)에 OMS에 대한 액세스 권한을 제공](#provide-configuration-manager-with-permissions-to-oms)합니다.
 3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
 4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)합니다.
@@ -44,33 +44,33 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 다음 절차에서는 Azure Management Portal에 OMS에 대한 액세스 권한을 제공합니다. 특히, Azure 관리 포털에서 구성 관리자를 OMS에 연결할 수 있도록 하기 위해 리소스 그룹의 사용자에게 *참가자 역할*을 부여해야 합니다.
 
 > [!NOTE]
-> 구성 관리자의 OMS에 사용 권한을 지정해야 합니다. 그렇지 않고 구성 관리자에세 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
+> 구성 관리자의 OMS에 사용 권한을 지정해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
 >
 >
 
-1. [Azure Portal](https://portal.azure.com/)을 열고 **찾아보기** > **Log Analytics(OMS)**를 클릭하여 Log Analytics(OMS) 블레이드를 엽니다.  
-2. **Log Analytics(OMS)** 블레이드에서 **추가**를 클릭해 **OMS 작업 영역** 블레이드를 엽니다.  
-   ![OMS 블레이드](./media/log-analytics-sccm/sccm-azure01.png)
-3. **OMS 작업 영역** 블레이드에서 다음 정보를 제공한 다음 **확인**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)을 열고 **찾아보기** > **Log Analytics(OMS)**를 클릭하여 Log Analytics(OMS)를 엽니다.  
+2. **Log Analytics(OMS)**에서 **추가**를 클릭하여 **OMS 작업 영역**을 엽니다.  
+   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
+3. **OMS 작업 영역**에서 다음 정보를 제공한 다음 **확인**을 클릭합니다.
 
    * **OMS 작업 영역**
    * **구독**
    * **리소스 그룹**
    * **위치**:
    * **가격 책정 계층**  
-     ![OMS 블레이드](./media/log-analytics-sccm/sccm-azure02.png)  
+     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
 
      > [!NOTE]
      > 위의 예제는 새 리소스 그룹을 만듭니다. 리소스 그룹은 구성 관리자에 이 예제의 OMS 작업 영역에 대한 권한을 제공하는 데에만 사용됩니다.
      >
      >
-4. **찾아보기** > **리소스 그룹**을 클릭하여 **리소스 그룹** 블레이드를 엽니다.
-5. **리소스 그룹** 블레이드에서 위에서 만든 리소스 그룹을 클릭하여 &lt;리소스 그룹 이름&gt; 설정 블레이드를 엽니다.  
-   ![리소스 그룹 설정 블레이드](./media/log-analytics-sccm/sccm-azure03.png)
-6. &lt;리소스 그룹&gt; 이름 설정 블레이드에서 Access Control(IAM)을 클릭하여 &lt;리소스 그룹 이름&gt; 사용자 블레이드를 엽니다.  
-   ![리소스 그룹 사용자 블레이드](./media/log-analytics-sccm/sccm-azure04.png)  
-7. &lt;리소스 그룹 이름&gt; 사용자 블레이드에서 **추가**를 클릭하여 **액세스 추가** 블레이드를 엽니다.
-8. **액세스 추가** 블레이드에서 **역할 선택**을 클릭한 다음 **참가자** 역할을 선택합니다.  
+4. **찾아보기** > **리소스 그룹**을 클릭하여 **리소스 그룹**을 엽니다.
+5. **리소스 그룹**에서 위에서 만든 리소스 그룹을 클릭하여 &lt;리소스 그룹 이름&gt; 설정을 엽니다.  
+   ![리소스 그룹 설정](./media/log-analytics-sccm/sccm-azure03.png)
+6. &lt;리소스 그룹 이름&gt; 설정에서 액세스 제어(IAM)를 클릭하여 &lt;리소스 그룹 이름&gt; 사용자를 엽니다.  
+   ![리소스 그룹 사용자](./media/log-analytics-sccm/sccm-azure04.png)  
+7. &lt;리소스 그룹 이름&gt; 사용자에서 **추가**를 클릭하여 **액세스 추가**를 엽니다.
+8. **액세스 추가**에서 **역할 선택**을 클릭한 다음 **참가자** 역할을 선택합니다.  
    ![역할 선택](./media/log-analytics-sccm/sccm-azure05.png)  
 9. **사용자 추가**를 클릭하고 구성 관리자 사용자를 선택한 다음 **선택**을 클릭하고 **확인**을 클릭합니다.  
    ![사용자 추가](./media/log-analytics-sccm/sccm-azure06.png)  
@@ -85,7 +85,7 @@ OMS 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위
    2. Azure Management Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
    3. Azure Management Portal에서 등록된 웹앱에 OMS에 대한 액세스 권한을 제공했는지 여부  
       ![OMS 마법사 일반 페이지 연결](./media/log-analytics-sccm/sccm-console-general01.png)
-3. **Azure Active Directory** 화면에서 **테넌트** , **클라이언트 ID** , **클라이언트 비밀 키**를 지정하여 OMS에 대한 연결 설정을 구성하고 **다음**을 클릭합니다.  
+3. **Azure Active Directory** 화면에서 **테넌트**, **클라이언트 ID**, **클라이언트 비밀 키**를 지정하여 OMS에 대한 연결 설정을 구성하고 **다음**을 선택합니다.  
    ![OMS Wizard Azure Active Directory 페이지에 연결](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. 나머지 절차를 성공적으로 완료한 경우 이 페이지에 **OMS 연결 구성** 화면이 자동으로 나타납니다. **Azure 구독**, **Azure 리소스 그룹**, **Operations Management Suite 작업 영역**에 대한 연결 설정 정보가 나타납니다.  
    ![OMS 연결 마법사의 OMS 연결 페이지](./media/log-analytics-sccm/sccm-wizard-configure04.png)
@@ -103,15 +103,15 @@ OMS에 구성 관리자를 연결한 후에는 컬렉션을 추가 또는 제거
 ## <a name="update-oms-connection-properties"></a>OMS 연결 속성 업데이트
 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 OMS 연결 속성을 수동으로 업데이트해야 합니다.
 
-1. **구성 관리자**에서 Cloud Services로 이동한 다음 **OMS 커넥터**를 선택하여 **OMS 연결 속성** 페이지를 엽니다.
+1. Configuration Manager에서 **Cloud Services**로 이동한 다음 **OMS 커넥터**를 선택하여 **OMS 연결 속성** 페이지를 엽니다.
 2. 이 페이지에서 **Azure Active Directory** 탭을 클릭하여 **테넌트**, **클라이언트 ID**, **클라이언트 비밀 키 만료**를 클릭합니다. **클라이언트 비밀 키**가 만료되었는지 **확인**합니다.
 
 ## <a name="download-and-install-the-agent"></a>에이전트 다운로드 및 설치
-1. OMS 포털에서 [OMS 에이전트 설치 파일을 다운로드](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms)합니다.
+1. OMS 포털에서 [OMS 에이전트 설치 파일을 다운로드](log-analytics-windows-agent.md)합니다.
 2. 다음 중 한 가지 방법을 사용하여 구성 관리자 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치 및 구성합니다.
-   * [설치를 에이전트 설치](log-analytics-windows-agents.md#install-the-agent-using-setup)
-   * [명령줄을 사용하여 에이전트 설치](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
-   * [Azure Automation에서 DSC를 사용하여 에이전트 설치](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
+   * [설치를 에이전트 설치](log-analytics-windows-agent.md)
+   * [명령줄을 사용하여 에이전트 설치](log-analytics-windows-agent.md)
+   * [Azure Automation에서 DSC를 사용하여 에이전트 설치](log-analytics-windows-agent.md)
 
 ## <a name="import-collections"></a>컬렉션 가져오기
 구성 관리자에 OMS 연결을 추가하고 구성 관리자 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치한 후 다음 단계는 컴퓨터 그룹으로 OMS의 구성 관리자 컬렉션을 가져오는 것입니다.
