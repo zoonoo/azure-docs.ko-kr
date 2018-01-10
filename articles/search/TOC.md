@@ -5,15 +5,15 @@
 
 ## [서비스 만들기](search-create-service-portal.md)
 ## [인덱스 만들기](search-what-is-an-index.md)
-### [Azure Portal](search-create-index-portal.md)
+### [Azure 포털](search-create-index-portal.md)
 ### [.NET](search-create-index-dotnet.md)
-### [REST](search-create-index-rest-api.md)
+### [REST (영문)](search-create-index-rest-api.md)
 ## [데이터 추가](search-what-is-data-import.md)
-### [Azure Portal](search-import-data-portal.md)
+### [Azure 포털](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
-### [REST](search-import-data-rest-api.md)
+### [REST (영문)](search-import-data-rest-api.md)
 ## [인덱스 검색](search-query-overview.md)
-### [Azure Portal](search-explorer.md)
+### [Azure 포털](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST (영문)](search-query-rest-api.md)
 
@@ -51,7 +51,7 @@
 ### [Azure Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage 인덱서](search-howto-indexing-azure-tables.md)
 ### [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure Cosmos DB 인덱서](search-howto-index-documentdb.md)
+### [Azure Cosmos DB 인덱서](search-howto-index-cosmosdb.md)
 ### [인덱스 CSV blob](search-howto-index-csv-blobs.md)
 ### [인덱스 JSON blob](search-howto-index-json-blobs.md)
 ### [Azure VM에서 SQL Server에 대한 인덱서 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -89,14 +89,14 @@
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET(관리)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python(관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
-## [REST (영문)](/rest/api/searchservice)
+## [REST](/rest/api/searchservice)
 ## [REST(관리)](/rest/api/searchmanagement)
 ## [서비스 REST(미리 보기)](search-api-2016-09-01-preview.md)
 
 # 리소스
 
 ## [질문과 대답(FAQ)](search-faq-frequently-asked-questions.md)
-## [가격](https://azure.microsoft.com/pricing/details/search/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
 ## 코스웨어 및 자습서
