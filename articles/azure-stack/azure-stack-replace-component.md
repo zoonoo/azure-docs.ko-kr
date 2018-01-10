@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Azure 스택 배율 단위 노드에 하드웨어 구성 요소를 대체 합니다.
 
@@ -55,6 +55,10 @@ Azure 스택 상태 및 모니터링 시스템 저장소 공간 다이렉트에 
 다음 구성 요소 교체 프로세스에 대 한 고급 개요를 제공합니다. OEM 제공 FRU 설명서를 참조 하지 않고 다음이 단계를 수행 하지 마십시오.
 
 1. 사용 하 여는 [방전](azure-stack-node-actions.md#scale-unit-node-actions) 배율 단위 노드 유지 관리 모드로 설정 하는 작업입니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
+
+   > [!NOTE]
+   > 어떤 경우 든, 하나의 노드만 종료 되 고 수는 S2D 위반 하지 않고 동시에 전원을 끌 (저장소 공간 다이렉트)입니다.
+
 2. 배율 단위 노드 유지 관리 모드에 있으면 후 사용 하 여는 [전원을 끄고](azure-stack-node-actions.md#scale-unit-node-actions) 동작 합니다. 이 작업 하지 않아도 될 하드웨어의 실제 조건에 기반 합니다.
  
    > [!NOTE]
