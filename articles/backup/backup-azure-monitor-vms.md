@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager로 배포된 가상 컴퓨터 백업 모니터링 | Microsoft Docs"
-description: "Resource Manager로 배포된 가상 컴퓨터 백업에서 이벤트 및 경고를 모니터링합니다. 경고에 기반한 전자 메일을 보냅니다."
+title: "Resource Manager로 배포된 가상 머신 백업 모니터링 | Microsoft Docs"
+description: "Resource Manager로 배포된 가상 머신 백업에서 이벤트 및 경고를 모니터링합니다. 경고에 기반한 전자 메일을 보냅니다."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업에 대한 경고 모니터링
-경고는 이벤트 임계값을 만족하거나 초과한 서비스에서 나오는 응답입니다. 문제가 시작되는 시기를 아는 것은 비즈니스 비용을 낮게 유지하는 데 중요할 수 있습니다. 일반적으로 경고는 일정에 따라 발생하지 않으므로 경고가 발생한 후 가능한 빨리 아는 것이 유용합니다. 예를 들어 백업 또는 복원 작업이 실패할 경우 실패의 5분 내에서 경고가 발생합니다. 자격 증명 모음 대시보드의 백업 경고 타일에 중요 및 경고 수준 이벤트를 표시합니다. 백업 경고 설정에서 모든 이벤트를 볼 수 있습니다. 그러나 별개의 문제에 대해 작업하는 경우 경고가 발생하면 어떻게 하나요? 경고가 발생하는 시기를 모르면 조금 불편할 수도 있고 데이터를 손상시킬 수도 있습니다. 정확한 담당자가 경고를 인식하게 하려면 경고가 발생할 때 전자 메일을 통해 경고 알림을 보내도록 서비스를 구성합니다. 전자 메일 알림 설정에 대한 자세한 내용은 [알림 구성](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
+경고는 이벤트 임계값을 만족하거나 초과한 서비스에서 나오는 응답입니다. 문제가 시작되는 시기를 아는 것은 비즈니스 비용을 낮게 유지하는 데 중요할 수 있습니다. 일반적으로 경고는 일정에 따라 발생하지 않으므로 경고가 발생한 후 가능한 빨리 아는 것이 유용합니다. 예를 들어 백업 또는 복원 작업이 실패할 경우 실패의 5분 내에서 경고가 발생합니다. 자격 증명 모음 대시보드의 Backup 경고 타일에 중요 및 경고 수준 이벤트를 표시합니다. Backup 경고 설정에서 모든 이벤트를 볼 수 있습니다. 그러나 별개의 문제에 대해 작업하는 경우 경고가 발생하면 어떻게 하나요? 경고가 발생하는 시기를 모르면 조금 불편할 수도 있고 데이터를 손상시킬 수도 있습니다. 정확한 담당자가 경고를 인식하게 하려면 경고가 발생할 때 전자 메일을 통해 경고 알림을 보내도록 서비스를 구성합니다. 전자 메일 알림 설정에 대한 자세한 내용은 [알림 구성](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>경고에 대한 정보를 찾으려면 어떻게 해야 합니까?
-경고를 발생시킨 이벤트에 관한 정보를 보려면 백업 경고 블레이드를 열어야 합니다. 두 가지 방법으로: 즉, 자격 증명 모음 대시보드의 백업 경고 타일에서 또는 경고 및 이벤트 블레이드에서 백업 경고 블레이드를 열 수 있습니다.
+경고를 발생시킨 이벤트에 관한 정보를 보려면 Backup 경고 블레이드를 열어야 합니다. 두 가지 방법으로: 즉, 자격 증명 모음 대시보드의 Backup 경고 타일에서 또는 경고 및 이벤트 블레이드에서 Backup 경고 블레이드를 열 수 있습니다.
 
-백업 경고 타일에서 백업 경고 블레이드를 열려면:
+Backup 경고 타일에서 Backup 경고 블레이드를 열려면:
 
-* 자격 증명 모음 대시보드의 **백업 경고** 타일에서 **중요** 또는 **경고**를 클릭하여 해당 심각도 수준에서 작동할 수 있는 이벤트를 봅니다.
+* 자격 증명 모음 대시보드의 **Backup 경고** 타일에서 **중요** 또는 **경고**를 클릭하여 해당 심각도 수준에서 작동할 수 있는 이벤트를 봅니다.
 
-    ![백업 경고 타일](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
+    ![Backup 경고 타일](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-경고 및 이벤트 블레이드에서 백업 경고 블레이드를 열려면:
+경고 및 이벤트 블레이드에서 Backup 경고 블레이드를 열려면:
 
 1. 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다. ![모든 설정 단추](./media/backup-azure-monitor-vms/all-settings-button.png)
 2. **설정** 블레이드에서 **경고 및 이벤트**를 클릭합니다. ![경고 및 이벤트 단추](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
-3. **경고 및 이벤트** 블레이드에서 **백업 경고**를 클릭합니다. ![백업 경고 단추](./media/backup-azure-monitor-vms/backup-alerts.png)
+3. **경고 및 이벤트** 블레이드에서 **Backup 경고**를 클릭합니다. ![Backup 경고 단추](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    **백업 경고** 블레이드가 열리고 필터링된 경고가 표시됩니다.
+    **Backup 경고** 블레이드가 열리고 필터링된 경고가 표시됩니다.
 
-    ![백업 경고 타일](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
+    ![Backup 경고 타일](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. 특정 경고에 관한 세부 정보를 보려면 이벤트 목록에서 경고를 클릭하여 해당 **세부 정보** 블레이드를 엽니다.
 
     ![이벤트 세부 정보](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
@@ -52,9 +52,9 @@ ms.lasthandoff: 10/11/2017
 
 경고에 대한 전자 메일 알림을 설정하려면
 
-1. 백업 경고 메뉴에서 **알림 구성**
+1. Backup 경고 메뉴에서 **알림 구성**
 
-    ![백업 경고 메뉴](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
+    ![Backup 경고 메뉴](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
     알림 구성 블레이드가 열립니다.
 
@@ -65,12 +65,12 @@ ms.lasthandoff: 10/11/2017
 3. **받는 사람(전자 메일)** 대화 상자에 알림을 받을 전자 메일 주소를 입력합니다. 사용할 형식: username@domainname.com. 세미콜론(;)을 사용하여 여러 전자 메일 주소를 구분합니다.
 4. **알림** 영역에서 **경고별**을 선택하여 지정된 경고가 발생하면 알림을 보내거나 **시간별 요약**을 선택하여 지난 한 시간 동안의 요약을 보냅니다.
 5. **심각도** 대화 상자에서 전자 메일 알림을 트리거할 수준을 하나 이상 선택합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 백업에 사용할 수 있는 경고 유형은 무엇입니까?
    | 경고 수준 | 전송되는 경고 |
    | --- | --- |
-   | 중요 |백업 실패, 복구 실패 |
+   | 중요 |Backup 실패, 복구 실패 |
    | Warning |없음 |
    | 정보 제공 |없음 |
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 10/11/2017
 2. **이벤트** 메뉴에서 **필터**를 클릭하여 해당 블레이드를 엽니다.
 
     ![필터 블레이드 열기](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. **필터** 블레이드에서 **수준**, **시간 범위** 및 **호출자** 필터를 조정합니다. 복구 서비스 자격 증명 모음에 대한 현재 정보를 제공하도록 설정되었기 때문에 다른 필터를 사용할 수 없습니다.
+3. **필터** 블레이드에서 **수준**, **시간 범위** 및 **호출자** 필터를 조정합니다. Recovery Services 자격 증명 모음에 대한 현재 정보를 제공하도록 설정되었기 때문에 다른 필터를 사용할 수 없습니다.
 
     ![감사 로그 쿼리 세부 정보](./media/backup-azure-monitor-vms/filter-blade.png)
 
@@ -142,12 +142,12 @@ ms.lasthandoff: 10/11/2017
 | 열 이름 | 설명 |
 | --- | --- |
 | 작업 |작업 이름 |
-| 수준 |작업 수준, 가능한 값: 정보, 경고, 오류 또는 중요 |
-| 가동 상태 |작업에 대한 설명이 포함된 상태 |
+| Level |작업 수준, 가능한 값: 정보, 경고, 오류 또는 중요 |
+| 상태 |작업에 대한 설명이 포함된 상태 |
 | 리소스 |리소스를 식별하는 URL. 리소스 ID라고도 함 |
 | Time |시간, 현재 시간부터 이벤트가 발생한 시간까지 측정 |
 | Caller |이벤트를 호출하거나 트리거한 사람 또는 대상. 시스템 또는 사용자일 수 있음 |
-| Timestamp |이벤트 트리거된 시간 |
+| 타임 스탬프 |이벤트 트리거된 시간 |
 | 리소스 그룹 |연결된 리소스 그룹 |
 | 리소스 종류 |리소스 관리자가 사용하는 내부 리소스 유형 |
 | 구독 ID |연결된 구독 ID |
@@ -171,7 +171,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * 등록 <br/>
 * 등록 취소  <br/>
 * ConfigureProtection  <br/>
-* 백업  <br/>
+* Backup <br/>
 * 복원  <br/>
 * StopProtection  <br/>
 * DeleteBackupData  <br/>
@@ -192,7 +192,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 ### <a name="limitations-on-alerts"></a>경고에 대한 제한
 이벤트 기반 경고에 다음과 같은 제한 사항이 적용됨:
 
-1. 복구 서비스 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. 복구 서비스 자격 증명 모음에서 가상 컴퓨터의 하위 집합에 대한 경고를 사용자 지정할 수 없습니다.
+1. Recovery Services 자격 증명 모음의 모든 가상 머신에서 경고를 유발합니다. Recovery Services 자격 증명 모음에서 가상 머신의 하위 집합에 대한 경고를 사용자 지정할 수 없습니다.
 2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. "alerts-noreply@mail.windowsazure.com"에서 경고를 보냅니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다.
 
@@ -202,7 +202,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * 등록
 * 등록 취소
 * 보호 구성
-* 백업(예약된 백업 및 주문형 백업 모두)
+* Backup(예약된 백업 및 주문형 백업 모두)
 * 복원
 * 보호 중지
 * 백업 데이터 삭제
@@ -213,4 +213,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 Azure 서비스 전반에 걸쳐 이벤트, 작업 및 감사 로그에 대한 자세한 설명은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md)문서를 참조하세요.
 
-복구 지점에서 가상 컴퓨터를 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-restore-vms.md)을 확인합니다. 가상 컴퓨터를 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: 복구 서비스 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. [Azure 가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)문서에서 VM 백업에 대한 관리 작업에 관하여 알아봅니다.
+복구 지점에서 가상 머신을 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-arm-restore-vms.md)을 확인하세요. 가상 머신을 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: Recovery Services 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. [Azure 가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)문서에서 VM 백업에 대한 관리 작업에 관하여 알아봅니다.

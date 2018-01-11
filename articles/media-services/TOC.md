@@ -2,11 +2,11 @@
 ## [시나리오 및 가용성](scenarios-and-availability.md)
 ## [개념](media-services-concepts.md)
 
-# 시작
+# 시작하기
 ## [계정 만들기 및 관리](media-services-portal-create-account.md)
 ## [개발 환경 설정](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
-### [REST (영문)](media-services-rest-how-to-use.md)  
+### [REST](media-services-rest-how-to-use.md)  
 ## [AAD 인증을 사용하여 API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
 ### [포털을 사용하여 AAD 인증 관리](media-services-portal-get-started-with-aad.md)
 ### [.NET으로 API 액세스](media-services-dotnet-get-started-with-aad.md)
@@ -18,7 +18,7 @@
 ### [Azure 포털](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
-### [REST (영문)](media-services-rest-get-started.md)
+### [REST](media-services-rest-get-started.md)
 ## 라이브 스트리밍 수행
 ### [Azure 포털](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -35,7 +35,9 @@
 #### [저장소 액세스 키 롤링 후 Media Services 업데이트](media-services-roll-storage-access-keys.md)
 #### [여러 저장소 계정 간 자산 관리](meda-services-managing-multiple-storage-accounts.md)
 ### [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
-
+## [Postman 구성](media-rest-apis-with-postman.md)
+### [환경](postman-environment.md)
+### [컬렉션](postman-collection.md)
 ## 콘텐츠 업로드
 ### 계정에 파일 업로드
 #### [Azure 포털](media-services-portal-upload-files.md)
@@ -92,7 +94,7 @@
 ### 미디어 인코더 Premium 워크플로
 #### [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 #### 미디어 인코더 Premium 워크플로를 사용하여 인코딩
-##### [Media Encoder Premium 워크플로](media-services-encode-with-premium-workflow.md)
+##### [미디어 인코더 Premium 워크플로](media-services-encode-with-premium-workflow.md)
 ##### [Media Encoder Premium 워크플로 자습서](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [워크플로 디자이너로 고급 Encoding 워크플로 만들기](media-services-workflow-designer.md)
 ##### [다중 입력 프리미엄 워크플로](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
@@ -149,7 +151,7 @@
 ### 콘텐츠 키 인증 정책 구성
 #### [Azure 포털](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
-#### [REST (영문)](media-services-rest-configure-content-key-auth-policy.md)
+#### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [AMS로 인증 토큰 캐시 전달](media-services-pass-authentication-tokens.md)
 ### 참조 디자인
 #### [하이브리드 DRM 시스템 디자인](hybrid-design-drm-sybsystem.md)
@@ -170,7 +172,7 @@
 
 ## [원격 분석 구성](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
-###[REST (영문)](media-services-rest-telemetry.md)
+###[REST](media-services-rest-telemetry.md)
 
 ## 확장
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
@@ -188,7 +190,7 @@
 ### 콘텐츠 게시
 #### [Azure 포털](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
-#### [REST](media-services-rest-deliver-streaming-content.md)
+#### [REST (영문)](media-services-rest-deliver-streaming-content.md)
 ### [다운로드로 배달](media-services-deliver-asset-download.md)
 ### [장애 조치(Failover) 스트리밍 시나리오](media-services-implement-failover.md)
 
@@ -220,12 +222,12 @@
 ### [오류 코드](media-services-error-codes.md)
 ### [재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST (영문)](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)  
 
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)

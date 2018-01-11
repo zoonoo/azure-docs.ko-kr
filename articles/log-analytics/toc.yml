@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: OMS 게이트웨이
               href: log-analytics-oms-gateway.md
-            - name: Linux 에이전트 문제 해결
-              href: log-analytics-agent-linux-support.md
         - name: 데이터 원본
           items:
             - name: 데이터 원본 개요
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: 사용자 지정 필드
               href: log-analytics-custom-fields.md
+            - name: 데이터 수집기 API
+              href: log-analytics-data-collector-api.md
     - name: 쿼리 데이터
       items:
         - name: 언어 설명서
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: 작업 영역 삭제
           href: log-analytics-manage-del-workspace.md
+    - name: 문제 해결
+      items:
+        - name: VM 확장 문제 해결
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Linux 에이전트 문제 해결
+          href: log-analytics-agent-linux-support.md
     - name: 솔루션 사용
       items:
         - name: 솔루션 개요
           href: log-analytics-add-solutions.md
         - name: 대상 솔루션
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Activity Log Analytics
-          href: log-analytics-activity.md
-        - name: AD 상태 검사
+        - name: Azure 활동 로그
+          items:
+            - name: 분석
+              href: log-analytics-activity.md
+            - name: 구독 간 수집
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: AD 평가
           href: log-analytics-ad-assessment.md
         - name: AD 복제 상태
           href: log-analytics-ad-replication-status.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: 개발
       items:
-        - name: 데이터 수집기 API
-          href: log-analytics-data-collector-api.md
         - name: PowerShell cmdlet
           href: log-analytics-powershell-workspace-configuration.md
         - name: 리소스 관리자 템플릿
@@ -253,7 +261,7 @@
         - name: 로그 검색 API
           href: log-analytics-log-search-api.md
           items:
-            - name: Python
+            - name: 파이썬
               href: log-analytics-log-search-api-python.md
         - name: 알림 API
           href: log-analytics-api-alerts.md

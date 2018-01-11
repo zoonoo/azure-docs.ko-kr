@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: ee7acd393539277a5bc23a6fed40d07961974b9a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -74,7 +74,7 @@ Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 �
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>서비스 관리자가 구독과 특정 AAD 테넌트 간의 디렉터리 매핑을 변경하고자 합니다. 이 태스크를 완료하려면 어떻게 해야 하나요?
 
-[Azure AD 디렉터리에 기존 구독을 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
+[Azure AD 디렉터리에 기존 구독을 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>조직 계정으로 로그인 할 때 서비스 관리자 또는 공동 관리자를 변경하려고 합니다.
 

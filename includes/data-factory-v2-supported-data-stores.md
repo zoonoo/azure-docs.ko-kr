@@ -51,6 +51,7 @@
 | &nbsp; |[HubSpot(베타)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira(베타)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento(베타)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
+| &nbsp; |[Marketo(베타)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua(베타)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Paypal(베타)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks(베타)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |

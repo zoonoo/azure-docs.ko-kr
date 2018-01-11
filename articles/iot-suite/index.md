@@ -9,11 +9,11 @@ ms.service: iot-suite
 ms.topic: landing-page
 ms.date: 11/27/2017
 ms.author: carolz
-ms.openlocfilehash: ccd1546fdfaba2d754906b74984a7335a918e316
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8cb979f645f0c1405ebd424d39cc2d67c5b59ba0
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="iot-suite-documentation"></a>IoT Suite 설명서
 
@@ -39,7 +39,7 @@ Microsoft Azure IoT Suite를 빨리 시작해 보세요. 미리 구성된 솔루
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?services=internet-of-things">
+        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +78,7 @@ Microsoft Azure IoT Suite를 빨리 시작해 보세요. 미리 구성된 솔루
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

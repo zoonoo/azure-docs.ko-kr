@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하는 생명 공학 엔터티 인식
 
 엔터티 추출은 정보 추출의 하위 작업입니다([NER(명명된 엔터티 인식)](https://en.wikipedia.org/wiki/Named-entity_recognition)이라고도 하는 엔터티 청크 및 엔터티 식별). 이 실제 시나리오의 목표는 Azure Machine Learning Workbench를 사용하여 구조화되지 않은 텍스트에서 엔터티 추출과 같은 복잡한 NLP(자연어 처리) 작업을 해결하는 방법을 중점적으로 설명하는 것입니다.
 
 1. [Spark Word2Vec 구현](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec)을 사용하여 약 1,800만 개 PubMed 요약의 텍스트 모음에 신경망 단어 삽입 모델을 학습하는 방법을 보여 줍니다.
-2. Azure의 GPU DS VM(GPU 기반 Azure 데이터 과학 가상 컴퓨터)에서 엔터티 추출을 위해 LSTM(장단기 기억) 순환 신경망 모델을 빌드하는 방법을 보여 줍니다.
+2. Azure의 GPU DS VM(GPU 기반 Azure 데이터 과학 Virtual Machine)에서 엔터티 추출을 위해 LSTM(장단기 기억) 순환 신경망 모델을 빌드하는 방법을 보여 줍니다.
 2. 도메인별 단어 포함 모델이 엔터티 인식 작업에서 일반 단어 포함 모델보다 우수한 성능을 발휘할 수 있음을 보여 줍니다. 
 3. Azure Machine Learning Workbench를 사용하여 심화 학습 모델을 학습하고 운영하는 방법을 보여 줍니다.
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 10/23/2017
 
 다음 그림은 데이터를 처리하고 모델을 학습하는 데 사용된 아키텍처를 보여 줍니다.
 
-![아키텍처](./media/scenario-tdsp-biomedical-recognition/architecture.png)
+![건축](./media/scenario-tdsp-biomedical-recognition/architecture.png)
 
 ## <a name="data-description"></a>데이터 설명
 
@@ -101,7 +102,7 @@ ms.lasthandoff: 10/23/2017
 * 규모 확장 계산을 위한 Linux(HDI 3.6)에서 [HDInsight Spark 클러스터](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) 버전 Spark 2.1 아래에 설명된 MEDLINE 요약의 전체 양을 처리하려면 다음의 최소 구성이 필요합니다. 
     * 헤드 노드: [D13_V2](https://azure.microsoft.com/pricing/details/hdinsight/) 크기
     * 작업자 노드: [D12_V2](https://azure.microsoft.com/pricing/details/hdinsight/) 중 4개 이상. 이 작업에서는 D12_V2 크기의 작업자 노드 11개를 사용했습니다.
-* 강화 계산을 위한 [NC6 DSVM(데이터 과학 가상 컴퓨터)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro)
+* 강화 계산을 위한 [NC6 DSVM(데이터 과학 Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro)
 
 ### <a name="python-packages"></a>Python 패키지
 

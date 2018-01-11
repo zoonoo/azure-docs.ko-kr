@@ -1,7 +1,7 @@
 
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
 
-이 문서에서는 Azure에서 IaaS VM(가상 컴퓨터) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
+이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 
 먼저 로컬 오류로부터 보호하는 데 도움이 되는 Azure 플랫폼의 기본 제공 내결함성 기능을 다룹니다. 기본 제공 기능에 완전히 포함되는 재해 시나리오를 설명합니다. 이 문서에서 다루는 주요 항목입니다. 또한 다른 백업 및 DR 고려 사항이 적용될 수 있는 워크로드 시나리오의 몇 가지 예도 보여 줍니다. 그런 다음 IaaS 디스크의 DR에 가능한 솔루션을 검토합니다. 
 
@@ -19,9 +19,9 @@ Azure 플랫폼은 이러한 오류에 탄력적으로 대처하도록 설계되
 
 ### <a name="azure-iaas-resiliency"></a>Azure IaaS 복원력
 
-*복원력*은 하드웨어 구성 요소에서 발생하는 정상적인 오류에 대한 허용 오차를 나타냅니다. 복원력은 오류로부터 복구하고 계속 작동할 수 있는 능력입니다. 오류를 방지하는 것이 아니라 가동 중지 또는 데이터 손실을 방지하는 방법으로 오류에 대응하는 것입니다. 복원력의 목표는 오류가 발생한 후 응용 프로그램을 완전히 작동하는 상태로 되돌리기 위한 것입니다. Azure 가상 컴퓨터 및 디스크는 일반적인 하드웨어 결함에 탄력적으로 대처할 수 있도록 설계되었습니다. Azure IaaS 플랫폼에서 이러한 복원력을 어떻게 제공하는지 살펴보겠습니다.
+*복원력*은 하드웨어 구성 요소에서 발생하는 정상적인 오류에 대한 허용 오차를 나타냅니다. 복원력은 오류로부터 복구하고 계속 작동할 수 있는 능력입니다. 오류를 방지하는 것이 아니라 가동 중지 또는 데이터 손실을 방지하는 방법으로 오류에 대응하는 것입니다. 복원력의 목표는 오류가 발생한 후 응용 프로그램을 완전히 작동하는 상태로 되돌리기 위한 것입니다. Azure 가상 머신 및 디스크는 일반적인 하드웨어 결함에 탄력적으로 대처할 수 있도록 설계되었습니다. Azure IaaS 플랫폼에서 이러한 복원력을 어떻게 제공하는지 살펴보겠습니다.
 
-가상 컴퓨터는 계산 서버 및 영구 디스크와 같이 크게 두 부분로 구성됩니다. 둘 다 가상 컴퓨터의 내결함성에 영향을 줍니다.
+가상 머신은 계산 서버 및 영구 디스크와 같이 크게 두 부분로 구성됩니다. 둘 다 가상 머신의 내결함성에 영향을 줍니다.
 
 VM을 저장하는 Azure 계산 호스트 서버에 자주 발생하지 않는 하드웨어 오류가 발생하는 경우 Azure는 다른 서버에서 해당 VM을 자동으로 복원하도록 설계되었습니다. 이런 경우가 발생하면 컴퓨터가 다시 부팅되고 일정 시간 후에 VM이 다시 시작됩니다. Azure는 자동으로 이러한 하드웨어 오류를 감지하고 복구를 실행하여 가능한 한 빨리 고객의 VM을 사용할 수 있도록 합니다.
 
@@ -33,7 +33,7 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 저장소 플랫폼에
 
 계산 호스트 또는 Storage 플랫폼에서 지역화된 하드웨어 오류로 인해 때때로 VM 가용성에 대한 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)가 적용되는 VM을 일시적으로 사용할 수 없게 될 수 있습니다. 또한 Azure는 Azure Premium Storage 디스크를 사용하는 단일 VM 인스턴스에 업계 최고의 SLA를 제공합니다.
 
-디스크 또는 VM의 일시적인 사용 불가로 인한 가동 중지로부터 응용 프로그램 워크로드를 보호하기 위해 고객은 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md)을 사용할 수 있습니다. 가용성 집합에 있는 둘 이상의 가상 컴퓨터는 응용 프로그램에 대한 중복성을 제공합니다. 그런 다음 Azure는 서로 다른 전원, 네트워크 및 서버 구성 요소를 사용하여 별도의 장애 도메인에 이러한 VM 및 디스크를 만듭니다. 
+디스크 또는 VM의 일시적인 사용 불가로 인한 가동 중지로부터 응용 프로그램 워크로드를 보호하기 위해 고객은 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md)을 사용할 수 있습니다. 가용성 집합에 있는 둘 이상의 가상 머신은 응용 프로그램에 대한 중복성을 제공합니다. 그런 다음 Azure는 서로 다른 전원, 네트워크 및 서버 구성 요소를 사용하여 별도의 장애 도메인에 이러한 VM 및 디스크를 만듭니다. 
 
 이러한 별도의 장애 도메인 때문에 지역화된 하드웨어 오류는 일반적으로 집합에 있는 여러 VM에 동시에 영향을 주지 않습니다. 별도의 오류 도메인이 있으면 응용 프로그램에 대한 고가용성을 제공합니다. 고가용성이 필요한 경우에는 가용성 집합을 사용하는 것이 좋습니다. 다음 섹션에서는 재해 복구 측면을 다룹니다.
 
@@ -118,7 +118,7 @@ Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우�
 
 ![Azure Backup 흐름][1]
 
-Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치된 백업 확장을 트리거하여 특정 시점의 스냅숏을 만듭니다. 이 스냅숏은 가상 컴퓨터를 종료하지 않고도 가상 컴퓨터의 디스크에 대한 일관된 스냅숏을 가져오도록 볼륨 섀도 서비스와 조정되어 생성됩니다. VM의 백업 확장은 모든 디스크에 대한 일관성 있는 스냅숏을 만들기 전에 모든 쓰기를 플러시합니다. 스냅숏을 만든 후에는 Azure Backup에서 백업 자격 증명 모음으로 데이터를 전송합니다. 백업 프로세스의 효율성을 높이기 위해 Azure 백업 서비스는 마지막 백업 후에 변경된 데이터 블록만 식별하여 전송합니다.
+Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치된 백업 확장을 트리거하여 특정 시점의 스냅숏을 만듭니다. 이 스냅숏은 가상 머신을 종료하지 않고도 가상 머신의 디스크에 대한 일관된 스냅숏을 가져오도록 볼륨 섀도 서비스와 조정되어 생성됩니다. VM의 백업 확장은 모든 디스크에 대한 일관성 있는 스냅숏을 만들기 전에 모든 쓰기를 플러시합니다. 스냅숏을 만든 후에는 Azure Backup에서 백업 자격 증명 모음으로 데이터를 전송합니다. 백업 프로세스의 효율성을 높이기 위해 Azure 백업 서비스는 마지막 백업 후에 변경된 데이터 블록만 식별하여 전송합니다.
 
 복원하려면 Azure Backup을 통해 사용할 수 있는 백업을 확인한 다음 복원을 시작할 수 있습니다. [Azure Portal](https://portal.azure.com/), [PowerShell](../articles/backup/backup-azure-vms-automation.md) 또는 [Azure CLI](/cli/azure/)를 사용하여 Azure Backup을 만들고 복원할 수 있습니다. 
 
@@ -130,15 +130,15 @@ Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치�
 
     a. [Azure Portal](https://portal.azure.com/)에서 **모든 리소스**를 찾아보고 **Recovery Services 자격 증명 모음**을 찾습니다.
 
-    b. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭하고, 단계에 따라 VM과 동일한 지역에 새 자격 증명 모음을 만듭니다. 예를 들어 VM이 미국 서부 지역에 있으면 미국 서부를 선택하여 자격 증명 모음을 찾습니다.
+    나. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭하고, 단계에 따라 VM과 동일한 지역에 새 자격 증명 모음을 만듭니다. 예를 들어 VM이 미국 서부 지역에 있으면 미국 서부를 선택하여 자격 증명 모음을 찾습니다.
 
 2.  새로 만든 자격 증명 모음에 대한 저장소 복제를 확인합니다. **Recovery Services 자격 증명 모음** 아래에서 자격 증명 모음에 액세스하고 **설정** > **백업 구성**으로 이동합니다. **지역 중복 저장소** 옵션을 기본적으로 선택하도록 합니다. 이렇게 하면 자격 증명 모음이 보조 데이터 센터에 자동으로 복제됩니다. 예를 들어 미국 서부의 자격 증명 모음이 미국 동부에 자동으로 복제됩니다.
 
 3.  백업 정책을 구성하고 동일한 UI에서 VM을 선택합니다.
 
-4.  Backup 에이전트가 VM에 설치되어 있는지 확인합니다. Azure 갤러리 이미지를 사용하여 VM을 만든 경우 백업 에이전트가 이미 설치되어 있습니다. 그렇지 않은 경우(즉, 사용자 지정 이미지를 사용하는 경우) [가상 컴퓨터에 VM 에이전트 설치](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)에 대한 지침을 사용합니다.
+4.  Backup 에이전트가 VM에 설치되어 있는지 확인합니다. Azure 갤러리 이미지를 사용하여 VM을 만든 경우 백업 에이전트가 이미 설치되어 있습니다. 그렇지 않은 경우(즉, 사용자 지정 이미지를 사용하는 경우) [가상 머신에 VM 에이전트 설치](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)에 대한 지침을 사용합니다.
 
-5.  VM에서 백업 서비스가 작동할 수 있도록 네트워크 연결을 허용하는지 확인합니다. [네트워크 연결](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity)을 위한 지침을 따릅니다.
+5.  VM에서 백업 서비스가 작동할 수 있도록 네트워크 연결을 허용하는지 확인합니다. [네트워크 연결](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)을 위한 지침을 따릅니다.
 
 6.  이전 단계가 완료된 후에 백업 정책에서 지정한 대로 백업이 정기적으로 실행됩니다. 필요한 경우 Azure Portal의 자격 증명 모음 대시보드에서 첫 번째 백업을 수동으로 트리거할 수 있습니다.
 
@@ -152,7 +152,7 @@ VM을 복구하거나 다시 작성해야 하는 경우 자격 증명 모음의 
 
 -   디스크를 복원한 다음 VM에 대한 템플릿을 사용하여 복원된 VM을 사용자 지정하고 다시 작성할 수 있습니다. 
 
-자세한 내용은 [Azure Portal을 사용하여 가상 컴퓨터 복원](../articles/backup/backup-azure-arm-restore-vms.md)에 대한 지침을 참조하세요. 또한 이 문서는 기본 데이터 센터에서 재해가 발생한 경우 지역 중복 백업 자격 증명 모음을 사용하여 쌍으로 연결된 데이터 센터에 백업된 VM을 복원하는 특정 단계에 대해 설명하고 있습니다. 이 경우 Azure Backup은 보조 지역의 Compute 서비스를 사용하여 복원된 가상 컴퓨터를 만듭니다.
+자세한 내용은 [Azure Portal을 사용하여 가상 머신 복원](../articles/backup/backup-azure-arm-restore-vms.md)에 대한 지침을 참조하세요. 또한 이 문서는 기본 데이터 센터에서 재해가 발생한 경우 지역 중복 백업 자격 증명 모음을 사용하여 쌍으로 연결된 데이터 센터에 백업된 VM을 복원하는 특정 단계에 대해 설명하고 있습니다. 이 경우 Azure Backup은 보조 지역의 Compute 서비스를 사용하여 복원된 가상 머신을 만듭니다.
 
 또한 PowerShell을 사용하여 [VM을 복원](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster)하거나 [복원된 디스크에서 새 VM을 만들](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 수도 있습니다.
 
@@ -219,7 +219,7 @@ DR에 대한 증분 스냅숏을 효율적으로 복사하려면 [증분 스냅�
 
 ### <a name="sql-server"></a>SQL Server
 
-VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Blob 저장소 또는 파일 공유에 백업하는 자체의 기본 제공 기능이 있습니다. 저장소 계정이 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소인 경우 재해 발생 시 저장소 계정의 보조 데이터 센터에 있는 백업에 액세스할 수 있으며 앞에서 설명한 것과 동일한 제한 사항이 적용됩니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. 백업 및 복원 외에도 [SQL Server Always On 가용성 그룹](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)은 데이터베이스의 보조 복제본을 유지 관리할 수 있습니다. 이렇게 하면 재해 복구 시간이 크게 줄어듭니다.
+VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Blob 저장소 또는 파일 공유에 백업하는 자체의 기본 제공 기능이 있습니다. 저장소 계정이 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소인 경우 재해 발생 시 저장소 계정의 보조 데이터 센터에 있는 백업에 액세스할 수 있으며 앞에서 설명한 것과 동일한 제한 사항이 적용됩니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server의 백업 및 복원](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. 백업 및 복원 외에도 [SQL Server Always On 가용성 그룹](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)은 데이터베이스의 보조 복제본을 유지 관리할 수 있습니다. 이렇게 하면 재해 복구 시간이 크게 줄어듭니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
@@ -247,7 +247,7 @@ Azure에 있는 저장소 계정의 경우 재해 복구와 관련하여 세 가
 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](../articles/storage/common/storage-disaster-recovery-guidance.md)을 참조하세요. 
 
 >[!NOTE] 
->Microsoft는 장애 조치가 발생하는지 여부를 제어합니다. 장애 조치는 저장소 계정별로 제어되지 않으므로 개별 고객이 결정할 수는 없습니다. 특정 저장소 계정 또는 가상 컴퓨터 디스크에 대한 재해 복구를 구현하려면 이 문서의 앞부분에서 설명한 기술을 사용해야 합니다.
+>Microsoft는 장애 조치가 발생하는지 여부를 제어합니다. 장애 조치는 저장소 계정별로 제어되지 않으므로 개별 고객이 결정할 수는 없습니다. 특정 저장소 계정 또는 가상 머신 디스크에 대한 재해 복구를 구현하려면 이 문서의 앞부분에서 설명한 기술을 사용해야 합니다.
 
 
 

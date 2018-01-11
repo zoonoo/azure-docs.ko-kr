@@ -4,7 +4,7 @@ description: "Azure Active Directory B2C에서 사용자 지정 특성을 사용
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
 Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, 도시, 우편 번호 등 기본 제공 정보(특성) 집합이 함께 제공됩니다. 그러나 모든 소비자 지향 응용 프로그램에는 소비자로부터 수집하려는 정보에 대한 고유한 요구 사항이 있습니다. Azure AD B2C를 사용하면 각 소비자 계정에 저장된 특성 집합을 확장할 수 있습니다. [Azure 포털](https://portal.azure.com/) 에 사용자 지정 특성을 만들고 아래와 같이 등록 정책에서 사용합니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다.
@@ -35,7 +35,7 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 4. 사용자 지정 특성(예: "ShoeSize")에 **이름**을 제공하고 필요에 따라 **설명**을 제공합니다. **만들기**를 클릭합니다.
    
    > [!NOTE]
-   > 현재 "문자열" **데이터 형식** 만 사용할 수 있습니다.
+   > 현재 “문자열”, “부울” 및 “Int” **데이터 형식**만 사용할 수 있습니다.
    > 
    > 
 

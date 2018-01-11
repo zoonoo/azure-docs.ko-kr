@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows 유니버설 앱 SDK 업그레이드 절차
 이전 버전의 Engagement를 응용 프로그램에 이미 통합한 경우에는 SDK를 업그레이드할 때 다음 사항을 고려해야 합니다.
@@ -294,7 +294,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure Portal에 표시됩니다.
 
 ### <a name="items-name-change"></a>항목 이름 변경
 *capptain*이라는 모든 항목은 *engagement*라고 이름을 지정합니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.

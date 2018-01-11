@@ -4,7 +4,7 @@ description: "Azure AD v2.0 끝점의 제한 사항 목록입니다."
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>v2.0 끝점을 사용해야 하나요?
 Azure Active Directory와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족하는지 결정해야 합니다. Azure Active Directory의 원래 끝점은 계속해서 완전히 지원되며 v2.0보다 더 많은 기능이 제공되는 측면이 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다.

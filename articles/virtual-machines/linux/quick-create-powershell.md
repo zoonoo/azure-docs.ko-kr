@@ -1,6 +1,6 @@
 ---
 title: "Azure 빠른 시작 - VM 만들기 PowerShell | Microsoft Docs"
-description: "PowerShell을 사용하여 Linux 가상 컴퓨터를 만드는 방법을 빠르게 이해합니다."
+description: "PowerShell을 사용하여 Linux 가상 머신을 만드는 방법을 빠르게 이해합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 8282c30a2b9aa4341f3e7d720f2d3cfc0b4a6fa0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="create-a-linux-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Linux 가상 컴퓨터 만들기
+# <a name="create-a-linux-virtual-machine-with-powershell"></a>PowerShell을 사용하여 Linux 가상 머신 만들기
 
-PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Ubuntu 서버를 실행하는 가상 컴퓨터를 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 SSH 연결을 만들고 NGINX 웹 서버를 설치합니다.
+PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Ubuntu 서버를 실행하는 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 SSH 연결을 만들고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
@@ -51,7 +51,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 
 ## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
-가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공하고 인터넷에 연결하는 데 사용됩니다.
+가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 머신에 네트워크 연결을 제공하고 인터넷에 연결하는 데 사용됩니다.
 
 ```powershell
 # Create a subnet configuration
@@ -66,7 +66,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location e
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-네트워크 보안 그룹 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹은 인바운드 및 아웃바운드 규칙을 사용하여 가상 컴퓨터를 보호합니다. 이 경우 포트 22에 대해 들어오는 SSH 연결을 허용하는 인바운드 규칙이 만들어집니다. 포트 80에 대한 인바운드 규칙을 만들어서 들어오는 웹 트래픽을 허용하려고 합니다.
+네트워크 보안 그룹 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹은 인바운드 및 아웃바운드 규칙을 사용하여 가상 머신을 보호합니다. 이 경우 포트 22에 대해 들어오는 SSH 연결을 허용하는 인바운드 규칙이 만들어집니다. 포트 80에 대한 인바운드 규칙을 만들어서 들어오는 웹 트래픽을 허용하려고 합니다.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -84,7 +84,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 가상 컴퓨터에 네트워크 카드를 만듭니다. 네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 컴퓨터를 연결합니다.
+[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 가상 머신에 네트워크 카드를 만듭니다. 네트워크 카드는 서브넷, 네트워크 보안 그룹 및 공용 IP 주소에 가상 머신을 연결합니다.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -94,7 +94,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
-가상 컴퓨터 구성을 만듭니다. 이 구성은 가상 컴퓨터 이미지, 크기 및 인증 구성 등 가상 컴퓨터를 배포할 때 사용되는 설정을 포함합니다.
+가상 머신 구성을 만듭니다. 이 구성은 가상 머신 이미지, 크기 및 인증 구성 등 가상 머신을 배포할 때 사용되는 설정을 포함합니다.
 
 ```powershell
 # Define a credential object
@@ -112,23 +112,23 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 컴퓨터를 만듭니다.
+[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다.
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
 ```
 
-## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
-배포가 완료된 후 가상 컴퓨터에 대한 SSH 연결을 만듭니다.
+배포가 완료된 후 가상 머신에 대한 SSH 연결을 만듭니다.
 
-[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 명령을 사용하여 가상 컴퓨터의 공용 IP 주소를 반환합니다.
+[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-SSH가 설치된 시스템에서 다음 명령을 사용하여 가상 컴퓨터에 연결합니다. Windows에서 작업하는 경우 [Putty](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty)를 사용하여 연결을 만들 수 있습니다. 
+SSH가 설치된 시스템에서 다음 명령을 사용하여 가상 머신에 연결합니다. Windows에서 작업하는 경우 [Putty](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty)를 사용하여 연결을 만들 수 있습니다. 
 
 ```bash 
 ssh <Public IP Address>
@@ -149,7 +149,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>NGIX 시작 페이지 보기
+## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
 
 NGINX를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 볼 수 있습니다. 위에 설명한 공용 IP 주소를 사용하여 기본 페이지를 방문해야 합니다. 
 
@@ -165,7 +165,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 간단한 가상 컴퓨터, 네트워크 보안 그룹 규칙을 배포했으며 웹 서버를 설치했습니다. Azure 가상 컴퓨터에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
+이 빠른 시작에서 간단한 가상 머신, 네트워크 보안 그룹 규칙을 배포했으며 웹 서버를 설치했습니다. Azure 가상 머신에 대한 자세한 내용을 알아보려면 Linux VM의 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Linux 가상 컴퓨터 자습서](./tutorial-manage-vm.md)
+> [Azure Linux 가상 머신 자습서](./tutorial-manage-vm.md)

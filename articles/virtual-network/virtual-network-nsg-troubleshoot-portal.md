@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 문제 해결
 > [!div class="op_single_selector"]
-> * [Azure 포털](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
 
 VM(가상 컴퓨터)에서 NSG(네트워크 보안 그룹)를 구성했으며 VM 연결 문제가 발생하는 경우 이 문서를 통해 문제 해결에 도움이 되는 NSG 진단 기능을 대략적으로 알 수 있습니다.
 
-NSG에서는 VM(가상 컴퓨터)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(가상 네트워크), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.  
+NSG에서는 VM(가상 머신)에서 들어오고 나가는 트래픽 유형을 제어할 수 있습니다. Azure VNet(Virtual Network), NIC(네트워크 인터페이스) 또는 둘 다의 서브넷에 NSG를 적용할 수 있습니다. NIC에 적용되는 유효한 규칙은 NIC 및 NIC에 연결된 서브넷에 적용되는 NSG에 존재하는 규칙을 집계한 것입니다. 때로는 이러한 NSG 간의 규칙이 서로 충돌하고 VM의 네트워크 연결에 영향을 줄 수 있습니다.  
 
 VM의 NIC에 적용된 NSG의 모든 유효 보안 규칙을 볼 수 있습니다. 이 문서에서는 Azure Resource Manager 배포 모델에서 이러한 규칙을 사용하여 VM 연결 문제를 해결하는 방법을 보여 줍니다. VNet 및 NSG 개념에 익숙하지 않은 경우 [가상 네트워크](virtual-networks-overview.md) 및 [네트워크 보안 그룹](virtual-networks-nsg.md) 개요 문서를 읽어보세요.
 
@@ -46,8 +46,8 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
 VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. 이러한 작업을 수행할 권한이 있는 경우 유효 규칙 블레이드에서 NIC 및 서브넷 NSG 규칙을 추가, 수정 및 삭제할 수도 있습니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
-2. **더 많은 서비스**를 클릭한 다음 표시되는 목록에서 **가상 컴퓨터**를 클릭합니다.
+1. Azure 계정을 사용하여 https://portal.azure.com에서 Azure Portal에 로그인합니다. 사용자 계정은 네트워크 인터페이스에 대한 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 작업에 할당해야 합니다. 작업을 계정에 할당하는 방법을 알아보려면 [Azure 역할 기반 액세스 제어의 사용자 지정 역할 만들기](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions)를 참조하세요.
+2. **더 많은 서비스**를 클릭한 다음 표시되는 목록에서 **가상 머신**을 클릭합니다.
 3. 표시되는 목록에서 문제를 해결할 VM을 선택합니다. 그러면 옵션을 포함하는 VM 블레이드가 나타납니다.
 4. **문제 진단 및 해결**을 클릭하고 일반적인 문제를 선택합니다. 이 예제에서는 **Windows VM에 연결할 수 없습니다.** 가 선택됩니다. 
    
@@ -107,7 +107,7 @@ VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를
    > 네트워크 인터페이스에서 NSG가 제거되어도 서브넷 NSG는 지정된 NIC에서 계속 유효합니다. 이 경우 출력에 서브넷 NSG의 규칙만 표시됩니다. 규칙은 NIC가 VM에 연결된 경우에만 표시됩니다.
    > 
    > 
-4. NIC 및 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 컴퓨터에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
+4. NIC 및 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 머신에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
 
 ## <a name="nsg"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
 NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영향을 검토하려고 할 수 있습니다. 지정된 NSG 블레이드에서 컨텍스트를 전환하지 않고도, 지정된 NSG가 적용되는 모든 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. NSG 내의 유효 규칙 문제를 해결하려면 다음 단계를 완료합니다.
@@ -121,7 +121,7 @@ NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영
     이전 그림의 다음 섹션을 확인합니다.
    
    * **범위:** 선택한 NSG로 설정합니다.
-   * **가상 컴퓨터:** NSG는 서브넷에 적용될 때 서브넷에 연결된 모든 VM에 연결된 모든 네트워크 인터페이스에 적용됩니다. 이 목록은 이 NSG가 적용되는 모든 VM을 보여 줍니다. 목록에서 어떤 VM도 선택할 수 있습니다.
+   * **가상 머신:** NSG는 서브넷에 적용될 때 서브넷에 연결된 모든 VM에 연결된 모든 네트워크 인터페이스에 적용됩니다. 이 목록은 이 NSG가 적용되는 모든 VM을 보여 줍니다. 목록에서 어떤 VM도 선택할 수 있습니다.
      
      > [!NOTE]
      > NSG가 빈 서브넷에만 적용되면 VM이 나열되지 않습니다. NSG가 VM과 연결되지 않은 NIC에 적용되면 해당 NIC도 나열되지 않습니다. 
@@ -129,9 +129,9 @@ NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영
      > 
    * **네트워크 인터페이스:** 하나의 VM에 여러 네트워크 인터페이스가 있을 수 있습니다. 선택한 VM에 연결된 네트워크 인터페이스를 선택할 수 있습니다.
    * **AssociatedNSGs:** 언제든지 하나의 NIC에 최대 2개의 유효 NSG가 있을 수 있습니다. 하나는 NIC에 적용되고 다른 하나는 서브넷에 적용됩니다. 범위가 VM1-nsg로 선택되더라도 NIC에 유효 서브넷 NSG가 있으면 출력에는 두 NSG가 모두 표시됩니다.
-4. NIC 또는 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 컴퓨터에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
+4. NIC 또는 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 머신에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
 
-표시되는 추가 정보에 대해 자세히 알아보려면 이 문서의 **가상 컴퓨터에 대한 유효 보안 규칙 보기** 섹션, 6단계를 읽어보세요.
+표시되는 추가 정보에 대해 자세히 알아보려면 이 문서의 **가상 머신에 대한 유효 보안 규칙 보기** 섹션, 6단계를 읽어보세요.
 
 > [!NOTE]
 > 서브넷과 NIC에는 각각 하나의 NSG만 적용될 수 있지만 하나의 NSG가 여러 NIC 및 여러 서브넷에 연결될 수 있습니다.

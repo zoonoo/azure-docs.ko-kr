@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하 여 Azure 스택의 업데이트 모니터링
 
 *적용 대상: Azure 스택 시스템 통합*
 
-를 실행 하는 Azure 스택 업데이트 진행률을 모니터링 하 고 성공 하는 마지막 단계에서 실행 실패 한 업데이트를 다시 시작 하는 권한 있는 끝점을 사용할 수 있습니다. 
+에서는 Azure 스택 업데이트 실행의 진행률을 모니터링 하려면 권한 있는 끝점을 사용할 수 있으며 실행 성공 하는 마지막 단계에서 실패 한 업데이트를 다시 시작 해야 Azure 스택 포털을 사용할 수 없습니다.  Azure 스택에서 업데이트를 관리 스택 Azure 포털을 사용 하는 것이 좋습니다.
 
 업데이트 관리를 위한 다음과 같은 새 PowerShell cmdlet은 Azure 스택 통합 시스템에 대 한 1710 업데이트에 포함 됩니다.
 
@@ -70,7 +70,7 @@ Cmdlet은 사용할 수 있는지 프로그래밍 방식으로 권한 있는 끝
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   예:
+   예: 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

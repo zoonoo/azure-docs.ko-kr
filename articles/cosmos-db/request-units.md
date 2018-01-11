@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 지금 사용 가능: Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner). 자세한 내용을 보려면 [처리량 요구 예측](request-units.md#estimating-throughput-needs)을 참조하세요.
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/06/2017
 ![처리량 계산기][5]
 
 ## <a name="introduction"></a>소개
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. [DocumentDB API](documentdb-introduction.md), MongoDB API, [Table API](table-introduction.md)를 통한 SQL 데이터 액세스 및 [Graph API](graph-introduction.md)를 통한 Gremlin 데이터 액세스가 모두 기본적으로 지원됩니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md) 및 [Graph API](graph-introduction.md)를 통한 Gremlin 데이터 액세스가 모두 기본적으로 지원됩니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
 
 Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
 

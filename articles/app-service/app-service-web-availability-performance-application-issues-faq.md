@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 응용 프로그램 성능 FAQ
 
@@ -174,7 +174,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 저장소 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 중인지 확인하려면 App Service **응용 프로그램 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다. 
+로컬 캐시를 사용 중인지 확인하려면 App Service **응용 프로그램 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 

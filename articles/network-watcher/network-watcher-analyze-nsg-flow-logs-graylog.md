@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -152,8 +152,8 @@ Logstash는 JSON 형식의 흐름 로그를 흐름 튜플 수준으로 평면화
 
 마지막으로 출력 섹션은 Graylog 서버에 각 Logstash 이벤트를 전달합니다. 필요에 따라 특정 요구에 맞게 Logstash 구성 파일을 수정합니다.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > 이전 구성 파일에서는 Graylog 서버가 로컬 호스트 루프백 IP 주소 127.0.0.1에 구성된 것으로 가정합니다. 그렇지 않은 경우 출력 섹션의 호스트 매개 변수를 올바른 IP 주소로 변경해야 합니다.
 
 Logstash 설치에 대한 자세한 지침은 Logstash [설명서](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)를 참조하세요.
 

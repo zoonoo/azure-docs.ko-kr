@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -72,28 +72,31 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
  
     ![구성](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>함수 만들기
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>함수 앱 만들기
 
 함수는 논리 앱 워크플로에서 처리 작업을 오프로드하는 훌륭한 방법을 제공합니다. 이 자습서는 HTTP 트리거된 함수를 사용하여 Cognitive Services에서 트윗 감정 점수를 처리하고 범주 값을 반환합니다.  
 
-1. **새로 만들기** 단추를 클릭하고 **계산** > **함수 앱**을 선택합니다. 그런 다음 아래 표에 지정된 것처럼 설정을 사용합니다. 약관에 동의한 다음 **대시보드에 고정**을 선택합니다.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Azure 함수 앱 만들기](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>HTTP 트리거 함수 만들기  
 
-    | 설정      |  제안 값   | 설명       |
-    | --- | --- | --- |
-    | **Name** | MyFunctionApp | 고유한 계정 이름을 선택합니다. |
-    | **리소스 그룹** | myResourceGroup | 이 자습서에서 모든 서비스에 대해 동일한 리소스 그룹을 사용합니다.|
-    | **호스팅 계획** | 소비 계획 | 비용 및 사용량 할당을 정의합니다.
-    | **위치**: | 미국 서부 | 가장 가까운 위치를 사용합니다. |
-    | **저장소** | 새로 만들기 | 새 저장소 계정을 자동으로 생성합니다.|
-    | **가격 책정 계층** | F0 | 가장 낮은 계층으로 시작합니다. 호출에서 실행하는 경우 더 높은 계층으로 확장합니다.|
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱에서 첫 번째 함수이면 **사용자 지정 함수**를 선택합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다.
 
-2. 함수 앱을 대시보드에서 선택하고 함수를 확장하고 **함수**옆의 **+** 단추를 클릭하고, **Webhook + API**, **CSharp**, **이 함수 만들기**를 차례로 클릭합니다. 그러면 HTTPTrigger C# 템플릿을 사용하여 함수가 만들어집니다. 코드가 새 창에 `run.csx`로 나타납니다.
+    ![Azure Portal에서 함수 빨리 시작하기 페이지](media/functions-twitter-email/add-first-function.png)
 
-    ![함수 앱 블레이드, 함수 +](media/functions-twitter-email/add_fun.png)
+2. 검색 필드에 `http`를 입력한 다음 HTTP 트리거 템플릿에 대해 **C#**을 선택합니다. 
 
-3. `run.csx` 파일의 콘텐츠를 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
+    ![HTTP 트리거 선택](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. 함수의 **이름**을 입력하고 **[인증 수준](functions-bindings-http-webhook.md#http-auth)**에 대해 `Function`을 선택한 후 **만들기**를 선택합니다. 
+
+    ![HTTP 트리거 함수 만들기](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    이는 HTTP 트리거 템플릿을 사용하여 C# 스크립트 함수를 만듭니다. 코드가 새 창에 `run.csx`로 표시됩니다.
+
+4. `run.csx` 파일의 콘텐츠를 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
 
     ```csharp
     using System.Net;

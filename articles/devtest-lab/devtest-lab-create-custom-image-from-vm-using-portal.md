@@ -3,7 +3,7 @@ title: "VHD에서 Azure DevTest Labs 사용자 지정 이미지 만들기 | Micr
 description: "Azure Portal을 사용하여 프로비저닝된 VM에서 Azure DevTest Labs에 사용자 지정 이미지를 만드는 방법에 대해 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM에서 사용자 지정 이미지 만들기
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 10/11/2017
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 
-1. 랩의 블레이드에서 **내 가상 컴퓨터**를 선택합니다.
+1. 랩의 블레이드에서 **내 가상 머신**를 선택합니다.
  
-1. **내 가상 컴퓨터** 블레이드에서 사용자 지정 이미지를 만들 VM을 선택합니다.
+1. **내 가상 머신** 블레이드에서 사용자 지정 이미지를 만들 VM을 선택합니다.
 
 1. VM의 블레이드에서 **사용자 지정 이미지 만들기(VHD)**를 선택합니다.
 
@@ -59,4 +59,4 @@ ms.lasthandoff: 10/11/2017
 
 ##<a name="next-steps"></a>다음 단계
 
-- [랩에 VM 추가](./devtest-lab-add-vm-with-artifacts.md)
+- [랩에 VM 추가](devtest-lab-add-vm.md)

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
 
@@ -28,21 +28,21 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[이전 자습서](./tutorial-kubernetes-prepare-app.md)에서는 간단한 Azure Voting 응용 프로그램에 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
+[이전 자습서][aks-tutorial-prepare-app]에서는 간단한 Azure Voting 응용 프로그램에 대한 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
-이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
 Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `eastus` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 `eastus` 하위 지역에 `myResourceGroup`이라는 리소스 그룹이 만들어집니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-[az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
+[az acr create][az-acr-create] 명령으로 Azure Container Registry를 만듭니다. 컨테이너 레지스트리의 이름은 **고유해야 합니다**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
-[az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) 명령을 사용하여 ACR 인스턴스에 로그인합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
+[az acr login][az-acr-login] 명령을 사용하여 ACR 인스턴스에 로그인합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 제공해야 합니다.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ az acr login --name <acrName>
 
 ## <a name="tag-container-images"></a>컨테이너 이미지 태그 지정
 
-현재 이미지 목록을 보려면 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용합니다.
+현재 이미지 목록을 보려면 [docker images][docker-images] 명령을 사용합니다.
 
 ```console
 docker images
@@ -91,7 +91,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-태그가 지정되면 [docker images](https://docs.docker.com/engine/reference/commandline/images/)를 실행하여 작업을 확인합니다.
+태그가 지정되면 [docker images][docker-images]를 실행하여 작업을 확인합니다.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 ## <a name="list-images-in-registry"></a>레지스트리에서 이미지 나열
 
-Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#list) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
+Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list][az-acr-repository-list] 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-그런 다음 특정 이미지에 대한 태그를 보려면 [az acr repository show-tags](/cli/azure/acr/repository#show-tags) 명령을 사용합니다.
+그런 다음 특정 이미지에 대한 태그를 보려면 [az acr repository show-tags][az-acr-repository-show-tags] 명령을 사용합니다.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,4 +163,17 @@ redis-v1
 다음 자습서로 이동하여 Azure에서 Kubernetes 클러스터 배포에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Kubernetes 클러스터 배포](./tutorial-kubernetes-deploy-cluster.md)
+> [Kubernetes 클러스터 배포][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

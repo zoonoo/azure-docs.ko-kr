@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: be29b993592e494053353aac1067bfb7eff90ed7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 흐름 로그는 네트워크 보안 그룹을 대상으로 하지만 다른 로그와 동일하게 표시되지 않습니다. 흐름 로그는 저장소 계정 내에만 저장되며 다음 예제와 같이 로깅 경로를 따릅니다.
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 로그에는 1일에서 365일까지 설정할 수 있는 보존 정책이 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.

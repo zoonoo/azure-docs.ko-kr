@@ -1,5 +1,5 @@
 ---
-title: "Socket.io를 사용하는 Node.js 응용 프로그램 | Microsoft Docs"
+title: "Socket.io를 사용하는 Node.js 응용 프로그램 - Azure"
 description: "Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
-Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이션을 제공합니다. 이 자습서는 Azure에서 채팅 응용 프로그램을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 <http://socket.io/>(영문)를 참조하세요.
+
+Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 응용 프로그램을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](http://socket.io)를 참조하세요.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 

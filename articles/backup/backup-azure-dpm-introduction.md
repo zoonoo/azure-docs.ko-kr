@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
 > [!div class="op_single_selector"]
 > * [Azure Backup 서버](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup 서버(클래식)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM(클래식)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -42,10 +40,10 @@ ms.lasthandoff: 12/08/2017
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview)는 파일 및 응용 프로그램 데이터를 백업합니다. 지원되는 워크로드에 대한 자세한 정보는 [여기](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)에서 찾을 수 있습니다. DPM에 백업된 데이터는 테이프나 디스크에 저장하거나 Microsoft Azure Backup을 사용하여 Azure에 백업할 수 있습니다. DPM 은 Azure Backup과 다음과 같이 상호작용합니다.
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview)는 파일 및 응용 프로그램 데이터를 백업합니다. 지원되는 워크로드에 관한 자세한 내용은 [여기](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)에서 찾을 수 있습니다. DPM에 백업된 데이터는 테이프나 디스크에 저장하거나 Microsoft Azure Backup을 사용하여 Azure에 백업할 수 있습니다. DPM 은 Azure Backup과 다음과 같이 상호작용합니다.
 
-* **물리적 서버 또는 온-프레미스 가상 컴퓨터로 배포하는 DPM** — DPM을 물리적 서버 또는 온-프레미스 Hyper-V 가상 컴퓨터로 배포하는 경우, 디스크나 테이프 백업에 더해 데이터를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.
-* **Azure 가상 컴퓨터로 배포하는 DPM** — System Center 2012 R2 업데이트 3부터 DPM을 Azure 가상 컴퓨터로 배포할 수 있습니다. DPM을 Azure 가상 컴퓨터로 배포하는 경우, 데이터를 DPM Azure 가상 컴퓨터에 연결된 Azure 디스크에 백업하거나 데이터 저장소를 Recovery Services 자격 증명 모음에 백업하여 오프로드할 수 있습니다.
+* **물리적 서버 또는 온-프레미스 가상 머신으로 배포하는 DPM** — DPM을 물리적 서버 또는 온-프레미스 Hyper-V 가상 머신으로 배포하는 경우, 디스크나 테이프 백업에 더해 데이터를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.
+* **Azure 가상 컴퓨터로 배포하는 DPM** — System Center 2012 R2 업데이트 3부터 DPM을 Azure 가상 컴퓨터로 배포할 수 있습니다. DPM을 Azure 가상 머신으로 배포하는 경우, 데이터를 DPM Azure 가상 머신에 연결된 Azure 디스크에 백업하거나 데이터 저장소를 Recovery Services 자격 증명 모음에 백업하여 오프로드할 수 있습니다.
 
 ## <a name="why-backup-from-dpm-to-azure"></a>DPM에서 Azure에 백업하는 이유
 DPM 서버 백업에 Azure Backup을 사용할 경우의 비즈니스 이점은 다음과 같습니다.
@@ -103,7 +101,7 @@ DPM용 Azure에서 백업에 대한 몇 가지 주요 정의는 다음과 같습
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 컴퓨터를 검색하고 등록해야 합니다.
+    자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
 
 ### <a name="2-download-vault-credentials"></a>2. 저장소 자격 증명 다운로드
 자격 증명 모음 자격 증명 파일은 포털에서 각 백업 자격 증명 모음에 대해 생성하는 인증서입니다. 그런 다음 포털은 Access Control Service(ACS)에 공개 키를 업로드합니다. 컴퓨터 등록 워크플로에서 입력으로 제공된 워크플로의 일부로 사용자에게 인증서의 개인 키가 제공됩니다. 이는 Azure Backup 서비스의 식별된 자격 증명 모음에 백업 데이터를 보내도록 컴퓨터를 인증합니다.
@@ -139,7 +137,7 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 
     ![다운로드](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   에이전트가 다운로드되면 MARSAgentInstaller.exe를 두 번 클릭하여 Azure Backup 에이전트 설치를 시작합니다. 설치 폴더 및 에이전트에 필요한 스크래치 폴더를 선택합니다. 지정된 캐시 위치에 백업 데이터의 5% 이상이 되는 여유 공간이 있어야 합니다.
+   에이전트가 다운로드되면 MARSAgentInstaller.exe를 실행하여 Azure Backup 에이전트를 설치하기 시작합니다. 설치 폴더 및 에이전트에 필요한 스크래치 폴더를 선택합니다. 지정된 캐시 위치에 백업 데이터의 5% 이상이 되는 여유 공간이 있어야 합니다.
 4. 프록시 서버를 사용하여 인터넷에 연결하는 경우 **프록시 구성** 화면에서 프록시 서버 세부 정보를 입력합니다. 인증된 프록시를 사용하는 경우 이 화면에 사용자 이름 및 암호 세부 정보를 입력합니다.
 5. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(아직 설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 6. 에이전트가 설치되면 창을 **닫습니다** .
@@ -176,14 +174,14 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 14. Data Protection Manager를 사용하는 경우 **구성** 옵션을 클릭하고 **관리** 탭 아래쪽에 있는 **온라인**을 선택하여 등록 워크플로 중에 지정된 설정을 수정할 수 있습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항(및 제한 사항)
-* DPM은 물리적 서버 또는 System Center 2012 SP1 또는 System Center 2012 R2에 설치된 Hyper-V 가상 컴퓨터로 실행할 수 있습니다. 최소 System Center 2012 R2 DPM 2012 R2 업데이트 롤업 3에서 실행되는 Azure 가상 컴퓨터 또는 최소 System Center 2012 R2 업데이트 롤업 5에서 실행되는 VMWare의 Windows 가상 컴퓨터로도 실행할 수 있습니다.
+* DPM은 물리적 서버 또는 System Center 2012 SP1 또는 System Center 2012 R2에 설치된 Hyper-V 가상 머신으로 실행할 수 있습니다. 최소 System Center 2012 R2 DPM 2012 R2 업데이트 롤업 3에서 실행되는 Azure 가상 컴퓨터 또는 최소 System Center 2012 R2 업데이트 롤업 5에서 실행되는 VMWare의 Windows 가상 컴퓨터로도 실행할 수 있습니다.
 * DPM을 System Center 2012 SP1에서 실행 중인 경우,  System Center Data Protection Manager SP1용 업데이트 롤업 2를 설치해야 합니다. Azure Backup 에이전트를 설치하기 전에 필수입니다.
 * DPM 서버는 Windows PowerShell 및 .Net Framework 4.5가 설치되어 있어야 합니다.
 * DPM은 대부분의 워크로드를 Azure Backup에 백업할 수 있습니다. 지원되는 전체 목록은 아래의 Azure Backup 지원 항목을 참조하십시오.
 * Azure Backup에 저장된 데이터는 “테이프에 복사” 옵션으로 복구할 수 없습니다.
 * Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.
 * Azure Backup을 사용하려면 백업하고자 하는 서버에 Azure Backup 에이전트를 설치해야 합니다. 각 서버에서는 백업 중인 데이터 크기의 5% 이상을 로컬 저장소로 사용할 수 있어야 합니다. 예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
-* 데이터는 Azure 자격 증명 모음 저장소에 저장됩니다. Azure Backup 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 컴퓨터 또는 데이터베이스)의 크기는 54400GB를 초과해서는 안 됩니다.
+* 데이터는 Azure 자격 증명 모음 저장소에 저장됩니다. Azure Backup 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 머신 또는 데이터베이스)의 크기는 54400GB를 초과해서는 안 됩니다.
 
 다음 파일 형식은 Azure에 대한 백업을 지원합니다.
 

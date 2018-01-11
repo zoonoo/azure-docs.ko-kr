@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI를 사용하여 고정 공용 IP 주소가 있는 VM 만들기
 
@@ -134,7 +134,7 @@ az vm create \
 
 ## <a name = "validate"></a>VM 생성 및 공용 IP 주소의 유효성 검사
 
-1. `az resource list --resouce-group IaaSStory --output table` 명령을 입력하여 스크립트로 만든 리소스의 목록을 볼 수 있습니다. 반환된 출력에 네트워크 인터페이스, 디스크, 공용 IP 주소, 가상 네트워크 및 가상 컴퓨터와 같은 5개의 리소스가 있어야 합니다.
+1. `az resource list --resouce-group IaaSStory --output table` 명령을 입력하여 스크립트로 만든 리소스의 목록을 볼 수 있습니다. 반환된 출력에 네트워크 인터페이스, 디스크, 공용 IP 주소, 가상 네트워크 및 가상 머신과 같은 5개의 리소스가 있어야 합니다.
 2. `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table` 명령을 입력합니다. 반환된 출력에서 **IpAddress** 값을 확인하고 **PublicIpAllocationMethod** 값이 *고정*인지 확인합니다.
 3. 다음 명령을 실행하기 전에 <>를 제거하고 *사용자 이름*을 스크립트의 **사용자 이름** 변수에 사용된 이름으로 바꾸고 *ipAddress*를 이전 단계의 **ipAddress**로 바꿉니다. `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>` 명령을 실행하여 VM에 연결합니다. 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -105,7 +105,7 @@ Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 �
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>서비스 관리자가 구독과 특정 AAD 테넌트 간의 디렉터리 매핑을 변경하고자 합니다. 이 태스크를 완료하려면 어떻게 해야 하나요?
 
-[Azure AD 디렉터리에 기존 구독을 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
+[Azure AD 디렉터리에 기존 구독을 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>AAD 테넌트의 도메인 사용자/회원이 미리 구성된 솔루션을 만들었습니다. 응용 프로그램에 대한 역할을 어떻게 할당하나요?
 

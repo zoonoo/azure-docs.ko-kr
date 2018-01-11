@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 응용 프로그램 모니터링 시작
 
@@ -28,7 +28,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 
 - Azure 구독과 기존 Node.js 웹 응용 프로그램이 필요합니다.
 
-Node.js 웹 응용 프로그램이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)에 따라 Node.js 웹 응용 프로그램을 만들 수 있습니다.
+Node.js 웹 응용 프로그램이 없는 경우 [Node.js 웹앱 만들기 빠른 시작](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)에 따라 Node.js 웹 응용 프로그램을 만들 수 있습니다.
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -67,11 +67,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    npm install applicationinsights --save
    ```
 
-3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. 
+3. 응용 프로그램의 첫 번째 .js 파일을 편집하고, 스크립트의 맨 위쪽에 아래 두 줄을 추가합니다. [Node.js 빠른 시작 응용 프로그램](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)을 사용하는 경우 index.js 파일을 수정합니다. &lt;instrumentation_key&gt;를 응용 프로그램의 계측 키로 바꿉니다. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. 응용 프로그램을 다시 시작합니다.
@@ -135,4 +135,4 @@ Node.js 모니터링에 대한 자세한 내용은 [Application Insights Node.js
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [성능 문제 찾기 및 진단](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [성능 문제 찾기 및 진단](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

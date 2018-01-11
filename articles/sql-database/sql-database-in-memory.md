@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -77,9 +77,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 메모리 내 OLTP는 사용자 데이터를 저장하는 데 사용되는 메모리에 최적화된 테이블을 포함합니다. 이러한 테이블은 메모리에 적합해야 합니다. SQL Database 서비스에 직접 메모리를 관리하기 때문에 사용자 데이터에 대한 할당량의 개념이 있습니다. 이 개념은 *메모리 내 OLTP 저장소*라고 합니다.
 
-지원되는 독립 실행형 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층은 각각 일정량의 메모리 내 OLTP 저장소를 포함합니다. 작성할 때 모든 125개의 DTU(데이터베이스 트랜잭션 단위) 또는 eDTU(Elastic Database 트랜잭션 단위)에 대해 기가바이트 단위의 저장소를 가져옵니다.
-
-[SQL Database 서비스 계층](sql-database-service-tiers.md) 문서에는 지원되는 독립 실행형 데이터베이스 및 탄력적 풀 가격 책정 계층 각각에 사용 가능한 메모리 내 OLTP 저장소의 공식 목록이 있습니다.
+지원되는 독립 실행형 데이터베이스 가격 책정 계층 및 탄력적 풀 가격 책정 계층은 각각 일정량의 메모리 내 OLTP 저장소를 포함합니다. 작성할 때 모든 125개의 DTU(데이터베이스 트랜잭션 단위) 또는 eDTU(Elastic Database 트랜잭션 단위)에 대해 기가바이트 단위의 저장소를 가져옵니다. 자세한 내용은 [리소스 제한](sql-database-resource-limits.md)을 참조하세요.
 
 메모리 내 OLTP 저장소 제한 계산 시 포함되는 항목은 다음과 같습니다.
 

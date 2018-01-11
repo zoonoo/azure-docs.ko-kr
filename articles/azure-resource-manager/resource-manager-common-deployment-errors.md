@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 12/01/2017
 | AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) 및 [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다. | [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-manager-template-location.md) |
+| BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-manager-templates-resources.md#location) |
 | 충돌 | 리소스의 현재 상태에 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 제공하거나 기존 레코드를 수정합니다. | |
-| ImageNotFound | VM 이미지 설정을 확인합니다. | [Linux 이미지 문제 해결](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) 및 [Windows 이미지 문제 해결](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | VM 이미지 설정을 확인합니다. |  |
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트하려고 할 때 이 오류가 발생할 수 있지만, 해당 리소스를 삭제한 다음 만들면 요청이 처리됩니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 해당 테넌트에 대한 액세스 토큰을 가져옵니다. 계정이 속한 테넌트의 토큰만 가져올 수 있습니다. | |
 | InvalidContentLink | 아마 사용할 수 없는 중첩된 템플릿에 연결하려고 했을 것입니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 저장소 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달해야 합니다. | [연결된 템플릿](resource-group-linked-templates.md) |
@@ -51,7 +51,7 @@ ms.lasthandoff: 12/01/2017
 | InvalidTemplate | 템플릿 구문에 오류가 있는지 확인합니다. | [잘못된 템플릿 오류 해결](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | 계정이 배포하는 리소스 그룹과 동일한 테넌트에 속하는지 확인합니다. | |
 | LinkedInvalidPropertyId | 리소스에 대한 리소스 ID가 올바르게 해석되지 않습니다. 구독 ID, 리소스 그룹 이름, 리소스 종류, 부모 리소스 이름(필요한 경우) 및 리소스 이름을 포함하여 리소스 ID에 필요한 모든 값을 제공했는지 확인합니다. | |
-| LocationRequired | 리소스에 대한 위치를 제공합니다. | [위치 설정](resource-manager-template-location.md) |
+| LocationRequired | 리소스에 대한 위치를 제공합니다. | [위치 설정](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | 리소스 공급자 등록 상태 및 지원되는 위치를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 리소스 공급자 등록 상태를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/01/2017
 | StorageAccountAlreadyExists | 저장소 계정에 고유한 이름을 제공합니다. | [저장소 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md)  |
 | StorageAccountAlreadyTaken | 저장소 계정에 고유한 이름을 제공합니다. | [저장소 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 사용하려는 구독, 리소스 그룹 및 저장소 계정 이름을 확인합니다. | |
-| SubnetsNotInSameVnet | 가상 컴퓨터에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../virtual-machines/windows/multiple-nics.md) |
+| SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../virtual-machines/windows/multiple-nics.md) |
 
 ## <a name="find-error-code"></a>오류 코드 찾기
 

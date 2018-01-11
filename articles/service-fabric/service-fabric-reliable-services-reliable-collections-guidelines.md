@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
 이 섹션에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용하기 위한 지침을 제공합니다. 목표는 사용자에게 일반적인 문제가 발생하지 않도록 방지하는 것입니다.
@@ -33,6 +33,7 @@ ms.lasthandoff: 10/11/2017
 * 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
+* 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
 * 항목(예: 신뢰할 수 있는 사전에 대한 TKey + TValue)을 80KB 미만으로 유지하는 것이 좋으며, 작을수록 더 좋습니다. 이렇게 하면 디스크 및 네트워크 IO 요구 사항뿐만 아니라 큰 개체 힙 사용량도 줄어듭니다. 주로 값의 작은 부분만 업데이트할 때 중복 데이터 복제도 줄어듭니다. 신뢰할 수 있는 사전에서 이를 달성하는 일반적인 방법은 행을 여러 행으로 나누는 것입니다.
 * 재해 복구를 위해 백업 및 복원 기능을 사용하는 것이 좋습니다.
 * 격리 수준이 다르기 때문에 동일한 트랜잭션 내에서 단일 엔터티 작업 및 다중 엔터티 작업을 혼합하지 마세요(예: `GetCountAsync`, `CreateEnumerableAsync`).
@@ -53,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 * [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [신뢰할 수 있는 상태 관리자 및 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 * 데이터 관리
-  * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [Backup 및 복원](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)

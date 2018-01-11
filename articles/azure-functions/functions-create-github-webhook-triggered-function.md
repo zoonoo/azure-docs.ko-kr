@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub webhook를 통해 트리거되는 함수 만들기
 
@@ -51,9 +51,13 @@ GitHub별 페이로드와 함께 HTTP 웹후크 요청에 의해 트리거되는
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. 원하는 언어에 해당하는 **GitHub WebHook** 템플릿을 선택합니다. **함수 이름을 지정한** 후 **만들기**를 선택합니다.
+2. 검색 필드에 `github`를 입력한 다음 GitHub 웹후크 트리거 템플릿에 사용할 언어를 선택합니다. 
 
-     ![Azure Portal에서 GitHub 웹후크를 통해 트리거되는 함수를 만듭니다.](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![GitHub 웹후크 트리거 템플릿 선택](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. 함수의 **이름**을 입력한 다음 **만들기**를 선택합니다. 
+
+     ![Azure Portal에서 GitHub 웹후크 트리거 함수 만들기](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. 새 함수에서 **</> 함수 URL 가져오기**를 클릭한 다음 값을 복사하여 저장합니다. **</> GitHub 비밀 가져오기**에 대해 같은 작업을 수행합니다. 이러한 값은 GitHub에서 webhook를 구성할 때 사용됩니다.
 

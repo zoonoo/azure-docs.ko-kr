@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell(클래식)을 사용하여 가상 네트워크 삭제
 > [!div class="op_single_selector"]

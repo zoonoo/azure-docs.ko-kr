@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 08/30/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Redis Cache에 웹앱 연결
 
-이 시나리오에서는 Azure Redis Cache 및 Azure 웹앱을 만드는 방법을 알아봅니다. 그런 다음 앱 설정을 사용하여 Redis Cache를 웹앱에 연결합니다.
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+이 샘플 스크립트는 Azure Redis Cache 및 Azure 웹앱을 만듭니다. 그런 다음 앱 설정을 사용하여 Redis Cache를 웹앱에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버전 2.0 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -44,12 +44,12 @@ ms.lasthandoff: 10/11/2017
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Azure 웹앱을 만듭니다. |
-| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | 새 Redis Cache 인스턴스를 만듭니다. 데이터가 저장될 위치입니다. |
-| [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Redis Cache 인스턴스에 대한 액세스 키를 나열합니다. |
-| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Azure 웹앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure 웹앱을 만듭니다. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | 새 Redis Cache 인스턴스를 만듭니다. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Redis Cache 인스턴스에 대한 액세스 키를 나열합니다. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Azure 웹앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

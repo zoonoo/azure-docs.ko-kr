@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
-이 항목에서는 Media Services를 사용하는 Azure Functions를 만들기 시작하는 방법을 보여 줍니다. 이 항목에 정의된 Azure Function은 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**을 모니터링합니다. 저장소 컨테이너에서 파일이 삭제되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
+이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
@@ -65,7 +65,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
     ![업로드](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. **BlobTrigger**를 선택하면 페이지에 몇 가지 추가 컨트롤이 표시됩니다.
+4. **BlobTrigger**를 선택하면 페이지에 몇 개의 추가 컨트롤이 표시됩니다.
 
     ![업로드](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -125,7 +125,7 @@ project.json에 다음과 같은 정의를 추가합니다.
     
 ### <a name="runcsx"></a>run.csx
 
-함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 저장소 컨테이너에서 파일이 삭제되면 blob 트리거가 함수를 실행합니다.
+함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 저장소 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 저장소 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
     
 이 섹션에 정의된 예제는 다음을 보여 줍니다. 
 
@@ -134,7 +134,7 @@ project.json에 다음과 같은 정의를 추가합니다.
 
 실제 시나리오에서는 작업 진행률을 추적한 다음 인코딩된 자산을 게시할 가능성이 높습니다. 자세한 내용은 [Azure 웹후크를 사용하여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)을 참조하세요. 더 많은 예제는 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 참조하세요.  
 
-기존 run.csx 파일의 내용을 다음 코드로 바꿉니다. 함수를 정의했으면 **저장 및 실행**을 클릭합니다.
+기존 run.csx 파일의 콘텐츠를 다음 코드로 바꿉니다. 함수 정의를 완료하면 **저장 및 실행**을 클릭합니다.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -334,14 +334,14 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 1. **StorageConnection** 환경 변수에 지정된 저장소 계정을 선택합니다.
 2. **Blob**을 클릭합니다.
 3. **+ 컨테이너**를 클릭합니다. 컨테이너 **입력**의 이름을 지정합니다.
-4. **업로드** 키를 눌러 업로드하려는 .mp4 파일을 찾습니다.
+4. **업로드**를 눌러 업로드하려는 .mp4 파일을 찾습니다.
 
 >[!NOTE]
 > 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 자세한 내용은 [Blob Storage 트리거 및 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 미디어 서비스 응용 프로그램 개발을 시작할 준비가 되었습니다. 
+이제 Media Services 응용 프로그램 개발을 시작할 준비가 되었습니다. 
  
 Azure Media Services에서 Azure Functions 및 Logic Apps를 사용하여 사용자 지정 콘텐츠 만들기 워크플로를 만드는 방법에 대한 자세한 내용 및 전체 샘플/솔루션은 [GitHub의 Media Services .NET 함수 통합 샘플](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)을 참조하세요.
 

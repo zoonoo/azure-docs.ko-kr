@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Blob Storage에서 개체 전송
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 빠른 시작에서는 Azure CLI를 사용하여 Azure Blob Storage에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -35,9 +35,9 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-Blob은 항상 컨테이너에 업로드됩니다. 컴퓨터의 디렉터리에서 파일을 구성하는 것처럼 컨테이너에서 Blob을 구성할 수 있습니다.
+Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파일을 구성하는 방식과 비슷하게 Blob 그룹을 구성할 수 있습니다.
 
-[az storage container create](/cli/azure/storage/container#create) 명령으로 Blob을 저장하기 위한 컨테이너를 만듭니다.
+Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container#create) 명령을 사용하여 만듭니다.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -45,9 +45,12 @@ az storage container create --name mystoragecontainer
 
 ## <a name="upload-a-blob"></a>Blob 업로드
 
-Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. Blob Storage에 저장된 대부분의 파일은 블록 Blob으로 저장됩니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 컴퓨터의 VHD 파일을 백업합니다.
+Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. Blob Storage에 저장된 대부분의 파일은 블록 Blob으로 저장됩니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 머신의 VHD 파일을 백업합니다.
 
-이 예에서는 [az storage blob upload](/cli/azure/storage/blob#upload) 명령으로, 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
+먼저 Blob에 업로드할 파일을 만듭니다.
+Azure Cloud Shell을 사용하는 경우 `vi helloworld` 파일을 만들려면 해당 파일이 열릴 때 **삽입**을 누르고 "Hello world"를 입력한 다음, **Esc** 키를 누르고 `:x`를 입력하고 **Enter** 키를 누릅니다.
+
+이 예제에서는 [az storage blob upload](/cli/azure/storage/blob#upload) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Azure Cloud Shell에서 앞에서 설명한 방법으로 파일을 만든 경우 다음 CLI 명령을 대신 사용할 수 있습니다(일반적으로는 경로를 지정해야 하지만, 파일이 기본 디렉터리에 만들어져 있으므로 경로를 별도로 지정할 필요가 없음).
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 이 작업은 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다. 원하는 만큼 파일을 업로드한 후 계속합니다.
+
+동시에 여러 파일을 업로드하려면 [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) 명령을 사용할 수 있습니다.
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 

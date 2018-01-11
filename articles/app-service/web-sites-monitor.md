@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>방법: Azure App Service에서 앱 모니터링
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)에서 기본 제공 모니터링 기능을 제공합니다.
@@ -29,6 +29,8 @@ Azure Portal에는 앱 및 App Service 계획에 대한 **할당량** 및 **메�
 ## <a name="understanding-quotas-and-metrics"></a>할당량 및 메트릭 이해
 ### <a name="quotas"></a>할당량
 App Service에서 호스팅되는 응용 프로그램에는 사용 가능한 리소스에 대한 특정 *한도* 가 적용됩니다. 이러한 한도는 해당 앱과 연결된 **App Service 계획**으로 정의됩니다.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 응용 프로그램이 **무료** 또는 **공유** 계획에 호스팅되는 경우 앱에서 사용할 수 있는 리소스에 대한 한도는 **할당량**으로 정의됩니다.
 

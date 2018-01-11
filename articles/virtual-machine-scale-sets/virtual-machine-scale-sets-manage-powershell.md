@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell을 사용하여 가상 컴퓨터 확장 집합 관리 | Microsoft Docs"
-description: "인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 가상 컴퓨터 확장 집합을 관리하는 공통 Azure PowerShell cmdlet입니다."
+title: "Azure PowerShell을 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs"
+description: "인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure PowerShell cmdlet입니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 39836b207a84911d4749da8a084779d93949846b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 컴퓨터 확장 집합 관리
-가상 컴퓨터 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure PowerShell cmdlet 중 일부를 설명합니다.
+# <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 관리
+가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure PowerShell cmdlet 중 일부를 설명합니다.
 
-이러한 관리 작업을 완료하려면 최신 Azure PowerShell 모듈이 필요합니다. 최신 버전을 설치하고 사용하는 방법에 대한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 가상 컴퓨터 확장 집합을 만들어야 하는 경우 [Azure Portal에서 설정을 만들](virtual-machine-scale-sets-portal-create.md) 수 있습니다.
+이러한 관리 작업을 완료하려면 최신 Azure PowerShell 모듈이 필요합니다. 최신 버전을 설치하고 사용하는 방법에 대한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure Portal에서 설정을 만들](virtual-machine-scale-sets-create-portal.md) 수 있습니다.
 
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기
@@ -60,7 +60,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
 확장 집합의 용량을 업데이트하는 데 몇 분 정도가 걸립니다. 확장 집합의 용량을 줄이는 경우 가장 높은 인스턴스 ID를 포함하는 VM을 먼저 제거합니다.

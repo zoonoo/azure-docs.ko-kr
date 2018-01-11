@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="api-summary"></a>API 요약
 API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
-| 메서드 | 용도 |
+| 방법 | 용도 |
 | --- | --- |
 | [`TrackPageView`](#page-views) |페이지, 화면, 블레이드 또는 양식. |
 | [`TrackEvent`](#trackevent) |사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다. |
@@ -72,7 +72,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
     private TelemetryClient telemetry = new TelemetryClient();
     
-*Node.JS*
+*Node.js*
 
     var telemetry = applicationInsights.defaultClient;
 
@@ -106,7 +106,7 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
     telemetry.trackEvent("WinGame");
     
-*Node.JS*
+*Node.js*
 
     telemetry.trackEvent({name: "WinGame"});
 
@@ -165,7 +165,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
     telemetryClient.TrackMetric(sample);
 ```
 
-*Node.JS*
+*Node.js*
 
  ```Javascript
      telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -488,7 +488,7 @@ Application Insights로 예외를 보냅니다.
        appInsights.trackException(ex);
     }
     
-*Node.JS*
+*Node.js*
 
     try
     {
@@ -522,7 +522,7 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 exceptions | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예: 
 
 ```AIQL
 exceptions
@@ -545,7 +545,7 @@ exceptions
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
     
-*Node.JS*
+*Node.js*
 
     telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
@@ -555,7 +555,7 @@ exceptions
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -634,7 +634,7 @@ dependencies
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
     
-*Node.JS*
+*Node.js*
 
     telemetry.flush();
 
@@ -724,7 +724,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
 
-*Node.JS*
+*Node.js*
 
     // Set up some properties and metrics:
     var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
@@ -880,7 +880,7 @@ requests
 
     gameTelemetry.TrackEvent("WinGame");
     
-*Node.JS*
+*Node.js*
 
     var gameTelemetry = new applicationInsights.TelemetryClient();
     gameTelemetry.commonProperties["Game"] = currentGame.Name;
@@ -900,11 +900,11 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 `ITelemetryInitializer`를 구현하여 원격 분석에 [속성을 추가](app-insights-api-filtering-sampling.md#add-properties)합니다. 예를 들어 다른 속성에서 계산된 버전 번호 또는 값을 추가할 수 있습니다.
 
-`ITelemetryProcesor`를 구현하여 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
+`ITelemetryProcessor`를 구현하여 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
 
 [샘플링](app-insights-api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세히 알아보세요](app-insights-api-filtering-sampling.md)을 확인하세요.
+[자세히 알아보기](app-insights-api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 원격 분석의 컬렉션 및 전송을 *동적으로 중지 및 시작하려면* :
@@ -920,7 +920,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 *선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
-*Node.JS*
+*Node.js*
 
 ```Javascript
 
@@ -999,7 +999,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예: 
 
     telemetry.Context.Operation.Name = "MyOperationName";
 

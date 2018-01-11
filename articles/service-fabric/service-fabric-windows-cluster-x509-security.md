@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -255,7 +255,7 @@ ms.lasthandoff: 10/30/2017
    Write-Host $cert.ToString($true)
    ```
 
-또는 Azure 구독이 있는 경우 [Key Vault에 인증서 추가](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault) 섹션의 단계를 수행합니다.
+또는 Azure 구독이 있는 경우 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)의 단계를 따릅니다.
 
 ## <a name="install-the-certificates"></a>인증서를 설치합니다.
 인증서가 있으면 클러스터 노드에 해당 인증서를 설치할 수 있습니다. 노드에 최신 Windows PowerShell 3.x가 설치되어 있어야 합니다. 클러스터/서버 인증서 및 보조 인증서 모두에 대해 각 노드에서 이러한 단계를 반복합니다.

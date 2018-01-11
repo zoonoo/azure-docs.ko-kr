@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업
-> [!div class="op_single_selector"]
-> * [리소스 관리자](backup-azure-vms-automation.md)
-> * [클래식](backup-azure-vms-classic-automation.md)
->
->
+# <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 머신 백업
 
-이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 컴퓨터)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Resource Manager 리소스이며 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하여 Azure Resource Manager 배포 VM은 물론, Azure 서비스 관리자 배포 VM도 보호할 수 있습니다.
+이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 머신)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Resource Manager 리소스이며 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하여 Azure Resource Manager 배포 VM은 물론, Azure 서비스 관리자 배포 VM도 보호할 수 있습니다.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서는 리소스 관리자 모델을 사용하여 생성된 VM 사용에 대해 설명합니다.
@@ -85,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. **Login-AzureRmAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. 
+    - 또는 **Login-AzureRmAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
+    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. 처음으로 Azure Backup을 사용하는 경우 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. 다음 명령을 사용하여 공급자가 성공적으로 등록되었는지 확인할 수 있습니다.
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+명령 출력에서 **RegistrationState**는 **등록됨**으로 설정해야 합니다. 그렇지 않으면 위에 표시된 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet을 다시 실행합니다.
 
 다음 작업은 PowerShell로 자동화할 수 있습니다.
 
@@ -98,22 +114,17 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 다음 단계는 Recovery Services 자격 증명 모음을 만드는 과정을 안내합니다. Recovery Services 자격 증명 모음은 Backup 자격 증명 모음과 다릅니다.
 
-1. 처음으로 Azure Backup을 사용하는 경우 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. Recovery Services 자격 증명 모음은 Resource Manager 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet을 사용하여 리소스 그룹을 만듭니다. 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
+1. Recovery Services 자격 증명 모음은 Resource Manager 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet을 사용하여 리소스 그룹을 만듭니다. 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** cmdlet을 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
+2. **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** cmdlet을 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+3. [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/common/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -143,7 +154,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="back-up-azure-vms"></a>Azure VM 백업
-Recovery Services 자격 증명 모음을 사용하여 가상 컴퓨터를 보호합니다. 보호를 적용하기 전에 자격 증명 모음 컨텍스트(자격 증명 모음에 보호된 데이터 형식)를 설정하고 보호 정책을 확인합니다. 보호 정책은 백업 작업을 실행하는 시간과 각 백업 스냅숏을 유지하는 기간에 대한 일정입니다.
+Recovery Services 자격 증명 모음을 사용하여 가상 머신을 보호합니다. 보호를 적용하기 전에 자격 증명 모음 컨텍스트(자격 증명 모음에 보호된 데이터 형식)를 설정하고 보호 정책을 확인합니다. 보호 정책은 백업 작업을 실행하는 시간과 각 백업 스냅숏을 유지하는 기간에 대한 일정입니다.
 
 ### <a name="set-vault-context"></a>자격 증명 모음 컨텍스트 설정
 VM에서 보호를 사용하도록 설정하기 전에 **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**를 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 자격 증명 모음 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다. 다음 예제에서는 자격 증명 모음, *testvault*에 대한 자격 증명 모음 컨텍스트를 설정합니다.
@@ -269,11 +280,11 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 Azure 포털을 사용하여 VM을 복원하는 방식과 PowerShell을 사용하여 VM을 복원하는 방식 간에는 주요 차이점이 있습니다. PowerShell을 사용하면 복구 지점에서 디스크 및 구성 정보가 만들어질 때 복원 작업이 완료됩니다. Azure VM 백업에서 몇 개의 파일을 복원하거나 복구하려면 [파일 복구](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup) 섹션을 참조하세요.
 
 > [!NOTE]
-> 복원 작업 중에 가상 컴퓨터는 만들어지지 않습니다.
+> 복원 작업 중에 가상 머신은 만들어지지 않습니다.
 >
 >
 
-디스크에서 가상 컴퓨터를 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-stored-disks) 섹션을 참조하세요. Azure VM을 복원하는 기본 단계는 다음과 같습니다.
+디스크에서 가상 머신을 만들려면 [저장된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-stored-disks) 섹션을 참조하세요. Azure VM을 복원하는 기본 단계는 다음과 같습니다.
 
 * VM 선택
 * 복구 지점 선택
@@ -348,7 +359,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 디스크를 복원한 후 다음 섹션으로 이동하여 VM을 만듭니다.
 
 ## <a name="create-a-vm-from-restored-disks"></a>복원된 디스크에서 VM 만들기
-디스크를 복원한 후 다음 단계를 사용하여 디스크에서 가상 컴퓨터를 만들고 구성합니다.
+디스크를 복원한 후 다음 단계를 사용하여 디스크에서 가상 머신을 만들고 구성합니다.
 
 > [!NOTE]
 > 복원된 디스크에서 암호화된 VM을 만들려면 Azure 역할에 **Microsoft.KeyVault/vaults/deploy/action** 작업을 수행할 권한이 있어야 합니다. 사용자의 역할에 이 사용 권한이 없는 경우 이 작업이 포함된 사용자 지정 역할을 만드세요. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요.
@@ -396,7 +407,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
     #### <a name="non-managed-encrypted-vms-bek-only"></a>관리되지 않고 암호화된 VM(BEK만 해당)
 
-    관리되지 않고 암호화된 VM의 경우(BEK만 사용하여 암호화됨) 디스크를 연결할 수 있으려면 비밀을 Key Vault로 복원해야 합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 컴퓨터 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
+    관리되지 않고 암호화된 VM의 경우(BEK만 사용하여 암호화됨) 디스크를 연결할 수 있으려면 비밀을 Key Vault로 복원해야 합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -411,7 +422,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
     #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>관리되지 않고 암호화된 VM(BEK 및 KEK)
 
-    관리되지 않고 암호화된 VM의 경우(BEK 및 KEK를 암호화됨) 디스크를 연결할 수 있으려면 키 및 비밀을 Key Vault로 복원해야 합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 컴퓨터 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
+    관리되지 않고 암호화된 VM의 경우(BEK 및 KEK를 암호화됨) 디스크를 연결할 수 있으려면 키 및 비밀을 Key Vault로 복원해야 합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -502,7 +513,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
-6. 가상 컴퓨터를 만듭니다.
+6. 가상 머신을 만듭니다.
 
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm

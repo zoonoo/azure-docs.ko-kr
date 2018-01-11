@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -121,7 +121,7 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-이제 Azure CLI 2.0을 사용하여 Web App for Containers에서 Python 응용 프로그램을 호스트하는 데 필요한 리소스를 만들려고 합니다.  [az login](/cli/azure/#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+이제 Azure CLI 2.0을 사용하여 Web App for Containers에서 Python 응용 프로그램을 호스트하는 데 필요한 리소스를 만들려고 합니다.  [az login](/cli/azure/?view=azure-cli-latest#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create)를 사용하여 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 만듭니다.
+[az group create](/cli/azure/group?view=azure-cli-latest#az_group_create)를 사용하여 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 만듭니다.
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ az login
 az group create --name myResourceGroup --location "West US"
 ```
 
-[az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) Azure CLI 명령을 사용하여 사용할 수 있는 위치를 나열합니다.
+[az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI 명령을 사용하여 사용할 수 있는 위치를 나열합니다.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure Database 서버 만들기
 
-[az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) 명령으로 PostgreSQL 서버를 만듭니다.
+[az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) 명령으로 PostgreSQL 서버를 만듭니다.
 
 다음 명령에서 *\<postgresql_name>* 자리 표시자를 대신하여 고유한 서버 이름으로, *\<admin_username>* 자리 표시자를 대신하여 사용자 이름으로 바꿉니다. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. 사용자 이름은 초기 데이터베이스 관리 사용자 계정에 대한 이름입니다. 이 사용자의 암호를 선택하라는 메시지가 표시됩니다.
 
@@ -364,7 +364,7 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다.
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 �
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp#az_webapp_create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 *myAppServicePlan* App Service 계획에 웹앱을 만듭니다.
 
 웹앱은 코드를 배포할 호스팅 공간을 제공하고, 배포된 응용 프로그램을 확인할 수 있도록 URL도 제공합니다. 웹앱을 만드는 데 사용합니다.
 
@@ -445,7 +445,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 자습서의 앞부분에서 환경 변수를 정의하여 PostgreSQL 데이터베이스에 연결했습니다.
 
-App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
+App Service에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 환경 변수를 _앱 설정_으로 설정합니다.
 
 다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. 또한 *PORT* 변수를 통해 Docker 컨테이너에서 PORT 5000을 매핑하여 PORT 80에서 HTTP 트래픽을 수신합니다.
 

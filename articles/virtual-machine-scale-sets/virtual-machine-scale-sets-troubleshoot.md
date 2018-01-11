@@ -1,10 +1,10 @@
 ---
-title: "가상 컴퓨터 확장 집합을 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs"
-description: "가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다."
+title: "Virtual Machine Scale Sets를 이용하여 자동 크기 조정 문제 해결 | Microsoft Docs"
+description: "Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결 일반적으로 발생하는 문제와 해결 방법에 대해 이해합니다."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
-ms.openlocfilehash: 19871cd0433c6df88c631cf6e6e8e477dc902448
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결
+# <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale과 같은 템플릿을 배포했습니다. 크기 조정 규칙을 정의했으며 VM에 적용되는 부하의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고 원활하게 작동합니다.
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계

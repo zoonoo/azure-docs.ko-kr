@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network 서비스 끝점(미리 보기)
 
@@ -59,7 +59,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
   기본적으로 가상 네트워크에 대해 보호된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대한 IP 방화벽 구성을 통해 해당 IP 주소를 추가할 수 있습니다.
 
-  ExpressRoute: 프레미스에서 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용 중인 경우 공용 피어링을 위해 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 두 개의 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).[ExpressRoute 공용 피어링을 위한 NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)에 대해 자세히 알아봅니다.
+  ExpressRoute: 공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어링의 경우 사용되는 NAT IP 주소는 고객이 제공하거나 서비스 공급자가 제공합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -73,9 +73,9 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 ### <a name="considerations"></a>고려 사항
 
-- 서비스 끝점을 사용하도록 설정한 후에 서브넷에 있는 가상 컴퓨터의 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소가 아닌 개인 IPv4 주소를 사용하도록 전환됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 끝점을 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 응용 프로그램이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
+- 서비스 끝점을 사용하도록 설정한 후에 서브넷에 있는 가상 머신의 원본 IP 주소는 해당 서브넷의 서비스와 통신할 때 공용 IPv4 주소가 아닌 개인 IPv4 주소를 사용하도록 전환됩니다. 이 전환 중에 서비스에 대한 기존의 모든 오픈 TCP 연결이 닫힙니다. 서브넷의 서비스에 서비스 끝점을 사용하거나 사용하지 않도록 설정하는 경우 중요한 작업이 실행되지 않아야 합니다. 또한 IP 주소를 전환한 후에 응용 프로그램이 Azure 서비스에 자동으로 연결될 수 있어야 합니다.
 
-  IP 주소 전환은 가상 네트워크의 서비스 트래픽에만 영향을 줍니다. 가상 컴퓨터에 할당된 공용 IPv4 주소 간에 주소가 지정된 다른 모든 트래픽에는 영향이 없습니다. Azure 서비스의 경우 Azure 공용 IP 주소를 사용하는 기존 방화벽 규칙이 있는 경우 이러한 규칙은 가상 네트워크 개인 주소로 전환하는 동시에 작동이 중지됩니다.
+  IP 주소 전환은 가상 네트워크의 서비스 트래픽에만 영향을 줍니다. 가상 머신에 할당된 공용 IPv4 주소 간에 주소가 지정된 다른 모든 트래픽에는 영향이 없습니다. Azure 서비스의 경우 Azure 공용 IP 주소를 사용하는 기존 방화벽 규칙이 있는 경우 이러한 규칙은 가상 네트워크 개인 주소로 전환하는 동시에 작동이 중지됩니다.
 - 서비스 끝점에서 Azure 서비스의 DNS 항목은 현재 상태로 유지되고 Azure 서비스에 할당된 공용 IP 주소로 계속 사용됩니다.
 - 서비스 끝점의 NSG(네트워크 보안 그룹):
   - 기본적으로 NSG는 아웃바운드 인터넷 트래픽을 허용하고 따라서 VNet에서 Azure 서비스로의 트래픽을 허용합니다. 서비스 끝점에서 계속 그대로 작동합니다. 

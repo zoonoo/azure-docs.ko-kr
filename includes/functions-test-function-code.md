@@ -1,4 +1,4 @@
-## <a name="test-the-function"></a>함수 테스트
+## <a name="test"></a>함수 테스트
 
 cURL을 사용하여 Mac 또는 Linux 컴퓨터나 Windows의 Bash를 사용하여 배포된 함수를 테스트합니다. 다음 cURL 명령을 실행하고 `<app_name>` 자리 표시자를 함수 앱의 이름으로 바꿉니다. 쿼리 문자열 `&name=<yourname>`을 URL에 추가합니다.
 

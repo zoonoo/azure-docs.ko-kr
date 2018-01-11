@@ -38,7 +38,7 @@ Automation은 현재 GitHub 소스 제어 리포지토리에 Automation 계정�
 Runbook | 설명| 
 --------|------------|
 Export-RunAsCertificateToHybridWorker | Runbook은 Automation 계정에서 하이브리드 작업자로 RunAs(실행) 인증서를 내보내어 Runbook을 Automation 계정으로 가져오기 위해 작업자의 Runbook이 Azure로 인증하도록 합니다.| 
-Sync-LocalGitFolderToAutomationAccount | Runbook은 하이브리드 컴퓨터의 로컬 Git 폴더를 동기화한 다음 Runbook 파일(*.ps1)을 Automation 계정으로 가져옵니다.|
+Sync-LocalGitFolderToAutomationAccount | Runbook은 하이브리드 컴퓨터의 로컬 Git 폴더를 동기화한 다음 Runbook 파일( * .ps1)을 Automation 계정으로 가져옵니다.|
 
 ### <a name="credentials"></a>자격 증명
 

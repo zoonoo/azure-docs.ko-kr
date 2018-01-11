@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스에 연결
+# <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 연결
 이 문서를 사용하면 처음으로 SQL Data Warehouse에 연결할 수 있습니다.
 
 ## <a name="find-your-server-name"></a>서버 이름 찾기
-SQL Data Warehouse에 연결하는 첫 번째 단계로 서버 이름을 찾는 방법을 알아야 합니다.  예를 들어, 다음 예제에서 서버 이름은 sample.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
+SQL Data Warehouse에 연결하는 첫 번째 단계로 서버 이름을 찾는 방법을 알아야 합니다.  예를 들어, 다음 예제에서 서버 이름은 samplesvr.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
 
 1. [Azure Portal][Azure portal]로 이동합니다.
-2. **SQL Database** 
-3. 연결하려는 데이터베이스를 클릭합니다.
+2. **SQL 데이터 웨어하우스**를 클릭합니다.
+3. 연결하려는 데이터 웨어하우스를 클릭합니다.
 4. 전체 서버 이름을 찾습니다.
    
     ![전체 서버 이름][1]
@@ -93,6 +93,6 @@ Visual Studio를 사용하여 연결하고 쿼리하려면 [Visual Studio를 사
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

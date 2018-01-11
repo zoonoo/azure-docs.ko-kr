@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 ## <a name="features"></a>기능 비교
 다음 표에서는 최상의 옵션 선택에 도움이 되도록 App Service, Cloud Services, Virtual Machines 및 Service Fabric의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-| 기능 | App Service(웹앱) | Cloud Services(웹 역할) | Virtual Machines | Service Fabric | 참고 사항 |
+| 기능 | App Service(웹앱) | Cloud Services(웹 역할) | Virtual Machines | Service Fabric | 메모 |
 | --- | --- | --- | --- | --- | --- |
 | 빠른 배포 |X | | |X |응용 프로그램이나 응용 프로그램 업데이트를 클라우드 서비스로 배포하거나 VM을 만들려면 최소한 몇 분이 걸리지만 응용 프로그램을 웹앱으로 배포하는 데는 몇 초밖에 걸리지 않습니다. |
 | 다시 배포하지 않고 대규모 컴퓨터로 확장 |X | | |X | |
@@ -87,7 +87,7 @@ Azure App Service는 복잡한 비즈니스 응용 프로그램에 적합한 솔
 * Active Directory와 통합할 수 있습니다.
 
 ### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
-Azure App Service는 회사 웹 사이트를 호스트하는 데 적합한 솔루션입니다. 전 세계 데이터 센터 네트워크의 요구를 충족하도록 웹앱을 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. Azure App Service는 웹앱에 대해 9의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
+Azure App Service는 회사 웹 사이트를 호스트하는 데 적합한 솔루션입니다. 전 세계 데이터 센터 네트워크의 요구를 충족하도록 웹앱을 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. Azure App Service는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 웹 사이트를 안정적으로 실행할 수 있습니다.
 * 전 세계 데이터 센터 네트워크로 자동 확장할 수 있습니다.
@@ -110,6 +110,8 @@ Azure App Service는 처음에 무료로 사용한 후 필요할 때 기능을 �
 * 응용 프로그램 갤러리를 사용하여 널리 사용되는 WordPress 등의 웹 응용 프로그램을 빠르게 설정할 수 있습니다.
 * 필요에 따라 Azure 서비스와 기능을 응용 프로그램에 추가할 수 있습니다.
 * HTTPS를 사용하여 웹앱 보안을 유지할 수 있습니다.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> 웹 또는 그래픽 디자이너가 고객을 위해 웹 사이트를 디자인 및 구축하려는 경우
 웹 개발자와 디자이너의 경우 다양한 프레임워크 및 도구와 쉽게 통합되고, Git 및 FTP용 배포 지원을 포함하며, Visual Studio 및 SQL Database와 같은 도구 및 서비스와 긴밀하게 통합되는 Azure App Service가 적합합니다. App Service를 통해 다음 작업을 수행할 수 있습니다.

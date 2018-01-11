@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: sethm
-ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbb2baea2bc6c45908369ff821c264b66053d95
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs 캡처 연습: Python
 
@@ -42,9 +42,9 @@ Event Hubs 캡처는 이벤트 허브의 스트리밍 데이터를 선택한 Azu
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 1. [Azure Portal][Azure portal]에 로그인합니다.
-2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **저장소 계정**을 차례로 클릭합니다.
+2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **Storage 계정**을 차례로 클릭합니다.
 3. 저장소 계정 블레이드에서 필드를 완성한 후 **만들기**를 클릭합니다.
    
    ![][1]
@@ -116,7 +116,8 @@ Event Hubs 캡처는 이벤트 허브의 스트리밍 데이터를 선택한 Azu
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)

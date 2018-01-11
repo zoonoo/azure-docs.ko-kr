@@ -3,7 +3,7 @@ title: "Azure DevTest Labs에서 랩에 태그 추가 | Microsoft Docs"
 description: "Azure DevTest Labs에서 랩에 태그를 추가하는 방법을 알아봅니다."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
-ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 * NIC
 * IP 주소
 * 부하 분산 장치
-* 저장소 계정
+* Storage 계정
 * 관리 디스크
 
 [랩 만들기](devtest-lab-create-lab.md)를 수행할 때 태그를 적용한 다음 나중에 태그 블레이드의 구성 및 설정을 통해 태그를 관리할 수 있습니다.

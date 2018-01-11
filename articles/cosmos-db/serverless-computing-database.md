@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
@@ -44,7 +44,7 @@ Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩을 다음과 �
 * Azure Cosmos DB 컨테이너에 대한 입력 바인딩을 Azure Cosmos DB 트리거와 동일한 함수에 사용할 수 있으며, 출력 바인딩과 함께 또는 출력 바인딩 없이 사용할 수 있습니다. 이 조합을 사용하여 입력 바인딩과 함께 환율 컨테이너로 가져온 최신 통화 환율 정보를 쇼핑 카트 서비스의 새 주문 변경 피드에 적용할 수 있습니다. 출력 바인딩을 사용하여 현재 통화 변환이 적용된 업데이트된 쇼핑 카트 합계를 세 번째 컨테이너에 쓸 수 있습니다.
 
 > [!NOTE]
-> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 DocumentDB, Table 및 Graph API 계정에서만 작동합니다.
+> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -86,14 +86,14 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>게임 사용 사례 - Azure Cosmos DB 트리거 및 출력 바인딩
 
-게임에서 새 사용자가 생성되면 [Azure Cosmos DB Graph API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB 테이블 데이터베이스](table-introduction.md)에 결과를 쓸 수 있습니다.
+게임에서 새 사용자가 생성되면 [Azure Cosmos DB Graph API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
 
 **구현:** Azure Cosmos DB 트리거 및 출력 바인딩 사용
 
 1. Azure Cosmos DB [그래프 데이터베이스](graph-introduction.md)를 사용하여 모든 사용자를 저장하면 Azure Cosmos DB 트리거로 새 함수를 만들 수 있습니다. 
 2. 새 사용자를 삽입할 때마다 함수가 호출된 다음 **출력 바인딩**을 사용하여 결과가 저장됩니다.
 3. 함수는 그래프 데이터베이스를 쿼리하여 새 사용자와 직접 관련된 모든 사용자를 검색하고 해당 데이터 집합을 함수에 반환합니다.
-4. 이 데이터는 Azure Cosmos DB [테이블 데이터베이스](table-introduction.md)에 키-값 쌍 집합으로 저장되며, 새 사용자에게 연결된 친구를 보여 주는 프런트 엔드 응용 프로그램에서 쉽게 검색할 수 있습니다.
+4. 이 데이터는 Azure Cosmos DB에 저장되며, 새 사용자에게 연결된 친구를 보여 주는 프런트 엔드 응용 프로그램에서 쉽게 검색할 수 있습니다.
 
 ### <a name="retail-use-case---multiple-functions"></a>소매 사용 사례 - 여러 함수
 

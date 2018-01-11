@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 1933fdf881adb7ea8e0f4b6ebca6abe074124c6b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4d4c45728134853d2eabc838d40068250d90d6e0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>AKS(Azure Container Service) 클러스터 배포
 
@@ -21,11 +21,11 @@ ms.lasthandoff: 12/06/2017
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-이 빠른 시작에서는 Kubernetes 개념에 대한 기본적인 이해가 있다고 가정하며 Kubernetes에 대한 자세한 정보는 [Kubernetes 설명서]( https://kubernetes.io/docs/home/)를 참조하세요.
+이 빠른 시작에서는 Kubernetes 개념에 대해 기본적으로 이해하고 있다고 가정합니다. Kubernetes에 대한 자세한 내용은 [Kubernetes 설명서][kubernetes-documentation]를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.21 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure 구독에 AKS 미리 보기 사용
 AKS가 미리 보기 상태인 경우 새 클러스터를 만들려면 구독에서 기능 플래그가 필요합니다. 사용하려는 구독의 수에 관계 없이 이 기능을 요청할 수 있습니다. `az provider register` 명령을 사용하여 AKS 공급자를 등록합니다.
@@ -38,7 +38,7 @@ az provider register -n Microsoft.ContainerService
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -46,7 +46,7 @@ az provider register -n Microsoft.ContainerService
 az group create --name myResourceGroup --location eastus
 ```
 
-출력:
+출력
 
 ```json
 {
@@ -73,7 +73,7 @@ az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트인 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)을 사용하세요.
+Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다.
 
 Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 다음 명령을 실행합니다.
 
@@ -88,13 +88,13 @@ Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 다음 명
 az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
-클러스터에 대한 연결을 확인하려면 [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 사용하여 클러스터 노드 목록을 반환합니다.
+클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-출력:
+출력
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -105,7 +105,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다.
 
-`azure-vote.yml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
+`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -168,13 +168,13 @@ spec:
     app: azure-vote-front
 ```
 
-[kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 명령을 사용하여 응용 프로그램을 실행합니다.
+응용 프로그램을 실행하려면 [kubectl create][kubectl-create] 명령을 사용합니다.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yml
+kubectl create -f azure-vote.yaml
 ```
 
-출력:
+출력
 
 ```
 deployment "azure-vote-back" created
@@ -185,9 +185,9 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>응용 프로그램 테스트
 
-응용 프로그램을 실행하면 응용 프로그램 프런트 엔드를 인터넷에 공개하는 [Kubernetes 서비스](https://kubernetes.io/docs/concepts/services-networking/service/)가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
+응용 프로그램이 실행되면 응용 프로그램 프런트 엔드를 인터넷에 공개하는 [Kubernetes 서비스][kubernetes-service]가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 사용합니다.
+진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -211,7 +211,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>클러스터 삭제
-클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
+클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -221,7 +221,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 이 빠른 시작에서는 Kubernetes 배포를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다. 관련된 응용 프로그램 코드, Dockerfile 및 Kubernetes 매니페스트 파일을 GitHub에서 사용할 수 있습니다.
 
-[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+[https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -230,4 +230,20 @@ az group delete --name myResourceGroup --yes --no-wait
 AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [AKS 클러스터 관리](./tutorial-kubernetes-prepare-app.md)
+> [AKS 클러스터 관리][aks-tutorial]
+
+<!-- LINKS - external -->
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+

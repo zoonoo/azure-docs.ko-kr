@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
-[Microsoft Azure Cloud Service 앱](https://azure.microsoft.com/services/cloud-services/)은 Application Insights SDK의 데이터를 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 조합하여 [Application Insights][start]로 가용성, 성능, 오류 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Application Insights][start]에서 Application Insights SDK의 데이터와 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Microsoft Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)에 대한 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
-![예제](./media/app-insights-cloudservices/sample.png)
+![예](./media/app-insights-cloudservices/sample.png)
 
 ## <a name="before-you-start"></a>시작하기 전에
 필요한 사항:
@@ -187,7 +187,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
     * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
     * \Process(??APP_WIN32_PROC??)\Private Bytes
     * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+    * \Processor(_Total)\% 프로세서 시간
 
 웹 역할의 경우 이러한 카운터도 수집됩니다.
 
@@ -225,7 +225,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 클라이언트 모바일 앱이 있는 경우 주요 사용자 작업에 대한 사용자 지정 이벤트를 보내는 일부 코드를 삽입하고 [HockeyApp 브리지](app-insights-hockeyapp-bridge-app.md)를 만듭니다. [분석](app-insights-analytics.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services에서 실행할 때의 "메서드를 찾을 수 없음" 예외

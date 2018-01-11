@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션의 기능 탐색
 
@@ -101,11 +101,11 @@ Contoso에서 운영자는 장치가 올바르게 작동 하는지 여부를 결
 
 1. **장치 세부 정보**를 닫습니다.
 
-1. **유지 관리** 페이지로 이동하려면 경보 옆의 **경보 탐색** 열에서 **...**을 클릭하여 경보 표에서 경보를 봅니다.
+1. **유지 관리** 페이지로 이동하려면 탐색 메뉴에서 **유지 관리**를 선택합니다.
 
 **유지 관리** 페이지에서 냉각기 압력 경보를 트리거한 규칙의 세부 정보를 볼 수 있습니다.
 
-1. 경보가 트리거된 횟수, 승인 및 열린 경보와 닫힌 경보를 확인할 수 있습니다.
+1. 알림 목록에는 경보가 트리거된 횟수, 수신 확인 및 열린 경보와 닫힌 경보가 표시됩니다.
 
     ![유지 관리 페이지는 트리거된 경보의 목록을 보여 줍니다.](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Contoso에서 운영자는 장치가 올바르게 작동 하는지 여부를 결
 
     ![장치 선택 및 작업 예약](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. 작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **시스템 상태** 보기에서 작업 목록을 봅니다. 냉각기에 대한 밸브 압력을 해제하기 위해 작업이 실행된 것을 확인할 수 있습니다.
+1. 작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **작업** 보기에서 작업 목록을 봅니다. 냉각기에 대한 밸브 압력을 해제하기 위해 작업이 실행된 것을 확인할 수 있습니다.
 
-    ![시스템 상태에서 작업의 상태](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![작업 보기의 작업 상태](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 마지막으로 냉각기의 원격 분석 값이 정상으로 돌아갔는지 확인합니다.
 
@@ -167,13 +167,13 @@ Contoso는 필드에서 새로운 유형의 장치를 테스트하고 있습니�
 
 **유지 관리** 페이지를 사용하여 실행되는 작업을 추적할 수 있습니다.
 
-1. 작업 목록을 보려면 **유지 관리** 페이지로 이동하고 **시스템 상태**를 클릭합니다.
+1. 작업 목록을 보려면 **유지 관리** 페이지로 이동하고 **작업**을 클릭합니다.
 
 1. 만든 작업에 관련된 이벤트를 찾습니다. 펌웨어 업데이트 프로세스가 올바르게 시작되었는지 확인합니다.
 
 펌웨어 버전 업데이트를 제대로 확인하는 필터를 만들 수 있습니다.
 
-1. 필터를 만들려면 **장치** 페이지로 이동하고 **관리**를 선택합니다.
+1. 필터를 만들려면 **장치** 페이지로 이동하고 **필터 관리**를 선택합니다.
 
     ![장치 필터 관리](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
     ![프로토타입 및 트럭 장치 선택](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. **태그**를 선택한 다음 **ConnectedVehicle** 값으로 **FieldService**라는 새 문자열 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **적용**을 클릭합니다.
+1. **태그**를 선택한 후 **ConnectedVehicle** 값으로 **FieldService**라는 새 텍스트 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **적용**을 클릭합니다.
 
     ![프로토타입 및 트럭 장치에 태그 추가](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 
     ![냉각기, 엔진 및 엘리베이터 장치 선택](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. **태그**를 선택한 다음 **SmartBuilding** 값으로 **FieldService**라는 새 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **저장**을 클릭합니다.
+1. **태그**를 선택한 후 **SmartBuilding** 값으로 **FieldService**라는 새 텍스트 태그를 만듭니다. 작업에 대한 이름을 선택합니다. 그런 다음 **저장**을 클릭합니다.
 
     ![냉각기, 엔진 및 엘리베이터 장치에 태그 추가](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

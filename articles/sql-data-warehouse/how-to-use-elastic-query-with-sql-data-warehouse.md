@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>SQL Data Warehouse에서의 탄력적 쿼리 사용 방법
 
@@ -78,7 +78,7 @@ SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databas
 
 ### <a name="elastic-querying"></a>탄력적 쿼리
 
-- 외부 테이블 및 내부적으로 캐시되는 테이블은 SQL Database 인스턴스와는 다른 개체로 존재합니다. 두 테이블을 통합하고 각 테이블의 경계 지점에 필터를 적용하는 외부 테이블과 테이블의 캐시된 부분의 맨 위에서 보기를 만드는 것이 좋습니다.
+- 대부분의 경우 성능 향상을 테이블의 일부를 SQL Database 내에 캐시된 데이터로 저장하고 나머지 데이터는 SQL Data Warehouse에 저장하는 확대 테이블 형식을 관리할 수 있습니다. 이 경우 SQL Database에는 두 개의 개체 즉, SQL Data Warehouse의 기본 테이블을 참조하는 SQL Database 내에 있는 외부 테이블과 SQL Database 내에 있는 테이블의 “캐시된” 부분이 있어야 합니다. 테이블의 캐시된 부분과 외부 테이블 위에 뷰를 만들어 두 테이블을 통합하고 SQL Database 내에 구체화된 데이터와 외부 테이블을 통해 노출된 SQL Data Warehouse 데이터를 구분하는 필터를 적용하는 것이 좋습니다.
 
   SQL Database 인스턴스에 가장 최근 연도의 데이터를 유지하려 한다고 가정합니다. 데이터 웨어하우스 주문 테이블을 참조하는 **ext.Orders**와 SQL Database 인스턴스 안의 데이터에 해당하는 최근 연도를 나타내는 **dbo.Orders** 등의 두 테이블이 있습니다. 사용자가 어떤 테이블을 쿼리할지 결정하게 하는 대신 가장 최근 연도의 파티션 지점에 두 쿼리의 맨 위에 대한 보기를 만듭니다.
 
@@ -125,7 +125,7 @@ SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databas
 - 1초 미만의 쿼리 대기 시간이 필요한 경우
 - Analysis Services에 대한 모델 관리/개발 경험이 있는 경우 
 
-#### <a name="sql-database"></a>SQL 데이터베이스
+#### <a name="sql-database"></a>SQL Database
 
 - SQL에서 캐시 데이터를 쿼리하려는 경우
 - 특정 쿼리에 대해 원격 실행이 필요한 경우
@@ -135,13 +135,17 @@ SQL Database에서의 탄력적 쿼리에 자세한 내용은 [Azure SQL Databas
 
 ## <a name="faq"></a>FAQ
 
-Q: 탄력적 쿼리로 Elastic Database 풀 안에서 데이터베이스를 사용할 수 있나요?
+Q: 탄력적 쿼리로 탄력적 풀 내에서 데이터베이스를 사용할 수 있나요?
 
-A: 예. 탄력적 풀 내에서 SQL Database가 탄력적 쿼리를 사용할 수 있습니다. 
+A: 예. 탄력적 풀 내의 SQL Database는 탄력적 쿼리를 사용할 수 있습니다. 
 
 Q: 탄력적 쿼리에 대해 사용할 수 있는 데이터베이스 수에 한도가 있나요?
 
-A: 논리 서버에는 고객의 우발적 과도 지출을 방지하기 위해 DTU 한도가 있습니다. SQL Data Warehouse 인스턴스와 함께 탄력적 쿼리에 대해 여러 데이터베이스를 사용하면 예기치 않게 이 한도에 도달할 수 있습니다. 이 경우 요청을 제출하여 논리 서버의 DTU 한도를 증대합니다. [지원 티켓을 만들고](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) *할당량* 을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.
+A: 탄력적 쿼리에 사용할 수 있는 데이터베이스 수에는 제약이 없습니다. 그러나 각 탄력적 쿼리(SQL Data Warehouse를 적중하는 쿼리)는 일반 동시성 제한 수에 포함되어 계산됩니다.
+
+Q: 탄력적 쿼리와 관련된 DTU 한도가 있나요?
+
+A: 탄력적 쿼리에서 DTU 한도가 다르게 적용되지 않습니다. 표준 정책에 따라 논리 서버에는 고객의 우발적인 과도 사용을 방지하기 위한 DTU 한도가 있습니다. SQL Data Warehouse 인스턴스와 함께 탄력적 쿼리에 대해 여러 데이터베이스를 사용하면 예기치 않게 이 한도에 도달할 수 있습니다. 이 경우 요청을 제출하여 논리 서버의 DTU 한도를 증대합니다. [지원 티켓을 만들고](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) *할당량* 을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.
 
 Q: 탄력적 쿼리와 함께 행 수준 보안/동적 데이터 마스킹을 사용할 수 있나요?
 

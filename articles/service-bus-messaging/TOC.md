@@ -6,11 +6,10 @@
 
 # 시작
 ## [네임스페이스 만들기](service-bus-create-namespace-portal.md)
-### [큐, 토믹 및 구독](service-bus-queues-topics-subscriptions.md)
 ## 큐 사용
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
-### [Node.JS](service-bus-nodejs-how-to-use-queues.md)
+### [Node.js](service-bus-nodejs-how-to-use-queues.md)
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
@@ -18,7 +17,7 @@
 ## 토픽 및 구독 사용
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
-### [Node.JS](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+### [Node.js](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
@@ -37,6 +36,7 @@
 
 ## 개발
 ### 메시지 처리
+#### [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 #### [메시지, 페이로드 및 직렬화](service-bus-messages-payloads.md)
 #### [메시지 전송, 잠금 및 정산](message-transfers-locks-settlement.md)
 #### [메시지 시퀀싱 및 타임스탬프](message-sequencing.md)
@@ -64,6 +64,7 @@
 #### [엔터티를 자동 전달에 연결](service-bus-auto-forwarding.md)
 #### [트랜잭션 처리](service-bus-transactions.md)
 #### [쌍을 이루는 네임스페이스 구현](service-bus-paired-namespaces.md)
+### [종단 간 추적 및 진단](service-bus-end-to-end-tracing.md)
 ## 관리
 ### [Azure Monitoring을 사용하여 Service Bus 모니터링](service-bus-metrics-azure-monitor.md)
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
@@ -84,7 +85,7 @@
 ### [Microsoft.Azure.ServiceBus(.NET 표준)](/dotnet/api/microsoft.azure.servicebus)
 ## [Java](/java/api/overview/azure/servicebus)
 ## [Azure PowerShell](/powershell/module/azurerm.servicebus)
-## [REST (영문)](/rest/api/servicebus)
+## [REST](/rest/api/servicebus)
 ## [예외](service-bus-messaging-exceptions.md)
 ## [할당량](service-bus-quotas.md)
 ## [SQLFilter 구문](service-bus-messaging-sql-filter.md)
@@ -94,12 +95,12 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [가격](https://azure.microsoft.com/pricing/details/service-bus/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [가격 정보](service-bus-pricing-billing.md)
 ## [샘플](service-bus-samples.md)
 ## [ServiceBus360](https://www.servicebus360.com/)
-## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)

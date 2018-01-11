@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service(AKS) 클러스터 업그레이드
 
@@ -35,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-업그레이드할 수 있는 버전으로 세 가지 버전, 즉 1.7.9, 1.8.1 및 1.8.2가 있습니다. `az aks upgrade` 명령을 사용하여 사용 가능한 최신 버전으로 업그레이드할 수 있습니다.  업그레이드 프로세스 중에 노드는 신중하게 [코드화되고 드레이닝되어](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) 실행 중인 응용 프로그램의 중단을 최소화합니다.  클러스터 노드가 추가 및 제거되므로 클러스터 업그레이드를 시작하기 전에 워크로드를 처리하기에 충분한 추가 계산 용량이 있는지 확인합니다.
+업그레이드할 수 있는 버전으로 세 가지 버전, 즉 1.7.9, 1.8.1 및 1.8.2가 있습니다. `az aks upgrade` 명령을 사용하여 사용 가능한 최신 버전으로 업그레이드할 수 있습니다.  업그레이드 프로세스 중에는 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.  클러스터 노드가 추가 및 제거되므로 클러스터 업그레이드를 시작하기 전에 워크로드를 처리하기에 충분한 추가 계산 용량이 있는지 확인합니다.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -116,4 +116,10 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 AKS 자습서를 통한 AKS 배포 및 관리에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [AKS 자습서](./tutorial-kubernetes-prepare-app.md)
+> [AKS 자습서][aks-tutorial-prepare-app]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

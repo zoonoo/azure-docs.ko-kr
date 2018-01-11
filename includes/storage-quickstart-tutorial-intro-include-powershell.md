@@ -24,7 +24,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 LRS 복제를 통한 범용 표준 저장소 계정을 만든 후 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예에서는 로컬 중복 저장소 및 Blob 암호화가 설정된 *mystorageaccount*라는 저장소 계정을 만듭니다.
+[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 LRS 복제를 통한 범용 표준 저장소 계정을 만든 후 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 저장소) 및 Blob 암호화(기본적으로 사용)를 사용하여 *mystorageaccount*라는 저장소 계정을 만듭니다.
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -32,7 +32,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 
 $ctx = $storageAccount.Context
 ```

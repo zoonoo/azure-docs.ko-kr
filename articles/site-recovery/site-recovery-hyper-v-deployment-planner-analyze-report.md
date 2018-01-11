@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/05/2017
 
 **호환되는 모든 가상 머신의 총 디스크 수**: 호환되는 모든 VM의 총 디스크 수입니다.
 
-**호환되는 가상 컴퓨터당 평균 디스크 수**: 호환되는 모든 VM에서 계산된 평균 디스크 수입니다.
+**호환되는 가상 머신당 평균 디스크 수**: 호환되는 모든 VM에서 계산된 평균 디스크 수입니다.
 
 **평균 디스크 크기(GB)**: 호환되는 모든 VM에서 계산된 평균 디스크 크기입니다.
 
@@ -188,7 +188,7 @@ Azure Site Recovery Deployment Planner에서 생성된 Microsoft Excel 보고서
 
 **최고 읽기/쓰기 IOPS(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 읽기/쓰기 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
 
-**최고 데이터 변동률(Mbps)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
+**최고 데이터 변동률(MB/s)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
 
 **Azure VM 크기**: 이 온-프레미스 VM에 대해 이상적으로 매핑된 Azure Cloud Services 가상 컴퓨터 크기입니다. 매핑은 온-프레미스 VM의 메모리, 디스크/코어/NIC 수 및 읽기/쓰기 IOPS를 기반으로 합니다. 항상 모든 온-프레미스 VM 특성과 일치하는 가장 낮은 Azure VM 크기를 권장합니다.
 
@@ -235,15 +235,15 @@ Azure Site Recovery Deployment Planner에서 생성된 Microsoft Excel 보고서
 
 * 원본 IOPS가 VM당 지원되는 저장소 IOPS 한도(80,000)를 초과합니다.
 
-* 평균 데이터 변동률이 디스크의 평균 IO 크기에 대해 지원되는 Azure Site Recovery 데이터 변동률 한도(10Mbps)를 초과합니다.
+* 원본 VM 평균 데이터 변동률이 디스크의 평균 I/O 크기에 대해 지원되는 Azure Site Recovery 데이터 변동률 한도(10MB/s)를 초과합니다.
 
-* 평균 유효 쓰기 IOPS가 디스크에 대해 지원되는 Azure Site Recovery IOPS 제한(840)을 초과합니다.
+* 원본 VM 평균 유효 쓰기 IOPS가 지원되는 Azure Site Recovery IOPS 제한(840)을 초과합니다.
 
 * 계산된 스냅숏 저장소가 지원되는 스냅숏 저장소 한도(10TB)를 초과합니다.
 
 **최고 읽기/쓰기 IOPS(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
 
-**최고 데이터 변동률(Mbps)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
+**최고 데이터 변동률(MB/s)(증가율 포함)**: 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 변동률(기본값: 95번째 백분위수)입니다. VM의 총 데이터 변동은 프로파일링 기간의 매분마다 개별 디스크 변동 합계의 최고값이기 때문에 VM의 총 데이터 변동이 항상 VM에 속한 개별 디스크의 데이터 변동 합계가 되는 것은 아닙니다.
 
 **디스크 수**: VM의 총 VHD 수입니다.
 
@@ -260,14 +260,11 @@ Azure Site Recovery Deployment Planner에서 생성된 Microsoft Excel 보고서
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery 제한
 다음 테이블에는 Azure Site Recovery 제한이 제공됩니다. 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 응용 프로그램 테스트를 수행하여 응용 프로그램의 진정한 성능 상황을 이해하는 것이 좋습니다.
  
-**복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
+**복제 저장소 대상** | **원본 VM 평균 I/O 크기** |**원본 VM 평균 데이터 변동** | **일일 총 원본 VM 데이터 변동**
 ---|---|---|---
-Standard Storage | 8KB | 2MBps | 디스크당 168GB
-프리미엄 P10 또는 P15 디스크 | 8KB  | 2MBps | 디스크당 168GB
-프리미엄 P10 또는 P15 디스크 | 16KB | 4MBps |  디스크당 336GB
-프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MBps | 디스크당 672GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MBps | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |10MBps | 디스크당 842GB
+Standard Storage | 8KB | VM당 2MB/s | VM당 168GB
+Premium Storage | 8KB  | VM당 5MB/s | VM당 421GB
+Premium Storage | 16KB 이상| VM당 10MB/s | VM당 842GB
 
 이러한 한도는 I/O가 30% 겹친다고 가정하는 평균 숫자입니다. Azure Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며 5분 내에 복구 지점이 생성됩니다.
 

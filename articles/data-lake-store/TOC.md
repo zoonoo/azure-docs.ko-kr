@@ -1,10 +1,10 @@
 # 개요
-## [Azure Data Lake Store 개요](data-lake-store-overview.md)
+## [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 ## [Azure Storage와 Azure Data Lake Store 비교](data-lake-store-comparison-with-blob-storage.md)
 ## [빅 데이터 처리를 위한 Azure Data Lake Store](data-lake-store-data-scenarios.md)
 ## [Azure Data Lake Store에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
 
-# 시작
+# 시작하기
 ## [포털 사용](data-lake-store-get-started-portal.md)
 ## [PowerShell 사용](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
@@ -12,7 +12,7 @@
 
 # 방법
 ## 데이터 로드 및 이동
-### [Azure Data Factory 사용](../data-factory/data-factory-azure-datalake-connector.md)
+### [Azure Data Factory 사용](../data-factory/connector-azure-data-lake-store.md)
 ### [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
@@ -78,15 +78,15 @@
 ### [진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 ### [고가용성을 위한 설계](data-lake-store-disaster-recovery-guidance.md)
 
-# 참조
+# 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python(계정 관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
-## [REST (영문)](/rest/api/datalakestore)
+## [REST](/rest/api/datalakestore)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스
@@ -94,7 +94,7 @@
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [가격](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
 
@@ -34,6 +34,8 @@ App Service 도메인(미리 보기)은 Azure에서 직접 관리되는 최상�
 * [구독에 대한 지출 한도를 삭제합니다](../billing/billing-spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Azure Web Apps에서 사용자 지정 도메인을 사용하려면 웹앱의 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준** 또는 **프리미엄**)이어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
 
@@ -167,7 +169,7 @@ App Service 도메인에서 다른 웹앱으로 호스트 이름을 할당할 �
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예: 
 
 - kontoso.net
 - www.kontoso.net

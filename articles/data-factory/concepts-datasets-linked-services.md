@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory의 데이터 집합 및 연결된 서비스 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,6 +43,56 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 다음 다이어그램에서는 Data Factory의 파이프라인, 활동, 데이터 집합 및 연결된 서비스 간의 관계를 보여 줍니다.
 
 ![파이프라인, 활동, 데이터 집합, 연결된 서비스 간 관계](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>연결된 서비스 JSON
+Data Factory의 연결된 서비스는 다음과 같이 JSON 형식으로 정의됩니다.
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+다음 표에서는 위의 JSON에서 속성을 설명합니다.
+
+속성 | 설명 | 필수 |
+-------- | ----------- | -------- |
+name | 연결된 서비스의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+type | 연결된 서비스의 형식입니다. 예: AzureStorage(데이터 저장소) 또는 AzureBatch(계산). typeProperties에 대한 설명을 참조하세요. | 예 |
+typeProperties | 형식 속성은 각 데이터 저장소 또는 계산에 대해 다릅니다. <br/><br/> 지원되는 데이터 저장소 형식 및 해당 형식 속성은 [데이터 집합 형식](#dataset-type) 표를 참조하세요. 데이터 저장소 관련 형식 속성에 대해 알아보려면 데이터 저장소 커넥터 문서로 이동하세요. <br/><br/> 지원되는 계산 형식 및 해당 형식 속성은 [연결된 서비스 계산](compute-linked-services.md)을 참조하세요. | 예 |
+connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요
+
+## <a name="linked-service-example"></a>연결된 서비스 예제
+다음의 연결된 서비스는 Azure Storage 연결된 서비스입니다. 형식은 AzureStorage로 설정됩니다. Azure Storage 연결된 서비스의 형식 속성에는 연결 문자열이 포함됩니다. Data Factory 서비스는 이 연결 문자열을 사용하여 런타임에 데이터 저장소에 연결합니다. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>데이터 집합 JSON
 Data Factory의 데이터 집합은 다음과 같이 JSON 형식으로 정의됩니다.
@@ -72,12 +122,12 @@ Data Factory의 데이터 집합은 다음과 같이 JSON 형식으로 정의됩
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 | 기본값
--------- | ----------- | -------- | -------
-name | 데이터 집합의 이름입니다. | [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. | 예 | 해당 없음
-type | 데이터 집합의 형식입니다. | Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#dataset-types)을 참조하세요. | 예 | 해당 없음
-structure | 데이터 집합의 스키마입니다. | 자세한 내용은 [데이터 집합 구조](#dataset-structure)를 참조하세요. | 아니요 | 해당 없음
-typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식](#dataset-type)을 참조하세요. | 예 | 해당 없음
+속성 | 설명 | 필수 |
+-------- | ----------- | -------- |
+name | 데이터 집합의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+type | 데이터 집합의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#dataset-types)을 참조하세요. | 예 |
+structure | 데이터 집합의 스키마입니다. 자세한 내용은 [데이터 집합 구조](#dataset-structure)를 참조하세요. | 아니요 |
+typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 집합 형식](#dataset-type)을 참조하세요. | 예 |
 
 ## <a name="dataset-example"></a>데이터 집합 예제
 다음 예제에서 데이터 집합은 SQL 데이터베이스에서 MyTable이라는 테이블을 나타냅니다.
@@ -104,28 +154,6 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 - type을 AzureSQLTable로 설정합니다.
 - AzureSqlTable 형식과 관련된 tableName 형식 속성은 MyTable로 설정됩니다.
 - linkedServiceName은 다음 JSON 코드 조각으로 정의된 AzureSqlDatabase 형식의 연결된 서비스를 가리킵니다.
-
-## <a name="linked-service-example"></a>연결된 서비스 예제
-AzureSqlLinkedService는 다음과 같이 정의됩니다.
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-앞의 JSON 코드 조각에서
-
-- **type**은 AzureSqlDatabase로 설정됩니다.
-- **connectionString** 형식 속성은 SQL 데이터베이스에 연결하는 정보를 지정합니다.
-
-여기서 볼 수 있듯이 연결된 서비스는 Azure SQL 데이터베이스에 연결하는 방법을 정의합니다. 데이터 집합은 파이프라인의 활동에 대한 입력 및 출력으로 사용되는 테이블을 정의합니다.
 
 ## <a name="dataset-type"></a>데이터 집합 형식
 사용하는 데이터 저장소에 따라 다양한 유형의 데이터 집합이 있습니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 집합을 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.

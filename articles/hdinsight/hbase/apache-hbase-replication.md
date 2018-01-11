@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -79,7 +79,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 **고정 IP 주소를 구성 하려면**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 3. HBase 대상 클러스터가 포함된 리소스 그룹을 선택합니다. 이 그룹은 Resource Manager 템플릿을 사용하여 환경을 만들 때 지정한 리소스 그룹입니다. 필터를 사용하여 목록의 범위를 좁힐 수 있습니다. 두 가상 네트워크가 포함된 리소스 목록을 볼 수 있습니다.
 4. HBase 대상 클러스터가 포함된 가상 네트워크를 선택합니다. 예를 들어 **xxxx-vnet2**를 선택합니다. **nic-zookeepermode-**로 시작하는 이름을 가진 세 개의 장치가 나열됩니다. 이러한 장치는 세 개의 ZooKeeper VM입니다.
@@ -104,7 +104,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 **VNet 1**
 
-| 속성 | 값 |
+| 자산 | 값 |
 |----------|-------|
 | 위치 | 미국 서부 |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet1 |
@@ -126,7 +126,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 **VNet 2**
 
-| 속성 | 값 |
+| 자산 | 값 |
 |----------|-------|
 | 위치 | 미국 동부 |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet2 |
@@ -155,13 +155,13 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 [Contacts(연락처)](apache-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 데이터를 삽입하려면 **HBase 자습서: HDInsight의 Apache HBase 사용 시작**의 지침을 따릅니다.
 
-## <a name="enable-replication"></a>복제 활성화
+## <a name="enable-replication"></a>복제 사용
 
 다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure CLI(명령줄 도구)를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **Azure Portal에서 HBase 복제를 사용하도록 설정하려면**
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 원본 HBase 클러스터를 엽니다.
 3. 클러스터 메뉴에서 **스크립트 동작**을 선택합니다.
 4. 페이지의 위쪽에서 **새로운 항목 제출**을 선택합니다.
@@ -182,7 +182,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 필수 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 선택적 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |

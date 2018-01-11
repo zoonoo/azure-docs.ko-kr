@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Azure Search에서 언어에 따라 필터링하는 방법 
 
@@ -39,7 +39,7 @@ Azure Search에서 쿼리는 단일 인덱스를 대상으로 합니다. 단일 
 
 아래에 표시된 [부동산 샘플](search-get-started-portal.md)을 비롯한 여기에 사용되는 샘플에서는 다음 스크린샷과 비슷한 필드 정의가 표시될 수 있습니다. 이 예제에서 이 인덱스의 필드에 대한 언어 분석기 할당을 보여 주는 방법에 유의하세요. 문자열이 포함된 필드는 대상 언어의 언어 규칙을 처리하도록 엔지니어링된 분석기와 함께 사용할 때 전체 텍스트 검색이 더 잘 수행됩니다.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > 언어 분석기로 필드 정의를 보여 주는 코드 예제는 [인덱스 정의(.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) 및 [인덱스 정의(REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json)를 참조하세요.

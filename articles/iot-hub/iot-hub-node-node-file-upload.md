@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: 047dfd35cfef53d323774508121e22fbf47b2acf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 10/31/2017
 - 파일을 업로드하기 위한 Azure blob URI를 장치에 안전하게 제공합니다.
 - IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[IoT Hub 시작](iot-hub-node-node-getstarted.md) 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서는 IoT Hub의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예:
+[IoT Hub 시작](iot-hub-node-node-getstarted.md) 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서는 IoT Hub의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
 
 * 이미지가 포함된 대형 파일
-* 비디오
+* 동영상
 * 자주 샘플링되는 진동 데이터
 * 특정 형태의 전처리된 데이터
 
@@ -222,7 +222,7 @@ node SimulatedDevice.js
 * [Azure IoT SDK][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
+[Azure IoT 개발자 센터]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

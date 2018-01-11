@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -37,14 +37,14 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 > 
 > 
 
-1. Windows 가상 컴퓨터에 로그인
+1. Windows 가상 머신에 로그인
 2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택합니다.
 5. **확인**을 클릭합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. VM을 다시 시작하지 마세요.
+6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
@@ -54,7 +54,7 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 3. VM에 대한 페이지의 위쪽 메뉴에서 **캡처**를 클릭합니다.
 3. **이름**에 이미지에 사용할 이름을 입력합니다.
 4. **리소스 그룹**에서 **새로 만들기**를 선택하고 이름을 입력하거나 **기존 항목**을 선택하고 드롭다운 목록에서 사용할 리소스 그룹을 선택합니다.
-5. 이미지가 만들어진 후 원본 VM을 삭제하려면 **이미지를 만든 후 이 가상 컴퓨터를 자동으로 삭제**를 선택합니다.
+5. 이미지가 만들어진 후 원본 VM을 삭제하려면 **이미지를 만든 후 이 가상 머신을 자동으로 삭제**를 선택합니다.
 6. 완료하면 **만들기**를 클릭합니다.
 16. 이미지가 생성되면 리소스 그룹의 리소스 목록에 **이미지** 리소스로 표시될 것입니다.
 
@@ -87,13 +87,13 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다. 
+3. 가상 머신의 상태를 **일반화됨**으로 설정합니다. 
    
     ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. 가상 컴퓨터를 가져옵니다. 
+4. 가상 머신을 가져옵니다. 
 
     ```azurepowershell-interactive
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
@@ -127,7 +127,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
 2. VM을 가져옵니다.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. 관리되는 디스크의 ID를 가져옵니다.

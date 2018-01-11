@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure 스택에 대 한 저장소 용량 관리
 
@@ -53,7 +53,7 @@ Azure 스택 저장소 용량을 확장을 지원 하지 않으므로 반드시 
 공유가 낮은에 있는 경우 사용 가능한 공간 및 동작을 [회수](#reclaim-capacity) 성공 하거나 사용 가능한 공간 하지 않은, Azure 스택 클라우드 운영자 수 [마이그레이션할](#migrate-a-container-between) 간에 공유 하나에서 blob 컨테이너입니다.
 
 - 컨테이너 및 blob에 대 한 자세한 내용은 참조 [Blob 저장소](azure-stack-key-features.md#blob-storage) 주요 기능 및 Azure 스택에 대 한 개념입니다.
-- 테 넌 트 사용자가 스택에서 Azure 블로그 저장소에서 작동 하는 방법에 대 한 정보를 참조 하십시오. [Azure 스택 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.
+- 스택에서 Azure blob 저장소와 테 넌 트 사용자가 작업 하는 방법에 대 한 정보를 참조 하십시오. [Azure 스택 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.
 
 
 ### <a name="containers"></a>컨테이너
@@ -63,7 +63,7 @@ Blob을 컨테이너에 배치 된 후 더 많은 공간을 사용 하도록 해
 
 컨테이너는 단일 공유로 제한 됩니다. 컨테이너를 입력 하는 사용 가능한 공간을 사용 하 여 80% 이상을 조합 된 blob 데이터 컨테이너에 이르면 *오버플로* 모드입니다. 오버플로 모드에 있을 때 해당 컨테이너에서 만든 모든 새 blob은 충분 한 공간이 있는 다른 볼륨에 할당 됩니다. 시간이 지남에 따라 오버플로 모드에서 컨테이너는 여러 볼륨을 통해 배포 되는 blob를 가질 수 있습니다.
 
-80%와 볼륨에서 사용 가능한 공간의 90%를 사용 하는 시스템 Azure 스택 관리자 포털에서 경고를 발생 시킵니다. 클라우드 운영자는 사용 가능한 저장소 용량을 검토 하 고를 콘텐츠를 다시 분산 계획 해야 합니다. 저장소 서비스 작동이 중단을 사용 하는 100%를 디스크가 고 더 없는 추가 경고가 발생 됩니다.
+80%와 볼륨에서 사용 가능한 공간의 90%를 사용 하는 시스템 Azure 스택 관리자 포털에서 경고를 발생 시킵니다. 클라우드 운영자는 사용 가능한 저장소 용량을 검토 하 고를 콘텐츠를 다시 분산 계획 해야 합니다. 저장소 서비스는 디스크는 100%를 사용 하 고 없는 추가 경고가 발생 하는 경우 작업을 중지 합니다.
 
 ### <a name="disks"></a>디스크
 VM 디스크 테 넌 트 별 컨테이너에 추가 되 고 운영 체제 디스크를 포함 합니다. Vm은 데이터 디스크가 하나 이상 있을 수도 있습니다. 두 가지 유형의 디스크 페이지 blob으로 저장 됩니다. 테 넌 트에 지침은 각 디스크는 VM의 성능 향상을 위해 별도 컨테이너에 배치 하는 것입니다.
@@ -123,7 +123,7 @@ PowerShell 또는 관리 포털을 사용 하 여 사용 가능한 공간이 제
 
 마이그레이션 새 공유에 대해 모든 컨테이너 blob을 통합합니다.
 
-- 컨테이너 모드가 시작 되었으면 오버플로 하이 blob 추가 볼륨에 배치 하는 경우 새 공유 마이그레이션할 컨테이너에 대 한 blob의 모든를 충분 한 용량이 있어야 합니다. 추가 공유에 있는 블로그 포함 됩니다.
+- 컨테이너 모드가 시작 되었으면 오버플로 하이 blob 추가 볼륨에 배치 하는 경우 새 공유 마이그레이션할 컨테이너에 대 한 blob의 모든를 충분 한 용량이 있어야 합니다. 추가 공유에 있는 blob가 포함 됩니다.
 
 - PowerShell cmdlet *Get AzsStorageContainer* 만 컨테이너에 대 한 초기 볼륨에서 사용 중인 공간을 식별 합니다. Cmdlet에서 추가 볼륨에 저장 된 blob에서 사용 되는 공간을 식별 하지 않습니다. 따라서 컨테이너의 전체 크기에서 분명 하 게 확인할 수 있습니다. 새 공유에 있는 컨테이너의 통합을 보낼 수 새 공유 하는 오버플로 조건을에 추가 공유에 데이터를 놓이는 위치 같습니다. 따라서를 다시 공유를 다시 분산 할 수 있습니다.
 

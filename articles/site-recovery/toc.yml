@@ -31,14 +31,30 @@
           href: tutorial-dr-drill-azure.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           href: tutorial-vmware-to-azure-failover-failback.md
-    - name: Azure로 마이그레이션
+    - name: Hyper-V VM
       items:
         - name: Azure 준비
+          href: tutorial-prepare-azure.md
+        - name: 온-프레미스 Hyper-V 준비
+          href: tutorial-prepare-on-premises-hyper-v.md
+        - name: Hyper-V VM에 재해 복구 설정
+          href: tutorial-hyper-v-to-azure.md
+        - name: VMM 클라우드에서 Hyper-V VM의 재해 복구 설정
+          href: tutorial-hyper-v-vmm-to-azure.md
+        - name: 재해 복구 훈련 실행
+          href: tutorial-dr-drill-azure.md
+        - name: 장애 조치(failover) 및 장애 복구(failback) 실행
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+    - name: Azure로 마이그레이션
+      items:
+        - name: Azure에서 온-프레미스 복제 준비
           href: tutorial-prepare-azure.md
         - name: Azure로 온-프레미스 컴퓨터 마이그레이션
           href: tutorial-migrate-on-premises-to-azure.md
         - name: Azure로 AWS 인스턴스 마이그레이션
           href: tutorial-migrate-aws-to-azure.md
+        - name: 다른 지역으로 Azure VM 마이그레이션
+          href: tutorial-migrate-azure-to-azure.md
 - name: 개념
   items:
     - name: Azure에서 Azure로 아키텍처
@@ -55,6 +71,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: 온-프레미스에서 Azure로 지원 매트릭스
       href: site-recovery-support-matrix-to-azure.md
+    - name: Hyper-V에서 Azure로 지원 매트릭스
+      href: support-matrix-hyper-v-to-azure.md
     - name: 온-프레미스에서 보조 사이트로 지원 매트릭스
       href: site-recovery-support-matrix-to-sec-site.md
     - name: 작업에 대한 재해 복구
@@ -79,43 +97,40 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: 장애 조치한 후 보조 사이트에 액세스하기 위한 IP 주소 설정
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Azure 시나리오에 대한 온-프레미스의 네트워크 인터페이스 관리
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: 재해 복구
       items:
-        - name: Hyper-V VM에서 Azure로
-          href: tutorial-hyper-v-to-azure.md
-        - name: 물리적 서버에서 Azure로
+        - name: Azure로 마이그레이션 이후 Azure VM의 재해 복구
+          href: site-recovery-azure-to-azure-after-migration.md
+        - name: Azure에 대한 물리적 서버의 재해 복구
           href: tutorial-physical-to-azure.md
-        - name: Hyper-V VM에서 보조 사이트로
+        - name: Hyper-V VM을 보조 사이트로 복제
           href: tutorial-vmm-to-vmm.md
-        - name: VMware VM 및 물리적 서버에서 보조 사이트로
+        - name: VMware VM 및 물리적 서버를 보조 사이트에 복제
           href: tutorial-vmware-to-vmware.md
         - name: Azure로 재해 복구 훈련 실행
-          href: tutorial-dr-drill-azure.md
+          href: site-recovery-test-failover-to-azure.md
         - name: 보조 사이트로 재해 복구 훈련 실행
-          href: tutorial-dr-drill-secondary.md
+          href: site-recovery-test-failover-vmm-to-vmm.md
         - name: 다중 테넌트를 지원하는 VMware VM에서 Azure로
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-    - name: 장애 조치 및 장애 복구
+    - name: 장애 조치(Failover) 및 장애 복구
       items:
         - name: 복구 계획 설정
           href: site-recovery-create-recovery-plans.md
+        - name: Azure Runbook을 복구 계획에 추가
+          href: site-recovery-runbook-automation.md
+        - name: 장애 조치
           items:
-            - name: Azure Runbook을 복구 계획에 추가
-              href: site-recovery-runbook-automation.md
-        - name: 테스트 장애 조치(Failover) 실행
-          items:
-            - name: Azure로 테스트 장애 조치(Failover) 실행
-              href: site-recovery-test-failover-to-azure.md
-            - name: VMM 클라우드 간 테스트 장애 조치(failover) 실행
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: 보호된 컴퓨터 장애 조치(failover)
-          href: site-recovery-failover.md
-        - name: 물리적 서버에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
-          href: tutorial-vmware-to-azure-failover-failback.md
-        - name: Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
-          href: tutorial-hyper-v-to-azure-failover-failback.md
-        - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
-          href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: 장애 조치 정보
+              href: site-recovery-failover.md
+            - name: 보조 사이트에 테스트 장애 조치 실행
+              href: tutorial-dr-drill-secondary.md
+            - name: 물리적 서버에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
+              href: physical-to-azure-failover-failback.md
+            - name: 온-프레미스 사이트 간 장애 조치(failover) 및 장애 복구(failback) 실행
+              href: tutorial-vmm-to-vmm-failover-failback.md
         - name: 장애 조치(failover) 후 컴퓨터 다시 보호
           items:
             - name: Azure 보조 지역에서 주 지역으로 다시 보호
@@ -174,25 +189,28 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: 물리적 서버에서 Azure로 대상 환경
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Azure에 VMware에 대한 복제 설정 구성
-          href: site-recovery-setup-replication-settings-vmware.md
-        - name: VMware-Azure의 복제에서 디스크를 제외
-          href: site-recovery-exclude-disk.md
-        - name: Hyper-V-Azure의 복제에서 디스크를 제외
-          href: site-recovery-hyper-v-exclude-disk.md
-        - name: VMware 복제를 위해 모바일 서비스 배포
-          href: site-recovery-vmware-to-azure-install-mob-svc.md
+        - name: 복제 설정 구성
           items:
-            - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
-              href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
-              href: site-recovery-automate-mobility-service-install.md
-        - name: 복제 활성화
+            - name: Azure에 VMware에 대한 복제 설정 구성
+              href: site-recovery-setup-replication-settings-vmware.md
+            - name: VMware-Azure의 복제에서 디스크를 제외
+              href: site-recovery-exclude-disk.md
+            - name: Hyper-V-Azure의 복제에서 디스크를 제외
+              href: site-recovery-hyper-v-exclude-disk.md
+        - name: 복제 사용
           items:
             - name: Azure 간 복제 활성화
               href: site-recovery-replicate-azure-to-azure.md
             - name: VMware에서 Azure로 복제 활성화
               href: site-recovery-replicate-vmware-to-azure.md
+        - name: VMware에 모바일 서비스 배포
+          items:
+            - name: 모바일 서비스 정보
+              href: site-recovery-vmware-to-azure-install-mob-svc.md
+            - name: System Center Configuration Manager를 사용하여 모바일 서비스 배포
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Azure 자동화 DSC를 사용하여 모바일 서비스 배포
+              href: site-recovery-automate-mobility-service-install.md
     - name: 자동화
       items:
         - name: PowerShell을 사용하여 Azure에 VMware 가상 머신 복제
@@ -203,12 +221,6 @@
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: PowerShell을 사용하여 보조 VMM 사이트로 Hyper-V 복제 설정
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
-    - name: 마이그레이션
-      items:
-        - name: 다른 Azure 지역에 Azure VM 마이그레이션
-          href: site-recovery-migrate-azure-to-azure.md
-        - name: 마이그레이션 이후 다른 Azure 지역에 컴퓨터 복제
-          href: site-recovery-azure-to-azure-after-migration.md
     - name: 워크로드
       items:
         - name: Active Directory 및 DNS

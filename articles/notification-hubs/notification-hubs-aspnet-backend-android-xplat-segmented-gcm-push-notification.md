@@ -1,6 +1,6 @@
 ---
-title: "알림 허브 속보 자습서 - Android"
-description: "Azure 서비스 버스 알림 허브를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다."
+title: "Notification Hubs 속보 자습서 - Android"
+description: "Azure Service Bus Notification Hubs를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다."
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>알림 허브를 사용하여 속보 보내기
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs를 사용하여 속보 보내기
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>개요
-이 항목에서는 Azure 알림 허브를 사용하여 Android 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
+이 항목에서는 Azure Notification Hubs를 사용하여 Android 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 항목은 [Notification Hubs 시작][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [Notification Hubs 시작][get-started]을 완료해야 합니다.
@@ -278,14 +278,14 @@ ms.lasthandoff: 10/11/2017
 2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다.
    
     앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 장치 등록을 요청합니다. 등록된 범주가 반환되어 알림 메시지에 표시됩니다.
-3. .NET 콘솔 앱을 실행하여 새 알림을 보냅니다.  또는 [Azure 클래식 포털]에 있는 알림 허브의 디버그 탭을 사용하여 태그가 지정된 템플릿 알림을 보낼 수 있습니다.
+3. .NET 콘솔 앱을 실행하여 새 알림을 보냅니다.  또는 [Azure Portal]에 있는 알림 허브의 디버그 탭을 사용하여 태그가 지정된 템플릿 알림을 보낼 수 있습니다.
    
     선택한 범주에 대한 알림이 알림 메시지로 나타납니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 알림 허브 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
+이 자습서에서는 범주별로 속보를 브로드캐스트하는 방법에 대해 알아보았습니다. 이제 기타 고급 Notification Hubs 시나리오를 다루는 다음 자습서 중 하나를 완료해 보세요.
 
-* [알림 허브를 사용하여 지역화된 속보 브로드캐스트]
+* [Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]
   
     지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보세요.
 
@@ -294,7 +294,7 @@ ms.lasthandoff: 10/11/2017
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Notification Hubs를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
@@ -302,5 +302,5 @@ ms.lasthandoff: 10/11/2017
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Azure 클래식 포털]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

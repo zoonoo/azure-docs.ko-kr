@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 Azure Automation에서 Runbook을 시작하면 작업이 생성됩니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업을 실행하기 위해 Azure Automation 작업자가 할당됩니다. 작업자는 여러 Azure 계정에서 공유하지만 여러 Automation 계정의 작업은 서로 격리됩니다. 사용자는 작업에 대한 요청을 처리할 작업자를 제어할 수 없습니다. 단일 Runbook에서 동시에 여러 작업을 실행할 수 있습니다.  동일한 Automation 계정의 작업 실행 환경은 다시 사용할 수 있습니다. Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작된 모든 작업의 상태가 나열됩니다. 각 Runbook에 대한 작업 목록을 확인하여 각 작업의 상태를 추적할 수 있습니다. 다양한 작업 상태에 대한 설명은 [작업 상태](#job-statuses)를 참조하세요.
@@ -39,13 +39,13 @@ Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 �
 | 상태 | 설명 |
 |:--- |:--- |
 | Completed |작업이 완료되었습니다. |
-| Failed |[그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다.  [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |
-| Failed, waiting for resources |작업이 [공평 분배](#fairshare) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |
+| 실패 |[그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다.  [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |
+| Failed, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |
 | Queued |작업이 시작될 수 있도록 Automation 작업자의 리소스가 사용 가능한 상태가 되기를 기다리고 있습니다. |
-| Starting |작업이 작업자에게 할당되었으며 시스템이 시작하는 중입니다. |
+| 시작 중 |작업이 작업자에게 할당되었으며 시스템이 시작하는 중입니다. |
 | Resuming |시스템이 일시 중단된 후 작업을 다시 시작하는 중입니다. |
 | 실행 중 |작업이 실행 중입니다. |
-| Running, waiting for resources |작업이 [공평 분배](#fairshare) 한도에 도달했기 때문에 언로드되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다. |
+| Running, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 도달했기 때문에 언로드되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다. |
 | 중지됨 |작업이 완료되기 전에 사용자에 의해 중지되었습니다. |
 | 중지 중 |시스템이 작업을 중지하는 중입니다. |
 | 일시 중단 |작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. 일시 중단된 작업은 다시 시작할 수 있으며, 마지막 검사점에서 다시 시작되거나, 검사점이 없을 경우 Runbook의 처음부터 다시 시작됩니다. Runbook은 예외가 발생하는 경우에만 시스템에 의해 일시 중단됩니다. 기본적으로 ErrorActionPreference는 **Continue**로 설정되며, 이는 오류 발생 시 작업이 계속 실행된다는 의미입니다. 이 기본 설정 변수가 **Stop** 으로 설정된 경우 오류 발생 시 작업이 일시 중단됩니다.  [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md) 에만 적용됩니다. |

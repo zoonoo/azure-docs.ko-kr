@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Linux 가상 컴퓨터의 부팅 진단 | Microsoft Docs"
-description: "Azure의 Linux 가상 컴퓨터에 대한 두 가지 디버깅 기능 개요"
+title: "Azure에서 Linux 가상 머신의 부팅 진단 | Microsoft Docs"
+description: "Azure의 Linux 가상 머신에 대한 두 가지 디버깅 기능 개요"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 08/21/2017
 ms.author: delhan
-ms.openlocfilehash: 79e412bd7523a55fc7d081121af9434520868880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 Linux 가상 컴퓨터 문제를 해결하는 방법
+# <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 Linux 가상 머신 문제를 해결하는 방법
 
 이제 Azure에서 두 가지 디버깅 기능에 대한 지원이 제공됩니다. Azure Virtual Machines Resource Manager 배포 모델에 대한 콘솔 출력 및 스크린샷 지원. 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 볼 수 있습니다.
 
-![Azure Portal](./media/boot-diagnostics/screenshot1.png)
+![Azure portal](./media/boot-diagnostics/screenshot1.png)
  
 그러나 Windows 및 Linux Virtual Machines의 경우 Azure를 사용하면 하이퍼바이저에서 VM의 스크린샷을 볼 수도 있습니다.
 
@@ -43,7 +43,7 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
 - [커널 문제](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
 - [FSTAB 오류](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>새 가상 컴퓨터에서 진단 사용
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>새 가상 머신에서 진단 사용
 1. Preview 포털에서 새 Virtual Machine을 만드는 경우 배포 모델 드롭다운에서 **Azure Resource Manager**를 선택합니다.
  
     ![리소스 관리자](./media/boot-diagnostics/screenshot3.jpg)
@@ -76,6 +76,6 @@ Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 
 
 ## <a name="update-an-existing-virtual-machine"></a>기존 가상 컴퓨터 업데이트
 
-포털을 통해 부팅 진단을 활성화하려면 포털을 통해 기존 가상 컴퓨터를 업데이트할 수도 있습니다. 부팅 진단 옵션을 선택하고 저장합니다. 적용하려면 VM을 다시 시작합니다.
+포털을 통해 부팅 진단을 활성화하려면 포털을 통해 기존 가상 머신을 업데이트할 수도 있습니다. 부팅 진단 옵션을 선택하고 저장합니다. 적용하려면 VM을 다시 시작합니다.
 
 ![기본 VM 업데이트](./media/boot-diagnostics/screenshot5.png)

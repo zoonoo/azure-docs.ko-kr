@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>실행 계정으로 Automation 계정 인증 업데이트 
 다음과 같은 경우 Azure Portal에서 기존 Automation 계정을 업데이트하거나 PowerShell을 사용할 수 있습니다.
@@ -57,16 +57,16 @@ ms.lasthandoff: 12/14/2017
 Automation 계정을 업데이트하려면 이 항목을 완료하는 데 필요한 다음과 같은 특정 권한이 있어야 합니다.   
  
 * AD 사용자 계정은 [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md#contributor-role-permissions) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 참가자 역할과 동일한 권한을 가진 역할에 추가해야 합니다.  
-* Azure AD 테넌트의 관리자가 아닌 사용자는 앱 등록 설정이 **예**로 지정되어 있는 경우 [AD 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다.  앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다. 
+* Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 응용 프로그램을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 응용 프로그램을 등록](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. 앱 등록 설정이 **아니요**로 지정되어 있는 경우 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 상황에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고. 전역 관리자/공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
 ## <a name="create-run-as-account-from-the-portal"></a>포털에서 실행 계정 만들기
-이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다.  실행 계정 및 클래식 실행 계정을 개별적으로 만들고, 클래식 리소스를 관리할 필요가 없는 경우 Azure 실행 계정만 만들면 됩니다.  
+이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다.  실행 계정과 클래식 실행 계정을 개별적으로 만듭니다. 클래식 리소스를 관리할 필요가 없으면 Azure 실행 계정만 만들면 됩니다.  
 
 1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
-3. Automation 계정 페이지에서 Automation 계정을 선택합니다.  
+3. **Automation 계정** 페이지의 Automation 계정 목록에서 Automation 계정을 선택합니다.
 4. 왼쪽 창의 **계정 설정** 섹션 아래에서 **실행 계정**을 선택합니다.  
 5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다.  **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 중 하나를 선택하여 해당 창이 표시되면, 개요 정보를 검토한 후에 **만들기**를 클릭하여 실행 계정 만들기를 계속 진행합니다.  
 6. Azure에서 Automation 계정을 만드는 동안 메뉴의 **알림** 아래에서 진행 상황을 추적할 수 있습니다.  계정을 만드는 중이라는 배너도 표시됩니다.  이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.  

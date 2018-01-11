@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: ac40d5a4838ac23d2613f1e2380fed3d28e31d7a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Android 응용 프로그램을 사용하여 로그인
 
@@ -42,8 +42,6 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 * 응용 프로그램에 **네이티브 클라이언트**를 포함합니다.
 * 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 ID는 나중에 필요합니다.
 * 네이티브 클라이언트 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 ID는 나중에도 필요합니다.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>정책 만들기
 

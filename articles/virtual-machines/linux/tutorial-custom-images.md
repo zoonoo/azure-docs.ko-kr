@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 설명합니다.
 
-이 자습서의 예제를 완료하려면 기존 가상 컴퓨터가 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
 ## <a name="create-a-custom-image"></a>사용자 지정 이미지 만들기
 
@@ -117,7 +117,7 @@ az vm create \
 
 ```azurecli-interactive 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 이미지 삭제를 삭제합니다. 이 예제에서는 *myResourceGroup*에서 *myOldImage*라는 이미지를 삭제합니다.
@@ -139,7 +139,7 @@ az image delete \
 > * 구독에 모든 이미지 나열
 > * 이미지 삭제
 
-고가용성 가상 컴퓨터에 대해 알아보려면 다음 자습서로 진행합니다.
+고가용성 가상 머신에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
 > [고가용성 VM 만들기](tutorial-availability-sets.md)

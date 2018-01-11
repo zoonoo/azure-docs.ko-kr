@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
@@ -73,7 +73,7 @@ Azure Databricks는 공동 작업 및 통합 환경을 통해 Spark에서 데이
 
 * 손쉬운 데이터 탐색으로 데이터를 사용하는 방법을 결정합니다.
 * R, Python, Scala 또는 SQL로 진행 상황을 노트북에 문서화합니다.
-* 몇 번의 클릭으로 데이터를 시각화하고 Matplotlib, ggoplot 또는 d3과 같은 친숙한 도구를 사용합니다.
+* 몇 번의 클릭만으로 데이터를 시각화하고 Matplotlib, ggplot 또는 d3과 같은 친숙한 도구를 사용합니다.
 * 대화형 대시보드를 사용하여 동적 보고서를 만듭니다.
 * Spark를 사용하여 동시에 데이터와 상호 작용합니다.
 

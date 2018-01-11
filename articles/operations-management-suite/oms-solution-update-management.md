@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
 
@@ -28,8 +28,8 @@ OMS의 업데이트 관리 솔루션을 사용하면 Azure, 온-프레미스 환
 
 ## <a name="update-management-in-azure-automation"></a>Azure Automation의 업데이트 관리
 
-[Azure Automation](../automation/automation-offering-get-started.md) 계정에서 직접 가상 컴퓨터에 업데이트 관리를 사용하도록 설정할 수 있습니다.
-Automation 계정에서 가상 컴퓨터에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 컴퓨터에 대한 업데이트 관리](../automation/manage-update-multi.md)를 참조하세요.
+[Azure Automation](../automation/automation-offering-get-started.md) 계정에서 직접 가상 머신에 업데이트 관리를 사용하도록 설정할 수 있습니다.
+Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 머신에 대한 업데이트 관리](../automation/manage-update-multi.md)를 참조하세요.
 
 
 ## <a name="solution-overview"></a>솔루션 개요
@@ -147,7 +147,7 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 | Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 필수 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
 | Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 OMS 리포지토리로 전달됩니다. |
-| Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Azure Storage 계정 |아니오 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 관리되는 Windows 컴퓨터 각각의 경우 검색은 하루에 두 번 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하여 상태가 변경되었는지, 상태가 변경되었다면 준수 검사가 시작되었는지 확인합니다.  관리되는 Linux 컴퓨터 각각의 경우 검색은 세 시간마다 수행됩니다.
@@ -172,21 +172,21 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 > [!NOTE]
 > Azure Marketplace에서 배포된 VM은 기본적으로 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다.  이 동작은 작업 영역에 이 솔루션 또는 Windows VM을 추가한 후에도 변경되지 않습니다.  이 솔루션에서 업데이트를 능동적으로 관리하지 않는 경우 이 동작(업데이트 자동 적용)이 적용됩니다.  
 
-Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
+Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 머신은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
 
 ### <a name="viewing-update-deployments"></a>업데이트 배포 보기
 **업데이트 배포** 타일을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다.  **예약됨**, **실행 중** 및 **완료됨**와 같은 상태별로 그룹화합니다.<br><br> ![업데이트 배포 일정 페이지](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
 각 업데이트 배포에 표시된 속성을 다음 테이블에서 설명합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| 이름 |업데이트 배포 이름입니다. |
+| Name |업데이트 배포 이름입니다. |
 | 일정 |일정의 형식입니다.  사용 가능한 옵션은 *한 번*, *매주 되풀이* 또는 *월별 되풀이*입니다. |
 | 시작 시간 |업데이트 배포를 시작하도록 예약한 날짜 및 시간입니다. |
 | 기간 |업데이트 배포를 실행할 수 있는 분 수입니다.  이 기간 내에서 모든 업데이트가 설치되지 않은 경우 나머지 업데이트는 다음 업데이트 배포까지 기다려야 합니다. |
 | 서버 |업데이트 배포에 영향을 받는 컴퓨터의 수입니다.  |
-| 가동 상태 |업데이트 배포의 현재 상태입니다.<br><br>가능한 값은 다음과 같습니다.<br>- 시작 안함<br>- 실행 중<br>- 완료됨 |
+| 상태 |업데이트 배포의 현재 상태입니다.<br><br>가능한 값은 다음과 같습니다.<br>- 시작 안함<br>- 실행 중<br>- 완료됨 |
 
 완료된 업데이트 배포를 선택하여 다음 테이블의 열이 포함된 세부 정보 화면을 확인합니다.  업데이트 배포가 아직 시작되지 않은 경우 이러한 열이 채워지지 않습니다.<br><br> ![업데이트 배포 결과의 개요](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
@@ -203,9 +203,9 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 ### <a name="creating-an-update-deployment"></a>업데이트 배포 만들기
 **새 업데이트 배포** 페이지를 열려면 화면 맨 위에 있는 **추가** 단추를 클릭하여 새 업데이트 배포를 만듭니다.  다음 테이블에서 속성의 값을 제공해야 합니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| 이름 |업데이트 배포를 식별하는 고유 이름입니다. |
+| Name |업데이트 배포를 식별하는 고유 이름입니다. |
 | 표준 시간대 |시작 시간에 사용할 표준 시간대입니다. |
 | 일정 형식 | 일정의 형식입니다.  사용 가능한 옵션은 *한 번*, *매주 되풀이* 또는 *월별 되풀이*입니다.  
 | 시작 시간 |업데이트 배포를 시작할 날짜 및 시간입니다. **참고:** 즉시 배포해야 하는 경우 배포를 실행할 수 있는 가장 빠른 시간은 현재 시간으로부터 30분입니다. |
@@ -225,18 +225,18 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 ### <a name="update-records"></a>업데이트 레코드
 **업데이트**라는 형식의 레코드가 각 컴퓨터에 설치되었거나 필요한 각 업데이트에 만들어집니다. 업데이트 레코드는 다음 테이블의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| 형식 |*업데이트* |
+| type |*업데이트* |
 | SourceSystem |업데이트의 설치를 승인하는 원본입니다.<br>가능한 값은 다음과 같습니다.<br>- Microsoft 업데이트<br>- Windows 업데이트<br>- SCCM<br>- Linux 서버(패키지 관리자에서 가져옴) |
 | 승인됨 |설치에 대한 업데이트를 승인했는지 여부를 명시합니다.<br> Linux 서버의 경우 패치가 OMS에서 관리되지 않기 때문에 현재 선택 사항입니다. |
 | Windows용 분류 |업데이트의 분류입니다.<br>가능한 값은 다음과 같습니다.<br>- 응용 프로그램<br>- 중요 업데이트<br>- 정의 업데이트<br>- 기능 팩<br>- 보안 업데이트<br>- 서비스 팩<br>- 업데이트 롤업<br>- 업데이트 |
 | Linux용 분류 |업데이트의 분류입니다.<br>가능한 값은 다음과 같습니다.<br>- 중요 업데이트<br>- 보안 업데이트<br>- 기타 업데이트 |
-| 컴퓨터 |컴퓨터의 이름입니다. |
+| Computer |컴퓨터의 이름입니다. |
 | InstallTimeAvailable |동일한 업데이트를 설치하는 다른 에이전트에서 설치 시간을 사용할 수 있는지 여부를 명시합니다. |
 | InstallTimePredictionSeconds |동일한 업데이트를 설치하는 다른 에이전트를 기반으로 예상된 설치 시간(초)입니다. |
 | KBID |업데이트에 대해 설명하는 KB 문서의 ID입니다. |
-| ManagementGroupName |SCOM 에이전트의 경우 관리 그룹의 이름.  다른 에이전트의 경우 AOI-<workspace ID>입니다. |
+| ManagementGroupName |SCOM 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-<workspace ID>입니다. |
 | MSRCBulletinID |업데이트에 대해 설명하는 Microsoft 보안 게시판의 ID입니다. |
 | MSRCSeverity |Microsoft 보안 게시판의 심각도입니다.<br>가능한 값은 다음과 같습니다.<br>- 중요<br>- 중요<br>- 보통 |
 | 옵션 |업데이트가 선택 사항인지 여부를 명시합니다. |
@@ -266,13 +266,13 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 ### <a name="updatesummary-records"></a>UpdateSummary 레코드
 형식이 **UpdateSummary**인 레코드가 각 Windows 에이전트 컴퓨터에 만들어집니다. 이 레코드는 업데이트를 위해 컴퓨터를 검색할 때마다 업데이트됩니다. **UpdateSummary** 레코드는 다음 테이블의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| 형식 |UpdateSummary |
+| type |UpdateSummary |
 | SourceSystem |OpsManager |
-| 컴퓨터 |컴퓨터의 이름입니다. |
+| Computer |컴퓨터의 이름입니다. |
 | CriticalUpdatesMissing |컴퓨터에 누락된 중요 업데이트 수입니다. |
-| ManagementGroupName |SCOM 에이전트의 경우 관리 그룹의 이름. 다른 에이전트의 경우 AOI-<workspace ID>입니다. |
+| ManagementGroupName |SCOM 에이전트의 관리 그룹 이름입니다. 다른 에이전트의 경우 AOI-<workspace ID>입니다. |
 | NETRuntimeVersion |컴퓨터에 설치된 .NET 런타임의 버전입니다. |
 | OldestMissingSecurityUpdateBucket |이 컴퓨터에서 가장 오랫동안 누락된 보안 업데이트가 게시된 이후 시간을 분류하는 버킷입니다.<br>가능한 값은 다음과 같습니다.<br>- 이전<br>- 180일 전<br>- 150일 전<br>- 120일 전<br>- 90일 전<br>- 60일 전<br>- 30일 전<br>- 최근 |
 | OldestMissingSecurityUpdateInDays |이 컴퓨터에서 가장 오랫동안 누락된 보안 업데이트가 게시된 이후 일수입니다. |
@@ -324,7 +324,7 @@ Sytem Center Configuration Manager와 OMS 업데이트 관리 솔루션을 통�
 이 섹션에서는 업데이트 관리 솔루션과 관련된 문제 해결에 도움이 되는 정보를 제공합니다.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>온보딩 문제를 해결하려면 어떻게 할까요?
-솔루션 또는 가상 컴퓨터를 온보딩하는 동안 문제가 발생할 경우 이벤트 ID가 4502인 **응용 프로그램 및 서비스 로그\운영 관리자** 이벤트 로그와 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하고 있는 이벤트 메시지를 확인합니다.  다음 표에는 특정 오류 메시지 및 각각의 해결 방법이 설명되어 있습니다.  
+솔루션 또는 가상 머신을 온보딩하는 동안 문제가 발생할 경우 이벤트 ID가 4502인 **응용 프로그램 및 서비스 로그\운영 관리자** 이벤트 로그와 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하고 있는 이벤트 메시지를 확인합니다.  다음 표에는 특정 오류 메시지 및 각각의 해결 방법이 설명되어 있습니다.  
 
 | Message | 이유 | 해결 방법 |   
 |----------|----------|----------|  

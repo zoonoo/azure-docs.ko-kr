@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS의 에이전트 상태 솔루션
 OMS의 에이전트 상태 솔루션은 응답이 없고 운영 데이터를 제출하는 OMS 작업 영역에 직접 보고하는 모든 에이전트 또는 OMS에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -74,11 +74,11 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 ### <a name="heartbeat-records"></a>하트비트 레코드
 **하트비트** 형식이 포함된 레코드가 만들어집니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | --- | --- |
-| 유형 | *하트비트*|
+| type | *하트비트*|
 | Category | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
-| 컴퓨터 | 컴퓨터 이름입니다.|
+| Computer | 컴퓨터 이름입니다.|
 | OSType | Windows 또는 Linux 운영 체제입니다.|
 | OSMajorVersion | 운영 체제의 주 버전입니다.|
 | OSMinorVersion | 운영 체제의 부 버전입니다.|

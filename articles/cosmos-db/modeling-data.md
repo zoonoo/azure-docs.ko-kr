@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL 데이터베이스의 문서 데이터 모델링
 Azure Cosmos DB와 같은 스키마가 없는 데이터베이스에서는 데이터 모델을 매우 쉽게 변경할 수 있지만, 데이터를 고려할 어느 정도의 시간이 필요합니다. 
@@ -39,7 +39,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
 
 자세한 설명을 시작하기 전에 먼저 이전 단계로 돌아가서 관계형 데이터베이스에서 모델링을 수행하는 방법에 대해 살펴보겠습니다. 다음 예제에서는 관계형 데이터베이스에서 사용자가 저장되는 방법을 보여 줍니다. 
 
-![관계형 데이터베이스 모델](./media/documentdb-modeling-data/relational-data-model.png)
+![관계형 데이터베이스 모델](./media/sql-api-modeling-data/relational-data-model.png)
 
 관계형 데이터베이스를 사용할 때 우리는 정규화가 중요하다고 배웠습니다.
 
@@ -290,7 +290,7 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
 ### <a name="how-do-i-model-manymany-relationships"></a>다대다 관계는 어떻게 모델링할 수 있을까요?
 관계형 데이터베이스에서 *다대다* 관계는 다른 테이블의 레코드를 단순히 하나로 조인하는 조인 테이블을 사용해서 모델링되는 경우가 많습니다. 
 
-![테이블 조인](./media/documentdb-modeling-data/join-table.png)
+![테이블 조인](./media/sql-api-modeling-data/join-table.png)
 
 여기에서도 문서를 사용해서 동일한 방식을 따르고 다음과 비슷하게 보이는 데이터 모델을 만들고 싶을 수도 있습니다.
 
@@ -395,4 +395,4 @@ Azure Cosmos DB와 같은 문서 저장소에서 데이터 모델링을 시작�
 
 Azure Cosmos DB에 대한 자세한 내용은 서비스의 [설명서](https://azure.microsoft.com/documentation/services/cosmos-db/) 페이지를 참조하세요. 
 
-여러 파티션에 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할](documentdb-partition-data.md)을 참조하세요. 
+여러 파티션에 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할](sql-api-partition-data.md)을 참조하세요. 

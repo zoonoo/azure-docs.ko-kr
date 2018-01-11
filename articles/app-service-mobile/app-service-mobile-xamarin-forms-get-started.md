@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Xamarin.Forms 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>개요
 이 자습서에서는 Azure App Service의 Mobile Apps 기능을 백 엔드로 사용하여 클라우드 기반 백 엔드 서비스를 Xamarin.Forms 모바일 앱에 추가하는 방법을 보여줍니다. 새 Mobile Apps 백 엔드와 앱 데이터를 Azure에 저장하는 간단한 할 일 모음 Xamarin.Forms 앱을 만듭니다.
 
-이 자습서를 완료해야 다른 모든 Xamarin.Forms용 모바일 앱 자습서를 진행할 수 있습니다.
+이 자습서를 완료해야 다른 모든 Xamarin.Forms용 Mobile Apps 자습서를 진행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -59,7 +59,7 @@ Windows 또는 Mac 컴퓨터에서 다음을 수행합니다.
 
 1. [Azure 포털]로 이동합니다.
 
-2. 모바일 앱의 **설정** 블레이드의 **모바일** 아래에서 **시작** > **Xamarin.Forms**를 클릭합니다. **3단계** 아래에서 **새 앱 만들기**를 선택한 후 **다운로드**를 선택합니다.
+2. Mobile Apps에 대한 설정 블레이드에서 **빠른 시작**(배포 아래) > **Xamarin.Forms**를 차례로 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
 
    이 작업을 통해 모바일 앱에 연결된 클라이언트 응용 프로그램을 포함하는 프로젝트를 다운로드합니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 

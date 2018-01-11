@@ -108,8 +108,8 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 #### <a name="proxy-outbound-rules"></a>프록시 아웃바운드 규칙
 커넥터 서비스 액세스를 위해 다음 끝점에 대한 액세스를 허용합니다.
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+* * .msappproxy.net
+* * .servicebus.windows.net
 
 초기 등록을 위해 다음 끝점에 대한 액세스를 허용합니다.
 

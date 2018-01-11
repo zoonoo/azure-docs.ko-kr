@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure 스택에 대 한 VPN 게이트웨이 구성 설정
 
@@ -31,11 +31,11 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 ## <a name="vpn-gateway-settings"></a>VPN 게이트웨이 설정
 
 ### <a name="gateway-types"></a>게이트웨이 유형
-각 Azure 스택 가상 네트워크는 단일 가상 네트워크 게이트웨이 형식 이어야 합니다를 원하는 **Vpn**합니다.  이 추가 형식을 지 원하는 Azure에서 다릅니다.  
+각 Azure 스택 가상 네트워크는 단일 가상 네트워크 게이트웨이 형식 이어야 합니다를 원하는 **Vpn**합니다.  이 지원을 추가 형식을 지 원하는 Azure에서 다릅니다.  
 
 가상 네트워크 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다. VPN 게이트웨이 필요는 `-GatewayType Vpn`합니다.
 
-예제:
+예:
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
@@ -90,9 +90,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 유형을 지정해야 합니다. 선택하는 VPN 유형은 만들려는 연결 토폴로지에 따라 달라집니다.  또한 VPN 유형은 사용하는 하드웨어에 따라서도 달라질 수 있습니다. S2S 구성에는 VPN 장치가 필요합니다. 일부 VPN 장치는 특정 VPN 유형을 지원합니다.
 
 > [!IMPORTANT]  
-> 이때 Azure 스택 경로 기반 VPN 형식만을 지원 합니다.  정책 기반 Vpn 장치 지원, Azure 스택에서 해당 장치에 대 한 연결 지원 되지 않습니다.
+> 이때 Azure 스택 경로 기반 VPN 형식만을 지원 합니다. 정책 기반 Vpn 장치 지원, Azure 스택에서 해당 장치에 대 한 연결 지원 되지 않습니다.
 
-- **PolicyBased**: *(Azure 스택 있지만 Azure에서 지원 됨)* 정책 기반 Vpn 암호화 하 고 패킷을 사이의 주소 접두사 조합으로 구성 된 IPsec 정책에 따라 IPsec 터널을 통해 직접 Azure 스택 VNet 및 온-프레미스 네트워크입니다. 정책(또는 트래픽 선택기)는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의됩니다.
+- **PolicyBased**: *(Azure 스택 있지만 Azure에서 지원 됨)* 정책 기반 Vpn 암호화 하 고 패킷을 주소 접두사 조합으로 구성 된 IPsec 정책에 따라 IPsec 터널을 통해 직접 온-프레미스 네트워크와 Azure 스택 VNet입니다. 정책(또는 트래픽 선택기)는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의됩니다.
 
 - **RouteBased**: RouteBased Vpn IP 전달 또는 해당 터널 인터페이스에 직접 패킷을 라우팅 테이블에서에서 "경로"를 사용 합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책(또는 트래픽 선택기)은 임의 또는 와일드카드로 구성됩니다. RouteBased VPN 형식에 대 한 값은 RouteBased.
 
@@ -108,13 +108,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 | |PolicyBased Basic VPN 게이트웨이 | RouteBased Basic VPN 게이트웨이 | RouteBased 표준 VPN 게이트웨이 | RouteBased 높은 성능 VPN 게이트웨이|
 |--|--|--|--|--|
-| **사이트 간 연결(S2S)** | 지원되지 않음 | RouteBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 |
+| **사이트 간 연결 (S2S 연결)** | 지원되지 않음 | RouteBased VPN 구성 | RouteBased VPN 구성 | RouteBased VPN 구성 |
 | **인증 방법**  | 지원되지 않음 | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  | S2S 연결에 대 한 사전 공유 키  |   
 | **S2S 연결의 최대 수**  | 지원되지 않음 | 10 | 10| 30|
 |**활성 라우팅 지원(BGP)** | 지원되지 않음 | 지원되지 않음 | 지원됨 | 지원됨 |
 
 ### <a name="gateway-subnet"></a>게이트웨이 서브넷 
-VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 다른 작업 (예를 들어 추가 Vm) 게이트웨이 서브넷에 배포 하지 마십시오. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름 지정 'GatewaySubnet'을 사용 하면 Azure 스택이이 가상 네트워크 게이트웨이 Vm 및 서비스를 배포 하는 서브넷에 알아야 합니다.
+VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 다른 작업 (예를 들어 추가 Vm) 게이트웨이 서브넷에 배포 하지 마십시오. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름 지정 'GatewaySubnet을' Azure 가상 네트워크 게이트웨이 Vm 및 서비스를 배포 하는 서브넷을 식별 하는 스택 수 있습니다.
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 VM 및 게이트웨이 서비스에 할당됩니다. 일부 구성에는 다른 구성보다 더 많은 IP 주소가 필요합니다. 만들려는 구성에 대한 지침을 검토하고 가지고 있는 만들려는 게이트웨이 서브넷이 해당 요구 사항을 충족하는지 확인합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26 등). 이런 방식으로 나중에 기능을 추가할 경우 않아도 게이트웨이 종료 한 다음 삭제 하 고 더 많은 IP 주소에 대 한 허용 하려면 게이트웨이 서브넷을 다시 만듭니다.
 
@@ -141,12 +141,12 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 로컬 네트워크 게이트웨이 설정을 수정해야 하는 경우도 있습니다. 예를 들어 주소 범위를 추가 또는 수정할 경우 또는 VPN 장치의 IP 주소가 변경될 때가 여기에 해당합니다. [PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway)을 참조하세요.
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 매개 변수
-Azure 스택에서 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성 해야 합니다.  Azure 스택와 같은 스위치 또는 라우터 VPN 게이트웨이로 사용 되는 하드웨어 장치를 VPN 연결을 구성 하는 경우 해당 장치에 대 한 추가 설정을 요청할 수도 있습니다.
+Azure 스택에서 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성 해야 합니다.  Azure 스택와 같은 스위치 또는 라우터, VPN 게이트웨이로 작동 하는 하드웨어 장치를 VPN 연결을 구성 하는 경우 해당 장치에 대 한 추가 설정을 요청할 수도 있습니다.
 
 를 지 원하는 여러 행사 개시자와 응답자 모두로 Azure와 달리 Azure 스택 제품 하나에 지원 합니다.
 
 ###  <a name="ike-phase-1-main-mode-parameters"></a>IKE 1단계(주 모드) 매개 변수
-| 속성              | 값|
+| 자산              | 값|
 |-|-|
 | IKE 버전           | IKEv2 |
 |Diffie-Hellman 그룹   | 그룹 2(1024비트) |
@@ -155,7 +155,7 @@ Azure 스택에서 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성
 |SA 수명(시간)     | 28,800초|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 2단계(빠른 모드) 매개 변수
-| 속성| 값|
+| 자산| 값|
 |-|-|
 |IKE 버전 |IKEv2 |
 |암호화 및 해시 알고리즘 (암호화)     | GCMAES256|

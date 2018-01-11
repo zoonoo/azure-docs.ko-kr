@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 4d0cbe09b1482221f88e57eed249fc2b56eec10d
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 웹앱 만들기
+
+> [!NOTE]
+> 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 PHP 웹앱 만들기](../app-service-web-get-started-php.md)를 참조하세요.
+>
 
 [Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 PHP 앱을 Linux의 Azure App Service에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 기본 제공 이미지로 웹앱을 만들고 Git을 사용하여 웹앱에 PHP 코드를 배포합니다.
 

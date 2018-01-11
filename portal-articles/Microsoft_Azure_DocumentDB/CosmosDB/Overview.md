@@ -6,13 +6,13 @@ author: sewatson
 manager: lwelicki
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Azure Cosmos DB 설명서
 
@@ -22,12 +22,12 @@ Azure Cosmos DB는 포괄적인 SLA로 사용자가 지리 지역 수에 따라 
 
 Azure Cosmos DB를 사용하여 다중 모델 API 중 하나를 사용하여 전역적으로 분산된 데이터베이스를 만드는 방법에 대해 알아봅니다.
 
-### <a name="documentdb-api"></a>DocumentDB API
+### <a name="sql-api"></a>SQL API
 
-- [.NET](/azure/cosmos-db/create-documentdb-dotnet)
-- [Java](/azure/cosmos-db/create-documentdb-java)
-- [Node.JS](/azure/cosmos-db/create-documentdb-nodejs)
-- [Python](/azure/cosmos-db/create-documentdb-python)
+- [.NET](/azure/cosmos-db/create-sql-api-dotnet)
+- [Java](/azure/cosmos-db/create-sql-api-java)
+- [Node.JS](/azure/cosmos-db/create-sql-api-nodejs)
+- [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>MongoDB API
 
@@ -50,15 +50,16 @@ Azure Cosmos DB를 사용하여 다중 모델 API 중 하나를 사용하여 전
 
 Azure Cosmos DB를 사용하여 앱을 개발하는 방법에 대해 알아봅니다.
 
-- Cosmos DB를 사용하여 앱 개발: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Cosmos DB로 데이터 가져오기: [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Cosmos DB를 사용하여 데이터 쿼리: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
-- Cosmos DB에서 전역 데이터베이스 복제: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [표](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
-- [에뮬레이터를 사용하여 로컬로 응용 프로그램 개발](/azure/documentdb/documentdb-nosql-local-emulator)
+- Cosmos DB를 사용하여 앱 개발: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Cosmos DB로 데이터 가져오기: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
+- Cosmos DB를 사용하여 데이터 쿼리: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Cosmos DB에서 전역 데이터베이스 복제: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [테이블](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
+- [에뮬레이터를 사용하여 로컬로 응용 프로그램 개발](/azure/cosmos-db/local-emulator)
 
 ## <a name="samples"></a>샘플
 
-일반적인 작업을 관리하는 스크립트를 찾습니다.
+일반적인 작업을 관리하기 위한 스크립트를 찾습니다.
+
 
 - [Azure CLI](/azure/cosmos-db/cli-samples)
 - [Azure PowerShell](/azure/cosmos-db/powershell-samples)

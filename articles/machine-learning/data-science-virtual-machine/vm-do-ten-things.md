@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일
 
@@ -263,7 +263,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 ![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리를 추가할 수 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)
-* Azure 저장소 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
+* Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
 ![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -288,15 +288,15 @@ PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. �
 
 
 
-Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure 저장소 탐색기에 해당 파일이 표시될 것입니다.
+Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage 탐색기에 해당 파일이 표시될 것입니다.
 
 ![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob로 데이터 이동: Azure 저장소 탐색기**
+**VM에서 Azure Blob로 데이터 이동: Azure Storage 탐색기**
 
-Azure 저장소 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
+Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![저장소 탐색기에서 업로드](./media/vm-do-ten-things/storage-accounts.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![Storage 탐색기에서 업로드](./media/vm-do-ten-things/storage-accounts.png)
 * **파일** 상자 오른쪽의 **...**을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
@@ -380,7 +380,7 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈** 을 사용
 
 ![저장소 계정 및 키 입력](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://**를 사용합니다.
+Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://**를 사용합니다.
 
 ![데이터 프레임](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -566,7 +566,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
   * AzCopy: 압축을 푼 CSV를 로컬 폴더에서 HDI 클러스터로 업로드
   * Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 
-데이터가 HDI 클러스터에 로드되면 Azure 저장소를 탐색기에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
+데이터가 HDI 클러스터에 로드되면 Azure Storage를 탐색기에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
 
 **데이터 탐색: Python에서 Hive 쿼리**
 
@@ -793,8 +793,8 @@ Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스
 
 ![채점된 데이터 집합 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
-### <a name="azure-sql-data-warehouse--databases"></a>Azure SQL 데이터 웨어하우스 및 데이터베이스
-Azure SQL 데이터 웨어하우스는 엔터프라이즈급 SQL Server 환경의 서비스로 탄력적인 데이터 웨어하우스입니다.
+### <a name="azure-sql-data-warehouse--databases"></a>Azure SQL Data Warehouse 및 데이터베이스
+Azure SQL Data Warehouse는 엔터프라이즈급 SQL Server 환경의 서비스로 탄력적인 데이터 웨어하우스입니다.
 
 이 [문서](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)에 제공된 지침에 따라 Azure SQL Data Warehouse를 프로비전할 수 있습니다. Azure SQL Data Warehouse를 프로비전하면 이 [연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용하여 SQL Data Warehouse 내의 데이터를 사용해 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
 
@@ -803,14 +803,14 @@ Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
 
 DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 단계를 수행해야 합니다.
 
-1. DocumentDB Python SDK를 설치합니다(명령 프롬프트에서 ```pip install pydocumentdb``` 실행).
+1. Azure Cosmos DB Python SDK를 설치합니다(명령 프롬프트에서 ```pip install pydocumentdb``` 실행).
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정과 데이터베이스를 만듭니다.
 3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
 4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치를 다음 매개 변수와 함께 입력합니다.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-데이터를 가져온 후에는 Jupyter로 이동하여 *DocumentDBSample*이라는 제목의 Notebook을 열 수 있습니다. 이 Notebook에는 DocumentDB에 액세스하여 몇 가지 기본 쿼리를 수행할 수 있는 Python 코드가 포함되어 있습니다. 서비스 [설명서 페이지](https://docs.microsoft.com/azure/cosmos-db/)를 방문하여 Cosmos DB에 대해 자세히 알아볼 수 있습니다.
+데이터를 가져온 후에는 Jupyter로 이동하여 *DocumentDBSample*이라는 제목의 Notebook을 열 수 있습니다. 이 Notebook에는 Azure Cosmos DB에 액세스하여 몇 가지 기본 쿼리를 수행할 수 있는 Python 코드가 포함되어 있습니다. 서비스 [설명서 페이지](https://docs.microsoft.com/azure/cosmos-db/)를 방문하여 Cosmos DB에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Power BI Desktop을 사용하여 보고서 및 대시보드 작성
 위의 Cosmos DB 예제에서 확인한 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 다음과 같습니다.
@@ -853,7 +853,7 @@ DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 
 > 
 > 
 
-대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 계산 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 계산 가격을 비롯한 전체 VM 목록은 [Azure 가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
+대규모 분석을 처리하고 더 많은 CPU, 메모리 및/또는 디스크 용량이 필요한 경우 CPU 코어, 메모리 용량 및 디스크 유형(반도체 드라이브 포함)을 기준으로 계산 성능과 예산 조건에 맞는 VM 크기를 선택할 수 있습니다. 시간당 계산 가격을 비롯한 전체 VM 목록은 [Azure Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/) 페이지에서 확인할 수 있습니다.
 
 마찬가지로, 필요한 VM 처리 용량이 감소할 경우(예: 주요 워크로드를 Hadoop 또는 Spark 클러스터로 이동) [Azure 포털](https://portal.azure.com) 에서 VM 인스턴스 설정으로 이동하여 클러스터 규모를 축소할 수 있습니다. 다음은 스크린샷입니다.
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>장치 관리 및 구성
 
@@ -40,13 +40,13 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 원격 모니터링 솔루션을 아직 배포하지 않은 경우 [미리 구성된 원격 모니터링 솔루션 배포](iot-suite-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
-## <a name="provision-a-simulated-device"></a>시뮬레이트된 장치 프로비전
+## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
 
-솔루션의 **장치** 페이지로 이동한 다음 **프로비전**을 선택합니다. **프로비전** 패널에서 **시뮬레이트함**을 선택합니다.
+솔루션의 **장치** 페이지로 이동한 다음 **새 장치**를 선택합니다. **새 장치** 패널에서 **시뮬레이션**을 선택합니다.
 
 ![시뮬레이트된 장치 프로비전](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-**1**로 설정된 프로비전하는 장치의 수를 그대로 둡니다. **장치 모델**로 **엔진**을 선택한 다음 **적용**을 선택하여 시뮬레이트된 장치를 만듭니다.
+**1**로 설정된 프로비전하는 장치의 수를 그대로 둡니다. **장치 모델**로 **결함이 있는 엔진**을 선택한 후 **적용**을 선택하여 시뮬레이트된 장치를 만듭니다.
 
 ![시뮬레이트된 엔진 장치 프로비전](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ## <a name="act-on-a-device"></a>장치에서 작동
 
-장치에서 작동하려면 장치 목록에서 선택한 다음 **일정**을 선택합니다. **엔진** 장치 모델은 장치에서 지원해야 하는 4개의 메서드를 지정합니다.
+하나 이상의 장치에서 작동하려면 장치 목록에서 장치를 선택한 후 **일정**을 선택합니다. **엔진** 장치 모델은 장치에서 지원해야 하는 4개의 메서드를 지정합니다.
 
 ![엔진 메서드](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ![다시 시작 메서드 예약](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-**유지 관리** 페이지에서 작업의 상태를 추적하려면 **시스템 상태**를 선택합니다.
+**유지 관리** 페이지에서 작업의 상태를 추적하려면 **작업**을 선택합니다.
 
 ![예약된 작업 모니터링](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ![장치 속성 값 업데이트](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-**유지 관리** 페이지에서 작업의 상태를 추적하려면 **시스템 상태**를 선택합니다.
+**유지 관리** 페이지에서 작업의 상태를 추적하려면 **작업**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

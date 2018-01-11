@@ -8,7 +8,7 @@
 ## [새로운 기능](whats-new.md)
 
 
-# 시작
+# 시작하기
 ## [Azure AD 시작](get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
@@ -44,6 +44,7 @@
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 ### [관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
+### [삭제된 사용자 복원](active-directory-users-restore.md)
 ### [다른 디렉터리(B2B)에서 게스트 사용자 추가](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](active-directory-b2b-admin-add-users.md)
 #### [B2B 사용자를 추가하는 지식 근로자](active-directory-b2b-iw-add-users.md)
@@ -177,7 +178,7 @@
 
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
-#### 시작
+#### 시작하기
 ##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
 ##### [앱 게시](application-proxy-publish-azure-portal.md)
 ##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
@@ -286,7 +287,6 @@
 #### [모범 사례](active-directory-conditional-access-best-practices.md)
 #### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [클래식 정책 마이그레이션](active-directory-conditional-access-migration.md)
-#### [가상 도구](active-directory-conditional-access-whatif.md)
 #### 작업
 ##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
@@ -361,7 +361,7 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)

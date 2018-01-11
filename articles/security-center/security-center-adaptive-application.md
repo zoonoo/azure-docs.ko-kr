@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Security Center에서 적응 응용 프로그램 컨트롤(미리 보기)
 이 연습을 통해 Azure Security Center에서 응용 프로그램 컨트롤을 구성하는 방법에 대해 알아봅니다.
@@ -36,12 +36,11 @@ ms.lasthandoff: 12/14/2017
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤을 사용하는 방법은 무엇입니까?
 적응 응용 프로그램 컨트롤은 구성된 리소스 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 응용 프로그램 허용 목록을 구성할 수 있습니다.
 
-1.  **Security Center** 대시보드를 열고 **개요**를 클릭합니다.
-2.  **고급 클라우드 방어** 아래에서 **적응 응용 프로그램 컨트롤** 타일은 현재 제 위치에서 몇 대의 VM을 제어할 수 있는지 모든 VM과 비교하여 보여줍니다. 또한 지난 주에 발견된 문제의 수도 보여줍니다. 
+1.  **Security Center** 대시보드를 열고, 왼쪽 탐색 창에서 **고급 클라우드 방어** 섹션에 있는 **적응형 응용 프로그램 제어**를 클릭합니다.
 
-    ![적응 응용 프로그램 컨트롤](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![방어](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. 더 많은 옵션은 **적응 응용 프로그램 컨트롤** 타일을 클릭합니다.
+2. **적응형 응용 프로그램 제어** 페이지가 표시됩니다.
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 12/14/2017
 
 이 목록에는 다음과 같은 정보가 포함됩니다.
 - **이름**: 구독 또는 리소스 그룹의 이름
-- **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
+- **VM**: 리소스 그룹에 있는 가상 머신의 수
 - **상태**: 권장의 상태로 대부분의 경우 열려 있음
 - **심각도**: 권장의 심각도 수준
 
@@ -89,7 +88,7 @@ Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사�
 이 목록에는 다음과 같은 정보가 포함됩니다.
 
 - **이름**: 구독 또는 리소스 그룹의 이름
-- **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수
+- **VM**: 리소스 그룹에 있는 가상 머신의 수
 - **모드**: 감사 모드는 허용 목록에 없는 응용 프로그램을 실행하려 할 것입니다. 차단은 허용 목록에 없는 응용 프로그램이 실행되지 않도록 합니다.
 - **심각도**: 권장의 심각도 수준
 
@@ -111,11 +110,11 @@ Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사�
     - **ViolationsBlocked**: 적용 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행되려 합니다.
     - **ViolationsAudited**: 감사 모드에서 솔루션이 켜진 경우 허용되지 않는 응용 프로그램이 실행됩니다.
     - **RulesViolatedManually**: 사용자가 ASC 관리 포털을 통해서가 아닌 VM에서 규칙을 수동으로 구성하려고 하는 경우입니다.
--  **VM 수**: 이러한 문제 유형이 있는 가상 컴퓨터의 수입니다.
+-  **VM 수**: 이러한 문제 유형이 있는 가상 머신의 수입니다.
 
-이러한 줄을 하나씩 클릭하면 이러한 유형의 위반이 있는 모든 VM에 대한 정보를 볼 수 있는 [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 페이지로 리디렉션됩니다. 각 줄의 끝에 있는 세 점을 클릭하면 해당 특정 항목을 삭제할 수 있습니다. **가상 컴퓨터 구성** 섹션에는 이러한 규칙이 적용된 VM이 나열되어 있습니다. 
+이러한 줄을 하나씩 클릭하면 이러한 유형의 위반이 있는 모든 VM에 대한 정보를 볼 수 있는 [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 페이지로 리디렉션됩니다. 각 줄의 끝에 있는 세 점을 클릭하면 해당 특정 항목을 삭제할 수 있습니다. **가상 머신 구성** 섹션에는 이러한 규칙이 적용된 VM이 나열되어 있습니다. 
 
-![구성된 가상 컴퓨터](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
+![구성된 가상 머신](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
 
 **게시자 허용 목록 규칙**은 각 응용 프로그램에 대해 발견된 인증서 정보에 따라 게시자 규칙이 생성된 응용 프로그램을 나열합니다. 자세한 정보는 [Applocker의 게시자 규칙 이해](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker)를 참조하세요.
 
@@ -136,13 +135,13 @@ Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사�
 
 ### <a name="not-recommended-list"></a>권장되지 않음 목록
 
-Security Center는 안정적인 응용 프로그램의 집합을 실행하는 가상 컴퓨터를 위해 응용 프로그램 허용 목록만 권장합니다. 관련된 VM의 응용 프로그램이 계속 변경되는 경우 권장 사항이 생성되지 않습니다. 
+Security Center는 안정적인 응용 프로그램의 집합을 실행하는 가상 머신을 위해 응용 프로그램 허용 목록만 권장합니다. 관련된 VM의 응용 프로그램이 계속 변경되는 경우 권장 사항이 생성되지 않습니다. 
 
 ![권장 사항](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 목록에는 다음이 포함되어 있습니다.
 - **이름**: 구독 또는 리소스 그룹의 이름.
-- **VM**: 리소스 그룹에 있는 가상 컴퓨터의 수.
+- **VM**: 리소스 그룹에 있는 가상 머신의 수.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 컨트롤을 사용하여 Azure VM에서 실행되는 응용 프로그램의 허용 목록을 나열하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.

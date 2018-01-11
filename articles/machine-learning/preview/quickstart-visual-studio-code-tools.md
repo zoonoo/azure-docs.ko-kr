@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: b9e9141cd17ab5a45c0f3db33d2777d52c112fb5
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7ec74dd9901171b7ec62b0bac5bfb1da80fee5ca
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>AI용 Visual Studio Code 도구
 AI용 Visual Studio Code 도구는 심층 학습 / AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 

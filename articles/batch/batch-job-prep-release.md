@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 계산 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 
 **공통 태스크 데이터 다운로드**
 
-배치 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 공통 집합이 필요합니다. 예를 들어 일별 위험 분석 계산에서 시장 데이터는 작업 특정적이지만 작업의 모든 태스크에는 공통적입니다. 종종 수 기가바이트 크기인 시장 데이터는 각각의 계산 노드에 한 번만 다운로드되어 노드에서 실행하는 모든 태스크에서 사용할 수 있어야 합니다. **작업 준비 태스크** 를 사용하여 작업의 다른 태스크를 실행하기 전에 각 노드에 이 데이터를 다운로드합니다.
+Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 공통 집합이 필요합니다. 예를 들어 일별 위험 분석 계산에서 시장 데이터는 작업 특정적이지만 작업의 모든 태스크에는 공통적입니다. 종종 수 기가바이트 크기인 시장 데이터는 각각의 계산 노드에 한 번만 다운로드되어 노드에서 실행하는 모든 태스크에서 사용할 수 있어야 합니다. **작업 준비 태스크** 를 사용하여 작업의 다른 태스크를 실행하기 전에 각 노드에 이 데이터를 다운로드합니다.
 
 **작업 및 태스크 출력 삭제**
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="job-prep-and-release-tasks-with-batch-net"></a>배치 .NET을 사용한 작업 준비 및 릴리스 태스크
+## <a name="job-prep-and-release-tasks-with-batch-net"></a>Batch .NET을 사용한 작업 준비 및 릴리스 태스크
 작업 준비 태스크를 사용하려면 [JobPreparationTask][net_job_prep] 개체를 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
 
 이 코드 조각에서 `myBatchClient`는 완전히 [BatchClient][net_batch_client]의 인스턴스이고 `myPool`은 Batch 계정에 있는 기존 풀입니다.
@@ -99,7 +99,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -111,7 +111,7 @@ await myJob.CommitAsync();
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>GitHub의 코드 샘플

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
-[App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 App Service 앱이 실행해야 하는 리소스를 제공합니다. 이 방법 가이드에서는 App Service 계획의 관리 방법을 보여 줍니다. 
+[App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 App Service 앱이 실행해야 하는 리소스를 제공합니다. 이 방법 가이드에서는 App Service 계획의 관리 방법을 보여 줍니다.
 
 ## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
@@ -68,6 +68,8 @@ ms.lasthandoff: 11/17/2017
 > 
 
 ![App Service 계획 선택기입니다.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 각 계획에는 고유한 가격 책정 계층이 있습니다. 예를 들어 **Free** 계층에서 **Standard** 계층으로 사이트를 이동하면 **Standard** 계층에 할당된 모든 앱이 표준 계층의 기능과 리소스를 사용할 수 있습니다. 그러나 더 높은 계층의 계획에서 낮은 계층의 계획으로 앱을 이동하면 특정 기능에는 더 이상 액세스할 수 없게 됩니다. 앱이 대상 계획에서 사용할 수 없는 기능을 사용하고 있는 경우, 사용할 수 없는 기능을 사용한다는 오류가 표시됩니다. 예를 들어, 앱 중 하나가 SSL 인증서를 사용한다면 `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.` 오류 메시지가 표시됩니다. 이 경우 대상 계획의 가격 책정 계층을 **Basic** 이상으로 확장하거나, 앱을 대상 계획으로 이동하기 전에 앱에 대한 모든 SSL 연결을 제거해야 합니다.
 

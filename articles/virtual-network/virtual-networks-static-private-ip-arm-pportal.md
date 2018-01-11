@@ -1,6 +1,6 @@
 ---
 title: "VM에 대한 개인 IP 주소 구성 - Azure Portal | Microsoft Docs"
-description: "Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
+description: "Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
 
@@ -63,7 +63,7 @@ Azure 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만�
     ![크기 선택 블레이드](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
 6. **설정** 블레이드에서 다음 속성이 아래 값으로 설정되어 있는지 확인하고 **확인**을 클릭합니다.
    
-    -**저장소 계정**: *vnetstorage*
+    -**Storage 계정**: *vnetstorage*
    
    * **네트워크**: *TestVNet*
    * **서브넷**: *FrontEnd*

@@ -1,6 +1,6 @@
 ---
 title: "Azure Event Hubs 인증 및 보안 모델의 개요 | Microsoft Docs"
-description: "이벤트 허브 인증 및 보안 모델 개요"
+description: "Event Hubs 인증 및 보안 모델 개요"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>이벤트 허브 인증 및 보안 모델 개요
+# <a name="event-hubs-authentication-and-security-model-overview"></a>Event Hubs 인증 및 보안 모델 개요
 
-Azure 이벤트 허브 보안 모델은 다음 요구 사항을 만족합니다.
+Azure Event Hubs 보안 모델은 다음 요구 사항을 만족합니다.
 
 * 유효한 자격 증명을 제공하는 클라이언트만 이벤트 허브로 데이터를 보낼 수 있습니다.
 * 클라이언트는 다른 클라이언트를 가장할 수 없습니다.
@@ -100,21 +100,21 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 ## <a name="authentication-of-back-end-applications"></a>백 엔드 응용 프로그램의 인증
 
-Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 사용하는 백 엔드 응용 프로그램을 인증하기 위해 Service Bus 항목에 사용된 모델과 유사한 보안 모델을 사용합니다. 이벤트 허브 소비자 그룹은 서비스 버스 토픽에 대한 구독과 같습니다. 소비자 그룹 생성 요청에 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에 대한 관리 권한을 부여하는 토큰이 함께 지정된 경우 클라이언트는 소비자 그룹을 만들 수 있습니다. 수신 요청이 소비자 그룹, 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에서의 수신 권한을 부여하는 토큰과 함께 지정된 경우 클라이언트는 해당 소비자 그룹의 데이터를 사용할 수 있습니다.
+Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 사용하는 백 엔드 응용 프로그램을 인증하기 위해 Service Bus 항목에 사용된 모델과 유사한 보안 모델을 사용합니다. Event Hubs 소비자 그룹은 Service Bus 토픽에 대한 구독과 같습니다. 소비자 그룹 생성 요청에 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에 대한 관리 권한을 부여하는 토큰이 함께 지정된 경우 클라이언트는 소비자 그룹을 만들 수 있습니다. 수신 요청이 소비자 그룹, 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에서의 수신 권한을 부여하는 토큰과 함께 지정된 경우 클라이언트는 해당 소비자 그룹의 데이터를 사용할 수 있습니다.
 
-서비스 버스의 현재 버전은 개별 구독에 대한 SAS 규칙을 지원하지 않습니다. 이벤트 허브 소비자 그룹에 대해서도 마찬가지입니다. SAS 지원은 나중에 두 기능에 대해 추가됩니다.
+Service Bus의 현재 버전은 개별 구독에 대한 SAS 규칙을 지원하지 않습니다. Event Hubs 소비자 그룹에 대해서도 마찬가지입니다. SAS 지원은 나중에 두 기능에 대해 추가됩니다.
 
 개별 소비자 그룹에 대한 SAS 인증이 없는 경우, 공용 키가 있는 모든 소비자 그룹을 보호하기 위해 SAS 키를 사용할 수 있습니다. 이 방식에서는 응용 프로그램이 이벤트 허브의 임의의 소비자 그룹에서 데이터를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이벤트 허브에 대한 자세한 내용은 다음 항목을 방문하세요.
+Event Hubs에 대한 자세한 내용은 다음 항목을 방문하세요.
 
-* [이벤트 허브 개요]
+* [Event Hubs 개요]
 * [공유 액세스 서명 개요]
 * [Event Hubs를 사용하는 샘플 응용 프로그램]
 
-[이벤트 허브 개요]: event-hubs-what-is-event-hubs.md
+[Event Hubs 개요]: event-hubs-what-is-event-hubs.md
 [Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [공유 액세스 서명 개요]: ../service-bus-messaging/service-bus-sas.md
 

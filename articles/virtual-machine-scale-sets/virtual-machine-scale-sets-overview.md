@@ -1,10 +1,10 @@
 ---
-title: "Azure Virtual Machine Scale Sets 개요 | Microsoft Docs"
-description: "Azure Virtual Machine Scale Sets에 대해 자세히 알아보세요."
+title: "Azure 가상 머신 확장 집합 개요 | Microsoft Docs"
+description: "Azure 가상 머신 확장 집합에 대해 자세히 알아보세요."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 컴퓨터 확장 집합이란?
-가상 컴퓨터 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 빅 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 머신 확장 집합이란?
+가상 머신 확장 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM은 동일하게 구성되었으며 확장 집합은 true 자동 크기 조정을 지원하도록 디자인되었고 VM의 사전 프로비저닝이 필요하지 않습니다. 따라서 큰 계산, 대용량 데이터 및 컨테이너화된 워크로드를 대상으로 하는 대규모 서비스를 손쉽게 만들 수 있습니다.
 
 계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다. 확장 집합에 대한 자세한 소개는 [Azure 블로그 공지](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)를 참조하세요.
 
 확장 집합에 대한 자세한 내용은 다음 비디오를 보세요.
 
 * [Mark Russinovich의 Azure 확장 집합 설명](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
-* [Guy Bowerman과 가상 컴퓨터 규모 집합](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [Guy Bowerman과 Virtual Machine Scale Sets](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>확장 집합 만들기 및 관리
-**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 컴퓨터 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 확장 집합을 관리하기 위해 Azure Portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md) 또는 Azure CLI 2.0을 사용할 수 있습니다.
+**new**를 선택하고 검색 표시줄에 **scale**을 입력하여 [Azure Portal](https://portal.azure.com)에확장 집합을 만들 수 있습니다. 결과에 **가상 머신 확장 집합**이 나열됩니다. 여기에서 필수 필드를 입력하여 확장 집합을 사용자 지정하고 배포할 수 있습니다. 또 포털에는 CPU 사용량에 따라 기본 자동 크기 조정 규칙을 설정하는 옵션도 있습니다. 확장 집합을 관리하기 위해 Azure Portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md) 또는 Azure CLI 2.0을 사용할 수 있습니다.
 
 확장 집합은 [가용성 영역](../availability-zones/az-overview.md)에 배포할 수 있습니다.
 
 > [!NOTE]
-> 현재 가상 컴퓨터 확장 집합은 단일 가용성 영역의 배포만 지원합니다. 다중 영역 배포는 나중에 지원됩니다.
+> 현재 가상 머신 확장 집합은 단일 가용성 영역의 배포만 지원합니다. 다중 영역 배포는 나중에 지원됩니다.
 
 개별 Azure Resource Manager VM처럼 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 확장 집합을 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure Resource Manager 배포 방법을 사용할 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요.
 
-가상 컴퓨터 크기 집합에 대한 예제 템플릿의 집합은 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 찾을 수 있습니다. (제목에서 **vmss**로 템플릿을 찾습니다.)
+가상 머신 확장 집합에 대한 예제 템플릿의 집합은 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 찾을 수 있습니다. (제목에서 **vmss**로 템플릿을 찾습니다.)
 
 빠른 시작 템플릿 예의 경우, 포털 배포 기능에 연결되는 각 템플릿 링크의 추가 정보에 있는 "Azure에 배포" 단추입니다. 확장 집합을 배포하려면 단추를 클릭하고 포털에 필요한 매개 변수를 채웁니다. 
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="autoscale"></a>Autoscale
 일관된 응용 프로그램 성능을 유지하기 위해 확장 집합에서 VM 인스턴스의 수를 자동으로 늘리거나 줄일 수 있습니다. 이 자동 크기 조정 기능은 관리 오버헤드를 감소시켜 시간에 따른 고객 요구 변경 내용으로 확장 집합을 모니터링 및 튜닝합니다. 성능 메트릭, 응용 프로그램 응답 또는 고정된 일정에 따라 규칙을 정의하고 확장 집합은 필요에 따라 자동 크기 조정합니다.
 
-기본 자동 크기 조정 규칙의 경우 CPU 사용량 또는 디스크 I/O와 같은 호스트 기반 성능 메트릭을 사용할 수 있습니다. 이러한 호스트 기반 메트릭은 설치 및 구성할 추가 에이전트 또는 확장 없이 기본적으로 사용할 수 있습니다. 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
+기본 자동 크기 조정 규칙의 경우 CPU 사용량 또는 디스크 I/O와 같은 호스트 기반 성능 메트릭을 사용할 수 있습니다. 이러한 호스트 기반 메트릭은 설치 및 구성할 추가 에이전트 또는 확장 없이 자동으로 사용할 수 있습니다. 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
 
 - [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -78,7 +78,7 @@ $vmss.Sku.Capacity = 10
 Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -VirtualMachineScaleSet $vmss
 ```
 
-Azure Resource Manager 템플릿을 사용하여 확장 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, **용량** 속성을 변경하고 템플릿을 다시 배포합니다. Azure 자동 크기 조정이 지원하지 않는 사용자 지정 크기 조정 이벤트를 정의해야 하는 경우 이러한 단순성을 통해 크기 집합과 Azure 자동 크기 조정을 쉽게 통합하거나 사용자 고유의 사용자 지정 크기 조정 계층을 쉽게 작성할 수 있습니다. 
+Azure Resource Manager 템플릿을 사용하여 확장 집합에서 가상 머신의 수를 늘리거나 줄이려면, **용량** 속성을 변경하고 템플릿을 다시 배포합니다. Azure 자동 크기 조정이 지원하지 않는 사용자 지정 크기 조정 이벤트를 정의해야 하는 경우 이러한 단순성을 통해 크기 집합과 Azure 자동 크기 조정을 쉽게 통합하거나 사용자 고유의 사용자 지정 크기 조정 계층을 쉽게 작성할 수 있습니다. 
 
 용량을 변경하기 위해서 Azure Resource Manager 템플릿을 다시 배포하는 경우 업데이트된 용량을 가진 **SKU** 속성 패킷만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. [예를 들면 다음과 같습니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
@@ -93,7 +93,7 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 ## <a name="scale-set-scenarios"></a>확장 집합 시나리오
 이 섹션에서는 몇 가지 일반적인 크기 집합 시나리오를 나열합니다. 일부 높은 수준의 Azure 서비스(예: Batch, Service Fabric, Container Service)에서 이러한 시나리오를 사용합니다.
 
-* **RDP 또는 SSH를 사용하여 확장 집합 인스턴스에 연결**: 확장 집합은 가상 네트워크 내부에 생성되며, 확장 집합의 개별 VM에는 기본적으로 공용 IP 주소가 할당되지 않습니다. 이 정책을 사용하면 계산 그리드에 있는 모든 노드에 별도의 공용 IP 주소를 할당하는 비용 및 관리 오버헤드가 지양됩니다. 확장 집합 VM에 직접 외부 연결이 필요한 경우, 새 VM에 공용 IP 주소를 자동으로 할당하도록 확장 집합을 구성할 수 있습니다. 아니면 사용자의 가상 네트워크에 있고 공용 IP 주소를 할당할 수 있는 다른 리소스(예: 부하 분산 장치 및 독립 실행형 가상 컴퓨터)에서 VM에 연결할 수 있습니다. 
+* **RDP 또는 SSH를 사용하여 확장 집합 인스턴스에 연결**: 확장 집합은 가상 네트워크 내부에 생성되며, 확장 집합의 개별 VM에는 기본적으로 공용 IP 주소가 할당되지 않습니다. 이 정책을 사용하면 계산 그리드에 있는 모든 노드에 별도의 공용 IP 주소를 할당하는 비용 및 관리 오버헤드가 지양됩니다. 확장 집합 VM에 직접 외부 연결이 필요한 경우, 새 VM에 공용 IP 주소를 자동으로 할당하도록 확장 집합을 구성할 수 있습니다. 아니면 사용자의 가상 네트워크에 있고 공용 IP 주소를 할당할 수 있는 다른 리소스(예: 부하 분산 장치 및 독립 실행형 가상 머신)에서 VM에 연결할 수 있습니다. 
 * **NAT 규칙을 사용하여 VM에 연결**: 공용 IP 주소를 만들고, 부하 분산 장치에 할당하고, 인바운드 NAT 풀을 정의할 수 있습니다. 이러한 작업은 IP 주소의 포트를 크기 집합의 VM 포트에 매핑합니다. 예:
   
   | 원본 | 원본 포트 | 대상 | 대상 포트 |
@@ -121,8 +121,8 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
    이 방식의 [이 예제](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)에서 [Azure Container Service](https://azure.microsoft.com/services/container-service/)는 크기 조정 설정에 따라 컨테이너 조정자로 클러스터를 배포합니다.
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>확장 집합 성능 및 크기 조정 지침
-* 확장 집합은 최대 1,000대의 VM을 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 300대로 제한됩니다. 대규모 확장 집합 사용 시 고려 사항은 [대규모 가상 컴퓨터 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요.
-* 확장 집합을 사용할 Azure Storage 계정의 집합을 미리 만들 필요가 없습니다. 확장 집합은 저장소 계정당 디스크 수와 관련된 성능 문제를 무효화하는 Azure Managed Disks를 지원합니다. 자세한 내용은 [Azure 가상 컴퓨터 크기 집합 및 관리되는 디스크](virtual-machine-scale-sets-managed-disks.md)를 참조하세요.
+* 확장 집합은 최대 1,000대의 VM을 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 300대로 제한됩니다. 대규모 확장 집합 사용 시 고려 사항은 [대규모 가상 머신 확장 집합으로 작업](virtual-machine-scale-sets-placement-groups.md)을 참조하세요.
+* 확장 집합을 사용할 Azure Storage 계정의 집합을 미리 만들 필요가 없습니다. 확장 집합은 저장소 계정당 디스크 수와 관련된 성능 문제를 무효화하는 Azure Managed Disks를 지원합니다. 자세한 내용은 [Azure 가상 머신 크기 집합 및 관리되는 디스크](virtual-machine-scale-sets-managed-disks.md)를 참조하세요.
 * 보다 빠르고 예측 가능한 VM 프로비전 시간 및 향상된 I/O 성능을 위해 Azure Storage 대신 Azure Premium Storage를 사용하는 것이 좋습니다.
 * 배포하려는 지역의 vCPU 할당량에 따라 만들 수 있는 VM 개수가 제한됩니다. 현재 Azure Cloud Services에 사용할 vCPU 한도가 높더라도, 계산 할당량 한도를 높이려면 고객 지원팀에 문의해야 합니다. 할당량을 쿼리하려면 이 Azure CLI 명령 `az vm list-usage`을 실행합니다. 또는 이 PowerShell 명령 `Get-AzureRmVMUsage`를 실행합니다.
 
@@ -151,7 +151,7 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 
 **Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
-**A.** 가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 컴퓨터가 크기 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+**A.** 가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
 
 **Q.** 그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
 
@@ -159,10 +159,10 @@ Azure 리소스의 기본 JSON 정의를 보거나 편집해야 하는 경우 [A
 
 **Q.** 크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
 
-**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다. 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure VM Scale Sets의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 확인할 수 있습니다.
+**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다. 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure 가상 머신 확장 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 확인할 수 있습니다.
 
 **Q.** 크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
-**A.** 예. 크기 집합은 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적인 가용성 집합입니다. 100대 이상인 VM의 확장 집합은 여러 가용성 집합에 해당하는 여러 *배치 그룹*으로 확장됩니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 컴퓨터 확장 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
+**A.** 예. 확장 집합은 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적인 가용성 집합입니다. 100대 이상인 VM의 확장 집합은 여러 가용성 집합에 해당하는 여러 *배치 그룹*으로 확장됩니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
-확장 집합에 대한 질문의 자세한 답변은 [Azure Virtual Machine Scale Sets FAQ](virtual-machine-scale-sets-faq.md)에서 확인할 수 있습니다.
+확장 집합에 대한 질문의 자세한 답변은 [Azure 가상 머신 확장 집합 FAQ](virtual-machine-scale-sets-faq.md)에서 확인할 수 있습니다.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -50,12 +50,10 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 | SSO(Single Sign-On) 옵션 | 설명 |
 | --- | --- |
 | 암호 해시 동기화 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화되며 클라우드에서 인증이 이루어집니다. 자세한 내용은 [암호 해시 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. |
-|통과 인증|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자 암호가 온-프레미스 Active Directory 컨트롤러를 통해 전달되어 검증됩니다.
+|통과 인증|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자 암호는 유효성을 검사하기 위해 온-프레미스 Active Directory 도메인 컨트롤러로 전달됩니다.
 | AD FS로 페더레이션 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
-| 구성하지 않음 |기능이 설치 및 구성되지 않았습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
-|Single Sign-On을 사용하도록 설정|이 옵션은 암호 동기화 및 통과 인증 모두로 사용 가능하며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다.  자세한 내용은 [Single sign-on](active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>(PTA가 동시에 릴리스되지 않은 경우)
-|로그인 옵션|이 옵션은 암호 해시 동기화 고객에게 제공되며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다.  </br>자세한 내용은 [Single sign-on](active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.
-
+| 구성하지 않음 |사용자 로그인 기능이 설치 및 구성되지 않습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
+|Single Sign-On을 사용하도록 설정|이 옵션은 암호 동기화 및 통과 인증 모두로 사용 가능하며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다. 자세한 내용은 [Single sign-on](active-directory-aadconnect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>
 
 ### <a name="connect-to-azure-ad"></a>Azure에 연결
 Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
@@ -81,11 +79,10 @@ Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충�
 
 | 옵션 | 설명 |
 | --- | --- |
-| 기존 계정 사용 | 디렉터리 동기화 중에 AD 포리스트에 연결하기 위해 Azure AD Connect를 사용할 기존 AD DS 계정을 제공하려면 이 옵션을 선택합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요. |
 | 새 계정 만들기 | Azure AD Connect 마법사에서 디렉터리 동기화 중에 AD 포리스트에 연결하기 위해 Azure AD Connect에 필요한 AD DS 계정을 만들게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 엔터프라이즈 관리자 계정의 사용자 이름과 암호를 입력합니다. Azure AD Connect 마법사에서 제공된 엔터프라이즈 관리자 계정을 사용하여 필요한 AD DS 계정을 만듭니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\administrator 또는 fabrikam.com\administrator). |
+| 기존 계정 사용 | 디렉터리 동기화 중에 AD 포리스트에 연결하기 위해 Azure AD Connect를 사용할 기존 AD DS 계정을 제공하려면 이 옵션을 선택합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요. |
 
 ![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 로그인 구성
 이 페이지를 사용하면 온-프레미스 AD DS에 있는 UPN 도메인을 검토하고 이는 Azure AD에서 확인됩니다. 또한 이 페이지를 사용하면 userPrincipalName에 사용할 특성을 구성할 수 있습니다.
@@ -239,7 +236,7 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 >페더레이션 트러스트를 관리하는 데 사용하지 않는 경우에도 Azure AD Connect를 사용하여 AD FS 팜의 SSL 인증서를 업데이트할 수 있습니다.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS 구성 필수 조건
-Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap)에 나열된 포트 요구 사항을 살펴봅니다.
+Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [페더레이션 필수 구성 요소](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration)에서 다른 작업이 완료되었는지 확인합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap)에 나열된 포트 요구 사항을 살펴봅니다.
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>새 AD FS 팜을 만들거나 기존 AD FS 팜 사용
 기존 AD FS 팜을 사용하거나 새 AD FS 팜을 만들도록 선택할 수 있습니다. 새로 만들기를 선택하는 경우 SSL 인증서를 제공해야 합니다. SSL 인증서가 암호로 보호된 경우 암호를 묻는 메시지가 나타납니다.
@@ -252,7 +249,7 @@ Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에�
 >Azure AD Connect는 AD FS 팜을 하나만 관리하는 데 사용할 수 있습니다. 선택한 AD FS 팜에 구성된 Azure AD와 기존 페더레이션 트러스트가 있는 경우 트러스트는 Azure AD Connect에서 다시 처음부터 만들어집니다.
 
 ### <a name="specify-the-ad-fs-servers"></a>AD FS 서버 지정
-AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 이 구성을 수행하기 전에 모든 서버를 Active Directory에 조인합니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 AD FS 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다.
+AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 이 구성을 수행하기 전에 모든 AD FS 서버(WAP 서버에는 필요하지 않음)를 Active Directory에 조인합니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 AD FS 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다.
 
 > [!NOTE]
 > 이 구성을 수행하기 전에 모든 서버가 AD 도메인에 조인되었는지 확인 하십시오.
@@ -265,7 +262,7 @@ AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항�
 웹 응용 프로그램 프록시 서버로 사용할 서버를 입력합니다. 웹 응용 프로그램 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 웹 응용 프로그램 프록시 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다. 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버를 두는 것이 좋습니다.
 
 > [!NOTE]
-> <li> 사용할 계정이 AD FS 서버의 로컬 관리자가 아닌 경우 관리자 자격 증명에 대한 메시지가 표시됩니다.</li>
+> <li> 사용할 계정이 WAP 서버의 로컬 관리자가 아닌 경우 관리자 자격 증명을 요구하는 메시지가 표시됩니다.</li>
 > <li> 이 단계를 실행하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
 > <li> 인증 요청이 진행될 수 있도록 웹 응용 프로그램 서버와 AD FS 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
 >

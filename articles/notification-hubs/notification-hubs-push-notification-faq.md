@@ -1,6 +1,6 @@
 ---
 title: "Azure Notification Hubs: FAQ(질문과 대답) | Microsoft Docs"
-description: "알림 허브에서 솔루션을 디자인/구현하는 방법과 관련한 FAQ"
+description: "Notification Hubs에서 솔루션을 디자인/구현하는 방법과 관련한 FAQ"
 services: notification-hubs
 documentationcenter: mobile
 author: ysxu
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 ## <a name="general"></a>일반
@@ -29,7 +29,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 권장되는 매핑은 하나의 네임스페이스를 하나의 앱과 일치시키는 것입니다. 네임스페이스 내에 프로덕션 앱과 작동하는 프로덕션 허브, 테스트 앱과 작동하는 테스트 허브 등이 있을 수 있습니다.
 
-### <a name="what-is-the-price-model-for-notification-hubs"></a>알림 허브의 가격 책정 모델은 무엇인가요?
+### <a name="what-is-the-price-model-for-notification-hubs"></a>Notification Hubs의 가격 책정 모델은 무엇인가요?
 최신 가격 책정 정보는 [Notification Hubs 가격 책정] 페이지에서 찾을 수 있습니다. Notification Hubs는 네임스페이스 수준에서 대금이 청구됩니다. (네임스페이스에 대한 정의는 “Notification Hubs의 리소스 구조는 무엇입니까?” 참조) Notification Hubs는 세 가지 계층을 제공합니다.
 
 * **체험**: 이 계층은 푸시 기능을 탐색하기 적절한 시작점입니다. 프로덕션 앱에는 권장되지 않습니다. 네임스페이스마다 매달 500개의 장치와 백만 개의 푸시를 Service Level Agreement(서비스 수준 약정) 보장 없이 받게 됩니다.
@@ -41,13 +41,13 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 * **다중 테넌트**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
 
-### <a name="what-is-the-notification-hubs-sla"></a>알림 허브 SLA란?
-기본 및 표준 알림 허브 계층의 경우에 올바르게 구성된 응용 프로그램은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
+### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
+기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 응용 프로그램은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
 
 > [!NOTE]
 > 푸시 알림은 타사 플랫폼 알림 시스템(예: Apple APNS 및 Google FCM)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
 
-### <a name="which-customers-are-using-notification-hubs"></a>어떤 고객이 알림 허브를 사용하나요?
+### <a name="which-customers-are-using-notification-hubs"></a>어떤 고객이 Notification Hubs를 사용하나요?
 많은 고객이 Notification Hubs를 사용합니다. 주목할 만한 고객은 여기에 나열되어 있습니다.
 
 * 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 장치를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: 소치]
@@ -79,7 +79,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Mobile Apps와 Azure Notification Hubs는 어떻게 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
 기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure Notification Hubs를 사용할 수 있습니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure App Service의 Mobile Apps를 사용하는 것이 좋습니다. 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Mobile Apps의 가격 책정에는 알림 허브의 기본 요금이 포함됩니다. 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [App Service 가격 책정] 페이지로 이동하세요.
 
-### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>알림 허브를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
+### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Notification Hubs를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
 지원되는 장치 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
 천만 개 이상의 등록된 장치에 대한 지원이 필요한 경우 직접 [문의](https://azure.microsoft.com/overview/contact-us/)하여 솔루션을 확장하도록 합니다.
@@ -179,14 +179,14 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 앱이 열리지 않은 장치가 알림을 수신하지 않을 때 시간 간격이 있게 됩니다.
 
 ### <a name="is-there-audit-log-capability"></a>감사 로그 기능이 있나요?
-모든 Notification Hubs 관리 작업은 [Azure 클래식 포털]에 표시되는 작업 로그에 기록됩니다.
+모든 Notification Hubs 관리 작업은 [Azure Portal]에 표시되는 작업 로그에 기록됩니다.
 
 ## <a name="monitoring-and-troubleshooting"></a>모니터링 및 문제 해결
 ### <a name="what-troubleshooting-capabilities-are-available"></a>어떤 문제 해결 기능이 제공되나요?
 Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공하며, 특히 알림 삭제와 관련한 가장 일반적인 시나리오에서 사용 가능한 기능을 제공합니다. 자세한 내용은 [Notification Hubs 문제 해결] 백서를 참조하세요.
 
 ### <a name="what-telemetry-features-are-available"></a>어떤 원격 분석 기능이 제공되나요?
-Azure Notification Hubs에서는 [Azure 클래식 포털]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
+Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
 > [!NOTE]
 > 정상적인 알림은 푸시 알림이 외부 PNS(예: Apple의 APNS, Google의 GCM 등)에 배달되었음을 의미합니다. 이것은 대상 장치에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
@@ -195,7 +195,7 @@ Azure Notification Hubs에서는 [Azure 클래식 포털]의 원격 분석 데�
 
 표준 계층에서는 프로그래밍 방식으로 원격 분석 데이터를 내보내는 기능도 제공합니다. 자세한 내용은 [Notification Hubs 메트릭 샘플]을 참조하세요.
 
-[Azure 클래식 포털]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [사례 연구: 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Azure Notification Hubs에서는 [Azure 클래식 포털]의 원격 분석 데�
 [Notification Hubs 메트릭]: https://msdn.microsoft.com/library/dn458822.aspx
 [Notification Hubs 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/

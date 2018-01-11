@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 배포 문제: FAQ(질문과 대답)
 
-이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [클라우드 서비스 VM 크기 페이지](cloud-services-sizes-specs.md)를 참조할 수도 있습니다.
+이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -75,3 +75,8 @@ Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클
 
     호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용하는 프록시/shim을 통해 전송되므로 이 작업은 [Azure Portal](https://portal.azure.com)에서 작동합니다. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 저장소 계정을 제공하도록 하는 이유는 무엇인가요? 
+
+클래식 포털에서는 패키지가 관리 API 계층에 직접 업로드되면 API 계층에서 패키지를 내부 저장소 계정에 임시로 저장했습니다.  API 계층은 파일 업로드 서비스로 설계되지 않았기 때문에 이 프로세스로 인해 성능 및 확장성 문제가 발생합니다.  Azure Portal(Resource Manager 배포 모델)에서는 API 계층에 먼저 업로드하는 중간 단계를 무시하여 보다 빠르고 안정적인 배포가 가능해졌습니다. 
+
+비용 측면에서는 매우 작지만 모든 배포에서 동일한 저장소 계정을 재사용할 수 있습니다. [요금 계산기](https://azure.microsoft.com/en-us/pricing/calculator/#storage1)를 사용하여 서비스 패키지(CSPKG)를 업로드하고 CSPKG를 다운로드한 다음 CSPKG를 삭제하는 비용을 확인할 수 있습니다. 

@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: 통합된 시스템 릴리스 정보
           items:
+            - name: 1712 업데이트
+              href: azure-stack-update-1712.md
             - name: 1711 업데이트
               href: azure-stack-update-1711.md
             - name: 1710 업데이트
@@ -121,6 +123,21 @@
               href: azure-stack-replace-disk.md
             - name: 구성 요소 교체
               href: azure-stack-replace-component.md
+        - name: Azure 스택 백업
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: 관리 콘솔에서 Azure 스택에 대 한 백업을 사용 하도록 설정
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Azure 스택 powershell에 대 한 백업을 사용 하도록 설정
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Azure 스택 백업
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: 치명적인 데이터 손실 로부터 복구
+              href: azure-stack-backup-recover-data.md
+            - name: 백업 모범 사례
+              href: azure-stack-backup-best-practices.md
+            - name: 백업 참조
+              href: azure-stack-backup-reference.md
     - name: '보안, 규정 준수 및 ID'
       items:
         - name: 보안 개요
@@ -195,6 +212,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: 마켓플레이스에 게시 도구를 사용 하 여
               href: azure-stack-marketplace-publisher.md
+            - name: Azure 스택에 대해 지원 되는 게스트 운영 체제
+              href: azure-stack-supported-os.md
             - name: 사용자 지정 가상 머신 이미지 추가
               href: azure-stack-add-vm-image.md
             - name: 가상 머신 확장 집합 추가

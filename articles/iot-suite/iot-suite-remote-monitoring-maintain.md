@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>장치 문제 해결 및 수정
 
@@ -46,11 +46,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 ![대시보드에서 경보 탐색](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-이제 **유지 관리** 페이지에서 경보의 목록을 확인할 수 있습니다.
-
-![유지 관리 페이지의 경보 목록](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-경보의 세부 정보를 표시하려면 **경보** 목록에서 경보를 선택합니다. 세부 정보 보기는 다음을 보여 줍니다.
+경보의 세부 정보 보기는 다음을 보여 줍니다.
 
 * 경보가 트리거된 시점
 * 경보와 연결된 장치에 대한 상태 정보
@@ -70,7 +66,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 **프로토타입** 장치의 문제를 수정하려면 장치에서 **DecreaseTemperature** 메서드를 호출해야 합니다.
 
-장치에서 작동하려면 장치 목록에서 선택한 다음 **일정**을 선택합니다. **엔진** 장치 모델은 장치에서 지원해야 하는 3개의 메서드를 지정합니다.
+장치에서 작동하려면 장치 목록에서 선택한 다음 **일정**을 선택합니다. **프로토타입** 장치 모델은 장치에서 지원해야 하는 4개의 메서드를 지정합니다.
 
 ![장치에서 지원하는 메서드 보기](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 ![온도를 줄이는 작업 만들기](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-**유지 관리** 페이지에서 작업의 상태를 추적하려면 **시스템 상태**를 선택합니다. **시스템 상태** 보기를 사용하여 솔루션에서 모든 작업 및 메서드 호출을 추적합니다.
+**유지 관리** 페이지에서 작업의 상태를 추적하려면 **작업**을 선택합니다. **작업** 보기를 사용하여 솔루션에서 모든 작업 및 메서드 호출을 추적합니다.
 
 ![온도를 줄이는 작업 모니터링](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-특정 작업 또는 메서드 호출의 세부 정보를 보려면 **시스템 상태** 보기의 목록에서 선택합니다.
+특정 작업 또는 메서드 호출의 세부 정보를 보려면 **작업** 보기의 목록에서 선택합니다.
 
 ![작업 세부 정보 보기](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

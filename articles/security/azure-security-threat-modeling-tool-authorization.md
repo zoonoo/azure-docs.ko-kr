@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 문서 |
@@ -28,12 +28,12 @@ ms.lasthandoff: 10/11/2017
 | **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[테넌트에서 다른 테넌트의 데이터에 액세스하지 못하도록 방지하는 RLS(행 수준 보안) 구현](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
 | **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 장치 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 직접 액세스할 수 있는 액세스 토큰 사용 금지](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
-| **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 DocumentDB에 연결](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |
 | **Azure 신뢰 경계** | <ul><li>[RBAC(역할 기반 액세스 제어)를 사용하여 Azure 구독에 대해 세분화된 액세스 관리를 사용하도록 설정](#grained-rbac)</li></ul> |
 | **Service Fabric 신뢰 경계** | <ul><li>[RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용](#modeling-field)</li></ul> |
 | **Dynamics CRM 포털** | <ul><li>[포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링 수행](#portal-security)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure 저장소 계정에 RBAC를 사용하도록 설정](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure 저장소 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정](#rbac-azure-manager)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[암시적 무단 해제 또는 루팅 검색 구현](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[WCF - 약한 클래스 참조](#weak-class-wcf)</li><li>[WCF - 권한 부여 제어 구현](#wcf-authz)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 적절한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
@@ -179,7 +179,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | [Iot Hub 액세스 제어](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **참조**              | [Iot Hub Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
 | **단계** | 클라우드 게이트웨이(IoT Hub)에 연결하는 다양한 구성 요소에 대한 최소 권한을 제공합니다. 일반적인 예로 장치 관리/프로비전 구성 요소는 레지스트리 읽기/쓰기를 사용하고, 이벤트 프로세서(ASA)는 서비스 연결을 사용합니다. 개별 장치는 장치 자격 증명을 사용하여 연결합니다.|
 
 ## <a id="sendonly-sas"></a>송신 전용 권한 SAS 키를 사용하여 장치 토큰 생성
@@ -224,7 +224,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | 리소스 토큰은 DocumentDB 권한 리소스와 연관되며, 데이터베이스 사용자와 해당 사용자가 특정 Document 응용 프로그램 리소스(예: 컬렉션, 문서)에 대해 갖고 있는 권한 및 데이터베이스 사용자 사이의 관계를 캡처합니다. 최종 사용자 응용 프로그램(예: 모바일 또는 데스크톱 클라이언트)과 같이 클라이언트에서 마스터 또는 읽기 전용 키를 처리하여 신뢰할 수 없는 경우 항상 리소스 토큰을 사용하여 DocumentDB에 액세스해야 합니다. 이러한 키를 안전하게 저장할 수 있는 백 엔드 응용 프로그램에서 마스터 키 또는 읽기 전용 키를 사용합니다.|
+| **단계** | 리소스 토큰은 Azure Cosmos DB 권한 리소스와 연관되며, 데이터베이스 사용자와 해당 사용자가 특정 Azure Cosmos DB 응용 프로그램 리소스(예: 컬렉션, 문서)에 대해 갖고 있는 권한 사이의 관계를 캡처합니다. 최종 사용자 응용 프로그램(예: 모바일 또는 데스크톱 클라이언트)과 같이 클라이언트에서 마스터 또는 읽기 전용 키를 처리하여 신뢰할 수 없는 경우 항상 리소스 토큰을 사용하여 Azure Cosmos DB에 액세스해야 합니다. 이러한 키를 안전하게 저장할 수 있는 백 엔드 응용 프로그램에서 마스터 키 또는 읽기 전용 키를 사용합니다.|
 
 ## <a id="grained-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Azure 구독에 대해 세분화된 액세스 관리를 사용하도록 설정
 
@@ -235,7 +235,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **단계** | Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다.|
+| **단계** | Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다.|
 
 ## <a id="cluster-rbac"></a>RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한
 
@@ -274,22 +274,22 @@ WHERE userID=:id < - session var
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 테이블 |
 | **참조**              | [SAS를 사용하여 Azure 저장소 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 | **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 저장해야 할 수 있습니다. 이러한 경우 사용자가 특정 국가의 특정 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정하여 SAS 서명을 구성할 수 있습니다.| 
 
-## <a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure 저장소 계정에 RBAC를 사용하도록 설정
+## <a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure 저장소 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **참조**              | [RBAC(역할 기반 Access Control)를 사용하여 저장소 계정의 보안을 유지하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | **단계** | <p>새 저장소 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 저장소 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 저장소 계정을 추가하고 해당 특정 저장소 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 저장소 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 저장소 계정에 대한 정보는 볼 수 있지만 저장소 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
 
 ## <a id="rooting-detection"></a>암시적 무단 해제 또는 루팅 검색 구현

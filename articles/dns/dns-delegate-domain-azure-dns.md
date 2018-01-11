@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS에 도메인 위임
 
@@ -30,7 +30,7 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 차례로 클릭한 다음 **DNS 영역**을 클릭하여 [DNS 영역 만들기] 페이지를 엽니다.
+1. 허브 메뉴에서 **새로 만들기 > 네트워킹 >**을 차례로 클릭한 다음 **DNS 영역**을 클릭하여 **DNS 영역 만들기** 페이지를 엽니다.
 
     ![DNS 영역](./media/dns-domain-delegation/dns.png)
 

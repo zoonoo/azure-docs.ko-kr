@@ -4,7 +4,7 @@ description: "이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c10a636b81751074f219682fec79ffe9f648a2c8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication에서 앱 암호란 무엇인가요?
-Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트와 같은 특정 비브라우저 앱은 현재 다단계 인증을 지원하지 않습니다. 다단계 인증은 사용자 기준으로 사용되도록 설정됩니다. 즉, 다단계 인증을 사용할 수 있도록 설정된 사용자는 비브라우저 앱을 사용할 수 없습니다. 그렇지만 앱 암호를 사용하면 가능해집니다.
+Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트와 같은 특정 비브라우저 앱은 현재 다단계 인증을 지원하지 않습니다. 다단계 인증은 사용자 기준으로 사용되도록 설정됩니다. 즉, 다단계 인증을 사용할 수 있도록 설정된 사용자는 비브라우저 앱을 사용할 수 없습니다. 그렇지만 앱 암호를 사용하면 가능해집니다. 사용자별 MFA를 통하지 않고 조건부 액세스 정책을 통해 Multi-Factor Authentication을 적용하는 경우 앱 암호를 만들 수 없습니다. 조건부 액세스 정책을 사용하여 액세스를 제어하는 응용 프로그램은 앱 암호가 필요하지 않습니다.
 
 앱 암호를 만든 후 이러한 비브라우저 앱에서 원래 암호 대신 사용할 수 있습니다. 이는 2단계 인증을 위해 등록할 때 두 번째 인증을 수행할 수 없는 경우에도 누군가가 암호로 로그인하지 못하도록 Microsoft에 알리기 때문입니다. 휴대폰의 Apple 네이티브 메일 클라이언트는 2단계 인증을 요청할 수 없기 때문에 로그인할 수 없습니다. 이에 대한 해결 방법은 일상적으로 사용하지 않는 보다 안전한 앱 암호를 만드는 것이지만 2단계 인증을 지원할 수 없는 앱에만 해당됩니다. 앱에서 다단계 인증을 우회하여 계속 작동하도록 앱 암호를 사용합니다.
 

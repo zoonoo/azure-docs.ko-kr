@@ -12,19 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/16/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6da36184baee921c828b037e1337df2d14c79462
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 4462276724628de09fdefb21ff0f3eb61561a09e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Windows 컴퓨터에서 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 물리적 또는 가상 Windows 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Windows VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
+
+Windows 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Azure Log Analytics를 사용하여 환경에서 데이터 수집](log-analytics-concept-hybrid.md#prerequisites)을 검토하세요.
  
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: b99cf767fb931d3f7fe14fcbe7990126244613ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
 이 자습서는 각 단계를 상세히 설명하지 않고 위에서 설명한 솔루션을 설정하는 데 필요한 단계를 보여주기 위한 것입니다. 따라서 GUI 구성 단계를 제공하는 대신 PowerShell 스크립팅을 사용하여 각 단계를 신속히 진행합니다. 이 자습서에서는 다음을 가정합니다.
 
-* 가상 컴퓨터 구독이 포함된 Azure 계정이 이미 있습니다.
+* 가상 머신 구독이 포함된 Azure 계정이 이미 있습니다.
 * [Azure PowerShell cmdlet](/powershell/azure/overview)이 설치되어 있습니다.
 * 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
@@ -349,7 +349,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
     위의 명령과 관련하여 다음에 유의합니다.
 
-   * **New-AzureVMConfig**는 도메인 컨트롤러 서버와 동일한 가용성 집합 이름을 사용하며 가상 컴퓨터 갤러리의 SQL Server 2012 서비스 팩 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성하는 것이 좋습니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
+   * **New-AzureVMConfig**는 도메인 컨트롤러 서버와 동일한 가용성 집합 이름을 사용하며 가상 머신 갤러리의 SQL Server 2012 서비스 팩 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성하는 것이 좋습니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
    * **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 가입시킵니다.
    * **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
    * **Add-AzureEndpoint**는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있도록 액세스 끝점을 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.

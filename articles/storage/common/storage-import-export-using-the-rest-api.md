@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure Import/Export 서비스 REST API 사용
 
-Microsoft Azure Import/Export 서비스는 내보내기/가져오기 작업을 프로그래밍 방식으로 제어하도록 설정하는 REST API를 노출합니다. REST API를 사용하여 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있는 모든 가져오기/내보내기 작업을 수행할 수 있습니다. 또한 REST API를 사용하여 Azure 클래식 포털에서는 현재 사용할 수 없는 작업 완료 비율을 쿼리하는 등의 특정 세부적인 작업을 수행할 수 있습니다.
+Microsoft Azure Import/Export 서비스는 내보내기/가져오기 작업을 프로그래밍 방식으로 제어하도록 설정하는 REST API를 노출합니다. REST API를 사용하여 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있는 모든 가져오기/내보내기 작업을 수행할 수 있습니다. 또한 REST API를 사용하여 Azure Portal에서는 현재 사용할 수 없는 작업 완료 비율을 쿼리하는 등의 특정 세부적인 작업을 수행할 수 있습니다.
 
-Import/Export 서비스에 대한 개요 및 클래식 포털을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](../storage-import-export-service.md)을 참조하세요.
+Import/Export 서비스에 대한 개요 및 포털을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](../storage-import-export-service.md)을 참조하세요.
 
 ## <a name="service-endpoints"></a>서비스 끝점
 
@@ -52,7 +52,7 @@ Import/Export 서비스에 대한 요청은 `api-version` 매개 변수를 지�
 
 [드라이브 매니페스트 백업](../storage-import-export-backing-up-drive-manifests.md)
 
-[가져오기/내보내기 작업에 대한 진단 및 오류 복구](../storage-import-export-diagnostics-and-error-recovery.md)
+[Import/Export 작업에 대한 진단 및 오류 복구](../storage-import-export-diagnostics-and-error-recovery.md)
 
 ## <a name="next-steps"></a>다음 단계
 

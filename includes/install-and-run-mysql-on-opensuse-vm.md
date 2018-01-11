@@ -36,7 +36,7 @@
         mysql -u root -p
    
     MySQL 루트 암호(이전 단계에서 변경한 암호)를 입력하면 데이터베이스와 상호 작용하는 SQL 문을 실행할 수 있는 프롬프트가 표시됩니다.
-7. 새 MySQL 사용자를 만들려면 **mysql>** 프롬프트에서 다음을 실행합니다.
+7. 새 MySQL 사용자를 만들려면 **mysql>** 프롬프트에서 다음 명령을 실행합니다.
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    여기서 `ip-address` 는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
+    여기서 `ip-address`는 MySQL에 연결할 컴퓨터의 IP 주소입니다.
 10. MySQL 데이터베이스 관리 유틸리티에서 나오려면 다음을 입력합니다.
     
         quit
 
 ## <a name="add-an-endpoint"></a>끝점 추가
-1. MySQL이 설치되면 MySQL에 원격으로 액세스하도록 끝점을 구성해야 합니다. [Azure 클래식 포털][AzurePortal]에 로그인합니다. **Virtual Machines**를 클릭하고 새 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
+1. MySQL이 설치되면 MySQL에 원격으로 액세스하도록 끝점을 구성해야 합니다. [Azure Portal][AzurePortal]에 로그인합니다. **Virtual Machines**를 클릭하고 새 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
 2. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
 3. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다.
 4. 컴퓨터에서 가상 컴퓨터에 원격으로 연결하려면 다음을 입력합니다.
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    예를 들어 이 자습서에서 만든 가상 컴퓨터를 사용하여 다음 명령을 입력합니다.
+    예를 들어 이 자습서에서 만든 가상 머신을 사용하여 다음 명령을 입력합니다.
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

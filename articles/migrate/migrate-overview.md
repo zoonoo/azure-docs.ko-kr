@@ -1,24 +1,16 @@
 ---
 title: "Azure Migrate 정보 | Microsoft Azure"
 description: "Azure Migrate 서비스의 개요를 제공합니다."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -41,13 +33,12 @@ Azure Migrate의 기능:
 - 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션을 평가할 수 있습니다.
 
 > [!NOTE]
-> Hyper-V는 준비 중이며 향후 몇 달 이내에 지원될 예정입니다. 그 사이에는 Azure Site Recovery Deployment Planner를 사용하여 Hyper-V 워크로드 마이그레이션을 계획하시기 바랍니다. 
+> Hyper-V에 대한 지원은 준비 중이며 곧 사용할 수 있습니다. 그 동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하는 것이 좋습니다. 
 
-- 단일 평가에서 최대 1000대의 VM을 평가할 수 있고, 단일 Azure Migrate 프로젝트에서 최대 1500대의 컴퓨터를 평가할 수 있습니다. 더 많은 컴퓨터를 평가해야 하는 경우 프로젝트 또는 평가의 수를 늘리면 됩니다. [자세히 알아봅니다](how-to-scale-assessment.md).
+- 단일 검색에서 최대 1,000개의 VM을 검색하고’ 단일 프로젝트에서 최대 1,500개의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 400개의 VM을 평가할 수 있습니다. 더 많이 검색하거나 평가해야 하는 경우 검색 또는 평가의 수를 늘릴 수 있습니다. [자세히 알아보기](how-to-scale-assessment.md).
 - 평가하려는 VM이 vCenter Server 버전 5.5, 6.0 또는 6.5를 통해 관리되어야 합니다.
 - 미국 중서부 지역에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 다른 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에는 영향이 없습니다. 마이그레이션 프로젝트의 위치는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다.
-- Azure Migrate 포털은 현재 영어로 제공됩니다. 
-- 현재 Azure Migrate는 [LRS(로컬 중복 저장소)](../storage/common/storage-introduction.md#replication) 복제만 지원합니다.
+- 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
 
@@ -91,7 +82,7 @@ Azure Migrate는 추가 요금 없이 사용할 수 있습니다. 그러나 공�
 |-------------------|------------------------|---------------|---------|
 |데이터 수집기          |Azure Migrate 서비스   |TCP 443        |수집기는 SSL 포트 443을 통해 서비스에 연결|
 |데이터 수집기          |vCenter Server          |기본값 9443   | 기본적으로는 수집기는 9443 포트로 vCenter 서버에 연결합니다. 서버가 다른 포트에서 수신 대기하는 경우 수집기 VM에서 송신 포트로 구성되어야 합니다. |
-|온-프레미스 VM     | OMS(Operations Management Suite) 작업 영역          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA 에이전트는 TCP 443을 사용하여 Log Analytics에 연결합니다. 종속성 시각화 기능을 사용하고 MMA(Microsoft Monitoring Agent) 에이전트를 설치하려는 경우에만 이 포트가 필요합니다. |
+|온-프레미스 VM     | OMS(Operations Management Suite) 작업 영역          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA 에이전트는 TCP 443을 사용하여 Log Analytics에 연결합니다. 종속성 시각화 기능을 사용하고 MMA(Microsoft Monitoring Agent) 에이전트를 설치하려는 경우에만 이 포트가 필요합니다. |
 
 
   
@@ -106,7 +97,7 @@ Azure Migrate 서비스를 사용하여 온-프레미스 컴퓨터 마이그레�
   - 장애 조치(failover)를 실행하여 온-프레미스 컴퓨터를 Azure로 마이그레이션합니다. 
   - [자세한 내용](../site-recovery/tutorial-migrate-on-premises-to-azure.md)은 Site Recovery 마이그레이션 자습서를 참조하세요.
 
-- **Azure Database Migration**: 온-프레미스 컴퓨터가 SQL Server, MySQL 또는 Oracle 같은 데이터베이스를 실행 중인 경우 Azure Database Migration Service를 사용하여 Azure로 마이그레이션할 수 있습니다. [자세히 알아봅니다](https://azure.microsoft.com/campaigns/database-migration/).
+- **Azure Database Migration**: 온-프레미스 컴퓨터가 SQL Server, MySQL 또는 Oracle 같은 데이터베이스를 실행 중인 경우 Azure Database Migration Service를 사용하여 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/campaigns/database-migration/).
 
 
 

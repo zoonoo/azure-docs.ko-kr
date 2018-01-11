@@ -13,11 +13,11 @@
       items:
         - name: .NET
           href: create-sql-api-dotnet.md
-        - name: Java
+        - name: 자바
           href: create-sql-api-java.md
         - name: Node.js
           href: create-sql-api-nodejs.md
-        - name: Python
+        - name: 파이썬
           href: create-sql-api-python.md
         - name: Xamarin
           href: create-sql-api-xamarin-dotnet.md
@@ -31,7 +31,7 @@
           href: create-mongodb-java.md
         - name: Golang
           href: create-mongodb-golang.md
-        - name: Python
+        - name: 파이썬
           href: create-mongodb-flask.md
     - name: 그래프
       items:
@@ -43,7 +43,7 @@
           href: create-graph-java.md
         - name: Node.js
           href: create-graph-nodejs.md
-        - name: Python
+        - name: 파이썬
           href: create-graph-python.md
         - name: PHP
           href: create-graph-php.md
@@ -51,21 +51,21 @@
       items:
         - name: .NET
           href: create-table-dotnet.md
-        - name: Java
+        - name: 자바
           href: create-table-java.md
         - name: Node.js
           href: create-table-nodejs.md
-        - name: Python
+        - name: 파이썬
           href: create-table-python.md
     - name: Cassandra
       items:
         - name: Node.js
           href: create-cassandra-nodejs.md
-        - name: Java
+        - name: 자바
           href: create-cassandra-java.md
         - name: .NET
           href: create-cassandra-dotnet.md
-        - name: Python
+        - name: 파이썬
           href: create-cassandra-python.md
 - name: 자습서
   items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: 성능 테스트
               href: performance-testing.md
-            - name: 성능 팁
+            - name: .NET용 성능 팁
               href: performance-tips.md
+            - name: Java용 성능 팁
+              href: performance-tips-java.md
             - name: 다중 마스터 설치
               href: multi-region-writers.md
             - name: DateTimes
@@ -203,7 +205,7 @@
                       href: sql-api-get-started.md
                     - name: .NET Core
                       href: sql-api-dotnetcore-get-started.md
-                    - name: Java
+                    - name: 자바
                       href: sql-api-java-get-started.md
                     - name: Node.js
                       href: sql-api-nodejs-get-started.md
@@ -235,7 +237,7 @@
                   href: sql-api-sql-query-cheat-sheet.md
                 - name: 스택 오버플로
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
-                - name: 비디오
+                - name: 동영상
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 서비스 업데이트
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
@@ -252,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Robomongo 사용
               href: mongodb-robomongo.md
+            - name: Mongoose 사용
+              href: mongodb-mongoose.md
             - name: MongoDB 기능 지원
               href: mongodb-feature-support.md
             - name: Angular 자습서 시리즈
@@ -296,7 +300,7 @@
                       href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
                     - name: Node.js
                       href: table-storage-cloud-service-nodejs.md
-                    - name: Java
+                    - name: 자바
                       href: table-storage-how-to-use-java.md
                     - name: Node.js
                       href: table-storage-how-to-use-nodejs.md
@@ -304,9 +308,9 @@
                       href: table-storage-how-to-use-c-plus.md
                     - name: PHP
                       href: table-storage-how-to-use-php.md
-                    - name: Python
+                    - name: 파이썬
                       href: table-storage-how-to-use-python.md
-                    - name: 루비
+                    - name: Ruby
                       href: table-storage-how-to-use-ruby.md
                     - name: PowerShell
                       href: table-storage-how-to-use-powershell.md
@@ -384,7 +388,7 @@
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: SQL API
       items:
-        - name: Java
+        - name: 자바
           href: sql-api-sdk-java.md
         - name: .NET
           href: sql-api-sdk-dotnet.md
@@ -394,7 +398,7 @@
           href: sql-api-sdk-dotnet-core.md
         - name: Node.js
           href: sql-api-sdk-node.md
-        - name: Python
+        - name: 파이썬
           href: sql-api-sdk-python.md
         - name: REST (영문)
           href: /rest/api/documentdb/
@@ -406,11 +410,11 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
-        - name: Java
+        - name: 자바
           href: table-sdk-java.md
         - name: Node.js
           href: table-sdk-nodejs.md
-        - name: Python
+        - name: 파이썬
           href: table-sdk-python.md
     - name: Graph API
       items:

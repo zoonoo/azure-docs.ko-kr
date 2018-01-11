@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>엔터프라이즈 통합에 대한 XML 유효성 검사
 
@@ -30,29 +30,29 @@ ms.lasthandoff: 10/11/2017
 
 2. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. **XML 유효성 검사** 작업을 추가하려면 **작업 추가**를 선택합니다.
 
 4. 사용하려는 논리 앱으로 모든 작업을 필터링하려면 검색 상자에 *xml*을 입력합니다. **XML 유효성 검사**를 선택합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. 유효성을 검사할 XML 콘텐츠를 지정하려면 **콘텐츠**를 선택합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. 본문 태그를 유효성을 검사하려는 콘텐츠로 선택합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. 이전 *콘텐츠*의 유효성을 검사하는 데 사용할 스키마를 지정하려면 **스키마 이름**을 선택합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. 작업을 저장합니다.  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 이제 유효성 검사 커넥터 설정이 끝났습니다. 실제 응용 프로그램에서는 유효성을 검사한 데이터를 SalesForce와 같은 LOB(기간 업무) 앱에 저장하려고 할 수도 있습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
 

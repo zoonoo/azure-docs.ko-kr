@@ -1,6 +1,6 @@
 ---
 title: "클래식 Linux VM에서 끝점 설정 | Microsoft Docs"
-description: "Azure에서 Linux 가상 컴퓨터와 통신을 허용하도록 Azure 클래식 포털에서 Linux VM에 대한 끝점을 설정하는 방법에 대해 알아봅니다."
+description: "Azure에서 Linux 가상 머신과 통신을 허용하도록 Azure Portal에서 Linux VM에 대한 끝점을 설정하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: ec95f2eb1dfee728192dee325110728a7d079c67
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Azure에서 Linux 클래식 가상 컴퓨터에 끝점을 설정하는 방법
 클래식 배포 모델을 사용하여 Azure에서 만든 모든 Linux 가상 컴퓨터는 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다. 이 문서는 [Windows 가상 컴퓨터](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에도 적용됩니다.

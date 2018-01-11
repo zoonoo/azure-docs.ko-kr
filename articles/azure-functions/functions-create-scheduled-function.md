@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -52,13 +52,17 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 함수�
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. 원하는 언어에 해당하는 **TimerTrigger** 템플릿을 선택합니다. 그런 다음 표에 지정된 것처럼 설정을 사용합니다.
+2. 검색 필드에 `timer`를 입력한 다음 타이머 트리거 템플릿에서 원하는 언어를 선택합니다. 
 
-    ![Azure Portal에서 타이머 트리거 함수를 만듭니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![타이머 트리거 함수 템플릿을 선택합니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. 이미지 아래의 테이블에 지정된 설정을 사용하여 새 트리거를 구성합니다.
+
+    ![Azure Portal에서 타이머 트리거 함수를 만듭니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | 설정 | 제안 값 | 설명 |
     |---|---|---|
-    | **함수 이름 지정** | TimerTriggerCSharp1 | 타이머 트리거 함수의 이름을 정의합니다. |
+    | **Name** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
     | **[일정](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. |
 
 2. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.

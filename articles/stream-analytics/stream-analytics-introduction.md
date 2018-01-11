@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics란 무엇인가요?
 
@@ -42,7 +42,7 @@ Stream Analytics를 사용하여 장치 또는 프로세스에서 대용량 데�
 
 Stream Analytics는 스트리밍 데이터의 원본으로 시작합니다. Azure Event Hub 또는 IoT Hub를 사용하는 장치에서 Azure로 데이터를 수집할 수 있습니다. Azure Blob Storage와 같은 데이터 저장소에서 데이터를 가져올 수도 있습니다. 
 
-스트림을 검사하려면 데이터 출처를 지정하는 Stream Analytics *작업*을 만듭니다. 작업은 또한 *변형*, 데이터, 패턴 또는 관계를 검색하는 방법을 지정합니다. 이 작업의 경우 Stream Analytics는 일정 시간 동안 스트리밍 데이터를 필터링, 정렬, 집계 및 조인하는 SQL 방식 쿼리 언어를 지원합니다.
+스트림을 검사하려면 데이터 출처를 지정하는 Stream Analytics *작업*을 만듭니다. 작업은 또한 *변환*; 데이터, 패턴 또는 관계를 검색하는 방법을 지정합니다. 이 작업의 경우 Stream Analytics는 일정 시간 동안 스트리밍 데이터를 필터링, 정렬, 집계 및 조인하는 SQL 방식 쿼리 언어를 지원합니다.
 
 마지막으로, 작업은 변환된 해당 데이터에 대한 출력을 지정합니다. 분석한 정보에 대해 수행할 작업을 제어합니다. 예를 들어 분석에 대해 다음을 수행할 수 있습니다.
 

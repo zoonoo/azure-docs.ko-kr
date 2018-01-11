@@ -3,7 +3,7 @@ title: "Azure DevTest Labs에 소유자 및 사용자 추가 | Microsoft 문서"
 description: "Azure Portal 또는 PowerShell을 사용하여 Azure DevTest Labs에 소유자 및 사용자 추가"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure DevTest Labs의 액세스는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)를 통해 제어됩니다. RBAC를 사용하면 팀 내에서 업무를 수행하기 위해 사용자에게 필요한 만큼의 액세스 권한을 부여하는 *역할* 로 업무를 분리할 수 있습니다. 이러한 세 가지 RBAC 역할은 *소유자*, *DevTest Labs 사용자* 및 *참가자*입니다. 이 문서에서는 세 가지 주요 RBAC 역할에서 각각 수행할 수 있는 작업을 학습합니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
+Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](../active-directory/role-based-access-control-what-is.md)을 통해 제어됩니다. RBAC를 사용하면 팀 내에서 업무를 수행하기 위해 사용자에게 필요한 만큼의 액세스 권한을 부여하는 *역할* 로 업무를 분리할 수 있습니다. 이러한 세 가지 RBAC 역할은 *소유자*, *DevTest Labs 사용자* 및 *참가자*입니다. 이 문서에서는 세 가지 주요 RBAC 역할에서 각각 수행할 수 있는 작업을 학습합니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>각 역할에서 수행할 수 있는 작업
 사용자를 할당할 수 있는 세 가지 주요 역할이 있습니다.
 
 * 소유자
 * DevTest Lab 사용자
-* 참여자
+* 참가자
 
 다음 표에는 이러한 각 역할의 사용자가 수행할 수 있는 작업에 대해 설명합니다.
 
 | **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **참여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아니요 |예 |아니요 |
-| 비용 설정 업데이트 |아니요 |예 |예 |
+| 랩에 사용자 추가 |아니오 |예 |아니오 |
+| 비용 설정 업데이트 |아니오 |예 |예 |
 | **VM 기본 작업** | | | |
 | 사용자 지정 이미지 추가 및 제거 |아니요 |예 |예 |
 | 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
@@ -51,7 +51,7 @@ Azure DevTest Labs의 액세스는 [Azure RBAC(역할 기반 액세스 제어)](
 | VM 정책 업데이트 |아니요 |예 |예 |
 | VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아니요 |예 |예 |
+| 아티팩트 리포지토리 추가 및 제거 |아니오 |예 |예 |
 | 아티팩트 적용 |예 |예 |예 |
 
 > [!NOTE]

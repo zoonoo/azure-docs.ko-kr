@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -162,7 +162,7 @@ HDFS에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Hdfs
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 | distcpSettings | HDFS DistCp를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | resourceManagerEndpoint | Yarn ResourceManager 끝점 | 예(DistCp를 사용하는 경우) |
-| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 ADF에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
+| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 Data Factory에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
 | distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 아니요 |
 
 **예제: UNLOAD를 사용하여 복사 작업에서 HDFS 원본**

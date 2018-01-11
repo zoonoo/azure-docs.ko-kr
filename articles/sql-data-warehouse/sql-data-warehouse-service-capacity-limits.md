@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 아래 표에는 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최대값이 나와 있습니다.
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/13/2017
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Data Warehouse에 대한 최대 DWU | 탄력성에 최적화됨 [성능 계층](performance-tiers.md): DW6000<br></br>계산에 최적화됨 [성능 계층](performance-tiers.md): DW30000c |
-| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예:<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW600c x 9.0 = 54,000DTU<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예: <br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW600c x 9.0 = 54,000DTU<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
 | 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>1024개의 활성 세션 각각이 동시에 SQL Data Warehouse 데이터베이스로 한 요청을 제출할 수 있습니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리][Workload management] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당되거나 SQL Data Warehouse의 [서비스 수준](performance-tiers.md#service-levels)이 더 낮을 때 동시 쿼리 수가 감소될 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |

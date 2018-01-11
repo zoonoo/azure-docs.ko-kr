@@ -1,9 +1,9 @@
 ---
 title: "Azure Virtual Machines의 변경 내용 추적 | Microsoft Docs"
-description: "변경 내용 추적을 사용하여 가상 컴퓨터의 파일 및 레지스트리 변경 내용을 추적합니다."
+description: "변경 내용 추적을 사용하여 가상 머신의 파일 및 레지스트리 변경 내용을 추적합니다."
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,35 +14,35 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 5c6e8390ec8533fc7ab281c212e47a6982b30f1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="track-changes-in-your-azure-virtual-machines"></a>Azure Virtual Machines의 변경 내용 추적
 
-변경 내용 추적을 사용하여 가상 컴퓨터의 파일 및 Windows 레지스트리 키 변경 내용을 추적할 수 있습니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
+변경 내용 추적을 사용하여 가상 머신의 파일 및 Windows 레지스트리 키 변경 내용을 추적할 수 있습니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
 Azure Virtual Machines에서 직접 변경 내용 추적을 사용할 수 있습니다.
 
-Azure 가상 컴퓨터가 없는 경우 [Windows 퀵 스타트](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux 퀵 스타트](../virtual-machines/linux/quick-create-portal.md) 문서의 지침을 따라 만들 수 있습니다.
+Azure 가상 머신이 없는 경우 [Windows 퀵 스타트](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux 퀵 스타트](../virtual-machines/linux/quick-create-portal.md) 문서의 지침을 따라 만들 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="enable-change-tracking-for-an-azure-virtual-machine"></a>Azure Virtual Machines에 대해 변경 내용 추적 사용
 
-1. Azure Portal의 왼쪽 창에서 **가상 컴퓨터**를 선택합니다.
-2. 목록에서 가상 컴퓨터를 선택합니다.
-3. 가상 컴퓨터 창의 **작업** 아래에서 **변경 내용 추적**을 선택합니다. 
+1. Azure Portal의 왼쪽 창에서 **가상 머신**를 선택합니다.
+2. 목록에서 가상 머신을 선택합니다.
+3. 가상 머신 창의 **작업** 아래에서 **변경 내용 추적**을 선택합니다. 
 
    ![변경 내용 추적 온보드 VM](./media/automation-vm-change-tracking/change-onboard-vm-blade.png)  
     **업데이트 관리 사용** 창이 열립니다.
 
-    이 가상 컴퓨터에 대해 변경 내용 추적을 사용하는지 판단하기 위한 유효성 검사가 수행됩니다. 변경 내용 추적을 사용하지 않는 경우 솔루션 설정 옵션을 제공하는 배너가 표시됩니다.
+    이 가상 머신에 대해 변경 내용 추적을 사용하는지 판단하기 위한 유효성 검사가 수행됩니다. 변경 내용 추적을 사용하지 않는 경우 솔루션 설정 옵션을 제공하는 배너가 표시됩니다.
 
    ![변경 내용 추적 온보드 구성 배너](./media/automation-vm-change-tracking/change-onboard-banner.png)
 
@@ -110,7 +110,7 @@ Azure 가상 컴퓨터가 없는 경우 [Windows 퀵 스타트](../virtual-machi
 
 ## <a name="view-changes"></a>변경 내용 보기
 
-시간 경과에 따라 **변경 내용 추적** 창에서 가상 컴퓨터에 대한 여러 범주의 변경 내용을 볼 수 있습니다.
+시간 경과에 따라 **변경 내용 추적** 창에서 가상 머신에 대한 여러 범주의 변경 내용을 볼 수 있습니다.
 
    ![변경 내용 추적 추가 변경 내용 보기](./media/automation-vm-change-tracking/change-view-changes.png)
 
@@ -127,4 +127,4 @@ Log Analytics에서의 로그 파일 실행 및 검색에 대한 자세한 내�
 ## <a name="next-steps"></a>다음 단계
 
 * 변경 내용 추적에 대한 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적](../log-analytics/log-analytics-change-tracking.md)을 참조하세요.
-* 가상 컴퓨터의 업데이트 관리에 대한 자세한 내용은 [OMS의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.
+* 가상 머신의 업데이트 관리에 대한 자세한 내용은 [OMS의 업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 참조하세요.

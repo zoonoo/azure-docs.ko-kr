@@ -5,11 +5,11 @@
   items:
     - name: Machine Learning은 무엇인가요?
       href: what-is-machine-learning.md
-    - name: Machine Learning 스튜디오
+    - name: Machine Learning Studio
       href: what-is-ml-studio.md
-    - name: ML 스튜디오 기능
+    - name: ML Studio 기능
       href: studio-overview-diagram.md
-    - name: ML 스튜디오 기본 사항(인포그래픽)
+    - name: ML Studio 기본 사항(인포그래픽)
       href: basics-infographic-with-algorithm-examples.md
     - name: 질문과 대답
       href: faq.md
@@ -181,7 +181,7 @@
           href: use-sample-datasets.md
         - name: 고객 이탈 예
           href: azure-ml-customer-churn-scenario.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: Azure PowerShell 모듈(신규)
       href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: 관련 항목
   items:
-    - name: Cortana 인텔리전스 갤러리
+    - name: Azure AI 갤러리
       items:
         - name: 개요
           href: gallery-how-to-use-contribute-publish.md
@@ -233,7 +233,7 @@
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
     - name: 실시간 채팅에서 도움 받기
       href: live-chat.md

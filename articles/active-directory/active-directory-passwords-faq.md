@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -41,6 +41,11 @@ ms.lasthandoff: 12/07/2017
 * **Q: 내 사용자가 자신의 암호 재설정 데이터를 등록할 수 있습니까?**
 
   > **A:** 예. 암호 재설정이 사용되고 라이선스가 부여된 경우 http://aka.ms/ssprsetup의 암호 재설정 등록 포털로 이동하여 인증 정보를 등록할 수 있습니다. 액세스 패널(http://myapps.microsoft.com)을 통해 등록할 수도 있습니다. 액세스 패널을 통해 등록하려면 프로필 사진을 선택하고 **프로필**을 선택한 다음 **암호 재설정 등록** 옵션을 사용해야 합니다.
+  >
+  >
+* **Q: 그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
+
+  > **A:** 아니요. 인증 데이터를 채운 사용자는 다시 등록할 필요가 없습니다.
   >
   >
 * **Q: 내 사용자 대신 암호 재설정 데이터를 정의할 수 있습니까?**

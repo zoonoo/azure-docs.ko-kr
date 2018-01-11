@@ -3,7 +3,7 @@ title: "원하는 상태로 서버 구성 및 Azure Automation으로 드리프�
 description: "자습서 - Azure Automation DSC로 서버 구성 관리"
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 9c0a44b37ac303f3e93c54e3bf691f14ba1d65e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -40,7 +40,7 @@ Azure Automation DSC(필요한 상태 구성 개요)를 사용하면 서버 구�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-* Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 * Azure PowerShell 모듈 버전 3.6 이상 - ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 * DSC에 익숙해야 합니다. DSC에 대한 자세한 내용은 [Windows PowerShell 필요한 상태 구성 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
 

@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Grafana로 메트릭 보내기
       href: monitor-send-to-grafana.md
+    - name: Event Hub에 모니터링 데이터 보내기
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: 참조
   items:
     - name: Azure CLI

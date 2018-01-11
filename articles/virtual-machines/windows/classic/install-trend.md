@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/08/2017
 
 이 클라이언트는 VM 에이전트를 통해 보안 확장 프로그램으로 설치됩니다. VM 에이전트는 Azure Portal에서 자동으로 생성되므로 새 가상 컴퓨터에서 Deep Security Agent를 설치합니다.
 
-클래식 포털, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는 VM 에이전트가 없을 수 있습니다. VM 에이전트가 없는 기존 가상 컴퓨터에서는 이 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
+Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는 VM 에이전트가 없을 수 있습니다. VM 에이전트가 없는 기존 가상 컴퓨터에서는 이 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
 
 온-프레미스 솔루션용 Trend Micro의 현재 구독이 있는 경우 Azure Virtual Machines를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](http://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
 

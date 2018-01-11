@@ -1,6 +1,6 @@
 ---
-title: "Linux용 OMS Azure Virtual Machine 확장 | Microsoft Docs"
-description: "가상 컴퓨터 확장을 사용하여 Linux 가상 컴퓨터에 OMS 에이전트를 배포합니다."
+title: "Linux용 OMS Azure 가상 머신 확장 | Microsoft Docs"
+description: "가상 머신 확장을 사용하여 Linux 가상 머신에 OMS 에이전트를 배포합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: danielsollondon
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 컴퓨터 확장
+# <a name="oms-virtual-machine-extension-for-linux"></a>Linux용 OMS 가상 머신 확장
 
 ## <a name="overview"></a>개요
 
-OMS(Operations Management Suite)는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. Linux용 OMS 에이전트 가상 컴퓨터 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 OMS 에이전트를 설치하고 기존 OMS 작업 영역에 가상 컴퓨터를 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 OMS 가상 컴퓨터 확장에 대한 배포 옵션을 설명합니다.
+OMS(Operations Management Suite)는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. Linux용 OMS 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 OMS 에이전트를 설치하고 기존 OMS 작업 영역에 Virtual Machines를 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 OMS 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,11 +48,11 @@ Azure Security Center는 자동으로 OMS 에이전트를 프로비전하고 Azu
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연결되어 있어야 합니다. 
+Linux용 OMS 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 OMS 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 OMS 포털에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 OMS 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 OMS 포털에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -79,11 +79,11 @@ Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | OmsAgentForLinux |
+| 형식 | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
 | workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -93,9 +93,9 @@ Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연�
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 OMS에 온보딩과 같이 배포 후 구성이 필요한 하나 이상의 Virtual Machines를 배포하는 경우에 이상적입니다. OMS 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
 
-가상 컴퓨터 확장에 대한 JSON 구성은 가상 컴퓨터 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/resource-manager-template-child-resource.md)을 참조하세요. 
+가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources)을 참조하세요. 
 
-다음 예제에서는 OMS 확장이 가상 컴퓨터 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 컴퓨터의 `"resources": []` 개체에 배치됩니다.
+다음 예제에서는 OMS 확장이 가상 컴퓨터 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
 
 ```json
 {
@@ -120,7 +120,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 }
 ```
 
-템플릿의 루트에 JSON 확장을 배치하면 리소스 이름에 부모 가상 컴퓨터에 대한 참조가 포함되며 형식은 중첩된 구성을 반영합니다.  
+템플릿의 루트에 JSON 확장을 배치하면 리소스 이름에 부모 가상 머신에 대한 참조가 포함되며 형식은 중첩된 구성을 반영합니다.  
 
 ```json
 {
@@ -147,7 +147,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 OMS 에이전트 VM 확장을 기존 가상 컴퓨터에 배포할 수 있습니다. OMS 키 및 OMS ID를 OMS 작업 영역의 키로 바꿉니다. 
+Azure CLI를 사용하여 OMS 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. OMS 키 및 OMS ID를 OMS 작업 영역의 키로 바꿉니다. 
 
 ```azurecli
 az vm extension set \

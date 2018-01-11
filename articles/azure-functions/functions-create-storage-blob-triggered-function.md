@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -51,19 +51,23 @@ ms.lasthandoff: 10/11/2017
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. 원하는 언어에 해당하는 **BlobTrigger** 템플릿을 선택하고 테이블에 지정된 대로 설정을 사용합니다.
+2. 검색 필드에 `blob`를 입력한 다음 Blob Storage 트리거 템플릿에서 원하는 언어를 선택합니다.
 
-    ![Blob Storage 트리거 함수 만들기.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Blob Storage 트리거 템플릿을 선택합니다.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. 이미지 아래의 표에 지정된 설정을 사용합니다.
+
+    ![Blob Storage 트리거 함수 만들기.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | 설정 | 제안 값 | 설명 |
     |---|---|---|
-    | **Path**   | mycontainer/{name}    | 모니터링되는 Blob Storage의 위치입니다. 바인딩에 _name_ 매개 변수로 전달되는 Blob의 파일 이름입니다.  |
-    | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
-    | **함수 이름 지정** | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
+    | **Name** | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
+    | **Path**   | samples-workitems/{name}    | 모니터링되는 Blob Storage의 위치입니다. 바인딩에 _name_ 매개 변수로 전달되는 Blob의 파일 이름입니다.  |
+    | **Storage 계정 연결** | AzureWebJobsStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |
 
 3. **만들기**를 클릭하여 사용자의 함수를 만듭니다.
 
-다음으로 Azure Storage 계정에 연결하고 **mycontainer** 컨테이너를 만듭니다.
+다음으로 Azure Storage 계정에 연결하고 **samples-workitems** 컨테이너를 만듭니다.
 
 ## <a name="create-the-container"></a>컨테이너 만들기
 
@@ -79,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 
     ![저장소 자격 증명 입력 및 연결.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 연결된 저장소 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `mycontainer`를 입력한 후 Enter 키를 누릅니다.
+1. 연결된 저장소 계정을 확장하고 **Blob 컨테이너**를 마우스 오른쪽 단추로 클릭하고 **Blob 컨테이너 만들기**를 클릭하고 `samples-workitems`를 입력한 후 Enter 키를 누릅니다.
 
     ![저장소 큐 만들기.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Azure Portal로 돌아가서 함수를 찾은 후 페이지 맨 아래에 있는 **로그**를 확장하고 로그 스트리밍이 일시 중지되지 않았는지 확인합니다.
 
-1. Storage 탐색기에서 저장소 계정, **Blob 컨테이너** 및 **mycontainer**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...**를 클릭합니다.
+1. Storage 탐색기에서 저장소 계정, **Blob 컨테이너** 및 **samples-workitems**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...**를 클릭합니다.
 
     ![Blob 컨테이너에 파일 업로드.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
