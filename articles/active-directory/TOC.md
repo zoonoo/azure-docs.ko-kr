@@ -44,6 +44,7 @@
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 ### [관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
+### [삭제된 사용자 복원](active-directory-users-restore.md)
 ### [다른 디렉터리(B2B)에서 게스트 사용자 추가](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](active-directory-b2b-admin-add-users.md)
 #### [B2B 사용자를 추가하는 지식 근로자](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [명명된 위치 구성](active-directory-named-locations.md)
 #### [활동 보고서 보기](active-directory-reporting-migration.md)
 #### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
-### 참고 자료
+### 참조
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -342,7 +343,7 @@
 ### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
 
 
-# 참고 자료
+# 참조
 ## [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)

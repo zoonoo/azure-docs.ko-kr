@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Robomongo 사용
               href: mongodb-robomongo.md
+            - name: Mongoose 사용
+              href: mongodb-mongoose.md
             - name: MongoDB 기능 지원
               href: mongodb-feature-support.md
             - name: Angular 자습서 시리즈
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: SQL API에 Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
