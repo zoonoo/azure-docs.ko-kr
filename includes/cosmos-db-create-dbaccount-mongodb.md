@@ -5,7 +5,7 @@
 
 3. **새 계정** 블레이드에서 Azure Cosmos DB 계정에 대해 원하는 구성을 지정합니다. 
 
-    Azure Cosmos DB를 사용하면 Gremlin(그래프), MongoDB, SQL(DocumentDB) 및 테이블(키-값)의 4가지 프로그래밍 모델 중 하나를 선택할 수 있습니다. 
+    Azure Cosmos DB를 사용하면 Gremlin(그래프), MongoDB, SQL 및 Table(키-값) 등 네 가지 프로그래밍 모델 중 하나를 선택할 수 있습니다. 
        
     이 빠른 시작에서는 MongoDB API에 대한 프로그래밍을 수행하므로 양식을 작성할 때 **MongoDB**를 선택합니다. 하지만 소셜 미디어 앱에 대한 그래프 데이터, 카탈로그 앱의 문서 데이터 또는 키/값(테이블) 데이터가 있는 경우, Azure Cosmos DB는 모든 중요 업무용 응용 프로그램에 대해 전 세계에 분산된 고가용성 데이터베이스 서비스 플랫폼을 제공할 수 있습니다.
 

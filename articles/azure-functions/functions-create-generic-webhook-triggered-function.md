@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>제네릭 웹후크를 통해 트리거되는 함수 만들기
 
@@ -48,9 +48,13 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. **제네릭 웹후크 - C#** 템플릿을 선택합니다. C# 함수의 이름을 입력하고 **만들기**를 선택합니다.
+2. 검색 필드에 `generic`을 입력한 다음 일반 웹후크 트리거 템플릿에 사용할 언어를 선택합니다. 이 항목에서는 C# 함수를 사용합니다.
 
-     ![Azure Portal에서 제네릭 웹후크를 통해 트리거되는 함수 만들기](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![일반 웹후크 트리거 템플릿 선택](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. 함수의 **이름**을 입력한 다음 **만들기**를 선택합니다. 
+
+     ![Azure Portal에서 제네릭 웹후크를 통해 트리거되는 함수 만들기](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. 새 함수에서 **</> 함수 URL 가져오기**를 클릭한 다음 값을 복사하여 저장합니다. 이 값을 사용하여 웹후크를 구성합니다. 
 

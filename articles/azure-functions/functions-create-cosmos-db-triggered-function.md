@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -50,9 +50,9 @@ ms.lasthandoff: 12/06/2017
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. 원하는 언어에 대한 **Azure CosmosDBTrigger** 템플릿을 찾아서 선택합니다.
+2. 검색 필드에 `cosmos`를 입력한 다음 Azure Cosmos DB 트리거 템플릿에서 원하는 언어를 선택합니다.
 
-    ![Azure Cosmos DB에 의해 트리거되는 함수 만들기](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Azure Cosmos DB 트리거 선택](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. 이미지 아래의 테이블에 지정된 설정을 사용하여 새 트리거를 구성합니다.
 
@@ -60,10 +60,10 @@ ms.lasthandoff: 12/06/2017
     
     | 설정      | 제안 값  | 설명                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **함수 이름 지정** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다. |
-    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션이 포함된 데이터베이스의 이름입니다. |
+    | **Name** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다. |
     | **컬렉션 이름** | 항목 | 모니터링할 컬렉션의 이름입니다. |
     | **임대 컬렉션이 없는 경우 새로 만들기** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
+    | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션이 포함된 데이터베이스의 이름입니다. |
 
 4. **Azure Cosmos DB 계정 연결** 레이블 옆에 있는 **새로 만들기**를 선택하고, 기존 Cosmos DB 계정을 선택하거나 **+ 새로 만들기**를 선택합니다. 
  

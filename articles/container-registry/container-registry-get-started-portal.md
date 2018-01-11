@@ -6,22 +6,22 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/31/2017
+ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: e6338ca03bcb0daa040a62b06cfa3ad7ba66a1b2
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Container Registry를 만듭니다.
 
-이 빠른 시작을 완료하려면 Docker를 로컬로 설치해야 합니다. Docker는 모든 [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 또는 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+이 빠른 시작을 완료하려면 Docker를 로컬로 설치해야 합니다. Docker는 모든 [Mac][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
@@ -35,7 +35,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ![Azure Portal에서 컨테이너 레지스트리 만들기][qs-portal-03]
 
-이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU](container-registry-skus.md)를 참조하세요.
+이 빠른 시작에서는 *Basic* 레지스트리를 만듭니다. Azure Container Registry는 다음 표에 간략하게 설명된 몇 개의 다른 SKU에서 사용할 수 있습니다. 각각에 대해 확장된 세부 정보를 보려면 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -55,13 +55,13 @@ Docker CLI를 사용하여 사용자 레지스트리를 사용하는 동안 다�
 
 ## <a name="log-in-to-acr"></a>ACR에 로그인
 
-컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 이렇게 하려면 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용합니다. *username*, *password* 및 *login server* 값을 이전 단계에서 적어 둔 값으로 바꿉니다.
+컨테이너 이미지를 밀어넣고 끌어오려면 먼저 ACR 인스턴스에 로그인해야 합니다. 이렇게 하려면 [docker login][docker-login] 명령을 사용합니다. *username*, *password* 및 *login server* 값을 이전 단계에서 적어 둔 값으로 바꿉니다.
 
 ```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-완료되면 이 명령은 `Login Succeeded`를 반환합니다. `--password-stdin` 매개 변수를 사용하도록 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
+완료되면 이 명령은 `Login Succeeded`를 반환합니다. `--password-stdin` 매개 변수를 사용하도록 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login][docker-login] 명령 참조를 참조하세요.
 
 ## <a name="push-image-to-acr"></a>ACR에 이미지 푸시
 
@@ -71,13 +71,13 @@ Azure Container Registry에 이미지를 푸시하려면 먼저 이미지가 있
 docker pull microsoft/aci-helloworld
 ```
 
-레지스트리에 이미지를 푸시하려면 먼저 ACR 로그인 서버 이름으로 이미지에 태그를 지정해야 합니다. [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 명령을 사용하여 이미지에 태그를 지정합니다. *login server*를 이전에 기록해 둔 로그인 서버 이름으로 바꿉니다.
+레지스트리에 이미지를 푸시하려면 먼저 ACR 로그인 서버 이름으로 이미지에 태그를 지정해야 합니다. [docker tag][docker-tag] 명령을 사용하여 이미지에 태그를 지정합니다. *login server*를 이전에 기록해 둔 로그인 서버 이름으로 바꿉니다.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-마지막으로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *login server*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
+마지막으로 [docker push][docker-push]를 사용하여 ACR 인스턴스로 이미지를 푸시합니다. *login server*를 ACR 인스턴스의 로그인 서버 이름으로 바꿉니다.
 
 ```
 docker push <login server>/aci-helloworld:v1
@@ -115,7 +115,7 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들었습니다. Azure Container Instances와 함께 Azure Container Registry를 사용하려는 경우 Azure Container Instances 자습서를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances 자습서](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances 자습서][container-instances-tutorial-prepare-app]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
@@ -127,3 +127,15 @@ ACR 인스턴스의 이미지를 나열하려면 포털에서 레지스트리로
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
+[container-registry-skus]: container-registry-skus.md

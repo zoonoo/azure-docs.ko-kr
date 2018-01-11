@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 62cd20474e7770c30353fc74dfc67086593fca7a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Azure Container Service(AKS) 소개
 
@@ -34,10 +34,10 @@ AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes 클러스�
 AKS 클러스터의 노드 관리를 Azure가 처리하므로 클러스터 업그레이드 등의 여러 작업을 수행할 필요가 없어집니다. Azure가 이렇게 중요한 유지 관리를 대신 수행하므로 AKS는 클러스터에 대한 직접 액세스(예: SSH 사용)를 제공하지 않습니다.
 
 ## <a name="using-azure-container-service-aks"></a>Azure Container Service(AKS) 사용
-AKS의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 표준 Kubernetes API 끝점을 공개합니다. 이러한 표준 끝점을 사용하면 Kubernetes 클러스터와 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) 또는 [draft](https://github.com/Azure/draft)를 선택할 수 있습니다.
+AKS의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 표준 Kubernetes API 끝점을 공개합니다. 이러한 표준 끝점을 사용하면 Kubernetes 클러스터와 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 [kubectl][kubectl-overview], [helm][helm] 또는 [draft][draft]를 선택할 수 있습니다.
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Azure Container Service(AKS)를 사용하여 Kubernetes 클러스터 만들기
-AKS를 사용하기 시작하려면 [Azure CLI](./kubernetes-walkthrough.md) 또는 포털(**Azure Container Service**에 대한 Marketplace 검색)을 통해 AKS 클러스터를 배포합니다. Azure Resource Manager 템플릿을 통해 더 많은 제어를 필요로 하는 고급 사용자인 경우 오픈 소스 [acs-engine](https://github.com/Azure/acs-engine) 프로젝트를 사용하여 사용자 지정 Kubernetes 클러스터를 빌드하여 `az` CLI를 통해 배포할 수 있습니다.
+AKS를 사용하기 시작하려면 [Azure CLI][aks-quickstart] 또는 포털(**Azure Container Service**에 대한 Marketplace 검색)을 통해 AKS 클러스터를 배포합니다. Azure Resource Manager 템플릿을 통해 더 많은 제어를 필요로 하는 고급 사용자인 경우 오픈 소스 [acs-engine][acs-engine] 프로젝트를 사용하여 사용자 지정 Kubernetes 클러스터를 빌드하여 `az` CLI를 통해 배포할 수 있습니다.
 
 ### <a name="using-kubernetes"></a>Kubernetes 사용
 Kubernetes는 컨테이너화된 응용 프로그램의 배포, 크기 조정 및 관리를 자동화합니다. 여기에는 다음과 같이 풍부한 기능들이 포함되어 있습니다.
@@ -67,4 +67,14 @@ Kubernetes에서 응용 프로그램을 개발 및 배포하기 위한 도구 - 
 AKS 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아 봅니다.
 
 > [!div class="nextstepaction"]
-> [AKS 자습서](./kubernetes-walkthrough.md)
+> [AKS 자습서][aks-quickstart]
+
+<!-- LINKS - external -->
+[acs-engine]: https://github.com/Azure/acs-engine
+[draft]: https://github.com/Azure/draft
+[helm]: https://helm.sh/
+[kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+
