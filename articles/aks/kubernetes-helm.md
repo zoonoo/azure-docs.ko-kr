@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포"
 description: "Helm 패키징 도구를 사용하여 AKS Kubernetes 클러스터에 컨테이너 배포"
 services: container-service
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>AKS(Azure Container Service)에서 Helm 사용
 
-[Helm](https://github.com/kubernetes/helm/)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
+[Helm][helm]은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
 이 문서에서는 AKS Kubernetes 클러스터에서 Helm을 구성하고 사용하는 과정을 단계별로 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하세요.
+이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
 ## <a name="install-helm-cli"></a>Helm CLI 설치
 
 Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm 차트가 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
 
-Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치](https://github.com/kubernetes/helm/blob/master/docs/install.md)를 참조하세요.
+Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치][helm-install-options]를 참조하세요.
 
 ```console
 brew install kubernetes-helm
@@ -50,7 +50,7 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Helm 구성
 
-[helm init](https://docs.helm.sh/helm/#helm-init) 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. Helm을 AKS 클러스터에 설치하고 Helm 클라이언트를 구성하려면 다음 명령을 실행합니다.
+[helm init][helm-init] 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. 다음 명령을 실행하여 AKS 클러스터에 Helm을 설치하고 Helm 클라이언트를 구성하세요.
 
 ```azurecli-interactive
 helm init
@@ -59,14 +59,15 @@ helm init
 출력:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 응용 프로그램을 배포하는 데 사용됩니다. 미리 생성된 Helm 차트를 검색하려면 [helm search](https://docs.helm.sh/helm/#helm-search) 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 응용 프로그램을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
 
 ```azurecli-interactive
 helm search
@@ -94,7 +95,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-차트 목록을 업데이트하려면 [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) 명령을 사용합니다.
+차트 목록을 업데이트하려면 [helm repo update][helm-repo-update] 명령을 사용합니다.
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Helm 차트 실행
 
-NGINX 수신 컨트롤러를 배포하려면 [helm install](https://docs.helm.sh/helm/#helm-install) 명령을 사용합니다.
+NGINX 수신 컨트롤러를 배포하려면 [helm install][helm-install] 명령을 사용합니다.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +143,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-Kubernetes에서 NGINX 수신 컨트롤러를 사용하는 방법에 대한 자세한 내용은 [NGINX 수신 컨트롤러](https://github.com/kubernetes/ingress/tree/master/controllers/nginx)를 참조하세요.
+Kubernetes에서 NGINX 수신 컨트롤러를 사용하는 방법에 대한 자세한 내용은 [NGINX Ingress Controller][nginx-ingress](NGINX 수신 컨트롤러)를 참조하세요.
 
 ## <a name="list-helm-charts"></a>Helm 차트 목록 표시
 
-클러스터에 설치된 차트 목록을 보려면 [helm list](https://docs.helm.sh/helm/#helm-list) 명령을 사용합니다.
+클러스터에 설치된 차트 목록을 보려면 [helm list][helm-list] 명령을 사용합니다.
 
 ```azurecli-interactive
 helm list
@@ -164,4 +165,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 Kubernetes 차트 관리 방법에 대한 자세한 내용은 Helm 설명서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Helm 설명서](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm 설명서][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

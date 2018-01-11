@@ -3,7 +3,7 @@ title: Compiling configurations in Azure Automation DSC | Microsoft Docs
 description: "이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Automation DSC에서 구성을 컴파일
 
@@ -131,16 +131,16 @@ PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래
 
 ## <a name="composite-resources"></a>복합 리소스
 
-**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다.  이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다.  **복합 리소스**에 대해 자세히 알아보려면 [복합 리소스: DSC 구성을 리소스로 사용](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite)을 참조하세요.
+**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다.  **복합 리소스**에 대해 자세히 알아보려면 [복합 리소스: DSC 구성을 리소스로 사용](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)을 참조하세요.
 
 > [!NOTE]
 > **복합 리소스**가 올바르게 컴파일되도록 하려면 먼저 복합 리소스가 의존하는 DSC 리소스가 Azure Automation 계정 모듈 리포지토리에 처음 설치되었거나 제대로 가져 오지 못하게 해야 합니다.
 
-DSC **복합 리소스**를 추가하려면 리소스 모듈을 보관 파일(*.zip)에 추가해야 합니다. Azure Automation 계정의 모듈 리포지토리로 이동합니다.  그런 다음 '모듈 추가' 단추를 클릭합니다.
+DSC **복합 리소스**를 추가하려면 리소스 모듈을 보관 파일(*.zip)에 추가해야 합니다. Azure Automation 계정의 모듈 리포지토리로 이동합니다. 그런 다음 '모듈 추가' 단추를 클릭합니다.
 
 ![모듈 추가](./media/automation-dsc-compile/add_module.png)
 
-보관 파일이 있는 디렉터리로 이동합니다.  보관 파일을 선택하고 확인을 클릭합니다.
+보관 파일이 있는 디렉터리로 이동합니다. 보관 파일을 선택하고 확인을 클릭합니다.
 
 ![모듈 선택](./media/automation-dsc-compile/select_dscresource.png)
 

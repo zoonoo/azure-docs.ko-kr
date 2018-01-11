@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트-Azure Cosmos DB DocumentDB API 계정 만들기 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - Azure Cosmos DB DocumentDB API 계정 만들기"
+title: "Azure PowerShell 스크립트 - Azure Cosmos DB SQL API 계정 만들기 | Microsoft Docs"
+description: "Azure PowerShell 스크립트 샘플 - Azure Cosmos DB SQL API 계정 만들기"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 9b54236ce3446fe1c6a2a30b31f6d91ad43a92d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell을 사용하여 DocumentDB API 계정 만들기
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell을 사용하여 SQL API 계정 만들기
 
 이 샘플 PowerShell 스크립트는 Azure Cosmos DB API 계정을 만듭니다. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps 및 Azure Cosmos DB를 사용하여 환자에게 HL7 FHIR 의료 기록 변경 통지
 
@@ -54,7 +54,7 @@ Azure MVP Howard Edidin은 최근에 환자 포털에 새 기능을 추가하길
 
 ### <a name="azure-services-used-in-the-solution"></a>솔루션에 사용된 Azure 서비스
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 Azure Cosmos DB는 다음 그림과 같이 FHIR 리소스에 대한 리포지토리입니다.
 
 ![이 HL7 FHIR 의료 자습서에서 사용된 Azure Cosmos DB 계정](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -76,7 +76,7 @@ Logic Apps는 워크플로 프로세스를 처리합니다. 다음 스크린샷�
 
     ![본문에 HL7 FHIR 리소스가 포함된 환자 전자 메일을 보내는 논리 앱](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
-#### <a name="service-bus"></a>서비스 버스
+#### <a name="service-bus"></a>Service Bus
 다음 그림에서는 환자 큐를 보여 줍니다. 태그 속성 값은 전자 메일 제목에 사용됩니다.
 
 ![이 HL7 FHIR 자습서에서 사용한 Service Bus 큐](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
@@ -86,7 +86,7 @@ Logic Apps는 워크플로 프로세스를 처리합니다. 다음 스크린샷�
 #### <a name="api-app"></a>API 앱
 API 앱은 Azure Cosmos DB에 연결해서 리소스 유형별로 새롭거나 수정된 FHIR 문서를 쿼리합니다. 이 앱에는 하나의 작업 **GetNewOrModifiedFhirDocuments**가 있는 하나의 컨트롤러 **FhirNotificationApi**가 있습니다. [API 앱의 소스](#api-app-source)를 참조하세요.
 
-Azure Cosmos DB DocumentDB .NET API에서 [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 클래스를 사용하고 있습니다. 자세한 내용은 [변경 사항 피드 문서](change-feed.md)를 참조하세요. 
+Azure Cosmos DB SQL .NET API에서 [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 클래스를 사용하고 있습니다. 자세한 내용은 [변경 사항 피드 문서](change-feed.md)를 참조하세요. 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments 작업
 

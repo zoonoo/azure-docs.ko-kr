@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 있는 계산 노드의 수 및 가용성 관리
 Azure VM에 HPC Pack 2012 R2 클러스터를 만든 경우 클러스터에서 일부 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다. 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>매개 변수
 * **ServiceName**: 새 계산 노드 VM이 추가될 클라우드 서비스의 이름입니다.
-* **ImageName**: Azure VM 이미지 이름으로, Azure 클래식 포털 또는 Azure PowerShell cmdlet **Get-AzureVMImage**를 통해 가져올 수 있습니다. 이 이미지는 다음 요구 사항을 충족해야 합니다.
+* **ImageName**: Azure VM 이미지 이름으로, Azure Portal 또는 Azure PowerShell cmdlet **Get-AzureVMImage**를 통해 가져올 수 있습니다. 이 이미지는 다음 요구 사항을 충족해야 합니다.
   
   1. Windows 운영 체제를 설치해야 합니다.
   2. HPC 팩을 계산 노드 역할로 설치해야 합니다.

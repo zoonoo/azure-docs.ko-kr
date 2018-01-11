@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 중에서 선택
 이 문서는 Microsoft 클라우드의 다음 서비스를 비교하고 대조하며 비즈니스 프로세스의 자동화 및 통합 문제를 모두 해결할 수 있습니다.
@@ -41,18 +41,18 @@ Microsoft Flow 및 Azure Logic Apps는 둘 다 *구성 중심* 통합 서비스�
 * 둘 다 동일한 워크플로 디자이너가 있습니다.
 * [커넥터](../connectors/apis-list.md) 는 다른 서비스에서도 작동할 수 있습니다.
 
-Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통합할 수 있도록 해줍니다(예: 중요한 메일에 대해 SMS 수신). 반면에 Logic Apps를 통해 엔터프라이즈 수준의 DevOps 및 보안 사례가 요구되는 고급 또는 중요 업무용 통합(예: B2B 프로세스)을 사용할 수 있습니다. 비즈니스 워크플로의 복잡성이 점차 증가하는 것이 일반적입니다. 그에 따라 우선 Flow를 시작한 다음 필요에 따라 논리 앱으로 변환할 수 있습니다.
+Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통합할 수 있도록 해줍니다(예: SharePoint 문서 라이브러리에 대한 승인 프로세스). 반면에 Logic Apps를 통해 엔터프라이즈 수준의 DevOps 및 보안 사례가 요구되는 고급 통합(예: B2B 프로세스)을 사용할 수 있습니다. 비즈니스 워크플로의 복잡성이 점차 증가하는 것이 일반적입니다. 그에 따라 우선 Flow를 시작한 다음 필요에 따라 논리 앱으로 변환할 수 있습니다.
 
 다음 표를 통해 Flow 또는 Logic Apps가 주어진 통합에 가장 적합한지 여부를 확인할 수 있습니다.
 
 |  | 흐름 | Logic Apps |
 | --- | --- | --- |
-| 대상 |사무실 작업자, 비즈니스 사용자 |IT 전문가, 개발자 |
-| 시나리오 |셀프서비스 |중요 업무용 |
+| 대상 |사무실 직원, 비즈니스 사용자, SharePoint 관리자 |전문 통합 업체 및 개발자, IT 전문가 |
+| 시나리오 |셀프서비스 |고급 통합 |
 | 디자인 도구 |브라우저 및 모바일 앱에서 UI만 해당 |브라우저 내부 및 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [코드 보기](../logic-apps/logic-apps-author-definitions.md) 사용 가능 |
-| DevOps |애드혹, 프로덕션에서 개발 |소스 제어, 테스트, 지원 및 [Azure 리소스 관리](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| 관리자 환경 |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com/](https://portal.azure.com) |
-| 보안 |표준 사례: 중요한 데이터에 대한 [데이터 독립성](https://wikipedia.org/wiki/Technological_Sovereignty), [휴지 상태의 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등 |Azure의 보안 보증: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) 등 |
+| 애플리케이션 수명 주기 관리(ALM) |비프로덕션 환경에서 디자인 및 테스트하고, 준비되면 프로덕션으로 승격합니다. |DevOps: [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)에서 소스 제어, 테스트, 지원, 자동화 및 관리 효율성 |
+| 관리자 환경 |환경 흐름 및 데이터 손실 방지(DLP) 정책 관리, 라이선스 추적 [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |리소스 그룹, 연결, 액세스 관리 및 [https://portal.azure.com](https://portal.azure.com) 로깅에 대한 관리 |
+| 보안 |Office 365 보안 및 규정 준수 감사 로그, 데이터 손실 방지(DLP), 중요한 데이터에 대한 [휴지 시 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등. |Azure의 보안 보증: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) 등 |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 앞에서 설명한 것처럼 가장 적합한 서비스는 상황에 따라 다릅니다. 
 
 * 간단한 비즈니스 최적화에는 Flow를 사용합니다.
-* Flow에는 지나치게 복잡한 통합 시나리오이거나 DevOps 기능 및 보안 정책을 준수해야 하는 경우에는 Logic Apps를 사용합니다.
+* Flow에 대해 지나치게 복잡한 통합 시나리오이거나 DevOps 기능이 필요한 경우 Logic Apps를 사용합니다.
 * 통합 시나리오의 단계에서 고도의 사용자 지정 변환 또는 특수한 코드가 필요한 경우에는 함수를 작성하고 논리 앱에서 동작으로 함수를 트리거합니다.
 
 흐름에서 논리 앱을 호출할 수 있습니다. 논리 앱에서 함수를, 함수에서 논리 앱을 호출할 수도 있습니다. Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 개선됩니다. 하나의 서비스에서 어떤 기능을 빌드하여 다른 서비스에서 사용할 수 있습니다. 따라서 이러한 세 가지 기술로 만드는 노력은 가치가 있습니다.

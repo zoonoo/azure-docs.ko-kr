@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>자습서: Python으로 U-SQL 확장 시작하기
+
+## <a name="prerequisites"></a>필수 조건
+
+시작하기 전에 Azure Data Lake Analytics 계정에 Python 확장이 설치되어 있는지 확인하세요.
+
+* Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
+* 왼쪽 메뉴의 **시작**에서 **샘플 스크립트**를 클릭합니다.
+* **U-SQL Extensions 설치**, **확인** 순으로 클릭합니다.
+
+## <a name="overview"></a>개요 
 
 U-SQL용 Python 확장을 사용하면 개발자가 Python 코드를 대량으로 병렬 실행할 수 있습니다. 다음 예제에서는 기본 단계를 설명합니다.
 

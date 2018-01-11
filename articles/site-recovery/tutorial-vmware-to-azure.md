@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
 이 자습서에서는 Windows를 실행하는 온-프레미스 VMware VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기
-> * 원본 및 대상 복제 환경 설정
+> * 복제 원본 및 대상을 지정합니다.
+> * 온-프레미스 Site Recovery 구성 요소 및 대상 복제 환경을 포함하여 소스 복제 환경을 설정합니다.
 > * 복제 정책 만들기
 > * VM에 대한 복제 사용
 
@@ -35,37 +35,28 @@ ms.lasthandoff: 11/15/2017
 
 시작하기 전에 재해 복구 시나리오에 대한 [아키텍처를 검토](concepts-vmware-to-azure-architecture.md)하는 것이 좋습니다.
 
-## <a name="configure-vmware-account-permissions"></a>VMware 계정 권한 구성
 
-1. vCenter 수준에서 역할을 만듭니다. 역할에 **Azure_Site_Recovery**라는 이름을 지정합니다.
-2. **Azure_Site_Recovery** 역할에 다음 권한을 할당합니다.
+## <a name="select-a-replication-goal"></a>복제 목표 선택
 
-   **Task** | **역할/권한** | **세부 정보**
-   --- | --- | ---
-   **VM 검색** | 데이터 센터 개체 –> 자식 개체에 전파, role=Read 전용 | 읽기 전용 사용자(최소)<br/><br/> 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
-   **전체 복제, 장애 조치, 장애 복구** |  데이터 센터 개체 –> 자식 개체에 전파, role=Azure_Site_Recovery<br/><br/> 데이터 저장소 -> 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 컴퓨터 파일 업데이트<br/><br/> 네트워크 -> 네트워크 할당<br/><br/> 리소스 -> 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션<br/><br/> 태스크 -> 만들기 태스크, 업데이트 태스크<br/><br/> 가상 컴퓨터 -> 구성<br/><br/> 가상 컴퓨터 -> 상호 작용 -> 질문 응답, 장치 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치<br/><br/> 가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소<br/><br/> 가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용<br/><br/> 가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거 | 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.<br/><br/> 액세스를 제한하려는 경우 **자식에 전파** 개체를 사용하여 **액세스 권한 없음** 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
-
-3. vCenter 서버 또는 vSphere 호스트에서 사용자를 만듭니다. 사용자에게 역할을 할당합니다.
-
-## <a name="specify-what-you-want-to-replicate"></a>복제하려는 항목 지정
-
-복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치하려면 Site Recovery에서 VM에 액세스하는 데 사용할 계정을 준비해야 합니다.
-
-도메인 또는 로컬 계정을 사용할 수 있습니다. Linux VM의 경우 계정은 원본 Linux 서버의 루트여야 합니다. Windows VM의 경우 도메인 계정을 사용하지 않으면 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
-
-  - 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가하고 값을 1로 설정합니다.
+1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음 이름 **ContosoVMVault**를 클릭합니다.
+2. **시작**에서 Site Recovery를 클릭합니다. 그런 다음 **인프라 준비**를 클릭합니다.
+3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
+4. **컴퓨터를 복제하려는 위치에서 **대상 Azure**를 선택합니다.
+5. **컴퓨터가 가상화된 경우**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-원본 환경 설정은 Site Recovery 통합 설치 프로그램 다운로드, 구성 서버 설정/자격 증명 모음에 등록 및 VM 검색으로 구성됩니다.
+원본 환경을 설정하려면 Site Recovery 통합 설치 파일을 다운로드합니다. 설치를 실행하여 온-프레미스 Site Recovery 구성 요소를 설치하고, 자격 증명 모음에 VMware 서버를 등록하고, 온-프레미스 VM을 검색합니다.
 
-구성 서버는 모든 Site Recovery 구성 요소를 호스팅하는 단일 온-프레미스 VMware VM입니다. 이 VM은 구성 서버, 프로세스 서버 및 마스터 대상 서버를 실행합니다.
+### <a name="verify-on-premises-site-recovery-requirements"></a>온-프레미스 Site Recovery 요구 사항 확인
+
+온-프레미스 Site Recovery 구성 요소를 호스트하려면 단일 고가용성 온-프레미스 VMware VM이 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
 
 - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware 서버에서 VM의 자동 검색을 수행합니다.
+- 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
 - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
-구성 서버 VM은 다음 요구 사항을 충족하는 고가용성 VMware VM이어야 합니다.
+VM은 다음 요구 사항을 충족해야 합니다.
 
 | **요구 사항** | **세부 정보** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ ms.lasthandoff: 11/15/2017
 | IP 주소 유형 | 정적 |
 | 포트 | 443(컨트롤 채널 오케스트레이션)<br/>9443(데이터 전송)|
 
-구성 서버 VM에서 시스템 시계가 시간 서버와 동기화되었는지 확인합니다.
-시간은 15분 이내에 동기화되어야 합니다. 시간 차이가 15분보다 크면 설치가 실패합니다.
+또한, 
+- VM의 시스템 시계가 시간 서버와 동기화되었는지 확인합니다. 시간은 15분 이내에 동기화되어야 합니다. 더 오래 걸리는 경우 설정이 실패합니다.
+설정이 실패합니다.
+- 구성 서버 VM에서 다음 URL에 액세스할 수 있는지 확인합니다.
 
-구성 서버에서 다음 URL에 액세스할 수 있는지 확인합니다.
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - IP 주소 기반 방화벽 규칙은 Azure와의 통신을 허용해야 합니다.
-
-- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.
+- IP 주소 기반 방화벽 규칙이 Azure와의 통신을 허용하는지 확인합니다.
+    - [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653), 포트 443(HTTPS) 및 포트 9443(데이터 복제)을 허용합니다.
     - 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(액세스 제어 및 ID 관리에 사용됨).
 
-모든 IP 주소 기반 방화벽 규칙에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 443(HTTPS)/9443(데이터 복제) 포트에 대한 통신을 허용해야 합니다. 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용해야 합니다(Access Control 및 Identity Management에 사용됨).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Site Recovery 통합 설치 프로그램 다운로드
+### <a name="download-the-site-recovery-unified-setup-file"></a>Site Recovery 통합 설치 파일 다운로드
 
-1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 클릭합니다.
-2. **ContosoVMVault**라는 Recovery Service 자격 증명 모음을 클릭합니다.
-3. **Site Recovery** > **인프라 준비** > **보호 목표**를 차례로 클릭합니다.
-4. 컴퓨터가 있는 위치에 대해 **온-프레미스**를 선택하고, 컴퓨터를 복제할 위치를 **To Azure(대상 Azure)**로 설정하고, **Yes, with VMware vSphere Hypervisor(예, VMware vSphere 하이퍼바이저 포함)**를 선택합니다. 그런 다음 **확인**을 클릭합니다.
-5. [원본 준비] 창에서 **+ 구성 서버**를 클릭합니다.
-6. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-7. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-8. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
+1. 자격 증명 모음 > **인프라 준비**에서 **원본**을 클릭합니다.
+1. **원본 준비**에서 **+구성 서버**를 클릭합니다.
+2. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
+3. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
+4. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
    ![원본 설정](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="configure-automatic-discovery"></a>자동 검색 구성
 
-VM을 검색하려면 구성 서버에서 온-프레미스 VMware 서버에 연결해야 합니다. 이 자습서에서는 서버에 대한 관리자 권한이 있는 계정을 사용하여 vCenter 서버 또는 vSphere 호스트를 추가합니다.
+VM을 검색하려면 구성 서버에서 온-프레미스 VMware 서버에 연결해야 합니다. 이 자습서에서는 서버에 대한 관리자 권한이 있는 계정을 사용하여 vCenter 서버 또는 vSphere 호스트를 추가합니다. 이 계정은 [이전 자습서](tutorial-prepare-on-premises-vmware.md)에서 만들었습니다. 
 
-1. 구성 서버에서 **CSPSConfigtool.exe**를 시작합니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, *설치 위치*\home\svsystems\bin 폴더에 있습니다.
+계정을 추가하려면 다음을 수행합니다.
+
+1. 구성 서버 VM에서 **CSPSConfigtool.exe**를 시작합니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, *설치 위치*\home\svsystems\bin 폴더에 있습니다.
 
 2. **계정 관리** > **계정 추가**를 클릭합니다.
 
@@ -158,12 +146,12 @@ VM을 검색하려면 구성 서버에서 온-프레미스 VMware 서버에 연�
 
    ![세부 정보](./media/tutorial-vmware-to-azure/credentials2.png)
 
-서버를 추가하려면
+VMware 서버를 추가하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 클릭합니다.
 2. **ContosoVMVault**라는 Recovery Service 자격 증명 모음을 클릭합니다.
 3. **Site Recovery** > **인프라 준비** > **원본**을 차례로 클릭합니다.
-4. vCenter 서버 또는 vSphere ESXi 호스트에 연결하려면 **+ vCenter**를 선택합니다.
+4. vCenter 서버 또는 vSphere ESXi 호스트에 연결하려면 **+vCenter**를 선택합니다.
 5. **vCenter 추가**에서 서버에 대한 표시 이름을 지정합니다. 그런 다음 IP 주소 또는 FQDN을 지정합니다.
 6. VMware 서버가 다른 포트에서 요청을 수신 대기하도록 구성되지 않은 경우 443으로 설정된 포트를 그대로 둡니다.
 7. 서버 연결에 사용할 계정을 선택합니다. **확인**을 클릭합니다.

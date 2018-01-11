@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>임계값 기반 규칙을 사용하여 문제 감지
 
@@ -67,12 +67,12 @@ Contoso에는 **냉각기** 장치에서 보고된 압력이 250PSI를 초과하
 | 설정          | 값                                 |
 | ---------------- | ------------------------------------- |
 | 이름             | 냉각기 경고                       |
-| 원본           | **냉각기** 장치 그룹              |
-| 트리거 필드    | 압력                              |
+| 원본           | **냉각기** 장치 그룹             |
+| 트리거 필드    | pressure                              |
 | 트리거 연산자 | 다음보다 큼                          |
 | 트리거 값    | 150                                   |
 | 심각도 수준   | Warning                               |
-| 경보 이벤트 텍스트 | 냉각기 압력이 150PSI를 초과함 |
+| 설명      | 냉각기 압력이 150PSI를 초과함 |
 
 새 규칙을 저장하려면 **적용**을 선택합니다.
 

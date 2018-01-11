@@ -4,7 +4,7 @@
 
 - D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-vCPU 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
-- 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+- 원래 D 시리즈의 후속판인 Dv3 시리즈, Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 - 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 컴퓨터가 필요하지 않은 개발 워크로드 및 기타 응용 프로그램에 기본적으로 사용됩니다. 프로덕션 응용 프로그램에 적합한 VM 크기는 (Virtual Machines의 크기)[virtual-machines-size-specs.md]를 참조하세요. 또한 VM 가격 책정 정보는 [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
@@ -23,11 +23,11 @@
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3 시리즈*
+## <a name="dsv3-series-sup1sup"></a>Dsv3 시리즈 <sup>1</sup>
 
 ACU: 160-190
 
-Dsv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성하고 프리미엄 저장소를 사용할 수 있습니다. Dsv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 저장소의 조합을 제공합니다.
+Dsv3 시리즈 크기는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서 또는 최신 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성하고 프리미엄 저장소를 사용할 수 있습니다. Dsv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 저장소의 조합을 제공합니다.
 
 
 | 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
@@ -38,13 +38,14 @@ Dsv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기�
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600/384                              | 8/높음                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200/768                              | 8/매우 높음                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/매우 높음                                       |
-*Dsv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
-## <a name="dv3-series"></a>Dv3 시리즈* 
+<sup>1</sup> Dsv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
+
+## <a name="dv3-series-sup1sup"></a>Dv3 시리즈 <sup>1</sup>
 
 ACU: 160-190
 
-Dv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성할 수 있습니다. Dv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 저장소의 조합을 제공합니다.
+Dv3 시리즈 크기는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서 또는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성할 수 있습니다. Dv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 저장소의 조합을 제공합니다.
 
 데이터 디스크 저장소는 가상 컴퓨터와 별도로 비용이 청구됩니다. 프리미엄 저장소 디스크를 사용하려면 Dsv3 크기를 사용합니다. Dsv3 크기의 가격 및 요금 청구 기준은 Dv3 시리즈와 동일합니다. 
 
@@ -57,7 +58,8 @@ Dv3 시리즈는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기�
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/높음                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/매우 높음                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/매우 높음                     |
-*Dv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
+
+<sup>1</sup> Dv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
 ## <a name="dsv2-series"></a>DSv2 시리즈
 
@@ -137,7 +139,7 @@ ACU: 50-100
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0.768 |20 |1 |1x500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 <br>
 
-*A0 크기는 실제 하드웨어에서 과도하게 구독됩니다. 이 특정 크기만 다른 고객 배포가 실행 중인 워크로드의 성능에 영향을 줄 수 있습니다. 상대적인 성능은 예상 기준으로 아래에 대략적으로 나와 있으며 약 15%의 변동성이 적용됩니다.
+<sup>1</sup> A0 크기는 실제 하드웨어에서 과도하게 구독됩니다. 이 특정 크기만 다른 고객 배포가 실행 중인 워크로드의 성능에 영향을 줄 수 있습니다. 상대적인 성능은 예상 기준으로 아래에 대략적으로 나와 있으며 약 15%의 변동성이 적용됩니다.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>CLI 및 PowerShell을 사용하는 Standard A0-A4
 클래식 배포 모델에서는 CLI와 PowerShell 간에 일부 VM 크기 이름이 약간 다릅니다.

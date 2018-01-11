@@ -1,6 +1,6 @@
 ---
 title: "Stream Analytics 작업에 데이터 입력 추가 | Microsoft Docs"
-description: "데이터 원본을 스트리밍 데이터 입력(이벤트 허브) 또는 참조 데이터(블로그 저장소)로 Stream Analytics 작업에 연결하는 방법을 알아봅니다."
+description: "데이터 원본을 스트리밍 데이터 입력(Event Hubs) 또는 참조 데이터(블로그 저장소)로 Stream Analytics 작업에 연결하는 방법을 알아봅니다."
 keywords: "데이터 입력, 스트리밍 데이터"
 documentationcenter: 
 services: stream-analytics
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics 작업에 스트리밍 데이터 입력 또는 참조 데이터 추가
-Blob 저장소에서 참조 데이터 또는 이벤트 허브에서 데이터 입력을 스트리밍하면서 데이터 소스를 Stream Analytics 작업에 연결하는 방법을 배웁니다.
+Blob 저장소에서 참조 데이터 또는 Event Hubs에서 데이터 입력을 스트리밍하면서 데이터 소스를 Stream Analytics 작업에 연결하는 방법을 배웁니다.
 
 Azure Stream Analytics 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 Stream Analytics 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. Stream Analytics는 작업 구독 내부 및 외부의 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](../storage/blobs/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다.
 
@@ -31,16 +31,16 @@ Azure Stream Analytics 작업은 각각의 기존 데이터 원본에 대한 연
 ## <a name="data-input-streaming-data-and-reference-data"></a>데이터 입력: 스트리밍 데이터 및 참조 데이터
 Stream Analytics에는 데이터 스트림 및 참조 데이터 이렇게 두 가지 입력 형식이 있습니다.
 
-* **데이터 스트림**: Stream Analytics 작업은 작업에서 사용되고 변환될 하나 이상의 데이터 스트림 입력을 포함해야 합니다. Azure Blob 저장소 및 Azure 이벤트 허브는 데이터 스트림 입력 소스로 지원됩니다. Azure 이벤트 허브는 연결된 장치, 서비스 및 응용 프로그램에서 이벤트 스트림을 수집하는 데 사용됩니다. Azure Blob 저장소를 스트림으로 대량 데이터 수집을 위한 입력 소스로 사용할 수 있습니다.  
-* **참조 데이터**: Stream Analytics은 참조 데이터라는 두 번째 형식의 보조 입력을 지원합니다.  동작 중인 데이터와 반대로, 이 데이터는 정적이거나 느리게 변경됩니다.  일반적으로 조회 및 데이터 스트림과의 상관 관계를 수행하여 보다 풍부한 데이터 집합을 만드는 데 사용됩니다.  Azure Blob 저장소는 현재 유일하게 지원되는 참조 데이터용 입력 소스입니다.  
+* **데이터 스트림**: Stream Analytics 작업은 작업에서 사용되고 변환될 하나 이상의 데이터 스트림 입력을 포함해야 합니다. Azure Blob 저장소 및 Azure Event Hubs는 데이터 스트림 입력 소스로 지원됩니다. Azure Event Hubs는 연결된 장치, 서비스 및 응용 프로그램에서 이벤트 스트림을 수집하는 데 사용됩니다. Azure Blob 저장소를 스트림으로 대량 데이터 수집을 위한 입력 소스로 사용할 수 있습니다.  
+* **참조 데이터**: Stream Analytics는 참조 데이터라는 두 번째 형식의 보조 입력을 지원합니다.  동작 중인 데이터와 반대로, 이 데이터는 정적이거나 느리게 변경됩니다.  일반적으로 조회 및 데이터 스트림과의 상관 관계를 수행하여 보다 풍부한 데이터 집합을 만드는 데 사용됩니다.  Azure Blob 저장소는 현재 유일하게 지원되는 참조 데이터용 입력 소스입니다.  
 
 Stream Analytics 작업에 입력을 추가하려면
 
 1. Azure Portal에서 **입력**을 클릭한 다음 Stream Analytics 작업에서 **입력 추가**를 클릭합니다.
    
-    ![Azure 클래식 포털 - 입력을 추가합니다.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure Portal - 입력을 추가합니다.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
-    Azure 포털에서 Stream Analytics 작업의 **입력** 타일을 클릭합니다.  
+    Azure Portal에서 Stream Analytics 작업의 **입력** 타일을 클릭합니다.  
    
     ![Azure 포털 - 데이터 입력을 추가합니다.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
 2. 입력 형식(**데이터 스트림** 또는 **참조 데이터**)을 지정합니다.
@@ -61,7 +61,7 @@ Stream Analytics 작업에 입력을 추가하려면
 5. 입력 데이터에 대한 직렬화 설정을 지정합니다.
    
    * 쿼리가 예상대로 작동하게 하려면 들어오는 데이터의 **이벤트 직렬화 형식** 을 지정합니다.  지원되는 직렬화 형식은 JSON, CSV 및 Avro입니다.
-   * 데이터의 **인코딩** 을 확인합니다.  지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.
+   * 데이터의 **Encoding**을 확인합니다.  지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.
      
      ![데이터 입력에 대한 데이터 직렬화 설정](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      
@@ -78,7 +78,7 @@ Stream Analytics 작업에 입력을 추가하려면
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -148,7 +148,7 @@
    
         using Microsoft.Azure.NotificationHubs;
 
-6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure 클래식 포털](http://manage.windowsazure.com)에서 제공)으로 바꿉니다.
+6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](http://portal.azure.com)에서 제공)으로 바꿉니다.
    
         public class Notifications
         {

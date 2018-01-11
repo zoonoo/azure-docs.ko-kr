@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 96202a4d7e91a221aa655f58f29f2c8e24b86e4e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9bcf30fbf1febbd80aa8899253de8cb61f4ae6f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 
-새로운 또는 기존 Microsoft Azure 지점 및 사이트 간 VPN 연결이 안정적이지 않거나 연결이 자주 끊어지는 문제가 발생할 수 있습니다. 이 문서에서는 이 문제의 원인을 식별하여 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
+새로운 또는 기존 Microsoft Azure 사이트 간 VPN 연결이 안정적이지 않거나 연결이 자주 끊어지는 문제가 발생할 수 있습니다. 이 문서에서는 이 문제의 원인을 식별하여 문제를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

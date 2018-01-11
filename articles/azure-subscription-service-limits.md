@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -29,7 +29,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 > [!NOTE]
 > **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](azure-supportability/resource-manager-core-quotas-request.md)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다.
 >
-> 무료 평가판 구독을 제한하거나 할당량을 증가할 수 없습니다. 무료 평가판을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판에서 종량제로 업그레이드](billing/billing-upgrade-azure-subscription.md)를 참조하세요.
+> [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)은 제한하거나 할당량을 증가할 수 없습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 평가판을 종량제로 업그레이드](billing/billing-upgrade-azure-subscription.md) 및 [평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)를 참조하세요.
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>제한 및 Azure 리소스 관리자
@@ -61,15 +61,15 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [컨테이너 레지스트리](#container-registry-limits)
-* [데이터 팩터리](#data-factory-limits)
-* [데이터 레이크 분석](#data-lake-analytics-limits)
+* [Data Factory](#data-factory-limits)
+* [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT 허브](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
-* [키 자격 증명 모음](#key-vault-limits)
+* [Key Vault](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
@@ -83,9 +83,10 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Scheduler](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [사이트 복구](#site-recovery-limits)
+* [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
-* [저장소](#storage-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
+* [Storage](#storage-limits)
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
@@ -308,6 +309,9 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 
 ### <a name="sql-database-limits"></a>SQL Database 제한
 SQL Database 제한은 [SQL Database 리소스 제한](sql-database/sql-database-resource-limits.md)을 참조하세요.
+
+### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
+SQL Data Warehouse 제한은 [SQL Data Warehouse 리소스 제한](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

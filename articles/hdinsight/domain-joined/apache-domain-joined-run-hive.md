@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -35,7 +35,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
 1. 브라우저에서 Ranger 관리 UI에 연결합니다. URL은 https://&lt;ClusterName>.azurehdinsight.net/Ranger/입니다.
 
    > [!NOTE]
-   > Ranger는 다른 Hadoop 클러스터가 아닌 자격 증명을 사용합니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 방지하려면 새 inprivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
+   > Ranger는 다른 Hadoop 클러스터가 아닌 자격 증명을 사용합니다. 브라우저가 캐시된 Hadoop 자격 증명을 사용하지 않도록 방지하려면 새 InPrivate 브라우저 창을 사용하여 Ranger 관리 UI에 연결합니다.
    >
    >
 2. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용하여 로그인합니다.
@@ -45,10 +45,10 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
     Ranger는 현재 Yarn 및 Hive에서만 작동합니다.
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
-[도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad)에서 hiveruser1 및 hiveuser2를 만들었습니다. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
+[도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)에서 hiveruser1 및 hiveuser2를 만들었습니다. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
-이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad)에서 만들어집니다.  다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
+이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)에서 만들어집니다.  다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
 
 **Ranger 정책을 만들려면**
 

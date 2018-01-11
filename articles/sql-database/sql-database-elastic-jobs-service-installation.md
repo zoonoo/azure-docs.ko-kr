@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
-[**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 Azure 클래식 포털을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
+[**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 PowerShell이나 Azure Portal을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
 
 포털을 통해 기존 **탄력적 풀**에서 **Elastic Database 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **Elastic Database 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
 

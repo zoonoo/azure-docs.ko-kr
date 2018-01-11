@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Queue Storage에 의해 트리거되는 함수 만들기
 
@@ -52,13 +52,16 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. 원하는 언어에 해당하는 **QueueTrigger** 템플릿을 선택하고 테이블에 지정된 대로 설정을 사용합니다.
+2. 검색 필드에 `queue`를 입력한 다음 Queue Storage 트리거 템플릿에서 원하는 언어를 선택합니다.
 
-    ![저장소 큐 트리거 함수 만들기.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![저장소 큐 트리거 템플릿을 선택합니다.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. 이미지 아래의 표에 지정된 설정을 사용합니다.
+    ![저장소 큐 트리거 기능을 구성합니다.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | 설정 | 제안 값 | 설명 |
     |---|---|---|
-    | **함수 이름 지정** | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
+    | **Name** | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
     | **큐 이름**   | myqueue-items    | Storage 계정에서 연결할 큐의 이름입니다. |
     | **Storage 계정 연결** | AzureWebJobStorage | 함수 앱에 이미 사용된 저장소 계정 연결을 사용하거나 새로 만들 수 있습니다.  |    
 

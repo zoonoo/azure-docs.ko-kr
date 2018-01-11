@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -242,7 +242,7 @@ ms.lasthandoff: 12/04/2017
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|백 엔드 서비스 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|시간 초과 없음|  
+|timeout="integer"|백 엔드 서비스 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|300초|  
 |follow-redirects="true &#124; false"|백 엔드 서비스의 리디렉션 뒤에 게이트웨이가 있는지 또는 호출자에게 반환되는지 여부를 지정합니다.|아니요|false|  
   
 ### <a name="usage"></a>사용 현황  
@@ -967,5 +967,5 @@ status code and media type. If no example or schema found, the content is empty.
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 + [API Management의 정책](api-management-howto-policies.md) 
 + [정책 식](api-management-policy-expressions.md)
-+ 정책 명령문 및 설정의 전체 목록에 대한 [정책 참조](api-management-policy-reference.md)
++ [정책 참조](api-management-policy-reference.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](policy-samples.md)   

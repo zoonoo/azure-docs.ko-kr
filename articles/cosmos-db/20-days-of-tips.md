@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB의 20일 팁
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 10/11/2017
 
 팁 11: React, Node.js 및 Azure Cosmos DB를 사용하여 hero 추적 앱을 빌드합니다.
 
-문서: [React 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+문서: [React 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/11/2017
 
 팁 13: @John_Papa 및 Azure Cosmos DB를 사용하여 hero를 처음부터 빌드합니다. MEAN 앱을 처음부터 빌드하는 방법을 알아봅니다.
 
-문서: [Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+문서: [Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 10/11/2017
 
 팁 20: 모두가 훌륭한 이전 참고 자료를 좋아합니다. Azure #CosmosDB에도 하나 있습니다. [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)에서 확인해 보세요.
 
-참고 자료: [Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료 PDF](https://aka.ms/Nt01nl)
+참고 자료: [Azure Cosmos DB: SQL 쿼리 참고 자료 PDF](https://aka.ms/Nt01nl)
 
 [![트위터에서 리트윗](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![LinkedIn에서 공유](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

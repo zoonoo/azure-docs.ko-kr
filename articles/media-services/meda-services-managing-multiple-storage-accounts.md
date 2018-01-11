@@ -1,40 +1,39 @@
 ---
-title: "여러 저장소 계정에서 Media Services 자산 관리 | Microsoft 문서"
+title: "여러 Storage 계정에서 Media Services 자산 관리 | Microsoft 문서"
 description: "이 문서에서는 여러 저장소 계정에서 미디어 서비스 자산을 관리하는 방법에 대한 지침을 제공합니다."
 services: media-services
 documentationcenter: 
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산 관리
-Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단일 미디어 서비스 계정에 연결할 수 있습니다. 여러 저장소 계정을 미디어 서비스 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 Storage 계정에서 Media Services 자산 관리
+Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Media Services 계정에 연결할 수 있습니다. 여러 저장소 계정을 Media Services 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
 
 * 자산을 여러 저장소 계정에서 부하 분산합니다.
-* 대량의 콘텐츠 처리를 위한 미디어 서비스 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
+* 대량의 콘텐츠 처리를 위한 Media Services 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
 
-이 항목에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
+이 문서에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
 
 ## <a name="considerations"></a>고려 사항
-여러 저장소 계정을 미디어 서비스 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
+여러 저장소 계정을 Media Services 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
 
-* 미디어 서비스 계정에 연결된 모든 저장소 계정이 미디어 서비스 계정과 동일한 데이터 센터에 있어야 합니다.
-* 현재는 저장소 계정이 지정된 미디어 서비스 계정에 연결되고 나면 분리할 수 없습니다.
-* 기본 저장소 계정은 미디어 서비스 계정을 만드는 중에 지정된 계정입니다. 현재는 기본 저장소 계정을 변경할 수 없습니다. 
-* 현재 쿨 저장소 계정을 AMS 계정에 추가하려면 저장소 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
+* Media Services 계정에 연결된 모든 저장소 계정이 Media Services 계정과 동일한 데이터 센터에 있어야 합니다.
+* 현재는 저장소 계정이 지정된 Media Services 계정에 연결되고 나면 분리할 수 없습니다.
+* 기본 저장소 계정은 Media Services 계정을 만드는 중에 지정된 계정입니다. 현재는 기본 저장소 계정을 변경할 수 없습니다. 
+* 현재 쿨 Storage 계정을 AMS 계정에 추가하려면 Storage 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
 
 기타 고려 사항:
 
@@ -42,7 +41,7 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 
 ## <a name="to-attach-storage-accounts"></a>저장소 계정을 연결하려면  
 
-저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용합니다.
+저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용합니다.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -60,12 +59,12 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 
 ### <a name="support-for-cool-storage"></a>쿨 저장소 지원
 
-현재 쿨 저장소 계정을 AMS 계정에 추가하려면 저장소 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
+현재 쿨 Storage 계정을 AMS 계정에 추가하려면 Storage 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산을 관리하려면
-다음 코드에서는 최신 미디어 서비스 SDK를 사용하여 다음 작업을 수행합니다.
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>여러 Storage 계정에서 Media Services 자산을 관리하려면
+다음 코드에서는 최신 Media Services SDK를 사용하여 다음 작업을 수행합니다.
 
-1. 지정된 미디어 서비스 계정에 연결된 모든 저장소 계정을 표시합니다.
+1. 지정된 Media Services 계정에 연결된 모든 저장소 계정을 표시합니다.
 2. 기본 저장소 계정의 이름을 검색합니다.
 3. 기본 저장소 계정에서 새 자산을 만듭니다.
 4. 지정된 저장소 계정에서 인코딩 작업의 출력 자산을 만듭니다.
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,7 +272,7 @@ namespace MultipleStorageAccounts
 }
 ```
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

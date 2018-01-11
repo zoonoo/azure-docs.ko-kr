@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송
 이 문서에서는 Azure Import/Export 서비스를 사용하여 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage로 전송하는 단계별 지침을 제공합니다. 이 서비스를 사용하여 데이터를 Azure 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 단일 내부 SATA 디스크 드라이브의 데이터를 Azure Blob Storage나 Azure 파일로 가져올 수 있습니다. 
@@ -177,6 +177,8 @@ Azure Import/Export 서비스는 모든 공용 Azure 저장소 계정으로의 �
 * 중국 동부
 * 중국 북부
 * 영국 남부
+* 독일 중부
+* 독일 북동부
 
 ### <a name="shipping"></a>발송
 **데이터 센터에 드라이브 배송:**
@@ -493,7 +495,7 @@ Microsoft는 데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 
 
 ** 이 서비스를 통해 가져오는 데이터에 액세스하는 방법 **
 
-Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구를 사용하여 Azure Storage 계정으로 데이터에 액세스할 수 있습니다. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구를 사용하여 Azure Storage 계정으로 데이터에 액세스할 수 있습니다. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **가져오기 작업 완료 후 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?**
 

@@ -64,6 +64,7 @@
 #### [엔터티를 자동 전달에 연결](service-bus-auto-forwarding.md)
 #### [트랜잭션 처리](service-bus-transactions.md)
 #### [쌍을 이루는 네임스페이스 구현](service-bus-paired-namespaces.md)
+### [종단 간 추적 및 진단](service-bus-end-to-end-tracing.md)
 ## 관리
 ### [Azure Monitoring을 사용하여 Service Bus 모니터링](service-bus-metrics-azure-monitor.md)
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Azure PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
-# 참고 자료
+# 참조
 ## .NET
 ### [Microsoft.ServiceBus.Messaging(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus(.NET 표준)](/dotnet/api/microsoft.azure.servicebus)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -136,10 +136,10 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 서비스 주체로 인증하려면 응용 프로그램에 RBAC 역할을 할당해야 합니다. 다음 단계를 수행하세요.
 
-1. Azure Portal에서 응용 프로그램에서 사용되는 배치 계정으로 이동합니다.
-2. 배치 계정의 **설정** 블레이드에서 **액세스 제어(IAM)**를 선택합니다.
+1. Azure Portal에서 응용 프로그램에서 사용되는 Batch 계정으로 이동합니다.
+2. Batch 계정의 **설정** 블레이드에서 **Access Control(IAM)**을 선택합니다.
 3. **추가** 단추를 클릭합니다. 
-4. **역할** 드롭다운에서 응용 프로그램에 대한 _참가자_ 또는 _읽기 권한자_ 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.  
+4. **역할** 드롭다운에서 응용 프로그램에 대한 _참가자_ 또는 _읽기 권한자_ 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.  
 5. **선택** 필드에서 응용 프로그램의 이름을 입력합니다. 목록에서 응용 프로그램을 선택하고 **저장**을 클릭합니다.
 
 이제 액세스 제어 설정에서 RBAC 역할이 할당된 응용 프로그램이 표시됩니다. 
@@ -193,7 +193,7 @@ Batch 서비스 리소스 끝점 참조:
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-배치 계정 참조:
+Batch 계정 참조:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
@@ -266,7 +266,7 @@ Batch 서비스 리소스 끝점 참조:
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-배치 계정 참조:
+Batch 계정 참조:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
@@ -314,9 +314,11 @@ public static async Task PerformBatchOperations()
 
 Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요. ADAL을 사용하는 방법을 보여 주는 자세한 예제는 [Azure 코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory) 라이브러리에서 사용할 수 있습니다.
 
-서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다. 
+서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/active-directory-application-objects.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다.
 
-Azure AD를 사용하여 Batch Management 응용 프로그램을 인증하려면 [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)을 참조하세요. 
+Azure AD를 사용하여 Batch Management 응용 프로그램을 인증하려면 [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)을 참조하세요.
+
+Azure AD 토큰을 사용하여 인증된 Batch 클라이언트를 만드는 방법에 대한 Python 예는 Python용 Azure SDK 설명서의 [Azure Active Directory 인증](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) 샘플을 참조하세요.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

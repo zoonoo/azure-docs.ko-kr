@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>가상 컴퓨터를 만드는 방법
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **새로 만들기**를 클릭하고 **Compute**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 3. **가상 컴퓨터 이미지 선택** 대화 상자에서 **JDK 7 Windows Server 2012**를 선택합니다.
    **JDK 6 Windows Server 2012** 는 아직 JDK 7에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우에 사용 가능합니다.
@@ -74,7 +74,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
    2. **완료**를 클릭합니다.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>가상 컴퓨터에 원격으로 로그인하는 방법
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그온합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그온합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. **연결**을 클릭합니다.
@@ -87,15 +87,15 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 
 서비스 네임스페이스를 만들려면
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그온합니다.
-2. Azure 클래식 포털의 왼쪽 하단 탐색 창에서 **Service Bus, Access Control 및 캐시**를 클릭합니다.
-3. Azure 클래식 포털의 왼쪽 상단 창에서 **Service Bus** 노드 및 **새로 만들기** 버튼을 차례로 클릭합니다.  
+1. [Azure 포털](https://portal.azure.com)에 로그온합니다.
+2. Azure Portal의 왼쪽 하단 탐색 창에서 **Service Bus, Access Control 및 Caching**을 클릭합니다.
+3. Azure Portal의 왼쪽 상단 창에서 **Service Bus** 노드 및 **새로 만들기** 단추를 차례로 클릭합니다.  
    ![Service Bus 노드 스크린샷][svc_bus_node]
 4. **새 서비스 네임스페이스 만들기** 대화 상자에서 **네임스페이스**를 입력한 후 네임스페이스가 중복되지 않는지 확인하기 위해 **중복 확인** 단추를 클릭합니다.  
    ![새 네임스페이스 만들기 스크린샷][create_namespace]
 5. 네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택한 다음, **Create Namespace** 단추를 클릭합니다.  
    
-   생성된 네임스페이스는 Azure 클래식 포털에 나타나며, 잠시후에 활성화 됩니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
+   만든 네임스페이스는 Azure Portal에 나타나며, 잠시 후에 활성화됩니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>네임스페이스에 대한 기본 관리 자격 증명 얻기
 새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.

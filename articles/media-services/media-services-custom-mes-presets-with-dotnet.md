@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 사용자 지정 사전 설정을 사용하여 MES(Media Encoder Standard)에서 고급 인코딩을 수행하는 방법에 대해 설명합니다. 여기서는 .NET을 사용하여 인코딩 태스크 및 이 태스크를 실행하는 작업을 만듭니다.  
+이 문서에서는 사용자 지정 기본 설정을 사용하여 MES(Media Encoder Standard)에서 고급 인코딩을 수행하는 방법에 대해 설명합니다. 여기서는 .NET을 사용하여 인코딩 작업과 인코딩 작업을 실행하는 작업을 만듭니다.  
 
-이 항목에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)(영문) 사전 설정을 사용하고 레이어 수를 줄여 사전 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 사전 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 항목에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사전 설정 사용자 지정을 보여 줍니다.
+이 문서에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 기본 설정을 사용하고 레이어 수를 줄여 기본 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 기본 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 문서에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사용자 지정 기본 설정을 보여 줍니다.
 
 ## <a id="customizing_presets"></a> MES 사전 설정 사용자 지정
 
 ### <a name="original-preset"></a>원래 사전 설정
 
-[H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 항목에서 정의한 JSON을 .json 확장명의 일부 파일에 저장합니다. 예를 들어 **CustomPreset_JSON.json**과 같습니다.
+[H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 문서에서 정의한 JSON을 .json 확장명을 사용하는 파일에 저장합니다. 예를 들어 **CustomPreset_JSON.json**과 같습니다.
 
 ### <a name="customized-preset"></a>사용자 지정한 사전 설정
 
@@ -109,9 +109,9 @@ ms.lasthandoff: 10/11/2017
     }  
     
 
-## <a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
+## <a id="encoding_with_dotnet"></a>Media Services .NET SDK를 사용하여 Encoding
 
-다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.
+다음 코드 예제에서는 Media Services .NET SDK를 사용하여 다음 작업을 수행합니다.
 
 - 인코딩 작업을 만듭니다.
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
@@ -122,7 +122,7 @@ ms.lasthandoff: 10/11/2017
 
 - 작업에 인코딩 작업을 추가합니다. 
 - 인코딩할 입력 자산을 지정합니다.
-- 인코딩된 자산을 포함할 출력 자산을 만듭니다.
+- 인코딩된 자산을 포함하는 출력 자산을 만듭니다.
 - 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
 - 작업을 제출합니다.
    
@@ -132,22 +132,27 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="example"></a>예제   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -160,7 +165,11 @@ ms.lasthandoff: 10/11/2017
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -213,26 +222,26 @@ ms.lasthandoff: 10/11/2017
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -242,20 +251,21 @@ ms.lasthandoff: 10/11/2017
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
-## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목
-[미디어 서비스 인코딩 개요](media-services-encode-asset.md)
+[Media Services Encoding 개요](media-services-encode-asset.md)
 

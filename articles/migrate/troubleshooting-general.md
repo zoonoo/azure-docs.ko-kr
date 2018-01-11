@@ -1,31 +1,33 @@
 ---
 title: "Azure Migrate 문제 해결 | Microsoft Docs"
 description: "Azure Migrate 서비스의 알려진 문제에 대한 개요와 일반적인 오류 해결 방법을 설명합니다."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
 ## <a name="troubleshoot-common-errors"></a>일반적인 오류 문제 해결
 
-[Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션할 온-프레미스 워크로드를 평가합니다. Azure Migrate 배포 및 사용과 관련하여 문제가 발생하면 이 문서를 사용하여 해결하세요.
+[Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. Azure Migrate 배포 및 사용과 관련하여 문제가 발생하면 이 문서를 사용하여 해결하세요.
 
+
+**수집기에서 인터넷에 연결할 수 없음**
+
+이 문제는 사용 중인 컴퓨터가 프록시 뒤에 있는 경우 발생할 수 있습니다. 프록시에 필요한 경우 권한 부여 자격 증명을 제공해야 합니다.
+URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음과 같은 필수 URL을 허용 목록에 포함해야 합니다.
+
+**URL** | **목적**  
+--- | ---
+*.portal.azure.com | Azure 서비스와의 연결을 확인하고 시간 동기화 문제의 유효성을 검사하는 데 필요합니다.
+*.oneget.org | powershell 기반 vCenter PowerCLI 모듈을 다운로드하는 데 필요합니다.
 
 **포털에서 복사한 프로젝트 ID 및 키를 사용하여 수집기로 프로젝트에 연결할 수 없습니다.**
 

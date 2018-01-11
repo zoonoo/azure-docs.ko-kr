@@ -1,24 +1,26 @@
 ---
-title: "사용자 지정 역할 기반 Access Control 역할 만들기 및 Azure에서 내부 및 외부 사용자에게 할당 | Microsoft Docs"
+title: "사용자 지정 역할 기반 액세스 제어 역할 만들기 및 Azure에서 내부 및 외부 사용자에게 할당 | Microsoft Docs"
 description: "내부 및 외부 사용자에게 PowerShell 및 CLI를 사용하여 만든 사용자 지정 RBAC 역할 할당"
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>역할 기반 액세스 제어 소개
 
@@ -35,7 +37,7 @@ Azure 환경에서 RBAC를 사용하려면 다음 항목이 필요합니다.
 * 사용자 구독에 등록된 다음과 같은 리소스 공급자: **Microsoft.Authorization** 리소스 공급자를 등록하는 방법에 대해 자세히 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
 
 > [!NOTE]
-> O365 포털에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Azure Active Directory에 액세스)는 RBAC를 사용할 자격이 없습니다.
+> Office 365 관리 센터에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Azure Active Directory에 액세스)는 RBAC를 사용할 자격이 없습니다.
 
 ## <a name="how-can-rbac-be-used"></a>RBAC를 사용할 수 있는 방법
 RBAC는 Azure에서 세 가지 각기 다른 범위에 적용할 수 있습니다. 높은 범위에서 낮은 범위 순으로 다음과 같습니다.
@@ -102,7 +104,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 ![RBAC 역할에 대한 이메일 초대 메시지](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-외부 사용자는 지금부터 Azure Active Directory 테넌트에서 외부 사용자로 표시되고 Azure Portal 및 클래식 포털에서 볼 수 있습니다.
+외부 사용자는 지금부터 Azure Active Directory 테넌트에서 외부 사용자로 표시되고 Azure Portal에서 볼 수 있습니다.
 
 
 
@@ -112,14 +114,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 
 
-
-
-![사용자 블레이드 Azure Active Directory Azure 클래식 포털](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-두 포털의 **사용자** 보기에서 외부 사용자는 다음으로 인식될 수 있습니다.
-
-* Azure Portal에서 다른 아이콘 형식
-* 클래식 포털에서 다른 소싱 지점
+**사용자** 보기에서는 외부 사용자가 Azure Portal의 다른 아이콘 형식으로 인식될 수 있습니다.
 
 그러나 **구독** 범위에서 외부 사용자에 대한 **소유자** 또는 **참가자** 액세스 권한을 부여하면 **전역 관리자**가 허용하지 않는 한 관리 사용자의 디렉터리에 대한 액세스를 허용하지 않습니다. 사용자 속성에서 두 공통 매개 변수가 있는 **사용자 형식**, **멤버** 및 **게스트**를 식별할 수 있습니다. 구성원은 디렉터리에 등록되어 있는 사용자인 반면 게스트는 외부 소스의 디렉터리로 초대된 사용자입니다. 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)을 참조하세요.
 
@@ -145,9 +140,6 @@ Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구
 * 구독에서 다른 리소스 형식을 볼 수 없습니다.
 * 요금 청구 관점에서 변경 사항을 수행할 수 없습니다.
 
-> [!NOTE]
-> Azure Portal 기능만 있는 RBAC는 클래식 포털에 대한 액세스 권한을 부여하지 않습니다.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>외부 사용자에게 기본 제공 RBAC 역할 할당
 이 테스트의 다른 시나리오에서 외부 사용자 "alflanigan@gmail.com"은 **가상 컴퓨터 참여자**로 추가됩니다.
 
@@ -156,9 +148,7 @@ Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구
 
 ![가상 컴퓨터 참여자 기본 제공 역할](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-이 기본 제공 역할을 가진 외부 사용자에 대한 정상 동작은 가상 컴퓨터와 배포 시 필요한 리소스에 인접한 Resource Manager만을 보고 관리하는 것입니다. 기본적으로 이러한 제한된 역할은 Azure Portal에서 만든 해당 리소스에 대해서만 액세스를 제공하지만 일부는 클래식 포털에서도 배포할 수 있습니다(예: 가상 컴퓨터).
-
-
+이 기본 제공 역할을 가진 외부 사용자에 대한 정상 동작은 가상 컴퓨터와 배포 시 필요한 리소스에 인접한 Resource Manager만을 보고 관리하는 것입니다. 기본적으로 이러한 제한된 역할은 Azure Portal에서 만든 해당 리소스에 대해서만 액세스를 제공합니다.
 
 
 
